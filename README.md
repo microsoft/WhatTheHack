@@ -1,3 +1,6 @@
+# Roles and Responsibilities
+
+Hosts need to do X, Proctors do Y and Students LEARN!
 
 # Contributing
 
