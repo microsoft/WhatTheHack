@@ -1,0 +1,7 @@
+# Create a scatter plot matrix
+%matplotlib inline
+
+import seaborn as sns
+num_cols = ["Age", "Height", "Weight", "Duration",
+            "Heart_Rate", "Body_Temp", "Calories"] 
+sns.pairplot(frame[num_cols], size=2)
