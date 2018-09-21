@@ -1,0 +1,395 @@
+{
+  "luis_schema_version": "2.0.0",
+  "versionId": "0.1",
+  "name": "PictureBotLuisModel",
+  "desc": "This is the language understanding model for the Picture Bot, which is part of the Cognitive Services tutorial located at https://github.com/noodlefrenzy/CognitiveServicesTutorial.  ",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "Greeting"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "OrderPic"
+    },
+    {
+      "name": "SearchPics"
+    },
+    {
+      "name": "SharePic"
+    }
+  ],
+  "entities": [
+    {
+      "name": "facet"
+    }
+  ],
+  "composites": [ ],
+  "closedLists": [ ],
+  "bing_entities": [ ],
+  "actions": [ ],
+  "model_features": [ ],
+  "regex_features": [ ],
+  "utterances": [
+    {
+      "text": "do you like peanut butter and jelly?",
+      "intent": "None",
+      "entities": [ ]
+    },
+    {
+      "text": "lwv0zefjynfvuufxqufbqufbqufbqt090",
+      "intent": "None",
+      "entities": [ ]
+    },
+    {
+      "text": "i love you",
+      "intent": "None",
+      "entities": [ ]
+    },
+    {
+      "text": "hey there",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "yo",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "whazzup",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "greetings bot",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "hey bot",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "what's up?",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "hi",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "hello",
+      "intent": "Greeting",
+      "entities": [ ]
+    },
+    {
+      "text": "search for pictures of women",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 23,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "i want to find dog photos",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 15,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "show me beach pics",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 8,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "find pictures of food.",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 17,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "are there pictures of a train?",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 24,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "find outdoor pics",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 5,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "find pictures of food",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 17,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "find pictures",
+      "intent": "SearchPics",
+      "entities": [ ]
+    },
+    {
+      "text": "find pictures of owen",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 17,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "find sad pictures",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 5,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "search pictures",
+      "intent": "SearchPics",
+      "entities": [ ]
+    },
+    {
+      "text": "find pictures of women",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 17,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "find pics of woman",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 13,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "find happy pictures",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "search for man pictures",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 11,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "search for pictures of man",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 23,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "find happiness pictures",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 5,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "search",
+      "intent": "SearchPics",
+      "entities": [ ]
+    },
+    {
+      "text": "find photos of dogs",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 15,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "i want to see photos of women.",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 24,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "please give me pics of indoors",
+      "intent": "SearchPics",
+      "entities": [
+        {
+          "entity": "facet",
+          "startPos": 23,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "share this pic",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "post to twitter",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "can you tweet that?",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "share picture",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "share pic",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "share that one",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "tweet",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "share",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "tweet this photo",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "tweet that picture",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "tweet this pic",
+      "intent": "SharePic",
+      "entities": [ ]
+    },
+    {
+      "text": "get prints",
+      "intent": "OrderPic",
+      "entities": [ ]
+    },
+    {
+      "text": "order wallets",
+      "intent": "OrderPic",
+      "entities": [ ]
+    },
+    {
+      "text": "can i get an 8x10 of that one?",
+      "intent": "OrderPic",
+      "entities": [ ]
+    },
+    {
+      "text": "print this picture",
+      "intent": "OrderPic",
+      "entities": [ ]
+    },
+    {
+      "text": "i would like to order prints.",
+      "intent": "OrderPic",
+      "entities": [ ]
+    },
+    {
+      "text": "order prints of that one",
+      "intent": "OrderPic",
+      "entities": [ ]
+    },
+    {
+      "text": "order prints",
+      "intent": "OrderPic",
+      "entities": [ ]
+    }
+  ]
+}
