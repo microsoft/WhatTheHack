@@ -1,0 +1,21 @@
+{
+  "bindings": [
+    {
+      "name": "queueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "[PROVIDE]",
+      "connection": "[PROVIDE]"
+    },
+    {
+      "type": "documentDB",
+      "name": "outputDocument",
+      "databaseName": "[PROVIDE]",
+      "collectionName": "[PROVIDE]",
+      "createIfNotExists": true,
+      "connection": "[PROVIDE]",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

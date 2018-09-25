@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "type": "blobTrigger",
+      "name": "inputData",
+      "path": "input/{name}.csv",
+      "connection": "[PROVIDE]",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
