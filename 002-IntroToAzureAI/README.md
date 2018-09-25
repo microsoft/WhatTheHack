@@ -1,4 +1,4 @@
-What The Hack - Driving Miss Data
+What The Hack - Intro to Artificial Intelligence
 
 Repo containing:
 - Challenges
