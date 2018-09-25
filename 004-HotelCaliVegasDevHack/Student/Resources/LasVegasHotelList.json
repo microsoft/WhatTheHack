@@ -1,0 +1,634 @@
+[
+  {
+    "Location Name": "FLAMINGO LV HOTEL & CASINO",
+    "Address": "3555 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8901",
+    "Location": "(36.1156902, 115.1713943)"
+  },
+  {
+    "Location Name": "Palace Station",
+    "Address": "2411 W Sahara Ave",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89102-4343",
+    "Location": "(36.1442045, 115.1743414)"
+  },
+  {
+    "Location Name": "CAESARS PALACE HOTEL & CASINO",
+    "Address": "3570 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8924",
+    "Location": "(36.1161559, 115.1750576)"
+  },
+  {
+    "Location Name": "Barley's Casino & Brewing Co",
+    "Address": "4500 E Sunset Rd",
+    "City": "Henderson",
+    "State": "Nevada",
+    "Zip": "89014-2252",
+    "Location": "(36.0719129, 115.0748334)"
+  },
+  {
+    "Location Name": "ENCORE HOTEL & CASINO",
+    "Address": "3121 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-1967",
+    "Location": "(36.1293177, 115.1652708)"
+  },
+  {
+    "Location Name": "SILVER SEVENS HOTEL & CASINO",
+    "Address": "4100 S Paradise Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89169-6528",
+    "Location": "(36.1137276, 115.1523206)"
+  },
+  {
+    "Location Name": "MIRAGE HOTEL & CASINO",
+    "Address": "3400 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8923",
+    "Location": "(36.1206111, 115.1768386)"
+  },
+  {
+    "Location Name": "LUXOR HOTEL & CASINO",
+    "Address": "3900 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1004",
+    "Location": "(36.0957836, 115.1761162)"
+  },
+  {
+    "Location Name": "PALAZZO HOTEL & CASINO",
+    "Address": "3325 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-1414",
+    "Location": "(36.1242284, 115.1684696)"
+  },
+  {
+    "Location Name": "Bighorn Casino & Bar",
+    "Address": "3016 E Lake Mead Blvd",
+    "City": "North Las Vegas",
+    "State": "Nevada",
+    "Zip": "89030-7363",
+    "Location": "(36.196354, 115.106376)"
+  },
+  {
+    "Location Name": "LINQ",
+    "Address": "3535 S LAS VEGAS Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89109,
+    "Location": "(36.1238426, 115.1702195)"
+  },
+  {
+    "Location Name": "WESTIN HOTEL LAS VEGAS",
+    "Address": "160 E FLAMINGO",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89109,
+    "Location": "(36.1152191, 115.165739)"
+  },
+  {
+    "Location Name": "RED ROCK CASINO RESORT & SPA",
+    "Address": "11011 W Charleston Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89135-1402",
+    "Location": "(36.1564007, 115.3335552)"
+  },
+  {
+    "Location Name": "Boulder Station Hotel & Casino",
+    "Address": "4111 Boulder Hwy",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89121-2510",
+    "Location": "(36.1337103, 115.0850568)"
+  },
+  {
+    "Location Name": "Harrah's Hotel - Laughlin",
+    "Address": "2900 S Casino Dr",
+    "City": "Laughlin",
+    "State": "Nevada",
+    "Zip": "89029-1521",
+    "Location": "(35.1446419, 114.5765406)"
+  },
+  {
+    "Location Name": "Rio Suites Hotel",
+    "Address": "3700 W Flamingo Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89103-4043",
+    "Location": "(36.1164467, 115.1848942)"
+  },
+  {
+    "Location Name": "VENETIAN HOTEL & CASINO",
+    "Address": "3355 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8941",
+    "Location": "(36.1226902, 115.1701939)"
+  },
+  {
+    "Location Name": "TREASURE ISLAND HOTEL & CASINO",
+    "Address": "3300 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8916",
+    "Location": "(36.1245859, 115.1716132)"
+  },
+  {
+    "Location Name": "BELLAGIO HOTEL & CASINO",
+    "Address": "3600 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4303",
+    "Location": "(36.1140649, 115.1729856)"
+  },
+  {
+    "Location Name": "Santa Fe Station Hotel & Casino",
+    "Address": "4949 N Rancho Dr",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89130-3505",
+    "Location": "(36.2498922, 115.2441383)"
+  },
+  {
+    "Location Name": "NEW YORK NEW YORK HOTEL & CASINO",
+    "Address": "3790 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4338",
+    "Location": "(36.1023786, 115.1745465)"
+  },
+  {
+    "Location Name": "Aquarius Casino Resort",
+    "Address": "1900 S Casino Dr",
+    "City": "Laughlin",
+    "State": "Nevada",
+    "Zip": "89029-1513",
+    "Location": "(35.1634766, 114.572163)"
+  },
+  {
+    "Location Name": "EXCALIBUR HOTEL & CASINO",
+    "Address": "3850 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4324",
+    "Location": "(36.0987307, 115.175777)"
+  },
+  {
+    "Location Name": "FOUR SEASONS HOTEL",
+    "Address": "3960 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1046",
+    "Location": "(36.0909158, 115.1737761)"
+  },
+  {
+    "Location Name": "MANDALAY BAY HOTEL & CASINO",
+    "Address": "3300 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8916",
+    "Location": "(36.1245859, 115.1716132)"
+  },
+  {
+    "Location Name": "BALLY'S GRAND HOTEL",
+    "Address": "3950 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1005",
+    "Location": "(36.0907541, 115.1766701)"
+  },
+  {
+    "Location Name": "HARRAHS LV HOTEL & CASINO",
+    "Address": "3645 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89119,
+    "Location": "(36.1142224, 115.1708505)"
+  },
+  {
+    "Location Name": "STRATOSPHERE HOTEL & CASINO",
+    "Address": "3475 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8922",
+    "Location": "(36.1193098, 115.1717702)"
+  },
+  {
+    "Location Name": "Smuggle Inn",
+    "Address": "3555 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8901",
+    "Location": "(36.1163474, 115.1723373)"
+  },
+  {
+    "Location Name": "La Quinta Inn 0173",
+    "Address": "2000 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89104-2507",
+    "Location": "(36.1472468, 115.1560311)"
+  },
+  {
+    "Location Name": "RESIDENCE INN",
+    "Address": "1305 Vegas Valley Dr",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89169-6216",
+    "Location": "(36.1885674, 115.1962461)"
+  },
+  {
+    "Location Name": "Palms",
+    "Address": "7101 Cascade Valley Ct",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89128-0455",
+    "Location": "(36.211291, 115.2469854)"
+  },
+  {
+    "Location Name": "Hawthorn Suites by Wyndham",
+    "Address": "3225 Paradise Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-9039",
+    "Location": "(36.131023, 115.156439)"
+  },
+  {
+    "Location Name": "South Point Hotel & Casino",
+    "Address": "4381 W Flamingo Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89103-3903",
+    "Location": "(36.114209, 115.198798)"
+  },
+  {
+    "Location Name": "HARD ROCK HOTEL & CASINO LAS VEGAS",
+    "Address": "910 S Boulder Hwy",
+    "City": "Henderson",
+    "State": "Nevada",
+    "Zip": "89015-7516",
+    "Location": "(36.0244173, 114.9631403)"
+  },
+  {
+    "Location Name": "Sunset Station Hotel & Casino",
+    "Address": "4455 S Paradise Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89169-6574",
+    "Location": "(36.1089916, 115.154203)"
+  },
+  {
+    "Location Name": "JW Marriott Hotel & Casino",
+    "Address": "4090 S Eastern Ave",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-5103",
+    "Location": "(36.1152176, 115.1185659)"
+  },
+  {
+    "Location Name": "WYNN HOTEL & CASINO",
+    "Address": "1301 W Sunset Rd",
+    "City": "Henderson",
+    "State": "Nevada",
+    "Zip": 89014,
+    "Location": "(36.0612593, 115.0402972)"
+  },
+  {
+    "Location Name": "EUREKA CASINO HOTEL",
+    "Address": "221 N Rampart Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89145-5722",
+    "Location": "(36.1757918, 115.2907964)"
+  },
+  {
+    "Location Name": "LAS VEGAS EMBASSY SUITES",
+    "Address": "3131 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-1929",
+    "Location": "(36.1267672, 115.1651078)"
+  },
+  {
+    "Location Name": "ARIA HOTEL & CASINO",
+    "Address": "275 MESA",
+    "City": "Mesquite",
+    "State": "Nevada",
+    "Zip": 89027,
+    "Location": "(36.8168257, 114.0641508)"
+  },
+  {
+    "Location Name": "Texas Station Hotel & Casino",
+    "Address": "4315 SWENSON",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89119,
+    "Location": "(36.110912, 115.1512323)"
+  },
+  {
+    "Location Name": "Orleans Hotel and Casino",
+    "Address": "3730 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89109,
+    "Location": "(36.1073485, 115.1765836)"
+  },
+  {
+    "Location Name": "Suncoast Hotel & Casino",
+    "Address": "2101 Texas Star Ln",
+    "City": "North Las Vegas",
+    "State": "Nevada",
+    "Zip": "89032-3562",
+    "Location": "(36.1974092, 115.1913849)"
+  },
+  {
+    "Location Name": "MGM GRAND HOTEL & CASINO",
+    "Address": "4500 W Tropicana Ave",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89103-5420",
+    "Location": "(36.1025498, 115.2016926)"
+  },
+  {
+    "Location Name": "Cannery Hotel & Casino",
+    "Address": "9090 Alta Dr",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89145-8508",
+    "Location": "(36.1691517, 115.2913521)"
+  },
+  {
+    "Location Name": "WYNDHAM GRAND DESERT",
+    "Address": "3799 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4319",
+    "Location": "(36.1022507, 115.1699679)"
+  },
+  {
+    "Location Name": "FAIRFIELD INN",
+    "Address": "4949 N Rancho Dr",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89130-3505",
+    "Location": "(36.2498922, 115.2441383)"
+  },
+  {
+    "Location Name": "VENETIAN",
+    "Address": "2121 E Craig Rd",
+    "City": "North Las Vegas",
+    "State": "Nevada",
+    "Zip": "89030-3385",
+    "Location": "(36.23855, 115.1190876)"
+  },
+  {
+    "Location Name": "HILTON LAKE LAS VEGAS RESORT & SPA",
+    "Address": "265 E Harmon Ave",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89169-6431",
+    "Location": "(36.1071223, 115.1610855)"
+  },
+  {
+    "Location Name": "Plaza Hotel",
+    "Address": "3850 S Paradise Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89169-0903",
+    "Location": "(36.1196452, 115.1545961)"
+  },
+  {
+    "Location Name": "Tropicana Laughlin Hotel & Casino",
+    "Address": "3355 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8941",
+    "Location": "(36.1226902, 115.1701939)"
+  },
+  {
+    "Location Name": "FLAMINGO",
+    "Address": "3930 S Las Vegas Blvd 121A",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1010",
+    "Location": "(36.0912409, 115.1740769)"
+  },
+  {
+    "Location Name": "PARIS HOTEL & CASINO",
+    "Address": "1610 Lake Las Vegas Pkwy",
+    "City": "Henderson",
+    "State": "Nevada",
+    "Zip": "89011-2802",
+    "Location": "(36.101953, 114.931908)"
+  },
+  {
+    "Location Name": "WESTGATE HOTEL AND CASINO",
+    "Address": "1 S Main St",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89101-6370",
+    "Location": "(36.171726, 115.146228)"
+  },
+  {
+    "Location Name": "Golden Nugget Las Vegas",
+    "Address": "2121 S Casino Dr",
+    "City": "Laughlin",
+    "State": "Nevada",
+    "Zip": "89029-1519",
+    "Location": "(35.1575255, 114.5753055)"
+  },
+  {
+    "Location Name": "Whiskey Pete's Hotel & Casino",
+    "Address": "3555 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8901",
+    "Location": "(36.1156338, 115.172557)"
+  },
+  {
+    "Location Name": "DOWNTOWN GRAND HOTEL & CASINO",
+    "Address": "3960 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1046",
+    "Location": "(36.0909158, 115.1737761)"
+  },
+  {
+    "Location Name": "LUCKY DRAGON HOTEL AND CASINO",
+    "Address": "3850 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4324",
+    "Location": "(36.0986889, 115.1752059)"
+  },
+  {
+    "Location Name": "COSMOPOLITAN RESORT & CASINO",
+    "Address": "3655 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4345",
+    "Location": "(36.1123576, 115.1702213)"
+  },
+  {
+    "Location Name": "SIGNATURE",
+    "Address": "3000 S Paradise Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-1287",
+    "Location": "(36.1362575, 115.1512526)"
+  },
+  {
+    "Location Name": "TRUMP INTL HOTEL & TOWER",
+    "Address": "3555 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8901",
+    "Location": "(36.1156902, 115.1713943)"
+  },
+  {
+    "Location Name": "HILTON GARDEN INN LAS VEGAS STRIP SOUTH",
+    "Address": "3950 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1005",
+    "Location": "(36.0937511, 115.1770119)"
+  },
+  {
+    "Location Name": "",
+    "Address": "2121 E Craig Rd",
+    "City": "North Las Vegas",
+    "State": "Nevada",
+    "Zip": "89030-3385",
+    "Location": "(36.23855, 115.1190876)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3400 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8923",
+    "Location": "(36.1206015, 115.1768382)"
+  },
+  {
+    "Location Name": "",
+    "Address": "129 E Fremont St",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89101-5603",
+    "Location": "(36.1697807, 115.1455339)"
+  },
+  {
+    "Location Name": "",
+    "Address": "31900 S Las Vegas Blvd",
+    "City": "Primm",
+    "State": "Nevada",
+    "Zip": 89019,
+    "Location": "(35.610835, 115.3861082)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3355 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8941",
+    "Location": "(36.1229174, 115.1685253)"
+  },
+  {
+    "Location Name": "",
+    "Address": "206 N 3RD St",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89101,
+    "Location": "(36.171809, 115.1415023)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3950 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89119-1005",
+    "Location": "(36.0907541, 115.1766701)"
+  },
+  {
+    "Location Name": "",
+    "Address": "300 W SAHARA Ave",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": 89102,
+    "Location": "(36.144089, 115.160774)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3708 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4312",
+    "Location": "(36.1097544, 115.1738726)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3131 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-1929",
+    "Location": "(36.1265953, 115.1653652)"
+  },
+  {
+    "Location Name": "",
+    "Address": "145 E Harmon Ave",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-4504",
+    "Location": "(36.1060128, 115.1667809)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3555 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-8901",
+    "Location": "(36.1156902, 115.1713943)"
+  },
+  {
+    "Location Name": "",
+    "Address": "2000 N Fashion Show Dr",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89109-1936",
+    "Location": "(36.1295451, 115.1725941)"
+  },
+  {
+    "Location Name": "",
+    "Address": "4111 Boulder Hwy",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89121-2510",
+    "Location": "(36.1337103, 115.0850568)"
+  },
+  {
+    "Location Name": "",
+    "Address": "3700 W Flamingo Rd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89103-4043",
+    "Location": "(36.1163819, 115.1850253)"
+  },
+  {
+    "Location Name": "",
+    "Address": "7830 S Las Vegas Blvd",
+    "City": "Las Vegas",
+    "State": "Nevada",
+    "Zip": "89123-1012",
+    "Location": "(36.0473412, 115.1707699)"
+  }
+]
