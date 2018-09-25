@@ -1,0 +1,3 @@
+hiveDbName nyctaxi
+storageAccountName [ADD YOUR STORAGE ACCT NAME HERE]
+storageAccountKey [ADD YOUR STORAGE ACCT KEY HERE]
