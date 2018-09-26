@@ -331,3 +331,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Eclipse project artifacts
+.classpath
+.project
+.settings
+/target/
