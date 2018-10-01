@@ -22,6 +22,9 @@
     },
     "scriptUri" : {
       "value": "https://raw.githubusercontent.com/gfilicetti/WhatTheHack/P20ChicagoFY19-Infra/001-IntroToKubernetes/Student/Resources/Templates/build-machine/docker-build-machine-config.sh?token=AADWKlzOmSTj-HRKvTkmJbURGva1EvUkks5buuIiwA%3D%3D"
+    },
+    "scriptName" : {
+      "value": "docker-build-machine-config.sh"
     }
   }
 }
