@@ -4,8 +4,9 @@
 
 # The first parameter passed in is the user we're going to add
 # to the docker group, if one isn't passed in, use the current user
-CURUSER = ${1:-$USER}
-CURUSERHOME = $(eval echo ~$(echo $USER))
+#CURUSER = ${1:-$USER}
+CURUSER = ${1:-wthadmin}
+CURUSERHOME = $(eval echo ~$(echo $CURUSER))
 
 #1. Update the Ubuntu packages and install curl and support for repositories over HTTPS
 #in a single step by typing the following in a single line command. 
