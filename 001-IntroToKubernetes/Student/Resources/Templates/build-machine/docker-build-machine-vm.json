@@ -61,6 +61,12 @@
       "metadata": {
         "description" : "URI for the script file to be used to set up the Linux VM"
       }
+    },
+    "scriptName" : {
+      "type" : "string",
+      "metadata": {
+        "description" : "The name of the script file to be used to set up the Linux VM"
+      }
     }
   },
   "variables": {
@@ -74,7 +80,8 @@
     "subnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks',variables('vnetName')),'/subnets/',parameters('subnetName'))]",
     "vmSize": "Standard_DS2_v2",
     "imagePublisher": "Canonical",
-    "imageOffer": "UbuntuServer"
+    "imageOffer": "UbuntuServer",
+    "extensionName": "vmSetupScript"
   },
   "resources": [
     {
@@ -221,7 +228,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'),'/p20websitescript')]",
+      "name": "[concat(variables('vmName'), '/', variables('extensionName'))]",
       "apiVersion": "2015-05-01-preview",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -235,11 +242,18 @@
         "settings": {
           "fileUris": [
             "[parameters('scriptUri')]"
-          ],
-          "commandToExecute": "sh docker-buildagent-config.sh"
+          ]
+        },
+        "protectedSettings": {
+          "commandToExecute": "[concat('sh', ' ', parameters('scriptName'), ' ', parameters('adminUsername'))]"
         }
       }
     }
   ],
-  "outputs": {}
+  "outputs": {
+    "instanceView": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.Compute/virtualMachines/extensions', variables('vmName'), variables('extensionName'))).instanceView]"
+    }
+  }
 }
