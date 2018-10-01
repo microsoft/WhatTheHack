@@ -236,7 +236,7 @@
           "fileUris": [
             "[parameters('scriptUri')]"
           ],
-          "commandToExecute": "sh docker-buildagent-config.sh [parameters('adminUsername')]"
+          "commandToExecute": "sh docker-buildagent-config.sh"
         }
       }
     }
