@@ -1,0 +1,27 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ubuntuOSVersion": {
+      "value": "18.04-LTS"
+    },
+    "resourcePrefix": {
+      "value": "wth"
+    },
+    "adminUsername": {
+      "value": "wthadmin"
+    },
+    "vnetPrefix": {
+      "value": "10.0.0.0/16"
+    },
+    "subnetName": {
+      "value": "Default"
+    },
+    "subnetPrefix": {
+      "value": "10.0.0.0/24"
+    },
+    "scriptUri" : {
+      "value" : "https://iacdemos.blob.core.windows.net/pubresources/docker-buildagent-config.sh"
+    }
+  }
+}
