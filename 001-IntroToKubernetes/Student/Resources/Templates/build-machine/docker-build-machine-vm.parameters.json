@@ -21,7 +21,7 @@
       "value": "10.0.0.0/24"
     },
     "scriptUri" : {
-      "value" : "https://iacdemos.blob.core.windows.net/pubresources/docker-buildagent-config.sh"
+      "value": "https://raw.githubusercontent.com/gfilicetti/WhatTheHack/P20ChicagoFY19-Infra/001-IntroToKubernetes/Student/Resources/Templates/build-machine/docker-build-machine-config.sh?token=AADWKlzOmSTj-HRKvTkmJbURGva1EvUkks5buuIiwA%3D%3D"
     }
   }
 }
