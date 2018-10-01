@@ -61,12 +61,6 @@
       "metadata": {
         "description" : "URI for the script file to be used to set up the Linux VM"
       }
-    },
-    "scriptUri2" : {
-      "type" : "string",
-      "metadata": {
-        "description" : "URI for the script file to be used to download Fab Medical code"
-      }
     }
   },
   "variables": {
