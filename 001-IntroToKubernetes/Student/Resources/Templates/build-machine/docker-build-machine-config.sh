@@ -47,6 +47,10 @@ mkdir $CURUSERHOME/FabMedical.v1
 #Unpack the archive into the new folder
 tar -C $CURUSERHOME/FabMedical.v1 -xzf FabMedical.v1.tgz --no-same-owner
 
+#Change owner and group to match the user and its primary group
+chown -R $CURUSER $CURUSERHOME/FabMedical.v1
+chgrp -R $(id -gn $CURUSER) $CURUSERHOME/FabMedical.v1
+
 #Download FabMedical V1 source code:
 curl -sL -o FabMedical.v2.tgz http://aka.ms/FabMedical.v2
 
@@ -55,3 +59,7 @@ mkdir $CURUSERHOME/FabMedical.v2
 
 #Unpack the archive into the new folder
 tar -C $CURUSERHOME/FabMedical.v2 -xzf FabMedical.v2.tgz --no-same-owner
+
+#Change owner and group to match the user and its primary group
+chown -R $CURUSER $CURUSERHOME/FabMedical.v2
+chgrp -R $(id -gn $CURUSER) $CURUSERHOME/FabMedical.v2
