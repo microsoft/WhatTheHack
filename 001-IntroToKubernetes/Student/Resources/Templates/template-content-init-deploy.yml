@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init
+spec:
+  template:
+    spec:
+      containers:
+      - name: init
+        image: YOUR_ACR_NAME.azurecr.io/content-init
+        env:
+          - name: MONGODB_CONNECTION
+            value: MONGO_DB_CONNECTION_STRING , e.g mongodb://mongodb:27017/contentdb
+      restartPolicy: Never
+  backoffLimit: 4
