@@ -7,9 +7,9 @@ spec:
     spec:
       containers:
       - name: init
-        image: YOUR_ACR_NAME.azurecr.io/content-init
+        image: content-init
         env:
           - name: MONGODB_CONNECTION
-            value: MONGO_DB_CONNECTION_STRING , e.g mongodb://mongodb:27017/contentdb
+            value: mongodb://mongodb:27017/contentdb
       restartPolicy: Never
   backoffLimit: 4
