@@ -1,16 +1,18 @@
-var express = require('express');
-var routes = require('./routes');
-var http = require('http');
-var path = require('path');
-var ejs = require('ejs');
+'use strict';
 
-var app = express();
+const express = require('express');
+const routes = require('./routes');
+const http = require('http');
+const path = require('path');
+const ejs = require('ejs');
+
+const app = express();
 // var swig = require('swig');
 
-var dataAccess = require('./data-access/index');
+const dataAccess = require('./data-access/index');
 
-var config = '';
-if ('development' == app.get('env')) {
+let config = '';
+if ('development' === app.get('env')) {
     config = require('./config/env/development');
     console.log("=== Using development environment === ");
 } else {
@@ -47,7 +49,7 @@ if ('development' !== app.get('env')) {
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 60000 }));
 
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
     app.use(express.errorHandler());
 }
 
@@ -73,7 +75,7 @@ app.get('/api/speakers', function(req, res) {
 
 app.get('/speakers/:technology/:name', function(req, res) {
 
-    var name = req.params.name,
+    const name = req.params.name,
         technology = req.params.technology;
 
     res.render('speakerdetails', { name: name, technology: technology });
@@ -95,7 +97,7 @@ app.get('/api/stats', function(req, res) {
         if (error) {
             return res.status(500).send(error);
         } else {
-            data.webTaskId = process.pid;
+            data.webTaskId = process.env.HOSTNAME;
             return res.status(200).send(data);
         }
     });
