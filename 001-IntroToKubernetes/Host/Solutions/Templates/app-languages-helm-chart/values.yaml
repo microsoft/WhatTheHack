@@ -8,7 +8,7 @@ appData:
   labelValue: "nginx-webapp"
   imageName: "izzyacademy/nginxserver"
   imageVersion: "latest"
-  namespace: "p20-webapps"
+  namespace: "whatthehack"
 
 serviceDefinition:
   name: "webapp-loadbalancer"
