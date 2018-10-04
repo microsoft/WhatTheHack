@@ -5,10 +5,10 @@
 # kubectl get namespaces
 #
 # To remove this namespace, use the following command:
-# kubectl delete namespace p20-webapps
+# kubectl delete namespace whatthehack-webapps
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: p20-webapps
+  name: whatthehack-webapps
   labels:
-    name: p20-webapps
+    name: whatthehack-webapps

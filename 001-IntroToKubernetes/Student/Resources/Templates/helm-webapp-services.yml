@@ -5,18 +5,18 @@
 # kubectl create -f webapp-services.yml
 # 
 # Verify as follows:
-# kubectl get services -n p20-webapps
+# kubectl get services -n whatthehack-webapps
 # 
-# kubectl describe service webapp-loadbalancer -n p20-webapps
+# kubectl describe service webapp-loadbalancer -n whatthehack-webapps
 #
 # This is how to delete this service
-# kubectl delete service webapp-loadbalancer -n p20-webapps
+# kubectl delete service webapp-loadbalancer -n whatthehack-webapps
 #
 apiVersion: v1
 kind: Service
 metadata:
   name: webapp-loadbalancer
-  namespace: p20-webapps
+  namespace: whatthehack-webapps
   labels:
     k8s-app: webapp-loadbalancer
 spec:

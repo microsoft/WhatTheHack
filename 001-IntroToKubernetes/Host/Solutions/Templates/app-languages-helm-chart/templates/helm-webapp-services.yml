@@ -5,9 +5,9 @@
 # kubectl create -f webapp-services.yml
 # 
 # Verify as follows:
-# kubectl get services -n p20-webapps
+# kubectl get services -n whatthehack
 # 
-# kubectl describe service webapp-loadbalancer -n p20-webapps
+# kubectl describe service webapp-loadbalancer -n whatthehack
 # 
 apiVersion: v1
 kind: Service
