@@ -4,18 +4,19 @@
  get data from the service
  */
 
-var request = require('request');
+const request = require('request');
 
 //TODO: Exercise 2 - Task 6 - Step 4
-//var contentApiUrl = 'http://localhost:3001';
-var contentApiUrl = process.env.CONTENT_API_URL;
+
+const contentApiUrl = "http://localhost:3001";
+//const contentApiUrl = process.env.CONTENT_API_URL;
 
 function getSessions(cb) {
     request(contentApiUrl + '/sessions', function(err, response, body) {
         if (err) {
             return cb(err);
         }
-        var data = JSON.parse(body); // FRAGILE: ASSUME: valid JSON
+        const data = JSON.parse(body); // FRAGILE: ASSUME: valid JSON
         cb(null, data);
     });
 }
@@ -25,7 +26,7 @@ function getSpeakers(cb) {
         if (err) {
             return cb(err);
         }
-        var data = JSON.parse(body); // FRAGILE: ASSUME: valid JSON
+        const data = JSON.parse(body); // FRAGILE: ASSUME: valid JSON
         cb(null, data);
     });
 }
@@ -35,7 +36,7 @@ function stats(cb) {
         if (err) {
             return cb(err);
         }
-        var data = JSON.parse(body);
+        const data = JSON.parse(body);
         cb(null, data);
     });
 }
