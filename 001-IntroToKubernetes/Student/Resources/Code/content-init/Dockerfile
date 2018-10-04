@@ -1,7 +1,7 @@
-FROM node:alpine AS base
-WORKDIR /usr/src/app
+FROM node:8
 
-FROM node:argon AS build
+# Create app directory
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install app dependencies
@@ -11,7 +11,4 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-FROM base as final
-WORKDIR /usr/src/app
-COPY --from=build /usr/src/app .
 CMD [ "npm", "start" ]
