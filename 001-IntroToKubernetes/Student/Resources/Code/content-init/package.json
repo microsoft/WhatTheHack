@@ -1,0 +1,17 @@
+{
+  "name": "content-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "chalk": "^2.4.1",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.1.4"
+  }
+}
