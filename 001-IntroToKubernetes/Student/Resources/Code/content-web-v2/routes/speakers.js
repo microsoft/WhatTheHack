@@ -1,9 +1,9 @@
 'use strict';
 
-var express = require('express');
-var dataAccess = require('../data-access');
+const express = require('express');
+const dataAccess = require('../data-access');
 
-var router = express.Router();
+const router = express.Router();
 
 // get all
 router.get('/', function(req, res, next) {
