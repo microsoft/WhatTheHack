@@ -1,17 +1,3 @@
----
-# LoadBalancer Service used to access Python Web deployment
-# 
-# Deploy as follows:
-# kubectl create -f webapp-services.yml
-# 
-# Verify as follows:
-# kubectl get services -n whatthehack-webapps
-# 
-# kubectl describe service webapp-loadbalancer -n whatthehack-webapps
-#
-# This is how to delete this service
-# kubectl delete service webapp-loadbalancer -n whatthehack-webapps
-#
 apiVersion: v1
 kind: Service
 metadata:
