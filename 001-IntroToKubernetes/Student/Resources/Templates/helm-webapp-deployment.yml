@@ -1,13 +1,3 @@
----
-# Deploys the container as a single pod in the Kubernetes Cluster
-# 
-# kubectl create -f webapp-deployment.yml
-# 
-# This is how we validate that it is working
-# kubectl describe deployment nginx-webapp -n whatthehack-webapps
-#
-# This is how to remove this deployment
-# kubectl delete deployment nginx-webapp -n whatthehack-webapps
 apiVersion: apps/v1
 kind: Deployment
 metadata:
