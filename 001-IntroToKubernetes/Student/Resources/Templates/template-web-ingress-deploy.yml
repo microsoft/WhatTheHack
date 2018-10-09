@@ -8,15 +8,15 @@ spec:
       labels:
         app: web
     spec:
-      containers:    
+      containers:
       - image: YOUR_ACR_NAME.azurecr.io/content-web
-        name: web  
+        name: web
         env:
         - name: CONTENT_API_URL
           value: http://api:3001
-        tty: true       
+        tty: true
         ports:
-        - containerPort: 3000 
+        - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
