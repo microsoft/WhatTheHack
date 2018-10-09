@@ -1,5 +1,5 @@
 # What The Hack - Rock, Paper, Scissors, BOOM
 
-Repo containing:
+Repo contains:
 - Challenges
 - Code
