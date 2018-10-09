@@ -1,4 +1,4 @@
-What The Hack - Intro to Artificial Intelligence
+# What The Hack - Intro to Artificial Intelligence
 
 Repo contains:
 - Challenges

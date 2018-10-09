@@ -1,4 +1,4 @@
-What The Hack - Hotel CaliVegas Dev Hack
+# What The Hack - Hotel CaliVegas Dev Hack
 
 Repo contains:
 - Challenges
