@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: nginx-webapp
-        image: izzyacademy/nginxserver:v1
+        image: whatthehackmsft/nginxserver:v1
         env:
           - name: HACK_YEAR
             value: "2018"
