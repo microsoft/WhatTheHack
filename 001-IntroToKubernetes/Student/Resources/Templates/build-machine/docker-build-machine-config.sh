@@ -4,6 +4,7 @@
 
 # The first parameter passed in is the user we're going to add
 # to the docker group, if one isn't passed in, use the current user
+REPOURL="https://github.com/Microsoft/WhatTheHack"
 CURUSER=${1:-$USER}
 CURUSERHOME=$(eval echo ~$(echo $CURUSER))
 
@@ -25,41 +26,25 @@ sudo add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repo
 #4. Update the Ubuntu packages and install Docker engine, node.js and the node package manager
 #in a single step by typing the following in a single line command.
 #When asked if you would like to proceed, respond by typing “y” and pressing enter.
-sudo apt-get -qy update && sudo apt -qy install docker-ce nodejs npm wget
+sudo apt-get -qy update && sudo apt -qy install docker-ce nodejs npm git
 #4.5. Install the Azure CLI packages
 sudo apt -qy install azure-cli
 
-#5.     Now, upgrade the Ubuntu packages to the latest version by typing the following in a single line command.
+#5. Now, upgrade the Ubuntu packages to the latest version by typing the following in a single line command.
 #When asked if you would like to proceed, respond by typing “y” and pressing enter.
 sudo apt-get -qy upgrade
 
-#6.     Add your user to the Docker group so that you do not have to elevate privileges with sudo for every command.
+#6. Add your user to the Docker group so that you do not have to elevate privileges with sudo for every command.
 sudo usermod -aG docker $CURUSER
 
-#Download and stage source code for the V1 & V2 of the FabMedical application.
+#7. Clone the WTH repo so we can get our source code
+git clone https://github.com/Microsoft/WhatTheHack $HOME/wth
 
-#Download FabMedical V1 source code:
-curl -sL -o FabMedical.v1.tgz http://aka.ms/FabMedical.v1
+#8. Move the needed source we'll use in our docker container images to the home dir
+mv -v $HOME/wth/001-IntroToKubernetes/Student/Resources/Code/* $HOME
 
-#Create new V1 directory
-mkdir $CURUSERHOME/FabMedical.v1
+#9. Delete the git repo now, we don't want to leave it behind
+rm -rfv $HOME/wth
 
-#Unpack the archive into the new folder
-tar -C $CURUSERHOME/FabMedical.v1 -xzf FabMedical.v1.tgz --no-same-owner
 
-#Change owner and group to match the user and its primary group
-chown -R $CURUSER $CURUSERHOME/FabMedical.v1
-chgrp -R $(id -gn $CURUSER) $CURUSERHOME/FabMedical.v1
 
-#Download FabMedical V1 source code:
-curl -sL -o FabMedical.v2.tgz http://aka.ms/FabMedical.v2
-
-#Create new V1 directory
-mkdir $CURUSERHOME/FabMedical.v2
-
-#Unpack the archive into the new folder
-tar -C $CURUSERHOME/FabMedical.v2 -xzf FabMedical.v2.tgz --no-same-owner
-
-#Change owner and group to match the user and its primary group
-chown -R $CURUSER $CURUSERHOME/FabMedical.v2
-chgrp -R $(id -gn $CURUSER) $CURUSERHOME/FabMedical.v2
