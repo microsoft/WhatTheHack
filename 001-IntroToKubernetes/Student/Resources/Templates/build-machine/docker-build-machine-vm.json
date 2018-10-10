@@ -73,7 +73,7 @@
     "vnetName": "[concat(parameters('resourcePrefix'), '-VNET')]",
     "nsgName": "[concat(parameters('resourcePrefix'), '-NSG')]",
     "nicName": "[concat(parameters('resourcePrefix'), '-VM-NIC')]",
-    "vmName": "[concat(parameters('resourcePrefix'), '-docker-agent-VM')]",
+    "vmName": "[concat(parameters('resourcePrefix'), '-docker-build-VM')]",
     "publicIPAddressName": "[concat(parameters('resourcePrefix'), '-PIP')]",
     "publicIPAddressType": "Dynamic",
     "dnsNameForPublicIP": "[concat(parameters('resourcePrefix'), uniquestring(resourceGroup().id), '-pip')]",
