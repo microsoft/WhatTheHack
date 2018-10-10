@@ -32,7 +32,11 @@ We welcome all new hacks! The process for doing this is:
 - Once your branch and repo have all your content and it formatted correctly, follow the instructions on this page to submit a pull request back to the main repository:
 	- https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
+# [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
+This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
+
 # Contributing
+
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
