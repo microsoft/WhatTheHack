@@ -38,13 +38,13 @@ sudo apt-get -qy upgrade
 sudo usermod -aG docker $CURUSER
 
 #7. Clone the WTH repo so we can get our source code
-git clone https://github.com/Microsoft/WhatTheHack $HOME/wth
+git clone $REPOURL $CURUSERHOME/wth
 
 #8. Move the needed source we'll use in our docker container images to the home dir
-mv -v $HOME/wth/001-IntroToKubernetes/Student/Resources/Code/* $HOME
+mv -v $CURUSERHOME/wth/001-IntroToKubernetes/Student/Resources/Code/* $CURUSERHOME
 
 #9. Delete the git repo now, we don't want to leave it behind
-rm -rfv $HOME/wth
+rm -rfv $CURUSERHOME/wth
 
 
 
