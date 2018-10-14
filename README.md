@@ -1,4 +1,4 @@
-# What, Why and How
+# :books: What, Why and How
 
 - "What the Hack" is a challenge based hackathon format
 - Challenges describe high-level tasks and goals to be accomplished
@@ -10,7 +10,7 @@
 - Emcees provide lectures & demos to setup challenges & review solutions
 - What the Hack can be hosted in-person or virtually via MS Teams
 
-# How to Add Your Hack
+# :computer: How to Add Your Hack
 
 We welcome all new hacks! The process for doing this is:
 - Fork this repo into your own github account
@@ -35,7 +35,7 @@ We welcome all new hacks! The process for doing this is:
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
 
-# Contributing
+# :pencil:Contributing
 
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
