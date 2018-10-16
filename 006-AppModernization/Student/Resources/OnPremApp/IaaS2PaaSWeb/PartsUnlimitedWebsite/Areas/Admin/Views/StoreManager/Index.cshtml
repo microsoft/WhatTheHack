@@ -1,0 +1,78 @@
+﻿@model IEnumerable<PartsUnlimited.Models.Product>
+
+@using PartsUnlimited.Areas.Admin.Controllers;
+@using SortDirection = PartsUnlimited.Areas.Admin.Controllers.SortDirection
+
+@helper Truncate(string input, int length)
+{
+        if (input.Length <= length)
+        {
+                @input
+        }
+        else
+        {
+                <span title="@input">@input.Substring(0, length)<text>...</text></span>
+        }
+}
+
+@helper DisplaySortButtons(SortField field)
+{
+    <sup>
+        <a href="@Url.Action("Index", new { sortField = field, sortDirection = SortDirection.Up })">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+        </a>
+        <a href="@Url.Action("Index", new { sortField = field, sortDirection = SortDirection.Down})">
+            <span class="glyphicon glyphicon-arrow-down"></span>
+        </a>
+    </sup>
+}
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+            @DisplaySortButtons(SortField.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Title)
+            @DisplaySortButtons(SortField.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
+            @DisplaySortButtons(SortField.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+
+            </td>
+            <td>
+                @Truncate(item.Title, 25)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "RemoveProduct", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>

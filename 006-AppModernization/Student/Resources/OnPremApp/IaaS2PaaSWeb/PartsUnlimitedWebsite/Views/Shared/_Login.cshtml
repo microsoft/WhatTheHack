@@ -1,0 +1,28 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+    var isNtlm = User.Identity.AuthenticationType == "NTLM";
+    
+    <li class="dropdown">
+        <a href="@Url.Action("Index", "Store")" id="profile-link" class="dropdown-toggle head-link" data-toggle="dropdown">Profile&nbsp;<br class="hidden-xs" /><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Manage Account", "Index", "Manage", new { Area = string.Empty }, htmlAttributes: new { title = "Manage" })</li>
+            <li>@Html.ActionLink("View Orders", "Index", "Orders", new { Area = string.Empty }, null)</li>
+            @if (!isNtlm)
+            {
+            <li>
+                @*Either NTLM will be used or social authentication will be used. Based on the authentication schemes enabled remove an unused block.*@
+                @using (Html.BeginForm("LogOff", "Account", new { Area = string.Empty }, FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                }
+                <a href="javascript:document.getElementById('logoutForm').submit()" >Log off</a>
+            </li>
+            }
+        </ul>
+    </li>
+}
+else
+{
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "login-link", @class = "head-link" })</li>
+}
