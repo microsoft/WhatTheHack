@@ -1,4 +1,4 @@
-# What, Why and How
+# What, Why and How - Testing
 
 - "What the Hack" is a challenge based hackathon format
 - Challenges describe high-level tasks and goals to be accomplished
