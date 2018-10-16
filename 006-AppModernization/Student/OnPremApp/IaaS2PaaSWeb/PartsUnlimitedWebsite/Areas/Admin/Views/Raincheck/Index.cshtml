@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PartsUnlimited.Models.Raincheck>
+
+@{
+    ViewBag.Title = "Rainchecks";
+}
+
+<div class="row">
+    <h3>
+        Current Rainchecks
+    </h3>
+</div>
+
+<div class="row">
+    <table class="table" id="cart-summary">
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Price (each)
+            </th>
+            <th>
+                Sale Price (each)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Store
+            </th>
+        </tr>
+        @foreach (var raincheck in Model)
+        {
+            <tr id="row-@raincheck.RaincheckId">
+                <td>
+                    @raincheck.Product.Title
+                </td>
+                <td>
+                    @raincheck.Product.Price
+                </td>
+                <td>
+                    @raincheck.SalePrice
+                </td>
+                <td>
+                    @raincheck.Count
+                </td>
+                <td>
+                    @raincheck.Name
+                </td>
+                <td>
+                    @raincheck.IssuerStore.Name
+                </td>
+            </tr>
+        }
+    </table>
+</div>

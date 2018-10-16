@@ -1,0 +1,97 @@
+﻿@model PartsUnlimited.ViewModels.OrdersModel
+
+<div id="order-history-page">
+    <section>
+        <h2>Order History</h2>
+
+        <div class="row">
+            <div class="col-md-6 col-border-md-right">
+                <h4>Search By Date</h4>
+
+                @using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+                {
+                    if (Model.IsAdminSearch)
+                    {
+                        <div class="row form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-3 text-right-md">
+                                <label for="inputfield1" class="control-label">Username</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-md-7">
+                                <input type="text" class="form-control" name="username" value="@Model.Username" placeholder="Username"  />
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row form-group">
+                        <div class="col-xs-12 col-sm-12 col-md-3 text-right-md">
+                            <label for="inputfield1" class="control-label">Start date</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-7">
+                            <input type="text" class="form-control jquery-ui-datepicker" name="start" value="@Model.StartDate.ToString("d")" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-xs-12 col-sm-12 col-md-3 text-right-md">
+                            <label for="inputfield1" class="control-label">End date</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-7">
+                            <input type="text" class="form-control jquery-ui-datepicker" name="end" value="@Model.EndDate.ToString("d")" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-8 col-md-10">
+                            <input type="submit" class="btn" value="Search" />
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-md-6 wide-col-padding">
+                <h4>Search By Order Number</h4>
+
+                <div class="row form-group">
+                    @using (Html.BeginForm("Details", "Orders", FormMethod.Get))
+            {
+                        <div class="col-sm-8 col-md-10">
+                            <input type="text" class="form-control" id="name" name="id" placeholder="Order number" />
+                            <input class="btn" type="submit" value="Open" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt">
+        @if (Model.Orders.Any())
+        {
+
+            foreach (var order in Model.Orders)
+            {
+                <div class="row border order">
+                    <div class="col-xs-12 col-sm-3 order-summary">
+                        <div>Order Number: #@order.OrderId</div>
+                        <div>Order Date: @order.OrderDate.ToString("d")</div>
+                        <div><a href="@Url.Action("Details", "Orders", new { id = order.OrderId })" class="action-link">View order details</a></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 order-detail">
+                        <div class="row">
+                            @foreach (var orderDetail in order.OrderDetails)
+                            {
+                                <div class="col-xs-12 order-detail-item">
+                                    <h4><strong>@orderDetail.Count x @orderDetail.Product.Title</strong></h4>
+                                    <p>@orderDetail.UnitPrice</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                No orders were found matching the criteria.
+            </div>
+        }
+    </section>
+</div>

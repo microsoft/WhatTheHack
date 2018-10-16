@@ -1,0 +1,44 @@
+﻿@using PartsUnlimited.Utils
+@model PartsUnlimited.Models.VerifyPhoneNumberViewModel
+@{
+    ViewBag.Title = "Verify Phone Number";
+}
+
+<section>
+    <h2>@ViewBag.Title.</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("phoneNumber", @Model.PhoneNumber)
+                <h4>Enter verification code</h4>
+                <p class="text-danger">
+                    @ViewBag.Status
+                    <br />
+                    Please change this code to register an SMS service in IdentityConfig to send a text message.
+                </p>
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })
+                    <div class="col-sm-8 col-md-10">
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Code, new { @class = "form-control", placeholder = "Code" })
+                            <span class="input-group-addon">@Html.Image("login_safe_icon.png")</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Submit" />
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery.validate")
+}

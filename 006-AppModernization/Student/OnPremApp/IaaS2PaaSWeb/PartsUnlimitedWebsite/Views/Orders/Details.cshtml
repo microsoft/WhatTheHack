@@ -1,0 +1,13 @@
+﻿@model PartsUnlimited.ViewModels.OrderDetailsViewModel
+@{
+    if (Model == null)
+    {
+        ViewBag.Title = "Unknown order";
+    }
+    else
+    {
+        ViewBag.Title = string.Format("Order history for {0}", Model.Order.OrderId);
+    }
+}
+
+@Html.Partial("_Order", Model)
