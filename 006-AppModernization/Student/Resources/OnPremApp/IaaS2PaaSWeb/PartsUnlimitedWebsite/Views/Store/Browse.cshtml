@@ -1,0 +1,9 @@
+﻿@model PartsUnlimited.Models.Category
+@{
+    ViewBag.Title = "Browse Products";
+}
+
+<section class="section-alt">
+    <h2>@Model.Name</h2>
+    @Html.Partial("_ProductList", Model.Products)
+</section>

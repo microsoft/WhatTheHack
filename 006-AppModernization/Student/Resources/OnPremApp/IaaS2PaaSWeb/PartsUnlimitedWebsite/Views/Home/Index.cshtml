@@ -1,0 +1,120 @@
+@model PartsUnlimited.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts {
+    <script>
+        $('.carousel').carousel()
+    </script>
+}
+
+@section prebody {
+<div class="hero-display">
+    <div id="jumbotron-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#jumbotron-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#jumbotron-carousel" data-slide-to="1"></li>
+            <li data-target="#jumbotron-carousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background-image: url('/Images/hero_image1.jpg')">
+                <a href="@Url.Action("Browse", "Store", new { categoryId = 5 })" class="carousel-wrapper-link"></a>
+                <p>All oil and filters</p>
+                <p>50%</p>
+                <p>Christmas discount</p>
+                <div class="carousel-caption hidden-xs hidden-sm">
+                    <a href="@Url.Action("Browse", "Store", new { categoryId = 5 })" class="carousel-link">Shop Now</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('/Images/hero_image2.jpg')">
+                <a href="@Url.Action("Browse", "Store", new { categoryId = 3 })" class="carousel-wrapper-link"></a>
+                <div class="container">
+                    <p>New tires</p>
+                    <ul>
+                        <li>Improved fuel efficiency</li>
+                        <li>Superior wet weather breaking</li>
+                        <li>Added durability</li>
+                    </ul>
+                </div>
+                <div class="carousel-caption hidden-xs hidden-sm">
+                    <a href="@Url.Action("Browse", "Store", new { categoryId = 3 })" class="carousel-link">Shop Now</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url('/Images/hero_image3.jpg')">
+                <a href="@Url.Action("Index", "Store")" class="carousel-wrapper-link"></a>
+                <p>Old<span> or </span>new</p>
+                <p>Find the parts for you</p>
+                <div class="carousel-caption hidden-xs hidden-sm">
+                    <a href="@Url.Action("Browse", "Store", new { categoryId = 3 })" class="carousel-link">Shop Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#jumbotron-carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#jumbotron-carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<div class="featured-areas">
+    <div class="container">
+        <section class="section-alt">
+            <div class="row">
+                <div class="area-tile col-xs-12 col-sm-3 col-md-3">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="/Images/submenu_image1.jpg" alt="New Season Parts Image" class="hidden-xs" />
+                        <div>New Season Parts</div>
+                    </a>
+                </div>
+                <div class="area-tile col-xs-12 col-sm-3 col-md-3">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="/Images/submenu_image2.jpg" alt="How to Guide Image" class="hidden-xs" />
+                        <div>How to Guide</div>
+                    </a>
+                </div>
+                <div class="area-tile col-xs-12 col-sm-3 col-md-3">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="/Images/submenu_image3.jpg" alt="Understand Your Engine Image" class="hidden-xs" />
+                        <div>Understand Your Engine</div>
+                    </a>
+                </div>
+                <div class="area-tile col-xs-12 col-sm-3 col-md-3">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="/Images/submenu_image4.jpg" alt="Road Trip Tips Image" class="hidden-xs" />
+                        <div>Road Trip Tips</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+}
+
+<!--TODO : Update github link -->
+<a href="https://github.com/" class="hidden-xs">
+    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png">
+</a>
+<div id="home-page">
+    <section class="section-alt">
+        <h2>Arrivals</h2>
+        @Html.Partial("_ProductList", Model.NewProducts)
+    </section>
+    <section class="section-alt">
+        <h2>Top Selling</h2>
+        @Html.Partial("_ProductList", Model.TopSellingProducts)
+    </section>
+    <section class="section-alt">
+        <h2>Community</h2>
+        @Html.Partial("_CommunityList", Model.CommunityPosts)
+    </section>
+</div>

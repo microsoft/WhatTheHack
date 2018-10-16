@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PartsUnlimited.Models.Product>
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="list-item-part">
+                <a href="@Url.Action("Details", "Store", new { id = product.ProductId })" title="@product.Title">
+                
+                    <div class="product-image-container hover-over hidden-xs">
+                        <div class="image">
+                            <img src="/images/@product.ProductArtUrl" alt="@product.Title" />
+                        </div>
+                        <div class="detail">
+                            <h4>@product.Title</h4>
+                            <h5>@product.Price.ToString("C")</h5>
+                        </div>
+                        <div class="mouse-over hidden-xs">
+                            <div class="image-second">
+                                <img src="/images/@product.ProductArtUrl" alt="@product.Title zoom" />
+                            </div>
+
+                            <div class="shop-now">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;<span>Shop Now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row visible-xs">
+                        <div class="col-xs-4 col-sm-12 col-md-12 no-gutter-sm no-gutter image">
+                            <img src="/images/@product.ProductArtUrl" alt="@product.Title" />
+                        </div>
+                        <div class="col-xs-8 col-sm-12 col-md-12 detail">
+                            <h4>@product.Title</h4>
+                            <h5>@product.Price.ToString("C")</h5>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    }
+</div>

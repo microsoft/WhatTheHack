@@ -1,0 +1,72 @@
+﻿@model PartsUnlimited.Models.Order
+
+@{
+    ViewBag.Title = "Address And Payment";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery.validate")
+}
+
+<section>
+    <h2>Address And Payment</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+<div class="row">
+            <div class="col-sm-12 col-md-6 col-border-md-right no-gutter-xs">
+                <div class="col-xs-12 no-gutter-sm">
+                    <h4>Shipping Information</h4>
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", placeholder = "Phone" })
+                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", placeholder = "Address" })
+                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "City" })
+                    @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.State, new { @class = "form-control", placeholder = "State" })
+                    @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control", placeholder = "Postal Code" })
+                    @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBoxFor(m => m.Country, new { @class = "form-control", placeholder = "Country" })
+                    @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 wide-col-padding no-gutter-xs">
+                <div class="col-xs-12  no-gutter-sm">
+                    <h4>Payment</h4>
+                </div>
+                <div class="col-md-12 no-gutter-sm" >
+                    <p>We're running a promotion.</p>
+                    <p>All parts are free with the promo code: "FREE"</p>
+                </div>
+                <div class="form-group col-sm-8 col-md-10 no-gutter-sm">
+                    @Html.TextBox("PromoCode", null, new { @class = "form-control", placeholder = "Promo Code" })
+                </div>
+                <div class="col-md-12 no-gutter-sm">
+                    <input type="submit" value="Submit Order" />
+                </div>
+
+            </div>
+            </div>
+    }
+</section>

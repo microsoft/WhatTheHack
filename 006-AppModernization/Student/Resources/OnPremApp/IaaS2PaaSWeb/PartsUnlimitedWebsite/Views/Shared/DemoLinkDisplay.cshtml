@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Demo link display page - Not for production use";
+}
+
+<section>
+    <h2>@ViewBag.Title</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <p>
+                    Demo link display page - Not for production use.
+                </p>
+
+                @if (ViewBag.Link != null)
+                {
+                    <p class="text-danger">
+                        For DEMO only: You can click this link to confirm the email: [[<a href="@ViewBag.Link">link</a>]]
+                        <br />
+                        Please change this code to register an email service in IdentityConfig to send an email.
+                    </p>
+                }
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</section>

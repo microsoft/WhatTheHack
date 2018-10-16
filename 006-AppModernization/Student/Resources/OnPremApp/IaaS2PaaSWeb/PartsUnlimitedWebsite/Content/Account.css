@@ -1,0 +1,67 @@
+﻿@media screen and (min-width: 992px) {
+  .col-border-md-right {
+    border-right: 1px solid #D1D1D1; }
+ }
+
+#login-page #login-panel {
+  margin-bottom: 35px; }
+  #login-page #login-panel input[type='checkbox'] {
+    margin-top: 10px; }
+#login-page #social-login-form #socialLoginList > div {
+  margin: 5px 0; }
+
+#manage-page dt {
+  width: 200px;
+  padding-right: 15px; }
+
+#order-history-page section.section-alt {
+  padding-left: 15px;
+  padding-right: 15px; }
+#order-history-page .row.order {
+  border: 1px solid #D1D1D1;
+  border-top: none;
+  background-color: #E1E1E1; }
+  #order-history-page .row.order .order-summary {
+    padding: 15px;
+    height: 100%; }
+  #order-history-page .row.order .order-detail {
+    background-color: white;
+    min-height: 90px; }
+    #order-history-page .row.order .order-detail .order-detail-item {
+      border-top: 1px solid #D1D1D1; }
+    #order-history-page .row.order .order-detail .order-detail-item:first-child {
+      border-top: none; }
+#order-history-page .row.order:first-child {
+  border-top: 1px solid #D1D1D1; }
+
+#order-detail-page .order-detail, #order-detail-page .order-header {
+  padding: 0 15px; }
+#order-detail-page .order-detail .row {
+  min-height: 40px;
+  background-color: white;
+  border-bottom: 1px solid #D1D1D1; }
+  #order-detail-page .order-detail .row div {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+#order-detail-page .order-header {
+  border-bottom: 1px solid #D1D1D1; }
+
+.cost-summary {
+  padding: 15px 15px 0 15px;
+  font-size: 16px; }
+  @media screen and (max-width: 767px) {
+    .cost-summary {
+      background-color: #FFFFFF;
+      padding: 15px; } }
+  .cost-summary hr {
+    margin: 10px 0; }
+  .cost-summary .cost-value {
+    text-align: right;
+    font-weight: bold; }
+  .cost-summary .total {
+    font-size: 18px;
+    padding-bottom: 15px; }
+    .cost-summary .total .cost-header {
+      font-weight: bold; }
+
+/*# sourceMappingURL=Account.css.map */
