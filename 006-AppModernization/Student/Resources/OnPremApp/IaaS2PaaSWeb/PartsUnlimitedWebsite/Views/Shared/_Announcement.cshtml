@@ -1,0 +1,17 @@
+﻿@model PartsUnlimited.Models.Product
+
+<div class="alert alert-new-arrival @if (Model == null) { <text>hidden</text>}" id="alert-new-arrival" role="alert">
+    <div class="container">
+        <div class="alert-content">
+            <span class="glyphicon glyphicon-bullhorn"></span>
+            @if (Model == null)
+            {
+                <a id="new-arrival" href="#"></a>
+            }
+            else
+            {
+                <a id="new-arrival" href="@Url.Action("Details", "Store", new { Area = string.Empty, id = Model.ProductId })">@string.Format(" New Arrival : {0}", Model.Title)</a>
+            }
+        </div>
+    </div>
+</div>

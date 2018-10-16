@@ -1,0 +1,37 @@
+﻿@using PartsUnlimited.Utils
+@model IEnumerable<PartsUnlimited.Models.Category>
+
+@{
+    ViewBag.Title = "Store";
+}
+<section class="section-alt product-list">
+    <h2>Browse Categories</h2>
+    <div class="row">
+        @foreach (var category in Model)
+        {
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="list-item-part">
+                    <a href="@Url.Action("Browse", "Store", new { categoryId = category.CategoryId })" title="@category.Name">
+                        <div class="product-image-container hidden-xs">
+                            <div class="image">
+                                @Html.Image(@category.ImageUrl, @category.Name)
+                            </div>
+                            <div class="detail">
+                                <h5>@category.Name</h5>
+                            </div>
+                        </div>
+
+                        <div class="row visible-xs">
+                            <div class="col-xs-4 col-sm-12 col-md-12 no-gutter-sm no-gutter image">
+                                @Html.Image(@category.ImageUrl, @category.Name)
+                            </div>
+                            <div class="col-xs-8 col-sm-12 col-md-12 detail">
+                                <h4>@category.Name</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</section>

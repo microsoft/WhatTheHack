@@ -1,0 +1,7 @@
+﻿@model IEnumerable<PartsUnlimited.Models.Product>
+
+@if (Model.Any())
+{
+    <h2>You may also consider</h2>
+    @Html.Partial("_ProductList", Model)
+}
