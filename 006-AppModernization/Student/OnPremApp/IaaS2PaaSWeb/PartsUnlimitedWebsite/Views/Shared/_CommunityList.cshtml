@@ -1,0 +1,46 @@
+﻿@using PartsUnlimited.Models
+@model IEnumerable<CommunityPost>
+
+<div class="row">
+    @foreach (var post in Model)
+    {
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="list-item-post">
+                <div class="hidden-xs hidden-sm">
+                    <div class="row">
+                        <div class="col-sm-12"><img src="/Images/@post.Image" /></div>
+
+                        <div class="col-sm-12"><p>@post.Content</p></div>
+                        <div class="col-sm-3 social-icon">
+                            @if (@post.Source == CommunitySource.Facebook)
+                            {
+                                <img src="images/facebook_icon.jpg" />
+                            }
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="community-source">
+                                @post.Source.ToString()<br />@post.DatePosted.ToString("dd MMMM yyyy")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-xs visible-sm">
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-1">
+                            @if (@post.Source == CommunitySource.Facebook)
+                            {
+                                <img src="images/facebook_icon.jpg" />
+                            }
+                        </div>
+                        <div class="col-xs-10 col-sm-11 no-gutter-xs-left"><p>@post.Content</p></div>
+                        <div class="col-xs-10 col-sm-11 no-gutter-xs-left pull-right">
+                            <p>@post.Source.ToString(),&nbsp;@post.DatePosted.ToString("dd MMMM yyyy")</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

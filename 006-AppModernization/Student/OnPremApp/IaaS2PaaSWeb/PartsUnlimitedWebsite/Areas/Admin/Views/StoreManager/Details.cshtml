@@ -1,0 +1,57 @@
+﻿@model PartsUnlimited.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@if (Model != null)
+{
+    <h2>Details</h2>
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductArtUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductArtUrl)
+            </dd>
+
+        </dl>
+    </div>
+}
+else
+{
+    @Html.Label(null, "Unable to locate the product")
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
