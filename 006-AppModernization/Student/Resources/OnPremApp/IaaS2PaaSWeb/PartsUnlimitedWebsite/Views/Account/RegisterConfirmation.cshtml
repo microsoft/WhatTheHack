@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Register Confirmation";
+}
+<section>
+    <h1>@ViewBag.Title</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <p>
+                    Please check your email to activate your account.
+                </p>
+                <p>
+                    Demo/testing purposes only: The sample displays the code and user id in the page: @Html.ActionLink("Click here to confirm your email: ", "ConfirmEmail", new { code = ViewBag.Code, userId = ViewBag.UserId })
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</section>
