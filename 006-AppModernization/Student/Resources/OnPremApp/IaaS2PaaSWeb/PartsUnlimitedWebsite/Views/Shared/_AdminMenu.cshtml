@@ -1,0 +1,19 @@
+﻿@using PartsUnlimited.Areas.Admin
+
+@{
+    var claims = User.Identity as System.Security.Claims.ClaimsIdentity;
+    var isAdmin = claims.HasClaim(AdminConstants.ManageStore.Name, AdminConstants.ManageStore.Allowed);
+}
+
+@if (isAdmin)
+{
+    <li class="dropdown">
+        <a href="@Url.Action("Index", "Store")" id="admin-link" class="dropdown-toggle head-link" data-toggle="dropdown">Admin&nbsp;<br class="hidden-xs" /><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li> @Html.ActionLink("Manage Items", "Index", "StoreManager", new { area = AdminConstants.Area }, null) </li>
+            <li> @Html.ActionLink("View Orders", "Index", "Orders", new { area = AdminConstants.Area }, null) </li>
+            <li> @Html.ActionLink("Find Customers", "Find", "Customer", new { area = AdminConstants.Area }, null) </li>
+            <li> @Html.ActionLink("View Rainchecks", "Index", "Raincheck", new { area = AdminConstants.Area }, null) </li>
+        </ul>
+    </li>
+}

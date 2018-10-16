@@ -1,0 +1,81 @@
+﻿@model PartsUnlimited.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = string.Format("Product - {0}", Model.Product.Title);
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery.zoom")
+
+    <script type="text/javascript">
+        $(function () {
+            if ($ && $.fn.zoom) {
+                $('#product-image').zoom({ magnify: 1.5 });
+            }
+        });
+    </script>
+}
+<div id="store-details">
+    <section>
+        <h2>@Model.Product.Title</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="details-panel">
+
+                    <div class="zoom" id="product-image">
+                        <img src="/Images/@Model.Product.ProductArtUrl" alt="@Model.Product.Title" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <h5>USD $@Model.Product.Price</h5>
+                </div>
+                <div>
+                    @if (@Model.Product.Inventory > 0)
+                            {
+                        <text>In Stock (Ships 1-3 days)</text>
+                            }
+                            else
+                            {
+                        <text>@string.Format("Out of Stock (Ships {0}-{1} days)", Math.Max(Model.Product.LeadTime, 1), Model.Product.LeadTime + 2)</text>
+                            }
+                </div>
+                <div>
+                    <h4>Description</h4>
+                    <p class="text-content">@Model.Product.Description</p>
+                </div>
+
+                <div class="details-table">
+                    <table class="table table-striped">
+                        @foreach (var detail in Model.Product.ProductDetailList)
+                        {
+                            <tr>
+                                <td>@detail.Key</td>
+                                <td>@detail.Value</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+                <a href="@Url.Action("AddToCart", "ShoppingCart", new { id = Model.Product.ProductId })" class="btn">Add to Cart</a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="section-alt">
+        <div class="row">
+            @if (Model.ShowRecommendations)
+            {
+                <script>
+                    $(function () { getRecommendations("@Model.Product.ProductId"); })
+                </script>
+                <div id="recommendations-panel"></div>
+            }
+        </div>
+    </section>
+</div>
