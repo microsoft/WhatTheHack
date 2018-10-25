@@ -10,9 +10,9 @@ And don't forget there are proctors around you, just raise your hand at any time
 
 In this hack, we are going to take a web app called "Rock Paper Scissors Boom" and deploy it on Azure! This app is game server that allows bots to play the classic Rock/Paper/Scissors game. The web app is built on .NET core - it runs on Linux and Windows! The web app is open source and built by [DevChatter](https://www.twitch.tv/devchatter). This hack repo was forked from DevChatter's [original repo](https://github.com/DevChatter/RockPaperScissorsBoom).
 
-Through progressive challenges we will build the web app, deploy it to Azure, monitor it, protect it, enhance and extend it. 
+Through progressive challenges we will build the web app, deploy it to Azure, monitor it, protect it, enhance and extend it.
 
-At the end, each team will be able to build their own bot and compete with each other. We'll have a tournament with fabulous gifts and prizes! 
+At the end, each team will be able to build their own bot and compete with each other. We'll have a tournament with fabulous gifts and prizes!
 
 ## Technologies
 
@@ -53,7 +53,7 @@ Here are the technologies and services you will leverage:
 
 Rock Paper Scissors Boom is a collaborative competition among developers. It's based on a project idea from a Microsoft Developer Evangelist that was called "Rock Paper Azure".
 
-This server project provides an API that developers can use to develop bots that play the Rock Paper Sissors Boom game.
+This server project provides an API that developers can use to develop bots that play the Rock Paper Scissors Boom game.
 
 Rules of the Game:
  * A match is played between two bots and will consist of 1000 rounds of Rock-Paper-Scissors
