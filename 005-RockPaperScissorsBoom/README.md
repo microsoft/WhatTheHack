@@ -36,18 +36,18 @@ Here are the technologies and services you will leverage:
 
 ## Challenges
 
-1. [Setup](./challenges/Setup.md)
-1. [Run the app](./challenges/RunTheApp.md)
-1. [Move to Azure SQL Database](./challenges/MoveToAzureSql.md)
-1. [Run the app on Azure](./challenges/RunOnAzure.md)
-1. [Run the Game Continuously](./challenges/RunTheGameContinuously.md)
-1. [Add Application Monitoring](./challenges/AddApplicationMonitoring.md)
-1. [Build a CI/CD pipeline with Azure DevOps](./challenges/BuildCICDPipelineWithAzureDevOps.md)
-1. [Implement AAD B2C](./challenges/ImplementAADB2C.md)
-1. [Leverage SignalR](./challenges/LeverageSignalR.md)
-1. [Leverage CDN](./challenges/LeverageCDN.md)
-1. [Send a Winner Notification](./challenges/SendWinnerNotification.md)
-1. [Run a Load Test](./challenges/RunALoadTest.md)
+1. [Setup](./Student/Guides/challenges/Setup.md)
+1. [Run the app](./Student/Guides/challenges/RunTheApp.md)
+1. [Move to Azure SQL Database](./Student/Guides/challenges/MoveToAzureSql.md)
+1. [Run the app on Azure](./Student/Guides/challenges/RunOnAzure.md)
+1. [Run the Game Continuously](./Student/Guides/challenges/RunTheGameContinuously.md)
+1. [Add Application Monitoring](./Student/Guides/challenges/AddApplicationMonitoring.md)
+1. [Build a CI/CD pipeline with Azure DevOps](./Student/Guides/challenges/BuildCICDPipelineWithAzureDevOps.md)
+1. [Implement AAD B2C](./Student/Guides/challenges/ImplementAADB2C.md)
+1. [Leverage SignalR](./Student/Guides/challenges/LeverageSignalR.md)
+1. [Leverage CDN](./Student/Guides/challenges/LeverageCDN.md)
+1. [Send a Winner Notification](./Student/Guides/challenges/SendWinnerNotification.md)
+1. [Run a Load Test](./Student/Guides/challenges/RunALoadTest.md)
 
 ## About the Rock Paper Scissors Boom app
 
@@ -67,4 +67,4 @@ Rules of the Game:
  * All matching choices will be a tie with the same choice by opponent.
  * Each bot may also throw a water balloon whenever it likes.
 
-![game uml](docs/game_diagram.png)
+![game uml](./Student/Guides/docs/game_diagram.png)
