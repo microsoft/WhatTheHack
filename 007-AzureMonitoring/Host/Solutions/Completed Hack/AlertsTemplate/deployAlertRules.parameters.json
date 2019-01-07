@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "actionGroupId": {
+            "value": "/subscriptions/8b2ef784-0c0d-424c-8a7a-aa1304a0366a/resourceGroups/mon19/providers/microsoft.insights/actiongroups/Hack19AG"
+        },
+        "alertVMs": {
+            "value": [
+                "mon19sqlSrv16",
+                "mon19VSSrv17"
+            ]   
+         }
+    }
+}

@@ -1,0 +1,168 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertVMs": {
+           "type": "array",
+           "metadata": {
+                "description": ""
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 2,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Sev 0 = Critical, Sev 1 = Error, Sev 2 = Warning, Sev 3 = Informational, Sev 4 = Verbose"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true
+        },
+        "actionGroupId": {
+            "type": "string",
+            "metadata": {
+                "description": ""
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Insights/metricAlerts",
+            "name": "[concat('Network_In_Alert','-',parameters('alertVMs')[copyIndex()])]",
+            "copy": {
+                "name": "iterator",
+                "count": "[length(parameters('alertVMs'))]"
+            },
+            "apiVersion": "2018-03-01",
+            "location": "global",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "description": "Network In metric has detected a large amount of  inbound traffic",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": [
+                    "[resourceId('Microsoft.Compute/virtualMachines', parameters('alertVMs')[copyIndex()])]"
+                ],
+                "evaluationFrequency": "PT5M",
+                "windowSize": "PT5M",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name": "MetricNetIn",
+                            "metricName": "Network In",
+                            "dimensions": [],
+                            "operator": "GreaterThan",
+                            "threshold": 4000000,
+                            "timeAggregation": "Average"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]",
+                        "webHookProperties": {}
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "type": "Microsoft.Insights/metricAlerts",
+            "name": "[concat('Disk_Write_Alert','-',parameters('alertVMs')[copyIndex()])]",
+            "copy": {
+                "name": "iterator",
+                "count": "[length(parameters('alertVMs'))]"
+            },
+            "apiVersion": "2018-03-01",
+            "location": "global",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "description": "Disk Write metric has detected a large amount of disk operations",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": [
+                    "[resourceId('Microsoft.Compute/virtualMachines', parameters('alertVMs')[copyIndex()])]"
+                ],
+                "evaluationFrequency": "PT5M",
+                "windowSize": "PT5M",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name": "MetricDiskWriteOper",
+                            "metricName": "Disk Write Operations/Sec",
+                            "dimensions": [],
+                            "operator": "GreaterThan",
+                            "threshold": 10,
+                            "timeAggregation": "Average"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]",
+                        "webHookProperties": {}
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "type": "Microsoft.Insights/metricAlerts",
+            "name": "[concat('CPU_Alert','-',parameters('alertVMs')[copyIndex()])]",
+            "copy": {
+                "name": "iterator",
+                "count": "[length(parameters('alertVMs'))]"
+            },
+            "apiVersion": "2018-03-01",
+            "location": "global",
+            "properties": {
+                "description": "Alert for CPU Usage over 75 percent",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": [
+                    "[resourceId('Microsoft.Compute/virtualMachines', parameters('alertVMs')[copyIndex()])]"
+                ],
+                "evaluationFrequency": "PT1M",
+                "windowSize": "PT5M",
+                "templateType": 8,
+                "templateSpecificParameters": {},
+                "criteria": {
+                    "allOf": [
+                        {
+                            "name": "MetricCPU",
+                            "metricNamespace": "Microsoft.Compute/virtualMachines",
+                            "metricName": "Percentage CPU",
+                            "dimensions": [],
+                            "operator": "GreaterThan",
+                            "threshold": 75,
+                            "monitorTemplateType": 8,
+                            "timeAggregation": "Average",
+                            "criterionType": "StaticThresholdCriterion"
+                        }
+                    ],
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria"
+                },
+                "autoMitigate": true,
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}
