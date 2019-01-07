@@ -67,4 +67,4 @@ Rules of the Game:
  * All matching choices will be a tie with the same choice by opponent.
  * Each bot may also throw a water balloon whenever it likes.
 
-![game uml](docs/game_diagram.png)
+![game uml](./docs/game_diagram.png)
