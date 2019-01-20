@@ -86,9 +86,10 @@ namespace RockPaperScissorsBoom.Server.Pages
             //Get 20 Last 
             GamesForTable = db.GameRecords.OrderByDescending(g => g.GameDate).Take(20).Include(g => g.BotRecords).ToList();
 
-            await PublishMessage(BotRankings.First().GameRecord.Id.ToString(), BotRankings.First().Competitor.Name);
-
-
+            if (bool.Parse(configuration["EventGridOn"]))
+            {
+                await PublishMessage(BotRankings.First().GameRecord.Id.ToString(), BotRankings.First().Competitor.Name);
+            }
         }
 
         internal async Task PublishMessage(string GameId, string Winner)
