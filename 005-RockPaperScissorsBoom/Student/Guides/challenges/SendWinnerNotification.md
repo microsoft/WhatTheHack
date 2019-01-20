@@ -29,7 +29,7 @@ Imagine if you had this requirement: After each game is played, a notification s
     * Event Grid Topic --> Event Grid Subscription (Webhook to Azure Function)
     * Azure Function Initiates a Logic App HTTP trigger. 
     * The Logic App has a step that sends an email.
-1. You can see an example of the Azure Function in the [Func](../src/Func) folder in this repository.
+1. You can see an example of the Azure Function in the [Func](../../Resources/Code/Func) folder in this repository.
     * Note that this requires a Windows-based Azure Function.
 1. If you're sending emails as the notifications, don't bombard your own inbox. Use a free service like [maildrop.cc](http://maildrop.cc) to create dummy email accounts.
 
