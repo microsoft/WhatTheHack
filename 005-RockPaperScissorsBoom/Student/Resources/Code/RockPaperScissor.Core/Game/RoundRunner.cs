@@ -94,7 +94,7 @@ namespace RockPaperScissor.Core.Game
         {
             if (decision == Decision.Dynamite)
             {
-                bool outOfDynamite = (100 - bot.DynamiteUsed) <= 0;
+                bool outOfDynamite = (10 - bot.DynamiteUsed) <= 0;
                 return outOfDynamite;
             }
 

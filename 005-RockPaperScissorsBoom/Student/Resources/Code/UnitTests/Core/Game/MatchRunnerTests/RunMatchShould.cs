@@ -22,7 +22,7 @@ namespace UnitTests.Core.Game.MatchRunnerTests
             matchResult.Player1.Should().Be(_rockOnly.Competitor);
             matchResult.Player2.Should().Be(_scissorsOnly.Competitor);
             matchResult.WinningPlayer.Should().Be(MatchOutcome.Player1);
-            matchResult.RoundResults.Count.Should().Be(1000);
+            matchResult.RoundResults.Count.Should().Be(100);
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace UnitTests.Core.Game.MatchRunnerTests
             matchResult.Player2.Should().Be(_rockOnly.Competitor);
             matchResult.Player1.Should().Be(_scissorsOnly.Competitor);
             matchResult.WinningPlayer.Should().Be(MatchOutcome.Player2);
-            matchResult.RoundResults.Count.Should().Be(1000);
+            matchResult.RoundResults.Count.Should().Be(100);
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace UnitTests.Core.Game.MatchRunnerTests
             matchResult.Player1.Should().Be(_rockOnly.Competitor);
             matchResult.Player2.Should().Be(_rockOnly.Competitor);
             matchResult.WinningPlayer.Should().Be(MatchOutcome.Neither);
-            matchResult.RoundResults.Count.Should().Be(1000);
+            matchResult.RoundResults.Count.Should().Be(100);
         }
     }
 }
