@@ -27,20 +27,20 @@ create, manage, and train Custom Vision projects programatically. All operations
 on <https://customvision.ai> are exposed through this library, allowing you to
 automate all aspects of the Custom Vision Service. You can obtain a key by
 creating a new project at <https://customvision.ai> and then clicking on the
-"setting" gear in the top right.
+`setting` gear in the top right.
 
 > Note: Internet Explorer is not supported. We recommend using Edge, Firefox, or Chrome.
 
 ### The Images used for Training and Predicting
 
-In the Resources\Images folder are three folders:
+In the `Resources\Images` folder are three folders:
 
 - Hemlock
 - Japanese Cherry
 - Test
 
-The Hemlock and Japenese Cherry folders contain images of these types of plants that
-will be trained and tagged. The Test folder contains an image that will be used to 
+The `Hemlock` and `Japanese Cherry` folders contain images of these types of plants that
+will be trained and tagged. The `Test` folder contains an image that will be used to 
 perform the test prediction
 
 
