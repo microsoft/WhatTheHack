@@ -84,11 +84,11 @@ namespace UnitTests.Core.Game.RoundRunnerTests
         public void IncrementDyanmite_EvenWhenInvalid()
         {
             int previousUsage = _dynamiteOnlyBot.DynamiteUsed;
-            var fakeBot = new FakeBot(Decision.Dynamite, 100);
+            var fakeBot = new FakeBot(Decision.Dynamite, 10);
             fakeBot.Competitor = new Competitor { Name = "test"};
             _roundRunner.RunRound(_dynamiteOnlyBot, fakeBot, _builder.WithDefaults().Build(), new FakeMetrics());
             _dynamiteOnlyBot.DynamiteUsed.Should().Be(previousUsage + 1);
-            fakeBot.DynamiteUsed.Should().Be(101);
+            fakeBot.DynamiteUsed.Should().Be(11);
         }
     }
 }
