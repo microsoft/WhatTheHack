@@ -40,7 +40,7 @@ namespace RockPaperScissor.Core.Game.Bots
         {
             if (_usedDynamite.TryGetValue(matchId, out int usedDynanite))
             {
-                return 100 - usedDynanite <= 0;
+                return 10 - usedDynanite <= 0;
             }
 
             return false;

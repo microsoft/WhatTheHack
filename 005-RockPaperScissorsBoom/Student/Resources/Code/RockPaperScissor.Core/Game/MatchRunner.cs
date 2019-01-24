@@ -26,7 +26,7 @@ namespace RockPaperScissor.Core.Game
 
             RoundResult previousResult = new RoundResult {MatchResult = matchResult};
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 100; i++)
             {
                 previousResult = roundRunner.RunRound(player1, player2, previousResult, metrics);
                 roundResults.Add(previousResult);
