@@ -9,24 +9,29 @@
 
 ## Introduction
 
-With this first challenge you will be able to setup the environment required to run all the further challenges. You will leverage Azure Cloud Shell and an Azure Docker-machine instead of your local machine for any command you will need. In other word, you just need a web browser and an internet connection on your laptop. Furthermore, you will be able to create the associated Azure DevOps project to manage first your backlog, and your builds, releases and tests in further labs.
+With this first challenge you will be able to setup the environment required to run all the further challenges. You will leverage Azure Cloud Shell and an Azure Docker-machine instead of your local machine for any command you will need. In other words, you just need a web browser and an internet connection on your laptop. Furthermore, you will be able to create the associated Azure DevOps project to manage first your backlog, and your builds, releases and tests in further labs.
 
 > The use of Azure Cloud Shell is our recommendation to simplify your experience. But if you prefer using your local machine to do the lab, feel free to do it. Based on our experience, the setup of Docker on local machine (which is required for the labs) could take some time and could have some issues.*
 
-[Docker Machine](https://docs.docker.com/machine/overview/) is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. This will allow you to build a linux VM in Azure that will act as your development box. On this VM you will build and run your code and containers during development. However insted of SSHing into the VM to do this work, the docker machine components will install into your Azure Cloud Shell, giving you control of the docker instance in the VM from the browser. This eliminates the need to install anything locally on your machine.
+[Docker Machine](https://docs.docker.com/machine/overview/) is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands. This will allow you to build a linux VM in Azure that will act as your development box. On this VM you will build and run your code and containers during development. However instead of SSHing into the VM to do this work, the docker machine components will install into your Azure Cloud Shell, giving you control of the docker instance in the VM from the browser. This eliminates the need to install anything locally on your machine.
 
 ![Setup](../docs/Setup.png)
 
 ## Challenges
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repo in your GitHub account
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repo in your GitHub account. We want you to create your own fork so that if you have suggestions or fixes, you can issue a pull-request and submit them back to the main repo.
 1. [Clone](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) your repo in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-   1. We recommend using [Bash (Linux) mode](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) in the cloud shell for this Hack
-   1. Have limited screen real estate? Try the [full screen shell](https://shell.azure.com/)
-1. Setup an Azure Docker-machine to be used through your Azure Cloud Shell ([instructions here](./helpers/CreateDockerMachine.md))
+    * cloning the entire WhatTheHack repo will take several minutes. 
+    * Make sure you clone your OWN fork of the repo, not the Microsoft/WhatTheHack repo.
+    * We recommend using [Bash (Linux) mode](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) in the cloud shell for this Hack
+    * Have limited screen real estate? Try the [full screen shell](https://shell.azure.com/)
+1. Setup an Azure Docker-machine to be used through your Azure Cloud Shell ([instructions here](./helpers/CreateDockerMachine.md)).
+    * Docker-machine makes it easy to set up a Docker host in Azure. We will initially use docker for deploying the Rock Paper Scissors Boom app. 
+
+### Optional Challenges
 1. Create a new Private project in [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=vsts&tabs=new-nav) (with Git and Agile under advanced options)
    1. The source code will be in GitHub, but the rest (backlog, build, release and tests) will be in Azure DevOps.
-1. Populate your Azure DevOps (Boards) backlog with user stories (work items). One user story per challenge. ([List of challenges in the ReadMe](../Readme.md))
+1. Populate your Azure DevOps (Boards) backlog with user stories (work items). One user story per challenge. ([List of challenges in the ReadMe](../README.md))
 
 ## Success criteria
 
