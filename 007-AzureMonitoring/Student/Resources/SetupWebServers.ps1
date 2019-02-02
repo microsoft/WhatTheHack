@@ -34,12 +34,12 @@ $proc = (Start-Process -file msiexec -arg $arguments -Passthru)
 $proc | Wait-Process
 Get-Content $logFile
 
-# Install Microsoft .Net Core 2.1.3
-$exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-hosting-2.1.3-win.exe"
+# Install Microsoft .Net Core Hosting 2.2.0
+$exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-hosting-2.2.0-win.exe"
 if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
 # Download file from Microsoft Downloads and save to local temp file (%LocalAppData%/Temp/2)
-$exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-hosting-2.1.3-win.exe" -PassThru
-Invoke-WebRequest -Uri "https://download.microsoft.com/download/6/E/B/6EBD972D-2E2F-41EB-9668-F73F5FDDC09C/dotnet-hosting-2.1.3-win.exe" -OutFile $exeFileNetCore
+$exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-hosting-2.2.0-win.exe" -PassThru
+Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/48adfc75-bce7-4621-ae7a-5f3c4cf4fc1f/9a8e07173697581a6ada4bf04c845a05/dotnet-hosting-2.2.0-win.exe" -OutFile $exeFileNetCore
 # Run the exe with arguments
 $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
 $proc | Wait-Process
