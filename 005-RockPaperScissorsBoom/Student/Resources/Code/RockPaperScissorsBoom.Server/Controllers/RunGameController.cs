@@ -62,7 +62,11 @@ namespace RockPaperScissorsBoom.Server.Controllers
 
             SaveResults(gameRunnerResult);
             var winner = gameRunnerResult.AllMatchResults.Select(x => x.MatchResults).First().First().Player1.Name;
-            await PublishMessage(gameRunnerResult.GameRecord.Id.ToString(), winner);
+
+            if (bool.Parse(configuration["EventGridOn"]))
+            {
+                await PublishMessage(gameRunnerResult.GameRecord.Id.ToString(), winner);
+            }
             return gameRunnerResult.AllMatchResults.Select(x => x.MatchResults).First().First().Player1.Name;
         }
 
