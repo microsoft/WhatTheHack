@@ -23,6 +23,9 @@ This is a simple challenge to get your Rock Papers Scissors Boom Server app to p
 ## Tips
 
 * Logic Apps would be a good solution for this!
+* The path will be https://[yourwebsite]**/api/rungame**
+* Make sure you use the right HTTP Method (__POST__).
+* Try testing with [Postman](https://www.getpostman.com/) before setting your automation.
 
 ## Learning resources
 
