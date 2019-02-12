@@ -14,7 +14,7 @@ With this second challenge you will be able to run "locally" in your Azure Cloud
 
 1. Leveraging Docker, build and run the app from within Azure Cloud Shell. You can use the docker-compose.yaml file we have provided in /WhatTheHack/005-RockPaperScissorsBoom/student/Resources/Code. 
      * See **Tips** below for an example of how to do this.
-1. Test the app as an end-user, and play a game. You can reach the app via the dockerhost's public IP address. Try `docker-machine ls` to find the IP address.
+1. Test the app as an end-user, and play a game. You can reach the app via the dockerhost's public IP address. Try `az vm show` to find the IP address of your VM. Or, look for it in the portal.
 
 ## Success criteria
 
@@ -26,9 +26,8 @@ With this second challenge you will be able to run "locally" in your Azure Cloud
 
 ## Tips
 
-1. .NET Core is not installed in Azure Cloud Shell?! Don't worry, we have something for you: Docker!
-  - You could for example run this command `docker-compose up --build -d` from the folder where the `docker-compose.yaml` file is.
-1. Your app is deployed on your remote Azure Docker-machine, how to browse the app now, right? Just grab the IP address of your Azure Docker-machine. Give `docker-machine ls` a try ;)
+1. .NET Core is not installed in Azure Cloud Shell?! Don't worry, there's a Docker image for that!
+     * You could for example run this command `docker-compose up --build -d` from the folder where the `docker-compose.yaml` file is.
 1. To edit or read files from within Azure Cloud Shell, you could run `code .` to graphically browse the current folder and its files and subfolders. FYI, `cat` or `vi` are other alternatives.
 
 ## Advanced challenges
