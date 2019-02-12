@@ -45,7 +45,7 @@ The first challenge is to setup an environment that will help you build the Rock
 ## Tips
 
 1. In Azure Cloud Shell, you will leverage the `Bash (Linux)` mode, we all love Linux! <3
-1. To create the Docker Host VM in Azure and connect to it, follow [these instructions](./helpers/CreateDockerHostVMs.md).
+1. To create the Docker Host VM in Azure and connect to it, follow [these instructions](./helpers/CreateDockerHostVM.md).
 
 
 ## Advanced challenges
