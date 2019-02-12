@@ -17,7 +17,7 @@ Important Notes:
 * `RG` should be in lowercase without special characters, just [a-z] and/or [0-9].
 * The `az vm create` command has this parameter `--custom-data` which requires a file called `docker.yaml` - you can find this file here: [docker.yaml](../../../Resources/Code/docker.yaml). 
      * You will need to run the `az vm create` command in the directory where `docker.yaml` exists **or** update the path to the `docker.yaml` file.
-     * `--custom-data` uses Cloud-init which is a widel used approach for customizing Linux VMs as they boot for the first time. Learn more about [Azure and Cloud-init](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init).
+     * `--custom-data` uses Cloud-init which is a widely used approach for customizing Linux VMs as they boot for the first time. Learn more about [Azure and Cloud-init](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init).
 * This script creates a Resoure Group for you, a Network Security Group, a VNet, a Public IP Address, the VM and it supporting resources (hard disk, nic).
 * Remember, you are running this inside Azure Cloud Shell!
 * Don't change the `--admin-username` value. 
