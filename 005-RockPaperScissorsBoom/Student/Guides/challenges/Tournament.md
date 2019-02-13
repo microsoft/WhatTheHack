@@ -66,7 +66,7 @@ Replace &lt;ACR LOGIN URL&gt;, &lt;ACR User Name&gt;, &lt;ACR password&gt; with 
 az appservice plan create -n $PLANNAME -g $RG --is-linux -l $LOC
 az webapp create -n $APPNAME --p $PLANNAME -g $RG --deployment-container-image-name <ACR LOGIN URL>/examplebot:1
 az webapp config container set -n $APPNAME -i <ACR LOGIN URL>/examplebot:1  -r <ACR LOGIN URL> -g $RG --docker-registry-server-user <ACR User Name> --docker-registry-server-password <ACR password>
-az webapp show -n $APPNAME-g $RG
+az webapp show -n $APPNAME -g $RG
 ```
 What is happening here?
 * You are building a Linux app service plan.
