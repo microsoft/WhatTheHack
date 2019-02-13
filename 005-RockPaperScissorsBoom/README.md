@@ -49,6 +49,12 @@ Here are the technologies and services you will leverage:
 1. [Send a Winner Notification](./Student/Guides/challenges/SendWinnerNotification.md)
 1. [Run a Load Test](./Student/Guides/challenges/RunALoadTest.md)
 
+### Tournament
+
+* Towards the end of the workshop we'll ask you to deploy your own Rock Paper Scissors Boom bot so we can have a tournament challenge. 
+
+**[Tournament Instructions](./challenges/Tournament.md)*
+
 ## About the Rock Paper Scissors Boom app
 
 Rock Paper Scissors Boom is a collaborative competition among developers. It's based on a project idea from a Microsoft Developer Evangelist that was called "Rock Paper Azure".
