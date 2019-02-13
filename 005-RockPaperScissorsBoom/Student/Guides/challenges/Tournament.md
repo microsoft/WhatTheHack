@@ -51,7 +51,7 @@ Note for use in the following steps:
 Run the following in the Azure Cloud Shell.
 
 ```
-az acr build -r $ACRNAME -f Dockerfile-ExampleBot -t examplebot:1 
+az acr build -r $ACRNAME -f Dockerfile-ExampleBot -t examplebot:1 .
 ```
 What is happening here?
 * You are using the Azure Container Registry **Build** feature to build your image (rather than requiring your own Docker Host to build images). It is using the `Dockerfile-ExampleBot` file for instructions on how to build the examplebot image. It is tagging the image as `examplebot:1`.
