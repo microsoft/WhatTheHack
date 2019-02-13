@@ -53,7 +53,7 @@ Here are the technologies and services you will leverage:
 
 * Towards the end of the workshop we'll ask you to deploy your own Rock Paper Scissors Boom bot so we can have a tournament challenge. 
 
-**[Tournament Instructions](./challenges/Tournament.md)*
+**[Tournament Instructions](./Student/Guides/challenges/Tournament.md)**
 
 ## About the Rock Paper Scissors Boom app
 
