@@ -1,40 +1,22 @@
-# What, Why and How
+## What the Hack Hackathon
 
-- "What the Hack" is a challenge based hackathon format
-- Challenges describe high-level tasks and goals to be accomplished
-- Challenges are not step-by-step labs
-- Attendees work in teams of 3 to 5 people to solve the challenges
-- Attendees "learn from" and "share with" each other
-- By having to "figure it out", attendee knowledge retention is greater
-- Proctors provide guidance, but not answers to the teams
-- Emcees provide lectures & demos to setup challenges & review solutions
-- What the Hack can be hosted in-person or virtually via MS Teams
+Updated by Laura Edell, Sr. Data Scientist | Microsoft MSUS CTO CSU Organization
+<br>Date: 10/15/2018
 
-# How to Add Your Hack
+####  Got Data? An Introduction to Using Spark on Azure Databricks
 
-We welcome all new hacks! The process for doing this is:
-- Fork this repo into your own github account
-- Create a new branch for your work
-- Add a new top level folder using the next number in sequence, eg:
-	- 011-BigNewHack
-- Within this folder, create two folders, each with two folders with in that looks like this:
-	- Host
-		- Guides
-		- Solutions
-	- Student
-		- Guides
-		- Resources
-- The content of each folder should be:
-	- **Student/Guides**: The Student's Guide
-	- **Student/Resources**: Any template or "starter" files that students may need in challenges
-	- **Host/Guides**: The Proctor's Guide lives here as well as any Lecture slide decks
-	- **Host/Solutions**: Specific files that the proctors might need that have solutions in them.
-- Once your branch and repo have all your content and it formatted correctly, follow the instructions on this page to submit a pull request back to the main repository:
-	- https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+Use the challenges in this repo to get started using Spark in Azure Databricks.
 
-# [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
-This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
+0a. Start by following the [Setup Guide](Student/Setup%20Guide.docx) to prepare your Azure environment. 
 
-# [Contributing](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md)
+0b. Download the [Challenge Files](Student/Databricks_Challenges_updated.zip) from this repo or fork this repository to your own. After you successfully complete both steps listed as 0a and 0b, please complete the challenges in the following in order:
 
-We welcome contributions and suggestions. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md).
+1. [Challenge 1 - Getting Started with Spark](Student/Challenge1-GettingStartedwithSpark.docx) In this challenge, you'll learn how to provision a Spark cluster in an Azure Databricks workspace, followed by interacting with the data using Python or Scala.
+
+2. [Challenge 2 - Running a Spark Job](Student/Challenge2-RunningSparkJob.docx). In this challenge, you'll learn how to configure a Spark job for silent execution allowing you to schedule your batch processing workloads.
+
+3. [Challenge 3 - Using Structured Streaming](Student/Challenge3-SparkStreaming.docx). In this challenge, you'll learn how to use Spark to process stream(s) of real-time data using IoT sensor data.
+
+4. [Challenge 4 - Introduction to Machine Learning](Student/Challenge4-IntroductionSparkforMachineLearning.docx). In this challenge, you'll be introduced to using Spark to train &  evaluate a classification model.
+
+In the Advanced Databricks workshop, you will learn more about MMLSpark and how to build several types of Supervised and Unsupervised Machine Learning models for different business use cases (link needs to be added).
