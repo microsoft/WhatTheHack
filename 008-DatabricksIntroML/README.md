@@ -1,7 +1,7 @@
 ## What the Hack Hackathon
 
 Updated by Laura Edell, Sr. Data Scientist | Microsoft MSUS CTO CSU Organization
-<br>Date: 10/15/2018
+<br>Date: 1/31/2019
 
 ####  Got Data? An Introduction to Using Spark on Azure Databricks
 
@@ -19,4 +19,4 @@ Use the challenges in this repo to get started using Spark in Azure Databricks.
 
 4. [Challenge 4 - Introduction to Machine Learning](Student/Challenge4-IntroductionSparkforMachineLearning.docx). In this challenge, you'll be introduced to using Spark to train &  evaluate a classification model.
 
-In the Advanced Databricks workshop, you will learn more about MMLSpark and how to build several types of Supervised and Unsupervised Machine Learning models for different business use cases (link needs to be added).
+In the Advanced Databricks workshop, you will learn more about MMLSpark and how to build several types of Supervised and Unsupervised Machine Learning models for different business use cases https://github.com/annedroid/Ready2019_AA_AI319
