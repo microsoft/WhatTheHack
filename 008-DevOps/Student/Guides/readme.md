@@ -2,4 +2,4 @@
 
 ## The Student's Guide
 
-Please see the full list of DevOps Challenges [Here](../readme.md)
+Please see the full list of DevOps Challenges [Here](../../readme.md)

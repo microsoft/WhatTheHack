@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DevOps is a journey not a destination. Our goal when writing this challenged based hack is to introduce you to the Azure DevOps tooling and some common DevOps practices. We also understand that your choice of programming language and DevOps processes might differ from the ones we will be reviewing in this hack. Our intent was to select some of the most common programming languages and highlight industry best practices, with an emphasis on showing how Azure DevOps can help you on your DevOps journey, so that you can apply this in your environment with the languages and tools that you use.
+DevOps is a journey not a destination. Our goal when writing this challenged based hack is to introduce you to the Azure DevOps tooling and some common DevOps practices. We also understand that your choice of programming language and DevOps processes might differ from the ones we will be using in this hack, that is OK. Our intent was to select some of the most common programming languages and highlight industry best practices, with an emphasis on showing how Azure DevOps can help you on your DevOps journey, so that you can apply this in your environment with the languages and tools that you use.
 
 ## Challenges
  - [Challenge 0](./Student/Guides/challenge00.md) - Setup
