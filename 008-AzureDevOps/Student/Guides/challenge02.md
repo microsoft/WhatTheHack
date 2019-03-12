@@ -12,7 +12,7 @@ In the last challenge we learned that Agile project management is a key componen
 3. [What is Kanban](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-kanban)
 4. [What is Agile Development?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile-development)
 
-To help you with Agile project management, Azure DevOps includes Azure Boards. With Azure Boards, you can quickly and easily start tracking user stories, backlog items, task, features, and bugs associated with your project. Please reivew the following introduction to Azure Boards:
+To help you with Agile project management, Azure DevOps includes Azure Boards. With Azure Boards, you can quickly and easily start tracking user stories, backlog items, task, features, and bugs associated with your project. Please review the following introduction to Azure Boards:
 
 1. [What is Azure Boards?](https://docs.microsoft.com/en-us/azure/devops/boards/get-started/what-is-azure-boards)
 
@@ -24,4 +24,4 @@ To help you with Agile project management, Azure DevOps includes Azure Boards. W
 
 ### Success Criteria
 
-1. You should have experianced creating and managing work items via Azure Boards.
+1. You should have experienced creating and managing work items via Azure Boards.
