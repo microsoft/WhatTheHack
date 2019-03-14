@@ -12,7 +12,8 @@ DevOps is a very broad topic and you have lots of choices when it comes to the t
 1. Create an [Azure](https://azure.microsoft.com/) Subscription that you can use for this hack. If you already have a subscription you can use it or you can get a free trial [here](https://azure.microsoft.com/free/).
 3. Log into the [Azure Portal](https://portal.azure.com) and confirm that you have an active subscription that you can deploy cloud services to.
 4. Log into [Azure DevOps](https://dev.azure.com/) using the **SAME** account as you use to log into your Azure Subscription and create a new project named `What The Hack Azure DevOps`. The project should be `Private`, use `Git` version control and an `Agile Work item` process ([hint](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates))
-6. Download and install [Visual Studio Code](https://code.visualstudio.com/)
+5. Download and install [Git SCM](https://git-scm.com/download) if you don't have it or a similar Git client installed
+6. Download and install [Visual Studio Code](https://code.visualstudio.com) if you don't have it
    
 
 ### Success Criteria
