@@ -32,5 +32,6 @@ The build process will not only compile our .NET Core applicaiton, it should pac
 
 ### Success Criteria
 
-1. Your build should complete without any errors
-2. Using the Auzre Portal or CLI you should see your container in your Azure Container Registry Repository
+1. Your build should complete without any errors.
+2. Review the test results genterated by your build. HINT: look in the logs from your build to find where the test run was published. 
+3. Using the Auzre Portal or CLI you should see your container in your Azure Container Registry Repository
