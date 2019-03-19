@@ -16,6 +16,7 @@ The build process will not only compile our .NET Core applicaiton, it should pac
 2. Enable continous intergration on your build pipeline ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#enable-continuous-integration-ci))
 3. In our ArmTemplates folder you will find an templated called `containerRegistry-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
 4. Add a **Azure Resource Group Deployment** task as the first step in your pipeline to execute this ARM template and configure its properties.
+   1. HINT: you can pass parameters into your template using the `Override template parameters` proprty on the task. Click the ellipsis next to the property text box.
 5. Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core applicaiton ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
    1. First we call the `restore` command, this will get all the dependencies that our .net core applicaiton needs to compile
    2. Next we call the `build` command, this will actually compile our code
@@ -29,7 +30,7 @@ The build process will not only compile our .NET Core applicaiton, it should pac
       1. In the last step you just put the fully qualified name of your Azure Container Registry, in this step you will need is full locaiton, not just its name. However since it has not been created yet, since we have not executed our ARM template yet, you cannot use the designer to look it up. Use this string, replacing values as approperate `{"loginServer":"<<your ACR>>.azurecr.io", "id" : "/subscriptions/<<the GUID of your subscription>>/resourceGroups/<<the name of the resource group your ACR is in>>/Microsoft.ContainerRegistry/registries/<<your ACR>>"}`
 7. Last thing we need to add before we publish, is to copy our ArmTemplates to the `$(build.artifactstagingdirectory)` directory using a `copy files` task, this will ensure that our Continuous Delivery pipeline.
 8. Now that we have a working build, lets notify the team if the build breaks by creating a new Work Item. ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops&tabs=designer#create-a-work-item-on-failure))
-9. Now, make and check in a code change that will break the build. Ensure that a work item gets created.
+9.  Now, make and check in a code change that will break the build. Ensure that a work item gets created.
 10. Referencing the work item that was automatically created, fix your code, ensure the build looks good, and then resolve the work item that was created. 
 
 
