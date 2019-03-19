@@ -19,3 +19,5 @@
 2. You should understand what offerings for Azure DevOps are available.
 3. You should be able to list and describe the major features of Azure DevOps.
 4. You should be able to see the Azure DevOps Organizations and projects created by the other members of your hack team.
+
+[Back](challenge00.md) - [Home](../../readme.md) - [Next](challenge02.md)
