@@ -1,6 +1,6 @@
 # What the Hack: DevOps 
 
-## Challenge 4 – Azure Pipelines: Build
+## Challenge 4 – Azure Pipelines: Continuous Integration
 [Back](challenge03.md) - [Home](../../readme.md) - [Next](challenge05.md)
 
 ### Introduction

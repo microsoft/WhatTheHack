@@ -1,6 +1,6 @@
 # What the Hack: DevOps 
 
-## Challenge 1 - Azure DevOps Intro
+## Challenge 1 - Azure DevOps: Introduction
 [Back](challenge00.md) - [Home](../../readme.md) - [Next](challenge02.md)
 
 ### Introduction
