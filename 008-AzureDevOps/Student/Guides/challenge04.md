@@ -28,6 +28,9 @@ The build process will not only compile our .NET Core applicaiton, it should pac
    2. Push the Docker Image ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=designer#push-an-image))
       1. In the last step you just put the fully qualified name of your Azure Container Registry, in this step you will need is full locaiton, not just its name. However since it has not been created yet, since we have not executed our ARM template yet, you cannot use the designer to look it up. Use this string, replacing values as approperate `{"loginServer":"<<your ACR>>.azurecr.io", "id" : "/subscriptions/<<the GUID of your subscription>>/resourceGroups/<<the name of the resource group your ACR is in>>/Microsoft.ContainerRegistry/registries/<<your ACR>>"}`
 7. Last thing we need to add before we publish, is to copy our ArmTemplates to the `$(build.artifactstagingdirectory)` directory using a `copy files` task, this will ensure that our Continuous Delivery pipeline.
+8. Now that we have a working build, lets notify the team if the build breaks by creating a new Work Item. ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops&tabs=designer#create-a-work-item-on-failure))
+9. Now, make and check in a code change that will break the build. Ensure that a work item gets created.
+10. Referencing the work item that was automatically created, fix your code, ensure the build looks good, and then resolve the work item that was created. 
 
 
 ### Success Criteria
