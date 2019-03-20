@@ -23,7 +23,7 @@ In this challenge we will look at some of the telemetry that has already been co
 
 ### Success Criteria
 
-1. You should understand the importance of monitoring, some of the basic features offered by Appliation Insights, and the intergration between Applicaiton Insights and Azure DevOps.
+1. You should understand the importance of monitoring, some of the basic features offered by Application Insights, and the integration between Applicaiton Insights and Azure DevOps.
     > NOTE: We are just scratching the surface of what is offered in Azure Monitoring, if you are interested in learning more there is a full What the Hack focused on Azure Monitoring.
 
 

@@ -5,17 +5,21 @@
 
 ### Introduction
 
+Now that we have a deployed instance of our code, we are likely going to get a request to add a feature to our code. To this we need to implement a branching strategy. Review the below articles on the basics of a Git branching strategy and the modified version Microsoft uses called Release Flow.
+
 1. [Git Branching Strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
 2. [Release Flow](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow)
 
 
 ### Challenge
 
+In this challenge we will first create a second build pipeline that will build and run unit tests on any code before it gets checked into the master branch. We will also implement a few policies in Azure DevOps to ensure that our team is following the rules. Finally we will make a change to our code to see how branching in Git works. 
+
 1. Clone the build pipeline that we created earlier.
    1. Remove all but the `restore`, `build` and `test` tasks.
-   2. Turn off the continous intergration trigger.
+   2. Turn off the continuous integration trigger.
 2. Setup a Branch Policy to protect our `master` branch, [hint](https://docs.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops). The policy shall: 
-   1. Requrie at least 1 reviewer, however users should be able to approve their own changes.
+   1. Require at least 1 reviewer, however users should be able to approve their own changes.
    2. Require at least 1 linked work item.
    3. Perform a `Build validation` using our new build pipeline.
 3. Using a simple Git Branching strategy lets make a change. 
@@ -27,7 +31,7 @@
 
 ### Success Criteria
 
-1. You should see the change you made deployed to your `ingergration` site.
+1. You should see the change you made deployed to your `integration` site.
 2. Your work item should be in the "closed" state.
 
 
