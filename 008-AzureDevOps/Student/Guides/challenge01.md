@@ -5,6 +5,8 @@
 
 ### Introduction
 
+We can only assume that you are doing this What the Hack because you understand the importance of DevOps, however please take a moment to review these brief articles about the basic motivation behind DevOps and the Azure DevOps tool.
+
 1. [What is DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)
 2. [What features and services do I get with Azure DevOps?](https://docs.microsoft.com/en-us/azure/devops/user-guide/services)
 3. [Azure DevOps Services vs. Azure DevOps Server](https://docs.microsoft.com/en-us/azure/devops/user-guide/about-azure-devops-services-tfs) - Just read and understand the first section that describes what offerings available, no need to dig through all the feature differences at this time, unless you are interested. 
@@ -12,6 +14,8 @@
 ### Challenge
 
 1. Give the other members of your hack team contributor access to your project in Azure DevOps ([hint](https://docs.microsoft.com/en-us/azure/devops/organizations/security/add-users-team-project))
+2. Optional: Take the [DevOps Self-Assessment](https://www.devopsassessment.net) this will take between 20 to 40 minutes. 
+
 
 ### Success Criteria
 
