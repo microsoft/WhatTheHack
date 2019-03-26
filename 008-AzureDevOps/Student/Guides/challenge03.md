@@ -15,7 +15,7 @@ Historically version control has been the first component that teams have implem
 Now that we have a basic understanding of version control and Git, lets get some code checked into source control. Since the language you use for development doesn’t have much of an impact on how we do DevOps we have provided you a simple ASP.NET Core C# web application to use. 
 
 1. When you created your project in Azure DevOps, it created a default repository for you in Azure Repos. Clone this repo to your local computer ([hint](https://code.visualstudio.com/Docs/editor/versioncontrol#_cloning-a-repository)).
-2. Download the code for the applicaiton [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/Microsoft/devops-project-samples/tree/master/dotnet/aspnetcore/containerWithTests&fileName=AzureDevOpsWhatTheHack&rootDirectory=AzureDevOpsWhatTheHack).
+2. Download the code for the application [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/Microsoft/devops-project-samples/tree/master/dotnet/aspnetcore/containerWithTests&fileName=AzureDevOpsWhatTheHack&rootDirectory=AzureDevOpsWhatTheHack).
 3. Unzip the download. You should see 2 folders. One containing the application and the other containing our Infrastructure as Code Azure Resource Manager (ARM) templates. Copy both of these folders into the root of your cloned repository. 
 4. Check the files into Azure Repos using VS Code or your favorite Git client ([hint](https://docs.microsoft.com/en-us/azure/devops/user-guide/code-with-git?view=azure-devops)). **Be sure to include a # sign followed by the work item number for this challenge to the Git commit message.** For example: if you work item number is 55 your check in message should look like this  `init #55`.
 

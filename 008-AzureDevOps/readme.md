@@ -12,5 +12,5 @@ DevOps is a journey not a destination. Our goal when writing this challenged bas
  - [Challenge 4](./Student/Guides/challenge04.md) - Azure Pipelines: Continuous Integration
  - [Challenge 5](./Student/Guides/challenge05.md) - Azure Pipelines: Continuous Delivery
  - [Challenge 6](./Student/Guides/challenge06.md) - Azure Repos: Branching & Policies
- - [Challenge 7](./Student/Guides/challenge07.md) - Azure Monitoring: Applicaiton Insights 
+ - [Challenge 7](./Student/Guides/challenge07.md) - Azure Monitoring: Application Insights 
  - [Challenge 8](./Student/Guides/challenge08.md) - Azure Pipelines: Continuous Delivery Part 2

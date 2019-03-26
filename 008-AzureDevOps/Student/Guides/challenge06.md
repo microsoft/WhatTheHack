@@ -24,7 +24,7 @@ In this challenge we will first create a second build pipeline that will build a
    3. Perform a `Build validation` using our new build pipeline.
 3. Using a simple Git Branching strategy lets make a change. 
    1. Your manager has asked that you update the copyright information at the bottom of the site, currently it says `© ASP.NET Core` and it should say `© 2019 Contoso Corp.`
-   2. Create a Work Item requesting we implment the feature. 
+   2. Create a Work Item requesting we implement the feature. 
    3. Make the change in your code. Be sure to make this change on a new "feature branch"
    4. Create a Pull Request to merge the change into `master`. Notice how the policies you set are audited on your pull request.
    5.  Complete your pull request.
