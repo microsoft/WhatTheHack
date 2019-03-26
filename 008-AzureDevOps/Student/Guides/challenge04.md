@@ -12,19 +12,19 @@ Great we now have some code, lets build it. In DevOps we automate this process u
 
 ### Challenge
 
-In Azure DevOps we use Azure Pipelines to automate our build process. For our application the build process will not only compile our .NET Core applicaiton, it should test it, and package it into a Docker Container and publish the container to Azure Container Registry.
+In Azure DevOps we use Azure Pipelines to automate our build process. For our application the build process will not only compile our .NET Core application, it should test it, and package it into a Docker Container and publish the container to Azure Container Registry.
 
 1. Create a build pipeline using the **ASP.NET Core** template ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#create-a-build-pipeline))
 2. Enable continuous integration on your build pipeline ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#enable-continuous-integration-ci))
-3. In our ArmTemplates folder you will find an templated called `containerRegistry-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
+3. In our ArmTemplates folder you will find a template called `containerRegistry-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
 4. Add a **Azure Resource Group Deployment** task as the first step in your pipeline to execute this ARM template and configure its properties.
    1. HINT: you can pass parameters into your template using the `Override template parameters` property on the task. Click the ellipsis next to the property text box.
-5. Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core applicaiton ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
-   1. First we call the `restore` command, this will get all the dependencies that our .net core applicaiton needs to compile
+5. Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core application ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
+   1. First we call the `restore` command, this will get all the dependencies that our .net core application needs to compile
    2. Next we call the `build` command, this will actually compile our code
    3. Next we call the `test` command, this should execute all our unit tests in the `**/*UnitTests/*.csproj` folder path. HINT: the template links this task setting to a pipeline setting that will need to be updated to match the folder structure of our code.
    4. The last .NET Core build task in the template is to `publish` the .net core app. The template publishes the application to a zip file, we don’t want it zipped so undo this setting. Additionally, change the output argument to here `$(System.DefaultWorkingDirectory)/PublishedWebApp` 
-6. Now that our .NET core applicaiton is compiled and all the unit tests have been run, we need to package it into a Docker Container and publish the container to Azure Container Registry, to do this we are going to add 2 docker tasks to our build pipeline, before we publish the build artifiact.
+6. Now that our .NET core application is compiled and all the unit tests have been run, we need to package it into a Docker Container and publish the container to Azure Container Registry, to do this we are going to add 2 docker tasks to our build pipeline, before we publish the build artifact.
    1. Build the Docker Image ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=designer#build-an-image)).
       1. You named your Azure Container Registry in a parameter you sent to the ARM template earlier, however this time fully qualify it by adding `.azurecr.io` to the end.
       2. You did not build your app into the default build context, you did it here `$(System.DefaultWorkingDirectory)/PublishedWebApp`
