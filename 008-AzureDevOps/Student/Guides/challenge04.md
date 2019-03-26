@@ -14,7 +14,7 @@ Great we now have some code, lets build it. In DevOps we automate this process u
 
 In Azure DevOps we use Azure Pipelines to automate our build process. For our application the build process will not only compile our .NET Core application, it should test it, and package it into a Docker Container and publish the container to Azure Container Registry.
 
-1. Create a build pipeline using the **ASP.NET Core** template ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#create-a-build-pipeline))
+1. Create a build pipeline using the **ASP.NET Core** template
 2. Enable continuous integration on your build pipeline ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#enable-continuous-integration-ci))
 3. In our ArmTemplates folder you will find a template called `containerRegistry-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
 4. Add a **Azure Resource Group Deployment** task as the first step in your pipeline to execute this ARM template and configure its properties.
