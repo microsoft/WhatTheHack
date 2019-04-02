@@ -13,7 +13,7 @@ In DevOps after we automate our build process, we want to automate our release p
 
 In Azure DevOps we use an Azure Pipeline to release our software. In this challenge we will create an integration or QA environment and configure our pipeline to automatically deploy our application to this environment every time new code is checked in. 
 
-1. Create a new Release Pipeline using the Azure App Service Deployment Template
+1. Create a new Release Pipeline using the Azure App Service Deployment Template using the Web App for Containers (Linux) App Type.
 2. To start off our deployment will only have one stage, lets call it `Integration`
 3. The output of our CI Build pipeline will be the input artifact to our CD Release pipeline, add it. 
 4. Enable Continuous deployment so that each time the CI pipeline finishes successfully, this pipeline will start. 
