@@ -1,4 +1,4 @@
-# What the Hack: Azure DevOps (DRAFT)
+# What the Hack: Azure DevOps
 
 ## Introduction
 

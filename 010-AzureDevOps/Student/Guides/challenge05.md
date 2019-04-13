@@ -18,6 +18,7 @@ In Azure DevOps we use an Azure Pipeline to release our software. In this challe
 3. The output of our CI Build pipeline will be the input artifact to our CD Release pipeline, add it. 
 4. Enable Continuous deployment so that each time the CI pipeline finishes successfully, this pipeline will start. 
 5. If you look at the tasks for our `Integration` stage you will see a single `Deploy Azure App Service` task, however before we do this, we will need to create our environment using the same Infrastructure as Code technique we used in the last challenge. In our ArmTemplates folder you will find a template called `container-webapp-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
+   1. HINT: Use the same resource group that you used in the last challenge.
 6. Add a **Azure Resource Group Deployment** task as the first step in your pipeline to execute this ARM template and configure its properties, the same way you did in the last challenge.
    1. NOTE: your webapp name needs to be globally unique, add `-integration` to the end.
 
