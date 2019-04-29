@@ -1,8 +1,5 @@
 ## What the Hack Hackathon
 
-Updated by Laura Edell, Sr. Data Scientist | Microsoft MSUS CTO CSU Organization
-<br>Date: 1/16/2019
-
 ####  Got Data? An Introduction to Using Spark on Azure Databricks
 
 Use the challenges in this repo to get started using Spark in Azure Databricks.
