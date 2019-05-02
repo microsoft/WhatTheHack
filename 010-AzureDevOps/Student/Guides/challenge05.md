@@ -29,7 +29,6 @@ In Azure DevOps we use Azure Pipelines to automate our build process. For our ap
 8.  Now, make and check in a code change that will break the build. Ensure that a work item gets created. 
 9.  Referencing the work item that was automatically created, fix your code, ensure the build looks good, and then resolve the work item that was created. 
 
-
 ### Success Criteria
 
 1. Your build should complete without any errors.
