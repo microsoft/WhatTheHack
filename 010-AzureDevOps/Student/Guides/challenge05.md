@@ -1,32 +1,41 @@
 # What the Hack: DevOps 
 
-## Challenge 5 – Azure Pipelines: Continuous Delivery
+## Challenge 5 – Azure Pipelines: Continuous Integration
 [Back](challenge04.md) - [Home](../../readme.md) - [Next](challenge06.md)
 
 ### Introduction
 
-In DevOps after we automate our build process, we want to automate our release process, we do this with a technique called Continuous Delivery. Please take a moment to review this brief article talking about why this is important. 
+Great we now have some infrastructure and some code, lets build it. In DevOps we automate this process using something called Continuous Integration. Take a moment to review the article below to gain a better understanding of what CI is. 
 
-1. [What is Continuous Delivery?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-delivery)
+1. [What is Continuous Integration?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-integration)
+
 
 ### Challenge
 
-In Azure DevOps we use an Azure Pipeline to release our software. In this challenge we will create an integration or QA environment and configure our pipeline to automatically deploy our application to this environment every time new code is checked in. 
+In Azure DevOps we use Azure Pipelines to automate our build process. For our application the build process will not only compile our .NET Core application, it should test it, and package it into a Docker Container and publish the container to Azure Container Registry.
 
-1. Create a new Release Pipeline using the Azure App Service Deployment Template
-2. To start off our deployment will only have one stage, lets call it `Integration`
-3. The output of our CI Build pipeline will be the input artifact to our CD Release pipeline, add it. 
-4. Enable Continuous deployment so that each time the CI pipeline finishes successfully, this pipeline will start. 
-5. If you look at the tasks for our `Integration` stage you will see a single `Deploy Azure App Service` task, however before we do this, we will need to create our environment using the same Infrastructure as Code technique we used in the last challenge. In our ArmTemplates folder you will find a template called `container-webapp-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
-   1. HINT: Use the same resource group that you used in the last challenge.
-6. Add a **Azure Resource Group Deployment** task as the first step in your pipeline to execute this ARM template and configure its properties, the same way you did in the last challenge.
-   1. NOTE: your webapp name needs to be globally unique, add `-integration` to the end.
+1. Create a build pipeline using the **ASP.NET Core** template (the one with the icon with the black box) and name it `CI Build`
+2. Enable continuous integration on your build pipeline ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#enable-continuous-integration-ci))
+3. Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core application ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
+   1. First we call the `restore` command, this will get all the dependencies that our .net core application needs to compile
+   2. Next we call the `build` command, this will actually compile our code
+   3. Next we call the `test` command, this should execute all our unit tests in the `**/*UnitTests/*.csproj` folder path. HINT: the template links this task setting to a pipeline setting that will need to be updated to match the folder structure of our code.
+   4. The last .NET Core build task in the template is to `publish` the .net core app. The template publishes the application to a zip file, we don’t want it zipped so undo this setting. Additionally, change the output argument to here `$(System.DefaultWorkingDirectory)/PublishedWebApp` 
+4. You can delete the `publish the build artifact` step since we are going to creat a container and publish it to Azure Container Registry.
+5. Now that our .NET core application is compiled and all the unit tests have been run, we need to package it into a Docker Container and publish the container to Azure Container Registry, to do this we are going to add a docker task to our build pipeline.
+   1. We want to use the `buildAndPush` command with the following Docker file `**/Dockerfile`, build context `$(System.DefaultWorkingDirectory)/PublishedWebApp` and tag `$(Build.BuildId)` (NOTE: here we are dynamically pulling the build number from Azure DevOps at run time)
+6. Lets kick off a build manually to ensure that we have a working build.
+7. Next lets notify the team if the build breaks by creating a new Work Item. ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops&tabs=designer#create-a-work-item-on-failure))
+8.  Now, make and check in a code change that will break the build. Ensure that a work item gets created. 
+9.  Referencing the work item that was automatically created, fix your code, ensure the build looks good, and then resolve the work item that was created. 
 
 
 ### Success Criteria
 
-1. You should now be able to manually trigger a successful release.
-2. Make a small change to your code (for example: update some fo the HTML on the Index page `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), it should automatically trigger a build and release.
-3. View the website running in your integration environment.
-   
+1. Your build should complete without any errors.
+2. Review the test results generated by your build. HINT: look in the logs from your build to find where the test run was published. 
+3. Using the Azure Portal or CLI you should see your container in your Azure Container Registry Repository
+
+> NOTE: We are just scratching the surface of what is offered in Azure for Infrastructure as Code, if you are interested in learning more there is a full What the Hack focused on Azure Infrastructure as Code.
+
 [Back](challenge04.md) - [Home](../../readme.md) - [Next](challenge06.md)
