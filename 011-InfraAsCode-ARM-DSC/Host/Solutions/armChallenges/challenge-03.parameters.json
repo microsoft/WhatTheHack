@@ -1,0 +1,18 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vnetName": {
+        "value": "P20VNet"
+      },
+      "vnetPrefix": {
+        "value": "10.0.0.0/16"
+      },
+      "subnetName": {
+        "value": "Default"
+      },
+      "subnetPrefix": {
+        "value": "10.0.0.0/24"
+      }
+    }
+}
