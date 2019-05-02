@@ -1,30 +1,39 @@
 # What the Hack: DevOps 
 
-## Challenge 7 – Azure Monitoring: Application Insights
+## Challenge 7 – Azure Repos: Branching & Policies
 [Back](challenge06.md) - [Home](../../readme.md) - [Next](challenge08.md)
 
 ### Introduction
 
-To bring our DevOps journey full circle we need to understand what is happening in our deployed sites. It is too late for us to find out about a problem, by the time our users are complaining about it. It is also imperative to know about not only the performance of the site, but also the impact positive or negative a feature has had on our users. Please take a moment to review the articles below to gain a better understanding of the importance of monitoring and Application Insights, one of the tools we have to make it easy in Azure. 
+Now that we have a deployed instance of our code, we are likely going to get a request to add a feature to our code. To this we need to implement a branching strategy. Review the below articles on the basics of a Git branching strategy and the modified version Microsoft uses called Release Flow.
 
-1. [What is Monitoring?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-monitoring)
-2. [What is Application Insights?](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+1. [Git Branching Strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
+2. [GitHub Flow](https://guides.github.com/introduction/flow/)
+3. [Release Flow](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow)
+
 
 ### Challenge
 
-In this challenge we will look at some of the telemetry that has already been collected by our running instance. We will also link Application Insights to Azure DevOps. This will allow us to open work items in Azure Boards directly from Application Insights, ensuring that there is full traceability between the issue that happened and all the technical information about it to the work item that was created to ask the dev team to fix it, to the code that fixed the issue, to the build and release that saw that fix get deployed. 
+In this challenge we will first create a second build pipeline that will build and run unit tests on any code before it gets checked into the master branch. We will also implement a few policies in Azure DevOps to ensure that our team is following the rules. Finally we will make a change to our code to see how branching in Git works. 
 
-1. Re-review the `container-webapp-template.json` ARM template. Find where the Application Insights node was created and note how it the App Service Web Site was configured to send its logs there. 
-2. Create a dashboard in the Azure Portal to provide a summary of the status of our site. ([Hint](https://docs.microsoft.com/en-us/azure/azure-monitor/app/overview-dashboard#application-dashboard))
-3. Implement an outside in availability test for the homepage of your site ([Hint](https://docs.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability))
-4. Link your Application Insights instance with your Azure Boards instance ([Hint](https://azure.microsoft.com/en-us/blog/application-insights-work-item-integration-with-visual-studio-team-services/))
-5. Using the failures feature of Application Insights find an exception that happened on your site. Using the link you created in the last step, open a work item to resolve that exception. 
-    > NOTE: If your site doesn’t have any exceptions, you can create one easily by trying to go to a page that doesn’t exist.
+1. Clone the build pipeline that we created earlier.
+   1. Remove all but the `restore`, `build` and `test` tasks.
+   2. Turn off the continuous integration trigger.
+2. Setup a Branch Policy to protect our `master` branch, [hint](https://docs.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops). The policy shall: 
+   1. Require at least 1 reviewer, however users should be able to approve their own changes (NOTE: you will likely not want to do this in a real app)
+   2. Require at least 1 linked work item.
+   3. Perform a `Build validation` using our new build pipeline.
+3. Using a simple Git Branching strategy lets make a change. 
+   1. Your manager has asked that you update the copyright information at the bottom of the site, currently it says `© ASP.NET Core` and it should say `© 2019 Contoso Corp.`
+   2. Create a Work Item requesting we implement the feature. 
+   3. Make the change in your code. Be sure to make this change on a new "feature branch"
+   4. Create a Pull Request to merge the change into `master`. Notice how the policies you set are audited on your pull request.
+   5.  Complete your pull request.
 
 ### Success Criteria
 
-1. You should understand the importance of monitoring, some of the basic features offered by Application Insights, and the integration between Application Insights and Azure DevOps.
-    > NOTE: We are just scratching the surface of what is offered in Azure Monitoring, if you are interested in learning more there is a full What the Hack focused on Azure Monitoring.
+1. You should see the change you made deployed to all three of your environments.
+2. Your work item should be in the "closed" state.
 
 
 [Back](challenge06.md) - [Home](../../readme.md) - [Next](challenge08.md)
