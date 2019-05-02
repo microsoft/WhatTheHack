@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 8 – Azure Monitoring: Application Insights
-[Back](challenge07.md) - [Home](../../readme.md) - [Next](../../challenge09.md) 
+[Back](challenge07.md) - [Home](../../readme.md) - [Next](challenge09.md) 
 
 ### Introduction
 
@@ -28,4 +28,4 @@ In this challenge we will look at some of the telemetry that has already been co
     > NOTE: We are just scratching the surface of what is offered in Azure Monitoring, if you are interested in learning more there is a full What the Hack focused on Azure Monitoring.
 
 
-[Back](challenge07.md) - [Home](../../readme.md) - [Next](../../challenge09.md) 
+[Back](challenge07.md) - [Home](../../readme.md) - [Next](challenge09.md) 
