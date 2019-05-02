@@ -19,7 +19,7 @@ In Azure DevOps we use Azure Pipelines to automate our build process. For our ap
 3. Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core application ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
    1. First we call the `restore` command, this will get all the dependencies that our .net core application needs to compile
    2. Next we call the `build` command, this will actually compile our code
-   3. Next we call the `test` command, this should execute all our unit tests in the `**/*UnitTests/*.csproj` folder path. HINT: the template links this task setting to a pipeline setting that will need to be updated to match the folder structure of our code.
+   3. Next we call the `test` command, this will execute all our unit tests 
    4. The last .NET Core build task in the template is to `publish` the .net core app. The template publishes the application to a zip file, we don’t want it zipped so undo this setting. Additionally, change the output argument to here `$(System.DefaultWorkingDirectory)/PublishedWebApp` 
 4. You can delete the `publish the build artifact` step since we are going to creat a container and publish it to Azure Container Registry.
 5. Now that our .NET core application is compiled and all the unit tests have been run, we need to package it into a Docker Container and publish the container to Azure Container Registry, to do this we are going to add a docker task to our build pipeline.
