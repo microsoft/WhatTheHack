@@ -1,46 +1,36 @@
 # What the Hack: DevOps 
 
-## Challenge 4 – Azure Pipelines: Continuous Integration
+## Challenge 4 – Azure Pipelines: Infrastructure as Code
 [Back](challenge03.md) - [Home](../../readme.md) - [Next](challenge05.md)
 
 ### Introduction
 
-Great we now have some code, lets build it. In DevOps we automate this process using something called Continuous Integration. Take a moment to review the article below to gain a better understanding of what CI is. 
+Great we now have some code, now we need an environment to deploy it to. In DevOps we can automate the process of deploying the Azure Services we need with an Azure Resource Manager (ARM) template. Review the following article.
 
-1. [What is Continuous Integration?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-integration)
+1. [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
+2. [Create Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/how-to-create-template)
 
 
 ### Challenge
 
-In Azure DevOps we use Azure Pipelines to automate our build process. For our application the build process will not only compile our .NET Core application, it should test it, and package it into a Docker Container and publish the container to Azure Container Registry.
+In Azure DevOps we can use Azure Pipelines to automate deploying our Azure infrastructure. For our application we will deploy 3 environments: Dev, Test and Prod. Each environment will consist of a Azure App Service, however all of our environments will share a single Resource Group, Azure App Service Plan, Application Insights Instance, and Azure Container Registry. NOTE: in real deployments you will likely not share all of these resources.
 
-1. Create a build pipeline using the **ASP.NET Core** template
-2. Enable continuous integration on your build pipeline ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#enable-continuous-integration-ci))
-3. In our ArmTemplates folder you will find a template called `containerRegistry-template.json`. Examine this file in VS Code. What does it do? What parameters does the template expect?
-4. Add a **Azure Resource Group Deployment** task as the first step in your pipeline to execute this ARM template and configure its properties.
-   1. HINT: you can pass parameters into your template using the `Override template parameters` property on the task. Click the ellipsis next to the property text box.
-5. Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core application ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
-   1. First we call the `restore` command, this will get all the dependencies that our .net core application needs to compile
-   2. Next we call the `build` command, this will actually compile our code
-   3. Next we call the `test` command, this should execute all our unit tests in the `**/*UnitTests/*.csproj` folder path. HINT: the template links this task setting to a pipeline setting that will need to be updated to match the folder structure of our code.
-   4. The last .NET Core build task in the template is to `publish` the .net core app. The template publishes the application to a zip file, we don’t want it zipped so undo this setting. Additionally, change the output argument to here `$(System.DefaultWorkingDirectory)/PublishedWebApp` 
-6. Now that our .NET core application is compiled and all the unit tests have been run, we need to package it into a Docker Container and publish the container to Azure Container Registry, to do this we are going to add 2 docker tasks to our build pipeline, before we publish the build artifact.
-   1. Build the Docker Image ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=designer#build-an-image)).
-      1. You named your Azure Container Registry in a parameter you sent to the ARM template earlier, however this time fully qualify it by adding `.azurecr.io` to the end.
-      2. You did not build your app into the default build context, you did it here `$(System.DefaultWorkingDirectory)/PublishedWebApp`
-   2. Push the Docker Image ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=designer#push-an-image))
-      1. In the last step you just put the fully qualified name of your Azure Container Registry, in this step you will need is full location, not just its name. However since it has not been created yet, since we have not executed our ARM template yet, you cannot use the designer to look it up. Use this string, replacing values as appropriate `{"loginServer":"<<your ACR>>.azurecr.io", "id" : "/subscriptions/<<the GUID of your subscription>>/resourceGroups/<<the name of the resource group your ACR is in>>/Microsoft.ContainerRegistry/registries/<<your ACR>>"}`
-7. Last thing we need to add before we publish, is to copy our ArmTemplates to the `$(build.artifactstagingdirectory)` directory using a `copy files` task, this will ensure that our Continuous Delivery pipeline.
-8. Now that we have a working build, lets notify the team if the build breaks by creating a new Work Item. ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/options?view=azure-devops&tabs=designer#create-a-work-item-on-failure))
-9.  Now, make and check in a code change that will break the build. Ensure that a work item gets created.
-10. Referencing the work item that was automatically created, fix your code, ensure the build looks good, and then resolve the work item that was created. 
+1. Create a release pipeline using the **Empty Job** template, call it `Infrastructure Release`
+2. A release pipeline starts with an `Artifact`. In our pipeline we will be using the master branch of our Azure Repo.
+3. Next lets create the first stage in our Infrastructure Release to deploy our ARM template to Dev. Name the sage `Dev`, and it should have a single `Azure Resource Group Deployment` task. 
+   1. The task will ask you what Azure Subscription, Resource Group, and Resource Group Location you wish to use.
+   2. The task will also ask you what Template you want to deploy. Use the `...` to pick the one in the ARM templates folder. 
+   3. You will need to override many of the templates parameters, replacing the `<prefix>` part with a unique lowercase 5 letter name.
+4. You should now be able to save and execute your infrastructure release pipeline successfully and see the dev environment out in Azure. 
+5. If everything worked, go ahead and clone the `dev` stage two more times for `test` and `prod`.
+   1. The only change you need to make in the `test` and `prod` stages is changing the webAppName template parameter to `<prefix>devops-test` and `<prefix>devops-prod` respectively. 
+6. You should now be able to save and execute your infrastructure release pipeline successfully and see all three environments out in Azure. 
+
 
 
 ### Success Criteria
 
-1. Your build should complete without any errors.
-2. Review the test results generated by your build. HINT: look in the logs from your build to find where the test run was published. 
-3. Using the Azure Portal or CLI you should see your container in your Azure Container Registry Repository
+1. Your infrastructure release should complete without any errors and you should see all three environments out in Azure. 
 
 > NOTE: We are just scratching the surface of what is offered in Azure for Infrastructure as Code, if you are interested in learning more there is a full What the Hack focused on Azure Infrastructure as Code.
 

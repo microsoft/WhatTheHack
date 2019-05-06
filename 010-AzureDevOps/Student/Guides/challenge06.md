@@ -1,39 +1,33 @@
 # What the Hack: DevOps 
 
-## Challenge 6 – Azure Repos: Branching & Policies
+## Challenge 6 – Azure Pipelines: Continuous Delivery
 [Back](challenge05.md) - [Home](../../readme.md) - [Next](challenge07.md)
 
 ### Introduction
 
-Now that we have a deployed instance of our code, we are likely going to get a request to add a feature to our code. To this we need to implement a branching strategy. Review the below articles on the basics of a Git branching strategy and the modified version Microsoft uses called Release Flow.
+In DevOps after we automate our build process, we want to automate our release process, we do this with a technique called Continuous Delivery. Please take a moment to review this brief article talking about why this is important. 
 
-1. [Git Branching Strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
-2. [GitHub Flow](https://guides.github.com/introduction/flow/)
-3. [Release Flow](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow)
-
+1. [What is Continuous Delivery?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-delivery)
 
 ### Challenge
 
-In this challenge we will first create a second build pipeline that will build and run unit tests on any code before it gets checked into the master branch. We will also implement a few policies in Azure DevOps to ensure that our team is following the rules. Finally we will make a change to our code to see how branching in Git works. 
+In Azure DevOps we use an Azure Pipeline to release our software. In this challenge we will deploy our container out to our dev, test, and prod environments. 
 
-1. Clone the build pipeline that we created earlier.
-   1. Remove all but the `restore`, `build` and `test` tasks.
-   2. Turn off the continuous integration trigger.
-2. Setup a Branch Policy to protect our `master` branch, [hint](https://docs.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops). The policy shall: 
-   1. Require at least 1 reviewer, however users should be able to approve their own changes.
-   2. Require at least 1 linked work item.
-   3. Perform a `Build validation` using our new build pipeline.
-3. Using a simple Git Branching strategy lets make a change. 
-   1. Your manager has asked that you update the copyright information at the bottom of the site, currently it says `© ASP.NET Core` and it should say `© 2019 Contoso Corp.`
-   2. Create a Work Item requesting we implement the feature. 
-   3. Make the change in your code. Be sure to make this change on a new "feature branch"
-   4. Create a Pull Request to merge the change into `master`. Notice how the policies you set are audited on your pull request.
-   5.  Complete your pull request.
+1. Create a new Release Pipeline using the Azure App Service Deployment Template
+2. To start off our deployment will only have one stage, lets call it `dev`
+3. The output of our CI Build pipeline will be the input artifact to our CD Release pipeline, add it. 
+4. Enable Continuous deployment so that each time the CI pipeline finishes successfully, this pipeline will start. 
+5. If you look at the tasks for our `dev` stage you will see a single `Deploy Azure App Service` task, we just need to configure it. 
+   1. Select your subscription, a app service type of `Web App for Containers (Linux)`, point it at your dev instance, enter your registry name `<prefix>devopsreg.azurecr.io` (NOTE: here we need to fully qualify it), your image name `<prefix>devopsimage`, and your tag `$(Build.BuildId)` (NOTE: here we are dynamically pulling the build number from Azure DevOps at run time)
+6. Manually kick off a release and check that your application got deployed to your dev instance. 
+7. If everything worked, go ahead and clone the `dev` stage two more times for `test` and `prod`.
+   1. The only change you need to make in the `test` and `prod` stages is pointing to the `test` and `prod` respectively. 
+8. For the test and prod stages, set a pre-deployment condition so that one of your teammates has to approve any deployment before it goes to production. 
 
 ### Success Criteria
 
-1. You should see the change you made deployed to your `integration` site.
-2. Your work item should be in the "closed" state.
-
-
+1. You should now be able to manually trigger a successful release to all three environments `dev`, `test` and `prod`.
+2. Make a small change to your code (for example: update some fo the HTML on the Index page `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), it should automatically trigger a build and release.
+3. View the website running in all three of your environments.
+   
 [Back](challenge05.md) - [Home](../../readme.md) - [Next](challenge07.md)
