@@ -59,6 +59,6 @@ For more details, see: [**IaC ARM-DSC Hack - Prerequisites**](./Student/Guides/P
  ## Repo Contains
  
  - [ARM Template Challenges](./Student/Guides/armChallenges.md)
- - [PowerShell DSC Challenges](./Student/Guides/dscChallengs.md)
+ - [PowerShell DSC Challenges](./Student/Guides/dscChallenges.md)
  - [Proctor Guides](./Host/Guides/)
  - [Solution templates & DSC script files](./Host/Solutions/)
