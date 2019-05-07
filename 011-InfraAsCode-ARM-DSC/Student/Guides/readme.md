@@ -14,7 +14,7 @@ You should start off with the ARM Template challenges first. The challenges buil
 
 ## PowerShell DSC Challenges
 
-The PowerShell DSC challenges assume you know how to work with, and deploy, an ARM template.  If you have not worked with ARM templates before, we recommend you complete at least Challenges 1 through 5 of the [ARM Template Challenges](./armChallenges.md) first.
+The PowerShell DSC challenges assume you know how to work with, and deploy, an ARM template.  If you have not worked with ARM templates before, we recommend you complete at least 1 through 5 of the [ARM Template Challenges](./armChallenges.md) first.
 
 The PowerShell DSC challenges will start by having you deploy a simple DSC script. Then, further incremental challenges will help you configure a Windows VM to become a File Server.
 
