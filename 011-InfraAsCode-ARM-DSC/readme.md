@@ -15,7 +15,7 @@ The best way to make deployments repeatable is to define them with code, hence t
 - HashiCorp's Terraform & Packer
 - Ansible, Chef, Puppet, Salt Stack, and others
 
-This hack is focused on using ARM Templates and PowerShell DSC to implement your IaC. It does not mean this is the only way to implement IaC.  It is just one way amongst many. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for Terraform or Ansible.
+This hack is focused on using ARM Templates and PowerShell DSC to implement your IaC. It does not mean this is the only way to implement IaC.  It is just one way amongst many. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [Terraform](../012-InfraAsCode-Terraform/) or [Ansible](../013-InfraAsCode-Ansible).
 
 ## Learning Objectives
 
