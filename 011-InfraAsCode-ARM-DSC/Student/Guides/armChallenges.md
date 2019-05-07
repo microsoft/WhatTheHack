@@ -65,45 +65,52 @@ If you do not plan on doing the PowerShell DSC Challenges, then continue doing t
 
 +	Extend your ARM Template to deploy a VM
     +   VM requirements -
-        +   Linux VM
-        +   Apache website
-        +   Pull website config from https://raw.githubusercontent.com/albertwo1978/training-events/master/p20-arm/scripts/install_apache.sh
-    +   Key Takeaways - Customer script extensions, globally unique naming context and complex dependencies
+        +   Windows VM
+        +   Use secure secret value for admin password
+    ### Key Takeaways 
+    + globally unique naming context and complex dependencies
 
 ### Challenge 5L - Deploy a Virtual Machine (Linux)
 
 +	Extend ARM Template to deploy a webserver VM
     +   VM requirements -
         +   Linux VM
-        +   Apache website
-        +   Pull website config from https://raw.githubusercontent.com/albertwo1978/training-events/master/p20-arm/scripts/install_apache.sh
-    +   Key Takeaways - Customer script extensions, globally unique naming context and complex dependencies
- 
-## Challenge 6
+        +   Use secure secret value for admin password
+    ### Key Takeaways 
+    + globally unique naming context and complex dependencies
+
+## Challenge 6 - Configure a Web Server
+
++ Extend ARM Template to configure a webserver on the Linux VM you deployed
+    + Pull website config from https://raw.githubusercontent.com/albertwo1978/training-events/master/p20-arm/scripts/install_apache.sh
+    ### Key Takeaways 
+    + Customer script extensions, globally unique naming context and complex dependencies
+
+## Challenge 7
 
 +	Extend ARM template to add Public Load Balancer and put Webserver in backend pool
     +   VM requirements -
         +   Create frontend pool enabling port 80 to website
     +   Key Takeaways - Resource ownership and dependencies
  
- ## Challenge 7
+ ## Challenge 8
 +	Extend ARM template to add NAT Rule to ILB for SSH access to backend
     +   Key Takeaways - Network access policies
  
- ## Challenge 8
+ ## Challenge 9
 +	Extend ARM template to replace VM with a VM Scale Set 
     +   VMSS requirements -
         +   Linux VM
         +   Convert NAT rule to NAT pool
     +   Key Takeaways - Scales sets provide scalability for Infrastructure in Azure
 
-## Challenge 9
+## Challenge 10
 +	Extend ARM template to add a custom script extension that installs a web server packages/roles and deploy basic web app 
     +   VMSS requirements -
         +   Pull website config from https://raw.githubusercontent.com/albertwo1978/training-events/master/p20-arm/scripts/install_apache_vmss.sh
     +   Key Takeaways - Custom script extension does not lock deployment order
 
-## Challenge 10
+## Challenge 11
 +	Extend ARM template to include auto scaling policy to scale when CPU performance hits 90%
     +   VMSS requirements -
         +   Scale back down when CPU performance hits 30%
@@ -111,7 +118,7 @@ If you do not plan on doing the PowerShell DSC Challenges, then continue doing t
         +   Enforce a 1 minute cool down between scale events
     +   Key Takeaways - ARM allows declarative management of policies and actions
 
-## Challenge 11 - Linked Templates  
+## Challenge 12 - Linked Templates  
 +   Challenge 10 - Separate deployments into nested templates
     +   Minmum requirements -
         +   Separate virtual network and vmss into two linked subtemplates
