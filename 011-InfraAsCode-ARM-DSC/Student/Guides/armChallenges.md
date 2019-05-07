@@ -46,8 +46,8 @@ It is a BEST practice to store secret values (such as passwords) in the Azure Ke
 
 Your challenge, should you accept it, is to:
 + Create an Azure Key Vault and store a secret value in it by running one of the provided KeyVault scripts of your choice. You can find the scripts in the **/Resources/armChallenges** folder:
-    + [create-key-vault-CLI.sh - Azure CLI](./Resources/armChallenges/create-key-vault-CLI.sh)
-    + [create-key-vault-PS.ps1 - PowerShell](.Resources/armChallenges/create-key-vault-PS.ps1)   
+    + [create-key-vault-CLI.sh - Azure CLI](../Resources/armChallenges/create-key-vault-CLI.sh)
+    + [create-key-vault-PS.ps1 - PowerShell](../Resources/armChallenges/create-key-vault-PS.ps1)   
 + Retrieve the secret value from Azure Key Vault and pass it into your template as a parameter without having the value exposed as plain text at any point in time!
     + Verify the value of the parameter in the portal after deployment
 
@@ -92,7 +92,7 @@ If you do not plan on doing the [PowerShell DSC Challenges](./dscChallenges.md),
 
 If you are continuing with the remaining ARM Template challenges, we assume you have deployed Linux VM in the last challenge.  The remaining challenges focus on extending the ARM template with more complex infrastructure around Linux VMs.
 
-We have provided a script that configures a web server on a Linux VM. You can find the script in the **/Resources/armChallenges** folder: [install_apache.sh](.Resources/armChallenges/install_apache.sh)
+We have provided a script that configures a web server on a Linux VM. You can find the script in the **/Resources/armChallenges** folder: [install_apache.sh](../Resources/armChallenges/install_apache.sh)
 
 Your challenge is to:
 
@@ -136,7 +136,7 @@ Your challenge is to:
 
 ## Challenge 10 - Configure VM Scale Set to run a Web Server
 
-We have provided a script that configures a web server on a Linux VM. You can find the script in the **/Resources/armChallenges** folder: [install_apache_vmss.sh](.Resources/armChallenges/install_apache_vmss.sh)
+We have provided a script that configures a web server on a Linux VM. You can find the script in the **/Resources/armChallenges** folder: [install_apache_vmss.sh](../Resources/armChallenges/install_apache_vmss.sh)
 
 +	Extend ARM template to add a custom script extension that installs a web server packages/roles and deploy basic web app 
     +   VMSS requirements -
