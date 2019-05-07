@@ -31,6 +31,8 @@ During this hack, you will work on a series of technical challenges to gain hand
 
 If you are participating as part of hackathon event, the Proctors will assist you and provide guidance, but they will not give you the answers (unless you are completely stuck).  If you are learning solo, you can find the solutions in the ["Hosts"](./Host/) folder of this repo.  However, please give it your best shot and don't cheat yourself by skipping to the answers! 
 
+This hackathon was designed to be run as a 2-3 day event. It was also designed to have more challenges than you can possibly complete during that time! Each group should complete the challenges at their own pace. The goal is not to finish them all, but rather to learn what you can in the time that you have.
+
 ## Challenges
 
 The challenges build upon each other incrementally. You will start by creating a "Hello World" ARM template to get you familiar with the tools & syntax.  Then you extend your template incrementally to deploy multiple infrastructure resources in Azure.
