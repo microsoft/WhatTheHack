@@ -29,7 +29,7 @@ This hack will help you learn:
 
 During this hack, you will work on a series of technical challenges to gain hands on experience with the technology. The challenges are not step-by-step hands on lab tutorials that you will blindly follow.  It is up to the participants to figure out how to complete them. Believe it or not, we have been told that this fosters better knowledge retention.  
 
-If you are participating as part of hackathon event, the Proctors will assist you and provide guidance, but they will not give you the answers (unless you are completely stuck).  If you are learning solo, you can find the solutions in the ["Hosts"](./Hosts/) folder of this repo.  However, please give it your best shot and don't cheat yourself by skipping to the answers! 
+If you are participating as part of hackathon event, the Proctors will assist you and provide guidance, but they will not give you the answers (unless you are completely stuck).  If you are learning solo, you can find the solutions in the ["Hosts"](./Host/) folder of this repo.  However, please give it your best shot and don't cheat yourself by skipping to the answers! 
 
 ## Challenges
 
