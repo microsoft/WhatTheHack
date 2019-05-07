@@ -1,4 +1,4 @@
-# Prerequisites for Infrastructure as Code Hackathon
+# What The Hack: IaC ARM-DSC Prerequisites
 
 This section lays out all the tools that are required for this hackathon.
 
