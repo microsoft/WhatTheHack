@@ -2,9 +2,9 @@
 
 ## Introduction 
 
-Insert some stuff here setting up an intro to the challenges...
-Challenges build on each other... etc...
-Option to go in different orders depending on concepts being taught.
+Welcome to the IaC ARM Template challenges. These challenges build upon each other incrementally. You will start by creating a "Hello World" ARM template to get familiar with the tools & syntax.  Then you will extend your template incrementally, deploying multiple infrastructure resources in Azure.
+
+There is an accompanying lecture that hack hosts may use to introduce key concepts ahead of each challenge to get you started in the right direction.  However, with the power of the Internet at your fingertips, you should be able to complete all of these challenges without any lectures!
 
 ## Challenge 1 - "Hello World"
 
