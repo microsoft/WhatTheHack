@@ -10,10 +10,6 @@ You will want to prepare your machine with the following [**Prerequisites**](./P
 
 You should start off with the ARM Template challenges first. The challenges build upon each other incrementally. You will start by creating a "Hello World" ARM template to get familiar with the tools & syntax.  Then you will extend your template incrementally to deploy multiple infrastructure resources in Azure.
 
-If you don't have time to complete all of the ARM template challenges, we recommend switching gears and getting hands on with PowerShell DSC after you have successfully completed the ARM template challenge to deploy a Windows VM in Azure.
-
-The PowerShell DSC challenges will start by having you deploy a simple DSC script. Then further incremental challenges will help you configure a Windows VM to become a File Server.
-
 [**ARM Template Challenges**](./armChallenges.md)
 
 ## PowerShell DSC Challenges
