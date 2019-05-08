@@ -28,7 +28,7 @@ Up to this point you have been putting in your values directly into your Terrafo
 Create an Ubuntu VM in Azure. Use the latest version of Ubuntu. It's network card should be connected to the "default" subnet. Enable boot diagnostics for the VM. Use the SSH key you created in the prerequisites for authentication to the VM. 
 
 ## Challenge 6
-Do whatever 
+Do whatever here
 ### Use Packer to Create an Ubuntu image with NGINX installed
 
 In the packer template (vmNGINX_Packer.json) , update the azure service principal credentials (client_id, client_secret, and tenant_id) and azure subscription_id
