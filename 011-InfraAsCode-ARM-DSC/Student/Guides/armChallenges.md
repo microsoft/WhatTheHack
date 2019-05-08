@@ -56,7 +56,7 @@ Your challenge, should you accept it, is to:
     + Handling secret values
     + Not getting fired!
 
-    ### **BONUS Challenge 5A:** 
+    ### **BONUS Challenge 4A:** 
 
     The goal of this challenge was focused on how to _retrieve_ secret values from Key Vault for use in an ARM Template. You can create an Azure Key Vault using an ARM Template too!  Feel free to try this as a bonus challenge later.
 
@@ -88,7 +88,7 @@ If you do not plan on doing the [PowerShell DSC Challenges](./dscChallenges.md),
     + Clean code with neat parameter/variable values
     + Figuring out what Azure resources it takes to build a VM!
 
-## Challenge 6 - Configure a Web Server
+## Challenge 6 - Configure a Linux Web Server
 
 If you are continuing with the remaining ARM Template challenges, we assume you have deployed Linux VM in the last challenge.  The remaining challenges focus on extending the ARM template with more complex infrastructure around Linux VMs.
 
