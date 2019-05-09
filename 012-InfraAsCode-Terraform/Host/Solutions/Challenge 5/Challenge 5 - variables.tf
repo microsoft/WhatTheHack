@@ -26,8 +26,8 @@ variable "subnet" {
 variable "nsg" {
     description = "The name of the Network security group"    
 }
-variable "nsg_security_rule" {
-    description = "The name, priority, direction, access, protocol, source_port_range, destination_port_range, source_address_prefix, destination_address_prefix for the NSG security rule"
+variable "nsg_security_rule_ssh" {
+    description = "The name, priority, direction, access, protocol, source_port_range, destination_port_range, source_address_prefix, destination_address_prefix for the SSH NSG security rule"
     type = "map"    
 }
 variable "tags" {    

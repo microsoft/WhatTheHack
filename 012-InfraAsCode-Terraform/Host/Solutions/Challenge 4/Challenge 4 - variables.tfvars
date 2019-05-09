@@ -18,7 +18,7 @@
 
 "nsg" = "WTHNSG"
 
-"nsg_security_rule" = {
+"nsg_security_rule_ssh" = {
     name                       = "SSH"
     priority                   = 1001
     direction                  = "Inbound"

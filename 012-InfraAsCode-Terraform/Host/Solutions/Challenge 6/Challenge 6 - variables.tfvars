@@ -18,7 +18,7 @@
 
 "nsg" = "WTHNSG"
 
-"nsg_security_rule" = {
+"nsg_security_rule_ssh" = {
     name                       = "SSH"
     priority                   = 1001
     direction                  = "Inbound"
@@ -26,6 +26,18 @@
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+}
+
+"nsg_security_rule_http" = {
+    name                       = "HTTP"
+    priority                   = 1002
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
 }
@@ -64,13 +76,6 @@ azurerm_virtual_machine_storage_os_disk = {
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Premium_LRS"
-}
-
-azurerm_virtual_machine_storage_image_reference = {
-        publisher = "Canonical"
-        offer     = "UbuntuServer"
-        sku       = "18.04-LTS"
-        version   = "latest"
 }
 
 "os_profile_linux_config_disable_password_authentication" = true
