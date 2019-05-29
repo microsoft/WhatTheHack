@@ -17,7 +17,7 @@ class TestVotingApp(unittest.TestCase):
 
     def test_index_loads_html(self):
         index = self.app.get('/', follow_redirects=True)
-        self.assertIn("html", index.data)
+        self.assertIn("html", str(index.data))
 
 if __name__ == '__main__':
     unittest.main()
