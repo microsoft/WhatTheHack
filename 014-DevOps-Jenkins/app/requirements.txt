@@ -1,2 +1,2 @@
 Flask==0.12.1
-coverage==4.5.3
+nose2==0.9.1
