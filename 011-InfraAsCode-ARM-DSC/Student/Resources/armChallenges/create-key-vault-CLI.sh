@@ -14,13 +14,13 @@ declare location="eastus"
 az group create --name $iacHackName -l $location
 
 #Step 3: Create Key Vault and set flag to enable for template deployment with ARM
-declare vaultSuffix="WTH-Vault"
+declare vaultSuffix="-KeyVault"
 declare iacHackVaultName="$iacHackName$vaultSuffix" 
 az keyvault create --name $iacHackVaultName -g $iacHackName -l $location --enabled-for-template-deployment true
 
 #Step 4: Add password as a secret.  Use a password that meets the azure pwd police like P@ssw0rd123!!
 read -s -p "Password for your VMs: " PASSWORD
-az keyvault secret set --vault-name $iacHackVaultName --name 'VMPassword' --value $PASSWORD
+az keyvault secret set --vault-name $iacHackVaultName --name 'adminPassword' --value $PASSWORD
 
 #Step 5: Update azuredeploy.parameters.json file with your envPrefixName and Key Vault resourceID Example --> /subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}
 # Hint: Run the following line of code to retrieve the resourceID so you can cut and paste from the terminal into your parameters file!

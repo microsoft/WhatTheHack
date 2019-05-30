@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "resourcePrefix": {
-        "value": "p20" 
+        "value": "wth" 
       },
       "vmName": {
         "value": "P20WebVM"
