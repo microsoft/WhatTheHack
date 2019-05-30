@@ -4,7 +4,7 @@
     "parameters": {
       "resourcePrefix": {
         "type": "string",
-        "defaultValue": "p20",
+        "defaultValue": "wth",
         "metadata": {
           "description": "Globally Unique Prefix"
         }
