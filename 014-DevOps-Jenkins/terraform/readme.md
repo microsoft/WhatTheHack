@@ -3,10 +3,10 @@ Utilizing Terraform deploy the app on ACI
 
 ## Deploy the resource 
 Replace the following values with your values
-*    ***Your_subscription_id***
-    *  ***Your_client_id***
-    * ***Your_client_secret***
-    *  ***Your_tenant_id***
+*    ***Your_subscription_id***<br>
+    *  ***Your_client_id***<br>
+    * ***Your_client_secret***<br>
+    *  ***Your_tenant_id***<br>
 
 ```bash
 docker run -e subscription_id="Your_subscription_id" \
