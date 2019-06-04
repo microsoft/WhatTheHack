@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+      - name: Install NGINX
+      yum:
+        name:
+          - nginx
+        state: latest
+    - name: Ensure NGINX is set to running state
+        service:
+          name: nginx
+          enabled: yes
+          state: started

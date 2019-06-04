@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: Run the equivalent of "apt-get update" as a separate step
+        apt:
+        update_cache: yes
+    - name: Upgrade all packages to the latest version
+        apt:
+          name: "*"
+          state: latest    
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+  
