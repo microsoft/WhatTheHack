@@ -2,11 +2,7 @@
 Utilizing Terraform deploy the app on ACI
 
 ## Deploy the app 
-1. Clone the git repo
-```bash
-git clone git@github.com:alihhussain/WhatTheHack.git
-```
-2. Deploy the resource
+1. Deploy the resource
 <br>
 Replace the following values with your values<br>
     * ***Your_subscription_id***
