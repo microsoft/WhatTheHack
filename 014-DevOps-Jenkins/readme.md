@@ -19,4 +19,4 @@ The following aspects of DevOps are going to be highlighted by performing these 
 4.	Package 	- 	Artifactory / Bitbucket – ACR
 5.	Build 		-	Jenkins
 6.	Config 		-	Terraform
-7.	Monitor	-	Prometheus-Grafana – (Israel)
+7.	Monitor	    -	Prometheus-Grafana
