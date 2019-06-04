@@ -55,6 +55,22 @@ Ensure that you can SSH to the VM using its public IP address with ssh azureuser
 
 Hint: You can use the Azure CLI command az vm list-ip-addresses to find the IP address for the newly created VM. 
 
+## Challenge 6: Install NGINX on a Linux Virtual Machine
+
+Install the NGINX web server on an existing Linux Virtual Machine. To do this you will need to create an inventory.cfg and a YAML file. The inventory.cfg has information about the VM you want to manage and the location of the Python interpreter. To find the location of Python, you will need to SSH to the VM and look in /usr/bin. Use the latest version
+
+It should look something like this:
+
+[web]<br>
+{Your public IP address of the Linux VM}
+
+[web:vars]<br>
+ansible_python_interpreter={location of python install}
+
+Once you have the inventory.cfg, you will create the Ansible Playbook YAML file that will install NGINX. First, you will update all apt (Ubuntu) or yum (Redhat/CentOS) packages to the latest version in the Ansible Playbook. Next, you will install NGINX using apt or yum in the file and set the service to running. 
+
+Ensure that NGINX is running by running Curl from an SSH terminal with curl http://127.0.0.1 
+
 
 
 
