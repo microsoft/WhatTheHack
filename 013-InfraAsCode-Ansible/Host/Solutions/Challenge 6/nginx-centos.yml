@@ -5,7 +5,7 @@
       yum:
         name: '*'
         state: latest
-      - name: Install NGINX
+    - name: Install NGINX
       yum:
         name:
           - nginx
