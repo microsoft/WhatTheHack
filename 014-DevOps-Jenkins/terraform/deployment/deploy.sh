@@ -11,5 +11,5 @@ cat vote.tf
 /go/bin/terraform init
 sleep 5s
 /go/bin/terraform apply -auto-approve
-sleep 10s
+sleep 30s
 /go/bin/terraform destroy -auto-approve
