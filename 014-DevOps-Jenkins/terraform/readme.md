@@ -9,7 +9,7 @@ Replace the following values with your values
 *   ***Your_tenant_id***
 
 ```bash
-docker run -e subscription_id="Your_subscription_id" \
+docker run --rm -e subscription_id="Your_subscription_id" \
 -e client_id="Your_client_id" \
 -e client_secret="Your_client_secret" \
 -e tenant_id="Your_tenant_id"
