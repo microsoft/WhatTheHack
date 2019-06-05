@@ -1,26 +1,23 @@
 {
     "builders": [{
-      "type": "azure-arm",
-  
-      "client_id": "<service principal app id>",
-      "client_secret": "<service principal password>",
-      "tenant_id": "<service principal tenant_id>",
-      "subscription_id": "<subscription id>",
-  
-      "managed_image_resource_group_name": "packerImagesRG",
+      "type": "azure-arm",  
+      "subscription_id" : "f86c3XXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "client_id"       : "b12cXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "client_secret"   : "d1b7XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "tenant_id"       : "72f9XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "managed_image_resource_group_name": "WTHTFRG",
       "managed_image_name": "packerImage",
   
       "os_type": "Linux",
       "image_publisher": "Canonical",
       "image_offer": "UbuntuServer",
-      "image_sku": "16.04-LTS",
+      "image_sku": "18.04-LTS",
   
-      "azure_tags": {
-          "dept": "OCP",
+      "azure_tags": {          
           "task": "Image deployment"
       },
   
-      "location": "West US",
+      "location": "East US",
       "vm_size": "Standard_DS2_v2"
     }],
     "provisioners": [{

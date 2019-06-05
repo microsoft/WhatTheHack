@@ -33,15 +33,15 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     resource_group_name = "${azurerm_resource_group.rg.name}"
     
     security_rule {
-        name                       = "${var.nsg_security_rule["name"]}"
-        priority                   = "${var.nsg_security_rule["priority"]}"
-        direction                  = "${var.nsg_security_rule["direction"]}"
-        access                     = "${var.nsg_security_rule["access"]}"
-        protocol                   = "${var.nsg_security_rule["protocol"]}"
-        source_port_range          = "${var.nsg_security_rule["source_port_range"]}"
-        destination_port_range     = "${var.nsg_security_rule["destination_port_range"]}"
-        source_address_prefix      = "${var.nsg_security_rule["source_address_prefix"]}"
-        destination_address_prefix = "${var.nsg_security_rule["destination_address_prefix"]}"
+        name                       = "${var.nsg_security_rule_ssh["name"]}"
+        priority                   = "${var.nsg_security_rule_ssh["priority"]}"
+        direction                  = "${var.nsg_security_rule_ssh["direction"]}"
+        access                     = "${var.nsg_security_rule_ssh["access"]}"
+        protocol                   = "${var.nsg_security_rule_ssh["protocol"]}"
+        source_port_range          = "${var.nsg_security_rule_ssh["source_port_range"]}"
+        destination_port_range     = "${var.nsg_security_rule_ssh["destination_port_range"]}"
+        source_address_prefix      = "${var.nsg_security_rule_ssh["source_address_prefix"]}"
+        destination_address_prefix = "${var.nsg_security_rule_ssh["destination_address_prefix"]}"
     }
 
     tags {
