@@ -1,9 +1,9 @@
 # Configure the Microsoft Azure Provider
 provider "azurerm"  {
-  subscription_id = "f86c31f3-db18-4503-8fa4-d2b67a6474e2"
-  client_id       = "b12c6727-aa20-4a6e-b9fd-1089f1ecd2eb"
-  client_secret   = "d1b7882e-53c0-4969-81e9-d85d48ee7075"
-  tenant_id       = "72f988bf-86f1-41af-91ab-2d7cd011db47"
+  subscription_id = "<subscription id>"
+  client_id       = "<service principal app id>"
+  client_secret   = "<service principal password>"
+  tenant_id       = "<service principal tenant id>"
 }
 resource "azurerm_resource_group" "rg" {
         name = "${var.resource_group_name}"
@@ -33,15 +33,15 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     resource_group_name = "${azurerm_resource_group.rg.name}"
     
     security_rule {
-        name                       = "${var.nsg_security_rule["name"]}"
-        priority                   = "${var.nsg_security_rule["priority"]}"
-        direction                  = "${var.nsg_security_rule["direction"]}"
-        access                     = "${var.nsg_security_rule["access"]}"
-        protocol                   = "${var.nsg_security_rule["protocol"]}"
-        source_port_range          = "${var.nsg_security_rule["source_port_range"]}"
-        destination_port_range     = "${var.nsg_security_rule["destination_port_range"]}"
-        source_address_prefix      = "${var.nsg_security_rule["source_address_prefix"]}"
-        destination_address_prefix = "${var.nsg_security_rule["destination_address_prefix"]}"
+        name                       = "${var.nsg_security_rule_ssh["name"]}"
+        priority                   = "${var.nsg_security_rule_ssh["priority"]}"
+        direction                  = "${var.nsg_security_rule_ssh["direction"]}"
+        access                     = "${var.nsg_security_rule_ssh["access"]}"
+        protocol                   = "${var.nsg_security_rule_ssh["protocol"]}"
+        source_port_range          = "${var.nsg_security_rule_ssh["source_port_range"]}"
+        destination_port_range     = "${var.nsg_security_rule_ssh["destination_port_range"]}"
+        source_address_prefix      = "${var.nsg_security_rule_ssh["source_address_prefix"]}"
+        destination_address_prefix = "${var.nsg_security_rule_ssh["destination_address_prefix"]}"
     }
 
     tags {
