@@ -17,6 +17,7 @@
         vm_size: Standard_DS1_v2
         admin_username: azureuser
         ssh_password_enabled: false
+        managed_disk_type: Premium_LRS
         ssh_public_keys:
           - path: /home/azureuser/.ssh/authorized_keys
             key_data: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbKfVIjcdel/yZYHGdwItsJPbfIqwSXGkS8tZCL5LTJjy9/2Wvq+Gz4BpiYhqGNKB07TEIhs9xxBkP3PTKtPXc79SZ4zz+c25pk/Vj5g4rSQqcS2Q2hzSGxJu9ZGnTjUARpUty9soGR69guHSv7R9NHLTy2TDH/MUHWWXoHwXD+tZaIfRpiPi8vVYg4I26quGwKnQmAuXpYWyuaOF6eTJmJblyjlgSAq1VeJhEnQGRRLlpi27FWbjydEVBDLDNqtiUKad78YWD1tVi7qGzbA5R7HB70qey+0FtByapv2tGHKAac84dgRJliIPr8bpJRn083Q9sSf0bAJrSYf5TLlcF pedrorod@zorkryzen01
