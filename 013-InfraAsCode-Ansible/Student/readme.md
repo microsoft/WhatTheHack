@@ -9,9 +9,7 @@ Infrastructure-as-Code is one of the first steps you need to take on your DevOps
 
 This hack will help you learn:
 - How Azure Ansible works to deploy infrastructure in Azure
-- How Ansible can be used for Configuration Management of software on a VM
-
-## Challenges
+- How Ansible can be used to install software on a VM
  
 ## Challenge 1: Create an Azure resource group using Ansible
 
@@ -68,7 +66,7 @@ It should look something like this:
 [web:vars]<br>
 ansible_python_interpreter={location of python install}
 
-Once you have the inventory.cfg, you will create the Ansible Playbook YAML file that will install NGINX. First, you will update all apt (Ubuntu) or yum (Redhat/CentOS) packages to the latest version in the Ansible Playbook. For RedHat/CentOS you will need install the EPEL repository (epel-release). Next, you will install NGINX using apt or yum in the file and set the service to running. 
+Once you have the inventory.cfg, you will create the Ansible Playbook YAML file that will install NGINX. First, you will update all apt (Ubuntu) or yum (Redhat/CentOS) packages to the latest version. For RedHat/CentOS you will need install the EPEL repository (epel-release) before we install NGINX. Next, you will install NGINX using apt or yum in the file and set the service to running. 
 
 To use the inventory.cfg file you will need to run the following Ansible playbook command which will use the inventory.cfg and YAML file you created earlier. The -b switch tells Ansible to run as root using sudo. 
 
