@@ -70,6 +70,10 @@ ansible_python_interpreter={location of python install}
 
 Once you have the inventory.cfg, you will create the Ansible Playbook YAML file that will install NGINX. First, you will update all apt (Ubuntu) or yum (Redhat/CentOS) packages to the latest version in the Ansible Playbook. For RedHat/CentOS you will need install the EPEL repository (epel-release). Next, you will install NGINX using apt or yum in the file and set the service to running. 
 
+To use the inventory.cfg file you will need to run the following Ansible playbook command which will use the inventory.cfg and YAML file you created earlier. The -b switch tells Ansible to run as root using sudo. 
+
+ansible-playbook -i inventory.cfg {yaml file} -b
+
 Ensure that NGINX is running by running Curl from an SSH terminal with curl http://127.0.0.1 
 
 
