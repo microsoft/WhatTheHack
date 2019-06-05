@@ -62,12 +62,12 @@ Install the NGINX web server on an existing Linux Virtual Machine. To do this yo
 It should look something like this:
 
 [web]<br>
-{Your public IP address of the Linux VM}
+{Your public IP address of the Linux VM} ansible_user=azureuser
 
 [web:vars]<br>
 ansible_python_interpreter={location of python install}
 
-Once you have the inventory.cfg, you will create the Ansible Playbook YAML file that will install NGINX. First, you will update all apt (Ubuntu) or yum (Redhat/CentOS) packages to the latest version in the Ansible Playbook. Next, you will install NGINX using apt or yum in the file and set the service to running. 
+Once you have the inventory.cfg, you will create the Ansible Playbook YAML file that will install NGINX. First, you will update all apt (Ubuntu) or yum (Redhat/CentOS) packages to the latest version in the Ansible Playbook. For RedHat/CentOS you will need install the EPEL repository (epel-release). Next, you will install NGINX using apt or yum in the file and set the service to running. 
 
 Ensure that NGINX is running by running Curl from an SSH terminal with curl http://127.0.0.1 
 
