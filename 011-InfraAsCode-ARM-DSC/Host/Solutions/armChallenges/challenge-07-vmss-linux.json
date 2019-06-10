@@ -1,0 +1,321 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "resourcePrefix": {
+        "type": "string",
+        "defaultValue": "p20",
+        "metadata": {
+          "description": "Globally Unique Prefix"
+        }
+      },
+      "vmssName": {
+        "type": "string",
+        "defaultValue": "P20WebVM",
+        "metadata": {
+          "description": "VM Name"
+        }
+      },
+      "vmssInstanceCount": {
+        "type": "int",
+        "defaultValue": 2,
+        "metadata": {
+          "description": "Number of VM instances (100 or less)."
+        },
+        "maxValue": 100
+      },
+      "adminUsername": {
+        "type": "string",
+        "metadata": {
+          "description": "User name for the Virtual Machine."
+        }
+      },
+      "adminPassword": {
+        "type": "securestring",
+        "metadata": {
+          "description": "Password for the Virtual Machine."
+        }
+      },
+      "ubuntuOSVersion": {
+        "type": "string",
+        "defaultValue": "16.04-LTS",
+        "allowedValues": [
+          "12.04.5-LTS",
+          "14.04.2-LTS",
+          "15.10",
+          "16.04-LTS"
+        ],
+        "metadata": {
+          "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10."
+        }
+      },
+      "vnetName": {
+        "type": "string",
+        "defaultValue": "P20VNet",
+        "metadata": {
+          "description": "VNet Name"
+        }
+      },
+      "vnetPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.0/16",
+        "metadata": {
+          "description": "Address Prefix"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "defaultValue": "Default",
+        "metadata": {
+          "description": "Subnet Name"
+        }
+      },
+      "subnetPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.0/24",
+        "metadata": {
+          "description": "Subnet Prefix"
+        }
+      }
+    },
+    "variables": {
+      "defaultNsgName": "defaultNsg",
+      "nicName": "WebVMNic",
+      "publicIPAddressName": "P20PublicIP",
+      "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+      "publicIPAddressType": "Dynamic",
+      "dnsNameForPublicIP": "[concat(parameters('resourcePrefix'), uniquestring(resourceGroup().id), '-pip')]",
+      "subnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks',parameters('vnetName')),'/subnets/',parameters('subnetName'))]",
+      "vmSize": "Standard_A0",
+      "loadBalancerName": "p20LoadBalancer",
+      "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+      "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+      "backEndPoolName": "loadBalancerBackend",
+      "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/', variables('backEndPoolName'))]",
+      "lbProbeID": "[concat(variables('lbID'),'/probes/tcpProbe')]",
+      "osType": {
+        "publisher": "Canonical",
+        "offer": "UbuntuServer",
+        "sku": "[parameters('ubuntuOSVersion')]",
+        "version": "latest"
+      },
+      "imageReference": "[variables('osType')]"
+    },
+    "resources": [
+      {
+        "apiVersion": "2015-06-15",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "[variables('defaultNsgName')]",
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "securityRules": [
+            {
+              "name": "ssh_rule",
+              "properties": {
+                "description": "Allow SSH",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Inbound"
+              }
+            },
+            {
+              "name": "web_rule",
+              "properties": {
+                "description": "Allow HTTP",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "Internet",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 101,
+                "direction": "Inbound"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "apiVersion": "2015-06-15",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[parameters('vnetName')]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+          "[concat('Microsoft.Network/networkSecurityGroups/', variables('defaultNsgName'))]"
+        ],
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "[parameters('vnetPrefix')]"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "[parameters('subnetPrefix')]",
+                "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('defaultNsgName'))]"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/publicIPAddresses",
+        "name": "[variables('publicIPAddressName')]",
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+          "dnsSettings": {
+            "domainNameLabel": "[variables('dnsNameForPublicIP')]"
+          }
+        }
+      },
+      {
+        "apiVersion": "2016-03-30",
+        "name": "[variables('loadBalancerName')]",
+        "type": "Microsoft.Network/loadBalancers",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+          "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"
+        ],
+        "properties": {
+          "frontendIPConfigurations": [
+            {
+              "name": "loadBalancerFrontEnd",
+              "properties": {
+                "publicIPAddress": {
+                  "id": "[variables('publicIPAddressID')]"
+                }
+              }
+            }
+          ],
+          "backendAddressPools": [
+            {
+              "name": "[variables('backEndPoolName')]"
+            }
+          ],
+          "inboundNatPools": [
+            {
+              "name": "SSH",
+              "properties": {
+                "frontendIPConfiguration": {
+                  "id": "[variables('frontEndIPConfigID')]"
+                },
+                "protocol": "tcp",
+                "frontendPortRangeStart": 10022,
+                "frontendPortRangeEnd": 10050,
+                "backendPort": 22
+              }
+            }
+          ],
+          "loadBalancingRules": [
+            {
+              "name": "LBRule",
+              "properties": {
+                "frontendIPConfiguration": {
+                  "id": "[variables('frontEndIPConfigID')]"
+                },
+                "backendAddressPool": {
+                  "id": "[variables('lbPoolID')]"
+                },
+                "protocol": "Tcp",
+                "frontendPort": 80,
+                "backendPort": 80,
+                "enableFloatingIP": false,
+                "idleTimeoutInMinutes": 5,
+                "probe": {
+                  "id": "[variables('lbProbeID')]"
+                }
+              }
+            }
+          ],
+          "probes": [
+            {
+              "name": "tcpProbe",
+              "properties": {
+                "protocol": "Tcp",
+                "port": 80,
+                "intervalInSeconds": 5,
+                "numberOfProbes": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "name": "[parameters('vmssName')]",
+        "location": "[resourceGroup().location]",
+        "apiVersion": "2017-03-30",
+        "dependsOn": [
+          "[concat('Microsoft.Network/loadBalancers/', variables('loadbalancerName'))]",
+          "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+        ],
+        "sku": {
+          "name": "[variables('vmSize')]",
+          "tier": "Standard",
+          "capacity": "[parameters('vmssInstanceCount')]"
+        },
+        "properties": {
+          "overprovision": "false",
+          "upgradePolicy": {
+            "mode": "Manual"
+          },
+          "virtualMachineProfile": {
+            "storageProfile": {
+              "osDisk": {
+                "caching": "ReadOnly",
+                "createOption": "FromImage"
+              },
+              "imageReference": "[variables('imageReference')]"
+            },
+            "osProfile": {
+              "computerNamePrefix": "[parameters('resourcePrefix')]",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]"
+            },
+            "networkProfile": {
+              "networkInterfaceConfigurations": [
+                {
+                  "name": "[variables('nicName')]",
+                  "properties": {
+                    "primary": true,
+                    "ipConfigurations": [
+                      {
+                        "name": "ipconfig1",
+                        "properties": {
+                          "subnet": {
+                            "id": "[variables('subnetRef')]"
+                          },
+                          "loadBalancerBackendAddressPools": [
+                            {
+                              "id": "[concat(variables('lbID'), '/backendAddressPools/', variables('backEndPoolName'))]"
+                            }
+                          ],
+                          "loadBalancerInboundNatPools": [
+                            {
+                              "id": "[concat(variables('lbID'),'/inboundNatPools/SSH')]"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "outputs": {}
+}
