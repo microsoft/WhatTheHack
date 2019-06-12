@@ -31,12 +31,6 @@
       },
       "subnetPrefix": {
         "value": "10.0.0.0/24"
-      },
-      "_artifactsLocation": {
-        "value": "https://raw.githubusercontent.com/albertwo1978/training-events/master/p20-arm/"
-      },
-      "_artifactsLocationSasToken": {
-        "value": ""
       }
     }
 }

@@ -1,33 +1,26 @@
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "resourcePrefix": {
-        "value": "p20" 
-      },
-      "vmName": {
-        "value": "P20WebVM"
-      },      
-      "adminUsername": {
-        "value": "p20admin"
-      },
-      "adminPassword": {
-        "value": "P20Password!!"
-      },
-      "ubuntuOSVersion": {
-        "value": "16.04-LTS"
-      },
-      "vnetName": {
-        "value": "P20VNet"
-      },
-      "vnetPrefix": {
-        "value": "10.0.0.0/16"
-      },
-      "subnetName": {
-        "value": "Default"
-      },
-      "subnetPrefix": {
-        "value": "10.0.0.0/24"
-      }
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/<your-subscription-id-here>/resourceGroups/wth-iac/providers/Microsoft.KeyVault/vaults/wth-iac-KeyVault"
+              },
+              "secretName": "adminPassword"
+            }
+        },
+        "vnetName": {
+            "value": "wth-VNet"
+        },
+        "vnetPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetName": {
+            "value": "Default"
+        },
+        "subnetPrefix": {
+            "value": "10.0.0.0/24"
+        }
     }
 }
