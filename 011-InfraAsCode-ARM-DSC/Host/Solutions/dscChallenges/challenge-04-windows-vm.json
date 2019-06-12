@@ -4,7 +4,7 @@
     "parameters": {
         "resourcePrefix": {
             "type": "string",
-            "defaultValue": "p20",
+            "defaultValue": "iac",
             "metadata": {
                 "description": "Globally Unique Prefix for all resources in the template"
             }
@@ -90,20 +90,6 @@
             "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": [
-                    {
-                        "name": "ssh_rule",
-                        "properties": {
-                            "description": "Allow SSH",
-                            "protocol": "Tcp",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "22",
-                            "sourceAddressPrefix": "Internet",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 100,
-                            "direction": "Inbound"
-                        }
-                    },
                     {
                         "name": "web_rule",
                         "properties": {

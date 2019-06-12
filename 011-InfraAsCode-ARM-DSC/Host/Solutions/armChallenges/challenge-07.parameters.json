@@ -5,12 +5,9 @@
       "resourcePrefix": {
         "value": "p20" 
       },
-      "vmssName": {
-        "value": "P20WebVMSS"
-      },
-      "vmssInstanceCount": {
-        "value": 2
-      },        
+      "vmName": {
+        "value": "P20WebVM"
+      },      
       "adminUsername": {
         "value": "p20admin"
       },
