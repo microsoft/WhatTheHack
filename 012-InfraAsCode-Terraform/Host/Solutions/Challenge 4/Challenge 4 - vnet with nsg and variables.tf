@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.rg.name}"
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }
@@ -44,7 +44,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
         destination_address_prefix = "${var.nsg_security_rule_ssh["destination_address_prefix"]}"
     }
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }
