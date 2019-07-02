@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.rg.name}"
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }
@@ -56,7 +56,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
         destination_address_prefix = "${var.nsg_security_rule_http["destination_address_prefix"]}"
     }  
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }
@@ -66,7 +66,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     resource_group_name          = "${azurerm_resource_group.rg.name}"
     allocation_method            = "${var.azurerm_public_ip["allocation_method"]}"
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }resource "azurerm_network_interface" "myterraformnic" {
@@ -82,7 +82,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
         public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }
@@ -103,7 +103,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     account_replication_type = "${var.azurerm_storage_account["account_replication_type"]}"
     account_tier = "${var.azurerm_storage_account["account_tier"]}"
 
-    tags {
+    tags = {
         environment = "${var.tags["environment"]}"
     }
 }
@@ -154,7 +154,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
     }
 
-    tags {
+    tags = {
         environment = "WTH Terraform Demo"
     }
 }
