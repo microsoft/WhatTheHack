@@ -1,24 +1,24 @@
-"azurerm" = {
+azurerm = {
   subscription_id = "<subscription id>"
   client_id       = "<service principal app id>"
   client_secret   = "<service principal password>"
   tenant_id       = "<service principal tenant id>"
 }
 
-"location" = "East US"
-"resource_group_name" = "WTHTFRG"
+location = "East US"
+resource_group_name = "WTHTFRG"
 
-"virtual_network_name" = "WTHVNetTF"
-"virtual_network_address_space" = ["10.1.0.0/16"]
+virtual_network_name = "WTHVNetTF"
+virtual_network_address_space = ["10.1.0.0/16"]
 
-"subnet" = { 
+subnet = { 
     name = "default"
     address_prefix = "10.1.0.0/24"
 }
 
-"nsg" = "WTHNSG"
+nsg = "WTHNSG"
 
-"nsg_security_rule_ssh" = {
+nsg_security_rule_ssh = {
     name                       = "SSH"
     priority                   = 1001
     direction                  = "Inbound"
@@ -30,6 +30,6 @@
     destination_address_prefix = "*"
 }
 
-"tags" = {
+tags = {
     environment = "WTH Terraform"
 }
