@@ -1,6 +1,6 @@
 # What the Hack: OSS DevOps 
 
-## Challenge 06 - <Title>
+## Challenge 06 - CICD via Jenkins: Continuous Build
 [Back](challenge05.md) // [Home](../../readme.md) // [Next](challenge07.md)
 
 ### Introduction

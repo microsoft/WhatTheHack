@@ -13,9 +13,9 @@ DevOps is a journey not a destination. Our goal when writing this challenged bas
  - [Challenge 2](./Student/Guides/challenge02.md) - GitHub Project Boards: Agile Project Management
  - [Challegne 3](./Student/Guides/challenge03.md) - GitHub Repositories: Introduction
  - [Challegne 4](./Student/Guides/challenge04.md) - Deploy and Containerize App (Locally)
- - [Challegne 5](./Student/Guides/challenge05.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
- - [Challegne 6](./Student/Guides/challenge06.md) - 
- - [Challegne 7](./Student/Guides/challenge07.md) - 
+ - [Challegne 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechnism
+ - [Challegne 6](./Student/Guides/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
+ - [Challegne 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
  - [Challegne 8](./Student/Guides/challenge08.md) - 
  - [Challegne 9](./Student/Guides/challenge09.md) - 
  - ...
