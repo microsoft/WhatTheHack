@@ -2,7 +2,9 @@
 
 ## Introduction
 
-DevOps is a journey not a destination. Our goal when writing this challenged based hack is to introduce you to some common DevOps practices, some popular OSS DevOps tooling, and to show you how Azure can be integrated into an OSS DevOps process. We understand that your choice of programming language and DevOps processes might differ from the ones we will be using in this hack, that is OK. Our intent was to select some of the most common programming languages, OSS DevOps tools, and highlight industry best practices, with an emphasis on showing how Azure can help you on your OSS DevOps journey, so that you can apply this in your environment with the languages and tools that you use.
+DevOps is a journey not a destination. Our goal when writing this challenged based hack is to introduce you to some common DevOps practices, some popular OSS DevOps tooling, and to show you how Azure can be integrated into an OSS DevOps process.
+
+We understand that your choice of programming language and DevOps processes might differ from the ones we will be using in this hack, that is OK. Our intent was to select some of the most common programming languages, OSS DevOps tools, and highlight industry best practices, with an emphasis on showing how Azure can help you on your OSS DevOps journey, so that you can apply this in your environment with the languages and tools that you use.
 
 ## Challenges
  
@@ -18,5 +20,3 @@ DevOps is a journey not a destination. Our goal when writing this challenged bas
  - [Challegne 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
  - [Challegne 8](./Student/Guides/challenge08.md) - Infrastructure as Code: Deploying via Terraform
  - [Challegne 9](./Student/Guides/challenge09.md) - Monitoring: Generating and listening to application metrics
- - ...
- - ...
