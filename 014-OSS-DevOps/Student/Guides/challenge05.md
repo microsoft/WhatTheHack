@@ -17,3 +17,7 @@ Develop a set of unit tests for the voting application. Since this application i
 If you are not familar a developer or not familar with Python do go ahead and skip this section but do review the [provided solution](../../Host/Solutions/challenge04/app/tests) to get a taste of how unit testing works.
    
 [Back](challenge04.md) // [Home](../../readme.md) // [Next](challenge06.md)
+
+```
+Finish writing the solution readme.md for unit tests
+```
