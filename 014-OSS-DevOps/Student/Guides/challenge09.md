@@ -1,6 +1,6 @@
 # What the Hack: OSS DevOps 
 
-## Challenge 09 - <Title>
+## Challenge 09 - Monitoring: Generating and listening to application metrics
 [Back](challenge08.md) // [Home](../../readme.md)
 
 ### Introduction
