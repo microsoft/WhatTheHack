@@ -16,7 +16,7 @@ DevOps is a journey not a destination. Our goal when writing this challenged bas
  - [Challegne 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechnism
  - [Challegne 6](./Student/Guides/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
  - [Challegne 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
- - [Challegne 8](./Student/Guides/challenge08.md) - 
- - [Challegne 9](./Student/Guides/challenge09.md) - 
+ - [Challegne 8](./Student/Guides/challenge08.md) - Infrastructure as Code: Deploying via Terraform
+ - [Challegne 9](./Student/Guides/challenge09.md) - Monitoring: Generating and listening to application metrics
  - ...
  - ...

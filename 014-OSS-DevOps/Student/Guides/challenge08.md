@@ -1,6 +1,6 @@
 # What the Hack: OSS DevOps 
 
-## Challenge 08 - <Title>
+## Challenge 08 - Infrastructure as Code: Deploying via Terraform
 [Back](challenge07.md) // [Home](../../readme.md) // [Next](challenge09.md)
 
 ### Introduction
