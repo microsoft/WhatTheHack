@@ -9,11 +9,14 @@ Now that we have the containerized application running locally. Lets send the pa
 
 ### Challenge
 
-<Detail Challenge>
+The tasks in this challenge are to:
+1. Create an Azure Container Registry (ACR)
+2. Setup local Docker runtime to point to the newly created ACR
+3. Push the containerized voting application to ACR
    
 
 ### Success Criteria
 
-<Detail Success>
+To successfully complete this challenge have the containerized application be pushed to ACR to be ready to be deployed anywhere.
    
 [Back](challenge04.md) // [Home](../../readme.md) // [Next](challenge06.md)
