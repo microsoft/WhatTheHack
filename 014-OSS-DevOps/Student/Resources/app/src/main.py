@@ -7,9 +7,10 @@ app = Flask(__name__)
 
 # Load configurations
 app.config.from_pyfile('config_file.cfg')
-button1 =       app.config['VOTE1VALUE']  
-button2 =       app.config['VOTE2VALUE']
-title =         app.config['TITLE']
+
+button1 =   app.config['VOTE1VALUE']  
+button2 =  app.config['VOTE2VALUE']
+title        =  app.config['TITLE']
 
 # Change title to host name to demo NLB
 if app.config['SHOWHOST'] == "true":
