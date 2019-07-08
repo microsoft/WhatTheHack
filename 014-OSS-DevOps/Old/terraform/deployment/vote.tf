@@ -29,7 +29,7 @@ resource "azurerm_container_group" "example" {
       protocol = "TCP"
     }
   }
-  
+
   tags = {
     environment = "testing"
   }
