@@ -1,22 +1,19 @@
 # What the Hack: OSS DevOps 
 
-## Challenge 05 - Package Application: Create Azure Container Registry and Push App Image to ACR
+## Challenge 05 - Test: Developing a testing mechnism
 [Back](challenge04.md) // [Home](../../readme.md) // [Next](challenge06.md)
 
 ### Introduction
 
-Now that we have the containerized application running locally. Lets send the packaged application (aka containerized application) to an image repository. Any flavor of image repository can be used. However, in this hack use Azure Container Registry (aka ACR). Generally ACR is not sufficient and a package manager like JFrog's Artifactory, Nexus, npm or GitHubs Package Registry. However, to keep it this application build simple we will not source our application dependencies from any of these sources but instead will use publicly avaliable [dependenties](../Resources/app/src/requirements.txt). 
+Unit testing is a level of software testing where individual units/ components of a software are tested. The purpose is to validate that each unit of the software performs as designed. A unit is the smallest testable part of any software. It usually has one or a few inputs and usually a single output. [Reference](http://softwaretestingfundamentals.com/unit-testing/)
 
 ### Challenge
 
-The tasks in this challenge are to:
-1. Create an Azure Container Registry (ACR)
-2. Setup local Docker runtime to point to the newly created ACR
-3. Push the containerized voting application to ACR
+Develop a set of unit tests for the voting application. Since this application is written in Python, use pythons Unit testing framework [**unittest**](https://docs.python.org/3/library/unittest.html)
    
 
 ### Success Criteria
 
-To successfully complete this challenge have the containerized application be pushed to ACR to be ready to be deployed anywhere.
+If you are not familar a developer or not familar with Python do go ahead and skip this section but do review the [provided solution](../../Host/Solutions/challenge04/app/tests) to get a taste of how unit testing works.
    
 [Back](challenge04.md) // [Home](../../readme.md) // [Next](challenge06.md)
