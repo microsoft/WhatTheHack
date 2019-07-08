@@ -1,10 +1,10 @@
 FROM python:alpine3.8
 
-# Install Flask server
-RUN pip install flask 
-
 # Copy local directory "src" to container filesystem "/src"
 COPY src /src
+
+# Install Requirements server
+RUN pip install -r /src/requirements.txt
 
 EXPOSE 80
 
