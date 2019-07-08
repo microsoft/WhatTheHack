@@ -16,10 +16,17 @@ To handle this shift, many organizations treat their cloud-based infrastructure 
 
 In this challenge, the objective is to get familiar with Terraform's command line interface (CLI) and use its templating mechnism along with the [Azure provider](https://www.terraform.io/docs/providers/azurerm/index.html) to deploy the voting application that has been containerized and stored in Azure Container Registry (ACR).
 
-   
+The tasks for this challenge are:
+1. Download and setup Terraform locally
+2. Create a Terraform template file that will deploy the containerized voting application onto Azure Container Instance
+
+
 
 ### Success Criteria
 
-<Detail Success>
+The complete this challenge successfully:
+*   Ensure Terraform CLI is installed locally
+*   Create a Terraform  ```*.tf``` template file utilizing the Azure provider
+* Deploy the containerized voting application to ACI via Terraform
    
 [Back](challenge07.md) // [Home](../../readme.md) // [Next](challenge09.md)
