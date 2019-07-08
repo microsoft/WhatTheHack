@@ -24,7 +24,7 @@ git clone git@github.com:alihhussain/WhatTheHack.git
 Switch to the correct folder:
 
 ```bash
-cd app
+cd ./014-OSS-DevOps/Host/Solutions/challenge04/app
 ```
 
 ## Test and Run Container Locally
