@@ -15,7 +15,7 @@ We understand that your choice of programming language and DevOps processes migh
  - [Challenge 2](./Student/Guides/challenge02.md) - GitHub Project Boards: Agile Project Management
  - [Challenge 3](./Student/Guides/challenge03.md) - GitHub Repositories: Introduction
  - [Challenge 4](./Student/Guides/challenge04.md) - Deploy and Containerize App (Locally)
- - [Challenge 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechnism
+ - [Challenge 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechanism
  - [Challenge 6](./Student/Guides/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
  - [Challenge 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
  - [Challenge 8](./Student/Guides/challenge08.md) - Infrastructure as Code: Deploying via Terraform
