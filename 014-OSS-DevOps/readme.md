@@ -13,10 +13,10 @@ We understand that your choice of programming language and DevOps processes migh
  - [Challenge 0](./Student/Guides/challenge00.md) - Setup
  - [Challenge 1](./Student/Guides/challenge01.md) - OSS DevOps: Introduction
  - [Challenge 2](./Student/Guides/challenge02.md) - GitHub Project Boards: Agile Project Management
- - [Challegne 3](./Student/Guides/challenge03.md) - GitHub Repositories: Introduction
- - [Challegne 4](./Student/Guides/challenge04.md) - Deploy and Containerize App (Locally)
- - [Challegne 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechnism
- - [Challegne 6](./Student/Guides/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
- - [Challegne 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
- - [Challegne 8](./Student/Guides/challenge08.md) - Infrastructure as Code: Deploying via Terraform
- - [Challegne 9](./Student/Guides/challenge09.md) - Monitoring: Generating and listening to application metrics
+ - [Challenge 3](./Student/Guides/challenge03.md) - GitHub Repositories: Introduction
+ - [Challenge 4](./Student/Guides/challenge04.md) - Deploy and Containerize App (Locally)
+ - [Challenge 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechanism
+ - [Challenge 6](./Student/Guides/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
+ - [Challenge 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
+ - [Challenge 8](./Student/Guides/challenge08.md) - Infrastructure as Code: Deploying via Terraform
+ - [Challenge 9](./Student/Guides/challenge09.md) - Monitoring: Generating and listening to application metrics
