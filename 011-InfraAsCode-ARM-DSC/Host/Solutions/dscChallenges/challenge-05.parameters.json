@@ -1,0 +1,42 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourcePrefix": {
+            "value": "iac"
+        },
+        "adminUsername": {
+            "value": "iacadmin"
+        },
+        "adminPassword": {
+            "value": "IacPassword!!"
+        },
+        "windowsOSVersion": {
+            "value": "2016-Datacenter"
+        },
+        "vnetPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetName": {
+            "value": "Default"
+        },
+        "subnetPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "dscExtensionArchiveFileName": {
+            "value": "challenge-05-simple-dsc.ps1.zip"
+        },
+        "dscScriptFileName": {
+            "value": "challenge-05-simple-dsc.ps1"
+        },
+        "dscFunctionName": {
+            "value": "Create-Folders"
+        },
+        "_artifactsLocation": {
+            "value": "https://iacdemos.blob.core.windows.net/resources"
+        },
+        "_artifactsLocationSasToken": {
+            "value": "?st=2018-06-11T19%3A41%3A00Z&se=2018-06-30T19%3A41%3A00Z&sp=rl&sv=2017-07-29&sr=c&sig=bI8MSABEHyJU6CsRbC02uoF8mN%2FUc1ppAs8wwtDgVK4%3D"
+        }
+    }
+}
