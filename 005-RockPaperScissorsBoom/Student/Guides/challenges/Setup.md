@@ -29,7 +29,7 @@ The first challenge is to setup an environment that will help you build the Rock
     * Make sure you clone your OWN fork of the repo, not the Microsoft/WhatTheHack repo.
     * We recommend using [Bash (Linux) mode](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) in the cloud shell for this Hack
     * Have limited screen real estate? Try the [full screen shell](https://shell.azure.com/)
-1. Setup a VM in Azure that will be your Docker Host. This is the VM where you will build the application, deploy it and test it. Azure Cloud Shell has the Docker cilent installed. You will be able to connect the Docker Client in Azure Cloud Shell to your VM. ([instructions here](./helpers/CreateDockerHostVM.md)).
+1. Setup a VM in Azure that will be your Docker Host. This is the VM where you will build the application, deploy it and test it. Azure Cloud Shell has the Docker client installed. You will be able to connect the Docker Client in Azure Cloud Shell to your VM. ([instructions here](./helpers/CreateDockerHostVM.md)).
 
 ### Optional Challenges
 1. Create a new Private project in [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=vsts&tabs=new-nav) (with Git and Agile under advanced options)
