@@ -1,0 +1,14 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "rules": {
+    "no-console": 1
+  },
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  }
+}

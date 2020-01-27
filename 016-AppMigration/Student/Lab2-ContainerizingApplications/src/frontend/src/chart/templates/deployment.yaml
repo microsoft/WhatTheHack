@@ -1,0 +1,62 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "frontend.fullname" . }}
+  labels:
+    app: {{ template "frontend.name" . }}
+    chart: {{ template "frontend.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "frontend.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "frontend.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}/{{ .Values.image.imageName }}:{{ .Values.image.tag }}"
+          env:
+          - name: PORT
+            value: "{{ .Values.service.port }}"
+          - name: INVENTORY_SERVICE_BASE_URL
+            value: "{{ .Values.externalServices.inventory }}"
+          - name: PRODUCT_SERVICE_BASE_URL
+            value: "{{ .Values.externalServices.product }}"
+          - name: DISPLAY_SQL_INFO
+            value: "{{ .Values.displaySqlInfo }}"
+          - name: CUSTOM_TITLE
+            value: "{{ .Values.customTitle }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.port }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
