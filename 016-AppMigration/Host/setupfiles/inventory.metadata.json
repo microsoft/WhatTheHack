@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"tailwind.inventory"},{"v":1,"key":{"DocumentDBDefaultIndex":1},"name":"DocumentDBDefaultIndex_1","ns":"tailwind.inventory"},{"v":1,"key":{"DocumentDBDefaultIndex":"2dsphere"},"name":"DocumentDBDefaultIndex_2dsphere","ns":"tailwind.inventory"}]}

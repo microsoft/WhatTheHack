@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SignalR Test Page</title>
+</head>
+<body>
+  <h1>Inventory updates show up here</h1>
+  <ul id="items"></ul>
+  <script src="https://cdn.jsdelivr.net/npm/@aspnet/signalr@1.0.4/dist/browser/signalr.js"></script>
+  <script>
+    const connection = new signalR.HubConnectionBuilder()
+      .withUrl('/signalr/inventory')
+      .build()
+    
+    const items = document.getElementById('items')
+    connection.on('inventoryUpdated', item => {
+      const li = document.createElement('li')
+      li.textContent = `[${(new Date()).toISOString()}] sku: ${item.sku} - qty: ${item.quantity}`
+      items.append(li)
+    })
+    connection.onclose(function () {
+      console.log('disconnected')
+      startConnection()
+    })
+    
+    startConnection()
+
+    function startConnection() {
+      console.log('Connecting...')
+      connection.start()
+        .catch(err => {
+          console.error(err)
+          setTimeout(startConnection, 2000)
+        })
+    }
+  </script>
+</body>
+</html>
