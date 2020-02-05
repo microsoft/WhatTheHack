@@ -39,6 +39,17 @@ _HINT : Record names and keys_
       * Partition key **: &quot;**/fileName&quot;
       * 5000 throughput
 1. Create a Computer Vision API service (S1 pricing tier)
+1. Create a Key Vault
+    * Pricing Tier : Standard
+    * Create Secrets According to below
+
+    |                          |                                                                                                                                                             |
+    | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
+    | **Name**      |                                                                          **Value**                                                                          |
+    | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
+    | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
+    | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
+    | blobStorageConnection    |                                                               Blob storage connection string                                                                |
 
 
 ## Success criteria
