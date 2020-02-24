@@ -13,27 +13,29 @@ Create two new Azure Functions written in Node.js, using the Azure portal. These
     * Name : SavePlateData
 3. Replace the code with the following:
 
-```csharp
-module.exports=function (context, eventGridEvent) {
+    ```javascript
+    module.exports = function(context, eventGridEvent) {
     context.log(typeof eventGridEvent);
     context.log(eventGridEvent);
-    context.bindings.outputDocument= {
-        fileName :eventGridEvent.data[&quot;fileName&quot;],
-        licensePlateText :eventGridEvent.data[&quot;licensePlateText&quot;],
-        timeStamp :eventGridEvent.data[&quot;timeStamp&quot;],
-        exported :false
-    }
+
+    context.bindings.outputDocument = {
+        fileName: eventGridEvent.data['fileName'],
+        licensePlateText: eventGridEvent.data['licensePlateText'],
+        timeStamp: eventGridEvent.data['timeStamp'],
+        exported: false
+    };
+
     context.done();
-};
-```
+    };
+    ```
 
 4. Add an event grid subscription
     * Name should contain &quot;SAVE&quot;
     * Event Schema: Event Grid Schema.
     * Topic Type: Event Grid Topics.
     * Resource: your recently created Event Grid.
-    * Ensure that Subscribe to all event types _is checked_. You  will enter a custom event type later.
-    * Leave Web Hook as the Endpoint Type.
+    * Event Type : Add `savePlateData`
+    * Endpoint : Leave As Is
 5. Add a Cosmos DB Output to the function (install extensions if needed)
     * Select the Cosmos DB account created earlier
     * Database Name : LicensePlates
@@ -42,34 +44,34 @@ module.exports=function (context, eventGridEvent) {
     * Name : QueuePlateForManualCheckup
 7. Replace the code with the following:
 
-```csharp
-module.exports=asyncfunction (context, eventGridEvent) {
+
+    ```javascript
+    module.exports = async function(context, eventGridEvent) {
     context.log(typeof eventGridEvent);
     context.log(eventGridEvent);
-    context.bindings.outputDocument= {
-        fileName :eventGridEvent.data[&quot;fileName&quot;],
-        licensePlateText :&quot;&quot;,
-        timeStamp :eventGridEvent.data[&quot;timeStamp&quot;],
-        resolved :false
-    }
+
+    context.bindings.outputDocument = {
+        fileName: eventGridEvent.data['fileName'],
+        licensePlateText: '',
+        timeStamp: eventGridEvent.data['timeStamp'],
+        resolved: false
+    };
+
     context.done();
-};
-```
+    };
+    ```
 
 8. Add an event grid subscription
     * Name should contain &quot;QUEUE&quot;
     * Event Schema: Event Grid Schema.
     * Topic Type: Event Grid Topics.
     * Resource: your recently created Event Grid.
-    * Ensure that Subscribe to all event types _is checked_. You will enter a custom event type later.
-    * Leave Web Hook as the Endpoint Type.
+    * Add Event Type `queuePlateForManualCheckup`
+    * Leave Azure Function as the Endpoint Type.
 9. Add a Cosmos DB Output to the QueuePlateForManualCheckup function
-    * Select the Cosmos DB account created earlier
+    * Select the Cosmos DB account connection created earlier
     * Database Name : LicensePlates
     * Collection Name : NeedsManualReview
-10. Navigate to your event grid topic
-11. Modify the &quot;SAVE&quot; subscription so it no longer subscribes to all events and add an event type named &quot;savePlateData&quot;.  _Note – If you changed this in the solution, you will have to make sure the name matches what was in the solution_
-12. Modify the &quot;QUEUE&quot; subscription so it no longer subscribes to all events and add an event type named &quot; **queuePlateForManualCheckup&quot;**.  _Note – If you changed this in the solution, you will have to make sure the name matches what was in the solution_
 
 
 ## Success Criteria
