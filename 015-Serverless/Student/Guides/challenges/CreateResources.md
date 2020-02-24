@@ -65,4 +65,6 @@ _HINT : Record names and keys_
 | Concepts in Event Grid                     |                                                <https://docs.microsoft.com/azure/event-grid/concepts>                                                 |
 | Creating an Azure Cosmos DB account        |                                              <https://docs.microsoft.com/azure/cosmos-db/manage-account>                                              |
 | Key Vault Secret Identifiers        |                                              <https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates>                                              |
+
+
 [Next challenge (Configuration) >](./Configuration.md)
