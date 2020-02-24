@@ -9,7 +9,7 @@
 
 You must provision a few resources in Azure before you start developing the solution. Ensure all resources use the same resource group for easier cleanup.  Put resources in the same region as the resource group.  Remember that some resources need to have unique names.
 
-In this challenge, you will provision a blob storage account using the Hot tier, and create two containers within to store uploaded photos and exported CSV files. You will then provision two Function Apps instances, one you will deploy from Visual Studio, and the other you will manage using the Azure portal. Next, you will create a new Event Grid topic. After that, you will create an Azure Cosmos DB account with two collections. Finally, you will provision a new Cognitive Services Computer Vision API service for applying object character recognition (OCR) on the license plates.
+In this challenge, you will provision a blob storage account using the Hot tier, and create two containers within to store uploaded photos and exported CSV files. You will then provision two Function Apps instances, one you will deploy from Visual Studio, and the other you will manage using the Azure portal. Next, you will create a new Event Grid topic. After that, you will create an Azure Cosmos DB account with two collections. Then, you will provision a new Cognitive Services Computer Vision API service for applying object character recognition (OCR) on the license plates.  Lastly, you will implement Key Vault for secure some of the resource keys.
 
 _HINT : Record names and keys_
 
@@ -18,33 +18,42 @@ _HINT : Record names and keys_
     * Create a container &quot;images&quot;
     * Create a container &quot;export&quot;
 1. Create a function app (put &quot;App&quot; in the name)
-    * For your tollbooth app, consumption plan, .NET runtime stack
+    * For your tollbooth app, consumption plan, .NET Core runtime stack
     * Create new storage and disable application insights
 1. Create a function app (put &quot;Events&quot; in the name)
-    * For your tollbooth events, consumption plan, Javascript runtime stack
+    * For your tollbooth events, consumption plan, Node.js runtime stack
     * Create new storage and disable application insights
 1. Create an Event Grid Topic (leave schema as Event Grid Schema)
 1. Create an Azure Cosmos DB account
     * API : Core (SQL)
     * Disable Geo-redundency and multi-region writes
-    * Create a collection
+    * Create a container
       * Database ID &quot;LicensePlates&quot;
-      * Leave **Provision database throughput** unchecked.
+      * Uncheck **Provision database throughput**
       * Container ID &quot;Processed&quot;
       * Partition key **: &quot;**/licensePlateText&quot;
       * 5000 throughput
-    * Create a collection
-      * Database ID &quot;LicensePlates&quot;
-      * Leave **Provision database throughput** unchecked.
+    * Create a second container
+      * Database ID created above &quot;LicensePlates&quot;
       * Container ID &quot;NeedsManualReview&quot;
       * Partition key **: &quot;**/fileName&quot;
       * 5000 throughput
-    * _Hint : copy the_ _read-write keys_ _for URI and Primary Key_
 1. Create a Computer Vision API service (S1 pricing tier)
+1. Create a Key Vault
+    * Pricing Tier : Standard
+    * Create Secrets According to below
+
+    |                          |                                                                                                                                                             |
+    | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
+    | **Name**      |                                                                          **Value**                                                                          |
+    | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
+    | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
+    | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
+    | blobStorageConnection    |                                                               Blob storage connection string                                                                |
 
 
 ## Success criteria
-1. You have 8 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps)
+1. You have 11 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps)
 
 ## Learning resources
 
@@ -55,5 +64,7 @@ _HINT : Record names and keys_
 | Creating a function app                    |                                <https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal>                                |
 | Concepts in Event Grid                     |                                                <https://docs.microsoft.com/azure/event-grid/concepts>                                                 |
 | Creating an Azure Cosmos DB account        |                                              <https://docs.microsoft.com/azure/cosmos-db/manage-account>                                              |
+| Key Vault Secret Identifiers        |                                              <https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates>                                              |
+
 
 [Next challenge (Configuration) >](./Configuration.md)

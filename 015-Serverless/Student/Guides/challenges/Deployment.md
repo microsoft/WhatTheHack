@@ -14,9 +14,9 @@ In this challenge, you will deploy the VS project to Azure.
 2. In the portal, add the event grid subscription to the &quot;Process Image&quot; function
   * Event Schema: Event Grid Schema.
   * Topic Type : Storage Accounts.
-  * Resource : your recently created Event Grid.
-  * _Uncheck_ Subscribe to all event types, then select Blob Created from the event types dropdown list.
-  * Leave Web Hook as the Endpoint Type.
+  * Resource : The first storage account you created.
+  * Event type : Blob Created _only_
+  * Endpoint type : Leave as is
 
 ## Success Criteria
 1. The solution successfully deploys to Azure
