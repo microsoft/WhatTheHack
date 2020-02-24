@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.DataMovement;
 using System.Configuration;
 using System.Net;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.Storage.DataMovement;
 
 namespace UploadImages
 {
@@ -17,10 +17,21 @@ namespace UploadImages
     {
         private static List<MemoryStream> _sourceImages;
         private static readonly Random Random = new Random();
-        private static readonly string BlobStorageConnection = ConfigurationManager.AppSettings["blobStorageConnection"];
+        private static string BlobStorageConnection;
 
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("You must pass the Blob Storage connection string as an argument when executing this application.");
+                Console.ReadLine();
+                return 1;
+            }
+            else
+            {
+                BlobStorageConnection = args[0];
+            }
+
             int choice = 1;
             Console.WriteLine("Enter one of the following numbers to indicate what type of image upload you want to perform:");
             Console.WriteLine("\t1 - Upload a handful of test photos");
@@ -32,6 +43,8 @@ namespace UploadImages
             UploadImages(upload1000);
 
             Console.ReadLine();
+
+            return 0;
         }
 
         private static void UploadImages(bool upload1000)

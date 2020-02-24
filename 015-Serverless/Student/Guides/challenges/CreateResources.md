@@ -9,7 +9,7 @@
 
 You must provision a few resources in Azure before you start developing the solution. Ensure all resources use the same resource group for easier cleanup.  Put resources in the same region as the resource group.  Remember that some resources need to have unique names.
 
-In this challenge, you will provision a blob storage account using the Hot tier, and create two containers within to store uploaded photos and exported CSV files. You will then provision two Function Apps instances, one you will deploy from Visual Studio, and the other you will manage using the Azure portal. Next, you will create a new Event Grid topic. After that, you will create an Azure Cosmos DB account with two collections. Finally, you will provision a new Cognitive Services Computer Vision API service for applying object character recognition (OCR) on the license plates.
+In this challenge, you will provision a blob storage account using the Hot tier, and create two containers within to store uploaded photos and exported CSV files. You will then provision two Function Apps instances, one you will deploy from Visual Studio, and the other you will manage using the Azure portal. Next, you will create a new Event Grid topic. After that, you will create an Azure Cosmos DB account with two collections. Then, you will provision a new Cognitive Services Computer Vision API service for applying object character recognition (OCR) on the license plates.  Lastly, you will implement Key Vault for secure some of the resource keys.
 
 _HINT : Record names and keys_
 
@@ -53,7 +53,7 @@ _HINT : Record names and keys_
 
 
 ## Success criteria
-1. You have 10 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps)
+1. You have 11 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps)
 
 ## Learning resources
 
@@ -64,5 +64,5 @@ _HINT : Record names and keys_
 | Creating a function app                    |                                <https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal>                                |
 | Concepts in Event Grid                     |                                                <https://docs.microsoft.com/azure/event-grid/concepts>                                                 |
 | Creating an Azure Cosmos DB account        |                                              <https://docs.microsoft.com/azure/cosmos-db/manage-account>                                              |
-
+| Key Vault Secret Identifiers        |                                              <https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates>                                              |
 [Next challenge (Configuration) >](./Configuration.md)

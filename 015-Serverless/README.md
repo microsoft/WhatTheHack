@@ -24,6 +24,7 @@ Azure services and related products
 •	Azure Event Grid
 •	Application Insights
 •	Azure Cosmos DB
+•	Azure Key Vault
 •	Logic Apps
 
 
