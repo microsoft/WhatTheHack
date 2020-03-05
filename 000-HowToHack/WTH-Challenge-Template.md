@@ -1,43 +1,78 @@
 # What The Hack - Challenge Template
 
-This is a markdown template for how a WTH Challenge should be formatted.  If a section is marked as "optional", you do not need to include it.
-
-Template starts here...
+This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it.
 
 # Challenge \# - \<Challenge Name>
 
-[< Previous Challenge #](./ChallengeX-1.md)
+[< Previous Challenge](./ChallengeX-1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./ChallengeX+1.md)
 
 ## Pre-requisites (Optional)
 
-Optionally include any technical pre-requisites needed for this challenge here.  Typically, it is completion of one or more of the previous challenges if there is a dependency.
+*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
 
-## Introduction
+**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
 
-Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.
+**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
 
-Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.
+**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
 
-## Challenge description
+**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
 
-The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right! :)
 
-Optionally, you may provide Resources needed to complete the challenge such as code snippets, configuration files, or other items that help the attendees maintain momentum as they may fall behind the rest of their squad cohorts.
+## Introduction (Optional)
+
+*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+
+*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
+
+**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+
+
+## Description
+
+*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
+
+*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
+
+**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+
 
 ## Success Criteria
 
-Success criteria goes here! This is a list of things an attendee/coach can verfiy to prove the attendee has successfully completed the challenge. 
+*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
 
-## Tips
+**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
 
-Tips & Tricks anyone??!!
+**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
 
-## Advanced Challenges (Optional)
+**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
 
-Too comfortable?  Eager to do more?  Try these additional challenges!
 
 ## Learning Resources
 
-List of relevant links and online articles that should prepare attendees with the knowledge needed to complete the challenge.  
+*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
 
-[Next Challenge #>](./ChallengeX+1.md)
+**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
+
+**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
+
+**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
+
+
+## Tips (Optional)
+
+*Add tips and hints here to give students food for thought.*
+
+**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
+
+**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
+
+
+## Advanced Challenges (Optional)
+
+*Too comfortable?  Eager to do more?  Try these additional challenges!*
+
+**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+
+**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+
