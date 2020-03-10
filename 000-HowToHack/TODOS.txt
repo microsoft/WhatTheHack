@@ -1,5 +1,12 @@
 to do list
 
+- Folder structure guidance
+	- Remove "Guides" and "Resources" from guidance
+	- We should just have "Coaches" and "Students" folders and tell them that challenge md's 
+	should go in here in addition to any code or resources needed
+	- We need to tell them:
+		- Students: All files in here will be delivered to the students.
+		- Coaches: Any files that we want coaches to see above and beyond the student files
 - aka.ms/wth repo root README.md
 	- document the WTH format (including remote delivery with teams)
 	- NOTE: This is the marketing spiel
