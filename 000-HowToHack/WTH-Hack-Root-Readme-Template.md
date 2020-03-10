@@ -32,8 +32,8 @@ In this hack you will be solving the common business problem that companies in t
 - An AVNET X231 device
 
 ## Repository Contents
-- `../Host/Guides`
-  - Proctor's Guide and related files
+- `../Coach/Guides`
+  - Coach's Guide and related files
 - `../SteamShovel`
   - Image files and code for steam shovel microservice
 - `../images`
