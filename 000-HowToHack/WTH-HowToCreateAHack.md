@@ -1,4 +1,4 @@
-# How to Create and Contribute a Hack
+# How to Create and Contribute your What The Hack
 
 Developing a new What The Hack is a great way to get your content out into the world. Chances are if you've done workshops or PoCs in the past, you already have the material on which to base a What The Hack.
 
