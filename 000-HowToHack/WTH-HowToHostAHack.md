@@ -4,7 +4,7 @@ We've structured the What The Hack format to make it easy to deliver to students
 
 # Roles and Responsibilities
 There are a few different roles that will need to be played at your What The Hack event. They include:
-- Lead Coach (aka Host, aka Emcee)
+- Lead Coach
 	- The lead of the event both logistically and technically. 
 	- Should be intimately familiar with the content and all its solutions.
 	- In charge setting up Teams and channels to support the event.

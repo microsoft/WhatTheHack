@@ -31,7 +31,7 @@ In this hack you will be solving the common business problem that companies in t
 - Azure CLI
 - An AVNET X231 device
 
-## Repository Contents
+## Repository Contents (Optional)
 - `../Coach/Guides`
   - Coach's Guide and related files
 - `../SteamShovel`
