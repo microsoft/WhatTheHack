@@ -14,7 +14,7 @@
 The first challenge is to setup an environment that will help you build the Tollbooth application and deploy it locally. We need to make sure everything is working before bringing it to Azure.
 
 - Visual Studio or Visual Studio Code
-    - Azure development workload for Visual Studio 2017
+    - Azure development workload for Visual Studio 2017 or 2019
     - Azure Functions and Web jobs tools
     - .NET Framework 4.7 runtime (or higher)
     - .NET Core 2.1
