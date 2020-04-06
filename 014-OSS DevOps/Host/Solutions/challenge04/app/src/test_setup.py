@@ -2,7 +2,7 @@ import sys
 import random
 import string
 import unittest
-from src.main import *
+from main import *
 
 
 class TestVotingSetup(unittest.TestCase):
