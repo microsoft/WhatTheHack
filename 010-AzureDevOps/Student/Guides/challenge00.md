@@ -5,7 +5,7 @@
 
 ### Introduction
 
-DevOps is a very broad topic and you have lots of choices when it comes to the tools that you use. In this challenge you will setup your computer and cloud environment with the minimum required tools. However, please note that this is not a complete list of everything you might need during the challenges. We will have many add on learning options that might require additional tools. 
+DevOps is a very broad topic and you have lots of choices when it comes to the tools that you use. In this challenge you will setup your computer and cloud environment with the minimum required tools. 
 
 ### Challenge
 

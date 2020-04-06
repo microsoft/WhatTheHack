@@ -1,0 +1,19 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 0 */24 * * *"
+    },
+    {
+      "type": "sendGrid",
+      "name": "message",
+      "apiKey": "SENDGRID_API_KEY",
+      "to": "%RECIPIENT_EMAIL%",
+      "from": "%SENDER_EMAIL%",
+      "direction": "out"
+    }
+  ]
+}
