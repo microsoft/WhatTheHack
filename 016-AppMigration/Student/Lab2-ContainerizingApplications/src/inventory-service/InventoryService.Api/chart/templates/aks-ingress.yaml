@@ -1,0 +1,17 @@
+{{- if .Values.aksIngress.baseDomain }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "inventoryservice.fullname" . }}
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: {{ template "inventoryservice.fullname" . }}.{{ .Values.aksIngress.baseDomain }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ template "inventoryservice.fullname" . }}
+          servicePort: {{ .Values.service.port }}
+        path: /
+{{- end }}

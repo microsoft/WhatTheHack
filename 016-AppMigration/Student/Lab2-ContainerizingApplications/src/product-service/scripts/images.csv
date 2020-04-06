@@ -1,0 +1,138 @@
+id,product_type_id,supplier_id,sku,name,price,short_description
+2051,1,1,TT2051,Extention Coord,14.99,Desc: 2051
+2053,1,1,TT2053,LED Lamp,10,Desc: 2053
+2054,1,1,TT2054,LED Lamp,10,Desc: 2054
+2057,1,1,TT2057,Timer Outlet,10,Desc: 2057
+2059,1,1,TT2059,Paint Roller,10,Desc: 2059
+2061,1,1,TT2061,Sponge,10,Desc: 2061
+2062,1,1,TT2062,Tile Backsplash,10,Desc: 2062
+2063,1,1,TT2063,Tile Backsplash,10,Desc: 2063
+2064,1,1,TT2064,Tile Backsplash,10,Desc: 2064
+2065,1,1,TT2065,Tile Backsplash,10,Desc: 2065
+2066,1,1,TT2066,Tile Backsplash,10,Desc: 2066
+2067,1,1,TT2067,Tile Backsplash,10,Desc: 2067
+2068,1,1,TT2068,Tile Backsplash,10,Desc: 2068
+2070,1,1,TT2070,Security Rope,10,Desc: 2070
+2071,1,1,TT2071,Security Rope,10,Desc: 2071
+2072,1,1,TT2072,Jumper Cables,10,Desc: 2072
+2075,1,1,TT2075,Security Lock,10,Desc: 2075
+2076,1,1,TT2076,Organizer,10,Desc: 2076
+2078,1,1,TT2078,Clamp,10,Desc: 2078
+2081,1,1,TT2081,Safety Cone,10,Desc: 2081
+2082,1,1,TT2082,Safety Cone,10,Desc: 2082
+2085,1,1,TT2085,Hammer,10,Desc: 2085
+2086,1,1,TT2086,Safety Cone,10,Desc: 2086
+2088,1,1,TT2088,Nose Plyers,10,Desc: 2088
+2090,1,1,TT2090,Vice Grip,10,Desc: 2090
+2092,1,1,TT2092,Chizzle,10,Desc: 2092
+2094,1,1,TT2094,Clamp,10,Desc: 2094
+2095,1,1,TT2095,Flat Head Screwdriver,10,Desc: 2095
+2097,1,1,TT2097,Telescoping Magnet,10,Desc: 2097
+2099,1,1,TT2099,Philips Head Screwdriver,10,Desc: 2099
+2100,1,1,TT2100,Hammer,10,Desc: 2100
+2101,1,1,TT2101,Flat Head Screwdriver,10,Desc: 2101
+2102,1,1,TT2102,Spatula,10,Desc: 2102
+2104,1,1,TT2104,Safety Hook,10,Desc: 2104
+2105,1,1,TT2105,Safety Hook,10,Desc: 2105
+2110,1,1,TT2110,Gloves,10,Desc: 2110
+2111,1,1,TT2111,Clear Tubing,10,Desc: 2111
+2113,1,1,TT2113,Cone Wedge,10,Desc: 2113
+2114,1,1,TT2114,Wedge,10,Desc: 2114
+2115,1,1,TT2115,Wedge,10,Desc: 2115
+2116,1,1,TT2116,Wedge,10,Desc: 2116
+2117,1,1,TT2117,Wedge,10,Desc: 2117
+2118,1,1,TT2118,Saw Blade,10,Desc: 2118
+2119,1,1,TT2119,Sand Block,10,Desc: 2119
+2120,1,1,TT2120,Wedge,10,Desc: 2120
+2121,1,1,TT2121,Wrench Closed,10,Desc: 2121
+2123,1,1,TT2123,Wedge,10,Desc: 2123
+2124,1,1,TT2124,Wedge,10,Desc: 2124
+2125,1,1,TT2125,Hammer,10,Desc: 2125
+2126,1,1,TT2126,Hammer,10,Desc: 2126
+2127,1,1,TT2127,Wrench Open,10,Desc: 2127
+2128,1,1,TT2128,Tape Measure,10,Desc: 2128
+2129,1,1,TT2129,Wire Cutter,10,Desc: 2129
+2130,1,1,TT2130,Extention Coord,10,Desc: 2130
+2131,1,1,TT2131,Gloves,10,Desc: 2131
+2132,1,1,TT2132,Level,10,Desc: 2132
+2133,1,1,TT2133,Sand Block,10,Desc: 2133
+2134,1,1,TT2134,Level,10,Desc: 2134
+2135,1,1,TT2135,Metal Tube,10,Desc: 2135
+2136,1,1,TT2136,Screw,10,Desc: 2136
+2137,1,1,TT2137,Sand Cone,10,Desc: 2137
+2138,1,1,TT2138,Sander Attachment,10,Desc: 2138
+2139,1,1,TT2139,Sander Attachment,10,Desc: 2139
+2141,1,1,TT2141,Sander Attachment,10,Desc: 2141
+2142,1,1,TT2142,Sander Attachment,10,Desc: 2142
+2143,1,1,TT2143,Metal Brush,10,Desc: 2143
+2144,1,1,TT2144,Gloves,10,Desc: 2144
+2146,1,1,TT2146,Safety Strap,10,Desc: 2146
+2148,1,1,TT2148,Chain,10,Desc: 2148
+2149,1,1,TT2149,Chain,10,Desc: 2149
+2150,1,1,TT2150,Chain,10,Desc: 2150
+2151,1,1,TT2151,Name: 2151,10,Desc: 2151
+2152,1,1,TT2152,Screw,10,Desc: 2152
+2153,1,1,TT2153,Hook J,10,Desc: 2153
+2154,1,1,TT2154,Hook Y,10,Desc: 2154
+2155,1,1,TT2155,Hook S,10,Desc: 2155
+2157,1,1,TT2157,Name: 2157,10,Desc: 2157
+2159,1,1,TT2159,Name: 2159,10,Desc: 2159
+2160,1,1,TT2160,Name: 2160,10,Desc: 2160
+2161,1,1,TT2161,Spring,10,Desc: 2161
+2162,1,1,TT2162,Name: 2162,10,Desc: 2162
+2163,1,1,TT2163,Name: 2163,10,Desc: 2163
+2164,1,1,TT2164,Hook Door,10,Desc: 2164
+2165,1,1,TT2165,Peep Hole,10,Desc: 2165
+2166,1,1,TT2166,Name: 2166,10,Desc: 2166
+2168,1,1,TT2168,Hinge,10,Desc: 2168
+2169,1,1,TT2169,Hinge,10,Desc: 2169
+2170,1,1,TT2170,Magnifying Glass,10,Desc: 2170
+2171,1,1,TT2171,Handle,10,Desc: 2171
+2172,1,1,TT2172,Clamp,10,Desc: 2172
+2173,1,1,TT2173,Clamp,10,Desc: 2173
+2174,1,1,TT2174,Clamp,10,Desc: 2174
+2175,1,1,TT2175,Door Stopper,10,Desc: 2175
+2177,1,1,TT2177,Zip Ties,10,Desc: 2177
+2178,1,1,TT2178,Screw,10,Desc: 2178
+2179,1,1,TT2179,Hinge,10,Desc: 2179
+2180,1,1,TT2180,Peep Hole,10,Desc: 2180
+2181,1,1,TT2181,Gloves,10,Desc: 2181
+2182,1,1,TT2182,Gloves,10,Desc: 2182
+2184,1,1,TT2184,Safety Ear Muffler,10,Desc: 2184
+2185,1,1,TT2185,Wheel,10,Desc: 2185
+2186,1,1,TT2186,Wheel,10,Desc: 2186
+2187,1,1,TT2187,Table Leg,10,Desc: 2187
+2189,1,1,TT2189,Wheel,10,Desc: 2189
+2191,1,1,TT2191,Wheel,10,Desc: 2191
+2192,1,1,TT2192,Cabinet Handle,10,Desc: 2192
+2194,1,1,TT2194,Hinge,10,Desc: 2194
+2195,1,1,TT2195,Hinge,10,Desc: 2195
+2196,1,1,TT2196,Hinge,10,Desc: 2196
+2197,1,1,TT2197,Gloves,10,Desc: 2197
+2198,1,1,TT2198,Box Cutter,10,Desc: 2198
+2199,1,1,TT2199,Cabinet Handle,10,Desc: 2199
+2200,1,1,TT2200,Cabinet Handle,10,Desc: 2200
+2201,1,1,TT2201,Cabinet Handle,10,Desc: 2201
+2205,1,1,TT2205,Glue Gun,10,Desc: 2205
+2206,1,1,TT2206,Light Bulb Housing,10,Desc: 2206
+2207,1,1,TT2207,Electrical,10,Desc: 2207
+2208,1,1,TT2208,Electrical,10,Desc: 2208
+2209,1,1,TT2209,Electrical,10,Desc: 2209
+2210,1,1,TT2210,Electrical,10,Desc: 2210
+2211,1,1,TT2211,Electrical,10,Desc: 2211
+2212,1,1,TT2212,Electrical,10,Desc: 2212
+2213,1,1,TT2213,Metal Tubing,10,Desc: 2213
+2215,1,1,TT2215,Metal Tube Large,10,Desc: 2215
+2216,1,1,TT2216,Metal Tube Small,10,Desc: 2216
+2217,1,1,TT2217,Aluminum Coupler Large,10,Desc: 2217
+2218,1,1,TT2218,Aluminum Coupler Small,10,Desc: 2218
+2219,1,1,TT2219,Power Splitter,10,Desc: 2219
+2220,1,1,TT2220,PVC Adapter,10,Desc: 2220
+2222,1,1,TT2222,PVC Adapter,10,Desc: 2222
+2224,1,1,TT2224,PVC Adapter,10,Desc: 2224
+2225,1,1,TT2225,PVC Adapter,10,Desc: 2225
+2227,1,1,TT2227,Power Splitter,10,Desc: 2227
+2228,1,1,TT2228,Electrical Box,10,Desc: 2228
+2229,1,1,TT2229,Hole Cover,10,Desc: 2229
+2230,1,1,TT2230,Electrical Box,10,Desc: 2230
+2231,1,1,TT2231,Electrical Box,10,Desc: 2231
