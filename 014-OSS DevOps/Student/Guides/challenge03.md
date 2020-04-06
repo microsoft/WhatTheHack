@@ -14,7 +14,7 @@ Now that we have a basic understanding of version control and Git, lets get some
 
 1. Clone the GitHub repository you created in the [first challenge](challenge01.md) to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
 
-2. Download the code for the application [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/adgroc/WhatTheHack/tree/master/014-OSS-DevOps/Student/Resources/app)
+2. Download the code for the application [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/alihhussain/WhatTheHack/tree/master/014-OSS-DevOps/Student/Resources/app)
 
 3. Unzip the download and copy the contents into the root of the repository you cloned in step #1.
 
