@@ -1,5 +1,5 @@
 import sys
-from src.main import app
+from main import app
 import unittest
 import json
 
