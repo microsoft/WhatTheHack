@@ -1,98 +1,125 @@
-# Deploy Voting App
+# Example dashboard
 
-## Prerequisites
+![Example dashboard](dashboard.png)
 
-To complete this tutorial you will need:
+With this example, you can bring up a simple Flask application that has 4 endpoints, plus one that always returns an error response. The 4 main endpoints simply return `ok` after some random delay.
 
-1. [Git](https://git-scm.com/)
-2. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) or use [Azure Cloudshell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart)
-3. [Docker for Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac) or [Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) -- see [Docker.com](https://www.docker.com/) for other installs
-4. [Docker Hub Account](https://hub.docker.com/) -- Free account for public image storage
+The example Compose project also includes a random load generator, a Prometheus server, and a Grafana instance with preconfigured dashboards, feeding data from Prometheus, which is also configured to scrape metrics from the example application automatically. All you need to do is:
 
-This tutorial assumes you have an active Azure Subscription, otherwise a free trial can be used (or using the Free Tier of App Service).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
-You should already have this sample code downloaded but if not:
-
-Clone this repo:
-
-```bash
-git clone git@github.com:alihhussain/WhatTheHack.git
+```shell
+$ docker-compose up -d
 ```
 
-Switch to the correct folder:
+Then open [http://localhost:3000/d/_eX4mpl3](http://localhost:3000/d/_eX4mpl3) in your browser to see the dashboard. You can edit each panel to check what metric it uses, but here is a quick rundown of what's going on in there.
 
-```bash
-cd ./014-OSS-DevOps/Host/Solutions/challenge04/app
-```
+### Requests per second
 
-## Test and Run Container Locally
-
-If you are new to Docker and containers, it would be helpful to review the following [Getting Started Guide](https://docs.docker.com/get-started/) on Docker.com. If you are new to containers in general, please also read [What is a Container?](https://www.docker.com/what-container) on Docker.com.
-
-Now lets build the docker image. To do so you will need a Docker Hub account (linked above in the prereqs) and a public repository.
-
-From the `app` folder, run the following command replacing `<DockerHubUsername>` with your Docker Hub user name. 
+Number of successful Flask requests per second. Shown per path.
 
 ```
-docker build -t <DockerHubUsername>/<AppName> .
+rate(
+  flask_http_request_duration_seconds_count{status="200"}[30s]
+)
 ```
 
-For instance:
+### Errors per second
+
+Number of failed (non HTTP 200) responses per second.
 
 ```
-docker build -t="alihhussain/voting-app:v1" .
+sum(
+  rate(
+    flask_http_request_duration_seconds_count{status!="200"}[30s]
+  )
+)
 ```
 
-Let's review what happened:
-- `docker` - the Docker daemon/engine that runs, manages, and creates Docker images
-- `build` - the build command tells Docker to get ready to build a Docker image based on a Dockerfile.
-- `-t` - we need to tag our image with our user name so that we push to Docker Hub it is accept correctly
-- `<DockerHubUsername>/voting-app` - the name of our Docker Hub account and the name of the app (e.g. voting-app) we want to name it.
-- `.` - the dot is used to mean "current directory", in this case it provides the build command reference to find the Dockerfile.
+### Total requests per minute
 
-Once build finishes, you can view local images using the following command:
+The total number of requests measured over one minute intervals. Shown per HTTP response status code.
 
 ```
-docker images
+increase(
+  flask_http_request_total[1m]
+)
 ```
 
-Output should look like:
+### Average response time [30s]
+
+The average response time measured over 30 seconds intervals for successful requests. Shown per path.
 
 ```
-REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
-alihhussain/votingapp   v1                  60c341b2af89        39 seconds ago      89.3MB
+rate(
+  flask_http_request_duration_seconds_sum{status="200"}[30s]
+)
+ /
+rate(
+  flask_http_request_duration_seconds_count{status="200"}[30s]
+)
 ```
 
-Test the application functions locally using the following Docker command:
+### Requests under 250ms
+
+The percentage of successful requests finished within 1/4 second. Shown per path.
 
 ```
-docker run -p 80:80 alihhussain/voting-app:v1
+increase(
+  flask_http_request_duration_seconds_bucket{status="200",le="0.25"}[30s]
+)
+ / ignoring (le)
+increase(
+  flask_http_request_duration_seconds_count{status="200"}[30s]
+)
 ```
 
-That command maps the exposed port of 80 from within the container to the host's port of 80. Now you can see it at
-- [http://localhost](http://localhost)
+### Request duration [s] - p50
 
-You can exit the container with `CTRL+C`.
-
-Now that we have tested our application locally, let's push this to the Docker Hub so that Web App for Containers will receive it.
-
-To do so you will have to login within your Docker environment and enter your username and password, to do so run the following command:
+The 50th percentile of request durations over the last 30 seconds. In other words, half of the requests finish in (min/max/avg) these times. Shown per path.
 
 ```
-docker login
+histogram_quantile(
+  0.5,
+  rate(
+    flask_http_request_duration_seconds_bucket{status="200"}[30s]
+  )
+)
 ```
 
-Lets now push the image up to DockerHub
+### Request duration [s] - p90
+
+The 90th percentile of request durations over the last 30 seconds. In other words, 90 percent of the requests finish in (min/max/avg) these times. Shown per path.
 
 ```
-docker push <DockerHubUsername>/voting-app:v1
+histogram_quantile(
+  0.9,
+  rate(
+    flask_http_request_duration_seconds_bucket{status="200"}[30s]
+  )
+)
 ```
 
-It will look something like this:
+### Memory usage
+
+The memory usage of the Flask app. Based on data from the underlying Prometheus client library, not Flask specific.
+
 ```
-docker push alihhussain/voting-app:v1
+process_resident_memory_bytes{job="example"}
 ```
 
-The image we pushed is public and now downloadable via Docker Hub to any machine or server. In a production scenario, you would have a private container registry like [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/). You can find details [here](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-cli#using-docker-images-from-a-private-registry).
+### CPU usage
+
+The CPU usage of the Flask app as measured over 30 seconds intervals. Based on data from the underlying Prometheus client library, not Flask specific.
+
+```
+rate(
+  process_cpu_seconds_total{job="example"}[30s]
+)
+```
+
+## Cleaning up
+
+Don't forget to shut the demo down, once finished:
+
+```shell
+$ docker-compose down -v
+```

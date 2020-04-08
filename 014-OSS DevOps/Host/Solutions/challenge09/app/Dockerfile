@@ -1,11 +1,14 @@
 FROM python:alpine3.8
 
-# Copy local directory "src" to container filesystem "/src"
-COPY src /src
+COPY . /var/server
 
-# Install Requirements server
-RUN pip install -r /src/requirements.txt
+ADD requirements.txt /tmp/requirements.txt
 
-EXPOSE 80
+RUN pip install -r /tmp/requirements.txt
 
-CMD ["python", "/src/main.py"]
+ADD app.py /var/server/app.py
+ADD config_file.cfg /var/server/config_file.cfg
+
+EXPOSE 5000
+
+CMD python /var/server/app.py
