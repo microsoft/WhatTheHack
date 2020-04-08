@@ -2,8 +2,7 @@ version: "2"
 services:
   # a sample app with metrics enabled
   app:
-    build:
-      context: app
+    image: alihhussain/challenge09_app:v1
     stop_signal: SIGKILL
     ports:
       - 5000:5000
