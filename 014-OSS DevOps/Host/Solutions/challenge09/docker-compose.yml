@@ -2,7 +2,7 @@ version: "2"
 services:
   # a sample app with metrics enabled
   app:
-    image: alihhussain/challenge09_app:v1
+    image: alihhussain/azurepublic:challenge09_app
     stop_signal: SIGKILL
     ports:
       - 5000:5000
