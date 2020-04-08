@@ -59,7 +59,7 @@
       "targets": [
         {
           "$$hashKey": "object:214",
-          "expr": "rate(flask_http_request_duration_seconds_count{status=\"200\"}[30s])",
+          "expr": "sum_over_time(flask_http_request_duration_seconds_count{status=\"200\"}[600s])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -70,7 +70,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Requests per second",
+      "title": "Total Requests (Per 10 mins)",
       "tooltip": {
         "shared": true,
         "sort": 0,
