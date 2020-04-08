@@ -8,7 +8,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 app = Flask(__name__)
 PrometheusMetrics(app)
 
-endpoints = ('test', 'error')
+endpoints = ('/', 'error')
 
 # Load configurations
 app.config.from_pyfile('config_file.cfg')
@@ -22,7 +22,7 @@ if app.config['SHOWHOST'] == "true":
     title = socket.gethostname()
 
 
-@app.route('/test', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     # Vote tracking
     vote1 = 0
@@ -39,5 +39,4 @@ def oops():
 
 
 if __name__ == '__main__':
-    app.debug = True
     app.run('0.0.0.0', 5000, threaded=True)
