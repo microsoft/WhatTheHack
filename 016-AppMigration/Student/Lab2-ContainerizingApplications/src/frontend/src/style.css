@@ -1,0 +1,257 @@
+@import "react-virtualized/styles.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #3c556d;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 60px;
+  background-color: #3c556d;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}
+
+.table-container {
+  position: absolute;
+  width: 100vw;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.sql-info {
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.ReactVirtualized__Table__rowColumn {
+  text-align: center;
+}
+
+.ReactVirtualized__Table__rowColumn:empty::before,
+.inventory:empty::before {
+  content: "🛠";
+}
+
+.ReactVirtualized__Table__rowColumn:empty,
+.inventory:empty,
+.sku-loading {
+  animation: 3s linear spin infinite;
+}
+
+.sku-loading {
+  font-size: 50px;
+  display: inline-block;
+}
+
+.row-even {
+  background-color: #fff;
+}
+
+.row-odd {
+  background-color: #c0cfc5;
+}
+
+.ReactVirtualized__Table__headerRow {
+  background-color: #4c6d58;
+  color: white;
+  text-align: center;
+}
+
+#modal-interior {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal:empty {
+  display: none;
+}
+
+#modal-interior > div {
+  background-color: white;
+  max-width: 800px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  max-height: 100vh;
+  overflow: scroll;
+}
+
+.exit-button {
+  display: inline-block;
+  background-color: #3c556d;
+  color: white;
+  padding: 5px 30px;
+  font-size: 18px;
+  border-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.exit-button:hover {
+  background-color: #476480;
+}
+
+.exit-button:active {
+  background-color: #2f4254;
+}
+
+.mod-button {
+  transition: background-color 0.1 ease-out;
+  display: inline-block;
+  background-color: #ff4136;
+  color: white;
+  width: 60px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 40px;
+  border-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.minus:hover {
+  background-color: #f35d55;
+}
+
+.minus:active {
+  background-color: #b42e27;
+}
+
+.plus {
+  background-color: #2ecc40;
+  margin-right: 10px;
+}
+
+.plus:hover {
+  background-color: rgb(98, 235, 114);
+}
+
+.plus:active {
+  background-color: rgb(29, 124, 40);
+}
+
+.mod-button:disabled {
+  background-color: #aaa;
+  cursor: disabled;
+}
+
+.details-buttons {
+  transition: filter ease-in 0.1s;
+}
+
+.details-buttons.loading {
+  filter: blur(5px);
+  cursor: not-allowed;
+}
+
+.details-buttons.loading button {
+  cursor: not-allowed;
+}
+
+.ReactVirtualized__Table__row {
+  cursor: pointer;
+}
+
+.details-info {
+  text-align: left;
+}
+
+.details-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.details-image {
+  max-width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+  .row-header:nth-child(4),
+  .ReactVirtualized__Table__rowColumn:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .row-header:nth-child(3),
+  .ReactVirtualized__Table__rowColumn:nth-child(3) {
+    display: none;
+  }
+}
+
+.timings {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  bottom: 0;
+  background-color: #4c6d58;
+  color: white;
+  font-weight: bold;
+}
+
+.sku {
+  background-color: white;
+  max-width: 900px;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.sku input {
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  border: 3px #ccc solid;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.sku input:focus {
+  border-color: #36556f;
+}
+
+pre {
+  background-color: #ccc;
+  text-align: left;
+  padding: 20px;
+  border-radius: 5px;
+}

@@ -1,0 +1,78 @@
+<style>
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: white;
+    color: #363636;
+  }
+
+  .table td,
+  .table th {
+    border: 1px solid #dbdbdb;
+    border-width: 0 0 1px;
+    padding: 0.5em 0.75em;
+    vertical-align: top;
+  }
+
+  .table th {
+    color: #363636;
+    text-align: left;
+  }
+
+  .table thead td,
+  .table thead th {
+    border-width: 0 0 2px;
+    color: #363636;
+  }
+
+  .table tbody tr:last-child td,
+  .table tbody tr:last-child th {
+    border-bottom-width: 0;
+  }
+
+  .table.is-bordered td,
+  .table.is-bordered th {
+    border-width: 1px;
+  }
+
+  .table.is-bordered tr:last-child td,
+  .table.is-bordered tr:last-child th {
+    border-bottom-width: 1px;
+  }
+
+  .table.is-fullwidth {
+    width: 100%;
+  }
+
+  .container {
+    margin: 0 auto;
+    position: relative;
+    max-width: 960px;
+    padding-top: 20px;
+    font-family: helvetica, sans-serif;
+  }
+</style>
+
+<div class="container">
+  <h1>Modified SKUs</h1>
+  <p>The following SKU's were modified in the last 24 hours</p>
+
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Sku</th>
+        <th>Quantity</th>
+        <th>Last Modified</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each Skus}}
+      <tr>
+        <td>{{Sku}}</td>
+        <td>{{Quantity}}</td>
+        <td>{{Modified}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
