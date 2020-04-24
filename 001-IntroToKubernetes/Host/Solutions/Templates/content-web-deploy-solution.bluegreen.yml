@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: content-web
-        image: dta2018hack/content-web:v2
+        image: whatthehackmsft/content-web:v2
         resources:
           requests:
             cpu: 125m
