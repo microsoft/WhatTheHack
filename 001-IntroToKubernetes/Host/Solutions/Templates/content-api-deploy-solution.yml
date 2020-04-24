@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: content-api
-        image: dta2018hack/content-api
+        image: whatthehackmsft/content-api
         resources:
           requests:
             cpu: 500m
