@@ -1,0 +1,42 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "resourcePrefix": {
+        "value": "p20" 
+      },
+      "vmssName": {
+        "value": "P20WebVMSS"
+      },
+      "vmssInstanceCount": {
+        "value": 2
+      },        
+      "adminUsername": {
+        "value": "p20admin"
+      },
+      "adminPassword": {
+        "value": "P20Password!!"
+      },
+      "ubuntuOSVersion": {
+        "value": "16.04-LTS"
+      },
+      "vnetName": {
+        "value": "P20VNet"
+      },
+      "vnetPrefix": {
+        "value": "10.0.0.0/16"
+      },
+      "subnetName": {
+        "value": "Default"
+      },
+      "subnetPrefix": {
+        "value": "10.0.0.0/24"
+      },
+      "_artifactsLocation": {
+        "value": "https://raw.githubusercontent.com/albertwo1978/training-events/master/p20-arm/"
+      },
+      "_artifactsLocationSasToken": {
+        "value": ""
+      }
+    }
+}

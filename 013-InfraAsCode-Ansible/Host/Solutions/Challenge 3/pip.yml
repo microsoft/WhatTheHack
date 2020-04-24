@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:  
+  - name: Create public IP address
+    azure_rm_publicipaddress:
+      resource_group: ansible-rg
+      allocation_method: Static
+      name: ansible-pip

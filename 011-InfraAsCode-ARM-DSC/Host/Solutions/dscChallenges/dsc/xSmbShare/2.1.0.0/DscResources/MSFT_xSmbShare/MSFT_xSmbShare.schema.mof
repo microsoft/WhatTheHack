@@ -1,0 +1,23 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("xSmbShare")]
+class MSFT_xSmbShare : OMI_BaseResource
+{
+    [Key, Description("Name of the SMB Share")] String Name;
+    [Required, Description("Path to the share")] String Path;
+    [Write, Description("Description of the share")] String Description;
+    [Write, Description("Specifies which user will be granted modify permission to access the share")] String ChangeAccess[];
+    [Write, Description("Specifies the maximum number of concurrently connected users that the new SMB share may accommodate. If this parameter is set to zero (0), then the number of users is unlimited. The default value is zero (0).")] Uint32 ConcurrentUserLimit;
+    [Write, Description("Indicates that the share is encrypted.")] Boolean EncryptData;
+    [Write, Description("Specifies which files and folders in the new SMB share are visible to users."), ValueMap{"AccessBased","Unrestricted"}, Values{"AccessBased","Unrestricted"}] String FolderEnumerationMode;
+    [Write, Description("Specifies which accounts are granted full permission to access the share.")] String FullAccess[];
+    [Write, Description("Specifies which accounts are denied access to the share.")] String NoAccess[];
+    [Write, Description("Specifies which user is granted read permission to access the share.")] String ReadAccess[];
+    [Write, Description("Specifies if the share should be added or removed"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Read, Description("Specifies the state of the share")] String ShareState;
+    [Read, Description("Specifies the type of the share")] String ShareType;
+    [Read, Description("Specifies if this share is a ShadowCopy")] String ShadowCopy;
+    [Read, Description("Specifies if this share is a Special Share. Admin share, default shares, IPC$ share are examples.")] String Special;
+};
+
+
+
