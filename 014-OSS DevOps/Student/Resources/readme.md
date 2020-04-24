@@ -10,5 +10,13 @@ This hack will help you learn:
 - How to use Jenkins for orchestrating infrastructure deployments using Azure ARM Templates to deploy infrastructure in Azure
 
 ## Challenges
- 
- Coming soon!!!
+
+The following aspects of DevOps are going to be highlighted by performing these challengers.
+
+1.	Plan		-	Github
+2.	Create 		- 	Docker / ACR
+3.	Test 		- 	?
+4.	Package 	- 	Artifactory / Bitbucket – ACR
+5.	Build 		-	Jenkins
+6.	Config 		-	Terraform
+7.	Monitor	    -	Prometheus-Grafana
