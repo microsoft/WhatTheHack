@@ -44,25 +44,35 @@ There is a challenge template, blah blah blah and follow these guidelines:
 
 #### Student Resources
 
+It is common to provide attendees with resources in order to complete the hack's challenges.  One example is to provide the code for an application that the hack's challenges are based on. Another example might be to provide sample code files, artifacts, or templates that provide guidance for completing the hack's challenges.
+
+If your hack provides attendees with code or resources, it is recommended that you publish those resources as part of your hack's contents in the '../Students/Resources' folder.
+
+During a WTH event, it is recommended to have attendees download any provided resources as a Zip file instead of having them clone the entire WTH repo onto their workstation. 
+
+This has the benefit of not having to direct the attendees to the WTH repo during your hack. Remember, attendees can always find the WTH repo.  However, remind your attendees that they are cheating themselves if they go foraging around in the WTH repo for the answers!
+
 ##### DownGit
 
-If your challenge requires attendees to download code or resources which you are publishing as part of the hack in the WTH repo, it is preferred to have them download those resources as a Zip file versus having them clone the entire repo onto their workstation.
+One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
 
-One recommended way to do this is using DownGit:
-- Publish your code/resources here in the WTH repo under the "student/resources" folder of your hack
-- Create a DownGit link to the "resources" folder (or whatever sub-folder you want your attendees to download) https://minhaskamal.github.io/DownGit/#/home
-- Use the DownGit link in your Challenge text to provide the link to the attendees.
+You can view the DownGit project on GitHub here: https://github.com/MinhasKamal/DownGit
 
-This has the benefit of not having to direct the attendees to the WTH repo during your hack. As per usual, smart attendees can always find the WTH repo!  However, remind your attendees that they are cheating themselves if they go foraging around for the answers!
+Or, you can use DownGit from its website here: https://minhaskamal.github.io/DownGit/#/home
+
+To enable attendees to download hack resources using DownGit:
+1. Publish your resources in the WTH repo under the "..Student/Resources" folder of your hack
+2. Create a DownGit link to the "Resources" folder (or whatever sub-folder you want your attendees to download)
+3. Use the DownGit link you created in your Challenge text to provide the link to the attendees.
 
 ##### Pre-load Resources into Microsoft Teams
 
 Another way to provide any needed code or resource files to attendees is for the WTH event host to pre-load them into the Microsoft Teams team for the WTH event. 
 
 To pre-load resources into the event team, the host should:
-- Use the DownGit link from the challenge to download the Zip file.
-- Unpack the Zip file and upload its contents to the Files tab of the General team for the WTH event.
-
+1. Use DownGit to download the Zip file of resources from the WTH repo.
+2. Unpack the Zip file and upload its contents to the Files tab of the General team for the WTH event.
+3. Direct users to download the resource files from Files tab in Microsot Teams.
 
 ### Coach's Guide
 This is a template for the Coach's guide, blah blah blah and follow these guidelines when writing it:
