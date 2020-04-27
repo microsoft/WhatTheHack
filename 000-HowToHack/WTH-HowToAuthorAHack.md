@@ -8,9 +8,63 @@ Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rut
 Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
 
 ## What Should You Be Thinking Of
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
 
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
+When you design a WTH, these are the things you should be thinking of...
+
+- Hack Description 
+- Challenge Design
+- Student Resources
+- Coaches Guide
+
+If you go in this order, you will be able to flush out a new hack rapidly!
+
+## Hack Description (aka "One Pager")
+
+Why should someone take the time to participate in your hack?  This is the main question you need to answer in order to define your hack. Each WTH needs to have a "one pager" that quickly describes your hack to those who will host or attend your hack. Think of this as your marketing pitch. 
+
+The "one pager" can serve a dual purpose. If you take the time to write it first, it can be the outline or specification for your hack before you develop the actual content!
+
+The "one pager" shall be the Readme.md that lives in the root of your hack's top level folder.
+
+The "one pager" should include the following:
+
+### Hack Title
+
+Give your hack name. Keep it short, but consider giving it a "fun" name that is more than just the name of the technology(ies) that the hack will cover.
+  
+### Introduction
+
+This is your chance to sell the casual reader on why they should consider your hack. In a paragraph or two, consider answering the following questions:
+
+- What technology(ies) or solution type(s) will it cover? 
+- Why is this technology or solution important or relevant to the industry?
+- What real world scenarios can this technology or solution be applied to?
+
+### Learning Objectives
+
+This is where you describe the outcomes a hack attendee should have. Provide a short list of key learnings you expect someone to come away with if they complete this hack.
+
+### Challenges
+
+Every WTH is made up of a collection of technical challenges. For the one pager, you should list out your challenges by name, with no more than a single sentence description for each (if the challenge title is not descriptive enough on its own).
+
+### Prerequisites
+
+Provide a list of technical prerequisites for your hack here.  List out assumed knowledge attendees should have to be successful with the hack. For example, if the hack is an "Introduction to Kubernetes", the attendee should have a basic understanding of containers.  However, if it is an "Advanced Kubernetes" hack, then the attendee should know the basics of Kubernetes and not ask you what a "pod" or "node" are!
+
+Provide a list of tools/software that the attendee needs to install on their machine to complete the hack. There is a list of common pre-requisites for many of the WTH hacks here: Shared WTH Prerequisites. You can provide a link to it in your hack's prerequisites section in addition to any unique prerequisites for your hack.
+
+### Repository Contents (Optional)
+
+While optional, it is a good idea to provide a catalog of the files you are providing with your hack. 
+
+### Contributors
+
+Finally, give yourself and your fellow hack authors some credit! List the names (and optionally contact info) for all of the authors that have contributed to this hack.
+
+### Hack Design Template
+
+To help you get started, we have provided a template for a hack's 'one pager' here <insert link here>. Please copy this template into your hack's root folder and customize it for your hack.
 
 
 ## Preparing Your Environment
@@ -34,7 +88,7 @@ First we create a fork of the main WTH repo and then clone it to disk and create
 		- `/Guides`
 		- `/Resources`
 
-## Templates
+//## Templates
 
 ### Challenges
 There is a challenge template, blah blah blah and follow these guidelines:
@@ -67,7 +121,7 @@ To enable attendees to download hack resources using DownGit:
 
 ##### Pre-load Resources into Microsoft Teams
 
-Another way to provide any needed code or resource files to attendees is for the WTH event host to pre-load them into the Microsoft Teams team for the WTH event. 
+Another way to provide resource files to attendees is for the WTH event host to pre-load them into the Microsoft Teams team for the WTH event. 
 
 To pre-load resources into the event team, the host should:
 1. Use DownGit to download the Zip file of resources from the WTH repo.
