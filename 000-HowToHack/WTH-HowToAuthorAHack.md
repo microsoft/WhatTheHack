@@ -2,31 +2,40 @@
 
 Developing a new What The Hack is a great way to get your content out into the world. Chances are if you've done workshops or PoCs in the past, you already have the material on which to base a What The Hack.
 
-## Why What The Hack
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
+## Why What The Hack?
 
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
+The What The Hack "challenge" format is perfect for team-based hands-on learning experiences.
 
-## What Should You Be Thinking Of
+What The Hack is all about being "for the people, by the people". This repo is designed to share real-world hackathons that Microsoft employees have hosted with customers. There are some core principles:
+- Anyone can contribute a hack.
+- Anyone can use the content to host their own event.
+- Anyone can modify the content as needed.
+- The content can always* be shared with attendees (*after the hack!) 
+
+## What Does It Take To Create a What The Hack?
 
 When you design a WTH, these are the things you should be thinking of...
 
-- Hack Description 
-- Challenge Design
-- Student Resources
-- Coaches Guide
+- [Hack Description](#hack-description) (aka "One Pager")
+- [Challenge Design](#challenge-design)
+- [Student Resources](#student-resources)
+- [Presentation Lectures](#presentation-lectures-(optional)) (optional)
+- [Coaches' Guide](#coaches'-guide)
+- [Coach Solutions](#coach-solutions)
 
-If you go in this order, you will be able to flush out a new hack rapidly!
+If you create things in this order, you will be able to flush out a new hack rapidly! 
+
+**Hint:** The Coaches' guide and Coach Solutions can be the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coaches' Guide as a post-mortem from their first run of the hack!
 
 ## Hack Description (aka "One Pager")
 
-Why should someone take the time to participate in your hack?  This is the main question you need to answer in order to define your hack. Each WTH needs to have a "one pager" that quickly describes your hack to those who will host or attend your hack. Think of this as your marketing pitch. 
+Why should someone take the time to participate in your hack?  This is the main question you need to answer in order to define your hack. Every WTH needs to have a "one pager" that quickly describes your hack to those who will host or attend your hack. Think of this as your marketing pitch. 
 
-The "one pager" can serve a dual purpose. If you take the time to write it first, it can be the outline or specification for your hack before you develop the actual content!
+**Hint:** The "one pager" can serve a dual purpose. If you take the time to write it first, it can be the outline or specification for your hack before you develop the actual content!
 
-The "one pager" shall be the Readme.md that lives in the root of your hack's top level folder.
+The "Hack Description" shall be the Readme.md that lives in the root of your hack's top level folder.
 
-The "one pager" should include the following:
+The "Hack Description" should include the following:
 
 ### Hack Title
 
@@ -62,12 +71,117 @@ While optional, it is a good idea to provide a catalog of the files you are prov
 
 Finally, give yourself and your fellow hack authors some credit! List the names (and optionally contact info) for all of the authors that have contributed to this hack.
 
-### Hack Design Template
+### Hack Description Template
 
-To help you get started, we have provided a template for a hack's 'one pager' here <insert link here>. Please copy this template into your hack's root folder and customize it for your hack.
+To help you get started, we have provided a sample template for a hack's "one pager" here:
+- [Hack Description Template](WTH-HackDescription-Template.md). 
 
+Please copy this template into your hack's root folder, rename it to "Readme.md", and customize it for your hack.
+
+## Challenge Design
+
+Challenges should follow the following guidelines....
+
+*PL: This is the original challenge bullets from the PPT. Need to write this up with examples.*
+
+- Challenges should be cumulative, building upon each other
+    - Establish Confidence – start small and simple (think hello world)
+    - Build Competence – by having successively more complex challenges
+    - Each challenge should provide educational value.  
+        - For example, if an attendee completes only 3 out of 7 challenges, he/she still walks away feeling satisfied that he/she has learned something
+- Think through what skills/experience you want attendees to walk away with by completing each challenge
+- Challenge definitions should be short.  A couple of sentences or bullet points stating the end goal(s) and perhaps a hint at the skill(s) needed 
+- Include a “Challenge 0” that has pre-requisites for workstation environment
+
+Design a challenge this way...
+
+### Challenge Dos...
+
+Things you SHOULD do...
+
+### Challenge Do Nots...
+
+Things you should NOT do...
+
+### Challenge Template
+To help you get started, we have provided a sample markdown template for a hack Challenge here:
+- [Challenge Template](WTH-Challenge-Template.md). 
+
+Please copy this template into your hack's `../Student` folder, rename it to "ChallengeXX.md", where "XX" is the challenge number, and customize it for each challenge.
+
+## Student Resources
+
+It is common to provide attendees with resources in order to complete the hack's challenges.  One example is to provide the code for an application that the hack's challenges are based on. Another example might be to provide sample code files, artifacts, or templates that provide guidance for completing the hack's challenges.
+
+If your hack provides attendees with code or resources, it is recommended that you publish those resources as part of your hack's contents in the `../Student/Resources` folder.
+
+During a WTH event, it is recommended to have attendees download any provided resources as a Zip file instead of having them clone the entire WTH repo onto their workstation. 
+
+This has the benefit of not having to direct the attendees to the WTH repo during your hack. Remember, attendees can always find the WTH repo.  However, remind your attendees that they are cheating themselves if they go foraging around in the WTH repo for the answers!
+
+### DownGit
+
+One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
+
+You can view the DownGit project on GitHub here: https://github.com/MinhasKamal/DownGit
+
+Or, you can use DownGit from its website here: https://minhaskamal.github.io/DownGit/#/home
+
+To enable attendees to download hack resources using DownGit:
+1. Publish your resources in the WTH repo under the `..Student/Resources` folder of your hack
+2. Create a DownGit link to the "Resources" folder (or whatever sub-folder you want your attendees to download)
+3. Use the DownGit link you created in your Challenge text to provide the link to the attendees.
+
+### Pre-load Resources into Microsoft Teams
+
+Another way to provide resource files to attendees is for the WTH event host to pre-load them into the Microsoft Teams team for the WTH event. 
+
+To pre-load resources into the event team, the host should:
+1. Use DownGit to download the Zip file of resources from the WTH repo.
+2. Unpack the Zip file and upload its contents to the Files tab of the General team for the WTH event.
+3. Direct users to download the resource files from Files tab in Microsot Teams.
+
+## Presentation Lectures (Optional)
+
+*PL: This is the original presentation lecture bullets from the PPT. Need to write this up with examples.*
+
+- Event kickoff slides covering logistics & event format
+- Brief overview of challenge scenario & technology
+- Brief overviews of concepts needed to complete challenges
+    - Try to keep lectures <10 minutes per challenge
+- Slides with Challenge definitions that can be displayed when attendees are working on challenges
+- Review of each challenge’s solution to be presented after challenge completion
+
+## Coaches' Guide
+
+*PL: This is the original coaches' guide bullets from the PPT. Need to write this up with examples.*
+
+- Coaches' guide should have:
+    - List of high-level steps to the challenge answers/solutions
+    - List of known blockers (things attendees will get hung up on) and recommended hints for solving them
+    - List of key concepts that should be explained-to/understood by attendees before a given challenge
+    - Estimated time for each challenge (NOT to be shared with attendees)
+    - Suggested time a proctor should wait before helping out if a team is not progressing past known blockers
+- Coaches' guide may optionally have:
+    - Pre-requisites for the Azure environment if needed. 
+        - Example: A VM image with Visual Studio or ML tools pre-installed. 
+        - Example: An ARM template and/or script that builds out an environment that saves time on solving a challenge
+    - Slides that proctors can reference to help when teaching a key concept
+    - Scripts/templates/etc for some challenges that can be shared with attendees if they get really stuck
+        - Example: If challenges 1-3 build something (i.e. an ARM template) that is needed for challenge 4, you could “give” a stuck team the template so they could skip to challenge 4.
+    - List of reference links/articles/documentation that can be shared when attendees get stuck
+- Proctor’s guide should be updated during & post event with key learnings on what worked, didn’t work, and unexpected blockers that came up.
+
+## Coach Solutions
+
+This is where you put "the answers". There are usually multiple ways to solve a WTH Challenge. The solutions you put here should be example solutions that represent one way to solve the challenges. The solutions might include a full working application, configuration files, populated templates, or other resources that can be used to demonstrate how to solve the challenges. 
+
+**Note:** This content is not intended for hack attendees to see before or during a hack event. The content IS available publicly and thus an attendee can-- uh, WILL find it. It is important to stress to the attendees that they should not cheat themselves out of learning experience by looking at "the answers"!
 
 ## Preparing Your Environment
+
+Okay, ready to get started creating your own What The Hack?
+
 First we create a fork of the main WTH repo and then clone it to disk and create a branch to work in. The instructions below assume you have the git command line on your machine. If you're more comfortable in a GUI git client, you can use that too.
 1. Create a fork of the WTH repo
    - Navigate to the WTH git repo at: https://aka.ms/wth
@@ -82,67 +196,20 @@ First we create a fork of the main WTH repo and then clone it to disk and create
    - `mkdir 067-IoTCentury`
 5. Within your new folder, create the following directory structure:
 	- `../Coach`
-		- `/Guides`
 		- `/Solutions`
 	- `../Student`
-		- `/Guides`
 		- `/Resources`
 
-//## Templates
-
-### Challenges
-There is a challenge template, blah blah blah and follow these guidelines:
-- Blah Blah
-- Bling Bling
-- Bleck Bleck
-
-#### Student Resources
-
-It is common to provide attendees with resources in order to complete the hack's challenges.  One example is to provide the code for an application that the hack's challenges are based on. Another example might be to provide sample code files, artifacts, or templates that provide guidance for completing the hack's challenges.
-
-If your hack provides attendees with code or resources, it is recommended that you publish those resources as part of your hack's contents in the '../Students/Resources' folder.
-
-During a WTH event, it is recommended to have attendees download any provided resources as a Zip file instead of having them clone the entire WTH repo onto their workstation. 
-
-This has the benefit of not having to direct the attendees to the WTH repo during your hack. Remember, attendees can always find the WTH repo.  However, remind your attendees that they are cheating themselves if they go foraging around in the WTH repo for the answers!
-
-##### DownGit
-
-One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
-
-You can view the DownGit project on GitHub here: https://github.com/MinhasKamal/DownGit
-
-Or, you can use DownGit from its website here: https://minhaskamal.github.io/DownGit/#/home
-
-To enable attendees to download hack resources using DownGit:
-1. Publish your resources in the WTH repo under the "..Student/Resources" folder of your hack
-2. Create a DownGit link to the "Resources" folder (or whatever sub-folder you want your attendees to download)
-3. Use the DownGit link you created in your Challenge text to provide the link to the attendees.
-
-##### Pre-load Resources into Microsoft Teams
-
-Another way to provide resource files to attendees is for the WTH event host to pre-load them into the Microsoft Teams team for the WTH event. 
-
-To pre-load resources into the event team, the host should:
-1. Use DownGit to download the Zip file of resources from the WTH repo.
-2. Unpack the Zip file and upload its contents to the Files tab of the General team for the WTH event.
-3. Direct users to download the resource files from Files tab in Microsot Teams.
-
-### Coach's Guide
-This is a template for the Coach's guide, blah blah blah and follow these guidelines when writing it:
-- Blah Blah
-- Bling Bling
-- Bleck Bleck
 
 ### Files and Folders
 You've already created the directory structure above, here is what each of them will contain:
+- `../`
+	- Hack Description (Readme.md)
 - `../Coach`
-	- `/Guides` 
-		- The Coach's Guide and any supporting files.
+	- The Coach's Guide, Lecture presentations, and any supporting files.
 	- `/Solutions`
 		- Solution code for the coach only. These are the answers and should not be shared with students.
 - `../Student`
-	- `/Guides` 
-		- The Coach's Guide and any supporting files.
+	- The Challenge markdown files
 	- `/Resources` 
 		- The code and supporting files the students will need throughout the hack.
