@@ -52,6 +52,8 @@ In this hack you will solve a common challenge for companies migrating to the cl
 - Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 
+- [**Lecture Presentation**](/Host/Guides/Lectures.pptx)
+
 ## Repository Contents
 - `../Host/Guides`
   - Lecture presentation with short presentations to introduce each challenge 
