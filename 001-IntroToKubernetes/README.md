@@ -4,7 +4,7 @@ This intro level hack will help you get hands-on experience with Kubernetes & th
 
 The hack starts off by covering containers, what problems they solve, and why Kubernetes is needed to help orchestrate them.  You will learn all of the Kubernetes jargon (pods, services, and deployments, oh my!).  By the end, you should have a good understanding of what Kubernetes is and be familiar with how to run it on Azure!
 
-This hack includes a optional lecture presentation that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off the respective challenge.
+This hack includes a optional [lecture presentation](Host/Guides/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off the respective challenge.
 
 ## Learning Objectives
 In this hack you will solve a common challenge for companies migrating to the cloud. You will take a simple multi-tiered website, containerize it, and deploy it into AKS. Once the application is in AKS, you will learn how to flex all the knobs and levers to scale it, manage it, and monitor it.
@@ -52,11 +52,9 @@ In this hack you will solve a common challenge for companies migrating to the cl
 - Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 
-- [**Lecture Presentation**](/Host/Guides/Lectures.pptx)
-
 ## Repository Contents
 - `../Host/Guides`
-  - Lecture presentation with short presentations to introduce each challenge 
+  - [Lecture presentation](Host/Guides/Lectures.pptx) with short presentations to introduce each challenge 
   - Coach's Guide
 - `../Host/Solutions`
    - Example solutions to the challenges (Don't cheat yourself!)
