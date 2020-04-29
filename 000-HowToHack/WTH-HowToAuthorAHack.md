@@ -19,17 +19,17 @@ When you design a WTH, these are the things you should be thinking of...
 - [Hack Description](#hack-description) (aka "One Pager")
 - [Challenge Design](#challenge-design)
 - [Student Resources](#student-resources)
-- [Presentation Lectures](#presentation-lectures-(optional)) (optional)
-- [Coaches' Guide](#coaches'-guide)
+- [Presentation Lectures](#presentation-lectures) (optional)
+- [Coaches' Guide](#coaches-guide)
 - [Coach Solutions](#coach-solutions)
 
 If you create things in this order, you will be able to flush out a new hack rapidly! 
 
 **Hint:** The Coaches' guide and Coach Solutions can be the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coaches' Guide as a post-mortem from their first run of the hack!
 
-## Hack Description (aka "One Pager")
+## Hack Description
 
-Why should someone take the time to participate in your hack?  This is the main question you need to answer in order to define your hack. Every WTH needs to have a "one pager" that quickly describes your hack to those who will host or attend your hack. Think of this as your marketing pitch. 
+Why should someone take the time to participate in your hack?  This is the main question you need to answer in order to define your hack. Every WTH needs to have a hack description (aka "one pager") that quickly describes your hack to those who will host or attend your hack. Think of this as your marketing pitch. 
 
 **Hint:** The "one pager" can serve a dual purpose. If you take the time to write it first, it can be the outline or specification for your hack before you develop the actual content!
 
@@ -148,18 +148,31 @@ To pre-load resources into the event team, the host should:
 2. Unpack the Zip file and upload its contents to the Files tab of the General team for the WTH event.
 3. Direct users to download the resource files from Files tab in Microsot Teams.
 
-## Presentation Lectures (Optional)
+## Presentation Lectures
 
-*PL: This is the original presentation lecture bullets from the PPT. Need to write this up with examples.*
+You may be wondering why there is a section called "Presentation Lectures" when the whole point of What The Hack is to be hands-on and ***NOT*** be a "death by Power Point" snoozefest?!  
 
-- Event kickoff slides covering logistics & event format
-- Brief overview of challenge scenario & technology
-- Brief overviews of concepts needed to complete challenges
-    - Try to keep lectures <10 minutes per challenge
-- Slides with Challenge definitions that can be displayed when attendees are working on challenges
+When you host a What The Hack event, there is always a kick off meeting where the attendees are welcomed and then introduced to the logistics of the hack. The best way to do that is with a *little* PowerPoint.
+
+We have provided an Event Kickoff presentation template that you can customize for your hack and use to cover attendee logistics for a WTH event here:
+- [Event Kickoff Presentation Template](WTH-Challenge-Template.md). 
+
+After the kickoff meeting, its up to the hack authors if they want to provide any presentation lectures.  Some hack challenges are easy to jump right into.  Others are more complex and are better preceded by a brief introduction presentation.
+
+It is OK and encouraged to offer a collection of "mini" presentation lectures if necessary for your hack's challenges. If you do provide a presentation lecture, consider these guidelines for each challenge:
+
+- Try to keep lectures **<5-10 minutes** per challenge!
+- Provide a brief overview of the challenge scenario & success criteria
+- Provide a brief overview of concepts needed to complete the challenge
+- Provide "reference" slides that you might not present, but have handy if attendees need additional guidance
+- Provide slide with the challenge description that can be displayed when attendees are working on that challenge
 - Review of each challenge’s solution to be presented after challenge completion
 
-## Coaches' Guide
+We have more guidance on how and when to deliver mini presentation lectures for your challenges during your event in the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
+
+Please store any presentations in your hack's `../Coach` folder.
+
+## Coaches Guide
 
 *PL: This is the original coaches' guide bullets from the PPT. Need to write this up with examples.*
 
