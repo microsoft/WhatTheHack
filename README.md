@@ -12,7 +12,7 @@ The attendee squads are not alone in solving the challenges. Coaches work with e
 
 Would you like to host a What The Hack for your organization? The WTH format and content has been designed for hosting a hack with groups of 5 to 50 people. We welcome anyone to use the content here to host their own WTH event!
 
-See our complete guide to hosting a hack in the "000-HowToHack" folder.
+See our complete guide on ["How To Host A Hack"](/000-HowToHack/WTH-HowToHostAHack.md).
 
 **GF: SHOULD WE REMOVE THIS UNTIL WE ACTUALLY HAVE A CALENDAR OF EVENTS?** *-- Alternatively, you may request folks at Microsoft to host or deliver one to your organization.  You can also see a list of existing WTH events and register to attend one in a city near you! Check out our "WTH Events" list.*
 
@@ -22,7 +22,7 @@ Would you like to create a new What The Hack?  We welcome all new hacks!  We hav
 
 Hacks can focus on a single technology or focus on a solution scenario that features multiple technologies working  together to solve a business problem.
 
-See our complete guide to creating a hack in the ["000-HowToHack"](/000-HowToHack) folder.
+See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAuthorAHack.md).
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
