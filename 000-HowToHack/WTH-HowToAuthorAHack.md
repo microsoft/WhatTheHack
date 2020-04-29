@@ -174,27 +174,36 @@ Please publish any presentations in your hack's `../Coach` folder.
 
 ## Coaches Guide
 
-*PL: This is the original coaches' guide bullets from the PPT. Need to write this up with examples.*
+Every WTH should come with a Coaches'guide. The simple way to think of the Coaches' guide is that should be the document with all of "the answers". The reality is, doing so would turn it into a giant step-by-step document loaded with detailed commands, screenshots, and other resources that are certain to be obsolete the minute you published it. No one wants to maintain a document like that! 
 
-- Coaches' guide should have:
-    - List of high-level steps to the challenge answers/solutions
-    - List of known blockers (things attendees will get hung up on) and recommended hints for solving them
-    - List of key concepts that should be explained-to/understood by attendees before a given challenge
-    - Estimated time for each challenge (NOT to be shared with attendees)
-    - Suggested time a proctor should wait before helping out if a team is not progressing past known blockers
-- Coaches' guide may optionally have:
-    - Pre-requisites for the Azure environment if needed. 
-        - Example: A VM image with Visual Studio or ML tools pre-installed. 
-        - Example: An ARM template and/or script that builds out an environment that saves time on solving a challenge
-    - Slides that proctors can reference to help when teaching a key concept
-    - Scripts/templates/etc for some challenges that can be shared with attendees if they get really stuck
-        - Example: If challenges 1-3 build something (i.e. an ARM template) that is needed for challenge 4, you could “give” a stuck team the template so they could skip to challenge 4.
-    - List of reference links/articles/documentation that can be shared when attendees get stuck
-- Proctor’s guide should be updated during & post event with key learnings on what worked, didn’t work, and unexpected blockers that came up.
+Instead of treating the Coaches' guide like a step-by-step document, treat it as the "owner's manual" you would want to provide to future coaches so they can host and deliver your WTH to others. 
+
+The Coaches' guide should include the following:
+
+- List of high-level solution steps to each challenge
+- List of known blockers (things attendees will get hung up on) and recommended hints for solving them. For example:
+    - Resources that will take a long time to deploy in Azure (get a coffee!)
+    - If installing the Azure CLI on Windows, install it in the Windows Subsystem for Linux instead of just Windows itself
+    - Permission issues to be aware of, etc
+- List of key concepts that should be explained-to/understood by attendees before a given challenge (perhaps with a presentation lecture)
+- List of reference links/articles/documentation that can be shared when attendees get stuck
+- Estimated time it would take an attendee to complete each challenge. This will help coaches track progress against expectation. It should NOT to be shared with attendees.
+- Suggested time a coach should wait before helping out if a team is not progressing past known blockers
+
+The Coaches' guide should be updated during & post event with key learnings, such as all the gotchas, snags, and other unexpected blockers that your attendees hit!
 
 ## Coach Solutions
 
-This is where you put "the answers". There are usually multiple ways to solve a WTH Challenge. The solutions you put here should be example solutions that represent one way to solve the challenges. The solutions might include a full working application, configuration files, populated templates, or other resources that can be used to demonstrate how to solve the challenges. 
+This is where you put "the answers". There are usually multiple ways to solve a WTH Challenge. The solutions you provide here should be example solutions that represent one way to solve the challenges. The solution resources might include a full working application, configuration files, populated templates, or other resources that can be used to demonstrate how to solve the challenges. 
+
+Examples of Coach Solutions are:
+- Pre-requisites for the Azure environment if needed. 
+    - Example: A VM image with Visual Studio or ML tools pre-installed. 
+    - Example: An ARM template and/or script that builds out an environment that saves time on solving a challenge
+- Scripts/templates/etc for some challenges that can be shared with attendees if they get really stuck
+    - Example: If challenges 1 through 3 build something (i.e. an ARM template) that is needed for challenge 4, you could “give” a stuck team the template so they could skip to challenge 4.
+
+If your hack provides Coach Solutions with code or resources, it is recommended that you publish those resources as part of your hack's contents in the `../Coach/Solutions` folder.
 
 **Note:** This content is not intended for hack attendees to see before or during a hack event. The content IS available publicly and thus an attendee can-- uh, WILL find it. It is important to stress to the attendees that they should not cheat themselves out of learning experience by looking at "the answers"!
 
