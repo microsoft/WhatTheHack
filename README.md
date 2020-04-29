@@ -14,8 +14,6 @@ Would you like to host a What The Hack for your organization? The WTH format and
 
 See our complete guide on ["How To Host A Hack"](/000-HowToHack/WTH-HowToHostAHack.md).
 
-**GF: SHOULD WE REMOVE THIS UNTIL WE ACTUALLY HAVE A CALENDAR OF EVENTS?** *-- Alternatively, you may request folks at Microsoft to host or deliver one to your organization.  You can also see a list of existing WTH events and register to attend one in a city near you! Check out our "WTH Events" list.*
-
 # How to Create and Contribute a new What The Hack!
 
 Would you like to create a new What The Hack?  We welcome all new hacks!  We have developed a process for doing this.  This includes a set of guidelines and templates to help you package your hack up for the What The Hack repo!
