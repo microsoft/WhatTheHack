@@ -6,7 +6,7 @@ Developing a new What The Hack is a great way to get your content out into the w
 
 The What The Hack "challenge" format is perfect for team-based hands-on learning experiences.
 
-What The Hack is all about being "for the people, by the people". This repo is designed to share real-world hackathons that Microsoft employees have hosted with customers. There are some core principles:
+What The Hack is all about being "for the people, by the people". This repo was originally created to share real-world hackathons that Microsoft employees have hosted with customers. There are some core principles:
 - Anyone can contribute a hack.
 - Anyone can use the content to host their own event.
 - Anyone can modify the content as needed.
@@ -57,6 +57,8 @@ This is where you describe the outcomes a hack attendee should have. Provide a s
 
 Every WTH is made up of a collection of technical challenges. For the one pager, you should list out your challenges by name, with no more than a single sentence description for each (if the challenge title is not descriptive enough on its own).
 
+For most this page will act as a "Table of Contents" for your hack. We recommend that you create links for each challenge to its respective page.
+
 ### Prerequisites
 
 Provide a list of technical prerequisites for your hack here.  List out assumed knowledge attendees should have to be successful with the hack. For example, if the hack is an "Introduction to Kubernetes", the attendee should have a basic understanding of containers.  However, if it is an "Advanced Kubernetes" hack, then the attendee should know the basics of Kubernetes and not ask you what a "pod" or "node" are!
@@ -80,34 +82,39 @@ Please copy this template into your hack's root folder, rename it to "Readme.md"
 
 ## Challenge Design
 
-Challenges should follow the following guidelines....
+Challenges are at the heart of the WTH format! Designing challenges is what a hack author should spend the majority of their time focusing on. 
 
-*PL: This is the original challenge bullets from the PPT. Need to write this up with examples.*
+There are different approaches to designing a hackathon. If you are familiar with the Marvel Comic Universe movies, you know that they follow one of two patterns:
+- "Origin Story" - A movie focused on the back story of one superhero character that lets the audience get to know that character in depth (perhaps with a sidekick character or two included!)
+- "Avengers Story" - A movie with an ensemble cast of superhero characters working together to solve a mega problem, with each character getting varying amounts of screen time. 
 
-- Challenges should be cumulative, building upon each other
-    - Establish Confidence – start small and simple (think hello world)
-    - Build Competence – by having successively more complex challenges
-    - Each challenge should provide educational value.  
-        - For example, if an attendee completes only 3 out of 7 challenges, he/she still walks away feeling satisfied that he/she has learned something
+You can use the same patterns as Marvel when designing a What The Hack!
+
+- Singleton Hack - A hack designed to give in-depth hands-on experience with a specific technology (perhaps with a "sidekick technology" or two included!)
+- Solution Hack - A hack designed to give experience solving a real-world scenario that involves using multiple technolgies together for the solution.
+
+Once you have decided what type of hack you want to create, you should follow these guidelines when designing the challenges:
+
+- Include a “Challenge 0” that has attendees address pre-requisites for their workstation environment
+- Challenge descriptions should be shorter than this section on how to design challenges! Keep it to a couple of sentences or bullet points stating the goal(s) and perhaps a hint at the skill(s) needed.
 - Think through what skills/experience you want attendees to walk away with by completing each challenge
-- Challenge definitions should be short.  A couple of sentences or bullet points stating the end goal(s) and perhaps a hint at the skill(s) needed 
-- Include a “Challenge 0” that has pre-requisites for workstation environment
-
-Design a challenge this way...
-
-### Challenge Dos...
-
-Things you SHOULD do...
-
-### Challenge Do Nots...
-
-Things you should NOT do...
+- Challenges should be cumulative, building upon each other
+    - Establish Confidence – Start small and simple (think "hello world")
+    - Build Competence – By having successively more complex challenges.	
+- Each challenge should provide educational value.  
+    - For example, if an attendee completes only 3 out of 7 challenges, he/she still walks away feeling satisfied that he/she has learned something
+- Consider that a challenge might have more than one way to solve it! 
+- Provide verifiable success criteria for each challenge that lets the coaches and attendees know they have completed it.
+- Provide relevant links to learning resources that should lead the attendees toward the knowledge they need to complete the challenge.
+- Do **NOT** provide a list of step-by-step instructions! These are challenges designed to make the attendees learn by solving problems, not blindly following instructions.
 
 ### Challenge Template
 To help you get started, we have provided a sample markdown template for a hack Challenge here:
 - [Challenge Template](WTH-Challenge-Template.md). 
 
-Please copy this template into your hack's `../Student` folder, rename it to "ChallengeXX.md", where "XX" is the challenge number, and customize it for each challenge.
+Please copy this template into your hack's `../Student` folder, rename it to "ChallengeXX.md", where "XX" is the challenge number, and customize it for each challenge. 
+
+**Note:** In each challenge's markdown file, you should create navigation links to/from the previous & next challenges. Please use relative links (i.e. `"/ChallengeXX.md"`) instead of absolute links (i.e. `"http://github.com/Microsoft/WhatTheHack/000-YourAwesomeHack/Student/ChallengeXX.md"`)  
 
 ## Student Resources
 
