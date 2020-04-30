@@ -2,7 +2,7 @@
 
 We've structured the What The Hack format to make it easy to deliver to students both in person and remotely. The following are instructions, tips and tricks to hosting your own What The Hack and have it go off without a hitch.
 
-# Roles and Responsibilities
+## Roles and Responsibilities
 There are a few different roles that will need to be played at your What The Hack event. They include:
 - Lead Coach
 	- The lead of the event both logistically and technically. 
@@ -16,6 +16,102 @@ There are a few different roles that will need to be played at your What The Hac
 - Attendees
 	- The students in the event that participate in squads of 3 to 5.
 	- Must join and participate in their squad's Teams channel (both local and remote What The Hacks will have Teams channels created for the squad).
+
+## What do you need to host a What The Hack event?
+
+- Hack Content - See "How To Author a WTH"
+- People 
+	- "Lead Coach"
+	- Coaches
+	- Attendees
+- MS Teams
+	- Hack designed for in-person & virtual. 
+	- We make heavy use of Microsoft Teams
+	- Preparing for in-person or virtual is mostly the same.  We'll call out differences later.
+
+## Event Preparation
+	
+- In-Person or Virtual?
+- Registration & Invites
+### Know your Audience
+- Internal to your organization?
+- External (single organization)
+- External (many organizations)
+- Licensing concerns
+- Audio conferencing
+- Privacy Concerns
+- Azure subscription?  
+	- Predicted resource consumption
+- Security concerns?  Admin access on attendee workstations?
+### MS Team Creation
+- General Channel
+- Coaches Channel (Private)
+- Feedback Channel
+- Squad Channels
+- Pre-load hack content
+	- Pin challenges tab
+	- Channel Creation
+	- Event kick off PPT template
+	- Downgit Student resources into Files tab
+
+## Event Day (Running your WTH Event)
+	
+### Kick-Off Meeting 
+- Use the Event KickOff presentation to cover logistics
+- In-Person
+	- Attendees join team via join code
+- Virtual
+	- Attendees join via the "Meet Now" meeting in the General Channel
+- Lead Coach covers logistics
+- Forming Squads
+	- Load balanced by skill level
+	- Segregated by skill level
+	- Up to event organizers
+	- Virtual: Squads by TimeZone
+### Hacking
+- In-Person
+	- Tables work together
+	- Screenshare via squad channels
+- Virtual
+	- "Meet Now" in squad channels
+	- Use channel for chat & screensharing
+
+#### Coach Responsibilities
+
+- Keep the teams working as teams!
+    - Encourage all to “learn from” and “share with” each other!
+    - If you observe individuals racing ahead, encourage them to help those who are behind.
+    - Encourage attendees to use their team’s channel on MS Teams to collaborate/share info! 
+- Unblock teams who get stuck 
+    - Encourage team members to unblock each other first!
+    - Provide hints, but not answers
+    - If you observe individuals stuck for a while, help them get moving so they don’t lose interest.
+- Provide hints/pointers to the teams on how to solve problems & where to find information.
+    - Use the answers/solutions in the proctor’s guide, but don’t share with the attendees
+    - Proctor’s guide won’t be comprehensive.  As SMEs, proctors should use their knowledge to help with solution hints/ideas.  
+- Notify the emcee of unexpected blockers that arise during the event so they can be communicated to all, and recorded for future reference.
+
+#### Hack Attendee - Responsibilities
+
+- Learn
+- Do
+- Learn
+- Share!
+
+**NOTE:** Attendees should not be judged on how far they get.  No trophies should be given for challenge completion.  If event hosts want to gamify/incentivize attendees, they should focus on encouraging attendees to share with each other!
+
+### Stand-Ups/Check-ins
+### Regular breaks
+
+## Tips for In Person
+	• Food, food, glorious food!
+	• Emcee
+## Tips for Virtual
+	• List of tips from OH deck!
+
+
+
+
 
 # Using MS Teams
 **GF: PETER TO FILL THIS SECTION IN WITH TEAMS CONTENT FROM THE POWER POINT**
