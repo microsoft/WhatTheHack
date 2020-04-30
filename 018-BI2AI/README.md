@@ -24,3 +24,9 @@ In this hackshop, you will use a variety of Azure services and related products.
 
 ## Post Core, Optional Challenges
 1.  [(Optional) Building Models in Azure Machine Learning Designer](./Student/06-AMLDesigner.md)
+
+## Contributors
+- Chris Mitchell
+- Chris Kahrs
+- Brian Hitney
+- Alex Karasek
