@@ -16,12 +16,7 @@ Adventure Works marketing team loves the insights they've been getting from the 
 ## Hints
 
 1.  Have a closer look at the columns in BikeBuyerTraining and Prospective Buyer.  What is different about these two tables?  Are there any differences that could be preventing you from using your model?
-
-## Learning resources
-
-## Hints
 1.  If you don't want to write code to call the REST API, Postman is a great tool. (http://getpostman.com)
-
 
 ## Learning resources
 
