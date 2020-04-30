@@ -10,11 +10,9 @@
 
 ### Set up your development environment.
 
-The first challenge is to setup an environment that will help you build the end to end solution.  The primary exercise here is ensuring the necessary database, storage, and Power BI capacity exist for subsequent labs.  This datbase can be restored either manually via the Azure Portal or via the Azure CLI.
+The first challenge is to setup an environment that will help you build the end to end solution.  The primary exercise here is ensuring the necessary database, storage, and Power BI capacity exist for subsequent labs.  This datbase can be restored either manually via the Azure Portal or via the Azure CLI.  Download the source files used for this hack: https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/chmitch/WhatTheHack/tree/master/018-BI2AI/Coach/Downloads 
 
-The following details will be necessary to complete this challenge:
-1. A bacpac of the database can be found here:  https://cgmaiadjacent.blob.core.windows.net/backup/AdventureWorksDW.bacpac  
-1. To access the backpac via the CLI you can use the following SaS token:  "?st=2020-02-20T17%3A37%3A51Z&se=2021-02-21T17%3A37%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=FPqvfQMJdy5pjB6tWSs9Iw2UmtTeWLDzH1ESO3Rhc4c%3D"
+Download these files and load them to a storage container in your Azure subscription to get started.
 
 ## Success Criteria
 1. An Azure SQL Server with the the AdventurWorksDW database.
