@@ -2,8 +2,31 @@
 
 We've structured the What The Hack format to make it easy to deliver to students both in person and remotely. The following are instructions, tips and tricks to hosting your own What The Hack and have it go off without a hitch.
 
-## Roles and Responsibilities
-There are a few different roles that will need to be played at your What The Hack event. They include:
+This document has the following sections:
+- [WTH Event Requirements](#what-do-you-need-to-host-a-what-the-hack-event)
+- [WTH Event Preparation](#event-preparation)
+- [WTH Event Day](#event-day)
+- [In-Person Event Tips](#tips-for-in-person)
+- [Virtual Event Tips](#tips-for-virtual)
+
+## What do you need to host a What The Hack event?
+
+At minimum, three things:
+- [Hack Content](#hack-content)
+- [People](#people)
+- [Microsoft Teams](#microsoft-teams)
+
+### Hack Content
+
+First and most important is hack content! The What The Hack repo has many different hackathons that have been contributed. 
+
+Choose a hack from the [What The Hack Collection](../readme.md#what-the-hack-collection)
+
+Or, create your own with the guidance we have on [How To Author A What The Hack](WTH-HowToAuthorAHack.md)
+
+### People 
+
+You need people to hack! There are a few different roles that will need to be played at your What The Hack event. They include:
 - Lead Coach
 	- The lead of the event both logistically and technically. 
 	- Should be intimately familiar with the content and all its solutions.
@@ -17,17 +40,10 @@ There are a few different roles that will need to be played at your What The Hac
 	- The students in the event that participate in squads of 3 to 5.
 	- Must join and participate in their squad's Teams channel (both local and remote What The Hacks will have Teams channels created for the squad).
 
-## What do you need to host a What The Hack event?
-
-- Hack Content - See "How To Author a WTH"
-- People 
-	- "Lead Coach"
-	- Coaches
-	- Attendees
-- MS Teams
-	- Hack designed for in-person & virtual. 
-	- We make heavy use of Microsoft Teams
-	- Preparing for in-person or virtual is mostly the same.  We'll call out differences later.
+### MS Teams
+- Hack designed for in-person & virtual. 
+- We make heavy use of Microsoft Teams
+- Preparing for in-person or virtual is mostly the same.  We'll call out differences later.
 
 ## Event Preparation
 	
@@ -54,7 +70,8 @@ There are a few different roles that will need to be played at your What The Hac
 	- Event kick off PPT template
 	- Downgit Student resources into Files tab
 
-## Event Day (Running your WTH Event)
+## Event Day 
+(Running your WTH Event)
 	
 ### Kick-Off Meeting 
 - Use the Event KickOff presentation to cover logistics
@@ -90,6 +107,10 @@ There are a few different roles that will need to be played at your What The Hac
     - Use the answers/solutions in the proctor’s guide, but don’t share with the attendees
     - Proctor’s guide won’t be comprehensive.  As SMEs, proctors should use their knowledge to help with solution hints/ideas.  
 - Notify the emcee of unexpected blockers that arise during the event so they can be communicated to all, and recorded for future reference.
+
+- **GF NOTE** `I want to remove this bullet, there is to be no guidance on post challenge stuff, if anything we should discourage it. Remember 'do not be beholden to the clock'? We have to account for slow tables vs. fast tables`
+  - Review of each challenge’s solution to be presented after challenge completion
+
 
 #### Hack Attendee - Responsibilities
 

@@ -22,6 +22,29 @@ Hacks can focus on a single technology or focus on a solution scenario that feat
 
 See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAuthorAHack.md).
 
+# What The Hack Collection
+
+Here is the current list of What The Hack hackathons available for use:
+
+- [Intro To Kubernetes](/001-IntroToKubernetes/readme.md)
+- [Intro To Azure AI](/002-IntroToAzureAI/readme.md)
+- [Driving Miss Data](/003-DrivingMissData/readme.md)
+- [Hotel California/Vegas Dev Hack](/004-HotelCaliVegasDevHack/readme.md)
+- [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/readme.md)
+- [App Modernization](/006-AppModernization/readme.md)
+- [Azure Monitoring](/007-AzureMonitoring/readme.md)
+- [Databricks/Intro to ML](/008-DatabricksIntroML/readme.md)
+- [Microservices In Azure](/009-MicroservicesInAzure/readme.md)
+- [Azure DevOps](/010-AzureDevOps/readme.md)
+- [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
+- [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/readme.md)
+- [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/readme.md)
+- [Open Source DevOps](/014-OSS%20DevOps/readme.md)
+- [Serverless](/015-Serverless/readme.md)
+- [App Migration](/016-AppMigration/readme.md)
+- [Front Door/CDN](/017-FrontDoorCDN/readme.md)
+- [BI 2 AI](/018-BI2AI/readme.md)
+
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
 
