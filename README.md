@@ -26,7 +26,7 @@ See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAutho
 
 Here is the current list of What The Hack hackathons available for use:
 
-- [Intro To Kubernetes](/001-IntroToKubernetes/readme.md)
+- [Intro To Kubernetes](/001-IntroToKubernetes/)
 - [Intro To Azure AI](/002-IntroToAzureAI/readme.md)
 - [Driving Miss Data](/003-DrivingMissData/readme.md)
 - [Hotel California/Vegas Dev Hack](/004-HotelCaliVegasDevHack/readme.md)
