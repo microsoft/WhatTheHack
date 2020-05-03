@@ -1,16 +1,20 @@
-# What The Hack: IaC ARM-DSC Prerequisites
+# What The Hack: Common Prerequisites
 
-This section lays out all the tools that are required for this hackathon.
+Thanks for participating in a What The Hack! We have compiled a list of common tools and software that will come in handy to complete these Azure based hacks! 
 
-* **Azure Subscription**
-* [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-* [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-* [**PowerShell Cmdlets for Azure**](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
-* [**Visual Studio Code**](https://code.visualstudio.com/)
-* **ARM Template plugins for VS Code**
-	* [**ARM Tools**](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-	* [**ARM Snippets**](https://marketplace.visualstudio.com/items?itemName=samcogan.arm-snippets)
-* [**Azure Storage Explorer**](https://azure.microsoft.com/en-us/features/storage-explorer/)
+You might not need all of them for the hack you are participating in.  However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+
+- [Azure Subscription](#azure-subscription)
+- [Windows Subsystem for Linux (Windows 10-only)](#windows-subsystem-for-linux)
+- [Managing Cloud Resources](#managing-cloud-resources)
+  - [Azure Portal](#azure-portal)
+  - [Azure CLI](#azure-cli)
+  - [Azure PowerShell Cmdlets](#azure-powershell-cmdlets)
+  - [Azure Cloud Shell](#azure-cloud-shell)
+- [Visual Studio Code](#visual-studio-code)
+- [ARM Template plugins for VS Code](#visual-studio-code-plugins-for-arm-templates)
+- [Azure Storage Explorer](#azure-storage-explorer)
+- [MobaXTerm](#mobaxterm)
 
 ## Azure Subscription
 
@@ -118,7 +122,7 @@ The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you ca
 
 Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity).
 
-[**Install Visual Studio Code**](https://code.visualstudio.com/)
+[Install Visual Studio Code](https://code.visualstudio.com/)
 
 VS Code runs on Windows, Mac, and Linux. Yes, Mac AND Linux!  It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE tool on Windows.
 
@@ -126,11 +130,11 @@ VS Code runs on Windows, Mac, and Linux. Yes, Mac AND Linux!  It's a quick insta
 
 VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types.  There are two plugins available which we recommend for creating and editing ARM templates in VS Code. We will be using these during the hackathon.
 
-[**ARM Tools Plugin**](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+[ARM Tools Plugin](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 This extension provides language support for Azure Resource Manager deployment templates and template language expressions.  It adds syntax color-coding support and intellisense for editing ARM templates in VS Code.
 
-[**ARM Snippets Plugin**](https://marketplace.visualstudio.com/items?itemName=samcogan.arm-snippets)
+[ARM Snippets Plugin](https://marketplace.visualstudio.com/items?itemName=samcogan.arm-snippets)
 
 This extension adds snippets to Visual Studio Code for creating Azure Resource Manager Templates. These snippets are taken from the Cross Platform Tooling Samples. Snippets include:
 
@@ -156,12 +160,12 @@ Azure Storage Explorer is a cross-platform tool that lets you manage and access 
 
 ARM templates and any resources they depend on (nested templates, script files, etc) need to be staged in a location where the Azure Resource Manager can access them via an HTTP endpoint. We will be using Azure Storage explorer during the hackathon to copy files to/from Azure Blob storage for staging purposes. 
 
-[**Install Azure Storage Explorer**](https://azure.microsoft.com/en-us/features/storage-explorer/)
+[Install Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
 ## MobaXterm
 
 MobaXterm is your ultimate toolbox for remote computing. In a single Windows application, it provides loads of functions that are tailored for programmers, webmasters, IT administrators and pretty much all users who need to handle their remote jobs in a more simple fashion.
 
-This tool is not mandatory for the IaC hackathon but it's just another cool tool to have in your toolbox if you're running Windows.
+This tool is not mandatory for the hackathon but it's just another cool tool to have in your toolbox if you're running Windows.
 
 * For Windows: Download [MobaXterm](https://mobaxterm.mobatek.net/download.html) 

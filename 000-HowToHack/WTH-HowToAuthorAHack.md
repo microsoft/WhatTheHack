@@ -64,9 +64,12 @@ For most this page will act as a "Table of Contents" for your hack. We recommend
 
 Provide a list of technical prerequisites for your hack here.  List out assumed knowledge attendees should have to be successful with the hack. For example, if the hack is an "Introduction to Kubernetes", the attendee should have a basic understanding of containers.  However, if it is an "Advanced Kubernetes" hack, then the attendee should know the basics of Kubernetes and not ask you what a "pod" or "node" are.
 
-**GF NOTE**  `In the following paragraph you mention a "Shared Prerequisites" section that doesn't exist (yet?)`
+Provide a list of tools/software that the attendee needs to install on their machine to complete the hack. 
 
-Provide a list of tools/software that the attendee needs to install on their machine to complete the hack. There is a list of common prerequisites for many of the WTH hacks here: Shared WTH Prerequisites. You can provide a link to it in your hack's prerequisites section in addition to any unique prerequisites for your hack.
+We have compiled a list of common pre-requisites needed for most of the Azure related hacks here:
+- [What The Hack Common Prerequisites](WTH-Common-Prerequisites.md). 
+
+You can provide a link to it in your hack's prerequisites section in addition to any unique prerequisites for your hack.
 
 ### Repository Contents (Optional)
 
@@ -82,8 +85,6 @@ To help you get started, we have provided a sample template for a Hack Descripti
 - [Hack Description Template](WTH-HackDescription-Template.md). 
 
 Please copy this template into your hack's root folder, rename it to "README.md", and customize it for your hack.
-
-**GF NOTE** `WTH-HackDescription-Template.md looks fine to me as is, not sure if you touched it or not`
 
 ## Challenge Design
 
@@ -172,8 +173,6 @@ It is OK and encouraged to offer a collection of "mini" presentation lectures if
 - Provide a brief overview of concepts needed to complete the challenge
 - Provide "reference" slides that you might not present, but will have on hand if attendees need additional guidance
 - Provide a slide with the challenge description that can be displayed when attendees are working on that challenge
-- **GF NOTE** `I want to remove this bullet, there is to be no guidance on post challenge stuff, if anything we should discourage it. Remember 'do not be beholden to the clock'? We have to account for slow tables vs. fast tables`
-  - Review of each challenge’s solution to be presented after challenge completion
 
 We have more guidance on how and when to deliver mini presentation lectures for your challenges during your event in the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
 
