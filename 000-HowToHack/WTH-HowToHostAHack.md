@@ -1,6 +1,6 @@
 # How to Host a What The Hack
 
-We've structured the What The Hack format to make it easy to deliver to students both in person and remotely. The following are instructions, tips and tricks to hosting your own What The Hack and have it go off without a hitch.
+We've structured the What The Hack format to make it easy to deliver to students both in person and virtually. The following are instructions, tips and tricks to hosting your own What The Hack and have it go off without a hitch.
 
 This document has the following sections:
 - [WTH Event Requirements](#what-do-you-need-to-host-a-what-the-hack-event)
@@ -12,13 +12,13 @@ This document has the following sections:
 ## What do you need to host a What The Hack event?
 
 At minimum, three things:
-- [Hack Content](#hack-content)
-- [People](#people)
-- [Microsoft Teams](#microsoft-teams)
+1. [Hack Content](#hack-content)
+1. [People](#people)
+1. [Microsoft Teams](#microsoft-teams)
 
 ### Hack Content
 
-First and most important is hack content! The What The Hack repo has many different hackathons that have been contributed. 
+First and most important is hack content! The What The Hack collection has many different hackathons that have been contributed. 
 
 Choose a hack from the [What The Hack Collection](../readme.md#what-the-hack-collection)
 
@@ -26,29 +26,39 @@ Or, create your own with the guidance we have on [How To Author A What The Hack]
 
 ### People 
 
-You need people to hack! There are a few different roles that will need to be played at your What The Hack event. They include:
+Next, you need people to hack! There are a few different roles that will need to be played at your What The Hack event. They include:
 - Lead Coach
 	- The lead of the event both logistically and technically. 
-	- Should be intimately familiar with the content and all its solutions.
-	- In charge setting up Teams and channels to support the event.
-	- Delivers challenge intro presentations (if required)
+	- Responsible for the event preparation steps [outlined below](#event-preparation).
+	- This person should be intimately familiar with the content and all of its solutions.
+	- Delivers kick off meeting & challenge intro lecture presentations (if required)
 - Coaches
 	- The lead of a squad of 3 to 5 attendees.
+	- Recommended to have 1 coach per every 5 attendees. At minimum, need 1 coach per every 10 attendees
 	- Provides guidance and direction for the squad but does **NOT** provide answers.
 	- In charge of determining whether a squad has finished a challenge and should move to the next one.
 - Attendees
 	- The students in the event that participate in squads of 3 to 5.
-	- Must join and participate in their squad's Teams channel (both local and remote What The Hacks will have Teams channels created for the squad).
+	- Must join and participate in their squad's Teams channel (both in-person and virtual What The Hack events will have Teams channels created for the squad).
 
-### MS Teams
-- Hack designed for in-person & virtual. 
-- We make heavy use of Microsoft Teams
-- Preparing for in-person or virtual is mostly the same.  We'll call out differences later.
+### Microsoft Teams
+
+Finally, you need Microsoft Teams! Specifically, you will need to create a team in Microsoft Teams for your event that the attendees will collaborate in.
+
+**Note:** While you could host a WTH event using other collaboration tools, we strongly recommend using Microsoft Teams. When we stay "strongly recommend", it means we are writing this document based on using Teams. ;)
+
+During a WTH event, attendees work together in squads* of 3 to 5 people to solve the hack's challenges. The attendees will need to share links, code snippets, or even screen share as they collaborate on the challenge solutions. Microsoft Teams makes this easy to do by having each squad assigned a Channel to work in. 
+
+At an in-person event, each squad will be sitting at the same table. During a virtual event, everyone will be sitting at home in their pajamas. The main difference is that during a virtual event, attendees will need to join a call in their squad's channel for the duration of the event. Most other aspects of the event are the same!
+
+**Note:** Why are the groups of 3 to 5 attendees working together called "squads"? It is natural to call them "teams" or "hack teams". However, the word "teams" is overloaded when we talk about "Microsoft Teams" (the app) and the "team" within the app that is created for the event! So, "squads" it is!
+
+**Note:** With the Covid-19 pandemic, virtual events will be the way of the future for some time. If you are working from home, take advantage of this time to sharpen your skills by hosting or participating in a virtual WTH event!
 
 ## Event Preparation
-	
-- In-Person or Virtual?
-- Registration & Invites
+
+Will your event be in-person or virtual? It doesn't matter.  Most of the preparation steps are the same. It starts out by knowing your audience!
+
 ### Know your Audience
 - Internal to your organization?
 - External (single organization)
@@ -69,6 +79,16 @@ You need people to hack! There are a few different roles that will need to be pl
 	- Channel Creation
 	- Event kick off PPT template
 	- Downgit Student resources into Files tab
+
+### Getting People To Your Event
+
+- Registration and invites
+	- Advertise your hack!
+	- Registration
+	- Use Microsoft Forms and Flow
+- Calendar Blocks! (especially for a virtual event!)
+	- Link to the General Channel
+	- Include a "join code" if internal audience
 
 ## Event Day 
 (Running your WTH Event)
