@@ -4,17 +4,18 @@ Thanks for participating in a What The Hack! We have compiled a list of common t
 
 You might not need all of them for the hack you are participating in.  However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
-- [Azure Subscription](#azure-subscription)
-- [Windows Subsystem for Linux (Windows 10-only)](#windows-subsystem-for-linux)
-- [Managing Cloud Resources](#managing-cloud-resources)
-  - [Azure Portal](#azure-portal)
-  - [Azure CLI](#azure-cli)
-  - [Azure PowerShell Cmdlets](#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](#azure-cloud-shell)
-- [Visual Studio Code](#visual-studio-code)
-- [ARM Template plugins for VS Code](#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](#azure-storage-explorer)
-- [MobaXTerm](#mobaxterm)
+- [What The Hack: Common Prerequisites](#what-the-hack-common-prerequisites)
+  - [Azure Subscription](#azure-subscription)
+  - [Windows Subsystem for Linux](#windows-subsystem-for-linux)
+  - [Managing Cloud Resources](#managing-cloud-resources)
+    - [Azure Portal](#azure-portal)
+    - [Azure CLI](#azure-cli)
+      - [Note for Windows Users](#note-for-windows-users)
+    - [Azure PowerShell CmdLets](#azure-powershell-cmdlets)
+    - [Azure Cloud Shell](#azure-cloud-shell)
+  - [Visual Studio Code](#visual-studio-code)
+    - [Visual Studio Code plugins for ARM Templates](#visual-studio-code-plugins-for-arm-templates)
+  - [Azure Storage Explorer](#azure-storage-explorer)
 
 ## Azure Subscription
 
@@ -35,7 +36,7 @@ If you have used Azure before, we will still try to limit cost of services by su
 
 ## Windows Subsystem for Linux
 
-The Windows Subsystem for Linux (WSL) lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+The Windows Subsystem for Linux (WSL) lets developers run an entire Linux distribution -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
 
 WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the tools you're used to.
 
@@ -63,18 +64,15 @@ Build, manage, and monitor everything from simple web apps to complex cloud appl
 
 Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.com/](https://portal.azure.com/)
 
-The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you an automation tool, templates, or scripts instead of the portal. 
-
-**Note:** That's why you're participating in this "Infrastructure as Code" hackathon!
+The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal. 
 
 ### Azure CLI
 
-The Azure CLI is a cross-platform command-line tool providing a great experience for managing Azure resources. The CLI is designed to make scripting easy, flexibly query data, support long-running operations as non-blocking processes, and more. It is available on Windows, Mac, and Linux.
+The Azure CLI is a cross-platform command-line tool providing a great experience for managing Azure resources. The CLI is designed to make scripting easy, query data in flexible ways, support long-running operations as non-blocking processes, and more. It is available on Windows, Mac, and Linux.
 
 The Azure CLI will be the preferred (and supported) approach for this event, so please install the Azure CLI on your workstation. If you are not able to install the Azure CLI, or are using a workstation that is not your own, you can use the Azure CLI in the browser via the Azure Cloud Shell from the Azure Portal.
 
 For Windows users, see the note below about how & where to install the Azure CLI!
-
 
 - [Install on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
 - [Install on macOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest)
@@ -100,13 +98,14 @@ Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager m
 
 [Install the Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
 
-The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and can be used to complete all of the challenges instead of the Azure CLI. However, the Azure PowerShell Cmdlets are required for the PowerShell DSC challenges. 
+The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and can be used to complete all of the challenges instead of the Azure CLI. 
 
 
 ### Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you can use to run the Azure CLI or PowerShell Cmdlets needed to complete the hackathon challenges. It has common Azure tools pre-installed and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it.  There are a few ways to launch the Cloud Shell:
 
+***GF NOTE: The images in the three rows of this table are broken. I suggest finding that image and putting it into the repo directly so you don't have to rely on an external site keeping it where you think it is***
 |  |   |
 |-----------------------------------------------|---|
 | Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](https://github.com/MicrosoftDocs/azure-docs/raw/master/includes/media/cloud-shell-try-it/cli-try-it.png) |
@@ -115,7 +114,7 @@ The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you ca
 |  |  |
 
 
-**Note:** If you use the Azure CLI or PowerShell from the Azure Cloud Shell, you will need to copy the template files you will be creating and editing on your workstation during the hackathon to the Cloud Shell environment.
+**NOTE:** If you use the Azure CLI or PowerShell from the Azure Cloud Shell, you will need to copy the template files you will be creating and editing on your workstation during the hackathon to the Cloud Shell environment.
 
 
 ## Visual Studio Code
@@ -124,11 +123,11 @@ Visual Studio Code is a lightweight but powerful source code editor which runs o
 
 [Install Visual Studio Code](https://code.visualstudio.com/)
 
-VS Code runs on Windows, Mac, and Linux. Yes, Mac AND Linux!  It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE tool on Windows.
+VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows.
 
 ### Visual Studio Code plugins for ARM Templates
 
-VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types.  There are two plugins available which we recommend for creating and editing ARM templates in VS Code. We will be using these during the hackathon.
+VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types.  There are two plugins available which we recommend for creating and editing ARM templates in VS Code.
 
 [ARM Tools Plugin](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
@@ -151,21 +150,15 @@ This extension adds snippets to Visual Studio Code for creating Azure Resource M
 * Azure Container Instances
 * Inserting Snippets
 
-Inside any JSON file, start typing arm! to see a list of snippets availible. Select the snippet to insert and update any required values. This makes it VERY easy to quickly bang out the JSON syntax for many Azure resources within an ARM template.
+Inside any JSON file, start typing **`arm!`** to see a list of snippets availible. Select the snippet to insert and update any required values. This makes it VERY easy to quickly bang out the JSON syntax for many Azure resources within an ARM template.
 
 
 ## Azure Storage Explorer
 
-Azure Storage Explorer is a cross-platform tool that lets you manage and access Azure Storage account resources in a GUI similar to Windows File Explorer or Finder on Mac.  Like VS Code, Azure Storage Explorer can be installed on Windows, Mac, or Linux!
+Azure Storage Explorer is a cross-platform tool that lets you manage and access Azure Storage account resources in a GUI similar to Windows File Explorer or Finder on Mac.  Like VS Code, Azure Storage Explorer can be installed on Windows, Mac, or Linux.
 
 ARM templates and any resources they depend on (nested templates, script files, etc) need to be staged in a location where the Azure Resource Manager can access them via an HTTP endpoint. We will be using Azure Storage explorer during the hackathon to copy files to/from Azure Blob storage for staging purposes. 
 
 [Install Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
-## MobaXterm
-
-MobaXterm is your ultimate toolbox for remote computing. In a single Windows application, it provides loads of functions that are tailored for programmers, webmasters, IT administrators and pretty much all users who need to handle their remote jobs in a more simple fashion.
-
-This tool is not mandatory for the hackathon but it's just another cool tool to have in your toolbox if you're running Windows.
-
-* For Windows: Download [MobaXterm](https://mobaxterm.mobatek.net/download.html) 
+***GF NOTE: Mobaterm is too niche and adds another potential point of confusion for students. This document is already way too long***
