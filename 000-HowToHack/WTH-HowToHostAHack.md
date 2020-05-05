@@ -112,15 +112,39 @@ Tight firewalls may make it challenging to access Azure from an organization's w
 All of these security concerns and their mitigations should be identified and addressed with the organization stakeholder ahead of time.
 
 ### Microsoft Team Creation
-- General Channel
-- Coaches Channel (Private)
-- Feedback Channel
-- Squad Channels
+
+Create a new team for your WTH event in Microsoft Teams that will be used as the dedicated event space. This space will host documents, multiple channels for presenting, screen sharing, and overall collaboration in real and near real-time. 
+
+We recommend creating the following Channels in the team:
+
+- **General** – The general channel will be used as the central gathering place. All event challenges, documents, and supporting material will be hosted in this channel. Key event items can be pinned up within various Tabs. Within the general channel we will host the kickoff meeting to start the event and have various checkpoints throughout the event to communicate with the all the attendees at once. 
+- **Coaches ONLY (Private)** - Coaches should communicate with each other privately from attendees to share learnings/practices during the event. Coaches can work together to decide if/when to communicate issues broadly to all attendees during the event.
+- **Feedback** - Encourage attendees to post feed back during & after the event so coaches can improve it for future events
+- **Squad Channels** – The Squad channels will be where teams of individuals will go to work and collaborate during the event. We find groups of 3 to 5 people work well. Based on the number of individuals in your event, you will need to create the number of group channels required to support your event.
+- **Coach Channels** – The Coach channels are dedicated spaces where a coach can meet 1:1 with specific person to help work through some task or issue during the event. We find that we need 1 proctor for about 15 to 20 attendees. You should create a dedicated coach channel for each coach that will be part of the event. 
+
+**Insert Screenshot of Sample WTH Event Team**
+
+- Add participants to your newly created Microsoft Team a few days before your event to give people time to log into the Team. In addition if you have some preparation materials make sure to communicate that to the users as part of the Team Invite or within the General Channel.
+- Schedule a Channel meeting in the General Channel of your event Team and send the meeting invite to your attendees
+- Upload any documents, challenges, pre-work, and supporting materials into to General Channel files area.
+- Post any announcements or start any relevant conversations in the General channel to provide details and clarity of your event. 
+- Determine how you may want to break the attendees up into smaller peer groups during the group challenges based on the style of the event you will be delivering.
+
+ToDO...
+
 - Pre-load hack content
 	- Pin challenges tab
 	- Channel Creation
 	- Event kick off PPT template
 	- Downgit Student resources into Files tab
+	- Coach guide posted in Coaches ONLY channel for coaches to have easy access?
+	- Any other optional resources for the coaches will be stored in the Files tab of the Coaches ONLY channel (slides, templates, etc)
+
+	- The event’s “General” channel will have tabs containing the Challenges & “Shared Tips”
+    - Challenges tab will be posted by the content owners
+    - “Shared Tips” is open to any proctor/attendee/team to share knowledge broadly to all teams.  Since the event is not competitive, sharing SHOULD be encouraged!
+- There is also a “Feedback” channel for live event feedback. 
 
 ### Getting People To Your Event
 
@@ -137,6 +161,7 @@ All of these security concerns and their mitigations should be identified and ad
 	
 ### Kick-Off Meeting 
 - Use the Event KickOff presentation to cover logistics
+- Join the General Channel meeting at the start of your event. Communicate to the attendees the details and flow of the event. We highly recommend using video on during this session as it really helps drive the collaboration and interaction with the group. 
 - In-Person
 	- Attendees join team via join code
 - Virtual
@@ -147,13 +172,27 @@ All of these security concerns and their mitigations should be identified and ad
 	- Segregated by skill level
 	- Up to event organizers
 	- Virtual: Squads by TimeZone
+
+ - If an in-person hack, attendees should be instructed to join the MS Team at event kick off
+    - If a virtual hack, attendees should be added to the MS Team before the event based on registration
+- Each table/team should create their own Channel to share info during the event (code snippets, links, references, screen sharing, etc)
+
 ### Hacking
+
+- When its time to break out into the various peer groups, the individuals will leave the meeting in the General channel. They will then go to their chosen Group Channel and participate in a meeting in that channel. Please be aware the first person enter the channel will hit the “Meet now” button within the channel (as indicated by the red arrow below) to start the channel meeting. All subsequent individuals will see a notice that there is an active meeting and can simply hit the “Join” button. Please note, you can have multiple meetings happening within a channel. In some situations it may be ideal to spin up additional meetings, for example if the group is large.
 - In-Person
 	- Tables work together
 	- Screenshare via squad channels
 - Virtual
 	- "Meet Now" in squad channels
 	- Use channel for chat & screensharing
+
+- The individuals within the groups can now work together on their tasks, share screens, links, and other tasks to achieve their goals. As people get stuck we highly recommend that they talk through the issues with the group and share their screen with the team to work through the challenge. Group collaboration is a very effective learning tool.
+- The Proctors can stay in the General Channel as a central place people can find then if they need to escalate. In addition, the proctors can quickly jump in and out of the various Group channels to check in on the group and provide support as required by joining the various channel meetings.
+- In the event, a person within the group is having a problem that requires individual attention the proctor can ask the individual to go to the proctor’s dedicated channel where they can start a channel meeting and work together to resolve the issues. 
+- Throughout the event, you may want to have various checkpoints that require all the individuals to come back to the General Channel to meet and discuss the tasks done and next steps.
+- In addition, as folks find useful tips and tricks, you can direct them to share those items in the General Channel as a Chat or within a shared OneNote, Word Document, etc. if the event is a hackathon style event. For Lab-style events folks can leave tips and tricks in the various exercise channels to keep the content relevant to the issue.
+- Present challenge lectures when 80% of the squads appear to have completed the previous challenge.  Ask those still working to pay attention to the short lecture, then return to completing the previous challenge.
 
 #### Coach Responsibilities
 
@@ -195,41 +234,6 @@ All of these security concerns and their mitigations should be identified and ad
 **Tip:** With the Covid-19 pandemic, virtual events will be the way of the future for some time. If you are working from home, take advantage of this time to sharpen your skills by hosting or participating in a virtual WTH event!
 
 
-
-# Using MS Teams
-**GF: PETER TO FILL THIS SECTION IN WITH TEAMS CONTENT FROM THE POWER POINT**
-
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
-
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
-
-# Kicking Off Your What The Hack
-**GF: PETER TO FILL THIS SECTION IN WITH TEAMS CONTENT FROM THE POWER POINT**
-
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
-
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
-
-# Coach Stand-Ups
-**GF: PETER TO FILL THIS SECTION IN WITH TEAMS CONTENT FROM THE POWER POINT**
-
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
-
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
-
-# Tips - In Person Delivery
-**GF: PETER TO FILL THIS SECTION IN WITH TEAMS CONTENT FROM THE POWER POINT**
-
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
-
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
-
-# Tips - Virtual Delivery
-**GF: PETER TO FILL THIS SECTION IN WITH TEAMS CONTENT FROM THE POWER POINT**
-
-Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.
-
-Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.
 
 # Event Kick Off Presentation
 You can find a Powerpoint presentation template you can use to kick off your What The Hack.
