@@ -4,18 +4,17 @@ Thanks for participating in a What The Hack! We have compiled a list of common t
 
 You might not need all of them for the hack you are participating in.  However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
-- [What The Hack: Common Prerequisites](#what-the-hack-common-prerequisites)
-  - [Azure Subscription](#azure-subscription)
-  - [Windows Subsystem for Linux](#windows-subsystem-for-linux)
-  - [Managing Cloud Resources](#managing-cloud-resources)
-    - [Azure Portal](#azure-portal)
-    - [Azure CLI](#azure-cli)
-      - [Note for Windows Users](#note-for-windows-users)
-    - [Azure PowerShell CmdLets](#azure-powershell-cmdlets)
-    - [Azure Cloud Shell](#azure-cloud-shell)
-  - [Visual Studio Code](#visual-studio-code)
-    - [Visual Studio Code plugins for ARM Templates](#visual-studio-code-plugins-for-arm-templates)
-  - [Azure Storage Explorer](#azure-storage-explorer)
+- [Azure Subscription](#azure-subscription)
+- [Windows Subsystem for Linux](#windows-subsystem-for-linux)
+- [Managing Cloud Resources](#managing-cloud-resources)
+  - [Azure Portal](#azure-portal)
+  - [Azure CLI](#azure-cli)
+    - [Note for Windows Users](#note-for-windows-users)
+  - [Azure PowerShell CmdLets](#azure-powershell-cmdlets)
+  - [Azure Cloud Shell](#azure-cloud-shell)
+- [Visual Studio Code](#visual-studio-code)
+  - [Visual Studio Code plugins for ARM Templates](#visual-studio-code-plugins-for-arm-templates)
+- [Azure Storage Explorer](#azure-storage-explorer)
 
 ## Azure Subscription
 
@@ -105,7 +104,7 @@ The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and ca
 
 The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you can use to run the Azure CLI or PowerShell Cmdlets needed to complete the hackathon challenges. It has common Azure tools pre-installed and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it.  There are a few ways to launch the Cloud Shell:
 
-***GF NOTE: The images in the three rows of this table are broken. I suggest finding that image and putting it into the repo directly so you don't have to rely on an external site keeping it where you think it is***
+
 |  |   |
 |-----------------------------------------------|---|
 | Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](images/try-it-button.png) |
@@ -160,5 +159,3 @@ Azure Storage Explorer is a cross-platform tool that lets you manage and access 
 ARM templates and any resources they depend on (nested templates, script files, etc) need to be staged in a location where the Azure Resource Manager can access them via an HTTP endpoint. We will be using Azure Storage explorer during the hackathon to copy files to/from Azure Blob storage for staging purposes. 
 
 [Install Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
-
-***GF NOTE: Mobaterm is too niche and adds another potential point of confusion for students. This document is already way too long***
