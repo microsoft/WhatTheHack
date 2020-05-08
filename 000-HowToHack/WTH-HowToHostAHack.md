@@ -121,7 +121,7 @@ Some organizations have tight security policies enforced on their employees' wor
 
 One workaround is to use the Azure Cloud Shell. However, some organizations may disable access to the Azure Cloud Shell!  Another workaround is to provision a workstation VM in Azure that attendees can RDP into to complete the hack.
 
-Tight firewalls may make it challenging to access Azure from an organization's workstations. This is when you bang your head against the wall, give up, and be thankful you don't work for that organization! :)
+Tight firewalls may make it challenging to access Azure itself from an organization's workstations. This is when you bang your head against the wall, give up, and be thankful you don't work for that organization! :)
 
 All of these security concerns and their mitigations should be identified and addressed with the organization event stakeholder ahead of time.
 
@@ -129,61 +129,145 @@ All of these security concerns and their mitigations should be identified and ad
 
 Now that you've gotten all of the overhead out of the way, it's time to build your event's team in Teams!  
 
-Create a new team for your WTH event in Microsoft Teams that will be used as the dedicated event space. This space will host documents, multiple channels for presenting, screen sharing, and overall collaboration in real and near real-time. 
+Create a new team for your WTH event in Microsoft Teams that will be used as the dedicated event space. This space will host documents, multiple channels for presenting, screen sharing, and overall collaboration in real and near real-time.
+
+We suggest naming your team with at minimum the hack name and date. You can also add the location or organization too. This will make it easy for attendees to remember what the team was for after the event.
+
+For example: `"WTH-IntroToKubernetes - London (May 2020)"`
+
+#### Team Structure
 
 We recommend creating the following Channels in the team:
 
 - **General** – The General channel will be used as the central gathering place. All event challenges, documents, and supporting material will be hosted in this channel. Key event items can be pinned up within various Tabs. Within the general channel you will host the kickoff meeting to start the event and have various checkpoints throughout the event to communicate with the all the attendees at once.
 - **Coaches ONLY (Private)** - Coaches should communicate with each other privately from attendees to share learnings/practices during the event. Coaches can work together to decide if/when to communicate issues broadly to all attendees during the event.
 - **Feedback** - Encourage attendees to post feedback here during & after the event so coaches can improve it for future events. It's a great way to collect feedback in one place.
-- **Squad Channels** – The Squad channels will be where teams of individuals will go to work and collaborate during the event. We find groups of 3 to 5 people work well. Based on the number of individuals in your event, you will need to create the number of group channels required to support your event.
+- **Squad Channels** – The Squad channels will be where teams of individuals will go to work and collaborate during the event. We find squads of 3 to 5 people work well. You should create an appropriate number of squad channels based on the number of individuals attending your event. Name each channel "Squad X" where X is the squad number.
 - **Coach Channels** – The Coach channels are dedicated spaces where a coach can meet 1:1 with a specific person to help work through some task or issue during the event that is not worthy of the rest of the squad following along with. You should create a dedicated coach channel for each coach that will be part of the event.
+
+**Example Event Team**
 
 **Insert Screenshot of Sample WTH Event Team**
 
+#### Team Content
 
-- Upload any documents, challenges, pre-work, and supporting materials into to General Channel files area.
-- Post any announcements or start any relevant conversations in the General channel to provide details and clarity of your event. 
+Most hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) have the solutions to the hack challenges included in the [WTH GitHub repo](http://aka.ms/wth). Therefore, you should avoid the attendees having any reason to access to the WTH repo before or during the event. Instead, we recommend pre-loading any  resources from the repo needed by the attendees for the hack into the event Team!
 
+##### Challenge Guide
 
-ToDO...
+The challenges for each hack are published in the `/HackName/Student` folder of the WTH repo.
 
-- Pre-load hack content
-	- Pin challenges tab
-	- Channel Creation
-	- Event kick off PPT template
-	- Downgit Student resources into Files tab
-	- Coach guide posted in Coaches ONLY channel for coaches to have easy access?
-	- Any other optional resources for the coaches will be stored in the Files tab of the Coaches ONLY channel (slides, templates, etc)
+Some hacks have published their Challenges in a Word or PDF document. Other hacks have published their hacks in navigatable Markdown files which can be viewed on the web via GitHub pages.
 
-	- The event’s “General” channel will have tabs containing the Challenges & “Shared Tips”
-    - Challenges tab will be posted by the content owners
-    - “Shared Tips” is open to any proctor/attendee/team to share knowledge broadly to all teams.  Since the event is not competitive, sharing SHOULD be encouraged!
-- There is also a “Feedback” channel for live event feedback. 
+If the challenges are published in a Word or PDF document, copy the document from the WTH repo and upload it into the General Channel's Files tab. We recommend pinning the document as a Tab in the General Channel so it is easily accessible to attendees.
+
+**Insert Screenshot of Word Challenge Tab**
+
+If the challenges are published in Markdown files, we recommend pinning the hack's "homepage" as a webpage Tab in the General Channel. Each hack's homepage is be available via GitHub Pages at: `https://microsoft.github.io/WhatTheHack/xxx-HackName/`
+
+**Insert Screenshot of web challenge tab**
+
+##### Student Resources
+
+Many hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) have provided resources (code snippets, templates, etc) needed for the hack in their `/HackName/Student/Resources` folder.  
+
+The lead coach should copy the contents of this folder from the repo and then upload them into the General Channel's Files tab. This will provide the files to the attendees in Microsoft Teams without them needing to visit the WTH repo on GitHub.
+
+Some hacks have provided a link to download these resources from the WTH repo within their Challenge instructions using DownGit. If this is the case, you do not need to upload the resources into Microsoft Teams.
+
+You should also upload both Event Kickoff presentation and any lecture presentations into Microsoft Teams too so that they are available to attendees during the event.
+
+##### Shared Tips/Wiki (Optional)
+
+During a What The Hack event, attendees are strongly encouraged to share knowledge and learn from each other. Knowledge sharing is encouraged across the entire event, including between squads.  
+
+One way to encourage that is to create a place for attendees to share tips, tricks, and solutions discovered with each other. The attendees could use the Channel chats or Wiki feature in Microsoft Teams for this purpose.  However, we recommend creating a "Shared Tips" Word document and pinning it as a tab within the General channel.
+
+The learnings gathered by the attendees here makes a nice parting gift after the event as a resource they can keep and use!
+
+##### Coach Resources (Optional)
+
+The coaches should have access to the WTH repo and all coach resources, including the coach's guide for the hack. For ease of access, you may optionally copy the coach resources into the private Coaches Channel's file section.
 
 ### Getting People To Your Event
 
-- Registration and invites
-	- Advertise your hack!
-	- Registration
-	- Use Microsoft Forms and Flow
-- Calendar Blocks! (especially for a virtual event!)
-	- Link to the General Channel
-	- Include a "join code" if internal audience
-- Add folks to the team
-	- Add participants to your newly created Microsoft Team a few days before your event to give people time to log into the Team. In addition if you have some preparation materials make sure to communicate that to the users as part of the Team Invite or within the General Channel.
-	- Schedule a Channel meeting in the General Channel of your event Team and send the meeting invite to your attendees
+Now that you have taken care of preparing a Microsoft Team for your hack, you need to get people to your hack!
+
+#### Registration and Invites
+
+It's up to you to decide how you will advertise your hack. You might send an invite to a larger group and let those interested RSVP by registering.  Or, if you're hosting an hack for an external organization, you should coordinate with the event stakeholder how attendees will be invited.
+
+If you are inviting people from your own organization, we have had a good experience using Microsoft Forms and Microsoft Power Automate (formerly known as "Flow").
+
+##### Use MS Forms to create a registration form
+- provide brief abstract about your hack
+- ask experience level with technology(ies)
+- ask role
+- ask what would make the event a "success" for the attendee
+
+For more information on using Microsoft Forms, see: **INSERT LINK HERE**
+
+For a sample MS form registration template, see: **Insert link here**
+
+##### Calendar Blocks! (especially for a virtual event!)
+
+Calendar blocks are always important so attendees don't forget about your event. 
+If someone is traveling to attend your event in person, they're not likely to forget to show up.  
+
+When it comes to hosting a virtual WTH event, a Calendar block is even MORE important! The key word is "BLOCK"!  You need the attendees to clear their calendar so they are dedicated to participating in the hack for the full event.
+
+When you create a calendar invite, you should include:
+
+- Link to the General Channel
+- Instructions to join the team via a "join code" if an internal audience
+- Instructions to make arrangements for others to cover their day jobs!
+- Instructions to put on their OOF messages!
+
+##### Use MS Power Automate to add registered attendees to a Calendar Block for the event.
+
+You can use Microsoft Power Automate to automatically add registered attendees to the calendar block for your event!  This is important so that registered attendees get the calendar block on their calendar as soon as they register.  This avoids them forgetting that they signed up to attend.
+
+- Share Power Automate template here?
+
+For more information on Microsoft Power Automate (formerly known as "Flow"), see: **INSERT LINK HERE**
+
+#### Add Registered Attendees to the team
+
+If you're hosting a virtual event or an event with attendees from an external organization, it is important for attendees to be added to the team BEFORE the event! 
+
+There are differences how you add people to a Microsoft team if they are part of your organization or part of an external organization.
+
+For an in-person event, it is easier to have attendees add themselves to the team via join code during the kickoff meeting.
+
+- Add participants to your newly created Microsoft Team a few days before your event to give people time to log into the Team. In addition if you have some preparation materials make sure to communicate that to the users as part of the Team Invite or within the General Channel.
+- Schedule a Channel meeting in the General Channel of your event Team and send the meeting invite to your attendees
+- Post any announcements or start any relevant conversations in the General channel to provide details and clarity of your event. 
 
 ## Event Day 
-(Running your WTH Event)
+
+The big day has arrived! It's showtime!  Rest well and get a full night of sleep beforehand. You will need it to be fresh on hack day!
+
+Below is the guidance on how to actually host and run a WTH event:
 	
 ### Kick-Off Meeting 
-- Use the Event KickOff presentation to cover logistics
-- Join the General Channel meeting at the start of your event. Communicate to the attendees the details and flow of the event. We highly recommend using video on during this session as it really helps drive the collaboration and interaction with the group. 
+
+Every WTH event starts off with a Kick Off Meeting.  How you get to the kick off meeting depends if it's a virtual or in-person event!
+
+#### Getting there
+
 - In-Person
 	- Attendees join team via join code
+ 	- If an in-person hack, attendees should be instructed to join the MS Team at event kick off
+
 - Virtual
 	- Attendees join via the "Meet Now" meeting in the General Channel
+    - If a virtual hack, attendees should be added to the MS Team before the event based on registration
+	- The Lead Coach and all coaches should start a meeting in the General channel 15-20 mins before the kick off.
+	- Attendees click the purple "join" button in the General channel to join the kick off.  This can be tricky as most Teams users are used to clicking a "join" button in their calendar invite.  Congratulate all attendees when they join the meeting for completing their first challenge:  finding the kick off meeting!
+
+#### The logistics
+- Use the Event KickOff presentation to cover logistics
+- Join the General Channel meeting at the start of your event. Communicate to the attendees the details and flow of the event. We highly recommend using video on during this session as it really helps drive the collaboration and interaction with the group. 
 - Lead Coach covers logistics
 - Determine how you may want to break the attendees up into smaller peer groups during the group challenges based on the style of the event you will be delivering.
 - Forming Squads
@@ -192,19 +276,32 @@ ToDO...
 	- Up to event organizers
 	- Virtual: Squads by TimeZone
 
- - If an in-person hack, attendees should be instructed to join the MS Team at event kick off
-    - If a virtual hack, attendees should be added to the MS Team before the event based on registration
+
 - Each table/team should create their own Channel to share info during the event (code snippets, links, references, screen sharing, etc)
+- During the event, it's a good idea to have each squad give their squad a fun name and rename their channel to it.
+
+#### Event Kick Off Presentation
+You can find a Powerpoint presentation template you can use to kick off your What The Hack.
+
+In it we have put most of the instructions above in a form that you can present to the attendees before starting the What The Hack.
 
 ### Hacking
 
-- When its time to break out into the various peer groups, the individuals will leave the meeting in the General channel. They will then go to their chosen Group Channel and participate in a meeting in that channel. Please be aware the first person enter the channel will hit the “Meet now” button within the channel (as indicated by the red arrow below) to start the channel meeting. All subsequent individuals will see a notice that there is an active meeting and can simply hit the “Join” button. Please note, you can have multiple meetings happening within a channel. In some situations it may be ideal to spin up additional meetings, for example if the group is large.
+Now it's time to get down to business! If you're hosting an in-person hack, attendees will start talking to each other and working together at their squad tables.
+
+If it's a virtual event, they need to start a call in their squad channels. Coaches should be prepared to assist folks and direct them where they need to go.
+
+Once everyone is settled, the format and interactions are the same!
+
 - In-Person
 	- Tables work together
 	- Screenshare via squad channels
 - Virtual
 	- "Meet Now" in squad channels
 	- Use channel for chat & screensharing
+
+- When its time to break out into the various peer groups, the individuals will leave the meeting in the General channel. They will then go to their chosen Group Channel and participate in a meeting in that channel. Please be aware the first person enter the channel will hit the “Meet now” button within the channel (as indicated by the red arrow below) to start the channel meeting. All subsequent individuals will see a notice that there is an active meeting and can simply hit the “Join” button. Please note, you can have multiple meetings happening within a channel. In some situations it may be ideal to spin up additional meetings, for example if the group is large.
+
 
 - The individuals within the groups can now work together on their tasks, share screens, links, and other tasks to achieve their goals. As people get stuck we highly recommend that they talk through the issues with the group and share their screen with the team to work through the challenge. Group collaboration is a very effective learning tool.
 - The Proctors can stay in the General Channel as a central place people can find then if they need to escalate. In addition, the proctors can quickly jump in and out of the various Group channels to check in on the group and provide support as required by joining the various channel meetings.
@@ -254,7 +351,3 @@ ToDO...
 
 
 
-# Event Kick Off Presentation
-You can find a Powerpoint presentation template you can use to kick off your What The Hack.
-
-In it we have put most of the instructions above in a form that you can present to the attendees before starting the What The Hack.
