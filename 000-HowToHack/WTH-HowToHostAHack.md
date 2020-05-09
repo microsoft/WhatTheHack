@@ -1,6 +1,6 @@
 # How to Host a What The Hack
 
-We've structured the What The Hack format to make it easy to deliver to students both in person and virtually. The following are instructions, tips and tricks to hosting your own What The Hack and have it go off without a hitch.
+We've structured the What The Hack format to make it easy to deliver to students both in person and virtually. The following are instructions, tips and tricks to hosting your own What The Hack event and have it go off without a hitch. You may choose to adopt as much or little as you would like. This guidance has been cobbled together from experience based on what has worked before.
 
 With the Covid-19 pandemic, virtual events will be the way of the future for some time. Participating in a team-based hands-on event virtually may be a new concept for many. However, we have found that virtual WTH events are often more collaborative than a traditional in-person event!
 
@@ -67,7 +67,7 @@ As the event leader, most of the preparation steps are focused on preparing Micr
 
 ### Know Your Audience
 
-If you are inviting attendees that are outside of your organization, there are multiple things to think about with respect to using Azure and Microsoft Teams. 
+If you are inviting attendees that are outside of your organization, there are multiple things to think about with respect to using Azure and Microsoft Teams.
 
 If you are hosting a hack with a single organization, it is a good practice to identify an event stakeholder in the external organization who can help you plan for your What The Hack event. The event stakeholder can help you address the following preparation concerns.
 
@@ -147,7 +147,7 @@ We recommend creating the following Channels in the team:
 
 **Example Event Team**
 
-**Insert Screenshot of Sample WTH Event Team**
+![Sample What The Hack Event Team](images/WTH-SampleMSTeam.jpg)
 
 #### Team Content
 
@@ -161,11 +161,16 @@ Some hacks have published their Challenges in a Word or PDF document. Other hack
 
 If the challenges are published in a Word or PDF document, copy the document from the WTH repo and upload it into the General Channel's Files tab. We recommend pinning the document as a Tab in the General Channel so it is easily accessible to attendees.
 
-**Insert Screenshot of Word Challenge Tab**
+**Example of Challenges PDF Tab**
 
-If the challenges are published in Markdown files, we recommend pinning the hack's "homepage" as a webpage Tab in the General Channel. Each hack's homepage is be available via GitHub Pages at: `https://microsoft.github.io/WhatTheHack/xxx-HackName/`
+![Sample What The Hack Event Team - PDF Challenges](images/WTH-SampleMSTeam-ChallengesPDF.jpg)
 
-**Insert Screenshot of web challenge tab**
+
+If the challenges are published in Markdown files, we recommend pinning the hack's "homepage" as a webpage Tab in the General Channel. Each hack's homepage is available via GitHub Pages at: `https://microsoft.github.io/WhatTheHack/xxx-HackName/`
+
+**Example of Challenges Website Tab**
+
+![Sample What The Hack Event Team - Website Challenges](images/WTH-SampleMSTeam-Challenges.jpg)
 
 ##### Student Resources
 
@@ -173,17 +178,26 @@ Many hacks in the [What The Hack Collection](../readme.md#what-the-hack-collecti
 
 The lead coach should copy the contents of this folder from the repo and then upload them into the General Channel's Files tab. This will provide the files to the attendees in Microsoft Teams without them needing to visit the WTH repo on GitHub.
 
-Some hacks have provided a link to download these resources from the WTH repo within their Challenge instructions using DownGit. If this is the case, you do not need to upload the resources into Microsoft Teams.
+Some hacks have provided a link to download these resources from the WTH repo within their Challenge instructions. If this is the case, you do not need to upload the resources into Microsoft Teams.
 
-You should also upload both Event Kickoff presentation and any lecture presentations into Microsoft Teams too so that they are available to attendees during the event.
+You should also upload both the Event Kickoff presentation and any lecture presentations into Microsoft Teams too so that they are available to attendees during the event.
+
+**Example of Student Resources**
+
+![Sample What The Hack Event Team - Student Resources](images/WTH-SampleMSTeam-StudentResources.jpg)
+
 
 ##### Shared Tips/Wiki (Optional)
 
 During a What The Hack event, attendees are strongly encouraged to share knowledge and learn from each other. Knowledge sharing is encouraged across the entire event, including between squads.  
 
-One way to encourage that is to create a place for attendees to share tips, tricks, and solutions discovered with each other. The attendees could use the Channel chats or Wiki feature in Microsoft Teams for this purpose.  However, we recommend creating a "Shared Tips" Word document and pinning it as a tab within the General channel.
+One way to encourage that is to create a place for attendees to share tips, tricks, and solutions discovered with each other. The attendees could use the Channel chats or Wiki feature in Microsoft Teams for this purpose.  However, we recommend creating a "Shared Tips" Word document and pinning it as a tab within the General channel. This makes the document portable and easier to download after the event.
 
 The learnings gathered by the attendees here makes a nice parting gift after the event as a resource they can keep and use!
+
+**Example of Shared Tips Tab**
+
+![Sample What The Hack Event Team - Shared Tips](images/WTH-SampleMSTeam-SharedTips.jpg)
 
 ##### Coach Resources (Optional)
 
@@ -191,13 +205,18 @@ The coaches should have access to the WTH repo and all coach resources, includin
 
 ### Getting People To Your Event
 
-Now that you have taken care of preparing a Microsoft Team for your hack, you need to get people to your hack!
+Now that you have taken care of preparing a Microsoft Team for your hack, you need to get people to your hack! 
 
 #### Registration and Invites
 
 It's up to you to decide how you will advertise your hack. You might send an invite to a larger group and let those interested RSVP by registering.  Or, if you're hosting an hack for an external organization, you should coordinate with the event stakeholder how attendees will be invited.
 
 If you are inviting people from your own organization, we have had a good experience using Microsoft Forms and Microsoft Power Automate (formerly known as "Flow").
+
+- MS Forms
+- Calendar Block
+- MS PowerAutomate
+- Adding People To MS Teams
 
 ##### Use MS Forms to create a registration form
 - provide brief abstract about your hack
