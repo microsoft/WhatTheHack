@@ -147,7 +147,7 @@ We recommend creating the following Channels in the team:
 
 **Example Event Team**
 
-![Sample What The Hack Event Team](images/WTH-SampleMSTeam.jpg)
+![Sample What The Hack Event Team](images/WTH-SampleMSTeam.jpg?raw=true "Example WTH Event Team")
 
 #### Team Content
 
