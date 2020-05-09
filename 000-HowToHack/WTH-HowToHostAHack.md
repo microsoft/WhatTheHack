@@ -147,7 +147,7 @@ We recommend creating the following Channels in the team:
 
 **Example Event Team**
 
-![Sample What The Hack Event Team](images/WTH-SampleMSTeam.jpg?raw=true "Example WTH Event Team")
+![Sample What The Hack Event Team](images/wth-sample-msteam.jpg "Example WTH Event Team")
 
 #### Team Content
 
@@ -163,14 +163,14 @@ If the challenges are published in a Word or PDF document, copy the document fro
 
 **Example of Challenges PDF Tab**
 
-![Sample What The Hack Event Team - PDF Challenges](images/WTH-SampleMSTeam-ChallengesPDF.jpg)
+![Sample What The Hack Event Team - PDF Challenges](images/wth-sample-msteam-challenges-pdf.jpg)
 
 
 If the challenges are published in Markdown files, we recommend pinning the hack's "homepage" as a webpage Tab in the General Channel. Each hack's homepage is available via GitHub Pages at: `https://microsoft.github.io/WhatTheHack/xxx-HackName/`
 
 **Example of Challenges Website Tab**
 
-![Sample What The Hack Event Team - Website Challenges](images/WTH-SampleMSTeam-Challenges.jpg)
+![Sample What The Hack Event Team - Website Challenges](images/wth-sample-msteam-challenges-web.jpg)
 
 ##### Student Resources
 
@@ -184,7 +184,7 @@ You should also upload both the Event Kickoff presentation and any lecture prese
 
 **Example of Student Resources**
 
-![Sample What The Hack Event Team - Student Resources](images/WTH-SampleMSTeam-StudentResources.jpg)
+![Sample What The Hack Event Team - Student Resources](images/wth-sample-msteam-student-resources.jpg)
 
 
 ##### Shared Tips/Wiki (Optional)
@@ -197,7 +197,7 @@ The learnings gathered by the attendees here makes a nice parting gift after the
 
 **Example of Shared Tips Tab**
 
-![Sample What The Hack Event Team - Shared Tips](images/WTH-SampleMSTeam-SharedTips.jpg)
+![Sample What The Hack Event Team - Shared Tips](images/wth-sample-msteam-shared-tips.jpg)
 
 ##### Coach Resources (Optional)
 
