@@ -205,62 +205,73 @@ The coaches should have access to the WTH repo and all coach resources, includin
 
 ### Getting People To Your Event
 
-Now that you have taken care of preparing a Microsoft Team for your hack, you need to get people to your hack! 
+Now that you have taken care of creating and preparing a Microsoft Team for your hack, you need to get people to your hack!
 
 #### Registration and Invites
 
-It's up to you to decide how you will advertise your hack. You might send an invite to a larger group and let those interested RSVP by registering.  Or, if you're hosting an hack for an external organization, you should coordinate with the event stakeholder how attendees will be invited.
+It is up to you to decide how you will advertise your hack. You might send an invite to a larger group and let those interested RSVP by registering. There are many tools out there on the web to help you manage event registrations like Eventbrite, Eventzilla, or RSVPify.
 
-If you are inviting people from your own organization, we have had a good experience using Microsoft Forms and Microsoft Power Automate (formerly known as "Flow").
+**Note:** Be sure you understand the privacy implications of using online registration tools!
 
-- MS Forms
-- Calendar Block
-- MS PowerAutomate
-- Adding People To MS Teams
+If you are inviting people from within your own organization, you can use [Microsoft Forms](https://forms.microsoft.com), which is a part of Office 365.
 
-##### Use MS Forms to create a registration form
-- provide brief abstract about your hack
-- ask experience level with technology(ies)
-- ask role
-- ask what would make the event a "success" for the attendee
+If you are hosting an hack for an external organization, you should coordinate with the event stakeholder how attendees will be invited. It is often best to let the event stakeholder manage the invite and registration process. That's one less job for you!
 
-For more information on using Microsoft Forms, see: **INSERT LINK HERE**
+#### Add Registered Attendees To Teams
 
-For a sample MS form registration template, see: **Insert link here**
+If you are hosting a virtual event, the event location <u>***IS***</u> the event team you created in Microsoft Teams. Therefore, it is important that the attendees be added to the event team <u>***before***</u> the event!
 
-##### Calendar Blocks! (especially for a virtual event!)
+Whether you used an online registration service or worked with an external organization stakeholder, you should gather the list of registered attendees and add them to the event team in Microsoft Teams a couple of days before the event.
 
-Calendar blocks are always important so attendees don't forget about your event. 
+There are differences how you add people to a team in Microsoft Teams if they are part of your organization versus part of an external organization. Attendees from an external organization must be added to a team in Microsoft Teams manually, one-by-one, via the team admin interface.
+
+To add external guests, see: [Add guests to a team in Teams](https://support.office.com/en-us/article/Add-guests-to-a-team-in-Teams-fccb4fa6-f864-4508-bdde-256e7384a14f)
+
+**Example of adding attendees to a team via the admin interface:**
+
+![How to Add Team Member - Part 1](images/wth-add-team-member-01am.jpg)
+
+![How to Add Team Member - Part 2](images/wth-add-team-member-02am.jpg)
+
+We recommend creating a "join code" to share with internal organization attendeess which they can use to add themselves to the event team. The join code can be shared in the event invite or calendar meeting you will put together in the next section.
+
+For an in-person event, you can share the join code on the screen during the kick off meeting on event day.
+
+To create a join code, see: [Create a link or code for joining a team](https://support.microsoft.com/en-us/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f?ui=en-us&rs=en-us&ad=us)
+
+To use the join code, see: [Use a link or code to join a team](https://support.microsoft.com/en-us/office/use-a-link-or-code-to-join-a-team-c957af50-df15-46e3-b5c4-067547b64548?ui=en-us&rs=en-us&ad=us)
+
+**Example of creating a join code for a team:**
+
+![How to Create a Join Code](images/wth-create-join-codem.jpg)
+
+Once your attendees have been added to the event team, you can communicate with them ahead of the event by posting in the General channel. Consider sharing any preparation materials or prerequisites or announcements to provide details and clarity of your event.
+
+#### Calendar Block
+
+Calendar blocks are always important so attendees don't forget about your event.
 If someone is traveling to attend your event in person, they're not likely to forget to show up.  
 
-When it comes to hosting a virtual WTH event, a Calendar block is even MORE important! The key word is "BLOCK"!  You need the attendees to clear their calendar so they are dedicated to participating in the hack for the full event.
+When it comes to hosting a virtual WTH event, a Calendar block is even MORE important! The key word is **BLOCK**! You need the attendees to clear their calendar so they are dedicated to participating in the hack for the full event.
+
+We recommend sending a calendar invite to all registered attendees as early as possible after they have registered. If you are hosting an external organization, coordinate with the event stakeholder to send the calendar invite.
 
 When you create a calendar invite, you should include:
 
-- Link to the General Channel
+- A brief description of the event format
+- A link to the General Channel with instructions to join the kick off meeting
 - Instructions to join the team via a "join code" if an internal audience
 - Instructions to make arrangements for others to cover their day jobs!
 - Instructions to put on their OOF messages!
 
-##### Use MS Power Automate to add registered attendees to a Calendar Block for the event.
+To help you get started, we have provided a template for a What The Hack calendar invite here:
+- [Hack Calendar Invite Template](WTH-CalendarInvite-Template.md)
 
-You can use Microsoft Power Automate to automatically add registered attendees to the calendar block for your event!  This is important so that registered attendees get the calendar block on their calendar as soon as they register.  This avoids them forgetting that they signed up to attend.
+#### Automating Registration with Office 365 Tools
 
-- Share Power Automate template here?
+If you are inviting people from your own organization, we have had a good experience using Microsoft Forms and Microsoft Power Automate (formerly known as "Microsoft Flow") to automate adding attendees to an Outlook calendar invite when they register.
 
-For more information on Microsoft Power Automate (formerly known as "Flow"), see: **INSERT LINK HERE**
-
-#### Add Registered Attendees to the team
-
-If you're hosting a virtual event or an event with attendees from an external organization, it is important for attendees to be added to the team BEFORE the event! 
-
-There are differences how you add people to a Microsoft team if they are part of your organization or part of an external organization.
-
-For an in-person event, it is easier to have attendees add themselves to the team via join code during the kickoff meeting.
-
-- Add participants to your newly created Microsoft Team a few days before your event to give people time to log into the Team. In addition if you have some preparation materials make sure to communicate that to the users as part of the Team Invite or within the General Channel.
-- Schedule a Channel meeting in the General Channel of your event Team and send the meeting invite to your attendees
-- Post any announcements or start any relevant conversations in the General channel to provide details and clarity of your event. 
+For more information, see: [Automate Registration with Office 365](WTH-AutomateRegistrationWithO365.md)
 
 ## Event Day 
 
