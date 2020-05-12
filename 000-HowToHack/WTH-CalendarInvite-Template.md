@@ -3,10 +3,16 @@
 When you create a calendar invite, you should include:
 
 - A brief description of the event format
-- A link to the General Channel with instructions to join the kick off meeting
 - Instructions to join the team via a "join code" if an internal audience
+- A link to the General Channel with instructions to join the kick off meeting
 - Instructions to make arrangements for others to cover their day jobs!
 - Instructions to put on their OOF messages!
+
+**Note:** When you create a calendar invite, you should NOT create it as a Teams meeting in Outlook! If you do this, Outlook and Teams will put a "Join Teams Meeting" or "Join" button in their respective calendar interfaces.  Attendees will then click that button and will end up in a private meeting instead of the Channel meeting in the General channel.
+
+**Don't check this button when you create a calendar invite in Outlook:**
+
+![Non-Teams Meeting in Outlook](images/wth-non-teams-calendar-invite.jpg)
 
 This is sample calendar invite template for a What The Hack event. Feel free to copy/paste this into your calendar tool of choice and customize for your event!
 
