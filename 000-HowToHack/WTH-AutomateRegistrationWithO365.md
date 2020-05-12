@@ -2,7 +2,7 @@
 
 If you are inviting people from your own organization, we have had a good experience using Microsoft Forms and Microsoft Power Automate (formerly known as "Microsoft Flow") to automate adding attendees to an Outlook calendar invite when they register.
 
-##Coming Soon!  
+## Coming Soon!  
 
 This article is a work in progress. We're working hard on getting the details documented so you can automate your What The Hack registration!
 
