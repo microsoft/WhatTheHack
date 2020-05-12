@@ -286,19 +286,25 @@ Every WTH event starts off with a Kick Off Meeting.  How you get to the kick off
 #### Getting there
 
 - In-Person
-	- Attendees join team via join code
- 	- If an in-person hack, attendees should be instructed to join the MS Team at event kick off
+	- Attendees show up at the physical venue
+	- Event team join code is presented on the screen or whiteboard
+ 	- Attendees should be instructed to join the MS Team at event kick off
 
 - Virtual
-	- Attendees join via the "Meet Now" meeting in the General Channel
-    - If a virtual hack, attendees should be added to the MS Team before the event based on registration
-	- The Lead Coach and all coaches should start a meeting in the General channel 15-20 mins before the kick off.
-	- Attendees click the purple "join" button in the General channel to join the kick off.  This can be tricky as most Teams users are used to clicking a "join" button in their calendar invite.  Congratulate all attendees when they join the meeting for completing their first challenge:  finding the kick off meeting!
+	
+	- Attendees should have been added to the MS Team before the event based on registration
+	- The Lead Coach should start a meeting in the General channel 15-20 mins before the kick off by clicking the "Meet Now" button.
+	- The Lead Coach should set the name of the meeting as "Kick Off Meeting"
+	- Attendees click the link to the General Channel in their calendar invite, then click the purple "Join" button in the General channel to join the kick off.  This can be tricky as most Teams users are used to clicking a "Join" button in their calendar invite.  Congratulate all attendees when they join the meeting for completing their first challenge:  finding the kick off meeting!
+
+**Note:** It is important for the Lead Coach to start the kick-off meeting ahead of the start time. It is technically possible to have multiple parallel meetings in a channel at the same time. If a meeting has not been started, arriving attendees may start their own meeting(s) in the General channel by clicking the "Meet Now" button. This can lead to confusion as to which one to join!
+    
 
 #### The logistics
-- Use the Event KickOff presentation to cover logistics
-- Join the General Channel meeting at the start of your event. Communicate to the attendees the details and flow of the event. We highly recommend using video on during this session as it really helps drive the collaboration and interaction with the group. 
-- Lead Coach covers logistics
+- Use the Event Kick Off presentation to cover logistics
+- Communicate to the attendees the details and flow of the event. 
+- If virtual, we highly recommend the lead coach turning his/her/their camera on during this session as it really helps drive the collaboration and interaction with the group.
+- Lead Coach covers logistics of how everyone will interact using Microsoft Teams (Squad Channels, Feedback Channel, Files Tab, Challenges Tab). Attendees may not have experience using Microsoft Teams, or they may not have experience with how it will be used during the hack event!
 - Determine how you may want to break the attendees up into smaller peer groups during the group challenges based on the style of the event you will be delivering.
 - Forming Squads
 	- Load balanced by skill level
@@ -306,14 +312,16 @@ Every WTH event starts off with a Kick Off Meeting.  How you get to the kick off
 	- Up to event organizers
 	- Virtual: Squads by TimeZone
 
-
 - Each table/team should create their own Channel to share info during the event (code snippets, links, references, screen sharing, etc)
 - During the event, it's a good idea to have each squad give their squad a fun name and rename their channel to it.
 
-#### Event Kick Off Presentation
-You can find a Powerpoint presentation template you can use to kick off your What The Hack.
+#### Event Kick Off Presentations
 
-In it we have put most of the instructions above in a form that you can present to the attendees before starting the What The Hack.
+To help you get started, we have provided PowerPoint templates for kicking off a What The Hack event here:
+- [In-Person - Kick Off Presentation Template](WTH-InPerson-EventKickoff-Template)
+- [Virtual - Kick Off Presentation Template](WTH-Virtual-EventKickoff-Template.md)
+
+The kick off presentation templates contain most of the instructions above that you can present to the attendees before starting the What The Hack. The in-person template has additional slides instructing attendees to use a code to join the event team in Microsoft Teams.
 
 ### Hacking
 
