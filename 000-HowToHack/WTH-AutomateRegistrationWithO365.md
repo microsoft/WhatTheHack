@@ -14,14 +14,10 @@ This article is a work in progress. We're working hard on getting the details do
 - ask role
 - ask what would make the event a "success" for the attendee
 
-For more information on using Microsoft Forms, see: **INSERT LINK HERE**
+For more information on using Microsoft Forms, see: [Microsoft Forms Help & Learning](https://support.office.com/en-us/forms)
 
-For a sample MS form registration template, see: **Insert link here**
-
-## Use MS Power Automate to add registered attendees to a Calendar Block for the event.
+## Use MS Power Automate to add registered attendees to a Calendar Invite for the event.
 
 You can use Microsoft Power Automate to automatically add registered attendees to the calendar block for your event!  This is important so that registered attendees get the calendar block on their calendar as soon as they register.  This avoids them forgetting that they signed up to attend.
 
-- Share Power Automate template here?
-
-For more information on Microsoft Power Automate (formerly known as "Flow"), see: **INSERT LINK HERE**
+For more information on Microsoft Power Automate (formerly known as "Flow"), see: [Microsoft Power Automate](https://flow.microsoft.com/en-us/)

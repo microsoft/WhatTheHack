@@ -259,8 +259,8 @@ We recommend sending a calendar invite to all registered attendees as early as p
 When you create a calendar invite, you should include:
 
 - A brief description of the event format
-- A link to the General Channel with instructions to join the kick off meeting
 - Instructions to join the team via a "join code" if an internal audience
+- A link to the General Channel with instructions to join the kick off meeting
 - Instructions to make arrangements for others to cover their day jobs!
 - Instructions to put on their OOF messages!
 
