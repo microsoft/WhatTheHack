@@ -247,9 +247,9 @@ To use the join code, see: [Use a link or code to join a team](https://support.m
 
 Once your attendees have been added to the event team, you can communicate with them ahead of the event by posting in the General channel. Consider sharing any preparation materials or prerequisites or announcements to provide details and clarity of your event.
 
-#### Calendar Block
+#### Calendar Invite
 
-Calendar blocks are always important so attendees don't forget about your event.
+Calendar invites are always important so attendees don't forget about your event.
 If someone is traveling to attend your event in person, they're not likely to forget to show up.  
 
 When it comes to hosting a virtual WTH event, a Calendar block is even MORE important! The key word is **BLOCK**! You need the attendees to clear their calendar so they are dedicated to participating in the hack for the full event.
@@ -281,38 +281,58 @@ Below is the guidance on how to actually host and run a WTH event:
 	
 ### Kick-Off Meeting 
 
-Every WTH event starts off with a Kick Off Meeting.  How you get to the kick off meeting depends if it's a virtual or in-person event!
+Every WTH event starts off with a Kick Off Meeting.  *How* you get to the kick off meeting depends if it's a virtual or in-person event! 
 
-#### Getting there
+#### Getting There: In Person
 
-- In-Person
-	- Attendees show up at the physical venue
-	- Event team join code is presented on the screen or whiteboard
- 	- Attendees should be instructed to join the MS Team at event kick off
+If you are hosting an in-person event, it is simple! Attendees show up at the venue you shared with them in your invite, take a seat, and give you their full attention to kick off.
 
-- Virtual
-	
-	- Attendees should have been added to the MS Team before the event based on registration
-	- The Lead Coach should start a meeting in the General channel 15-20 mins before the kick off by clicking the "Meet Now" button.
-	- The Lead Coach should set the name of the meeting as "Kick Off Meeting"
-	- Attendees click the link to the General Channel in their calendar invite, then click the purple "Join" button in the General channel to join the kick off.  This can be tricky as most Teams users are used to clicking a "Join" button in their calendar invite.  Congratulate all attendees when they join the meeting for completing their first challenge:  finding the kick off meeting!
+The in-person attendees should be instructed to join the event team in Microsoft Teams using a join code. The code for should be presented on the presentation screen or posted on a whiteboard in the room while the kick off meeting proceeds.
+
+#### Getting There: Virtual Event
+
+Getting to the kick off meeting can be a little tricky for virtual attendees! They will not join the kick off meeting the way they normally join meetings in Microsoft Teams. Instead they will join a Channel meeting in the General channel of the event team.
+
+The reason we recommend hosting the kick off meeting as a Channel meeting in the General channel is so that the attendees are brought into the team and learn to collaborate there from the start. If you host the kick off meeting as a regular meeting in Microsoft Teams, it will be a private meeting that is not connected to the event team. Therefore, any chat conversations will not be captured in the team.
+
+As covered in the [previous section](#wth-event-preparation), attendees should have been added to the MS Team before the event based on registration.
+
+The lead coach should start the kick off meeting in the General channel 15-20 mins before the kick off by clicking the "Meet Now" button as depicted below.
+
+![Start a Channel Meeting](images/wth-kickoff-meeting-meet-now.jpg)
+
+The lead coach should set the name of the meeting **before** joining the meeting, as depicted below.
+
+![Set meeting name](images/wth-kickoff-meeting-title.jpg)
+
+To join the kick off meeting, attendees will first click the link to the General Channel in their calendar invite. Then they will click either purple "Join" button in the General channel to join the kick off as depicted below.
+
+![Join a Channel meeting](images/wth-kickoff-meeting-join-button.jpg)
+
+This can be tricky as most Teams users are used to clicking the "Join Teams Meeting" button in their Outlook calendar invite. Congratulate all attendees when they join the meeting for completing their first challenge:  Finding the kick off meeting!
 
 **Note:** It is important for the Lead Coach to start the kick-off meeting ahead of the start time. It is technically possible to have multiple parallel meetings in a channel at the same time. If a meeting has not been started, arriving attendees may start their own meeting(s) in the General channel by clicking the "Meet Now" button. This can lead to confusion as to which one to join!
     
 
 #### The logistics
-- Use the Event Kick Off presentation to cover logistics
+
+
+- After welcomes & intros, use the Event Kick Off presentation to cover logistics
 - Communicate to the attendees the details and flow of the event. 
+	- Kick off
+	- Solving hack challenges in squads
+	- Breaks, stand-ups, and review
 - If virtual, we highly recommend the lead coach turning his/her/their camera on during this session as it really helps drive the collaboration and interaction with the group.
 - Lead Coach covers logistics of how everyone will interact using Microsoft Teams (Squad Channels, Feedback Channel, Files Tab, Challenges Tab). Attendees may not have experience using Microsoft Teams, or they may not have experience with how it will be used during the hack event!
 - Determine how you may want to break the attendees up into smaller peer groups during the group challenges based on the style of the event you will be delivering.
 - Forming Squads
+	- In-Person: Whatever table attendees sat at
 	- Load balanced by skill level
 	- Segregated by skill level
 	- Up to event organizers
 	- Virtual: Squads by TimeZone
 
-- Each table/team should create their own Channel to share info during the event (code snippets, links, references, screen sharing, etc)
+- Each table/squad should create their own Channel to share info during the event (code snippets, links, references, screen sharing, etc)
 - During the event, it's a good idea to have each squad give their squad a fun name and rename their channel to it.
 
 #### Event Kick Off Presentations
@@ -325,9 +345,9 @@ The kick off presentation templates contain most of the instructions above that 
 
 ### Hacking
 
-Now it's time to get down to business! If you're hosting an in-person hack, attendees will start talking to each other and working together at their squad tables.
+Now it's time to get down to business! If you are hosting an in-person hack, attendees will start talking to each other and working together at their squad tables.
 
-If it's a virtual event, they need to start a call in their squad channels. Coaches should be prepared to assist folks and direct them where they need to go.
+If it is a virtual event, they will start and join a Channel meeting in their squad channels. Coaches should be prepared to assist folks and direct them where they need to go.
 
 Once everyone is settled, the format and interactions are the same!
 
