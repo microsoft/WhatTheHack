@@ -287,7 +287,9 @@ Every WTH event starts off with a Kick Off Meeting.  *How* you get to the kick o
 
 If you are hosting an in-person event, it is simple! Attendees show up at the venue you shared with them in your invite, take a seat, and give you their full attention to kick off.
 
-The in-person attendees should be instructed to join the event team in Microsoft Teams using a join code. The code for should be presented on the presentation screen or posted on a whiteboard in the room while the kick off meeting proceeds.
+The in-person attendees should be instructed to join the event team in Microsoft Teams using a join code as depicted in the image below. The code for should be presented on the presentation screen or posted on a whiteboard in the room while the kick off meeting proceeds.
+
+![Join Team with code](images/wth-join-team-with-code2.jpg)
 
 #### Getting There: Virtual Event
 
