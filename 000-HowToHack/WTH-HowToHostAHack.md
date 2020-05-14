@@ -368,7 +368,7 @@ The kick off presentation templates contain most of the instructions above that 
 
 ### Hacking
 
-With all the logistics out fo the way, it is time to crank up the tech intensity!
+With all the logistics out of the way, it is time to crank up the tech intensity!
 
 #### Hack Presentation Lecture (Optional)
 
