@@ -281,13 +281,13 @@ Below is the guidance on how to actually host and run a WTH event:
 	
 ### Kick-Off Meeting 
 
-Every WTH event starts off with a Kick Off Meeting.  *How* you get to the kick off meeting depends if it's a virtual or in-person event! 
+Every WTH event starts off with a Kick Off Meeting.  *How* you get to the kick off meeting depends on if it is a virtual or an in-person event!
 
 #### Getting There: In Person
 
 If you are hosting an in-person event, it is simple! Attendees show up at the venue you shared with them in your invite, take a seat, and give you their full attention to kick off.
 
-The in-person attendees should be instructed to join the event team in Microsoft Teams using a join code as depicted in the image below. The code for should be presented on the presentation screen or posted on a whiteboard in the room while the kick off meeting proceeds.
+The in-person attendees should be instructed to join the event team in Microsoft Teams using a join code as depicted in the image below. The code should be presented on the presentation screen or posted on a whiteboard in the room while the kick off meeting proceeds.
 
 ![Join Team with code](images/wth-join-team-with-code2.jpg)
 
@@ -316,28 +316,49 @@ This can be tricky as most Teams users are used to clicking the "Join Teams Meet
 **Note:** It is important for the Lead Coach to start the kick-off meeting ahead of the start time. It is technically possible to have multiple parallel meetings in a channel at the same time. If a meeting has not been started, arriving attendees may start their own meeting(s) in the General channel by clicking the "Meet Now" button. This can lead to confusion as to which one to join!
     
 
-#### The logistics
+#### Welcomes & Intros
 
+Now that you have everyone's attention, it is time to kick off by welcoming the attendees and introducing the coaches. If it is a virtual event, we recommend the coaches turn on their cameras during the kick off as it helps drive the collaboration and interaction with the group.
 
-- After welcomes & intros, use the Event Kick Off presentation to cover logistics
-- Communicate to the attendees the details and flow of the event. 
-	- Kick off
-	- Solving hack challenges in squads
-	- Breaks, stand-ups, and review
-- If virtual, we highly recommend the lead coach turning his/her/their camera on during this session as it really helps drive the collaboration and interaction with the group.
-- Lead Coach covers logistics of how everyone will interact using Microsoft Teams (Squad Channels, Feedback Channel, Files Tab, Challenges Tab). Attendees may not have experience using Microsoft Teams, or they may not have experience with how it will be used during the hack event!
-- Determine how you may want to break the attendees up into smaller peer groups during the group challenges based on the style of the event you will be delivering.
-- Forming Squads
-	- In-Person: Whatever table attendees sat at
-	- Load balanced by skill level
-	- Segregated by skill level
-	- Up to event organizers
-	- Virtual: Squads by TimeZone
+If the size of the group is small, it is a good idea to get to know your attendees by letting them introduce themselves.  Ask them to state their experience with the technology and what a successful event will look like for them.
 
-- Each table/squad should create their own Channel to share info during the event (code snippets, links, references, screen sharing, etc)
-- During the event, it's a good idea to have each squad give their squad a fun name and rename their channel to it.
+For a large group, skip the attendee intros (no one wants to be the 25th person to introduce themselves!) Instead, the coaches should have the attendees introduce themselves later when they split into their smaller squads.
 
-#### Event Kick Off Presentations
+#### Logistics
+
+Once everyone is acquainted, the lead coach should cover the logistics. Start off by communicating the format and flow of the event. You should assume that the attendees are not familiar with the What The Hack format.
+
+Explain the format:
+
+- There may be brief lecture presentations to entire group at various points throughout the event to set up the hack's challenges.
+- Attendees will spend most of the time working in squads of 3-5 people to solve technical challenges.
+- Challenges are not labs with step-by-step instructions. Attendees will need to work together as a team to solve them by researching documentation and following guidance from the coaches.
+- Squads will move at their own pace through the challenges and not be beholden to the clock.
+- Break times will be set for lunch and the end of each hack day, however each squad can set their own break times throughout the event.
+- The coaches will bring the squads together at the beginning and end of each day for stand-up meetings to review progress or what they learned during each challenge.
+
+Next, review how everyone will interact using Microsoft Teams. The lead coach should provide a tour of of the event team, including where the resources for the hack are located, such as the Files Tab, Challenges, Shared Tips, and Feedback channel.
+
+For a virtual event, the lead coach should explain how squads will use the "Meet Now" feature to start a meeting in their squad channels where they will do their work together. Attendees should be expected to be online and engaged in their squad meetings for the duration of the event.
+
+At an in-person event, coaches may walk from table to table helping coach different squads. At a virtual event, they do the same by popping in and out of each squad's meeting throughout the event. When the coaches want all squads to come together, they will announce on each squad's call to rejoin the meeting in the General channel.
+
+#### Squad Formation
+
+Determine how you want to break the attendees up into the smaller groups to form the hack squads. There are several options to consider.
+
+- At an in-person event, the squads can be set by the table the attendees sit at.
+- Load balanced by skill level - This encourages a mix of experts and novices so that there is shared learning. Experts are encouraged to help novices.
+- Segregated by skill level - This enables advanced participants to progress at a faster pace or take on additional challenges, while allowing novices to move at a less stressful pace as they work together to learn.
+- Play Dodgeball! - The lead coach nominates a few attendees as squad leaders. Allow the squad leaders to pick their squadmembers like in gym class at school!
+- At a virtual event, given various attendee locations, you may form squads by timezone! This enables squads to take break times that align to their timezone.
+- Random
+
+**Tip:** If hosting a hack at an external organization, it is a good idea to ask the event stakeholder to help decide.
+
+Once squads have been formed, encourage them to each give their squad a fun name and rename their Teams channel to it. This will help break the ice and get the squad members collaborating out of the gate.
+
+#### Event Kick Off Presentation Templates
 
 To help you get started, we have provided PowerPoint templates for kicking off a What The Hack event here:
 - [In-Person - Kick Off Presentation Template](WTH-InPerson-EventKickoff-Template)
@@ -346,6 +367,18 @@ To help you get started, we have provided PowerPoint templates for kicking off a
 The kick off presentation templates contain most of the instructions above that you can present to the attendees before starting the What The Hack. The in-person template has additional slides instructing attendees to use a code to join the event team in Microsoft Teams.
 
 ### Hacking
+
+With all the logistics out fo the way, it is time to crank up the tech intensity!
+
+#### Hack Presentation Lecture (Optional)
+
+While not required, it is recommended that the lead coach give a brief presentation that sets up the context of the hack itself. Ideas for a kick-off lecture include:
+
+- Review of workstation pre-requisites needed
+- Review of challenge scenarios
+- Review of technology that sets context for the challenges
+
+#### Hack Challenges
 
 Now it's time to get down to business! If you are hosting an in-person hack, attendees will start talking to each other and working together at their squad tables.
 
