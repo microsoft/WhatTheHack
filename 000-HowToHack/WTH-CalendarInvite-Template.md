@@ -24,7 +24,13 @@ Hello!
 
 Thank you for registering for the "What The Hack: IoT Hack of The Century" event on May 5th - May 7th.
 
-**TODO:** `Talk about format stuff here...`
+### The Format
+
+"What the Hack" is a collaborative learning experience where you will work in squads of 3 to 5 people to solve a series of technical challenges. The challenges describe high-level tasks and goals to be accomplished. They are not step-by-step labs, which means you will have to "figure it out" together as a team.
+
+You won't be alone in solving the challenges. Coaches work with each squad to provide guidance for, but not answers to, the challenges. The coaches may also provide lectures and demos to introduce the challenges, as well as review challenge solutions throughout the event.
+
+### Joining The Event
 
 We will be hosting the event in Microsoft Teams in a team created for this event. This will not be your normal Teams meeting. Your first "challenge" will be to add yourself to the event team.
 
@@ -42,6 +48,8 @@ We will kick-off by meeting **in the General channel** of this team at 10am East
 When you arrive, you should see a purple **"Join"** button to join the meeting.
 
 **NOTE:** If the link above doesn't work for you, it means you haven't been added to the Team or are attending as a guest from a different organization. Please contact the event organizer, provide your e-mail address, and request that they add you to the team.
+
+### Clear Your Calendar
 
 Although this event is virtual, you will be expected to be available for full participation with your teammates throughout the duration of the event.
 
