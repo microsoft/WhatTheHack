@@ -12,9 +12,7 @@ When you create a calendar invite, you should include:
 
 **Don't check this button when you create a calendar invite in Outlook:**
 
-**TODO:** `Change this screenshot, make the X solid, but thin stroke weight and place it over the slide button but make sure the stroke is thin enough that you're not covering the whole slide button`
-
-![Non-Teams Meeting in Outlook](images/wth-non-teams-calendar-invite.jpg)
+![Non-Teams Meeting in Outlook](images/wth-non-teams-calendar-invite2x.jpg)
 
 This is sample calendar invite template for a What The Hack event. Feel free to copy/paste this into your calendar tool of choice and customize for your event.
 
