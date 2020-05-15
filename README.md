@@ -8,13 +8,13 @@ What The Hack is designed to be a collaborative learning experience.  Attendees 
 
 The attendee squads are not alone in solving the challenges. Coaches work with each squad to provide guidance for, but not answers to, the challenges.  The coaches may also provide lectures and demos to introduce the challenges, as well as review challenge solutions throughout the event.
 
-# How to Host a What The Hack!
+# How to Host a What The Hack
 
 Would you like to host a What The Hack for your organization? The WTH format and content has been designed for hosting a hack with groups of 5 to 50 people. We welcome anyone to use the content here to host their own WTH event!
 
 See our complete guide on ["How To Host A Hack"](/000-HowToHack/WTH-HowToHostAHack.md).
 
-# How to Create and Contribute a new What The Hack!
+# How to Create and Contribute a new What The Hack
 
 Would you like to create a new What The Hack?  We welcome all new hacks!  We have developed a process for doing this.  This includes a set of guidelines and templates to help you package your hack up for the What The Hack repo!
 
@@ -22,9 +22,9 @@ Hacks can focus on a single technology or focus on a solution scenario that feat
 
 See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAuthorAHack.md).
 
-# What The Hack Collection
+# The What The Hack Collection
 
-Here is the current list of What The Hack hackathons available for use:
+Here is the current list of What The Hack hackathons available in this repository:
 
 - [Intro To Kubernetes](/001-IntroToKubernetes/)
 - [Intro To Azure AI](/002-IntroToAzureAI/)
