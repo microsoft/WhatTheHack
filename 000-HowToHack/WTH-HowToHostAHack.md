@@ -143,10 +143,9 @@ We recommend creating the following Channels in the team:
 - **Coaches ONLY (Private)** - Coaches should communicate with each other privately from attendees to share learnings/practices during the event. Coaches can work together to decide if/when to communicate issues broadly to all attendees during the event.
 - **Feedback** - Encourage attendees to post feedback here during & after the event so coaches can improve it for future events. It's a great way to collect feedback in one place.
 - **Squad Channels** – The Squad channels will be where teams of individuals will go to work and collaborate during the event. We find squads of 3 to 5 people work well. You should create an appropriate number of squad channels based on the number of individuals attending your event. Name each channel "Squad X" where X is the squad number.
+- **Coach Channels (Optional)** – The Coach channels are optional dedicated spaces where a coach can meet 1:1 with a specific person to help work through some task or issue during the event that is not worthy of the rest of the squad following along with. You should create a dedicated coach channel for each coach that will be part of the event.
 
 **Example Event Team**
-
-**TODO** `Gino: Update this screenshot and remove the coach channels`
 
 ![Sample What The Hack Event Team](images/wth-sample-msteam.jpg "Example What The Hack Event Team")
 
