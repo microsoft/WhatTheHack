@@ -26,7 +26,7 @@ When you design a WTH, these are the things you should consider:
 
 If you create things in this order, you will be able to flush out a new hack rapidly. 
 
-**Hint:** The Coach's guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach's Guide as a post-mortem from their first run of the hack.
+**HINT:** The Coach's guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach's Guide as a post-mortem from their first run of the hack.
 
 ## Hack Description
 
@@ -36,7 +36,7 @@ Why should someone take the time to deliver or participate in your hack?  This i
 
 The "Hack Description" shall be the README.md that lives in the root of your hack's top level folder.
 
-The "Hack Description" must includes the following:
+The "Hack Description" must include the following:
 
 ### Hack Title
 
