@@ -1,0 +1,57 @@
+to do list
+
+- Folder structure guidance
+	- Remove "Guides" and "Resources" from guidance
+	- We should just have "Coaches" and "Students" folders and tell them that challenge md's 
+	should go in here in addition to any code or resources needed
+	- We need to tell them:
+		- Students: All files in here will be delivered to the students.
+		- Coaches: Any files that we want coaches to see above and beyond the student files
+- aka.ms/wth repo root README.md
+	- document the WTH format (including remote delivery with teams)
+	- NOTE: This is the marketing spiel
+	- link to tracking form / registration form/site
+
+- template for hack root README.md for all hacks
+	- Intro
+	- Learning Objectives
+	- Links to Challenges
+		- One sentence intro and link to challenges in a list
+	- Prerequistes (optional)
+	- THIS IS A MUST. We need to make sure people can shop for their hacks in a consistent way.
+
+- template for a challenge.md
+	- look at all the ones and come up with best example
+	- this template should be optional, not necessary to be retroactive, only going forward.
+		- if we have time can go back to some of the hacks and do them (ie: 001)
+	- CHALLENGE: how to handle delivery to students:
+		- give them a direct repo link, but they will see answers
+		- make a copy of files and dump in Teams (problem with MD links)
+		- make a fork of repo for the event, and delete all answers
+		- keep a redundant word doc, with only challenge text
+		- use an MD to PDF generator to product student files and dump to teams
+
+- 000-HowToHack
+	- THIS IS THE MOST IMPORTANT
+		- the focus of WW Best Practice OCP
+		- this is the deliverable that Gino and Peter did
+	- contains templates for a hack (root readme and challenge MDs)
+	- content development MD
+		- all the instructions for contributing/writing new content
+	- event delivery MD
+		- all the instructions for running the event
+		- how to do it in person
+			- this a superset of virtual, will still need teams set up
+		- how to do it virtually
+			- write up how to registry link
+			- how to create and setup teams
+	- event kick off powerpoint template
+		- more or less the same
+
+- optional: create a seperate marketing website
+	- CSAs make a request to have WTH
+		- WTH team will then find facilitators
+	- Include a calendar of WTH events
+
+- ** HOW do we handle external events where they don't have their own subscriptions **
+
