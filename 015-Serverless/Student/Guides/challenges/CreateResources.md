@@ -32,12 +32,10 @@ _HINT : Record names and keys_
       * Uncheck **Provision database throughput**
       * Container ID &quot;Processed&quot;
       * Partition key **: &quot;**/licensePlateText&quot;
-      * 5000 throughput
     * Create a second container
       * Database ID created above &quot;LicensePlates&quot;
       * Container ID &quot;NeedsManualReview&quot;
       * Partition key **: &quot;**/fileName&quot;
-      * 5000 throughput
 1. Create a Computer Vision API service (S1 pricing tier)
 1. Create a Key Vault
     * Pricing Tier : Standard
