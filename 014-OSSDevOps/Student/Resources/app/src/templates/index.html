@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        /*------------------------------------*\
+        GENERIC
+        \*------------------------------------*/
+        body {
+            background-color:#F8F8F8;
+            font-family: 'Helvetica Neue', Helvetica, sans-serif;
+        }
+
+        /*------------------------------------*\
+        CONTAINERS
+        \*------------------------------------*/
+        #container { margin-top:5%; }
+
+        #space,
+        #logo,
+        #form,
+        #results {
+            margin: 0 auto;
+            text-align: center;
+            font-size: 30px;
+            width:500px;
+        }
+
+        #space { height: 10px; }
+
+        #form {
+            padding: 20px;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+        }
+
+        /*------------------------------------*\
+        BUTTONS
+        \*------------------------------------*/
+        .button {
+            background-color: #fff;
+            border: 2px solid transparent;
+            color: #000;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            width: 250px;
+        }
+        .button:hover { color:#fff; }
+
+        .button1 { border-color: #008CBA; }
+        .button2 { border-color: #555555; }
+        .button3 { border-color: #f44336; }
+
+        .button1:hover { background-color: #008CBA; }
+        .button2:hover { background-color: #555555; }
+        .button3:hover { background-color: #f44336; }
+    </style>
+    
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="container">
+        <div id="logo">{{title}}</div>
+        <div id="space"></div>
+        <div id="form">
+        <button name="vote" value="{{button1}}" onclick="increment('value1')" class="button button1">{{button1}}</button>
+        <button name="vote" value="{{button2}}" onclick="increment('value2')" class="button button2">{{button2}}</button>
+        <button name="vote" value="reset" onclick="reset()" class="button button3">Reset</button>
+        <div id="space"></div>
+        <div id="space"></div>
+        <div id="results"> {{button1}} - <span id="value1" type="number">0</span> | {{button2}} - <span id="value2">0</span> </div> 
+        </div>
+    </div> 
+    
+    <!-- JavaScript counter -->
+    <script>
+        function increment(id) {
+            var currentValue = parseInt(document.getElementById(id).textContent);
+            var updatedValue = currentValue + 1;
+            document.getElementById(id).innerHTML = updatedValue;
+        }
+
+        function reset() {
+            document.getElementById("value1").innerHTML = 0;
+            document.getElementById("value2").innerHTML = 0;
+        }
+    </script>
+</body>
+</html>
