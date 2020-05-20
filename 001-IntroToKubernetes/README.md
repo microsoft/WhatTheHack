@@ -39,6 +39,8 @@ In this hack you will solve a common challenge for companies migrating to the cl
 1. Operations and Monitoring
    - Explore the logs provided by Kubernetes using the Kubernetes CLI, configure Azure Monitor and build a dashboard that monitors your AKS cluster
    
+You can find the student challenge guide here:
+[Challenge Guide](Student/Challenge-Guide.pdf)
 
 ## Prerequisites
 
