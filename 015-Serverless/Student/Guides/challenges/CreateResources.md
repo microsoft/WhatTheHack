@@ -14,6 +14,19 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 _HINT : Record names and keys_
 
 1. Create a resource group
+1. Create an Azure Cosmos DB account
+*If this takes a while, move ahead and come back to finish the containers*
+    * API : Core (SQL)
+    * Disable Geo-redundency and multi-region writes
+    * Create a container
+      * Database ID &quot;LicensePlates&quot;
+      * Uncheck **Provision database throughput**
+      * Container ID &quot;Processed&quot;
+      * Partition key **: &quot;**/licensePlateText&quot;
+    * Create a second container
+      * Database ID created above &quot;LicensePlates&quot;
+      * Container ID &quot;NeedsManualReview&quot;
+      * Partition key **: &quot;**/fileName&quot;
 1. Create a storage account (refer to this one as INIT)
     * Create a container &quot;images&quot;
     * Create a container &quot;export&quot;
@@ -24,20 +37,6 @@ _HINT : Record names and keys_
     * For your tollbooth events, consumption plan, Node.js runtime stack
     * Create new storage and disable application insights
 1. Create an Event Grid Topic (leave schema as Event Grid Schema)
-1. Create an Azure Cosmos DB account
-    * API : Core (SQL)
-    * Disable Geo-redundency and multi-region writes
-    * Create a container
-      * Database ID &quot;LicensePlates&quot;
-      * Uncheck **Provision database throughput**
-      * Container ID &quot;Processed&quot;
-      * Partition key **: &quot;**/licensePlateText&quot;
-      * 5000 throughput
-    * Create a second container
-      * Database ID created above &quot;LicensePlates&quot;
-      * Container ID &quot;NeedsManualReview&quot;
-      * Partition key **: &quot;**/fileName&quot;
-      * 5000 throughput
 1. Create a Computer Vision API service (S1 pricing tier)
 1. Create a Key Vault
     * Pricing Tier : Standard
