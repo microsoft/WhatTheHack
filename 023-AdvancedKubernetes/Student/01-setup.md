@@ -32,12 +32,12 @@ Install each of the CLI tools and ensure you can login to each of the online ser
 
 ## Success Criteria
 
+1. Running `docker version` shows your Docker client and server version
+1. Running `helm version` shows the Helm version
 1. You have logged into Github
 1. You have your own Docker Hub account
 1. Running `kubectl get nodes` shows your AKS System and User pools
 1. Running `az acr import  -n $ACR_NAME --source docker.io/library/nginx:latest --image nginx:v1` copies an image to your ACR instance
-1. Running `docker version` shows your Docker client and server version
-1. Running `helm version` shows the Helm version
 1. Running `curl -s https://api.github.com/users/octocat/repos | jq '.'`  shows you a pretty-printed JSON doc
 1. Running `kubectx` lets you switch between K8S clusters
 1. Running `kubens` lets you switch between namespaces
