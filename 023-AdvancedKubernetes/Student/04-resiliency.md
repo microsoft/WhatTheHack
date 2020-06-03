@@ -3,3 +3,5 @@
    1. Define Liveness Probe for Pod
    1. Define Init container
    1. Enable and Disable a Pod
+   1. Define Limit for Pod
+   1. Define Requests for Pod
