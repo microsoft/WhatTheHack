@@ -24,24 +24,25 @@ Before starting this hack you should have hands-on experience with the following
 
 ## Challenges
 
-1. Setup
-1. Helm
+1. [Setup](./Student/01-setup.md)
+1. [Helm](./Student/02-helm.md)
    1. Create a new Helm chart
    1. Install Helm chart on AKS cluster
    1. Install Kubernetes Ingress using Helm
    1. Update Helm release to use Ingress
    1. Delete Kubernetes Ingress Helm Release
-1. GitOps
+1. [GitOps](./Student/03-gitops.md)
    1. Install flux
    1. Setup Flux Pipeline
    1. Simulate CI to verify changes pushed to AKS cluster 
    1. Update Github to deploy Ingress Controller via Flux
-1. Resiliency
-   1. Define Readiness Probe for Pod
-   1. Define Liveness Probe for Pod
+1. [Resiliency](./Student/04-resiliency.md)
+   1. Define Readiness Probe
+   1. Define Liveness Probe
    1. Define Init container
-   1. Enable and Disable a Pod
-1. Service Mesh
+   1. Define Limit
+   1. Define Requests
+1. [Service Mesh](./Student/05-service-mesh.md)
    1. Install a Service Mesh
    1. Apply a virtual service
    1. Apply weight-based routing
@@ -51,14 +52,6 @@ Before starting this hack you should have hands-on experience with the following
 
 - An Azure Subscription which can deploy an AKS cluster
 - Access to a Bash Shell (Cloud Shell, WSL, etc.)
-
-## Repository Contents (Optional)
-- `../Coach/Guides`
-  - Coach's Guide and related files
-- `../images`
-  - Generic image files needed
-- `../Student/Guides`
-  - Student's Challenge Guide
 
 ## Contributors
 - Tommy Falgout
