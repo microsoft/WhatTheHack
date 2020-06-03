@@ -1,5 +1,7 @@
 # Challenge 1 - Setup
 
+[Next Challenge>](./02-helm.md)
+
 ## Prerequisites
 
 1. Your laptop: Windows/Linux/OSX
@@ -11,13 +13,18 @@
 
 The first challenge is to setup your local environment as well as the AKS cluster you will be running on.
 
+## Description
+
+Install each of the CLI tools and ensure you can login to each of the online services.  We will be using these later in the challenges
+
+
 ## Challenge
 
 1. Install Docker
 1. Install Helm 3
 1. Create a Github Account
 1. Create a Docker Hub account
-1. Create an AKS cluster with 1 system and 2 user VM's
+1. Create an AKS cluster with a system pool with 1 VM and a user pool with 2 VM's
 1. Attach ACR to the AKS cluster
 1. Install Curl
 1. Install JQ
