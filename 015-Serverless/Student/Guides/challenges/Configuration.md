@@ -23,13 +23,12 @@ In this challenge, you will apply application settings using the Microsoft Azure
 | cosmosDBCollectionId | Cosmos DB processed collection id (Processed) |
 | exportCsvContainerName | Blob storage CSV export container name (export) |
 | blobStorageConnection | blobStorageConnection from Key Vault |
+ 
+2. Open the Tollbooth solution in Visual Studio.
+3. Open the task list
+4. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
-2. Create a system-assigned managed identity for your Function App and connect to your Key Vault so that the Function App can get the secrets. 
-3. Open the Tollbooth solution.
-4. Open the task list
-5. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
-
-6.  The following code represents the completed task in ProcessImage.cs:
+5.  The following code represents the completed task in ProcessImage.cs:
 
 ```csharp
 // **TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.**
@@ -37,8 +36,8 @@ In this challenge, you will apply application settings using the Microsoft Azure
 licensePlateText = await new FindLicensePlateText(log, _client).GetLicensePlate(licensePlateImage);
 ```
 
-7. Open FindLicensePlateText.cs. This class is responsible for contacting the Computer Vision API to find and extract the license plate text from the photo, using OCR. Notice that this class also shows how you can implement a resilience pattern using Polly, an open source .NET library that helps you handle transient errors. This is useful for ensuring that you do not overload downstream services, in this case, the Computer Vision API. This will be demonstrated later on when visualizing the Function&#39;s scalability.
-8. The following code represents the completed task in FindLicensePlateText.cs:
+6. Open FindLicensePlateText.cs. This class is responsible for contacting the Computer Vision API to find and extract the license plate text from the photo, using OCR. Notice that this class also shows how you can implement a resilience pattern using Polly, an open source .NET library that helps you handle transient errors. This is useful for ensuring that you do not overload downstream services, in this case, the Computer Vision API. This will be demonstrated later on when visualizing the Function&#39;s scalability.
+7. The following code represents the completed task in FindLicensePlateText.cs:
 
 
 ```csharp
@@ -47,8 +46,8 @@ var uriBase = Environment.GetEnvironmentVariable("computerVisionApiUrl");
 var apiKey = Environment.GetEnvironmentVariable("computerVisionApiKey");
 ```
 
-9. Open SendToEventGrid.cs. This class is responsible for sending an Event to the Event Grid topic, including the event type and license plate data. Event listeners will use the event type to filter and act on the events they need to process. Make note of the event types defined here (the first parameter passed into the Send method), as they will be used later on when creating new functions in the second Function App you provisioned earlier.
-10. The following code represents the completed tasks in SendToEventGrid.cs:
+8. Open SendToEventGrid.cs. This class is responsible for sending an Event to the Event Grid topic, including the event type and license plate data. Event listeners will use the event type to filter and act on the events they need to process. Make note of the event types defined here (the first parameter passed into the Send method), as they will be used later on when creating new functions in the second Function App you provisioned earlier.
+9. The following code represents the completed tasks in SendToEventGrid.cs:
 
 ```csharp
 // TODO 3: Modify send method to include the proper eventType name value for saving plate data.

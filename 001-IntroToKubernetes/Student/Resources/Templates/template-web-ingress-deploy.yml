@@ -36,7 +36,7 @@ kind: Ingress
 metadata:
   name: web
   annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
   - host: YOUR_AKS_CLUSTER_NAME.YOUR_AKS_DNS_ID.YOUR_AKS_REGION.aksapp.io
