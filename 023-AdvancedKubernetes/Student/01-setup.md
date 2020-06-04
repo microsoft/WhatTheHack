@@ -5,7 +5,7 @@
 ## Prerequisites
 
 1. Your laptop: Windows/Linux/OSX
-1. Bash Shell
+1. Bash Shell (e.g. WSL)
 1. Your Azure Subscription
 
 
@@ -17,6 +17,7 @@ The first challenge is to setup your local environment as well as the AKS cluste
 
 Install each of the CLI tools and ensure you can login to each of the online services.  We will be using these later in the challenges
 
+All challanges will be run using Bash.
 
 ## Challenge
 
@@ -24,8 +25,12 @@ Install each of the CLI tools and ensure you can login to each of the online ser
 1. Install Helm 3
 1. Create a Github Account
 1. Create a Docker Hub account
-1. Create an AKS cluster with a system pool with 1 VM and a user pool with 2 VM's
 1. Create an ACR
+1. Create an AKS cluster with the following:
+    - System pool with 1 Standard_DS2_v2
+    - User pool with 1 Standard_DS2_v2
+    - Cluster Autoscaling enabled
+    - Managed Identity enabled
 1. Attach ACR to the AKS cluster
 1. Install Curl
 1. Install JQ
