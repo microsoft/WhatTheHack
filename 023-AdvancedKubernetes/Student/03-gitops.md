@@ -20,7 +20,7 @@ GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for C
 - Using GitOps, add a new namespace called "nginx-ingress"
 - Using GitOps, add nginx-ingress and verify with `helm ls --all-namespaces`
     - HINT: nginx-ingress v1.37.0 has been verified to work with no additional values
-    - HINT: INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)
+    - HINT: `INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)`
 - Using GitOps, expose the dev service at dev.$INGRESS_IP.nip.io
     - HINT: You only need to modify HelmRelease values
 - Run `ci-mock.sh` with `-v dev-0.5.0` and curl to verify that new version is deployed
