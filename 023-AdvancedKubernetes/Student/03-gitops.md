@@ -14,14 +14,14 @@ GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for C
 - Follow the instructions for Flux CD pipeline example (just up to the dev deployment)
     - HINT: Remember to update the dev/stg/prod podinfo.yaml file with BOTH your github and dockerhub username
     - HINT: You can use `fluxctl sync` if you're impatient
-    - HINT: The first time Flux run, it got stuck and I had to manually modify releases/dev/podinfo.yaml to kickstart the automation
+    - HINT: For automation to start, [the image tag in GitHub must exist in Docker Hub](https://github.com/fluxcd/flux/issues/2929)
 - Verify that if you run `ci-mock.sh` you should see a new image deployed in the dev namespace
     - HINT: `kubectl describe pod -n dev | grep Image`
 - Using GitOps, add a new namespace called "nginx-ingress"
 - Using GitOps, add nginx-ingress and verify with `helm ls --all-namespaces`
     - HINT: nginx-ingress v1.37.0 has been verified to work with no additional values
-    - HINT: INGRESS_IP=$(kubectl get service -n ingress-nginx nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)
-- Using GitOps, expose the dev service at dev.$SERVICE_IP.nip.io
+    - HINT: INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)
+- Using GitOps, expose the dev service at dev.$INGRESS_IP.nip.io
     - HINT: You only need to modify HelmRelease values
 - Run `ci-mock.sh` with `-v dev-0.5.0` and curl to verify that new version is deployed
 
@@ -31,3 +31,7 @@ GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for C
     - Created a new namespace `nginx-ingress`
     - Deployed a new ingress controller
     - Deployed a new version of your application
+
+## Hints
+
+1. [HelmResource](https://docs.fluxcd.io/projects/helm-operator/en/stable/references/helmrelease-custom-resource/)

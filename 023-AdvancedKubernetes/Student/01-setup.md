@@ -25,6 +25,7 @@ Install each of the CLI tools and ensure you can login to each of the online ser
 1. Create a Github Account
 1. Create a Docker Hub account
 1. Create an AKS cluster with a system pool with 1 VM and a user pool with 2 VM's
+1. Create an ACR
 1. Attach ACR to the AKS cluster
 1. Install Curl
 1. Install JQ
