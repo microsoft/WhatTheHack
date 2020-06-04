@@ -19,14 +19,22 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 1. Create a new chart
 1. Deploy the chart on your K8S cluster
 1. Override default nginx image with https://hub.docker.com/r/stefanprodan/podinfo
+   - HINT: note that this application runs on port 9898
    - HINT:  You will need to replace the appVersion in the Chart.yaml to match the tag version from Dockerhub
 1. Install Kubernetes Ingress using Helm
    - HINT: [Make sure to add an initial repo](https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository)
 1. Update the chart and enable Ingress
-1. Verify App is available at simple-app.$INGRESS_IP.nip.io
+1. Verify App is available at myapp.$INGRESS_IP.nip.io
    - HINT: `INGRESS_IP=$(kubectl get service -n ingress-nginx nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)`
+1. Uninstall the ingress controller from your cluster
+
 
 ## Success Criteria
 
 * `helm ls --all-namespaces` shows your chart and the Ingress controller
 * `curl myapp.$INGRESS_IP.nip.io` returns a valid reponse
+
+## Hints
+
+1. [Helm commands](https://helm.sh/docs/helm/)
+1. [Getting started with Helm charts](https://helm.sh/docs/chart_template_guide/getting_started/)
