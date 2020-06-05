@@ -1,0 +1,665 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "Data Factory name",
+            "defaultValue": "akMDWHackBasic"
+        },
+        "AzureDataLakeStorage1_accountKey": {
+            "type": "secureString",
+            "metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+        },
+        "WideWorldImportersDW_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'WideWorldImportersDW'"
+        },
+        "WideWorldImporters_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'WideWorldImporters'"
+        },
+        "AzureSynapseAnalytics_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalytics'"
+        },
+        "ADLS_accountKey": {
+            "type": "secureString",
+            "metadata": "Secure string for 'accountKey' of 'ADLS'"
+        },
+        "AzureDataLakeStorage1_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "https://mdwhackbasic.dfs.core.windows.net"
+        },
+        "ADLS_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "https://mdwhackadvanced.dfs.core.windows.net"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureBlobFS",
+                "typeProperties": {
+                    "url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
+                    "accountKey": {
+                        "type": "SecureString",
+                        "value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/WideWorldImportersDW')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureSqlDW",
+                "typeProperties": {
+                    "connectionString": "[parameters('WideWorldImportersDW_connectionString')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/WideWorldImporters')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "SqlServer",
+                "typeProperties": {
+                    "connectionString": "[parameters('WideWorldImporters_connectionString')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/AzureSynapseAnalytics')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureSqlDW",
+                "typeProperties": {
+                    "connectionString": "[parameters('AzureSynapseAnalytics_connectionString')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/ADLS')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureBlobFS",
+                "typeProperties": {
+                    "url": "[parameters('ADLS_properties_typeProperties_url')]",
+                    "accountKey": {
+                        "type": "SecureString",
+                        "value": "[parameters('ADLS_accountKey')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/ADLS')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "AzureDataLakeStorage1",
+                    "type": "LinkedServiceReference"
+                },
+                "annotations": [],
+                "type": "DelimitedText",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileName": "City.txt",
+                        "folderPath": "IN/WWIDW/City",
+                        "fileSystem": "mdwhack"
+                    },
+                    "columnDelimiter": "|",
+                    "escapeChar": "",
+                    "quoteChar": ""
+                },
+                "schema": []
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/WideWorldImportersDW')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "WideWorldImportersDW",
+                    "type": "LinkedServiceReference"
+                },
+                "annotations": [],
+                "type": "AzureSqlDWTable",
+                "schema": [],
+                "typeProperties": {}
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/WideWorldImportersDW')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/WideWorldImporters')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "WideWorldImporters",
+                    "type": "LinkedServiceReference"
+                },
+                "annotations": [],
+                "type": "SqlServerTable",
+                "schema": [],
+                "typeProperties": {}
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/WideWorldImporters')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/ADLS_Archive')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "AzureDataLakeStorage1",
+                    "type": "LinkedServiceReference"
+                },
+                "annotations": [],
+                "type": "DelimitedText",
+                "typeProperties": {
+                    "location": {
+                        "type": "AzureBlobFSLocation",
+                        "fileName": "City20200603.txt",
+                        "folderPath": "Staged/City/2020/06/03",
+                        "fileSystem": "mdwhack"
+                    },
+                    "columnDelimiter": "|",
+                    "escapeChar": "",
+                    "firstRowAsHeader": false,
+                    "quoteChar": ""
+                },
+                "schema": []
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/AzureSynapseAnalytics')]",
+            "type": "Microsoft.DataFactory/factories/datasets",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "linkedServiceName": {
+                    "referenceName": "AzureSynapseAnalytics",
+                    "type": "LinkedServiceReference"
+                },
+                "annotations": [],
+                "type": "AzureSqlDWTable",
+                "schema": [],
+                "typeProperties": {
+                    "schema": "Integration",
+                    "table": "City_Staging"
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/AzureSynapseAnalytics')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/ExtractData')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "LookupStartDate",
+                        "type": "Lookup",
+                        "dependsOn": [],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "source": {
+                                "type": "SqlDWSource",
+                                "sqlReaderQuery": "select [Cutoff Time] as CutoffTime\nfrom Integration.[ETL Cutoff]\nWHERE [Table Name] = 'City'",
+                                "queryTimeout": "02:00:00"
+                            },
+                            "dataset": {
+                                "referenceName": "WideWorldImportersDW",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        }
+                    },
+                    {
+                        "name": "LookupEndDate",
+                        "type": "Lookup",
+                        "dependsOn": [],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "source": {
+                                "type": "SqlDWSource",
+                                "sqlReaderQuery": "select Load_Date \nfrom integration.[load_control]",
+                                "queryTimeout": "02:00:00"
+                            },
+                            "dataset": {
+                                "referenceName": "WideWorldImportersDW",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        }
+                    },
+                    {
+                        "name": "CopyData",
+                        "type": "Copy",
+                        "dependsOn": [
+                            {
+                                "activity": "LookupStartDate",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            },
+                            {
+                                "activity": "LookupEndDate",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            }
+                        ],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "source": {
+                                "type": "SqlServerSource",
+                                "sqlReaderStoredProcedureName": "[[Integration].[GetCityUpdates]",
+                                "storedProcedureParameters": {
+                                    "LastCutoff": {
+                                        "type": "String",
+                                        "value": {
+                                            "value": "@activity('LookupStartDate').output.firstRow.CutoffTime",
+                                            "type": "Expression"
+                                        }
+                                    },
+                                    "NewCutoff": {
+                                        "type": "String",
+                                        "value": {
+                                            "value": "@activity('LookupEndDate').output.firstRow.Load_Date",
+                                            "type": "Expression"
+                                        }
+                                    }
+                                },
+                                "queryTimeout": "02:00:00"
+                            },
+                            "sink": {
+                                "type": "DelimitedTextSink",
+                                "storeSettings": {
+                                    "type": "AzureBlobFSWriteSettings"
+                                },
+                                "formatSettings": {
+                                    "type": "DelimitedTextWriteSettings",
+                                    "quoteAllText": true,
+                                    "fileExtension": ".txt"
+                                }
+                            },
+                            "enableStaging": false
+                        },
+                        "inputs": [
+                            {
+                                "referenceName": "WideWorldImporters",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "referenceName": "ADLS",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Stage Data",
+                        "type": "Copy",
+                        "dependsOn": [
+                            {
+                                "activity": "CopyData",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            }
+                        ],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "source": {
+                                "type": "DelimitedTextSource",
+                                "storeSettings": {
+                                    "type": "AzureBlobFSReadSettings",
+                                    "recursive": true
+                                },
+                                "formatSettings": {
+                                    "type": "DelimitedTextReadSettings"
+                                }
+                            },
+                            "sink": {
+                                "type": "SqlDWSink",
+                                "preCopyScript": "IF OBJECT_ID('Integration.City_Staging') IS NOT NULL\nDROP TABLE [Integration].[City_Staging]\n\nSET ANSI_NULLS ON\n\nSET QUOTED_IDENTIFIER ON\n\nCREATE TABLE [Integration].[City_Staging]\n(\n\t[WWI City ID] [int] NULL,\n\t[City] [nvarchar](50) NULL,\n\t[State Province] [nvarchar](50) NULL,\n\t[Country] [nvarchar](50) NULL,\n\t[Continent] [nvarchar](30) NULL,\n\t[Sales Territory] [nvarchar](50) NULL,\n\t[Region] [nvarchar](30) NULL,\n\t[Subregion] [nvarchar](30) NULL,\n\t[Latest Recorded Population] [bigint] NULL,\n\t[Valid From] [nvarchar](50) NULL,\n\t[Valid To] [nvarchar](50) NULL\n)\nWITH\n(\n\tDISTRIBUTION = ROUND_ROBIN,\n\tCLUSTERED COLUMNSTORE INDEX\n)\n\n\n",
+                                "allowPolyBase": true,
+                                "polyBaseSettings": {
+                                    "rejectValue": 0,
+                                    "rejectType": "value",
+                                    "useTypeDefault": true
+                                },
+                                "disableMetricsCollection": false
+                            },
+                            "enableStaging": false,
+                            "translator": {
+                                "type": "TabularTranslator",
+                                "mappings": [
+                                    {
+                                        "source": {
+                                            "type": "Int32",
+                                            "ordinal": 1
+                                        },
+                                        "sink": {
+                                            "name": "WWI City ID",
+                                            "type": "Int32"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 2
+                                        },
+                                        "sink": {
+                                            "name": "City",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 3
+                                        },
+                                        "sink": {
+                                            "name": "State Province",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 4
+                                        },
+                                        "sink": {
+                                            "name": "Country",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 5
+                                        },
+                                        "sink": {
+                                            "name": "Continent",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 6
+                                        },
+                                        "sink": {
+                                            "name": "Sales Territory",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 7
+                                        },
+                                        "sink": {
+                                            "name": "Region",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 8
+                                        },
+                                        "sink": {
+                                            "name": "Subregion",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "Int32",
+                                            "ordinal": 9
+                                        },
+                                        "sink": {
+                                            "name": "Latest Recorded Population",
+                                            "type": "Int64"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 10
+                                        },
+                                        "sink": {
+                                            "name": "Valid From",
+                                            "type": "String"
+                                        }
+                                    },
+                                    {
+                                        "source": {
+                                            "type": "String",
+                                            "ordinal": 11
+                                        },
+                                        "sink": {
+                                            "name": "Valid To",
+                                            "type": "String"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "inputs": [
+                            {
+                                "referenceName": "ADLS",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "referenceName": "AzureSynapseAnalytics",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Create Lineage Key",
+                        "type": "SqlServerStoredProcedure",
+                        "dependsOn": [
+                            {
+                                "activity": "Stage Data",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            }
+                        ],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "storedProcedureName": "[[Integration].[CreateLineageKey]",
+                            "storedProcedureParameters": {
+                                "TableName": {
+                                    "value": "City",
+                                    "type": "String"
+                                }
+                            }
+                        },
+                        "linkedServiceName": {
+                            "referenceName": "AzureSynapseAnalytics",
+                            "type": "LinkedServiceReference"
+                        }
+                    },
+                    {
+                        "name": "Merge Data",
+                        "type": "SqlServerStoredProcedure",
+                        "dependsOn": [
+                            {
+                                "activity": "Create Lineage Key",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            }
+                        ],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "storedProcedureName": "[[Integration].[MigrateStagedCityData]"
+                        },
+                        "linkedServiceName": {
+                            "referenceName": "AzureSynapseAnalytics",
+                            "type": "LinkedServiceReference"
+                        }
+                    },
+                    {
+                        "name": "Archive Data",
+                        "type": "Copy",
+                        "dependsOn": [
+                            {
+                                "activity": "Merge Data",
+                                "dependencyConditions": [
+                                    "Succeeded"
+                                ]
+                            }
+                        ],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "source": {
+                                "type": "DelimitedTextSource",
+                                "storeSettings": {
+                                    "type": "AzureBlobFSReadSettings",
+                                    "recursive": true
+                                },
+                                "formatSettings": {
+                                    "type": "DelimitedTextReadSettings"
+                                }
+                            },
+                            "sink": {
+                                "type": "DelimitedTextSink",
+                                "storeSettings": {
+                                    "type": "AzureBlobFSWriteSettings"
+                                },
+                                "formatSettings": {
+                                    "type": "DelimitedTextWriteSettings",
+                                    "quoteAllText": true,
+                                    "fileExtension": ".txt"
+                                }
+                            },
+                            "enableStaging": false
+                        },
+                        "inputs": [
+                            {
+                                "referenceName": "ADLS",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "referenceName": "ADLS_Archive",
+                                "type": "DatasetReference",
+                                "parameters": {}
+                            }
+                        ]
+                    }
+                ],
+                "annotations": []
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/datasets/WideWorldImportersDW')]",
+                "[concat(variables('factoryId'), '/datasets/WideWorldImporters')]",
+                "[concat(variables('factoryId'), '/datasets/ADLS')]",
+                "[concat(variables('factoryId'), '/datasets/AzureSynapseAnalytics')]",
+                "[concat(variables('factoryId'), '/linkedServices/AzureSynapseAnalytics')]",
+                "[concat(variables('factoryId'), '/datasets/ADLS_Archive')]"
+            ]
+        }
+    ]
+}
