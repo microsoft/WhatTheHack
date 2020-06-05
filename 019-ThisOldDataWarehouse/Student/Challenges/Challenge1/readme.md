@@ -35,7 +35,7 @@ There will be four different object types we'll migrate:
     - Compare run counts against OLAP database
 
 ## Stage 1 Architecture
-![The Solution diagram is described in the text following this diagram.](/images/Challenge1.png)
+![The Solution diagram is described in the text following this diagram.](../../../images/Challenge1.png)
 
 ## Learning Resources
 

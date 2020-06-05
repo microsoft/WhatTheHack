@@ -74,7 +74,7 @@ SET LOAD_DATE = getdate()
 <br><b>Note: you can execute your new pipeline by clicking the "Debug" button or adding a trigger from the UI designer.</b>
 
 ## Stage 2 Architecture
-![The Solution diagram is described in the text following this diagram.](/images/Challenge2.png)
+![The Solution diagram is described in the text following this diagram.](../../../images/Challenge2.png)
 
 ## Learning Resources
 1. [Begin by creating a new Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal).

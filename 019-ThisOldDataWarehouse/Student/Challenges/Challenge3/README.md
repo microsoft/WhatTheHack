@@ -8,7 +8,7 @@ WW Importers keep missing the SLAs for their nightly data load process.  The loa
 ## Description
 The objective of this lab is to modernize the ETL pipeline that was originally built in SSIS.  A detailed diagram of the current workflow is included below.  We need to rebuild this pipeline in Azure leveraging scale-out architecture to transform this data.  The data flow will include steps to extract the data from the OLTP platform, store it in the Azure Data Lake and bulk ingest it into Azure Synapase Analytics.  This will be run on a nightly basis, and will need to leverage Azure Data Factory as a job orchestration and scheduling tool.
 
-![Current SSIS Workflow](/images/SSISFlow.png)
+![Current SSIS Workflow](../../../images/SSISFlow.png)
 
 <b>Below is a summary of each of the tasks in the existing SSIS package.  Note that we will be able to re-use the existing scripts for all of these tasks except for step 6.</b>
 
@@ -32,7 +32,7 @@ Create a data pipeline for the [Dimension].[City] table considering logic above.
 1. Test your new Azure Data Factory Pipeline.  You can execute your pipeline by clicking on "Debug" or adding a Trigger in the design UI.  If done correctly, the 11 new records loaded into the City data should have been loaded into the [Dimension].[City] table in the Azure Synapse Analytics DW.  
 
 ## Stage 3 Architecture
-![The Solution diagram is described in the text following this diagram.](/images/Challenge3.png)
+![The Solution diagram is described in the text following this diagram.](../../../images/Challenge3.png)
 
 ## Learning Resources
 1. [Load data into DW via Polybase](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase)
