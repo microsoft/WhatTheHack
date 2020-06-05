@@ -1,6 +1,6 @@
 # Lab 1 -- Data Warehouse Migration
 
-[Next Challenge>](/Coach/Solutions/Challenge2/Readme.md)
+[Next Challenge>](../Challenge2/Readme.md)
 
 ## Story
 
@@ -97,17 +97,17 @@ target to Azure Synapse.  There are a number of design considerations you wil ne
 There are three patterns you can reuse across all scripts in the same family (Dimension & Fact).  
 
 1. Rewrite Dimension T-SQL
-    1. Advise students to refactor stored procedure called, "Integration.MigrateStagedCityData".  Go to this [file](/Coach/Solutions/Challenge1/CoachesnotesforSPCity.sql) to see solution and read comments for an explanation of changes.
+    1. Advise students to refactor stored procedure called, "Integration.MigrateStagedCityData".  Go to this [file](./CoachesnotesforSPCity.sql) to see solution and read comments for an explanation of changes.
     2. UPDATE Statement can not leverage joins or subqueries.  Refactor code to resolve these issues.  
     3. Exec as and Return can be removed for this lab
     4. Fix Common table Expression (WITH) [Reference document](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15#features-and-limitations-of-common-table-expressions-in--and-)
 2. Rewrite Fact T-SQL
     1. Movement T-SQL is a special fact table that leverages a MERGE Statement.  Merge is not supported today in Azure Synapse.  You will need to split it out into an Update and Insert statement.  [Merge Workaround](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas#replace-merge-statements)
-    2. Advise students to refactor stored procedure called, "Integration.MigrateStagedMovementData".  Go to this [file](/Coach/Solutions/Challenge1/CoachesnotesforSPMovement.sql) to see solution and read comments for an explanation of changes.
+    2. Advise students to refactor stored procedure called, "Integration.MigrateStagedMovementData".  Go to this [file](./CoachesnotesforSPMovement.sql) to see solution and read comments for an explanation of changes.
     3. UPDATE statement will require explicit table name and not alias
     4. [DELETE statement will require OPTION Label](https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15#n-using-a-label-and-a-query-hint-with-the-delete-statement)
 3. Rewrite Fact T-SQL for appends only
-    1. Advise students to refactor stored procedure called, "Integration.MigrateStagedSaleData".  Go to this [file](/Coach/Solutions/Challenge1/CoachesnotesforSPSale.sql) to see solution and read comments for an explanation of changes.
+    1. Advise students to refactor stored procedure called, "Integration.MigrateStagedSaleData".  Go to this [file](./CoachesnotesforSPSale.sql) to see solution and read comments for an explanation of changes.
 
 ### SSIS Job Refactor -- Optional
 Data movement in first lab will be execution of DailyETLMDWLC.ispac job in Azure Data Factory SSIS Runtime.  This lab will reuse data pipelines to minimize migration costs.
@@ -150,6 +150,3 @@ A coach's suggestion is to have your team setup two enviroments for this challen
 
 ## Congratulations!!! 
 The migration is complete.  Run your SSIS jobs to load data from OLTP to OLAP data warehouse.  You might want to create a load control table to setup incremental loads.  This will validate you've completed all steps successfully.  Compare the results of the WWI OLAP database vs. the one you've migrated into Azure Synapse Analytics.
-
-# SOLUTIONS
-[Go to Solution](/Coach/Solutions/Challenge1)

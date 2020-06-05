@@ -15,16 +15,16 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 
 ## Challenges
 
-0. [Setup](/Student/Challenges/Challenge0/readme.md)
-1. [Data Warehouse Migration](/Student/Challenges/Challenge1/readme.md)
+0. [Setup](./Student/Challenges/Challenge0/readme.md)
+1. [Data Warehouse Migration](./Student/Challenges/Challenge1/readme.md)
    - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
-1. [Data Lake integration](/Student/Challenges/Challenge2/README.md)
+1. [Data Lake integration](./Student/Challenges/Challenge2/README.md)
    - Build out Staging tier in Azure Data Lake.  Architect Lake for staging, cleansed and presentation tiers with POSIX setup
-1. [Data pipeline Migration](/Student/Challenges/Challenge3/README.md) 
+1. [Data pipeline Migration](./Student/Challenges/Challenge3/README.md) 
    - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
-1. [Realtime Data pipelines](/Student/Challenges/Challenge4/README.md)
+1. [Realtime Data pipelines](./Student/Challenges/Challenge4/README.md)
    - Real-time data with Kafka and Databricks
-1. [Analytics migration](/Student/Challenges/Challenge5/README.md)
+1. [Analytics migration](./Student/Challenges/Challenge5/README.md)
    - Migrate reporting into Azure
 
 ## Technologies

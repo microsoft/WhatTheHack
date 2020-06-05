@@ -11,9 +11,9 @@ The following is expected timing for a standard delivery.
 |                                            |                                                                                                                                                       |
 | ------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Topic** |  **Duration**  |
-| Presentation 0:  [Welcome and Introduction](/Host/Guide/MDWWTHIntro.pptx)  | 5 mins |
+| Presentation 0:  [Welcome and Introduction](./MDWWTHIntro.pptx)  | 5 mins |
 | Challenge 0: Environment Setup | 30 mins|
-| Presentation 1: [Intro to Modern Data Warehouse](/Host/Guide/MDWWTHIntro.pptx) | 30 mins|
+| Presentation 1: [Intro to Modern Data Warehouse](./MDWWTHIntro.pptx) | 30 mins|
 | Challenge 1: Data Warehouse Migration | 240 mins |
 | Challenge 2: Data Lake Integration | 120 mins |
 | Challenge 3: Data pipeline Migration | 240 mins |
@@ -25,19 +25,11 @@ The following is expected timing for a standard delivery.
 In order to deliver this hack there is a variety of supporting content.   This content is indexed below.
 
 ### Challenges
-1.  [Data Warehouse Migration](./Guide/Challenge1/readme.md)
-2.  [Data Lake Integration](./Guide/Challenge2/Readme.md)
-3.  [Data Pipeline Migration](./Guide/Challenge3/Readme.md)
-4.  [Real-time Data pipeline](./Guide/Challenge4/README.md)
-5.  [Analytics migration](./Guide/Challenge5/README.md)
-
-### Solution Scripts
-1.  [Data Warehouse Migration](./Solutions/Challenge1)
-2.  [Data Lake Integration](./Solutions/Challenge2)
-3.  [Data Pipeline Migration](./Solutions/Challenge3)
-4.  [Real-time Data pipeline](./Solutions/Challenge4)
-5.  [Analytics migration](./Solutions/Challenge5)
-
+1.  [Data Warehouse Migration](./Solutions/Challenge1/readme.md)
+2.  [Data Lake Integration](./Solutions/Challenge2/Readme.md)
+3.  [Data Pipeline Migration](./Solutions/Challenge3/Readme.md)
+4.  [Real-time Data pipeline](./Solutions/Challenge4/README.md)
+5.  [Analytics migration](./Solutions/Challenge5/README.md)
 
 ### Ideas for other Challenges (Kanban Board)
 

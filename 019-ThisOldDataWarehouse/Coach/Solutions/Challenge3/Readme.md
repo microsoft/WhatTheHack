@@ -1,6 +1,6 @@
 # 	Challenge 3 -- Redesign SSIS jobs into ELT with ADF
 
-[< Previous Challenge](/Coach/Solutions/Challenge2/Readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](/Coach/Solutions/Challenge4/README.md)
+[< Previous Challenge](../Challenge2/Readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](../Challenge4/README.md)
 
 ## Introduction
 WW Importers keep missing the SLAs for their nightly data load process.  The loads take six hours to complete and start each evening at 1:00AM.  They must complete by 8:00AM but frequenly these jobs are taking longer than planned.  In addition a few critical stakeholders are asking to provide the data even more frequently.  Since these business units are the key stakeholders, they have the funding to help replatform the data pipelines.  WW Importers realizes they need to leverage their new Data Lake to scale and load this into their Data Warehouse for Stage 3.  These data pipelines must be ELT (Extract, Load & Transform) so they can quickly write the data to the cloud and scale out the compute to transform the data.
@@ -69,6 +69,3 @@ These templates can be used to deploy resources required to complete this soluti
 
 1. Basic -- Folder contains ARM Template for all objects included in Azure Data Factory including pipelines for one pipeline only.  Success Criteria for Challenge 3
 1. Advanced -- Folder contains ARM Template for all object included in Azure Data Factory including pipeline to load all tables.  Solution for Additional Challenge
-
-## SOLUTIONS
-[Go to Solution](/Coach/Solutions/Challenge3)

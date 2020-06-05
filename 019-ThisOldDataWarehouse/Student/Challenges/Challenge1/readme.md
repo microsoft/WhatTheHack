@@ -1,6 +1,6 @@
 # Challenge 1 -- Data Warehouse Migration
 
-[< Previous Challenge](/Student/Challenges/Challenge0/readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](/Student/Challenges/Challenge2/README.md)
+[< Previous Challenge](../Challenge0/readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](../Challenge2/README.md)
 
 ## Introduction
 

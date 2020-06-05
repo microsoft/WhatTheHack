@@ -1,6 +1,6 @@
 # 	Challenge 5 -- Analytics Migration
 
-[<Previous Challenge](/Student/Challenges/Challenge4/README.md)
+[<Previous Challenge](../Challenge4/README.md)
 
 ## Introduction
 
