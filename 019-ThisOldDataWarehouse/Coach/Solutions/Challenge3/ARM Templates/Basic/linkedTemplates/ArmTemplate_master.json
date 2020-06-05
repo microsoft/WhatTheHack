@@ -1,0 +1,91 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "Data Factory name",
+            "defaultValue": "akMDWHackBasic"
+        },
+        "AzureDataLakeStorage1_accountKey": {
+            "type": "secureString",
+            "metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+        },
+        "WideWorldImportersDW_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'WideWorldImportersDW'"
+        },
+        "WideWorldImporters_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'WideWorldImporters'"
+        },
+        "AzureSynapseAnalytics_connectionString": {
+            "type": "secureString",
+            "metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalytics'"
+        },
+        "ADLS_accountKey": {
+            "type": "secureString",
+            "metadata": "Secure string for 'accountKey' of 'ADLS'"
+        },
+        "AzureDataLakeStorage1_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "https://mdwhackbasic.dfs.core.windows.net"
+        },
+        "ADLS_properties_typeProperties_url": {
+            "type": "string",
+            "defaultValue": "https://mdwhackadvanced.dfs.core.windows.net"
+        },
+        "containerUri": {
+            "type": "string",
+            "metadata": "URI to storage account containing linked ARM templates"
+        },
+        "containerSasToken": {
+            "type": "string",
+            "metadata": "Sas token to storage account containing linked ARM templates"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "ArmTemplate_0",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-02-01",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "factoryName": {
+                        "value": "[parameters('factoryName')]"
+                    },
+                    "AzureDataLakeStorage1_accountKey": {
+                        "value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+                    },
+                    "WideWorldImportersDW_connectionString": {
+                        "value": "[parameters('WideWorldImportersDW_connectionString')]"
+                    },
+                    "WideWorldImporters_connectionString": {
+                        "value": "[parameters('WideWorldImporters_connectionString')]"
+                    },
+                    "AzureSynapseAnalytics_connectionString": {
+                        "value": "[parameters('AzureSynapseAnalytics_connectionString')]"
+                    },
+                    "ADLS_accountKey": {
+                        "value": "[parameters('ADLS_accountKey')]"
+                    },
+                    "AzureDataLakeStorage1_properties_typeProperties_url": {
+                        "value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+                    },
+                    "ADLS_properties_typeProperties_url": {
+                        "value": "[parameters('ADLS_properties_typeProperties_url')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        }
+    ]
+}
