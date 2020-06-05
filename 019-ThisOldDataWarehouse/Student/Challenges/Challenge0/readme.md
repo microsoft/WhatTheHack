@@ -56,4 +56,4 @@ is for their data warehouse (OLAP).  You will need to setup both environments as
     * Ensure you are leveraging SQL Server Management STudio 18.x or higher
 
 ## On-premise Architecture
-![The Solution diagram is described in the text following this diagram.](/images/current.png)
+![The Solution diagram is described in the text following this diagram.](../../../images/current.png)

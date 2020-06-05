@@ -12,7 +12,7 @@ The solution will require us to migrate the on-premise data warehouse to Azure S
 
 Below is a diagram of the solution architecture you will build in this hack. Please study this carefully, so you understand the whole of the solution as you are working on the various components.
 
-![The Solution diagram is described in the text following this diagram.](/images/solution_arch.png)
+![The Solution diagram is described in the text following this diagram.](../images/solution_arch.png)
 
 
 ## Technologies
