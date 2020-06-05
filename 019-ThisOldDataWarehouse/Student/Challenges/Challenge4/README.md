@@ -1,6 +1,6 @@
 # Challenge 4 -- Real-time Data Pipelines
 
-[< Previous Challenge](/Student/Challenges/Challenge3/README.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](/Student/Challenges/Challenge5/README.md)
+[< Previous Challenge](../Challenge3/README.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](../Challenge5/README.md)
 
 ## Introduction
 

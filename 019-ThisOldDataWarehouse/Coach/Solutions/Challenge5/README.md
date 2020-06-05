@@ -1,6 +1,6 @@
 # 	Challenge 5 -- Analytics Migration
 
-[<Previous Challenge](/Coach/Solutions/Challenge4/README.md)
+[<Previous Challenge](../Challenge4/README.md)
 
 ## Introduction
 
@@ -45,6 +45,3 @@ The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to ret
 1. Setup Power BI Embed application "App Owns Data" for users to access data
 1. Setup RLS in Power BI Embed and Azure Synapse Analytics
 1. Setup workload management to run ETL and run Reports in parallel to see performance impact.
-
-# SOLUTIONS
-[Go to Solution](/Coach/Solutions/Challenge5)

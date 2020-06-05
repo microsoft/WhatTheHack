@@ -1,6 +1,6 @@
 # 	Challenge 4 --  Real-time Data Pipelines
 
-[< Previous Challenge](/Coach/Solutions/Challenge3/Readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](/Coach/Solutions/Challenge5/README.md)
+[< Previous Challenge](../Challenge3/Readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](../Challenge5/README.md)
 
 ## Story
 Worldwide importers wanted to build out their data warehouse to include clickstream data.  There are a number of online stores that the marketing department wants to track for campaign and online ads.  These marketing users want to monitor the clickstream data and have the ability to run exploratory data analysis to support ad-hoc research.  This data needs to be real-time so the campaigns and ads are timely based on user activity in the online stores.
@@ -51,7 +51,4 @@ Once all items above have been deployed and configured, you can log into your ne
 Execute the Databricks notebook configured above to create streaming dataset, and start writing data to Delta Lake.  Once this notebook is running, you can begin to interactively query Delta Lake tables and streaming Data Frame.
 
 ## Query the Data
-Have the team reuse the queries in the Databricks notebook and create an aggregate query to show their SQL, Scala or Python skills.  This is a standalone table and doesn't directly integrate into Azure Synapse Analytics.  
-
-## SOLUTIONS
-[Go to Solution](/Coach/Solutions/Challenge4)
+Have the team reuse the queries in the Databricks notebook and create an aggregate query to show their SQL, Scala or Python skills.  This is a standalone table and doesn't directly integrate into Azure Synapse Analytics.

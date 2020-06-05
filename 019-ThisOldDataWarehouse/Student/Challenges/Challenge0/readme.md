@@ -1,6 +1,6 @@
 # Challenge 0 -- Setup
 
-[Next Challenge>](/Student/Challenges/Challenge1/readme.md)
+[Next Challenge>](../Challenge1/readme.md)
 
 ## Description
 The objective of this lab is to setup your on-premise data warehouse environment for the hack.  This will be your reference point for the migration.  Additionally, we want you to plan out and size your Azure Synapse Analytics environment.
