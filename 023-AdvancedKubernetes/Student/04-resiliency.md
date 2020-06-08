@@ -8,15 +8,20 @@ Resiliency is the ability to recover quickly from issues.  For Cloud Native appl
 
 ## Description
 
-For this challenge, we will continue to use https://github.com/stefanprodan/podinfo sicne it has a number of Web API's for interacting with the container.  
+For this challenge, we will continue to use https://github.com/stefanprodan/podinfo since it has a number of Web API's for interacting with the container.  
 
 - Ensure you have multiple replicas of podinfo running
 - Update the Liveness Probe for your Helm chart to use `/healthz`
 - Update the Readiness Probe for your Helm chart to use `/readyz`
-- Disable the Readiness Probe for a specifc instance
-    - HINT: `/readyz/disable`
+- Force the Readiness Probe to fail for a specific instance
+    - HINT: look through some of the APIs in the [repo README](https://github.com/stefanprodan/podinfo)
 
 ## Success Criteria
 
 - Before disabling the readiness probe, when you refresh the podinfo page, the hostname should rotate through each of the running pods.
 - After disabling a readiness probe, one of the hostnames should no longer be in the rotation
+
+## Hints
+
+1. [cURL manual](https://curl.haxx.se/docs/manual.html)
+1. [Kubernetes probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
