@@ -1,6 +1,6 @@
-# Challenge 3 - GitOps
+# Challenge 5 - GitOps
 
-[< Previous Challenge](./02-helm.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./04-resiliency.md)
+[< Previous Challenge](./04-scaling.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./06-service-mesh.md)
 
 ## Introduction
 

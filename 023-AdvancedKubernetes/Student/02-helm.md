@@ -1,6 +1,6 @@
 # Challenge 2 - Helm
 
-[< Previous Challenge](./01-setup.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./03-gitops.md)
+[< Previous Challenge](./01-setup.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./03-resiliency.md)
 
 ## Introduction
 
