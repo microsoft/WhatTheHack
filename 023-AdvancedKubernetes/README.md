@@ -9,8 +9,9 @@ This hack will guide you through advanced Kubernetes topics for both Operators a
 In this hack, you will be working on a set of "Day 2" operational best practices for Kubernetes cluster management.  You will learn:
 
 1. Create and use Helm charts
-1. Using Git as the Source of Truth for your cluster
 1. Build resiliency into your pods
+1. Scale your cluster
+1. Using Git as the Source of Truth for your cluster
 1. Learn about the features of a Service Mesh
 
 ## Assumptions
@@ -31,18 +32,19 @@ Before starting this hack you should have hands-on experience with the following
    1. Install Kubernetes Ingress using Helm
    1. Update Helm release to use Ingress
    1. Delete Kubernetes Ingress Helm Release
-1. [GitOps](./Student/03-gitops.md)
+1. [Resiliency](./Student/03-resiliency.md)
+   1. Define Readiness Probe
+   1. Define Liveness Probe
+1. [Scaling](./Student/04-scaling.md)
+   1. Set up cluster autoscaling
+   1. Set up pod autoscaling
+   1. Define resource requests and limits
+1. [GitOps](./Student/05-gitops.md)
    1. Install flux
    1. Setup Flux Pipeline
    1. Simulate CI to verify changes pushed to AKS cluster 
    1. Update Github to deploy Ingress Controller via Flux
-1. [Resiliency](./Student/04-resiliency.md)
-   1. Define Readiness Probe
-   1. Define Liveness Probe
-   1. Define Init container
-   1. Define Limit
-   1. Define Requests
-1. [Service Mesh](./Student/05-service-mesh.md)
+1. [Service Mesh](./Student/06-service-mesh.md)
    1. Install a Service Mesh
    1. Apply a virtual service
    1. Apply weight-based routing
