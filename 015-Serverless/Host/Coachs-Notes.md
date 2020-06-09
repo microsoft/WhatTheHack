@@ -12,11 +12,12 @@ None
 1) Those that are not familiar with Azure functions will not know about how the Applications Settings work with the Function Code
 2) Key Vault reference in the Function App will require a reference __@Microsoft.KeyVault__ in the app setting value
 3) __ERRORS on KEY VAULT__
-You cannot see if there is an error in the new portal.  Navigate to the old portal and if you see this error, the reference to the key vault is bad: (/images/keyvault-error.png 'Key Vault Error')
+You cannot see if there is an error in the new portal.  Navigate to the old portal and if you see this error, the reference to the key vault is bad: ![Key Vault Error](./images/keyvault-error.PNG)
+
 Participants may need to allow an identity access [Identity Access](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&tabs=dotnet)
 
 Then add permissions in Key Vault to the Function
-Success looks like this (images/keyvault-success.png 'Key Vault Success')
+Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 
 ## Challenge 4 (Create Functions)
