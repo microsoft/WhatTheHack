@@ -1,6 +1,6 @@
 # Challenge 4 - Resiliency
 
-[< Previous Challenge](./03-gitops.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./05-service-mesh.md)
+[< Previous Challenge](./03-gitops.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./04-scaling.md)
 
 ## Introduction
 

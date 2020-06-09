@@ -17,7 +17,7 @@ The first challenge is to setup your local environment as well as the AKS cluste
 
 Install each of the CLI tools and ensure you can login to each of the online services.  We will be using these later in the challenges
 
-All challanges will be run using Bash.
+All challenges will be run using Bash.
 
 ## Challenge
 
