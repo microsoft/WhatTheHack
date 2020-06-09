@@ -1,5 +1,7 @@
 # Challenge 2 - Helm
 
+[< Previous Challenge](./01-setup.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./03-resiliency.md)
+
 ## Introduction
 
 Helm is the package manager for Kubernetes.  It was created by Deis (now a part of Microsoft) and is a Graduated Project in the CNCF.
@@ -151,7 +153,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: myapp.52.141.219.8.nip.io # change this
+    - host: myapp.52.141.219.8.nip.io # change to your ingress ip
       paths: ["/"] # change this
 ```
 
