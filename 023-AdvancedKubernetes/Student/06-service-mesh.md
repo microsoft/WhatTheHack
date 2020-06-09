@@ -1,6 +1,6 @@
 # Challenge 6 - Service Mesh
 
-[< Previous Challenge](./05-gitops)
+[< Previous Challenge](./05-gitops.md)
 
 ## Introduction
 
