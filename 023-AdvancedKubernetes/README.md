@@ -56,6 +56,7 @@ Before starting this hack you should have hands-on experience with the following
 - Access to a Bash Shell (Cloud Shell, WSL, etc.)
 
 ## Contributors
+
 - Tommy Falgout
 - Kevin M. Gates
-
+- Michelle Yang
