@@ -1,6 +1,6 @@
-# Challenge 5 - Scaling
+# Challenge 4 - Scaling
 
-[< Previous Challenge](./04-resiliency.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./06-service-mesh.md)
+[< Previous Challenge](./03-resiliency.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./05-gitops.md)
 
 ## Introduction
 
@@ -17,8 +17,7 @@ When scaling in Kubernetes, there are some considerations:
 
 ## Description
 
-The cluster you created should have the Cluster Autoscaler already enabled
-
+- Enable the cluster autoscaler on the user nodepool
 - Create a deployment and service using the container image `k8s.gcr.io/hpa-example`
     - Any web request this receives will run a CPU intensive computation (calculates Pi)
     - HINT: Don't forget about requests/limits

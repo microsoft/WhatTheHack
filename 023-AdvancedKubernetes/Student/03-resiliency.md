@@ -1,6 +1,6 @@
-# Challenge 4 - Resiliency
+# Challenge 3 - Resiliency
 
-[< Previous Challenge](./03-gitops.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./04-scaling.md)
+[< Previous Challenge](./02-helm.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./04-scaling.md)
 
 ## Introduction
 

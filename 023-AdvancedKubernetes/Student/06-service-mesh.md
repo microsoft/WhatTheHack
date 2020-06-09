@@ -1,6 +1,6 @@
-# Challenge 5 - Service Mesh
+# Challenge 6 - Service Mesh
 
-[< Previous Challenge](./04-resiliency.md)
+[< Previous Challenge](./05-gitops)
 
 ## Introduction
 
@@ -16,7 +16,7 @@ Some of the most popular features include:
 Credit: https://servicemesh.es/
 
 There are multiple service meshes, these are the 3 most popular (all of which use [Envoy](https://www.envoyproxy.io/) as the proxy):
-* [Istio](https://istio.io) - The most popular service mesh.  Pro:  Well known, most feature.  Con: Resource intenstive, high complexity
+* [Istio](https://istio.io) - The most popular service mesh.  Pro:  Well known, most feature.  Con: Resource intensive, high complexity
 * [Linkerd](https://linkerd.io/) - CNCF Incubating Project.  Pro: Light-weight, low complexity.  Con: Deeply integrated with K8S
 * [Consul](https://www.hashicorp.com/products/consul/) - Written by Hashicorp.  Pro: Azure Consul Service.  Con: Full features are with Consul Connect
 
