@@ -15,6 +15,23 @@ GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for C
     - Example: Add `--ui-message='Welcome to Flux'` to the container command
     - HINT: You can use `fluxctl sync` if you're impatient
 - Using GitOps, expose the dev service at dev.$INGRESS_IP.nip.io
+    - HINT: Here's a sample Ingress 
+
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: podinfo-ingress
+  namespace: demo
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: podinfo
+          servicePort: 9898
+    host: podinfo.<REPLACE WITH INGESS IP>.nip.io
+```
 
 ## Success Criteria
 
