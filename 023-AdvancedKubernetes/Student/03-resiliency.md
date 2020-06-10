@@ -19,7 +19,7 @@ For this challenge, we will continue to use https://github.com/stefanprodan/podi
 ## Success Criteria
 
 - Before disabling the readiness probe, when you refresh the podinfo page, the hostname should rotate through each of the running pods.
-- After disabling a readiness probe, one of the hostnames should no longer be in the rotation
+- After disabling the response to the readiness probe, one of the hostnames should no longer be in the rotation
 
 ## Hints
 
