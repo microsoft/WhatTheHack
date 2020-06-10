@@ -26,6 +26,8 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
    - HINT: [Make sure to add an initial repo](https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository)
 1. Update your created chart to add the Ingress route
    - HINT: This updates the original chart you created
+   - HINT: You only need to modify the values.yaml file
+   - HINT: The default annotations are ok
 1. Verify App is available at myapp.$INGRESS_IP.nip.io
    - HINT: `INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)`
 1. Uninstall the ingress controller from your cluster
