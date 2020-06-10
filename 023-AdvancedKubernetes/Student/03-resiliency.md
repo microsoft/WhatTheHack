@@ -20,6 +20,12 @@ For this challenge, we will continue to use https://github.com/stefanprodan/podi
 
 - Before disabling the readiness probe, when you refresh the podinfo page, the hostname should rotate through each of the running pods.
 - After disabling the response to the readiness probe, one of the hostnames should no longer be in the rotation
+- After disabling the response to the readiness probe, Use `kubectl` to verify that one pod is no longer in the rotation
+
+## Optional challenge
+
+- Get all pods back to a ready state
+- After getting all pods in the ready state, use `kubectl` to verify all pods are ready
 
 ## Hints
 
