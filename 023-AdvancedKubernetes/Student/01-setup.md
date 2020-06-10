@@ -21,6 +21,8 @@ All challenges will be run using Bash.
 
 ## Challenge
 
+1. Latest Azure CLI
+    - Verified with 2.7.0
 1. Install Docker
 1. Install Helm 3
 1. Create a Github Account
