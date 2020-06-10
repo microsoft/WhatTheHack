@@ -17,6 +17,7 @@ Helm is the package manager for Kubernetes.  It was created by Deis (now a part 
 In this challenge, you will create a new chart, deploy it and then also deploy an existing chart from a remote repository.  These charts will setup an Ingress Controller as well as a sample app.
 
 1. Create a new chart
+   HINT: Use `helm template <chart>` to render a chart locally and display the output
 1. Deploy the chart on your K8S cluster
 1. Override default nginx image with https://hub.docker.com/r/stefanprodan/podinfo
    - HINT: note that this application runs on port 9898
