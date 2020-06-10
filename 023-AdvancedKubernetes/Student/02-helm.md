@@ -34,7 +34,7 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 ## Success Criteria
 
 * `helm ls --all-namespaces` shows your chart and the Ingress controller
-* `curl myapp.$INGRESS_IP.nip.io` returns a valid reponse
+* `curl myapp.$INGRESS_IP.nip.io` returns an HTTP 200 reponse
 
 ## Hints
 
