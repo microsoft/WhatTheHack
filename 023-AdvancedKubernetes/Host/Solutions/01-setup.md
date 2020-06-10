@@ -28,4 +28,5 @@ LOCATION=<replace with your location>
 az group create $RG -l $LOCATION
 az aks create -n $RG -g $RG --enable-cluster-autoscaler --enable-managed-identity --min-count 1 --max-count 5 --attach-acr $ACR --node-count 1
 az aks nodepool add --cluster-name $RG -g $RG -n userpool --enable-cluster-autoscaler --min-count 1 --max-count 5
+az aks get-credentials -g $RG -n $RG
 ```
