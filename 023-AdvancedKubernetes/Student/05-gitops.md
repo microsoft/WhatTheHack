@@ -8,26 +8,28 @@ GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for C
 
 ## Description
 
-- Fork [https://github.com/fluxcd/helm-operator-get-started](https://github.com/fluxcd/helm-operator-get-started) in your Github Repo
+- Fork [https://github.com/fluxcd/flux-get-started](https://github.com/fluxcd/flux-get-started) in your Github Repo
 - Install Flux on your Cluster
-    - HINT: Follow the "Install Flux" directions on your cluster
-- Follow the instructions for Flux CD pipeline example (just up to the dev deployment)
-    - HINT: Remember to update the dev/stg/prod podinfo.yaml file with BOTH your github and dockerhub username
+- Give write access to your Github repo
+- Make a small change to the deployment
+    - Example: Add `--ui-message='Welcome to Flux'` to the container command
     - HINT: You can use `fluxctl sync` if you're impatient
-    - HINT: For automation to start, [the image tag in GitHub must exist in Docker Hub](https://github.com/fluxcd/flux/issues/2929)
-- Verify that if you run `ci-mock.sh` you should see a new image deployed in the dev namespace
-    - HINT: `kubectl describe pod -n dev | grep Image`
 - Using GitOps, expose the dev service at dev.$INGRESS_IP.nip.io
-    - HINT: You only need to modify HelmRelease values
-- Run `ci-mock.sh` with `-v dev-0.5.0` and curl to verify that new version is deployed
 
 ## Success Criteria
 
 - By only changing your GitHub repo, you have done the following
-    - Created a new namespace `nginx-ingress`
-    - Deployed a new ingress controller
-    - Deployed a new version of your application
+    - Created a new namespace `demo`
+    - Created a deployment for podinfo in the demo namespace
+    - Made a change to the deployment and verified the change in the cluster
 
 ## Hints
 
-1. [HelmResource](https://docs.fluxcd.io/projects/helm-operator/en/stable/references/helmrelease-custom-resource/)
+1. [Getting Started with Flux](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started.md#set-up-flux)
+
+## Optional Challenge
+
+- Install the Helm Operator for Flux
+- Add a helm chart to your repo
+- Verify that the Helm chart was deployed to the cluster
+- Make a change to the Helm chart and verify the change in the cluster
