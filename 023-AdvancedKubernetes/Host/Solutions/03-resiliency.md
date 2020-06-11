@@ -63,7 +63,7 @@ The podinfo application readiness probe can be forced to fail by sending a POST 
 
 ``` bash
 INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)
-curl -d myapp.$INGRESS_IP.nip.io/readyz/disable
+curl -d '' myapp.$INGRESS_IP.nip.io/readyz/disable
 ```
 
 After a few seconds, check status of pods again:
