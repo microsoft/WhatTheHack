@@ -10,6 +10,7 @@ GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for C
 
 - Fork [https://github.com/fluxcd/flux-get-started](https://github.com/fluxcd/flux-get-started) in your Github Repo
 - Install Flux on your Cluster
+    - HINT: [Getting Started with Flux](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started.md#set-up-flux)
 - Give write access to your Github repo
 - Make a small change to the deployment
     - Example: Add `--ui-message='Welcome to Flux'` to the container command
@@ -39,10 +40,6 @@ spec:
     - Created a new namespace `demo`
     - Created a deployment for podinfo in the demo namespace
     - Made a change to the deployment and verified the change in the cluster
-
-## Hints
-
-1. [Getting Started with Flux](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started.md#set-up-flux)
 
 ## Optional Challenge
 
