@@ -1,3 +1,1 @@
-remote_theme: "dracula/gh-pages"
-
-theme: jekyll-theme-midnight
+theme: jekyll-theme-hacker
