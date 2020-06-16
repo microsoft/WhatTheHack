@@ -36,10 +36,15 @@ In this challenge we'll be building and running the node.js based FabMedical app
 		- **Hint:** Each container you run needs to have a "name" on the fabmedical network and this is how you access it from other containers on that network.
 		- **Hint:** You can run your containers in "detached" mode so that the running container does NOT block your command prompt.
 
-
-
 ## Success Criteria
 
 1. You can run both the web and api parts of the FabMedical app locally on your machine
 1. You have created 2 Dockerfiles files and created a container image for both web and api.
 1. You can run the application locally from the containers just built.
+
+## Learning Resources
+
+Reference articles on how to Dockerize a Node.js app:
+- https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+- https://buddy.works/guides/how-dockerize-node-application
+- https://www.cuelogic.com/blog/why-and-how-to-containerize-modern-nodejs-applications 
