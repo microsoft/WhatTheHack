@@ -11,7 +11,7 @@
 	- The CLI should be used to create the cluster to give the most realistic experience.  
 	- Cluster names should be unique within the subscription.  
 	- Here’s an example command that creates a cluster named **wth-aks02-poc** in resource group **wth-rg02-poc:** using basic networking, managed identity, 3 nodes in separate availability zones and an attached ACR:
-		- `az aks create --location eastus --name wth-aks02-poc --node-count 3  --no-ssh-key --resource-group wth-rg02-poc --zones 1 2 3 –enable-managed-identity –attach-acr <acrname>`
+		- `az aks create --location eastus --name wth-aks02-poc --node-count 3  --no-ssh-key --resource-group wth-rg02-poc --zones 1 2 3 --enable-managed-identity --attach-acr <acrname>`
     - Documentation on installing AKS can be found here:
 		- [Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal)
 		- [CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
@@ -23,7 +23,7 @@
     	- https://docs.microsoft.com/en-us/azure/aks/use-system-pools.
 	- **NOTE:** They will need to learn how to connect kubectl to their cluster using `az aks get-credentials`
 - If someone needs to attach their ACR to the cluster after they created it, they can use: 
-	- ` az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>`
+	- `az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>`
 - **Optional:** The Kubernetes dashboard can be brought up with the CLI easily:
 	- `az aks browse --name myAKSCluster --resource-group myAKSCluster`
 	- **NOTE:** For the dashboard to work properly, it requires more permissions than those enabled by default for the account that the cluster uses. More info about this can be found here: 
