@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: content-api
+  name: content-api-v2
   labels:
-    app: content-api
+    app: content-api-v2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: content-api
+      app: content-api-v2
   template:
     metadata:
       labels:
-        app: content-api
+        app: content-api-v2
     spec:
       containers:
       - name: content-api
