@@ -1,8 +1,8 @@
-# Challenge 4 - \<Challenge Name>
+# Challenge 4 - Secret Values with Azure Key Vault
 
 [< Previous Challenge](./ARM-Challenge-03.md) - [Home](../readme.md) - [Next Challenge>](./ARM-Challenge-05.md)
 
-## Introduction (Optional)
+## Introduction
 
 The goals for this challenge are to understand:
 - Handling secret values
