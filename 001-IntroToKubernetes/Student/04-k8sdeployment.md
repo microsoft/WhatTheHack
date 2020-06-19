@@ -10,8 +10,6 @@ Now the rubber meets the road.... we will be deploying the application to our ne
 
 In this challenge we need to get our application up and running in Kubernetes. We will learn about Kubernetes configuration YAML files used to create the various Kubernetes resources that will be needed to run our app. We will give our containers resource limits and open the app up to the outside world so we can test it.
 
-## Challenge
-
 - **NOTE:** If you have not or cannot deploy your containers to the Azure Container Registry, we have staged the FabMedical apps on Docker Hub at these locations:
 	- **API app:** whatthehackmsft/content-api
 	- **Web app:** whatthehackmsft/content-web

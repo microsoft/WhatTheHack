@@ -10,8 +10,6 @@ Now it is time to introduce the container orchestrator we all came for: Kubernet
 
 In this challenge we will be provisioning our first Kubernetes cluster using the Azure Kubernetes Service (AKS). This will give us an opportunity to learn how to use the `kubectl` kubernetes command line tool, as well as using the Azure CLI to issue commands to AKS.
 
-## Challenge
-
 - Install the Kubernetes command line tool (`kubectl`).
 	- **Hint:** This can be done easily with the Azure CLI.
 - Create a new, multi-node AKS cluster.
