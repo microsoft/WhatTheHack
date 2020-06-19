@@ -16,9 +16,11 @@ In this challenge you'll be deploying a v2 of the FabMedical application to your
 	- **whatthehackmsft/content-web:v2**
 	- **whatthehackmsft/content-api:v2**
 - **NOTE:** If you have been building your docker container images from source code and deploying to an Azure Container Registry, you can find v2 of the source code in your Challenge 7 Resources folder.
-- For v2, you will also need an initialization container image available on Docker Hub at:
+- Version 2 of FabMedical stores its data in MongoDB.  We have provided a container image with an initialization script called “content-init” that loads the database with the sample content (Speakers & Sessions data).  The container runs as a Kubernetes Job.  The container image is available on Dockerhub at:
 	- **whatthehackmsft/content-init**
 	- Use the content-init “Job” yaml provided to run the initialization of MongoDB for our new version of the app.
+	- You should verify that the MongoDB contains the FabMedical data after content-init job has completed.
+	- Logs for content-init will provide the detailed logs showing whether it was able to successfully connect and add the contents to the MongoDB. You can use kubectl to check the logs.
 - Perform a rolling update of content-web on your cluster to the new version of content-web
 	- You’ll be doing this from the command-line with a kubectl command (remember, Kubernetes docs are your friend!)
 	- With kubectl and its watch feature you should be able to see new pods with the new version come online and the old pods terminate.
