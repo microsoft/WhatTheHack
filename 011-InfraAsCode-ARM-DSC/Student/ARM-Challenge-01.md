@@ -1,6 +1,6 @@
 # Challenge 1 - Hello World Template
 
-[< Home](../readme.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./ARM-Challenge-02.md)
+ [Home](../readme.md) - [Next Challenge>](./ARM-Challenge-02.md)
 
 ## Pre-requisites
 
