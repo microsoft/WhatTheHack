@@ -19,7 +19,7 @@
 	- To start a node app, run:
         - `nodejs ./server.js &`
 	- Verify the API app runs by browsing to its URL with one of the three function names, eg: 
-    	- `http://localhost:3000/speakers`
+    	- `http://localhost:3001/speakers`
 	- Repeat for the steps above for the Web app.
 	- **NOTE:** The content-web app expects an environment variable named **CONTENT_API_URL** that points to the API app’s URL.
 	- The environment variable value should be `http://localhost:3001`
@@ -36,7 +36,7 @@
 		- `docker network create fabmedical`
 	- Run each container using a name and using the **fabmedical** network. The containers should be run in "detached" mode so they don’t block the command prompt.
 		- `docker run -d -p 3001:3001 --name api --net fabmedical content-api`
-		- `docker run -d -P --name web --net fabmedical content-web`
+		- `docker run -d -p 3000:3000 --name web --net fabmedical content-web`
 	- **NOTE:** The value specified in the `--name` parameter of the `docker run` command for content-api will be the DNS name for that container on the docker network.  Therefore, the value of the **CONTENT_API_URL** environment variable in the content-web Dockerfile should match it.
 	- This is a good time for coaches to discuss the concept of a software defined network within the docker engine.  Explain how if there are more than one container listening on the same port, docker provides a network abstraction layer and the ability to map ports from the VM to ports on the container. For example, two containers listening on port 3001. Docker can map one to the VM’s port 3001 and the other to the VM’s port 3005.
 - Be familiar with Docker commands and ready to help attendees who get stuck troubleshooting:
