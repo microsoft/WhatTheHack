@@ -10,17 +10,18 @@ Not all containers can be stateless. What happens when your application needs to
 
 In this challenge we will be creating Azure data disks and using the Kubernetes storage mechanism to make them available to be attached to running containers. This will give MongoDB a place to storage its data without losing it when the container is stopped and restarted.
 
-## Challenge
-
 - Make sure that you are using the latest version of the Fabmedical container images, either the ones you built or the pre-built ones available here:
 	- **whatthehackmsft/content-api:v2**
 	- **whatthehackmsft/content-web:v2**
-- Destroy the previous MongoDB pod created in the Challenge Set 6.
+- Delete the MongoDB pod created in Challenge 6. 
+	- Kubernetes should automatically create a new pod to replace it. 
+	- Connect to the new pod and you should observe that the “contentdb” database is no longer there since the pod was not configured with persistent storage.
+- Delete the MongoDB deployment
 - In this challenge you will provision the MongoDB pod with a persisted disk volume.
 - Create two Azure data disks (one for the MongoDB configuration and another one for data)
-- Create a deployment yaml for MongoDB to be deployed with the necessary configuration for using the volume as an Azure Data Disk. 
-	- Find the reference template in your Challenge 8 Resources folder named: `template-mongodb-deploy.yml`
-	- **NOTE:** You can use the same MongoDB container image from Docker Hub that you used in a previous challenge.
+- Modify your deployment yaml for MongoDB to be deployed with the necessary configuration for using the volume as an Azure Data Disk.
+	- You can find a reference template that demonstrates the storage configuration in your Challenge 8 Resources folder named: `template-mongodb-deploy.yml`
+	- **NOTE:** The reference template contains a sample deployment AND service configuration for MongoDB in the same file. If you choose to use the reference template for Challenge 8 instead of editing your existing mongodb deployment yaml, be sure to delete the previous mongo service you used in Challenge 6 as it may cause a conflict!
 - Verify that MongoDB is working fine by connecting to the corresponding MongoDB Pod in interactive mode. Make sure that the disks are associated correctly (bold and italic below)
 
 	- `kubectl exec -it <mongo-db pod name> bash`
@@ -43,12 +44,8 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 		MongoDB server version: 3.6.1
 		```
 
-- Initialize sample content (Speakers & Sessions data) in the mongo DB by running the content_init nodeJS application as a Kubernetes Job. 
-    - Reference template can be found in your Challenge 8 Resources folder, named: `template-content-init-deploy.yml`
-	- Logs for content-init will provide detailed information showing whether it was able to successfully connect and add the contents to MongoDB. You can use the Kubernetes dashboard or kubectl to check the logs.
-	- **NOTE:** If the AKS cluster was created using the default service principle or managed identity then we must grant it permission to pull images from the ACR.
-		- **Hint:** Have a look here: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks
-- Make sure that the `contentdb` database is populated by connecting to the MongoDB pod with an interactive terminal and verify the database collections.
+- Re-load the sample content (Speakers & Sessions data) in to MongoDB by running the content-init job as you did earlier during Challenge 7.
+- Make sure that the `contentdb` database is populated by connecting to the MongoDB pod with an interactive terminal and verify the database "contentdb" exists.
 	- `root@mongo-db678745655b-f82vj:/#` **`mongo`**
 		```
 		MongoDB shell version v3.6.1
@@ -67,15 +64,9 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 - Recreate the Mongo Db Pod
 	- `kubectl apply -f <mongo-db-deployment-yaml>`
 - Once the pod is created, verify that data is persisted to the Azure disks by following the previous MongoDB verification step.
-- Update the MongoDB connection string in the content-api deployment yaml and deploy it, eg:
-	```
-	env:
-    - name: MONGODB_CONNECTION
-      value: mongodb://mongodb:27017/contentdb
-	```
-- Verify the API can retrieve the data by calling the speaker and session end points with curl: 
-	- `curl http://localhost:3001/speakers`
-	- `curl http://localhost:3001/sessions`
+- Verify the API can retrieve the data by viewing the speaker and sessions pages in the browser: 
+	- `http://<yourWebServicePIP>:3000/speakers.html`
+	- `http://<yourWebServicePIP>:3000/sessions.html`
 
 ## Success Criteria
 
