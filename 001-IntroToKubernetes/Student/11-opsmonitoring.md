@@ -1,6 +1,6 @@
 # Challenge 11: Operations and Monitoring
 
-[< Previous Challenge](./10-networking.md)
+[< Previous Challenge](./10-networking.md) - **[Home](../readme.md)**
 
 ## Introduction
 
@@ -35,3 +35,12 @@ In this challenge you will learn how to view application logs and trouble-shoot 
 2. Log into a running container and issue bash commands.
 3. Show Azure Monitor working.
 4. Show Kibana dashboards working.
+
+## Learning Resources
+- Azure Monitoring for Containers:
+    - https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview
+- ELK stack:
+    - https://logz.io/learn/complete-guide-elk-stack/
+	- https://kubernetes.io/docs/tasks/debug-application-cluster/logging-elasticsearch-kibana/
+- Fluentd:
+    - https://docs.fluentd.org/

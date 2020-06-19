@@ -1,6 +1,6 @@
 # Challenge 11: Coach's Guide
 
-[< Previous Challenge](./10-networking.md)
+[< Previous Challenge](./10-networking.md) - **[Home](../readme.md)**
 
 ## Notes & Guidance
 

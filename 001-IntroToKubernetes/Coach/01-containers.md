@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide
 
-[< Previous Challenge](./00-prereqs.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./02-acr.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](../readme.md)** - [Next Challenge >](./02-acr.md)
 
 ## Notes & Guidance
 

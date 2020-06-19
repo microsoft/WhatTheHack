@@ -1,6 +1,6 @@
 # Challenge 4: Coach's Guide
 
-[< Previous Challenge](./03-k8sintro.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./05-scaling.md)
+[< Previous Challenge](./03-k8sintro.md) - **[Home](../readme.md)** - [Next Challenge >](./05-scaling.md)
 
 ## Notes & Guidance
 
