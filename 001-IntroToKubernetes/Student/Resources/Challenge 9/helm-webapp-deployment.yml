@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-webapp
-  namespace: whatthehack-webapps
+  namespace: whatthehack
   labels:
     k8s-app: nginx-webapp
 spec:
