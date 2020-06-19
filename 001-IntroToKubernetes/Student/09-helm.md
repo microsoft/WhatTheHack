@@ -18,10 +18,15 @@ In this challenge you will be installing Helm locally and in your cluster and th
 
 ## Challenge
 
+### Without Helm
 - Deploy the Language Facts application for this challenge using the yaml files provided in your Challenge 9 Resources folder. You will have to install the namespace, deployment and service yaml in that sequence.
 	- `helm-webapp-namespace.yml`
 	- `helm-webapp-deployment.yml`
 	- `helm-webapp-service.yml`
+- Verify that the app has been deployed successfully by browsing the web app via the LoadBalancer IP address at port 80. 
+- Redeploy the app to use v2 of the image and verify that the update is visible in the web app. Repeat these steps with v3 and v4 of the container image.
+
+### With Helm
 - Fetch the script for installing Helm to the local machine where you will be using Helm
 	- `curl -fsSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 -o get_helm.sh`
 - Set permissions that will make the script executable on the machine
@@ -29,11 +34,11 @@ In this challenge you will be installing Helm locally and in your cluster and th
 - Install Helm client locally
 	- `./get_helm.sh`
 - Creating a Helm Chart from a local package
-	- **NOTE:** You will need to create the expected namespace on the CLI when you run the `helm install` command (it is a parameter). You'll need to use the namespace found in this file (the namespace will NOT be a part of your Chart but must be specified when installing the chart):
+	- **NOTE:** You will need to create the expected namespace on the CLI when you run the `helm install` command (it is a parameter). You'll need to use the namespace found in this file that you used above 
 		- `helm-webapp-namespace.yml`
-	- Verify that the app has been deployed successfully by browsing the web app via the LoadBalancer IP address at port 80. 
-	- Redeploy the app to use v2 of the image and verify that the update is visible in the web app. Repeat these steps with v3 and v4 of the container image.
+		- **Hint:** The namespace will NOT be a part of your Chart but must be specified when installing the chart.
 	- Convert these yaml files that were just used to deploy the app into a Helm chart using v1 of the container image.
+		- **DO NOT** blindly copy the entire yaml file into the chart. The whole point of helm is that it allows us to parameterize our yaml files and make them more versatile.
 	- Create a Helm package on the local machine for each version of the web app.
 		- **Hint:** If you parameterize things properly, you'll be able to write ONE helm chart that takes the version as an input.
 	- Remove the previously deployed app by deleting the namespace that was created via the yaml file
