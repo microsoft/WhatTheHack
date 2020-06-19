@@ -10,8 +10,6 @@ We are going to need MongoDB for v2 of our application and we'll be running it i
 
 In this challenge we'll be installing MongoDB into our cluster.
 
-## Challenge
-
 - Deploy a MongoDB container in a pod for v2 of the FabMedical app
 - **Hint:** Check out the Docker Hub container registry and see what you can find. 
 - Confirm it is running with:

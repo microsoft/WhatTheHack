@@ -10,8 +10,6 @@ Now that we have our application packaged as container images, where do they go?
 
 In this challenge we will be creating and setting up a new, private, Azure Container Registry. This will be the new home of the containers we just created. We will see later on how Kubernetes will pull our images from this registry.
 
-## Challenge
-
 - Deploy an Azure Container Registry (ACR)
 - Ensure your ACR has proper permissions and credentials set up
 - Login to your ACR

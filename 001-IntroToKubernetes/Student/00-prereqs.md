@@ -10,8 +10,6 @@ A smart cloud solution architect always has the right tools in their toolbox.
 
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
-## Challenge
-
 - Make sure that you have joined the Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
 - Install the recommended toolset:
     - Windows Subsystem for Linux

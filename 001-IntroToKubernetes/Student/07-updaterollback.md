@@ -10,8 +10,6 @@ It's time to update your application, what do you do in a containerized world? K
 
 In this challenge you'll be deploying a v2 of the FabMedical application to your Kubernetes cluster. We're going to do this using two different update strategies: "Rolling Update" and "Blue/Green Deployment".
 
-## Challenge
-
 - We have staged an updated version of the app on Docker Hub with id and version:
 	- **whatthehackmsft/content-web:v2**
 	- **whatthehackmsft/content-api:v2**

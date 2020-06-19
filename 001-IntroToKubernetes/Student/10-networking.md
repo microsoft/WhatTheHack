@@ -10,8 +10,6 @@ We started out with some very simple, default networking that Kubernetes gives u
 
 In this challenge you will be installing an Ingress Controller and learning how the "Ingress" resource in Kubernetes works. 
 
-## Challenge
-
 - Delete the existing content-web deployment and service.
 - Get the AKS cluster DNS host name from the Azure Portal
 - Install the nginx ingress controller.
