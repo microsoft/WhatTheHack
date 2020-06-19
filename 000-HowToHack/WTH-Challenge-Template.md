@@ -4,7 +4,7 @@ This is a markdown template for how a WTH Challenge should be organized and form
 
 # Challenge \# - \<Challenge Name>
 
-[< Previous Challenge](./ChallengeX-1.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./ChallengeX+1.md)
+[< Previous Challenge](./ChallengeX-1.md) - **[Home](../readme.md)** - [Next Challenge>](./ChallengeX+1.md)
 
 ## Pre-requisites (Optional)
 
