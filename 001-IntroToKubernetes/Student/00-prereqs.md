@@ -20,7 +20,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
         - Must be at least version 2.7.x
         - **NOTE:** If you’re running into issues running Azure CLI command on Windows, disable Global Protect (VPN)
     - Visual Studio Code
-- **NOTE:** You can start the next challenge even if this one is still running by using the the Azure Cloud Shell.
+- **NOTE:** You can start the next challenge even if this one is still running by using the Azure Cloud Shell.
 - **Tip:** You can complete almost all of the challenges with the Azure Cloud Shell!  But be a good cloud architect and make sure you have experience installing the tools locally.
 
 ## Success Criteria
