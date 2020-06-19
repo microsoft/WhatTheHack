@@ -1,6 +1,6 @@
 # Challenge 2 - Deploy a Virtual Network
 
-[< Previous Challenge](./ARM-Challenge-01.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./ARM-Challenge-03.md)
+[< Previous Challenge](./ARM-Challenge-01.md) - [Home](../readme.md) - [Next Challenge>](./ARM-Challenge-03.md)
 
 ## Introduction
 
