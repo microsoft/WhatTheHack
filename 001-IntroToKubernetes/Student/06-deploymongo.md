@@ -1,6 +1,6 @@
 # Challenge 6: Deploy MongoDB to AKS
 
-[< Previous Challenge](./05-scaling.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./07-updaterollback.md)
+[< Previous Challenge](./05-scaling.md) - **[Home](../readme.md)** - [Next Challenge >](./07-updaterollback.md)
 
 ## Introduction
 

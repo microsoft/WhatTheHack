@@ -1,6 +1,6 @@
 # Challenge 9: Helm
 
-[< Previous Challenge](./08-storage.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./10-networking.md)
+[< Previous Challenge](./08-storage.md) - **[Home](../readme.md)** - [Next Challenge >](./10-networking.md)
 
 ## Introduction
 

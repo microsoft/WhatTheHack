@@ -1,6 +1,6 @@
 # Challenge 3: Coach's Guide
 
-[< Previous Challenge](./02-acr.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./04-k8sdeployment.md)
+[< Previous Challenge](./02-acr.md) - **[Home](../readme.md)** - [Next Challenge >](./04-k8sdeployment.md)
 
 ## Notes & Guidance
 
@@ -17,7 +17,7 @@
 		- [CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
 - It is usually a good idea to explain to the students what kind of options they have when creating a cluster. Doing a walkthrough demo of provisioning a cluster with the Portal is good showcasing tool, but end by telling them they need to figure out how to achieve the same thing with the CLI.
 - Have the teams show you the running cluster with:
-	- kubectl get nodes
+	- `kubectl get nodes`
 		- It should 3 nodes with each node in a different availability zone.  
 	- Each node should be a VM with at least 2 vCPU and 4 GB of memory.  The reason for this is that we need to have enough CPU and RAM for the system pods to run (e.g. CoreDNS and tunnelfront).  See this link for more details: 
     	- https://docs.microsoft.com/en-us/azure/aks/use-system-pools.

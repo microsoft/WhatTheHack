@@ -1,6 +1,6 @@
 # Challenge 2: Coach's Guide
 
-[< Previous Challenge](./01-containers.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./03-k8sintro.md)
+[< Previous Challenge](./01-containers.md) - **[Home](../readme.md)** - [Next Challenge >](./03-k8sintro.md)
 
 ## Notes & Guidance
 
