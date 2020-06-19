@@ -25,10 +25,11 @@ In this challenge you will be installing Helm locally and in your cluster and th
 - Install Helm client locally
 	- `./get_helm.sh`
 - Creating a Helm Chart from a local package
-	- Deploy the application for this challenge using the yaml files provided in your Challenge 9 Resources folder. You will have to install the namespace, deployment and service yaml in that sequence.
-		- `helm-webapp-namespace.yml`
+	- Deploy the application for this challenge using the yaml files provided in your Challenge 9 Resources folder. You will have to install the deployment and service yaml in that sequence.
 		- `helm-webapp-deployment.yml`
 		- `helm-webapp-service.yml`
+	- **NOTE:** You will need to create the expected namespace on the CLI when you run the `helm install` command (it is a parameter). You'll need to use the namespace found in this file (which will NOT be included in your Chart):
+		- `helm-webapp-namespace.yml`
 	- Verify that the app has been deployed successfully by browsing the web app via the LoadBalancer IP address at port 80. 
 	- Redeploy the app to use v2 of the image and verify that the update is visible in the web app. Repeat these steps with v3 and v4 of the container image.
 	- Convert these yaml files that were just used to deploy the app into a Helm chart using v1 of the container image.
@@ -49,3 +50,13 @@ In this challenge you will be installing Helm locally and in your cluster and th
 1. You've created a Chart to install the application.
 1. The application installs and runs correctly.
 1. You're able to push the Chart to a container registry and install it from there.
+
+## Learning Resources
+
+-	https://www.digitalocean.com/community/tutorials/an-introduction-to-helm-the-package-manager-for-kubernetes
+-	https://docs.microsoft.com/en-us/azure/aks/quickstart-helm
+-	https://helm.sh/
+-	https://helm.sh/docs/intro/install/
+-	https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm
+-	https://docs.microsoft.com/en-us/azure/azure-app-configuration/integrate-kubernetes-deployment-helm
+
