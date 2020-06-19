@@ -1,6 +1,6 @@
 # Challenge 8: Coach's Guide
 
-[< Previous Challenge](./07-updaterollback.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./09-helm.md)
+[< Previous Challenge](./07-updaterollback.md) - **[Home](../readme.md)** - [Next Challenge >](./09-helm.md)
 
 ## Notes & Guidance
 - Make sure that the attendees are using the latest container images including the **content-init** Node.js container

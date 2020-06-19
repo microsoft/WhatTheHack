@@ -1,6 +1,6 @@
 # Challenge 7: Updates and Rollbacks
 
-[< Previous Challenge](./06-deploymongo.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./08-storage.md)
+[< Previous Challenge](./06-deploymongo.md) - **[Home](../readme.md)** - [Next Challenge >](./08-storage.md)
 
 ## Introduction
 

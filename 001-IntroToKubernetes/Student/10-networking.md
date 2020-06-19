@@ -1,6 +1,6 @@
 # Challenge 10: Networking
 
-[< Previous Challenge](./09-helm.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge >](./11-opsmonitoring.md)
+[< Previous Challenge](./09-helm.md) - **[Home](../readme.md)** - [Next Challenge >](./11-opsmonitoring.md)
 
 ## Introduction
 
