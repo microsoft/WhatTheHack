@@ -6,7 +6,7 @@ replicaCount: 2
 
 appData:
   labelValue: "nginx-webapp"
-  imageName: "izzyacademy/nginxserver"
+  imageName: "whatthehackmsft/nginxserver"
   imageVersion: "latest"
   namespace: "whatthehack"
 
