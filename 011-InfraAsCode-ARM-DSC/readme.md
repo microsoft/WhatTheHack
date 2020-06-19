@@ -44,10 +44,10 @@ The PowerShell DSC challenges start by having you deploy a simple DSC script. Fu
    - Learn how to find Azure resource values
 1. [Open Some Ports](./Student/ARM-Challenge-03.md)
    - Learn about variables, dependencies, and idempotency
-1. Secret Values with Azure Key Vault
+1. [Secret Values with Azure Key Vault](./Student/ARM-Challenge-04.md)
    - Learn how to not lose your job
-1. Deploy a Virtual Machine
-   - Windows (5W) or Linux (5L), your choice. If you choose Windows, you can switch gears and do the PowerShell DSC challenges afterwards
+1. [Deploy a Virtual Machine](./Student/ARM-Challenge-05.md)
+   - Windows, Linux, or both. It's your choice. If you choose Windows, you can switch gears and do the PowerShell DSC challenges afterwards
 1. Configure a Linux Server
    - Learn about custom script extensions
 1. Implement High Availability
