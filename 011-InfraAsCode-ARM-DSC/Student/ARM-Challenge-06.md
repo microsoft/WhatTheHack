@@ -31,3 +31,4 @@ Your challenge is to:
 
 - Use an Azure Blob Storage account as the artifact location
 - Secure access to the artifact location with a SAS token
+- Pass these values to the ARM Template as parameters
