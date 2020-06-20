@@ -33,6 +33,6 @@ The goals for this challenge include understanding:
 
 ## Learning Resources
 
-- Link to Azure High Availability Documentation
-- Link to Azure Load Balancer
-- Link to Azure Availability Sets
+- [Availability options for virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/availability)
+- [Overview of load-balancing options in Azure](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview)
+- [What is Azure Load Balancer?](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
