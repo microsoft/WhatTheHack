@@ -12,7 +12,7 @@ An application may require the composition of many underlying infrastructure res
 
 When templates get big, they become monoliths. They are hard to manage.  By breaking your templates up into smaller linked templates, you can achieve more flexibility in how you manage your deployments.
 
-In many companies, deployment of cloud infrastructure may be managed by different teams. For example, a common network architecture and its security settings may be maintained by a networking team across multiple application development teams.
+In many companies, deployment of cloud infrastructure may be managed by different teams. For example, a common network architecture and its security settings may be maintained by an operations team and shared across multiple application development teams.
 
 The network architecture and security groups are typically stable and do not change frequently. In contrast, application deployments that are deployed on the network may come and go.
 
@@ -25,7 +25,7 @@ In this challenge you will separate your existing ARM template deployment into t
 - Create a new template that deploys each of the new sub-templates.
 - Ensure parameters flow through from the new template to each of the sub-templates
 
-By separating the networking resources into their own template, an application team can test its infrastructure deployment in a test environment. At a later point in time, the linked networking template can be replaced with a production template provided by the company's networking team.
+By separating the networking resources into their own template, an application team can test its infrastructure deployment in a test network. At a later point in time, the linked networking template can be replaced with a production template provided by the company's operations team.
 
 ## Success Criteria
 
