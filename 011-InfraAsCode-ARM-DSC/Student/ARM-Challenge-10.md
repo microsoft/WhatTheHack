@@ -28,7 +28,7 @@ Your challenge is to:
 
 1. Verify you can view the web page configured by the script
 
-## Tips (Optional)
+## Tips
 
 - Use an Azure Blob Storage account as the artifact location
 - Secure access to the artifact location with a SAS token
