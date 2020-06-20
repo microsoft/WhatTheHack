@@ -102,3 +102,4 @@ For more details, see: [IaC ARM-DSC Hack - Prerequisites](./Student/Guides/Prere
 - Peter Laudati
 - Gino Filicetti
 - Albert Wolchesky
+- Ali Hussain
