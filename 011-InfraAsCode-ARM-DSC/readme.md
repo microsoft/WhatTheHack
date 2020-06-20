@@ -48,28 +48,28 @@ The PowerShell DSC challenges start by having you deploy a simple DSC script. Fu
    - Learn how to not lose your job
 1. [Deploy a Virtual Machine](./Student/ARM-Challenge-05.md)
    - Windows, Linux, or both. It's your choice. If you choose Windows, you can switch gears and do the PowerShell DSC challenges afterwards
-1. Configure a Linux Server
+1. [Configure a Linux Server](./Student/ARM-Challenge-06.md)
    - Learn about custom script extensions
-1. Implement High Availability
+1. [Implement High Availability](./Student/ARM-Challenge-07.md)
    - Learn about availability sets, looping, and load balancers
-1. SSH to your Highly Available VMs
+1. [SSH to your Highly Available VMs](./Student/ARM-Challenge-08.md)
    - Learn about network access policies
-1. Deploy a Virtual Machine Scale Set
+1. [Deploy a Virtual Machine Scale Set](./Student/ARM-Challenge-09.md)
    - Learn about scalability for Infrastructure on Azure
-1. Configure VM Scale Set to run a Web Server
+1. [Configure VM Scale Set to run a Web Server](./Student/ARM-Challenge-10.md)
    - Learn about custom script extensions
-1. Implement Auto Scaling
+1. [Implement Auto Scaling](./Student/ARM-Challenge-11.md)
    - Learn about declarative management of policies and actions
-1. Linked Templates
+1. [Linked Templates](./Student/ARM-Challenge-12.md)
    - Learn how create smaller templates for granular resource management
 
 ### PowerShell DSC Challenges
 
-1. Deploy a Windows Virtual Machine
+1. [Deploy a Windows Virtual Machine](./Student/DSC-Challenge-01.md)
    - Get yourself ready to develop your IoT solution
-2. Simple DSC
+2. [Simple DSC](./Student/DSC-Challenge-02.md)
    - Learn about built in DSC Resources on Windows Server
-3. File Server DSC
+3. [File Server DSC](./Student/ARM-Challenge-03.md)
    - Learn about external DSC Resources from PowerShell Gallery
 
 ## Prerequisites
