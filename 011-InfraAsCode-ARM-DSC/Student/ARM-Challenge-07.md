@@ -28,7 +28,8 @@ The goals for this challenge include understanding:
 ## Success Criteria
 
 1. Verify you can access the website at the public IP address of the Load Balancer.
-1. Verify you can access the website if one of the VMs is turned off
+`http://<LoadBalancerPublicIP>/wth.html`
+1. Verify you can still access the website if one of the VMs is turned off
 
 ## Learning Resources
 
