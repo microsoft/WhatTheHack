@@ -1,6 +1,6 @@
 # Challenge 0: Coach's Guide
 
-[Home](../readme.md) - [Next Challenge >](./01-containers.md)
+**[Home](../readme.md)** - [Next Challenge >](./01-containers.md)
 
 ## Notes & Guidance
 
