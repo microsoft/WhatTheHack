@@ -5,9 +5,9 @@
 
 ## Introduction
 
-The goals of this challenge are learnin to undestand:
-    +   Use external DSC resources from PowerShell Gallery
-    +   Logistics to import & deploy external DSC resources
+The goals of this challenge are learning to undestand:
+- Use of external DSC resources from PowerShell Gallery
+- Logistics to import & deploy external DSC resources
 
 ## Description
 
@@ -15,10 +15,14 @@ The goals of this challenge are learnin to undestand:
 
 ## Success Criteria
 
+1. Verify that you can access the file shares in Windows Explorer.
+
 ## Learning Resources
 
-
-## Tips
+- [DSC Community on GitHub](https://github.com/dsccommunity)
+- [PowerShell Gallery](https://www.powershellgallery.com)
+- [The PowerShell Gallery](https://docs.microsoft.com/en-us/powershell/scripting/gallery/overview?view=powershell-7)
 
 ## Bonus Challenge
-+	Use PowerShell cmdlet Publish-AzureRmVMDscConfiguration to package & publish the DSC script + external resources directly to staging location in Blob storage
+
+- Use PowerShell cmdlet Publish-AzureRmVMDscConfiguration to package & publish the DSC script + external resources directly to a staging location in Blob storage
