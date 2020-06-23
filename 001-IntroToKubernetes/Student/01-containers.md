@@ -1,6 +1,6 @@
 # Challenge 1: Got Containers?
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](../readme.md)** - [Next Challenge >](./02-acr.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-acr.md)
 
 ## Introduction
 
