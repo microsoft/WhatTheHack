@@ -21,12 +21,18 @@ The goals of this challenge include understanding:
 
 ## Success Criteria
 
-1. Connect to the VM via Remote Desktop and verify that the three folders have been created on the C:\ driver.
+1. Connect to the VM via Remote Desktop and verify that the three folders have been created on the C:\ drive.
 
 ## Learning Resources
 
-- Link for built in DSC Resources for Windows Server
-- Sample DSC script
+- [Windows PowerShell DSC Overview](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview?view=powershell-7)
+- [Built-in Windows Resources](https://docs.microsoft.com/en-us/powershell/scripting/dsc/resources/resources?view=powershell-7#windows-built-in-resources)
+- [Securing PowerShell DSC within Azure ARM Templates](https://poshsecurity.com/blog/securing-powershell-dsc-within-azure-arm-templates)
+- [Using PowerShell DSC in ARM Templates](https://www.mavention.nl/blogs-cat/using-powershell-dsc-in-arm-templates/?cn-reloaded=1)
+- [Desired State Configuration extension with ARM Templates](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template)
+- [Introduction to the Azure DSC extension handler](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview)
+- [PowerShell DSC Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-windows)
+
 
 ## Tips
 

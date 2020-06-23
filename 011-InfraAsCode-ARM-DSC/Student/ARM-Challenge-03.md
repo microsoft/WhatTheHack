@@ -22,4 +22,3 @@ Extend the ARM template to add a Network Security Group that opens ports 80 and 
 ## Learning Resources
 
 - [Understanding ARM Resource IDs](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource#resourceid)
-- [ARM Templates: Using ResourceID Function and DependsOn Element](http://techgenix.com/arm-templates-resourceid/)

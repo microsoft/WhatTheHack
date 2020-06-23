@@ -86,7 +86,7 @@ You will want to prepare your machine with the following to help complete the Ch
 	* [ARM Snippets](https://marketplace.visualstudio.com/items?itemName=samcogan.arm-snippets)
 * [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
-For more details, see: [IaC ARM-DSC Hack - Prerequisites](./Student/Guides/Prerequisites.md)
+For more details, see: [IaC ARM-DSC Hack - Prerequisites](./Student/Prerequisites.md)
 
 ## Repository Contents 
 - `../Coach`

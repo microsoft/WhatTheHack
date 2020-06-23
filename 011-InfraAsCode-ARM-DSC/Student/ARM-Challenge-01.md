@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 
-Make sure your machine is set up with the proper tooling: [IaC ARM-DSC Hack - Prerequisites](../Student/Guides/Prerequisites.md)
+Make sure your machine is set up with the proper tooling: [IaC ARM-DSC Hack - Prerequisites](./Prerequisites.md)
 
 
 ## Introduction
@@ -25,8 +25,3 @@ Develop an ARM template that accepts a generic input value and returns it as an 
 
 1. You can deploy the template using both the CLI and PowerShell
 1. You can view the deployment in the Azure Portal and view the inputs & outputs
-
-## Learning Resources
-
-- [Understand the structure and syntax of ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-syntax) 
-- [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code?tabs=CLI)
