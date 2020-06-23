@@ -1,6 +1,6 @@
 # Challenge 8: Storage
 
-[< Previous Challenge](./07-updaterollback.md) - **[Home](../readme.md)** - [Next Challenge >](./09-helm.md)
+[< Previous Challenge](./07-updaterollback.md) - **[Home](../README.md)** - [Next Challenge >](./09-helm.md)
 
 ## Introduction
 
