@@ -27,6 +27,7 @@ See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAutho
 Here is the current list of What The Hack hackathons available in this repository:
 
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
+- [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
 - [Hotel California/Vegas Dev Hack](/004-HotelCaliVegasDevHack/README.md)
@@ -47,6 +48,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
+- [Azure Governance](/022-AzureGovernance/README.md)
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
@@ -54,5 +56,3 @@ This repository is licensed under MIT license. More info can be found [here](htt
 # [Contributing](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md)
 
 We welcome contributions and suggestions. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md).
-
-
