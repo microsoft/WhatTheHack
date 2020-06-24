@@ -1,6 +1,6 @@
 # Challenge 5: Scaling and High Availability
 
-[< Previous Challenge](./04-k8sdeployment.md) - **[Home](../readme.md)** - [Next Challenge >](./06-deploymongo.md)
+[< Previous Challenge](./04-k8sdeployment.md) - **[Home](../README.md)** - [Next Challenge >](./06-deploymongo.md)
 
 ## Introduction
 

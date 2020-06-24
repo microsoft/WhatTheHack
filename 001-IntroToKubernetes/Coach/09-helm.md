@@ -1,6 +1,6 @@
 # Challenge 9: Coach's Guide
 
-[< Previous Challenge](./08-storage.md) - **[Home](../readme.md)** - [Next Challenge >](./10-networking.md)
+[< Previous Challenge](./08-storage.md) - **[Home](README.md)** - [Next Challenge >](./10-networking.md)
 
 ## Notes & Guidance
 - You should deliver a demo in addition to the lecture to show what a working Helm chart looks like.

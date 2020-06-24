@@ -1,6 +1,6 @@
 # Challenge 4: Your First Deployment
 
-[< Previous Challenge](./03-k8sintro.md) - **[Home](../readme.md)** - [Next Challenge >](./05-scaling.md)
+[< Previous Challenge](./03-k8sintro.md) - **[Home](../README.md)** - [Next Challenge >](./05-scaling.md)
 
 ## Introduction
 
