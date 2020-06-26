@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 4 – Azure Pipelines: Infrastructure as Code
-[Back](challenge03.md) - [Home](../../readme.md) - [Next](challenge05.md)
+[Back](challenge03.md) - [Home](../readme.md) - [Next](challenge05.md)
 
 ### Introduction
 
@@ -34,4 +34,4 @@ In Azure DevOps we can use Azure Pipelines to automate deploying our Azure infra
 
 > NOTE: We are just scratching the surface of what is offered in Azure for Infrastructure as Code, if you are interested in learning more there is a full What the Hack focused on Azure Infrastructure as Code.
 
-[Back](challenge03.md) - [Home](../../readme.md) - [Next](challenge05.md)
+[Back](challenge03.md) - [Home](../readme.md) - [Next](challenge05.md)
