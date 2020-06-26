@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 9 – Azure Pipelines: OSS Scanning with WhiteSource Bolt
-[Back](challenge08.md) - [Home](../../readme.md) 
+[Back](challenge08.md) - [Home](../readme.md) 
 
 ### Introduction
 
@@ -23,4 +23,4 @@ In this challenge we will deploy WhiteSource Bolt to scan our source code to see
 1. Run your build again, what vulnerabilities were found?
 
 
-[Back](challenge08.md) - [Home](../../readme.md) 
+[Back](challenge08.md) - [Home](../readme.md) 
