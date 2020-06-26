@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 7 – Azure Repos: Branching & Policies
-[Back](challenge06.md) - [Home](../../readme.md) - [Next](challenge08.md)
+[Back](challenge06.md) - [Home](../readme.md) - [Next](challenge08.md)
 
 ### Introduction
 
@@ -36,4 +36,4 @@ In this challenge we will first create a second build pipeline that will build a
 2. Your work item should be in the "closed" state.
 
 
-[Back](challenge06.md) - [Home](../../readme.md) - [Next](challenge08.md)
+[Back](challenge06.md) - [Home](../readme.md) - [Next](challenge08.md)

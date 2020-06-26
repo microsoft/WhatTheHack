@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 3 - Azure Repos: Introduction
-[Back](challenge02.md) - [Home](../../readme.md) - [Next](challenge04.md)
+[Back](challenge02.md) - [Home](../readme.md) - [Next](challenge04.md)
 
 ### Introduction
 
@@ -24,4 +24,4 @@ Now that we have a basic understanding of version control and Git, lets get some
 1. You should be able to go to the Azure DevOps site and under Azure Repos see your code. 
 2. You should be able to go to the Azure DevOps site and under Azure Boards and when you open your work item you should see your code associated to it. HINT: look in the "development" section on the work item. Why would it be important to be able to link a code change to the work item that it addresses? 
 
-[Back](challenge02.md) - [Home](../../readme.md) - [Next](challenge04.md)
+[Back](challenge02.md) - [Home](../readme.md) - [Next](challenge04.md)
