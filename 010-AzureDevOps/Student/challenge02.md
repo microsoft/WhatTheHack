@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 2 – Azure Boards: Agile Project Management
-[Back](challenge01.md) - [Home](../../readme.md) - [Next](challenge03.md)
+[Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
 
 ### Introduction
 
@@ -27,4 +27,4 @@ To help you with Agile project management, Azure DevOps includes Azure Boards. W
 
 1. You should have experienced creating and managing Agile project management using Azure Boards.
 
-[Back](challenge01.md) - [Home](../../readme.md) - [Next](challenge03.md)
+[Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)

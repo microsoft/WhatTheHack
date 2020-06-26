@@ -1,7 +1,7 @@
 # What the Hack: DevOps 
 
 ## Challenge 1 - Azure DevOps: Introduction
-[Back](challenge00.md) - [Home](../../readme.md) - [Next](challenge02.md)
+[Back](challenge00.md) - [Home](../readme.md) - [Next](challenge02.md)
 
 ### Introduction
 
@@ -25,4 +25,4 @@ We can only assume that you are doing this What the Hack because you understand 
 3. You should be able to list and describe the major features of Azure DevOps.
 4. You should be able to see the Azure DevOps Organizations and projects created by the other members of your hack team.
 
-[Back](challenge00.md) - [Home](../../readme.md) - [Next](challenge02.md)
+[Back](challenge00.md) - [Home](../readme.md) - [Next](challenge02.md)
