@@ -45,4 +45,6 @@ Each of the Service Meshes have their own set of documentation for how to implem
 
 ## Hints
 
-- If using Cloud Shell, it may use an older version of `istioctl`.  Instead of `istioctl install`, use `istioctl manifest apply`
+- If using Cloud Shell:
+    - It may use an older version of `istioctl`.  Instead of `istioctl install`, use `istioctl manifest apply`
+    - None of the dashboards/port-forwarding will work because the ports are opened on the Cloud Shell, NOT on your local host.
