@@ -86,7 +86,7 @@ kubectl apply -f hpa-example.yaml
 ### Create the HPA for this deployment
 
 ```bash
-kubectl autoscale deployment/hpa-example --max=10
+kubectl autoscale deployment/hpa-example --max=10 --cpu-percent=20
 ```
 
 ### Simulate load by sending requests to the service
