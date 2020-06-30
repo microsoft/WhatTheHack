@@ -32,9 +32,8 @@ is for their data warehouse (OLAP).  You will need to setup both environments as
 ## Tools
 
 1. [SQL Server Management Studion (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
-2. [Visual Studio 2017 with Integration Services](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision#1-configure-basic-settings) 
-3. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
-4. DataWarehouseMigrationUtility.zip (Located in the current directory. This is a Learning tool and not recommended or supported for actual migrations)
+2. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
+3. DataWarehouseMigrationUtility.zip (Located in the current directory. This is a Learning tool and not recommended or supported for actual migrations)
 
 
 ## Migration Overview
@@ -50,21 +49,18 @@ There will be four different object types we'll migrate:
 
 * Database Schema
 * Database code (Store Procedure, Function, Triggers, etc)
-* SSIS code set refactor (Optional, Team has past experience and expertise let them refactor.  All otehr student share ispac package)
+* SSIS code set refactor (Share SSIS Job with team before they load data in Synapse)
 * Data migration (with SSIS)
 
 Guidelines will be provided below but you will have to determine how best to migrate.  At the end of the migration compare your 
-end state to the one we've published into the "Coach/Solutions/Challenge1" folder.  The detailed migration guide below is here for things to consider during your migration. Please follow this [outline](https://techcommunity.microsoft.com/t5/datacat/migrating-data-to-azure-sql-data-warehouse-in-practice/ba-p/305355) and cross-reference it
-for a comprehensive list of items to consider during a migraiton. 
+end state to the one we've published into the "Coach/Solutions/Challenge1" folder.  The detailed migration guide below is here for things to consider during your migration.
 
 ### Database Schema migration steps
 
 Database schemas need to be migrated from SQL Server to Azure Synapse.  Due to the MPP architecture, this will be more than just a data type translation exericse.  You will need to focus
-on how best to distribute the data across each table follow this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview).  A list of unsupported data types can be found in this [article](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) and how to find the best alternative. 
+on how best to distribute the data across each table follow this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview).  A list of unsupported data types can be found in this [article](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) and how to find the best alternative. For Geography fields, please students to drop them from the DDL statements since they will not be part of teh SSIS job.
 
-As a learning tool, the Data Warehouse migration utility can be a guided approach to migrating your schemas.  I suggest you run the tool to determine incompatibilities but actually generate the scripts by hand.  Here is [a set of instructions](https://www.sqlservercentral.com/articles/azure-dwh-part-11-data-warehouse-migration-utility) to follow to use the utility.  
-
-There are four files in this root directory that have a prefix "WideWorldImportersDW".  These are output files from the migration utility that can provide guidance on what needs to be refactored.
+As a learning tool, the Data Warehouse migration utility can be a guided approach to migrating your schemas.  We suggest you run the tool to determine incompatibilities but actually generate the scripts by hand.  Here is [a set of instructions](https://www.sqlservercentral.com/articles/azure-dwh-part-11-data-warehouse-migration-utility) to follow to use the utility.  
 
 1. Go to Source database on the SQL Server VM and right click the WWI DW database and select "Generate Scripts".  This will export all DDL statements for the database tables and schema.
 2. Create a user defined schema for each tier of the data warehouse; Integration, Dimension, Fact.
@@ -109,7 +105,7 @@ There are three patterns you can reuse across all scripts in the same family (Di
 3. Rewrite Fact T-SQL for appends only
     1. Advise students to refactor stored procedure called, "Integration.MigrateStagedSaleData".  Go to this [file](./CoachesnotesforSPSale.sql) to see solution and read comments for an explanation of changes.
 
-### SSIS Job Refactor -- Optional
+### SSIS Job Refactor -- Informational and not required as a success criteria for this hack
 Data movement in first lab will be execution of DailyETLMDWLC.ispac job in Azure Data Factory SSIS Runtime.  This lab will reuse data pipelines to minimize migration costs.
 As data volumes increase, these jobs will need to leverage a MPP platform like Databricks, Synapse, HDInsight to transform the data at scale.  This will be done in a future lab.  These instructions are here to explain to you the steps performed to refactor the code set.  Only have student refactor if they have the time and expertise with SSIS.  This is not a learning objective of the Hack.
 
@@ -118,33 +114,17 @@ As data volumes increase, these jobs will need to leverage a MPP platform like D
 1. Unit test the jobs in SSDT before deploying them to SSIS Runtime to ensure no errors
 1. Refactoring SSIS jobs are not a success criteria in this hack.  Please provide them the ispac package from the library when they complete deploying the stored procedures.  Steer them away from using BCP to migrate the data rather provide them the SSIS package ask them to run it in ADF SSIS Runtime for data migration.  Instruction below on BCP are informational for coaches.
 
-### Data Migration (BCP) -- Optional
+### Data Migration
 
-There are numerous strategies and tools to migrate your data from on-premise to Azure. [Reference document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading) 
+There are numerous strategies and tools to migrate your data from on-premise to Azure. [Reference document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading) We will leverage the SSIS packages to migrate our data from on-premise WWI DB to Azure Synapse Analytics.
 
-Due to the small size of this sample database, we will take the simplist strategy for this lab; [Bulk Copy Program](https://docs.microsoft.com/en-us/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (BCP).  You will run BCP commands from the 
-SQL Server Virtual Machine that hosts the OLAP database.  BCP export will extract the data to a txt file on your local machine.  BCP import will be run from the same Virtual
-machine where the text files reside.  The user name and password will need to be updated to your Azure Synapse instance.
-
-1. Run the SQL script in this directory, "Coach/Solutions/Challenge1/WideWorldImportersDW - Prereq for Export.txt" to generate a view in the OLAP database before you run BCP commands.
-2. Create BCP Scripts for each dimension, staging and fact table.  Those DDL scripts where you modified the columns will require you to define the columns to extract
-3. Execute BCP scripts as a batch file.  Place file in the same diretory as the flat files and open a command prompt and go to this directoy.  Run the batch file
-4. Create BCP Scripts to import the data in Azure Synapse Analytics.  Due to low data volume there is no need to first migrate them to Azure
-
-### Azure Data Factory SSIS Runtime
 1. Setup your SSIS job following these instructions. [Reference document](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15)
 1. Update Configuration Settings in SSIS package for source and target[Reference Document](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15)
 1. Execute DailyETL Package and monitor it for success
-1. Review Data Skew of Distributed Tables to see if your distribution keys are accurate [Reference document](https://github.com/rgl/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-manage-distributed-data-skew.md)
 
 
 ### Data Setup in Synapse
-Before each FULL (All Data) load, you will need to rollback your environment to the original state.  There is a stored procedure called, "Integration.Configuration_ReseedETL".  This ReseedETL Stored Procedure will need to be ran everytime you want to load the SSIS job.  
-
-For the first time setup, here are the steps that need to be performed.  This is only for the iniital setup of the database and first run of the SSIS job.  Everyrun thereafter only requires you to execute the Reseed ETL Stored Procedure.
-1. Deploy the dacpac or run all T-SQL Scripts in the Scripts folder that have a number prefix.
-1. BCP all data from the Seed_Data folder in Coach Solutions folder.  These three tables will be empty after restoring dacpac; Date, Lineage and ETL Cutoff.
-1. Execute the Reseed ETL Stored Procedure to rollback environment to original state before you load the data
+For the first time setup only, you will need to execute the "Master Create.sql" script to populate all control tables before you execute the SSIS job.  This is required and it is only done on the initial setup.  After this is complete, you can run the SSIS job.  For all subsequent runs after the initial setup, execute the Reseed ETL Stored Procedure only.  This stored procedure will rollback the database to it's original state.  
 
 A coach's suggestion is to have your team setup two enviroments for this challenge; Dev and Test.  This way they can hack all they want in their dev environment and not worry about impacting the work they've done to date.  After each challenge they can promote their dev code or restore the solution files into their test environment.  This way you can ensure after each challenge their environment won't regress and prevent them from going to the next challenge.
 

@@ -39,13 +39,15 @@ BEGIN
 
 /*  Part 1 - close off old records for Slowing Changing Dimensions Type II  
 
-    My fixes here are to use a CTAS as a Temporary table instad of a CTE  
+    There are two solutions
+	1. CTAS 
+	2. CTE with Column List (Recommended Solution for WTH)
 
 */ 
 
     /*  
 
---Common Table expression
+--Common Table expression [Original T-SQL Statement]
 WITH RowsToCloseOff 
 
     AS 
@@ -73,8 +75,26 @@ WITH RowsToCloseOff
     WHERE c.[Valid To] = @EndOfTime; 
 
 */ 
---Create Table as Selet (CTAS) as a replacement for CTE
- 
+
+-- Common Table Expression with column list (Solution used in WTH)
+
+WITH RowsToCloseOff([WWI City ID], [Valid From])
+    AS
+    (
+        SELECT c.[WWI City ID], MIN(c.[Valid From]) AS [Valid From]
+        FROM Integration.City_Staging AS c
+        GROUP BY c.[WWI City ID]
+    )
+    UPDATE c
+        SET c.[Valid To] = rtco.[Valid From]
+    FROM Dimension.City AS c
+    INNER JOIN RowsToCloseOff AS rtco
+    ON c.[WWI City ID] = rtco.[WWI City ID]
+    WHERE c.[Valid To] = @EndOfTime;
+
+
+--Create Table as Selet (CTAS) as a replacement for CTE (Alternative Solution)
+/*
 
 CREATE TABLE Integration.City_Staging_Temp 
 
@@ -99,6 +119,8 @@ SET c.[Valid To] = rtco.[Valid From]
     WHERE c.[WWI City ID] = rtco.[WWI City ID]  
 
 AND c.[Valid To] = @EndOfTime; 
+
+*/
 
 /*  Part 2 - Insert dimension records to staging  
 
@@ -168,10 +190,12 @@ No changes
 
    Added this statement to cleanup the CTAS table that was used instead of a CTE 
 
-*/ 
+*/
 
+/*
+--Required if you use CTAS tables
 DROP TABLE Integration.City_Staging_Temp 
-
+/*
  
 
     COMMIT; 

@@ -95,7 +95,7 @@
                             "type": "Expression"
                         },
                         "folderPath": {
-                            "value": "@concat('IN/WWIDW/',dataset().TableName)",
+                            "value": "@concat('IN/WWIDB/',dataset().TableName)",
                             "type": "Expression"
                         },
                         "fileSystem": "mdwhack"
@@ -134,7 +134,7 @@
                             "type": "Expression"
                         },
                         "folderPath": {
-                            "value": "@concat('Staged/WWIDW/',dataset().TableName)",
+                            "value": "@concat('RAW/WWIDB/',dataset().TableName)",
                             "type": "Expression"
                         },
                         "fileSystem": "mdwhack"

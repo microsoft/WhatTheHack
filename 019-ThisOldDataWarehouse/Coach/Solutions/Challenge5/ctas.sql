@@ -1,4 +1,4 @@
---COACH'S Note.  Success criteria #3 is to determine which table design is optimal for the Stock Item Table
+--COACH'S Note.  Success criteria #3 is to determine which table design is optimal for the City Table
 --This script will simulate the different table distributions so students can easily see the differences.
 --WARNING -- Explain plan is not always consistent in terms of overall cost and steps.
 --Ideal plan should have cost less than 2 and steps around 6.
@@ -20,7 +20,7 @@ SELECT [ReplicatedTable] = t.[name]
 
 --Simple statement to replicate data across all nodes.
 --Run this each time you run the CTAS statement with a replicate or load more data into the tables
-SELECT TOP 1 * FROM [Dimension].[Stock Item]
+SELECT TOP 1 * FROM [Dimension].[City]
 
 --There are three simulations.  Run each one with the explain plan to compare results (total cost, steps, and response time) -- 
 	-- One, Round Robin Distribution with Heap
@@ -31,58 +31,58 @@ SELECT TOP 1 * FROM [Dimension].[Stock Item]
 --ROUND ROBIN DISTRIBUTION with a HEAP index
 --Run explain plan to see costs
 --Check Skew report to see graph of how data is distributed across distributions
-CREATE TABLE [Dimension].[Stock_Item_ROUND_ROBIN]
+CREATE TABLE [Dimension].[City_ROUND_ROBIN]
 WITH
   (
     HEAP,
     DISTRIBUTION = ROUND_ROBIN
   )  
-AS SELECT * FROM [Dimension].[Stock Item]
-OPTION  (LABEL  = 'CTAS : Stock_Item_ROUNDROBIN')
+AS SELECT * FROM [Dimension].[City]
+OPTION  (LABEL  = 'CTAS : City_ROUNDROBIN')
 
 -- Switch table names
-RENAME OBJECT [Dimension].[Stock Item] to [Stock_Item_old];
-RENAME OBJECT [Dimension].[Stock_Item_ROUND_ROBIN] TO [Stock Item];
+RENAME OBJECT [Dimension].[City] to [City_old];
+RENAME OBJECT [Dimension].[City_ROUND_ROBIN] TO [City];
 
-DROP TABLE [Dimension].[Stock_Item_old];
+DROP TABLE [Dimension].[City;
 
 --Replicate DISTRIBUTION with a CLUSTERED INDEX
 --Run Select statement on line 18 before running the explain plan
 --Run explain plan to see the costs
 --Check Skew report to see graph of how data is distributed across distributions
-CREATE TABLE [Dimension].[Stock_Item_REPLICATE]
+CREATE TABLE [Dimension].[City_REPLICATE]
 WITH
 (
 	DISTRIBUTION = REPLICATE,
 	CLUSTERED INDEX
 	(
-		[Stock Item] ASC
+		[City Key] ASC
 	)
 )
-AS SELECT * FROM [Dimension].[Stock Item]
-OPTION  (LABEL  = 'CTAS : Stock_Item_REPLICATE')
+AS SELECT * FROM [Dimension].[City]
+OPTION  (LABEL  = 'CTAS : City_REPLICATE')
 
 -- Switch table names
-RENAME OBJECT [Dimension].[Stock Item] to [Stock_Item_old];
-RENAME OBJECT [Dimension].[Stock_Item_REPLICATE] TO [Stock Item];
+RENAME OBJECT [Dimension].[City] to [City_old];
+RENAME OBJECT [Dimension].[City_REPLICATE] TO [City];
 
-DROP TABLE [Dimension].[Stock_Item_old];
+DROP TABLE [Dimension].[City_old];
 
 --Replicate DISTRIBUTION with a CLUSTERED COLUMNSTORE INDEX
 --Run Select statement on line 18 before running the explain plan
 --Run explain plan to see the costs
 --Check Skew report to see graph of how data is distributed across distributions
-CREATE TABLE [Dimension].[Stock_Item_REPLICATE]
+CREATE TABLE [Dimension].[City_REPLICATE]
 WITH
 (
 	DISTRIBUTION = REPLICATE,
 	CLUSTERED COLUMNSTORE INDEX
 )
-AS SELECT * FROM [Dimension].[Stock Item]
-OPTION  (LABEL  = 'CTAS : Stock_Item_REPLICATE')
+AS SELECT * FROM [Dimension].[City]
+OPTION  (LABEL  = 'CTAS : City_REPLICATE')
 
 -- Switch table names
-RENAME OBJECT [Dimension].[Stock Item] to [Stock_Item_old];
-RENAME OBJECT [Dimension].[Stock_Item_REPLICATE] TO [Stock Item];
+RENAME OBJECT [Dimension].[City] to [City_old];
+RENAME OBJECT [Dimension].[City_REPLICATE] TO [City];
 
-DROP TABLE [Dimension].[Stock_Item_old];
+DROP TABLE [Dimension].[City_old];

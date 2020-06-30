@@ -57,10 +57,10 @@ SET LOAD_DATE = getdate()
 
 4. Define directory structure to support data lake use cases.  [This document](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-best-practices#batch-jobs-structure) describes this concept in more detail.
 
-    - .\IN\WWIDW\ [TABLE]\ - This will the sink location used as the landing zone for staging your data.
-    - .\RAW\WWIDW\ [TABLE]\{YY}\{MM}\{DD}\ - This will be the location for downstream systems to consume the data once it has been processed.
-    - .\STAGED\WWIDW\ [TABLE]\{YY}\{MM}\{DD}\ 
-    - .\CURATED\WWIDW\ [TABLE]\{YY}\{MM}\{DD}\
+    - .\IN\WWIDB\ [TABLE]\ - This will the sink location used as the landing zone for staging your data.
+    - .\RAW\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\ - This will be the location for downstream systems to consume the data once it has been processed.
+    - .\STAGED\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\ 
+    - .\CURATED\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\
 
 5. Configure folder level security in your new data lake storage.  Supporting documentation for securing ADLS Gen 2 can be found [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control). 
 
@@ -83,7 +83,7 @@ SET LOAD_DATE = getdate()
                     2. Create a COPY acitvity with properties below. Guide can be found [here](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal<br>
                         - > Source Dataset: WideWorldImporters - Stored Procedure [Integration].[GetCityUpdates]
                         <br><b>Note: You will need to modify this stored procedure to ensure that the [Location] field is excluded from the results.  Otherwise this data will cause errors due to incompatibility with Azure Data Factory.  You can find the updated procedure in the Scripts folder in the attached Solution Guide.</b><br>
-                        - > Sink Dataset: ADLS Gen2 - IN\WWIDW\CITY\<br>
+                        - > Sink Dataset: ADLS Gen2 - IN\WWIDB\CITY\<br>
                 NOTE: by using expressions and parameters in Linked Services, Datasets, and source query, you can make this pipeline dynamic and reuse for all tables.  See example of this pattern [here](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-portal)
                 
         - Create a 2nd pipeline with a ForEach Loop activity to iterate through the list of tables and execute Pipeline created above for each table.  A Guide describing how to implement this pattern can be found [here](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-bulk-copy-portal).<br>
