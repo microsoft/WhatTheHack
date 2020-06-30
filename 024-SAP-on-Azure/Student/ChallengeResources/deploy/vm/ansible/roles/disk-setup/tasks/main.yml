@@ -1,0 +1,126 @@
+---
+
+- name: ensure storage management software is installed
+  package:
+    name="{{ item }}"
+    state=present
+  with_items:
+    - gptfdisk
+    - sg3_utils
+    - lvm2
+  register: result
+  retries: "{{ package_retries_cnt }}"
+  until: result.rc == 0
+  delay: "{{ package_retries_delay }}"
+  tags:
+  - disk_setup
+
+## Return Value of failed rescan command not yet tested
+- name: rescanning for new disks
+  shell: |
+   new_disk=0
+   if [ ! -b {{ item.key }} ]; then
+          /usr/bin/rescan-scsi-bus.sh
+          new_disk=1
+          # if disk is not available after scan exit with error
+          [ ! -b {{ item.key }} ] && new_disk=2 && echo "ERROR: disk {{ item.key }} not found"
+   fi
+   exit ${new_disk}
+  register: newdisk
+  changed_when: newdisk.rc == 1
+  failed_when: newdisk.rc > 1
+  with_dict: "{{ disks }}"
+  tags:
+  - disk_setup
+
+- name: create disk partitions
+  shell: |
+   if pvdisplay -C '{{ item.key }}' ; then
+       echo '{{ item.key }}' in use
+       exit 0
+   else
+      sgdisk --zap {{ item.key }}
+      pvcreate '{{ item.key }}'
+      exit 90
+   fi
+  with_dict: "{{ disks }}"
+  register: pvcreate_result
+  changed_when: pvcreate_result.rc == 90
+  failed_when: pvcreate_result.rc > 0 and pvcreate_result.rc != 90
+  tags:
+    - disk_setup
+
+
+- name: create or extend volumegroups
+  shell: |
+    # Returncodes
+    # 0  : setup/change successful
+    # 90 : nothing changed
+    # >0 : failed
+    rc=0
+    if vgs --noheadings -o vg_name,pv_name | grep -q {{ item.value }}; then
+      #extend disk if not yet in disk group
+      if vgs --noheadings -o vg_name,pv_name {{ item.value }} | grep -q {{ item.key }}; then
+         # disk already in this diskgroup
+         rc=90
+      else
+         if [ -z "$(pvs --noheadings -o vg_name {{ item.key }}| tr -d ' ')" ]; then 
+             vgextend {{ item.value }} {{ item.key }}
+             rc=$?
+         else
+             ## possible to try vgreduce and vgextend on the disk
+             echo "ERROR: disk {{ item.key }} already used in other diskgroup"
+             rc=7
+         fi
+      fi
+    else 
+      vgcreate {{ item.value }} {{ item.key }}
+      rc=$?
+    fi
+    echo "RETURNCODE: $rc"
+    exit $rc
+  register: vgcreate_result
+  changed_when: vgcreate_result.rc == 0
+  failed_when: vgcreate_result.rc > 0 and vgcreate_result.rc != 90
+  with_dict: "{{ disks }}"
+  tags:
+    - disk_setup
+
+- name: create logical volumes
+  lvol:
+    state: present
+    vg: "{{ item.value.vol }}"
+    lv: lv_{{ item.key }}
+    size: "{{ item.value.size }}"
+    pvs: "{{ item.value.pvs | default(omit) }}"
+  with_dict: "{{ logvols }}"
+  tags:
+    - disk_setup
+  when: ( logvols is defined )
+
+- name: create filesystems
+  filesystem:
+    dev:  /dev/{{ item.value.vol}}/lv_{{ item.key }}
+    fstype: "{{ item.value.fstype | default('xfs')}}"
+    force: no
+    opts: "{{ item.value.opts | default(omit) }}"
+  with_dict: "{{ logvols }}"
+  ignore_errors: True
+  tags:
+    - disk_setup
+  when: logvols is defined
+
+- name: mount and make fstab entries
+  mount:
+    name: "{{ item.value.mountpoint }}"
+    fstype: "{{ item.value.fstype | default('xfs')}}"
+    opts: defaults
+    # passno: 4
+    src: "/dev/{{ item.value.vol }}/lv_{{ item.key }}"
+    state: mounted
+  with_dict: "{{ logvols }}"
+  tags:
+    - disk_setup
+  when: logvols is defined
+
+...

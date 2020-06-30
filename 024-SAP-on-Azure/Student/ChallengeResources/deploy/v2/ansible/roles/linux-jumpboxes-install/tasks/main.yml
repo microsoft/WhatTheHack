@@ -1,0 +1,21 @@
+---
+
+# Collect the component list from all linux jumpboxes except rti
+- name: Collect components for Linux jumpboxes
+  set_fact:
+    linux_comp_list: "{{ linux_comp_list + [ item.components ] }}"
+  loop: "{{ linux_jumpboxes }}"
+  when: item.destroy_after_deploy|bool == False
+
+- name: Flatten components to have one list for all Linux jumpboxes
+  set_fact:
+    linux_comp_list: "{{ linux_comp_list|flatten(levels=1)|unique }}"
+
+# Install Components on Linux Jumpboxes
+- name: Install components for Linux jumpboxes
+  include_role:
+    name: components-install
+    tasks_from: "{{ component }}.yml"
+  loop: "{{ linux_comp_list }}"
+  loop_control:
+    loop_var: component

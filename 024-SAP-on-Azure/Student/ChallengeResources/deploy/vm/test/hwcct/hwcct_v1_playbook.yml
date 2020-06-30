@@ -1,0 +1,47 @@
+---
+- name: Test using SAP H/W configuration check tool
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+          - zypper:
+                name: numactl
+                update_cache: yes
+                disable_gpg_check: yes
+          - name: download SAPCAR
+            get_url:
+                url: "{{ sapcar_url }}"
+                dest: /hana/shared/SAPCAR.EXE
+          - name: change permission of SAPCAR.EXE
+            file:
+                path: /hana/shared/SAPCAR.EXE
+                mode: 0755
+          - name: download HWCCT
+            get_url:
+                url: "{{ hwcct_url }}"
+                dest: /hana/shared/hwcct.SAR
+          - name: extract hwcct.SAR using SAPCAR
+            shell: ./SAPCAR.EXE -xf hwcct.SAR hwcct
+            args:
+                chdir: /hana/shared
+                creates: /hana/shared/hwcct/
+          - name: copy config file
+            copy:
+                src: "{{ test_config }}"
+                dest: /hana/shared/hwcct/
+          - name: run hwcct
+            shell: source envprofile.sh; ./hwval -f "{{ test_config }}"
+            args:
+                chdir: /hana/shared/hwcct/
+                executable: /bin/bash
+          - name: collect the report
+            shell: ls | grep "report"
+            args:
+                chdir: /hana/shared/hwcct/
+                executable: /bin/bash
+            register: hwcct_out
+          - synchronize:
+                mode: pull
+                src: "/hana/shared/hwcct/{{item}}/"
+                dest: /tmp/hwcct_test/
+            with_items: "{{hwcct_out.stdout_lines}}"

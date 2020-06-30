@@ -1,0 +1,65 @@
+---
+# This role installs and configures WEBIDE on top of an existing XSA instance
+- name: Download HRTT
+  get_url:
+    url: "{{ url_xsa_hrtt }}"
+    dest: /usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}/XSAHRTT.ZIP
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+  when: install_cockpit == false
+  
+- name: Download WebIDE
+  get_url:
+    url: "{{ url_xsa_webide }}"
+    dest: /usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}/XSAWEBIDE.ZIP
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Download MTA ext
+  get_url:
+    url: "{{ url_xsa_mta }}"
+    dest: /usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}/XSAWEBIDE.mtaext
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Log into XSA
+  shell: |
+    . ~/.bashrc
+    xs login --skip-ssl-validation -a https://{{ ansible_fqdn }}:3{{ sap_instancenum }}30/ -s SAP -u XSA_ADMIN  -p {{ pwd_db_xsaadmin }}
+  args:
+    executable: /bin/bash
+    chdir: "/usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}"
+
+- name: Install HRTT
+  shell: |
+    . ~/.bashrc
+    xs install XSAHRTT.ZIP
+  args:
+    executable: /bin/bash
+    chdir: "/usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}"
+  when: install_cockpit == false
+
+- name: Install WebIDE
+  shell: |
+    . ~/.bashrc
+    xs install XSAWEBIDE.ZIP -e XSAWEBIDE.mtaext
+  args:
+    executable: /bin/bash
+    chdir: "/usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}"
+
+- name: Get WebIDE URL
+  shell: |
+    . ~/.bashrc
+    xs app webide --urls
+  register: webide_url
+  args:
+    executable: /bin/bash

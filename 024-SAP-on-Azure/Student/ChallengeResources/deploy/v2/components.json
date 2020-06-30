@@ -1,0 +1,69 @@
+[
+  {
+    "component": "hana_database",
+    "variants": [
+      {
+        "os": "LINUX",
+        "media_loc": "HDB_SERVER_LINUX_X86_64",
+        "installer": "hdblcm"
+      }
+    ]
+  },
+  {
+    "component": "hana_studio",
+    "variants": [
+      {
+        "os": "LINUX",
+        "media_loc": "HDB_STUDIO_LINUX_X86_64",
+        "installer": "hdbinst"
+      },
+      {
+        "os": "WINDOWS",
+        "media_loc": "HDB_STUDIO_WINDOWS_X86_64",
+        "installer": "hdbinst.exe"
+      }
+    ]
+  },
+  {
+    "component": "hana_client",
+    "variants": [
+      {
+        "os": "LINUX",
+        "media_loc": "HDB_CLIENT_LINUX_X86_64",
+        "installer": "hdbinst"
+      },
+      {
+        "os": "WINDOWS",
+        "media_loc": "HDB_CLIENT_WINDOWS_X86_64",
+        "installer": "hdbinst.exe"
+      }
+    ]
+  },
+  {
+    "component": "xs",
+    "variants": [
+      {
+        "os": "LINUX",
+        "media_loc": "HDB_SERVER_LINUX_X86_64",
+        "installer": "hdblcm"
+      }
+    ],
+    "depends_on": [ 
+      "hana_database"
+    ]
+  },
+  {
+    "component": "shine",
+    "variants": [
+      {
+        "os": "LINUX",
+        "media_loc": "XSA_CONTENT_10",
+        "installer": "xs"
+      }
+    ],
+    "depends_on": [ 
+      "hana_database", "xs"
+    ]
+  }
+]
+

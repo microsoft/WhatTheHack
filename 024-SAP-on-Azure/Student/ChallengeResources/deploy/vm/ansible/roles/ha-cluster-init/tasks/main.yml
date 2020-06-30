@@ -1,0 +1,11 @@
+- name: HA cluster init csync2
+  shell: ha-cluster-init -y csync2
+
+- name: HA cluster init corosync
+  shell: ha-cluster-init -y -u corosync
+
+- name: HA cluster init pass in sbd
+  shell: ha-cluster-init -y sbd {{ scsi_disk_path.stdout }}
+
+- name: HA cluster init cluster
+  shell: ha-cluster-init -y cluster name=hsr interface=eth0

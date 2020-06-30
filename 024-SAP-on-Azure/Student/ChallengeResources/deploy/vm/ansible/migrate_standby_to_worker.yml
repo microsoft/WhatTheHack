@@ -1,0 +1,58 @@
+---
+#This playbook uses an existing standby node to confugure it as a worker node in HANA in case of a failover. The steps performed are as follows:
+#        1. Migrate the hana disks to the standby node from the failed worker node
+#        2. Move the standby node to the backend pool of the loadbalancer the failed node was attached to
+- name: Get the disks to be moved
+  hosts: localhost
+  tasks:
+     - name: get the list of disks
+       azure_rm_resource_facts:
+          api_version: '2018-06-01'
+          resource_group: "{{ resource_group }}"
+          provider: compute
+          resource_type: virtualmachines
+          resource_name: "{{ decommission_vm }}"
+       register: decom_vm_facts
+     - debug:
+          msg: "{{ decom_vm_facts }}"
+- name: Migrate the HANA disks
+  hosts: localhost
+  roles:
+     - { role: migrate-hana-disk, az_managed_disk: "{{ decom_vm_facts.response[0].properties.storageProfile.dataDisks }}", az_resource_group: "{{ resource_group }}", migrate_to_vm: "{{ migrate_to_vm }}"}
+
+- name: Dissociate the VM decomissioned
+  hosts: localhost
+  tasks:
+     - name: get the nic associated with the standby node
+       azure_rm_virtualmachine_facts:
+          resource_group: "{{ resource_group }}"
+          name: "{{ migrate_to_vm }}"
+       register: standby_vm_facts
+     - name: get the nic associated with the worker node to be replaced
+       azure_rm_networkinterface_facts:
+          resource_group: "{{ resource_group }}"
+          name: "{{ decom_vm_facts.response[0].properties.networkProfile.networkInterfaces[0].id.split('/')[-1] }}"
+       register: nic_res
+     - name: get the nic associated with the standby node
+       azure_rm_networkinterface_facts:
+          resource_group: "{{ resource_group }}"
+          name: "{{ standby_vm_facts.vms[0].network_interface_names[0]}}"
+       register: standby_nic
+     - name: NIC for the VMs
+       azure_rm_networkinterface:
+          resource_group: "{{ resource_group }}"
+          name: "{{ standby_nic.ansible_facts.azure_networkinterfaces[0].name }}"
+          virtual_network: "hana-vnet"
+          subnet: "hana-subnet"
+          public_ip_name: "{{ standby_nic.ansible_facts.azure_networkinterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.id.split('/')[-1] }}"
+          security_group: "{{ resource_group }}-hana-nsg"
+          enable_accelerated_networking: True
+          ip_configurations:
+              - name: hana-ip-config
+                public_ip_address_name: "{{ standby_nic.ansible_facts.azure_networkinterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.id.split('/')[-1] }}"
+                primary: yes
+                load_balancer_backend_address_pools:
+                    - name: "{{ nic_res.ansible_facts.azure_networkinterfaces[0].properties.ipConfigurations[0].properties.loadBalancerBackendAddressPools[0].id.split('/')[-1] }}"
+                      load_balancer: "{{ nic_res.ansible_facts.azure_networkinterfaces[0].properties.ipConfigurations[0].properties.loadBalancerBackendAddressPools[0].id.split('/')[-3] }}"
+
+

@@ -1,0 +1,4 @@
+---
+iscsi_lun: 0
+iscsi_object: iqn.2006-04
+cluster_name: cl1

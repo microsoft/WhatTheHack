@@ -1,0 +1,12 @@
+---
+- name: Deploy data generation SQL
+  template:
+    src: crossjoin.sql.j2
+    dest: /usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}/crossjoin.sql
+
+- name: Execute data generation SQL
+  shell: |
+    . ~/.bashrc
+    hdbsql -d SYSTEMDB -u SYSTEM -p {{ pwd_db_system }} -i {{ sap_instancenum }} -I /usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}/crossjoin.sql
+  args:
+    executable: /bin/bash

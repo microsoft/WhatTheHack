@@ -1,0 +1,154 @@
+---
+- hosts: hdb0,hdb1
+  roles:
+    - { role: imds-reg, scenario: "hana-hapair", deploy_status: "started"}
+
+- hosts: hdb0,hdb1
+  become: true
+
+  roles:
+    - disk-setup
+    - hotfix
+
+- hosts: iscsi
+  become: true
+
+  roles:
+    - iscsi-setup
+
+- hosts: iscsi,hdb0,hdb1
+  become: true
+  vars:
+    ntp_manage_config: true
+  roles:
+    - geerlingguy.ntp
+
+- hosts: win_bastion
+  connection: winrm
+  vars:
+    ansible_user: "{{ bastion_username_windows }}"
+    ansible_password: "{{ pw_bastion_windows }}"
+    ansible_connection: winrm
+    ansible_winrm_transport: ntlm
+    ansible_winrm_server_cert_validation: ignore
+  roles:
+    - set-up-windows-bastion
+
+
+- hosts: hdb0,hdb1
+  become: true
+  any_errors_fatal: true
+  vars:
+    hdb_num: "{{ ansible_hostname[-1] }}"
+  roles:
+    - set-up-sbd-device
+    - host-name-resolution
+
+- hosts: hdb0,hdb1,iscsi
+  become: true
+  roles:
+    - ssh-key-distribute
+
+- hosts: hdb0,hdb1
+  tasks:
+    - name: update crmsh
+      zypper:
+        name: crmsh
+        state: latest
+      become: true
+
+- hosts: hdb0
+  become: true
+  roles:
+    - ha-cluster-init
+
+- hosts: hdb1
+  become: true
+  roles:
+    - ha-cluster-join
+
+- hosts: hdb0,hdb1
+  become: true
+  roles:
+    - configure-corosync
+
+- hosts: hdb0
+  become: true
+  tasks:
+  - name: Restart corosync
+    service: name=corosync state=restarted
+  - name: Sleep to fix cib sync issue
+    pause:
+      seconds: 15
+
+# Corosync has to restart on hdb0 before it can on hdb1
+- hosts: hdb1
+  become: true
+  tasks:
+  - name: Restart corosync
+    service: name=corosync state=restarted
+  - name: Sleep to fix cib sync issue
+    pause:
+      seconds: 15
+
+- hosts: hdb0
+  become: true
+  roles:
+    - salvage-corrupted-cib
+
+- hosts: hdb0
+  become: true
+  tasks:
+    - name: cib status
+      shell: crm cib cibstatus show
+      register: cib_status
+    - name: cib status debug
+      debug:
+        var: cib_status
+    - name: Change pacemaker default settings
+      shell: crm configure rsc_defaults resource-stickiness="1"
+    - name: cib status
+      shell: crm cib cibstatus show
+      register: cib_status
+    - name: cib status debug
+      debug:
+        var: cib_status
+
+- hosts: localhost
+  roles:
+    - stonith-device-creation
+
+- hosts: hdb0,hdb1
+  become: true
+  roles:
+    - saphana-install
+    - { role: xsa-install, when: install_xsa == true }
+    - { role: cockpit-download, when: install_xsa == true and install_cockpit == true }
+
+- hosts: hdb0
+  become: true
+  become_user: "{{ sap_sid|lower }}adm"
+  roles:
+    - configure-hsr-hana
+    - { role: shine-install, when: install_xsa == true and install_shine == true }
+    - { role: cockpit-install, when: install_xsa == true and install_cockpit == true }
+    - { role: webide-install, when: install_xsa == true and install_webide == true }
+    
+- hosts: hdb0
+  become: true
+  roles:
+    - set-up-hana-pacemaker-resources
+
+- hosts: hdb0
+  become: true
+  roles:
+    - add-azure-events-agent
+
+- name: playbook for linux bastion host
+  vars:
+     config_json_file: ../modules/ha_pair/temp.json
+  import_playbook: linux_bastion_host.yml
+
+- hosts: hdb0,hdb1
+  roles:
+    - { role: imds-reg, scenario: "hana-hapair", deploy_status: "finished"}

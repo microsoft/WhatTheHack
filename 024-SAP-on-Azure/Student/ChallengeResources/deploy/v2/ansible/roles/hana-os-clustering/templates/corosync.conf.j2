@@ -1,0 +1,61 @@
+# Please read the corosync.conf.5 manual page
+
+totem {
+    version:             2
+    secauth:             on
+    crypto_hash:         sha1
+    crypto_cipher:       aes256
+    cluster_name:        hacluster
+    clear_node_high_bit: yes
+
+    token:                               {{ cluster_totem.token }}
+    token_retransmits_before_loss_const: {{ cluster_totem.retransmits }}
+    join:                                {{ cluster_totem.join }}
+    consensus:                           {{ cluster_totem.consensus }}
+    max_messages:                        {{ cluster_totem.max_messages }}
+
+    interface {
+        ringnumber: 0
+        mcastport:  5405
+        ttl:        1
+    }
+
+
+    transport: udpu
+
+
+
+}
+
+logging {
+    fileline:   off
+    to_stderr:  no
+    to_logfile: yes
+    logfile:    /var/log/cluster/corosync.log
+    to_syslog:  no
+    debug:      off
+    timestamp:  on
+    logger_subsys {
+        subsys: QUORUM
+        debug:  off
+    }
+}
+
+nodelist {
+    node {
+        ring0_addr: {{ hana_database.nodes[0].ip_db_nic }}
+        nodeid:     1
+    }
+    node {
+        ring0_addr: {{ hana_database.nodes[1].ip_db_nic }}
+        nodeid:     2
+    }
+}
+
+quorum {
+    # Enable and configure quorum subsystem (default: off)
+    # see also corosync.conf.5 and votequorum.5
+    provider: corosync_votequorum
+    expected_votes: {{ cluster_quorum.expected_votes }}
+    two_node: {{ cluster_quorum.two_node }}
+}

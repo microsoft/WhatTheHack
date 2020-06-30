@@ -1,0 +1,33 @@
+---
+- name: Test with FIO
+  hosts: all
+  tasks:
+          - zypper_repository:
+                repo: https://download.opensuse.org/repositories/benchmark/SLE_12_SP4/benchmark.repo
+            become: yes
+            become_method: sudo
+          - zypper:
+                name: fio
+                update_cache: yes
+                disable_gpg_check: yes
+            become: yes
+            become_method: sudo
+          - name: Create fio_output folder
+            file:
+                path: fio_output/
+                state: directory
+          - name: Copy FIO config
+            copy:
+                src: config.fio
+                dest: fio_output/config.fio
+          - name: Run FIO to test
+            shell: fio config.fio --output-format=json> fio_out.log
+            args:
+                chdir: fio_output
+          - fetch:
+                src: fio_output/fio_out.log
+                dest: /tmp/
+                fail_on_missing: yes
+          - debug:
+                msg: "FIO test output copied to /tmp/{{ inventory_hostname }}/fio_output/fio_out.log"
+...

@@ -1,0 +1,15 @@
+- name: Ensure there are SSH keys for the root user to communicate between nodes
+  shell: crm cluster init -y ssh
+  args:
+    creates: /root/.ssh/id_rsa
+
+- name: Ensure the public SSH keys are available for exchanging SSH key trust between nodes
+  shell: cat /root/.ssh/id_rsa.pub
+  register: cluster_public_ssh_key
+
+- name: Ensure the public SSH keys are authorized on all nodes, required for crm cluster
+  authorized_key:
+    user: root
+    key: "{{ hostvars[inventory_hostname].cluster_public_ssh_key.stdout }}"
+  delegate_to: "{{ item }}"
+  loop: "{{ groups['linux'] }}"

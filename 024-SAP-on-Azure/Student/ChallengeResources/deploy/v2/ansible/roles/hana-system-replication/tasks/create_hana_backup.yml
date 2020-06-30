@@ -1,0 +1,38 @@
+---
+
+- name: Ensure backup directory exists for HANA database with System Identifier {{ sid }}
+  file:
+    path: "{{ sid_backup_dir }}"
+    state: directory
+    owner: "{{ sid_admin_user }}"
+
+- name: Ensure backup is taken on primary node
+  # If HSR is already enabled, we don't need to do this
+  when: ansible_hostname == hana_database.nodes[0].dbname and not hana_system_replication_enabled
+  become_user: "{{ sid_admin_user }}"
+  block:
+    - name: Check whether backup exists for SYSTEMDB database for System Identifier {{ sid }}
+      shell: >
+        . ~/.bashrc && {{ hdbsql_command }} -n {{ hana_container_address }} "{{ backup_exists_cmd_for_systemdb }}"
+      register: backup_exists_cmd_for_systemdb_result
+      changed_when: false
+
+    - name: Ensure backup exists for SYSTEMDB database for System Identifier {{ sid }}
+      shell: >
+        . ~/.bashrc && {{ hdbsql_command }} -n {{ hana_container_address }} "{{ backup_cmd_for_systemdb }}"
+      vars:
+        backup_required: "('{{ backup_cmd_no_rows_found }}' in backup_exists_cmd_for_systemdb_result.stdout) | bool"
+      when: backup_required
+
+    - name: Check whether backup exists for tenant {{ hana_tenant_database_name }} database for System Identifier {{ sid }}
+      shell: >
+        . ~/.bashrc && {{ hdbsql_command }} -n {{ hana_tenant_address }} "{{ backup_exists_cmd_for_tenant }}"
+      register: backup_exists_cmd_for_tenant_result
+      changed_when: false
+
+    - name: Ensure backup exists for tenant {{ hana_tenant_database_name }} database for System Identifier {{ sid }}
+      shell: >
+        . ~/.bashrc && {{ hdbsql_command }} -n {{ hana_container_address }} "{{ backup_cmd_for_tenant }}"
+      vars:
+        backup_required: "('{{ backup_cmd_no_rows_found }}' in backup_exists_cmd_for_tenant_result.stdout) | bool"
+      when: backup_required

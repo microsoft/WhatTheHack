@@ -1,0 +1,6 @@
+# These default values can be overridden by the user
+
+# The following paths are adhereing to SAP standard about installing studio/client on jumpbox
+# https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.02/en-US/c9014c73bb5710148342cd18f1b7c0f1.html
+hana_studio_install_path: "/usr/sap/hdbstudio"
+hana_client_install_path: "/usr/sap/hdbclient"

@@ -1,0 +1,53 @@
+---
+
+- name: Ensure ssh keys on both nodes
+  block:
+    - name: Check for existence of id_rsa file
+      stat:
+        path: "~/.ssh/id_rsa"
+      register: id_rsa_file_status
+      failed_when: false
+
+    - name: Check for existence of id_rsa.pub file
+      stat:
+        path: "~/.ssh/id_rsa.pub"
+      register: id_rsa_file_pub_status
+      failed_when: false
+
+    - name: Ensure key pair files exist
+      when: not (id_rsa_file_status.stat.exists or id_rsa_file_pub_status.stat.exists)
+      shell: >
+        ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N ""
+
+    - name: Ensure the Public SSH key is stored in a variable
+      shell: cat ~/.ssh/id_rsa.pub
+      register: public_ssh_key
+      changed_when: false
+
+    - name: Ensure the primary node public key is on the secondary node
+      when: ansible_hostname == hana_database.nodes[1].dbname
+      authorized_key:
+        user: "root"
+        key: "{{ hostvars[hana_database.nodes[0].ip_admin_nic].public_ssh_key.stdout }}"
+
+    - name: Ensure the secondary node public key is on the primary node
+      when: ansible_hostname == hana_database.nodes[0].dbname
+      authorized_key:
+        user: "root"
+        key: "{{ hostvars[hana_database.nodes[1].ip_admin_nic].public_ssh_key.stdout }}"
+
+    - name: Ensure trust relationship is working from primary to secondary
+      when: ansible_hostname == hana_database.nodes[0].dbname
+      shell: >
+        ssh -oStrictHostKeyChecking=no {{ hana_database.nodes[1].ip_admin_nic }} "hostname -s"
+      register: primary_to_secondary_ssh_result
+      changed_when: false
+      failed_when: primary_to_secondary_ssh_result.stdout_lines[0] != hana_database.nodes[1].dbname
+
+    - name: Ensure trust relationship is working from secondary to primary
+      when: ansible_hostname == hana_database.nodes[1].dbname
+      shell: >
+        ssh -oStrictHostKeyChecking=no {{ hana_database.nodes[0].ip_admin_nic }} "hostname -s"
+      register: secondary_to_primary_ssh_result
+      changed_when: false
+      failed_when: secondary_to_primary_ssh_result.stdout_lines[0] != hana_database.nodes[0].dbname

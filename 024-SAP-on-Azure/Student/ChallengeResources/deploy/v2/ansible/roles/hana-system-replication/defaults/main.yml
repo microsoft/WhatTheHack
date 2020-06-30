@@ -1,0 +1,23 @@
+---
+
+# Typical usage of this role requires that defaults defined in this role may be overridden. For example:
+#
+#  - role: hana-system-replication
+#    vars:
+#      sid: "D0T"
+#      instance_number: "10"
+
+
+# These defaults are commonly overridden by the user
+sid: "HN1"
+instance_number: "00"
+hana_system_user_password: "PassWord"
+hana_replication_mode: "sync"
+hana_operation_mode: "logReplay"
+
+# For low spec Dev instances the timeout needs to be high
+# A delay of 2 seconds is also recommended
+# 2700 seconds is 45 minutes!
+# May be overridden, if required
+hana_stop_start_timeout_in_seconds: 2700
+hana_stop_start_delay_in_seconds: 2

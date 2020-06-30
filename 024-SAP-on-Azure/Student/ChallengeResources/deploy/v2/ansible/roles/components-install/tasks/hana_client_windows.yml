@@ -1,0 +1,21 @@
+---
+
+- name: Create dictionary with installation variant for HANA Client 
+  set_fact:
+    client: "{{ item }}"
+  loop: "{{ components }}"
+  when: item.component == 'hana_client'
+
+- name: Copy HANA Client Installer to windows jumpboxes
+  win_copy: 
+    src: "{{ hana_software_loc }}/{{ item.media_loc }}"
+    dest: "{{ ansible_facts['user_dir'] }}\\install"
+  loop: "{{ client.variants|flatten(levels=1) }}"
+  when: item.os == 'WINDOWS'
+
+- name: Install HANA Client on Windows jumpboxes
+  win_shell: "{{ ansible_facts['user_dir'] }}\\install\\{{ item.media_loc }}\\{{ item.installer }} -a client -b --path={{ ansible_facts['user_dir'] }}\\SAP_HANA_CLIENT"
+  args:
+    creates: "{{ ansible_facts['user_dir'] }}\\SAP_HANA_CLIENT"
+  loop: "{{ client.variants|flatten(levels=1) }}"
+  when: item.os == 'WINDOWS'

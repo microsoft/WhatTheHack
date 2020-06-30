@@ -1,0 +1,5 @@
+- name: Delete public ip
+  azure_rm_publicipaddress:
+      resource_group: "{{ azure_resource_group }}"
+      name: "{{ azure_public_ip }}"
+      state: absent

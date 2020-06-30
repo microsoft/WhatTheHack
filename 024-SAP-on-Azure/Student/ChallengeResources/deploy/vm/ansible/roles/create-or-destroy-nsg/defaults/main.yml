@@ -1,0 +1,43 @@
+---
+# defaults file for create-nsg
+allow_ips: "*"
+hana_nsg_rules_common:
+  - name: SSH
+    protocol: Tcp
+    destination_port_range: 22
+    access: Allow
+    priority: 101
+    direction: Inbound
+    source_address_prefix: "{{ allow_ips }}"
+  - name: open-hana-db-ports
+    protocol: Tcp
+    priority: 102
+    destination_port_range: "3{{ sap_instancenum }}00-3{{ sap_instancenum }}99"
+    source_address_prefix: "{{ allow_ips }}"
+
+hana_xsc_rules:
+  - name: XSC-HTTP
+    protocol: Tcp
+    priority: 103
+    destination_port_range: "80{{ sap_instancenum }}"
+    source_address_prefix: "{{ allow_ips }}"
+  - name: XSC-HTTPS
+    protocol: Tcp
+    priority: 104
+    destination_port_range: "43{{ sap_instancenum }}"
+    source_address_prefix: "{{ allow_ips }}"
+
+hana_xsa_rules:
+  - name: XSA-HTTP
+    protocol: Tcp
+    priority: 105
+    destination_port_range: "4000-4999"
+    source_address_prefix: "{{ allow_ips }}"
+  - name: XSA
+    protocol: Tcp
+    priority: 106
+    destination_port_range: "50000-59999"
+    source_address_prefix: "{{ allow_ips }}"
+
+hana_nsg_rules: "{{ hana_nsg_rules_common }} + {{ hana_xsa_rules if install_xsa else hana_xsc_rules }}"
+nsg_state: "present"

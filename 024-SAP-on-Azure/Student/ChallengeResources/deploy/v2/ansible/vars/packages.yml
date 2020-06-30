@@ -1,0 +1,50 @@
+---
+
+packages:
+    RedHat:
+      - "@base"
+      - gtk2
+      - libicu
+      - xulrunner
+      - sudo
+      - tcsh
+      - libssh2
+      - expect
+      - cairo
+      - graphviz
+      - iptraf-ng
+      - krb5-workstation
+      - krb5-libs
+      - libpng12
+      - nfs-utils
+      - lm_sensors
+      - rsyslog
+      - openssl
+      - PackageKit-gtk3-module
+      - libcanberra-gtk2
+      - libtool-ltdl
+      - xorg-x11-xauth 
+      - numactl
+      - xfsprogs
+      - net-tools
+      - bind-utils
+      - chrony
+      - ntp
+      - gdisk
+      - sg3_utils
+      - lvm2
+      - ntpdate
+      - tuned-profiles-sap-hana
+      - numad
+      - cifs-utils
+      - compat-sap-c++-5
+
+    Suse: 
+      - libyui-qt-pkg7
+      - sapconf
+      - saptune
+      - glibc
+      - systemd
+      - tuned
+      - ntp
+      - numad

@@ -1,0 +1,81 @@
+---
+
+# Variables in this file are required by the role, but are computed from default variables (e.g. sid),
+# from the playbook/environment (e.g. hana_database), or are "SAP standard" values.
+#
+# They may be overridden, if required, but normally are not
+
+hana_group: "sapsys"
+hana_dir: "/hana"
+sap_dir: "/usr/sap"
+tmp_ssfs_dir: "/tmp"
+
+sid_admin_user: "{{ sid | lower }}adm"
+
+hsr_dat_name: "SSFS_{{ sid | upper }}.DAT"
+hsr_key_name: "SSFS_{{ sid | upper }}.KEY"
+
+tmp_ssfs_dat: "{{ tmp_ssfs_dir }}/{{ hsr_dat_name }}"
+tmp_ssfs_key: "{{ tmp_ssfs_dir }}/{{ hsr_key_name }}"
+
+hana_data_dir: "{{ hana_dir }}/data"
+hana_backup_dir: "{{ hana_dir }}/backup"
+hana_shared_dir: "{{ hana_dir }}/shared"
+hana_global_dir: "{{ hana_shared_dir }}/{{ sid | upper }}/global"
+hana_instance_executable_dir: "{{ sap_dir }}/{{ sid | upper }}/HDB{{ instance_number }}/exe"
+
+path_ssfs_dat: "{{ hana_global_dir }}/security/rsecssfs/data/{{ hsr_dat_name }}"
+path_ssfs_key: "{{ hana_global_dir }}/security/rsecssfs/key/{{ hsr_key_name }}"
+path_global_ini: "{{ hana_global_dir }}/hdb/custom/config/global.ini"
+
+path_sys_rep_status: "{{ hana_instance_executable_dir }}/python_support/systemReplicationStatus.py"
+
+# HANA Backup directory
+sid_backup_dir: "{{ hana_backup_dir }}/{{ sid | upper }}"
+backup_file_for_systemdb_full_path: "{{ sid_backup_dir }}/INITIAL_SYSTEMDB_BACKUP"
+backup_file_for_tenant_full_path: "{{ sid_backup_dir }}/INITIAL_{{ hana_tenant_database_name }}_BACKUP"
+
+# HANA
+hana_container_address: "localhost:3{{ instance_number }}13"
+hana_tenant_address: "localhost:3{{ instance_number }}15"
+hana_tenant_database_name: "{{ sid | upper }}"
+
+# HANA utility commands
+hdbsql_command: "hdbsql -n localhost -i {{ instance_number }} -u SYSTEM -p {{ hana_system_user_password }}"
+hdbnsutil_command: "hdbnsutil"
+sapcontrol_command: "sapcontrol -nr {{ instance_number }}"
+
+# SQL Commands
+
+# SQL to ensure the HANA DB is able to parse and process queries
+dummy_cmd: "SELECT * FROM DUMMY"
+
+# SQL to determine current log mode (we need "normal")
+get_log_mode_cmd: "SELECT VALUE FROM M_INIFILE_CONTENTS
+  WHERE FILE_NAME='global.ini'
+  AND LAYER_NAME='DEFAULT'
+  AND SECTION='persistence'
+  AND KEY='log_mode'"
+
+# SQL to take a SYSTEMDB full backup
+backup_cmd_for_systemdb: "BACKUP DATA USING FILE ('{{ backup_file_for_systemdb_full_path }}')"
+
+# SQL to take a tenant DB full backup
+backup_cmd_for_tenant: "BACKUP DATA FOR {{ hana_tenant_database_name }} USING FILE ('{{ backup_file_for_tenant_full_path }}')"
+
+# SQL to confirm a system backup has been taken for SYSTEMDB
+backup_exists_cmd_for_systemdb: "SELECT SYS.M_BACKUP_CATALOG.BACKUP_ID FROM SYS.M_BACKUP_CATALOG
+  INNER JOIN SYS.M_BACKUP_CATALOG_FILES ON SYS.M_BACKUP_CATALOG.ENTRY_ID = SYS.M_BACKUP_CATALOG_FILES.ENTRY_ID
+  WHERE SYS.M_BACKUP_CATALOG.STATE_NAME='successful'
+  AND SYS.M_BACKUP_CATALOG.ENTRY_TYPE_NAME='complete data backup'
+  AND SYS.M_BACKUP_CATALOG_FILES.DESTINATION_PATH LIKE '{{ backup_file_for_systemdb_full_path }}%'"
+
+# SQL to confirm a system backup has been taken for the tenant DB
+backup_exists_cmd_for_tenant: "SELECT SYS.M_BACKUP_CATALOG.BACKUP_ID FROM SYS.M_BACKUP_CATALOG
+  INNER JOIN SYS.M_BACKUP_CATALOG_FILES ON SYS.M_BACKUP_CATALOG.ENTRY_ID = SYS.M_BACKUP_CATALOG_FILES.ENTRY_ID
+  WHERE SYS.M_BACKUP_CATALOG.STATE_NAME='successful'
+  AND SYS.M_BACKUP_CATALOG.ENTRY_TYPE_NAME='complete data backup'
+  AND SYS.M_BACKUP_CATALOG_FILES.DESTINATION_PATH LIKE '{{ backup_file_for_tenant_full_path }}%'"
+
+# Expected response if no backups have been taken
+backup_cmd_no_rows_found: "BACKUP_ID\\n0 rows selected"

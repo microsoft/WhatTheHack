@@ -1,0 +1,28 @@
+---
+
+- name: Create dictionary with installation variant for HANA Studio 
+  set_fact:
+    studio: "{{ item }}"
+  loop: "{{ components }}"
+  when: item.component == 'hana_studio'
+
+- name: Copy HANA Studio Installer to windows jumpboxes
+  win_copy: 
+    src: "{{ hana_software_loc }}/{{ item.media_loc }}"
+    dest: "{{ ansible_facts['user_dir'] }}\\install"
+  loop: "{{ studio.variants|flatten(levels=1) }}"
+  when: item.os == 'WINDOWS'
+
+# Install according to SAP Note 2098510 - Failed to load the JNI shared library error during HANA Studio Client Installation
+- name: Install Visual C++ Redistributable Packages for Visual Studio 2013
+  win_package:
+    path: https://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x64.exe
+    product_id: vcredist
+    arguments: /install /quiet
+
+- name: Install HANA Studio on Windows jumpboxes
+  win_shell: "{{ ansible_facts['user_dir'] }}\\install\\{{ item.media_loc }}\\{{ item.installer }} -a studio -b --path={{ ansible_facts['user_dir'] }}\\SAP_HANA_STUDIO"
+  args:
+    creates: "{{ ansible_facts['user_dir'] }}\\SAP_HANA_STUDIO"
+  loop: "{{ studio.variants|flatten(levels=1) }}"
+  when: item.os == 'WINDOWS'

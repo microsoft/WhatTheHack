@@ -1,0 +1,32 @@
+- name: Copy the requirements file
+  copy:
+      src: requirements.txt
+      dest: /tmp
+
+- name: Install pip
+  zypper:
+     name: "python-pip"
+     update_cache: yes
+     disable_gpg_check: yes
+     state: latest
+
+- name: Update pip, setuptools and wheel
+  command: python -m pip install --upgrade pip setuptools wheel
+
+- name: List the already existing azure packages (if any)
+  shell:  "pip freeze | grep azure > /tmp/req.txt"
+
+- name: Include msrest in the list
+  shell: "echo msrest >> /tmp/req.txt"
+
+- name: Uninstall the existing packages
+  pip:
+     requirements: req.txt
+     state: absent
+     chdir: /tmp
+
+- name: Install the required packages
+  pip:
+     requirements: requirements.txt 
+     chdir: /tmp
+

@@ -1,0 +1,23 @@
+---
+
+    # HANA must be restarted after setting values in global.ini
+     # Reference: 
+     # - SAP Help document: Monitoring and Replicating INI File Parameter Changes (https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/f65a9c62f60f4d4bb91620dd959ee68d.html)
+     # - SAP Note 2800357 infile_checker not able to Replicate Parameters although "replicate" is set to True
+  - name: Ensure options set in section [inifile_checker] of global.ini.
+    ini_file:
+      path: "{{ path_global_ini }}"
+      section: inifile_checker
+      state: present
+      option: "{{ item.option }}"
+      value: "{{ item.value }}"
+    with_items:
+      - option: enable
+        value: "true"
+      - option: interval
+        value: "3600"
+      - option: replicate
+        value: "true"
+      - option: fixed_exclusion_global.ini/SYSTEM
+        value: "storage/*, persistence/*path*, internal_hostname_resolution/*, public_hostname_resolution/*, system_replication*, multidb/mode, system_landscape_hostname_virtualization/sldsystemhome"
+      

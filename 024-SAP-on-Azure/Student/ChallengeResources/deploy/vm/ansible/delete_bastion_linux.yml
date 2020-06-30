@@ -1,0 +1,5 @@
+---
+- name: delete vm
+  hosts: localhost
+  roles:
+          - {role: delete-azure-vm, when: linux_bastion == true, az_resource_group: "{{ az_resource_group }}", az_vm_name: "{{ az_vm_name }}"}

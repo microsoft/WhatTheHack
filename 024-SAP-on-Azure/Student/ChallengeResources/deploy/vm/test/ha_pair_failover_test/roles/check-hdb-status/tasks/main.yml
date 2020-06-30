@@ -1,0 +1,13 @@
+- pause:
+     minutes: 2
+- name: Run the landscapeconfig script to get the configuration table 
+  shell: . ~/.bashrc && python /usr/sap/"{{ sap_sid }}"/HDB"{{ instance_num }}"/exe/python_support/landscapeHostConfiguration.py > /tmp/configOut.txt
+  ignore_errors: True
+- name: Parse the configuration output for current status
+  shell: python /tmp/parse_landscapeconfig.py -f /tmp/configOut.txt
+  register: host_status
+- debug:
+     msg: "{{ host_status.stdout }}"
+- set_fact:
+     result: "Pass"
+  when: host_status.stdout == "ok"

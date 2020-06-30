@@ -1,0 +1,34 @@
+---
+
+# Mount Azure Files on all Linux VMs
+- name: Install cifs package
+  package:
+    name: cifs-utils
+    state: present
+
+- name: Create azure fileshare credentials directory
+  file:
+    path: "/etc/smbcredentials"
+    state: directory
+
+- name: Create azure fileshare mount directory
+  file:
+    path: "{{ azure_files_mount_path }}"
+    state: directory
+    mode: 0755
+
+- name: Create credentials file
+  copy:
+    content: |
+      username={{ output.software.storage_account_sapbits.name }}
+      password={{ output.software.storage_account_sapbits.storage_access_key }}
+    dest: /etc/smbcredentials/{{ output.software.storage_account_sapbits.name }}.cred
+    mode: 0700
+
+- name: Mount storage for SAP bits on Linux VM
+  mount:
+    path: "{{ azure_files_mount_path }}"
+    fstype: cifs
+    opts: "credentials=/etc/smbcredentials/{{ output.software.storage_account_sapbits.name }}.cred,dir_mode=0755,file_mode=0755,serverino,vers=3.0"
+    src: "//{{ output.software.storage_account_sapbits.name }}.file.core.windows.net/{{ output.software.storage_account_sapbits.file_share_name }}"
+    state: mounted

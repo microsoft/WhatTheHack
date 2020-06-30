@@ -1,0 +1,59 @@
+- name: Turn on maintenence mode
+  shell: crm configure property maintenance-mode=true
+
+- name: Configure primitive resource SAPHanaTopology
+  shell: crm configure primitive rsc_SAPHanaTopology_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} ocf:suse:SAPHanaTopology \
+         operations \$id="rsc_sap2_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}-operations" \
+         op monitor interval="10" timeout="600" \
+         op start interval="0" timeout="600" \
+         op stop interval="0" timeout="300" \
+     params SID="{{ sap_sid|upper }}" InstanceNumber="{{ sap_instancenum }}"
+
+- name: Configure clone resource SAPHanaTopology
+  shell: crm configure clone cln_SAPHanaTopology_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} rsc_SAPHanaTopology_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} \
+     meta clone-node-max="1" target-role="Started" interleave="true"
+
+- name: Configure primitive resource SAPHana
+  shell: crm configure primitive rsc_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} ocf:suse:SAPHana \
+         operations \$id="rsc_sap_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}-operations" \
+         op start interval="0" timeout="3600" \
+         op stop interval="0" timeout="3600" \
+         op promote interval="0" timeout="3600" \
+         op monitor interval="60" role="Master" timeout="700" \
+         op monitor interval="61" role="Slave" timeout="700" \
+         params SID="{{ sap_sid|upper }}" InstanceNumber="{{ sap_instancenum }}" PREFER_SITE_TAKEOVER="true" \
+         DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="true"
+    
+- name: Configure master/slave resource SAPHana
+  shell: crm configure ms msl_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} rsc_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} \
+         meta notify="true" clone-max="2" clone-node-max="1" \
+         target-role="Started" interleave="true"
+    
+- name: Configure primitive resource ip
+  shell: crm configure primitive rsc_ip_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} ocf:heartbeat:IPaddr2 \
+         meta target-role="Started" \
+         operations \$id="rsc_ip_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}-operations" \
+         op monitor interval="10s" timeout="20s" \
+         params ip="{{ lb_frontend_ip }}"
+    
+- name: Configure primitive resource nc
+  shell: crm configure primitive rsc_nc_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} anything \
+         params binfile="/usr/bin/nc" cmdline_options="-l -k 625{{ sap_instancenum }}" \
+         op monitor timeout=20s interval=10 depth=0
+    
+- name: Configure resource group ip
+  shell: crm configure group g_ip_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} rsc_ip_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} rsc_nc_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}
+    
+- name: Configure colocation group ip
+  shell: "crm configure colocation col_saphana_ip_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} 4000: g_ip_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}:Started \
+         msl_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}:Master "
+    
+- name: Configure order SAPHanaTopology
+  shell: "crm configure order ord_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} 2000: cln_SAPHanaTopology_{{ sap_sid|upper }}_HDB{{ sap_instancenum }} \
+         msl_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}"
+    
+- name: Cleanup resources
+  shell: crm resource cleanup rsc_SAPHana_{{ sap_sid|upper }}_HDB{{ sap_instancenum }}
+    
+- name: Turn off maintenence mode
+  shell: crm configure property maintenance-mode=false

@@ -1,0 +1,25 @@
+set schema SYS_XS_UAA;
+
+alter user SYS_XS_UAA password "{{ hana_database.credentials.db_systemdb_password }}";
+
+connect SYS_XS_UAA password "{{ hana_database.credentials.db_systemdb_password }}";
+
+insert into xsrolecollections(last_modified,description,identity_zone_id,name) values (now(),'''','uaa','SHINE_ADMIN');
+
+insert into xsrolecollection2role(last_modified,rolecollection_identity_zone_id,rolecollection_name,role_name,role_identity_zone_id,role_roletemplate_name,role_roletemplate_app_appid) values (now(),'uaa','SHINE_ADMIN','shine_admin','uaa','shine_admin','shine!i1');
+
+connect SYSTEM password "{{ hana_database.credentials.db_systemdb_password }}";
+
+DROP USER SHINE_USER;
+
+CREATE RESTRICTED USER SHINE_USER PASSWORD "{{ hana_database.credentials.db_systemdb_password }}" SET PARAMETER EMAIL ADDRESS = '{{ hana_database.shine.email }}', XS_GIVEN_NAME = '' , XS_FAMILY_NAME = '' , XS_RC_XS_USER_PUBLIC = 'XS_USER_PUBLIC';
+
+ALTER USER SHINE_USER DISABLE PASSWORD LIFETIME;
+
+ALTER USER SHINE_USER ENABLE CLIENT CONNECT;
+
+GRANT RESTRICTED_USER_JDBC_ACCESS TO SHINE_USER;
+
+ALTER USER SHINE_USER CLEAR PARAMETER EMAIL ADDRESS, XS_GIVEN_NAME, XS_FAMILY_NAME, XS_RC_XS_USER_PUBLIC;
+
+ALTER USER SHINE_USER SET PARAMETER EMAIL ADDRESS = '{{ hana_database.shine.email }}' , XS_GIVEN_NAME = '' , XS_FAMILY_NAME = '' , XS_RC_XS_USER_PUBLIC = 'XS_USER_PUBLIC' , XS_RC_AUTHORIZATION_ADMIN = 'XS_AUTHORIZATION_ADMIN', XS_RC_CONTROLLER_ADMIN = 'XS_CONTROLLER_ADMIN', RC_AUDITLOG_VIEWER = 'AUDITLOG_VIEWER', XS_RC_SHINE_ADMIN = 'SHINE_ADMIN';

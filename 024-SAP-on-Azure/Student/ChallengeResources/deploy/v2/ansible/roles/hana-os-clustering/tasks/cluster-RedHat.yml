@@ -1,0 +1,123 @@
+---
+
+# RHEL Clustering
+# Azure ref: https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
+
+# @TODO Subscribe to subscriptions/repos if required
+# This code assumes the deployment is using RHEL SAP image
+
+- name: Ensure HA Cluster password is set to something secure
+  user:
+    name: hacluster
+    password: "{{ ha_cluster_password | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) }}"
+
+- name: Ensure the firewall service is configured to allow High Availability traffic
+  firewalld:
+    service: high-availability
+    state: enabled
+    permanent: True
+
+- name: Ensure the Pacemaker service is started and enabled
+  systemd:
+    name: pcsd
+    state: started
+    enabled: True
+
+# Basic Pacemaker cluster configuration:
+# https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
+- name: Create the cluster on the primary node
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+    - name: Ensure the cluster can authenticate nodes as hacluster
+      shell: "pcs cluster auth {{ hana_database.nodes[0].dbname }} {{ hana_database.nodes[1].dbname }} -u hacluster -p {{ ha_cluster_password }}"
+
+    # Ref https://docs.microsoft.com/en-us/azure/virtual-machines/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot
+    - name: Ensure the cluster is created with a token large enough to allow memory preserving maintenance
+      shell: "pcs cluster setup --name {{ hana_database.instance.sid | upper }}_hana_cluster {{ hana_database.nodes[0].dbname }} {{ hana_database.nodes[1].dbname }} --token {{ cluster_totem.token }}"
+
+    - name: Ensure the cluster is starting on all nodes
+      shell: pcs cluster start --all
+
+    - name: Wait until cluster has stabilised
+      shell: pcs status | grep '^Online:'
+      register: cluster_stable_check
+      retries: 30
+      delay: 10
+      until: "'{{ hana_database.nodes[0].dbname }} {{ hana_database.nodes[1].dbname }}' in cluster_stable_check.stdout or '{{ hana_database.nodes[1].dbname }} {{ hana_database.nodes[0].dbname }}' in cluster_stable_check.stdout"
+
+- name: Ensure the expected quorum votes is set for the cluster
+  shell: "pcs quorum expected-votes {{ cluster_quorum.expected_votes }}"
+
+- name: Configure the cluster STONITH device on the primary node
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+    - name: Ensure STONITH timeout is raised
+      shell: pcs property set stonith-timeout=900
+
+    # This command assumes the Azure VM resource name matches the hostname
+    # If this changes, the pcmk_host_map should be used
+    - name: Ensure the STONTIH device is configured
+      shell: >
+        pcs stonith create rsc_st_azure fence_azure_arm
+        login="{{ sap_hana_fencing_agent_client_id }}"
+        passwd="{{ sap_hana_fencing_agent_client_password }}"
+        resourceGroup="{{ output.infrastructure.resource_group.name }}"
+        tenantId="{{ sap_hana_fencing_agent_tenant_id }}"
+        subscriptionId="{{ sap_hana_fencing_agent_subscription_id }}"
+        power_timeout=240
+        pcmk_reboot_timeout=900
+
+    - name: Ensure the STONITH action is set to reboot
+      shell: pcs property set stonith-action=reboot
+
+    - name: Ensure the STONITH device is enabled
+      shell: pcs property set stonith-enabled=true
+
+# SAP HANA Cluster resources
+# https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-sap-hana-cluster-resources
+- name: Optimise the Pacemaker cluster for SAP HANA
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+    - name: Enable Maintenance mode for the cluster
+      shell: pcs property set maintenance-mode=true
+
+    - name: Ensure the SAP HANA Topology resource is created
+      shell: >
+        pcs resource create SAPHanaTopology_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} SAPHanaTopology
+        SID={{ hana_database.instance.sid | upper }} InstanceNumber={{ hana_database.instance.instance_number }}
+        op start timeout=600
+        op stop timeout=300
+        op monitor interval=10 timeout=600
+        --clone clone-max=2 clone-node-max=1 interleave=true
+
+    - name: Ensure the SAP HANA resource is created
+      shell: >
+        pcs resource create SAPHana_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} SAPHana
+        SID={{ hana_database.instance.sid | upper }} InstanceNumber={{ hana_database.instance.instance_number }}
+        PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200
+        AUTOMATED_REGISTER=false
+        op start timeout={{ cluster_SAPHana_timeouts.start }}
+        op stop timeout={{ cluster_SAPHana_timeouts.stop }}
+        op monitor interval=59 role="Master" timeout={{ cluster_SAPHana_timeouts.monitor_master }}
+        op monitor interval=61 role="Slave" timeout={{ cluster_SAPHana_timeouts.monitor_slave }}
+        op promote timeout={{ cluster_SAPHana_timeouts.promote }}
+        op demote timeout={{ cluster_SAPHana_timeouts.demote }}
+        master notify=true clone-max=2 clone-node-max=1 interleave=true
+
+    - name: Ensure the Virtual IP resource for the Load Balancer Front End IP is created
+      shell: pcs resource create vip_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} IPaddr2 ip="{{ hana_database.loadbalancer.frontend_ip }}"
+
+    - name: Ensure the netcat resource for the Load Balancer Healthprobe is created
+      shell: pcs resource create nc_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} azure-lb port=625{{ hana_database.instance.instance_number }}
+
+    - name: Ensure the Virtual IP group resource is created
+      shell: pcs resource group add g_ip_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} nc_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} vip_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }}
+
+    - name: Ensure the order constraint for the SAP HANA Topology is configured
+      shell: pcs constraint order SAPHanaTopology_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }}-clone then SAPHana_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }}-master symmetrical=false
+
+    - name: Ensure the Virtual IP is configured to the Master node
+      shell: pcs constraint colocation add g_ip_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }} with master SAPHana_{{ hana_database.instance.sid | upper }}_{{ hana_database.instance.instance_number }}-master 4000
+
+    - name: Disable Maintenance mode for the cluster
+      shell: pcs property set maintenance-mode=false

@@ -1,0 +1,5 @@
+# Please refer to the following link about the hana studio/client installation
+# https://help.sap.com/doc/e9702d76c3284623b02de196c0e79e49/2.0.04/en-US/SAP_HANA_Server_Installation_Guide_en.pdf
+# studio/client Installation path on hana dbnode 
+hana_studio_install_path: "/hana/shared/{{ hana_database.instance.sid }}/hdbstudio"
+hana_client_install_path: "/hana/shared/{{ hana_database.instance.sid }}/hdbclient"

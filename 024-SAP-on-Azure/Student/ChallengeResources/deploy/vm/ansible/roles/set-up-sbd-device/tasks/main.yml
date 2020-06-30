@@ -1,0 +1,127 @@
+- name: Enable iscsid
+  service: name=iscsid enabled=yes
+
+- name: Enable iscsi
+  service: name=iscsi enabled=yes
+
+- name: Enable sbd
+  service: name=sbd enabled=yes
+
+- name: Set initiatorname
+  lineinfile:
+    dest: '/etc/iscsi/initiatorname.iscsi'
+    regexp: '^InitiatorName=iqn'
+    line: "InitiatorName={{ iscsi_object }}.prod-{{ cluster_name }}-{{ hdb_num }}.local:prod-{{ cluster_name }}-{{ hdb_num }}"
+    state: 'present'
+  register: iscsi_register_initiator_name
+
+- name: Restart iscsid
+  service: name=iscsid state=restarted
+  when: iscsi_register_initiator_name.changed
+
+- name: Restart iscsi
+  service: name=iscsi state=restarted
+  when: iscsi_register_initiator_name.changed
+
+# Connect the iSCSI devices
+
+- open_iscsi:
+    discover: yes
+    portal: "{{ iscsi_ip }}"
+    port: "{{ iscsi_port }}"
+  register: discover_iscsi_device
+
+- debug:
+    msg: "{{ discover_iscsi_device }}"
+  when: discover_iscsi_device
+
+- open_iscsi:
+    target: "{{ iscsi_object }}.{{ cluster_name }}.local:{{ cluster_name }}"
+    login: yes
+    portal: "{{ iscsi_ip }}"
+    port: "{{ iscsi_port }}"
+  register: login_iscsi_device
+
+- debug:
+    msg: "{{ login_iscsi_device }}"
+  when: login_iscsi_device
+
+- open_iscsi:
+    auto_node_startup: yes
+    portal: "{{ iscsi_ip }}"
+    port: "{{ iscsi_port }}"
+  register: set_update_iscsi_device
+
+- debug:
+    msg: "{{ set_update_iscsi_device }}"
+  when: set_update_iscsi_device
+
+- name: Call lsscsi and get location
+  shell: lsscsi -l | grep {{ cluster_name }} | awk '{ print $6; }' | grep -oP "^/dev/\K.*"
+  register: lsscsi_output
+
+- debug:
+    msg: "{{ lsscsi_output }}"
+  when: lsscsi_output
+
+- name: Get disk with correct disk-id
+  shell: ls -l /dev/disk/by-id/scsi-* | grep {{ lsscsi_output.stdout }} | grep scsi-3 | awk '{ print $9; }'
+  register: scsi_disk_path
+
+- debug:
+    msg: "{{ scsi_disk_path }}"
+  when: scsi_disk_path
+
+- name: Create corosync sbd device
+  command: sbd -d {{ scsi_disk_path.stdout }} -1 10 -4 20 create
+
+- name: Adapt the SBD config to have device
+  lineinfile:
+    dest: '/etc/sysconfig/sbd'
+    regexp: 'SBD_DEVICE='
+    line: "SBD_DEVICE=\"{{ scsi_disk_path.stdout }}\""
+    state: 'present'
+  register: device_added
+
+- name: Adapt the SBD config to have pacemaker enabled
+  lineinfile:
+    dest: '/etc/sysconfig/sbd'
+    regexp: 'SBD_PACEMAKER='
+    line: "SBD_PACEMAKER=yes"
+    state: 'present'
+  register: pacemaker_enabled
+
+- name: Adapt the SBD config to have SDB startmode set to always
+  lineinfile:
+    dest: '/etc/sysconfig/sbd'
+    regexp: 'SBD_STARTMODE='
+    line: "SBD_STARTMODE=always"
+    state: 'present'
+  register: startmode_set
+  
+- name: Create softdog config
+  shell: echo softdog | sudo tee /etc/modules-load.d/softdog.conf
+  register: softdog_config
+
+- debug:
+    msg: "{{ softdog_config }}"
+  when: softdog_config
+
+- name: Load the softdog module
+  shell: modprobe -v softdog
+  register: load_softdog
+
+- debug:
+    msg: "{{ load_softdog }}"
+  when: load_softdog
+
+- name: Install fence agents
+  package:
+    name: fence-agents
+    state: present
+    disable_recommends: no
+
+- name: Install resource agents
+  package:
+    name: resource-agents
+    state: latest

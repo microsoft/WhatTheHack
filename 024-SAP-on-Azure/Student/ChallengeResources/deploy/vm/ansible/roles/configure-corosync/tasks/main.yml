@@ -1,0 +1,9 @@
+- name: change hacluster password
+  user:
+    name: hacluster
+    password: "{{ pwd_hacluster }}"
+
+- name: deploy hdblcm password file
+  template:
+    src: corosyncconf.j2
+    dest: /etc/corosync/corosync.conf

@@ -1,0 +1,226 @@
+{
+  "infrastructure": {
+    "region": "eastus",
+    "resource_group": {
+      "is_existing": "false",
+      "name": "test-rg"
+    },
+    "vnets": {
+      "management": {
+        "is_existing": "false",
+        "name": "vnet-mgmt",
+        "address_space": "10.0.0.0/16",
+        "subnet_mgmt": {
+          "is_existing": "false",
+          "name": "subnet-mgmt",
+          "prefix": "10.0.1.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-mgmt",
+            "allowed_ips": [
+              "0.0.0.0/0"
+            ]
+          }
+        }
+      },
+      "sap": {
+        "is_existing": "false",
+        "name": "vnet-sap",
+        "address_space": "10.1.0.0/16",
+        "subnet_admin": {
+          "is_existing": "false",
+          "name": "subnet-admin",
+          "prefix": "10.1.1.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-admin"
+          }
+        },
+        "subnet_db": {
+          "is_existing": "false",
+          "name": "subnet-db",
+          "prefix": "10.1.2.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-db"
+          }
+        }
+      }
+    }
+  },
+  "jumpboxes": {
+    "windows": [
+      {
+        "name": "jumpbox-windows",
+        "destroy_after_deploy": "false",
+        "size": "Standard_D2s_v3",
+        "disk_type": "StandardSSD_LRS",
+        "os": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2016-Datacenter"
+        },
+        "authentication": {
+          "type": "password",
+          "username": "azureadm",
+          "password": "Sap@hana2019!"
+        },
+        "components": [
+          "hana_studio_windows"
+        ]
+      }
+    ],
+    "linux": [
+      {
+        "name": "jumpbox-linux",
+        "destroy_after_deploy": "false",
+        "size": "Standard_D2s_v3",
+        "disk_type": "StandardSSD_LRS",
+        "os": {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS"
+        },
+        "authentication": {
+          "type": "password",
+          "username": "azureadm",
+          "password": "Sap@hana2019!"
+        },
+        "components": [
+          "hana_studio_linux"
+        ]
+      },
+      {
+        "name": "rti",
+        "destroy_after_deploy": "true",
+        "size": "Standard_D2s_v3",
+        "disk_type": "StandardSSD_LRS",
+        "os": {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS"
+        },
+        "authentication": {
+          "type": "key",
+          "username": "azureadm"
+        },
+        "components": [
+          "ansible"
+        ]
+      }
+    ]
+  },
+  "databases": [
+    {
+      "platform": "HANA",
+      "db_version": "2.00.043",
+      "os": {
+        "publisher": "suse",
+        "offer": "sles-sap-12-sp5",
+        "sku": "gen1"
+      },
+      "size": "Demo",
+      "filesystem": "xfs",
+      "high_availability": false,
+      "authentication": {
+        "type": "key",
+        "username": "azureadm"
+      },
+      "instance": {
+        "sid": "HN1",
+        "instance_number": "00"
+      },
+      "credentials": {
+        "db_systemdb_password": "Manager1",
+        "os_sidadm_password": "Help4you",
+        "os_sapadm_password": "Help4you",
+        "xsa_admin_password": "Manager1",
+        "cockpit_admin_password": "Manager1",
+        "ha_cluster_password": ""
+      },
+      "components": {
+        "hana_database": [],
+        "hana_client_linux": [],
+        "xs": [
+          "xsac_alm_pi_ui",
+          "xsac_portal_serv",
+          "xsac_services",
+          "xsac_ui5_fesv5",
+          "xsac_ui5_sb",
+          "xsac_xsa_cockpit"
+        ],
+        "shine": []
+      },
+      "xsa": {
+        "routing": "ports"
+      },
+      "shine": {
+        "email": "shinedemo@microsoft.com"
+      },
+      "dbnodes": [
+        {
+          "name": "hdb1",
+          "role": "worker"
+        }
+      ],
+      "loadbalancer": {}
+    }
+  ],
+  "software": {
+    "storage_account_sapbits": {
+      "is_existing": false,
+      "account_tier": "Premium",
+      "account_replication_type": "LRS",
+      "account_kind": "FileStorage",
+      "file_share_name": "bits"
+    },
+    "downloader": {
+      "credentials": {
+        "sap_user": "",
+        "sap_password": ""
+      },
+      "scenarios": [
+        {
+          "scenario_type": "DB",
+          "product_name": "HANA",
+          "product_version": "2.0",
+          "os_type": "LINUX_X64",
+          "os_version": "SLES12.3",
+          "components": [
+            "PLATFORM"
+          ]
+        },
+        {
+          "scenario_type": "RTI",
+          "product_name": "RTI",
+          "os_type": "LINUX_X64"
+        },
+        {
+          "scenario_type": "BASTION",
+          "os_type": "NT_X64"
+        },
+        {
+          "scenario_type": "BASTION",
+          "os_type": "LINUX_X64"
+        }
+      ],
+      "debug": {
+        "enabled": false,
+        "cert": "charles.pem",
+        "proxies": {
+          "http": "http://127.0.0.1:8888",
+          "https": "https://127.0.0.1:8888"
+        }
+      }
+    }
+  },
+  "sshkey": {
+    "path_to_public_key": "~/.ssh/id_rsa.pub",
+    "path_to_private_key": "~/.ssh/id_rsa"
+  },
+  "options": {
+    "enable_secure_transfer": true,
+    "ansible_execution": false,
+    "enable_prometheus": true
+  }
+}

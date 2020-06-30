@@ -1,0 +1,28 @@
+---
+
+# Implement manual preparation steps for SLES-12
+# The tasks' name follows:
+#   - SUSE Linux Enterprise Server 12.x for SAP Applications &onʦJuUDtLon Guide for SAP HANA x86_64 and POWER Architectures
+#   - SAP Notes for RHEL OS recommendations
+
+- name: Install OS packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ packages[ansible_os_family] }}"
+
+- name: SAP Note 2593824 - Linux Running SAP applications compiled with GCC 7.x
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libgcc_s1
+    - libstdc++6
+    - libatomic1
+  when: hana_database.db_version is regex("2.\d{2}.0([4-9]\d|[0-9]\d{2,})")
+
+- name: Task 3.10 - Tweak the Default System Settings for SAP HANA 1 
+  command: "saptune solution apply HANA"
+
+- name: Task 3.10 - Tweak the Default System Settings for SAP HANA 2
+  command: "saptune daemon start"

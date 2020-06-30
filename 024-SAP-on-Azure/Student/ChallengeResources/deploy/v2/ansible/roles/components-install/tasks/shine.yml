@@ -1,0 +1,42 @@
+---
+
+# Install and configure SHINE
+- name: Create dictionary with installation variant for SHINE
+  set_fact:
+    shine: "{{ item }}"
+  loop: "{{ components }}"
+  when: item.component == 'shine'
+
+- name: SHINE install path variable
+  set_fact:
+    shine_install_path: "/hana/shared/{{ hana_database.instance.sid }}/{{ item.installer }}/bin/{{ item.installer }}"
+    hdbsql_path: "/hana/shared/{{ hana_database.instance.sid }}/hdbclient"
+  loop: "{{ shine.variants }}"
+
+- name: Log into XSA
+  shell: "{{ shine_install_path}} login --skip-ssl-validation -a https://{{ ansible_fqdn }}:3{{ hana_database.instance.instance_number }}30/ -s SAP -u XSA_ADMIN  -p {{ hana_database.credentials.xsa_admin_password }}"
+
+- name: Identify SHINE Media
+  shell: "ls {{ hana_software_loc }}/{{ item.media_loc }}|grep SHINE"
+  loop: "{{ shine.variants }}"
+  register: shine_media
+
+- name: Install SHINE
+  shell: "{{ shine_install_path }} install {{ hana_software_loc }}/{{ item.media_loc }}/{{ shine_media.results[0].stdout}}"
+  loop: "{{ shine.variants }}"
+
+- name: Deploy prepare SQL for SHINE
+  template:
+    src: prepare_shine.sql.j2
+    dest: "/hana/shared/{{ hana_database.instance.sid }}/prepare_shine.sql"
+
+- name: Execute SQL to prepare SHINE
+  shell: "{{ hdbsql_path }}/hdbsql -d SYSTEMDB -u SYSTEM -p {{ hana_database.credentials.db_systemdb_password }} -i {{ hana_database.instance.instance_number }} -I /hana/shared/{{ hana_database.instance.sid }}/prepare_shine.sql"
+
+- name: Get SHINE UI URL
+  shell: "{{ shine_install_path}} app shine-site-web --urls"
+
+- name: Delete prepare_shine.sql
+  file:
+    path: "/hana/shared/{{ hana_database.instance.sid }}/prepare_shine.sql"
+    state: absent

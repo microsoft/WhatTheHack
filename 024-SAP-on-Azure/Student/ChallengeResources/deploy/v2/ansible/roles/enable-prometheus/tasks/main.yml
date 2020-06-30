@@ -1,0 +1,43 @@
+---
+
+# Enable prometheus on HANA servers
+
+- name: Set OS version
+  set_fact:
+    distro: "SLE_{{ ansible_facts['distribution_major_version'] }}_SP{{ ansible_facts['distribution_release'] }}"
+
+- name: Check if server_monitoring.repo is present
+  stat:
+    path: /etc/zypp/repos.d/server_monitoring.repo
+  register: monitor_repo
+
+- name: Add monitoring repository if it does not exist 
+  zypper_repository:
+    repo: "https://download.opensuse.org/repositories/server:/monitoring/{{ distro }}/server:monitoring.repo"
+    state: present
+  when: monitor_repo.stat.exists == false
+
+- name: Install Prometheus with Node and HA Cluster exporters
+  zypper:
+    name: "{{ item }}"
+    disable_gpg_check: yes
+  loop:
+    - golang-github-prometheus-node_exporter
+    - prometheus-ha_cluster_exporter
+
+- name: Set arguments for Node exporter
+  lineinfile:
+    path: /etc/sysconfig/prometheus-node_exporter
+    regexp: 'ARGS=.*'
+    line: 'ARGS="--collector.systemd"'
+
+- name: Start the Node exporter
+  service:
+    name: prometheus-node_exporter
+    state: started
+
+- name: Start the HA Cluster exporter (HA Clusters only)
+  service:
+    name: prometheus-ha_cluster_exporter
+    state: started
+  when: hana_database.high_availability == True

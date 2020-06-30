@@ -1,0 +1,6 @@
+- name: remove vm and all associated resources
+  azure_rm_virtualmachine:
+     resource_group: "{{ az_resource_group }}"
+     name: "{{ az_vm_name }}"
+     state: absent
+     remove_on_absent: all

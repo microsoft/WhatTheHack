@@ -1,0 +1,18 @@
+---
+
+- name: Ensure replication status is active
+  become_user: "{{ sid_admin_user }}"
+  # Note: ideally we should be using set -o pipefail here (see for example https://xanmanning.co.uk/2019/03/21/ansible-lint-rule-306.html).
+  #   However, the python script returns a status of 15 (!), which breaks
+  #   the pipeline. Consequently, no pipefail option and elect to skip Ansible linting of this task.
+  shell: >
+    source ~/.bashrc ;
+    python {{ path_sys_rep_status }} | grep -q 'overall system replication status: ACTIVE'
+  register: grep_result
+  until: grep_result.rc == 0
+  changed_when: false
+  retries: 30
+  delay: 30
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  tags:
+  - skip_ansible_lint

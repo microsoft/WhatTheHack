@@ -1,0 +1,19 @@
+---
+# URL for SHINE Content (XSA)
+url_shine_xsa:
+
+# Password for SHINE user
+pwd_db_shine:
+
+# e-mail address for SHINE user (not needed)
+email_shine: shinedemo@microsoft.com
+
+# Flag to determine whether XSA needs to be installed or not
+install_xsa:
+
+# Flag to determine whether SHINE needs to be installed
+install_shine:
+
+# Flag to determine whether Cockpit needs to be installed
+install_cockpit:
+

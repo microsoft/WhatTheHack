@@ -1,0 +1,41 @@
+---
+# Following is the format in which the disks are passed to this role
+# "dataDisks": [
+#  {
+#   "caching": "None",
+#   "createOption": "Attach",
+#   "diskSizeGB": 256,
+#   "lun": 1,
+#   "managedDisk": {
+#      "id": "/subscriptions/XXX/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Compute/disks/hanaXlog",
+#      "storageAccountType": "Premium_LRS"
+#    },
+#    "name": "hana1log"
+#   },
+#   {
+#    "caching": "None",
+#    "createOption": "Attach",
+#    "diskSizeGB": 256,
+#    "lun": 2,
+#    "managedDisk": {
+#       "id": "/subscriptions/XXX/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Compute/disks/hanaXdata",
+#       "storageAccountType": "Premium_LRS"
+#     },
+#     "name": "hana1data"
+#   }
+#   ]
+     - name: Unmount the managed disk to the VM
+       azure_rm_managed_disk:
+          name: "{{ item.name }}"
+          resource_group: "{{ az_resource_group }}"
+          disk_size_gb: "{{ item.diskSizeGB}}"
+          storage_account_type: Premium_LRS
+       with_items: "{{ az_managed_disk }}"
+     - name: Remount the managed disk to another VM
+       azure_rm_managed_disk:
+          name: "{{ item.name }}"
+          resource_group: "{{ az_resource_group }}"
+          disk_size_gb: "{{ item.diskSizeGB }}"
+          storage_account_type: Premium_LRS
+          managed_by: "{{ migrate_to_vm }}"
+       with_items: "{{ az_managed_disk }}"

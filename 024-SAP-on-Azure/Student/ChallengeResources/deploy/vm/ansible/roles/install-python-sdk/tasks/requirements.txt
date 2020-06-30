@@ -1,0 +1,7 @@
+cffi>=1.4.1
+adal==1.2.0
+azure>=4.0
+requests
+urllib3
+msrest>=0.6
+msrestazure>=0.6

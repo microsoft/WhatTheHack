@@ -1,0 +1,72 @@
+---
+# This role installs XSA on top of an existing HANA 2.0 instance
+- name: Deploy hdblcm install template for XSA
+  template:
+    src: hdblcm_xsa.cfg.j2
+    dest: /hana/shared/install/hdblcm_xsa.cfg
+
+- name: Deploy hdblcm password file for XSA
+  template:
+    src: hdblcm_xsa.passwords.j2
+    dest: /hana/shared/install/hdblcm_xsa.passwords
+
+- name: Download XSA Runtime
+  get_url:
+    url: "{{ url_xsa_runtime }}"
+    dest: /hana/shared/install/
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Download DI Core
+  get_url:
+    url: "{{ url_di_core }}"
+    dest: /hana/shared/install/
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Download SAPUI5
+  get_url:
+    url: "{{ url_sapui5 }}"
+    dest: /hana/shared/install/
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Download Portal Services
+  get_url:
+    url: "{{ url_portal_services }}"
+    dest: /hana/shared/install/
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Download XS Services
+  get_url:
+    url: "{{ url_xs_services }}"
+    dest: /hana/shared/install/
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Extract XSA Runtime
+  command: ./SAPCAR_LINUX.EXE -manifest SIGNATURE.SMF -xvf EXTAPPSER00P_87-70001316.SAR -R EXTAPPSER00P_87
+  args:
+    chdir: /hana/shared/install
+    creates: /hana/shared/install/EXTAPPSER00P_87
+
+- name: Run hdblcm to install XSA components
+  shell: "pwd=$(<hdblcm_xsa.passwords); rm hdblcm_xsa.passwords; echo $pwd | SAP_HANA_DATABASE/hdblcm --component_root=/hana/shared/install/EXTAPPSER00P_87 --configfile=hdblcm_xsa.cfg --batch --read_password_from_stdin=xml"
+  args:
+    chdir: /hana/shared/install

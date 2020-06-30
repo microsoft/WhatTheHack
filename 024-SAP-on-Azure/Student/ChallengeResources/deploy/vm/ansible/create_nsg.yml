@@ -1,0 +1,5 @@
+---
+- name: Create NSG
+  hosts: localhost
+  roles:
+    - create-or-destroy-nsg

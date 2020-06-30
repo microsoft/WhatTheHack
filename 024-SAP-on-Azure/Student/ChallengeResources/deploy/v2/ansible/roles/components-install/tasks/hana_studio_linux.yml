@@ -1,0 +1,12 @@
+---
+
+- name: Create dictionary with installation variant for HANA Studio 
+  set_fact:
+    studio: "{{ item }}"
+  loop: "{{ components }}"
+  when: item.component == 'hana_studio'
+
+- name: Install HANA Studio on Linux
+  shell: "{{ hana_software_loc }}/{{ item.media_loc }}/{{ item.installer }} -a studio -b --path={{ hana_studio_install_path }}"
+  loop: "{{ studio.variants|flatten(levels=1) }}"
+  when: item.os == 'LINUX'

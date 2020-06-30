@@ -1,0 +1,93 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: eastus
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: test-vnet
+        address_prefixes: "10.0.0.0/16" 
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: test-subnet
+        address_prefix: "10.0.1.0/24"
+        virtual_network: test-vnet
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Dynamic
+        name: "testvm-pip"
+        domain_name: "testvm-{{ resource_group }}"
+      register: ip_sample
+    - debug:
+        msg: "test vm :{{ ip_sample.state.dns_settings.fqdn }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+         resource_group: "{{ resource_group }}"
+         name: testNetworkSecurityGroup
+         rules:
+           - name: SSH
+             protocol: Tcp
+             destination_port_range: 22
+             access: Allow
+             priority: 1001
+             direction: Inbound
+             source_address_prefix: "{{ allowed_source_ip_prefix }}"
+    - name: NIC for linux bastion host
+      azure_rm_networkinterface:
+          resource_group: "{{ resource_group }}"
+          name: "testvm-nic"
+          virtual_network: "test-vnet"
+          subnet: "test-subnet"
+          public_ip_name: "testvm-pip"
+          security_group: "testNetworkSecurityGroup"
+          ip_configurations:
+             - name: test-ip-config
+               public_ip_address_name: "testvm-pip"
+               primary: yes
+      register: nic_sample
+    - add_host:
+        name: "{{ ip_sample.state.dns_settings.fqdn }}"
+        groups: test_vm_group
+        ansible_ssh_private_key_file: "{{ ssh_private_key_file }}"
+        ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
+        ansible_user: "{{ vm_user }}"
+    - name: create bare bone tester VM
+      vars:
+        public_key_data: "{{ lookup('file','{{ ssh_public_key_file }}') }}"
+      azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "testvm-ubuntu"
+        vm_size: Standard_D8s_v3
+        admin_username: "{{ vm_user }}"
+        ssh_password_enabled: false
+        ssh_public_keys:
+            - path: "/home/{{ vm_user }}/.ssh/authorized_keys"
+              key_data: "{{ public_key_data }}"
+        network_interfaces: "testvm-nic"
+        started: yes
+        state: present
+        image:
+            offer: UbuntuServer
+            publisher: Canonical
+            sku: 18.04-LTS
+            version: latest
+
+- name: install the requirements
+  hosts: test_vm_group
+  tasks:
+    - copy:
+        src: bootstrap.sh
+        dest: "/home/{{vm_user}}"
+        owner: "{{ vm_user }}"
+        group: "{{ vm_user }}"
+        mode: 0111
+    - command: ./bootstrap.sh
+      args:
+        chdir: "/home/{{ vm_user }}"
+      become: true
+      become_method: sudo

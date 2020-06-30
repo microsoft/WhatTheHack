@@ -1,0 +1,52 @@
+---
+- name: prepare configs
+  hosts: localhost
+  tasks:
+     - name: This is a hack to get the iteration functionality of Ansible working
+       set_fact:
+          m_count: "1"
+       when: m < 1
+     - set_fact:
+          m_count: "{{ m }}"
+       when: m > 0
+
+# vm_group name can not have upper case or special characters since this is a part of the domain name prefix
+- name: "Create HANA cluster of {{ n }} VMs and standby of {{ m }} VMs"
+  hosts: localhost
+  roles:
+     - { role: create-hana-cluster, vm_group: "hana" }
+     - { role: create-vm-cluster, vm_group: "standby", vm_count: "{{ m_count }}", when: m > 0 }
+
+- hosts: localhost
+  tasks:
+     - debug:
+         msg: "Created HANA VM {{ item }}"
+       with_items: "{{ groups['hana'] }}"
+
+- name: Managed disk for logs
+  hosts: localhost
+  tasks:
+     - name: create managed disks for logs
+       azure_rm_managed_disk:
+          name: "hana{{ item }}log"
+          resource_group: "{{ resource_group }}"
+          disk_size_gb: 256
+          storage_account_type: Premium_LRS
+          managed_by: "hanavm-{{ item }}"
+       with_sequence: start=1 end="{{ n }}"
+     - name: create managed disks for logs
+       azure_rm_managed_disk:
+          name: "hana{{ item }}data"
+          resource_group: "{{ resource_group }}"
+          disk_size_gb: 256
+          storage_account_type: Premium_LRS
+          managed_by: "hanavm-{{ item }}"
+       with_sequence: start=1 end="{{ n }}"
+
+- name: Install azure python sdk
+  hosts: hana
+  become: yes
+  become_method: sudo
+  roles:
+      - { role: install-python-sdk }
+

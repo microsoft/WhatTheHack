@@ -1,0 +1,15 @@
+---
+# Script Version
+version: "1.1"
+
+# Deployment Scenario
+scenario:
+
+# Deployment Status
+deploy_status:
+
+# HTTP User-Agent
+http_user_agent: "SAP AutoDeploy/{{ version }}; scenario={{ scenario }}; deploy-status={{ deploy_status }}"
+
+# IMDS API Version
+api_version: "2018-02-01"

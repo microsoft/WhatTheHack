@@ -1,0 +1,17 @@
+---
+# This role installs XSA on top of an existing HANA 2.0 instance
+- name: Download HANA Cockpit
+  get_url:
+    url: "{{ url_cockpit }}"
+    dest: /hana/shared/install/SAPHANACOCKPIT07_11-70002299.SAR
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Extract HANA Cockpit
+  command: ./SAPCAR_LINUX.EXE -manifest SIGNATURE.SMF -xvf SAPHANACOCKPIT07_11-70002299.SAR -R SAP_HANA_COCKPIT
+  args:
+    chdir: /hana/shared/install
+    creates: /hana/shared/install/SAP_HANA_COCKPIT

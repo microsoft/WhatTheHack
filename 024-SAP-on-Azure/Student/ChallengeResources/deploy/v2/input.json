@@ -1,0 +1,232 @@
+{
+  "infrastructure": {
+    "region": "",
+    "resource_group": {
+      "is_existing": "",
+      "arm_id": "",
+      "name": ""
+    },
+    "vnets": {
+      "management": {
+        "is_existing": "",
+        "arm_id": "",
+        "name": "",
+        "address_space": "",
+        "subnet_mgmt": {
+          "is_existing": "",
+          "arm_id": "",
+          "name": "",
+          "prefix": "",
+          "nsg": {
+            "is_existing": "",
+            "arm_id": "",
+            "name": "",
+            "allowed_ips": [
+              "0.0.0.0/0"
+            ]
+          }
+        }
+      },
+      "sap": {
+        "is_existing": "",
+        "arm_id": "",
+        "name": "",
+        "address_space": "",
+        "subnet_admin": {
+          "is_existing": "",
+          "arm_id": "",
+          "name": "",
+          "prefix": "",
+          "nsg": {
+            "is_existing": "",
+            "arm_id": "",
+            "name": ""
+          }
+        },
+        "subnet_db": {
+          "is_existing": "",
+          "arm_id": "",
+          "name": "",
+          "prefix": "",
+          "nsg": {
+            "is_existing": "",
+            "arm_id": "",
+            "name": ""
+          }
+        }
+      }
+    },
+    "boot_diagnostics_account_name": ""
+  },
+  "jumpboxes": {
+    "windows": [
+      {
+        "name": "",
+        "destroy_after_deploy": "",
+        "size": "",
+        "private_ip_address": "",
+        "os": {
+          "publisher": "",
+          "offer": "",
+          "sku": ""
+        },
+        "authentication": {
+          "type": "",
+          "username": "",
+          "password": ""
+        },
+        "components": []
+      }
+    ],
+    "linux": [
+      {
+        "name": "",
+        "destroy_after_deploy": "",
+        "size": "",
+        "private_ip_address": "",
+        "os": {
+        "publisher": "",
+        "offer": "",
+        "sku": ""
+        },
+        "authentication": {
+          "type": "",
+          "username": "",
+          "use_existing": ""
+        },
+        "components": []
+      },
+      {
+        "name": "",
+        "destroy_after_deploy": "",
+        "size": "",
+        "private_ip_address": "",
+        "os": {
+          "publisher": "",
+          "offer": "",
+          "sku": ""
+        },
+        "authentication": {
+          "type": "",
+          "username": "",
+          "use_existing": ""
+        },
+        "components": []
+      }
+    ]
+  },
+  "databases": [
+    {
+      "platform": "",
+      "db_version": "",
+      "os": {
+        "publisher": "",
+        "offer": "",
+        "sku": ""
+      },
+      "size": "",
+      "filesystem": "",
+      "high_availability": "",
+      "authentication": {
+        "type": "",
+        "username": "",
+        "password": ""
+      },
+      "instance": {
+        "sid": "",
+        "instance_number": ""
+      },
+      "credentials": {
+        "db_systemdb_password": "",
+        "os_sidadm_password": "",
+        "os_sapadm_password": "",
+        "xsa_admin_password": "",
+        "cockpit_admin_password": "",
+        "ha_cluster_password": ""
+      },
+      "components": {
+        "hana_database": [],
+        "hana_client_linux": [],
+        "xs": [],
+        "shine": []
+      },
+      "xsa": {
+        "routing": ""
+      },
+      "shine": {
+        "email": ""
+      },
+      "dbnodes": [
+        {
+          "name": "",
+          "admin_nic_ips": [],
+          "db_nic_ips": [],
+          "role": ""
+        }
+      ],
+      "loadbalancer": {
+        "frontend_ip": ""
+      }
+    }
+  ],
+  "software": {
+    "storage_account_sapbits": {
+      "is_existing": "",
+      "arm_id": "",
+      "account_tier": "",
+      "account_replication_type": "",
+      "account_kind": "",
+      "blob_container_name": "",
+      "file_share_name": "",
+      "container_access_type": ""
+    },
+    "downloader": {
+      "credentials": {
+        "sap_user": "",
+        "sap_password": ""
+      },
+      "scenarios": [
+        {
+          "scenario_type": "DB",
+          "product_name": "HANA",
+          "product_version": "2.0",
+          "os_type": "LINUX_X64",
+          "os_version": "SLES12.3",
+          "components": [
+              "PLATFORM"
+          ]
+        },
+        {
+          "scenario_type": "RTI",
+          "product_name": "RTI",
+          "os_type": "LINUX_X64"
+        },
+        {
+          "scenario_type": "BASTION",
+          "os_type": "NT_X64"
+        },
+        {
+          "scenario_type": "BASTION",
+          "os_type": "LINUX_X64"
+        }
+      ],
+      "debug": {
+        "enabled": false,
+        "cert": "charles.pem",
+        "proxies": {
+        "http": "http://127.0.0.1:8888",
+        "https": "https://127.0.0.1:8888"
+        }
+      }
+    }
+  },
+  "sshkey": {
+    "path_to_public_key": "",
+    "path_to_private_key": ""
+  },
+  "options": {
+    "enable_secure_transfer": true,
+    "ansible_execution": true,
+    "enable_prometheus": false
+  }
+}

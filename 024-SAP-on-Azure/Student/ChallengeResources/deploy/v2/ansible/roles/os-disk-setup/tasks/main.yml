@@ -1,0 +1,20 @@
+---
+
+# Prepare disks and mount points
+
+- name: Create device list
+  shell: ls -l /dev/disk/azure/scsi1/* | awk '{split($0,disks," "); system("readlink -f " disks[9])}'
+  register: device_list
+
+- name: Create dictionary with disk name and devices list
+  set_fact:
+    start: "{{ start|int+item.count }}"
+    disk_dict: "{{ disk_dict | combine({ item.name: {'count': item.count, 'mount_point': item.mount_point, 'devices': device_list.stdout_lines[start|int:start|int+item.count]} }) }}"
+  loop: "{{ hdb_sizes[hana_database.size].storage }}"
+  when: item.name != 'os'
+
+# Check if installation paths are ready. If paths are unready, path_status_flag will be set. Then subsequent tasks will be executed.
+- import_tasks: installation_path_prechecks.yml
+
+- include_tasks: lvm_mount.yml
+  when: path_status_flag is defined

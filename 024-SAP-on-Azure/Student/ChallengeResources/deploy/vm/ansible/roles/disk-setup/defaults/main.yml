@@ -1,0 +1,19 @@
+---
+disks:
+  /dev/disk/azure/scsi1/lun0 : vg_hana_data_{{ sap_sid }}
+  /dev/disk/azure/scsi1/lun1 : vg_hana_log_{{ sap_sid }}
+  /dev/disk/azure/scsi1/lun2 : vg_hana_shared
+
+logvols:
+  hana_shared:
+    size: 100%FREE
+    vol: vg_hana_shared
+    mountpoint: /hana/shared
+  hana_data:
+    size: 100%FREE
+    vol: vg_hana_data_{{ sap_sid }}
+    mountpoint: /hana/data/{{ sap_sid }}
+  hana_logs:
+    size: 100%FREE
+    vol: vg_hana_log_{{ sap_sid }}
+    mountpoint: /hana/log/{{ sap_sid }}

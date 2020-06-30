@@ -1,0 +1,82 @@
+# This test: 
+#  Tests the db connection via vip
+#  Stops HDB on the primary node
+#  Makes sure the secondary is promoted to primary
+#  Makes sure HDB is up in both the new primary and secondary
+#  Runs the db connection via vip again
+
+---
+- hosts: localhost
+  tasks:
+    - add_host:
+         name: "{{ jumpbox_vm }}"
+         group: jumpbox_vm
+- name: Test HA pair failover mechanism
+  hosts: jumpbox_vm
+  tasks: 
+    - package:
+         name: python-pip
+         state: present
+      become: yes
+      become_method: sudo
+    - pip:
+         name: pip
+         state: latest
+      become: yes
+      become_method: sudo
+    - pip:
+         name: pyhdb
+         state: latest
+      become: yes
+      become_method: sudo
+    - name: copy the python script
+      copy:
+         src: test_db_connection.py
+         dest: /tmp
+    - name: Test the db connection
+      command: "python /tmp/test_db_connection.py {{ db_host_name }} {{ db_host_port }} {{ db_user }} {{ db_pwd }}"
+      register: testout
+    - debug:
+         msg: "{{ testout.stdout }}"
+    - fail:
+         msg: "{{ primary_hdb }} is not the primary"
+      when: testout.stdout.find("{{ primary_hdb }}") == -1
+
+- hosts: localhost
+  tasks:
+    - add_host:
+         name: "{{ primary_hdb_ip }}"
+         group: fail_hana_instance
+
+- name: stop database on the primary
+  hosts: "fail_hana_instance"
+  become: yes
+  become_method: su
+  become_user: "{{ sap_sid|lower }}adm"
+  vars:
+     result: "Fail"
+  tasks:
+    - copy:
+          src: parse_landscapeconfig.py
+          dest: /tmp/
+    - shell: |
+          . ~/.bashrc
+          HDB stop
+    - include_role: 
+         name: check-hdb-status
+      loop: [1, 2, 3] 
+      when: result != "Pass"
+    - fail:
+          msg: "HDB is not running: {{ host_status }}"
+      when: result != "Pass"
+
+- hosts: "jumpbox_vm"
+  tasks: 
+    - name: Test the db connection again
+      command: "python /tmp/test_db_connection.py {{ db_host_name }} {{ db_host_port }} {{ db_user }} {{ db_pwd }}"
+      register: testout
+    - debug:
+         msg: "{{ testout.stdout }}"
+    - fail:
+         msg: "{{ secondary_hdb }} should be the primary after the failover but it is not"
+      when: testout.stdout.find("{{ secondary_hdb }}") == -1

@@ -1,0 +1,56 @@
+---
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: "{{ hana_vnet }}"
+        address_prefixes: "10.0.0.0/16"
+
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: "{{ hana_subnet }}"
+        address_prefix: "10.0.1.0/24"
+        virtual_network: "{{ hana_vnet }}"
+      register: hana_cluster_subnet
+
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+         resource_group: "{{ resource_group }}"
+         name: "{{ resource_group }}-hana-nsg"
+         rules:
+           - name: SSH
+             protocol: Tcp
+             destination_port_range: 22
+             access: Allow
+             priority: 1001
+             direction: Inbound
+             source_address_prefix: "{{ allowed_source_ip_prefix }}"
+
+    - name: Create VMs
+      with_sequence: start=1 end="{{ vm_count }}"
+      include_role:
+        name: create-azure-vm
+        vars_from: "{{ role_path }}/defaults/main.yml"
+      vars:
+        # Azure general values
+        az_resource_group: "{{ resource_group }}"
+        # PIP specific values
+        pip_allocation_type: Static
+        pip_name: "{{ vm_group }}-pip{{ item }}"
+        pip_sku: Standard
+        domain_name: "{{ az_domain_name }}-{{ vm_group }}{{ item }}"
+        # NIC specific values
+        nsg_name: "{{ resource_group }}-hana-nsg"
+        nic_name: "{{ vm_group }}-nic{{ item }}"
+        subnet_name: "{{ hana_subnet }}"
+        vnet_name: "{{ hana_vnet }}"
+        enable_accelerated_networking: True
+        # VM specific values
+        ansible_host_groups: "{{ vm_group }}"
+        vm_name: "{{ vm_group }}-{{ item }}"
+        managed_disk_type: Standard_LRS

@@ -1,0 +1,94 @@
+{
+  "infrastructure": {
+    "region": "eastus",
+    "resource_group": {
+      "is_existing": "false",
+      "name": "test-rg"
+    },
+    "vnets": {
+      "management": {
+        "is_existing": "false",
+        "name": "vnet-mgmt",
+        "address_space": "10.0.0.0/16",
+        "subnet_mgmt": {
+          "is_existing": "false",
+          "name": "subnet-mgmt",
+          "prefix": "10.0.1.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-mgmt",
+            "allowed_ips": [
+              "0.0.0.0/0"
+            ]
+          }
+        }
+      },
+      "sap": {
+        "is_existing": "false",
+        "name": "vnet-sap",
+        "address_space": "10.1.0.0/16",
+        "subnet_admin": {
+          "is_existing": "false",
+          "name": "subnet-admin",
+          "prefix": "10.1.1.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-admin"
+          }
+        },
+        "subnet_db": {
+          "is_existing": "false",
+          "name": "subnet-db",
+          "prefix": "10.1.2.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-db"
+          }
+        }
+      }
+    }
+  },
+  "jumpboxes": {
+    "windows": [],
+    "linux": [
+      {
+        "name": "rti",
+        "destroy_after_deploy": "true",
+        "size": "Standard_D2s_v3",
+        "disk_type": "StandardSSD_LRS",
+        "os": {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "18.04-LTS"
+        },
+        "authentication": {
+          "type": "key",
+          "username": "azureadm"
+        },
+        "components": [
+          "ansible"
+        ]
+      }
+    ]
+  },
+  "databases": [],
+  "software": {
+    "storage_account_sapbits": {
+      "is_existing": false,
+      "account_tier": "Premium",
+      "account_replication_type": "LRS",
+      "account_kind": "FileStorage",
+      "file_share_name": "bits"
+    },
+    "downloader": {}
+  },
+  "sshkey": {
+    "path_to_public_key": "~/.ssh/id_rsa.pub",
+    "path_to_private_key": "~/.ssh/id_rsa"
+  },
+  "options": {
+    "enable_secure_transfer": true,
+    "ansible_execution": false,
+    "enable_prometheus": true
+  }
+}

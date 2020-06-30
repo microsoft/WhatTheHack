@@ -1,0 +1,45 @@
+- name: Get info about the security group that you had created
+  azure_rm_securitygroup_facts:
+    name: "{{ hana_nsg_name }}"
+    resource_group: "{{ resource_group }}"
+  register: nsg_info
+
+- name: Get the current NSG rules
+  set_fact:
+    nsg_rules: "{{ nsg_info['ansible_facts']['azure_securitygroups'][0]['properties']['securityRules'] }}"
+
+- name: Create a list of NSG rules when the rule is an Allow rule
+  set_fact:
+    nsg_allow_rule: "{{ item.properties.destinationPortRange }}"
+  register: nsg_allow_rule_obj
+  when: item.properties.access == "Allow" and item.properties.destinationPortRange is defined
+  with_items: "{{ nsg_rules }}"
+
+- name: Create list of Ports to allow in new rules
+  set_fact:
+    dest_port_range="{{ nsg_allow_rule_obj.results | selectattr('ansible_facts', 'defined') | selectattr('ansible_facts.nsg_allow_rule', 'defined') | map(attribute='ansible_facts.nsg_allow_rule') | list }}"
+
+- debug:
+    var: dest_port_range
+
+- name: Get the ip addresses of the vms
+  set_fact: allow_ip="{{ hostvars[item]['public_ip'] }}"
+  with_items: "{{ groups['azure'] }}"
+  register: allow_ips_result
+
+- name: make a list
+  set_fact: allow_ips="{{ allow_ips_result.results | map(attribute='ansible_facts.allow_ip') | list }}"
+
+- debug:
+    var: allow_ips
+
+- name: Update NSG rules
+  azure_rm_securitygroup:
+    name: "{{ hana_nsg_name }}"
+    resource_group: "{{ resource_group }}"
+    rules:
+        - name: AllowVMsIPs
+          protocol: Tcp
+          priority: 110
+          source_address_prefix: "{{ allow_ips }}"
+          destination_port_range: "{{ dest_port_range }}"

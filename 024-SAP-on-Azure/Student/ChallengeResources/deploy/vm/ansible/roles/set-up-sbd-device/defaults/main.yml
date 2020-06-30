@@ -1,0 +1,5 @@
+---
+cluster_name: cl1
+iscsi_object: iqn.2006-04
+iscsi_ip: 10.0.0.17
+iscsi_port: 3260

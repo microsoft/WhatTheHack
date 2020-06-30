@@ -1,0 +1,51 @@
+---
+# This role installs XSA on top of an existing HANA 2.0 instance
+- name: Log into XSA
+  shell: |
+    . ~/.bashrc
+    xs login --skip-ssl-validation -a https://{{ ansible_fqdn }}:3{{ sap_instancenum }}30/ -s SAP -u XSA_ADMIN  -p {{ pwd_db_xsaadmin }}
+  args:
+    executable: /bin/bash
+
+- name: Install HRTT
+  shell: |
+    . ~/.bashrc
+    xs install /hana/shared/install/SAP_HANA_COCKPIT/XSAC_HRTT_20/sap-xsac-hrtt-2.6.62.zip
+  args:
+    executable: /bin/bash
+    chdir: "/usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}"
+
+- name: Install XSA Cockpit
+  shell: |
+    . ~/.bashrc
+    xs install /hana/shared/install/SAP_HANA_COCKPIT/XSA_COCKPIT/cockpit-web-xsa-assembly-1.1.7.zip
+  args:
+    executable: /bin/bash
+    chdir: "/usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}"
+
+- name: Install HANA Cockpit
+  shell: |
+    . ~/.bashrc
+    xs install /hana/shared/install/SAP_HANA_COCKPIT/COCKPIT2_APP/sap-xsac-cockpit-2.7.11.zip
+  args:
+    executable: /bin/bash
+    chdir: "/usr/sap/{{ sap_sid|upper }}/HDB{{ sap_instancenum }}"
+
+- name: Get Cockpit URL
+  shell: |
+    . ~/.bashrc
+    xs app cockpit-web-app --urls
+  register: cockpit_url
+  args:
+    executable: /bin/bash
+
+- name: Get Cockpit Admin URL
+  shell: |
+    . ~/.bashrc
+    xs app cockpit-admin-web-app --urls
+  register: cockpit_admin_url
+  args:
+    executable: /bin/bash
+
+- debug:
+    msg: "Cockpit URL = {{ cockpit_url }}\nCockpit Admin URL = {{ cockpit_admin_url }}"

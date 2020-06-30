@@ -1,0 +1,35 @@
+- name: download sapcar
+  win_get_url:
+    url: "{{ url_sapcar_windows }}"
+    dest: C:\Users\{{ bastion_username_windows }}\Downloads\SAPCAR_WINDOWS.EXE
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: download HANA Studio
+  win_get_url:
+    url: "{{ url_hana_studio_windows }}"
+    dest: C:\Users\{{ bastion_username_windows }}\Downloads\HANA_STUDIO_WINDOWS.SAR
+    timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: Extract HANA Studio
+  win_command: SAPCAR_WINDOWS.EXE -xvf HANA_STUDIO_WINDOWS.SAR
+  args:
+    chdir: C:\Users\{{ bastion_username_windows }}\Downloads
+    creates: C:\Users\{{ bastion_username_windows }}\Downloads\SAP_HANA_STUDIO\
+
+- name: Get dummy template HANA Studio (we use the defaults, but the install fails otherwise)
+  win_command: hdbinst.exe --dump_configfile_template=default_config
+  args:
+    chdir: C:\Users\{{ bastion_username_windows }}\Downloads\SAP_HANA_STUDIO
+
+- name: Install HANA Studio
+  win_command: hdbinst.exe --b --configfile=default_config
+  args:
+    chdir: C:\Users\{{ bastion_username_windows }}\Downloads\SAP_HANA_STUDIO

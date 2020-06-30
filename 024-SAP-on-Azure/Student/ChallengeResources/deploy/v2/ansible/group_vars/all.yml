@@ -1,0 +1,15 @@
+---
+disk_dict: {}
+start: 0
+azure_files_mount_path: "/sapmnt"
+hdb_comp_list: []
+linux_comp_list: []
+windows_comp_list: []
+hana_install_path: "/hana/shared/{{ hana_database.instance.sid }}/install"
+hana_software_loc: "{{ azure_files_mount_path }}/DB/DATA_UNITS"
+components: "{{ lookup('file', '../components.json') }}"
+output: "{{ hostvars['localhost'].output }}"
+hana_database: "{{ hostvars['localhost'].hana_database }}"
+linux_jumpboxes: "{{ hostvars['localhost'].output.jumpboxes.linux }}"
+windows_jumpboxes: "{{ hostvars['localhost'].output.jumpboxes.windows }}"
+jumpbox_comp_dict: {}

@@ -1,0 +1,27 @@
+---
+# URL for XS Advanced Runtime
+url_xsa_runtime:
+
+# URL for DI Core
+url_di_core:
+
+# URL for SAPUI5
+url_sapui5:
+
+# URL for Portal Services
+url_portal_services:
+
+# URL for XS Services
+url_xs_services:
+
+# Password for <SID>adm
+pwd_os_sidadm:
+
+# Password for SYSTEM user (SYSTEMDB)
+pwd_db_system:
+
+# Password for XSAADMIN user
+pwd_db_xsaadmin:
+
+# Password for SYSTEM user (tenant DB)
+pwd_db_tenant:

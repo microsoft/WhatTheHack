@@ -1,0 +1,104 @@
+- name: Update SLES
+  zypper:
+    name: '*'
+    state: latest
+    disable_recommends: no
+
+- name: Remove unnecessary lio-utils
+  package:
+    name: lio-utils
+    state: absent
+
+- name: Remove unnecessary python-rtslib
+  package:
+    name: python-rtslib
+    state: absent
+
+- name: Remove unnecessary old python-configshell
+  package:
+    name: python-configshell
+    state: absent
+
+- name: Remove old targetcli
+  package:
+    name: targetcli
+    state: absent
+
+- name: Install iSCSI target packages
+  package:
+    name: targetcli-fb
+    state: present
+    disable_recommends: no
+
+- name: Start and enable targetcli service
+  service: name=targetcli enabled=yes state=started
+
+
+- name: Check if backstore already exists
+  command: targetcli /backstores/block status
+  register: backstore_status
+
+- debug:
+    msg: "{{ backstore_status }}"
+  when: backstore_status
+
+- name: Get disk with correct disk-id
+  shell: ls -l /dev/disk/by-id/scsi-* | grep sdc | grep scsi-3 | awk '{ print $9; }'
+  register: scsi_disk_path
+
+- name: Create a new backstore
+  command: targetcli backstores/block create {{ cluster_name }} {{ scsi_disk_path.stdout }}
+  register: backstore_create
+
+# - name: Create a new backstore
+#   command: targetcli backstores/block create {{ cluster_name }} /dev/disk/azure/scsi1/lun{{ iscsi_lun }}
+#   register: backstore_create
+
+- debug:
+    msg: "{{ backstore_create }}"
+  when: backstore_create
+
+- name: Create iscsi object
+  command: targetcli iscsi/ create {{ iscsi_object }}.{{ cluster_name }}.local:{{ cluster_name }}
+  when: backstore_create.changed
+  register: iscsi_object_created
+
+- debug:
+    msg: "{{ iscsi_object_created }}"
+  when: iscsi_object_created
+
+- name: Add lun to iscsi object
+  command: targetcli iscsi/{{ iscsi_object }}.{{ cluster_name }}.local:{{ cluster_name }}/tpg1/luns/ create /backstores/block/{{ cluster_name }}
+  when: iscsi_object_created.changed
+  register: lun_to_iscsi_object
+
+- debug:
+    msg: "{{ lun_to_iscsi_object }}"
+  when: lun_to_iscsi_object
+
+- name: Add acl 0
+  command: targetcli iscsi/{{ iscsi_object }}.{{ cluster_name }}.local:{{ cluster_name }}/tpg1/acls/ create {{ iscsi_object }}.prod-{{ cluster_name }}-0.local:prod-{{ cluster_name }}-0
+  when: lun_to_iscsi_object.changed
+  register: add_acl0
+
+- debug:
+    msg: "{{ add_acl0 }}"
+  when: add_acl0
+
+- name: Add acl 1
+  command: targetcli iscsi/{{ iscsi_object }}.{{ cluster_name }}.local:{{ cluster_name }}/tpg1/acls/ create {{ iscsi_object }}.prod-{{ cluster_name }}-1.local:prod-{{ cluster_name }}-1
+  when: add_acl0.changed
+  register: add_acl1
+
+- debug:
+    msg: "{{ add_acl1 }}"
+  when: add_acl1
+
+- name: save targetcli changes
+  command: targetcli saveconfig
+  when: add_acl1.changed
+  register: save_targetcli_config
+
+- debug:
+    msg: "{{ save_targetcli_config }}"
+  when: save_targetcli_config

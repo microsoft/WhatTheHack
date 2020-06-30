@@ -1,0 +1,53 @@
+# Please read the corosync.conf.5 manual page
+
+totem {
+    version:    2
+    secauth:    on
+    crypto_hash:    sha1
+    crypto_cipher:  aes256
+    cluster_name:   hacluster
+    clear_node_high_bit: yes
+
+    token:      30000
+    token_retransmits_before_loss_const: 10
+    join:       60
+    consensus:  6000
+    max_messages:   20
+    interface {
+        ringnumber:     0
+        mcastport:  5405
+        ttl:        1
+    }
+    transport: udpu
+}
+
+nodelist {
+  node {
+   ring0_addr:{{ hdb0_ip }}
+  }
+  node {
+   ring0_addr:{{ hdb1_ip }}
+  } 
+}
+
+logging {
+    fileline:   off
+    to_stderr:  no
+    to_logfile:     no
+    logfile:    /var/log/cluster/corosync.log
+    to_syslog:  yes
+    debug:      off
+    timestamp:  on
+    logger_subsys {
+        subsys:     QUORUM
+        debug:  off
+    }
+}
+
+quorum {
+    # Enable and configure quorum subsystem (default: off)
+    # see also corosync.conf.5 and votequorum.5
+    provider: corosync_votequorum
+    expected_votes: 2
+    two_node: 1
+}

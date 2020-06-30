@@ -1,0 +1,67 @@
+---
+- name: Provision PIP
+  azure_rm_publicipaddress:
+    name: "{{ pip_name }}"
+    resource_group: "{{ az_resource_group }}"
+    allocation_method: "{{ pip_allocation_type }}"
+    sku: "{{ pip_sku }}"
+    domain_name: "{{ domain_name }}"
+  register: pip_info
+
+- name: Provision NIC
+  azure_rm_networkinterface:
+    name: "{{ nic_name }}"
+    resource_group: "{{ az_resource_group }}"
+    virtual_network: "{{ vnet_name }}"
+    subnet_name: "{{ subnet_name }}"
+    security_group: "{{ nsg_name }}"
+    enable_accelerated_networking: "{{ enable_accelerated_networking }}"
+    ip_configurations:
+      - name: "{{ vm_name }}-nic-configuration"
+        public_ip_address_name: "{{ pip_name }}"
+        private_ip_allocation_method: "{{ private_ip_allocation }}"
+        private_ip_address: "{{ private_ip_address }}"
+        load_balancer_backend_address_pools: "{{ backend_ip_pool_ids }}"
+        primary: yes
+
+- name: Provision VM
+  vars:
+    public_key_data: "{{ lookup('file','{{ ssh_public_key_file }}') }}"
+  azure_rm_virtualmachine:
+      # Reference to existing Azure resources
+      resource_group: "{{ az_resource_group }}"
+      network_interfaces: "{{ nic_name }}"
+      availability_set: "{{ availability_set_id }}"
+      # Specifics about VM setup
+      name: "{{ vm_name }}"
+      vm_size: "{{ vm_size }}"
+      managed_disk_type: "{{ managed_disk_type }}"
+      image:
+        offer: "{{ source_image_offer }}"
+        publisher: "{{ source_image_publisher }}"
+        sku: "{{ source_image_sku }}"
+        version: "{{ source_image_version }}"
+      data_disks: "{{ vm_data_disks }}"
+      # Access information
+      admin_username: "{{ vm_user }}"
+      ssh_password_enabled: false
+      ssh_public_keys:
+            - path: "/home/{{ vm_user }}/.ssh/authorized_keys"
+              key_data: "{{ public_key_data }}"
+      # The VM will be created and started
+      started: true
+      state: present
+  register: vm_creation_result
+
+- name: Add this VM to the Ansible hosts
+  add_host:
+    name: "{{ vm_creation_result.ansible_facts.azure_vm.name }}"
+    ansible_ssh_host: "{{ pip_info.state.dns_settings.fqdn }}"
+    groups: "{{ ansible_host_groups }}"
+    ansible_ssh_private_key_file: "{{ ssh_private_key_file }}"
+    ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
+    ansible_user: "{{ vm_user }}"
+    private_ip: "{{ vm_creation_result.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.privateIPAddress }}"
+    public_ip: "{{ vm_creation_result.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}"
+    fqdn: "{{ vm_creation_result.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.dnsSettings.fqdn }}"
+    other_vars: "{{ other_host_vars }}"

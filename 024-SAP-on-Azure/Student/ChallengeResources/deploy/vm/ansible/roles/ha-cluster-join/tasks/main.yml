@@ -1,0 +1,5 @@
+- name: HA cluster join csync2
+  shell: ha-cluster-join -y -c {{ hdb0_ip }} csync2
+
+- name: HA cluster join cluster
+  shell: ha-cluster-join -y cluster

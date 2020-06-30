@@ -1,0 +1,17 @@
+---
+
+# Implement manual preparation steps for OS
+# The name for all sub tasks follows <OS type>-<OS version>/os_config.yml naming conversion
+
+- name: Manual preparation for all OS
+  include_tasks: "common/os_config.yml"
+
+# Currently we only support RHEL-7
+- name: Manual preparation for RedHat
+  include_tasks: "{{ ansible_os_family }}/RHEL-{{ ansible_distribution_major_version }}/os_config.yml"
+  when:  ansible_os_family == "RedHat"
+
+# Currently we only support SLES-12
+- name: Manual preparation for Suse
+  include_tasks: "{{ ansible_os_family }}/SLES-{{ ansible_distribution_major_version }}/os_config.yml"
+  when:  ansible_os_family == "Suse"

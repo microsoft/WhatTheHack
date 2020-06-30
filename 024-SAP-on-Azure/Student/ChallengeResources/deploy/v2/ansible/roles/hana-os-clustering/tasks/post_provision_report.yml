@@ -1,0 +1,15 @@
+---
+
+- name: Pause to give cluster time to stabilize
+  pause:
+    seconds: "{{ cluster_status_report_wait_in_s }}"
+
+- name: Check the post-provisioning cluster status
+  shell: "{{ cluster_status_cmd[ansible_os_family] }}"
+  register: cluster_status_report
+  changed_when: False
+  failed_when: False
+
+- name: Output cluster status
+  debug:
+    msg: "{{ cluster_status_report.stdout }}"

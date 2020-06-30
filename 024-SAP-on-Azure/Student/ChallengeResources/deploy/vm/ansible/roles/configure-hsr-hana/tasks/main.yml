@@ -1,0 +1,57 @@
+- debug:
+        msg: "using hana2: {{use_hana2}} and hana1 db mode:{{hana1_db_mode}}"
+
+- name: Backup the database SYSTEM DB and TENANT DB [HANA 2.0]
+  shell: |
+    . ~/.bashrc
+    hdbsql -d SYSTEMDB -u SYSTEM -p "{{ pwd_db_system }}" -i {{ sap_instancenum }} "BACKUP DATA USING FILE ('initialbackupSYS')"
+    hdbsql -d {{ sap_sid|upper }} -u SYSTEM -p "{{ pwd_db_system }}" -i {{ sap_instancenum }} "BACKUP DATA USING FILE ('initialbackup{{ sap_sid|upper }}')"
+  args: 
+    executable: '/bin/bash'
+  register: check_hdbsql
+  when: use_hana2 == true
+
+- name: Backup the database [HANA 1.0, Multitenant DB Container]
+  shell: |
+    . ~/.bashrc
+    hdbsql -d SYSTEMDB -u SYSTEM -p "{{ pwd_db_system }}" -i {{ sap_instancenum }} "BACKUP DATA USING FILE ('initialbackupSYS')"
+  args:
+    executable: '/bin/bash'
+  register: check_hdbsql
+  when: use_hana2 == false and hana1_db_mode == "multiple_containers"
+
+- name: Backup the database [HANA 1.0, SingleTenant DB container]
+  shell: |
+    . ~/.bashrc
+    hdbsql -u SYSTEM -p "{{ pwd_db_system }}" -i {{ sap_instancenum }} "BACKUP DATA USING FILE ('initialbackup{{ sap_sid|upper }}')"
+  args:
+    executable: '/bin/bash'
+  register: check_hdbsql
+  when: use_hana2 == false and hana1_db_mode == "single_container"
+
+- debug:
+    msg: "{{ check_hdbsql }}"
+
+- name: Copy SSFS key storage to hdb1
+  shell: |
+      scp -oStrictHostKeyChecking=no /usr/sap/{{ sap_sid }}/SYS/global/security/rsecssfs/data/SSFS_{{ sap_sid }}.DAT "{{ groups['hdb1'][0] }}":/usr/sap/{{ sap_sid }}/SYS/global/security/rsecssfs/data/
+      scp -oStrictHostKeyChecking=no /usr/sap/{{ sap_sid }}/SYS/global/security/rsecssfs/key/SSFS_{{ sap_sid }}.KEY "{{ groups['hdb1'][0] }}":/usr/sap/{{ sap_sid }}/SYS/global/security/rsecssfs/key/
+  args: 
+    executable: '/bin/bash'
+  become: true
+  become_user: root
+
+- name: Use hdbnsutil to enable primary site
+  shell: |
+    . ~/.bashrc
+    hdbnsutil -sr_enable --name=SITE1
+  args: 
+    executable: '/bin/bash'
+
+- name: Stop HDB on hdb1 and use hdbnsutil to register secondary site
+  shell: |
+      . ~/.bashrc
+      sapcontrol -nr {{ sap_instancenum }} -function StopWait 600 10
+      hdbnsutil -sr_register --remoteHost={{ groups['hdb0'][0] }} --remoteInstance={{ sap_instancenum }} --replicationMode=sync --name=SITE2
+  delegate_to: "{{ groups['hdb1'][0] }}"
+  become: true

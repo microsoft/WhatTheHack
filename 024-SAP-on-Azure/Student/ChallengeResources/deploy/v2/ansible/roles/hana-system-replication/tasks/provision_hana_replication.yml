@@ -1,0 +1,63 @@
+---
+
+- name: Perform pre-flight backup checks
+  become_user: "{{ sid_admin_user }}"
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+
+    - name: Check backup file exists for SYSTEMDB database for System Identifier {{ sid }}
+      stat:
+        path: "{{ sid_backup_dir }}/INITIAL_SYSTEMDB_BACKUP_databackup_0_1"
+      register: systemdb_backup_file
+      failed_when: not systemdb_backup_file.stat.exists
+      changed_when: false
+
+    - name: Check backup file exists for tenant {{ hana_tenant_database_name }} database for System Identifier {{ sid }}
+      stat:
+        path: "{{ sid_backup_dir }}/INITIAL_{{ hana_tenant_database_name }}_BACKUP_databackup_0_1"
+      register: tenant_backup_file
+      failed_when: not tenant_backup_file.stat.exists
+      changed_when: false
+
+- name: Ensure HANA is configured for System Replication
+  become_user: "{{ sid_admin_user }}"
+  when: ansible_hostname == hana_database.nodes[0].dbname and not hana_system_replication_enabled
+  block:
+    - name: Ensure Primary node is configured for System Replication
+      shell: >
+        source ~/.bashrc ;
+        {{ hdbnsutil_command }} -sr_enable --name=SITEA
+      register: hana_status
+      # rc == 102 means nameserver is already active
+      failed_when: hana_status.rc != 0 and hana_status.rc != 102
+      tags:
+        - skip_ansible_lint
+
+    - name: Check replication state on primary
+      shell: >
+        source ~/.bashrc ;
+        {{ hdbnsutil_command }} -sr_state | grep 'mode: primary'
+      changed_when: false
+
+    - import_tasks: set_global_ini_values.yml
+    - import_tasks: stop_hana.yml
+    - import_tasks: start_hana.yml
+
+- name: Ensure System Replication is configured
+  become_user: "{{ sid_admin_user }}"
+  when: ansible_hostname != hana_database.nodes[0].dbname and not hana_system_replication_enabled
+  block:
+
+    - import_tasks: stop_hana.yml
+
+    # TODO: make replicationMode and operationMode configurable
+    - name: Ensure Secondary node is registered as secondary in replication
+      shell: >
+        source ~/.bashrc ;
+        {{ hdbnsutil_command }} -sr_register --remoteHost={{ hana_database.nodes[0].dbname }}
+        --remoteInstance={{ instance_number }} --replicationMode={{  hana_replication_mode }}
+        --operationMode={{ hana_operation_mode }} --name=SITEB
+      tags:
+        - skip_ansible_lint
+
+    - import_tasks: start_hana.yml

@@ -1,0 +1,43 @@
+---
+
+# Install HANA database
+- name: Create dictionary with installation variant for Hana Database
+  set_fact:
+    hdb: "{{ item }}"
+  loop: "{{ components }}"
+  when: item.component == 'hana_database'
+
+- name: Create install directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ hana_install_path }}/SAP_HANA_DATABASE"
+
+- name: Create install template for SAP HANA 1.0
+  template:
+    src:  hdbserver_hana1.j2 
+    dest: "{{ hana_install_path }}/hdbserver_{{ hana_database.instance.sid }}_install.cfg"
+  when: hana_database.db_version is regex("1([0-9]\d|[0-9]\d{2}).\d{2}")  
+
+- name: Create install template for SAP HANA 2.0
+  template:
+    src: hdbserver_hana2.j2 
+    dest: "{{ hana_install_path }}/hdbserver_{{ hana_database.instance.sid }}_install.cfg"
+  when: hana_database.db_version is regex("2.\d{2}.0([4-9]\d|[0-9]\d{2,})") 
+
+- name: Create password file for hdblcm installer
+  template:
+    src: hdbserver_passwords.j2
+    dest: "{{ hana_install_path }}/hdbserver_{{ hana_database.instance.sid }}_passwords.xml"
+
+- name: Install HANA Database using hdblcm
+  shell: "pwd=$(<../hdbserver_{{ hana_database.instance.sid }}_passwords.xml); rm ../hdbserver_{{ hana_database.instance.sid }}_passwords.xml; echo $pwd | {{ hana_software_loc }}/{{ item.media_loc }}/{{ item.installer }} --sid={{ hana_database.instance.sid }} --batch --action=install --configfile='../hdbserver_{{ hana_database.instance.sid }}_install.cfg' --read_password_from_stdin=xml"
+  args:
+    chdir: "{{ hana_install_path }}/SAP_HANA_DATABASE"
+  loop: "{{ hdb.variants }}"
+
+- name: Delete install template file
+  file: 
+    path: "{{ hana_install_path }}/hdbserver_{{ hana_database.instance.sid }}_install.cfg" 
+    state: absent

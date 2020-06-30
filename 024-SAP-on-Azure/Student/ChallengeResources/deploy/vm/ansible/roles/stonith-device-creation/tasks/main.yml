@@ -1,0 +1,38 @@
+- set_fact:
+    app_id:  "{{ lookup('env','AZURE_CLIENT_ID') }}"
+
+- debug:
+    msg: "{{ app_id }}"
+
+- set_fact:
+    password: "{{ lookup('env','AZURE_SECRET') }}"
+
+- set_fact:
+    Subscription_ID: "{{ lookup('env','AZURE_SUBSCRIPTION_ID') }}"
+
+- set_fact:
+    tenant: "{{ lookup('env','AZURE_TENANT') }}"
+
+- name: Sleep to let service principal be created before accessing
+  pause:
+    seconds: 30
+
+- name: Configure STONITH timeout
+  shell: crm configure property stonith-timeout=900
+  delegate_to: "{{ groups['hdb0'][0] }}"
+  become: true
+
+- name: Configure Fence parameters
+  shell: crm configure primitive rsc_st_azure stonith:fence_azure_arm params subscriptionId={{ Subscription_ID }} resourceGroup={{ resource_group }} tenantId={{ tenant }} login={{ app_id }} passwd={{ password }}
+  delegate_to: "{{ groups['hdb0'][0] }}"
+  become: true
+
+- name: Create fence topology for SBD fencing
+  shell: crm configure fencing_topology stonith-sbd rsc_st_azure
+  delegate_to: "{{ groups['hdb0'][0] }}"
+  become: true
+
+- name: Enable use of STONITH device
+  shell: crm configure property stonith-enabled=true
+  delegate_to: "{{ groups['hdb0'][0] }}"
+  become: true

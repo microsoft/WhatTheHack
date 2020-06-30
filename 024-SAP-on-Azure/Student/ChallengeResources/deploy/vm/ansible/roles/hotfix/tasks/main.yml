@@ -1,0 +1,20 @@
+---
+
+- name: Ensure correct hostnames are set and not changed for SLES
+  become: true
+  become_user: root
+  when:
+    - ansible_os_family|upper == 'SUSE'
+  block:
+
+  # SUSE bug 1167134
+  - name: Ensure DHCLIENT_SET_HOSTNAME is set to no
+    lineinfile:
+      path: /etc/sysconfig/network/dhcp
+      regexp: '^DHCLIENT_SET_HOSTNAME='
+      line: DHCLIENT_SET_HOSTNAME="no"
+
+  # This is workaround for https://github.com/Azure/WALinuxAgent/pull/1832
+  - name: Ensure the correct hostnames are set on HANA VMs
+    hostname:
+      name: "{{ inventory_hostname }}"

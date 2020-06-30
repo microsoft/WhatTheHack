@@ -1,0 +1,25 @@
+---
+
+# Install XSA 
+
+- name: Create dictionary with XS information from Components
+  set_fact:
+    xsa: "{{ item }}"
+  loop: "{{ components|flatten(levels=1) }}"
+  when: item.component == 'xs'
+
+- name: Deploy install template for XSA
+  template:
+    src: xsa_install.cfg.j2
+    dest: "{{ hana_install_path }}/xsa_install.cfg"
+
+- name: Deploy password file for XSA
+  template:
+    src: xsa_passwords.j2
+    dest: "{{ hana_install_path }}/xsa_passwords"
+
+- name: Install XSA components
+  shell: "pwd=$(<xsa_passwords); rm xsa_passwords; echo $pwd | {{ hana_software_loc }}/{{ item.media_loc }}/{{ item.installer }} --configfile=xsa_install.cfg  --sid={{ hana_database.instance.sid }} --batch --action=update --read_password_from_stdin=xml"
+  args:
+    chdir: "{{ hana_install_path }}"
+  loop: "{{ xsa.variants|flatten(levels=1) }}"

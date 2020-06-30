@@ -1,0 +1,115 @@
+---
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: hana-vnet
+        address_prefixes: "10.0.0.0/16" 
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: hana-subnet
+        address_prefix: "10.0.1.0/24"
+        virtual_network: hana-vnet
+      register: hana_cluster_subnet
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "hanavm-pip{{ item }}"
+        domain_name: "{{ az_domain_name }}-hana{{ item }}"
+        sku: Standard
+      register: ip_sample
+      with_sequence: start=1 end="{{ n }}"
+    - debug:
+        msg: "hana vm :{{ ip_sample.results[0].state.dns_settings.fqdn }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+         resource_group: "{{ resource_group }}"
+         name: "{{ resource_group }}-hana-nsg"
+         rules:
+           - name: SSH
+             protocol: Tcp
+             destination_port_range: 22
+             access: Allow
+             priority: 1001
+             direction: Inbound
+             source_address_prefix: "{{ allowed_source_ip_prefix }}"
+      with_sequence: start=1 end="{{ n }}"
+    - name: set up the load balancers
+      azure_rm_loadbalancer:
+          resource_group: "{{ resource_group }}"
+          name: "hana{{ item }}-lb"
+          sku: Standard
+          frontend_ip_configurations:
+              - name: "frontendipconf{{ item }}"
+                private_ip_address: "10.0.1.9{{ item }}"
+                private_ip_allocation_method: Static
+                subnet: "{{ hana_cluster_subnet.state.id }}"
+          backend_address_pools:
+              - name: "backendaddrpool{{ item }}"
+          probes:
+              - name: "probe{{ item }}"
+                protocol: Tcp
+                port: 22
+          load_balancing_rules:
+              - name: "lbrbalancingrule{{ item }}"
+                protocol: All
+                frontend_ip_configuration: "frontendipconf{{ item }}"
+                backend_address_pool: "backendaddrpool{{ item }}"
+                frontend_port: 0
+                backend_port: 0
+                probe: "probe{{ item }}"
+      with_sequence: start=1 end="{{ n }}"
+    - name: NIC for the VMs
+      azure_rm_networkinterface:
+          resource_group: "{{ resource_group }}"
+          name: "{{ resource_group }}-nic{{ item }}"
+          virtual_network: "hana-vnet"
+          subnet: "hana-subnet"
+          public_ip_name: "hanavm-pip{{ item }}"
+          security_group: "{{ resource_group }}-hana-nsg"
+          enable_accelerated_networking: True
+          ip_configurations:
+             - name: hana-ip-config
+               public_ip_address_name: "hanavm-pip{{ item }}"
+               primary: yes
+               load_balancer_backend_address_pools:
+                   - name: "backendaddrpool{{ item }}"
+                     load_balancer: "hana{{ item }}-lb"
+      register: nic_sample
+      with_sequence: start=1 end="{{ n }}"
+    - add_host:
+        name: "{{ item.state.dns_settings.fqdn }}"
+        groups: "{{ vm_group }}"
+        ansible_ssh_private_key_file: "{{ ssh_private_key_file }}"
+        ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
+        ansible_user: "{{ vm_user }}"
+      with_items: "{{ ip_sample.results }}"
+    - name: create hana VM
+      vars:
+        public_key_data: "{{ lookup('file','{{ ssh_public_key_file }}') }}"
+      azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        managed_disk_type: Standard_LRS
+        name: "hanavm-{{ item }}"
+        vm_size: Standard_D8s_v3
+        admin_username: "{{ vm_user }}"
+        ssh_password_enabled: false
+        ssh_public_keys:
+            - path: "/home/{{ vm_user }}/.ssh/authorized_keys"
+              key_data: "{{ public_key_data }}"
+        network_interfaces: "{{ resource_group }}-nic{{ item }}"
+        started: yes
+        state: present
+        image:
+            offer: sles-sap-12-sp5
+            publisher: SUSE
+            sku: gen1
+            version: latest
+      with_sequence: start=1 end="{{ n }}"
+      async: 1500
+

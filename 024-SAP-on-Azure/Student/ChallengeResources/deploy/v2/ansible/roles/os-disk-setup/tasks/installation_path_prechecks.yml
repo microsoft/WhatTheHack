@@ -1,0 +1,22 @@
+---
+
+# Check if installation paths are correct. 
+- name: Pre-check installation path
+  stat:
+    path: "{{ item.value.mount_point }}"
+  loop: "{{ disk_dict|dict2items }}"
+  register: path_status
+
+# If any one of paths is incorrect, path_status_flag will be defined.
+- name: Get intallation path status
+  set_fact:
+     path_status_flag: "{{ item.stat.exists }}"
+  loop: "{{ path_status.results }}"
+  when: item.stat.exists == False
+
+- name: Check the paths status in Large Instance
+  fail:
+    msg: "Not all paths are ready in Large Instance"
+  when: 
+    - hana_database.size == "LargeInstance"
+    - path_status_flag is defined

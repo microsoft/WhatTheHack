@@ -1,0 +1,6 @@
+---
+# Number of schemas to be created
+num_schemas: 2
+
+# Number of tables per schema
+num_tables_per_schema: 3

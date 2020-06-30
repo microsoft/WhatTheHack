@@ -1,0 +1,8 @@
+---
+
+- import_tasks: pre_checks.yml
+- import_tasks: set_trust_relationship.yml
+- import_tasks: copy_ssfs_keys.yml
+- import_tasks: create_hana_backup.yml
+- import_tasks: provision_hana_replication.yml
+- import_tasks: post_checks.yml

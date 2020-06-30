@@ -1,0 +1,108 @@
+[Server]
+
+# Enable usage of persistent memory ( Default: n )
+use_pmem=n
+
+# Enable the installation or upgrade of the SAP Host Agent ( Default: y )
+install_hostagent=y
+
+# Database Isolation ( Default: low; Valid values: low | high )
+db_isolation=low
+
+# Create initial tenant database ( Default: y )
+create_initial_tenant=y
+
+# Non-standard Shared File System
+checkmnt=
+
+# Installation Path ( Default: /hana/shared )
+sapmnt=/hana/shared
+
+# Local Host Name ( Default: sh2-hdb0 )
+hostname={{ sap_hostname }}
+
+# Install SSH Key ( Default: y )
+install_ssh_key=y
+
+# Root User Name ( Default: root )
+root_user=root
+
+# Root User Password
+root_password=
+
+# SAP Host Agent User (sapadm) Password
+sapadm_password=
+
+# Directory containing a storage configuration
+storage_cfg=
+
+# Internal Network Address
+internal_network=
+
+# SAP HANA System ID
+sid={{ sap_sid|upper }}
+
+# Instance Number
+number={{ sap_instancenum }}
+
+# Local Host Worker Group ( Default: default )
+workergroup=default
+
+# System Usage ( Default: custom; Valid values: production | test | development | custom )
+system_usage=custom
+
+# Location of Data Volumes ( Default: /hana/data/${sid} )
+datapath=/hana/data/${sid}
+
+# Location of Log Volumes ( Default: /hana/log/${sid} )
+logpath=/hana/log/${sid}
+
+# Location of Persistent Memory Volumes ( Default: /hana/pmem/${sid} )
+pmempath=/hana/pmem/${sid}
+
+# Directory containing custom configurations
+custom_cfg=
+
+# Restrict maximum memory allocation?
+restrict_max_mem=
+
+# Maximum Memory Allocation in MB
+max_mem=
+
+# Certificate Host Names
+certificates_hostmap=
+
+# Master Password
+master_password=
+
+# System Administrator Password
+password=
+
+# System Administrator Home Directory ( Default: /usr/sap/${sid}/home )
+home=/usr/sap/${sid}/home
+
+# System Administrator Login Shell ( Default: /bin/sh )
+shell=/bin/sh
+
+# System Administrator User ID
+userid=
+
+# ID of User Group (sapsys)
+groupid=
+
+# Database User (SYSTEM) Password
+system_user_password=
+
+# Restart system after machine reboot? ( Default: n )
+autostart=n
+
+# Enable HANA repository ( Default: y )
+repository=y
+
+# Inter Service Communication Mode ( Valid values: standard | ssl )
+isc_mode=
+
+[Action]
+
+# Action ( Default: exit; Valid values: install | update | extract_components )
+action=install

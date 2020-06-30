@@ -1,0 +1,7 @@
+- name: disable CLOUD_NETCONFIG_MANAGE
+  shell: |
+    TARGET_KEY="CLOUD_NETCONFIG_MANAGE"
+    REPLACEMENT_VALUE="\'no\'"
+    CONFIG_FILE="/etc/sysconfig/network/ifcfg-eth0"
+    sed -i "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/" $CONFIG_FILE
+

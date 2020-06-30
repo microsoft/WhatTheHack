@@ -1,0 +1,60 @@
+---
+- hosts: localhost
+  tasks:
+    - include_vars:
+        file: "{{ config_json_file }}"
+        name: az_json
+    - debug:
+        msg: "config passed {{ az_json }}"
+
+- hosts: localhost
+  roles:
+    - role: create-azure-vm
+      vars:
+        # Azure general values
+        az_resource_group: "{{ az_json.az_resource_group }}"
+        # PIP specific values
+        pip_name: "{{ az_json.az_vm_name }}-pip"
+        pip_allocation_type: Dynamic
+        domain_name: "{{az_json.az_vm_name}}"
+        # NIC specific values
+        nsg_name: "{{ az_json.nsg_id }}"
+        nic_name: "{{ az_json.az_vm_name}}-nic"
+        subnet_name: "{{ az_json.az_subnet }}"
+        vnet_name: "{{ az_json.az_vnet }}"
+        private_ip_address: "{{ az_json.private_ip_address }}"
+        # VM specific values
+        vm_size: Standard_D8s_v3
+        vm_user: "{{ az_json.az_user }}"
+        vm_name: '{{ az_json.az_vm_name }}'
+        ansible_host_groups: bastion_linux_group
+        ssh_public_key_file: "{{ az_json.az_public_key }}"
+        ssh_private_key_file: "{{ az_json.ssh_private_key_file }}"
+        other_host_vars:
+            - config_json: "{{ az_json }}"
+      when: az_json.linux_bastion == true
+
+- hosts: localhost
+  tasks:
+    - name: Retrieve the public IP of the new linux bastion vm
+      azure_rm_publicipaddress_info:
+        resource_group: "{{ az_json.az_resource_group }}"
+        name:  "{{ az_json.az_vm_name }}-pip"
+      register: lbh_metadata
+    - name: Log the information in a file
+      copy:
+        content: "{{ lbh_metadata }}"
+        dest: "pip-linux_bastion.json"
+
+- hosts: bastion_linux_group
+  tasks:
+    - include_vars:
+        file: "{{ config_json_file }}"
+        name: az_json
+    - debug:
+            msg: "linux bastion host required: {{az_json.linux_bastion}}"
+
+- name: install HANA Studio
+  hosts: bastion_linux_group
+  roles:
+          - { role: setup-linux-hana-studio, when: az_json.linux_bastion == true,  azure_user: '{{ az_json.az_user }}', hana_studio_url: '{{ az_json.url_linux_hana_studio }}', sapcar_url: '{{ az_json.url_linux_sapcar }}' }

@@ -1,0 +1,16 @@
+{
+  "Name": "Linux Fence Agent Role",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows to deallocate and start virtual machines",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/deallocate/action",
+    "Microsoft.Compute/virtualMachines/start/action"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/{{ Subscription_ID }}",
+  ]
+}

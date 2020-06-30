@@ -1,0 +1,103 @@
+---
+
+# Implement manual preparation steps for RHEL-7
+# The tasks' name follows:
+#   - Red Hat Enterprise Linux (RHEL) 7.x Configuration Guide for SAP HANA
+#   - SAP Notes for RHEL OS recommendations
+
+- name: Task 3.2 - Installing OS package
+  package:
+    name: "{{ item }}" 
+    state: present
+  with_items: 
+    - "{{ packages[ansible_os_family] }}"
+
+- name: Task 3.7 - Disable SELinux 1
+  selinux:
+    state: disabled
+  register: se_state
+
+- name: Task 3.7 - Disable SELinux 2
+  reboot:
+  when: se_state.changed
+
+- name: Task 3.8 - Disable Automatic NUMA Balancing 1
+  copy:
+    dest: /etc/sysctl.d/sap_hana.conf
+    content: |
+       kernel.numa_balancing=0
+
+- name: Task 3.8 - Disable Automatic NUMA Balancing 2
+  command: sysctl -p /etc/sysctl.d/sap_hana.conf 
+
+- name: Task 3.8 - Disable Automatic NUMA Balancing 3
+  service:
+     name: numad
+     state: stopped
+     enabled: no
+
+- name: Task 3.9 - Add Symbolic Links
+  file:
+    src: "{{ item.prop }}"
+    dest: "{{ item.value }}"
+    state: link
+  with_items:
+    - { prop: '/usr/lib64/libssl.so.10', value: '/usr/lib64/libssl.so.1.0.1' }
+    - { prop: '/usr/lib64/libcrypto.so.10', value: '/usr/lib64/libcrypto.so.1.0.1' }
+
+- name: Task 3.13 - Maximum Number of Proccesses a User
+  copy:
+    dest: /etc/security/limits.d/99-sapsys.conf
+    content: |
+       '@sapsys soft nproc unlimited'
+       '@sapsys hard nproc unlimited'
+
+- name: Task 3.14 - Disable ABRT, Core Dumps and kdump 1
+  systemd:
+     name: abrt-ccpp
+     state: stopped
+     enabled: no
+
+- name: Task 3.14 - Disable ABRT, Core Dumps and kdump 2
+  systemd: 
+     name: abrtd
+     state: stopped
+     enabled: no
+
+- name: Task 3.14 - Disable ABRT, Core Dumps and kdump 3
+  lineinfile:
+    dest: /etc/security/limits.conf
+    line: "{{ item }}"
+  with_items:
+    - '* soft core 0'
+    - '* hard core 0'
+
+- name: Task 3.14 - Disable ABRT, Core Dumps and kdump 4
+  systemd:
+     name: kdump.service
+     state: stopped
+     enabled: no
+
+- name: Task 3.15 - Firewall Configuration
+  systemd:
+     name: firewalld
+     state: stopped
+     enabled: no
+
+- name: SAP Note 2593824 - Linux Running SAP applications compiled with GCC 7.x
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+      - compat-sap-c++-7
+      - libatomic
+  when: hana_database.db_version is regex("2.\d{2}.0([4-9]\d|[0-9]\d{2,})")
+
+- name: SAP Note 2292690 - SAP HANA DB Recommended OS settings for RHEL 7 - Tuned profile 1
+  systemd:
+     name: tuned
+     state: started
+     enabled: yes
+
+- name: SAP Note 2292690 - SAP HANA DB Recommended OS settings for RHEL 7 - Tuned profile 2
+  command: "tuned-adm profile sap-hana"

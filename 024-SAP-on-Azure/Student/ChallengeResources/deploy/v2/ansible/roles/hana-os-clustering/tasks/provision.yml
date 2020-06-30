@@ -1,0 +1,72 @@
+---
+
+#############################################################################################
+# This file runs common pre-provisioning tasks before the OS specific clustering is performed
+#############################################################################################
+- name: Ensure clustering software is installed
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ ha_packages[ansible_os_family] | flatten(levels=1) }}"
+
+# Pacemaker can create a large number of processes
+- name: Ensure Process limit is raised
+  lineinfile:
+    path: /etc/systemd/system.conf
+    state: present
+    regexp: "^#?\\s*DefaultTasksMax="
+    line: "DefaultTasksMax=4096"
+  register: raise_process_limit
+
+- name: Ensure systemctl daemon is reloaded
+  systemd:
+    daemon_reload: True
+
+# Configure SSH Keys for inter-node communication as root
+- name: Ensure there are SSH keys for the root user to communicate between nodes
+  shell: ssh-keygen -b 4096 -t rsa -f /root/.ssh/id_rsa -q -N ""
+  args:
+    creates: /root/.ssh/id_rsa
+
+- name: Ensure there is a public key for the root user SSH key
+  shell: ssh-keygen -f /root/.ssh/id_rsa -y > /root/.ssh/id_rsa.pub
+  args:
+    creates: /root/.ssh/id_rsa.pub
+
+- name: Ensure the Public SSH keys are available for exchanging SSH key trust between nodes
+  shell: cat /root/.ssh/id_rsa.pub
+  register: cluster_public_ssh_key
+  changed_when: False
+
+- name: Ensure the Primary Node public key is authorized on all nodes, required for crm_clustering
+  authorized_key:
+    user: root
+    key: "{{ hostvars[hana_database.nodes[0].ip_admin_nic].cluster_public_ssh_key.stdout }}"
+
+- name: Ensure the Secondary Node public key is authorized on all nodes, required for crm_clustering
+  authorized_key:
+    user: root
+    key: "{{ hostvars[hana_database.nodes[1].ip_admin_nic].cluster_public_ssh_key.stdout }}"
+
+# @TODO NTP server for datetime sync?
+
+# Set up Hosts entries for the cluster nodes
+- name: Ensure the Primary node hosts entry exists
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    insertafter: EOF
+    regexp: "{{ hana_database.nodes[0].dbname }}"
+    line: "{{ hana_database.nodes[0].ip_db_nic }} {{ hana_database.nodes[0].dbname }}"
+
+- name: Ensure the Secondary node hosts entry exists
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    insertafter: EOF
+    regexp: "{{ hana_database.nodes[1].dbname }}"
+    line: "{{ hana_database.nodes[1].ip_db_nic }} {{ hana_database.nodes[1].dbname }}"
+
+# Clustering commands are based on the Host OS
+- name: Cluster based on OS
+  include_tasks: "cluster-{{ ansible_os_family }}.yml"

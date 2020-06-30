@@ -1,0 +1,28 @@
+- name: download SAPCAR
+  get_url:
+      url: "{{sapcar_url}}"
+      dest: "/home/{{ azure_user }}/SAPCAR.EXE"
+      timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: change permission of SAPCAR.EXE
+  file:
+      path: "/home/{{ azure_user }}/SAPCAR.EXE"
+      mode: 0755
+- name: download HANA Studio
+  get_url:
+      url: "{{hana_studio_url}}"
+      dest: "/home/{{ azure_user }}/HANA_STUDIO.SAR"
+      timeout: "{{ url_timeout }}"
+  register: result
+  until: result is succeeded
+  retries: "{{ url_retries_cnt }}"
+  delay: "{{ url_retries_delay }}"
+
+- name: extract HANA Studio
+  shell: ./SAPCAR.EXE -manifest SIGNATURE.SMF -xvf HANA_STUDIO.SAR
+
+

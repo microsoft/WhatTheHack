@@ -1,0 +1,8 @@
+---
+# tasks file for create-nsg
+- name: Create NSG for HANA
+  azure_rm_securitygroup:
+    name: "{{ hana_nsg_name }}"
+    resource_group: "{{ az_resource_group_name }}"
+    rules: "{{ hana_nsg_rules }}"
+    state: "{{ nsg_state }}"

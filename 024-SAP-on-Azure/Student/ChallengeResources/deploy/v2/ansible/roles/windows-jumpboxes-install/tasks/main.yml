@@ -1,0 +1,20 @@
+---
+
+- name: Collect components for Windows jumpboxes
+  set_fact:
+    windows_comp_list: "{{ windows_comp_list + [ item.components ] }}"
+  loop: "{{ windows_jumpboxes }}"
+  when: item.destroy_after_deploy|bool == False
+
+- name: Flatten components to have one list for all Windows jumpboxes
+  set_fact:
+    windows_comp_list: "{{ windows_comp_list|flatten(levels=1)|unique }}"
+
+# Install Components on Windows Jumpboxes
+- name: Install components for Windows jumpboxes
+  include_role:
+    name: components-install
+    tasks_from: "{{ component }}.yml"
+  loop: "{{ windows_comp_list }}"
+  loop_control:
+    loop_var: component

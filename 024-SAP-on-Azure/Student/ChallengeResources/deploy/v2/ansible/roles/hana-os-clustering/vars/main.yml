@@ -1,0 +1,28 @@
+---
+
+cluster_totem:
+  token: 30000
+  retransmits: 10
+  join: 60
+  consensus: 36000
+  max_messages: 20
+
+cluster_quorum:
+  expected_votes: 2
+  two_node: 1
+
+# These are the default timeouts used for the SAP HANA OS clustering. Depending on the
+# SAP HANA System, these may need to be adjusted if the operation takes longer than expected.
+cluster_SAPHana_timeouts:
+  start: 3600
+  stop: 3600
+  monitor_master: 700
+  monitor_slave: 700
+  promote: 3600
+  demote: 3600
+
+cluster_status_cmd:
+  RedHat: "pcs status --full"
+  Suse: "crm status full"
+
+cluster_status_report_wait_in_s: 60

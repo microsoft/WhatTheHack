@@ -1,0 +1,88 @@
+[Server]
+
+# Enable the installation or upgrade of the SAP Host Agent ( Default: y )
+install_hostagent=y
+
+# Non-standard Shared File System
+checkmnt=
+
+# Installation Path ( Default: /hana/shared )
+sapmnt=/hana/shared
+
+# Local Host Name ( Default: pv1-hdb0 )
+hostname={{ sap_hostname }}
+
+# Install SSH Key ( Default: y )
+install_ssh_key=y
+
+# Root User Name ( Default: root )
+root_user=root
+
+# Root User Password
+root_password=
+
+# Directory containing a storage configuration
+storage_cfg=
+
+# Internal Network Address
+internal_network=
+
+# SAP HANA System ID
+sid={{ sap_sid|upper }}
+
+# Instance Number
+number={{ sap_instancenum }}
+
+# Database Mode ( Default: single_container; Valid values: single_container | multiple_containers )
+db_mode=single_container
+
+# Database Isolation ( Default: low; Valid values: low | high )
+db_isolation=low
+
+# System Usage ( Default: custom; Valid values: production | test | development | custom )
+system_usage=custom
+
+# Location of Data Volumes ( Default: /hana/data/${sid} )
+datapath=/hana/data/${sid}
+
+# Location of Log Volumes ( Default: /hana/log/${sid} )
+logpath=/hana/log/${sid}
+
+# Directory containing custom configurations
+custom_cfg=
+
+# Restrict maximum memory allocation?
+restrict_max_mem=n
+
+# Maximum Memory Allocation in MB
+max_mem=
+
+# Certificate Host Names
+certificates_hostmap=
+
+# SAP Host Agent User (sapadm) Password
+sapadm_password=
+
+# System Administrator Password
+password=
+
+# System Administrator Home Directory ( Default: /usr/sap/${sid}/home )
+home=/usr/sap/${sid}/home
+
+# System Administrator Login Shell ( Default: /bin/sh )
+shell=/bin/sh
+
+# System Administrator User ID
+userid=
+
+# ID of User Group (sapsys)
+groupid=
+
+# Database User (SYSTEM) Password
+system_user_password=
+
+# Restart system after machine reboot? ( Default: n )
+autostart=n
+
+# Inter Service Communication Mode ( Valid values: standard | ssl )
+isc_mode=

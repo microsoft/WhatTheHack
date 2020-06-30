@@ -1,0 +1,32 @@
+---
+
+
+- name: Check the required Clustering configuration variables are set
+  assert:
+    that:
+      - "ha_cluster_password is defined"
+      - "ha_cluster_password | trim | length > 0"
+      - "sap_hana_fencing_agent_subscription_id is defined"
+      - "sap_hana_fencing_agent_subscription_id | trim | length > 0"
+      - "sap_hana_fencing_agent_tenant_id is defined"
+      - "sap_hana_fencing_agent_tenant_id | trim | length > 0"
+      - "sap_hana_fencing_agent_client_id is defined"
+      - "sap_hana_fencing_agent_client_id | trim | length > 0"
+      - "sap_hana_fencing_agent_client_password is defined"
+      - "sap_hana_fencing_agent_client_password | trim | length > 0"
+
+- name: Check the required Clustering scripts are available
+  when: ansible_os_family == 'Suse'
+  stat:
+    path: "{{ item }}"
+  loop:
+    - "/usr/sbin/ha-cluster-init"
+    - "/usr/sbin/ha-cluster-join"
+  register: cluster_scripts_status_results
+  failed_when: not cluster_scripts_status_results.stat.exists
+
+- name: Check if a cluster has already been prepared
+  shell: "{{ cluster_status_cmd[ansible_os_family] }}"
+  register: cluster_existence_check_result
+  changed_when: false
+  failed_when: false

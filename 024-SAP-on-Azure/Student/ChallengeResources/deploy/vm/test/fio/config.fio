@@ -1,0 +1,8 @@
+[global]
+ioengine=posixaio
+rw=readwrite
+size=128mb
+directory=${HOME}/fio_output
+thread=1
+
+[fio_test_readwrite_128mb]

@@ -1,0 +1,44 @@
+---
+
+- name: Create physical volume group
+  lvg: 
+    vg: "vg_{{ item.key }}"
+    pvs: "{{ item.value.devices }}"
+  with_dict: "{{ disk_dict }}"
+  register: physical_vg
+  failed_when: physical_vg is failed
+  ignore_errors: true
+
+- name: Create logical volume group
+  lvol:
+    state: present
+    vg: "vg_{{ item.key }}"
+    lv: "lv_hana_{{ item.key }}"
+    size: 100%VG
+  with_dict: "{{ disk_dict }}"
+  register: logical_vg
+  failed_when: logical_vg is failed
+  ignore_errors: true
+ 
+- name: Create mount points
+  file:
+    path: "{{ item.value.mount_point }}"
+    state: directory
+  with_dict: "{{ disk_dict }}"
+
+- name: Create file systems
+  filesystem:
+     fstype: "{{ hana_database.filesystem | default('xfs') }}"
+     dev: "/dev/vg_{{ item.key }}/lv_hana_{{ item.key }}"
+  with_dict: "{{ disk_dict }}"
+  register: file_system
+
+- name: Mount volumes
+  mount:
+    path: "{{ item.value.mount_point }}"
+    fstype: "{{ hana_database.filesystem | default('xfs') }}"
+    opts: "defaults,nofail"
+    src: "/dev/vg_{{ item.key }}/lv_hana_{{ item.key }}"
+    state: mounted
+  with_dict: "{{ disk_dict }}"
+  register: vol_mount

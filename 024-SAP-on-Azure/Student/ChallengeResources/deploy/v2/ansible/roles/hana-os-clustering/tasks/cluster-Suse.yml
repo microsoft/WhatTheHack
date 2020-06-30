@@ -1,0 +1,170 @@
+---
+
+# SLES Clustering
+# Ref: https://documentation.suse.com/sle-ha/12-SP4/html/SLE-HA-install-quick/index.html
+
+- name: Ensure a list of package version is available for checking the cloud-netconfig-azure version
+  package_facts:
+
+# eth1 is the "db" NIC
+- name: Ensure clustering can manage Virtual IPs on the Database Interface
+  when: ansible_facts.packages["cloud-netconfig-azure"] and (ansible_facts.packages["cloud-netconfig-azure"][0].version | float) < 1.3
+  lineinfile:
+    path: /etc/sysconfig/network/ifcfg-eth1
+    state: present
+    regexp: "^#?\\s*CLOUD_NETCONFIG_MANAGE="
+    line: "CLOUD_NETCONFIG_MANAGE='no'"
+
+# https://rpm.pbone.net/index.php3/stat/45/idpl/27916721/numer/8/nazwa/ha-cluster-init
+- name: Ensure Primary node initiates the Cluster
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+    - name: Ensure csync2 is configured
+      shell: crm cluster init -y csync2 --interface eth1
+
+    - name: Ensure corosync is configured
+      shell: crm cluster init -y -u corosync --interface eth1
+
+    - name: Ensure cluster (hdb_{{ hana_database.instance.sid | upper }}) is configured
+      shell: "crm cluster init -y cluster --name 'hdb_{{ hana_database.instance.sid | upper }}' --interface eth1"
+
+- name: Ensure Secondary node joins the Cluster
+  when: ansible_hostname == hana_database.nodes[1].dbname
+  block:
+    - name: Ensure the configuration files are synchronised
+      shell: "crm cluster join -y -c {{ hana_database.nodes[0].ip_db_nic }} csync2 --interface eth1"
+
+    - name: Ensure the cluster is joined
+      shell: "crm cluster join -y -c {{ hana_database.nodes[0].ip_db_nic }} cluster --interface eth1"
+
+- name: Ensure HA Cluster password is set to something secure
+  user:
+    name: hacluster
+    password: "{{ ha_cluster_password | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) }}"
+
+- name: Ensure cluster configuration contains correct details
+  template:
+    src: corosync.conf.j2
+    dest: /etc/corosync/corosync.conf
+    mode: 0600
+
+- name: Ensure the Corosync service is restarted
+  systemd:
+    name: corosync
+    state: restarted
+
+- name: Ensure the Cluster STONITH is configured
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+    - name: Ensure maintenance mode is enabled
+      shell: "crm configure property maintenance-mode=true"
+
+    - name: Ensure CIB Bootstrap Options are set
+      shell: >
+        crm configure property \$id="cib-bootstrap-options"
+        no-quorum-policy="ignore"
+        stonith-enabled="true"
+        stonith-action="reboot"
+        stonith-timeout="900s"
+
+    - name: Ensure the Resource Defaults are configured
+      shell: >
+        crm configure rsc_defaults \$id="rsc-options"
+        resource-stickiness="1000"
+        migration-threshold="5000"
+
+    # Operation Default recommendation from section 5.3.1 in https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf#page=26
+    - name: Ensure the Operation Defaults are configured
+      shell: >
+        crm configure op_defaults \$id="op-options"
+        timeout="600"
+
+    - name: Ensure the STONITH fencing device is created
+      shell: >
+        crm configure primitive rsc_st_azure stonith:fence_azure_arm params
+        subscriptionId="{{ sap_hana_fencing_agent_subscription_id }}"
+        resourceGroup="{{ output.infrastructure.resource_group.name }}"
+        tenantId="{{ sap_hana_fencing_agent_tenant_id }}"
+        login="{{ sap_hana_fencing_agent_client_id }}"
+        passwd="{{ sap_hana_fencing_agent_client_password }}"
+
+    - name: Ensure SAP HANA Topology resource is configured
+      shell: >
+        crm configure primitive rsc_SAPHanaTopology_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        ocf:suse:SAPHanaTopology
+        operations \$id="rsc_sap2_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}-operations"
+        op monitor interval="10" timeout="600"
+        op start interval="0" timeout="600"
+        op stop interval="0" timeout="300"
+        params SID="{{ hana_database.instance.sid | upper }}" InstanceNumber="{{ hana_database.instance.instance_number }}"
+
+    - name: Ensure SAP HANA Topology clone set resource is configured
+      shell: >
+        crm configure clone cln_SAPHanaTopology_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        rsc_SAPHanaTopology_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        meta clone-node-max="1" target-role="Started" interleave="true"
+
+    - name: Ensure SAP HANA primitive resource is configured
+      shell: >
+        crm configure primitive rsc_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        ocf:suse:SAPHana
+        operations \$id="rsc_sap_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}-operations"
+        op start interval="0" timeout="{{ cluster_SAPHana_timeouts.start }}"
+        op stop interval="0" timeout="{{ cluster_SAPHana_timeouts.stop }}"
+        op promote interval="0" timeout="{{ cluster_SAPHana_timeouts.promote }}"
+        op monitor interval="60" role="Master" timeout="{{ cluster_SAPHana_timeouts.monitor_master }}"
+        op monitor interval="61" role="Slave" timeout="{{ cluster_SAPHana_timeouts.monitor_slave }}"
+        params
+        SID="{{ hana_database.instance.sid | upper }}"
+        InstanceNumber="{{ hana_database.instance.instance_number }}"
+        PREFER_SITE_TAKEOVER="true"
+        DUPLICATE_PRIMARY_TIMEOUT="7200"
+        AUTOMATED_REGISTER="false"
+
+    - name: Ensure SAP HANA master-slave resource is configured
+      shell: >
+        crm configure ms msl_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        rsc_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        meta notify="true" clone-max="2" clone-node-max="1"
+        target-role="Started" interleave="true"
+
+    - name: Ensure SAP HANA Virtual IP resource is configured
+      shell: >
+        crm configure primitive rsc_ip_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }} ocf:heartbeat:IPaddr2
+        meta target-role="Started"
+        operations \$id="rsc_ip_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}-operations"
+        op monitor interval="10s" timeout="20s"
+        params ip="{{ hana_database.loadbalancer.frontend_ip }}"
+
+    # socat is recommended in place of netcat on Azure: https://www.suse.com/support/kb/doc/?id=000019536
+    - name: Ensure SAP HANA Heartbeat socat resource is configured
+      shell: >
+        crm configure primitive rsc_nc_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }} anything
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:625{{ hana_database.instance.instance_number }},backlog=10,fork,reuseaddr /dev/null"
+        op monitor timeout=20s interval=10 depth=0
+
+    - name: Ensure Group IP Address resource is configured
+      shell: >
+        crm configure group g_ip_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        rsc_ip_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        rsc_nc_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+
+    - name: Ensure Co-Location constraint is configured
+      shell: >
+        crm configure colocation col_saphana_ip_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        4000:
+        g_ip_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}:Started
+        msl_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}:Master
+
+    - name: Ensure Resource order is configured
+      shell: >
+        crm configure order ord_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        Optional:
+        cln_SAPHanaTopology_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+        msl_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}
+
+    - name: Ensure any required cluster resources are cleaned up
+      shell: "crm resource cleanup rsc_SAPHana_{{ hana_database.instance.sid | upper }}_HDB{{ hana_database.instance.instance_number }}"
+
+    - name: Ensure maintenance mode is disabled
+      shell: "crm configure property maintenance-mode=false"

@@ -1,0 +1,90 @@
+---
+
+# sapcontrol EXITCODES
+#     0  Last webmethod call successful
+#     1  Last webmethod call failed, invalid parameter
+#     2  StartWait, StopWait, WaitforStarted, WaitforStopped, RestartServiceWait
+#        timed out
+#        CheckSystemCertificates detected warnings
+#     3  GetProcessList succeeded, all processes running correctly
+#        CheckSystemCertificates detected errors
+#     4  GetProcessList succeeded, all processes stopped
+
+- name: Check HANA system replication variables are set and seem valid
+  assert:
+    that:
+      - "hana_group | trim | length != 0"
+      - "sid | trim | regex_search('^[A-Za-z][A-Za-z\\d][A-Za-z\\d]$') | length == 3"  # must be 3 characters <alpha><alnum><alnum>, e.g. HN1, not 1_H
+      - "instance_number | trim | regex_search('^\\d\\d$') | length == 2"  # must be 2 digits <num><num>, e.g. 00, not 0 or a0
+      - "hana_dir | trim | length != 0"
+      - "sap_dir | trim | length != 0"
+      - "tmp_ssfs_dir | trim | length != 0"
+
+- name: Check that HANA was installed successfully and is running normally
+  become_user: "{{ sid_admin_user }}"
+  shell: >
+    source ~/.bashrc ;
+    {{ sapcontrol_command }} -function GetProcessList
+  register: hana_process_list_result
+  failed_when: hana_process_list_result.rc != 3
+  changed_when: false
+
+- name: Check whether replication has already been set up
+  become_user: "{{ sid_admin_user }}"
+  shell: >
+    source ~/.bashrc ;
+    {{ hdbnsutil_command }} -sr_state
+  register: hana_replication_status
+  changed_when: false
+  failed_when: false
+
+- name: Ensure current replication status is known
+  set_fact:
+    hana_system_replication_enabled: "{{ 'mode: none' not in hana_replication_status.stdout }}"
+
+- name: Check that HANA DB SYSTEM user can access the SYSTEM database
+  # If HSR is already enabled, we cannot read from the secondary node
+  when: (ansible_hostname == hana_database.nodes[0].dbname) or not hana_system_replication_enabled
+  become_user: "{{ sid_admin_user }}"
+  shell: >
+    source ~/.bashrc ;
+    {{ hdbsql_command }} -n {{ hana_container_address }} '{{ dummy_cmd }}'
+  changed_when: false
+
+- name: Check that HANA DB SYSTEM user can access the tenant database {{ hana_tenant_database_name }}
+  # If HSR is already enabled, we cannot read from the secondary node
+  when: (ansible_hostname == hana_database.nodes[0].dbname) or not hana_system_replication_enabled
+  become_user: "{{ sid_admin_user }}"
+  shell: >
+    source ~/.bashrc ;
+    {{ hdbsql_command }} -n {{ hana_tenant_address }} '{{ dummy_cmd }}'
+  changed_when: false
+
+- name: Check HANA log mode is set to normal
+  # If HSR is already enabled, we cannot read from the secondary node
+  when: (ansible_hostname == hana_database.nodes[0].dbname) or not hana_system_replication_enabled
+  become_user: "{{ sid_admin_user }}"
+  shell: >
+    source ~/.bashrc ;
+    {{ hdbsql_command }} -n {{ hana_container_address }} "{{ get_log_mode_cmd }}"
+  register: log_mode_status
+  failed_when: log_mode_status.rc != 0 or ("normal" not in log_mode_status.stdout)
+  changed_when: false
+  tags:
+    - skip_ansible_lint
+
+- name: Ensure the Primary node SSFS files are present on the primary node
+  when: ansible_hostname == hana_database.nodes[0].dbname
+  block:
+
+    - name: Ensure the Primary node SSFS_{{ sid | upper }}.DAT file exists
+      stat:
+        path: "{{ path_ssfs_dat }}"
+      register: primary_dat_file_result
+      failed_when: primary_dat_file_result.failed
+
+    - name: Ensure the Primary node SSFS_{{ sid | upper }}.KEY file exists
+      stat:
+        path: "{{ path_ssfs_key }}"
+      register: primary_key_file_result
+      failed_when: primary_key_file_result.failed

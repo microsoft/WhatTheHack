@@ -1,0 +1,20 @@
+- name: Check if correct number of nodes created
+  shell: cibadmin --query --scope nodes | wc -l
+  register: node_config
+
+- name: cibadmin query output
+  debug:
+    var: node_config
+
+- name: Fix CIB config if there is a duplicate node
+  shell: |
+    cibadmin --delete --xpath '/cib[1]/configuration/nodes//node[@id="2"]'
+    cibadmin --delete --xpath '/cib[1]/status//node_state[@id="2"]'
+  when: node_config.stdout == "5"
+
+- name: cib status
+  shell: crm cib cibstatus show
+  register: cib_status
+- name: cib status debug
+  debug:
+    var: cib_status
