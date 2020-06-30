@@ -35,10 +35,11 @@ BEGIN
     -- Find the dimension keys required for foreign key to support joins between Fact and Dimension tables
 
 -- Required Fix - From clause on update with an alias doesn't work.  Table can be referred on the update line. 
+-- JUNE 2020 Update -- Fixed this issue and able to alias UPDATE Statement. No changes necessary 
 
 */ 
 
-    /* 
+
 
 UPDATE s 
 
@@ -104,96 +105,18 @@ UPDATE s
 
     FROM Integration.Sale_Staging AS s; 
 
-*/ 
 
-UPDATE Integration.Sale_Staging 
-
-        SET [City Key] = COALESCE((SELECT TOP(1) c.[City Key] 
-
-                                     FROM Dimension.City AS c 
-
-                                     WHERE c.[WWI City ID] = Integration.Sale_Staging.[WWI City ID] 
-
-                                     AND Integration.Sale_Staging.[Last Modified When] > c.[Valid From] 
-
-                                     AND Integration.Sale_Staging.[Last Modified When] <= c.[Valid To] 
-
- ORDER BY c.[Valid From]), 0), 
-
-            [Customer Key] = COALESCE((SELECT TOP(1) c.[Customer Key] 
-
-                                           FROM Dimension.Customer AS c 
-
-                                           WHERE c.[WWI Customer ID] = Integration.Sale_Staging.[WWI Customer ID] 
-
-                                           AND Integration.Sale_Staging.[Last Modified When] > c.[Valid From] 
-
-                                           AND Integration.Sale_Staging.[Last Modified When] <= c.[Valid To] 
-
-       ORDER BY c.[Valid From]), 0), 
-
-            [Bill To Customer Key] = COALESCE((SELECT TOP(1) c.[Customer Key] 
-
-                                                 FROM Dimension.Customer AS c 
-
-                                                 WHERE c.[WWI Customer ID] = Integration.Sale_Staging.[WWI Bill To Customer ID] 
-
-                                                 AND Integration.Sale_Staging.[Last Modified When] > c.[Valid From] 
-
-                                                 AND Integration.Sale_Staging.[Last Modified When] <= c.[Valid To] 
-
-             ORDER BY c.[Valid From]), 0), 
-
-            [Stock Item Key] = COALESCE((SELECT TOP(1) si.[Stock Item Key] 
-
-                                           FROM Dimension.[Stock Item] AS si 
-
-                                           WHERE si.[WWI Stock Item ID] = Integration.Sale_Staging.[WWI Stock Item ID] 
-
-                                           AND Integration.Sale_Staging.[Last Modified When] > si.[Valid From] 
-
-                                           AND Integration.Sale_Staging.[Last Modified When] <= si.[Valid To] 
-
-       ORDER BY si.[Valid From]), 0), 
-
-            [Salesperson Key] = COALESCE((SELECT TOP(1) e.[Employee Key] 
-
-                                            FROM Dimension.Employee AS e 
-
-                                            WHERE e.[WWI Employee ID] = Integration.Sale_Staging.[WWI Salesperson ID] 
-
-                                            AND Integration.Sale_Staging.[Last Modified When] > e.[Valid From] 
-
-                                            AND Integration.Sale_Staging.[Last Modified When] <= e.[Valid To] 
-
-        ORDER BY e.[Valid From]), 0) 
-
- 
 
 /* Part 2 -  
 
     -- Remove any existing entries for any of these invoices 
-
--- Required fix.   Alias on Fact.Sale doesn't work. 
-
-*/ 
-
-/* 
-
+	-- No changes necessary 
+*/
     DELETE s 
 
     FROM Fact.Sale AS s 
 
     WHERE s.[WWI Invoice ID] IN (SELECT [WWI Invoice ID] FROM Integration.Sale_Staging); 
-
-*/ 
-
-DELETE 
-
-    FROM Fact.Sale 
-
-    WHERE [WWI Invoice ID] IN (SELECT [WWI Invoice ID] FROM Integration.Sale_Staging); 
-
      
 
 /* Part 3 - 

@@ -57,20 +57,20 @@ SET LOAD_DATE = getdate()
 ## Success Criteria
 1. Deploy a new storage account resource.
 2. Define directory structure to support data lake use cases as follows:
-    - .\IN\WWIDW\ [TABLE]\ - This will be the sink location used as the landing zone for staging your data.
-    - .\RAW\WWIDW\ [TABLE]\{YY}\{MM}\{DD}\ - This will be the location for downstream systems to consume the data once it has been processed.
-    - .\STAGED\WWIDW\ [TABLE]\{YY}\{MM}\{DD}\ 
-    - .\CURATED\WWIDW\ [TABLE]\{YY}\{MM}\{DD}\
+    - .\IN\WWIDB\ [TABLE]\ - This will be the sink location used as the landing zone for staging your data.
+    - .\RAW\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\ - This will be the location for downstream systems to consume the data once it has been processed.
+    - .\STAGED\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\ 
+    - .\CURATED\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\
 3. Configure folder level security in your new data lake storage 
     - only your ETL job should be able to write to your \IN directory
-    - you should be able to grant individual access to users who may want to access your \Out directory based on AAD credentials
+    - you should be able to grant individual access to users who may want to access your \RAW directory based on AAD credentials
 4. Deploy Azure Data Factory 
 5. Create a pipeline to copy data into ADLS.  Your pipeline will need the following components:
     - Lookup Activity that queries the [Integration].[ETL Cutoff Table] in your Synapse DW to get the last refresh date for the City data. This result will be used as the @LastCutoff parameter in your copy activity.  The LastCutoff is similar to your Start Date in a range query.
     - Lookup activity that queries [Integration].[Load Control] table in your Synapse DW to get the current refresh date. This result will be used as the @NewCutoff parameter in your copy activity. The NewCutoff is similar to your End Date in a range query.
-    - Copy Data activity that uses the [Integration].[GetCityUpdates] stored procedure in your WideWorldImporters OLTP database as your source, and the .\IN\WWIDW\City\ directory as the sink 
+    - Copy Data activity that uses the [Integration].[GetCityUpdates] stored procedure in your WideWorldImporters OLTP database as your source, and the .\IN\WWIDB\City\ directory as the sink 
     <br><b>Note: You will need to modify this stored procedure to ensure that the [Location] field is excluded from the results.  Otherwise this data will cause errors due to incompatibility with Azure Data Factory</b>
-6. Once you have executed your new pipeline, there should be a .txt file with the 11 updated records from the City table in the \In\WWIDW\City\ folder of your data lake.
+6. Once you have executed your new pipeline, there should be a .txt file with the 11 updated records from the City table in the \In\WWIDB\City\ folder of your data lake.
 <br><b>Note: you can execute your new pipeline by clicking the "Debug" button or adding a trigger from the UI designer.</b>
 
 ## Stage 2 Architecture
@@ -79,11 +79,13 @@ SET LOAD_DATE = getdate()
 ## Learning Resources
 1. [Begin by creating a new Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal).
 1. [Data Lake Storage Best Practices](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-best-practices)
+1. [Azure Data Factory Copy Activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
+1. [Copy data from local on-premise SQL Server into cloud storage](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal)
+1. [Incremental Loads Design Pattern in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+1. [Service Principal in Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)
+1. [Access Control in Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control)
 1. [Data Lake Planning](https://www.sqlchick.com/entries/2016/7/31/data-lake-use-cases-and-planning)
 1. [Naming Conventions](https://www.sqlchick.com/entries/2019/1/20/faqs-about-organizing-a-data-lake)
-1. [Azure Data Factory Copy Activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
-1. [Copy data from local on-premis SQL Server into cloud storage](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal)
-1. [Azure Data Factory Incremental Load Pattern](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-overview)
 
 ## Tips
 1. Things to consider when creating new data lake storage account:

@@ -55,7 +55,7 @@
                     "location": {
                         "type": "AzureBlobFSLocation",
                         "fileName": "City.txt",
-                        "folderPath": "IN/WWIDW/City",
+                        "folderPath": "IN/WWIDB/City",
                         "fileSystem": "mdwhack"
                     },
                     "columnDelimiter": "|",
@@ -119,7 +119,7 @@
                     "location": {
                         "type": "AzureBlobFSLocation",
                         "fileName": "City20200603.txt",
-                        "folderPath": "Staged/City/2020/06/03",
+                        "folderPath": "RAW/City/2020/06/03",
                         "fileSystem": "mdwhack"
                     },
                     "columnDelimiter": "|",
