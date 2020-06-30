@@ -183,7 +183,7 @@
                     "location": {
                         "type": "AzureBlobFSLocation",
                         "fileName": "City.txt",
-                        "folderPath": "IN/WWIDW/City",
+                        "folderPath": "IN/WWIDB/City",
                         "fileSystem": "mdwhack"
                     },
                     "columnDelimiter": "|",
