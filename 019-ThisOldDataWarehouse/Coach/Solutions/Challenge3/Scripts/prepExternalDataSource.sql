@@ -23,7 +23,7 @@ WITH
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfss://[container]@[storage account].dfs.core.windows.net/IN/WWIDW', -- Please note the abfss endpoint for when your account has secure transfer enabled
+    LOCATION='abfss://[container]@[storage account].dfs.core.windows.net/IN/WWIDB', -- Please note the abfss endpoint for when your account has secure transfer enabled
     CREDENTIAL = ADLSCredential
 );
 
