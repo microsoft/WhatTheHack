@@ -49,6 +49,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [MasteringLinux](/020-MasteringLinux/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
+- [SAPonAzure](/024-SAP-on-Azure/README.md)
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
