@@ -6,10 +6,6 @@
 ### Introduction
 
 In this section, lets get familiar with the application that will be used throughout the hack. The application is a simple cats and dogs voting application.
-<br>
-<br>
-<Screenshot>
-
 
 ### Challenge
 
