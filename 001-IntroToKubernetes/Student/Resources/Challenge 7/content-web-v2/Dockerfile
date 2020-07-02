@@ -11,5 +11,8 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
+# environment variable pointing to the api server
+ENV CONTENT_API_URL http://api:3001
+
 EXPOSE 3000
 CMD [ "npm", "start" ]
