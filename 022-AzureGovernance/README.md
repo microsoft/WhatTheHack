@@ -20,18 +20,20 @@ In this hack you will learn how to:
 
 ## Challenges
 
-- Challenge 0: [Deployment Setup Guide](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%200%20-%20Deployment%20Setup%20Guide.docx?raw=true)
+- Challenge 0: [Deployment Setup Guide](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/Challenge0-DeploymentSetupGuide.docx?raw=true)
    - Create a new AAD tenant, Azure subscription, and deploy hack environment from script
-- Challenge 1: [Management Group](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%201%20-%20Management%20Group.docx?raw=true)
+- Challenge 1: [Management Group](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw-true)
    - Create a logical heirarchy in Management Groups
-- Challenge 2: [Azure Policy](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%202%20-%20Policies.docx?raw=true)
+- Challenge 2: [Azure Policy](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw-true)
    - Apply out-of-the-box Azure policies and create a custom policies
-- Challenge 3: [Azure Blueprints](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%203%20-%20Blueprints.docx?raw=true)
+- Challenge 3: [Azure Blueprints](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw-true)
    - Learn to create an Azure Blueprint to specify policies and permissions
-- Challenge 4: [Azure Cost Management](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%205%20-%20Azure%20Cost%20Management.docx?raw=true)
+- Challenge 4: [Azure Cost Management](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw-true)
    - Learn how to identify costs of deployed resources
-- Challenge 5: [Azure Resource Graph](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%204%20-%20ResourceGraph.docx?raw=true)
+- Challenge 5: [Azure Resource Graph](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw-true)
    - Monitor and review deployed resources through Resource Graph
+
+[View Challenges in PowerPoint](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.pptx?raw-true)
 
 ## Prerequisites
 1. Review the Deployment Setup Guide. 
