@@ -11,7 +11,7 @@ In this section, lets get familiar with the application that will be used throug
 
 To get familar with the application perform the following tasks within this challenge.
 
-1. [Download](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/adgroc/WhatTheHack/tree/master/014-OSS-DevOps/Student/Resources/app) application code.
+1. [Download](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/microsoft/WhatTheHack/tree/master/014-OSSDevOps/Student/Resources/app) application code.
 2. Run the application locally
 3. Containerize the application
 4. Test the containerized application locally
