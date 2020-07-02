@@ -8,26 +8,25 @@ Also remember that this hack includes a optional lecture presentation that featu
 
 ## Delivery Content:
 
-- [Azure Governance Overview Presentation](https://github.com/faridabharmal/AzureGovernance/blob/master/Azure%20Governance%20Presentation.pptx?raw=true)
+- [Azure Governance Overview Lecture](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/AzureGovernance-Lecture.pptx?raw=true)
    - This presentation contains lectures that explain Azure Governance and be delivered ahead of students beginning the hack challenges.
-- [Student Challenges](https://github.com/faridabharmal/AzureGovernance/blob/master/Azure%20Governance%20Hack.docx?raw=true)
+- [Student Challenges - Word](https://github.com/jrzyshr/WhatTheHack/blob/022-AzureGovernance-Refresh/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
    - The hack challenges are currently in a Word document that should be shared with the students in Microsoft Teams.
-- [Hack Challenge Presentation]()
+- [Student Challenges - PowerPoint](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.pptx?raw=true)
    - This presentation contains the hack challenges which can be displayed on a projector while the students work on the challenges.
 
 ## Coach Guides
 
-0. Challenge 0 - [Deployment Setup Guide](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%200%20-%20Deployment%20Setup%20Guide.docx?raw=true)
-
-1. Challenge 1 - [Management Group](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%201%20-%20Management%20Group.docx?raw=true)
-
-1. Challenge 2 - [Azure Policy](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%202%20-%20Policies.docx?raw=true)
-
-1. Challenge 3 - [Azure Blueprints](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%203%20-%20Blueprints.docx?raw=true)
-
-1. Challenge 4 - [Azure Cost Management](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%205%20-%20Azure%20Cost%20Management.docx?raw=true)
-
-1. Challenge 5 - [Azure Resource Graph](https://github.com/faridabharmal/AzureGovernance/blob/master/Challenge%204%20-%20ResourceGraph.docx?raw=true)
+- Challenge 1: [Management Group](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/Challenge1-ManagementGroup.docx?raw=true)
+   - Create a logical heirarchy in Management Groups
+- Challenge 2: [Azure Policy](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/Challenge2-Policies.docx?raw=true)
+   - Apply out-of-the-box Azure policies and create a custom policies
+- Challenge 3: [Azure Blueprints](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/Challenge3-Blueprints.docx?raw=true)
+   - Learn to create an Azure Blueprint to specify policies and permissions
+- Challenge 4: [Azure Cost Management](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/Challenge4-ResourceGraph.docx?raw=true)
+   - Learn how to identify costs of deployed resources
+- Challenge 5: [Azure Resource Graph](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/Challenge5-AzureCostManagement.docx?raw=true)
+   - Monitor and review deployed resources through Resource Graph
 
 ## Delivery Schedule:
 
