@@ -8,7 +8,7 @@ Welcome to the coach's guide for the Azure Governance What The Hack. Here you wi
 
 - [Azure Governance Overview Lecture](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Coach/AzureGovernance-Lecture.pptx?raw=true)
    - This presentation contains lectures that explain Azure Governance and be delivered ahead of students beginning the hack challenges.
-- [Student Challenges - Word](https://github.com/microsoft/WhatTheHack/blob/022-AzureGovernance-Refresh/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
+- [Student Challenges - Word](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
    - The hack challenges are currently in a Word document that should be shared with the students in Microsoft Teams.
 - [Student Challenges - PowerPoint](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.pptx?raw=true)
    - This presentation contains the hack challenges which can be displayed on a projector while the students work on the challenges.
