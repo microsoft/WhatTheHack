@@ -18,13 +18,13 @@ You should already have this sample code downloaded but if not:
 Clone this repo:
 
 ```bash
-git clone git@github.com:alihhussain/WhatTheHack.git
+git clone git@github.com:microsoft/WhatTheHack.git
 ```
 
 Switch to the correct folder:
 
 ```bash
-cd ./014-OSS-DevOps/Host/Solutions/challenge04/app
+cd ./014-OSSDevOps/Coach/Solutions/challenge04/app
 ```
 
 ## Test and Run Container Locally
