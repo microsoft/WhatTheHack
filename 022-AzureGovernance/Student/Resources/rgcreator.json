@@ -1,0 +1,14 @@
+{
+  "Name": "Resource Group Creator",
+  "IsCustom": true,
+  "Description": "Can read and create Resource Groups.",
+  "Actions": [
+    "Microsoft.Resources/subscriptions/resourceGroups/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<sub id>"
+  ]
+}
