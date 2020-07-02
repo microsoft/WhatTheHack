@@ -17,14 +17,14 @@
 	- Build the API app by navigating to the content-api folder and run:
     	- `npm install`
 	- To start a node app, run:
-        - `nodejs ./server.js &`
+        - `node ./server.js &`
 	- Verify the API app runs by browsing to its URL with one of the three function names, eg: 
     	- `http://localhost:3001/speakers`
 	- Repeat for the steps above for the Web app.
 	- **NOTE:** The content-web app expects an environment variable named **CONTENT_API_URL** that points to the API app’s URL.
 	- The environment variable value should be `http://localhost:3001`
 	- **NOTE:** **localhost** only works when both apps are run locally using Node. You will need a different value for the environment variable when running in Docker.
-	- **NOTE:** The node processes for both content-api and content-web must be stopped before attempting to run the docker containers in the next step. To do this, use the Linux `ps` command to list all processes running, and then the Linux `kill` command to kill the two nodejs processes.
+	- **NOTE:** The node processes for both content-api and content-web must be stopped before attempting to run the docker containers in the next step. To do this, use the Linux `ps` command to list all processes running, and then the Linux `kill` command to kill the two Node.js processes.
 	- **NOTE:** Attendees should **not** struggle with getting app to run locally.  If they are not familiar with Node.js, help them through this part.  Let them spend more time figuring out Docker later.
 - Dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1
 	- The value of the env URL for content-web should match whatever value is used for the --name parameter when executing docker run on content-api as seen below.
