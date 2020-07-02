@@ -1,7 +1,7 @@
 # What the Hack: OSS DevOps 
 
 ## Challenge 0 - Setup
-[Home](../../readme.md) // [Next](challenge01.md)
+[Home](../readme.md) // [Next](challenge01.md)
 
 ### Introduction
 
@@ -24,4 +24,4 @@ You should be able to do the following:
 1. Log into GitHub
 2. Log into the Azure Portal
    
-[Home](../../readme.md) // [Next](challenge01.md)
+[Home](../readme.md) // [Next](challenge01.md)

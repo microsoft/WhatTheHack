@@ -1,7 +1,7 @@
 # What the Hack: OSS DevOps 
 
 ## Challenge 2 – GitHub Project Boards: Agile Project Management
-[Back](challenge01.md) // [Home](../../readme.md) // [Next](challenge03.md)
+[Back](challenge01.md) // [Home](../readme.md) // [Next](challenge03.md)
 
 ### Introduction
 
@@ -39,4 +39,4 @@ To help you with Agile project management, GitHub includes Project Boards. Proje
 
 You should have experienced using GitHub Project Boards for Agile project management.
 
-[Back](challenge01.md) // [Home](../../readme.md) // [Next](challenge03.md)
+[Back](challenge01.md) // [Home](../readme.md) // [Next](challenge03.md)

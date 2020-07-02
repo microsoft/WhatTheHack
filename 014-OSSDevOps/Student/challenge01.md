@@ -1,7 +1,7 @@
 # What the Hack: OSS DevOps 
 
 ## Challenge 1 - Introduction
-[Back](challenge00.md) // [Home](../../readme.md) // [Next](challenge02.md)
+[Back](challenge00.md) // [Home](../readme.md) // [Next](challenge02.md)
 
 ### Introduction
 
@@ -29,4 +29,4 @@ We can only assume that you are doing this What the Hack because you understand 
 2. You should understand the basic principles and practices of DevOps.
 3. You should be able to see GitHub repositories created by the other members of your hack team.
 
-[Back](challenge00.md) // [Home](../../readme.md) // [Next](challenge02.md)
+[Back](challenge00.md) // [Home](../readme.md) // [Next](challenge02.md)

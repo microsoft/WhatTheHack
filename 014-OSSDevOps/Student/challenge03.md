@@ -2,7 +2,7 @@
 
 ## Challenge 3 - GitHub Repositories: Introduction
 
-[Back](challenge02.md) // [Home](../../readme.md) // [Next](challenge04.md)
+[Back](challenge02.md) // [Home](../readme.md) // [Next](challenge04.md)
 
 ### Introduction
 
@@ -14,7 +14,7 @@ Now that we have a basic understanding of version control and Git, lets get some
 
 1. Clone the GitHub repository you created in the [first challenge](challenge01.md) to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
 
-2. Download the code for the application [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/adgroc/WhatTheHack/tree/master/014-OSS-DevOps/Student/Resources/app)
+2. Download the code for the application [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/microsoft/WhatTheHack/tree/master/014-OSSDevOps/Student/Resources/app)
 
 3. Unzip the download and copy the contents into the root of the repository you cloned in step #1.
 
@@ -31,4 +31,4 @@ Now that we have a basic understanding of version control and Git, lets get some
 
 You should be able to go to the GitHub site and under your repository see your code.
 
-[Back](challenge02.md) // [Home](../../readme.md) // [Next](challenge04.md)
+[Back](challenge02.md) // [Home](../readme.md) // [Next](challenge04.md)

@@ -3,7 +3,7 @@
 This will download and run everything locally.
 The only thing you require is docker.
 
-1. Download the code [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/microsoft/WhatTheHack/tree/master/014-OSS%20DevOps/Host/Solutions/challenge09)
+1. Download the code [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/microsoft/WhatTheHack/tree/master/014-OSSDevOps/Coach/Solutions/challenge09)
 
 ## Running it locally
 
