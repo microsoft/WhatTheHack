@@ -1,10 +1,10 @@
-# What the Hack: OSS DevOps
+# What the Hack: OSS DevOps - Coach's Guide
 
 ## Introduction
 
 Welcome to the coach's guide for the Open Source DevOps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-## Challenges
+## Coach's Guides
  
  - Challenge 0 - Setup
  - Challenge 1 - OSS DevOps: Introduction
