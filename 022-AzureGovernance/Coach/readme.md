@@ -4,8 +4,6 @@
 
 Welcome to the coach's guide for the Azure Governance What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-Also remember that this hack includes a optional lecture presentation that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
-
 ## Delivery Content:
 
 - [Azure Governance Overview Lecture](https://github.com/jrzyshr/WhatTheHack/blob/master/022-AzureGovernance/Coach/AzureGovernance-Lecture.pptx?raw=true)
