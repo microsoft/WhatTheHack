@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-webapp
+  name: langfacts
   namespace: whatthehack
   labels:
-    k8s-app: nginx-webapp
+    k8s-app: langfacts
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: nginx-webapp
+      k8s-app: langfacts
   template:
     metadata:
       labels:
-        k8s-app: nginx-webapp
+        k8s-app: langfacts
     spec:
       containers:
-      - name: nginx-webapp
-        image: whatthehackmsft/nginxserver:v1
+      - name: langfacts
+        image: whatthehackmsft/langfacts:v1
         env:
           - name: HACK_YEAR
             value: "2018"

@@ -5,12 +5,12 @@
 replicaCount: 2
 
 appData:
-  labelValue: "nginx-webapp"
-  imageName: "whatthehackmsft/nginxserver"
-  imageVersion: "latest"
+  labelValue: "langfacts"
+  imageName: "whatthehackmsft/langfacts"
+  imageVersion: "v1"
   namespace: "whatthehack"
 
 serviceDefinition:
-  name: "webapp-loadbalancer"
+  name: "langfactsservice"
   type: "LoadBalancer"
    
