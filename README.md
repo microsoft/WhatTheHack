@@ -42,7 +42,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
 - [Serverless](/015-Serverless/README.md)
 - [App Migration](/016-AppMigration/README.md)
-- [Front Door/CDN](/017-FrontDoorCDN/README.md)
+- [Front Door/CDN](/017-FrontDoor/README.md)
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
