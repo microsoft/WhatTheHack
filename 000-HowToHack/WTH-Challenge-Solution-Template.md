@@ -2,9 +2,11 @@
 
 *This is a markdown template for how a WTH Challenge Solution should be organized and formatted. There really is only one section needed: "Notes & Guidance", organize all the hints for the coach there.*
 
+*This file should be named according to this pattern: `Solution-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc*
+
 # Challenge \#: Coach's Guide
 
-[< Previous Challenge](./ChallengeX-1.md) - **[Home](../readme.md)** - [Next Challenge>](./ChallengeX+1.md)
+[< Previous Challenge](./Solution-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution-X+1.md)
 
 ## Notes & Guidance
 This is the only section you need to include.
