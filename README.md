@@ -26,29 +26,37 @@ See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAutho
 
 Here is the current list of What The Hack hackathons available in this repository:
 
+## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
-- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
-- [Driving Miss Data](/003-DrivingMissData/README.md)
-- [Hotel California/Vegas Dev Hack](/004-HotelCaliVegasDevHack/README.md)
-- [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
-- [App Modernization](/006-AppModernization/README.md)
-- [Azure Monitoring](/007-AzureMonitoring/README.md)
-- [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
-- [Microservices In Azure](/009-MicroservicesInAzure/README.md)
-- [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
-- [Open Source DevOps](/014-OSSDevOps/readme.md)
+- [Front Door/CDN](/017-FrontDoorCDN/README.md)
+- [Azure Governance](/022-AzureGovernance/README.md)
+- [MasteringLinux](/020-MasteringLinux/README.md)
+
+## Application Development
+- [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
+- [App Modernization](/006-AppModernization/README.md)
+- [Microservices In Azure](/009-MicroservicesInAzure/README.md)
 - [Serverless](/015-Serverless/README.md)
 - [App Migration](/016-AppMigration/README.md)
-- [Front Door/CDN](/017-FrontDoorCDN/README.md)
+- [IdentityForApps](/021-IdentityForApps/README.md)
+- [MasteringLinux](/020-MasteringLinux/README.md)
+
+## Operations
+- [Azure Monitoring](/007-AzureMonitoring/README.md)
+- [Azure DevOps](/010-AzureDevOps/readme.md)
+- [Open Source DevOps](/014-OSSDevOps/readme.md)
+- [MasteringLinux](/020-MasteringLinux/README.md)
+
+## Data & AI
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
-- [IdentityForApps](/021-IdentityForApps/README.md)
-- [Azure Governance](/022-AzureGovernance/README.md)
+- [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
+- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
+- [Driving Miss Data](/003-DrivingMissData/README.md)
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
