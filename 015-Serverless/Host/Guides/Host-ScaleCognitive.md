@@ -10,17 +10,11 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 
     > **Note**: If you already have a **FO** free pricing tier instance, you will not be able to create another one.
 
-    ![In the TollboothOCR blade, under Resource Management, Pricing tier is selected. In the Choose your pricing tier blade, the F0 Free option is selected.](../images/image73.png 'TollboothOCR and Choose your pricing tier blades')
-
 3.  Switch to Visual Studio, debug the **UploadImages** project again, then enter **2** and press **ENTER**. This will upload 1,000 new photos.
-
-    ![the Command prompt window displays image uploading information.](../images/image71.png 'Command Prompt window')
 
 4.  Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. After running for a couple of minutes, you should start to notice a few things. The Request Duration will start to increase over time. As this happens, you should notice more servers being brought online. Each time a server is brought online, you should see a message in the Sample Telemetry stating that it is "Generating 2 job function(s)", followed by a Starting Host message. You should also see messages logged by the resilience policy that the Computer Vision API server is throttling the requests. This is known by the response codes sent back from the service (429). A sample message is "Computer Vision API server is throttling our requests. Automatically delaying for 32000ms".
 
     > **Note**: If you do not see data flow after a short period, consider restarting the Function App.
-
-    ![In the Live Metrics Stream window, 11 servers are now online.](../images/image74.png 'Live Metrics Stream window ')
 
 5.  After this has run for some time, close the UploadImages console to stop uploading photos.
 

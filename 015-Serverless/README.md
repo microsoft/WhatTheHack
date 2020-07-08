@@ -13,18 +13,19 @@ The solution begins with vehicle photos being uploaded to an Azure Storage blobs
 
 Below is a diagram of the solution architecture you will build in this hack. Please study this carefully, so you understand the whole of the solution as you are working on the various components.
 
-![The Solution diagram is described in the text following this diagram.](images/image2.png 'Solution diagram')
+![The Solution diagram is described in the text following this diagram.](images/preferred-solution.png 'Solution diagram')
 
 
 ## Technologies
 
 Azure services and related products
-•	Azure Functions
-•	Azure Cognitive Services
-•	Azure Event Grid
-•	Application Insights
-•	Azure Cosmos DB
-•	Logic Apps
+*	Azure Functions
+*	Azure Cognitive Services
+*	Azure Event Grid
+*	Application Insights
+*	Azure Cosmos DB
+*	Azure Key Vault
+*	Logic Apps
 
 
 ## Azure solution
