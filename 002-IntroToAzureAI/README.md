@@ -33,17 +33,25 @@ Your team will start by building a simple C# application that allows you to inge
 
 You'll continue by build an Azure Search Index (Azure Search is our PaaS offering for faceted, fault-tolerant search) on top of Cosmos DB, then you’ll build a Bot Framework bot to query it. Finally, you'll extend this bot with Language Understanding (LUIS) to automatically derive intent from your queries and use those to direct your searches intelligently. 
 
-- Challenge 1: **[Simplifying Cognitive Services App Development using Portable Class Libraries](Student/Resources/Challenge-1.1-Computer-Vision/0_README.md)**
-- Challenge 2: **[Custom Vision API C\# Tutorial 1](Student/Resources/Challenge-1.2-Custom-Vision-1/0_README.md)**
-- Challenge 3: **[Custom Vision API C\# Tutorial 2](Student/Resources/Challenge-1.2-Custom-Vision-2/0_README.md)**
-- Challenge 4: **[Custom Vision API C\# Tutorial 3](Student/Resources/Challenge-1.2-Custom-Vision-3/0_README.md)**
-- Challenge 5: **[Developing Intelligent Applications with LUIS](Student/Resources/Challenge-1.5-LUIS/0_README.md)**
-- Challenge 6: **[Contoso Automated Orders](Student/Resources/Challenge-1.6-Bootcamp-Case-1/Case_Part1.md)**
-- Challenge 7: **[Developing Intelligent Applications with Azure Search](Student/Resources/Challenge-2.1-Azure-Search/0_README.md)**
-- Challenge 8: **[Developing Intelligent Applications with LUIS and Azure Search](Student/Resources/Challenge-2.2-Building-Bots/0_README.md)**
-- Challenge 9: **[Logging with Microsoft Bot Framework](Student/Resources/Challenge-2.3-Logging-Chat-Conversations/0_README.md)**
-- Challenge 10: **[Testing Bots with Microsoft Bot Framework](Student/Resources/Challenge-2.4-Testing-Bots/0_README.md)**
-- Challenge 11: **[Contoso Bot and Search Integration](Student/Resources/Challenge-2.5-Bootcamp-Case-2/Case_Part2.md)**
+### Part 1: Cognitive Services
+This set of challenges involves building an end-to-end application that allows you to pull in your own pictures, use Cognitive Services to obtain a caption and some tags about the images, and then store that information in Cosmos DB. Build on your work by using the NoSQL store (Cosmos DB) to populate an Azure Search index, and then build a Bot Framework bot using LUIS to allow easy, targeted querying.
+
+- Challenge 1: **[Simplifying Cognitive Services App Development using Portable Class Libraries](Student/Guides/StudentGuide.docx)**
+- Challenge 2: **[Custom Vision API C\# Tutorial 1](Student/Guides/StudentGuide.docx)**
+- Challenge 3: **[Custom Vision API C\# Tutorial 2](Student/Guides/StudentGuide.docx)**
+- Challenge 4: **[Custom Vision API C\# Tutorial 3](Student/Guides/StudentGuide.docx)**
+- Challenge 5: **[Developing Intelligent Applications with LUIS](Student/Guides/StudentGuide.docx)**
+- Challenge 6: **[Contoso Automated Orders](Student/Guides/StudentGuide.docx)**
+
+
+### Part 2: Bots
+You are working with Contoso LLC, which sells bicycles and bicycle equipment to its customers. Contoso currently processes new product orders and queries through human operators and is starting to devise a plan to implement your proposed solution using bots. The solution will provide an automated approach that allows Contoso to seamlessly scale up to handle a large call volume while maintaining zero wait times and freeing up staff to manage other tasks.  
+
+- Challenge 1: **[Developing Intelligent Applications with Azure Search](Student/Guides/StudentGuide.docx)**
+- Challenge 2: **[Developing Intelligent Applications with LUIS and Azure Search](Student/Guides/StudentGuide.docx)**
+- Challenge 3: **[Logging with Microsoft Bot Framework](Student/Guides/StudentGuide.docx)**
+- Challenge 4: **[Testing Bots with Microsoft Bot Framework](Student/Guides/StudentGuide.docx)**
+- Challenge 5: **[Contoso Bot and Search Integration](Student/Guides/StudentGuide.docx)**
 
 ## Prerequisites
 This is a list of pre-requisites needed to successfully complete the challenges.  Some of these are items to deploy to your development machine.  Some are decisions you should discuss and define as a team, like the language to use for development.
