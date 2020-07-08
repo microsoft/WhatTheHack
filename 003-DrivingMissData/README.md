@@ -37,8 +37,6 @@ An end-to-end solution spanning the data lifecycle, with functional Power BI das
   - Coach's Guide for each challenge
 - `../Coach/Solutions`
   - Solution code for each challenge
-- `../images`
-  - Image files used in our documentation
 - `../Student/Guides`
   - Guides for all the challenges
 - `../Student/Resources`
