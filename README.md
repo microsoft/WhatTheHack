@@ -44,6 +44,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [App Migration](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
+- [Hotel California/Vegas Dev Hack](/004-HotelCaliVegasDevHack/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
@@ -52,16 +53,11 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [MasteringLinux](/020-MasteringLinux/README.md)
 
 ## Data & AI
-- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
-- [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
-
-## No Longer Maintained
-These hacks are no longer maintained by their authors but most will still work perfectly fine
+- [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
+- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
-- [Hotel California/Vegas Dev Hack](/004-HotelCaliVegasDevHack/README.md)
-
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
