@@ -1,6 +1,6 @@
 # What The Hack - Hack Description Template
 
-*GF: The following is a quick example of what the root of this WTH should look like for a fictional hack*
+*The following is a quick example of what the root of this WTH should look like for a fictional hack*
 
 # IoT Hack of the Century
 ## Introduction
