@@ -33,12 +33,12 @@ You will build a modern data estate to enable analytic and real-time data analys
 An end-to-end solution spanning the data lifecycle, with functional Power BI dashboard(s).
 
 ## Repository Contents
-- `../Coach/Guides`
+- `../Coach`
   - Coach's Guide for each challenge
 - `../Coach/Solutions`
   - Solution code for each challenge
-- `../Student/Guides`
-  - Guides for all the challenges
+- `../Student`
+  - Guides for each challenge
 - `../Student/Resources`
   - Architecture diagram for reference during the hack.
 
