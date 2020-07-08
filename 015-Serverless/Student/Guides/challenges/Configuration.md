@@ -14,17 +14,17 @@ In this challenge, you will apply application settings using the Microsoft Azure
 | **Application Key** | **Value** |
 | --- | --- |
 | computerVisionApiUrl | Computer Vision API endpoint you copied earlier. Append **vision/v2.0/ocr** to the end. Example: [https://westus.api.cognitive.microsoft.com/vision/v2.0/ocr](https://westus.api.cognitive.microsoft.com/vision/v2.0/ocr) |
-| computerVisionApiKey | Computer Vision API key |
+| computerVisionApiKey | computerVisionApiKey from Key Vault |
 | eventGridTopicEndpoint | Event Grid Topic endpoint |
-| eventGridTopicKey | Event Grid Topic access key |
+| eventGridTopicKey | eventGridTopicKey from Key Vault |
 | cosmosDBEndPointUrl | Cosmos DB URI |
-| cosmosDBAuthorizationKey | Cosmos DB Primary Key |
+| cosmosDBAuthorizationKey | cosmosDBAuthorizationKey from Key Vault |
 | cosmosDBDatabaseId | Cosmos DB database id (LicensePlates) |
 | cosmosDBCollectionId | Cosmos DB processed collection id (Processed) |
 | exportCsvContainerName | Blob storage CSV export container name (export) |
-| blobStorageConnection | Blob storage connection string |
-
-2. Open the Tollbooth solution.
+| blobStorageConnection | blobStorageConnection from Key Vault |
+ 
+2. Open the Tollbooth solution in Visual Studio.
 3. Open the task list
 4. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 

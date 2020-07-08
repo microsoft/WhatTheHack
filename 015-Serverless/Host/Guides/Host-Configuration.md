@@ -15,11 +15,8 @@ In this task, you will apply application settings using the Microsoft Azure Port
 
 2.  Open the **ServerlessArchitecture** resource group, and then select the Azure Function App you created whose name ends with **FunctionApp**. This is the one you created using the **.NET** runtime stack. If you did not use this naming convention, that's fine. Just be sure to make note of the name so you can distinguish it from the Function App you will be developing using the portal later on.
 
-    ![In the ServerlessArchtecture resource group, TollBoothFunctionApp is selected.](../images/image33.png 'ServerlessArchtecture resource group')
-
 3.  Select **Application settings** on the Overview pane.
 
-    ![In the TollBoothFunctionApp blade, under Configured features, Application settings is selected.](../images/image34.png 'TollBoothFunctionApp blade')
 
 4.  Scroll down to the **Application settings** section. Use the **+ Add new setting** link to create the following additional Key/Value pairs (the key names must exactly match those found in the table below):
 
@@ -37,12 +34,10 @@ In this task, you will apply application settings using the Microsoft Azure Port
 | exportCsvContainerName   |                                                       Blob storage CSV export container name (export)                                                       |
 | blobStorageConnection    |                                                               Blob storage connection string                                                                |
 
-![In the Application Settings section, the previously mentioned key / value pairs are called out with a purple line.](../images/image35.png 'ApplicationSettings section')
 
 5.  Select **Save**.
 
-    ![Screenshot of the Save icon.](../images/image36.png 'Save icon')
-
+ 
 6.  _Optional steps_, only if you wish to debug the functions locally on your development machine:
 
     a. Update the local.settings.json file with the same values.

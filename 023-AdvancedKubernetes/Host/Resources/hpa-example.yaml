@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hpa-example
+spec:
+  selector:
+    matchLabels:
+      app: hpa-example
+  template:
+    metadata:
+      labels:
+        app: hpa-example
+    spec:
+      containers:
+      - name: hpa-example
+        image: k8s.gcr.io/hpa-example
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hpa-example
+spec:
+  selector:
+    app: hpa-example
+  ports:
+  - port: 80
+    targetPort: 80
+
