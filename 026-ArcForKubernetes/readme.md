@@ -43,51 +43,82 @@ This hack will help you learn:
 # Random Notes
 
 Learning Objectives
-* In this hack, you will be working on a set of "Day 2" operational best practices for Arc for Servers. You will learn:
-  - Day 1
-		1. Pre-Day (3 Hours)
-		2. How to deploy Arc servers in competitive clouds (45 mins)
-		  * Windows / Ubuntu on AWS
-			* Windows / Ubuntu on Vagrant
-		3. Onboard servers to Arc (45 mins)
-		4. Inventory Management (60 mins)
-		  * Tagging Assets
-			* Query with Resource Graph Explorer
-			* Best practices around tagging
-		5. Operations (2 Hours)
-			* MMA extension onboarding (Windows)
-			* Enable Alerts (CPU/Mem constraints)
-			* Enable Update Management
-	- Day 2
-		1. Policy (2 Hours)
-			* Define core set of policies for day 2
-			* Build automation demo to apply policy across inventory
-				1.  Install MMA agent via policy (Linux)
-			* Bonus: Arc consumption drivers 
-				1. Security Center ( 30 mins )
-					- Onboarding security center - Manually (30 mins)
-					- Advance challenge - Automate deployment (30 mins)
-					- Note: log analytics workspace (Default)
-				2. Log Analytics Dashboard and Queries (1 Hours)
-					- Resource utilization scenario
-					- Missing updates scenario (Time permitted)
-				3. Enable Sentinel 
-					- Ask to see if Sentinel part of 
-				4. Azure Lighthouse (Optional) (Discussion + Demo = 45 mins)
-					- MSP Perspective
-					- Customer Perspective
-			* Future Capabilities:
-				1. Security Center functionality - Automation
-				2. Sentinel 
-				3. Policy 
 
+In this hack, you will be working on a set of "Day 2" operational best practices for Arc for K8s. You will learn:
+
+## Pre-Day
+  - Azure Arc Overview
+  - Pre-day Requirements
+  - Laptop admin access
+  - GCP access to deploy GKE
+  - An Azure Subscription which can deploy an AKS cluster
+	- SSH Keys
+	- Access to a Bash Shell (Cloud Shell, WSL, etc.)
+	- With contributor Role
+	- Docker on laptop
+
+## Day 1
+ - How to deploy Arc K8s in competitive clouds (90 mins)
+	- K8s on GKE
+	- minikube on laptop
+		- If minikube not possible
+			- Azure Kubernetes Service (automate if chosen)
+			- Rancher on laptop 
+	- Onboard ( 60 mins)
+		- GKE to Arc for K8s 
+		- Minikube (or alternative) to Arc for K8s
+	- Inventory Management ( 60 mins)
+		- Tagging Assets
+		- Query with Resource Graph Explorer
+		- Best practices around tagging
+	- Operations (2 Hours)
+		- Onboard Azure Monitor for Containers Log analytics – Easy Way (90 min)
+		- Enable Alerts (CPU/Mem constraints) (30 mins)
+
+	Total Day 1: 5.5 Hours
+	
+## Day 2 - Arc for K8s Scenarios
+
+- GitOps ( 1.5 Hours )
+	- Use GitOps in a connected Cluster
+		- Technologies involved (Flux, etc)
+	- Policy (3.5 Hours)
+		- Enable Azure Policy add-on (30 mins)
+			- Nuts and bolts of enabling Azure Policy
+			- Technologies involved (OPA, Gatekeeper, Language)
+		- Policies for Arc for K8s
+			- Audit Policy ( Check if gatekeeper and OPA installed)
+			- GitOps policy
+			- Resource Limits Policy 
+		- Build automation demo to apply policy across inventory 
+			- (maybe Lior to investigate)
+
+	Day 2: 5.5
+	
+# Different Hack or 3 Day hack
+
+  - GitOps with Helm
+  - Observability on Arc (Advanced Monitoring)
+  - Real world example using Prometheus, Grafana (and/or) Azure Monitor
+  - Deploy a full stack monitoring solution to Arc clusters
+  - Fleet management
+	- Deploy to a remote cluster - Get a new Cluster to a desired state with 1 configuration
+	- Deploy to multiple clusters - Get 2 clusters to a desired state with 2 different configurations along with a base configuration
+  - Bonus – Real world implementation
+    - Deploy policy via ARM Template
+    - To be investigated
+  - Terraform Deployment
+	
 Assumptions
 	Before starting this hack you should have hands-on experience with the following:
 			
 Prerequisites
-  * Pre-day
-	* Checklist of items to do for Day 1 of hack
-	* An Azure Subscription which can deploy an AKS cluster
-	* Create SSH Keys
-	* Access to a Bash Shell (Cloud Shell, WSL, etc.)
-	* IDE of your choice, preferably VSCode
+	• Pre-day Requirements
+		○ Laptop admin access
+		○ GCP access to deploy GKE
+		○ An Azure Subscription which can deploy an AKS cluster
+			▪ SSH Keys
+		○ Access to a Bash Shell (Cloud Shell, WSL, etc.)
+			▪ With contributor Role
+		○ Docker on laptop
+		○ IDE of your choice, preferably VSCode
