@@ -34,7 +34,7 @@ In many cases you need to create a resource that has a unique name.  The easiest
 
 One thing to consider is that some resources have a limit to how many characters are in a name.  So, keeping your prefix to under 6 characters.  Come up with a prefix you can use for all the labs.
 
-**IMPORTANT: Whenever you see (prefix) in the labs, preplace that with the prefix you come up with.**
+**IMPORTANT: Whenever you see (prefix) in the labs, replace that with the prefix you come up with.**
 
 
 
@@ -44,13 +44,13 @@ One thing to consider is that some resources have a limit to how many characters
 
 2. Press the create new resource button in the upper left toolbar
 
-   ![CreateNewResource](../images/CreateNewResource.png)
+   ![CreateNewResource](images/CreateNewResource.png)
 
 3. Type 'SQL Server in the search box' - Press Enter
 
 4. Pick 'SQL Server 2017 on Windows Server 2016'
 
-   ![SQL2017-create](../images/SQL2017-create.png)
+   ![SQL2017-create](images/SQL2017-create.png)
 
 5. Press Create
 
@@ -108,13 +108,13 @@ The Azure Cloud Shell is a shell environment that runs right in your browser.  I
 Follow these steps:
 
 1. Open up the Azure portal
-1. Click on the `>_` button in the toolbar ![CreateBash](../images/CreateBash.png)
-1. Pick Bash on the Welcome Screen ![CreateBash1](../images/CreateBash1.png)
-1. Press Show advanced settings ![CreateBash2](../images/CreateBash2.png)
-1. Create a new storage account and file share in your resource group.  Use your (prefix) in the names. ![CreateBash3](../images/CreateBash3.png)
+1. Click on the `>_` button in the toolbar ![CreateBash](images/CreateBash.png)
+1. Pick Bash on the Welcome Screen ![CreateBash1](images/CreateBash1.png)
+1. Press Show advanced settings ![CreateBash2](images/CreateBash2.png)
+1. Create a new storage account and file share in your resource group.  Use your (prefix) in the names. ![CreateBash3](images/CreateBash3.png)
 1. Click Create Storage
 1. Wait for the shell to start.
-1. Make sure you are in  `bash` from the dropdown of the Cloud Shell window.  ![CreateBash4](../images/CreateBash4.png)
+1. Make sure you are in  `bash` from the dropdown of the Cloud Shell window.  ![CreateBash4](images/CreateBash4.png)
 1. First off create 3 Bash variables by typing the following in the shell and press enter:
   * Resource Group Name - Make sure to set this to YOUR resource group 1 name.  
   * Region to host the Azure Cosmos DB instance
@@ -131,7 +131,7 @@ ACCOUNT_NAME_COSMOS='(prefix)migrationcosmos'
 az cosmosdb create --resource-group $RESOURCE_GROUP_COSMOS --name $ACCOUNT_NAME_COSMOS --kind MongoDB --locations regionName=$LOCATION_COSMOS
 ```
 
-This will take several minutes to spin up. When it is finished (you'll see a bunch of JSON indicating it's done) you can go into the portal and click on `Resource Groups` from the left hand side.  Click on your resoruce group and look for your Cosmos DB account.
+This will take several minutes to spin up. When it is finished (you'll see a bunch of JSON indicating it's done) you can go into the portal and click on `Resource Groups` from the left hand side.  Click on your resource group and look for your Cosmos DB account.
 
 While you wait for your Cosmos DB instance to spin up you can move on to the creation of the SQL Instance.
 
@@ -147,7 +147,7 @@ We will now create a PaaS instance of SQL server to migrate our on-premises data
 
 3. Select SQL Database
 
-   ![SQLDatabaseCard](../images/SQLDatabaseCard.png)
+   ![SQLDatabaseCard](images/SQLDatabaseCard.png)
 
 4. Press Create
 
@@ -170,31 +170,31 @@ We will now create a PaaS instance of SQL server to migrate our on-premises data
 
 The inventory service is hosted on a SQL server and served by an ASP.NET core website. The Inventory service determines the quantity of a unit that's currently in stock.  In this lab we will migrate the on premises SQL Server to an instance of SQL Azure DB.
 
-We will be using the [Database Migratrion Tool](https://www.microsoft.com/en-us/download/details.aspx?id=53595)
+We will be using the [Database Migration Tool](https://www.microsoft.com/en-us/download/details.aspx?id=53595)
 
 #### Finish On-Prem Configuration
 
 By now the SQL Server VM you created should be finished provisioning.  We need to do a couple of extra steps to get it ready to migrate. 
 
 1. On the left hand side of the Azure portal click on the resource group icon
-   ![RGIcon](../images/RGIcon.png)
+   ![RGIcon](images/RGIcon.png)
 2. Click on your Resource Group
    1. You should now see all the resources we created in the exercises above
 3. Click on your SQL On Prem Virtual Machine you created
 4. Click on Connect->download the RDP file and open that to RDP to the VM, login with the migrateadmin user we created in Setup 1. 
 5. Update IE Security - The local server manager should launch on first login.
    1. Press Local Server on the left side 
-   2. Press the IE Enhanced Security Configuration  on the right ![IE-EnhancedSec1](../images/IE-EnhancedSec1.png)
+   2. Press the IE Enhanced Security Configuration  on the right ![IE-EnhancedSec1](images/IE-EnhancedSec1.png)
    3. Set that off for Administrator 
-       ![IE-EnhancedSec2](../images/IE-EnhancedSec2.png)
+       ![IE-EnhancedSec2](images/IE-EnhancedSec2.png)
    4. Close the Server Manager
-6. Download and restore the database.  The inventory database is stored in the repository as a SQL .bakpac file needs to be restored.
-   1. Download the TailwindInventory.bacpac backup file from the setupfiles directory of this Github Repo. https://github.com/chadgms/2019AzureMigrateYourApps/blob/master/setupfiles/TailwindInventory.bacpac
-      ![SQLBackupDownload](../images/SQLBackupDownload.png)
+6. Download and restore the database.  The inventory database is stored in the repository as a SQL .bacpac file needs to be restored.
+   1. Download the TailwindInventory.bacpac backup file from the setupfiles folder in the Student Files area in Teams.
+      ![SQLBackupDownload](images/SQLBackupDownload.png)
    2. Click the Windows start menu and type 'SQL Server Management'
    3. Launch the SQL Server Management Studio and connect to the local SQL instance.
    4. Right click on the Database folder and select 'Import Data-tier Application'
-   ![ImportDAC](../images/ImportDAC.png)
+   ![ImportDAC](images/ImportDAC.png)
    
 7. Follow the wizard to import the backup file you downloaded.
 8. When complete - Right click on the database folder and select 'refresh'
@@ -203,7 +203,7 @@ By now the SQL Server VM you created should be finished provisioning.  We need t
     1. https://www.microsoft.com/en-us/download/details.aspx?id=53595
 11. Install the Data Migration Assistant
 
-We are now all set to migrate our SQL Database.  We have a restored copy of the data on this local server and we have the migration assistant ready to help us migrate the data to an Azure SQL Instnace.
+We are now all set to migrate our SQL Database.  We have a restored copy of the data on this local server and we have the migration assistant ready to help us migrate the data to an Azure SQL Instance.
 
 #### Assessment
 First we need to do an assessment.  The tool will check the local db for compatibility issues.
@@ -248,7 +248,7 @@ Now that we know our database can be migrated we will use the Migration tool to 
    1. In the Azure Portal click on the resource group icon and select your resource group.
    2. Find the SQL Server Instance you created.  It will be resource type of SQL Server
    3. Copy the server name on the right hand side of the overview page
-   4. Paste that full name into the target server name of the wizzard
+   4. Paste that full name into the target server name of the wizard
 8. Choose SQL Server Authentication
 9. User: migrateadmin
 10. Password: 'AzureMigrateTraining2019#'
@@ -299,9 +299,9 @@ By default Azure SQL Databases reject all traffic to them.  We were able to run 
 ##### Modify SQL Firewall
 
 1. Click on your resource group
-2. Click on your Azure SQL Server Instnace
+2. Click on your Azure SQL Server Instance
 3. Click on Firewalls and virtual networks in the left hand pane
-4. You will see your client IP address listed.   You need to create a new rule allowing that IP like this ![SetSQLIP](../images/SetSQLIP.png)
+4. You will see your client IP address listed.   You need to create a new rule allowing that IP like this ![SetSQLIP](images/SetSQLIP.png)
 5. Press Save
 
 ##### Check your data in SQL
@@ -319,7 +319,7 @@ The next step is to get the product database migrated to Azure.  Here we are mov
 
 #### Connect to the MongoDB Linux VM
 
-We have a shared Linux VM that is simulating the production MogoDB product database.  We will connect remotely to this server in order to get a dump of data to put into the Cosmos DB.   The great thing about this is that Cosmos DB can use standard MongoDB tools.
+We have a shared Linux VM that is simulating the production MongoDB product database.  We will connect remotely to this server in order to get a dump of data to put into the Cosmos DB.   The great thing about this is that Cosmos DB can use standard MongoDB tools.
 
 We can do all this from the Azure Bash Shell
 
@@ -355,10 +355,11 @@ We can do all this from the Azure Bash Shell
       mongodump --host 40.70.205.251 --username=labuser --password=AzureMigrateTraining2019# --db=tailwind --authenticationDatabase=tailwind
       ```
 
-3. Check to see that you successfully dumped the data
+1. Check to see that you successfully dumped the data
 
-   1. Check that the directory has a dump and tailwind directory that contains the .bson and metadata files.  Run the following ls commands:
-      ![CheckMongoDump](../images/CheckMongoDump.png)
+   1. Check that the directory has a dump and tailwind directory that contains the .json and metadata files.  Run the following ls commands:
+
+      ![CheckMongoDump](images/CheckMongoDump.png)
 
 
 
@@ -372,7 +373,7 @@ First check to make sure the Cosmos DB instance was created successfully.
 2. Click on your Resource Group.
 3. You should see a resource of type 'Azure Cosmos DB account' - Click that
 4. Click on 'Data Explorer' on the left navigation.  You should see something the following:
-   ![cosmosempty](../images/cosmosempty.png)
+   ![cosmosempty](images/cosmosempty.png)
 5. Notice the collections is empty.  This is OK.  It shows we have a Cosmos Instance and after we restore we should have our product data
 
 
@@ -421,7 +422,7 @@ mongorestore \
 12. You should see the inventory item documents are now in Cosmos DB
 
 
-![cosmospopulated](../images/cosmospopulated.png)
+![cosmospopulated](images/cosmospopulated.png)
 
 
 
@@ -433,10 +434,10 @@ mongorestore \
 
 * [Create an Azure Cosmos DB database built to scale](https://docs.microsoft.com/learn/modules/create-cosmos-db-for-scale/?WT.mc_id=msignitethetour-github-mig20)
 * [Work with NoSQL data in Azure Cosmos DB](https://docs.microsoft.com/learn/paths/work-with-nosql-data-in-azure-cosmos-db/?WT.mc_id=msignitethetour-github-mig20)
-* [Work with relationall data in Azure](https://docs.microsoft.com/learn/paths/work-with-relational-data-in-azure?WT.mc_id=msignitethetour-github-mig20)
+* [Work with relational data in Azure](https://docs.microsoft.com/learn/paths/work-with-relational-data-in-azure?WT.mc_id=msignitethetour-github-mig20)
 * [Secure your cloud data](https://docs.microsoft.com/learn/paths/secure-your-cloud-data?WT.mc_id=msignitethetour-github-mig20)
 * [Azure migration resources](https://azure.microsoft.com/migration?WT.mc_id=msignitethetour-github-mig20)
-* [Microoft Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?WT.mc_id=msignitethetour-github-mig20)
+* [Microsoft Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?WT.mc_id=msignitethetour-github-mig20)
 * [Azure total cost of ownership calculator](https://azure.microsoft.com/pricing/tco/calculator?WT.mc_id=msignitethetour-github-mig20)
 * [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=msignitethetour-github-mig20)
 
