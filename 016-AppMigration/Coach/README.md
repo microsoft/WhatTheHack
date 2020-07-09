@@ -1,34 +1,26 @@
-# Microsoft Azure Training Day: Migrating Applications to the Cloud.
-
+# What The Hack - Migrating Applications To The Cloud
 ## Introduction
-
 Welcome to the Migrating Applications to the Cloud Training.  This page will give you all the information you need to know in order to execute a successful event.  The first half of the day is based on a story.  That is a story based on Tailwind Traders.
 
 The story goes that, Tailwind Traders acquired Northwind Traders earlier this year, they wanted to be sure that they could access their inventory in real time, which meant moving their existing web API alongside ours on Microsoft Azure.   Besides moving the local web aps and API's to Azure there is a need to move the On-Premise MongoDB and SQL Server to the cloud as well.
 
-## Presentations 
+## Lectures 
+This hack includes presentations that feature lectures introducing key topics associated with each challenge. It is recommended that the host present each lecture before attendees kick off that challenge.
 
-The readme in the presentation folder will give you an update as to when that presentation was last validated.  Please check the date and augment as necessary to be accurate.  There are five presentations to match the five informational sessions in the agenda.  See the below section on Session Notes for more details on each of those.
+See the list of lectures in the [root README file](../README.md)
 
-AzureLabSetup.PPTX - There is a presentation to use as a template to display for the class for you to put up your WiFi information.   There is also a place to advertise the Azure lab setup URL and Access Code.  Secondary slides show screenshots of what you will get when singing up for a lab.
-
-## Labs 
-
-The lab folders are self contained labs.  You should not need to go to other resources to run the labs.  Attendee's will need a laptop, but only an Azure browser is required.  All work will be done in the portal and the Azure Comannd Shell.  If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea.  No special software needs to be installed though. 
-
+## Challenges 
+The lab folders are self contained labs.  You should not need to go to other resources to run the labs.  Attendee's will need a laptop, but only an Azure browser is required.  All work will be done in the portal and the Azure Command Shell.  If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea.  No special software needs to be installed though. 
 
 The original code base of the database and application migration labs are from these events.  
 
-[IgniteTheTour-DEV10](https://github.com/microsoft/IgniteTheTour/tree/master/DEV%20-%20Building%20your%20Applications%20for%20the%20Cloud/DEV10)
+- [IgniteTheTour-DEV10](https://github.com/microsoft/IgniteTheTour/tree/master/DEV%20-%20Building%20your%20Applications%20for%20the%20Cloud/DEV10)
+- [IgniteTheTour-MIG20](https://github.com/microsoft/IgniteTheTour/tree/master/MIG)
 
-[IgniteTheTour-MIG20](https://github.com/microsoft/IgniteTheTour/tree/master/MIG - Migrating Applications to the Cloud/MIG20)
-
-## Setupfiles
-
+## Setup Files
 You should not need to do anything with the setup files.  There is a backup file for SQL that is used during the database migration lab.  There is also a MongoDB backup in case you need to create your own MongoDB server.  See notes about that in Session 3.
 
 ## Azure Environments
-
 You can do all these labs in your own environment, but for the scheduled marketing classes we will have lab environment provisioned by a partner.  
 
 1. You will get a unique link and activation code for your event in email
@@ -42,7 +34,6 @@ You can do all these labs in your own environment, but for the scheduled marketi
 6. **<u>SUPPORT:</u>** If you have any issues during your event with a pre-provisioned environment please email cloudlabs-support@spektrasystems.com.  There is a 15 min response SLA.
 
 ## Demo Setup
-
 You Lab 1 and 2 together create a demo that shows an application migrated to the cloud.  You should create a finished environment so you can show the end result during session 1.  You have two choices to get an environment up and running:
 
 1. Run though the labs yourself and in the end you should have the full demo
