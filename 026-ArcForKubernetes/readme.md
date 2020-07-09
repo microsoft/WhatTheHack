@@ -102,7 +102,9 @@ In this hack, you will be working on a set of "Day 2" operational best practices
   - Real world example using Prometheus, Grafana (and/or) Azure Monitor
   - Deploy a full stack monitoring solution to Arc clusters
   - Fleet management
-	- Deploy to a remote cluster - Get a new Cluster to a desired state with 1 configuration
+	- Deploy to a remote cluster - Get a new Cluster to a desired state with 2 configuration
+	  - Cluster configuration (admin credentials)
+	  - Namespace configuration (dev credentials)
 	- Deploy to multiple clusters - Get 2 clusters to a desired state with 2 different configurations along with a base configuration
   - Bonus – Real world implementation
     - Deploy policy via ARM Template
