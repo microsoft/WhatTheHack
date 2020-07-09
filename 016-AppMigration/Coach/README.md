@@ -6,8 +6,11 @@ The story goes that, Tailwind Traders acquired Northwind Traders earlier this ye
 
 ## Lectures 
 This hack includes presentations that feature lectures introducing key topics associated with each challenge. It is recommended that the host present each lecture before attendees kick off that challenge.
-
-See the list of lectures in the [root README file](../README.md)
+1. **[Introduction to Cloud Applications and Azure](Coach/Lectures/01-CloudAppsAndAzure.pptx)**
+1. **[Migrating Applications to the Cloud](Coach/Lectures/02-MovingYourDatabaseToAzure.pptx)**
+1. **[Containerization and Orchestration on Azure](Coach/Lectures/03-ContainerizingAndOrchestrationOfApplications.pptx)**
+1. **[Bring Your App to the Next Level with Serverless](Coach/Lectures/04-ServerlessComputing.pptx)**
+1. **[Deploying Your Application Faster and Safer](Coach/Lectures/05-DeployingYourApplicationFasterAndSafer.pptx)**
 
 ## Challenges 
 The lab folders are self contained labs.  You should not need to go to other resources to run the labs.  Attendee's will need a laptop, but only an Azure browser is required.  All work will be done in the portal and the Azure Command Shell.  If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea.  No special software needs to be installed though. 
