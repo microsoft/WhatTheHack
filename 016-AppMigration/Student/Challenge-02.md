@@ -36,7 +36,7 @@ The source code for all three projects are in this repo.  We will first pull it 
    ```
 
 3. If you do an ls command you should see the repo on your local shell
-   ![ShowCodeRepo](../images/ShowCodeRepo.png)
+   ![ShowCodeRepo](images/ShowCodeRepo.png)
 
 
 
@@ -82,7 +82,7 @@ Now we get into the really exciting stuff!  We have an existing code base for ou
    2. Click on your resource group
    3. Locate your ACR resource type 'Container Register' - Click it
    4. Click 'Repositories' in the left navigation
-   5. You should see your product-service in the repositories list ![DeployContainer](../images/DeployContainer.png)
+   5. You should see your product-service in the repositories list ![DeployContainer](images/DeployContainer.png)
 
 4. Build the inventory service and frontend containers.****
 
@@ -175,7 +175,7 @@ We now have web apps created for all our resources.  The last thing we need to d
 
 #### Product Service
 
-The product service uses the NOSQL data that was in the on-premise MogoDB.  We successfully migrated that data to Cosmos DB, so that is what we will configure our Product Service for.
+The product service uses the NOSQL data that was in the on-premise MongoDB.  We successfully migrated that data to Cosmos DB, so that is what we will configure our Product Service for.
 
 > **Note:** If you were unable to finish Lab 1 and do not have a CosmosDB with data in it.  See the appendix at the end of this lab for a connection string to a shared instance you can use.
 
@@ -218,9 +218,9 @@ The product service uses the NOSQL data that was in the on-premise MogoDB.  We s
          ..azure.com:10255/tailwind?ssl...
          ```
          
-         ![cosmosconnectstring](../images/cosmosconnectstring.png)
+         ![cosmosconnectstring](images/cosmosconnectstring.png)
    
-6. You should have two app settings something like this ![productappsettings](../images/productappsettings.png)
+6. You should have two app settings something like this ![productappsettings](images/productappsettings.png)
 
 
 7. Press Save
@@ -251,7 +251,7 @@ The inventory service needs to be pointed to the SQL Database that now lives in 
    2. Value:  (paste in the SQL connection String>)
    3. Update the SQL Connection string:
       1. User ID='migrateadmin'
-      2. Password='AzureMigrateTraining2019#' ![SQLConnectionString](../images/SQLConnectionString.png)
+      2. Password='AzureMigrateTraining2019#' 
    4. Type: SQLAzure
 6. Press OK
 7. Press Save
@@ -264,7 +264,7 @@ The last thing we need to do is to tell our front end web site the URL's to our 
 
 ##### Get base URL's
 
-You can get the base URL's for inventory and product services by clicking on their overview page and looking at the URL property on the right hand side.
+You can get the base URLs for inventory and product services by clicking on their overview page and looking at the URL property on the right hand side.
 
 1. Click on resource groups -> (your resource group)
 2. Click on your inventory or product service resource of type 'App Service'
@@ -272,7 +272,7 @@ You can get the base URL's for inventory and product services by clicking on the
 
 ##### Set Front End Web App Properties
 
-We will now set the Front End application settings using the Azure Cli:  Copy the below code and replace the base URL placehoders with the URL's of your services.
+We will now set the Front End application settings using the Azure Cli:  Copy the below code and replace the base URL placeholders with the URL's of your services.
 
 > Note: If you closed the command window you may have lost the values for the initial environment variables we setup.  You may need to redefine MYRG and MYID again.
 
@@ -292,7 +292,7 @@ That is is it!  We are done migrating the data and deploying a modern applicatio
 
 ***Your web app should now be live!  Congratulations!***
 
-![finalwebsite](../images/finalwebsite.png)
+![finalwebsite](images/finalwebsite.png)
 
 
 
@@ -316,8 +316,3 @@ Product
 mongodb://migapp2cosmosdb:k6GiFd3f09fgFs5Qefxs2ykJeNgRME2fRj1d4PDh0ZcEXlTwk0hLN2hnOpfLZ3sME4chXAkD4M6SAoogAUc1Jg==@migapp2cosmosdb.documents.azure.com:10255/tailwind?ssl=true&replicaSet=globaldb
 ```
 
-
-
-## Learn More/Resources
-
-- 
