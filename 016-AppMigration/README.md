@@ -44,6 +44,8 @@ In this hack you will solve common challenges for companies migrating to the clo
   - Containers all presentations listed in the Introduction above.
 - `../Coach/setupfiles`
    - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+- `../Student/Resources/src`
+   - Node.js application src code
 - `../Student/images`
    - Images for documentation
 

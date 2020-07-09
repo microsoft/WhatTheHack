@@ -360,4 +360,3 @@
 
 ![](images/69.png)
 
-End of the lab
