@@ -34,7 +34,7 @@ In many cases you need to create a resource that has a unique name.  The easiest
 
 One thing to consider is that some resources have a limit to how many characters are in a name.  So, keeping your prefix to under 6 characters.  Come up with a prefix you can use for all the labs.
 
-**IMPORTANT: Whenever you see (prefix) in the labs, preplace that with the prefix you come up with.**
+**IMPORTANT: Whenever you see (prefix) in the labs, replace that with the prefix you come up with.**
 
 
 
