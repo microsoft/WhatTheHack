@@ -73,7 +73,7 @@ Now we get into the really exciting stuff!  We have an existing code base for ou
 2. Run the following command to build the code and push the product service image to the ACR.
 
    ```bash
-   az acr build -t product-service:latest -r $MYACR ./2019AzureMigrateYourApps/Lab2-ContainerizingApplications/src/product-service
+   az acr build -t product-service:latest -r $MYACR ./src/product-service
    ```
 
 3. When finished you can confirm that the container was deployed to ACR in the portal.
@@ -87,11 +87,11 @@ Now we get into the really exciting stuff!  We have an existing code base for ou
 4. Build the inventory service and frontend containers.****
 
    ```
-   az acr build -t inventory-service:latest -r $MYACR ./2019AzureMigrateYourApps/Lab2-ContainerizingApplications/src/inventory-service/InventoryService.Api
+   az acr build -t inventory-service:latest -r $MYACR ./src/inventory-service/InventoryService.Api
    ```
 
    ```
-   az acr build -t frontend-service:latest -r $MYACR ./2019AzureMigrateYourApps/Lab2-ContainerizingApplications/src/frontend
+   az acr build -t frontend-service:latest -r $MYACR ./src/frontend
    ```
 
 5. Verify it exists in the ACR same as before

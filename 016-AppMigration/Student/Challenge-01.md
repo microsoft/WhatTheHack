@@ -189,7 +189,7 @@ By now the SQL Server VM you created should be finished provisioning.  We need t
        ![IE-EnhancedSec2](images/IE-EnhancedSec2.png)
    4. Close the Server Manager
 6. Download and restore the database.  The inventory database is stored in the repository as a SQL .bacpac file needs to be restored.
-   1. Download the TailwindInventory.bacpac backup file from the setupfiles directory of this Github Repo. https://github.com/chadgms/2019AzureMigrateYourApps/blob/master/setupfiles/TailwindInventory.bacpac
+   1. Download the TailwindInventory.bacpac backup file from the setupfiles folder in the Student Files area in Teams.
       ![SQLBackupDownload](images/SQLBackupDownload.png)
    2. Click the Windows start menu and type 'SQL Server Management'
    3. Launch the SQL Server Management Studio and connect to the local SQL instance.
