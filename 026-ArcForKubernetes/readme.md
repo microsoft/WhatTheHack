@@ -1,7 +1,7 @@
 # What The Hack - Azure Arc for Servers Hack
 
 ## Introduction
-This hack will guide you through Arc for Servers technology. It will cover 
+	This hack will guide you through Arc for Servers technology. It will cover 
 
 
 ## Learning Objectives
@@ -45,13 +45,13 @@ This hack will help you learn:
 Learning Objectives
 * In this hack, you will be working on a set of "Day 2" operational best practices for Arc for Servers. You will learn:
   - Day 1
-  	1. Pre-Day (3 Hours)
+		1. Pre-Day (3 Hours)
 		2. How to deploy Arc servers in competitive clouds (45 mins)
-		   * Windows / Ubuntu on AWS
+		  * Windows / Ubuntu on AWS
 			* Windows / Ubuntu on Vagrant
 		3. Onboard servers to Arc (45 mins)
 		4. Inventory Management (60 mins)
-		   * Tagging Assets
+		  * Tagging Assets
 			* Query with Resource Graph Explorer
 			* Best practices around tagging
 		5. Operations (2 Hours)
