@@ -1,11 +1,11 @@
-# What The Hack - App Cloud Migration and Modernization
+# What The Hack - Migrating Applications To The Cloud
 ## Introduction
 This intro level hack will run us through a migration and modernization path from On Prem to IaaS to PaaS.
 
-We will end with a full modern, cloud native application.
+The story goes that, Tailwind Traders acquired Northwind Traders earlier this year, they wanted to be sure that they could access their inventory in real time, which meant moving their existing web API alongside ours on Microsoft Azure.   Besides moving the local web aps and API's to Azure there is a need to move the On-Premise MongoDB and SQL Server to the cloud as well.
 
 ## Lectures 
-This hack includes presentations that features lectures introducing  key topics associated with each challenge. It is recommended that the host present each lecture before attendees kick off that challenge.
+This hack includes presentations that feature lectures introducing key topics associated with each challenge. It is recommended that the host present each lecture before attendees kick off that challenge.
 1. **[Introduction to Cloud Applications and Azure](Coach/Lectures/01-CloudAppsAndAzure.pptx)**
 1. **[Migrating Applications to the Cloud](Coach/Lectures/02-MovingYourDatabaseToAzure.pptx)**
 1. **[Containerization and Orchestration on Azure](Coach/Lectures/03-ContainerizingAndOrchestrationOfApplications.pptx)**
