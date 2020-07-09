@@ -43,51 +43,51 @@ This hack will help you learn:
 # Random Notes
 
 Learning Objectives
-	In this hack, you will be working on a set of "Day 2" operational best practices for Arc for Servers. You will learn:
-		a. Day 1
-			i. Pre-Day (3 Hours)
-			ii. How to deploy Arc servers in competitive clouds (45 mins)
-				1. Windows / Ubuntu on AWS
-				2. Windows / Ubuntu on Vagrant
-			iii. Onboard servers to Arc (45 mins)
-			iv. Inventory Management (60 mins)
-				1. Tagging Assets
-				2. Query with Resource Graph Explorer
-				3. Best practices around tagging
-			v. Operations (2 Hours)
-				1. MMA extension onboarding (Windows)
-				2. Enable Alerts (CPU/Mem constraints)
-				3. Enable Update Management
-		b. Day 2
-			i. Policy (2 Hours)
-				1. Define core set of policies for day 2
-				2. Build automation demo to apply policy across inventory
-					a. Install MMA agent via policy (Linux)
-			ii. Bonus: Arc consumption drivers 
+* In this hack, you will be working on a set of "Day 2" operational best practices for Arc for Servers. You will learn:
+  - Day 1
+		1. Pre-Day (3 Hours)
+		2. How to deploy Arc servers in competitive clouds (45 mins)
+		  * Windows / Ubuntu on AWS
+			* Windows / Ubuntu on Vagrant
+		3. Onboard servers to Arc (45 mins)
+		4. Inventory Management (60 mins)
+		  * Tagging Assets
+			* Query with Resource Graph Explorer
+			* Best practices around tagging
+		5. Operations (2 Hours)
+			* MMA extension onboarding (Windows)
+			* Enable Alerts (CPU/Mem constraints)
+			* Enable Update Management
+	- Day 2
+		1. Policy (2 Hours)
+			* Define core set of policies for day 2
+			* Build automation demo to apply policy across inventory
+				1.  Install MMA agent via policy (Linux)
+			* Bonus: Arc consumption drivers 
 				1. Security Center ( 30 mins )
-					a. Onboarding security center - Manually (30 mins)
-					b. Advance challenge - Automate deployment (30 mins)
-					c. Note: log analytics workspace (Default)
+					- Onboarding security center - Manually (30 mins)
+					- Advance challenge - Automate deployment (30 mins)
+					- Note: log analytics workspace (Default)
 				2. Log Analytics Dashboard and Queries (1 Hours)
-					a. Resource utilization scenario
-					b. Missing updates scenario (Time permitted)
+					- Resource utilization scenario
+					- Missing updates scenario (Time permitted)
 				3. Enable Sentinel 
-					a. Ask to see if Sentinel part of 
+					- Ask to see if Sentinel part of 
 				4. Azure Lighthouse (Optional) (Discussion + Demo = 45 mins)
-					a. MSP Perspective
-					b. Customer Perspective
-			iii. Future Capabilities:
+					- MSP Perspective
+					- Customer Perspective
+			* Future Capabilities:
 				1. Security Center functionality - Automation
 				2. Sentinel 
 				3. Policy 
+
 Assumptions
 	Before starting this hack you should have hands-on experience with the following:
 			
 Prerequisites
-	• Pre-day
-		○ Checklist of items to do for Day 1 of hack
-	• An Azure Subscription which can deploy an AKS cluster
-	• Create SSH Keys
-	• Access to a Bash Shell (Cloud Shell, WSL, etc.)
-	• IDE of your choice, preferably VSCode
-
+  * Pre-day
+	* Checklist of items to do for Day 1 of hack
+	* An Azure Subscription which can deploy an AKS cluster
+	* Create SSH Keys
+	* Access to a Bash Shell (Cloud Shell, WSL, etc.)
+	* IDE of your choice, preferably VSCode
