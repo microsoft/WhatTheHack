@@ -1,20 +1,51 @@
-# 2019AzureMigrateYourApps
-Baseline event Series - Presentations and labs for the event
+# What The Hack - App Cloud Migration and Modernization
+## Introduction
+This intro level hack will run us through a migration and modernization path from On Prem to IaaS to PaaS.
 
-Agenda
+We will end with a full modern, cloud native application.
 
-| Time          | Session |
-|:-------------:|:------- |
-| 9:30 - 10:00 | Cloud Apps and Azure – Introduction |
-| 10:00 - 10:30 | Moving your database to Azure |
-| 10:30 - 11:45 | Hands on Activity – Migrate SQL and Mongo Data to Azure |
-| 11:45 - 12:00 | Break |
-| 12:00 - 12:30 | Containerizing and Orchestration of applications on Azure |
-| 12:30 - 1:00 | Lunch |
-| 1:00 - 2:00 | Hands on Activity – Migrating apps to App Services on Azure |
-| 2:00 - 2:30 | Serverless Computing – Bring your app to the next level |
-| 2:30 - 2:45 | Break |
-| 2:45 - 3:15 | DevOps, Deploying Your Applications Faster and Safer |
-| 3:15 - 4:15 | Hands on Activity – Deploy a web app using CI/CD in Azure DevOps |
-| 4:15 - 4:30 | PPT wrap up / call to action |
+## Presentations 
+This hack includes presentations that features short introductions to key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+- **[Introduction to Cloud Applications and Azure](Coach/Presentations/AM1-CloudAppsAndAzure.pptx)**
+- **[Migrating Applications to the Cloud](Coach/Presentations/AM1-CloudAppsAndAzure.pptx)**
+- **[Containerization and Orchestration on Azure](Coach/Presentations/AM1-CloudAppsAndAzure.pptx)**
+- **[Bring Your App to the Next Level with Serverless](Coach/Presentations/AM1-CloudAppsAndAzure.pptx)**
+- **[Deploying Your Application Faster and Safer](Coach/Presentations/AM1-CloudAppsAndAzure.pptx)**
 
+## Learning Objectives
+In this hack you will solve common challenges for companies migrating to the cloud. 
+
+1. Migrating to the cloud.
+1. Containerizing an application.
+1. Serverless-izing your application.
+1. DevOps-ing your application.
+
+## Challenges
+- Challenge 0: **[Learning Azure](Student/00-prereqs.md)**
+   - Get familiar with the Azure environment, portal and command line.
+- Challenge 1: **[Migrating to the Cloud](Student/01-containers.md)**
+   - Take an existing web application and move it from a standard deployment using on premises web farms to a container infrastructure on Azure. 
+- Challenge 2: **[DevOps and Containers](Student/02-acr.md)**
+   - Build custom Docker images using Azure DevOps, push and store images in a private repository and deploy and run the images inside the Docker containers.
+   
+## Prerequisites
+- Access to an Azure subscription with Owner access
+   - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+- [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+   - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
+   - Update to the latest
+   - Must be at least version 2.7.x
+- Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
+- [**Visual Studio Code**](https://code.visualstudio.com/)
+
+## Repository Contents
+- `../Coach/Presentations`
+  - Containers all presentations listed in the Introduction above.
+- `../Coach/setupfiles`
+   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+- `../Student/images`
+   - Images for documentation
+
+## Contributors
+- Ryan Berry
