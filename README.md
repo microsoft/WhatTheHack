@@ -41,7 +41,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [App Modernization](/006-AppModernization/README.md)
 - [Microservices In Azure](/009-MicroservicesInAzure/README.md)
 - [Serverless](/015-Serverless/README.md)
-- [App Migration](/016-AppMigration/README.md)
+- [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
 
