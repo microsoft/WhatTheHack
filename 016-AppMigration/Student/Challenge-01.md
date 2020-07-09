@@ -355,10 +355,11 @@ We can do all this from the Azure Bash Shell
       mongodump --host 40.70.205.251 --username=labuser --password=AzureMigrateTraining2019# --db=tailwind --authenticationDatabase=tailwind
       ```
 
-3. Check to see that you successfully dumped the data
+1. Check to see that you successfully dumped the data
 
    1. Check that the directory has a dump and tailwind directory that contains the .json and metadata files.  Run the following ls commands:
-      ![CheckMongoDump](images/CheckMongoDump.pngk
+
+      ![CheckMongoDump](images/CheckMongoDump.png)
 
 
 
