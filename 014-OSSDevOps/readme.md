@@ -8,15 +8,28 @@ We understand that your choice of programming language and DevOps processes migh
 
 ## Challenges
  
- *(this list is a work in progress, links to be included upon completion of each challenge)*
+ - [Challenge 0](./Student/challenge00.md) - Setup
+ - [Challenge 1](./Student/challenge01.md) - OSS DevOps: Introduction
+ - [Challenge 2](./Student/challenge02.md) - GitHub Project Boards: Agile Project Management
+ - [Challenge 3](./Student/challenge03.md) - GitHub Repositories: Introduction
+ - [Challenge 4](./Student/challenge04.md) - Deploy and Containerize App (Locally)
+ - [Challenge 5](./Student/challenge05.md) - Test: Developing a testing mechanism
+ - [Challenge 6](./Student/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
+ - [Challenge 7](./Student/challenge07.md) - CICD via Jenkins: Continuous Build
+ - [Challenge 8](./Student/challenge08.md) - Infrastructure as Code: Deploying via Terraform
+ - [Challenge 9](./Student/challenge09.md) - Monitoring: Generating and listening to application metrics
 
- - [Challenge 0](./Student/Guides/challenge00.md) - Setup
- - [Challenge 1](./Student/Guides/challenge01.md) - OSS DevOps: Introduction
- - [Challenge 2](./Student/Guides/challenge02.md) - GitHub Project Boards: Agile Project Management
- - [Challenge 3](./Student/Guides/challenge03.md) - GitHub Repositories: Introduction
- - [Challenge 4](./Student/Guides/challenge04.md) - Deploy and Containerize App (Locally)
- - [Challenge 5](./Student/Guides/challenge05.md) - Test: Developing a testing mechanism
- - [Challenge 6](./Student/Guides/challenge06.md) - Package Application: Create Azure Container Registry and Push App Image to ACR
- - [Challenge 7](./Student/Guides/challenge07.md) - CICD via Jenkins: Continuous Build
- - [Challenge 8](./Student/Guides/challenge08.md) - Infrastructure as Code: Deploying via Terraform
- - [Challenge 9](./Student/Guides/challenge09.md) - Monitoring: Generating and listening to application metrics
+## Prerequisites
+
+- A [GitHub](https://github.com) account
+- An [Azure](https://azure.microsoft.com/) subscription
+- A [Git SCM](https://git-scm.com/download) client
+- [Atom](https://atom.io/), [Visual Studio Code](https://code.visualstudio.com), or your favorite IDE
+
+## Contributors
+
+- Ali Hussain
+- Kevin Hillinger
+- Kevin M Gates
+- Israel Ekpo
+- Shawn Weisfeld

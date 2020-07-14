@@ -1,54 +1,51 @@
-# Azure Governance Challenge Workshop (1 day)
+# What The Hack - Azure Governance
 
-## Overview
+## Introduction
 
-### This challenged based workshop is intended to teach how to design a well governed subscription. During this day you will be working with Azure Management Groups, RBAC, Policy, Blueprints, Cost Management and Resource Graph.
+1. Azure Governance is a collection of concepts and services that are designed to enable management of your various Azure resources at scale. It facilitates leadership to support autonomous teams and ensuring that they aherence to guidelines when using Cloud Resources.
+2. This challenge based hack is intended to teach how to design a well governed Azure cloud deployment. 
+3. You will be learning about Azure Management Groups, RBAC, Policy, Blueprints, Cost Management and Resource Graph.
 
-[Deployment Setup Guide](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Student/Deployment%20Setup%20Guide.docx?raw=true)
+## Learning Objectives
 
-[Challenges](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Student/Challenges.pptx?raw=true)
+This content has been targeted to Microsoft employees, Partners, and Customers looking to build up their knowledge on Azure Governance (Management Groups, RBAC, Policy, Blueprints, Cost Management and Resource Graph). Basic knowledge of Azure Cloud is expected before leveraging this workshop.
 
-## Presentation
-[Azure Governance Overview](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Host/Azure%20Governance.pptx?raw=true)
+In this hack you will learn how to:
 
-## Proctor \ Lab Guides for Challenges
-[Management Group and RBAC](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Host/Challenge%201%20-%20Management%20Group%20and%20RBAC.docx?raw=true)
+1. Implement Azure Governance to manage Azure Resources at Scale
+2. Facilitate Azure Governance conversations with key stake holders and central IT management.
+3. Create reusable IP to manage Azure environments.
+4.	Build a governance strategy using Management Groups, Azure Policy, and Blueprints
+5.	Group and organize your subscriptions in a logical hierarchy that support the deployment of other Governance services in a structured way
 
-[Azure Policy](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Host/Challenge%202%20-%20Azure%20Policy.docx?raw=true)
+## Challenges
 
-[Azure Blueprints](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Host/Challenge%203-%20Azure%20Blueprints.docx?raw=true)
+- Challenge 0: [Deployment Setup Guide](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/Challenge0-DeploymentSetupGuide.docx?raw=true)
+   - Create a new AAD tenant, Azure subscription, and deploy hack environment from script
+- Challenge 1: [Management Group](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
+   - Create a logical heirarchy in Management Groups
+- Challenge 2: [Azure Policy](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
+   - Apply out-of-the-box Azure policies and create a custom policies
+- Challenge 3: [Azure Blueprints](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
+   - Learn to create an Azure Blueprint to specify policies and permissions
+- Challenge 4: [Azure Cost Management](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
+   - Learn how to identify costs of deployed resources
+- Challenge 5: [Azure Resource Graph](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.docx?raw=true)
+   - Monitor and review deployed resources through Resource Graph
 
-[Azure Cost Management](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Host/Challenge%204-%20Azure%20Cost%20Management.docx?raw=true)
-
-[Azure Resource Graph](https://github.com/rkuehfus/AzureGovernanceChallengeWorkshop/blob/master/Host/Challenge%205%20-%20Azure%20Resource%20Graph.docx?raw=true)
-
-
-## Outcome
-
-### Understand how to design a well governed Azure Subscription, facilitate an Azure Governance customer conversation, and demo key tools that make up Azure Governance.
-
-## Target Audience
-
-### This content has been targeted to internal Microsoft, Partners and Customers looking to build up their knowledge on Azure Governance.  
+[View Challenges in PowerPoint](https://github.com/microsoft/WhatTheHack/blob/master/022-AzureGovernance/Student/AzureGovernance-Challenges.pptx?raw=true)
 
 ## Prerequisites
+1. Review the Deployment Setup Guide. 
+2. Create a new Azure AD Tenant.
+3. Create new Azure Trial Subscription. 
 
-### 1.	Attendees review the Deployment Setup Guide and create a new Azure AD Tenant which includes a $200 Free Trial Azure Subscriptions.
-### 2.	Access to a machine with Visual Studio Code with the Azure Account and Sign-In extensions.
-### 3.  Create VMs for Policy Challenge (see deployment setup guide for instructions and code)
+## Repository Contents
+- `../Coach`
+  - Coach's Guide and related files
+- `../Student`
+  - Student's Challenge Guide
 
-# Agenda
-
-### 9 – 9:30 AM: Kickoff & Introductions
-### 9:30 – 10:15 AM: Azure Governance Overview Presentation
-### 10:15 - 10:30 AM: Break
-### 10:30 – 11:30 AM: Management Groups and RBAC Challenge
-### 11:30 AM – Noon: Azure Policy Challenge 
-### Noon – 1 PM: Lunch
-### 1 – 2 PM: Azure Policy Challenge (continued)
-### 2 – 3 PM Azure Blueprint Challenge
-### 3 – 3:15 PM: Break
-### 3:15 – 4 PM Azure Cost Management Challenge
-### 4 – 4:45 PM Azure Resource Graph Challenge
-### 4:45 - 5 PM: Wrap up
-
+## Contributors
+- Farida Bharmal
+- Rob Keuhfus
