@@ -1,6 +1,6 @@
 # Challenge 1 - Provision your Front Door
 
-[< Previous Challenge [0]](./Challenge00.md)&nbsp;&nbsp;-&nbsp;&nbsp;**[Home](./README.md)**&nbsp;&nbsp;-&nbsp;&nbsp;[Next Challenge [2] >](./Challenge02.md)
+[< Previous Challenge [0]](./Challenge00.md)&nbsp;&nbsp;-&nbsp;&nbsp;**[Home](../README.md)**&nbsp;&nbsp;-&nbsp;&nbsp;[Next Challenge [2] >](./Challenge02.md)
 
 ## Pre-requisites
 

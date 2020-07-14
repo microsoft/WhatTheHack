@@ -1,6 +1,6 @@
 # Challenge 0 - Setup your Environment and Discover
 
- **[Home](./README.md)** - [Next Challenge [1] >](./Challenge01.md)
+ **[Home](../README.md)** - [Next Challenge [1] >](./Challenge01.md)
 
 ## Pre-requisites
 
@@ -75,7 +75,9 @@ For this challenge we are going to:
 - [Running w3af](http://docs.w3af.org/en/latest/basic-ui.html)
 - [Microsoft Edge's Network Tools](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/network/reference)
 - [Google Chrome's Network Tools](https://developers.google.com/web/tools/chrome-devtools/network)
-
+- [How does the Internet work? (video)](https://youtu.be/yJJHukw9Lyc)
+  - [Other Languages available - "The Euro-IX Video"](https://www.youtube.com/channel/UCFyucVRAAMzxyJIsxnGwsjw)
+- [How the Internet crosses the Ocean (English Only)](https://www.weforum.org/agenda/2016/01/how-does-the-internet-cross-the-ocean/)
 
 ## Tips
 

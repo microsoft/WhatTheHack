@@ -1,6 +1,6 @@
 # Challenge 4 - Cache Static Assets
 
-[< Previous Challenge [3]](./Challenge03.md)&nbsp;&nbsp;-&nbsp;&nbsp;**[Home](./README.md)**
+[< Previous Challenge [3]](./Challenge03.md)&nbsp;&nbsp;-&nbsp;&nbsp;**[Home](../README.md)**
 
 ## Pre-requisites
 
