@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 1 - Azure DevOps: Introduction
+## Challenge 1 - Deploy Kubernetes cluster on GCP
 [Back](challenge00.md) - [Home](../readme.md) - [Next](challenge02.md)
 
 ### Introduction

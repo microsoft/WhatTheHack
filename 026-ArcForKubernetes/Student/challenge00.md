@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 0 - Setup
+## Challenge 0 - Setup (Pre-day)
 [Home](../readme.md) - [Next](challenge01.md)
 
 ### Introduction
