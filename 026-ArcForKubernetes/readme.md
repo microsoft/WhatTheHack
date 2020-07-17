@@ -1,4 +1,4 @@
-# What The Hack - Azure Arc for Servers Hack
+# What The Hack - Azure Arc for Kubernetes Hack
 
 # Introduction
 For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, [Azure Arc](https://azure.microsoft.com/en-us/services/azure-arc/) enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
