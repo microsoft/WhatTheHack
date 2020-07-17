@@ -5,7 +5,7 @@
 
 ### Introduction
 
-Azure Arc for Servers is a set of tools and technology that covers a wide variety of use cases and technical scenarios. To successfully complete the Azure Arc for Servers challenges, you will need to have:
+To successfully complete the Azure Arc for Servers challenges, you will need to have:
 
 * A local computer to install and use various applications and tools such as VSCode, ssh, etc.
 
