@@ -1,7 +1,7 @@
 # What The Hack - Azure Arc for Servers Hack
 
 ## Introduction
-This hack will guide you through Arc for Servers technology. It will cover 
+This hack will guide you through Azure Arc for Servers technology. It will cover 
 
 
 ## Learning Objectives
@@ -12,20 +12,20 @@ This hack will help you learn:
 2. Thing 2
 
 ## Challenges
- - [Challenge 0](./Student/challenge00.md) - Setup (Pre-day)
+ - [Challenge 0](./Student/challenge00.md) - Complete Prerequisites (Do before you attend the hack)
  - [Challenge 1](./Student/challenge01.md) - Deploy Arc Servers
  - [Challenge 2](./Student/challenge02.md) - Inventory Management
  - [Challenge 3](./Student/challenge03.md) - Operations
  - [Challenge 4](./Student/challenge04.md) - Policy
  - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Security Center
  - [Challenge 6](./Student/challenge06.md) - Arc Value Add: Log Analytics Dashboard and Queries
- - [Challenge 7](./Student/challenge07.md) - Arc Value Add: Enable Sentinel 
- - [Challenge 8](./Student/challenge08.md) - Arc Value Add: Azure Lighthouse
- - [Challenge 9](./Student/challenge09.md) - Arc Value Add: Functionality Roadmap
+ - [Challenge 7](./Student/challenge07.md) - Arc Value Add: Enable Sentinel *Coming Soon*
+ - [Challenge 8](./Student/challenge08.md) - Arc Value Add: Azure Lighthouse *Coming Soon*
+ - [Challenge 9](./Student/challenge09.md) - Arc Value Add: Functionality Roadmap *Coming Soon*
  
 
 ## Prerequisites
-- Your own Azure subscription with Owner access
+- Your own Azure subscription with Owner RBAC rights at the subscription level
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Git SCM](https://git-scm.com/download)
 
@@ -37,7 +37,7 @@ This hack will help you learn:
 
 ## Contributors
 - Dale Kirby
-- Lior Karmat
+- Lior Kamrat
 - Ali Hussain
 
 # Random Notes
@@ -45,16 +45,15 @@ This hack will help you learn:
 Learning Objectives
 * In this hack, you will be working on a set of "Day 2" operational best practices for Arc for Servers. You will learn:
   - Day 1
-  	1. Pre-Day (3 Hours)
-		2. How to deploy Arc servers in competitive clouds (45 mins)
+  		1. How to deploy Arc servers in competitive clouds (45 mins)
 		   * Windows / Ubuntu on AWS
-			* Windows / Ubuntu on Vagrant
-		3. Onboard servers to Arc (45 mins)
-		4. Inventory Management (60 mins)
+		   * Windows / Ubuntu on Vagrant
+		2. Onboard servers to Arc (45 mins)
+		3. Inventory Management (60 mins)
 		   * Tagging Assets
 			* Query with Resource Graph Explorer
 			* Best practices around tagging
-		5. Operations (2 Hours)
+		4. Operations (2 Hours)
 			* MMA extension onboarding (Windows)
 			* Enable Alerts (CPU/Mem constraints)
 			* Enable Update Management
