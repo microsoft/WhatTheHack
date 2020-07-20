@@ -1,6 +1,6 @@
 # What the Hack: Azure Arc for Servers 
 
-## Challenge 7 – Azure Repos: Branching & Policies
+## Challenge 7 – Arc Value Add: Enable Sentinel
 [Back](challenge06.md) - [Home](../readme.md) - [Next](challenge08.md)
 
 ### Introduction
