@@ -1,6 +1,6 @@
 # What the Hack: Azure Arc for Servers 
 
-## Challenge 6 – Azure Pipelines: Continuous Delivery
+## Challenge 6 – Arc Value Add: Log Analytics Dashboard and Queries
 [Back](challenge05.md) - [Home](../readme.md) - [Next](challenge07.md)
 
 ### Introduction

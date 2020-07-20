@@ -1,6 +1,6 @@
 # What the Hack: Azure Arc for Servers 
 
-## Challenge 0 - Setup
+## Challenge 0 - Prerequisites
 [Home](../readme.md) - [Next](challenge01.md)
 
 ### Introduction

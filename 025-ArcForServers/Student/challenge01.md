@@ -5,24 +5,25 @@
 
 ### Introduction
 
-We can only assume that you are doing this What the Hack because you understand the importance of DevOps, however please take a moment to review these brief articles about the basic motivation behind DevOps and the Azure DevOps tool.
+[Azure Arc for Servers](https://docs.microsoft.com/en-us/azure/azure-arc/servers/overview) allows customers to use Azure management tools on any server running in any public cloud or on-premises environment. In order to accomplish this, a [lightweight agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) must be deployed onto the server. Once deployed, this agent "projects" this server as an Azure Arc resource. As an Azure resource, this server can now be managed as if it were a VM hosted natively in Azure. 
 
-1. [What is DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)
-2. [What features and services do I get with Azure DevOps?](https://docs.microsoft.com/en-us/azure/devops/user-guide/services)
-3. [Azure DevOps Services vs. Azure DevOps Server](https://docs.microsoft.com/en-us/azure/devops/user-guide/about-azure-devops-services-tfs) - Just read and understand the first section that describes what offerings available, no need to dig through all the feature differences at this time, unless you are interested. 
+In this challenge, you will need to deploy a server to an environment other than Azure. Once deployed, you will install the Azure Arc agent on the server and confirm that the server is visible from the Azure portal as a resource.
+
+*Note: Before continuing, be sure that you have read and completed all the necessary [prerequisites](challenge00.md).
 
 ### Challenge
 
-1. Give the other members of your hack team contributor access to your project in Azure DevOps ([hint](https://docs.microsoft.com/en-us/azure/devops/organizations/security/add-users-team-project))
-2. Take the [DevOps Self-Assessment](https://www.devopsassessment.net) this will take between 20 to 40 minutes. Don't forget to save the results of the asessment to share with your team.
-3. Share the results of your Self-Assessment with your team. Are their any common themes?
+1. Deploy a server running a [supported OS](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview#supported-operating-systems) to a non-Azure public cloud service or to an on-prem or local environment. Be sure that the server you deploy has a public IP address.
+
+2. Install the the Azure Arc machine agent onto the server you deployed and verify that you can see the server projected into Azure from the Azure Portal.
+
+3. Add a tag to the server and use Resource Graph Explorer to run a query showing all resources that have that tag.
 
 
 ### Success Criteria
 
-1. You should understand why DevOps is important and the basic components.
-2. You should understand what offerings for Azure DevOps are available.
-3. You should be able to list and describe the major features of Azure DevOps.
-4. You should be able to see the Azure DevOps Organizations and projects created by the other members of your hack team.
+1. You have deployed a server with a public IP address running in a non-Azure public cloud or on-prem environment.
+2. You are able to see the server in the Azure Portal as an Azure resource.
+3. You are able to use Resource Graph Explorer to run a query that shows your server and any applied tags.
 
 [Back](challenge00.md) - [Home](../readme.md) - [Next](challenge02.md)
