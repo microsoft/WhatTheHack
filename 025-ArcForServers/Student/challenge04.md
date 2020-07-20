@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
-## Challenge 4 – Azure Pipelines: Infrastructure as Code
+## Challenge 4 – Azure Policy
 [Back](challenge03.md) - [Home](../readme.md) - [Next](challenge05.md)
 
 ### Introduction

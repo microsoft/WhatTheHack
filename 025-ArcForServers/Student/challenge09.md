@@ -1,4 +1,4 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
 ## Challenge 9 – Azure Pipelines: OSS Scanning with WhiteSource Bolt
 [Back](challenge08.md) - [Home](../readme.md) 

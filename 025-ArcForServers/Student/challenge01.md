@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
-## Challenge 1 - Azure DevOps: Introduction
+## Challenge 1 - Onboarding servers with Azure Arc
 [Back](challenge00.md) - [Home](../readme.md) - [Next](challenge02.md)
 
 ### Introduction

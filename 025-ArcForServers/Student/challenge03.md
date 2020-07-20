@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
-## Challenge 3 - Azure Repos: Introduction
+## Challenge 3 - Operations
 [Back](challenge02.md) - [Home](../readme.md) - [Next](challenge04.md)
 
 ### Introduction

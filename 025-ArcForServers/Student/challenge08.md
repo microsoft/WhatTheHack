@@ -1,4 +1,4 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
 ## Challenge 8 – Azure Monitoring: Application Insights
 [Back](challenge07.md) - [Home](../readme.md) - [Next](challenge09.md) 
