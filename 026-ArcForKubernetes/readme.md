@@ -1,27 +1,36 @@
-# What The Hack - Azure Arc for Servers Hack
+# What The Hack - Azure Arc for Kubernetes Hack
 
-## Introduction
-	This hack will guide you through Arc for Servers technology. It will cover 
+# Introduction
+For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, [Azure Arc](https://azure.microsoft.com/en-us/services/azure-arc/) enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
 
+ **Organize and govern across environments**. Get databases, Kubernetes clusters, and servers sprawling across on-premises, edge and multi-cloud environments under control by centrally organizing and governing from a single place.
+
+**Manage Kubernetes Apps at scale**. Deploy and manage Kubernetes applications across environments using DevOps techniques. Ensure that applications are deployed and configured from source control consistently.
+
+The goal of this challenge based hack is to distill the skills required to deploy managed Kubernetes service in competitive clouds and have it be Arc enabled and managed. The management of Arc enabled Kubernetes clusters deployed on competetive platforms is going to be highlighted by conducting day two scenarios such as GitOps, and inventory management.
 
 ## Learning Objectives
 
 This hack will help you learn:
 
-1. Thing 1
-2. Thing 2
+1. How to deploy Kubernetes in competetive platforms
+2. Onboard Kuberentes clusters onto Azure Arc
+3. Inventory manage Arc enabled K8s clusters
+4. Learn day two operational scenerios such as:
+	* Enabling Monitoring and setup alerts
+	* Enable GitOps on remote K8s clusters
+	* Enable Azure Policy on remote K8s clusters
+	* Manage clusters via Azure Policy
 
 ## Challenges
  - [Challenge 0](./Student/challenge00.md) - Setup (Pre-day)
- - [Challenge 1](./Student/challenge01.md) - Deploy Arc Servers
- - [Challenge 2](./Student/challenge02.md) - Inventory Management
- - [Challenge 3](./Student/challenge03.md) - Operations
- - [Challenge 4](./Student/challenge04.md) - Policy
- - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Security Center
- - [Challenge 6](./Student/challenge06.md) - Arc Value Add: Log Analytics Dashboard and Queries
- - [Challenge 7](./Student/challenge07.md) - Arc Value Add: Enable Sentinel 
- - [Challenge 8](./Student/challenge08.md) - Arc Value Add: Azure Lighthouse
- - [Challenge 9](./Student/challenge09.md) - Arc Value Add: Functionality Roadmap
+ - [Challenge 1](./Student/challenge01.md) - Deploy Kubernetes cluster on GCP
+ - [Challenge 2](./Student/challenge02.md) - Deploy Kubernetes cluster locally
+ - [Challenge 3](./Student/challenge03.md) - Inventory management
+ - [Challenge 4](./Student/challenge04.md) - Enable Monitoring and Alerting
+ - [Challenge 5](./Student/challenge05.md) - Enable GitOps
+ - [Challenge 6](./Student/challenge06.md) - Enable Azure Policy
+ - [Challenge 7](./Student/challenge07.md) - Manage remote cluster via Azure Policy
  
 
 ## Prerequisites
@@ -39,6 +48,7 @@ This hack will help you learn:
 - Dale Kirby
 - Lior Karmat
 - Ali Hussain
+- Laura 
 
 # Random Notes
 
@@ -102,9 +112,7 @@ In this hack, you will be working on a set of "Day 2" operational best practices
   - Real world example using Prometheus, Grafana (and/or) Azure Monitor
   - Deploy a full stack monitoring solution to Arc clusters
   - Fleet management
-	- Deploy to a remote cluster - Get a new Cluster to a desired state with 2 configuration
-	  - Cluster configuration (admin credentials)
-	  - Namespace configuration (dev credentials)
+	- Deploy to a remote cluster - Get a new Cluster to a desired state with 1 configuration
 	- Deploy to multiple clusters - Get 2 clusters to a desired state with 2 different configurations along with a base configuration
   - Bonus – Real world implementation
     - Deploy policy via ARM Template

@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 3 - Azure Repos: Introduction
+## Challenge 3 - Inventory management
 [Back](challenge02.md) - [Home](../readme.md) - [Next](challenge04.md)
 
 ### Introduction

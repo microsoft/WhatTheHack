@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 4 – Azure Pipelines: Infrastructure as Code
+## Challenge 4 – Enable Monitoring and Alerting
 [Back](challenge03.md) - [Home](../readme.md) - [Next](challenge05.md)
 
 ### Introduction

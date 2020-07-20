@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 5 – Azure Pipelines: Continuous Integration
+## Challenge 5 – Enable GitOps
 [Back](challenge04.md) - [Home](../readme.md) - [Next](challenge06.md)
 
 ### Introduction

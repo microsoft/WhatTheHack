@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 7 – Azure Repos: Branching & Policies
+## Challenge 7 – Manage remote cluster via Azure Policy
 [Back](challenge06.md) - [Home](../readme.md) - [Next](challenge08.md)
 
 ### Introduction

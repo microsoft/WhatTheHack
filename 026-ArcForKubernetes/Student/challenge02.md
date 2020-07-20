@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 2 – Azure Boards: Agile Project Management
+## Challenge 2 – Deploy Kubernetes cluster locally
 [Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
 
 ### Introduction

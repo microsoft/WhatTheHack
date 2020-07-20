@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What The Hack - Azure Arc for Servers Hack
 
-## Challenge 6 – Azure Pipelines: Continuous Delivery
+## Challenge 6 – Enable Azure Policy
 [Back](challenge05.md) - [Home](../readme.md) - [Next](challenge07.md)
 
 ### Introduction
