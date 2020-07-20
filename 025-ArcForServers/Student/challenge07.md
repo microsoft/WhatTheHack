@@ -1,4 +1,4 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
 ## Challenge 7 – Azure Repos: Branching & Policies
 [Back](challenge06.md) - [Home](../readme.md) - [Next](challenge08.md)

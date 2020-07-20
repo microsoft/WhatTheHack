@@ -1,6 +1,6 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
-## Challenge 2 – Azure Boards: Agile Project Management
+## Challenge 2 – Inventory Management
 [Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
 
 ### Introduction

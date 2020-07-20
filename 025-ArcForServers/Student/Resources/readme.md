@@ -1,5 +1,5 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
 ## Intentionally Blank
 
-Please see the full list of DevOps Challenges [Here](../../readme.md)
+Please see the full list of Azure Arc for Servers Challenges [here](../../readme.md).

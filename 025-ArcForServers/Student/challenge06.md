@@ -1,4 +1,4 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
 ## Challenge 6 – Azure Pipelines: Continuous Delivery
 [Back](challenge05.md) - [Home](../readme.md) - [Next](challenge07.md)
