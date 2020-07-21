@@ -16,7 +16,7 @@ This hack will help you learn:
 ## Challenges
  - [Challenge 0](./Student/challenge00.md) - Complete Prerequisites (Do before you attend the hack)
  - [Challenge 1](./Student/challenge01.md) - Onboarding servers with Azure Arc
- - [Challenge 2](./Student/challenge02.md) - Inventory Management
+ - [Challenge 2](./Student/challenge02.md) - Policy for Azure Arc connected servers
  - [Challenge 3](./Student/challenge03.md) - Operations
  - [Challenge 4](./Student/challenge04.md) - Policy
  - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Security Center

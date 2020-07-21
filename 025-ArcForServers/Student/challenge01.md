@@ -7,7 +7,7 @@
 
 [Azure Arc for Servers](https://docs.microsoft.com/en-us/azure/azure-arc/servers/overview) allows customers to use Azure management tools on any server running in any public cloud or on-premises environment. In order to accomplish this, a [lightweight agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) must be deployed onto the server. Once deployed, this agent "projects" this server as an Azure Arc resource. As an Azure resource, this server can now be managed as if it were a VM hosted natively in Azure. 
 
-In this challenge, you will need to deploy a server to an environment other than Azure. Once deployed, you will install the Azure Arc agent on the server and confirm that the server is visible from the Azure portal as a resource.
+In this challenge, you will need to deploy a server to an environment other than Azure. Once deployed, you will install the Azure Arc agent on the server and confirm that the server is visible from the Azure portal as a resource by using [Resource Graph Explorer](https://docs.microsoft.com/en-us/azure/governance/resource-graph/first-query-portal).
 
 *Note: Before continuing, be sure that you have read and completed all the necessary [prerequisites](challenge00.md).
 
@@ -18,7 +18,6 @@ In this challenge, you will need to deploy a server to an environment other than
 2. Install the the Azure Arc machine agent onto the server you deployed and verify that you can see the server projected into Azure from the Azure Portal.
 
 3. Add a tag to the server and use Resource Graph Explorer to run a query showing all resources that have that tag.
-
 
 ### Success Criteria
 
