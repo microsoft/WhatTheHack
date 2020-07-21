@@ -30,16 +30,17 @@ In this challenge we will setup many of the core components needed to complete t
 * Download and install [Visual Studio Code](https://code.visualstudio.com) if you don't already have it or a similar tool installed.
 
 * Choose which type of non-Azure environment you will use to deploy servers for the hack challenges. Some options include deploying a server to a public cloud other than Azure, or deploying servers on a laptop or other device with virtualization software.
+
+* (Optional for users with Windows devices) Have access to a local bash shell environment. There are many ways to accomplish this. We recommend considering [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) or [Git Bash](https://gitforwindows.org/).
+
+* (Optional) [Create an SSH key pair](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
    
 
 ### Success Criteria
 
 1. You should be able to log in to the Azure Portal and create, modify, and destroy resources in your subscription.
-
 2. You should have a working dev environment with Visual Studio Code 
+3. (Optional but recommended) You should have access to a bash shell 
+4. (Optional but recommended) You should have a valid public/private RSA 2048 bit or larger key pair.
    
 [Home](../readme.md) - [Next](challenge01.md)
-
-### Hints
-
-https://github.com/microsoft/azure_arc
