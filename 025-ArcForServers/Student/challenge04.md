@@ -1,6 +1,6 @@
 # What the Hack: Azure Arc for Servers 
 
-## Challenge 4 – Azure Policy
+## Challenge 4 – Arc Value Add: Log Analytics Dashboard and Queries
 [Back](challenge03.md) - [Home](../readme.md) - [Next](challenge05.md)
 
 ### Introduction

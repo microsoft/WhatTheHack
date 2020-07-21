@@ -1,6 +1,6 @@
 # What the Hack: Azure Arc for Servers 
 
-## Challenge 3 - Operations
+## Challenge 3 - Arc Value Add: Security Center
 [Back](challenge02.md) - [Home](../readme.md) - [Next](challenge04.md)
 
 ### Introduction

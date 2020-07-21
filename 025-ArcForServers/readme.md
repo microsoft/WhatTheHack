@@ -17,13 +17,10 @@ This hack will help you learn:
  - [Challenge 0](./Student/challenge00.md) - Complete Prerequisites (Do before you attend the hack)
  - [Challenge 1](./Student/challenge01.md) - Onboarding servers with Azure Arc
  - [Challenge 2](./Student/challenge02.md) - Policy for Azure Arc connected servers
- - [Challenge 3](./Student/challenge03.md) - Operations
- - [Challenge 4](./Student/challenge04.md) - Policy
- - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Security Center
- - [Challenge 6](./Student/challenge06.md) - Arc Value Add: Log Analytics Dashboard and Queries
- - [Challenge 7](./Student/challenge07.md) - Arc Value Add: Enable Sentinel *Coming Soon*
- - [Challenge 8](./Student/challenge08.md) - Arc Value Add: Azure Lighthouse *Coming Soon*
- - [Challenge 9](./Student/challenge09.md) - Arc Value Add: Functionality Roadmap *Coming Soon*
+ - [Challenge 3](./Student/challenge03.md) - Arc Value Add: Security Center
+ - [Challenge 4](./Student/challenge04.md) - Arc Value Add: Log Analytics Dashboard and Queries
+ - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Enable Sentinel *Coming Soon*
+ - [Challenge 6](./Student/challenge06.md) - Arc Value Add: Azure Lighthouse *Coming Soon*
  
 
 ## Prerequisites
