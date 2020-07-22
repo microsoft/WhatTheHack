@@ -63,7 +63,12 @@ blockquote {
 }
 
 a {
-  color: #7b83eb;
+  color: #a6a7dc;
+
+  &:hover {
+    color: #a6a7dc;
+    text-decoration: underline;
+  }
 }
 
 #header {
