@@ -1,3 +1,3 @@
-# What the Hack: DevOps 
+# What the Hack: Azure Arc for Servers 
 
 ## Proctor Solution Files
