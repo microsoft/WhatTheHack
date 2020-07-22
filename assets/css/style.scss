@@ -84,6 +84,16 @@ a {
 
 section {
   #title {
+    margin: 0;
+    padding: 0;
+
+    img {
+      max-width: 100%;
+      max-height: 300px;
+      display: block;
+      margin: 10px auto 20px;
+    }
+
     h1 {
       font-family: 'Montserrat', 'OpenSansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 300;
