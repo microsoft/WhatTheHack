@@ -26,6 +26,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', 'OpenSansRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
+  color: #efefef;
 }
 
 h3 {
@@ -42,6 +43,11 @@ code {
   font-family: 'Roboto Mono', 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', 'Terminal', monospace;
 }
 
+.highlighter-rouge {
+  color: #efefef;
+  background: rgba(19, 19, 19, 0.9);
+}
+
 th {
   font-family: 'Montserrat', 'OpenSansSemibold', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   font-weight: 600;
@@ -52,6 +58,13 @@ dt {
   font-weight: 600;
 }
 
+blockquote {
+  border-left: 3px solid #7b83eb;
+}
+
+a {
+  color: #7b83eb;
+}
 
 #header {
   nav {
