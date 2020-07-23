@@ -5,6 +5,7 @@
 
 ### Introduction
 
+After completing the previous challenges, you should now have an Azure subscription with one or more Azure Arc managed servers. These servers should also have the Log Analytics agent enabled on them. In this challenge, we will create a Log Analytics 
 
 ### Challenge
 
