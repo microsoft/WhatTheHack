@@ -27,7 +27,7 @@ Perform the following tasks:
     * [Use Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins)
     * [**Advanced**] Deploy a Jenkins instance as an [Azure Container Instances (ACI) Container Group](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-container-groups)
 2. Create a ```Jenkins Job``` that will: 
-    *   Pull latest [voting application code](../Coach/Solutions/challenge04/app)
+    *   Pull latest voting application code from the GitHub repo you created earlier in [Challenge 1](challenge01.md).
     *   Create a Docker container image
     *   Push the created container image to Azure Container Registry (ACR)
 
