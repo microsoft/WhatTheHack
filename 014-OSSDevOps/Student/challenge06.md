@@ -5,7 +5,7 @@
 
 ### Introduction
 
-Now that we have the containerized application running locally. Lets send the packaged application (aka containerized application) to an image repository. Any flavor of image repository can be used. However, in this hack use Azure Container Registry (aka ACR). Generally ACR is not sufficient and a package manager like JFrog's Artifactory, Nexus, npm or GitHubs Package Registry. However, to keep it this application build simple we will not source our application dependencies from any of these sources but instead will use publicly avaliable [dependencies](Resources/app/src/requirements.txt). 
+Now that we have the containerized application running locally. Lets send the packaged application (aka containerized application) to an image repository. Any flavor of image repository can be used. However, in this hack use Azure Container Registry (aka ACR). Generally ACR is not sufficient and a package manager like JFrog's Artifactory, Nexus, npm or GitHubs Package Registry. However, to keep this application build simple we will not source our application dependencies from any of these sources but instead will use publicly avaliable [dependencies](Resources/Challenge-03/app/src/requirements.txt). 
 
 ### Challenge
 
