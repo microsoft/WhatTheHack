@@ -1,4 +1,4 @@
-# What The Hack - Azure Arc for Servers Hack
+# What The Hack - Azure Arc for Kubernetes Hack
 
 # Introduction
  ![](./img/image2.png)
