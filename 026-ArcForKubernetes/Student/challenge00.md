@@ -1,26 +1,46 @@
-# What The Hack - Azure Arc for Servers Hack
+# What The Hack - Azure Arc for Kubernetes Hack
 
 ## Challenge 0 - Setup (Pre-day)
 [Home](../readme.md) - [Next](challenge01.md)
 
 ### Introduction
 
-DevOps is a very broad topic and you have lots of choices when it comes to the tools that you use. In this challenge you will setup your computer and cloud environment with the minimum required tools. 
+The prerequisites for completing this hack are as follows:
+
+* Access to a local computer with admin access to install or have access to tools such as VSCode, Terraform, Docker, and SSH Terminal 
+
+* Access to a competetive cloud platform to standup and work with a managed Kubernetes service
+   * Recommended: Access to Google Cloud Platform (GCP) to deploy Google Kubernetes Engine (GKE) cluster.
+   * The hack can be performed using Amazon Web Services (AWS) platform by deploying an Elastic Kubernetes Service (EKS) cluster.
+
+* Access to Azure subscription with appropriate rights to be able to deploy and manage Azure Arc for Kubernetes resources.
+
+There are multiple ways to complete the challenges layed out on this hack. And as such there are many different tools that can be utilized to solve the challenges. However, having access to the prerequisites outlined above at the minimum will be sufficient to complete the hack.
+
 
 ### Challenge
 
 In this challenge we will setup the core components needed to complete this What the Hack.
-
-1. Create an [Azure](https://azure.microsoft.com/) Subscription that you can use for this hack. If you already have a subscription you can use it or you can get a free trial [here](https://azure.microsoft.com/free/).
-3. Log into the [Azure Portal](https://portal.azure.com) and confirm that you have an active subscription that you can deploy cloud services to.
-4. Log into [Azure DevOps](https://dev.azure.com/) using the **SAME** account as you use to log into your Azure Subscription and create a new project named `What The Hack Azure DevOps`. The project should be `Private`, use `Git` version control and an `Agile Work item` process ([hint](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates))
-   1. HINT: Look under Advanced to select your version control and work item process. You cannot change these after you create your project. 
-5. Download and install [Git SCM](https://git-scm.com/download) if you don't have it or a similar Git client installed
-6. Download and install [Visual Studio Code](https://code.visualstudio.com) if you don't have it
-   
+1. In a local environment insure the following tools are avaliable:
+   * Install [VSCode](https://code.visualstudio.com/) suitable for your operating system
+   * Install [Docker](https://www.docker.com/get-started) suitable for your operating system
+   * Install and configure [Terraform](https://www.terraform.io/downloads.html)
+   * Install and configure [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command line tool
+   * Install and configure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) command line tool
+   * Ensure you have a local terminal with appropriate access to be able to:
+      * Create SSH Keys
+      * SSH into remote VMs
+2. Ensure you have access to [Google Cloud Platform (GCP)](https://cloud.google.com/) to be able to deploy GKE clusters.
+   * If you are planning on using AWS, ensure you have the [portal](https://aws.amazon.com/) to be able to deploy EKS clusters.
+3. Create an [Azure](https://azure.microsoft.com/) Subscription that you can use for this hack. If you already have a subscription you can use it or you can get a free trial [here](https://azure.microsoft.com/free/).
 
 ### Success Criteria
 
-1. You should be able to log in to the Azure Portal and the Azure DevOps Portal.
+1. You should have access to a local environment with the following tools installed:
+   * VSCode
+   * Docker
+   * Terraform
+   * Kubectl
+2. Ensure you have access to the GCP platform and Azure platform to be able to deploy GKE and Azure Arc for Kubernetes resources.
    
 [Home](../readme.md) - [Next](challenge01.md)
