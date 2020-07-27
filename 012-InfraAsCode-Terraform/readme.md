@@ -14,7 +14,9 @@ The best way to make deployments repeatable is to define them with code, hence t
 - HashiCorp's Terraform & Packer
 - Ansible, Chef, Puppet, Salt Stack, and others
 
-This hack is focused on using Ansible playbooks to implement your IaC. It does not mean this is the only way to implement IaC.  It is just one way amongst many. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [ARM Templates](../011-InfraAsCode-ARM-DSC) or [Ansible](../013-InfraAsCode-Ansible/).
+Terraform is a tool (templating language) for building, changing, and versioning infrastructure safely and efficiently. Using Terraform, you can automate the tasks of building, changing and de-provisioning the infrastructure
+
+This hack is focused on using Terraform to implement your IaC. It does not mean this is the only way to implement IaC.  It is just one way amongst many. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [ARM Templates](../011-InfraAsCode-ARM-DSC) or [Ansible](../013-InfraAsCode-Ansible/).
 
 
 ## Learning Objectives
@@ -23,28 +25,18 @@ This hack will help you learn:
 - How Terraform can be used to trigger the install of software on a VM
 
 ## Challenges
-0. Get your machine ready 
+0. [Get your machine ready](./Student/prerequisite.md) 
    - Configure Terraform on Linux subsystem, credentials
-1. ["Hello World" Terraform](./Student/Challenge-01.md)
+1. ["Hello World" Terraform](./Student/readme.md)
    - Create an Azure resource group using Terraform 
-1. [Deploy a Virtual Network](./Student/Challenge-02.md)
-   - Learn how to find Terraform syntax to deploy an Azure resource
-1. [Open Some Ports](./Student/Challenge-03.md)
+1. [Deploy a Virtual Network](./Student/readme.md)
+   - Learn how to find Terraform HCL syntax to deploy an Azure resource
+1. [Open Some Ports](./Student/readme.md)
    - Learn about variables, dependencies, idempotency
-1. [Secret Values with Azure Key Vault](./Student/Challenge-04.md) 
-   - Learn how to not lose your job
-1. [Create a Linux Virtual Machine](./Student/Challenge-05.md)
+1. [Create a Linux Virtual Machine](./Student/readme.md)
    - Learn what an Azure Virtual Machine is composed of
-1. [Install NGINX on a Linux Virtual Machine](./Student/Challenge-06.md)
-   - Learn about custom script extensions
-1. [Add a Data Disk and mount to OS](./Student/Challenge-07.md)
-   - Learn persistent storage, reinforce script injection, teach mounting a disk 
-1. [Implement High Availability](./Student/Challenge-08.md)
-   - Availability set 2 VMs load balancer and learn loops
-1. [Deploy Azure Database for PostgreSQL](./Student/Challenge-09.md) 
-   - Learn how to deploy a PaaS service
-1. [Nested Playbooks](./Student/Challenge-10.md)
-   - Learn how to create smaller playbooks for granular resource management
+1. [Use Packer to Create a Linux image with NGINX installed](./Student/readme.md)
+   - Learn about custom build images with Packer
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
@@ -53,17 +45,14 @@ This hack will help you learn:
 - Terraform
 
 ## Repository Contents
-- `../Coach`
-  - Coach's Guide and related files
+
 - `../Coach/Solutions`
   - Complete solution files for each challenge
 - `../Student`
-  - Ansible challenges
+  - Terraform challenges
 
 
 ## Contributors
 - Pete Rodriguez
-- Ariel Luna
-- Peter Laudati
 
 
