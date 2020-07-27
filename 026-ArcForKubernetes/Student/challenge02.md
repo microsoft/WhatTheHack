@@ -1,30 +1,24 @@
-# What The Hack - Azure Arc for Servers Hack
+# What The Hack - Azure Arc for Kubernetes Hack
 
 ## Challenge 2 – Deploy Kubernetes cluster locally
 [Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
 
 ### Introduction
 
-In the last challenge we learned that Agile project management is a key component of building a modern DevOps culture at your organization. If you are new to Agile or just want a refresher, we recommend you review the following articles:
+Before we begin managing Kubernetes clusters through Azure Arc for Kubernetes, we first need to deploy Kubernetes clusters. In this challenge we are going to deploy a cluster  in our local environment via minikube.
 
-1. [What is Agile?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile)
-2. [What is Scrum](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-scrum)
-3. [What is Kanban](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-kanban)
-4. [What is Agile Development?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile-development)
-
-To help you with Agile project management, Azure DevOps includes Azure Boards. With Azure Boards, you can quickly and easily start tracking user stories, backlog items, task, features, and bugs associated with your project. Please review the following introduction to Azure Boards:
-
-1. [What is Azure Boards?](https://docs.microsoft.com/en-us/azure/devops/boards/get-started/what-is-azure-boards)
+Once this challenge is complete, we will have a 2nd cluster deployed and ready to be managed by Azure Arc for Kuberentes. With minikube cluster deployed, we will be able to manage the cluster centrally via the Azure portal.
 
 ### Challenge
 
-1. Create a work item for this and each of the remaining challenges. 
-2. Assign the `challenge 2` work item to another member of your team, have them assign their `challenge 2` work item to you.
-3. Using the kanban board, move their `challenge 2` work item to the resolved state. 
-4. After you complete each of the following challenges be sure to move the corresponding work item to the resolved state. 
+1. Deploy a minikube cluster locally 
+    *  Run ```kubectl get nodes -o wide``` with the ```kubectl``` context being that of a newly minikube cluster to verify cluster is ready to be Arc enabled.
+2. If minikube cluster is not able to be deployed:
+    * Deploy an Azure Kubernetes Service (AKS) cluster as a **remote** cluster that will be Arc enabled.
+    * Another alternative, is to deploy a Kubernetes cluster locally via Ranger K3s.
 
 ### Success Criteria
 
-1. You should have experienced creating and managing Agile project management using Azure Boards.
+This challenge will be complete when a 2nd cluster is successfully deployed and ready to be enabled for Azure Arc for Kuberenetes.
 
 [Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
