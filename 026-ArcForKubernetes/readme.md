@@ -9,16 +9,16 @@ For customers who want to simplify complex and distributed environments across o
 * **Manage Kubernetes Apps at scale**. Deploy and manage Kubernetes applications across environments using DevOps techniques. Ensure that applications are deployed and configured from source control consistently.
 
  ![](./img/image1.png)
-The goal of this challenge based hack is to distill the skills required to deploy managed Kubernetes service in competitive clouds and have it be Arc enabled and managed. The management of Arc enabled Kubernetes clusters deployed on competetive platforms is going to be highlighted by conducting day two scenarios such as GitOps, and inventory management.
+The goal of this challenge based hack is to distill the skills required to deploy managed Kubernetes service in competitive clouds and have it be Arc enabled and managed. The management of Arc enabled Kubernetes clusters deployed on competitive platforms is going to be highlighted by conducting day two scenarios such as GitOps, and inventory management.
 
 ## Learning Objectives
 
 This hack will help you learn:
 
-1. How to deploy Kubernetes in competetive platforms
-2. Onboard Kuberentes clusters onto Azure Arc
+1. How to deploy Kubernetes in competitive platforms
+2. Onboard Kubernetes clusters onto Azure Arc
 3. Inventory manage Arc enabled K8s clusters
-4. Learn day two operational scenerios such as:
+4. Learn day two operational scenarios such as:
 	* Enabling Monitoring and setup alerts
 	* Enable GitOps on remote K8s clusters
 	* Enable Azure Policy on remote K8s clusters

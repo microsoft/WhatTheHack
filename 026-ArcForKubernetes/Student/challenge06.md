@@ -5,7 +5,7 @@
 
 ### Introduction
 
-In this challenge we will build on what we did in the previous challenges by enabling another day 2 operational senario. The day 2 senario we will enable in this challenge is going to be Azure Policy. We will enable Azure Policy on both the deployed clusters.
+In this challenge we will build on what we did in the previous challenges by enabling another day 2 operational scenario. The day 2 scenario we will enable in this challenge is going to be Azure Policy. We will enable Azure Policy on both the deployed clusters.
 
 ### Challenge
 

@@ -5,7 +5,7 @@
 
 ### Introduction
 
-In this challenge we will learn how to onboard a cluster onto Azure by deploying binaries within the clusters to allow the cluster to be managed through the Azure portal. With two clusters deployed and ready to be Arc enabled, lets go ahead and onboard them onto Azure Arc.  Once completed the clusters will show up as Azure Arc for Kubernetes resoures on the Azure portal.
+In this challenge we will learn how to onboard a cluster onto Azure by deploying binaries within the clusters to allow the cluster to be managed through the Azure portal. With two clusters deployed and ready to be Arc enabled, lets go ahead and onboard them onto Azure Arc.  Once completed the clusters will show up as Azure Arc for Kubernetes resources on the Azure portal.
 
 ### Challenge
 

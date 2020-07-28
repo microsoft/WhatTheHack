@@ -5,11 +5,11 @@
 
 ### Introduction
 
-In this challenge we will build on what we did in the previous challenge by enabling another day 2 operational senario. The day 2 senario we will enable in this challenge is going to be GitOps. We will do so for both clusters, GKE and locally deployed cluster.
+In this challenge we will build on what we did in the previous challenge by enabling another day 2 operational scenario. The day 2 scenario we will enable in this challenge is going to be GitOps. We will do so for both clusters, GKE and locally deployed cluster.
 
 ### Challenge
 1. Enable GitOps on the GKE deployed cluster.
-2. Enable Gitops on the locally deployed cluster.
+2. Enable GitOps on the locally deployed cluster.
 3. Note and discuss the technologies involved in enabling GitOps.
 4. Discuss how to enable GitOps using Azure Policy and/or Helm. 
 
