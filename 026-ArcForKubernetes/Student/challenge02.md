@@ -7,7 +7,7 @@
 
 Before we begin managing Kubernetes clusters through Azure Arc for Kubernetes, we first need to deploy Kubernetes clusters. In this challenge we are going to deploy a cluster  in our local environment via minikube.
 
-Once this challenge is complete, we will have a 2nd cluster deployed and ready to be managed by Azure Arc for Kuberentes. With minikube cluster deployed, we will be able to manage the cluster centrally via the Azure portal.
+Once this challenge is complete, we will have a 2nd cluster deployed and ready to be managed by Azure Arc for Kubernetes. With minikube cluster deployed, we will be able to manage the cluster centrally via the Azure portal.
 
 ### Challenge
 
