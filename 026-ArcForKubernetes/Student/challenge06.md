@@ -15,7 +15,6 @@ In this challenge we will build on what we did in the previous challenges by ena
    * Deploy GitOps to Kubernetes cluster
    * Ensure container CPU and memory resource limits do not exceed the specified limits in Kubernetes cluster
    * Enforce labels on pods in Kubernetes cluster
-4. Discuss how to create a custom policy and apply it across all the Arc enabled Kubernetes clusters.
 
 ### Success Criteria
 
