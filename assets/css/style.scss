@@ -83,6 +83,8 @@ a {
 }
 
 section {
+  padding: 0px 0px 50px 0px;
+
   #title {
     margin: 0;
     padding: 0;
@@ -91,7 +93,7 @@ section {
       max-width: 100%;
       max-height: 150px;
       display: block;
-      margin: 10px auto 30px;
+      margin: 20px auto 20px;
     }
 
     h1 {
