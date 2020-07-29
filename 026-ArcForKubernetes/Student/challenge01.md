@@ -7,6 +7,8 @@
 
 Before we begin managing Kubernetes clusters through Azure Arc for Kubernetes, we first need to deploy Kubernetes clusters. In this challenge we are going to deploy a cluster  on a competitive cloud platform that being GCP.
 
+ ![](../img/image3.png)
+
 Once this challenge is complete, we will have a cluster deployed and ready to be managed by Azure Arc for Kuberentes. With the cluster is deployed, we will be able to manage the cluster centrally via the Azure portal.
 
 ### Challenge

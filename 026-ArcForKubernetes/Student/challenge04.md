@@ -7,6 +7,8 @@
 
 With both the clusters deployed and onboarded on to Azure, in this challenge we will take the next step by enabling monitoring on each of the clusters. This will allow us to centrally observe and manage these  clusters from within the Azure portal. 
 
+ ![](../img/image6.png)
+
 ### Challenge
 
 1. Enable monitoring on GKE Arc enabled cluster.
