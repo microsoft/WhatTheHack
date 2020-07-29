@@ -9,7 +9,8 @@ All app development work in Azure should have Application Insights turned on and
 ## Description
 
 - In your shell, deploy the provided ARM Template to create an Application Insights resource we will use for the various applications to log to.
-	- ARM Template URL: **https://aka.ms/wth-microservices-template**
+	- ARM Template: `azuredeploy-appinsights.json`
+    	- This file can be found in the Files section of the General channel in Teams.
 	- Two Parameters:
 		- **name:**  Name of the App Insights Resource to Create
 		- **regionId:** Scripting Name of the region to Provision in
@@ -21,4 +22,5 @@ All app development work in Azure should have Application Insights turned on and
 2. You've saved off the `InstrumentationKey` in a variable for future use.
 
 ## Learning Resources
+
 - [Overview of Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
