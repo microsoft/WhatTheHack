@@ -4,7 +4,7 @@
 
 ## Introduction
 
-All app development work in Azure should have Application Insights turned on and used by default. This invaluable tool can be used for standard and custom telemetry and much more.
+Our application, like all applications, needs data. We will be using Azure Cosmos DB for this. Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. With a click of a button, Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure regions worldwide.
 
 ## Description
 
