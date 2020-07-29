@@ -22,3 +22,4 @@ All work in Azure begins with the resource group. A resource group is a containe
 ## Learning Resources
 - [Overview of the Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
 - [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups)
+- [Azure Naming Conventions](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions)
