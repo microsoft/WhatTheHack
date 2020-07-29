@@ -10,27 +10,32 @@ This hack includes a [lecture slide deck](Coach/Lectures.pptx) that features sho
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge-00.md)**
-   - Preparing your workstation to work with Azure.
+   - A smart cloud solution architect always has the right tools in their toolbox. 
 - Challenge 1: **[First Thing is First - A Resource Group](Student/Challenge-01.md)**
-   - Package the "FabMedical" app into a Docker container and run it locally.
+   - All work in Azure begins with the resource group.
 - Challenge 2: **[Always Need App Insights](Student/Challenge02.md)**
-   - Deploy an Azure Container Registry, secure it and publish your container.
+   - Getting Application Insights turned on and used by default.
 - Challenge 3: **[Get Some Data](Student/Challenge03.md)**
-   - Deploy an Azure Container Registry, secure it and publish your container.
+   - Setting up Cosmos DB as our data store.
 - Challenge 4: **[Deploying to ACI](Student/Challenge04.md)**
-   - Deploy an Azure Container Registry, secure it and publish your container.
+   - Deploying our back-end microservices as Azure Container Instances.
 - Challenge 5: **[Deploy the Website](Student/Challenge05.md)**
-   - Deploy an Azure Container Registry, secure it and publish your container.
+   - Deploying our front-end microservice as a container web app running on Linux App Services
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
 - Azure CLI (or Cloud Shell)
 
 ## Repository Contents (Optional)
-- `../Coach/Solutions`
-  - Coach's Guide and related files
-- `../Student/Code`
-  - Student's Challenge Guide
+- `../Coach`
+   - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
+   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+- `../Coach/Code`
+   - Code for the microservices and a packaging script to publish the containers to Docker Hub.
+- `../Coach/Scripts`
+   - Scripts for deploying the microservices to Azure.
+- `../Student/Resources`
+   - Sample template to aid with challenges.
 
 ## Contributors
 - Andy Wahrenberger
