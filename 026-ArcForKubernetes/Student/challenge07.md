@@ -12,6 +12,8 @@ There are a number of ways we can accomplish the task of managing consistent sta
 * Use Helm to deploy resources on remote clusters
 * Use Azure Policy to ensure state of remote clusters is in compliance
 
+ ![](../img/image9.png)
+
 ### Challenge
 
 1. Use GitOps functionality that was enabled to deploy the [sample 'Hello Arc' application](https://github.com/likamrat/hello_arc).
