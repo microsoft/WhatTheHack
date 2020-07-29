@@ -25,4 +25,6 @@ In this challenge, we are deploying our web front end container into Azure App S
 
 ## Learning Resources
 
+- [App Services](https://docs.microsoft.com/en-us/azure/app-service/)
+- [App Service Plans](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans)
 - [Running a custom container in a Linux App Service Web App](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-docker)

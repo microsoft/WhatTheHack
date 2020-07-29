@@ -24,3 +24,5 @@ All app development work in Azure should have Application Insights turned on and
 ## Learning Resources
 
 - [Overview of Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+- [Authoring ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates)
+

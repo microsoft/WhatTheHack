@@ -23,3 +23,13 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 1. You have a bash shell at your disposal (preferrably the Azure Cloud Shell)
 1. Running `az --version` shows the version of your Azure CLI
+
+## Learning Resources
+
+- Azure Cloud Shell:  
+  - [https://docs.microsoft.com/en-us/azure/cloud-shell/overview](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+- Install the Azure CLI: 
+  - [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Azure CLI Reference: 
+  - [https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)
+
