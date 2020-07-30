@@ -16,21 +16,21 @@ This hack also includes a [lecture presentation](Lectures.pptx) that features sh
    - A smart cloud solution architect always has the right tools in their toolbox. 
 - Challenge 1: **[First Thing is First - A Resource Group](Challenge-01.md)**
    - All work in Azure begins with the resource group.
-- Challenge 2: **[Always Need App Insights](Challenge02.md)**
+- Challenge 2: **[Always Need App Insights](Challenge-02.md)**
    - Getting Application Insights turned on and used by default.
-- Challenge 3: **[Get Some Data](Challenge03.md)**
+- Challenge 3: **[Get Some Data](Challenge-03.md)**
    - Setting up Cosmos DB as our data store.
-- Challenge 4: **[Deploying to ACI](Challenge04.md)**
+- Challenge 4: **[Deploying to ACI](Challenge-04.md)**
    - Deploying our back-end microservices as Azure Container Instances.
-- Challenge 5: **[Deploy the Website](Challenge05.md)**
+- Challenge 5: **[Deploy the Website](Challenge-05.md)**
    - Deploying our front-end microservice as a container web app running on Linux App Services
 
 ## Resources
 
-- `../Code`
+- `../Solutions/Code`
    - Code for the microservices used in this hack.
    - Run `buildContainers.cmd` to rebuild the containers and publish them to the `microservicesdiscovery` account.
-- `../Scripts`
+- `../Solutions/Scripts`
    - Scripts for deploying the microservices to Azure and creating all the necessary Azure infrastructure.
 
 

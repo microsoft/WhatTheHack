@@ -9,20 +9,20 @@ Someone who’s kicking off the hack needs to have access to a running version o
 ## Setup Procedure
 
 1.	Chose the script file you will use for this setup. We have provided both bash and powershell:
-	- [./Scripts/deployHack.sh](Scripts/deployHack.sh)
-	- [./Scripts/deployHack.ps1](Scripts/deployHack.ps1)
+	- [./Solutions/Scripts/deployHack.sh](Solutions/Scripts/deployHack.sh)
+	- [./Solutions/Scripts/deployHack.ps1](Solutions/Scripts/deployHack.ps1)
 1.	Login to Azure Portal and start the Cloud Shell
 1.	Upload the appropriate script file through Cloud Shell based on which shell you’re using:
-	- bash: deployHack.sh
+	- bash: `deployHack.sh`
 		- **NOTE:** Once uploaded you must make this file executable by running: `chmod 755 ./deployHack.sh`
-	- Powershell: deployHack.ps1
+	- Powershell: `deployHack.ps1`
 	- For info on uploading, [look here](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage) and find the section on transferring local files to the Cloud Shell
 1.	Both scripts take 3 parameters
 	- `deployHack.sh <AzureDataCenter> <SubscriptionId> <BaseName>`
 	- `deployHack.ps1 -loc <AzureDataCenter> -sub <SubscriptionId> -baseName <BaseName>`
 	- **NOTE:** `<BaseName>` must be globally unique, alpha only and less than 8 characters.
 1.	After successfully deploying, open up the portal, and go to the resource group you just deployed, and get the URL of the web site.
-1.	Copy the file [Load.webtest](Code/Load.webtest) to a temp directory locally, edit it, look at the bottom and change the `ContextParameter Name="WebServer1"` XML Element’s Value attribute to the HTTP (not HTTPS) URL of the web site.
+1.	Copy the file [Load.webtest](Solutions/Code/Load.webtest) to a temp directory locally, edit it, look at the bottom and change the `ContextParameter Name="WebServer1"` XML Element’s Value attribute to the HTTP (not HTTPS) URL of the web site.
 1.	Login to [https://dev.azure.com/](https://dev.azure.com/) and create a new project.
 1.	Select **Test Plans / Load Tests** and add a new Load Test. Choose **Visual Studio test** and select your copy of Load.webtest to upload it to this new Load Test.
 1.	Name the Load Test and click Save.
