@@ -1,9 +1,9 @@
 # LAB GUIDE
 ## Lab: Deploying a Docker based web application to Azure App Service
 ### Learning Objectives
-    - How to build custom Docker images using Azure DevOps Hosted Linux agent
-    - How to push and store the Docker images in a private repository
-    - How to Deploy and run the images inside the Docker Containers
+- How to build custom Docker images using Azure DevOps Hosted Linux agent
+- How to push and store the Docker images in a private repository
+- How to Deploy and run the images inside the Docker Containers
 
 ### Pre-requisites
 * Microsoft Azure Account: You'll need a valid and active Azure account for the Azure labs.
@@ -56,7 +56,7 @@
 
 ![](images/10.png)
 
-5. Return to <a href="https://dev.azure.com">Azure DevOps</a>
+5. Return to [Azure DevOps](https://dev.azure.com)
 
 6. Navigate to the **Builds** option under the **Pipelines** tab and select new pipeline
 
@@ -335,7 +335,7 @@
 
 ![](images/60.png)
 
-6. Navigate to the <a href="https://portal.azure.com" target="_blank">Azure Portal</a> and click on the **App Service** that was created at the beginning of this lab. Select the **Container Settings** option and provide the information as suggested and then click the **Save** button
+6. Navigate to the [Azure Portal](https://portal.azure.com) and click on the **App Service** that was created at the beginning of this lab. Select the **Container Settings** option and provide the information as suggested and then click the **Save** button
 
 ![](images/61.png)
 
@@ -354,7 +354,7 @@
 ![](images/65.png)
 
 
-9. Navigate back to the <a href="https://portal.azure.com" target="_blank">Azure Portal</a> and click on the **Overview** section of the **App Service**. Click on the link displayed under the **URL** field to browse the application and view the changes
+9. Navigate back to the [Azure Portal](https://portal.azure.com) and click on the **Overview** section of the **App Service**. Click on the link displayed under the **URL** field to browse the application and view the changes
 
 10. Use the credentials **Username**: user and **Password**: P2ssw0rd@1 to login to the HealthClinic web application.
 
