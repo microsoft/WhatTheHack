@@ -22,7 +22,7 @@ INVENTORY_SERVICE_BASE_URL=http://localhost:5000
 1. `cd` to this directory, `<project>/src/frontend/`
 1. `npm install`
 1. `npm run dev`
-1. Open http://localhost:1234 in your browser
+1. Open <http://localhost:1234> in your browser
 1. Adhere to the Prettier and ESLint rules before checking in
 
 ## To Build for Production
@@ -50,5 +50,5 @@ That will build and minimize all assets for you. Then you can run it with:
 docker run --rm -d -p 8080:8080 -e PRODUCT_SERVICE_BASE_URL=https://product-service-base-url -e INVENTORY_SERVICE_BASE_URL=https://inventory-service-base-url twt-fe
 ```
 
-Pass in the proper product and inventory service base URLs at startup. Then you can go check it out at `http://localhost:8080`.
+Pass in the proper product and inventory service base URLs at startup. Then you can go check it out at <http://localhost:8080>.
 
