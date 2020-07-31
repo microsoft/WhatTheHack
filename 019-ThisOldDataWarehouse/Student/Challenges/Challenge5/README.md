@@ -32,7 +32,7 @@ The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to ret
 |                                            |                                                                                                                                                       |
 | ------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Description**                            |                                                                       **Links**                                                                       |
-| Performance Tuning | https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a |
+| Performance Tuning | <https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a> |
 | Azure Synapse Analytics & Power BI performance| <https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/> |
 | Power BI Composite Model |<https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models>|
 | Power BI change table storage mode| <https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode>|
