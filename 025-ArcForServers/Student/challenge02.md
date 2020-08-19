@@ -15,10 +15,14 @@ In the last challenge you deployed a server somewhere other than Azure, and then
 
 3. Assign a policy that automatically deploys the Log Analytics agent to Azure Arc connected servers if they do not have the agent.
 
+4. Configure the Log Analytics agent to collect performance metrics of the connected machine.
+
 ### Success Criteria
 
 1. Azure Arc connected servers should have a tag applied by the policy you created in Challenge #1. 
 
 2. Azure Arc connected servers should have the Log Analytics agent deployed and working.
+
+3. You can use the Log Analytics workspace to query performance metrics about your Azure Arc connected machine.
 
 [Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
