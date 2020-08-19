@@ -10,7 +10,7 @@
 
 ### Set up your development environment.
 
-The first challenge is to setup an environment that will help you build the end to end solution.  The primary exercise here is ensuring the necessary database, storage, and Power BI capacity exist for subsequent labs.  This datbase can be restored either manually via the Azure Portal or via the Azure CLI.  Download the source files used for this hack: https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/chmitch/WhatTheHack/tree/master/018-BI2AI/Coach/Downloads 
+The first challenge is to setup an environment that will help you build the end to end solution.  The primary exercise here is ensuring the necessary database, storage, and Power BI capacity exist for subsequent labs.  This datbase can be restored either manually via the Azure Portal or via the Azure CLI.  Download the [source files used for this hack](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/chmitch/WhatTheHack/tree/master/018-BI2AI/Coach/Downloads).
 
 Download these files and load them to a storage container in your Azure subscription to get started.
 
