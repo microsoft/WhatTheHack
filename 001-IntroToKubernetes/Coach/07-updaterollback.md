@@ -21,7 +21,7 @@
 	- `kubectl rollout undo deployment/content-web`
 	- This will roll-back the last update to the **content-web** deployment.
 - Blue/Green deployments are described here:
-	- https://www.ianlewis.org/en/bluegreen-deployments-kubernetes
+	- <https://www.ianlewis.org/en/bluegreen-deployments-kubernetes>
     - The students will need to create a separate deployment YAML with different tags and deploy it.
     	- **NOTE:** The **content-web-deploy-solution.bluegreen.yaml** solution file is an example of an updated deployment using the v2 flag.
     - When the new pods are ready to go, they will update the service YAML to point to the new tags.

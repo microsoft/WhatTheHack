@@ -8,7 +8,7 @@ Resiliency is the ability to recover quickly from issues.  For Cloud Native appl
 
 ## Description
 
-For this challenge, we will continue to use https://github.com/stefanprodan/podinfo since it has a number of Web API's for interacting with the container.
+For this challenge, we will continue to use <https://github.com/stefanprodan/podinfo> since it has a number of Web API's for interacting with the container.
 
 The below assumes we are still working with the same Helm deployment from the previous challenge.
 

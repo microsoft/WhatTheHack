@@ -1,4 +1,4 @@
-First of all, go to https://shell.azure.com, sign in and follow the setup steps for "Bash (Linux)"
+First of all, go to the [Azure Cloud Shell](https://shell.azure.com), sign in and follow the setup steps for "Bash (Linux)"
 
 ## Select the proper Azure Subscription you would like to work with:
 ```

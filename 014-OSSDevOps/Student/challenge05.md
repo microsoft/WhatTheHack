@@ -9,7 +9,7 @@ Unit testing is a level of software testing where individual units/ components o
 
 ### Challenge
 
-Develop a set of unit tests for the voting application. Since this application is written in Python, use pythons Unit testing framework [**unittest**](https://docs.python.org/3/library/unittest.html)
+Develop a set of unit tests for the voting application. Since this application is written in Python, use pythons Unit testing framework **[unittest](https://docs.python.org/3/library/unittest.html)**
    
 
 ### Success Criteria

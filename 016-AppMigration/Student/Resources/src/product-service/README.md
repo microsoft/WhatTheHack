@@ -41,7 +41,7 @@ This project requires Node.js 8+ as well CosmosDB or MongoDB running somewhere.
 1. `cd` to this directory, `<project>/src/product-service/`
 1. `npm install`
 1. `npm run dev`
-1. Project will be running on host and port you specified, defaults to http://localhost:8000
+1. Project will be running on host and port you specified, defaults to <http://localhost:8000>
 1. Adhere to the Prettier and ESLint rules before checking in
 
 ## To Run in Production

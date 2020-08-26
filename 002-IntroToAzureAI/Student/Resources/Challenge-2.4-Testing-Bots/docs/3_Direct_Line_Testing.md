@@ -51,16 +51,16 @@ Using Direct Line API, a client can send messages to your bot by issuing HTTP Po
 
 	````Console.WriteLine("Conversation ID:" + conversation.ConversationId);````
 
-	![Console](images/Console.png)
+	![Console](../images/Console.png)
 
-3.	Once you have the conversation id, you can retrieve user and bot messages using HTTP Get. To retrieve messages for a specific conversation, you can issue a GET request to https://directline.botframework.com/api/conversations/{conversationId}/messages endpoint. You will also need to pass the Secret Key as part of raw header (i.e. Authorization: Bearer {secretKey}).
+3.	Once you have the conversation id, you can retrieve user and bot messages using HTTP Get. To retrieve messages for a specific conversation, you can issue a GET request to <https://directline.botframework.com/api/conversations/{conversationId}/messages> endpoint. You will also need to pass the Secret Key as part of raw header (i.e. Authorization: Bearer {secretKey}).
 
 4.	Any Rest Client can be used to receive messages via HTTP Get. In this lab, we will leverage curl or web based client:
 
 	4.1 Curl:
 
 	Curl is a command line tool for transferring data using various protocols. Curl can be downloaded from 	
-	https://curl.haxx.se/download.html
+	<https://curl.haxx.se/download.html>
 
 	Open terminal and go to the location where curl is installed and run the below command for a specific conversation:
 		
@@ -68,22 +68,22 @@ Using Direct Line API, a client can send messages to your bot by issuing HTTP Po
 	curl -H "Authorization:Bearer {SecretKey}" https://directline.botframework.com/api/conversations/{conversationId}/messages -XGET
 	```
 
-	![Messages-XGET](images/Messages-XGET.png)
+	![Messages-XGET](../images/Messages-XGET.png)
 
 
 	4.2 Web based Rest Clients:
 
 	You can use [Advanced Rest Client](https://advancedrestclient.com/) with Chrome for receiving messages from the bot. 
 	
-	To use Advanced Rest Client, the header would need to contain header name (Authorization) and header value (Bearer SecretKey). The request url would be https://directline.botframework.com/api/conversations/{conversationId}/messages endpoint
+	To use Advanced Rest Client, the header would need to contain header name (Authorization) and header value (Bearer SecretKey). The request url would be `https://directline.botframework.com/api/conversations/{conversationId}/messages` endpoint
 	
 	The below images indicate the conversations obtained from *Advanced Rest Client*. Note the conversation "Hi there" and the corresponding bot response that is echoed back.
 
-	![HTTPRequest](images/HTTPRequest.png)
+	![HTTPRequest](../images/HTTPRequest.png)
 
 	&nbsp;
 
-	![HTTPRequest1](images/HTTPRequest_1.png)
+	![HTTPRequest1](../images/HTTPRequest_1.png)
 
 5.	Direct Line API 3.0
 
@@ -105,7 +105,7 @@ Using Direct Line API, a client can send messages to your bot by issuing HTTP Po
 
 	Enter this text using the client and view the results via curl as shown below. You will find the image url displayed in the images array.
 
-	![Images Array](images/ImagesArray.png)
+	![Images Array](../images/ImagesArray.png)
 
 	
  ### Continue to [README](../0_README.md) to review lab

@@ -20,12 +20,11 @@
 	- `kubectl get nodes`
 		- It should 3 nodes with each node in a different availability zone.  
 	- Each node should be a VM with at least 2 vCPU and 4 GB of memory.  The reason for this is that we need to have enough CPU and RAM for the system pods to run (e.g. CoreDNS and tunnelfront).  See this link for more details: 
-    	- https://docs.microsoft.com/en-us/azure/aks/use-system-pools.
+    	- <https://docs.microsoft.com/en-us/azure/aks/use-system-pools>
 	- **NOTE:** They will need to learn how to connect kubectl to their cluster using `az aks get-credentials`
 - If someone needs to attach their ACR to the cluster after they created it, they can use: 
 	- `az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>`
 - **Optional:** The Kubernetes dashboard can be brought up with the CLI easily:
 	- `az aks browse --name myAKSCluster --resource-group myAKSCluster`
 	- **NOTE:** For the dashboard to work properly, it requires more permissions than those enabled by default for the account that the cluster uses. More info about this can be found here: 
-    	- https://blog.jcorioland.io/archives/2018/08/29/azure-aks-rbac-kubernetes-dashboard.html
-
+    	- <https://blog.jcorioland.io/archives/2018/08/29/azure-aks-rbac-kubernetes-dashboard.html>
