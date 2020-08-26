@@ -8,7 +8,7 @@ When designing / building / testing your code, you do not always want to have to
   
 ## 2.	Setup
   
- a.	  If you do not have ngrok installed, download ngrok from https://ngrok.com/download and install for your OS. Unzip ngrok file downloaded and install it.
+ a.	  If you do not have ngrok installed, download ngrok from <https://ngrok.com/download> and install for your OS. Unzip ngrok file downloaded and install it.
 
  b.	  Open any Bot project (from the previous labs) OR create a new EchoBot using the "Bot Application" project template. Run the bot. If you create an EchoBot, you should see the below message in the browser:
 
@@ -16,7 +16,7 @@ When designing / building / testing your code, you do not always want to have to
 
 Describe your bot here and your terms of use etc.
 
-Visit Bot Framework to register your bot. When you register it, remember to set your bot's endpoint to https://your_bots_hostname/api/messages
+Visit Bot Framework to register your bot. When you register it, remember to set your bot's endpoint to: `https://your_bots_hostname/api/messages`
 
 *** The above information is informational only. You do not need to register your bot for this lab.
 
@@ -30,12 +30,12 @@ Visit Bot Framework to register your bot. When you register it, remember to set 
 
  ````ngrok.exe http 3979 -host-header="localhost:3979"````
 
-![Forwarding Url](images/ForwardingUrl.png)
+![Forwarding Url](../images/ForwardingUrl.png)
 
  e.	 Enter the forwarding url (http) in the bot emulator. The bot url will have /api/messages appended to the forwarding url. Test the bot in the emulator by sending messages. We have now used a public endpoint instead of localhost to test the bot.
 
 
-![Bot Url](images/BotUrl.png)
+![Bot Url](../images/BotUrl.png)
 
 ## 4.	Finish early? Try this exercise for extra credit:
 

@@ -14,7 +14,7 @@ The primary objective of this activity is to just setup resources that will be u
 ## Hackflow
 
 1. Create a new blob storage account with a new container 
-1. A backup of the AdventureWorksDW has been provided for you in the following location.  Download the file and upload it to your newly created blob container.  https://cgmaiadjacent.blob.core.windows.net/backup/AdventureWorksDW.bacpac  
+1. A backup of the AdventureWorksDW has been provided for you in the following location.  Download the file and upload it to your newly created blob container. <https://cgmaiadjacent.blob.core.windows.net/backup/AdventureWorksDW.bacpac>
 1. Create an Azure SQL Database server in the Azure Portal.  (Note:  Make sure you setup the database to allow access from other Azure services.)
 1. Import the AdventureWorksDW database from the blob where you uploaded the .bacpac file
 1.  In the Azure Portal create a new Power BI Embedded Capacity of size A2

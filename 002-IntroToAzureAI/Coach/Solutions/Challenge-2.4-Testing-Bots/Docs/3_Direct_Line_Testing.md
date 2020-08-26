@@ -60,7 +60,7 @@ Using Direct Line API, a client can send messages to your bot by issuing HTTP Po
 	4.1 Curl:
 
 	Curl is a command line tool for transferring data using various protocols. Curl can be downloaded from 	
-	https://curl.haxx.se/download.html
+	<https://curl.haxx.se/download.html>
 
 	Open terminal and go to the location where curl is installed and run the below command for a specific conversation:
 		

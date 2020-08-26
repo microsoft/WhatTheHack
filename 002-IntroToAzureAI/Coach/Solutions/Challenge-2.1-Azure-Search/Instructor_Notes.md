@@ -20,7 +20,7 @@
 *	Workflow
     *	Provision service – same as most resources, you can create it in the portal
     *	Create an index which is a container for your data
-    *	Index data – you’ll import your data (https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import ) then you’ll create an indexer, which basically specifies how to search your data
+    *	Index data – you’ll import your data <https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import> then you’ll create an indexer, which basically specifies how to search your data
     *	Then you search!
 *	Step through the lab, explaining the main steps
     *	When you get to picking the Microsoft vs Lucene Analyzer, demo this site to compare: alice.unearth.ai/ 
@@ -32,9 +32,7 @@
 
 ## Lab 2.1 Tips
 * We've noticed that this is often the product students have the least experience with. If this is the case, expect them to ask more questions and spend more time discussing. If you have to give on some of the time for Q&A, that's ok.
-* If you get questions about performance, refer here: https://docs.microsoft.com/en-us/azure/search/search-capacity-planning
-* If you get questions about scoring profiles, refer here: https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-
-
+* If you get questions about performance, refer here: <https://docs.microsoft.com/en-us/azure/search/search-capacity-planning>
+* If you get questions about scoring profiles, refer here: <https://docs.microsoft.com/en-us/rest/api/searchservice/add-scoring-profiles-to-a-search-index>
 
 

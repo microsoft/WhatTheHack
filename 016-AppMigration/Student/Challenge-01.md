@@ -40,7 +40,7 @@ One thing to consider is that some resources have a limit to how many characters
 
 ### Setup 1 - Create SQL VM
 
-1. Login to the Azure Portal http://portal.azure.com
+1. Login to the Azure Portal <http://portal.azure.com>
 
 2. Press the create new resource button in the upper left toolbar
 
@@ -200,7 +200,7 @@ By now the SQL Server VM you created should be finished provisioning.  We need t
 8. When complete - Right click on the database folder and select 'refresh'
 9. You should now see the TailwindInventory DB installed.
 10. Open IE and either search for 'Microsoft Database Migration Assistant' or download from:
-    1. https://www.microsoft.com/en-us/download/details.aspx?id=53595
+    1. <https://www.microsoft.com/en-us/download/details.aspx?id=53595>
 11. Install the Data Migration Assistant
 
 We are now all set to migrate our SQL Database.  We have a restored copy of the data on this local server and we have the migration assistant ready to help us migrate the data to an Azure SQL Instance.
@@ -325,7 +325,7 @@ We can do all this from the Azure Bash Shell
 
 1. Launch a new Azure Command Shell.  You can either:
    1. Press the shell icon in the Azure Portal, as in the setup for the Cosmos DB
-   2. Open a new browser tab to:  http://shell.azure.com for a full screen experience
+   2. Open a new browser tab to: <http://shell.azure.com> for a full screen experience
    
 2. Download the MongoDB client tools (you can paste into the shell with a right click)
 
