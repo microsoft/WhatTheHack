@@ -35,9 +35,9 @@ We had two people presenting this, and it worked really nicely to have a back-an
     *	Use cases for cognitive services
         *	Maybe poll the class
         *	Explain some of the use cases – maybe share one of the following three videos
-            *	Seeing AI https://www.bing.com/videos/search?q=cognitive+services+use+cases&&view=detail&mid=BF458FF95EEEBDFC6D75BF458FF95EEEBDFC6D75&FORM=VRDGAR 
-            *	Uber use case https://azure.microsoft.com/en-us/resources/videos/how-uber-is-using-driver-selfies-to-enhance-security-powered-by-microsoft-cognitive-services/ 
-            *	Litware insurance bot - https://www.youtube.com/watch?v=DfGccsNffdQ – no sound in this video so will need to talk through it
+            *	Seeing AI <https://www.bing.com/videos/search?q=cognitive+services+use+cases&&view=detail&mid=BF458FF95EEEBDFC6D75BF458FF95EEEBDFC6D75&FORM=VRDGAR>
+            *	Uber use case <https://azure.microsoft.com/en-us/resources/videos/how-uber-is-using-driver-selfies-to-enhance-security-powered-by-microsoft-cognitive-services>
+            *	Litware insurance bot - <https://www.youtube.com/watch?v=DfGccsNffdQ> – no sound in this video so will need to talk through it
         *	Data collection
         *	Kiosk - Uber
         *	Accessibility – Seeing AI

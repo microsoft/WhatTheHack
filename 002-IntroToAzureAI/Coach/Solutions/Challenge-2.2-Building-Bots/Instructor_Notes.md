@@ -7,13 +7,13 @@
 *	Quick poll/discussion to gauge familiarity and use of bots
     *	Ask the room - who has implemented, what are they, what do they think of them, how easy are they to use and access, are they flexible, are there options for customization?
 *	Overview of bots using a simple PowerPoint or website screen sharing
-    *	UPS C#, Bots, LUIS https://www.youtube.com/watch?v=M8SIs1GfSz0 
-    * https://docs.microsoft.com/en-us/bot-framework/bot-service-overview-introduction 
+    *	UPS C#, Bots, LUIS <https://www.youtube.com/watch?v=M8SIs1GfSz0>
+    * <https://docs.microsoft.com/en-us/bot-framework/bot-service-overview-introduction>
 *	Talk about some bot scenarios - use the website as a starting point
-    *	https://docs.microsoft.com/en-us/bot-framework/bot-service-scenario-overview
+    *	<https://docs.microsoft.com/en-us/bot-framework/bot-service-scenario-overview>
     *	Ask the class if they can think of others or share examples of times they've implemented or even interacted with a bot
     *	Litware insurance bot is a good example (from about 1 min – 9 min, skip probably because too long. Watch ahead of time for ideas.
-        *	https://www.youtube.com/watch?v=1xgMEkvEppM
+        *	<https://www.youtube.com/watch?v=1xgMEkvEppM>
 *	Set up the lab 
     *	Goals
     *	Architecture and use case

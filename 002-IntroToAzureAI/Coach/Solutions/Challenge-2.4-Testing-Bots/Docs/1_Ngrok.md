@@ -8,7 +8,7 @@ When designing / building / testing your code, you do not always want to have to
   
 ## 2.	Setup
   
- a.	  If you do not have ngrok installed, download ngrok from https://ngrok.com/download and install for your OS. Unzip ngrok file downloaded and install it.
+ a.	  If you do not have ngrok installed, download ngrok from <https://ngrok.com/download> and install for your OS. Unzip ngrok file downloaded and install it.
 
  b.	  Open any Bot project (from the previous labs) OR create a new EchoBot using the "Bot Application" project template. Run the bot. If you create an EchoBot, you should see the below message in the browser:
 

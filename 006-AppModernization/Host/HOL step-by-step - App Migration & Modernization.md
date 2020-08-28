@@ -146,7 +146,7 @@ In this exercise, you will set up your environment for use for the rest of the e
 
 ### Task 1: Set up the environment
 
-1.  Open your browser to https://aka.ms/appmodernization
+1.  Open your browser to <https://aka.ms/appmodernization>
 2.  Click on the **Deploy to Azure** button
 
     ![App Migration & Modernization Workshop GitHub Repository](./media/image2-github-deploy-to-azure.jpeg)
@@ -171,7 +171,7 @@ In this exercise, you will set up your environment for use for the rest of the e
 
 **References**
 
-- [Azure Resource Manager Templates]([https://azure.microsoft.com/en-us/resources/templates/](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment))
+- [What is Azure Resource Manager?](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
 - [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/)
 - [Azure Virtual Machine Extensions](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/features-windows)
 - [PowerShell Desired State Configuration](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview)
@@ -425,7 +425,7 @@ Our intent is to use traffic manager as a way to gradually move our web servers 
 ### Task 3: Migrate the Data to SQL Azure
 So far, we have been running against the database running on our VM.  In this task, we are going to migrate the database schema and data to Azure SQL.  We will use the SQL Data Mimgration Tool for this task.
 
-1. Download the [Data Migration Tool](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017 ) and install on any of the VMs.
+1. Download the [Data Migration Tool](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017) and install on any of the VMs.
 
 
 2. Run the Data Migration Tool, click the '+' button and add a new Assessment.  Give the assessment a name, choose the source server type as SQL Server, the target server type as Azure SQL Database, and click 'Create'
@@ -734,7 +734,11 @@ Looks like there is a bug in the migration tool.  It doesn't property put the c
 
 ![Deployment error](./media/image70.jpeg)
 
-**Note**: This is an opportunity to see how you can troubleshoot the environment using Kudu, diagnostics, deployment slots, etc. Navigation with your web browser to https://\[webname\].scm.azurewebsites.net.
+**Note**: This is an opportunity to see how you can troubleshoot the environment using Kudu, diagnostics, deployment slots, etc. Navigation with your web browser to 
+
+``` 
+https://\[webname\].scm.azurewebsites.net
+``` 
 
 To Avoid the error……….
 
@@ -2411,7 +2415,7 @@ Next, you have a choice to create a new Application Insights instance or select 
 
 Use Postman to verify that everything the function can communicate with the database and Application Insights in configured correctly.
 
-In Postman, send a Get to the Function Service using the URL (<https://[service_name].azurewebsites.net/api/categories>) and ensure the payload coming back is the json results.
+In Postman, send a Get to the Function Service using the URL <https://[service_name].azurewebsites.net/api/categories> and ensure the payload coming back is the json results.
 
 > ![Test in Postman](./media/image249.png)
 
