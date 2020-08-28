@@ -10,4 +10,5 @@
 	- <https://docs.microsoft.com/en-us/azure/aks/ingress-basic>
 - Refer to the AKS documentation for the verification of logs
 - Validate DNS entries in the portal by navigating to the "special" `MC_xxx` resource group created for each AKS cluster and find the **DNS Zone** object in there.
+  - **NOTE**: The DNS entries will **NOT** be in the special resource group **UNTIL** they install the Ingress Controller.
 

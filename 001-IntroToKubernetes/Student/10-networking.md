@@ -11,11 +11,11 @@ We started out with some very simple, default networking that Kubernetes gives u
 In this challenge you will be installing an Ingress Controller and learning how the "Ingress" resource in Kubernetes works. 
 
 - Delete the existing content-web deployment and service.
-- Get the AKS cluster DNS host name from the Azure Portal
 - Install the nginx ingress controller.
 - Deploy the content-web service and create an Ingress resource for it. 
 	- The reference template can be found in the Challenge 10 Resources folder: `template-web-ingress-deploy.yaml`
 	- Change the ACR & AKS DNS Name to match yours.
+- Get the AKS cluster DNS host name from the Azure Portal
 - Verify the DNS records are created, and if so, access the application using the DNS name, e.g: 
     - `http://fabmed.[YOUR_AKS_DNS_ID].[REGION].aksapp.io`
 
