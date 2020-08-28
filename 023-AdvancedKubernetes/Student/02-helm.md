@@ -19,7 +19,7 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 1. Create a new chart
    HINT: Use `helm template <chart>` to render a chart locally and display the output
 1. Deploy the chart on your K8S cluster
-1. Override default nginx image with https://hub.docker.com/r/stefanprodan/podinfo
+1. Override default nginx image with <https://hub.docker.com/r/stefanprodan/podinfo>
    - HINT: note that this application runs on port 9898
    - HINT: You will need to replace the appVersion in the Chart.yaml to match the tag version from Dockerhub
 1. Install NGINX Ingress Controller using Helm
@@ -41,4 +41,4 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 ## Hints
 
 1. [Helm commands](https://helm.sh/docs/helm/)
-1. [Getting started with Helm charts](https://helm.sh/docs/chart_template_guide/getting_started/)
+1. [Getting started with Helm charts](https://helm.sh/docs/chart_template_guide/getting_started)

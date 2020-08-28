@@ -2,15 +2,15 @@
 
 Create accounts:
 
-* https://github.com/join
-* https://hub.docker.com/account/signup/
+* <https://github.com/join>
+* <https://hub.docker.com/account/signup/>
 
 Install tools:
 
-* https://helm.sh/docs/intro/install/
-* https://stedolan.github.io/jq/
-* https://github.com/ahmetb/kubectx
-* https://github.com/ahmetb/kubectl-aliases
+* <https://helm.sh/docs/intro/install/>
+* <https://stedolan.github.io/jq/>
+* <https://github.com/ahmetb/kubectx>
+* <https://github.com/ahmetb/kubectl-aliases>
 
 
 ## Create ACR

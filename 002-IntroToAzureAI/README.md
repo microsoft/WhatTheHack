@@ -22,9 +22,9 @@ This workshop is meant for an AI Developer on Azure. Since our time today is lim
 - Visual Studio
     - Previous exposure to Visual Studio will be helpful. Your team will be using it for everything we are building today, so you should be familiar with how to use it to create applications. We assume each team will have some familiarity with C# (intermediate level - you can learn here), but you do not know how to implement solutions with Cognitive Services.
 - Bot Framework
-    - You should have some experience developing bots with Microsoft's Bot Framework (https://dev.botframework.com). We won't spend a lot of time discussing how to design them or how dialogs work.
+    - You should have some experience developing bots with [Microsoft's Bot Framework](https://dev.botframework.com). We won't spend a lot of time discussing how to design them or how dialogs work.
 - Azure Portal
-    - You should have experience with the Azure portal (https://portal.azure.com) and understand how to create resource groups and configure individual services. 
+    - You should have experience with the [Azure Portal](https://portal.azure.com) and understand how to create resource groups and configure individual services. 
 
 ## Challenges
 Your team’s mission today is to learn more about AI capabilities through hands-on practice by completing challenges in two key areas: Cognitive Services and Bots.
@@ -60,7 +60,7 @@ This is a list of pre-requisites needed to successfully complete the challenges.
     - You must have an Azure account to complete the hackathon. Either use your existing subscription or setup a free trial to complete today’s challenges. We will not be providing Azure passes for this workshop.
 
 1. Custom Vision Training Key
-    - The training API key allows you to create, manage and train Custom Vision project programmatically.  You can obtain a key by creating a new project at https://customvision.ai and then clicking on the “setting” gear in the top right.
+    - The training API key allows you to create, manage and train Custom Vision project programmatically.  You can obtain a key by creating a new project at <https://customvision.ai> and then clicking on the “setting” gear in the top right.
 
 ## Repository Contents
 - `../Coach/Guides`
@@ -80,22 +80,21 @@ This is a list of pre-requisites needed to successfully complete the challenges.
 
 ## Resources & Helpful Links
 - Intelligent Kiosk Sample Application
-    - https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk/tree/master/Kiosk/ServiceHelpers
+    - <https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk/tree/master/Kiosk/ServiceHelpers>
     - Utilizing these resources makes it easy to add and remove the service helpers in your future projects as needed.
 - Cognitive Services
-    - https://www.microsoft.com/cognitive-services 
+    - <https://www.microsoft.com/cognitive-services>
 - Cosmos DB
-    - https://docs.microsoft.com/en-us/azure/cosmos-db/ 
+    - <https://docs.microsoft.com/en-us/azure/cosmos-db>
 - Azure Search
-    - https://azure.microsoft.com/en-us/services/search/ 
+    - <https://azure.microsoft.com/en-us/services/search>
 - Bot Developer Portal
-    - http://dev.botframework.com 
+    - <http://dev.botframework.com>
 - Natural Language Understanding (LUIS)
-    - https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/ 
+    - <https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service>
 - Understanding LUIS
-    - https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home 
+    - <https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home>
 - Bot Framework Emulator
-    - https://emulator.botframework.com/
+    - <https://emulator.botframework.com>
 - Bot Framework Emulator documentation
-    - https://github.com/microsoft/botframework-emulator/wiki/Getting-Started 
-
+    - <https://github.com/microsoft/botframework-emulator/wiki/Getting-Started>

@@ -25,7 +25,10 @@ Add a Network Security Group named WTHNSG with the following settings:
 So far you have been putting in your values directly into your Terraform configuration file. This is not usually a best practice. Instead of doing that create a separate Terraform variables file, put in the values you used in the prior challenge in there and reference those variables in the Terraform configuration file. 
 
 ## Challenge 5: Create an Ubuntu VM
-Create an Ubuntu VM in Azure using Terraform. Use the latest version of Ubuntu. Its network card should be connected to the "default" subnet. Enable boot diagnostics for the VM. Use the SSH key you created in the prerequisites for authentication to the VM. Create a public IP Address for the VM. For security purposes it is recommended that your Network Security Group only allow your SSH's client public IP address. You can find your public IP address at https://www.terraform.io/docs/providers/azurerm/r/public_ip.html or if you are using Azure CloudShell, you can do curl http://ifconfig.me
+Create an Ubuntu VM in Azure using Terraform. Use the latest version of Ubuntu. Its network card should be connected to the "default" subnet. Enable boot diagnostics for the VM. Use the SSH key you created in the prerequisites for authentication to the VM. Create a public IP Address for the VM. For security purposes it is recommended that your Network Security Group only allow your SSH's client public IP address. You can find your public IP address at <https://www.terraform.io/docs/providers/azurerm/r/public_ip.html> or if you are using Azure CloudShell, you can do: 
+```bash
+curl http://ifconfig.me
+```
 
 ## Challenge 6: Use Packer to Create an Ubuntu image with NGINX installed
 
@@ -47,14 +50,11 @@ Thank you for using nginx.
 
 ## References
 
-### Terraform Azure RM Provider
+- Terraform Azure RM Provider
+    - <https://www.terraform.io/docs/providers/azurerm>
 
-https://www.terraform.io/docs/providers/azurerm/
-
-
-### Terraform on Azure Documentation
-
-https://docs.microsoft.com/en-us/azure/terraform/
+- Terraform on Azure Documentation
+    - <https://docs.microsoft.com/en-us/azure/terraform>
 
 
 
