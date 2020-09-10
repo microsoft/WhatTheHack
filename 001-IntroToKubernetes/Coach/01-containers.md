@@ -5,8 +5,8 @@
 ## Notes & Guidance
 
 - Deploy build agent VM with Linux + Docker using provided ARM Template
-	- **`az group create –g <resourcegroupname> -l <region>`**
-	- **`az group deployment create –g <rgname> -n <deploymentName> --template-file docker-buildagent-vm.json --parameters @docker-buildagent-vm.parameters.json`**
+	- **`az group create -g <resourcegroupname> -l <region>`**
+	- **`az deployment group create -g <rgname> -n <deploymentName> --template-file docker-build-machine-vm.json --parameters docker-build-machine-vm.parameters.json`**
 - When WSL v2 is available, there should be no need for the Linux VM in Azure. All work can be performed locally in WSL 2 on Windows.  However, this will require the user to perform more setup steps on their workstation, including:
 	- Installing Docker
 	- Copying the FabMedical code into their WSL environment.
