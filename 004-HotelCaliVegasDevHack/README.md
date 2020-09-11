@@ -28,7 +28,7 @@ This is a list of pre-requisites needed to successfully complete the challenges.
 - Determine the language for the app and services.  These can be the same or different depending on the skills of the team (ie: ASP.NET Core Web app and Node.js API Service).  
 - Coding IDE – Visual Studio Code, Visual Studio Enterprise
 - Git for Windows – allows for working with Git repositories locally on your machine as well as in Azure DevOps. 
-    - https://git-scm.com/downloads
+    - <https://git-scm.com/downloads>
 - Azure DevOps Project for your team.
 	- Project Structure – the Azure DevOps project is pre-provisioned with all of the tasks required for each challenge, just not how they should be accomplished.  This is where your team will work.  
 	- Under this project structure, you may organize your code repo as you see fit to complete the challenges and successfully work together.

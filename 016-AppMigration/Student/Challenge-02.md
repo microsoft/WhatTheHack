@@ -27,7 +27,7 @@ The source code for all three projects are in this repo.  We will first pull it 
 1. Launch a new Azure Command Shell.  You can either:
 
    1. Press the shell icon in the Azure Portal, as in the setup for the Cosmos DB
-   2. Open a new browser tab to:  http://shell.azure.com for a full screen experience
+   2. Open a new browser tab to:  <http://shell.azure.com> for a full screen experience
 
 2. Pull down the source code locally.  Run the following git command 
 
@@ -50,7 +50,7 @@ The source code for all three projects are in this repo.  We will first pull it 
    2. Location: default
    3. Admin User: Enable
    4. SKU: Standard
-5. Creation should only take a few minutes, but you can review key features while you are waiting here: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro
+5. Creation should only take a few minutes, but you can review key features while you are waiting here: <https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro>
 
 
 

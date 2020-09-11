@@ -41,7 +41,7 @@ sudo usermod -aG docker $CURUSER
 git clone $REPOURL $CURUSERHOME/wth
 
 #8. Move the needed source we'll use in our docker container images to the home dir
-mv -v $CURUSERHOME/wth/001-IntroToKubernetes/Student/Resources/Code/* $CURUSERHOME
+mv -v $CURUSERHOME/wth/001-IntroToKubernetes/Student/Resources/Challenge\ 1/content* $CURUSERHOME
 
 #9. Delete the git repo now, we don't want to leave it behind
 rm -rfv $CURUSERHOME/wth

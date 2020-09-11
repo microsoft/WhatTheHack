@@ -15,8 +15,7 @@ Custom Vision API.  
 
 ### Platform requirements
 
-This example has been tested using the .NET Framework using [Visual Studio 2017,
-Community Edition](https://www.visualstudio.com/downloads/)
+This example has been tested using the .NET Framework using [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)
 
  
 

@@ -1,0 +1,114 @@
+---
+---
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Mono&family=Roboto:wght@300;400;500;700&display=swap');
+@import "jekyll-theme-midnight";
+
+body {
+  font:14px/1.5 'Roboto', 'OpenSansRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  background: #201f1f;
+  // background: linear-gradient(#201f1f, #1c1c1c);
+}
+
+section {
+  max-width: none;
+  margin-top: 0;
+}
+
+.wrapper {
+  max-width: none;
+  margin: 0 50px;
+}
+
+ul {
+  list-style-image: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'OpenSansRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #efefef;
+}
+
+h3 {
+  font-family: 'Montserrat', 'OpenSansRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 400;
+}
+
+strong {
+  font-family: 'Roboto', 'OpenSansBold', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 500;
+}
+
+code {
+  font-family: 'Roboto Mono', 'Monaco', 'Bitstream Vera Sans Mono', 'Lucida Console', 'Terminal', monospace;
+}
+
+.highlighter-rouge {
+  color: #efefef;
+  background: rgba(19, 19, 19, 0.9);
+}
+
+th {
+  font-family: 'Montserrat', 'OpenSansSemibold', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 400;
+}
+
+dt {
+  font-family: 'Montserrat', 'OpenSansSemibold', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 400;
+}
+
+blockquote {
+  border-left: 3px solid #7b83eb;
+}
+
+a {
+  color: #a6a7dc;
+
+  &:hover {
+    color: #a6a7dc;
+    text-decoration: underline;
+  }
+}
+
+#header {
+  nav {
+    li {
+      font-family: 'Roboto', 'OpenSansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+    }
+  }
+}
+
+section {
+  padding: 0px 0px 50px 0px;
+
+  #title {
+    margin: 0;
+    padding: 0;
+
+    img {
+      max-width: 100%;
+      max-height: 150px;
+      display: block;
+      margin: 20px auto 20px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', 'OpenSansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+    }
+
+    p {
+      font-family: 'Roboto', 'OpenSansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+    }
+
+    .credits {
+      font-family: 'Roboto', 'OpenSansRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+    }
+  }
+}

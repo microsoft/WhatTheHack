@@ -137,9 +137,9 @@ This has the benefit of not having to direct the attendees to the WTH repo durin
 
 One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
 
-You can view the DownGit project on GitHub here: https://github.com/MinhasKamal/DownGit
+You can view the DownGit project on GitHub here: <https://github.com/MinhasKamal/DownGit>
 
-And you can use DownGit from its website here: https://minhaskamal.github.io/DownGit/#/home
+And you can use DownGit from its website here: <https://minhaskamal.github.io/DownGit/#/home>
 
 To enable attendees to download hack resources using DownGit:
 1. As mentioned above, publish your resources in the WTH repo under the `..Student/Resources` folder of your hack
@@ -219,7 +219,7 @@ Okay, ready to get started creating your own What The Hack?
 
 First we create a fork of the main WTH repo and then clone it to disk and create a branch to work in. The instructions below assume you have the git command line on your machine. If you're more comfortable in a GUI git client, you can use that too (we recommend SourceTree).
 1. Create a fork of the WTH repo
-   - Navigate to the WTH git repo at: https://aka.ms/wth
+   - Navigate to the WTH git repo at: <https://aka.ms/wth>
    - Click the Fork button at the top right of the page and then choose the account you want to create the fork in. 
 2. Clone your new fork to your local machine
    - `git clone https://github.com/myname/WhatTheHack.git`

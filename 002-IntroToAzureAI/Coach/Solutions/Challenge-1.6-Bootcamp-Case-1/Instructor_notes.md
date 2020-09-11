@@ -53,7 +53,7 @@ used to help to bring value to the business.
 
    * Check out the “Technology in Action” section on how the insurance industry
    are thinking about a similar approach to insurance claims processing
-   http://www.telegraph.co.uk/business/risk-insights/is-insurance-industry-ready-for-ai/
+   <http://www.telegraph.co.uk/business/risk-insights/is-insurance-industry-ready-for-ai/>
 
 ### Additional Information
 Here's a [Learning Path](https://github.com/amthomas46/LearningPaths/blob/master/Developer/Learning%20Path%20-%20Interactive%20Voice%20Response%20Bot.md) I created if you want to know a little more about what goes into creating an Interactive Voice Response Bot.
