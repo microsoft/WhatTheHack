@@ -33,7 +33,7 @@ In this challenge we need to get our application up and running in Kubernetes. W
 	- Create a service yaml file to go with the deployment
 		- **Hint:** Not all "types" of Services are exposed to the outside world
 	- **NOTE:** Applying your YAML files with kubectl can be done over and over as you update the YAML file. Only the delta will be changed.
-	- **NOTE:** The Kubernetes documentation site is your friend. The full YAML specs can be found there: https://kubernetes.io/docs 
+	- **NOTE:** The Kubernetes documentation site is your friend. The full YAML specs can be found there: <https://kubernetes.io/docs>
 - Find out the External IP that was assigned to your service. You can use kubectl for this.
 - Test the application by browsing to the Web app's external IP and port and seeing the front page come up.
 	- Ensure that you see a list of both speakers and sessions on their respective pages.

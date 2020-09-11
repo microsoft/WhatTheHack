@@ -59,10 +59,9 @@ In this challenge you will be installing Helm locally and in your cluster and th
 
 ## Learning Resources
 
--	https://www.digitalocean.com/community/tutorials/an-introduction-to-helm-the-package-manager-for-kubernetes
--	https://docs.microsoft.com/en-us/azure/aks/quickstart-helm
--	https://helm.sh/
--	https://helm.sh/docs/intro/install/
--	https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm
--	https://docs.microsoft.com/en-us/azure/azure-app-configuration/integrate-kubernetes-deployment-helm
-
+-	<https://www.digitalocean.com/community/tutorials/an-introduction-to-helm-the-package-manager-for-kubernetes>
+-	<https://docs.microsoft.com/en-us/azure/aks/quickstart-helm>
+-	<https://helm.sh/>
+-	<https://helm.sh/docs/intro/install/>
+-	<https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm>
+-	<https://docs.microsoft.com/en-us/azure/azure-app-configuration/integrate-kubernetes-deployment-helm>

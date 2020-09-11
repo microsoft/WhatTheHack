@@ -466,7 +466,7 @@ The lead coach should close out the What The Hack event with a final stand-up th
 - Attendees should be encouraged to share their parting thoughts and key learnings.
 - Attendee feedback should be solicited for a final time and notes collected by the lead coach
 - Thank the attendees for their time and dedication during the hack
-- Finally, share the content by directing the attendees to visit the What The Hack repo on Github: http://aka.ms/wth
+- Finally, share the content by directing the attendees to visit the What The Hack repo on Github: <http://aka.ms/wth>
 
 You have now surived a What The Hack!
 

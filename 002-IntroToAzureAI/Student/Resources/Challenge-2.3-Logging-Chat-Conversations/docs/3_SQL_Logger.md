@@ -16,7 +16,7 @@ The aim of this lab is to log chat conversations to Azure SQL database. This lab
 
 ![Connection Strings](images/ConnectionStrings.png)
 
-2.3.   Change your firewall settings to capture your ip address. You may have already done this if you followed the steps from [Create DB - Portal](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal) . Your ip address can be found here: https://whatismyipaddress.com/ 
+2.3.   Change your firewall settings to capture your ip address. You may have already done this if you followed the steps from [Create DB - Portal](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal) . Your ip address can be found here: <https://whatismyipaddress.com>.
 
 ![Firewall Settings](images/FirewallSettings.png)
 

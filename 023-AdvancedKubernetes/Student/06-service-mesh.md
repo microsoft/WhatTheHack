@@ -13,7 +13,7 @@ Some of the most popular features include:
 * Observability (e.g. distributed tracing)
 
 ![ServiceMesh](https://servicemesh.es/img/servicemesh.png)
-Credit: https://servicemesh.es/
+Credit: <https://servicemesh.es>
 
 There are multiple service meshes, these are the 3 most popular (all of which use [Envoy](https://www.envoyproxy.io/) as the proxy):
 * [Istio](https://istio.io) - The most popular service mesh.  Pro:  Well known, most feature.  Con: Resource intensive, high complexity

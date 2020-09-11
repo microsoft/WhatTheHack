@@ -9,15 +9,11 @@ Unit testing is a level of software testing where individual units/ components o
 
 ### Challenge
 
-Develop a set of unit tests for the voting application. Since this application is written in Python, use pythons Unit testing framework [**unittest**](https://docs.python.org/3/library/unittest.html)
+Develop a set of unit tests for the voting application. Since this application is written in Python, use pythons Unit testing framework **[unittest](https://docs.python.org/3/library/unittest.html)**
    
 
 ### Success Criteria
 
-If you are not a developer or not familar with Python do go ahead and skip this section but do review the [provided solution](../Coach/Solutions/challenge04/app/tests) to get a taste of how unit testing works.
+If you are not a developer or not familar with Python do go ahead and skip this section but do review the [provided solution](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/microsoft/WhatTheHack/tree/master/014-OSSDevOps/Student/Resources/Challenge-05/app) to get a taste of how unit testing works.
    
 [Back](challenge04.md) // [Home](../readme.md) // [Next](challenge06.md)
-
-```
-Finish writing the solution readme.md for unit tests
-```

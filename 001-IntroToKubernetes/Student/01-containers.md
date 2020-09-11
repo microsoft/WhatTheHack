@@ -14,7 +14,7 @@ In this challenge we'll be building and running the node.js based FabMedical app
 	- Each part of the app (api and web) runs independently.
 	- Build the API app by navigating to the content-api folder and run `npm install`.
 	- To start the app, run `node ./server.js &`
-	- Verify the API app runs by hitting its URL with one of the three function names. Eg: **http://localhost:3001/speakers**
+	- Verify the API app runs by hitting its URL with one of the three function names. Eg: **<http://localhost:3001/speakers>**
 	- Repeat for the steps above for the content-web app, but verify it's available via a browser on the Internet!
 	- **NOTE:** The content-web app expects an environment variable named `CONTENT_API_URL` that points to the API app's URL. 
 - Create a Dockerfile for the content-api app that will:
@@ -43,6 +43,6 @@ In this challenge we'll be building and running the node.js based FabMedical app
 ## Learning Resources
 
 Reference articles on how to Dockerize a Node.js app:
-- https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
-- https://buddy.works/guides/how-dockerize-node-application
-- https://www.cuelogic.com/blog/why-and-how-to-containerize-modern-nodejs-applications 
+- <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>
+- <https://buddy.works/guides/how-dockerize-node-application>
+- <https://www.cuelogic.com/blog/why-and-how-to-containerize-modern-nodejs-applications>
