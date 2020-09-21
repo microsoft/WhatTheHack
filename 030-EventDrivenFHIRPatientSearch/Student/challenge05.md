@@ -1,8 +1,8 @@
 # What The Hack - Challenge 5
 
-# Challenge \3 - \Build a Patient Search web app to display patient records
+# Challenge \5 - \Build a Patient Search web app to display patient records
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** 
 
 ## Pre-requisites (Optional)
 

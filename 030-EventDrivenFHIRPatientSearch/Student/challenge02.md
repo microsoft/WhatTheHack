@@ -2,7 +2,7 @@
 
 # Challenge \2 - \Load patient data into FHIR Server
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 
 ## Pre-requisites (Optional)
 
@@ -29,11 +29,7 @@ Build a patient search react application with a serverless backend in 24 hours.
     - Trigger your function manually for now
 
 ## Success Criteria
-- Provision Azure Cosmos DB
-- Use serverless function to get data into Azure Cosmos DB.  Sample NodeJS code snippet to be provided.
-
-
-
+- Produce dummy patient records in FHIR format and persist in FHIR Server.
 
 ## Learning Resources
 
@@ -41,7 +37,7 @@ Build a patient search react application with a serverless backend in 24 hours.
 
 ## Tips (Optional)
 
-Hint: @azure/cosmos NPM library
+Hint: 
 
 ## Advanced Challenges (Optional)
 

@@ -2,7 +2,7 @@
 
 # Challenge \3 - \Build Patient Search API
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Pre-requisites (Optional)
 
