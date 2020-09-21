@@ -1,8 +1,8 @@
-# What The Hack - Challenge Template
+# What The Hack - Challenge 0
 
 # Challenge \0 - \Pre-requisites - Ready, Set, GO!
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+**[Home](../readme.md)** - [Next Challenge>](./Challenge01.md)
 
 ## Pre-requisites (Optional)
 

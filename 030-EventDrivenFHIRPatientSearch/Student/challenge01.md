@@ -2,7 +2,7 @@
 
 # Challenge \1 - \Prepare your auto-generated FHIR data and FHIR Server
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[< Previous Challenge](./Challenge00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge02.md)
 
 ## Pre-requisites (Optional)
 
@@ -10,8 +10,6 @@
 
 **Goal**
 Build a patient search react application with a serverless backend in 24 hours.
-
-
 
 ## Description
 

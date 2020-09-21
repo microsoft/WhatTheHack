@@ -2,7 +2,7 @@
 
 # Challenge \3 - \Read patient record from FHIR Server and store them in Azure Cosmos DB
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
 ## Pre-requisites (Optional)
 
