@@ -23,15 +23,19 @@ the team will create the following:
 1. Prepare your auto-generated FHIR data and FHIR Server
    - Develop a serverless function to auto-generate your FHIR data. Sample NodeJS code snippet to be provided.
    - Provision Azure API for FHIR service in Azure for data ingestion
-2. Read patient record from FHIR Server and store them in Azure Cosmos DB
+2. Load patient data into FHIR Server
+- Provision Azure Cosmos DB
+- Use serverless function to get data into Azure Cosmos DB.  Sample NodeJS code snippet to be provided.
+3. Read patient record from FHIR Server and store them in Azure Cosmos DB
    - Provision Azure Cosmos DB
    - Use serverless function to get data into Azure Cosmos DB.  Sample NodeJS code snippet to be provided.
-3. Build index on top of patient dataset in Azure Cosmos DB
-   - Provision Azure Search to create a paitent search index on Azure Cosmos DB.
-4. Expose Azure Search index via a REST API for consumption in the Web App
+   - (Optional) Use real-time streaming service to get data into Azure Cosmos DB.
+4. Build index for Patient Search
+   - Provision Azure Search to create a paitent search index on top of Azure Cosmos DB.
+   - Expose Azure Search index via a REST API for consumption in the Web App
    - Create Azure Function as the frontend to call the Azure Search index API.
-5. Create a JavaScript web app, i.e. React, Java, etc., to call the Patient Search API and list the results
-   - Figure out the scale problem in the world of IoT. How do you hand trillions of data points of telemetry?
+5. Build a Patient Search web app to display patient record
+   - Create a web app, i.e. React, Java, etc., to call the Patient Search API and list the results
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
@@ -54,3 +58,5 @@ the team will create the following:
 ## Contributors
 - Richard Liang
 - Peter Laudati
+
+
