@@ -1,6 +1,6 @@
-# What The Hack - Challenge 1
+# What The Hack - Challenge 5
 
-# Challenge \1 - \Prepare your auto-generated FHIR data and FHIR Server
+# Challenge \3 - \Build a Patient Search web app to display patient records
 
 [< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
 
@@ -12,7 +12,6 @@
 Build a patient search react application with a serverless backend in 24 hours.
 
 
-
 ## Description
 
 **Technical skills leveraged**
@@ -22,12 +21,15 @@ Build a patient search react application with a serverless backend in 24 hours.
 - Real-time Streaming - Azure Streaming Analytics
 - React/Redux - For the front end application
 
+## Challenges
+- Build a web app to access Patient records in pages of 10.
+- Add a patient search box on the Patient web page leveraging Patient Search API.
+- (Optional) Include any other clever features that you want.
+- Deploy your web app to Azure App Services
+
+
 ## Success Criteria
-
-**Challenges:**
-   - Develop a serverless function to auto-generate your FHIR data. Sample NodeJS code snippet to be provided.
-   - Provision Azure API for FHIR service in Azure for data ingestion
-
+- Create a web app, i.e. React, Java, etc., to call the Patient Search API and list the results
 
 ## Learning Resources
 
@@ -35,7 +37,7 @@ Build a patient search react application with a serverless backend in 24 hours.
 
 ## Tips (Optional)
 
-Hint: 
+Hint:
 
 ## Advanced Challenges (Optional)
 
