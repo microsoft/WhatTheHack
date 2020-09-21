@@ -23,12 +23,8 @@
 ## Success Criteria
 
 **Challenges:**
-- Deploy CosmosDB instance supporting SQL interface through the portal.
-- Deploy an Azure Function that reads from FHIR server and writes to the SQL interface of CosmosDB.
-    - Look for these files for sample code on how to read from FHIR
-        - dataread.js
-        - config.json
-    - Trigger your function manually for now
+   - Develop a serverless function to auto-generate your FHIR data. Sample NodeJS code snippet to be provided.
+   - Provision Azure API for FHIR service in Azure for data ingestion
 
 
 ## Learning Resources
@@ -37,7 +33,7 @@
 
 ## Tips (Optional)
 
-Hint: @azure/cosmos NPM library
+Hint: 
 
 ## Advanced Challenges (Optional)
 
