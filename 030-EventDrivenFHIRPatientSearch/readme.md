@@ -32,9 +32,9 @@ In the hack, your team will create the following:
 3. Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB
    - Provision Azure Event Hubs
    - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new event arrives in Azure Event Hub
-   - (Optional) Use real-time streaming service to get data into Azure Cosmos DB.
+   - (Optional) Use real-time streaming service to get data into Azure Cosmos DB from Azure Event Hub.
 4. Build index for Patient Search
-   - Provision Azure Search to create a paitent search index on top of Azure Cosmos DB.
+   - Provision Azure Search to create a patient search index on top of Azure Cosmos DB.
    - Expose Azure Search index via a REST API for consumption in the Web App
    - Create Azure Function as the frontend to call the Azure Search index API.
 5. Build a Patient Search web app to display patient record
