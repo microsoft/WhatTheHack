@@ -21,9 +21,9 @@ Build a patient search react application with a serverless backend in 24 hours.
 - React/Redux - For the front end application
 
 ## Challenges
-- Deploy an Eventhub
-- Update the Azure Function to read from FHIR server and drop to Eventhub
-- Deploy a new Azure Function that is triggered by Event Hub and pushes data to Azure CosmosDB
+- Deploy an Event Hub instance
+- Update the Azure Functions to read from FHIR server and drop to Eventhub
+- Deploy new Azure Functions that is triggered by Event Hub and pushes data to Azure CosmosDB
 - (Optional) Deploy Azure Streaming Analytics to ingest data from Azure Event Hub (intead of Azure Functions) and pushes data to Azure Cosmos DB
 
 ## Success Criteria
