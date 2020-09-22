@@ -27,11 +27,11 @@ In the hack, your team will create the following:
    - Develop a serverless function to auto-generate your FHIR data. Sample NodeJS code snippet to be provided.
    - Provision Azure API for FHIR service in Azure for data ingestion
 2. Load patient data into FHIR Server
-   - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new event arrives in Azure Event Hub
-   - Develop a serverless function to get auto-generated data into FHIR Server.  Sample NodeJS code snippet to be provided.
-3. Read patient record from FHIR Server and store them in Azure Cosmos DB
    - Provision Azure Cosmos DB
-   - Develop a serverless function to get data into Azure Cosmos DB.  Sample NodeJS code snippet to be provided.
+   - Develop a serverless function to get auto-generated patient data into FHIR Server.  Sample NodeJS code snippet to be provided.
+3. Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB
+   - Provision Azure Event Hubs
+   - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new event arrives in Azure Event Hub
    - (Optional) Use real-time streaming service to get data into Azure Cosmos DB.
 4. Build index for Patient Search
    - Provision Azure Search to create a paitent search index on top of Azure Cosmos DB.
