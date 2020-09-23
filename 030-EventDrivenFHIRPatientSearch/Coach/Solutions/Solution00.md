@@ -4,8 +4,8 @@
 
 **[Home](../readme.md)** - [Next Challenge>](./Solution01.md)
 
-## Notes & Guidance
-# Pre-event: Lab Environment Setup
+# Notes & Guidance
+## Pre-event: Lab Environment Setup
 - This hack will require a centralized environment to host a FHIR server that is prepopulated with patient data.
 - We will be using the new Azure API for FHIR managed service and then populating it with dummy data.
 - Install the Azure CLI if you haven’t already.
