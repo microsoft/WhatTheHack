@@ -43,7 +43,9 @@ We will kick-off by meeting **in the General channel** of this team at 10am East
 2.) Click this link to go to the General Channel:
 **{ INSERT LINK TO GENERAL CHANNEL HERE }**
 
-When you arrive, you should see a purple **"Join"** button to join the meeting.
+3.) When you arrive, click the purple **"Join"** button to join the meeting. 
+
+**NOTE:** Do NOT click the **"Meet Now"** button in the channel, as only the meeting organizer should start the meeting.
 
 **NOTE:** If the link above doesn't work for you, it means you haven't been added to the Team or are attending as a guest from a different organization. Please contact the event organizer, provide your e-mail address, and request that they add you to the team.
 
