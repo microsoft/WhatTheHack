@@ -8,26 +8,18 @@ Estimated duration is 6-8 hours depending on student skill level
 
 # Event-driven FHIR Patient Search
 ## Introduction
-In the Event-driven FHIR Patient Search hack, you will create an instance of Azure API for FHIR and deploy Azure Functions to create a set of auto-generated test patient records and store them in the FHIR Server.  You'll then deploy another Azure Function to retreive the patient data from the FHIR Server and insert them into an instance of Event Hub queue.  This will trigger execution of another Azure Function that will retrieve the FHIR-based patient recrod in the queue and persist them in Azure Cosmos DB for consumption by the frontend Patient Search web app.
+In the Event-driven FHIR Patient Search hack, you will create an instance of Azure API for FHIR and deploy Azure Functions to create a set of auto-generated test patient records and store them in the FHIR Server.  You'll then deploy another Azure Function to retreive the patient data from the FHIR Server and insert them into an instance of Azure Event Hub queue.  This will trigger execution of another Azure Function that will retrieve the FHIR-based patient recrod in the queue and persist them in Azure Cosmos DB for consumption by the frontend Patient Search web app.
 
 ## Learning Objectives
 In this hack you will be building a Patient Search web app with a event-driven serverless backend that triggers auto write of patient records to Azure Cosmos DB whenever new patient data is pushed to Event Hub queue.
 
 ## Scenario
 In the hack, your team will create the following:
-1. Auto-generate test patient records in FHIR format and persist them in FHIR Server
-2. Read patient records from FHIR Server
-   - Validate data by writing them to Azure Cosmos DB
-3. Add event stream from the FHIR Server and push the data to Azure Event Hub
-   - Update serverless function to read from FHIR server and drop to Azure Event Hub.  
-   - Repeat above with no code approach using real-time streaming.  
-      - Setup Azure Streaming Analytics service to ingest data from the Azure Event Hub Input source and output them to Azure Cosmos DB.
-4. Create Patient Search API
-   - Create search index on top of patient dataset stored in Azure Cosmos DB 
-   - Expose an indexer API to be consumed by Patient Search web app.
-5. Build a Patient Search frontend web app
-   - Display patient records
-   - Search for patient
+1. Create test patient records in FHIR format
+2. Populate patient records in FHIR Server
+3. Add event stream from the FHIR Server and push to Azure Event Hub, and then add a trigger to write to Azure Cosmos DB whenever new event arrives in Azure Event Hub
+4. Create Patient Search API to be consumed in a web app
+5. Build a Patient Search frontend web app to display patient records and a search function to lookup patient record
 
 ## Challenges
 1. Prepare your auto-generated FHIR data and FHIR Server
