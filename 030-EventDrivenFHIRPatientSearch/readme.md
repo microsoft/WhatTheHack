@@ -16,11 +16,18 @@ In this hack you will be building a Patient Search web app with a event-driven s
 ## Scenario
 In the hack, your team will create the following:
 1. Auto-generate test patient records in FHIR format and persist them in FHIR Server
-2. Setup event stream from the FHIR Server and push the data to Event Hub using a serverless function
-3. Develop Azure Functions with Trigger binding for Azure Event Hub to listen for new events and write the event data to Azure Cosmos DB Output binding.  
-   - Repeat above with no code using real-time streaming with Azure Streaming Analytics.  Setup Azure Streaming Analytics service to ingest data from the Azure Event Hub Input source, process the data and then store them in Azure Cosmos DB Output source.
-4. Setup Azure Search to create a search indexer on Azure Cosmos DB patient dataset and expose an API to be consumed by Patient Search web app.
-5. Build a Patient Search web app to display a list of patients stored in Azure Cosmos DB and implement a search box to find patient record by calling the Azure Search indexer API.
+2. Read patient records from FHIR Server
+   - Validate data by writing them to Azure Cosmos DB
+3. Add event stream from the FHIR Server and push the data to Azure Event Hub
+   - Update serverless function to read from FHIR server and drop to Azure Event Hub.  
+   - Repeat above with no code approach using real-time streaming.  
+      - Setup Azure Streaming Analytics service to ingest data from the Azure Event Hub Input source and output them to Azure Cosmos DB.
+4. Create Patient Search API
+   - Create search index on top of patient dataset stored in Azure Cosmos DB 
+   - Expose an indexer API to be consumed by Patient Search web app.
+5. Build a Patient Search frontend web app
+   - Display patient records
+   - Search for patient
 
 ## Challenges
 1. Prepare your auto-generated FHIR data and FHIR Server
