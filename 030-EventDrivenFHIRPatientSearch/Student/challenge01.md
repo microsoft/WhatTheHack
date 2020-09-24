@@ -14,16 +14,17 @@ Build a patient search react application with a serverless backend in 24 hours.
 ## Description
 
 **Technical skills leveraged**
+- FHIR Server - Azure API for FHIR (PaaS)
 - Serverless Compute - Azure Functions in Node.js
-- Serverless Database/Search - ComosDB/Azure Search, likely w/ mongo or cassandra cleint
-- Event-driven architecture - Azure Event Hub
-- Real-time Streaming - Azure Streaming Analytics
-- React/Redux - For the front end application
+- Serverless Database/Search - Azure Comos DB w/SQL Interface, Azure Search
+- Event-driven architecture - Azure Event Hubs
+- Real-time streaming - Azure Streaming Analytics
+- React/Redux, Java, etc. - For the front end application
 
 ## Success Criteria
 
 **Challenges:**
-   - Develop a serverless function to auto-generate your FHIR data. Sample NodeJS code snippet to be provided.
+   - Develop a serverless function to auto-generate your FHIR patient data. Sample NodeJS code snippet to be provided.
    - Provision Azure API for FHIR service in Azure for data ingestion
 
 

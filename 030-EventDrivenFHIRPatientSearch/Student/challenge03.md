@@ -1,6 +1,6 @@
 # What The Hack - Challenge 3
 
-# Challenge \3 - \Read patient record from FHIR Server and store them in Azure Cosmos DB
+# Challenge \3 - \Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
@@ -14,17 +14,18 @@ Build a patient search react application with a serverless backend in 24 hours.
 ## Description
 
 **Technical skills leveraged**
+- FHIR Server - Azure API for FHIR (PaaS)
 - Serverless Compute - Azure Functions in Node.js
-- Serverless Database/Search - ComosDB/Azure Search, likely w/ mongo or cassandra cleint
-- Event-driven architecture - Azure Event Hub
-- Real-time Streaming - Azure Streaming Analytics
-- React/Redux - For the front end application
+- Serverless Database/Search - Azure Comos DB w/SQL Interface, Azure Search
+- Event-driven architecture - Azure Event Hubs
+- Real-time streaming - Azure Streaming Analytics
+- React/Redux, Java, etc. - For the front end application
 
 ## Challenges
 - Deploy an Event Hub instance
 - Update the Azure Functions to read from FHIR server and drop to Eventhub
-- Deploy new Azure Functions that is triggered by Event Hub and pushes data to Azure CosmosDB
-- (Optional) Deploy Azure Streaming Analytics to ingest data from Azure Event Hub (intead of Azure Functions) and pushes data to Azure Cosmos DB
+- Deploy new serverless function in Azure Functions that is triggered by Event Hub and pushes data to Azure Cosmos DB
+- (Optional) Alternatively, deploy Azure Streaming Analytics to ingest data from Azure Event Hub and pushes them to Azure Cosmos DB
 
 ## Success Criteria
 - Provision Azure Cosmos DB
