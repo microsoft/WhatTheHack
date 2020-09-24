@@ -47,7 +47,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
    - Run the datagen.js application and it will loop and create an endless number of patients. Press Ctrl-C when enough have been created.
    - node datagen.js
 
-## Challenge 3: **[Read patient record from FHIR Server and store them in Azure Cosmos DB](Solution-03.md)**
+## Challenge 3: **[Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB](Solution-03.md)**
 - Run the data read application to read patient records in the FHIR Server:
    - Run the dataread.js application to make sure that the new patients can be read. NOTE: These records are read in pages of 100 at a time.
    - node dataread.js
