@@ -1,0 +1,22 @@
+{
+    "default": {
+        "authorityHostUrl": "https://login.windows.net",
+        "tenant": "athenahealth.onmicrosoft.com",
+        "applicationId": "db0e3ced-58db-4750-9749-7817dd4ee4d5",
+        "clientSecret": "!Jo9+52LIwo4:Xtq1r8",
+        "resource": "https://azurehealthcareapis.com",
+        "fhirApiUrl": "https://athenapaasdata.azurehealthcareapis.com"
+    },
+    "gino1": {
+        "tenant": "microsoft.onmicrosoft.com",
+        "applicationId": "221dc737-c631-4325-be93-2dbf860d7a04",
+        "clientSecret": "250667af-cbfd-4921-a1f9-c133c64263db",
+        "fhirApiUrl": "https://gfathfhir1.azurehealthcareapis.com"
+    },
+    "gino2": {
+        "tenant": "microsoft.onmicrosoft.com",
+        "applicationId": "a040a3eb-243b-428d-87da-9c5bc6813dc7",
+        "clientSecret": "5ac2549b-bf75-427d-a7b7-ef3ebd058b4c",
+        "fhirApiUrl": "https://gfathfhir2.azurehealthcareapis.com"
+    }
+}
