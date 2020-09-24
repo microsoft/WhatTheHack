@@ -46,17 +46,15 @@ In the hack, your team will create the following:
 - Azure CLI
 - Node module
 
-## Repository Contents (Optional)
-- `../Coach/Guides`
-  - Coach's Guide and related files
-  - `../Lectures`
-  - `./Proctor Guide.docx`
-  - `./Screnario Design.docx`
-- `../Student/Guides`
-  - Student's Challenge Guide
-  - Sample Code
-  - `../Code/datagen.js`
-  - `../Code/dataread.js`
+## Repository Contents
+- `../Coach`
+  - Coach's Guide and solution files
+   - `../Solutions/Soluitonxx.md`
+  - `./readme.md`
+- `../Student`
+  - Student's Challenge Guide and resource folders
+  - `./Challengexx.md`
+  - `../Resources/Challengexx-xxx/`
 
 ## Contributors
 - Richard Liang
