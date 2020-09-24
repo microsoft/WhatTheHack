@@ -33,7 +33,7 @@ In the hack, your team will create the following:
    - Provision Azure Event Hubs
    - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new patient event data arrives in Azure Event Hub
    - (Optional) Alternatively, use real-time event streaming service to get data into Azure Cosmos DB from Azure Event Hub.
-4. Build index for Patient Search
+4. Build Patient Search API
    - Provision Azure Search to create a patient search index on top of Azure Cosmos DB.
    - Expose Azure Search indexer via REST API for consumption in Patient Search Web App
    - Create Azure Functions as the frontend to call the Azure Search index API.
