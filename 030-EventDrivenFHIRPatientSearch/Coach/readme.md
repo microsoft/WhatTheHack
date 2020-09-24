@@ -53,7 +53,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
    - node dataread.js
 - When finish reading and loading data, make sure there at least 10,000 patient records in Azure Cosmos DB
 
-## Challenge 4: **[Build index for Patient Search](Solution-04.md)**
+## Challenge 4: **[Build Patient Search API](Solution-04.md)**
 - You have to manually run the indexer once you create it.
 - Talk about Function authentication which is needed to make REST calls
    - Anonymous vs. Admin, etc
