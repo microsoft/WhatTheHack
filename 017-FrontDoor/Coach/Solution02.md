@@ -1,36 +1,40 @@
-### Notes for Challenge 2 - Provision a Web Application Firewall (WAF)
+# Notes for Challenge 2 - Provision your Front Door
 
- [< Previous Challenge [1]](./Solution01.md) - **[Home](./README.md)** - [Next Challenge [3] >](./Solution03.md)
+ [< Previous Challenge [1]](./Solution00.md) - **[Home](./README.md)** - [Next Challenge [3] >](./Solution02.md)
 
+One of the things that can hinder people if they need coaching around how DNS works and creating DNS records.  The biggest hurtle for this challenge is setting up the two DNS names needed to have Front Door validate the domain and for the Front Door managed SSL flow to work (and traffic to go to Front Door for that matter).  Let's say their SiteName is XXXX:
+- ARM Template deploys a Azure DNS Zone hosting XXXX.contosomasks.com 
+- App Service is configured with www.XXXX.contosomasks.com, again done by ARM Template.
+- First, they create the Front Door account with an example name of: ***BOB***
+- First DNS Name they need to create in their Azure DNS Zone is the *"verify"* CNAME:
+  - **afdverify.frontdoor** CNAME to afdverify.***BOB***.azurefd.net
+  - This allows Front Door to verify you are really in control (aka if you can modify the Primary DNS of a domain, probably the right person to configure Front Door).
+- Second DNS Name they need to create is the real one to direct traffic:
+  - **frontdoor** CNAME to ***BOB***.azurefd.net
+  - This sets up so Browsers can now hit the website thru Front Door
+  - This is also the prereq for Front Door to generate a ***FREE*** SSL Certificate for them
 
-Only from a time perspective does the challenge specifies to mark the WAF Policy into Prevention mode from the start.  In normal circumstances, this is **SUPER DANGEROUS**.  WAF Rules cover various patterns that over the years and years web traffic has be subverted.  Sometimes the approaches of the past generated traffic patterns that are actually "OK" for some websites.  Watching in Detection mode is extremely important to be able to evaluate the effectiveness and/or over aggressiveness of each of the rules.
+For the logs, they have to setup a Log Analytics Workspace in that Resource Group and configure the Diagnostics Settings of the Front Door Resource to send all 3 items to that Log Analytics Workspace:
+1. FrontdoorAccessLog
+2. FrontdoorWebApplicationFirewallLog
+3. AllMetrics
 
-A really popular strategy is that, after an initial amount of traffic goes thru a rule set, is to set rules in "Log" mode and flip the Policy into Prevention.  This allows a more granular approach to enable WAF rules.  
+For querying it, when they click on "Logs" under Monitoring on the Front Door resource, the first query in the Examples is "Requests per hour" and gives you a nice graph showing things happening:
 
-We running `w3af` to generate simulate bad traffic against Front Door to be able to show how fo find malicious traffic.  **REMEMBER** It takes times (5 minutes or so) after a Diagnostics Settings being created for it to be logging.  And there is another delay have logs appear after the hits.  It's really important that people see logs in the Challenge 1 before starting Challenge 2.  The goal isn't to learn how to use `w3af` :).  Help them out as much as needed to get it to run.
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "FrontdoorAccessLog" | summarize RequestCount = count() by bin(TimeGenerated, 1h), Resource | render timechart `
 
-We use https://tools.keycdn.com/performance to show the geo-blocking is effective.
+The point of doing this is to get logging setup (need it for WAF) and expose the fact, all traffic is going to be logged here.
+
+The purpose of showing the side by side comparison of Non-Front Door vs Front Door using https://tools.keycdn.com/performance, is to demonstrate the dramatic Connect and TLS savings.  If someone asks why do they have to hit it a few times, we are doing a hyper accelerated implementation of Front Door to Production simulation.  Normally there is more than a few minutes prior to World Wide traffic.  Hitting it a few times verifies all the configuration is replicated to the 160+ Points of Presence and the AnyCAST Routing has propagated globally.
 
 ## Links
-- [Create a Front Door WAF Policy](https://docs.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-create-portal)
-  
+- [Create a Front Door for an App Service](https://docs.microsoft.com/en-us/azure/frontdoor/quickstart-create-front-door)
+- [Custom Domain Name for Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain)
+- [SSL for Custom Domains in Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https) - We are choosing Front Door managed.  You can bring your own certificate, but almost all cases this is so much better.  Great strong SSL certificate, auto renews, costs you nothing ....
+
 ## Solution Scripts (PowerShell with AZ CLI)
 
-#### Create WAF Policy with Default Rule Set and Only allow US
+#### Create an Azure Front Door
 
-- `az network front-door waf-policy create --name wwwWAFPolicy --resource-group rg-MyResourceGroup --mode Detection`
-- `az network front-door waf-policy rule create --action Block --policy-name wwwWAFPolicy --name OnlyUS --rule-type MatchRule --priority 100 --resource-group rg-MyResourceGroup --defer`
-- `az network front-door waf-policy rule match-condition add --match-variable RemoteAddr --name OnlyUS --operator GeoMatch --policy-name wwwWAFPolicy --resource-group rg-MyResourceGroup --values US --negate true`
-- `$rules = az network front-door waf-policy managed-rule-definition list | out-string | convertfrom-json`
-- `$defRule = $rules |? { $_.name -eq 'DefaultRuleSet_1.0' }`
-- `az network front-door waf-policy managed-rules add --policy-name wwwWAFPolicy --resource-group rg-MyResourceGroup --type $defRule.ruleSetType --version $defRule.ruleSetVersion`
+`az network front-door create --name BOB --resource-group rg-MyResourceGroup --backend-address contosomasks-XXXX.azurewebsites.net`
 
-(There isn't an Azure CLI command to Update a Front Door Frontend, needs to be done thru Front End Design => Frontends => Enable WAF)
-
-#### Kusto Query to show blocked rules and associated counts
-
-`AzureDiagnostics 
-| where Category == 'FrontdoorWebApplicationFirewallLog'
-| where action_s == 'Block'
-| summarize count() by  ruleName_s 
-| order by count_`
