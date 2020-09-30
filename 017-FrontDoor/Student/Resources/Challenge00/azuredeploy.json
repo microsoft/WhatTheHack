@@ -1,0 +1,204 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sitename": {
+            "type": "string",
+            "metadata": {
+                "description": "Dynamic name of site"
+            }
+        }
+    },
+    "functions": [
+    ],
+    "variables": {
+        "domainName": "[concat(parameters('sitename'), '.contosomasks.com')]",
+        "appServiceName": "[concat('contosomasks-', parameters('sitename'))]",
+        "appServiceFQDN": "[concat(variables('appServiceName'), '.azurewebsites.net')]",
+        "wwwFQDN": "[concat('www.', variables('domainName'))]",
+        "appServicePlan": "[concat('asp-contosomasks-', parameters('sitename'))]",
+        "certificateName": "[concat('cert-', parameters('sitename'))]"
+    },
+    "resources": [
+        {
+            "name": "[variables('domainName')]",
+            "type": "Microsoft.Network/dnsZones",
+            "apiVersion": "2018-05-01",
+            "location": "global",
+            "properties": {
+            }
+        },
+        {
+            "name": "[concat(variables('domainName'), '/www')]",
+            "type": "Microsoft.Network/dnszones/CNAME",
+            "apiVersion": "2018-05-01",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/dnsZones', variables('domainName'))]"
+            ],
+            "properties": {
+                "TTL": 3600,
+                "CNAMERecord": {
+                    "cname": "[variables('appServiceFQDN')]"
+                }
+            }
+        },
+                {
+            "name": "[concat(variables('domainName'), '/awverify.www')]",
+            "type": "Microsoft.Network/dnszones/CNAME",
+            "apiVersion": "2018-05-01",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/dnsZones', variables('domainName'))]"
+            ],
+            "properties": {
+                "TTL": 3600,
+                "CNAMERecord": {
+                    "cname": "[concat('awverify.',variables('appServiceFQDN'))]"
+                }
+            }
+        },
+        {
+            "name": "[concat(variables('domainName'), '/donotdelete')]",
+            "type": "Microsoft.Network/dnszones/TXT",
+            "apiVersion": "2018-05-01",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/dnsZones', variables('domainName'))]"
+            ],
+            "properties": {
+                "TTL": 3600,
+                "TXTRecords": [
+                        {
+                            "value": [
+                            "Used to link for lab"
+                            ]
+                        }
+                    ]
+            }
+        },
+        {
+            "apiVersion": "2015-01-01",
+            "name": "delegateSubDomain",
+            "type": "Microsoft.Resources/deployments",
+            "dependsOn": [
+                "[concat('Microsoft.Network/dnsZones/', variables('domainName'), '/CNAME/www')]",
+                "[concat('Microsoft.Network/dnsZones/', variables('domainName'), '/CNAME/awverify.www')]",
+                "[concat('Microsoft.Network/dnsZones/', variables('domainName'), '/TXT/donotdelete')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[concat('https://contosomasks-lab-mgmt.azurewebsites.net/api/registerStudent/', parameters('sitename'), '/', reference(variables('domainName')).NameServers[0], '/', reference(variables('domainName')).NameServers[1], '/', reference(variables('domainName')).NameServers[2], '/', reference(variables('domainName')).NameServers[3])]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                }
+            }
+        },
+        {
+            "name": "[variables('appServicePlan')]",
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments', 'delegateSubDomain')]"
+            ],
+            "sku": {
+                "name": "S1",
+                "capacity": 1
+            },
+            "tags": {
+                "displayName": "[variables('appServicePlan')]"
+            },
+            "properties": {
+                "name": "[variables('appServicePlan')]"
+            }
+        },
+        {
+            "name": "[variables('appServiceName')]",
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/appServicePlan1')]": "Resource",
+                "displayName": "[variables('appServiceName')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlan'))]"
+            ],
+            "properties": {
+                "name": "[variables('appServiceName')]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlan'))]"
+            },
+            "resources": [
+                {
+                    "type": "sourcecontrols",
+                    "apiVersion": "2018-02-01",
+                    "name": "web",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/sites', variables('appServiceName'))]"
+                    ],
+                    "properties": {
+                        "repoUrl": "https://github.com/andywahr/contosomasks.git",
+                        "branch": "master",
+                        "isManualIntegration": true
+                    }
+                }
+            ]
+        },
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[concat(variables('appServiceName'),'/',variables('wwwFQDN'))]",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('appServiceName'))]"
+            ],
+            "properties": {
+
+            }
+        },
+        {
+            "apiVersion": "2019-08-01",
+            "location": "[resourceGroup().location]",
+            "name": "[variables('certificateName')]",
+            "type": "Microsoft.Web/certificates",
+            "properties": {
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', variables('appServicePlan'))]",
+                "canonicalName": "[variables('wwwFQDN')]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Web/sites/',variables('appServiceName'))]",
+                "[concat('Microsoft.Web/sites/',variables('appServiceName'),'/hostnameBindings/',variables('wwwFQDN'))]"
+            ]
+        },
+        {
+            "apiVersion": "2015-01-01",
+            "name": "sslHostnameBindingTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "dependsOn": [
+                "[concat('Microsoft.Web/sites/', variables('appServiceName'))]",
+                "[concat('Microsoft.Web/certificates/',variables('certificateName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/andywahr/WhatTheHack/master/017-FrontDoor/Student/Resources/Challenge00/sslHostnameBinding.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "sitename": {
+                        "value": "[parameters('sitename')]"
+                    },
+                    "certificateThumprint": {
+                        "value": "[reference(resourceId('Microsoft.Web/certificates', variables('certificateName'))).Thumbprint]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
