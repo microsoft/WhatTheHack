@@ -14,15 +14,15 @@ In this hack you will be solving the common business problem that companies in t
 3. Bring Azure Sphere to your solution for scale and resiliency 
 
 ## Challenges
-1. Prepare your workstation for IoT development
+1. Challenge 0: **[Prepare your workstation for IoT development](Student/Challenge-00.md)**
    - Get yourself ready to develop your IoT solution
-2. Provision an IoT environment
+2. Challenge 1: **[Provision an IoT environment](Student/Challenge-01.md)**
    - Create an IoT Hub and run tests to ensure it can ingest telemetry
-3. Your First Device
+3. Challenge 2: **[Your First Device](Student/Challenge-02.md)**
    - Make the connection to your Edge device and see that it is properly provisioned.
-4. Connecting the World
+4. Challenge 3: **[Connecting the World](Student/Challenge-03.md)**
    - Connect your device and make sure it can see all other devices in your team.
-5. Scalable Monitoring of Telemetry
+5. Challenge 4: **[Scalable Monitoring of Telemetry](Student/Challenge-04.md)**
    - Figure out the scale problem in the world of IoT. How do you hand trillions of data points of telemetry?
 
 ## Prerequisites
