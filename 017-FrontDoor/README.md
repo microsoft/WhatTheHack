@@ -14,15 +14,15 @@ In this hack you will be solving the common problem that websites have with the 
 5. Discover and Monitor traffic and WAF insights thru Log Analytics
 
 ## Challenges
-1. [Setup your Environment and Discover](Student/Challenge00.md)
+1. [Setup your Environment and Discover](Student/Challenge01.md)
    - Create Azure resources and leverage your Browser's Dev Tools to analyze the Website
-2. [Provision your Front Door](Student/Challenge01.md)
+2. [Provision your Front Door](Student/Challenge02.md)
    - Create a Front Door account with custom DNS and SSL
-3. [Provision a Web Application Firewall (WAF)](Student/Challenge02.md)
+3. [Provision a Web Application Firewall (WAF)](Student/Challenge03.md)
    - Create a Web Application Firewall Policy and guard your site!
-4. [Offload traffic for a high traffic event](Student/Challenge03.md)
+4. [Offload traffic for a high traffic event](Student/Challenge04.md)
    - Use a Static Web Site in Azure Storage and route specific traffic to it.
-5. [Cache Static Assets](Student/Challenge04.md)
+5. [Cache Static Assets](Student/Challenge05.md)
    - Use the Rules Engine in Front Door to cache some of the resources of your site
 
 ## Prerequisites

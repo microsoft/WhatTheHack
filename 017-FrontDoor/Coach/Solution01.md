@@ -17,4 +17,4 @@ If you have a large group of people from the organization or its a larger event,
 The only other advise is that there are a lot of folks that have never opened up the Dev Tools for a Browser, much less analyzed the way a website loads.  The key items we want to point out:
 - Everything is sourced from the same DNS Name, which means every requests for CSS/JS/Images/etc..  hit the website.  (very bad)
 - Nothing is cached, every reload does a full reload (with response code of 200's)
-- Getting them to see the Waterfall, that shows the break down of the request when you hover over the Waterfall display on each row in the Network tab ![alt](Waterfall.png)
+- Getting them to see the Waterfall, that shows the break down of the request when you hover over the Waterfall display on each row in the Network tab ![alt](./images/Waterfall.png)
