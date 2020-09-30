@@ -1,4 +1,4 @@
-# Welcome to Coaching the Front Door WhatTheHack!
+# Front Door WhatTheHack!
 
 ## Introduction
 
@@ -9,9 +9,15 @@ The recommended flow for this WhatTheHack:
   - Show the video [How does the Internet work? (video)](https://youtu.be/yJJHukw9Lyc)
     - [Other Languages available - "The Euro-IX Video"](https://www.youtube.com/channel/UCFyucVRAAMzxyJIsxnGwsjw)
   - Show the video [How the Internet crosses the Ocean (English Only)](https://www.weforum.org/agenda/2016/01/how-does-the-internet-cross-the-ocean/)
-- Start the Challenges.
-  - [Notes/Solution for Challenge 0 - Setup your Environment and Discover](Solution00.md)
-  - [Notes/Solution for Challenge 1 - Provision your Front Door](Solution01.md)
-  - [Notes/Solution for Challenge 2 - Provision a Web Application Firewall (WAF)](Solution02.md)
-  - [Notes/Solution for Challenge 3 - Offload traffic for a high traffic event](Solution03.md)
-  - [Notes/Solution for Challenge 4 - Cache Static Assets](Solution04.md)
+
+## Coach's Guides
+  - Challenge 1: [Setup your Environment and Discover](Solution01.md)
+    - Get your local and Azure Environment ready 
+  - Challenge 2: [Provision your Front Door](Solution02.md)
+    - Get the basic Front Door setup
+  - Challenge 3: [Provision a Web Application Firewall (WAF)](Solution03.md)
+    - Protect the Web Site
+  - Challenge 4: [Offload traffic for a high traffic event](Solution04.md)
+    - Redirect traffic for a part of the website to a Static Web Site
+  - Challenge 5: [Force HTTPS thru Rules Engine](Solution05.md)
+    - Write your frist rule!
