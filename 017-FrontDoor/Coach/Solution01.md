@@ -1,40 +1,20 @@
-### Notes for Challenge 1 - Provision your Front Door
+# Notes for Challenge 1 - Setup your Environment and Discover
 
- [< Previous Challenge [0]](./Solution00.md) - **[Home](./README.md)** - [Next Challenge [2] >](./Solution02.md)
+ **[Home](./README.md)** - [Next Challenge [2] >](./Solution02.md)
 
-One of the things that can hinder people if they need coaching around how DNS works and creating DNS records.  The biggest hurtle for this challenge is setting up the two DNS names needed to have Front Door validate the domain and for the Front Door managed SSL flow to work (and traffic to go to Front Door for that matter).  Let's say their SiteName is XXXX:
-- ARM Template deploys a Azure DNS Zone hosting XXXX.contosomasks.com 
-- App Service is configured with www.XXXX.contosomasks.com, again done by ARM Template.
-- First, they create the Front Door account with an example name of: ***BOB***
-- First DNS Name they need to create in their Azure DNS Zone is the *"verify"* CNAME:
-  - **afdverify.frontdoor** CNAME to afdverify.***BOB***.azurefd.net
-  - This allows Front Door to verify you are really in control (aka if you can modify the Primary DNS of a domain, probably the right person to configure Front Door).
-- Second DNS Name they need to create is the real one to direct traffic:
-  - **frontdoor** CNAME to ***BOB***.azurefd.net
-  - This sets up so Browsers can now hit the website thru Front Door
-  - This is also the prereq for Front Door to generate a ***FREE*** SSL Certificate for them
+Hopefully most students started the prerequisites.  If a student doesn't have some Linux instance configured, installing WSL during a Hack could be all day.  Either that person should pair up (if possible given Virtual delivery) or go write to Create a Linux VM.  This process has been done on Ubuntu 18.04.  
 
-For the logs, they have to setup a Log Analytics Workspace in that Resource Group and configure the Diagnostics Settings of the Front Door Resource to send all 3 items to that Log Analytics Workspace:
-1. FrontdoorAccessLog
-2. FrontdoorWebApplicationFirewallLog
-3. AllMetrics
+The documentation is pretty good about for [Install w3af](http://docs.w3af.org/en/latest/install.html).  The installation process is basically self-correcting, generating a bash script to run.  This can involve many iterations of trying to run w3af_console, then run install script.  **Only use the w3af_console, the GUI option might be attractive to people.  All the commands are given so people are just investing time to install it.**
 
-For querying it, when they click on "Logs" under Monitoring on the Front Door resource, the first query in the Examples is "Requests per hour" and gives you a nice graph showing things happening:
+If you have a large group of people from the organization or its a larger event, its recommended for the Sitename, to give everyone a prefix or even preassign Sitenames with a prefix and then team number (using the 13 characters).  This will be used to create a public DNS subdomain that is used for everything.  Pay close attention to the restrictions on the name:
+      1. Up to 13 characters long
+      2. Must start with a lower case letter
+      3. Next up to 12 characters can be either
+         1. lower case character
+         2. number
+         3. dash '-'
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "FrontdoorAccessLog" | summarize RequestCount = count() by bin(TimeGenerated, 1h), Resource | render timechart `
-
-The point of doing this is to get logging setup (need it for WAF) and expose the fact, all traffic is going to be logged here.
-
-The purpose of showing the side by side comparison of Non-Front Door vs Front Door using https://tools.keycdn.com/performance, is to demonstrate the dramatic Connect and TLS savings.  If someone asks why do they have to hit it a few times, we are doing a hyper accelerated implementation of Front Door to Production simulation.  Normally there is more than a few minutes prior to World Wide traffic.  Hitting it a few times verifies all the configuration is replicated to the 160+ Points of Presence and the AnyCAST Routing has propagated globally.
-
-## Links
-- [Create a Front Door for an App Service](https://docs.microsoft.com/en-us/azure/frontdoor/quickstart-create-front-door)
-- [Custom Domain Name for Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain)
-- [SSL for Custom Domains in Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https) - We are choosing Front Door managed.  You can bring your own certificate, but almost all cases this is so much better.  Great strong SSL certificate, auto renews, costs you nothing ....
-
-## Solution Scripts (PowerShell with AZ CLI)
-
-#### Create an Azure Front Door
-
-`az network front-door create --name BOB --resource-group rg-MyResourceGroup --backend-address contosomasks-XXXX.azurewebsites.net`
-
+The only other advise is that there are a lot of folks that have never opened up the Dev Tools for a Browser, much less analyzed the way a website loads.  The key items we want to point out:
+- Everything is sourced from the same DNS Name, which means every requests for CSS/JS/Images/etc..  hit the website.  (very bad)
+- Nothing is cached, every reload does a full reload (with response code of 200's)
+- Getting them to see the Waterfall, that shows the break down of the request when you hover over the Waterfall display on each row in the Network tab ![alt](Waterfall.png)
