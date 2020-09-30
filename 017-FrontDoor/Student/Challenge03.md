@@ -1,6 +1,6 @@
 # Challenge 3 - Provision a Web Application Firewall (WAF)
 
-[< Previous Challenge [2]](./Challenge01.md)&nbsp;&nbsp;-&nbsp;&nbsp;**[Home](../README.md)**&nbsp;&nbsp;-&nbsp;&nbsp;[Next Challenge [4] >](./Challenge03.md)
+[< Previous Challenge [2]](./Challenge02.md)&nbsp;&nbsp;-&nbsp;&nbsp;**[Home](../README.md)**&nbsp;&nbsp;-&nbsp;&nbsp;[Next Challenge [4] >](./Challenge04.md)
 
 ## Introduction
 
