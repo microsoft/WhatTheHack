@@ -1,6 +1,6 @@
 # Notes for Challenge 3 - Provision a Web Application Firewall (WAF)
 
- [< Previous Challenge [2]](./Solution01.md) - **[Home](./README.md)** - [Next Challenge [4] >](./Solution03.md)
+ [< Previous Challenge [2]](./Solution02.md) - **[Home](./README.md)** - [Next Challenge [4] >](./Solution04.md)
 
 
 Only from a time perspective does the challenge specifies to mark the WAF Policy into Prevention mode from the start.  In normal circumstances, this is **SUPER DANGEROUS**.  WAF Rules cover various patterns that over the years and years web traffic has be subverted.  Sometimes the approaches of the past generated traffic patterns that are actually "OK" for some websites.  Watching in Detection mode is extremely important to be able to evaluate the effectiveness and/or over aggressiveness of each of the rules.

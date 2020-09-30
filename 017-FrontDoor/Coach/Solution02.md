@@ -1,6 +1,6 @@
 # Notes for Challenge 2 - Provision your Front Door
 
- [< Previous Challenge [1]](./Solution00.md) - **[Home](./README.md)** - [Next Challenge [3] >](./Solution02.md)
+ [< Previous Challenge [1]](./Solution01.md) - **[Home](./README.md)** - [Next Challenge [3] >](./Solution03.md)
 
 One of the things that can hinder people if they need coaching around how DNS works and creating DNS records.  The biggest hurtle for this challenge is setting up the two DNS names needed to have Front Door validate the domain and for the Front Door managed SSL flow to work (and traffic to go to Front Door for that matter).  Let's say their SiteName is XXXX:
 - ARM Template deploys a Azure DNS Zone hosting XXXX.contosomasks.com 
