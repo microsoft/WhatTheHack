@@ -1,0 +1,95 @@
+﻿@model List<LoadTestRun>
+@{
+    ViewData["Title"] = "LoadTests";
+    LoadTestRun previous = null;
+
+    Func<IEnumerable<Stat>, IEnumerable<Stat>, string, string> formatStat = (current, previous, statLine) =>
+    {
+        var currentStat = current.SafeFirstOrDefault(r => r.Name.EqualsOI(statLine));
+        var prevStat = previous.SafeFirstOrDefault(r => r.Name.EqualsOI(statLine));
+
+
+        long currentNum = currentStat.Average;
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        double milleseconds = (double)currentNum / (double)1000;
+
+        sb.Append(milleseconds.ToString("#.####") + "ms");
+
+        if (prevStat != null)
+        {
+            double delta = 1d - ((double)currentNum / (double)prevStat.Average);
+            if (delta > 0)
+            {
+                sb.Append($" <span class='alert-success' role='alert'>{Math.Abs(delta).ToString("P")}</span>");
+            }
+            else
+            {
+                sb.Append($" <span class='alert-danger' role='alert'>({Math.Abs(delta).ToString("P")})</span>");
+            }
+
+        }
+
+        return sb.ToString();
+    };
+}
+
+<h1>LoadTests</h1>
+<h5><span class='alert-success' role='alert'>GREEN</span> - Represents Percentage Faster  <span class='alert-danger' role='alert'>Red</span> - Represents Percentage Slower </h5>
+<br />
+
+@foreach (var run in Model)
+{
+    <h4>Load Test: @run.Url.Replace(".txt", "").TrimEnd('-') at @run.ID</h4>
+    <table class="table">
+        <tr>
+            <th scope="col">Region</th>
+            <th scope="col">Total Duration</th>
+            <th scope="col">Total Requests</th>
+            <th scope="col">Connecting</th>
+            <th scope="col">Receiving</th>
+            <th scope="col">Sending</th>
+            <th scope="col">TLS Handshaking</th>
+            <th scope="col">Waiting</th>
+        </tr>
+        @foreach (var region in run.Regions.OrderBy(r => r.Key))
+        {
+            IEnumerable<Stat> prevRun = null;
+            long prevCount = 0;
+            long curCount = run.RegionRequests[region.Key];
+            previous?.Regions.TryGetValue(region.Key, out prevRun);
+            previous?.RegionRequests.TryGetValue(region.Key, out prevCount);
+            string prevCountDelta = "";
+
+            if (prevCount > 0)
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                double delta = 1d - ((double)curCount / (double)prevCount);
+                if (delta > 0)
+                {
+                    sb.Append($" -{Math.Abs(delta).ToString("P")}");
+                }
+                else
+                {
+                    sb.Append($" +{Math.Abs(delta).ToString("P")}");
+                }
+
+                prevCountDelta = sb.ToString();
+            }
+
+            <tr>
+                <td>@region.Key</td>
+                <th scope="row">@Html.Raw(formatStat(region.Value, prevRun, "http_req_duration"))</th>
+                <th scope="row">@curCount @Html.Raw(prevCountDelta)</th>
+                <td>@Html.Raw(formatStat(region.Value, prevRun, "http_req_connecting"))</td>
+                <td>@Html.Raw(formatStat(region.Value, prevRun, "http_req_receiving"))</td>
+                <td>@Html.Raw(formatStat(region.Value, prevRun, "http_req_sending"))</td>
+                <td>@Html.Raw(formatStat(region.Value, prevRun, "http_req_tls_handshaking"))</td>
+                <td>@Html.Raw(formatStat(region.Value, prevRun, "http_req_waiting"))</td>
+            </tr>
+        }
+
+    </table>
+
+    previous = run;
+}

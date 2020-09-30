@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoMasks.ServiceHost", "ContosoMasks.ServiceHost\ContosoMasks.ServiceHost.csproj", "{430AA690-B493-4294-9841-3CB2A88299A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{430AA690-B493-4294-9841-3CB2A88299A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{430AA690-B493-4294-9841-3CB2A88299A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{430AA690-B493-4294-9841-3CB2A88299A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{430AA690-B493-4294-9841-3CB2A88299A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA38009F-4BFA-43FC-8179-3375373DC900}
+	EndGlobalSection
+EndGlobal
