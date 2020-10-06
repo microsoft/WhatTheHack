@@ -13,13 +13,16 @@ spec:
   selector:
     name: mongo-db
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  mongo-db-deploy
   labels:
     name:  mongo-db
 spec:
+  selector:
+    matchLabels:
+      name: mongo-db
   strategy:
     rollingUpdate:
       maxSurge: 1
