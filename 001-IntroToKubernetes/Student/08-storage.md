@@ -17,14 +17,15 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 	- Delete the MongoDB pod created in Challenge 6. 
 		- Kubernetes should automatically create a new pod to replace it. 
 		- Connect to the new pod and you should observe that the “contentdb” database is no longer there since the pod was not configured with persistent storage.
-	- Delete the MongoDB deployment
-	- Note that your data disappears!
-- Redeploy MongoDB with dynamic persistent storage
 	- Delete your existing MongoDB deployment
-	- Create a Persistent Volume Claim (PVC).
-	- Examine the Persistent Volume (PV) created.
+- Redeploy MongoDB with dynamic persistent storage
+	- **NOTE**: Some types of persistent volumes (such as Azure disks) are associated with a single zone: see [here](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#functionality) and [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations). As disks can only be attached to a node in the same zone, you should configure storage to be provisioned in a specific zone (see [here](https://kubernetes.io/docs/concepts/storage/storage-classes/#allowed-topologies)) and force the pod to be scheduled on a node in the zone (see [here](https://kubernetes.io/docs/concepts/storage/storage-classes/#allowed-topologies)).
+	- Create a new Storage Class for Azure Disks in a specific zone
+	- Create a Persistent Volume Claim (PVC) using the new Storage Class.
+		- Examine the automatically provisioned Persistent Volume (PV) and verify that it is in the correct zone.
 	- Modify your MongoDB deployment to use the PVC.
-		- **Note**: some types of persistent volumes (Azure disks) are associated with a single zone: see [here](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#functionality) and [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations). Make sure to restrict your pods to be scheduled on nodes in the same zone as your disk.
+	- Deploy MongoDB
+		- Verify that the pods are scheduled on nodes in the correct zone
 - Verify that persistent storage works
 	- Verify that MongoDB is working fine by connecting to the corresponding MongoDB Pod in interactive mode. Make sure that the disks are associated correctly (bold and italic below)
 

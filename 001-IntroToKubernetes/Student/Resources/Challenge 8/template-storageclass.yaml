@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+provisioner: kubernetes.io/azure-disk
+allowedTopologies:
+  - matchLabelExpressions:
+    - key: failure-domain.beta.kubernetes.io/zone
+      values:
+        - <zone>
