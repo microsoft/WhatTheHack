@@ -54,8 +54,8 @@ spec:
       volumes:
         - name: mongodb-datadisk
           persistentVolumeClaim:
-            claimName: mongodb-data-pvc
+            claimName: mongodb-datadisk-pvc
         - name: mongodb-configdisk
           persistentVolumeClaim:
-            claimName: mongodb-config-pvc
+            claimName: mongodb-configdisk-pvc
       restartPolicy: Always
