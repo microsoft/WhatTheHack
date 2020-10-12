@@ -4,7 +4,6 @@
 
 The hack is based on 7 challenges that build atop one another increasing in complexity. This hack assumes a fairly robust prior knowledge of Kubernetes and Azure so set the expectations accordingly when planning the hack. 
 
-[Attached](https://github.com/microsoft/WhatTheHack/blob/master/026-ArcForKubernetes/Coach/Azure%20Arc%20Overview%20(Customer-Ready).potx?raw=true) PowerPoint deck is an introduction to Azure Arc and the value it provides to users. 
 Because of the involved nature of prerequisites it is recommended to conduct a **Know Before You Go** meeting where the contents of [challenge 0](../Student/challenge00.md) are discussed.
 
 Below are the solutions and a guide on how to solve for the challenges within the hack.
