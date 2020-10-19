@@ -51,11 +51,11 @@ Hackflow
 
     2.  Activate your conda environment: *conda activate forecast_mlops*
 
-    3.  Install library requirements to setup your conda sssenvironment:  
+    3.  Install library requirements to setup your conda environment:  
         *pip install -r ./environment_setup/requirements.txt*
 
 5.  Configure your Azure ML Workspace for the project. Add workspace details in
-    config.json in ssConfiguration folder
+    config.json in Configuration folder
 
 6.  Now that you have environment setup, run and explore the python files in the
     following order to train an ARIMA forecasting model
