@@ -46,7 +46,7 @@ most common and prevalent tasks in Machine Learning.
 
     2.  Activate your conda environment: *conda activate forecast_mlops*
 
-    3.  Install library requirements to setup your conda sssenvironment:  
+    3.  Install library requirements to setup your conda environment:  
         *pip install -r ./environment_setup/requirements.txt*
 
 5.  Configure your Azure ML Workspace for the project. Add workspace details in
