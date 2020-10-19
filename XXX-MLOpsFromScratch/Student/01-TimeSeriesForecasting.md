@@ -1,13 +1,10 @@
-Challenge 1 – Create and Evaluate Time Series Forecasting Model
-===============================================================
+# Challenge 1 – Create and Evaluate Time Series Forecasting Model
 
-Prerequisites
--------------
+## Prerequisites
 
 All prerequisites from the README file.
 
-Introduction
-------------
+## Introduction
 
 The objective of challenge is to forecast the daily transactions using time
 series ARIMA modelling. It includes processing the transactions data from
@@ -24,13 +21,11 @@ different from other conventional datasets and warrants a different type of
 modelling. We will cover that in this challenge as forecasting is one of the
 most common and prevalent tasks in Machine Learning.
 
-Success Criteria
-----------------
+## Success Criteria
 
 1.  An ARIMA forecasting model saved in Azure ML Workspace
 
-Hackflow
---------
+## Hackflow
 
 1.  Create and setup a new project in Azure DevOps
 
@@ -55,7 +50,7 @@ Hackflow
         *pip install -r ./environment_setup/requirements.txt*
 
 5.  Configure your Azure ML Workspace for the project. Add workspace details in
-    config.json in ssConfiguration folder
+    config.json in Configuration folder
 
 6.  Now that you have environment setup, run and explore the python files in the
     following order to train an ARIMA forecasting model
@@ -77,13 +72,10 @@ Hackflow
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
 
-Alternate Hackflow
-------------------
+## Alternate Hackflow
 
-Hints
------
+## Hints
 
-Learning resources
-------------------
+## Learning resources
 
 Next Challenge – Create a Build Pipeline in Azure DevOps
