@@ -1,8 +1,6 @@
-What The Hack – MLOps
-=====================
+# What The Hack – MLOps
 
-Introduction
-------------
+## Introduction
 
 MLOps empowers data scientists and app developers to help bring ML/AI models to
 production. It enables you to track, version and re-use every asset in your ML
@@ -15,8 +13,7 @@ The solution involved in the hack is built on a time series dataset from
 Adventure Works to forecast daily transactions. Hence it is a forecasting task
 but the CICD process can be easily adapted for any AI scenario.
 
-Learning Objectives
--------------------
+## Learning Objectives
 
 In this hack you will solve a common challenge for companies to continuously
 deploy an AI model and maintain it in production. You will see how you can adopt
@@ -42,8 +39,7 @@ get real business value.
 -   How to create a Power BI Report that leverages REST API to score this model
     in Production?
 
-Challenges
-----------
+## Challenges
 
 1.  CH1 = Build forecasting AI Model using Notebooks or VS Code
 
@@ -55,14 +51,13 @@ Challenges
 
 5.  CH 5 = Create Forecast Visualizations and Reports using Power BI
 
-Prerequisites
--------------
+## Prerequisites
 
--   Azure subscription. If you do not have one, you can sign up for a [free
+-   Azure subscription. If you do not have one, you can sign up for a [free
     trial](https://azure.microsoft.com/en-us/free/).
 
--   Azure DevOps subscription. If you do not have one, you can sign up for
-    a [free account](https://azure.microsoft.com/en-us/services/devops/).
+-   Azure DevOps subscription. If you do not have one, you can sign up for a
+    [free account](https://azure.microsoft.com/en-us/services/devops/).
 
     -   Install [Azure DevOps Machine Learning
         extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
@@ -86,18 +81,18 @@ Prerequisites
 
 >   **Note**: You will need privileges to create projects on the DevOps account.
 >   Also, you need privileges to create Service Principal in the tenet. This
->   translates to **Ensure that the user has 'Owner' or 'User Access
+>   translates to **Ensure that the user has 'Owner' or 'User Access
 >   Administrator' permissions on the Subscription**.
 
-Repository Contents
--------------------
+## Repository Contents
 
-Contributors
-------------
+## Contributors
 
 -   Shiva Chittamuru
 
 -   Ahmed Sherif
+
+-   Phil Coachman
 
 -   Chris Kahrs
 
