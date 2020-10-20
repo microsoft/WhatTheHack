@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace TollBooth
             using (var stream = new MemoryStream())
             {
                 using (var textWriter = new StreamWriter(stream))
-                using (var csv = new CsvWriter(textWriter))
+                using (var csv = new CsvWriter(textWriter, CultureInfo.CurrentCulture))
                 {
                     csv.Configuration.Delimiter = ",";
                     csv.WriteRecords(licensePlates.Select(ToLicensePlateData));
