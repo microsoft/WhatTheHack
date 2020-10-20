@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TollBooth", "TollBooth\TollBooth.csproj", "{C685154D-E224-46AA-87BB-A87ED30B0121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadImages", "UploadImages\UploadImages.csproj", "{A7110625-77CF-45DD-920F-F35E8A4740BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadImagesCore", "UploadImagesCore\UploadImagesCore.csproj", "{632F2C3E-902E-48BD-9AD0-85C565201E8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A7110625-77CF-45DD-920F-F35E8A4740BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7110625-77CF-45DD-920F-F35E8A4740BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7110625-77CF-45DD-920F-F35E8A4740BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632F2C3E-902E-48BD-9AD0-85C565201E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632F2C3E-902E-48BD-9AD0-85C565201E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632F2C3E-902E-48BD-9AD0-85C565201E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632F2C3E-902E-48BD-9AD0-85C565201E8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
