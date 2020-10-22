@@ -41,15 +41,19 @@ get real business value.
 
 ## Challenges
 
-1.  CH1 = Build forecasting AI Model using Notebooks or VS Code
+1.  [Challenge 1 = Build forecasting AI Model using Notebooks or VS
+    Code](Student/01-TimeSeriesForecasting.md)
 
-2.  CH2 = Create a Build pipeline in Azure DevOps
+2.  [Challenge 2 = Create a Build pipeline in Azure
+    DevOps](Student/02-BuildPipeline.md)
 
-3.  CH 3 = Create a Release pipeline in Azure DevOps
+3.  [Challenge 3 = Create a Release pipeline in Azure
+    DevOps](Student/03-ReleasePipeline.md)
 
-4.  CH 4 = Retraining and Model Evaluation
+4.  [Challenge 4 = Retraining and Model
+    Evaluation](Student/04-RetrainingAndEvaluation.md)
 
-5.  CH 5 = Create Forecast Visualizations and Reports using Power BI
+5.  Challenge 5 = Create Forecast Visualizations and Reports using Power BI
 
 ## Prerequisites
 
