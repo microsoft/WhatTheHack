@@ -20,23 +20,23 @@ In the hack, your team will build the following usage scenarios:
 5. Build a Patient Search frontend web app to display patient records and a search function to lookup indexed patient record
 
 ## Challenges
-- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/challenge00.md)**
+- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
    - Prepare your workstation to work with Azure Functions, Azure Cosmos DB, Azure Search, Azure Event Hubs, and Azure App Services.
-- Challenge 1: **[Prepare your auto-generated FHIR data and FHIR Server](Student/challenge01.md)**
+- Challenge 1: **[Prepare your auto-generated FHIR data and FHIR Server](Student/Challenge01.md)**
    - Develop a serverless function to auto-generate FHIR-format patient data. Sample NodeJS code snippet to be provided.
    - Provision Azure API for FHIR service in Azure to be use for staging FHIR patient data.
-- Challenge 2: **[Load patient data into FHIR Server](Student/challenge02.md)**
+- Challenge 2: **[Load patient data into FHIR Server](Student/Challenge02.md)**
    - Provision Azure Cosmos DB
    - Develop a serverless function to get auto-generated patient data into FHIR Server.  Sample NodeJS code snippet to be provided.
-- Challenge 3: **[Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB](Student/challenge03.md)**
+- Challenge 3: **[Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB](Student/Challenge03.md)**
    - Provision Azure Event Hubs
    - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new patient event data arrives in Azure Event Hub
    - (Optional) Alternatively, use real-time event streaming service to get data into Azure Cosmos DB from Azure Event Hub.
-- Challenge 4: **[Build Patient Search API](Student/challenge04.md)**
+- Challenge 4: **[Build Patient Search API](Student/Challenge04.md)**
    - Provision Azure Search to create a patient search index on top of Azure Cosmos DB.
    - Expose Azure Search indexer via REST API for consumption in Patient Search Web App
    - Create Azure Functions as the frontend to call the Azure Search index API.
-- Challenge 5: **[Build a Patient Search web app to display patient records](Student/challenge05.md)**
+- Challenge 5: **[Build a Patient Search web app to display patient records](Student/Challenge05.md)**
    - Create web app, i.e. React, Java, etc., to display a list of patient data
    - Implement a search box to find a ptient record in Azure Cosmos DB by calling the Patient Search indexer API
 
