@@ -12,17 +12,17 @@ In this hack you will be building a Patient Search web app with a event-driven s
 4. Azure Search to index patient data stored in Azure Cosmos DB and expose an indexer API for consumption in a Web App.
 
 ## Scenario
-In the hack, your team will create the following:
-1. Create test patient records in FHIR format
-2. Populate patient records in FHIR Server
-3. Add event stream from the FHIR Server and push to Azure Event Hub, and then add a trigger to write to Azure Cosmos DB whenever new event arrives in Azure Event Hub
-4. Create Patient Search API to be consumed in a web app
-5. Build a Patient Search frontend web app to display patient records and a search function to lookup patient record
+In the hack, your team will build the following usage scenarios:
+1. Extract patient data from EHR system in FHIR-based format.  In this challenge you will auto-generate the test patient data programatically.
+2. Expose patient data via FHIR-based APIs and data model
+3. Build a NoSQL database backend to support patient search modern frontend web app 
+4. Build an event-driven architecture to stream patient data from FHIR Server to Cosmos DB
+5. Build a Patient Search frontend web app to display patient records and a search function to lookup indexed patient record
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/00-prereqs.md)**
    - Prepare your workstation to work with Azure Functions, Azure Cosmos DB, Azure Search, Azure Event Hubs, and Azure App Services.
-- Challenge 1: **[repare your auto-generated FHIR data and FHIR Server](Student/challenge01.md)**
+- Challenge 1: **[Prepare your auto-generated FHIR data and FHIR Server](Student/challenge01.md)**
    - Develop a serverless function to auto-generate FHIR-format patient data. Sample NodeJS code snippet to be provided.
    - Provision Azure API for FHIR service in Azure to be use for staging FHIR patient data.
 - Challenge 2: **[Load patient data into FHIR Server](Student/challenge02.md)**
@@ -33,7 +33,6 @@ In the hack, your team will create the following:
    - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new patient event data arrives in Azure Event Hub
    - (Optional) Alternatively, use real-time event streaming service to get data into Azure Cosmos DB from Azure Event Hub.
 - Challenge 4: **[Build Patient Search API](Student/challenge04.md)**
-4. Build Patient Search API
    - Provision Azure Search to create a patient search index on top of Azure Cosmos DB.
    - Expose Azure Search indexer via REST API for consumption in Patient Search Web App
    - Create Azure Functions as the frontend to call the Azure Search index API.
