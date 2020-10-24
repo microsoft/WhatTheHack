@@ -54,7 +54,7 @@ In the hack, your team will build the following usage scenarios:
 
 ## Repository Contents
 - `../Coach/Guides`
-  - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
+  - [Lecture presentation](Coach/Guides/Lectures.pptx) with short presentations to introduce each challenge.
 - `../Coach/Solutions`
    - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
