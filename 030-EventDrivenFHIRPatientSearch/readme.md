@@ -1,42 +1,44 @@
 # Event-driven FHIR Patient Search
 ## Introduction
-In the Event-driven FHIR Patient Search hack, you will be guided through a sequence of challenges to implement an event-driven Patient Search soluton that displays a paginated list of patients and a search box to lookup patient record.
+Contoso Healthcare Company currently uses FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Record (EHR) systems and HLS research databases.  To help its medical practitioners manage and lookup patient data, your team's assistance is needed in implementing a new event-driven architecture to automatically stream new patient data to a NoSQL Document database and a frontend web app to display a paginated list of patient search result dataset.  
 
-First, you will provision an instance of Azure API for FHIR and then deploy a serverless app in Azure Functions that auto-generates test patient records and store them in the FHIR Server.  You'll then deploy another Azure Function to retreive the patient data from the FHIR Server and insert them into Azure Event Hubs queue.  This event stream will trigger the execution of another Azure Function that will retrieve patient recrods in the queue and persist them in Azure Cosmos DB for consumption by the frontend Patient Search web app. 
-
+ 
 ## Learning Objectives
-In this hack you will be building a Patient Search web app with a event-driven serverless backend that triggers auto write of patient records to Azure Cosmos DB whenever new patient data is pushed to Azure Event Hub.  You will be using a combination of Azure managed services to perform the following:
-1. Azure API for FHIR as a centralized FHIR-based data store and populated it with the auto-generated test patient data in FHIR format.
-2. Azure Event Hubs event-driven architecture that stores the event stream of patient records from the FHIR Server.
-3. Azure Functions Event Hub trigger binding that triggers writes to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to Azure Event Hub queue..
-4. Azure Search to index patient data stored in Azure Cosmos DB and expose an indexer API for consumption in a Web App.
+In the Event-driven FHIR Patient Search hack, you will be guided through a sequence of challenges to implement an event-driven architecture to stream FHIR patient data to a NoSQL Document database, and build a patient search web app frontend to display a paginated list of patients and a search function to find and display a specific patient.
+In this hack you will build a Patient Search web app with a event-driven serverless backend that triggers auto write of patient records to NoSQL Document data store whenever new patient data is pushed to Azure Event Hub.  You will be guided through a sequence of challenges to extract, transform and load patient data, and a frontend web app to lookup a patient using the following Azure services:
+1. Azure API for FHIR as a centralized FHIR-based data management solution to extract HL7 FHIR Patient data from EHR systems.
+2. Azure Event Hubs event-driven architecture that handles the event stream of patient data from the FHIR Server.
+3. Azure Functions that triggers write to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to Azure Event Hub queue..
+4. Azure Search to index patient data persisted in Azure Cosmos DB and exposed the indexer as an API.
+5. Azure App Service to host a frontend web app to search for a patient by calling the indexer API and disploy the results in paginated web pages
 
 ## Scenario
-In the hack, your team will build the following usage scenarios:
-1. Extract patient data from EHR system in FHIR-based format.  In this challenge you will auto-generate the test patient data programatically.
-2. Expose patient data via FHIR-based APIs and data model
-3. Build a NoSQL database backend to support patient search modern frontend web app 
-4. Build an event-driven architecture to stream patient data from FHIR Server to Cosmos DB
-5. Build a Patient Search frontend web app to display patient records and a search function to lookup indexed patient record
+Contoso Healthcare Company is implementing a new event-driven architecture for streaming patient data from EHR systems to a common NoSQL document store, which will enable its medical practitioners to quickly lookup patient data.  Your team's assistance is needed to implement a new event-driven architecture to stream FHIR-based patient data to a NoSQL Document database and a frontend web app to display a paginated list of patient search result dataset.  
+
+Your team will assist in the build-out of the following scenarios:
+1. Extract patient data from EHR systems in FHIR-based standard format.
+2. Stream FHIR patient data to a modern NoSQL Document database to suppport a new patient search frontend web app.
+3. Index the patient data to enable quick patient lookup. 
+4. Provide a web frontend for medical practitioners and administrator to lookup a patient.
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
    - Prepare your workstation to work with Azure Functions, Azure Cosmos DB, Azure Search, Azure Event Hubs, and Azure App Services.
-- Challenge 1: **[Prepare your auto-generated FHIR data and FHIR Server](Student/Challenge01.md)**
+- Challenge 1: **[Extract patient data](Student/Challenge01.md)**
    - Develop a serverless function to auto-generate FHIR-format patient data. Sample NodeJS code snippet to be provided.
-   - Provision Azure API for FHIR service in Azure to be use for staging FHIR patient data.
-- Challenge 2: **[Load patient data into FHIR Server](Student/Challenge02.md)**
+   - Provision Azure API for FHIR service in Azure to ingest FHIR patient data.
+- Challenge 2: **[Transform and Load patient data into FHIR Server](Student/Challenge02.md)**
+   - Develop a serverless function to load patient data into FHIR Server.  Sample NodeJS code snippet to be provided.
    - Provision Azure Cosmos DB
-   - Develop a serverless function to get auto-generated patient data into FHIR Server.  Sample NodeJS code snippet to be provided.
-- Challenge 3: **[Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB](Student/Challenge03.md)**
+- Challenge 3: **[Stream patient data from FHIR Server to Azure Cosmos DB](Student/Challenge03.md)**
    - Provision Azure Event Hubs
    - Develop a serverless function to trigger auto write patient data to Azure Cosmos DB whenever new patient event data arrives in Azure Event Hub
    - (Optional) Alternatively, use real-time event streaming service to get data into Azure Cosmos DB from Azure Event Hub.
-- Challenge 4: **[Build Patient Search API](Student/Challenge04.md)**
+- Challenge 4: **[Index patient data for patient lookup](Student/Challenge04.md)**
    - Provision Azure Search to create a patient search index on top of Azure Cosmos DB.
    - Expose Azure Search indexer via REST API for consumption in Patient Search Web App
    - Create Azure Functions as the frontend to call the Azure Search index API.
-- Challenge 5: **[Build a Patient Search web app to display patient records](Student/Challenge05.md)**
+- Challenge 5: **[Display patient search results](Student/Challenge05.md)**
    - Create web app, i.e. React, Java, etc., to display a list of patient data
    - Implement a search box to find a ptient record in Azure Cosmos DB by calling the Patient Search indexer API
 
