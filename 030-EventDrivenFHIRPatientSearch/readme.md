@@ -20,7 +20,7 @@ In the hack, your team will build the following usage scenarios:
 5. Build a Patient Search frontend web app to display patient records and a search function to lookup indexed patient record
 
 ## Challenges
-- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/00-prereqs.md)**
+- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/challenge00.md)**
    - Prepare your workstation to work with Azure Functions, Azure Cosmos DB, Azure Search, Azure Event Hubs, and Azure App Services.
 - Challenge 1: **[Prepare your auto-generated FHIR data and FHIR Server](Student/challenge01.md)**
    - Develop a serverless function to auto-generate FHIR-format patient data. Sample NodeJS code snippet to be provided.
