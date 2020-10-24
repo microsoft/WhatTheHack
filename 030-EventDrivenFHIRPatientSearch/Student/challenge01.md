@@ -1,12 +1,8 @@
-# What The Hack - Challenge 1
-
-# Challenge \1 - \Prepare your auto-generated FHIR data and FHIR Server
+# Challenge 1: Prepare your auto-generated FHIR data and FHIR Server
 
 [< Previous Challenge](./Challenge00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge02.md)
 
-## Pre-requisites (Optional)
-
-## Introduction (Optional)
+## Introduction
 
 **Goal**
 Build a patient search react application with a serverless backend in 24 hours.
@@ -31,12 +27,3 @@ Build a patient search react application with a serverless backend in 24 hours.
 ## Learning Resources
 
 *List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
-
-## Tips (Optional)
-
-Hint: 
-
-## Advanced Challenges (Optional)
-
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
