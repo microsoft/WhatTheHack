@@ -6,7 +6,7 @@ Contoso Healthcare Company currently uses a FHIR-based data management solution 
 ## Learning Objectives
 In the Event-driven FHIR Patient Search hack, you will implement a new event-driven architecture to stream patient data stored in a FHIR Server to a NoSQL Document database, and build a patient search frontend to display a paginated list of patients from the search result dataset.
 
-You will be guided through a sequence of challenges to extract, transform and load patient data, and a search function frontend to lookup a patient using the following Azure services:
+You will be guided through a sequence of challenges to extract, transform and load, search patient data using the following Azure services:
 1. Azure API for FHIR as a centralized FHIR-based data management solution to extract HL7 FHIR Patient data from EHR systems.
 2. Azure Event Hubs event-driven architecture that handles the event stream of patient data from the FHIR Server.
 3. Azure Functions that triggers write to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to the Azure Event Hub queue.
