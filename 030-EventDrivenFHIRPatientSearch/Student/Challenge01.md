@@ -34,7 +34,7 @@ In this challenge, you will extract patient data from Electronic Health Record (
 
 ## Learning Resources
 
-*[Create Mock Data Server in Azure Function](https://medium.com/@hharan618/create-your-own-mock-data-server-in-azure-functions-7a93972fbfd1)*
-*[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)*
-*[Azure FHIR Importer Function](https://github.com/microsoft/fhir-server-samples/tree/master/src/FhirImporter)
-*[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)*
+**[Create Mock Data Server in Azure Function](https://medium.com/@hharan618/create-your-own-mock-data-server-in-azure-functions-7a93972fbfd1)**
+**[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**
+**[Azure FHIR Importer Function](https://github.com/microsoft/fhir-server-samples/tree/master/src/FhirImporter)**
+**[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
