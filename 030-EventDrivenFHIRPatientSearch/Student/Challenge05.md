@@ -1,16 +1,14 @@
-# Challenge 5: Build a Patient Search web app to display patient records
+# Challenge 5: Display patient search results
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** 
 
 ## Introduction
 
-**Goal**
-Build a patient search react application with a serverless backend in 24 hours.
-
+In this challenge, you will build a patient lookup frontend that displays the patient search results in pagenated web page(s).
 
 ## Description
 
-- Build a web app to access Patient records in pages of 10.
+- Build a web app to display Patient records in pages of 10.
 - Add a patient search box on the Patient web page leveraging Patient Search API.
 - (Optional) Include any other clever features that you want.
 - Deploy your web app to Azure App Services

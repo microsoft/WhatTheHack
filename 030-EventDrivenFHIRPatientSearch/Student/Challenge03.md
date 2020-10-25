@@ -1,11 +1,10 @@
-# Challenge 3: Deploy Event-driven architecture to read patient record from FHIR Server and store them in Azure Cosmos DB
+# Challenge 3: Stream patient data from FHIR Server to Azure Cosmos DB
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
 ## Introduction
 
-**Goal**
-Build a patient search react application with a serverless backend in 24 hours.
+In this challenge, you will implement an event-driven architecture for streaming patient data from the FHIR Server to Azure Cosmos DB.
 
 ## Description
 

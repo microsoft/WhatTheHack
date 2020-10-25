@@ -1,11 +1,10 @@
-# Challenge 4: Build Patient Search API
+# Challenge 4: Index patient data for patient lookup
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 
-**Goal**
-Build a patient search react application with a serverless backend in 24 hours.
+In this challenge, you will index the patient data stored in Azure Cosmos DB and expose an indexer API for patient lookup.
 
 ## Description
 
