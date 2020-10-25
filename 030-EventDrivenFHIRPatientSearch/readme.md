@@ -1,6 +1,6 @@
 # Event-driven FHIR Patient Search
 ## Introduction
-Contoso Healthcare Company currently uses FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Record (EHR) systems and HLS research databases.  To help its medical practitioners manage and lookup patient data, your team's assistance is needed in implementing a new event-driven architecture to automatically stream new patient data to a NoSQL Document database and a frontend web app to display a paginated list of patient search result dataset.  
+Contoso Healthcare Company currently uses a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Record (EHR) systems and HLS research databases.  To help its medical practitioners manage and lookup patient data, your team's assistance is needed in implementing a new event-driven architecture to automatically stream new patient data to a NoSQL Document database and a frontend web app to display a paginated list of patient search result dataset.  
 
  
 ## Learning Objectives
@@ -9,9 +9,9 @@ In the Event-driven FHIR Patient Search hack, you will implement a new event-dri
 You will be guided through a sequence of challenges to extract, transform and load patient data, and a search function frontend to lookup a patient using the following Azure services:
 1. Azure API for FHIR as a centralized FHIR-based data management solution to extract HL7 FHIR Patient data from EHR systems.
 2. Azure Event Hubs event-driven architecture that handles the event stream of patient data from the FHIR Server.
-3. Azure Functions that triggers write to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to Azure Event Hub queue..
+3. Azure Functions that triggers write to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to the Azure Event Hub queue.
 4. Azure Search to index patient data persisted in Azure Cosmos DB and exposed the indexer as an API.
-5. Azure App Service to host a frontend web app to search for a patient by calling the indexer API and disploy the results in paginated web pages
+5. Azure App Service to host a frontend web app to display a patient search data in a set of paginated web pages.
 
 ## Scenario
 Contoso Healthcare Company is implementing a new event-driven architecture for streaming patient data from EHR systems to a common NoSQL document store, which will enable its medical practitioners to quickly lookup patient data.  Your team's assistance is needed to implement a new event-driven architecture to stream FHIR-based patient data to a NoSQL Document database and a frontend web app to display a paginated list of patient search result dataset.  
