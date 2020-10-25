@@ -10,7 +10,7 @@ You will be guided through a sequence of challenges to extract, transform, load 
 1. Azure API for FHIR as a centralized FHIR-based data management solution to extract HL7 FHIR Patient data from EHR systems.
 2. Azure Event Hubs event-driven architecture that handles the event stream of patient data from the FHIR Server.
 3. Azure Functions that triggers write to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to the Azure Event Hub queue.
-4. Azure Search to index patient data persisted in Azure Cosmos DB and exposed the indexer as an API.
+4. Azure Search to index patient data persisted in Azure Cosmos DB for patient lookup.
 5. Azure App Service to host a frontend web app to display a patient search data in a set of paginated web pages.
 
 ## Scenario
