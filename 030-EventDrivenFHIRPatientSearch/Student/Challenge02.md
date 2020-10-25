@@ -1,11 +1,10 @@
-# Challenge 2: Load patient data into FHIR Server
+# Challenge 2: Stream FHIR Patient Data 
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 
 ## Introduction
 
-**Goal**
-Build a patient search react application with a serverless backend in 24 hours.
+In this challenge, you will stream FHIR Patient Data from the FHIR Server and for unit testing, load them directly into Azure Cosmos DB.
 
 ## Description
 
@@ -17,7 +16,8 @@ Build a patient search react application with a serverless backend in 24 hours.
     - Trigger your function manually for now
 
 ## Success Criteria
-- Produce dummy patient records in FHIR format and persist in FHIR Server.
+- Extract patient records from FHIR Server via API.
+- Unit testing: Load the extracted patient data directly to Azure Cosomos DB
 
 ## Learning Resources
 
