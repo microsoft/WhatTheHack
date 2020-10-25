@@ -19,10 +19,10 @@ In this challenge, you will extract patient data from Electronic Health Record (
                - In this sample deplyoment, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
 
 - Azure API for FHIR PaaS server:
-![Azure API for FHIR PaaS server:](../Resources/fhir-server-samples-paas.png)
+![Azure API for FHIR PaaS server:](./Resources/fhir-server-samples-paas.png)
 
 - open source FHIR Server for Azure:
-![open source FHIR Server for Azure:](../Resources/fhir-server-samples-oss.png)
+![open source FHIR Server for Azure:](./Resources/fhir-server-samples-oss.png)
    
 
 ## Success Criteria
