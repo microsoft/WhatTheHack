@@ -4,9 +4,9 @@ Contoso Healthcare Company currently uses a FHIR-based data management solution 
 
  
 ## Learning Objectives
-In the Event-driven FHIR Patient Search hack, you will implement a new event-driven architecture to stream patient data stored in a FHIR Server to a NoSQL Document database, and build a patient search frontend to display a paginated list of patients from the search result dataset.
+In the Event-driven FHIR Patient Search hack, you will implement a new event-driven architecture to stream patient data to a NoSQL Document database, and build a patient search frontend to display a paginated list of patient search results.
 
-You will be guided through a sequence of challenges to extract, transform and load, search patient data using the following Azure services:
+You will be guided through a sequence of challenges to extract, transform, load and search patient data using the following Azure services:
 1. Azure API for FHIR as a centralized FHIR-based data management solution to extract HL7 FHIR Patient data from EHR systems.
 2. Azure Event Hubs event-driven architecture that handles the event stream of patient data from the FHIR Server.
 3. Azure Functions that triggers write to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to the Azure Event Hub queue.
@@ -14,7 +14,7 @@ You will be guided through a sequence of challenges to extract, transform and lo
 5. Azure App Service to host a frontend web app to display a patient search data in a set of paginated web pages.
 
 ## Scenario
-Contoso Healthcare Company is implementing a new event-driven architecture for streaming patient data from EHR systems to a common NoSQL document store, which will enable its medical practitioners to quickly lookup patient data.  Your team's assistance is needed to implement a new event-driven architecture to stream FHIR-based patient data to a NoSQL Document database and a frontend web app to display a paginated list of patient search result dataset.  
+Contoso Healthcare Company is implementing a new event-driven architecture for streaming patient data from EHR systems to a common NoSQL document store, which will enable medical practitioners and administrators to quickly lookup patient data for daily patient operations and management.  Your team's assistance is needed to implement a new event-driven architecture to stream FHIR-based patient data to a NoSQL Document database and a new frontend web app to display a paginated list of patient search result dataset.  
 
 Your team will assist in the build-out of the following scenarios:
 1. Extract patient data from EHR systems in FHIR-based standard format.
