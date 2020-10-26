@@ -22,7 +22,7 @@ The simplest usage is to use the static factory method EventHubClient.createFrom
 
 - Send an event with partition key:
 
-...
+```
 const { EventHubClient, EventPosition } = require('@azure/event-hubs');
 
 const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
@@ -64,6 +64,6 @@ async function main() {
 main().catch((err) => {
   console.log(err);
 });
-...
+```
 
 - Deploy new Azure Function triggered by Event Hub pushing data to CosmosDB
