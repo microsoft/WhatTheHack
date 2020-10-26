@@ -29,7 +29,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
  ## Challenge 2: **[Stream FHIR patient data and unit testing](Challenge02.md)**
 - Run the data read application to read patient records in the FHIR Server
 - For unit testing, extract FHIR patient data from FHIR Server and load them into Azure Cosmos DB (Unit Test container)
-- When finish reading and loading data, make sure there at least 10,000 patient records are stored in Azure Cosmos DB
+- When finish reading and loading data, make sure there at least 10,000 patient records stored in Azure Cosmos DB
 
 ## Challenge 3: **[Stream patient data with event-driven architecture](Challenge03.md)**
 - Deploy Azure Event Hubs instance and configure partition to receive event stream of patient data from FHIR Server
