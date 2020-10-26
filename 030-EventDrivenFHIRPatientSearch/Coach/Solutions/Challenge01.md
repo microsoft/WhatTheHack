@@ -20,7 +20,7 @@
         Note: Need to update azuredeploy.parameters.json file to use all lower case name value, i.e. "myserver".
         - Monitor deployment progress from "Deployments" blade of the resource gorup
 
-## Option 1: Auto generate test FHIR patient data via serverless function
+## FHIR patient API Option: Auto generate test FHIR patient data via serverless function
 ### Configure the node.js data generation app
 - We’ll be adding a new configuration section to the “config.json” file.
 - Copy and paste one of the pre-existing environments and change values that are different from the “default” configuration. Typically, these values include:
@@ -72,7 +72,7 @@
 
 We’re now finished, make sure there at least 10,000 patient records in the server before starting the next challenge.
 
-## Option 2: Auto generate FHIR patient data via SyntheaTM Patient Generator
+## Bulk Load Option: Auto generate FHIR patient data via SyntheaTM Patient Generator
 
 ### **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 - SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.
