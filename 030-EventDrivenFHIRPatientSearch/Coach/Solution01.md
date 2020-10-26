@@ -16,17 +16,17 @@
     - Create resource group in "NorthCentralUS" (supported region for FHIR service preview)
         - Run `$ az group create --name myRG --location northcentralus`
     - Run the template and use the "objectId" from above,
-        - Run `$ az group deployment create --template-file azuredeploy.json --parameters azuredeploy.parameters.json --parameters accessPolicyObjectId={objectId of SP} -g Athena-Hack --no-wait`
-        Note: Need to update azuredeploy.parameters.json file to use all lower case name value, i.e. "myserver".
+        - Run `$ az group deployment create --template-file azuredeploy.json --parameters azuredeploy.parameters.json --parameters accessPolicyObjectId={objectId of SP} -g WTH-FHIR --no-wait`
+        - Note: Need to update azuredeploy.parameters.json file to use all lower case name value, i.e. "myserver".
         - Monitor deployment progress from "Deployments" blade of the resource gorup
 
 ## API Load Option: Auto generate test FHIR patient data via serverless function
 ### Configure the node.js data generation app
 - We’ll be adding a new configuration section to the “config.json” file.
 - Copy and paste one of the pre-existing environments and change values that are different from the “default” configuration. Typically, these values include:
-    - “tenant”: The Azure AD tenant in which you created the service principal above > microsoft.onmicrosoft.com , tenant id: 72f988bf-86f1-41af-91ab-2d7cd011db47
-    - “applicationId”: The “appId” value we saved during the creation of the service principal. > e8105de9-72f7-46ef-b787-e2be47a325d0
-    - “clientSecret”: The “password” value we saved during the creation of the service principal. > 766268ed-a688-43f5-a0ff-d6ad24f27a74
+    - “tenant”: The Azure AD tenant in which you created the service principal above > microsoft.onmicrosoft.com , tenant id: {your tenant id}
+    - “applicationId”: The “appId” value we saved during the creation of the service principal.
+    - “clientSecret”: The “password” value we saved during the creation of the service principal.
 - “fhirApiUrl”: The URL to the FHIR service created above. You can find this on the Overview blade of the Azure API for FHIR resource under FHIR metadata endpoint or go to https://{yourfhirserverurl}/metadata
 
 ### (Optional) Setup Postman to access FHIR API
@@ -68,9 +68,8 @@
     - Run `$ node datagen.js`
 - Test datagen.js app to make sure new patient records can be read
     - Run `$ node dataread.js`
-    Note: These recrods are read in pages of 100 at a time
-
-We’re now finished, make sure there at least 10,000 patient records in the server before starting the next challenge.
+    - Note: These recrods are read in pages of 100 at a time
+- We’re now finished, make sure there at least 10,000 patient records in the server before starting the next challenge.
 
 ## Bulk Load Option: Auto generate FHIR patient data via SyntheaTM Patient Generator
 
