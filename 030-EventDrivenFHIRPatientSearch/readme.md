@@ -28,10 +28,10 @@ Your team's assistance is needed to implement this new event-driven ecosystem to
 - Challenge 1: **[Extract, transform and load patient data](Student/Challenge01.md)**
    - Deploy Azure API for FHIR service in Azure to ingest/transform patient data into FHIR-based standard format.
    - Auto-generate FHIR-format patient data and load them into the FHIR Server. 
-      - API Load: 
+      - FHIR patient API load: 
          - Generate mock FHIR patient data in a serverless function one at a time 
          - Call a FHIR patient API to load them into FHIR Server.
-      - Bulk ingestion: 
+      - Bulk Ingestion: 
          - Implement the SyntheaTM Patient Generator tool to simulate patient data 
          - Copy the patient bundles generated to a Blob storage container called 'fhirimport'
          - Bulk ingestion to FHIR Server will be performed by Azure Function deployed by **[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**.
