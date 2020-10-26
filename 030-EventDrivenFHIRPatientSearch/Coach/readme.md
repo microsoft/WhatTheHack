@@ -1,4 +1,4 @@
-# What The Hack - Event-driven FHIR Patient Search
+# Event-driven FHIR Patient Search
 
 # Introduction
 Welcome to the coach's guide for the Event-driven FHIR Patient Search What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
