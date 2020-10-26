@@ -1,51 +1,61 @@
-# What The Hack - Azure Arc for Kubernetes Hack
+# Event-driven FHIR Patient Search
+## Introduction
+Contoso Healthcare Company currently uses a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Record (EHR) systems and HLS research databases.  To help its medical practitioners/administrators manage and lookup patient data for day-to-day operations, your team's assistance is needed in implementing a new event-driven architecture to aggregate patient data from various EHR systems into FHIR-based standard format and persist to a consolidated database backend.  You will develope a new frontend web app to display a paginated list of patient search results to support a new Patient Lookup capability.  
 
-# Introduction
- ![](./img/image2.png)
-For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, [Azure Arc](https://azure.microsoft.com/en-us/services/azure-arc/) enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
-
-* **Organize and govern across environments**. Get databases, Kubernetes clusters, and servers sprawling across on-premises, edge and multi-cloud environments under control by centrally organizing and governing from a single place.
-
-* **Manage Kubernetes Apps at scale**. Deploy and manage Kubernetes applications across environments using DevOps techniques. Ensure that applications are deployed and configured from source control consistently.
-
- ![](./img/image1.png)
-The goal of this challenge based hack is to distill the skills required to deploy managed Kubernetes service in competitive clouds and have it be Arc enabled and managed. The management of Arc enabled Kubernetes clusters deployed on competitive platforms is going to be highlighted by conducting day two scenarios such as GitOps, and inventory management.
-
+ 
 ## Learning Objectives
+In the Event-driven FHIR Patient Search hack, you will implement a new event-driven architecture in Azure for streaming patient data and persist them to an aggregated patient data store for patient lookup.  You will build a frontend to lookup patients and display the patient search result in a paginated list of patients.
 
-This hack will help you learn:
+To get you started, you will be guided through a sequence of challenges to extract, transform, load and search patient data using the following Azure managed services (PaaS):
+1. Azure API for FHIR as a centralized FHIR-based data management solution to ingest/transform HL7 FHIR Patient data from EHR systems.
+2. Azure Event Hubs for Apache Kafka event-driven architecture that handles data streaming/ingestion of patient data from the FHIR Server.
+3. Azure Functions as the event trigger mechanism to auto write patient data to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to the Azure Event Hubs partition(s).
+4. Azure Search to index patient data persisted in Azure Cosmos DB to optimize patient lookup.
+5. Azure App Service to host the frontend web app to lookup patients and display the patient search results in a set of paginated web pages.
 
-1. How to deploy Kubernetes in competitive platforms
-2. Onboard Kubernetes clusters onto Azure Arc
-3. Inventory manage Arc enabled K8s clusters
-4. Learn day two operational scenarios such as:
-	* Enabling Monitoring and setup alerts
-	* Enable GitOps on remote K8s clusters
-	* Enable Azure Policy on remote K8s clusters
-	* Manage clusters via Azure Policy
+## Scenario
+Contoso Healthcare Company is implementing a new event-driven architecture for ingest and transform patient data from EHR systems into a FHIR-based standard format and stream them to an aggregated data store, and a new patient lookup frontend to enable medical practitioners and administrators to quickly lookup patients.  This new patient lookup function will provide quick access to patient data for day-to-day operations and management of the medical professionals.  
+
+Your team's assistance is needed to implement this new event-driven ecosystem to build-out the following scenarios:
+1. Extract patient data from EHR systems and transform them into a common FHIR-based standard format.
+2. Stream these aggregated FHIR patient data into a common data store to suppport a new patient search frontend.
+3. Optimize the persisted patient data to enable faster patient lookup through a web/mobile frontend. 
+4. Expose patient lookup function through a web or mobile frontend for medical practitioners and administrator to easily and quickly lookup a patient.
 
 ## Challenges
- - [Challenge 0](./Student/challenge00.md) - Setup (Pre-day)
- - [Challenge 1](./Student/challenge01.md) - Deploy Kubernetes cluster on GCP
- - [Challenge 2](./Student/challenge02.md) - Deploy Kubernetes cluster locally
- - [Challenge 3](./Student/challenge03.md) - Onboard clusters onto Azure Arc
- - [Challenge 4](./Student/challenge04.md) - Enable Monitoring and Alerting
- - [Challenge 5](./Student/challenge05.md) - Enable GitOps
- - [Challenge 6](./Student/challenge06.md) - Enable Azure Policy
- - [Challenge 7](./Student/challenge07.md) - Manage remote cluster via Azure Policy
- 
+- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
+- Challenge 1: **[Extract, transform and load patient data](Student/Challenge01.md)**
+- Challenge 2: **[Stream FHIR patient data and unit testing](Student/Challenge02.md)**
+- Challenge 3: **[Stream patient data with event-driven architecture](Student/Challenge03.md)**
+- Challenge 4: **[Index patient data for patient lookup](Student/Challenge04.md)**
+- Challenge 5: **[Display patient search results](Student/Challenge05.md)**
 
 ## Prerequisites
-The prerequisites for the hack are covered in [challenge 0](./Student/challenge00.md).
+- Access to an Azure subscription with Owner access
+   - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+- [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+   - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
+   - Update to the latest
+   - Must be at least version 2.7.x
+- Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
+- [**Visual Studio Code**](https://code.visualstudio.com/)
+- [**Node Module Extension**](https://code.visualstudio.com/docs/nodejs/extensions)
 
-## Repository Contents (Optional)
+## Repository Contents
 - `../Student`
   - Student Challenge Guides
 - `../Student/Resources`
   - Student's resource files, code, and templates to aid with challenges
+- `../Coach`
+   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+- `../Coach/Guides`
+  - [Lecture presentation](Coach/Guides/Lectures.pptx) with short presentations to introduce each challenge.
 
 ## Contributors
-- Dale Kirby
-- Lior Karmat
-- Ali Hussain
-- Laura Nicolas 
+- Richard Liang (Microsoft)
+- Peter Laudati (Microsoft)
+- Gino Filicetti (Microsoft)
+- Brett Philips (athenahealth)
+
+
