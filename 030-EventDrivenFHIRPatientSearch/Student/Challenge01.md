@@ -13,7 +13,7 @@ In this challenge, you will extract patient data from Electronic Health Record (
       - Option1: Develop a serverless function to auto-generate test FHIR patient data and load them into FHIR Server one at a time. Note: Sample NodeJS code snippet to be provided.
       - Option 2: Use open source SyntheaTM Patient Generator to auto-generate FHIR patient data.
          -  **Note: [SyntheaTM](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read the [Synthea wiki](https://github.com/synthetichealth/synthea/wiki) for more information.
-         - **Hint:**
+         - **Hints:**
             - Follow the [Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start) to install, configure and gerenate simulated patient data in FHIR standard format.
             - Follow the [FHIR Server for Bulk Load](https://github.com/microsoft/fhir-server-samples) deployment sample (depicted below) to ingest Synthea generated patient bundle into FHIR Server.      
                - In this sample deplyoment, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
@@ -32,7 +32,7 @@ In this challenge, you will extract patient data from Electronic Health Record (
 
 ## Learning Resources
 
-**[Create Mock Data Server in Azure Function](https://medium.com/@hharan618/create-your-own-mock-data-server-in-azure-functions-7a93972fbfd1)**
-**[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**
-**[Azure FHIR Importer Function](https://github.com/microsoft/fhir-server-samples/tree/master/src/FhirImporter)**
-**[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
+- **[Create Mock Data Server in Azure Function](https://medium.com/@hharan618/create-your-own-mock-data-server-in-azure-functions-7a93972fbfd1)**
+- **[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**
+- **[Azure FHIR Importer Function](https://github.com/microsoft/fhir-server-samples/tree/master/src/FhirImporter)**
+- **[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
