@@ -4,7 +4,8 @@
 
 ## Introduction
 
-In this challenge, you will extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  Note: For this hack, you will auto-generate test FHIR patient data and load them to the FHIR Server.
+In this challenge, you will extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  
+Note: For this hack, you will auto-generate test FHIR patient data.
 
 ## Description
 
