@@ -1,21 +1,19 @@
-Challenge 3 – Create a Release Pipeline In Azure DevOps
-=======================================================
+# Challenge 3 – Create a Release Pipeline In Azure DevOps
 
-Prerequisites
--------------
+## Prerequisites
 
-1.  Challenge 2 – Create a Build Pipeline should be done successfully.
+1.  [Challenge 2 – Create a Build Pipeline should be done
+    successfully.](02-BuildPipeline.md)
 
 2.  Build artifact ready to be used in the Release pipeline.
 
-Introduction
-------------
+## Introduction
 
 The Release pipeline demonstrates the automation of various stages/tasks
 involved in deploying an ML model and operationalizing the model in production.
 The stages generally constitute collecting the Build Artifacts, creating a web
 service and testing the web service. This web service that gets created in the
-Release Pipleline is a REST endpoint (a Scoring URI) used to predict/forecast on
+Release Pipeline is a REST endpoint (a Scoring URI) used to predict/forecast on
 a new dataset. Additionally, it can be plugged into business applications to
 leverage the intelligence of the model.
 
@@ -31,22 +29,21 @@ get started on MLOps, so we recommend that.
 
 We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
 pipeline shows how to operationalize the scoring image and promote it safely
-across different environments. 
+across different environments.
 
-Success Criteria
-----------------
+## Success Criteria
 
 1.  An end-to-end Release pipeline created from an empty job (from scratch)
     using the classic editor (without YAML) in Azure DevOps
 
 2.  A “healthy” ACI deployment is created under Azure ML Endpoints
 
-Basic Hackflow
---------------
+## Basic Hackflow
 
 1.  Create a Release pipeline with an empty Job
 
-2.  Add Build Artifact that you created in the previous challenge
+2.  Add Build Artifact that you created in the [previous
+    challenge](02-BuildPipeline.md)
 
 3.  Setup Agent Job
 
@@ -67,12 +64,10 @@ Basic Hackflow
     4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
         file used in the Inline Script
 
-Hints
------
+## Hints
 
-Learning resources
-------------------
+## Learning resources
 
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-Next challenge – Retraining and Model Evaluation
+[Next challenge – Retraining and Model Evaluation](03-ReleasePipeline.md)

@@ -1,13 +1,11 @@
-Challenge 4 – Retraining and Model Evaluation
-=============================================
+# Challenge 4 – Retraining and Model Evaluation
 
-Prerequisites
--------------
+## Prerequisites
 
-1.  Challenge\#3 (Create a Release Pipeline) should be done successfully
+1.  [Challenge\#3 (Create a Release Pipeline)](03-ReleasePipeline.md) should be
+    done successfully
 
-Description
------------
+## Description
 
 When the new data deviates from the original trained data that the model was
 trained model, the model performance deteriorates. This concept, known as model
@@ -21,8 +19,7 @@ compares the new model with the existing model. Only when the new model is
 better does it get promoted. Otherwise, the model is not registered with the
 Azure ML Model Registry.
 
-Success criteria
-----------------
+## Success criteria
 
 1.  A retrained model (with better performance) is created and registered with
     Azure ML Model Registry
@@ -32,8 +29,7 @@ Success criteria
 3.  A “healthy” ACI deployment for your retrained model is created under Azure
     ML Endpoints
 
-Basic Hackflow
---------------
+## Basic Hackflow
 
 1.  To retrain your model, update the training code with new data
 
@@ -52,14 +48,12 @@ Basic Hackflow
     than the previous model, then a new webservice is created for your retrained
     model.
 
-4.  Review artifacts and outputs from Build and Release pipelinesss
+4.  Review artifacts and outputs from Build and Release pipelines
 
-Hints
------
+## Hints
 
-Learning resources
-------------------
+## Learning resources
 
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-Next challenge – Create Reports using Power BI
+[Next challenge – Monitor Data Drift for your Model](05-MonitorDataDrift.md)

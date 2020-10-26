@@ -2,15 +2,17 @@
 
 ## Prerequisites
 
-All prerequisites from the README file.
+All prerequisites from the [README file](../README.md).
 
 ## Introduction
 
 The objective of challenge is to forecast the daily transactions using time
-series ARIMA modelling. It includes processing the transactions data from
-Adventure Works database, analyzing it, creating and registering an ARIMA model,
-and finally deploying the model to an ACI instance. This entire lifecycle is
-done using Azure ML Python SDK.
+series
+[ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+modelling. It includes processing the transactions data from Adventure Works
+database, analyzing it, creating and registering an ARIMA model, and finally
+deploying the model to an ACI instance. This entire lifecycle is done using
+Azure ML Python SDK.
 
 Time series is a series of data points collected or indexed in time order at
 regular time points. It is a sequence taken at successive equally spaced time
@@ -78,4 +80,4 @@ most common and prevalent tasks in Machine Learning.
 
 ## Learning resources
 
-Next Challenge – Create a Build Pipeline in Azure DevOps
+[Next Challenge – Create a Build Pipeline in Azure DevOps](02-BuildPipeline.md)
