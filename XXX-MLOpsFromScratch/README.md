@@ -53,7 +53,7 @@ get real business value.
 4.  [Challenge 4 = Retraining and Model
     Evaluation](Student/04-RetrainingAndEvaluation.md)
 
-5.  Challenge 5 = Create Forecast Visualizations and Reports using Power BI
+5.  Challenge 5 (Optional) = Monitor Data Drift for your Model
 
 ## Prerequisites
 
