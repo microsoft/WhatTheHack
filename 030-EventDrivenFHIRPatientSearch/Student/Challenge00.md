@@ -16,7 +16,7 @@ Build a patient search web app frontend application with a serverless event-driv
 **Install the recommended tool set:** 
 - Windows Subsystem for Linux
 - Visual Studio Code
-- Visual Studio Code for Node.js, Azure Functions, Azure Cosmos DB, Azure Event Hubs, etc.
+- Visual Studio Code extensions for Node.js, Azure Functions, etc.
 - Azure CLI:
     - Update to the latest
     - Must be at least version 2.0.42
