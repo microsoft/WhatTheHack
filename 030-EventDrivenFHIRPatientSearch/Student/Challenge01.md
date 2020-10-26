@@ -9,11 +9,12 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 
 ## Description
 
-   - Deploy Azure API for FHIR service in Azure for data ingestion of FHIR patient data
+   - Deploy Azure API for FHIR service for data ingestion of FHIR patient data
    - Auto-generate test patient data in FHIR-based standard format
-      - Option1: Develop a serverless function to auto-generate test FHIR patient data and load them into FHIR Server one at a time. 
+      - API Load: Develop a serverless function to auto-generate test FHIR patient data and call a FHIR API to load them into FHIR Server one at a time. 
          - Note: Sample NodeJS code snippet to be provided.
-      - Option 2: Use open source SyntheaTM Patient Generator to auto-generate FHIR patient data.
+      - Bulk Load: Ingest FHIR patient data into a BLOB container called fhirimport and a bulk ingestion will be perform by an Azure Function to load them into FHIR Server.
+         - Implement open source SyntheaTM Patient Generator tool to auto-generate simulated FHIR patient data.
          -  **Note: [SyntheaTM](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read the [Synthea wiki](https://github.com/synthetichealth/synthea/wiki) for more information.
          - **Hints:**
             - Follow the [Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start) to install, configure and gerenate simulated patient data in FHIR standard format.
@@ -26,9 +27,9 @@ Note: For this hack, you will auto-generate test FHIR patient data.
   
 ## Success Criteria
 
-   - Standup Azure API for FHIR managed service in Azure.
+   - Standup Azure API for FHIR samples architecture in Azure.
    - Auto generate mock/simulated patient data in FHIR-based format.
-   - Ingest FHIR patient data into the FHIR Server.
+   - Ingest FHIR patient data into the FHIR Server via API call or bulk ingestion.
 
 ## Learning Resources
 
