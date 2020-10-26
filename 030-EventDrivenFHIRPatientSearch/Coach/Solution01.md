@@ -10,8 +10,8 @@
     - Copy "appid" and "password" from output for use later
     - Find "objectid" of this new Service Principal
         - Run `$ az ad sp show --id {appId of the new SP} -o json | jq -r . objectId`
-        Note: You need to install jq on Windows beforehand - run in PowerShell https://chocolatey.org/packages/jq, 
-        i.e. Run `$ choco install jq`
+        - Note: You need to install jq on Windows beforehand, run in PowerShell https://chocolatey.org/packages/jq, 
+         - i.e. Run `$ choco install jq`
 - Deploy ARM template for the new FHIR service
     - Create resource group in "NorthCentralUS" (supported region for FHIR service preview)
         - Run `$ az group create --name myRG --location northcentralus`
