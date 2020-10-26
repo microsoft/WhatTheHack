@@ -14,18 +14,20 @@
         - Open your favorite terminal.
         - Locate the folder or directory where you'd like to save your Node.js application.
         - Create two empty JavaScript files with the following commands in Windows:
-            - $ fsutil file createnew app.js 0
-            - $ fsutil file createnew config.js 0
+            - `$ fsutil file createnew app.js 0`
+            - `$ fsutil file createnew config.js 0`
         - Create and initialize a package.json file if not already exist, using the following command:
-            - $ npm init -y
+            - `$ npm init -y`
         - Install the @azure/cosmos module via npm, usig the following command:
-            - npm install @azure/cosmos --save
+            - `$ npm install @azure/cosmos --save`
 - Set your app's configurations, update config.js:
+    ```
     // ADD THIS PART TO YOUR CODE
     var config = {}
 
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
+    ```
 - Create Azure Functions for your app
     - Click 'Functions' icon in VS Code Azure Function Explorer
     - Choose and name HTTP Trigger
