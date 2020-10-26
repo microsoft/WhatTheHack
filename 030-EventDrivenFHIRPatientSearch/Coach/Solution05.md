@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 5 - Display patient search results
 
-[< Previous Challenge](./Solution04.md) - **[Home](../readme.md)**
+[< Previous Challenge](./Solution04.md) - **[Home](./readme.md)**
 
 # Notes & Guidance
 

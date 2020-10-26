@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 4 - Index patient data for patient lookup
 
-[< Previous Challenge](./Solution03.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution05.md)
+[< Previous Challenge](./Solution03.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution05.md)
 
 # Notes & Guidance
 

@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 1 - Extract, transform and load patient data
 
-[< Previous Challenge](./Solution00.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution02.md)
+[< Previous Challenge](./Solution00.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution02.md)
 
 # Notes & Guidance
 
