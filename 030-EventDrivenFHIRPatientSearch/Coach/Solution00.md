@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 0 - Pre-requisites - Ready, Set, GO!
 
-**[Home](../readme.md)** - [Next Challenge>](./Solution01.md)
+**[Home](./readme.md)** - [Next Challenge>](./Solution01.md)
 
 # Notes & Guidance
 ## Pre-requiste: Lab Environment Setup

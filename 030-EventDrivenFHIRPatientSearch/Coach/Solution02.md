@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 2 - Stream patient data and unit testing
 
-[< Previous Challenge](./Solution01.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution03.md)
+[< Previous Challenge](./Solution01.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution03.md)
 
 # Notes & Guidance
 
