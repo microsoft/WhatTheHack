@@ -27,8 +27,14 @@ Your team's assistance is needed to implement this new event-driven ecosystem to
    - Prepare your workstation to work with Azure Functions, Azure Cosmos DB, Azure Search, Azure Event Hubs, and Azure App Services.
 - Challenge 1: **[Extract, transform and load patient data](Student/Challenge01.md)**
    - Deploy Azure API for FHIR service in Azure to ingest/transform patient data into FHIR-based standard format.
-   - For unit testing, you will auto-generate FHIR-format patient data and load them into the FHIR Server. 
-      - You can generate test FHIR patient data in a serverless function by either create mock patient data one at a time or bulk ingest simulated Synthea patient data via fhirimport in which patient bundles generated with Synthea are dumped into a Blob storage container and ingested into the FHIR server in bulk.
+   - Auto-generate FHIR-format patient data and load them into the FHIR Server. 
+      - API Load: 
+         - Generate mock FHIR patient data in a serverless function one at a time 
+         - Call a FHIR patient API to load them into FHIR Server.
+      - Bulk ingestion: 
+         - Implement the SyntheaTM Patient Generator tool to simulate patient data 
+         - Copy the patient bundles generated to a Blob storage container called 'fhirimport'
+         - Bulk ingestion to FHIR Server will be performed by Azure Function deployed by **[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**.
 - Challenge 2: **[Stream FHIR patient data and unit testing](Student/Challenge02.md)**
    - Deploy Azure Cosmos DB and create a container for unit testing
    - Develop a serverless function to read patient data from FHIR Server and push them to Azure Cosmos DB container for unit testing .  Note: Sample NodeJS code snippet to be provided.
