@@ -24,31 +24,11 @@ Your team's assistance is needed to implement this new event-driven ecosystem to
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-   - Prepare your workstation to work with Azure Functions, Azure Cosmos DB, Azure Search, Azure Event Hubs, and Azure App Services.
 - Challenge 1: **[Extract, transform and load patient data](Student/Challenge01.md)**
-   - Deploy Azure API for FHIR service in Azure to ingest/transform patient data into FHIR-based standard format.
-   - Auto-generate FHIR-format patient data and load them into the FHIR Server. 
-      - API Load: 
-         - Generate mock FHIR patient data in a serverless function one at a time 
-         - Call a FHIR patient API to load them into FHIR Server.
-      - Bulk Load: 
-         - Implement the SyntheaTM Patient Generator tool to simulate patient data 
-         - Copy the patient bundles generated to a Blob storage container called 'fhirimport'
-         - Bulk ingestion to FHIR Server will be performed by Azure Function deployed by **[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**.
 - Challenge 2: **[Stream FHIR patient data and unit testing](Student/Challenge02.md)**
-   - Deploy Azure Cosmos DB and create a container for unit testing
-   - Develop a serverless function to read patient data from FHIR Server and push them to Azure Cosmos DB container for unit testing .  Note: Sample NodeJS code snippet to be provided.
 - Challenge 3: **[Stream patient data with event-driven architecture](Student/Challenge03.md)**
-   - Deploy Azure Event Hubs and configure partition(s) to receive event stream of patient data from FHIR Server
-   - Develop a serverless function to trigger auto write of patient data to Azure Cosmos DB whenever new event with patient data arrives in the Azure Event Hubs partition.
-   - (Optional) Alternatively, use real-time event streaming service to get data into Azure Cosmos DB from Azure Event Hub.  Note: tTis is a low code option.
 - Challenge 4: **[Index patient data for patient lookup](Student/Challenge04.md)**
-   - Deploy Azure Search to create a patient search index on top of Azure Cosmos DB.
-   - Expose Azure Search indexer via REST API to be called by the lookup function in the patient search frontend web app.
-   - Create Azure Functions HTTP trigger as the interface to call the Azure Search index API.
 - Challenge 5: **[Display patient search results](Student/Challenge05.md)**
-   - Create web app, i.e. React, Java, etc., to display a pagineated list of patient(s)
-   - Implement a patient lookup function to search for patient(s) by calling the Patient Search indexer API
 
 ## Prerequisites
 - Access to an Azure subscription with Owner access
@@ -74,6 +54,6 @@ Your team's assistance is needed to implement this new event-driven ecosystem to
 - Richard Liang (Microsoft)
 - Peter Laudati (Microsoft)
 - Gino Filicetti (Microsoft)
-- Brett Philips (Athena Health)
+- Brett Philips (athenahealth)
 
 
