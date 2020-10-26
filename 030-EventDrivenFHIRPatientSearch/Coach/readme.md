@@ -36,7 +36,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Update serverless function to read data from FHIR Server and write to Azure Event Hubs
 - Alternatively, setup Azure Stream Analytics job with query to select input from FHIR Server and output to Azure Cosmos DB 
 
-## Challenge 4: **[Index patient data for patient lookup]Challenge04.md)**
+## Challenge 4: **[Index patient data for patient lookup](Challenge04.md)**
 - Deploy Azure Cognitive Search and integrate Azure Cosmos DB with Azure Cognitive Search
 - Setup index attributes to create indexer 
 - Create the indexer for patient data stored in Azure Cosmos DB
@@ -47,5 +47,5 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Build a web-app for your patient search API to lookup a patient
    - Your app should display patient records in pages of 10
    - Your app should include a search box that calls the indexer API
-   - Include any other clever UI features to improve the user experience.
+   - Include any other clever UI features to improve the user experience
 - Deploy your web-app to Azure App Services
