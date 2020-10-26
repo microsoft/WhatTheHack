@@ -7,7 +7,9 @@
 ## Deploy Azure Event Hubs
 - **[Quickstart: Deploy Azure Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-event-hubs-create-event-hub-and-consumer-group/)**
 - Install @azure/event-hubs npm module, run:
-    - $ npm install @azure/event-hubs
+    `
+    $ npm install @azure/event-hubs
+    `
 
 
 ## Update Azure Function to read from FHIR server and drop to Eventhub
