@@ -16,19 +16,19 @@ In this challenge, you will extract patient data from Electronic Health Record (
          - **Hints:**
             - Follow the [Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start) to install, configure and gerenate simulated patient data in FHIR standard format.
             - Follow the [FHIR Server for Bulk Load](https://github.com/microsoft/fhir-server-samples) deployment sample (depicted below) to ingest Synthea generated patient bundle into FHIR Server.      
-               - In this sample deplyoment, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
+            - In this sample deplyoment, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
 
-- Azure API for FHIR PaaS server:
-![Azure API for FHIR PaaS server:](./Resources/fhir-server-samples-paas.png)
+         - Azure API for FHIR PaaS server:
+         ![Azure API for FHIR PaaS server:](./Resources/fhir-server-samples-paas.png)
 
-- open source FHIR Server for Azure:
-![open source FHIR Server for Azure:](./Resources/fhir-server-samples-oss.png)
+         - open source FHIR Server for Azure:
+         ![open source FHIR Server for Azure:](./Resources/fhir-server-samples-oss.png)
    
 ## Success Criteria
 
    - Standup Azure API for FHIR managed service in Azure.
-   - Auto generated test patient data in FHIR-based format.
-   - Load FHIR patient data into the FHIR Server.
+   - Auto generate mock/simulated patient data in FHIR-based format.
+   - Ingest FHIR patient data into the FHIR Server.
 
 ## Learning Resources
 
