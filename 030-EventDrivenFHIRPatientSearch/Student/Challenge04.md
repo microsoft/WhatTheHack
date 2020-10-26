@@ -10,12 +10,12 @@ In this challenge, you will index the patient data stored in Azure Cosmos DB and
 
 - Deploy Azure Cognitive Search service to index Azure Cosmos DB patient data
 - Configure Azure Cosmos DB indexer to crawl patient data and make it searchable in Azure Cognitive Search 
-- Add search capability is through a REST API with operation that implement search features, execute queries and handle results.
-- Build Serverless REST API in Azure Functions – HTTP Activation
+- Add search capability through REST API operations
+- Build Serverless REST API in Azure Functions with HTTP Activation
 
 ## Success Criteria
 - Create search indexer on-top of Patient dataset stored in Azure Cosmos DB.
-- Expose Patient search indexer via REST API.
+- Expose Patient search indexer REST API.
 
 ## Learning Resources
 
