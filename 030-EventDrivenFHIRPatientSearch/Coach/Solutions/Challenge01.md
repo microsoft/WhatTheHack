@@ -20,7 +20,7 @@
         Note: Need to update azuredeploy.parameters.json file to use all lower case name value, i.e. "myserver".
         - Monitor deployment progress from "Deployments" blade of the resource gorup
 
-## FHIR patient API Option: Auto generate test FHIR patient data via serverless function
+## API Load Option: Auto generate test FHIR patient data via serverless function
 ### Configure the node.js data generation app
 - We’ll be adding a new configuration section to the “config.json” file.
 - Copy and paste one of the pre-existing environments and change values that are different from the “default” configuration. Typically, these values include:
