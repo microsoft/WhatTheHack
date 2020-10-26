@@ -6,17 +6,17 @@
 
 ## Configure FHIR server
 - Create a new service principal
-    - Run $ az ad sp create-for-rbac -o json
+    - Run `$ az ad sp create-for-rbac -o json`
     - Copy "appid" and "password" from output for use later
     - Find "objectid" of this new Service Principal
-        - Run $ az ad sp show --id {appId of the new SP} -o json | jq -r . objectId
+        - Run `$ az ad sp show --id {appId of the new SP} -o json | jq -r . objectId`
         Note: You need to install jq on Windows beforehand - run in PowerShell https://chocolatey.org/packages/jq, 
-        i.e. Run $ choco install jq
+        i.e. Run `$ choco install jq`
 - Deploy ARM template for the new FHIR service
     - Create resource group in "NorthCentralUS" (supported region for FHIR service preview)
-        - Run $ az group create --name myRG --location northcentralus
+        - Run `$ az group create --name myRG --location northcentralus`
     - Run the template and use the "objectId" from above,
-        - Run $ az group deployment create --template-file azuredeploy.json --parameters azuredeploy.parameters.json --parameters accessPolicyObjectId={objectId of SP} -g Athena-Hack --no-wait
+        - Run `$ az group deployment create --template-file azuredeploy.json --parameters azuredeploy.parameters.json --parameters accessPolicyObjectId={objectId of SP} -g Athena-Hack --no-wait`
         Note: Need to update azuredeploy.parameters.json file to use all lower case name value, i.e. "myserver".
         - Monitor deployment progress from "Deployments" blade of the resource gorup
 
@@ -53,21 +53,21 @@
             - resource: {{resource}}
 ### Run the data generation app to insert auto-generated test patient records
 - Download all dependencies
-    - Run $ npm install at the root folder of the project working directory.
+    - Run `$ npm install` at the root folder of the project working directory.
 - Setting NODE_ENV
-    - Run $ Set NODE_ENV=<environmentname>
+    - Run `$ Set NODE_ENV=<environmentname>`
 - (Optional) Install npm module dotenv to configure environment via .env file
     - Create ".env" file in project directory with the following content: "NODE_ENV=richard1"
     - Install dotenv npm module
-        - Run $ npm install dotenv --save
+        - Run `$ npm install dotenv --save`
 - Install FHIR npm library
-    - Run $ npm install fhir
+    - Run `$ npm install fhir`
 - Run the datagen.js app to loop and create endless # of patients.  Press Ctrl-C when enough records have been created
     - First, set environment to {yourenvname} in config.json
-        - Run $ Set NODE_ENV={yourenvname}
-    - Run $ node datagen.js 
+        - Run `$ Set NODE_ENV={yourenvname}`
+    - Run `$ node datagen.js`
 - Test datagen.js app to make sure new patient records can be read
-    - Run $ node dataread.js
+    - Run `$ node dataread.js`
     Note: These recrods are read in pages of 100 at a time
 
 We’re now finished, make sure there at least 10,000 patient records in the server before starting the next challenge.
@@ -84,9 +84,11 @@ https://github.com/synthetichealth/synthea/wiki
 ### **[Installation](https://github.com/synthetichealth/synthea#installation)**
 - System Requirements: SyntheaTM requires Java 1.8 or above.
 - Clone the SyntheaTM repo, then build and run the test suite:
-    - $ git clone https://github.com/synthetichealth/synthea.git
-    - $ cd synthea
-    - $ ./gradlew build check test
+    ```
+    $ git clone https://github.com/synthetichealth/synthea.git
+    $ cd synthea
+    $ ./gradlew build check test
+    ```
 
 ### **[Changing the default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
 - The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
@@ -98,18 +100,19 @@ https://github.com/synthetichealth/synthea/wiki
     - Usage is:
     - run_synthea [-s seed] [-p populationSize] [-m moduleFilter] [state [city]]
     - For example:
-        - run_synthea Massachusetts
-        - run_synthea Alaska Juneau
-        - run_synthea -s 12345
-        - run_synthea -p 1000
-        - run_synthea -s 987 Washington Seattle
-        - run_synthea -s 21 -p 100 Utah "Salt Lake City"
-        - run_synthea -m metabolic*
+        - `run_synthea Massachusetts`
+        - `run_synthea Alaska Juneau`
+        - `run_synthea -s 12345`
+        - `run_synthea -p 1000`
+        - `run_synthea -s 987 Washington Seattle`
+        - `run_synthea -s 21 -p 100 Utah "Salt Lake City"`
+        - `run_synthea -m metabolic*`
     - Note: Some settings can be changed in ./src/main/resources/synthea.properties.
 - SyntheaTM will output patient records in C-CDA and FHIR formats in ./output.
 
 ### **[FHIR Server sample for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
 - In both FHIR Server for Azure (open source) and the Azure API for FHIR (PaaS) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
+
 - Azure API for FHIR PaaS server:
-   - ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
+- ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
