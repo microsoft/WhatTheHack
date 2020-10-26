@@ -15,7 +15,7 @@ In this challenge, you will implement an event-driven architecture for streaming
 
 ## Success Criteria
 - Deploy Azure Cosmos DB service in Azure Portal to persist aggregated patient data
-- Auto write patient data to Azure Cosmos DB when patient data event is retreived from FHIR Server and sent to Azure Event Hubs
+- Auto write patient data to Azure Cosmos DB when patient data is retreived from FHIR Server and stream to Azure Event Hubs
 - Alternatively, use a real-time streaming service to retrieve patient data event in Event Hubs and push them top Azure Cosmos DB
 
 
