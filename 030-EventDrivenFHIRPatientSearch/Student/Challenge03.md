@@ -1,4 +1,4 @@
-# Challenge 3: Stream patient data from FHIR Server to Azure Cosmos DB
+# Challenge 3: Stream patient data with event-driven architecture
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
