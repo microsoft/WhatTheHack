@@ -22,7 +22,9 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Configure the FHIR server
 - Configure the node.js data generation application
 - Deploy node.js app to Azure Functions
-- Run the data generation application to insert patient records:
+- Run the data generation application to auto generate test patient data
+- Alternatively, install, configure and run SyntheaTM Patient Generator tool to auto generate simulated patient data
+- Ingest test FHIR patient data into FHIR Server
 
  ## Challenge 2: **[Stream FHIR patient data and unit testing](Challenge02.md)**
 - Run the data read application to read patient records in the FHIR Server
