@@ -1,13 +1,11 @@
-Challenge 2 – Create a Build Pipeline in Azure DevOps
-=====================================================
+# Challenge 2 – Create a Build Pipeline in Azure DevOps
 
-Prerequisites
--------------
+## Prerequisites
 
-1.  Challenge\#1 (Build a Forecasting Model) should be done successfully
+1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Build a Forecasting Model)
+    should be done successfully
 
-Description
------------
+## Description
 
 The Build pipeline demonstrates the automation of various stages/tasks involved
 in building an ML model and creating a container image on top of that model. The
@@ -29,8 +27,7 @@ We can setup Continuous Integration (CI) trigger for every Build pipeline. The
 CI pipeline gets triggered every time code is checked in. It publishes an
 updated Azure Machine Learning pipeline after building the code.
 
-Success criteria
-----------------
+## Success criteria
 
 1.  An end-to-end Build pipeline created from an empty job (from scratch) using
     the classic editor (without YAML) in Azure DevOps
@@ -39,11 +36,11 @@ Success criteria
 
 3.  A container image for your model must be created under Azure ML Images
 
-Basic Hackflow
---------------
+## Basic Hackflow
 
-1.  If you haven’t already done this in Challenge\#1, create and setup a new
-    project in Azure DevOps
+1.  If you haven’t already done this in
+    [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
+    in Azure DevOps
 
     1.  Import quickstart code from **github repo**
 
@@ -103,12 +100,10 @@ Basic Hackflow
 
 7.  Review Build Outputs
 
-Hints
------
+## Hints
 
-Learning resources
-------------------
+## Learning resources
 
--   https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python
+<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-Next challenge – Create a Release Pipeline
+[Next challenge – Create a Release Pipeline](03-ReleasePipeline.md)
