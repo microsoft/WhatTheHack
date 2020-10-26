@@ -4,7 +4,7 @@
 
 # Notes & Guidance
 ## Pre-requiste: Lab Environment Setup
-- **[Install the WSL}(https://docs.microsoft.com/en-us/windows/wsl/install-win10)**, needed for shell script examples in hack or use cli on browser via shell.azure.com
+- **[Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**, needed for shell script examples in hack or use cli on browser via shell.azure.com
     - Install Windows Subsystem for Linux: open PowerShell as Administrator and run:
         - $ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 - Install your Linux Distro, download and install ubuntu from the Windows Store
