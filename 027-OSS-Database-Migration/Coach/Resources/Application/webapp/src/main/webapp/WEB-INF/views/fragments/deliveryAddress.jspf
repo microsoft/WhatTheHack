@@ -1,0 +1,10 @@
+<dl>
+    <dt>City:</dt>
+    <dd>${deliveryAddress.city}</dd>
+    <dt>Street:</dt>
+    <dd>${deliveryAddress.street}</dd>
+    <dt>House number:</dt>
+    <dd>${deliveryAddress.houseNumber}</dd>
+    <dt>Apartment number:</dt>
+    <dd> ${empty deliveryAddress.apartmentNumber ? 'n/a' : deliveryAddress.apartmentNumber}</dd>
+</dl>

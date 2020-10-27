@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-xs-2">
+        <spring:url value="/resources/images/ingredients/{filename}" var="ingredientImageUrl">
+            <spring:param name="filename" value="${pizzaItem.ingredient.imageFileName}"/>
+        </spring:url>
+        <img src="${ingredientImageUrl}" alt="" class="img-responsive visible-lg-inline visible-md-inline visible-sm-inline visible-xs-inline">
+    </div>
+    <div class="col-xs-8">
+        <span>${pizzaItem.ingredient.name}</span>
+    </div>
+    <div class="col-xs-2">
+        <span class="badge">${pizzaItem.quantity}</span>
+    </div>
+</div>

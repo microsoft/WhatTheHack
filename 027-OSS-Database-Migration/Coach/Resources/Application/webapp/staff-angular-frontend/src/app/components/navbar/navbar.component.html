@@ -1,0 +1,14 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      <a routerLink="" class="navbar-brand">Pizzeria <small>staff</small></a></div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/dashboard">Dashboard</a></li>
+        <li routerLinkActive="active" *ngIf="!isAuthenticated()"><a routerLink="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a></li>
+        <li *ngIf="isAuthenticated()"><a (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
