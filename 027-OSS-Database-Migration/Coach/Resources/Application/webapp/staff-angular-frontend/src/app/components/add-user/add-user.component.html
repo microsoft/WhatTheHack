@@ -1,0 +1,84 @@
+<h1 class="page-header"><i class="fa fa-user-plus" aria-hidden="true"></i> New user</h1>
+<form (submit)="onSubmit()">
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName">
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Phone number</label>
+        <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>
+      Create an account?
+      <input type="checkbox" [(ngModel)]="createAccount" name="createAccount">
+    </label>
+  </div>
+
+  <div *ngIf="createAccount" class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="account.username" name="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" [(ngModel)]="account.password" name="password">
+        <label>
+          <input type="checkbox" [(ngModel)]="showPassword" name="showPassword"> show?
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="enabled">Enabled?</label>
+        <input type="checkbox" id="enabled" [(ngModel)]="account.enabled" name="enabled">
+      </div>
+
+      <div class="form-group">
+        <label for="accountExpired">Account expired?</label>
+        <input type="checkbox" id="accountExpired" [(ngModel)]="account.accountExpired" name="accountExpired">
+      </div>
+
+      <div class="form-group">
+        <label for="accountLocked">Account locked?</label>
+        <input type="checkbox" id="accountLocked" [(ngModel)]="account.accountLocked" name="accountLocked">
+      </div>
+
+      <div class="form-group">
+        <label for="credentialsExpired">Credentials expired?</label>
+        <input type="checkbox" id="credentialsExpired" [(ngModel)]="account.credentialsExpired" name="credentialsExpired">
+      </div>
+
+      <div class="form-group">
+        <label for="roles">Roles</label>
+        <div *ngFor="let role of roles; let i = index;" class="checkbox" id="roles">
+          <label>
+            <input type="checkbox" name="roles" [value]="role" [checked]="hasRole(role)" (change)="onChange(role)"> {{role}}
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Create</button>
+</form>

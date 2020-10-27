@@ -1,0 +1,35 @@
+<h1 class="page-header"><i class="fa fa-lock" aria-hidden="true"></i> Accounts</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Enabled</th>
+      <th>Account expired</th>
+      <th>Credentials expired</th>
+      <th>Locked</th>
+      <th>Created on</th>
+      <th>Roles</th>
+      <th>User</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of accounts  | paginate: {itemsPerPage: accountsPerPage, currentPage: p, totalItems: total}">
+      <td>{{account.id}}</td>
+      <td>{{account.username}}</td>
+      <td>{{account.enabled}}</td>
+      <td>{{account.accountExpired}}</td>
+      <td>{{account.credentialsExpired}}</td>
+      <td>{{account.accountLocked}}</td>
+      <td>{{account.createdOn | date: 'short'}}</td>
+      <td>{{account.roles.join(", ")}}</td>
+      <td><a *ngIf="account.userId" routerLink="/users/{{account.userId}}" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i> User</a></td>
+      <td><a routerLink="/accounts/{{account.id}}" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></td>
+    </tr>
+  </tbody>
+</table>
+<div class="text-center">
+  <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+</div>

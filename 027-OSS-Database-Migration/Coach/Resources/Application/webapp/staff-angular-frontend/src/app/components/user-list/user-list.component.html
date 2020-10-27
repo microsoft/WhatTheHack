@@ -1,0 +1,31 @@
+<h1 class="page-header"><i class="fa fa-users" aria-hidden="true"></i> Users</h1>
+
+<a routerLink="/users/new" class="btn btn-default"><i class="fa fa-user-plus" aria-hidden="true"></i> Add a user</a>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Account</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | paginate: {itemsPerPage: usersPerPage, currentPage: p, totalItems: total}">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phoneNumber}}</td>
+      <td><a *ngIf="user.accountId" routerLink="/accounts/{{user.accountId}}" class="btn btn-default"><i class="fa fa-lock" aria-hidden="true"></i> Account</a></td>
+      <td><a routerLink="/users/{{user.id}}" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></td>
+    </tr>
+  </tbody>
+</table>
+<div class="text-center">
+  <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+</div>
+

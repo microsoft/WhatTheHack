@@ -1,0 +1,43 @@
+<h1 class="page-header"><i class="fa fa-pencil" aria-hidden="true"></i> Edit account</h1>
+
+<a routerLink="/accounts/{{account.id}}/changePassword" class="btn btn-default"><i class="fa fa-key" aria-hidden="true"></i> Change password</a>
+
+<form (submit)="onSubmit()">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" class="form-control" id="id" [ngModel]="account.id" name="id" readonly>
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" [(ngModel)]="account.username" name="username">
+  </div>
+  <div class="form-group">
+    <label for="enabled">Enabled?</label>
+    <input type="checkbox" id="enabled" [(ngModel)]="account.enabled" name="enabled">
+  </div>
+  <div class="form-group">
+    <label for="accountExpired">Account expired?</label>
+    <input type="checkbox" id="accountExpired" [(ngModel)]="account.accountExpired" name="accountExpired">
+  </div>
+  <div class="form-group">
+    <label for="accountLocked">Account locked?</label>
+    <input type="checkbox" id="accountLocked" [(ngModel)]="account.accountLocked" name="accountLocked">
+  </div>
+  <div class="form-group">
+    <label for="credentialsExpired">Credentials expired?</label>
+    <input type="checkbox" id="credentialsExpired" [(ngModel)]="account.credentialsExpired" name="credentialsExpired">
+  </div>
+  <div class="form-group">
+    <label for="createdOn">Created on</label>
+    <input type="text" class="form-control" id="createdOn" [ngModel]="account.createdOn | date:'short'" name="createdOn" readonly>
+  </div>
+  <div class="form-group">
+    <label for="roles">Roles</label>
+    <div *ngFor="let role of roles; let i = index;" class="checkbox" id="roles">
+      <label>
+        <input type="checkbox" name="roles" [value]="role" [checked]="hasRole(role)" (change)="onChange(role)"> {{role}}
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+</form>

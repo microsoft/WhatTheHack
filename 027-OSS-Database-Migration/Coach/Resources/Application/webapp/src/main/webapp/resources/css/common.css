@@ -1,0 +1,51 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*sticky footer*/
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 1em;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+.footer {
+    position: absolute;
+    height: 1em;
+    bottom: 0;
+    width: 100%;
+}
+
+/*required fields*/
+.form-group.required .control-label:after {
+    color: #d00;
+    position: absolute;
+    margin-left: 4px;
+    margin-top:-2px;
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    font-size: 0.5em;
+    content: "\f069";
+}
+
+.jumbotron {
+    background:  linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+    ),url("../images/jumbotron-background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.jumbotron h1 {
+    color: #FFF;
+}

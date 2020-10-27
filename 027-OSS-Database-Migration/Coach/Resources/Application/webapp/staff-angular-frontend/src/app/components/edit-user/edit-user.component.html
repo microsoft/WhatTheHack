@@ -1,0 +1,24 @@
+<h1 class="page-header"><i class="fa fa-pencil" aria-hidden="true"></i> Edit user</h1>
+<form (submit)="onSubmit()">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" class="form-control" id="id" [(ngModel)]="user.id" name="id" disabled>
+  </div>
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName">
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone number</label>
+    <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber">
+  </div>
+  <button class="btn btn-default"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+</form>
