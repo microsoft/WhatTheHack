@@ -9,7 +9,7 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 
 ## Description
 
-   - Deploy Azure API for FHIR service for data ingestion of FHIR patient data
+   - Deploy Azure API for FHIR sample architecture for data ingestion of FHIR patient data
    - Auto-generate test patient data in FHIR-based standard format
       - API Load: Develop a serverless function to auto-generate test FHIR patient data and call a FHIR API to load them into FHIR Server one at a time. 
          - Note: Sample NodeJS code snippet to be provided.
