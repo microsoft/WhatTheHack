@@ -26,16 +26,17 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 
    - Deploy **[FHIR Server sample (PaaS scenario) Bulk Load Function and Blob Storage](https://github.com/microsoft/fhir-server-samples)** to load Synthea generated FHIR patient bundles into FHIR Server
 
-   In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
+      Note: In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
 
-   ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
+      ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
       - First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
-      ```
-      $ git clone https://github.com/Microsoft/fhir-server-samples
-      $ cd fhir-server-samples/deploy/scripts
-      ```
-      - Deploy FHIR Server Samples Function Bulk Load and Storage fhirimport via deployment template (azuredeploy-importer.json)
+
+         ```
+         $ git clone https://github.com/Microsoft/fhir-server-samples
+         $ cd fhir-server-samples/deploy/scripts
+         ```
+      - Deploy FHIR Server Samples Function Bulk Load and Storage fhirimport via deployment template (azuredeploy-importer.json) in fhir-server-samples/deploy/templates
 - Use Azure data utility tools to copy Synthea generated FHIR patient bundle data files to fhirimport Blob Container for bulk load into FHIR Server 
    - You can **[copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
    - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**     
