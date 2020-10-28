@@ -10,13 +10,14 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 ## Description
 
 - Deploy Azure API for FHIR for data ingestion of FHIR patient data
-- (API Load Option) Mock patient data and load them into FHIR Server via Serverless Function
+- (API Load option) Mock patient data and load them into FHIR Server via Serverless Function
    - Develop a serverless function to auto-generate mock FHIR patient data
-   - Update and configure the above serverless function to call FHIR Server API to load auto-generated patient data into FHIR Server one at a time.  Note: Sample NodeJS code snippet to be provided.
+      Note: Sample NodeJS code snippet to be provided.
+   - Update and configure the above serverless function to call FHIR Server API to load auto-generated patient data into FHIR Server one at a time  
    - Run data generation function app to mock patient data and load them into FHIR Server
    - (Optional) Setup Postman to access patient data inserted into FHIR Server via API call
 
-- Bulk Load Option: Simulate patient data via **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** and bulk load them into FHIR Server via FHIR Server Bulk Load
+- (Bulk Load option) Simulate patient data via **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** and bulk load them into FHIR Server via FHIR Server Bulk Load
    - Auto generate FHIR patient data via **[SyntheaTM Patient Generator tool](https://github.com/synthetichealth/synthea#generate-synthetic-patients)**.  
       - SyntheaTM will output patient records in C-CDA and FHIR formats in ./output folder. 
       
