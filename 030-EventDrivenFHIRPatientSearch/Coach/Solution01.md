@@ -109,25 +109,26 @@ https://github.com/synthetichealth/synthea/wiki
     - Note: Some settings can be changed in ./src/main/resources/synthea.properties.
 - SyntheaTM will output patient records in C-CDA and FHIR formats in ./output.
 
-### **[FHIR Server sample for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
-- In both FHIR Server for Azure (open source) and the Azure API for FHIR (PaaS) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
-
-- Azure API for FHIR PaaS server:
-- ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
-
 ## Deploy FHIR Server Sample PaaS Screnario for Bulk Load
-- First, clone this git repo to local project repo, i.e. c:/projects and change directory to the deploy/scripts folder:
+
+### **[FHIR Server sample for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
+- In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
+
+![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
+
+
+- First, clone this git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
 
 ```
 $ git clone https://github.com/Microsoft/fhir-server-samples
 $ cd fhir-server-samples/deploy/scripts
 ```
-- Deploy FHIR bulk ingestion components via deployment template
-    - Browse Azure Portal and navigate to Resource Group for  WhatTheHack
+- Deploy FHIR Bulk Import components via bulk importer deployment template
+    - Browse Azure Portal and navigate to Resource Group for WhatTheHack
     - Add Template Deployment resource
-    - Deploy from a custom template
+    - Deploy from custom template 'azuredeploy-importer.json'
         - In Custom deployment, click 'Build your own template...'
-        - In Edit template, Load 'azuredeploy-importer.json' file from 'fhirserversample/deployment/template folder'
+        - In Edit template, Load 'azuredeploy-importer.json' file from 'fhirserversample/deployment/template' folder
         - Setup template parameters and create resources:
             Basics:
             - Subscription
