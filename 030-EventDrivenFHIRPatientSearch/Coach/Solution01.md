@@ -79,18 +79,17 @@
 
 **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)** for more information.
-
-    - **[Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start)**
-        - **[Installation](https://github.com/synthetichealth/synthea#installation)**
-            - System Requirements: SyntheaTM requires Java 1.8 or above.
-            - Clone the SyntheaTM repo, then build and run the test suite:
-                ```
-                $ git clone https://github.com/synthetichealth/synthea.git
-                $ cd synthea
-                $ ./gradlew build check test
-                ```
-    - **[Changing the default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
-        - The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+- **[Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start)**
+- **[Installation](https://github.com/synthetichealth/synthea#installation)**
+    - System Requirements: SyntheaTM requires Java 1.8 or above.
+    - Clone the SyntheaTM repo, then build and run the test suite:
+        ```
+        $ git clone https://github.com/synthetichealth/synthea.git
+        $ cd synthea
+        $ ./gradlew build check test
+        ```
+- **[Changing the default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+    - The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
 
 ### **[Generate Synthetic Patients](https://github.com/synthetichealth/synthea#generate-synthetic-patients)**
 - Generating the population one at a time...
@@ -163,7 +162,7 @@ In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage 
             ...
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
-    - (Optional) Use Postman to retreive Patients data via FHIR Patients API           
+    - (Optional) Use Postman to retreive Patients data via FHIR Patients API (see above)          
             
 
 
