@@ -108,10 +108,10 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
     - Note: Some settings can be changed in ./src/main/resources/synthea.properties.
 - SyntheaTM will output patient records in C-CDA and FHIR formats in ./output.
 
-### Deploy **[FHIR Server sample PaaS scenrio for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
+### Deploy **[FHIR Server sample PaaS scenario for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
 In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
 
-![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
+!![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
 
 - First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
@@ -162,7 +162,7 @@ In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage 
             ...
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
-    - (Optional) Use Postman to retreive Patients data via FHIR Patients API (see above)          
+- (Optional) Use Postman to retreive Patients data via FHIR Patients API (see above)          
             
 
 
