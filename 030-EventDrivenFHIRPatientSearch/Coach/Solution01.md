@@ -112,50 +112,60 @@ https://github.com/synthetichealth/synthea/wiki
 ## Deploy FHIR Server Sample PaaS Screnario for Bulk Load
 
 ### **[FHIR Server sample for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
-In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
+In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
 
 ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
 
-- First, clone this git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
-
-```
-$ git clone https://github.com/Microsoft/fhir-server-samples
-$ cd fhir-server-samples/deploy/scripts
-```
-- Deploy FHIR Bulk Import components via bulk importer deployment template
-    - Browse Azure Portal and navigate to Resource Group for WhatTheHack
-    - Add Template Deployment resource
-    - Deploy from custom template 'azuredeploy-importer.json'
-        - In Custom deployment, click 'Build your own template...'
-        - In Edit template, Load 'azuredeploy-importer.json' file from 'fhirserversample/deployment/template' folder
+- First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
+    ```
+    $ git clone https://github.com/Microsoft/fhir-server-samples
+    $ cd fhir-server-samples/deploy/scripts
+    ```
+- Deploy FHIR Server Samples Bulk Load components (Function Bulk Load and Storage fhirimport) via azuredeploy-importer deployment template in Azure portal
+    - Browse to Azure Portal and navigate to Resource Group for WhatTheHack FHIR Event-driven Patient Search project
+    - Add 'Template Deployment' Azure resource
+    - Deploy using Custom Template JSON file: 'azuredeploy-importer.json'
+        - In 'Custom deployment', click 'Build your own template...'
+        - In 'Edit template', Load 'azuredeploy-importer.json' file from 'fhirserversample/deployment/template' folder
         - Setup template parameters and create resources:
             Basics:
             - Subscription
             - Resource Group
             - Location/Region
             Settings:
-            - App Name (function app name)
+            - App Name (Unique function app name in lowercase)
             - Storage Account Type (i.e. Standard_LRS)
             - Aad Authority (i.e. https://login.microsoftonline.com/microsoft.onmicrosoft.com)
-            - Aad Audience (Leave blank will default value to fhirServerURL)
-            - fhir Server Url
-            - Aad Service Client Id
-            - Aad Service Client Secret
-            - Fhir Server Url
-- Copy Synthea generated FHIR Patient Bundle json file(s) to fhirimport blob container
-    - Navigate to fhirimport blob container
-        - Upload > Upload blob > select a file from Synthea 'result' folder
-    - Monitor Log Stream in Function app 'FhirBundleBlobTrigger'
-        - Verify Blob trigger function auto runs when new blob detected in log
-            ```
-            Executing 'FhirBundleBlobTrigger' (Reason='New blob detected...)...
-            ...
-            Uploaded /...
-            ...
-            Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
-            ```
-- (Optional) Use Postman to retreive Patients data via FHIR Patient API           
+            - Aad Audience (Leave blank, default to fhirServerURL)
+            - fhir Server Url (Obtain from Azure API for FHIR)
+            - Aad Service Client Id (Obtain from Azure API for FHIR)
+            - Aad Service Client Secret (Obtain from Azure API for FHIR)
+- Copy Synthea generated FHIR Patient Bundle JSON file(s) to fhirimport blob container
+    - **[Copy data to Azure Storage using AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
+        - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
+        - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
+            - Add directory location of AzCopy executable to your system path
+            - Type `azcopy` or `./azcopy` in Windows PowerShell commmand prompts to get started
+            - Use a SAS token to copy Synthea generated patient bundle JSON file(s) to fhirimport Azure Blob storage
+                Sample AzCopy command:
+                ```
+                azcopy copy "<your Synthea ./output director>" "<fhirimport blob container URL appended with SAS token>"
+                ```
+    - **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**
+        - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'fhirimport' to list container content
+            - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result' folder and select a FHIR Patient bundle .json file(s)
+        - Monitor Log Stream in function app 'FhirBundleBlobTrigger'
+            - Verify in log that 'FhirBundleBlobTrigger' function auto runs when new blob detected
+                Sample log output:
+                ```
+                Executing 'FhirBundleBlobTrigger' (Reason='New blob detected...)...
+                ...
+                Uploaded /...
+                ...
+                Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
+                ```
+- (Optional) Use Postman to retreive Patients data via FHIR Patients API           
             
 
 
