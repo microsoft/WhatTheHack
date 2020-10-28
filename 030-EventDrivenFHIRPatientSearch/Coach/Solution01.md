@@ -112,7 +112,7 @@ https://github.com/synthetichealth/synthea/wiki
 ## Deploy FHIR Server Sample PaaS Screnario for Bulk Load
 
 ### **[FHIR Server sample for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
-- In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
+In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be ingested into the FHIR server. The bulk ingestion is performed by an Azure Function.
 
 ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
