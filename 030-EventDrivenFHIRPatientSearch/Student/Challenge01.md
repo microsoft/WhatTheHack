@@ -10,11 +10,13 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 ## Description
 
 ## Deploy Azure API for FHIR for data ingestion of FHIR patient data
+
 ## API Load Option: 
-- Auto generate test FHIR patient data via serverless function
-   - Develop a serverless function to auto-generate mock FHIR patient data and call FHIR Server API to load them int FHIR Server one at a time
-   - Run data generation function app to insert auto-generated test patient records into FHIR Server
-   - Note: Sample NodeJS code snippet to be provided.
+## Auto generate test FHIR patient data via serverless function
+- Develop a serverless function to auto-generate mock FHIR patient data and call FHIR Server API to load them into FHIR Server one at a time.  Note: Sample NodeJS code snippet to be provided.
+## Load auto-generated patient data into FHIR Server via serverless function
+- Update serverless function to call FHIR API to instert auto-generated patient data into FHIR Server
+- Run data generation function app to mock patient data and load them into FHIR Server
 - (Optional) Setup Postman to access patient data inserted into FHIR Server via API call
 
 ## Bulk Load Option:
