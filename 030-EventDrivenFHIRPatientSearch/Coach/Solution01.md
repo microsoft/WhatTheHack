@@ -115,3 +115,47 @@ https://github.com/synthetichealth/synthea/wiki
 - Azure API for FHIR PaaS server:
 - ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
+** Deploy FHIR Server Sample PaaS Screnario for Bulk Load
+- First, clone this git repo to local project repo, i.e. c:/projects and change directory to the deploy/scripts folder:
+
+```
+$ git clone https://github.com/Microsoft/fhir-server-samples
+$ cd fhir-server-samples/deploy/scripts
+```
+- Deploy FHIR bulk ingestion components via deployment template
+    - Browse Azure Portal and navigate to Resource Group for  WhatTheHack
+    - Add Template Deployment resource
+    - Deploy from a custom template
+        - In Custom deployment, click 'Build your own template...'
+        - In Edit template, Load 'azuredeploy-importer.json' file from 'fhirserversample/deployment/template folder'
+        - Setup template parameters and create resources:
+            Basics:
+            - Subscription
+            - Resource Group
+            - Location/Region
+            Settings:
+            - App Name (function app name)
+            - Storage Account Type (i.e. Standard_LRS)
+            - Aad Authority (i.e. https://login.microsoftonline.com/microsoft.onmicrosoft.com)
+            - Aad Audience (Leave blank will default value to fhirServerURL)
+            - fhir Server Url
+            - Aad Service Client Id
+            - Aad Service Client Secret
+            - Fhir Server Url
+- Copy Synthea generated FHIR Patient Bundle json file(s) to fhirimport blob container
+    - Navigate to fhirimport blob container
+        - Upload > Upload blob > select a file from Synthea 'result' folder
+    - Monitor Log Stream in Function app 'FhirBundleBlobTrigger'
+        - Verify Blob trigger function auto runs when new blob detected in log
+            ```
+            Executing 'FhirBundleBlobTrigger' (Reason='New blob detected...)...
+            ...
+            Uploaded /...
+            ...
+            Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
+            ```
+- (Optional) Use Postman to retreive Patients data via FHIR Patient API           
+            
+
+
+
