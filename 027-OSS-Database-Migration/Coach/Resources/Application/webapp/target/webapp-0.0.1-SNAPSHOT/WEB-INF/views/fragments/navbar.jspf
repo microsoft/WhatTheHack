@@ -1,0 +1,85 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <spring:url value="/" var="homeUrl"/>
+            <a class="navbar-brand" href="${homeUrl}">Pizzeria</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <spring:url value="/reviews" var="reviewsUrl"/>
+                    <a href="${reviewsUrl}"><i class="fa fa-comments" aria-hidden="true"></i> Reviews</a>
+                </li>
+                <li>
+                    <spring:url value="/review/order" var="orderReviewSearchUrl"/>
+                    <a href="${orderReviewSearchUrl}"><i class="fa fa-pencil" aria-hidden="true"></i> Write a review</a>
+                </li>
+                <li>
+                    <spring:url value="/order/track" var="orderTrackerUrl"/>
+                    <a href="${orderTrackerUrl}"><i class="fa fa-search" aria-hidden="true"></i> Track your order</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <sec:authorize var="loggedIn" access="isAuthenticated()" />
+                <c:choose>
+                    <c:when test="${loggedIn}">
+                        <sec:authentication property="principal.username" var="username"/>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> ${username} <span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <spring:url value="/customer" var="customerProfileUrl"/>
+                                    <a href="${customerProfileUrl}"><i class="fa fa-id-card" aria-hidden="true"></i> Profile</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+
+                                    <spring:url var="logoutUrl" value="/logout"/>
+                                    <form:form action="${logoutUrl}" method="post" cssClass="link">
+                                        <button type="submit" class="btn btn-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</button>
+                                    </form:form>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="requestPath" value="${requestScope['javax.servlet.forward.servlet_path']}"/>
+                        <c:set var="params" value="${requestScope['javax.servlet.forward.query_string']}"/>
+                        <c:set var="pageUrl" value="${ requestPath }${ not empty params?'?'+=params:'' }"/>
+                        <spring:url value="/login" var="loginUrl">
+                            <spring:param name="returnUrl" value="${pageUrl}"/>
+                        </spring:url>
+                        <li>
+                            <a href="${loginUrl}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a>
+                        </li>
+
+                        <spring:url value="/account/register" var="registrationUrl">
+                            <spring:param name="returnUrl" value="${pageUrl}"/>
+                        </spring:url>
+                        <li>
+                            <a href="${registrationUrl}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
+            </ul>
+        </div>
+    </div>
+</nav>
