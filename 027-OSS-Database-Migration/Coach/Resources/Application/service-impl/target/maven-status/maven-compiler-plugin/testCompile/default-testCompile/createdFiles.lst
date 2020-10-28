@@ -1,0 +1,10 @@
+pzinsta/pizzeria/service/impl/CustomerRegistrationServiceImplTest.class
+pzinsta/pizzeria/service/impl/OrderServiceImplTest.class
+pzinsta/pizzeria/service/impl/FileSystemFileStorageServiceTest.class
+pzinsta/pizzeria/service/impl/OrderCostCalculationServiceImplTest.class
+pzinsta/pizzeria/service/impl/ReviewServiceImplTest.class
+pzinsta/pizzeria/service/impl/DeliveryCostCalculationServiceImplTest.class
+pzinsta/pizzeria/service/impl/CustomerServiceImplTest.class
+pzinsta/pizzeria/service/impl/AccountServiceImplTest.class
+pzinsta/pizzeria/service/impl/OrderItemTemplateServiceImplTest.class
+pzinsta/pizzeria/service/impl/strategy/impl/FixedDeliveryCostCalculationStrategyTest.class

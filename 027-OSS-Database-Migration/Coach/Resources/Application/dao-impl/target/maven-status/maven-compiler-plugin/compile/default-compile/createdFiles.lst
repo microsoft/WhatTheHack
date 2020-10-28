@@ -1,0 +1,14 @@
+pzinsta/pizzeria/dao/impl/GenericDAOImpl.class
+pzinsta/pizzeria/dao/impl/OrderItemDAOImpl.class
+pzinsta/pizzeria/dao/impl/IngredientDAOImpl.class
+pzinsta/pizzeria/dao/impl/CutStyleDAOImpl.class
+pzinsta/pizzeria/dao/impl/PizzaSizeDAOImpl.class
+pzinsta/pizzeria/dao/impl/CrustDAOImpl.class
+pzinsta/pizzeria/dao/impl/UserDAOImpl.class
+pzinsta/pizzeria/dao/impl/AccountDAOImpl.class
+pzinsta/pizzeria/dao/impl/FileDAOImpl.class
+pzinsta/pizzeria/dao/impl/ReviewDAOImpl.class
+pzinsta/pizzeria/dao/impl/BakeStyleDAOImpl.class
+pzinsta/pizzeria/dao/impl/OrderItemTemplateDAOImpl.class
+pzinsta/pizzeria/dao/impl/CustomerDAOImpl.class
+pzinsta/pizzeria/dao/impl/OrderDAOImpl.class

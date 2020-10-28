@@ -1,0 +1,28 @@
+<footer class="footer">
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <address>
+                    <strong>Pizzeria</strong><br>
+                    1355 Pizza Street<br>
+                    New York, NY 98765<br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                    <a href="mailto:pizzeria@example.com">pizzeria@example.com</a>
+                </address>
+            </div>
+            <div class="col-sm-6 col-sm-offset-2 text-center">
+                <div class="pull-right">
+                    <i class="fa fa-cc-visa fa-4x" aria-hidden="true"></i>
+                    <i class="fa fa-cc-mastercard fa-4x" aria-hidden="true"></i>
+                    <i class="fa fa-cc-amex fa-4x" aria-hidden="true"></i>
+                    <i class="fa fa-cc-jcb fa-4x" aria-hidden="true"></i>
+                    <i class="fa fa-cc-discover fa-4x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <p class="text-center">Made by <a href="https://github.com/pzinsta"><i class="fa fa-github" aria-hidden="true"></i> pzinsta</a></p>
+    </div>
+</footer>
