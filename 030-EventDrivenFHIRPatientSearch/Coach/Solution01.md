@@ -115,7 +115,7 @@ https://github.com/synthetichealth/synthea/wiki
 - Azure API for FHIR PaaS server:
 - ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
 
-** Deploy FHIR Server Sample PaaS Screnario for Bulk Load
+## Deploy FHIR Server Sample PaaS Screnario for Bulk Load
 - First, clone this git repo to local project repo, i.e. c:/projects and change directory to the deploy/scripts folder:
 
 ```
