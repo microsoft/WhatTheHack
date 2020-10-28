@@ -13,7 +13,7 @@ Note: For this hack, you will auto-generate test FHIR patient data.
    - Auto-generate test patient data in FHIR-based standard format
       - API Load: Develop a serverless function to auto-generate test FHIR patient data and call a FHIR API to load them into FHIR Server one at a time. 
          - Note: Sample NodeJS code snippet to be provided.
-      - Bulk Load: Ingest FHIR patient data into a BLOB container called fhirimport and a bulk ingestion will be perform by an Azure Function to load them into FHIR Server.
+      - Bulk Load: Ingest FHIR patient data into a BLOB container called fhirimport and a bulk ingestion will be perform by an Azure Function to upload FHIR Patient bundle into FHIR Server.
          - Implement open source SyntheaTM Patient Generator tool to auto-generate simulated FHIR patient data.
          -  **Note: [SyntheaTM](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read the [Synthea wiki](https://github.com/synthetichealth/synthea/wiki) for more information.
          - **Hints:**
