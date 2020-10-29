@@ -6,7 +6,7 @@
             "value": ""
         },
         "name": {
-            "value": "[your default fhir server name (lowercase)]"
+            "value": "your default fhir server name (lowercase)"
         },
         "offerThroughput": {
             "value": 1000
