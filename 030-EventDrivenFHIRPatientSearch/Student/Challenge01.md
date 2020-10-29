@@ -27,9 +27,7 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 
    - Deploy **[FHIR Server sample (PaaS scenario) Bulk Load Function and Blob Storage](https://github.com/microsoft/fhir-server-samples)** to load Synthea generated FHIR patient bundles into FHIR Server
 
-      Note: In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
-
-      ![Azure API for FHIR PaaS server:](../images/fhir-serverless-samples-paas.png)
+      Note: In the Azure API for FHIR (PaaS scenario) deployments depicted above, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
 
       - First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
 
