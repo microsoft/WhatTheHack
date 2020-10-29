@@ -5,7 +5,7 @@
 ## Introduction
 
 In this challenge, you will extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  
-Note: For this hack, you will auto-generate test FHIR patient data.
+Note: For this hack, you will auto-generate test FHIR patient data via API or bulk load as depicted by data flow (red) in FHIR Server sample architecture below.
 
 ![FHIR Serverless API Load & Bulk Load](../images/fhir-serverless-api&bulk-load.jpg)
 
