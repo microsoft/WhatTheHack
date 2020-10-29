@@ -4,10 +4,10 @@
 
 # Notes & Guidance
 
-## Deploy Azure Event Hubs
 **[Serverless streaming with Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#features)** architecture to build an end-to-end serverless streaming platform (depicted below).  In sample architecture below, the data flow in blue shows a serverless function retrieves patient data from FHIR Server and drops them to Event Hubs, and then a Stream Analytics job ingests patient data from Event Hubs and writes stream processing results as JSON output to Cosmos DB.
 ![Serverless streaming with Event Hubs](../images/fhir-serverless-streaming.jpg)
 
+## Deploy Azure Event Hubs
 - **[Quickstart: Deploy Azure Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-event-hubs-create-event-hub-and-consumer-group/)**
 - Install @azure/event-hubs npm module, run:
     `
