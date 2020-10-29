@@ -1,3 +1,9 @@
+## Setting up Kubernetes
+
+First we need to navigate to the ARM templates folder in the Coaches Resource folder to provision the AKS cluster
+
+The steps to deploy the AKS cluster, scale it up and scale it down are available in the README files for that section
+
 
 ## PostgreSQL Setup on Kubernetes
 
