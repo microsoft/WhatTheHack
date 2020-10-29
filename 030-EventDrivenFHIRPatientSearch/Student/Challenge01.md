@@ -7,6 +7,8 @@
 In this challenge, you will extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  
 Note: For this hack, you will auto-generate test FHIR patient data.
 
+![FHIR Serverless API Load & Bulk Load](../images/fhir-serverless-api&bulk-load.jpg)
+
 ## Description
 
 - Deploy Azure API for FHIR for data ingestion of FHIR patient data
@@ -27,7 +29,7 @@ Note: For this hack, you will auto-generate test FHIR patient data.
 
       Note: In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
 
-      ![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
+      ![Azure API for FHIR PaaS server:](../images/fhir-serverless-samples-paas.png)
 
       - First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
 
