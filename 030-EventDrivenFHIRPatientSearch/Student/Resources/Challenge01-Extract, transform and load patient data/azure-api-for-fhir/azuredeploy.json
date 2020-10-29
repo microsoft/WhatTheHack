@@ -14,7 +14,7 @@
         }
     },
     "variables": {
-        "location": "[select available regions: eastus, eastus2, northcentralus, southcentralus, westus2]"
+        "location": "select 1 available region: eastus, eastus2, northcentralus, southcentralus, westus2"
     },
     "resources": [
         {
