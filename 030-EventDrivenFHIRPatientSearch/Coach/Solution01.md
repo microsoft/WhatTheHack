@@ -4,6 +4,11 @@
 
 # Notes & Guidance
 
+In this challenge, you will extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  
+Note: For this hack, you will auto-generate test FHIR patient data via API or bulk load as depicted by data flow (red) in FHIR Server sample architecture below.
+
+![FHIR Serverless API Load & Bulk Load](../images/fhir-serverless-api&bulk-load.jpg)
+
 ## Configure FHIR server
 - Create a new service principal
     - Run `$ az ad sp create-for-rbac -o json`
@@ -109,11 +114,6 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 - SyntheaTM will output patient records in C-CDA and FHIR formats in ./output.
 
 ### Deploy **[FHIR Server sample PaaS scenario for Bulk Load](https://github.com/microsoft/fhir-server-samples)**
-In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
-
-![Azure API for FHIR PaaS server:](../images/fhir-server-samples-paas.png)
-
-
 - First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
     ```
     $ git clone https://github.com/Microsoft/fhir-server-samples
@@ -138,7 +138,7 @@ In the Azure API for FHIR (PaaS scenario) deployments depicted below, a storage 
             - fhir Server Url (Obtain from Azure API for FHIR)
             - Aad Service Client Id (Obtain from Azure API for FHIR)
             - Aad Service Client Secret (Obtain from Azure API for FHIR)
-### Use Azure data utility tools to copy Synthea generated FHIR patient bundle data files to fhirimport Blob Container for bulk load into FHIR Server 
+### Copy Synthea generated patient data to fhirimport Blob to trigger Bulk Load into FHIR Server 
 - Option 1: **[Copy data to Azure Storage using AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
     - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
     - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
