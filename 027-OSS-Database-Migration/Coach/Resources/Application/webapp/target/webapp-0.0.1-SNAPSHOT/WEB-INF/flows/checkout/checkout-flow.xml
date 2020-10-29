@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <on-start>
+        <evaluate expression="customerService.createNewCustomer()" result="flowScope.customer"/>
+    </on-start>
+
+    <decision-state id="isCartEmpty">
+        <if test="cart.orderItems.isEmpty()" then="endState" else="orderConfirmation"/>
+    </decision-state>
+
+    <view-state id="orderConfirmation" view="checkout/orderConfirmation">
+        <transition on="continue" to="isCustomerLoggedIn"/>
+        <transition on="cancel" to="endState" validate="false"/>
+    </view-state>
+
+    <decision-state id="isCustomerLoggedIn">
+        <if test="currentUser != null" then="customerInformationConfirmation" else="suggestLoggingIn"/>
+    </decision-state>
+
+    <view-state id="customerInformationConfirmation" view="checkout/customerInformationConfirmation">
+        <on-render>
+            <evaluate expression="customerService.getCustomerByUsername(currentUser.name).get()"
+                      result="flowScope.customer"/>
+        </on-render>
+        <transition on="continue" to="orderTypeSelection"/>
+        <transition on="cancel" to="endState" validate="false"/>
+    </view-state>
+
+    <view-state id="suggestLoggingIn" view="checkout/suggestLoggingIn">
+        <transition on="orderAsGuest" to="enterGuestInformation"/>
+        <transition on="continue" to="isCustomerLoggedIn"/>
+        <transition on="cancel" to="endState" validate="false"/>
+    </view-state>
+
+    <view-state id="enterGuestInformation" view="checkout/enterGuestInformation" model="customer">
+        <transition on="continue" to="orderTypeSelection"/>
+        <transition on="cancel" to="endState" validate="false"/>
+    </view-state>
+
+    <view-state id="orderTypeSelection" view="checkout/orderTypeSelection">
+        <transition on="carryOut" to="assembleOrder">
+            <set name="flowScope.deliveryRequired" value="false"/>
+        </transition>
+        <transition on="delivery" to="canCustomerSelectSavedDeliveryAddressDecision">
+            <set name="flowScope.deliveryRequired" value="true"/>
+        </transition>
+    </view-state>
+
+    <decision-state id="canCustomerSelectSavedDeliveryAddressDecision">
+        <if test="currentUser != null" then="registeredCustomerDeliveryAddressSelection" else="enterGuestDeliveryAddress"/>
+    </decision-state>
+
+    <view-state id="registeredCustomerDeliveryAddressSelection" view="checkout/registeredCustomerDeliveryAddressSelection">
+        <on-render>
+            <evaluate expression="customerService.getCustomerByUsername(currentUser.name).get()"
+                      result="flowScope.customer"/>
+        </on-render>
+        <transition on="continue" to="customerSelectedDeliveryAddress"/>
+    </view-state>
+
+    <decision-state id="customerSelectedDeliveryAddress">
+        <if test="requestParameters.deliveryAddressIndex != null" then="setDeliveryAddress" else="registeredCustomerDeliveryAddressSelection"/>
+    </decision-state>
+
+    <action-state id="setDeliveryAddress">
+        <set name="flowScope.deliveryAddress" value="customer.deliveryAddresses[requestParameters.deliveryAddressIndex]"/>
+        <!--<transition on-exception="java.lang.Exception" to="registeredCustomerDeliveryAddressSelection"/>-->
+        <transition to="assembleOrder"/>
+    </action-state>
+
+    <view-state id="enterGuestDeliveryAddress" view="checkout/enterGuestDeliveryAddress" model="deliveryAddress">
+        <on-entry>
+            <set name="flowScope.deliveryAddress" value="new pzinsta.pizzeria.model.user.DeliveryAddress()"/>
+            <evaluate expression="environment.getProperty('delivery.cities')" result="viewScope.cities" result-type="java.util.List"/>
+        </on-entry>
+        <transition on="continue" to="assembleOrder"/>
+        <transition on="cancel" to="endState" validate="false"/>
+    </view-state>
+
+    <action-state id="assembleOrder">
+        <evaluate expression="assembleOrderAction"/>
+        <transition to="enterComment"/>
+    </action-state>
+
+    <view-state id="enterComment" model="order" view="checkout/enterComment">
+        <binder>
+            <binding property="comment"/>
+        </binder>
+        <transition on="continue" to="payment"/>
+    </view-state>
+
+    <view-state id="payment" view="checkout/payment">
+        <on-render>
+            <set name="flowScope.clientToken" value="braintreeAction.generateClientToken()"/>
+            <set name="flowScope.orderCost" value="orderCostCalculationService.calculateCost(flowScope.order)"/>
+            <set name="flowScope.deliveryCost" value="deliveryCostCalculationService.calculateCost(flowScope.order.delivery)"/>
+            <set name="flowScope.total" value="flowScope.deliveryCost.add(flowScope.orderCost)"/>
+        </on-render>
+        <transition on="continue" to="chargeCustomer">
+            <set name="flowScope.nonce" value="requestParameters.payment_method_nonce"/>
+        </transition>
+        <transition on="cancel" to="endState" validate="false"/>
+    </view-state>
+
+    <action-state id="chargeCustomer">
+        <evaluate expression="braintreeAction.chargeCustomer(flowScope.nonce, flowScope.orderCost, flowScope.deliveryCost)" result="flowScope.order.paymentTransactionId"/>
+        <transition to="isPaymentSuccessful"/>
+    </action-state>
+
+    <decision-state id="isPaymentSuccessful">
+        <if test="braintreeAction.isTransactionSuccessful(flowScope.order.paymentTransactionId)" then="postOrder" else="payment"/>
+    </decision-state>
+
+    <action-state id="postOrder">
+        <evaluate expression="orderService.postOrder(flowScope.order)" result="flowScope.order"/>
+        <transition to="emptyCart"/>
+    </action-state>
+
+    <action-state id="emptyCart">
+        <evaluate expression="orderService.emptyCart()"/>
+        <transition to="orderConfirmed"/>
+    </action-state>
+
+    <view-state id="orderConfirmed" view="checkout/orderConfirmed">
+        <transition on="finish" to="endState"/>
+    </view-state>
+
+    <end-state id="endState" view="externalRedirect:/"/>
+</flow>

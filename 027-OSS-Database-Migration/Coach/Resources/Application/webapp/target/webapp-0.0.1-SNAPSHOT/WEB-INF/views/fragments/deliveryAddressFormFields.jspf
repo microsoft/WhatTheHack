@@ -1,0 +1,33 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
+<spring:bind path="city">
+    <div class="form-group required ${status.error ? 'has-error' : ''}">
+        <form:label path="city" cssClass="control-label">City</form:label>
+        <form:select path="city" items="${cities}" cssClass="form-control"/>
+        <form:errors path="city" cssClass="help-block" element="span"/>
+    </div>
+</spring:bind>
+<spring:bind path="street">
+    <div class="form-group required ${status.error ? 'has-error' : ''}">
+        <form:label path="street" cssClass="control-label">Street</form:label>
+        <form:input path="street" cssClass="form-control"/>
+        <form:errors path="street" cssClass="help-block" element="span"/>
+    </div>
+</spring:bind>
+
+<spring:bind path="houseNumber">
+    <div class="form-group required ${status.error ? 'has-error' : ''}">
+        <form:label path="houseNumber" cssClass="control-label">House number</form:label>
+        <form:input path="houseNumber" cssClass="form-control"/>
+        <form:errors path="houseNumber" cssClass="help-block" element="span"/>
+    </div>
+</spring:bind>
+
+<spring:bind path="apartmentNumber">
+    <div class="form-group ${status.error ? 'has-error' : ''}">
+        <form:label path="apartmentNumber" cssClass="control-label">Apartment number</form:label>
+        <form:input path="apartmentNumber" cssClass="form-control"/>
+        <form:errors path="apartmentNumber" cssClass="help-block" element="span"/>
+    </div>
+</spring:bind>
