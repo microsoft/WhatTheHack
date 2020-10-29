@@ -4,7 +4,6 @@ First we need to navigate to the ARM templates folder in the Coaches Resource fo
 
 The steps to deploy the AKS cluster, scale it up and scale it down are available in the README files for that section
 
-
 ## PostgreSQL Setup on Kubernetes
 
 These instructions provide guidance on how to setup PostgreSQL 11 on AKS
@@ -132,13 +131,66 @@ SHOW TABLES;
 
 ```
 
-## Deploying the Application
+## Deploying the Web Application
+
+First we navigate to the Helm charts directory
 
 ```shell
 
 cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
 
-helm upgrade --install wth-contosopizza ./ContosoPizza
 
+```
+
+We can deploy in two ways
+
+* Backed by MySQL Database
+* Backed by PostgreSQL Database
+
+In the ContosoPizza/values.yaml file we can specify the database Type (appConfig.databaseType) as "mysql" or postgres" and then we can set the JDBC URL, username and password under the appConfig object
+
+In the globalConfig object we can change the merchant id, public keys and other values as needed but you generally can leave those alone as they apply to both MySQL and PostgreSL deployment options
+
+```yaml
+appConfig:
+  databaseType: "databaseType goes here" # mysql or postgres
+  dataSourceURL: "jdbc url goes here" # your JDBC connection string goes here
+  dataSourceUser: "user name goes here" # your database username goes here
+  dataSourcePassword: "Pass word goes here!" # your database password goes here
+  webPort: 8081 # the port the app listens on
+  webContext: "pizzeria" # the application context http://hostname:port/webContext
+```
+
+After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
+
+```shell
+
+# get service ports and IP addresses
+kubectl -n {infrastructure.namespace goes here} get svc
+
+# get service pods running the app
+kubectl -n {infrastructure.namespace goes here} get pods
+
+# view the first 5k lines of the application logs
+kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
+
+# example for ports and services
+kubectl -n contosoappmysql get svc
+
+```
+
+To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
+
+```shell
+
+helm upgrade --install mysql-contosopizza ./ContosoPizza --set appConfig.databaseType=mysql --set infrastructure.namespace=contosoappmysql
+
+```
+
+To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
+
+```shell
+
+helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
 
 ```
