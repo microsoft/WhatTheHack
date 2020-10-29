@@ -1,14 +1,36 @@
 FROM ubuntu:18.04
+
+# Set default environment variables here
+ENV APP_BRAINTREE_MERCHANT_ID=1 \
+    APP_BRAINTREE_PUBLIC_KEY=1 \
+    APP_BRAINTREE_PRIVATE_KEY=1 \
+    APP_RECAPTCHA_PUBLIC_KEY=1 \
+    APP_RECAPTCHA_PRIVATE_KEY=1 \
+    APP_DATASOURCE_DRIVER=1 \
+    APP_DATASOURCE_URL=1 \
+    APP_DATASOURCE_USERNAME=1 \
+    APP_DATASOURCE_PASSWORD=1 \
+    APP_HIBERNATE_DIALECT=1 \
+    APP_HIBERNATE_HBM2DDL_AUTO=1\
+    APP_PORT=hello \
+    APP_CONTEXT_PATH=2
+
+# Install all the dependencies we need
 RUN apt-get update
-RUN apt-get -y install nodejs npm openjdk-8-jdk 
-RUN apt-get -y purge openjdk-11-jre-headless 
-RUN mkdir -p /home/pedrorod/pizzeria
-WORKDIR /home/pedrorod/pizzeria
-COPY . /home/pedrorod/pizzeria
+RUN apt-get -y install nodejs npm openjdk-8-jdk
+RUN apt-get -y purge openjdk-11-jre-headless
+RUN mkdir -p /usr/local/pizzeria
+
+# Set the working directory
+WORKDIR /usr/local/pizzeria
+
+# Copy all our app jars and artifacts created from mvn clean package
+COPY . /usr/local/pizzeria
+
+# Make our entrypoint script executable
+RUN chmod 0755 start-pizza-app.sh
+
+# Expose port 8081
 EXPOSE 8081
-ENTRYPOINT ["java","-jar","webapp/target/dependency/webapp-runner.jar","--port","8081","--path","pizzeria","webapp/target/webapp-0.0.1-SNAPSHOT.war"]
-#ENTRYPOINT ["sleep","100000"]
-# Command to build and push the new Docker image to the remote repository
-# docker build . -f Debugger-Dockerfile -t izzyacademy/ubuntu-pizza:18.04
-# docker push izzyacademy/ubuntu-pizza:18.04
-# docker run --name debugger -it izzyacademy/ubuntu-pizza:18.04
+
+ENTRYPOINT ["/usr/local/pizzeria/start-pizza-app.sh"]

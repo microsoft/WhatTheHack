@@ -1,0 +1,108 @@
+<div class="row">
+
+    <div class="form-group col-md-2">
+        <form:label path="quantity">Quantity:</form:label>
+        <form:select path="quantity" cssClass="form-control">
+            <form:options items="${quantities}"/>
+        </form:select>
+        <form:errors path="quantity"/>
+    </div>
+
+    <div class="form-group col-md-2">
+        <form:label path="crustId">Crust:</form:label>
+        <form:select path="crustId" cssClass="form-control">
+            <form:options items="${crusts}" itemLabel="name" itemValue="id"/>
+        </form:select>
+        <form:errors path="crustId"/>
+    </div>
+    <div class="form-group col-md-2">
+        <form:label path="pizzaSizeId">Size:</form:label>
+        <form:select path="pizzaSizeId" cssClass="form-control">
+            <c:forEach var="pizzaSize" items="${pizzaSizes}">
+                <form:option value="${pizzaSize.id}" label='${pizzaSize.name} ${pizzaSize.diameterInInches}"'/>
+            </c:forEach>
+        </form:select>
+        <form:errors path="pizzaSizeId"/>
+    </div>
+
+    <div class="form-group col-md-2">
+        <form:label path="bakeStyleId">Bake style:</form:label>
+        <form:select path="bakeStyleId" cssClass="form-control">
+            <form:options items="${bakeStyles}" itemLabel="name" itemValue="id"/>
+        </form:select>
+        <form:errors path="bakeStyleId"/>
+    </div>
+    <div class="form-group col-md-2">
+        <form:label path="cutStyleId">Cut style:</form:label>
+        <form:select path="cutStyleId" cssClass="form-control">
+            <form:options items="${cutStyles}" itemLabel="name" itemValue="id"/>
+        </form:select>
+        <form:errors path="cutStyleId"/>
+    </div>
+</div>
+
+<div>
+    <ul class="nav nav-pills" role="tablist">
+        <%--@elvariable id="pizzaBuilderForm" type="pzinsta.pizzeria.web.form.PizzaBuilderForm"--%>
+        <c:forEach items="${pizzaBuilderForm.ingredientGroups}" var="ingredientGroup" varStatus="ingredientGroupVarStatus">
+             <li role="presentation" class="${ingredientGroupVarStatus.first ? 'active' : ''}">
+                 <a href="#${ingredientGroup.ingredientType.name}" aria-controls="${ingredientGroup.ingredientType.name}"
+                    role="tab" data-toggle="tab">${ingredientGroup.ingredientType.name}</a>
+            </li>
+        </c:forEach>
+    </ul>
+    <div class="tab-content">
+        <c:forEach items="${pizzaBuilderForm.ingredientGroups}" var="ingredientGroup" varStatus="ingredientGroupVarStatus">
+            <div class="tab-pane ${ingredientGroupVarStatus.first ? 'active' : ''}" id="${ingredientGroup.ingredientType.name}">
+                <form:hidden path="ingredientGroups[${ingredientGroupVarStatus.index}].ingredientType.id" />
+                <form:hidden path="ingredientGroups[${ingredientGroupVarStatus.index}].ingredientType.name" />
+                <div class="row">
+                    <c:forEach items="${ingredientGroup.ingredientQuantities}" var="ingredientQuantity" varStatus="ingredientQuantityVarStatus">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-3 col-lg-2">
+                                        <spring:url value="/resources/images/ingredients/{filename}" var="ingredientImageUrl">
+                                            <spring:param name="filename" value="${ingredientQuantity.ingredient.imageFileName}"/>
+                                        </spring:url>
+                                        <img src="${ingredientImageUrl}" alt="" class="img-responsive visible-lg-inline visible-md-inline visible-sm-inline visible-xs-inline">
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <label class="control-label visible-lg-block visible-md-inline visible-sm-inline visible-xs-inline">
+                                                ${ingredientQuantity.ingredient.name}
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <c:set var="ingredientQuantityPath"
+                                   value="ingredientGroups[${ingredientGroupVarStatus.index}].ingredientQuantities[${ingredientQuantityVarStatus.index}]"/>
+                            <div class="form-group">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label for="${ingredientQuantityPath}.ingredientSide1" class="btn btn-default ${ingredientQuantity.ingredientSide eq 'LEFT' ? 'active' : ''}">
+                                        <form:radiobutton path="${ingredientQuantityPath}.ingredientSide" value="LEFT" /> Left
+                                    </label>
+                                    <label for="${ingredientQuantityPath}.ingredientSide2" class="btn btn-default ${ingredientQuantity.ingredientSide eq 'WHOLE' ? 'active' : ''}" >
+                                        <form:radiobutton path="${ingredientQuantityPath}.ingredientSide" value="WHOLE"/> Whole
+                                    </label>
+                                    <label for="${ingredientQuantityPath}.ingredientSide3" class="btn btn-default ${ingredientQuantity.ingredientSide eq 'RIGHT' ? 'active' : ''}">
+                                        <form:radiobutton path="${ingredientQuantityPath}.ingredientSide" value="RIGHT"/> Right
+                                    </label>
+                                    <label for="${ingredientQuantityPath}.ingredientSide4" class="btn btn-default ${ingredientQuantity.ingredientSide eq 'NONE' ? 'active' : ''}">
+                                        <form:radiobutton path="${ingredientQuantityPath}.ingredientSide" value="NONE"/> None
+                                    </label>
+                                </div>
+
+                                <form:checkbox path="${ingredientQuantityPath}.x2" label="x2" disabled="${ingredientQuantity.ingredientSide eq 'NONE'}"  />
+                            </div>
+                            <form:hidden path="${ingredientQuantityPath}.ingredient.id"/>
+                            <form:hidden path="${ingredientQuantityPath}.ingredient.name"/>
+                            <form:hidden path="${ingredientQuantityPath}.ingredient.imageFileName"/>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+
+</div>
