@@ -18,10 +18,10 @@ async function processPatients(context, patients) {
 function getAuthenticationToken(context) {
   return new Promise((resolve, reject) => {
     const authContext = new AuthenticationContext(
-      "https://login.windows.net/microsoft.onmicrosoft.com"
+      "https://login.windows.net/[your tenant].onmicrosoft.com"
     );
     authContext.acquireTokenWithClientCredentials(
-      "[resource, i.e. https://azurehealthcareapis.com]",
+      "https://azurehealthcareapis.com",
       "[your adalConfiguration.clientID]",
       "[your adalConfiguration.clientSecret]",
       (err, response) => {
@@ -76,7 +76,7 @@ module.exports = async function(context, req) {
   /// Do the thing!
   const token = await getAuthenticationToken(context);
   await foreachPatient(
-    "[base fhir server url]",
+    "[your fhir server base url]",
     token,
     context,
     processPatients

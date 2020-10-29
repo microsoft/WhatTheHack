@@ -23,7 +23,7 @@ function getAuthenticationToken(context) {
     authContext.acquireTokenWithClientCredentials(
       "https://azurehealthcareapis.com",
       "[your adalConfiguration.clientID]",
-      "[your adalConfiguration.clientSecret]",
+      "[your adalConfiguration]",
       (err, response) => {
         if (err) {
           reject(err);
