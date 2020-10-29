@@ -2,25 +2,25 @@
     "default": {
         "authorityHostUrl": "https://login.windows.net",
         "tenant": "[your tenant].onmicrosoft.com",
-        "applicationId": "your application id",
-        "clientSecret": "your client secret",
+        "applicationId": "[your application id]",
+        "clientSecret": "[your client secret]",
         "resource": "https://azurehealthcareapis.com",
         "fhirApiUrl": "fhir api base url"
     },
     "dev": {
         "authorityHostUrl": "https://login.windows.net",
         "tenant": "[your tenant].onmicrosoft.com",
-        "applicationId": "your application id",
-        "clientSecret": "your client secret",
+        "applicationId": "[your application id]",
+        "clientSecret": "[your client secret]",
         "resource": "https://azurehealthcareapis.com",
         "fhirApiUrl": "fhir api base url"
     },
     "prod": {
         "authorityHostUrl": "https://login.windows.net",
         "tenant": "[your tenant].onmicrosoft.com",
-        "applicationId": "your application id",
-        "clientSecret": "your client secret",
+        "applicationId": "[your application id]",
+        "clientSecret": "[your client secret]",
         "resource": "https://azurehealthcareapis.com",
-        "fhirApiUrl": "fhir api base url"
+        "fhirApiUrl": "[fhir api base url]"
     }
 }
