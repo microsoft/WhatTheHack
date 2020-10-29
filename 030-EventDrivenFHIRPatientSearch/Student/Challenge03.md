@@ -6,7 +6,7 @@
 
 In this challenge, you will implement an event-driven architecture for streaming patient data from the FHIR Server to Azure Cosmos DB.
 
-**[Serverless streaming with Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#features)** to build an end-to-end serverless streaming platform with Event Hubs and Stream Analytics
+**[Serverless streaming with Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#features)** architecture to build an end-to-end serverless streaming platform with Event Hubs and Stream Analytics:
 ![Serverless streaming with Event Hubs](../images/serverless-streaming.jpg)
 
 
