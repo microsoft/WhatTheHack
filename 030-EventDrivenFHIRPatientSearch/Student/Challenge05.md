@@ -8,14 +8,16 @@ In this challenge, you will build a patient lookup frontend that displays the pa
 
 ## Description
 
-- Build a web app to display Patient records in pages of 10.
-- Add a patient lookup function on the Patient Search web page leveraging Patient Search indexer API.
+- Build a web app to display patient records in pages of 10.
+- Add a patient lookup function in web page using Patient Search indexer API.
 - (Optional) Include any other clever UI features to improve the user experience.
 - Deploy your web app to Azure App Services
 
 
 ## Success Criteria
 - Create a web app, i.e. React, Java, etc., for patient lookup by calling the Patient Search indexer API and list the results in pagineated web pages
+- Host the web app on Azure App Services
+- Browse to Patient Search web app and demo patient lookup
 
 ## Learning Resources
 
