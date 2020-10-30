@@ -49,8 +49,8 @@ Your team's assistance is needed to implement this new event-driven ecosystem to
   - Student's resource files, code, and templates to aid with challenges
 - `../Coach`
    - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
-- `../Coach/Guides`
-  - [Lecture presentation](Coach/Guides/Lectures.pptx) with short presentations to introduce each challenge.
+- `../Coach/Resources`
+  - [Lecture presentation](Coach/Resources/Lectures.pptx) with short presentations to introduce each challenge.
 
 ## Contributors
 - Richard Liang (Microsoft)
