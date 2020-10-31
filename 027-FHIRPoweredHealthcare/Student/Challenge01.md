@@ -4,7 +4,9 @@
 
 ## Introduction
 
-In this challenge, you will implement a function app to extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  For this hack, you will simulate patient records using open source Synthea Patient Generator tool and bulk load them to FHIR Server (PaaS) as depicted in bulk load data flow (red) diagram below.
+In this challenge, you will implement the FHIR Server Bulk Import to ingest patient data from Electronic Health Record (EHR) systems.  
+
+For unit testing, you will simulate patient records using open source Synthea Patient Generator tool and bulk load them to FHIR Server (PaaS scenario) as depicted in bulk load data flow (red) diagram below.
 
 ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 
