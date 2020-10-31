@@ -85,6 +85,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             - fhir Server Url (Obtain from Azure API for FHIR)
             - Aad Service Client Id (Obtain from Azure API for FHIR)
             - Aad Service Client Secret (Obtain from Azure API for FHIR)
+
 ### Copy Synthea generated patient data to fhirimport Blob to trigger Bulk Load into FHIR Server 
 - **[Copy data to Azure Storage using AzCopy commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
     - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
@@ -109,28 +110,28 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             ...
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
-- Use Postman to retreive Patients data via FHIR Patients API
-    - Configure Postman Global VAR Environment, i.e. "Azure API for FHIR Env", and include the following variables:
-        - tenant_id: {yourtenantid}
-        - grant_type: client_credentials
-        - client_id: {yourclientidforpostman}
-        - client_secret: {yourclientsecretforpostman}
-        - resource: http://management.azure.com
-        - subscriptionid: {yoursubscriptionid}
-    - Create Postman collection for FHIR API that configure the following http requests:
-        - AuthorzeGetToken - Get New Access Token
-        - HTTP Request:
-            - Type=POST
-            - URL=https://login.microsoftonline.com/{{tenantId}}/oauth2/token
-        - Auth
-            - Type=OAuth 2.0
-        - Headers
-            - Content-Type: application/x-www-form-urlencoded
-                - Body
-                    - grant_type: client_credentials
-                    - client_id: {{clientId}}
-                    - client_secret: {{clientSecret}}
-                    - resource: {{resource}}        
+### Use Postman to retreive Patients data via FHIR Patients API
+- Configure Postman Global VAR Environment, i.e. "Azure API for FHIR Env", and include the following variables:
+    - tenant_id: {yourtenantid}
+    - grant_type: client_credentials
+    - client_id: {yourclientidforpostman}
+    - client_secret: {yourclientsecretforpostman}
+    - resource: http://management.azure.com
+    - subscriptionid: {yoursubscriptionid}
+- Create Postman collection for FHIR API that configure the following http requests:
+    - AuthorzeGetToken - Get New Access Token
+    - HTTP Request:
+        - Type=POST
+        - URL=https://login.microsoftonline.com/{{tenantId}}/oauth2/token
+    - Auth
+        - Type=OAuth 2.0
+    - Headers
+        - Content-Type: application/x-www-form-urlencoded
+            - Body
+                - grant_type: client_credentials
+                - client_id: {{clientId}}
+                - client_secret: {{clientSecret}}
+                - resource: {{resource}}        
             
 
 
