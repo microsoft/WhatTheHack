@@ -72,8 +72,7 @@ The simplest usage is to use the static factory method EventHubClient.createFrom
   });
   ```
 
-- Create function app httptrigger to outputEventHubMessage (for FHIR Server PaaS scenario)
-Function App integration:
+- Create function app httptrigger to outputEventHubMessage integration (for FHIR Server PaaS scenario):
 ![Function App cosmostrigger to outputEventHubMessage](../images/functionapp-httptrigger-outEventHubMessage.jpg)
 
   - Create a new function app instance
@@ -142,8 +141,7 @@ Function App integration:
   }
   ```
 
-- Create function app cosmosdbtrigger to outputEventHubMessage (for FHIR Server open source scenario)
-Function App integration:
+- Create function app cosmosdbtrigger to outputEventHubMessage integration (for FHIR Server open source scenario):
 ![Function App cosmostrigger to outputEventHubMessage](../images/functionapp-cosmostrigger-outEventHubMessage.jpg)
 
   - Create a new function app instance
