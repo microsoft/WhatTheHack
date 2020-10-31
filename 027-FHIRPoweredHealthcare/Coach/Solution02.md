@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 2 - Stream patient data and unit testing
+# Coach's Guide: Challenge 2 - Stream patient data with serverless function app
 
 [< Previous Challenge](./Solution01.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution03.md)
 
