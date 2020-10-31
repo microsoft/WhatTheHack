@@ -8,7 +8,7 @@ In this challenge, you will stream FHIR Patient Data from the FHIR Server to a t
 
 ## Description
 
-- Deploy CosmosDB instance supporting SQL interface.
+- Deploy CosmosDB instance supporting SQL interface and create a test database collection.
 - Deploy a serverless function app that reads from FHIR server and writes to the SQL interface of Azure CosmosDB.
     - Look for these files in student resources folder for sample code on how to read from FHIR Server
         - dataread.js
