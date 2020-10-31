@@ -4,49 +4,32 @@
 
 ## Introduction
 
-In this challenge, you will extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  
-Note: For this hack, you will auto-generate test FHIR patient data via API or bulk load as depicted by data flow (red) in FHIR Server sample architecture below.
+In this challenge, you will implement a function app to extract patient data from Electronic Health Record (EHR) systems and load to FHIR Server.  For this hack, you will simulate patient records using open source Synthea Patient Generator tool and bulk load them to FHIR Server (PaaS) as depicted in bulk load data flow (red) diagram below.
 
-![FHIR Serverless API Load & Bulk Load](../images/fhir-serverless-api&bulk-load.jpg)
+![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 
 ## Description
 
-- Deploy Azure API for FHIR for data ingestion of FHIR patient data
-- (API Load option) Mock patient data and load them into FHIR Server via Serverless Function
-   - Develop a serverless function to auto-generate mock FHIR patient data
-      Note: Sample NodeJS code snippet to be provided.
-   - Update and configure the above serverless function to call FHIR Server API to load auto-generated patient data into FHIR Server one at a time  
-   - Run data generation function app to mock patient data and load them into FHIR Server
-   - (Optional) Setup Postman to access patient data inserted into FHIR Server via API call
+- Deploy FHIR Server for data ingestion and transformation of FHIR patient data.
+- Auto-generate simulated patient data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
+   - SyntheaTM is a Synthetic Patient Population Simulator that outputs synthetic patient data and associated health records in FHIR and C-CDA formats to its ./output folder.
+- Deploy **[FHIR Server sample (PaaS scenario) Bulk Import components](https://github.com/microsoft/fhir-server-samples)** to load Synthea generated FHIR patient bundle data into FHIR Server.
 
-- (Bulk Load option) Simulate patient data via **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** and bulk load them into FHIR Server via FHIR Server Bulk Load
-   - Auto generate FHIR patient data via **[SyntheaTM Patient Generator tool](https://github.com/synthetichealth/synthea#generate-synthetic-patients)**.  
-      - SyntheaTM will output patient records in C-CDA and FHIR formats in ./output folder. 
-      
-      Note: SyntheaTM is a Synthetic Patient Population Simulator that outputs synthetic patient data and associated health records in FHIR and other formats, i.e. C-CDA, etc.
+   Note: In the Azure API for FHIR (PaaS scenario) deployments depicted above, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
 
-   - Deploy **[FHIR Server sample (PaaS scenario) Bulk Load Function and Blob Storage](https://github.com/microsoft/fhir-server-samples)** to load Synthea generated FHIR patient bundles into FHIR Server
+   - First, clone this 'FHIR Server Samples' git repo to your local project repo, i.e. c:/projects.
 
-      Note: In the Azure API for FHIR (PaaS scenario) deployments depicted above, a storage account will be deploy and in this storage account there is a BLOB container called fhirimport, patient bundles generated with Synthea can dumped in this storage container and they will be loaded into the FHIR server. The bulk load is performed by an Azure Function.
-
-      - First, clone this 'FHIR Server Samples' git repo to local project repo, i.e. c:/projects and change directory to deploy/scripts folder:
-
-         ```
-         $ git clone https://github.com/Microsoft/fhir-server-samples
-         $ cd fhir-server-samples/deploy/scripts
-         ```
-      - Deploy FHIR Server Samples Function Bulk Load and Storage fhirimport via deployment template (azuredeploy-importer.json) in fhir-server-samples/deploy/templates
-- Use Azure data utility tools to copy Synthea generated FHIR patient bundle data files to fhirimport Blob Container for bulk load into FHIR Server 
-   - You can **[copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
-   - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**     
-   - (Optional) Setup Postman to access patient data inserted into FHIR Server via API call
+   - Deploy FHIR Server Samples Function Bulk Load and Storage fhirimport via deployment template (azuredeploy-importer.json) in fhir-server-samples/deploy/templates.
+- Copy Synthea generated FHIR patient bundle data files to fhirimport Blob container.  This will trigger a function app to bulk load them into FHIR Server.
+   - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
+   - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
+   - Setup Postman to access patient data inserted into FHIR Server.
 
 ## Success Criteria
 
-   - Standup Azure API for FHIR managed service in Azure.
-   - Auto generate test patient data in FHIR-based format via Serverless Function or Synthea Patient Generator tool
-   - Load FHIR patient test data into FHIR Server via FHIR API Load or Bulk Load.
-   - (Optional) Verify patient data is loaded into FHIR Server via Postman
+   - You have provisioned FHIR Server PaaS scenario (Azure API for FHIR) in Azure.
+   - You have auto generated test FHIR patient data and loaded them into FHIR Server.
+   - Validate FHIR patient data loaded in FHIR Server by retrieving them in Postman
 
 ## Learning Resources
 
