@@ -110,7 +110,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             ...
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
-### Use Postman to retreive Patients data via FHIR Patients API
+## Use Postman to retreive Patients data via FHIR Patients API
 - Configure Postman Global VAR Environment, i.e. "Azure API for FHIR Env", and include the following variables:
     - tenant_id: {yourtenantid}
     - grant_type: client_credentials
