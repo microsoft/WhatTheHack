@@ -1,23 +1,22 @@
-# Challenge 2: Stream FHIR Patient Data 
+# Challenge 2: Stream FHIR Patient Data with serverless function app
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 
 ## Introduction
 
-In this challenge, you will stream FHIR Patient Data from the FHIR Server and for unit testing, load them directly into Azure Cosmos DB.
+In this challenge, you will stream FHIR Patient Data from the FHIR Server to a test NoSQL Document database for unit testing.
 
 ## Description
 
 - Deploy CosmosDB instance supporting SQL interface.
-- Deploy a serverless function app that reads from FHIR server and writes to the SQL interface of Azure CosmosDB (for unit testing).
-    - Look for these files for sample code on how to read from FHIR Server
+- Deploy a serverless function app that reads from FHIR server and writes to the SQL interface of Azure CosmosDB.
+    - Look for these files in student resources folder for sample code on how to read from FHIR Server
         - dataread.js
         - config.json
     - Trigger your function manually for now
 
 ## Success Criteria
-- Extract patient records from FHIR Server via API.
-- Unit testing: Load the extracted patient data directly to Azure Cosomos DB
+- You have extracted patient data from FHIR Server and loaded them to Azure Cosmos DB.
 
 ## Learning Resources
 

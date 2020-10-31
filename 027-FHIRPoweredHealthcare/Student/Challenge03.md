@@ -8,22 +8,22 @@ In this challenge, you will implement an event-driven architecture for streaming
 
 **[Serverless streaming with Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#features)** architecture for building an end-to-end serverless streaming platform (depicted below):  
 
-In the architecture diagram below, the data flow in blue shows a serverless function retrieves patient data from FHIR Server and drops them to Event Hubs, and then a Stream Analytics job ingests patient data from Event Hubs and writes stream processing results as JSON output to Cosmos DB.
+In the architecture diagram below, the data flow (blue) shows a serverless function retrieves patient data from FHIR Server and drops them to Event Hubs, and then a Stream Analytics job ingests patient data from Event Hubs and writes stream processing results as JSON output to Cosmos DB.
 ![Serverless streaming with Event Hubs](../images/fhir-serverless-streaming.jpg)
 
 
 ## Description
 
-- Deploy an Azure Event Hubs to receive patient data event streams from FHIR server
-- Update the Azure Functions to read from FHIR server and drop to Azure Event Hubs
-- Deploy new serverless function app that is triggered by new patient data event sent to Azure Event Hubs and pushes the data to Azure Cosmos DB
-- (Optional) Alternatively, deploy Azure Stream Analytics job to ingest data from Azure Event Hubs and pushes them to Azure Cosmos DB
+- Create a new database collection in existing Cosmos DB to persist FHIR patient data.  This will be used as Output source for a Stream Analytics job later.
+- Deploy an Event Hubs instance to receive patient data event streams from FHIR server.  This will be used as Input source for a Stream Analytics job later.
+- Update the function app to read from FHIR server and stream them to Event Hubs.
+- Deploy Stream Analytics instance and setup a Stream Analytics job to ingest data from Azure Event Hubs (Input) and output query processing results to Cosmos DB (Output).
 
 ## Success Criteria
-- Deploy Azure Cosmos DB service in Azure Portal to persist aggregated patient data
-- Auto write patient data to Azure Cosmos DB when patient data is retreived from FHIR Server and stream to Azure Event Hubs
-- Alternatively, use a streaming service to retrieve patient data event in Event Hubs and push them to Azure Cosmos DB
-
+- You have created a new database collection in Cosmos DB to persist patient data.
+- You have standup a new Event Hubs instance for streaming patient data from FHIR Server.
+- You have standup a new Stream Analytics instance for real-time stream of patient data.
+- You have setup a Stream Analytics job to retrieve patient data from Event Hubs and output processing results to Cosmos DB.
 
 ## Learning Resources
 
