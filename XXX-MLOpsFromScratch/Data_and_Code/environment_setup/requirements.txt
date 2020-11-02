@@ -1,0 +1,11 @@
+azure-cli==2.0.69
+azureml-sdk[cli]
+scipy
+scikit-learn
+joblib
+numpy
+pandas
+matplotlib
+seaborn
+statsmodels
+pmdarima
