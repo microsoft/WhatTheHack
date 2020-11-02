@@ -1,0 +1,116 @@
+pool:
+
+  name: Azure Pipelines
+
+steps:
+
+- task: UsePythonVersion@0
+
+  displayName: 'Use Python 3.6'
+
+  inputs:
+
+    versionSpec: 3.6
+
+
+
+- task: Bash@3
+
+  displayName: 'Setup Environment'
+
+  inputs:
+
+    targetType: filePath
+
+    filePath: './environment_setup/install_requirements.sh'
+
+
+
+- task: AzureCLI@1
+
+  displayName: 'Creating or Getting Resource Group and Azure ML Workspace'
+
+  inputs:
+
+    azureSubscription: 'Shiva-MicrosoftAzureInternalConsumption (46668180-b0ad-4a49-bed9-88f16f315dce)'
+
+    scriptLocation: inlineScript
+
+    inlineScript: 'python service/code/WorkSpace.py'
+
+
+
+- task: AzureCLI@1
+
+  displayName: 'Train Model'
+
+  inputs:
+
+    azureSubscription: 'Shiva-MicrosoftAzureInternalConsumption (46668180-b0ad-4a49-bed9-88f16f315dce)'
+
+    scriptLocation: inlineScript
+
+    inlineScript: 'python service/code/TrainOnLocal.py'
+
+
+
+- task: AzureCLI@1
+
+  displayName: 'Evaluate Model'
+
+  inputs:
+
+    azureSubscription: 'Shiva-MicrosoftAzureInternalConsumption (46668180-b0ad-4a49-bed9-88f16f315dce)'
+
+    scriptLocation: inlineScript
+
+    inlineScript: 'python service/code/EvaluateModel.py'
+
+
+
+- task: AzureCLI@1
+
+  displayName: 'Register Model'
+
+  inputs:
+
+    azureSubscription: 'Shiva-MicrosoftAzureInternalConsumption (46668180-b0ad-4a49-bed9-88f16f315dce)'
+
+    scriptLocation: inlineScript
+
+    inlineScript: 'python service/code/RegisterModel.py'
+
+
+
+- task: AzureCLI@1
+
+  displayName: 'Score Model - Docker'
+
+  inputs:
+
+    azureSubscription: 'Shiva-MicrosoftAzureInternalConsumption (46668180-b0ad-4a49-bed9-88f16f315dce)'
+
+    scriptLocation: inlineScript
+
+    inlineScript: 'python service/code/CreateScoringImage.py'
+
+
+
+- task: CopyFiles@2
+
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+
+  inputs:
+
+    SourceFolder: '$(Build.SourcesDirectory)'
+
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+
+
+- task: PublishBuildArtifacts@1
+
+  displayName: 'Publish Artifact: drop'
+
+
+
