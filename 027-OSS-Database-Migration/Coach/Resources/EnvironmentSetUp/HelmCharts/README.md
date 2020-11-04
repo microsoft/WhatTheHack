@@ -15,13 +15,13 @@ This requires Helm3 and the latest version of Azure CLI to be installed
 ```shell
 
 # Clone the Git Repository
-git clone WhatTheHackGitURL
+#git clone WhatTheHackGitURL
 
 # Get into the WhatTheHack repo
-cd WhatTheHack
+#cd WhatTheHack
 
 # Navigate to the Helm Charts
-cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
+#cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
 
 # Install the Kubernetes Resources
 helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.password=OCPHack8
@@ -36,7 +36,7 @@ kubectl -n postgresql get svc
 
 ```
 
-## Checking the Pod for Postgresl
+## Checking the Pod for Postgres
 
 ```shell
 
@@ -52,18 +52,23 @@ kubectl -n postgresql get pods
 kubectl -n postgresql exec deploy/postgres -it -- bash
 
 # Use this to login to the service
-psql -U postgres
 
-# Check the DB Version
+psql -U postgres 
+```
+Run the following commands to check the Postgres Version
+
+```sql
+
+--Check the DB Version
 SELECT version();
 
-# Show databases
+--List databases notice that there is a database called wth with data
 \l
 
-# Set default database
-\c databasename
+-- Set default database to wth
+\c wth
 
-# Show tables in database
+--Show tables in database
 \dt
 
 ```
@@ -74,7 +79,7 @@ Use this to uninstall the PostgreSQL 11 instance from Kubernetes cluster
 
 ```shell
 
-# Use this to connect to the database server
+# Uninstall to the database server. To install again, run helm upgrade
 helm uninstall wth-postgresql
 
 ```
@@ -98,7 +103,7 @@ kubectl -n mysqlwth get svc
 
 ```
 
-## Checking the Pod for Postgresl
+## Checking the Pod for MySQL
 
 ```shell
 
@@ -115,17 +120,19 @@ kubectl -n mysqlwth exec deploy/mysql -it -- bash
 
 # Use this to login to the service
 mysql -u root -pOCPHack8
+```
+```sql
 
-# Check the DB Version
+-- Check the mysql DB Version
 SELECT version();
 
-# Show databases
+-- List databases
 SHOW DATABASES;
 
-# Set default database
-USE ocpwth
+-- Set default database to wth
+USE wth
 
-# Show tables in database
+-- Show tables in wth database
 
 SHOW TABLES;
 
