@@ -47,13 +47,7 @@
           "Standard_D32s_v3",
           "Standard_D64s_v3"
         ]
-      },
-      "subscriptionId": {
-        "type": "string",
-        "metadata": {
-          "description": "The Subscription Id for the Azure Account."
-        }
-      },
+      },     
       "resourceGroupName": {
         "type": "string",
         "metadata": {
@@ -210,9 +204,10 @@
     },
     "variables": {
       "deploymentSuffix": "MDP2020",
-      "omsWorkspaceId": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-      "clusterID": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.ContainerService/managedClusters/', parameters('clusterName'))]",
-      "vnetSubnetID": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetName'))]",
+      "subscriptionId" : "[subscription().id]",
+      "omsWorkspaceId": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+      "clusterID": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.ContainerService/managedClusters/', parameters('clusterName'))]",
+      "vnetSubnetID": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetName'))]",
       "solutionDeploymentId": "[concat('SolutionDeployment-', variables('deploymentSuffix'))]",
       "workspaceDeploymentId": "[concat('WorkspaceDeployment-', variables('deploymentSuffix'))]",
       "clusterMonitoringMetricId": "[concat('ClusterMonitoringMetric-', variables('deploymentSuffix'))]",
@@ -382,7 +377,7 @@
         "name": "[variables('clusterMonitoringMetricId')]",
         "apiVersion": "2017-05-10",
         "resourceGroup": "[parameters('resourceGroupName')]",
-        "subscriptionId": "[parameters('subscriptionId')]",
+        "subscriptionId": "[subscription().subscriptionId]",
         "properties": {
           "mode": "Incremental",
           "template": {
@@ -413,7 +408,7 @@
         "name": "[variables('clusterSubnetRoleAssignmentId')]",
         "apiVersion": "2017-05-10",
         "resourceGroup": "[parameters('resourceGroupName')]",
-        "subscriptionId": "[parameters('subscriptionId')]",
+        "subscriptionId": "[subscription().subscriptionId]",
         "properties": {
           "mode": "Incremental",
           "template": {
