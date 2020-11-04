@@ -1,3 +1,7 @@
+# Add line to set login to az
+#az login 
+# Set your azure subscription 
+#az account set -s "<subscription-id>"
 # Defines the ARM template file location
 export templateFile="aks-cluster.json"
 
@@ -9,8 +13,10 @@ export resourceGroupName="OSSDBMigration"
 
 export clusterName="ossdbmigration"
 
+export location="westus"
+
 # Creates the resources group if it does not already exist
-az group create --name $resourceGroupName --location "West US"
+az group create --name $resourceGroupName --location $location
 
 # Creates the Kubernetes cluster and the associated resources and dependencies for the cluster
 az deployment group create --name dataProductionDeployment --resource-group $resourceGroupName --template-file $templateFile --parameters $parameterFile
@@ -21,5 +27,7 @@ sudo az aks install-cli
 # Get the Credentials to Access the Cluster with Kubectl
 az aks get-credentials --name $clusterName --resource-group $resourceGroupName
 
-# List the node pools
-az aks nodepool list --resource-group $resourceGroupName --cluster-name $clusterName
+# List the node pools - expect two aks nodepools
+
+az aks nodepool list --resource-group $resourceGroupName --cluster-name $clusterName -o table
+
