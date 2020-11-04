@@ -47,7 +47,7 @@
           "Standard_D32s_v3",
           "Standard_D64s_v3"
         ]
-      },     
+      },
       "resourceGroupName": {
         "type": "string",
         "metadata": {
@@ -162,7 +162,7 @@
       "workspaceName": {
         "type": "string",
         "metadata": {
-          "description": "Specify the name of the OMS workspace."
+          "description": "Specify the prefix of the OMS workspace."
         }
       },
       "omsSku": {
@@ -205,7 +205,8 @@
     "variables": {
       "deploymentSuffix": "MDP2020",
       "subscriptionId" : "[subscription().id]",
-      "omsWorkspaceId": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+      "workspaceName" : "[concat(parameters('workspaceName'), uniqueString(variables('subscriptionId')))]",
+      "omsWorkspaceId": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.OperationalInsights/workspaces/', variables('workspaceName'))]",
       "clusterID": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.ContainerService/managedClusters/', parameters('clusterName'))]",
       "vnetSubnetID": "[concat(variables('subscriptionId'), '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetName'))]",
       "solutionDeploymentId": "[concat('SolutionDeployment-', variables('deploymentSuffix'))]",
@@ -361,7 +362,7 @@
                 "apiVersion": "2015-11-01-preview",
                 "type": "Microsoft.OperationalInsights/workspaces",
                 "location": "[parameters('workspaceRegion')]",
-                "name": "[parameters('workspaceName')]",
+                "name": "[variables('workspaceName')]",
                 "properties": {
                   "sku": {
                     "name": "[parameters('omsSku')]"
@@ -402,35 +403,6 @@
         "dependsOn": [
           "[variables('clusterID')]"
         ]
-      },
-      {
-        "type": "Microsoft.Resources/deployments",
-        "name": "[variables('clusterSubnetRoleAssignmentId')]",
-        "apiVersion": "2017-05-10",
-        "resourceGroup": "[parameters('resourceGroupName')]",
-        "subscriptionId": "[subscription().subscriptionId]",
-        "properties": {
-          "mode": "Incremental",
-          "template": {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {},
-            "variables": {},
-            "resources": [
-              {
-                "type": "Microsoft.Network/virtualNetworks/subnets/providers/roleAssignments",
-                "apiVersion": "2017-05-01",
-                "name": "[concat(parameters('virtualNetworkName'), '/', parameters('subnetName'), '/Microsoft.Authorization/', guid(subscription().subscriptionId))]",
-                "properties": {
-                  "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '4d97b98b-1d4f-4787-a291-c67834d212e7')]",
-                  "principalId": "[reference(parameters('clusterName')).identityProfile.kubeletidentity.objectId]",
-                  "scope": "[variables('vnetSubnetID')]"
-                }
-              }
-            ]
-          }
-        },
-        "dependsOn": []
       }
     ],
     "outputs": {
