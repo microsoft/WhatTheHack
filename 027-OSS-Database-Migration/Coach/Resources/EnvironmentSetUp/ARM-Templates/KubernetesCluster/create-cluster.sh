@@ -22,7 +22,7 @@ az group create --name $resourceGroupName --location $location
 az deployment group create --name dataProductionDeployment --resource-group $resourceGroupName --template-file $templateFile --parameters $parameterFile
 
 # Install the Kubectl CLI. This will be used to interact with the remote Kubernetes cluster
-sudo az aks install-cli
+#sudo az aks install-cli
 
 # Get the Credentials to Access the Cluster with Kubectl
 az aks get-credentials --name $clusterName --resource-group $resourceGroupName
