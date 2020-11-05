@@ -7,7 +7,7 @@
 Health Architectures includes a collection of best practices reference architectures to illustrate use cases for the Azure API for FHIR. Below is the holistic conceptual end to end architecture for Azure API for FHIR.
 ![Health Architecture](../images/HealthArchitecture.png)
 
-In this challenge, you will implement the FHIR Server PaaS scenario reference architecture to extract, transform and load patient data from Electronic Health Record (EHR) systems.  You will generate synthetic patient data for this hack in both the FHIR format for bulk load into FHIR Server and legacy C-CDA format for the ingest and conversion to FHIR Bundle.  To generate synthetic patient data, you will use the open source Synthea Patient Generator Java tool to simulate patient records in both FHIR and C-CDA formats.  
+In this challenge, you will implement the FHIR Server PaaS scenario reference architecture to extract, transform and load patient data from Electronic Health Record (EHR) systems.  For this hack, you will generate synthetic patient data in both the FHIR format for bulk load into FHIR Server and legacy C-CDA format for the ingest and conversion to FHIR Bundle.  To generate synthetic patient data, you will use the open source Synthea Patient Generator Java tool to simulate patient records in both FHIR and C-CDA formats.  
 
 ### FHIR bulk load scenario
 In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`, patient FHIR bundles generated with Synthea can be coplied into this storage container and they will be auto ingested into the FHIR server.  This bulk ingestion is performed by an Azure Function as depicted below:
@@ -15,9 +15,9 @@ In this scenario, you will deploy a storage account with a BLOB container called
 ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 
 ### C-CDA ingest and convert scrinario
-In this scenario, you will deploy a logic app based workflow to perform the conversion from C-CDA to FHIR via the **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** using the **[Conversion API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** component.
+In this scenario, you will deploy a logic app based workflow to perform the conversion from C-CDA to FHIR via the **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** using the **[Conversion API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** component and import the resulting FHIR bundle into FHIR server.
 
-![Ingest and Convert](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
+![Ingest and Convert](../images/fhir-convert-samples-architecture.jpg)
 
 
 ## Description
@@ -37,7 +37,7 @@ You will deploy Health Architecture samples for each scenarios below:
 ### C-CDA ingest and convert
 - Auto-generate simulated patient data in C-CDA format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 - Deploy **[FHIR Converter to Azure](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** using the **[Quickstart template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** to expose the C-CDA Conversion service at `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
-- Deploy a logic app based workflow to perform the conversion from Synthea generated C-CDA XML to FHIR bundle JSON and load the resulting FHIR JSON into FHIR server.  You will call FHIR Convert API for C-CDA template and ingest resulted FHIR Bundle JSON into FHIR Server.
+- Deploy a logic app based workflow to perform the conversion from Synthea generated C-CDA XML to FHIR bundle JSON and load the resulting FHIR bundle into FHIR server.  You will call FHIR Convert API for C-CDA template and ingest resulted FHIR Bundle into FHIR Server.
     - Create a new Logic App that is triggered whenever a new blob is added or modified.
     - Get BLOB content for the HTTP Request body of FHIR Convert API call.
     - Get HTTP Response body and import the resulted FHIR bundle into FHIR Server.
@@ -55,7 +55,7 @@ You will deploy Health Architecture samples for each scenarios below:
     ```
     curl --trace-ascii - -H "Content-Type:text/plain" --data-binary @samplemsg.hl7 <your ingest host name from above>/api/hl7ingest?code=<your ingest host key from above>
     ```
-- Setup Postman to access patient data inserted into FHIR Server.
+- Setup FHIR Dashboard and Postman to access patient data inserted into FHIR Server.
 
 ## Success Criteria
 
