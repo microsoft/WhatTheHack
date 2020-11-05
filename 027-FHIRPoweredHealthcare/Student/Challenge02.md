@@ -4,12 +4,12 @@
 
 ## Introduction
 
-In this challenge, implent **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** services to import and process valid HL7 messages, persist them into FHIR server and publish successful FHIR server CRUD events to an Event Hub.  Any consumers subscribed to this Event Hub topic in order to orchestrate post-processing event-driven workflows. 
+In this challenge, you will implent the **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** services to import and process valid HL7 messages, persist them into FHIR server and publish successful FHIR server CRUD events to an Event Hub.  Any consumers subscribed to this Event Hub topic in order to orchestrate post-processing event-driven workflows. 
 
 ![FHIR Event Processor](../images/fhir-event-processor.jpg)
 
 You will extend previous challenge's HL7 Ingest and Convert architecture to include the FHIR Event Processor component as follows:
-![HL7 ingest, conversion and bulk load](fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
+![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
 
 ## Description
 
