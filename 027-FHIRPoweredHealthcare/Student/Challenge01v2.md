@@ -12,10 +12,11 @@ Health Architectures includes a collection of best practices reference architect
 ## Description
 
 You will deploy Health Architecture samples for each usage scenarios below:
-- Bulk load FHIR Bundle batch data
-    ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
-- Ingest and convert legacy C-CDA patient data and HL7 messages
-    ![Ingest and Convert](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
+### Bulk load FHIR Bundle batch data
+![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
+### Ingest and convert legacy C-CDA patient data and HL7 messages
+![Ingest and Convert](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
+
 - Deploy FHIR Server for data ingestion and transformation of FHIR patient data.
 - Auto-generate simulated patient data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
    - SyntheaTM is a Synthetic Patient Population Simulator that outputs synthetic patient data and associated health records in FHIR and C-CDA formats to its ./output folder.
@@ -26,11 +27,11 @@ You will deploy Health Architecture samples for each usage scenarios below:
    - First, clone this 'FHIR Server Samples' git repo to your local project repo, i.e. c:/projects.
 
    - Deploy FHIR Server Samples Function Bulk Load and Storage fhirimport via deployment template (azuredeploy-importer.json) in fhir-server-samples/deploy/templates.
-- Copy Synthea generated FHIR patient bundle data files in ./output/fhir folder to fhirimport Blob container.  This will trigger a function app to bulk load FHIR Bundles into FHIR Server.
+- Copy Synthea generated FHIR patient bundle JSON file(s) in ./output/fhir folder to fhirimport Blob container.  This will trigger a function app to bulk load FHIR Bundle(s) into FHIR Server.
    - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
    - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
 - Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)** to ingest HL7 messages into FHIR Server and publish FHIR CRUD event to Event Hubs for FHIR Post-Processing.
-- Deploy a new Logic App to convert Synthea generated C-CDA XML data file into fHIR Bundle using FHIR Convert API and ingest them into FHIR Server.
+- Deploy a new CDAtoFHIR Logic App to convert Synthea generated C-CDA XML file to FHIR Bundle and load them into fHIR Bundle.  You will call FHIR Convert API for C-CDA template and ingest resulted FHIR Bundle JSON into FHIR Server.
     - Logic App is triggered to run whenever a new blob is added or modified.
     - Get Blob content for HTTP Request body of FHIR Convert API call.
     - Get HTTP Response body and import resulted FHIR Bundle into FHIR Server.
