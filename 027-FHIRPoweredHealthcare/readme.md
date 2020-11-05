@@ -3,7 +3,7 @@
 Contoso Healthcare Company currently uses a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Record (EHR) systems and HLS research databases.  To help its medical practitioners/administrators manage and lookup patient data for day-to-day operations, your team's assistance is needed in implementing a new event-driven architecture to aggregate patient data from various EHR systems into FHIR-based standard format and persist to a consolidated FHIR Compliant store.  You will develope a new frontend web app to display a paginated list of patient search results to support a new Patient Lookup capability.
 
 Health Architectures includes a collection of best practices reference architectures to illustrate use cases for the Azure API for FHIR. Below is the holistic conceptual end to end architecture for Azure API for FHIR.
-![Health Architecture](../images/HealthArchitecture.png)
+![Health Architecture](./images/HealthArchitecture.png)
 
  
 ## Learning Objectives
