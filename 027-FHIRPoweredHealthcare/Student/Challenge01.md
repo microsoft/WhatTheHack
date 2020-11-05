@@ -4,13 +4,18 @@
 
 ## Introduction
 
-In this challenge, you will implement the FHIR Server Bulk Import to ingest patient data from Electronic Health Record (EHR) systems.  
+In this challenge, you will implement the FHIR Server samples architecture to ingest and convert FHIR and legacy patient data from Electronic Health Record (EHR) systems.  To generate synthetic patient data for this hack, you will use the open source Synthea Patient Generator tool to simulate patient records in FHIR and C-CDA formats.  
 
-For unit testing, you will simulate patient records using open source Synthea Patient Generator tool and bulk load them to FHIR Server (PaaS scenario) as depicted in bulk load data flow (red) diagram below.
-
-![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
+Health Architectures includes a collection of best practices reference architectures to illustrate use cases for the Azure API for FHIR. Below is the holistic conceptual end to end architecture for Azure API for FHIR.
+![Health Architecture](../images/HealthArchitecture.png)
 
 ## Description
+
+You will deploy Health Architecture samples for each usage scenarios below:
+### Bulk load FHIR Bundle batch data
+![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
+### Ingest and convert legacy C-CDA patient data and HL7 messages
+![Ingest and Convert](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
 
 - Deploy FHIR Server for data ingestion and transformation of FHIR patient data.
 - Auto-generate simulated patient data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
@@ -22,10 +27,20 @@ For unit testing, you will simulate patient records using open source Synthea Pa
    - First, clone this 'FHIR Server Samples' git repo to your local project repo, i.e. c:/projects.
 
    - Deploy FHIR Server Samples Function Bulk Load and Storage fhirimport via deployment template (azuredeploy-importer.json) in fhir-server-samples/deploy/templates.
-- Copy Synthea generated FHIR patient bundle data files to fhirimport Blob container.  This will trigger a function app to bulk load them into FHIR Server.
+- Copy Synthea generated FHIR patient bundle JSON file(s) in ./output/fhir folder to fhirimport Blob container.  This will trigger a function app to bulk load FHIR Bundle(s) into FHIR Server.
    - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
    - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
-   - Setup Postman to access patient data inserted into FHIR Server.
+- Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)** to ingest HL7 messages into FHIR Server and publish FHIR CRUD event to Event Hubs for FHIR Post-Processing.
+- Deploy a new CDAtoFHIR Logic App to convert Synthea generated C-CDA XML file to FHIR Bundle and load them into fHIR Bundle.  You will call FHIR Convert API for C-CDA template and ingest resulted FHIR Bundle JSON into FHIR Server.
+    - Logic App is triggered to run whenever a new blob is added or modified.
+    - Get Blob content for HTTP Request body of FHIR Convert API call.
+    - Get HTTP Response body and import resulted FHIR Bundle into FHIR Server.
+- Copy Synthea generated C-CDA patient data files in ./output/cda folder to fhirstore/cda Blob container.  This will trigger a Logic App run that converts CDA data to FHIR Bundle and load them into FHIR Server.
+- From the linux command shell run the following command to test the hl7 ingest and conversion workflow.
+    ```
+    curl --trace-ascii - -H "Content-Type:text/plain" --data-binary @samplemsg.hl7 <your ingest host name from above>/api/hl7ingest?code=<your ingest host key from above>
+    ```
+- Setup Postman to access patient data inserted into FHIR Server.
 
 ## Success Criteria
 
