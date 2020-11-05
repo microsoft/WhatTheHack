@@ -4,14 +4,18 @@
 
 ## Introduction
 
-In this challenge, you will implement the FHIR Server samples architecture to ingest and convert FHIR and legacy patient data from Electronic Health Record (EHR) systems.  To generate synthetic patient data for this hack, you will use the open source Synthea Patient Generator tool to simulate patient records in FHIR and C-CDA formats.  You will deploy workflow samples for each usage scenarios below:
+In this challenge, you will implement the FHIR Server samples architecture to ingest and convert FHIR and legacy patient data from Electronic Health Record (EHR) systems.  To generate synthetic patient data for this hack, you will use the open source Synthea Patient Generator tool to simulate patient records in FHIR and C-CDA formats.  
+
+Health Architectures includes a collection of best practices reference architectures to illustrate use cases for the Azure API for FHIR. Below is the holistic conceptual end to end architecture for Azure API for FHIR.
+![Health Architecture](../images/HealthArchitecture.png)
+
+## Description
+
+You will deploy Health Architecture samples for each usage scenarios below:
 - Bulk load FHIR Bundle batch data
     ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 - Ingest and convert legacy C-CDA patient data and HL7 messages
     ![Ingest and Convert](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
-
-## Description
-
 - Deploy FHIR Server for data ingestion and transformation of FHIR patient data.
 - Auto-generate simulated patient data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
    - SyntheaTM is a Synthetic Patient Population Simulator that outputs synthetic patient data and associated health records in FHIR and C-CDA formats to its ./output folder.
