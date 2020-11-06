@@ -40,22 +40,11 @@ You will deploy Health Architecture samples for each scenarios below:
 - Deploy a logic app based workflow to perform the conversion from Synthea generated C-CDA XML to FHIR bundle JSON and load the resulting FHIR bundle into FHIR server.  You will call FHIR Convert API for C-CDA template and ingest resulted FHIR Bundle into FHIR Server.
     - Create a new Logic App that is triggered whenever a new blob is added or modified.
     - Get BLOB content for the HTTP Request body of FHIR Convert API call.
-    - Get HTTP Response body and import the resulted FHIR bundle into FHIR Server.
+    - Get HTTP Response body 
+    - Import response body (FHIR bundle) into FHIR Server using **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)** connection.
 - Copy the Synthea generated C-CDA patient data XML file in `./output/cda` folder to `fhirimport` BLOB container.  This will trigger the CCDAtoFHIR logic app to call the FHIR Convert API with C-CDA patient data payload and load the resulted FHIR bundle nto FHIR Server.
    - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
    - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
-
-- Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)** to ingest HL7 messages into FHIR Server and publish FHIR CRUD event to Event Hubs for FHIR Post-Processing.
-- Deploy a new CDAtoFHIR Logic App to convert Synthea generated C-CDA XML file to FHIR Bundle and load them into fHIR Bundle.  You will call FHIR Convert API for C-CDA template and ingest resulted FHIR Bundle JSON into FHIR Server.
-    - Logic App is triggered to run whenever a new blob is added or modified.
-    - Get Blob content for HTTP Request body of FHIR Convert API call.
-    - Get HTTP Response body and import resulted FHIR Bundle into FHIR Server.
-- Copy Synthea generated C-CDA patient data files in ./output/cda folder to fhirstore/cda Blob container.  This will trigger a Logic App run that converts CDA data to FHIR Bundle and load them into FHIR Server.
-- From the linux command shell run the following command to test the hl7 ingest and conversion workflow.
-    ```
-    curl --trace-ascii - -H "Content-Type:text/plain" --data-binary @samplemsg.hl7 <your ingest host name from above>/api/hl7ingest?code=<your ingest host key from above>
-    ```
-- Setup FHIR Dashboard and Postman to access patient data inserted into FHIR Server.
 
 ## Success Criteria
 
@@ -71,12 +60,14 @@ You will deploy Health Architecture samples for each scenarios below:
 - **[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**
 - **[Azure FHIR Importer Function](https://github.com/microsoft/fhir-server-samples/tree/master/src/FhirImporter)**
 - **[FHIR Converter to Azure](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** 
-- **[Quickstart template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** 
+- **[Quickstart template to deploy FHIR Converter](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** 
+- **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
+- **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)**
+- **[Use SMART on FHIR Proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
+- **[Quickstart: Register an app](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)**
+- **[Quickstart: Config an app to expose a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis)**
+- **[Quickstart: Configure a client app to access a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis)**
 - **[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
 - **[Copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
 - **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)** 
-- **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)**
-- **[Quickstart: Register an app](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)**
-- **[Quickstart: Config an app to expose a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis)**
-- **[Quickstart: Configure a client app to access a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis)**
