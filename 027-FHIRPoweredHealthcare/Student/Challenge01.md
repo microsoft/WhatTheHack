@@ -4,9 +4,6 @@
 
 ## Introduction
 
-Health Architectures includes a collection of best practices reference architectures to illustrate use cases for the Azure API for FHIR. Below is the holistic conceptual end to end architecture for Azure API for FHIR.
-![Health Architecture](../images/HealthArchitecture.png)
-
 In this challenge, you will implement the FHIR Server PaaS scenario reference architecture to extract, transform and load patient data from Electronic Health Record (EHR) systems.  For this hack, you will generate synthetic patient data in both the FHIR format for bulk load into FHIR Server and legacy C-CDA format for the ingest and conversion to FHIR Bundle.  To generate synthetic patient data, you will use the open source Synthea Patient Generator Java tool to simulate patient records in both FHIR and C-CDA formats.  
 
 ### FHIR bulk load scenario

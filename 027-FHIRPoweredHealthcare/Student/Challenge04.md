@@ -6,7 +6,7 @@
 
 In this challenge, you will configured the Azure AD SMART on FHIR proxy and explore the use of SMART on FHIR applications with the Azure API for FHIR.  You'll then use SMART on FHIR proxy to launch SMART on FHIR sample app in a SMART on FHIR Launcher app.
 
-![SMART on FHIR applications](../images/fhir-serverless-bulk-load.jpg)
+![SMART on FHIR applications](../images/smart-on-fhir-applications.jpg)
 
 **[What is SMART on FHIR?](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-faq#what-is-smart-on-fhir)** 
 SMART ((Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner apps with FHIR servers and other Health IT systems, i.e. Electronic Health Records and Health Information Exchanges.  By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems. Authentication and Azure API for FHIR. To learn more about SMART, visit SMART Health IT.
