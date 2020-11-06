@@ -1,8 +1,8 @@
-# Challenge 6 - Monitoring
+# Challenge 7 - Monitoring
 
 ## Prerequisities
 
-1. [Challenge 5 - Create Functions in the Portal](./PortalFunctions.md) should be done successfuly.
+1. [Challenge 6 - Create Functions in the Portal](./PortalFunctions.md) should be done successfuly.
 
 ## Introduction
 Application Insights can be integrated with Azure Function Apps to provide robust monitoring for your functions. In this challenge, you will provision a new Application Insights account and configure your Function Apps to send telemetry to it.

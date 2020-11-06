@@ -1,8 +1,8 @@
-# Challenge 3 - Configuration
+# Challenge 4 - Configuration
 
 ## Prerequisities
 
-1. [Challenge 2 - Create Resopurces](./CreateResources.md) should be done successfuly.
+1. [Challenge 3 - Create Resopurces](./CreateResources.md) should be done successfuly.
 
 
 ## Introduction
