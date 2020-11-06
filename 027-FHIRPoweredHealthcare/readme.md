@@ -22,11 +22,11 @@ To get you started, you will be guided through a sequence of challenges to extra
 10. Azure App Service to host the frontend web app to lookup patients and display the patient search results in a set of paginated web pages.
 
 ## Scenario
-Contoso Healthcare Company is implementing a new FHIR powered event-driven architecture to ingest and transform patient data in various formats from EHR systems into a FHIR-based standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management.  
+Contoso Healthcare Company is implementing a new FHIR powered event-driven architecture to ingest and transform patient data in various formats from EHR systems into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management.  
 
 Your team's assistance is needed to implement this new event-driven ecosystem to build-out the following scenarios:
 1. Extract and transform patient data from EHR systems into a centralized FHIR standard format.
-2. Import and process valid HL7 messages into FHIR bundles, and persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub.  Consumers subscribed to these events can ochestrate post-processing event-driven workflows.
+2. Import and process valid HL7 messages into FHIR bundles, persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub.  Consumers subscribed to these events can ochestrate post-processing event-driven workflows.
 3. Create a sample JavaScript app that connects and reads FHIR data from FHIR server.
 4. Explore the use of SMART on FHIR applications with the Azure API for FHIR to to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
 5. Extend the sample JavaScript app to improve the user experience, such as patient lookup function, paginated web pages.
