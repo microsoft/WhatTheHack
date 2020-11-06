@@ -18,7 +18,7 @@ To get you started, you will be guided through a sequence of challenges to extra
 6. **[FHIR Samples FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
 7. Azure Event Hubs event-driven architecture that handles FHIR CRUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
 8. Azure Logic App conversion workflow to retrive new C-CDA XML file in Blob container, convert them into FHIR bundle and load them into FHIR server.
-9. Azure Functions as the event trigger mechanism to auto write patient data to Azure Cosmos DB whenever patient data are retrieved from the FHIR Server and pushed to the Azure Event Hubs partition(s).
+9. Azure Functions as the event trigger mechanism to auto ingest and convert HL7 messages pushed to the FHIR Service Bus into FHIR bundles.
 10. Azure App Service to host the frontend web app to lookup patients and display the patient search results in a set of paginated web pages.
 
 ## Scenario
