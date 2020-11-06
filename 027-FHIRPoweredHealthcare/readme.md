@@ -7,7 +7,7 @@ You will implement Health Architecture samples, which includes a collection of b
 
  
 ## Learning Objectives
-In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format and persist them to a FHIR Compliant store for patient recrord access.  You will deploy an FHIR Event Processing event-driven architecture to publish FHIR CRUD events to an Event Hub.  Consumers subcribed to these event can trigger downstream workflows when ever a new FHIR CRUD event is published.
+In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format and persist them to a FHIR Compliant store for patient recrord access.  You will deploy a FHIR Event Processing event-driven architecture to publish FHIR CRUD events to an Event Hub.  Consumers subcribed to these event can trigger downstream workflows whenever a new FHIR CRUD event is created.
 
 To get you started, you will be guided through a sequence of challenges to extract, transform, load and access patient data using the following Azure managed services (PaaS):
 1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
