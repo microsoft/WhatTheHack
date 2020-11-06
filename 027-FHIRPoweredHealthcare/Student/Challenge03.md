@@ -1,4 +1,4 @@
-# Challenge 3: Deploy web apps to connect to FHIR server and read FHIR data
+# Challenge 3: Deploy JavaScript app to connect to FHIR server and read FHIR data
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
@@ -15,7 +15,7 @@ You will perform the following to configure and deploy a sample JavaScript app i
     Note: If you are using the Azure API for FHIR, a resource application is automatically created when you deploy the service in same AAD tenant as your application.
 - **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** to enable apps to authenticate and authorize for API permissions on behalf of a user.
 - **[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
-- Create a **[web app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** that connects to a FHIR server and reads FHIR data
+- Create a **[web app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** that connects to a FHIR server and reads FHIR data.
 
 ## Success Criteria
 - You have deployed a sample web app in Azure that connects to your FHIR server and reads FHIR patient data.
