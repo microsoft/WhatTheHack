@@ -14,7 +14,6 @@ Let's put it all together, you will extend previous challenge's HL7 Ingest and C
 ## Description
 
 - Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** logic app based workflow to perform orderly conversion from HL7 to FHIR via FHIR Converter, persist the HL7 messages into FHIR Server and publish FHIR CRUD change events to Event Hubs for post-Processing workflows.
-- Deploy the HL7 Ingest and Conversion Workflow.
     - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
     - Open a bash shell into the Azure CLI 2.0 environment
     - Switch to HL7Conversion subdirectory of this repo
