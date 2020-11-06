@@ -26,7 +26,7 @@ Contoso Healthcare Company is implementing a new FHIR powered event-driven archi
 
 Your team's assistance is needed to implement this new event-driven ecosystem to build-out the following scenarios:
 1. Extract and transform patient data from EHR systems into a centralized FHIR standard format.
-2. Import and process valid HL7 messages into FHIR bundles, persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub.  Consumers subscribed to these events can ochestrate post-processing event-driven workflows.
+2. Import and process valid HL7 messages into FHIR bundles, persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub for post-processing workflows.
 3. Create a sample JavaScript app that connects and reads FHIR data from FHIR server.
 4. Explore the use of SMART on FHIR applications with the Azure API for FHIR to to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
 5. Extend the sample JavaScript app to improve the user experience, such as patient lookup function, paginated web pages.
