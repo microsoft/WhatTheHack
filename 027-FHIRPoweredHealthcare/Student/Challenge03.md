@@ -1,37 +1,40 @@
-# Challenge 3: Stream patient data with event-driven architecture
+# Challenge 3: Deploy web apps to read FHIR data
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
 ## Introduction
 
-In this challenge, you will implement an event-driven architecture for streaming patient data from the FHIR Server to Azure Cosmos DB.
+In this challenge, you will register a public client application to access your previously deployed FHIR server and create a web application to access FHIR data.  You'll then use SMART on FHIR proxy to launch SMART on FHIR apps with Azure API for FHIR.
 
-In the end-to-end **[Serverless streaming with Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#features)** platform below, the data flow (blue) shows a serverless function retrieves patient data from FHIR Server and drops them to Event Hubs, and then a Stream Analytics job ingests patient data from Event Hubs and writes stream processing results as JSON output to Cosmos DB.
-![Serverless streaming with Event Hubs](../images/fhir-serverless-streaming.jpg)
+**[Client application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
 
+Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces. This set of open specifications describes how an app should discover authentication endpoints for FHIR server and start an authentication sequence.  Specifically, the proxy enables the **[EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence)**.  
 
 ## Description
 
-- Create a new database collection in existing Cosmos DB to persist FHIR patient data.  This will be used as Output source for a Stream Analytics job later.
-- Deploy an Event Hubs instance to receive patient data event streams from FHIR server.  This will be used as Input source for a Stream Analytics job later.
-- Update the function app to read from FHIR server and stream them to Event Hubs.
-- Deploy Stream Analytics instance and setup a Stream Analytics job to ingest data from Azure Event Hubs (Input) and output query processing results to Cosmos DB (Output).
+You perform the following to deploy a sample JavaScript app in Azure to reads data from a FHIR service and deploy:
+- Access to a FHIR server
+- **[Register a resource applicaiton in Azure AD](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)**.  
+    Note: If you are using the Azure API for FHIR, a resource application is automatically created when you deploy the service in same AAD tenant as your application.
+- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** to enable apps to authenticate and authorize for API permissions on behalf of a user.
+- **[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
+- Create a **[web app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** that connects to a FHIR server and reads FHIR data
+
+Finally, you will enable SMART on FHIR app with FHIR server to test the proxy.
+- **[Use SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** component 
+- **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)** through a sample SMART on FHIR app by launching it through a **[SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**.   
+
 
 ## Success Criteria
-- You have created a new database collection in Cosmos DB to persist patient data.
-- You have standup a new Event Hubs instance for streaming patient data from FHIR Server.
-- You have standup a new Stream Analytics instance for real-time stream of patient data.
-- You have setup a Stream Analytics job to retrieve patient data from Event Hubs and output processing results to Cosmos DB.
+- You have deployed a sample web app in Azure to read FHIR data.
+- You have enabled SMART on FHIR and test the proxy with SMART on FHIR app launcher.
 
 ## Learning Resources
 
-- **[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)**
-- **[Send events to or receive events from event hubs by using JavaScript](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send)**
-- **[Azure Event Hubs trigger for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=javascript)**
-- **[Azure Event Hubs output binding for Azure Functions in JavaScript](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-output?tabs=javascript)**
-- **[What is Azure Stream Analytics?](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)**
-- **[Quickstart: Create a Stream Analytics job by using the Azure portal](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal)**
-- **[Process data from your event hub using Azure Stream Analytics](https://docs.microsoft.com/en-us/azure/event-hubs/process-data-azure-stream-analytics)**
-- **[Stream data as input into Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs)**
-- **[Azure Stream Analytics output to Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-documentdb-output)**
-
+- **[Deploy a JavaSript app to read data from FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-fhir-server)**
+- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
+- **[Write Azure web app to read FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**
+**[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
+- **[Use Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
+- **[Download the SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**
+- **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)**
