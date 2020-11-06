@@ -1,4 +1,4 @@
-# Challenge 1: Extract, transform and load patient data
+# Challenge 1: Extract, transform (convert) and load patient data
 
 [< Previous Challenge](./Challenge00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge02.md)
 
