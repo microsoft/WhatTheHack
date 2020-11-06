@@ -17,9 +17,9 @@ To get you started, you will be guided through a sequence of challenges to extra
 5. **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
 6. **[FHIR Samples FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
 7. Azure Event Hubs event-driven architecture that handles FHIR CRUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
-8. Azure Logic App conversion workflow to retrive new C-CDA XML file in Blob container, convert them into FHIR bundle and load them into FHIR server.
+8. Azure Logic App conversion workflow to ingest CDA data, call FHIR Converter API to convert them into FHIR bundle and load the resulted FHIR bundle into FHIR server.
 9. Azure Functions as the event trigger mechanism to auto ingest and convert HL7 messages pushed to the FHIR Service Bus into FHIR bundles.
-10. Azure App Service to host the frontend web app to lookup patients and display the patient search results in a set of paginated web pages.
+10. Azure App Service to host the frontend web app to display the patient search results in a set of paginated web pages.
 
 ## Scenario
 Contoso Healthcare Company is implementing a new FHIR powered event-driven architecture to ingest and transform patient data in various formats from EHR systems into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management.  
