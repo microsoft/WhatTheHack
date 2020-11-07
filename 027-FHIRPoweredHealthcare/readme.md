@@ -7,7 +7,7 @@ You will leverage **[Health Architecture samples](https://github.com/rsliang/hea
 
  
 ## Learning Objectives
-In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format to a FHIR Compliant store to support patient recrord access frontends.  You will deploy a FHIR Event Processing event-driven architecture to publish FHIR CRUD events to an Event Hub.  Consumers subcribed to these events can trigger downstream workflows whenever a new event is published.
+In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format to a FHIR Compliant store for patient recrord access.  You will deploy a FHIR Event Processing event-driven architecture to publish FHIR CRUD events to an Event Hub.  Consumers subcribed to these events can trigger downstream workflows whenever a new event is published.
 
 To get you started, you will be guided through a sequence of challenges to implement Health Architecture for FHIR server use cases using the following Azure managed services (PaaS):
 1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
@@ -17,12 +17,12 @@ To get you started, you will be guided through a sequence of challenges to imple
 5. **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
 6. **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
 7. **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CRUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
-8. **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR server.
+8. **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)** conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR server.
 9. **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7 messages, pushed to the FHIR Service Bus, into FHIR bundles.
 10. **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to display the patient search results in a set of paginated web pages.
 
 ## Scenario
-Contoso Healthcare is implementing a new FHIR powered event-driven architecture to ingest and transform patient data from multiple EHR systems in legacy formats into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management in a common frontend.  
+Contoso Healthcare is implementing a new FHIR powered event-driven architecture to ingest and transform patient data from multiple EHR systems in legacy formats into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management in a common platform.  
 
 Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
 1. Extract and transform patient data from EHR systems into a centralized FHIR standard format.
