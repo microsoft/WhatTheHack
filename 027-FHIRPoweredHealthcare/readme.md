@@ -43,11 +43,24 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - Access to an Azure subscription with Owner access
    - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
 - [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [**Windows PowerShell**](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7)
+  - [**PowerShell modules**](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7)
+    - Confirm PowerShell version is [**5.1**](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+      `$PSVersionTable.PSVersion`
+    - Confirm PowerShell module versions.  Re-install the required version below (if needed):
+      - Az version 4.1.0 
+      - AzureAd version 2.0.2.4
+        ```
+        Get-InstalledModule -Name Az -AllVersions
+        Get-InstalledModule -Name AzureAd -AllVersions
+        ```
 - [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
    - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
    - Update to the latest
    - Must be at least version 2.7.x
 - Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
+- [**.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [**Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 - [**Node Module Extension**](https://code.visualstudio.com/docs/nodejs/extensions)
 
