@@ -1,35 +1,35 @@
 # FHIR Powered Healthcare
 ## Introduction
-Contoso Healthcare Company currently uses a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Record (EHR) systems and HLS research databases.  To help its medical practitioners/administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing a new FHIR powered event-driven architecture to aggregate patient data from various EHR systems into FHIR-based standard format and persist them to a FHIR Compliant store.
+Contoso Healthcare implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Records (EHR) systems and Health and Life Science (HLS) research databases.  To help its medical practitioners/administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing new FHIR powered event-driven health architectures to aggregate and convert patient data from disparate EHR systems into FHIR-based standard format and persist them to a FHIR Compliant store.
 
-You will implement Health Architecture samples, which includes a collection of best practices reference architectures to illustrate use cases for the Azure API for FHIR. Below is the holistic conceptual end to end architecture for Azure API for FHIR.
+You will leverage Health Architecture samples and implement its collection of reference architectures for Azure API for FHIR use cases that best fit Contoso Healthcare requirements. Below is the holistic conceptual end to end Microsoft Health architecture for Azure API for FHIR.
 ![Health Architecture](./images/HealthArchitecture.png)
 
  
 ## Learning Objectives
-In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format and persist them to a FHIR Compliant store for patient recrord access.  You will deploy a FHIR Event Processing event-driven architecture to publish FHIR CRUD events to an Event Hub.  Consumers subcribed to these event can trigger downstream workflows whenever a new FHIR CRUD event is created.
+In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format to a FHIR Compliant store to support patient recrord access frontends.  You will deploy a FHIR Event Processing event-driven architecture to publish FHIR CRUD events to an Event Hub.  Consumers subcribed to these events can trigger downstream workflows whenever a new event is published.
 
-To get you started, you will be guided through a sequence of challenges to extract, transform, load and access patient data using the following Azure managed services (PaaS):
+To get you started, you will be guided through a sequence of challenges to implement Health Architecture for FHIR server use cases using the following Azure managed services (PaaS):
 1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
-2. **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** infrastructure to ingest and convert C-CDA and HL7 message into FHIR bundle.
-3. **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** is an Azure Function App solution that provides services for ingesting FHIR Resources into FHIR server and publishes successful FHIR server CRUD events to an Event Hub for topic subscribers.  Consumers can subscribe to these events in order to facilitate orchestrated workflows, i.e. CDS, Audits, Alerts, etc..
-4. **[FHIR Proxy](https://github.com/rsliang/health-architectures/tree/master/FHIR/FHIRProxy)** is an Azure Function based solution that acts as an intelligent and secure gateway (reverse proxy) to FHIR server and provides a consolidated approach to **[pre and post processing](https://github.com/rsliang/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)** of FHIR server, i.e. PublishFHIREventPostProcess to publish FHIR CUD events for resources to a configured eventhub.  It acts as a FHIR specific reverse proxy rewriting responses and brokering requests to FHIR Servers
+2. **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** to ingest and convert C-CDA or HL7 message into FHIR bundle.
+3. **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** is a function app solution that provides services for ingesting FHIR Resources into FHIR server and publishes successful FHIR server CRUD events to an Event Hub for topic subscribers to facilitate FHIR post-processing orchestrated workflows, i.e. CDS, Audits, Alerts, etc.
+4. **[FHIR Proxy](https://github.com/rsliang/health-architectures/tree/master/FHIR/FHIRProxy)** is a function app solution that acts as an intelligent and secure gateway (reverse proxy) to FHIR server and provides a consolidated approach to **[pre and post processing](https://github.com/rsliang/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)** of FHIR server, i.e. PublishFHIREventPostProcess to publish FHIR CUD events for resources to a configured eventhub.  It acts as a FHIR specific reverse proxy rewriting responses and brokering requests to FHIR servers
 5. **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
-6. **[FHIR Samples FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
-7. Azure Event Hubs event-driven architecture that handles FHIR CRUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
-8. Azure Logic App conversion workflow to ingest CDA data, call FHIR Converter API to convert them into FHIR bundle and load the resulted FHIR bundle into FHIR server.
-9. Azure Functions as the event trigger mechanism to auto ingest and convert HL7 messages pushed to the FHIR Service Bus into FHIR bundles.
-10. Azure App Service to host the frontend web app to display the patient search results in a set of paginated web pages.
+6. **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
+7. **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CRUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
+8. **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR server.
+9. **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7 messages, pushed to the FHIR Service Bus, into FHIR bundles.
+10. **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to display the patient search results in a set of paginated web pages.
 
 ## Scenario
-Contoso Healthcare Company is implementing a new FHIR powered event-driven architecture to ingest and transform patient data in various formats from EHR systems into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management.  
+Contoso Healthcare is implementing a new FHIR powered event-driven architecture to ingest and transform patient data from multiple EHR systems in legacy formats into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management in a common frontend.  
 
-Your team's assistance is needed to implement this new event-driven ecosystem to build-out the following scenarios:
+Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
 1. Extract and transform patient data from EHR systems into a centralized FHIR standard format.
-2. Import and process valid HL7 messages into FHIR bundles, persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub for post-processing workflows.
-3. Create a sample JavaScript app that connects and reads FHIR data from FHIR server.
+2. Import and process valid HL7 messages into FHIR bundles, persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub for post-processing.
+3. Create a sample JavaScript app that securely connects and reads FHIR data from FHIR server.
 4. Explore the use of SMART on FHIR applications with the Azure API for FHIR to to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
-5. Extend the sample JavaScript app to improve the user experience, such as patient lookup function, paginated web pages.
+5. Extend the sample JavaScript app to improve the user experience, such as patient lookup, paginated web pages.
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
@@ -66,6 +66,5 @@ Your team's assistance is needed to implement this new event-driven ecosystem to
 - Richard Liang (Microsoft)
 - Peter Laudati (Microsoft)
 - Gino Filicetti (Microsoft)
-- Brett Philips (athenahealth)
 
 
