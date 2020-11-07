@@ -44,10 +44,12 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
    - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
 - [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 - [**Windows PowerShell**](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7)
+  - Confirm PowerShell version is [**5.1**](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+      `$PSVersionTable.PSVersion`
   - [**PowerShell modules**](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7)
     - Confirm PowerShell version is [**5.1**](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
       `$PSVersionTable.PSVersion`
-    - Confirm PowerShell module versions.  Re-install the required version below (if needed):
+    - Confirm required PowerShell module versions.  Re-install the required version below (if needed):
       - Az version 4.1.0 
       - AzureAd version 2.0.2.4
         ```
