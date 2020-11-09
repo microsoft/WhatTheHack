@@ -47,8 +47,7 @@ updated Azure Machine Learning pipeline after building the code.
     2.  Create a new service connection for Azure ML service using service
         principal
 
-    3.  Make sure your Azure ML workspace is configured for the project. Verify
-        the details in configuration/config.json
+    3.  Make sure your Azure ML workspace is configured for the project. Hint: Either using pipeline variables in Azure DevOps or by adding details in configuration/config.json file 
 
 2.  Create a Build pipeline
 
@@ -89,16 +88,9 @@ updated Azure Machine Learning pipeline after building the code.
     8.  Azure CLI task to score the model, to forecast future transactions –
         ScoreModel.pys is the file used in the Inline Script
 
-    9.  Use Copy Files task to copy files to: \$(Build.ArtifactStagingDirectory)
-
-    10. Publish Artifact: drop task – publish Build artifact to
-        \$(Build.ArtifactStagingDirectory)
-
 5.  Run the Build pipeline
 
-6.  Review Build Artifacts
-
-7.  Review Build Outputs
+6.  Review Build Outputs - confirm the model and container image have been registered in Azure ML workspace in respective registries.
 
 ## Learning resources
 
