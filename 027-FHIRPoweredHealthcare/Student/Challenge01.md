@@ -48,6 +48,15 @@ You will deploy Health Architecture samples for each scenarios below:
    - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
    - Alternatively, you can **[copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
 
+### Validate patient data in FHIR server with deployed FHIR Dashboard SMART On FHIR applications
+- Open deployed FHIR Dashboard app to read patient data in the following views:
+   - Patients and FHIR Bundle details
+   - Patient Resources: Conditions, Encounters and Obervations
+   - Patient Growth Chart
+   - Patient Medications
+   
+   Hint: You need to browse to SMART On FHIR Dashboard app URL in In-private/In-cognito mode and login with admin user credentials from your secondary tenant outputted from FHIR Server Samples deployment.
+
 ## Success Criteria
 
    - You have provisioned FHIR Server Samples (PaaS scenario) evnironment in Azure.
