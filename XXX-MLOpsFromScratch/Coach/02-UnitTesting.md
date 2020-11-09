@@ -31,7 +31,7 @@ source and saved in the working directory
 
     4.  Make sure your Azure ML workspace is configured for the project. Hint: Either using system variables in Azure DevOps or by adding details in configuration/config.json file 
 
-2.  
+2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. 
 
 ## Hints
 
@@ -39,4 +39,4 @@ source and saved in the working directory
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-[Next challenge – Create a Release Pipeline](03-BuildPipeline.md)
+[Next challenge – Create a Build Pipeline](03-BuildPipeline.md)
