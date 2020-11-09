@@ -26,58 +26,12 @@ source and saved in the working directory
 
     2.  Create a new service connection for Azure ML service using service
         principal
+        
+    3.  Clone project in VS Code
 
-    3.  Make sure your Azure ML workspace is configured for the project. Hint: Either using system variables in Azure DevOps or by adding details in configuration/config.json file 
+    4.  Make sure your Azure ML workspace is configured for the project. Hint: Either using system variables in Azure DevOps or by adding details in configuration/config.json file 
 
-2.  Create a Build pipeline
-
-    1.  Use the classic editor to create a pipeline without YAML
-
-    2.  Select the repo that was imported above
-
-    3.  Create an Empty Job
-
-3.  Setup Agent Job
-
-    1.  Set Agent Pool to Azure Pipelines
-
-    2.  Set Agent Specification to ubuntu-16.04
-
-4.  Setup Build pipeline – Add the following tasks
-
-    1.  Python version – 3.6
-
-    2.  Bash task to setup environment using Script Path –
-        install_environment.sh is the file used
-
-    3.  Azure CLI task to get Azure ML Workspace connection – Workspace.py is
-        the file used in the Inline Script
-
-    4.  Azure CLI task to acquire time series transactions data – AcquireData.py
-        is the file used in the Inline Script
-
-    5.  Azure CLI task to train ARIMA model to forecast transactions –
-        TrainOnLocal.py is the file used in the Inline Script
-
-    6.  Azure CLI task to evaluate the model performance – EvaluateModel.py is
-        the file used in the Inline Script
-
-    7.  Azure CLI task to register the model in Azure ML Workspace for model
-        versioning – RegisterModel.py is the file used in the Inline Script
-
-    8.  Azure CLI task to score the model, to forecast future transactions –
-        ScoreModel.pys is the file used in the Inline Script
-
-    9.  Use Copy Files task to copy files to: \$(Build.ArtifactStagingDirectory)
-
-    10. Publish Artifact: drop task – publish Build artifact to
-        \$(Build.ArtifactStagingDirectory)
-
-5.  Run the Build pipeline
-
-6.  Review Build Artifacts
-
-7.  Review Build Outputs
+2.  
 
 ## Hints
 
@@ -85,4 +39,4 @@ source and saved in the working directory
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-[Next challenge – Create a Release Pipeline](03-ReleasePipeline.md)
+[Next challenge – Create a Release Pipeline](03-BuildPipeline.md)
