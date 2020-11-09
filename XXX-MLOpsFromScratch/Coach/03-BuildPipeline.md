@@ -1,8 +1,8 @@
-# Challenge 2 – Create a Build Pipeline in Azure DevOps
+# Challenge 3 – Create a Build Pipeline in Azure DevOps
 
 ## Prerequisites
 
-1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Build a Forecasting Model)
+1.  [Challenge\#1](02-UnitTesting.md) (Create a Unit Test in Azure DevOps)
     should be done successfully
 
 ## Description
@@ -106,4 +106,4 @@ updated Azure Machine Learning pipeline after building the code.
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-[Next challenge – Create a Release Pipeline](03-ReleasePipeline.md)
+[Next challenge – Create a Release Pipeline](04-ReleasePipeline.md)
