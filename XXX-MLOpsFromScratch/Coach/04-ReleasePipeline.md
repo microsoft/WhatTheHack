@@ -64,6 +64,7 @@ across different environments.
     4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
         file used in the Inline Script
 
+5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. Confirm if it is operational by using a tool like Postman or Swagger.
 
 ## Learning resources
 
