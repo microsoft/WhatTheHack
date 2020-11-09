@@ -33,7 +33,6 @@ source and saved in the working directory
 
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. 
 
-## Hints
 
 ## Learning resources
 
