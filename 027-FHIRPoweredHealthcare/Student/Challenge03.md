@@ -25,7 +25,7 @@ You will perform the following to configure and deploy a FHIR sample JavaScript 
     Hint: Ensure that the Reply URL matches the FHIR sample web app URL
 
     - Configure a new Web platform under Authentication blade
-        - Set Redirect URIs to [FHIR Server URL]
+        - Set Redirect URIs to [sample web app URL]
         - Enable Implicit Grant by selecting Access token and ID tokens
         - Configure permissions for Azure Healthcare APIs with User_Impersonation permission (if needed)
  
