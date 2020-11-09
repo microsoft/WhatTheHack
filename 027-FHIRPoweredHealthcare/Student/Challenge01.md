@@ -24,8 +24,9 @@ You will deploy Health Architecture samples for each scenarios below:
 - Deploy **[FHIR Server Samples PaaS scenario (shown above)](https://github.com/microsoft/fhir-server-samples)** to ingest and batch load Synthea generated FHIR patient bundles into FHIR Server.
    - First, clone this **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
    - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
-   
-         Hint: Before running the **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST to login to Azure subscription and Connect to Azure AD with your secondary tenant that provides you with 'Global Administrator' directory role access required for this setup.
+
+      Hint: Before running the **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST to login to Azure subscription and Connect to Azure AD with your secondary tenant that provides you with 'Global Administrator' directory role access required for this setup.
+
    - Validate your FHIR Server Samples environment deployment
       - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
       - Check App Registration in secondary AAD tenat that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
@@ -66,7 +67,6 @@ You will deploy Health Architecture samples for each scenarios below:
 
 ## Learning Resources
 
-- **[Create Mock Data Server in Azure Function](https://medium.com/@hharan618/create-your-own-mock-data-server-in-azure-functions-7a93972fbfd1)**
 - **[Azure API for FHIR samples](https://github.com/microsoft/fhir-server-samples)**
 - **[Azure FHIR Importer Function](https://github.com/microsoft/fhir-server-samples/tree/master/src/FhirImporter)**
 - **[FHIR Converter to Azure](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** 
@@ -74,7 +74,7 @@ You will deploy Health Architecture samples for each scenarios below:
 - **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
 - **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)**
 - **[Use SMART on FHIR Proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
-- **[Register application for Azure API for FHIR overview](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)
+- **[Register application for Azure API for FHIR overview](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
 - **[Quickstart: Register an app](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)**
 - **[Quickstart: Config an app to expose a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis)**
 - **[Quickstart: Configure a client app to access a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis)**
