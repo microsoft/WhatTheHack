@@ -25,7 +25,7 @@ You will deploy Health Architecture samples for each scenarios below:
    - First, clone this **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
    - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
 
-      Hint: Before running the **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST to login to Azure subscription and Connect to Azure AD with your secondary tenant that provides you with 'Global Administrator' directory role access required for this setup.
+      Hint: Before running the **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that provides you with 'Global Administrator' directory role access required for this setup.
 
    - Validate your FHIR Server Samples environment deployment
       - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
