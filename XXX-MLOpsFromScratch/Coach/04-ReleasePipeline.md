@@ -64,7 +64,6 @@ across different environments.
     4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
         file used in the Inline Script
 
-## Hints
 
 ## Learning resources
 
