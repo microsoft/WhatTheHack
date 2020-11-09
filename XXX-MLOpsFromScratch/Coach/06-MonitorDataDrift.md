@@ -1,13 +1,13 @@
-# Challenge 5 (Optional) – Monitor Data Drift for your Model
+# Challenge 6 (Optional) – Monitor Data Drift for your Model
 
 ## Prerequisites
 
-1.  [Challenge\#4 (Retraining and Model
-    Evaluation)](04-RetrainingAndEvaluation.md) should be done successfully
+1.  [Challenge\#5 (Retraining and Model
+    Evaluation)](05-RetrainingAndEvaluation.md) should be done successfully
 
 ## Description
 
-dfadsf
+As new data comes in over time, our trained models become obsolete which warrants retraining of our models over time. Data drift helps in understanding how training data changes over time. By collecting model data from deployed models, we can look for differences between training and serving datasets, and track how statistical properties in data change over time. We can also set alerts on data drifts for early warnings to potential issues. This information helps in scheduling and automating our retraining process.
 
 ## Success criteria
 
