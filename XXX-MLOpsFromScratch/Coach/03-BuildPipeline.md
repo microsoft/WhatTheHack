@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1.  [Challenge\#1](02-UnitTesting.md) (Create a Unit Test in Azure DevOps)
+1.  [Challenge\#2](02-UnitTesting.md) (Create a Unit Test in Azure DevOps)
     should be done successfully
 
 ## Description
