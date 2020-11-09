@@ -65,10 +65,6 @@ most common and prevalent tasks in Machine Learning.
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
 
-## Alternate Hackflow
-
-## Hints
-
 ## Learning resources
 
 [Next Challenge – Create Unit Test in Azure DevOps](02-UnitTesting.md)
