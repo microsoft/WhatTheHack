@@ -54,4 +54,4 @@ Azure ML Model Registry.
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-[Next challenge – Monitor Data Drift for your Model](06-MonitorDataDrift.md)
+[Next challenge (Optional) – Monitor Data Drift for your Model](06-MonitorDataDrift.md)
