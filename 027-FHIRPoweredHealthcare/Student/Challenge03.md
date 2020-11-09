@@ -40,7 +40,7 @@ You will perform the following to configure and deploy a FHIR sample JavaScript 
     - Scopes - Update with Audience from your FHIR Server (under Authentication)
 
 ## Success Criteria
-- You have deployed a FHIR sample Web App in Azure with Sign-in that authenticates against your secondary Azure AD tenant, connects to your FHIR server and displays FHIR patient data in a web page.
+- You have deployed a FHIR sample Web App in Azure with a Sign-in that authenticates against your secondary Azure AD tenant to access FHIR server and retrieves patient data in a web page.
 
 ## Learning Resources
 
