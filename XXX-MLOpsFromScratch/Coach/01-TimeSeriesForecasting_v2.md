@@ -25,7 +25,7 @@ most common and prevalent tasks in Machine Learning.
 
 ## Success Criteria
 
-1.  An ARIMA forecasting model saved in Azure ML Workspace
+1.  Forecasting project imported into Azure DevOps and cloned in VS Code.
 
 ## Hackflow
 
@@ -36,6 +36,8 @@ most common and prevalent tasks in Machine Learning.
 
     2.  Create a new service connection for Azure ML service using service
         principal
+      
+    3.  Clone the project in VS Code
 
 2.  Install library requirements to setup your environment:  
     *pip install -r ./environment_setup/requirements.txt*
@@ -43,7 +45,7 @@ most common and prevalent tasks in Machine Learning.
 3.  Configure your Azure ML Workspace for the project. Hint: Add workspace
     details through Azure DevOps pipeline variables
 
-4.  Now that you have environment setup, run and explore the python files in the
+4.  Now that you have environment setup, explore the python files in the
     following order to train an ARIMA forecasting model
 
     1.  Workspace.py to setup connection with your Azure ML service workspace
