@@ -100,8 +100,6 @@ updated Azure Machine Learning pipeline after building the code.
 
 7.  Review Build Outputs
 
-## Hints
-
 ## Learning resources
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
