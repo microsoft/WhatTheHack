@@ -71,4 +71,4 @@ most common and prevalent tasks in Machine Learning.
 
 ## Learning resources
 
-[Next Challenge – Create a Build Pipeline in Azure DevOps](02-BuildPipeline.md)
+[Next Challenge – Create Unit Test in Azure DevOps](02-UnitTesting.md)
