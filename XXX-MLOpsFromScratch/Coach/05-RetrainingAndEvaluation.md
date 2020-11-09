@@ -50,8 +50,6 @@ Azure ML Model Registry.
 
 4.  Review artifacts and outputs from Build and Release pipelines
 
-## Hints
-
 ## Learning resources
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
