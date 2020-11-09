@@ -1,4 +1,4 @@
-# Challenge 5 – Retraining and Model Evaluation
+# Challenge 6 – Retraining and Model Evaluation
 
 ## Prerequisites
 
