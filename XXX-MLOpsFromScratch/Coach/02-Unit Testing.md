@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Build a Forecasting Model)
+1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Import Forecasting Project into Azure DevOps)
     should be done successfully
 
 ## Description
@@ -27,8 +27,7 @@ source and saved in the working directory
     2.  Create a new service connection for Azure ML service using service
         principal
 
-    3.  Make sure your Azure ML workspace is configured for the project. Verify
-        the details in configuration/config.json
+    3.  Make sure your Azure ML workspace is configured for the project. Hint: Either using system variables in Azure DevOps or by adding details in configuration/config.json file 
 
 2.  Create a Build pipeline
 
