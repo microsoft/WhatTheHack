@@ -21,19 +21,16 @@ In this scenario, you will deploy a logic app based workflow to perform the conv
 
 You will deploy Health Architecture samples for each scenarios below:
 ### FHIR Bulk Load
-- Deploy **[FHIR Server Samples (PaaS scenario shown above)](https://github.com/microsoft/fhir-server-samples)** to ingest and batch load Synthea generated FHIR patient bundles into FHIR Server.
+- Deploy **[FHIR Server Samples PaaS scenario (shown above)](https://github.com/microsoft/fhir-server-samples)** to ingest and batch load Synthea generated FHIR patient bundles into FHIR Server.
    - First, clone this 'FHIR Server Samples' git repo to your local project repo, i.e. c:/projects.
-   - Deploy FHIR Server Samples environment, which includes FHIR server (Paas Scenario), Bulk Load function app and storage fhirimport BLOB container and SMART On FHIR applications that will be used in this challenge.
-   - Validate your FHIR Server Samples environment dpeloyment
+   - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
+      Hint: Before running the **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST to login to Azure subscription and Connect to Azure AD with your secondary tenant that provides you with 'Global Administrator' directory role access required for this setup.
+   - Validate your FHIR Server Samples environment deployment
       - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
       - Check App Registration in secondary AAD tenat that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
-         - Confidential client application
-         - Public client application
-         - Service client application
 - Auto-generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
-   - SyntheaTM is a Synthetic Patient Population Simulator that outputs synthetic patient data and associated health records in FHIR and C-CDA formats to its `./output` folder.
-- Copy Synthea generated FHIR bundle JSON files in the `./output folder` to `fhirimport` BLOB container.  This will trigger a function app to bulk load FHIR Bundle(s) into FHIR Server.
-   - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.
+- Copy Synthea generated FHIR bundle JSON files in the `./output folder` to `fhirimport` BLOB container for auto batch load.
+   - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.
 - 
 
 ### C-CDA ingest and convert
