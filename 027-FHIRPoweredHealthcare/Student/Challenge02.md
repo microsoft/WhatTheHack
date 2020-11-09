@@ -17,8 +17,8 @@ Let's put it all together, you will extend previous challenge's HL7 Ingest and C
     - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
     - Open a bash shell into the Azure CLI 2.0 environment
     - Switch to HL7Conversion subdirectory of this repo
-    - Run the deployhl72fhir.bash script and follow the prompts
-- Send in an Hl7 message via HL7 over HTTPS:
+    - Run the `deployhl72fhir.bash` script and follow the prompts
+- Send in an HL7 message via HL7 over HTTPS:
     - Locate the sample message samplemsg.hl7 in the root directory of the repo
     - Use a text editor to see contents
     - From the linux command shell run the following command to test the hl7overhttps ingest
