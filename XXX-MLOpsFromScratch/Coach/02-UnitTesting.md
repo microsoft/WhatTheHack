@@ -1,4 +1,4 @@
-# Challenge 2 – Create Unit Test in Azure DevOps
+# Challenge 2 – Create a Unit Test in Azure DevOps
 
 ## Prerequisites
 
