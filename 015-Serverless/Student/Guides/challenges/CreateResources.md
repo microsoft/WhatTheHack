@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 2 - Create a Hello World Function](./Setup.md) should be done successfuly.
+1. [Challenge 2 - Create a Hello World Function](./FunctionIntro.md) should be done successfuly.
 
 
 ## Introduction
