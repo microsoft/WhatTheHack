@@ -36,7 +36,7 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - Challenge 1: **[Extract, transform (convert) and load patient data](Student/Challenge01.md)**
 - Challenge 2: **[Stream FHIR CRUD events to Event Hub for topic subscribers](Student/Challenge02.md)**
 - Challenge 3: **[Deploy JavaScript app to connect to FHIR server and read FHIR data](Student/Challenge03.md)**
-- Challenge 4: **[Deploy SMART on FHIR app with FHIR server](Student/Challenge04.md)**
+- Challenge 4: **[Explore Patient Medical Records and SMART on FHIR apps with FHIR server](Student/Challenge04.md)**
 - Challenge 5: **[Extend JavaScript app to improve the user experience](Student/Challenge05.md)**
 
 ## Prerequisites
