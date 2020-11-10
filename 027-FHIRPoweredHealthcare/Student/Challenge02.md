@@ -1,4 +1,4 @@
-# Challenge 2: Stream FHIR CRUD events to Event Hub for topic subscribers
+# Challenge 2: Stream FHIR CRUD events to Event Hub for post-processing
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 
