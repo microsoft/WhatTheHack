@@ -1,8 +1,8 @@
-# Challenge 4 - Deployment
+# Challenge 5 - Deployment
 
 ## Prerequisities
 
-1. [Challenge 3 - Configuration](./Configuration.md) should be done successfuly.
+1. [Challenge 4 - Configuration](./Configuration.md) should be done successfuly.
 
 ## Introduction
 In this challenge, you will deploy the VS project to Azure.

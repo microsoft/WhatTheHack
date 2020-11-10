@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 6 - Monitoring](./Monitoring.md) should be done successfuly.
+1. [Challenge 7 - Monitoring](./Monitoring.md) should be done successfuly.
 
 ## Introduction
 In this challenge, you will use the Azure Cosmos DB Data Explorer in the portal to view saved license plate data.
