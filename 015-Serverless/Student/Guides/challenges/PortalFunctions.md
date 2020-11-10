@@ -1,8 +1,8 @@
-# Challenge 5 - Create Functions in the Portal
+# Challenge 6 - Create Functions in the Portal
 
 ## Prerequisities
 
-1. [Challenge 4 - Deployment](./Deployment.md) should be done successfuly.
+1. [Challenge 5 - Deployment](./Deployment.md) should be done successfuly.
 
 ## Introduction
 

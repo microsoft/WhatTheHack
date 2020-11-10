@@ -1,8 +1,8 @@
-# Challenge 2 - Create Resources
+# Challenge 3 - Create Resources
 
 ## Prerequisities
 
-1. [Challenge 1 - Setup](./Setup.md) should be done successfuly.
+1. [Challenge 2 - Create a Hello World Function](./FunctionIntro.md) should be done successfuly.
 
 
 ## Introduction

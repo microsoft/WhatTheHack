@@ -36,4 +36,4 @@ The first challenge is to setup an environment that will help you build the Toll
 1. In Azure Cloud Shell, make sure `git status` is showing you the proper branch successfuly (without error).
 1. In Azure Cloud Shell, let's play with the following commands: `ls -la`, `git version`, `az --version`, `docker images`, `code .`, etc.
 
-[Next challenge (Create Resources) >](./CreateResources.md)
+[Next challenge (Create a Hello World Function) >](./FunctionIntro.md)

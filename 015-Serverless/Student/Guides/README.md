@@ -33,6 +33,7 @@ Cloud-Native Apps
 
 ## Challenges
 1.	[Setup](./challenges/Setup.md)
+1.	[Create a Hello World Function](./challenges/FunctionIntro.md)
 1.  [Create Resources](./challenges/CreateResources.md)
 1.  [Configuration](./challenges/Configuration.md)
 1.  [Deployment](./challenges/Deployment.md)
