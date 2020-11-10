@@ -4,8 +4,7 @@
 
 ## Introduction
 
-In this challenge, you will browse to FHIR Dashboard app (In-private/Incognito mode) and use the secondary Azure AD tenant dashboard user credentials to sign in and consent to permissions requested for confidential client app to get access to FHIR server. 
-explore patient data and associated patient conditions views in Azure API for FHIR built-in SMART on FHIR applications.
+In this challenge, you will explore patient medical record and SMART on FHIR apps through the FHIR Dashboard app. 
 
 ![SMART on FHIR applications](../images/smart-on-fhir-applications.jpg)
 
