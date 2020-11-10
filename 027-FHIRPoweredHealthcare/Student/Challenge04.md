@@ -1,10 +1,11 @@
-# Challenge 4: Deploy SMART on FHIR app with FHIR server
+# Challenge 4: Explore Patient Medical Records and SMART on FHIR apps with FHIR server
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 
-In this challenge, you will configured the Azure AD SMART on FHIR proxy and explore the use of SMART on FHIR applications with the Azure API for FHIR.  You'll then use SMART on FHIR proxy to launch SMART on FHIR sample app in a SMART on FHIR Launcher app.
+In this challenge, you will browse to FHIR Dashboard app (In-private/Incognito mode) and use the secondary Azure AD tenant dashboard user credentials to sign in and consent to permissions requested for confidential client app to get access to FHIR server. 
+explore patient data and associated patient conditions views in Azure API for FHIR built-in SMART on FHIR applications.
 
 ![SMART on FHIR applications](../images/smart-on-fhir-applications.jpg)
 
@@ -15,20 +16,31 @@ Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.
 
 ## Description
 
-You will perform the following to explore the use of SMART on FHIR applications with the Azure API for FHIR:
-- Configure **[SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** to act as an intermediary between the SMART on FHIR app and Azure AD. 
-- **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)** using a sample SMART on FHIR app launched through a **[SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**.   
-
+You will perform the following to access patient records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
+- Access FHIR Dashboard app
+    - Open In-private/Incognito browser and browse to FHIR Dashboard app 
+    - Use the secondary Azure AD tenant dashboard user credentials to sign in and consent permissions requested by the Confidential Client app to get access to FHIR server.
+- Explore patient medical record(s) through FHIR Dashboard app
+    - Patient and its FHIR bundle details
+    - Patient medical details
+        - Conditions
+        - Encounters
+        - Observations
+- Explore SMART on FHIR Apps through FHIR Dashboard app
+    - Growth Chart
+    - Medications
 
 ## Success Criteria
-- You have enabled SMART on FHIR proxy to act as an intermediary between the SMART on FHIR app and Azure AD.
-- You have test the SMART on FHIR proxy with sample app launched through SMART on FHIR app launcher.
+- You have successfully access FHIR Dashboard app.
+- You have explored patient medical records and SMART on FHIR applications.
 
 ## Learning Resources
 
+- **[SMART on FHIR - FHIR Server Dashboard app](https://github.com/smart-on-fhir/fhir-server-dashboard#:~:text=The%20FHIR%20Server%20Dashboard%20is%20a%20standalone%20app,at%20the%20sample%20data%20on%20a%20FHIR%20sandbox.)**
+- **[FHIR Server Dashboard Demo](http://docs.smarthealthit.org/fhir-server-dashboard/)**
+- **[FHIR Dashboard JS source code](https://github.com/microsoft/fhir-server-samples/blob/master/src/FhirDashboardJS/index.html)**
 - **[Use Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
 - **[Download the SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**
 - **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)**
-- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
 - **[SMART](https://smarthealthit.org/)**
 - **[HL7 FHIR SMART Application Launch Framework](http://www.hl7.org/fhir/smart-app-launch/)**
