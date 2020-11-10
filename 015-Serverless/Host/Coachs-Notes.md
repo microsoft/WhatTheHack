@@ -4,10 +4,15 @@
 ## Challenge 1 (Create Resources)
 None
 
-## Challenge 2 (Configuration)
+## Challenge 2 (Create a Hello World Function)
+1) Some Windows users may get an execution policy error when running in a powershell terminal.  They can run Get-ExecutionPolicy to determine if they are restricted.  They can run [Set-ExecutionPolicy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7) with the desired scope.
+2) Depending on which language is chosen by the student, there may be extra installations required.
+3) Check for supported version language [versions](https://docs.microsoft.com/en-us/azure/azure-functions/supported-languages)
+
+## Challenge 3 (Configuration)
 None
 
-## Challenge 3 (Deployment)
+## Challenge 4 (Deployment)
 *As of May 2020, there is a new Portal view of the functions*
 1) Those that are not familiar with Azure functions will not know about how the Applications Settings work with the Function Code
 2) Key Vault reference in the Function App will require a reference __@Microsoft.KeyVault__ in the app setting value
@@ -20,10 +25,10 @@ Then add permissions in Key Vault to the Function
 Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 
-## Challenge 4 (Create Functions)
+## Challenge 5 (Create Functions)
 Integration has changed in the new functions portal.  Might have to go to the old portal to add the integration.
 
-## Challenge 5 (Monitoring)
+## Challenge 6 (Monitoring)
 The App insights can be created in new or old functions portal.  In new, Instrumentation key is not needed.  In old, the key will need to be added to the app settings.
 
 For edits to the App.config, the following will need to be added:
@@ -35,7 +40,7 @@ For edits to the App.config, the following will need to be added:
 
 If students still get a storage account error, then they need to add the connection string to the Debug tab in the Function's properties Command Line arguements
 
-## Challenge 6 (Data Export Workflow)
+## Challenge 7 (Data Export Workflow)
 
 
 ## Optional Challenge 1 (Scale the Cognitive Service)
