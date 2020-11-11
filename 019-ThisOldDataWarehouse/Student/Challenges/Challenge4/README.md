@@ -11,7 +11,7 @@ Worldwide importers wanted to build out their data warehouse to include clickstr
 Build a streaming pipeline to ingest simulated click stream data into enterprise Delta Lake via Azure Databricks.
 
 ### Data Source: 
-In order to generate the source data stream for this exercise, you will need to execute sample .Net application (Stream Generator).  This code will randomly generate product related data, and write it to an Azure Event Hub.
+In order to generate the source data stream for this exercise, you will need to execute sample .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
 
 ### Data Sink:
 Azure Databricks will be used to consume data from Event Hub and write the stream to Delta Lake tables stored in Azure Data Lake.
