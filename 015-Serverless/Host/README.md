@@ -1,11 +1,20 @@
-# Step By Step Instructions for the Azure Serverless Hack!
-
+# Coach Intructions
 This is a challenge-based hack. The instuctions in this section ARE step-by-step. These are intended to be helpful tips should you not know what the student may have done wrong.  Screenshots are only as accurate as the time of screen capture and are subject to change.
-- Estimated duration is 2-3 hours depending on student skill level
+- Estimated duration is 12 hours depending on student skill level
+
+
+## Coach's Notes
+Coach notes can be found [HERE](./Coachs-Notes.md).  Should you find things not mentioned in these notes, please add them with a pull request.
 
 
 
-## Step by Step Insructions for Challenges
+## Step By Step Instructions for the Azure Serverless Hack!
+If needed, there are some step by step instruction.
+*Note: Any screenshots are not kept up to date and these will eventually be deprecated assets.*
+
+
+
+### Step by Step Insructions for Challenges
 1.	[Create Resources](./Guides/Host-CreateResources.md)
 1.  [Configuration](./Guides/Configuration.md)
 1.  [Deployment](./Guides/Deployment.md)
@@ -14,6 +23,6 @@ This is a challenge-based hack. The instuctions in this section ARE step-by-step
 1.  [Data Export Workflow](./Guides/Workflow.md)
 
 
-## Step by Step Insructions for Optional Challenges
+### Step by Step Insructions for Optional Challenges
 1.	[Scale the Cognitive Service](./Guides/ScaleCognitive.md)
 1.  [View Data in Cosmos DB](./Guides/Cosmos.md)

@@ -32,16 +32,10 @@ Azure services and related products
 Cloud-Native Apps
 
 
-## Challenges
-1.	[Setup](./Student/Guides/challenges/Setup.md)
-1.  [Create Resources](./Student/Guides/challenges/CreateResources.md)
-1.  [Configuration](./Student/Guides/challenges/Configuration.md)
-1.  [Deployment](./Student/Guides/challenges/Deployment.md)
-1.  [Create Functions in the Portal](./Student/Guides/challenges/PortalFunctions.md)
-1.  [Monitoring](./Student/Guides/challenges/Monitoring.md)
-1.  [Data Export Workflow](./Student/Guides/challenges/Workflow.md)
+## Student Resources
+1.	[Challenge Guide](./Student/README.md)
+1.  [Resources](./Student/Resources/README.md)
 
 
-## Optional Challenges
-1.	[Scale the Cognitive Service](./Student/Guides/challenges/ScaleCognitive.md)
-1.  [View Data in Cosmos DB](./Student/Guides/challenges/Cosmos.md)
+## Coach Resources
+1.	[Coach Notes](./Host/README.md)
