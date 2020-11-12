@@ -5,7 +5,7 @@ This hack will help you get hands-on experience with the Microsoft 365 platform,
 This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 ## Learning Objectives
-In this hack you will work with your team to configure M365 services solve a common collaboration challenges and to improve business processes. You will focus on how the organization itself collaborates and shares information during an emergency response, how the organization supports their first responders in the field, and how the organization interacts with public citizens.
+In this hack you will work with your team to configure M365 services to solve a common collaboration challenges and to improve business processes. You will focus on how the organization itself collaborates and shares information during an emergency response, how the organization supports their first responders in the field, and how the organization interacts with public citizens.
 
 1. Configure a Microsoft Team including an information architecture and access to key resources
 1. Configure different types of online meeting experiences based on requirements
