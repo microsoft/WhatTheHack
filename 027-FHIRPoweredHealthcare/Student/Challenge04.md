@@ -1,4 +1,4 @@
-# Challenge 4: Deploy JavaScript app to connect to FHIR server and read FHIR data
+# Challenge 4: Connect to FHIR server and read FHIR data in JavaScript
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 

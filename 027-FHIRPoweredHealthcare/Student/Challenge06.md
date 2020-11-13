@@ -1,4 +1,4 @@
-# Challenge 6: Extend JavaScript app to improve the user experience
+# Challenge 6: Extend JavaScript app to add patient search
 
 [< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** 
 

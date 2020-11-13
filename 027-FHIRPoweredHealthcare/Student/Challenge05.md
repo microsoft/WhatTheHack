@@ -1,4 +1,4 @@
-# Challenge 5: Explore Patient Medical Records and SMART on FHIR apps with FHIR server
+# Challenge 5: Explore FHIR Patient Dashboard and SMART on FHIR apps
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge06.md)
 
