@@ -30,8 +30,9 @@ Let's put it all together, you will extend previous challenge's HL7 Ingest and C
 
 ## Success Criteria
 - You have extend previous challenge's HL7 Ingest and Convert architecture by deploying the FHIR Event Processor.
-- You have tested sending sample HL7 messages via HL7OverHTTPS
-- You have tested the end-to-end CDA to FHIR conversion process.
+- You have tested sending sample HL7 message via HL7OverHTTPS
+- You have tested the end-to-end HL7 message to FHIR conversion process.
+- You have validated CRUD event is published to Event Hub
 
 ## Learning Resources
 
