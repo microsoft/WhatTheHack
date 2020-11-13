@@ -33,11 +33,12 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-- Challenge 1: **[Extract, transform (convert) and load patient data](Student/Challenge01.md)**
-- Challenge 2: **[Stream FHIR CRUD events to Event Hub for post-processing](Student/Challenge02.md)**
-- Challenge 3: **[Deploy JavaScript app to connect to FHIR server and read FHIR data](Student/Challenge03.md)**
-- Challenge 4: **[Explore Patient Medical Records and SMART on FHIR apps with FHIR server](Student/Challenge04.md)**
-- Challenge 5: **[Extend JavaScript app to improve the user experience](Student/Challenge05.md)**
+- Challenge 1: **[Bulk ETL FHIR patient data](Student/Challenge01.md)**
+- Challenge 2: **[Bulk ETL C-CDA patient data](Student/Challenge02.md)**
+- Challenge 3: **[Incremental ETL HL7 patient data and stream FHIR CRUD events for post-processing](Student/Challenge03.md)**
+- Challenge 4: **[Deploy JavaScript app to connect to FHIR server and read FHIR data](Student/Challenge04.md)**
+- Challenge 5: **[Explore Patient Medical Records and SMART on FHIR apps with FHIR server](Student/Challenge05.md)**
+- Challenge 6: **[Extend JavaScript app to improve the user experience](Student/Challenge06.md)**
 
 ## Prerequisites
 - Access to an Azure subscription with Owner access
