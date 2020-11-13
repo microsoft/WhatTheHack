@@ -1,4 +1,4 @@
-# Challenge 1: Bulk ETL C-CDA patient data
+# Challenge 2: Bulk ETL C-CDA patient data
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 
@@ -31,8 +31,8 @@ You will deploy Health Architecture samples for C-CDA to FHIR ingest and convert
    - You have provisioned the FHIR Converter environment in Azure.
    - You have auto generated synthetic FHIR patient data in C-CDA format.
    - You have converted legacy C-CDA format to FHIR bundle patient data.
-   - YOu have loaded the C-CDA to FHIR patient data into FHIR server.
-   - You have validate the loaded patient data in FHIR Server by retrieving them in Postman 
+   - You have loaded the C-CDA to FHIR patient data into FHIR server.
+   - You have use Postman to retrieve the newly loaded patient data in FHIR Server 
 
 ## Learning Resources
 
