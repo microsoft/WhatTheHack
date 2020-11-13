@@ -1,4 +1,4 @@
-# Challenge 2: Bulk ETL C-CDA patient data
+# Challenge 2: Extract, transform and load C-CDA patient data
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 

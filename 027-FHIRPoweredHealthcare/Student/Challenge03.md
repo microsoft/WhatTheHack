@@ -1,4 +1,4 @@
-# Challenge 3: Incremental ETL HL7 patient data and stream FHIR CRUD events for post-processing
+# Challenge 3: Ingest and stream HL7 FHIR CRUD events for post-processing
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
