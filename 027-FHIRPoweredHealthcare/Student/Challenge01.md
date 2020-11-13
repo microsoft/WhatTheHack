@@ -32,7 +32,8 @@ You will deploy Health Architecture samples for the FHIR Bulk Load scenario belo
    - You have provisioned FHIR Bulk Load evnironment in Azure.
    - You have auto generated synthetic patient data in FHIR format.
    - You have loaded FHIR patient data into FHIR server.
-   - You have use Postman to retreived the newly loaded patient data in FHIR Server 
+   - You have use Postman to retreived the newly loaded patient data in FHIR Server.
+   - Retrieve newly loaded FHIR data in Postman.
 
 ## Learning Resources
 

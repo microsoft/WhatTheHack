@@ -24,7 +24,7 @@ You will deploy Health Architecture samples for C-CDA to FHIR ingest and convert
     - Step 4: Import response body (FHIR bundle) into FHIR Server using **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)** connection.
 - Copy the Synthea generated C-CDA patient data XML file in `./output/cda` folder to `fhirimport` BLOB container.  This will trigger the CCDAtoFHIR logic app convert and load workflow.
    - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
-- Retrieve newly load FHIR data in Postman
+- Retrieve newly loaded FHIR data in Postman.
 
 ## Success Criteria
 
@@ -32,7 +32,7 @@ You will deploy Health Architecture samples for C-CDA to FHIR ingest and convert
    - You have auto generated synthetic FHIR patient data in C-CDA format.
    - You have converted legacy C-CDA format to FHIR bundle patient data.
    - You have loaded the C-CDA to FHIR patient data into FHIR server.
-   - You have use Postman to retrieve the newly loaded patient data in FHIR Server 
+   - You have use Postman to retrieve the newly loaded patient data in FHIR Server.
 
 ## Learning Resources
 
