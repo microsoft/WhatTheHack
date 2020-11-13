@@ -1,80 +1,46 @@
-# What The Hack - Challenge Template
+# Challenge 1: Emergency Response Collaboration
 
-*This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it.*
+[< Previous Challenge](./00-prereqs.md) - **[Home](../readme.md)** - [Next Challenge>](./02-firstresponders.md)
 
-*This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc*
-
-# Challenge \# - \<Challenge Name>
-
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
-
-## Pre-requisites (Optional)
-
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-
-## Introduction (Optional)
-
-*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
+## Pre-requisites
+To begin this challenge, you must have access to a Microsoft 365 subscription as described in the Pre-requisites challenge. Do not limit yourself to a particular license level, use all of the capabilities of Microsoft 365.
 
 ## Description
+Contoso has identified a glaring problem that information related to a specific emergency is not available in a consistent matter across the different response groups (e.g. First Responders, Logistics, Communications & Public Affairs, Headquarters, Legal, Engineering). Currently each group makes their own decisions about how to collaborate when an emergency takes place. The result is a bunch of email distribution lists and files stored in various locations, such as file shares, SharePoint sites, and external hard drives. Members of the response group often take on more than one role, so information needs to be available to the entire response team, organized by roles. For each type of emergency, Contoso has standard documents with common operating procedures. 
 
-*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
+The dispersed repositories also present challenges for the response team to search for specific resources. Often information and decisions get lost due to staff turnover, especially for shift related activities. Today, content is only shared via email with the local authorities. This often leads to people in the field, working with out of date documentation.  
 
-*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
+Additionally, the emergency response team has a need for shared action tracking (called the “Big Board”) which lists who has been assigned to do what. The Big Board allows the team to glance at what assignments are outstanding and where bottlenecks might be. The Big Board is often managed by a staff in Headquarters, who then periodically takes a photo of the board and distributes it via email throughout the day. This continues the theme of having stale information for people in the field.  
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+During an emergency, the Public Affairs group often prepares a PowerPoint presentation to brief media agencies. It is hard to anticipate the number of attendees from the media as depending on the emergency, the number of interested parties could go from ten to thousands. These briefings need to be widely available and securing the meeting with login credentials is not necessary. The media participants need the ability to ask questions. Each session needs to be recorded and made available within Contoso. The HQ staff often review these sessions, after the fact. 
 
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+1. Your team has configured Teams to store the information related to an emergency so that it is centralized for the specified roles.
+1. All members of the response team can easily find the common operating procedure document for reference. 
+1. Contoso users can easily search for information across roles related to the emergency.
+1. During any shift change, an onboarded Contoso user can easily pick up and continue discussions from the previous shift. 
+1. Your team has deployed a way for the response team to track shared actions.
 
 
 ## Learning Resources
 
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
+Reference articles on Microsoft Teams:
+- <https://docs.microsoft.com/en-us/MicrosoftTeams/get-started-with-teams-create-your-first-teams-and-channels>
+- <https://docs.microsoft.com/en-us/microsoftteams/teams-channels-overview>
+- <https://docs.microsoft.com/en-us/microsoftteams/quick-start-meetings-live-events>
+- <https://docs.microsoft.com/en-us/microsoftteams/teams-live-events/what-are-teams-live-events>
+- <https://docs.microsoft.com/en-us/microsoftteams/communicate-with-users-from-other-organizations>
+- <https://docs.microsoft.com/en-us/microsoftteams/built-in-custom-tabs>
+-<https://docs.microsoft.com/en-us/stream/overview>
 
 
 ## Advanced Challenges (Optional)
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+1. Demonstrate that a non-Contoso account (representing local authorities) can be invited and access Contoso content related to the emergency. 
+1. Your team demonstrates a solution for the Public Affairs team to brief the media including Q&A with stored recordings available to HQ for review. 
 
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
 
