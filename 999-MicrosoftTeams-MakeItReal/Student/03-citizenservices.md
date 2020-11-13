@@ -1,80 +1,45 @@
-# What The Hack - Challenge Template
+# Challenge 3: Citizen Services
 
-*This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it.*
+[< Previous Challenge](./02-firstresponders.md) - **[Home](../readme.md)**
 
-*This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc*
-
-# Challenge \# - \<Challenge Name>
-
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
-
-## Pre-requisites (Optional)
-
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-
-## Introduction (Optional)
-
-*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
+## Pre-requisites
+For this challenge, you must have at least setup Microsoft Teams in accordace with the goals in Challenge 1. 
 
 ## Description
+Contoso would also like to use Office 365 services to improve the way they interact with the public during an emergency. There is very little of this direct engagement today as Contoso mainly relies on the media or other third parties. They would like your team to explore the “art-of-the-possible” in providing solutions to these scenarios: 
 
-*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
+Contoso has learned from past experiences, that during an emergency they often get offers from the public to volunteer for services that would indeed offer value to supplement their staff. In the past, those offers have arrived through various methods such as phone calls and emails to specific Contoso employees. Ideally, there would be a standardized way to gather information about the volunteer. This information should then be reviewed (and verified) by a Contoso staff member. Lastly, the information on approved volunteers should be easily accessible to the emergency response team. 
 
-*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+Another citizen facing service for emergencies is enabling the public to request status information for individuals that are missing. Ideally, there would be a process for citizens to provide details of the person missing such as name, gender, address, age, etc. This information is then available to the response team. In a perfect world, there would be a report of some kind that breaks down this data by gender and/or city where the team can easily interact with the data.  
 
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
+1. A volunteer can provide information about themselves which is routed to a Contoso staff member for verification. 
+1. A collection of verified volunteers is available to the response team. 
+1. A citizen can provide the details of a missing person to the response team.
+1. The response team can see the missing person data.
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
 
 
 ## Learning Resources
 
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
+Reference articles:
+- <https://support.microsoft.com/en-us/office/create-a-form-with-microsoft-forms-4ffb64cc-7d5d-402f-b82e-b1d49418fd9d>
+- <https://support.microsoft.com/en-us/office/introduction-to-microsoft-forms-bb1dd261-260f-49aa-9af0-d3dddcea6d69>
+- <https://docs.microsoft.com/en-us/power-automate/getting-started>
+- <https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview>
+- <https://docs.microsoft.com/en-us/power-bi/fundamentals/desktop-getting-started>
+- <https://docs.microsoft.com/en-us/power-bi/fundamentals/service-get-started>
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
 
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
 
 
 ## Advanced Challenges (Optional)
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+1. A report of the missing person data is available filtering the data by city and/or gender.  
 
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+
 

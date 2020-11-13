@@ -19,18 +19,18 @@ Contoso recently deployed Office 365 and is currently using all of its services 
 ## Challenges
 - Challenge 0: **[Pre-requisites](Student/00-prereqs.md)**
    - Prepare your environment for the hack
-- Challenge 1: **[Emergency Response Collaboration](Student/01-containers.md)**
+- Challenge 1: **[Emergency Response Collaboration](Student/01-collaboration)**
    - Provide support for Contoso's internal teams to collaborate on the response to the emergency
-- Challenge 2: **[Supporting First Responders](Student/02-acr.md)**
+- Challenge 2: **[Supporting First Responders](Student/02-firstresponders)**
    - Enable first responders in the field to get access to resources even in poor network conditions and to send in photos which get routed to the appropriate response team
-- Challenge 3: **[Citizen Services](Student/03-k8sintro.md)**
+- Challenge 3: **[Citizen Services](Student/03-citizenservices.md)**
    - Empower skilled citizens to volunteer their services as well as report missing persons
    
 ## Prerequisites
 
 - Access to a Microsoft 365 / Office 365 environment to configure solutions for the challenges
    - If you don't have one and your coach is not providing one, [Sign Up for Office 365 E5 HERE](https://go.microsoft.com/fwlink/p/?LinkID=698279&clcid=0x409&culture=en-us&country=US)
-- [**Power BI Desktop Client**](https://powerbi.microsoft.com/en-us/downloads/)
+- [Power BI Desktop Client](https://powerbi.microsoft.com/en-us/downloads/)
 
 ## Repository Contents
 - `../Coach/Guides`
