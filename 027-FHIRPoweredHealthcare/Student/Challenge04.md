@@ -1,45 +1,50 @@
-# Challenge 4: Explore Patient Medical Records and SMART on FHIR apps with FHIR server
+# Challenge 4: Deploy JavaScript app to connect to FHIR server and read FHIR data
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 
-In this challenge, you will explore patient medical record and SMART on FHIR apps through the FHIR Dashboard app. 
+In this challenge, you will deploy a sample web application to connect to FHIR server and access FHIR patient data.  You will update the public client application registration to enable the newly deployed sample web app to be authenticated via secondary tenant credentials for access to FHIR server and the persisted FHIR bundle(s).
 
-![SMART on FHIR applications](../images/smart-on-fhir-applications.jpg)
+**[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
 
-**[What is SMART on FHIR?](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-faq#what-is-smart-on-fhir)** 
-SMART ((Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner apps with FHIR servers and other Health IT systems, i.e. Electronic Health Records and Health Information Exchanges.  By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems. Authentication and Azure API for FHIR. To learn more about SMART, visit SMART Health IT.
 
-Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces. This set of open specifications describes how an app should discover authentication endpoints for FHIR server and start an authentication sequence.  Specifically, the proxy enables the **[EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence)**.  
 
 ## Description
 
-You will perform the following to access patient records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
-- Access FHIR Dashboard app
-    - Open In-private/Incognito browser and browse to FHIR Dashboard app 
-    - Use the secondary Azure AD tenant dashboard user credentials to sign in and consent permissions requested by the Confidential Client app to get access to FHIR server.
-- Explore patient medical record(s) through FHIR Dashboard app
-    - Patient and its FHIR bundle details
-    - Patient medical details
-        - Conditions
-        - Encounters
-        - Observations
-- Explore SMART on FHIR Apps through FHIR Dashboard app
-    - Growth Chart
-    - Medications
+You will perform the following to configure and deploy a FHIR sample JavaScript app in Azure that reads patient data from the FHIR service:
+- **[Create a new Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
+- Check in secondary Azure AD tenant that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR server resource.
+
+    Hint: 
+    - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
+    - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR server resource.
+
+- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in Secondary Azure AD tenant to enable apps to authenticate and authorize for API permissions on behalf of a user.
+
+    Hint: Ensure that the Reply URL matches the FHIR sample web app URL
+
+    - Configure a new Web platform under Authentication blade
+        - Set Redirect URIs to [sample web app URL]
+        - Enable Implicit Grant by selecting Access token and ID tokens
+        - Configure permissions for Azure Healthcare APIs with User_Impersonation permission (if needed)
+ 
+- Write a new JavaScript app using index.html sample code in Student/Resources folder.
+    - Update MSAL configuration for your FHIR environment
+
+    Hint: 
+    You will need the following config settings:
+    - clientId - Update with your client application ID of public client app registered earlier
+    - authority - Update with Authority from your FHIR Server (under Authentication)
+    - FHIRendpoint - Update the FHIRendpoint to have your FHIR service name
+    - Scopes - Update with Audience from your FHIR Server (under Authentication)
 
 ## Success Criteria
-- You have successfully access FHIR Dashboard app.
-- You have explored patient medical records and SMART on FHIR applications.
+- You have deployed a FHIR sample Web App in Azure with a Sign-in that authenticates against your secondary Azure AD tenant to access FHIR server and retrieves patient data in a web page.
 
 ## Learning Resources
 
-- **[SMART on FHIR - FHIR Server Dashboard app](https://github.com/smart-on-fhir/fhir-server-dashboard#:~:text=The%20FHIR%20Server%20Dashboard%20is%20a%20standalone%20app,at%20the%20sample%20data%20on%20a%20FHIR%20sandbox.)**
-- **[FHIR Server Dashboard Demo](http://docs.smarthealthit.org/fhir-server-dashboard/)**
-- **[FHIR Dashboard JS source code](https://github.com/microsoft/fhir-server-samples/blob/master/src/FhirDashboardJS/index.html)**
-- **[Use Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
-- **[Download the SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**
-- **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)**
-- **[SMART](https://smarthealthit.org/)**
-- **[HL7 FHIR SMART Application Launch Framework](http://www.hl7.org/fhir/smart-app-launch/)**
+- **[Deploy a JavaSript app to read data from FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-fhir-server)**
+- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
+**[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
+- **[Write Azure web app to read FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**

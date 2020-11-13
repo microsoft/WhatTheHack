@@ -1,50 +1,50 @@
-# Challenge 3: Deploy JavaScript app to connect to FHIR server and read FHIR data
+# Challenge 3: Incremental ETL HL7 patient data and stream FHIR CRUD events for post-processing
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 
 ## Introduction
 
-In this challenge, you will deploy a sample web application to connect to FHIR server and access FHIR patient data.  You will update the public client application registration to enable the newly deployed sample web app to be authenticated via secondary tenant credentials for access to FHIR server and the persisted FHIR bundle(s).
+In this challenge, you will implent the **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** services to import and process valid HL7 messages, persist them into FHIR server and publish successful FHIR server CRUD events to an Event Hub.  Consumers can subscribe to this Event Hub queue topic in order to orchestrate post-processing event-driven workflows. 
 
-**[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
+![FHIR Event Processor](../images/fhir-event-processor.jpg)
 
-
+Let's put it all together, you will extend previous challenge's HL7 Ingest and Convert architecture to include the FHIR Event Processor component as depicted below:
+![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
 
 ## Description
 
-You will perform the following to configure and deploy a FHIR sample JavaScript app in Azure that reads patient data from the FHIR service:
-- **[Create a new Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
-- Check in secondary Azure AD tenant that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR server resource.
-
-    Hint: 
-    - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
-    - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR server resource.
-
-- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in Secondary Azure AD tenant to enable apps to authenticate and authorize for API permissions on behalf of a user.
-
-    Hint: Ensure that the Reply URL matches the FHIR sample web app URL
-
-    - Configure a new Web platform under Authentication blade
-        - Set Redirect URIs to [sample web app URL]
-        - Enable Implicit Grant by selecting Access token and ID tokens
-        - Configure permissions for Azure Healthcare APIs with User_Impersonation permission (if needed)
- 
-- Write a new JavaScript app using index.html sample code in Student/Resources folder.
-    - Update MSAL configuration for your FHIR environment
-
-    Hint: 
-    You will need the following config settings:
-    - clientId - Update with your client application ID of public client app registered earlier
-    - authority - Update with Authority from your FHIR Server (under Authentication)
-    - FHIRendpoint - Update the FHIRendpoint to have your FHIR service name
-    - Scopes - Update with Audience from your FHIR Server (under Authentication)
+- Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** logic app based workflow to perform orderly conversion from HL7 to FHIR via FHIR Converter, persist the HL7 messages into FHIR Server and publish FHIR CRUD change events to Event Hubs for post-Processing workflows.
+    - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
+    - Open a bash shell into the Azure CLI 2.0 environment
+    - Switch to HL7Conversion subdirectory of this repo
+    - Run the `deployhl72fhir.bash` script and follow the prompts
+- Send in an HL7 message via HL7 over HTTPS:
+    - Locate the sample message samplemsg.hl7 in the root directory of the repo
+    - Use a text editor to see contents
+    - From the linux command shell run the following command to test the hl7overhttps ingest
+    ```
+    curl --trace-ascii - -H "Content-Type:text/plain" --data-binary @samplemsg.hl7 <your ingest host name from above>/api/hl7ingest?code=<your ingest host key from above>
+    ```
+    - You should receive back an HL7 ACK message to validate that the sample hl7 message was accepted securely stored into blob storage and queued for HL7 to FHIR Conversion processing on the deployed service bus queue
+    - To test the end-to-end Conversion process, you can see execution from the HL7toFHIR Logic App Run History in your HL7toFHIR resource group. This will also provide you with detailed steps to see the transform process in the Logic App run.
 
 ## Success Criteria
-- You have deployed a FHIR sample Web App in Azure with a Sign-in that authenticates against your secondary Azure AD tenant to access FHIR server and retrieves patient data in a web page.
+- You have extend previous challenge's HL7 Ingest and Convert architecture by deploying the FHIR Event Processor.
+- You have tested sending sample HL7 messages via HL7OverHTTPS
+- You have tested the end-to-end CDA to FHIR conversion process.
 
 ## Learning Resources
 
-- **[Deploy a JavaSript app to read data from FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-fhir-server)**
-- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
-**[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
-- **[Write Azure web app to read FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**
+- **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)**
+- **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)**
+- **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**
+- **[FHIR Converter API Details](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)**
+- **[Using FHIR Bundle Conversion APIs](https://github.com/microsoft/FHIR-Converter/blob/master/docs/convert-data-concept.md)**
+- **[FHIR Converter pre-installed templates for C-CDA and HL7v2](https://github.com/microsoft/FHIR-Converter/tree/master/src/templates)**
+- **[Sample HL7 messages](https://github.com/microsoft/FHIR-Converter/tree/master/src/sample-data/hl7v2)**
+- **[How to create a FHIR Converter template](https://github.com/microsoft/FHIR-Converter/blob/master/docs/template-creation-how-to-guide.md)**
+- **[Browser based FHIR Converter template editor](https://github.com/microsoft/FHIR-Converter/blob/master/docs/web-ui-summary.md)**
+
+
+
+
