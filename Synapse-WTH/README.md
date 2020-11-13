@@ -5,3 +5,7 @@ The purpose of this repository is for the Synapse What The Hack. This will be th
 ## Table of Contents
 - Abstract Introduction
 - Challenge Introduction
+- Solution Architecture
+- Student Resources
+- Coach Resources
+
