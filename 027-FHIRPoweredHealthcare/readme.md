@@ -6,7 +6,7 @@ You will leverage **[Health Architecture samples](https://github.com/rsliang/hea
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
-In the FHIR Powered Healthcare hack, you will implement healthcare reference architecture samples in Azure to extract, transform and load patient data in standardize FHIR format to a FHIR Compliant store for patient record access.  You will deploy a FHIR Event Processing event-driven architecture to ingest and publish FHIR CRUD events to an Event Hub.  Consumers subscribed to these events can trigger downstream workflows whenever a new event is published.
+In the FHIR Powered Healthcare hack, you will implement Azure Health reference architectures to extract, transform and load patient data in standardize FHIR format to a FHIR Compliant store for patient lookup.  You will deploy an event-driven architecture to ingest and publish FHIR CRUD events to an Event Hub.  Topic subscribers to these events can then trigger downstream workflows whenever a new FHIR CRUD event is published.  You will then, write JavaScript code to connect to FHIR server and read FHIR data.
 
 To get you started, you will be guided through a sequence of challenges to implement Health Architecture for FHIR server use cases using the following Azure managed services (PaaS):
 1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
@@ -25,9 +25,9 @@ Contoso Healthcare is implementing a FHIR-based data management solution to rapi
 
 Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
 1. Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
-2. Generate FHIR CRUD (create, read, update or delete) events push whenever FHIR CRUD operations take palce in FHIR for post-processing.
-3. Securely connect and read FHIR patient data from FHIR server using a JavaScript web app.
-4. Explore a patient's medical records and encounters through a FHIR Patient Dashboard and SMART on FHIR apps via FHIR interfaces.
+2. Generate FHIR CRUD (create, read, update or delete) events whenever FHIR CRUD operations take palce in FHIR for post-processing.
+3. Securely connect and read FHIR patient data from FHIR server in a JavaScript web app.
+4. Explore a patient's medical records and encounters in FHIR Patient Dashboard and SMART on FHIR apps via FHIR interfaces.
 5. Improve patient search user experience by adding a patient lookup function in JavaScript app.
 
 ## Challenges
