@@ -1,4 +1,4 @@
-# Challenge 6: Extend JavaScript app to add patient search
+# Challenge 6: Add patient lookup function to the JavaScript app
 
 [< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** 
 

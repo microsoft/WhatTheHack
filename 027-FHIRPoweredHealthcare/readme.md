@@ -1,6 +1,6 @@
 # FHIR Powered Healthcare
 ## Introduction
-Contoso Healthcare is implementing a new FHIR powered event-driven architecture to ingest and transform patient data from multiple EHR systems in legacy formats into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management in a common platform.  
+Contoso Healthcare is implementing a new FHIR ( Fast Healthcare Interoperability Resources) powered event-driven architecture to ingest and transform patient data from multiple EHR systems in legacy formats into a FHIR standard format and load them to a centralized FHIR Compliant store.  A new patient search frontend will enable medical practitioners and administrators to quickly lookup patients.  It will provide medical professionals quick access to patient data needed in day-to-day operations and management in a common platform.  
 
 You will leverage **[Health Architecture samples](https://github.com/rsliang/health-architectures)** and implement its collection of reference architectures for Azure API for FHIR use cases that best fit Contoso Healthcare requirements. Below is the holistic conceptual end to end Microsoft Health architecture for Azure API for FHIR.
 ![Health Architecture](./images/HealthArchitecture.png)
@@ -21,24 +21,23 @@ To get you started, you will be guided through a sequence of challenges to imple
 10. **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to display the patient search results in a set of paginated web pages.
 
 ## Scenario
-Contoso Healthcare is implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with Electronic Health Records (EHR) systems and Health and Life Science (HLS) research databases.  To help its medical practitioners/administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing new FHIR powered event-driven health architectures to aggregate and convert patient data from disparate EHR systems into FHIR-based standard format and persist them to a FHIR Compliant store.
+Contoso Healthcare is implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with EHR (Electronic Health Record) systems and HLS (Life Science) research databases.  To help its healthcare practitioners and/or administrators manage and access patient records for day-to-day operations, your team's assistance is needed in implementing new FHIR powered event-driven health reference architectures to aggregate and convert patient records from on-prem EMR (Electronic Medical Record), Lab System, Scheduling System, etc. into FHIR bundles and persist them to a FHIR Compliant store in near real-time.
 
 Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
-1. Extract and transform patient data from EHR systems and load them into a centralized FHIR Compliant store.
-2. Import and process valid HL7 messages into FHIR bundles, persist them into a FHIR Compliant store and publish the successful FHIR CRUD events to an Event Hub for post-processing.
-3. Create a sample JavaScript app to securely connects and reads FHIR data from FHIR server.
-4. Explore a FHIR Patient Dashboard to view patient's medical records 
-5. Explore SMART on FHIR applications that can integrate partner apps and EMR systems with FHIR server through FHIR interfaces.
-6. Extend the sample JavaScript app to add a patient lookup function.
+1. Ingest patient record in FHIR or legacy HL7 formats from EHR systems, process them into a common FHIR-based standard format and persist into a FHIR Compliant store.
+2. Generate FHIR CRUD (create, read, update or delete) events to an Event Hub whenever FHIR CRUD operations take palce in FHIR for post-processing.
+3. Securely connect and read FHIR patient data from FHIR server using a JavaScript web app.
+4. Explore a patient's medical records and encounters through a FHIR Patient Dashboard and SMART on FHIR apps via FHIR interfaces.
+5. Add a patient lookup function in JavaScript web app to improve user experience.
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
 - Challenge 1: **[Extract and load FHIR patient data](Student/Challenge01.md)**
 - Challenge 2: **[Extract, transform and load C-CDA patient data](Student/Challenge02.md)**
 - Challenge 3: **[Ingest and stream HL7 FHIR CRUD events for post-processing](Student/Challenge03.md)**
-- Challenge 4: **[Connect to FHIR server and read FHIR data in JavaScript](Student/Challenge04.md)**
-- Challenge 5: **[Explore FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
-- Challenge 6: **[Extend JavaScript app to add patient search](Student/Challenge06.md)**
+- Challenge 4: **[Connect to FHIR server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
+- Challenge 5: **[Explore a patient's medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
+- Challenge 6: **[Add patient lookup function to the JavaScript app](Student/Challenge06.md)**
 
 ## Prerequisites
 - Access to an Azure subscription with Owner access
