@@ -4,27 +4,28 @@
 
 ## Introduction
 
-In this challenge, you will implement the FHIR Server Samples reference architecture to extract, transform and load patient data from EHR (Electronic Health Record) systems.  You will generate synthetic patient data in FHIR format for bulk load into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
+In this challenge, you will implement the FHIR Server Samples reference architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk load into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
 
 ### FHIR bulk load scenario
-In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Patient FHIR bundle JSON files generated with Synthea are copied into this storage container, which will automatically ingested into the FHIR server.  This bulk ingestion is performed by an Azure Function as depicted below:
+In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR server.  This bulk ingestion is performed by a BLOB triggered function app as depicted below:
 
 ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 
 ## Description
 
-You will deploy Health Architecture samples for the FHIR Bulk Load scenario below:
-- Deploy **[FHIR Server Samples PaaS scenario (shown above)](https://github.com/microsoft/fhir-server-samples)** to ingest and batch load Synthea generated FHIR patient bundles into FHIR Server.
-   - First, clone this **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
-   - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
+You will implement Health Architecture FHIR Bulk Load scenario as follows:
+- Deploy **[FHIR Server Samples PaaS scenario (above)](https://github.com/microsoft/fhir-server-samples)** to ingest and bulk load Synthea generated FHIR patient data into FHIR Server in near real-time.
+   - Hint:
+      - First, clone **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
+      - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
+         - Before running this **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that provides you with directory admin role access required for this setup.
 
-      Hint: Before running the **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that provides you with 'Global Administrator' directory role access required for this setup.
-
-   - Validate your FHIR Server Samples environment deployment
-      - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
-      - Check App Registration in secondary AAD tenat that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
+         NOTE: The connection to Azure AD can be made using a different tenant domain than the one tied to your Azure subscription. If you don't have privileges to create app registrations, users, etc. in your Azure AD tenant, you can create a new one, which will just be used for demo identities, etc. 
+      - To Validate your deployment, 
+         - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
+         - Check App Registration in secondary AAD tenat that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
-- Copy Synthea generated FHIR bundle JSON files in the `./output folder` to `fhirimport` BLOB container.
+- Copy Synthea generated FHIR bundle JSON files in its `./output/fhir folder` to `fhirimport` BLOB container.
    - Hint: You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.
 
 ## Success Criteria
@@ -32,7 +33,7 @@ You will deploy Health Architecture samples for the FHIR Bulk Load scenario belo
    - You have provisioned FHIR Bulk Load evnironment in Azure.
    - You have generated synthetic patient data in FHIR format.
    - You have loaded FHIR patient data into FHIR server.
-   - You have use Postman to retreived the newly loaded patient data in FHIR Server.
+   - You have retreived the new FHIR patient data using Postman.
 
 ## Learning Resources
 
