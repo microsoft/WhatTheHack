@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you will implement the FHIR Server Samples reference architecture to extract, transform and load patient data from Electronic Health Record (EHR) systems.  You will generate synthetic patient data in FHIR format for bulk load into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
+In this challenge, you will implement the FHIR Server Samples reference architecture to extract, transform and load patient data from EHR (Electronic Health Record) systems.  You will generate synthetic patient data in FHIR format for bulk load into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
 
 ### FHIR bulk load scenario
 In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Patient FHIR bundle JSON files generated with Synthea are copied into this storage container, which will automatically ingested into the FHIR server.  This bulk ingestion is performed by an Azure Function as depicted below:
