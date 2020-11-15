@@ -31,8 +31,8 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-- Challenge 1: **[Extract and load FHIR patient data](Student/Challenge01.md)**
-- Challenge 2: **[Extract, transform and load C-CDA patient data](Student/Challenge02.md)**
+- Challenge 1: **[Extract and load FHIR patient medical records](Student/Challenge01.md)**
+- Challenge 2: **[Extract, transform and load patient clinical data](Student/Challenge02.md)**
 - Challenge 3: **[Ingest and stream HL7 FHIR CRUD events for post-processing](Student/Challenge03.md)**
 - Challenge 4: **[Connect to FHIR server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
 - Challenge 5: **[Explore a patient's medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
