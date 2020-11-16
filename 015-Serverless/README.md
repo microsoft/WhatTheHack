@@ -2,7 +2,7 @@
 
 This is a challenge-based hack. It's NOT step-by-step. Don't worry, you will do great whatever your level of experience! You will be guided through different tasks to implement the "Tollbooth" app by leveraging a serverless architecture within Azure using a combination of Azure Functions, Logic Apps, Event Grid, Cosmos DB, and Azure Storage. The focus is on removing server management from the equation, breaking down the solution into smaller components that are individually scalable, and allowing the customer to only pay for what they use.  The intent is to have you practice the tools, technologies and services our partners are asking you about. Let's try to go out of your comfort zone, try and learn something new. And let's have fun!
 And don't forget there are proctors around you, just raise your hand at any time!
-- Estimated duration is 2-3 hours depending on student skill level
+- Estimated duration is 12 hours depending on student skill level
 
 ## **Introduction**
 
