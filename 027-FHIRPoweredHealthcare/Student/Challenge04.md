@@ -33,7 +33,7 @@ Hint:
 
     Hint:
     - Reuse index.html sample code in Student/Resources folder.
-    - Update MSAL configuration in code for your FHIR environment:
+    - Update MSAL **[(Mirosoft Authentication Library)](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries)** configuration in code for your FHIR environment:
         - clientId - Update with your client application ID of public client app registered earlier
         - authority - Update with Authority from your FHIR Server (under Authentication)
         - FHIRendpoint - Update the FHIRendpoint to have your FHIR service name
@@ -48,3 +48,5 @@ Hint:
 - **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
 **[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
 - **[Write Azure web app to read FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**
+- **[Overview of Mirosoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview)**
+- **[Microsoft Authentication Library (MSAL) for JavaScript](https://www.npmjs.com/package/msal)**
