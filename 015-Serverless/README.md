@@ -38,4 +38,4 @@ Cloud-Native Apps
 
 
 ## Coach Resources
-1.	[Coach Notes](./Host/README.md)
+1.	[Coach Notes](./Coach/README.md)
