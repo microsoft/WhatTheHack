@@ -198,6 +198,15 @@ kubectl -n {infrastructure.namespace goes here} get pods
 kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
 
 # example for ports and services
-kubectl -n contosoappmysql get svc
+kubectl -n {infrastructure.namespace goes here} get svc
 
+```
+
+Verify that contoso pizza application is running on AKS
+
+```shell
+
+# Insert the external IP address of the command <kubectl -n contosoappmysql or contosoapppostgres get svc below>
+
+http://{external_ip_contoso_app}:8081/pizzeria/   
 ```
