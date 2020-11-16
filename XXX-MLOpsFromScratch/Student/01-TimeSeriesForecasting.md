@@ -23,11 +23,7 @@ different from other conventional datasets and warrants a different type of
 modelling. We will cover that in this challenge as forecasting is one of the
 most common and prevalent tasks in Machine Learning.
 
-## Success Criteria
-
-1.  Forecasting project imported into Azure DevOps and cloned in VS Code.
-
-## Hackflow
+## Description
 
 1.  Create and setup a new project in Azure DevOps
 
@@ -64,6 +60,10 @@ most common and prevalent tasks in Machine Learning.
     7.  deployOnAci.py to deploy the scoring image on ACI
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
+    
+## Success Criteria
+
+1.  Forecasting project imported into Azure DevOps and cloned in VS Code.
 
 ## Learning resources
 
