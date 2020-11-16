@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FHIR Patient browser sample app</title>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <input type="text" placeholder="Search..">
+</div>
+    <div class="leftContainer">
+        <p id="WelcomeMessage">Welcome to the FHIR Patient browsing sample Application</p>
+        <button id="SignIn" onclick="signIn()">Sign In</button>
+    </div>
+
+    <div id="patientTable">
+    </div>
+
+    <script>
+        var msalConfig = {
+            auth: {
+                clientId: '<CLIENT-ID>',
+                authority: "https://login.microsoftonline.com/<AZURE-AD-TENANT-ID>"
+            },
+            cache: {
+                cacheLocation: "localStorage",
+                storeAuthStateInCookie: true
+            }
+        }
+
+        var FHIRConfig = {
+            FHIRendpoint: "https://<FHIR-SERVER-NAME>.azurehealthcareapis.com"
+        }
+        var requestObj = {
+            scopes: ["https://<FHIR-SERVER-NAME>.azurehealthcareapis.com/user_impersonation"]
+        }
+
+        function authRedirectCallBack(error, response) {
+            if (error) {
+                console.log(error);
+            } else {
+                if (response.tokenType === "access_token") {
+                    callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, response.accessToken, FHIRCallback);
+                }
+            }
+        }
+
+        var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+        myMSALObj.handleRedirectCallback(authRedirectCallBack);
+
+        function signIn() {
+            myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
+                showWelcomeMessage();
+                acquireTokenPopupAndCallFHIRServer();
+            }).catch(function (error) {
+                console.log(error);
+            })
+        }
+
+        function showWelcomeMessage() {
+            var divWelcome = document.getElementById('WelcomeMessage');
+            divWelcome.innerHTML = "Welcome " + myMSALObj.getAccount().userName + " to FHIR Patient Browsing App";
+            var loginbutton = document.getElementById('SignIn');
+            loginbutton.innerHTML = 'Sign Out';
+            loginbutton.setAttribute('onclick', 'signOut()')
+        }
+
+        function signOut() {
+            myMSALObj.logout();
+        }
+
+        function acquireTokenPopupAndCallFHIRServer() {
+            myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+                callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
+            }).catch(function (error) {
+                console.log(error);
+                if (requiresInteraction(error.errorCode)) {
+                    myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
+                        callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
+                    }).catch(function (error) {
+                        console.log(error);
+                    })
+                }
+            });
+        }
+
+        function callFHIRServer(theUrl, method, message, accessToken, callBack) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    callBack(JSON.parse(this.responseText));
+            }
+            xmlHttp.open(method, theUrl, true);
+            xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+            xmlHttp.send(message);
+        }
+
+        function FHIRCallback(data) {
+            patientListHtml = '<ol>';
+            data.entry.forEach(function(e) {
+                patientListHtml += '<li>' + e.resource.name[0].family + ', ' + e.resource.name[0].given + ' (' + e.resource.id + ')';
+            });
+            patientListHtml += '</ol>';
+            document.getElementById("patientTable").innerHTML = patientListHtml;
+        }
+    </script>
+</body>
+</html>
