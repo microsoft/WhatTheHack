@@ -5,18 +5,12 @@
 1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Import Forecasting Project into Azure DevOps)
     should be done successfully
 
-## Description
+## Introduction
 
 Use this challenge to perform tasks to confirm data has been extracted from
 source and saved in the working directory
 
-## Success criteria
-
-1.  Confirming the number of files extracted
-
-2.  Visualizing and exploring the data
-
-## Basic Hackflow
+## Description
 
 1.  If you haven’t already done this in
     [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
@@ -33,6 +27,11 @@ source and saved in the working directory
 
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
 
+## Success criteria
+
+1.  Confirming the number of files extracted
+
+2.  Visualizing and exploring the data
 
 ## Learning resources
 
