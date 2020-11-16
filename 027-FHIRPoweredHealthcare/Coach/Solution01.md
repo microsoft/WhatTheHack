@@ -18,7 +18,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
         git clone https://github.com/Microsoft/fhir-server-samples
         cd fhir-server-samples/deploy/scripts
         ```
-    - Before running the **[FHIR Server Samples deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that has directory admin role access required for this setup.  Connect to Azure AD with:
+    - Before running the **[FHIR Server Samples deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that has directory admin role access required for this setup.
         ```
         Login-AzAccount
         Connect-AzureAd -TenantDomain <AAD TenantDomain>
@@ -34,7 +34,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
     - To Validate your deployment, 
         - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
         - Check App Registration in secondary AAD tenat that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
-        - Check Azure API for FHIR Authentication 'Allowed object IDs' configuration to ensure that the Azure AD object ID of the 3 registered client applications are added. This will allow these client apps to access this Azure API for FHIR.
+        - Check 'Azure API for FHIR' > Authentication > 'Allowed object IDs' configuration in Azure Portal to ensure that the Azure AD object IDs of the 3 registered client applications have been added. This will allow these client apps to access this Azure API for FHIR.
 
 
 ## Generate FHIR patient data using SyntheaTM Patient Generator tool
