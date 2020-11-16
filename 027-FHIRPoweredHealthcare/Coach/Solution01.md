@@ -29,12 +29,12 @@ In this scenario, you will deploy a storage account with a BLOB container called
         - If you don't have Administrator access:
             - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
             - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
-    - Deploy the scenario with the managed Azure API for FHIR:
     - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** with the managed Azure API for FHIR (PaaS) scenario:
         - Run `Create-FhirServerSamplesEnvironment.ps1` from the cloned `./deploy/scripts` folder.
     - To Validate your deployment, 
         - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
         - Check App Registration in secondary AAD tenat that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
+        - Check Azure API for FHIR Authentication 'Allowed object IDs' configuration to ensure that the Azure AD object ID of the 3 registered client applications are added. This will allow these client apps to access this Azure API for FHIR.
 
 
 ## Generate FHIR patient data using SyntheaTM Patient Generator tool
