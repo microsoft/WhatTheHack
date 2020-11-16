@@ -1,10 +1,10 @@
-# Challenge 5: Explore a patient's medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps
+# Challenge 5: Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge06.md)
 
 ## Introduction
 
-In this challenge, you will explore patient medical record and SMART on FHIR apps through the FHIR Dashboard app. 
+In this challenge, you will explore patient medical records and SMART on FHIR apps through the FHIR Dashboard app. 
 
 ![SMART on FHIR applications](../images/smart-on-fhir-applications.jpg)
 
@@ -15,7 +15,7 @@ Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.
 
 ## Description
 
-You will perform the following to access patient records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
+You will perform the following steps to access patient medical records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
 - Access FHIR Dashboard app
     - Open In-private/Incognito browser and browse to FHIR Dashboard app 
     - Use the secondary Azure AD tenant dashboard user credentials to sign in and consent permissions requested by the Confidential Client app to get access to FHIR server.
@@ -30,8 +30,8 @@ You will perform the following to access patient records and explore the use of 
     - Medications
 
 ## Success Criteria
-- You have successfully access FHIR Dashboard app.
-- You have explored patient medical records and SMART on FHIR applications.
+- You have successfully access FHIR Dashboard app to access patient medical records and encounters.
+- You have explored SMART on FHIR applications.
 
 ## Learning Resources
 

@@ -31,7 +31,7 @@ You will deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert
 ## Success Criteria
 
    - You have provisioned the FHIR Converter environment in Azure.
-   - You have auto generated synthetic FHIR patient clinical data in C-CDA format.
+   - You have generated synthetic FHIR patient clinical data in C-CDA format.
    - You have converted C-CDA format to FHIR bundle.
    - You have loaded the patient clinical data into FHIR server.
    - You have use Postman to retrieve the newly loaded patient clinical data in FHIR Server.
