@@ -15,14 +15,14 @@ If needed, there are some step by step instruction.
 
 
 ### Step by Step Insructions for Challenges
-1.	[Create Resources](./Guides/Host-CreateResources.md)
-1.  [Configuration](./Guides/Configuration.md)
-1.  [Deployment](./Guides/Deployment.md)
-1.  [Create Functions in the Portal](./Guides/PortalFunctions.md)
-1.  [Monitoring](./Guides/Monitoring.md)
-1.  [Data Export Workflow](./Guides/Workflow.md)
+1.	[Create Resources](./Host-CreateResources.md)
+1.  [Configuration](./Configuration.md)
+1.  [Deployment](./Deployment.md)
+1.  [Create Functions in the Portal](./PortalFunctions.md)
+1.  [Monitoring](./Monitoring.md)
+1.  [Data Export Workflow](./Workflow.md)
 
 
 ### Step by Step Insructions for Optional Challenges
-1.	[Scale the Cognitive Service](./Guides/ScaleCognitive.md)
-1.  [View Data in Cosmos DB](./Guides/Cosmos.md)
+1.	[Scale the Cognitive Service](./ScaleCognitive.md)
+1.  [View Data in Cosmos DB](./Cosmos.md)
