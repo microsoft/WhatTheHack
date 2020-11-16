@@ -18,12 +18,9 @@ In this scenario, you will deploy a storage account with a BLOB container called
         git clone https://github.com/Microsoft/fhir-server-samples
         cd fhir-server-samples/deploy/scripts
         ```
-    - Log into your Azure subscription:
-        ```
-        Login-AzAccount
-        ```
     - Before running the **[FHIR Server Samples deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that has directory admin role access required for this setup.  Connect to Azure AD with:
         ```
+        Login-AzAccount
         Connect-AzureAd -TenantDomain <AAD TenantDomain>
         ```
 
@@ -32,7 +29,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
         - If you don't have Administrator access:
             - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
             - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
-    - deploy the scenario with the Open Source FHIR Server for Azure:
+    - Deploy the scenario with the managed Azure API for FHIR:
     - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** with the managed Azure API for FHIR (PaaS) scenario:
         - Run `Create-FhirServerSamplesEnvironment.ps1` from the cloned `./deploy/scripts` folder.
     - To Validate your deployment, 
@@ -144,7 +141,19 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
                 - client_id: {{clientId}}
                 - client_secret: {{clientSecret}}
                 - resource: {{resource}}        
-            
+-Run Requests:
+    - Open "AuthorizeGetToken SetBearer". Confirm the environment you imported is selected in the drop-down in the top right. Click the Send button. This should pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken. The Body results also show how many seconds the token is valid before expires_in.
+    - Open "Get Metadata" and click the Send button. This will return the CapabilityStatement with a Status of 200 ....This request doesn't use the bearerToken.
+    - Open "Get Patient" and click the Send button. This will return all Patients stored in your FHIR server. (Postman may not show all of the results.)
+    - Open "Get Patient Count" will return Count of Patients stored in your FHIR server.
+    - Open "Get Patient Sort LastUpdated" will returns Patients sorted by LastUpdated date. This is the default sort.
+    - Open "Get Patient Filter ID" will return one Patient with that ID. Change the ID to one you have loaded and analyze the results.
+    - Open "Get Patient Filter Missing" will return data where gender is missing. Select a different column and analyze the results.
+    - Open "Get Patient Filter Exact" will return a specific Patient with a given name. Select a different name and analyze the results.
+    - Open "Get Patient Filter Contains" will return Patients with letters in the given name. Select different letters and analyze the results.
+    - Open "Get Filter Multiple ResourceTypes" will return multiple resource types in _type. Select another resource type and analyze the results.
+    
+    NOTE: bearerToken expires soon, so if you get Authentication errors in any requests, re-run "AuthorizeGetToken SetBearer" to get a new bearerToken.
 
 
 
