@@ -5,7 +5,7 @@
 1.  [Challenge\#4 (Create a Release Pipeline)](04-ReleasePipeline.md) should be
     done successfully
 
-## Description
+## Introduction
 
 When the new data deviates from the original trained data that the model was
 trained model, the model performance deteriorates. This concept, known as model
@@ -19,17 +19,7 @@ compares the new model with the existing model. Only when the new model is
 better does it get promoted. Otherwise, the model is not registered with the
 Azure ML Model Registry.
 
-## Success criteria
-
-1.  A retrained model (with better performance) is created and registered with
-    Azure ML Model Registry
-
-2.  A container image for your retrained model is created under Azure ML Images
-
-3.  A “healthy” ACI deployment for your retrained model is created under Azure
-    ML Endpoints
-
-## Basic Hackflow
+## Description
 
 1.  To retrain your model, update the training code with new data
 
@@ -49,6 +39,16 @@ Azure ML Model Registry.
     model.
 
 4.  Review artifacts and outputs from Build and Release pipelines
+
+## Success criteria
+
+1.  A retrained model (with better performance) is created and registered with
+    Azure ML Model Registry
+
+2.  A container image for your retrained model is created under Azure ML Images
+
+3.  A “healthy” ACI deployment for your retrained model is created under Azure
+    ML Endpoints
 
 ## Learning resources
 
