@@ -5,7 +5,7 @@
 1.  [Challenge\#2](02-UnitTesting.md) (Create a Unit Test in Azure DevOps)
     should be done successfully
 
-## Description
+## Introduction
 
 The Build pipeline demonstrates the automation of various stages/tasks involved
 in building an ML model and creating a container image on top of that model. The
@@ -27,16 +27,7 @@ We can setup Continuous Integration (CI) trigger for every Build pipeline. The
 CI pipeline gets triggered every time code is checked in. It publishes an
 updated Azure Machine Learning pipeline after building the code.
 
-## Success criteria
-
-1.  An end-to-end Build pipeline created from an empty job (from scratch) using
-    the classic editor (without YAML) in Azure DevOps
-
-2.  Forecasting model registered with the Azure ML Model Registry
-
-3.  A container image for your model must be created under Azure ML Images
-
-## Basic Hackflow
+## Description
 
 1.  If you haven’t already done this in
     [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
@@ -91,6 +82,16 @@ updated Azure Machine Learning pipeline after building the code.
 5.  Run the Build pipeline
 
 6.  Review Build Outputs - confirm the model and container image have been registered in Azure ML workspace in respective registries.
+
+
+## Success criteria
+
+1.  An end-to-end Build pipeline created from an empty job (from scratch) using
+    the classic editor (without YAML) in Azure DevOps
+
+2.  Forecasting model registered with the Azure ML Model Registry
+
+3.  A container image for your model must be created under Azure ML Images
 
 ## Learning resources
 
