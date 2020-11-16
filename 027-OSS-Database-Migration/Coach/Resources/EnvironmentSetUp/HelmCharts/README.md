@@ -168,6 +168,22 @@ appConfig:
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 ```
 
+To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
+
+```shell
+
+helm upgrade --install mysql-contosopizza ./ContosoPizza --set appConfig.databaseType=mysql --set infrastructure.namespace=contosoappmysql
+
+```
+
+To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
+
+```shell
+
+helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
+
+```
+
 After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
 
 ```shell
@@ -183,21 +199,5 @@ kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=
 
 # example for ports and services
 kubectl -n contosoappmysql get svc
-
-```
-
-To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
-
-```shell
-
-helm upgrade --install mysql-contosopizza ./ContosoPizza --set appConfig.databaseType=mysql --set infrastructure.namespace=contosoappmysql
-
-```
-
-To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
-
-```shell
-
-helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
 
 ```
