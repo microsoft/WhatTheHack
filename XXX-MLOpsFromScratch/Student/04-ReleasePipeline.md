@@ -31,14 +31,7 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
 pipeline shows how to operationalize the scoring image and promote it safely
 across different environments.
 
-## Success Criteria
-
-1.  An end-to-end Release pipeline created from an empty job (from scratch)
-    using the classic editor (without YAML) in Azure DevOps
-
-2.  A “healthy” ACI deployment is created under Azure ML Endpoints
-
-## Basic Hackflow
+## Description
 
 1.  Create a Release pipeline with an empty Job
 
@@ -65,6 +58,13 @@ across different environments.
         file used in the Inline Script
 
 5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. Confirm if it is operational by using a tool like Postman or Swagger.
+
+## Success Criteria
+
+1.  An end-to-end Release pipeline created from an empty job (from scratch)
+    using the classic editor (without YAML) in Azure DevOps
+
+2.  A “healthy” ACI deployment is created under Azure ML Endpoints
 
 ## Learning resources
 
