@@ -1,0 +1,81 @@
+# FHIR Powered Healthcare
+## Introduction
+Contoso Healthcare is implementing a FHIR ( Fast Healthcare Interoperability Resources) powered event-driven serverless platform to ingest and transform patient records from EHR systems into a FHIR standard format and persist them to a centralized FHIR Compliant store.  To support post-processing of HL7 messages, an event is generated whenever FHIR CRUD (create, read, update and delete) operations occurs in FHIR.  The platform will enable exploration of FHIR patient records and encounters through frontend web apps and SMART on FHIR apps.
+
+You will implement a collection of FHIR reference architectures in **[Health Architectures](https://github.com/rsliang/health-architectures)** for FHIR use cases that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architectures for Azure API for FHIR.
+![Health Architecture](./images/HealthArchitecture.png)
+
+## Learning Objectives
+In the FHIR Powered Healthcare hack, you will implement Azure Health reference architectures to extract, transform and load patient data in standardize FHIR format to a FHIR Compliant store.  You will deploy an event-driven serverless architecture to ingest HL7 messages and publish FHIR CRUD events to an Event Hub.  Topic subscribers to these events can then trigger downstream workflows whenever a new FHIR CRUD event is published.  You will then, write JavaScript code to connect and read FHIR data to explore FHIR patient data.
+
+To get you started, you will be guided through a sequence of challenges to implement Health Architectures for FHIR server use cases using the following Azure managed services (PaaS):
+1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
+2. **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
+3. **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** to ingest and convert C-CDA or HL7 message into FHIR bundle.
+4. **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** is a function app solution that provides services for ingesting FHIR Resources into FHIR server and publishes successful FHIR server CRUD events to an Event Hub for topic subscribers to facilitate FHIR post-processing orchestrated workflows, i.e. CDS, Audits, Alerts, etc.
+5. **[FHIR Proxy](https://github.com/rsliang/health-architectures/tree/master/FHIR/FHIRProxy)** is a function app solution that acts as an intelligent and secure gateway (reverse proxy) to FHIR server and provides a consolidated approach to **[pre and post processing](https://github.com/rsliang/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)** of FHIR server, i.e. PublishFHIREventPostProcess to publish FHIR CUD events for resources to a configured eventhub.  It acts as a FHIR specific reverse proxy rewriting responses and brokering requests to FHIR servers
+6. **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR servers and EMR systems through FHIR interfaces.
+7. **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CRUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
+8. **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)** conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR server.
+9. **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7 messages, pushed to the FHIR Service Bus, into FHIR bundles.
+10. **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to display the patient search results in a set of paginated web pages.
+
+## Scenario
+Contoso Healthcare is implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with EHR (Electronic Health Record) systems and HLS (Life Science) research databases.  To help its healthcare practitioners and administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing new FHIR powered Health Architectures to ingest and convert patient data from EMR (Electronic Medical Record), Clinical Data, Lab System, Scheduling System, etc. into FHIR bundles and persist them into a FHIR Compliant store in near real-time.
+
+Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
+1. Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
+2. Generate FHIR CRUD (create, read, update or delete) events whenever FHIR CRUD operations take palce in FHIR for post-processing.
+3. Securely connect and read FHIR patient data from FHIR server through a web app and add a patient lookup function to improve user experience.
+4. Explore a patient's medical records and encounters in FHIR Patient Dashboard and SMART on FHIR apps.
+
+## Challenges
+- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
+- Challenge 1: **[Extract and load FHIR patient medical records](Student/Challenge01.md)**
+- Challenge 2: **[Extract, transform and load patient clinical data](Student/Challenge02.md)**
+- Challenge 3: **[Ingest and stream HL7 FHIR CRUD events for post-processing](Student/Challenge03.md)**
+- Challenge 4: **[Connect to FHIR server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
+- Challenge 5: **[Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
+- Challenge 6: **[Add patient lookup function to the JavaScript app](Student/Challenge06.md)**
+
+## Prerequisites
+- Access to an Azure subscription with Owner access
+   - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+- [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [**Windows PowerShell**](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7) version 5.1
+  - Confirm PowerShell version is [**5.1**](https://www.microsoft.com/en-us/download/details.aspx?id=54616) `$PSVersionTable.PSVersion`
+  - [**PowerShell modules**](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7)
+    - Confirm PowerShell module versions.  Re-install the required version below (if needed):
+      - Az version 4.1.0 
+      - AzureAd version 2.0.2.4
+        ```
+        Get-InstalledModule -Name Az -AllVersions
+        Get-InstalledModule -Name AzureAd -AllVersions
+        ```
+- [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+   - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
+   - Update to the latest
+   - Must be at least version 2.7.x
+- Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
+- [**.NET Core 3.1**](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [**Java 1.8 JDK**](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+- [**Visual Studio Code**](https://code.visualstudio.com/)
+- [**Node Module Extension**](https://code.visualstudio.com/docs/nodejs/extensions)
+
+## Repository Contents
+- `../Student`
+  - Student Challenge Guides
+- `../Student/Resources`
+  - Student's resource files, code, and templates to aid with challenges
+- `../Coach`
+   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+   - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
+- `../Coach/Resources`
+  - Coach's guide to solutions for each challenge, including tips/tricks.
+
+## Contributors
+- Richard Liang (Microsoft)
+- Peter Laudati (Microsoft)
+- Gino Filicetti (Microsoft)
+
+
