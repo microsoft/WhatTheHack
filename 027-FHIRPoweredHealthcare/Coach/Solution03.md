@@ -23,7 +23,7 @@ Note: After successful deployment, the converter pipeline is now tied to HL7 Ing
 **Deploy HL7 Ingest Platform**
 - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
 - Open a bash shell into the Azure CLI 2.0 environment
-- Switch to 'HL7Conversion' subdirectory of in your local repo
+- Switch to 'HL7Conversion' subdirectory in your local repo
 - Run the `./deployhl7ingest.bash` script and follow the prompts
     - Enter your subscription ID
     - Enter a Resource Group name (new or exising)
@@ -31,7 +31,7 @@ Note: After successful deployment, the converter pipeline is now tied to HL7 Ing
     - Enter deployment prefix (environment name)
 
     Note: You should receive the following acknowledgement at the end of dpeloyment.
-    *****************************************************************************
+    ```
     HL7 Ingest Platform has successfully been deployed to group wth-fhir on Sat, Oct 31, 2020 11:26:59 PM
     Please note the following reference information for future use:
     Your ingest host is: https://hl7ingest#####.azurewebsites.net
@@ -40,7 +40,7 @@ Note: After successful deployment, the converter pipeline is now tied to HL7 Ing
     Your hl7 ingest service bus destination queue is: hl7ingest
     Your hl7 storage account name is: [ENVIRONMENTNAME]fhirstore####
     Your hl7 storage account container is: hl7
-    *****************************************************************************
+    ```
 
 - Validate resources created in the deployment
     - Storage account: XXXstore##### and container: hl7
@@ -66,13 +66,13 @@ Note: After successful deployment, the converter pipeline is now tied to HL7 Ing
     - Enter the FHIR Server/Service Client Tenant ID
 
     Note: You should receive the following acknowledgement at the end of dpeloyment.
-    *****************************************************************************
+    ```
     HL72FHIR Workflow Platform has successfully been deployed to group [ENVIRONMENTNAME] on Sun, Nov  1, 2020  2:37:59 PM
     Please note the following reference information for future use:
     Your HL7 FHIR Converter Host is: XXXfhirhl7conv####
     Your HL7 FHIR Converter Key is:
     Your HL7 FHIR Converter Resource Group is: XXXfhirhl7conv
-    *****************************************************************************
+    ```
 - Validate resources created in the deployment
     - Storage account: [ENVIRONMENTNAME]store#####
     - FHIR Event Hub Namespace: fehub###
@@ -84,7 +84,7 @@ Note: After successful deployment, the converter pipeline is now tied to HL7 Ing
         - Get blob content (hl7blobstorage)
         - Connections - Custom Logic App connection (HL7FHIRConverter)
         - Import Bundle to FHIR Server (Connected thru FHIR Server Proxy)
-    - Test send a sample hl7 message via HL7 over HTTPS
+- Test send a sample hl7 message via HL7 over HTTPS
     - Locate the sample message samplemsg.hl7 in the root directory of the cloned GitHub repo
     - Use a text editor to see contents
     - From the linux command shell run the following command to test the hl7overhttps ingest
