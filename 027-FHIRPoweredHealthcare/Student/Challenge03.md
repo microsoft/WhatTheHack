@@ -33,13 +33,53 @@ You will extend the FHIR Server Samples reference architecture from previous cha
 
 ## Description
 
-- Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** logic app based workflow to perform orderly conversion from HL7v2 messages to FHIR via FHIR Converter, persist them into FHIR Server and publish FHIR CRUD events to Event Hubs for post-processing.
+- **Deploy HL7 Ingest Platform** reference architecture.
 
     Hint:
     - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
     - Open a bash shell into the Azure CLI 2.0 environment
+    - Switch to 'HL7Conversion' subdirectory in your local repo
+    - Run the `./deployhl7ingest.bash` script and follow the prompts
+        - Enter your subscription ID
+        - Enter a Resource Group name (new or exising)
+        - Enter Resource Group location
+        - Enter deployment prefix (environment name)
+- Deploy **[HL7toFHIR Conversion Workflow](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#-deploying-your-own-hl7tofhir-conversion-workflow)** reference architecture.
+
+    Hint:
+    - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)** if you have not done so.
+    - Open a bash shell into the Azure CLI 2.0 environment
     - Switch to HL7Conversion subdirectory of this repo
     - Run the `deployhl72fhir.bash` script and follow the prompts
+        - Enter your subscription ID
+        - Enter a Resource Group name (new or exising)
+        - Enter Resource Group location
+        - Enter deployment prefix (environment name)
+        - Enter a resource group name to deploy the converter to: [EVIRONMENTNAME]hl7conv
+        - Enter the name of the HL7 Ingest Resource Group (from above hl7ingest deployment)
+        - Enter the name of the HL7 Ingest storage account (from above hl7ingest deployment)
+        - Enter the name of the HL7 ServiceBus namespace (from above hl7ingest deployment)
+        - Enter the name of the HL7 ServiceBus destination queue (from above hl7ingest deployment)
+        - Enter the destination FHIR Server URL
+        - Enter the FHIR Server Service Client Application ID
+        - Enter the FHIR Server Service Client Secret:
+        - Enter the FHIR Server/Service Client Audience/Resource (https://azurehealthcareapis.com)
+        - Enter the FHIR Server/Service Client Tenant ID  
+          
+- Validate resources created in the deployment
+
+    Hint:
+    - Storage account: [ENVIRONMENTNAME]store#####
+    - FHIR Event Hub Namespace: fehub###
+    - FHIR Event Hub: fhirevents
+    - FHIREventProcessor Function App: fhirevt####
+    - Application Insights: fhirevt####
+    - Logic App: HL7toFHIR.  Workflow steps are:
+        - When a message is received in a hl7ingest queue (HL7ServiceBus)
+        - Get blob content (hl7blobstorage)
+        - Connections - Custom Logic App connection (HL7FHIRConverter)
+        - Import Bundle to FHIR Server (Connected thru FHIR Server Proxy)
+
 - Test send sample HL7v2 message via hl7overhttps ingestion service.
 
     Hint:
