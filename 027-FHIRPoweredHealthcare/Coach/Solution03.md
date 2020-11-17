@@ -3,20 +3,33 @@
 [< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
 
 ## Notes & Guidance
-In this challenge, you will deploy a **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution in the HL7 to FHIR Conversion reference architecture to process HL7 messages, persist them into FHIR server and publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven workflows (below). 
+
+In this challenge, you will deploy a Health Architecture **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution to provide the following services in the **[FHIR Converter}(https://github.com/microsoft/FHIR-Converter)** for ingesting FHIR Resouces into the FHIR Server:
+- Import and process valid HL7 bundles and persist them to a FHIR Compliant store
+- FHIR Server Proxy connection to FHIR Server without exposing credentials
+- Publish successful FHIR CRUD events referencing FHIR Resources to an event hub
+
+Note: This function is deployed and configured as a part of the HL72FHIR Workflow Platform.
 
 ![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
 
-**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to consume HL7 Messages and produce a consumable event on a high speed ordered service bus for processing by FHIR Event Processor.
+**[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
-**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture is a workflow that performs orderly conversion from HL7 to FHIR via the conversion API and persists the message into a FHIR Server and publishes change events referencing FHIR resources to a high speed event hub to interested subscribers.
+**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to ingest HL7 messages and produce a consumable event in a Service Bus for processing by FHIR Event Processor function app.  It provides a sample a sample message `samplemsg.hl7` for testing the hl7overhttps ingest service.
+
+**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture deployment will create a Logic App based workflow that is triggered whenever new HL7 message is added to the queue of hl7ingest Service Bus. This conversion workflow performs the following tasks:
+- Orderly conversion from HL7 to FHIR via the **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**
+- Persists converted HL7v2 message into FHIR Server through secure proxied FHIR Server connection (FHIR Server Proxy). 
+- Publishes FHIR change events referencing FHIR Resouces to an Event Hub.
 
 ![HL7 to FHIR Conversion](../images/hl72fhirconversion.png)
 
 Note: After successful deployment, the converter pipeline is now tied to HL7 Ingest platorm.
 
-**Let's put it all together**, you will extend the FHIR Server Samples, HL7 Ingest and FHIR Converter reference architectures to form the end-to-end ingest, transform and load event-driven platform below:
+### Let's put it all together**...
+You will extend the FHIR Server Samples, HL7 Ingest and FHIR Converter reference architectures to form the end-to-end ingest, transform and load event-driven platform as shown below:
 ![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
+
 
 **[Deploy HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7-ingest-conversion-samples)** reference architectures below:
 
