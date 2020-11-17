@@ -2,16 +2,16 @@
 
 [< Previous Challenge](./Solution00.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution02.md)
 
-# Notes & Guidance
+## Notes & Guidance
 
 In this challenge, you will implement the FHIR Server Samples reference architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk load into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
 
-### FHIR bulk load scenario
+**FHIR bulk load scenario**
 In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR server.  This bulk ingestion is performed by a BLOB triggered function app as depicted below:
 
 ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 
-## Deploy FHIR Server Samples reference architecture for Bulk Load scenario
+**Deploy FHIR Server Samples reference architecture for Bulk Load scenario**
 - To deploy **[FHIR Server Samples PaaS scenario (above)](https://github.com/microsoft/fhir-server-samples)**:
     - First, clone the **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects and find the deployment scripts folder
         ```
@@ -37,7 +37,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
         - Check 'Azure API for FHIR' > Authentication > 'Allowed object IDs' configuration in Azure Portal to ensure that the Azure AD object IDs of the 3 registered client applications have been added. This will allow these client apps to access this Azure API for FHIR.
 
 
-## Generate FHIR patient data using SyntheaTM Patient Generator tool
+**Generate FHIR patient data using SyntheaTM Patient Generator tool**
 
 **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)** for more information.
@@ -70,7 +70,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         ```
     - For this configuration, Synthea will output 1000 patient records in FHIR formats in `./output/fhir` folder.
 
-## Bulk Load Synthea generated patient FHIR Bundles to FHIR Server
+**Bulk Load Synthea generated patient FHIR Bundles to FHIR Server**
 - Copy Synthea generated patient data to `fhirimport` BLOB, which will automatically trigger a function app to persist them to FHIR Server 
     - To **[Copy data to Azure Storage using AzCopy commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
         - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
@@ -80,7 +80,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         - Use a SAS token to copy Synthea generated patient bundle JSON file(s) to fhirimport Azure Blob storage
                Sample AzCopy command:
                ```
-               azcopy copy "<your Synthea ./output director>" "<fhirimport blob container URL appended with SAS token>"
+               azcopy copy "<your Synthea ./output/fhir directory>" "<fhirimport blob container URL appended with SAS token>"
                ```
     - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**
         - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'fhirimport' to list container content
@@ -95,7 +95,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             ...
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
-## Use Postman to retreive Patients data via FHIR Patients API
+**Use Postman to retreive Patients data via FHIR Patients API**
 - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
     - In Postman, click Import.
     - Select your Environment and Collection json files in your `./Student/Resources/Postman` folder.
