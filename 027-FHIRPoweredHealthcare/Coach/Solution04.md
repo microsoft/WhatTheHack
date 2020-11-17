@@ -17,8 +17,8 @@ In this challenge, you will deploy a sample JavaScript app to connect and read F
     - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR server resource.
 
 - **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in secondary Azure AD tenant (can be primary tenant if you already have directory admin prillege) to allow the deployed Web App to authenticate and authorize for FHIR server API access.
-  - Go to Azure AD and switch to your secondary Azure AD tenant (can be primary tenant if you already have directory admin prillege)
-  - Click App Registration and a new Public client/native (mobile & desktop) registration or open exising one if already exist (from FHIR Server Samples deployment).
+  - Go to Azure AD and switch to your secondary Azure AD tenant (can be primary tenant if you already have directory admin privillege)
+  - Click App Registration and add a new Public client/native (mobile & desktop) registration or open exising one if already exist (from FHIR Server Samples deployment).
     - Capture client ID and tenant ID from Overview blade for use in later step.
   - Connect with web app
     - Select Authentication blade, click Add a new platform and select Web
