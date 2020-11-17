@@ -32,4 +32,4 @@ The first challenge is to setup an environment that will help you build the Toll
 1. You have 2 folders locally.  One named Tollbooth and the other named license plates.
 
 
-[Next challenge (Create a Hello World Function) >](./FunctionIntro.md)
+[Next challenge (Create a Hello World Function) >](./02-FunctionIntro.md)
