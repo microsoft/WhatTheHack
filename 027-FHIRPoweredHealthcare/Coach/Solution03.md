@@ -7,9 +7,9 @@ In this challenge, you will deploy a **[FHIR Event Processor](https://github.com
 
 ![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
 
-**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to ingest HL7 messages and produce a consumable event in a Service Bus for consumption by FHIR Event Processor function app.
+**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to consume HL7 Messages and produce a consumable event on a high speed ordered service bus for processing by FHIR Event Processor.
 
-**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture will create a logic app based workflow that is triggered whenever a new hl7 message is pushed to hl7ingest Service Bus queue. This conversion workflow performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists converted hl7 message to FHIR Server.
+**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture is a workflow that performs orderly conversion from HL7 to FHIR via the conversion API and persists the message into a FHIR Server and publishes change events referencing FHIR resources to a high speed event hub to interested subscribers.
 
 ![HL7 to FHIR Conversion](../images/hl72fhirconversion.png)
 
@@ -18,8 +18,8 @@ Note: After successful deployment, the converter pipeline is now tied to HL7 Ing
 **Let's put it all together**, you will extend the FHIR Server Samples, HL7 Ingest and FHIR Converter reference architectures to form the end-to-end ingest, transform and load event-driven platform below:
 ![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
 
-**Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** logic app based workflow to perform orderly conversion from HL7 messages to FHIR via FHIR Converter, persist them into FHIR Server and publish FHIR CRUD change events to Event Hubs for post-Processing.
-- 
+**[Deploy HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7-ingest-conversion-samples)** reference architectures below:
+
 **Deploy HL7 Ingest Platform**
 - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
 - Open a bash shell into the Azure CLI 2.0 environment
