@@ -3,11 +3,13 @@
 [< Previous Challenge](./Solution01.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution03.md)
 
 ## Notes & Guidance
-In this challenge, you will implent the **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** reference architeture to import and process valid HL7 messages, persist them into FHIR server and publish FHIR CRUD events to an Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven processing (below). 
-
-create a logic app based workflow that performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists the message into an Azure API for FHIR Server Instance and publishes FHIR change events referencing FHIR resources to a high speed event hub to interested subscribers.
+In this challenge, you will implent the **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** reference architeture to import and process valid HL7 messages, persist them into FHIR server and publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven processing (below). 
 
 ![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
+
+You will create a logic app based workflow triggered whenever a new hl7 message is pushed to hl7ingest Service Bus queue. This conversion workflow performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists converted hl7 message to FHIR Server.
+
+![HL7 to FHIR Conversion](../images/hl72fhirconversion.png)
 
 Let's put it all together, you will extend the FHIR Server Samples and FHIR Converter reference architectures with HL7 Ingest/FHIR Event Processor reference architecture (below):
 ![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
