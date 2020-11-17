@@ -26,7 +26,7 @@ You will deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert
 - Generate simulated patient data in C-CDA format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 - Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `fhirimport` BLOB container.  This will trigger the CCDAtoFHIR logic app convert and load workflow.
    - Hint: You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
-- Retrieve newl FHIR patient clinical data using Postman.
+- Retrieve new FHIR patient clinical data using Postman.
 
 ## Success Criteria
 

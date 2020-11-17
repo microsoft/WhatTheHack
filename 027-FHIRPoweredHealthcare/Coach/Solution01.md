@@ -98,9 +98,9 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 ## Use Postman to retreive Patients data via FHIR Patients API
 - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
     - In Postman, click Import.
-    - Select your Environment and Collection file in your `./Student/Resources/Postman` folder.
+    - Select your Environment and Collection json files in your `./Student/Resources/Postman` folder.
     - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
-    - You will get confirmationt that WTH Collection and Envrionment were imported and see in Postman a new 'WTH FHIR' in Collections (left) blade and top right Environment Var drop-down list.
+    - You will get confirmation that WTH Collection and Envrionment were imported and see in Postman a new 'WTH FHIR' in Collections (left) blade and top right Environment Var drop-down list.
    - Select 'WTH FHIR' environment and click 'Environment Quick Look' button to see a list of env vars: 
     - Click 'Edit' to open Management Environments window and input the corresponding FHIR environment values:
         - adtenantId: This is the tenant Id of the Secondary (Data) AD tenant
@@ -110,42 +110,16 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         - fhirurl: This is https://{ENVIRONMENTNAME}.azurehealthcareapis.com from Azure API for FHIR you created in Task #1 above.
         - resource: This is the Audience of the Azure API for FHIR https://{ENVIRONMENTNAME}.azurehealthcareapis.com you created. You can find this Audience in Azure Portal when you click Authetication in Azure API for FHIR resource.
     - Click the Update button and close the MANAGE ENVIRONMENTS window.
-- In the Environments drop-down, select the WTH FHIR option.
-    - You will see both the Collection on the left and the Environment on the top right.
-    - Configure Postman Global VAR Environment, i.e. "Azure API for FHIR Env", and include the following variables:
-        - tenant_id: {yourtenantid}
-        - grant_type: client_credentials
-        - client_id: {yourclientidforpostman}
-        - client_secret: {yourclientsecretforpostman}
-        - resource: http://management.azure.com
-        - subscriptionid: {yoursubscriptionid}
-- Create Postman collection for FHIR API that configure the following http requests:
-    - AuthorzeGetToken - Get New Access Token
-    - HTTP Request:
-        - Type=POST
-        - URL=https://login.microsoftonline.com/{{tenantId}}/oauth2/token
-    - Auth
-        - Type=OAuth 2.0
-    - Headers
-        - Content-Type: application/x-www-form-urlencoded
-            - Body
-                - grant_type: client_credentials
-                - client_id: {{clientId}}
-                - client_secret: {{clientSecret}}
-                - resource: {{resource}}        
--Run Requests:
-    - Open "AuthorizeGetToken SetBearer". Confirm the environment you imported is selected in the drop-down in the top right. Click the Send button. This should pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken. The Body results also show how many seconds the token is valid before expires_in.
-    - Open "Get Metadata" and click the Send button. This will return the CapabilityStatement with a Status of 200 ....This request doesn't use the bearerToken.
-    - Open "Get Patient" and click the Send button. This will return all Patients stored in your FHIR server. (Postman may not show all of the results.)
-    - Open "Get Patient Count" will return Count of Patients stored in your FHIR server.
-    - Open "Get Patient Sort LastUpdated" will returns Patients sorted by LastUpdated date. This is the default sort.
-    - Open "Get Patient Filter ID" will return one Patient with that ID. Change the ID to one you have loaded and analyze the results.
-    - Open "Get Patient Filter Missing" will return data where gender is missing. Select a different column and analyze the results.
-    - Open "Get Patient Filter Exact" will return a specific Patient with a given name. Select a different name and analyze the results.
-    - Open "Get Patient Filter Contains" will return Patients with letters in the given name. Select different letters and analyze the results.
-    - Open "Get Filter Multiple ResourceTypes" will return multiple resource types in _type. Select another resource type and analyze the results.
+- Run FHIR API HTTP Requests:
+    - First, open "AuthorizeGetToken SetBearer" and confirm WTH FHIR environment is selected in the top-right environment drop-down. 
+        - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
+    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR server. (Postman may not show all of the results.)
+    - Open "Get Patient Count" and click the 'Send' button.  This will return Count of Patients stored in your FHIR server.  
+    - Open "Get Patient Filter ID" and click the 'Send' button.  This will return a Patient with that ID. Change the ID to one you have loaded and validate that it exists.
+    - Open "Get Patient Filter Exact" and click the 'Send' button.  This will return a Patient with the specified given name. Specify a given name from your FHIR import and validate it exists.
+    - Open "Get Patient Filter Contains" and click the 'Send' button.  This will return Patients with Given name that contains the specified letters. Specify a partial given name from your FHIR import and validate it exists.
     
-    NOTE: bearerToken expires soon, so if you get Authentication errors in any requests, re-run "AuthorizeGetToken SetBearer" to get a new bearerToken.
+    NOTE: bearerToken has expiration, so if you get Authentication errors in any requests, re-run "AuthorizeGetToken SetBearer" to get a new bearerToken.
 
 
 
