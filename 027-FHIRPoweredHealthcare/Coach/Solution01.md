@@ -18,7 +18,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
         git clone https://github.com/Microsoft/fhir-server-samples
         cd fhir-server-samples/deploy/scripts
         ```
-    - Before running the **[FHIR Server Samples deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant that has directory admin role access required for this setup.
+    - Before running the **[FHIR Server Samples deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your primary/secondary tenant that has directory admin role access required for this setup.
         ```
         Login-AzAccount
         Connect-AzureAd -TenantDomain <AAD TenantDomain>
@@ -71,7 +71,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
     - For this configuration, Synthea will output 1000 patient records in FHIR formats in `./output/fhir` folder.
 
 ## Bulk Load Synthea generated patient FHIR Bundles to FHIR Server
-- Copy Synthea generated patient data to `fhirimport` BLOB, which will automatically trigger a function app to persist them into FHIR Server 
+- Copy Synthea generated patient data to `fhirimport` BLOB, which will automatically trigger a function app to persist them to FHIR Server 
     - To **[Copy data to Azure Storage using AzCopy commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
         - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
         - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
@@ -96,28 +96,20 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
 ## Use Postman to retreive Patients data via FHIR Patients API
-- Open Postman and import a pre-defined set of API calls. 
-    - Go to the Collection and click the Raw button. 
-    - Copy all of this json to your clipboard. 
-    - Back in the Postman app, click the Import button near the upper-left corner of the app. 
-    - Click the Raw Text tab and paste the json content you copied here. 
-    - Click the Continue button and then the Import button. 
-    - You should see a FHIR OpenHack collection in the left-hand pane in Postman.
-- Create an Environment. A Postman Environment is just a set of variables used across one or more of your API calls. 
-    - Go to the Environment and click the Raw button. 
-    - Copy all of this json to your clipboard. Open Notepad, paste the json you just copied and save the file on your Desktop as fhirenv.txt. 
-    - Back in Postman, in the upper-right, click the Manage Environments button (a gear icon). 
-    - Click the Import button and click the Choose Files button. 
-    - Browse to the fhirenv.txt file on your Desktop. 
-    - Click the FHIR OpenHack environment to see it's list of variables. 
-    - In the Current and Initial Value columns for each of the following variables, enter the corresponding values:
+- Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
+    - In Postman, click Import.
+    - Select your Environment and Collection file in your `./Student/Resources/Postman` folder.
+    - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
+    - You will get confirmationt that WTH Collection and Envrionment were imported and see in Postman a new 'WTH FHIR' in Collections (left) blade and top right Environment Var drop-down list.
+   - Select 'WTH FHIR' environment and click 'Environment Quick Look' button to see a list of env vars: 
+    - Click 'Edit' to open Management Environments window and input the corresponding FHIR environment values:
         - adtenantId: This is the tenant Id of the Secondary (Data) AD tenant
         - clientId: This is the client Id that is stored in Secret "{your resource prefix}-service-client-id" in "{your resource prefix}-ts" Key Vault.
         - clientSecret: This is the client Secret that is stored in Secret "{ENVIRONMENTNAME}-service-client-secret" in "{ENVIRONMENTNAME}-ts" Key Vault.
         - bearerToken: The value will be set when "AuthorizeGetToken SetBearer" request below is sent.
         - fhirurl: This is https://{ENVIRONMENTNAME}.azurehealthcareapis.com from Azure API for FHIR you created in Task #1 above.
-        - resource: This is the Audience of the Azure API for FHIR https://{ENVIRONMENTNAME}.azurehealthcareapis.com you created in Task #1 above. You can find this Audience when you click Authetication in Azure API for FHIR you created in Task #1 above.
-    - Click the Update button and close the MANAGE ENVIRONMENTS dialog.
+        - resource: This is the Audience of the Azure API for FHIR https://{ENVIRONMENTNAME}.azurehealthcareapis.com you created. You can find this Audience in Azure Portal when you click Authetication in Azure API for FHIR resource.
+    - Click the Update button and close the MANAGE ENVIRONMENTS window.
 - In the Environments drop-down, select the WTH FHIR option.
     - You will see both the Collection on the left and the Environment on the top right.
     - Configure Postman Global VAR Environment, i.e. "Azure API for FHIR Env", and include the following variables:
