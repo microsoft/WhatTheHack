@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 3 - Create Resopurces](./CreateResources.md) should be done successfuly.
+1. [Challenge 3 - Create Resources](./CreateResources.md) should be done successfuly.
 
 
 ## Introduction
