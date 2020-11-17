@@ -4,13 +4,11 @@
 
 ## Introduction
 
-In this challenge, you will deploy HL7 Ingest platform and HL7 Conversion workflow, which includes the following reference architectures
-
-**[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** is a serverless reference architeture to process HL7 messages and publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven processing (below). 
+In this challenge, you will deploy a **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution in the HL7 to FHIR Conversion reference architecture to process HL7 messages, persist them into FHIR server and publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven workflows (below). 
 
 ![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
 
-**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture to import and process valid HL7 messages, persist them into FHIR server and calls **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** to publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.
+**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to ingest HL7 messages and produce a consumable event in a Service Bus for consumption by FHIR Event Processor function app.
 
 **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture will create a logic app based workflow that is triggered whenever a new hl7 message is pushed to hl7ingest Service Bus queue. This conversion workflow performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists converted hl7 message to FHIR Server.
 
