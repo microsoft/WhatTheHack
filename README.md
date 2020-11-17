@@ -1,66 +1,69 @@
-# Welecome to the Event-driven FHIR Patient Search Hack!
+# What is What The Hack?
 
-This is a challenge-based hack. It's NOT step-by-step. Don't worry, you will do great whatever your level of experience! You will be guided through different tasks to implement a Patient Search app by leveraging FHIR API in an event driven architecture within Azure.  You will be using a combination of Azure API for FHIR, Azure Functions, Azure Event Hubs, Azure Streaming Analytics, Azure Cosmos DB, Azure Search and Azure Storage. The goal is to build a centralized environment to host a FHIR server that is pre-populated with patient data.  You will be using Azure API for FHIR managed service and populated it with the auto-generated test patient data. You'll then build an Event-driven architecture that triggers writes to Azure Cosmos DB whenever the patient data are retrieved from the FHIR Server and pushed to an instance of Event Hub.  Finally, you will implement Azure search to index the patient data stored in Azure Cosmos DB, and build a patient search frontend web app to display the patient data and includes a search box for finding patient record by calling the exposed Azure Search indexer API. 
+"What the Hack" is a set of challenge based hackathons that can be hosted in-person or virtually via Microsoft Teams.
 
-The intent of the hack is to have you practice the tools, technologies and services our partners are asking you about.  Let's try to go out of your comfort zone, try and learn something new.  And let's have fun!  And don't forget there are proctors around you, just raise your hand at any time!
+Attendees work in squads of 3 to 5 people to solve a series of technical challenges for a given technology or solution scenario. Challenges describe high-level tasks and goals to be accomplished. Challenges are not step-by-step labs.
 
-Estimated duration is 6-8 hours depending on student skill level
+What The Hack is designed to be a collaborative learning experience.  Attendees "learn from" and "share with" each other. Without step-by-step instructions given for the challenges, attendees have to "figure it out" together as a team.  This results in greater knowledge retention for the attendees. 
 
-# Event-driven FHIR Patient Search
-## Introduction
-In the Event-driven FHIR Patient Search hack, you will create an instance of Azure API for FHIR and deploy Azure Functions to create a set of auto-generated test patient records and store them in the FHIR Server.  You'll then deploy another Azure Function to retreive the patient data from the FHIR Server and insert them into an instance of Event Hub queue.  This will trigger execution of another Azure Function that will retrieve the FHIR-based patient recrod in the queue and persist them in Azure Cosmos DB for consumption by the frontend Patient Search web app.
+The attendee squads are not alone in solving the challenges. Coaches work with each squad to provide guidance for, but not answers to, the challenges.  The coaches may also provide lectures and demos to introduce the challenges, as well as review challenge solutions throughout the event.
 
-## Learning Objectives
-In this hack you will be building a Patient Search web app with a event-driven serverless backend that calls FHIR Server APIs to ingest the patient data in a Event Hub queue, which will automatically trigger another serverless function that will perist them in Azure Cosmos DB.
+# How to Host a What The Hack
 
-## Scenario
-In the hack, your team will create the following:
-1. Auto-generate test patient records in FHIR format and persist them in FHIR Server
-2. Setup event stream from the FHIR Server and push the data to Event Hub
-3. Develop Azure Functions with Trigger binding for Azure Event Hub to listen for new events and write the event data to the Azure Cosmos DB Output binding.  
-   - Repeat above with no code using real-time streaming with Azure Streaming Analytics.  Setup Azure Streaming Analytics service to ingest data from the Azure Event Hub Input source, process the data and then store them in Azure Cosmos DB Output source.
-4. Setup Azure Search to create a search indexer on Azure Cosmos DB patient dataset and expose an API to be consumed by the web app for the patient search implementation.
-5. Build a Patient Search web app to display a list of patients stored in Azure Cosmos DB and implement a search box to find patient record by calling the Azure Search indexer API.
+Would you like to host a What The Hack for your organization? The WTH format and content has been designed for hosting a hack with groups of 5 to 50 people. We welcome anyone to use the content here to host their own WTH event!
 
-## Challenges
-1. Prepare your auto-generated FHIR data and FHIR Server
-   - Develop a serverless function to auto-generate your FHIR data. Sample NodeJS code snippet to be provided.
-   - Provision Azure API for FHIR service in Azure for data ingestion
-2. Load patient data into FHIR Server
-   - Provision Azure Cosmos DB
-   - Use serverless function to get data into Azure Cosmos DB.  Sample NodeJS code snippet to be provided.
-3. Read patient record from FHIR Server and store them in Azure Cosmos DB
-   - Provision Azure Cosmos DB
-   - Use serverless function to get data into Azure Cosmos DB.  Sample NodeJS code snippet to be provided.
-   - (Optional) Use real-time streaming service to get data into Azure Cosmos DB.
-4. Build index for Patient Search
-   - Provision Azure Search to create a paitent search index on top of Azure Cosmos DB.
-   - Expose Azure Search index via a REST API for consumption in the Web App
-   - Create Azure Function as the frontend to call the Azure Search index API.
-5. Build a Patient Search web app to display patient record
-   - Create a web app, i.e. React, Java, etc., to call the Patient Search API and list the results
+See our complete guide on ["How To Host A Hack"](/000-HowToHack/WTH-HowToHostAHack.md).
 
-## Prerequisites
-- Your own Azure subscription with Owner (minimum Contributor) access 
-- Visual Studio Code with Azure Functions extension
-- Azure CLI
-- Node module
+# How to Create and Contribute a new What The Hack
 
-## Repository Contents (Optional)
-- `../Coach/Guides`
-  - Coach's Guide and related files
-  - `../Lectures`
-  - `./Proctor Guide.docx`
-  - `./Screnario Design.docx`
-- `../Student/Guides`
-  - Student's Challenge Guide
-  - Sample Code
-  - `../Code/datagen.js`
-  - `../Code/dataread.js`
+Would you like to create a new What The Hack?  We welcome all new hacks!  We have developed a process for doing this.  This includes a set of guidelines and templates to help you package your hack up for the What The Hack repo!
 
-## Contributors
-- Richard Liang
-- Peter Laudati
-- Gino Filicetti
+Hacks can focus on a single technology or focus on a solution scenario that features multiple technologies working  together to solve a business problem.
 
+See our complete guide on ["How To Author A Hack"](/000-HowToHack/WTH-HowToAuthorAHack.md).
 
+# The What The Hack Collection
+
+Here is the current list of What The Hack hackathons available in this repository:
+
+## Infrastructure
+- [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
+- [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
+- [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/README.md)
+- [Azure Arc Enabled Servers](/025-ArcEnabledServers/README.md)
+- [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
+- [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
+- [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
+- [Front Door](/017-FrontDoor/README.md)
+- [Azure Governance](/022-AzureGovernance/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
+- [SAP Automation](/022-SAP-Core/README.md)
+
+## Application Development
+- [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
+- [App Modernization](/006-AppModernization/README.md)
+- [Microservices In Azure](/009-MicroservicesInAzure/README.md)
+- [Serverless](/015-Serverless/README.md)
+- [Migrating Applications To The Cloud](/016-AppMigration/README.md)
+- [Identity For Applications](/021-IdentityForApps/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
+
+## Operations
+- [Azure Monitoring](/007-AzureMonitoring/README.md)
+- [Azure DevOps](/010-AzureDevOps/readme.md)
+- [Open Source DevOps](/014-OSSDevOps/readme.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
+
+## Data & AI
+- [BI 2 AI](/018-BI2AI/README.md)
+- [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
+- [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
+- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
+- [Driving Miss Data](/003-DrivingMissData/README.md)
+
+# [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
+This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
+
+# [Contributing](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md)
+
+We welcome contributions and suggestions. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md).
