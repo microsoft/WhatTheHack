@@ -138,6 +138,17 @@ SHOW TABLES;
 
 ```
 
+## Uninstalling the MySQL from Kubernetes
+
+Use this to uninstall the MySQL instance from Kubernetes cluster
+
+```shell
+
+# Uninstall to the database server. To install again, run helm upgrade command previously executed
+helm uninstall wth-mysql
+
+```
+
 ## Deploying the Web Application
 
 First we navigate to the Helm charts directory
@@ -183,6 +194,19 @@ To deploy the app backed by PostgreSQL, run the following command after you have
 helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
 
 ```
+
+If you wish to uninstall the app, you can use one of the following commands:
+
+```shell
+
+# Use this to uninstall, if you are using MySQL as the database
+helm uninstall mysql-contosopizza
+
+# Use this to uninstall, if you are using PostgreSQL as the database
+helm uninstall postgres-contosopizza
+
+```
+
 
 After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
 
