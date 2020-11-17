@@ -1,15 +1,19 @@
-# Coach's Guide: Challenge 2 - Ingest and stream HL7 FHIR CRUD events for post-processing
+# Coach's Guide: Challenge 3 - Ingest and stream HL7 FHIR CRUD events for post-processing
 
-[< Previous Challenge](./Solution01.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution03.md)
+[< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
 
 ## Notes & Guidance
-In this challenge, you will implent the **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** reference architeture to import and process valid HL7 messages, persist them into FHIR server and publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven processing (below). 
+In this challenge, you will deploy HL7 Ingest platform and HL7 Conversion workflow, which includes the following reference architectures
+
+**[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** reference architeture to import and process valid HL7 messages, persist them into FHIR server and publish FHIR CRUD events referencing FHIR resources to a high speed Event Hub.  Consumers can subscribe to these events in order to orchestrate post-processing event-driven processing (below). 
 
 ![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
 
-You will create a logic app based workflow triggered whenever a new hl7 message is pushed to hl7ingest Service Bus queue. This conversion workflow performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists converted hl7 message to FHIR Server.
+**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture will create a logic app based workflow that is triggered whenever a new hl7 message is pushed to hl7ingest Service Bus queue. This conversion workflow performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists converted hl7 message to FHIR Server.
 
 ![HL7 to FHIR Conversion](../images/hl72fhirconversion.png)
+
+Note: After successful deployment, the converter pipeline is now tied to HL7 Ingest platorm.
 
 Let's put it all together, you will extend the FHIR Server Samples and FHIR Converter reference architectures with HL7 Ingest/FHIR Event Processor reference architecture (below):
 ![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
@@ -43,6 +47,7 @@ Let's put it all together, you will extend the FHIR Server Samples and FHIR Conv
     - Service Bus Namespace: hlsb#### and queue: hl7ingest
     - Function App (HTTP Trigger): hl7ingest#####
     - Application Insights: hl7ingest#####
+
 **Deploy HL7 to FHIR Conversion Workflow**
 - In bash shell, run the `./deployhl72fhir.bash` script and follow the prompts
     - Enter your subscription ID
@@ -79,10 +84,7 @@ Let's put it all together, you will extend the FHIR Server Samples and FHIR Conv
         - Get blob content (hl7blobstorage)
         - Connections - Custom Logic App connection (HL7FHIRConverter)
         - Import Bundle to FHIR Server (Connected thru FHIR Server Proxy)
-    
-Note: After successful deployment, converter pipeline is now tied to ingest platorm.
-
-- Test send a sample hl7 message via HL7 over HTTPS
+    - Test send a sample hl7 message via HL7 over HTTPS
     - Locate the sample message samplemsg.hl7 in the root directory of the cloned GitHub repo
     - Use a text editor to see contents
     - From the linux command shell run the following command to test the hl7overhttps ingest
