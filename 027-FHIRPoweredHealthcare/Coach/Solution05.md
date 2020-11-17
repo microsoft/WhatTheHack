@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Solution04.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution06.md)
 
-# Notes & Guidance
+## Notes & Guidance
 
 In this challenge, you will explore patient medical records and SMART on FHIR apps through the FHIR Dashboard app. 
 
