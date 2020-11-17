@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 7 - Monitoring](./Monitoring.md) should be done successfuly.
+1. [Challenge 7 - Monitoring](./07-Monitoring.md) should be done successfuly.
 
 ## Introduction
 In this challenge, you will change the Computer Vision API to the Free tier. This will limit the number of requests to the OCR service to 10 per minute. Once changed, run the UploadImages console app to upload 1,000 images again. The resiliency policy programmed into the FindLicensePlateText.MakeOCRRequest method of the ProcessImage function will begin exponentially backing off requests to the Computer Vision API, allowing it to recover and lift the rate limit. This intentional delay will greatly increase the function&#39;s response time, thus causing the Consumption plan&#39;s dynamic scaling to kick in, allocating several more servers. You will watch all of this happen in real time using the Live Metrics Stream view.
@@ -15,8 +15,8 @@ In this challenge, you will change the Computer Vision API to the Free tier. Thi
 ## Success Criteria
 1. You have received a 429 error code
 
-[Next optional challenge B (View Data in Cosmos DB) >](./Cosmos.md)
+[Next optional challenge B (View Data in Cosmos DB) >](./0B-Cosmos.md)
 
 Or
 
-[Next challenge (Data Export Workflow) >](./Workflow.md)
+[Next challenge (Data Export Workflow) >](./08-Workflow.md)
