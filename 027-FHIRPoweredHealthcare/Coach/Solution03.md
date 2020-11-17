@@ -15,7 +15,7 @@ In this challenge, you will deploy a **[FHIR Event Processor](https://github.com
 
 Note: After successful deployment, the converter pipeline is now tied to HL7 Ingest platorm.
 
-Let's put it all together, you will extend the FHIR Server Samples and FHIR Converter reference architectures with HL7 Ingest/FHIR Event Processor reference architecture (below):
+**Let's put it all together**, you will extend the FHIR Server Samples, HL7 Ingest and FHIR Converter reference architectures to form the end-to-end ingest, transform and load event-driven platform below:
 ![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
 
 **Deploy **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** logic app based workflow to perform orderly conversion from HL7 messages to FHIR via FHIR Converter, persist them into FHIR Server and publish FHIR CRUD change events to Event Hubs for post-Processing.
