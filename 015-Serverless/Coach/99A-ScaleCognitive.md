@@ -1,5 +1,10 @@
 # Optional Challenge A - Scale the Cognitive Service
 
+## Coach's Notes
+None
+
+## Step by Step Instructions
+
 ### Task 1: Observe your functions dynamically scaling when resource-constrained
 
 In this task, you will change the Computer Vision API to the Free tier. This will limit the number of requests to the OCR service to 10 per minute. Once changed, run the UploadImages console app to upload 1,000 images again. The resiliency policy programmed into the FindLicensePlateText.MakeOCRRequest method of the ProcessImage function will begin exponentially backing off requests to the Computer Vision API, allowing it to recover and lift the rate limit. This intentional delay will greatly increase the function's response time, thus causing the Consumption plan's dynamic scaling to kick in, allocating several more servers. You will watch all of this happen in real time using the Live Metrics Stream view.
@@ -19,10 +24,3 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 5.  After this has run for some time, close the UploadImages console to stop uploading photos.
 
 6.  Navigate back to the **Computer Vision** API and set the pricing tier back to **S1 Standard**.
-
-
-[Next optional challenge B (View Data in Cosmos DB) >](./Host-Cosmos.md)
-
-Or
-
-[Next challenge (Data Export Workflow) >](./Host-Workflow.md)
