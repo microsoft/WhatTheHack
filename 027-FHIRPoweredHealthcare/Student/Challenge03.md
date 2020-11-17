@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you will deploy a Health Architecture **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution to provide the following services in the **[FHIR Converter}(https://github.com/microsoft/FHIR-Converter)** for ingesting FHIR Resouces into the FHIR Server:
+In this challenge, you will deploy a Health Architecture **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution to provide the following services in the **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** for ingesting FHIR Resouces into the FHIR Server:
 - Import and process valid HL7 bundles and persist them to a FHIR Compliant store
 - FHIR Server Proxy connection to FHIR Server without exposing credentials
 - Publish successful FHIR CRUD events referencing FHIR Resources to an event hub
