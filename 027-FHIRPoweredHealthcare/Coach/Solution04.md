@@ -1,198 +1,47 @@
-# Coach's Guide: Challenge 3 - Stream patient data with event-driven architecture
+# Coach's Guide: Challenge 4 - Connect to FHIR server and read FHIR data through a JavaScript app
 
-[< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
+[< Previous Challenge](./Solution03.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution05.md)
 
-# Notes & Guidance
+## Notes & Guidance
 
-In this challenge, you will implement an event-driven architecture for streaming patient data from the FHIR Server to Azure Cosmos DB.
+In this challenge, you will deploy a sample JavaScript app to connect and read FHIR patient data.  You will configure public client application registration to allow JavaScript app to access FHIR server.
 
-In the end-to-end **[Serverless streaming with Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/#features)** platform below, the data flow (blue) shows a serverless function retrieves patient data from FHIR Server and drops them to Event Hubs, and then a Stream Analytics job ingests patient data from Event Hubs and writes stream processing results as JSON output to Cosmos DB.
-![Serverless streaming with Event Hubs](../images/fhir-serverless-streaming.jpg)
+**[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
 
-## Deploy Azure Event Hubs
-- **[Quickstart: Deploy Azure Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-event-hubs-create-event-hub-and-consumer-group/)**
-- Install @azure/event-hubs npm module, run:
-    `
-    $ npm install @azure/event-hubs
-    `
+**You will deploy a FHIR sample JavaScript app in Azure to read patient data from the FHIR service.**
+- **[Create a new Azure Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
+- Check in secondary Azure AD tenant (can be primary tenant if you already have directory admin prillege) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR Server resource.
 
-## Update Azure Function to read from FHIR server and drop to Eventhub
-- Client creation
-The simplest usage is to use the static factory method EventHubClient.createFromConnectionString(_connection-string_, _event-hub-path_). Once you have a client, you can use it for:
-    - Sending events
-    - You can send a single event using client.send() method.
-    - You can even batch multiple events together using client.sendBatch() method.
+    Note: 
+    - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
+    - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR server resource.
 
-- Receiving events
-    - There are two ways to receive events using the EventHub Clien
-
-- Send an event with partition key:
-
-  ```
-  const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-  const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
-
-  async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object.
-    // const eventData = { body: { "message": "Hello World" }, partitionKey: "pk12345"};
-    const eventData = { body: "Hello World", partitionKey: "pk12345"};
-    const delivery = await client.send(eventData);
-    console.log("message sent successfully.");
-  }
-
-  main().catch((err) => {
-    console.log(err);
-  });
-
-  - Send multiple events as a batch
-  const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-  const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
-
-  async function main() {
-    const datas = [
-      { body: "Hello World 1", applicationProperties: { id: "Some id" }, partitionKey: "pk786" },
-      { body: "Hello World 2" },
-      { body: "Hello World 3" }
-    ];
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub
-    // where the body is a JSON object/array.
-    // const datas = [
-    //   { body: { "message": "Hello World 1" }, applicationProperties: { id: "Some id" }, partitionKey: "pk786" },
-    //   { body: { "message": "Hello World 2" } },
-    //   { body: { "message": "Hello World 3" } }
-    // ];
-    const delivery = await client.sendBatch(datas);
-    console.log("message sent successfully.");
-  }
-
-  main().catch((err) => {
-    console.log(err);
-  });
-  ```
-
-- Create function app httptrigger to outputEventHubMessage integration (for FHIR Server PaaS scenario):
-![Function App cosmostrigger to outputEventHubMessage](../images/functionapp-httptrigger-outEventHubMessage.jpg)
-
-  - Create a new function app instance
-  - Add a new function using HTTP trigger template
-    - http trigger name
-    - Select Authroization level to control if API key is needed (Function, Anonymous or Admin)
-  - Add Event Hubs output binding
-    - Setup new Event Hub connection string
-      - Event Hub name
-      - Event Hub RootManageSharedAccessKey name
-
-  function.json sample code:
-  ```
-  {
-    "bindings": [
-      {
-        "authLevel": "function",
-        "name": "req",
-        "type": "httpTrigger",
-        "direction": "in",
-        "methods": [
-          "get",
-          "post"
-        ]
-      },
-      {
-        "name": "$return",
-        "type": "http",
-        "direction": "out"
-      },
-      {
-        "name": "outputEventHubMessage",
-        "direction": "out",
-        "type": "eventHub",
-        "connection": "ChangeFeeds_RootManageSharedAccessKey_EVENTHUB",
-        "eventHubName": "outeventhub"
-      }
-    ]
-  }
-  ```
-
-  C# code sample:
-  ```
-  #r "Newtonsoft.Json"
-
-  using System.Net;
-  using Microsoft.AspNetCore.Mvc;
-  using Microsoft.Extensions.Primitives;
-  using Newtonsoft.Json;
-
-  public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-  {
-      log.LogInformation("C# HTTP trigger function processed a request.");
-
-      string name = req.Query["name"];
-
-      string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-      dynamic data = JsonConvert.DeserializeObject(requestBody);
-      name = name ?? data?.name;
-
-      string responseMessage = string.IsNullOrEmpty(name)
-          ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                  : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-              return new OkObjectResult(responseMessage);
-  }
-  ```
-
-- Create function app cosmosdbtrigger to outputEventHubMessage integration (for FHIR Server open source scenario):
-![Function App cosmostrigger to outputEventHubMessage](../images/functionapp-cosmostrigger-outEventHubMessage.jpg)
-
-  - Create a new function app instance
-  - Add a new function using Cosmos DB trigger template
-    - Setup new Cosmos DB account connection
-    - Input Database name
-    - Input Collection name
-  - Add Event Hubs output binding
-    - Setup new Event Hub connection string
-      - Event Hub name
-      - Event Hub RootManageSharedAccessKey name
-
-  function.json sample code:
-  ```
-  {
-    "bindings": [
-      {
-        "type": "cosmosDBTrigger",
-        "name": "input",
-        "direction": "in",
-        "connectionStringSetting": "[your cosmos db connection string]",
-        "databaseName": "[your database name]",
-        "collectionName": "[your collection name]",
-        "leaseCollectionName": "leases",
-        "createLeaseCollectionIfNotExists": true
-      },
-      {
-        "name": "outputEventHubMessage",
-        "direction": "out",
-        "type": "eventHub",
-        "connection": "[your event hub]_RootManageSharedAccessKey_EVENTHUB",
-        "eventHubName": "outeventhub"
-      }
-    ]
-  }
-  ```
-
-  C# code sample:
-  ```
-   #r "Microsoft.Azure.DocumentDB.Core"
-  using System;
-  using System.Collections.Generic;
-  using Microsoft.Azure.Documents;
-
-  public static void Run(IReadOnlyList<Document> input, ILogger log)
-  {
-      if (input != null && input.Count > 0)
-      {
-          log.LogInformation("Documents modified " + input.Count);
-          log.LogInformation("First document Id " + input[0].Id);
-      }
-  }
-  ```
-
+- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in secondary Azure AD tenant (can be primary tenant if you already have directory admin prillege) to allow the deployed Web App to authenticate and authorize for FHIR server API access.
+  - Go to Azure AD and switch to your secondary Azure AD tenant (can be primary tenant if you already have directory admin prillege)
+  - Click App Registration and a new Public client/native (mobile & desktop) registration or open exising one if already exist (from FHIR Server Samples deployment).
+    - Capture client ID and tenant ID from Overview blade for use in later step.
+  - Connect with web app
+    - Select Authentication blade, click Add a new platform and select Web
+      - Add `https://\<WEB-APP-NAME>.azurewebsites.net` to redirect URI list.
+      - Select Access tokens and ID tokens check boxes and click Configure.
+  - Add API Permissions
+    - Select API permissions blade and click Add a new permission
+    - Select APIs my organization uses, search for Azure Healthcare APIs and select it.
+    - Select user_impersonation and click add permissions.
+- Write a new JavaScript app to connect and read FHIR patient data
+  - Open and copy `index.html` sample JavaScript code in Student/Resources folder from your local repo 
+  - Open App Service resource for sample web app in Azure Portal.
+    - Select App Service Editor and select `index.html` file to open it in the editor.
+    - Paste the sample code into the editor to replace the content.
+    - **[Initialize MSAL ((Mirosoft Authentication Library)](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** provider configuration object for your FHIR environment:
+        - clientId - Update with your client application ID of public client app registered earlier
+        - authority - Update with Authority from your FHIR Server (under Authentication)
+        - FHIRendpoint - Update the FHIRendpoint to have your FHIR service name
+        - Scopes - Update with Audience from your FHIR Server (under Authentication)
+      
+      Note: App Services Editor automatically saves changes.
+- Test sample JavaScript app
+  - Browse to App Service website URL in In-private mode
+  - SignIn with your secondary tenant used in deploying FHIR Server Samples reference architecture
+  - You should see a list of patients that were loaded into FHIR Server.
+  

@@ -25,10 +25,11 @@ In this scenario, you will deploy a storage account with a BLOB container called
         ```
 
         NOTE: 
-        - If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources, i.e. Visual Studio Subscription, then Primary AD tenant is same as Secondary AD tenant, use the same AD tenant for both.
+        - If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources, then Primary AD tenant is same as Secondary AD tenant and use the same AD tenant for both.
         - If you don't have Administrator access:
             - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
             - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
+            
     - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** with the managed Azure API for FHIR (PaaS) scenario:
         - Run `Create-FhirServerSamplesEnvironment.ps1` from the cloned `./deploy/scripts` folder.
     - To Validate your deployment, 
