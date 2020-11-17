@@ -27,7 +27,7 @@ Below is a diagram of the solution architecture you will build in this hack. Ple
 
 ## Technologies
 
-Azure services and related products leveraged to create this one possible solution architecture:
+Azure services and related products leveraged to create this one possible solution architecture are:
 *	Azure Functions
 *	Azure Cognitive Services
 *	Azure Event Grid
