@@ -29,15 +29,12 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
-- [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/README.md)
-- [Azure Arc Enabled Servers](/025-ArcEnabledServers/README.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
-- [Front Door](/017-FrontDoor/README.md)
+- [Front Door/CDN](/017-FrontDoorCDN/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
-- [Mastering Linux](/020-MasteringLinux/README.md)
-- [SAP Automation](/022-SAP-Core/README.md)
+- [MasteringLinux](/020-MasteringLinux/README.md)
 
 ## Application Development
 - [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
@@ -45,14 +42,14 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Microservices In Azure](/009-MicroservicesInAzure/README.md)
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
-- [Identity For Applications](/021-IdentityForApps/README.md)
-- [Mastering Linux](/020-MasteringLinux/README.md)
+- [IdentityForApps](/021-IdentityForApps/README.md)
+- [MasteringLinux](/020-MasteringLinux/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
-- [Mastering Linux](/020-MasteringLinux/README.md)
+- [MasteringLinux](/020-MasteringLinux/README.md)
 
 ## Data & AI
 - [BI 2 AI](/018-BI2AI/README.md)
