@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 3 - Create Resources](./CreateResources.md) should be done successfuly.
+1. [Challenge 3 - Create Resources](./03-CreateResources.md) should be done successfuly.
 
 
 ## Introduction
@@ -70,4 +70,4 @@ await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 | Code and test Azure Functions locally | <https://docs.microsoft.com/azure/azure-functions/functions-run-local> |
 
 
-[Next challenge (Deployment) >](./Deployment.md)
+[Next challenge (Deployment) >](./05-Deployment.md)
