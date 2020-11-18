@@ -1,10 +1,10 @@
-# Challenge 4: Connect to FHIR server and read FHIR data through a JavaScript app
+# Challenge 4: Connect to FHIR Server and read FHIR data through a JavaScript app
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 
-In this challenge, you will deploy a sample JavaScript app to connect and read FHIR patient data.  You will configure public client application registration to allow JavaScript app to access FHIR server.
+In this challenge, you will deploy a sample JavaScript app to connect and read FHIR patient data.  You will configure public client application registration to allow JavaScript app to access FHIR Server.
 
 **[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
 
@@ -15,13 +15,13 @@ You will deploy a FHIR sample JavaScript app in Azure to read patient data from 
 
 Hint:
 - **[Create a new Azure Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
-- Check in secondary Azure AD tenant (can be same as your primary AAD tenant if you already have admin privilleges) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR server resource.
+- Check in secondary Azure AD tenant (can be same as your primary AAD tenant if you already have admin privileges) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR Server resource.
 
     Note: 
     - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
     - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR Server resource.
 
-- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in Secondary Azure AD tenant (can be primary tenant if you already have directory admin privillege) to allow the deployed Web App to authenticate and authorize for FHIR server API access.
+- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in Secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
 
     Hint: Ensure that the Reply URL matches the Web App URL
     - In AAD App Registration, configure a new Web platform under Authentication blade
@@ -45,7 +45,7 @@ Hint:
   - You should see a list of patients that were loaded into FHIR Server.
 
 ## Success Criteria
-- You have deployed a FHIR sample Web App in Azure that connects to FHIR server and displays patient data a web page.
+- You have deployed a FHIR sample Web App in Azure that connects to FHIR Server and retrieves FHIR patient data displayed in a web page.
 
 ## Learning Resources
 
