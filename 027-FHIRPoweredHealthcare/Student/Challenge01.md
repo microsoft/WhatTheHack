@@ -13,7 +13,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
 
 ## Description
 
-You will implement Health Architecture FHIR Bulk Load scenario as follows:
+You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture as follows:
 - Deploy **[FHIR Server Samples PaaS scenario (above)](https://github.com/microsoft/fhir-server-samples)** to ingest and bulk load Synthea generated FHIR patient data into FHIR Server in near real-time.
    - Hint:
       - First, clone **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
@@ -26,7 +26,7 @@ You will implement Health Architecture FHIR Bulk Load scenario as follows:
          - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
          - Check App Registration in secondary AAD tenant that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
-- Copy Synthea generated FHIR bundle JSON files in its `./output/fhir folder` to `fhirimport` BLOB container.
+- Copy Synthea generated FHIR bundle JSON files in its `./output/fhir` folder to `fhirimport` BLOB container.
    - Hint: You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.
 
 ## Success Criteria

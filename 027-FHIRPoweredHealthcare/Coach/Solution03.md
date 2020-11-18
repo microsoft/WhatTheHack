@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 3 - Ingest and stream HL7 FHIR CRUD events for post-processing
+# Coach's Guide: Challenge 3 - Ingest and stream medical events for post-processing
 
 [< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
 
