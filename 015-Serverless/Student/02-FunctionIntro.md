@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 1 - Setup](./Setup.md) should be done successfuly.
+1. [Challenge 1 - Setup](./01-Setup.md) should be done successfuly.
 
 
 ## Introduction
@@ -31,4 +31,4 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 
 
 
-[Next challenge (Create Resources) >](./CreateResources.md)
+[Next challenge (Create Resources) >](./03-CreateResources.md)
