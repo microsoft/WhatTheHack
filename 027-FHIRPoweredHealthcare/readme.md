@@ -6,9 +6,9 @@ You will implement a collection of FHIR reference architectures in the Microsoft
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
-In this FHIR Powered Healthcare hack, you will implement Microsoft Health reference architectures to extract, transform and load patient data into a FHIR Compliant store.  You will deploy an event-driven serverless architecture to ingest HL7v2 messages and publish FHIR CRUD events to an Event Hub.  Topic subscribers to these events can then trigger downstream post-processing workflows whenever a new FHIR CRUD event is published.  You will then write JavaScript code to connect and read FHIR data to explore FHIR patient data.
+In this FHIR Powered Healthcare hack, you will implement Microsoft Health reference architectures to extract, transform and load patient data into a FHIR Compliant store.  You will deploy an event-driven serverless architecture to ingest HL7v2 messages and publish FHIR CRUD events to an Event Hub.  Topic subscribers to these events can then trigger downstream post-processing workflows whenever new medical event is published.  You will then write JavaScript code to connect and read FHIR data to explore FHIR patient data.
 
-To get you started, you will be guided through a sequence of challenges to implement Health Architectures for FHIR Server use cases using the following Azure managed services (PaaS):
+To get you started, you will be guided through a sequence of challenges to implement Microsoft Health Architectures for FHIR Server use cases using the following Azure managed services (PaaS):
 1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
 2. **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the fhirimport BLOB container.
 3. **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is a logic app based workflow to ingest and convert C-CDA and HL7v2 message into FHIR bundle.
@@ -33,7 +33,7 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
 - Challenge 1: **[Extract and load FHIR patient medical records](Student/Challenge01.md)**
 - Challenge 2: **[Extract, transform and load patient clinical data](Student/Challenge02.md)**
-- Challenge 3: **[Ingest and stream HL7 FHIR CRUD events for post-processing](Student/Challenge03.md)**
+- Challenge 3: **[Ingest and stream medical events for post-processing](Student/Challenge03.md)**
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
 - Challenge 5: **[Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
 - Challenge 6: **[Add patient lookup function to the JavaScript app](Student/Challenge06.md)**
