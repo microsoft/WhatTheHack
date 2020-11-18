@@ -4,14 +4,16 @@
 
 ## Notes & Guidance
 
-In this challenge, you will extend the previously deployed sample JavaScript app to add patient lookup.
+In this challenge, you will extend the previously deployed sample JavaScript app to add a patient lookup.
 
 **Modify sample JavaScript app to add a patient Lookup function.**
 - Update your JavaScript app to include a patient Lookup feature in App Service Editor.
   - For example, Search patient by Given name
     - Add a Search textbox and button to JavaScript app
     - Add a new search function to call FHIR Server with the following service endpoint:
+
       `GET {{fhirurl}}/Patient?given:contains=[pass-your-search-text]`
+      
     - Set the 'onclick' event of Search button to call the search function
 
   Note: App Service Editor will auto save your code changes.
