@@ -14,10 +14,10 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
 
 **Deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert scenarios**
 
-- Deploy **[FHIR Converter](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** reference architecture using the **[Quickstart template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** to expose the C-CDA Conversion service endpoint: `https://<fhirhl7conv_SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
+- Deploy **[FHIR Converter](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** reference architecture using the **[Quickstart template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** to expose the C-CDA Conversion service endpoint: `https://<fhirhl7conv_SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
 - Deploy a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR bundle into FHIR Server.  Your BLOB triggered logic app needs to perform the following steps in the workflow:
-    - Step 1: Trigger workflow when a BLOB is added or modified in /cda container
-    - Step 2: Get BLOB content from C-CDA XML file from `/cda` container.
+    - Step 1: Trigger workflow when a BLOB is added or modified in `cda` container
+    - Step 2: Get BLOB content from C-CDA XML file from `cda` container.
     - Step 3: Compose BLOB content as Input object.
     - Step 3: HTTP - Call FHIR Converter API
         - Method: POST
