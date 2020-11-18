@@ -4,10 +4,10 @@
 
 ## Notes & Guidance
 
-In this challenge, you will implement the FHIR Server Samples reference architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk load into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
+In this challenge, you will implement the FHIR Server Samples reference architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk load into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
 
 **FHIR bulk load scenario**
-In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR server.  This bulk ingestion is performed by a BLOB triggered function app as depicted below:
+In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR Server.  This bulk ingestion is performed by a BLOB triggered function app as depicted below:
 
 ![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
 
@@ -77,7 +77,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
         - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
         - Add directory location of AzCopy executable to your system path
-        - Type `azcopy` or `./azcopy` in Windows PowerShell commmand prompts to get started
+        - Type `azcopy` or `./azcopy` in Windows PowerShell command prompts to get started
         - Use a SAS token to copy Synthea generated patient bundle JSON file(s) to fhirimport Azure Blob storage
                Sample AzCopy command:
                ```
@@ -96,12 +96,12 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             ...
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
-**Use Postman to retreive Patients data via FHIR Patients API**
+**Use Postman to retrieve Patients data via FHIR Patients API**
 - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
     - In Postman, click Import.
     - Select your Environment and Collection json files in your `./Student/Resources/Postman` folder.
     - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
-    - You will get confirmation that WTH Collection and Envrionment were imported and see in Postman a new 'WTH FHIR' in Collections (left) blade and top right Environment Var drop-down list.
+    - You will get confirmation that WTH Collection and Environment were imported and see in Postman a new 'WTH FHIR' in Collections (left) blade and top right Environment Var drop-down list.
    - Select 'WTH FHIR' environment and click 'Environment Quick Look' button to see a list of env vars: 
     - Click 'Edit' to open Management Environments window and input the corresponding FHIR environment values:
         - adtenantId: This is the tenant Id of the Secondary (Data) AD tenant
@@ -114,8 +114,8 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 - Run FHIR API HTTP Requests:
     - First, open "AuthorizeGetToken SetBearer" and confirm WTH FHIR environment is selected in the top-right environment drop-down. 
         - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
-    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR server. (Postman may not show all of the results.)
-    - Open "Get Patient Count" and click the 'Send' button.  This will return Count of Patients stored in your FHIR server.  
+    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR Server. (Postman may not show all of the results.)
+    - Open "Get Patient Count" and click the 'Send' button.  This will return Count of Patients stored in your FHIR Server.  
     - Open "Get Patient Filter ID" and click the 'Send' button.  This will return a Patient with that ID. Change the ID to one you have loaded and validate that it exists.
     - Open "Get Patient Filter Exact" and click the 'Send' button.  This will return a Patient with the specified given name. Specify a given name from your FHIR import and validate it exists.
     - Open "Get Patient Filter Contains" and click the 'Send' button.  This will return Patients with Given name that contains the specified letters. Specify a partial given name from your FHIR import and validate it exists.
