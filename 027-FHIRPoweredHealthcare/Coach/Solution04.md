@@ -10,7 +10,7 @@ In this challenge, you will deploy a sample JavaScript app to connect and read F
 
 **You will deploy a FHIR sample JavaScript app in Azure to read patient data from the FHIR service.**
 - **[Create a new Azure Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
-- Check in secondary Azure AD tenant (can be primary tenant if you already have directory admin prillege) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR Server resource.
+- Check in secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR Server resource.
 
     Note: 
     - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
