@@ -86,7 +86,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
                ```
     - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**
         - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'fhirimport' to list container content
-        - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result' folder and select a FHIR Patient bundle .json file(s)
+        - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result/fhir' folder and select a FHIR Patient bundle .json file(s)
     - Monitor Log Stream in function app 'FhirBundleBlobTrigger'
         - Verify in log that 'FhirBundleBlobTrigger' function auto runs when new blob detected
             Sample log output:
