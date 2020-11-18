@@ -59,11 +59,9 @@ There are a few components within the starter project that must be completed, ma
 
 2.  From the Visual Studio **View** menu, select **Task List**.
 
-    ![The Visual Studio Menu displays, with View and Task List selected.](../images/image37.png 'Visual Studio Menu')
-
 3.  There you will see a list of TODO tasks, where each task represents one line of code that needs to be completed.
 
-    > ![A list of TODO tasks, including their description, project, file, and line number display.](../images/image38.png 'TODO tasks')
+    > ![A list of TODO tasks, including their description, project, file, and line number display.](./images/image38.png 'TODO tasks')
 
 4.  Open **ProcessImage.cs**. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to "ProcessImage". This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function's trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
