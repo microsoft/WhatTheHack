@@ -63,7 +63,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
     - For this configuration, Synthea will output 1000 patient records in FHIR formats in `./output/cda` folder.
 
 **Bulk Load Synthea generated patient FHIR Bundles to FHIR Server**
-- Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will automatically trigger the new logic app CCDA to FHIR conversion workflow created above to convert and persist resulted FHIR bundle into FHIR Server. 
+- Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will automatically trigger the new logic app C-CDA to FHIR conversion workflow created above to convert and persist resulted FHIR bundle into FHIR Server. 
     - To **[Copy data to Azure Storage using AzCopy commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
         - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
         - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
@@ -91,7 +91,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**.
 - Run FHIR API HTTP Requests to validate imported clinical data.
 
-Note: See challenge 1 solution file for detailed guide for using Postman.
+Note: See challenge 1 solution file for detailed guide on using Postman to access FHIR Server APIs.
 
 
 
