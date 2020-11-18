@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 3 - Create Resopurces](./CreateResources.md) should be done successfuly.
+1. [Challenge 3 - Create Resources](./03-CreateResources.md) should be done successfuly.
 
 
 ## Introduction
@@ -24,7 +24,7 @@ In this challenge, you will apply application settings using the Microsoft Azure
 | exportCsvContainerName | Blob storage CSV export container name (export) |
 | blobStorageConnection | blobStorageConnection from Key Vault |
  
-2. Open the Tollbooth solution in Visual Studio.
+2. Open the Tollbooth solution in Visual Studio Code.
 3. Open the task list
 4. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
@@ -70,4 +70,4 @@ await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 | Code and test Azure Functions locally | <https://docs.microsoft.com/azure/azure-functions/functions-run-local> |
 
 
-[Next challenge (Deployment) >](./Deployment.md)
+[Next challenge (Deployment) >](./05-Deployment.md)
