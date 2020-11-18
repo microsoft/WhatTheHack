@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 6 - Add patient lookup function to the JavaScript app
+# Coach's Guide: Challenge 6 - Add patient Lookup function to the JavaScript app
 
 [< Previous Challenge](./Solution05.md) - **[Home](./readme.md)**
 
@@ -6,7 +6,7 @@
 
 In this challenge, you will extend the previously deployed sample JavaScript app to add patient lookup.
 
-**Modify sample JavaScript app to add a patient lookup function.**
+**Modify sample JavaScript app to add a patient Lookup function.**
 - Update your JavaScript app to include a patient Lookup feature in App Service Editor.
   - For example, Search patient by Given name
     - Add a Search textbox and button to JavaScript app
