@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 4 - Configuration](./Configuration.md) should be done successfuly.
+1. [Challenge 4 - Configuration](./04-Configuration.md) should be done successfuly.
 
 ## Introduction
 In this challenge, you will deploy the VS project to Azure.
@@ -30,4 +30,4 @@ In this challenge, you will deploy the VS project to Azure.
 | Deploy Functions to Azure | <https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio/> |
 
 
-[Next challenge (Create Functions in the Portal) >](./PortalFunctions.md)
+[Next challenge (Create Functions in the Portal) >](./06-PortalFunctions.md)

@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 5 - Deployment](./Deployment.md) should be done successfuly.
+1. [Challenge 5 - Deployment](./05-Deployment.md) should be done successfuly.
 
 ## Introduction
 
@@ -87,4 +87,4 @@ Create two new Azure Functions written in Node.js, using the Azure portal. These
 | Create your first function in the Azure portal                    |        <https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function>         |
 | Store unstructured data using Azure Functions and Azure Cosmos DB | <https://docs.microsoft.com/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb> |
 
-[Next challenge (Monitoring) >](./Monitoring.md)
+[Next challenge (Monitoring) >](./07-Monitoring.md)

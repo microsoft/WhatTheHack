@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 7 - Monitoring](./Monitoring.md) should be done successfuly.
+1. [Challenge 7 - Monitoring](./07-Monitoring.md) should be done successfuly.
 
 ## Introduction
 In this challenge, you create a new Logic App for your data export workflow. This Logic App will execute periodically and call your ExportLicensePlates function, then conditionally send an email if there were no records to export.

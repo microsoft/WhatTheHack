@@ -1,4 +1,9 @@
-# Challenge 5 - Create Functions in the Portal
+# Challenge 6 - Create Functions in the Portal
+
+## Coach's Notes
+Integration has changed in the new functions portal.  Might have to go to the old portal to add the integration.
+
+## Step by Step Instructions
 
 ### Help references
 
@@ -209,6 +214,3 @@ In this task, you will configure a custom event type for each new Event Grid sub
 11. Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
 12. Select **Save**.
-
-
-[Next challenge (Monitoring) >](./Host-Monitoring.md)

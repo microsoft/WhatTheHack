@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. Your laptop: Win, MacOS or Linux
+1. Your laptop: Win, MacOS or Linux OR A development machine that you have administrator rights
 1. Your Azure Subscription
 
 
@@ -23,7 +23,7 @@ The first challenge is to setup an environment that will help you build the Toll
  
 ## Challenges
 
-1. [Download](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/devanshidiaries/WhatTheHack/tree/dev/015-Serverless/Student/Resources) the source code needed for this hack.
+1. [Download](https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2Fmicrosoft%2FWhatTheHack%2Ftree%2Fmaster%2F015-Serverless%2FStudent%2FResources) the source code needed for this hack.
 1. Uncompress the file.
 
 
@@ -32,4 +32,4 @@ The first challenge is to setup an environment that will help you build the Toll
 1. You have 2 folders locally.  One named Tollbooth and the other named license plates.
 
 
-[Next challenge (Create a Hello World Function) >](./FunctionIntro.md)
+[Next challenge (Create a Hello World Function) >](./02-FunctionIntro.md)

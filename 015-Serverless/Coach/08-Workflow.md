@@ -1,4 +1,9 @@
-# Challenge 7 - Data Export Workflow
+# Challenge 8 - Data Export Workflow
+
+## Coach's Notes
+None
+
+## Step by Step Instructions
 
 
 |                                      |                                                                                                                 |
@@ -66,5 +71,3 @@
 20. While in the Logic Apps Designer, you will see the run result of each step of your workflow. A green checkmark is placed next to each step that successfully executed, showing the execution time to complete. This can be used to see how each step is working, and you can select the executed step and see the raw output.
 
 21. The Logic App will continue to run in the background, executing every 15 minutes (or whichever interval you set) until you disable it. To disable the app, go to the **Overview** blade for the Logic App and select the **Disable** button on the taskbar.
-
-
