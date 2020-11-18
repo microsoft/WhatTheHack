@@ -12,6 +12,7 @@ In this challenge, you will extend the previously deployed sample JavaScript app
 
     Hint: 
     For patient search by Given name example, your code should call the following FHIR Server API operation:
+    
     `GET {{fhirurl}}/Patient?given:contains=[pass-your-search-text]`
 
 - (Optional) Include any other modern UI features to improve the user experience.

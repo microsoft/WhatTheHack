@@ -22,11 +22,11 @@ You will perform the following steps to access patient medical records and explo
     - In popup Consent dialog box, Accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
 - Explore patient medical records through FHIR Dashboard app, including:
     - Patient and its FHIR bundle details
-    - Patient medical details
+    - Patient medical elements
         - Conditions
         - Encounters
         - Observations
-- Explore SMART on FHIR Apps through FHIR Dashboard app, including:
+- Explore SMART on FHIR apps through FHIR Dashboard app, including:
     - Growth Chart
     - Medications
 
