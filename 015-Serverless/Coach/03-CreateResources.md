@@ -1,5 +1,9 @@
-# Challenge 2 - Create Resources
+# Challenge 3 - Create Resources
 
+## Coach's Notes
+None
+
+## Step by Step Instructions
 
 ### Help references
 
@@ -194,7 +198,3 @@
 13) Underneath the **Read-write Keys** tab within the Keys blade, copy the **URI** and **Primary Key** values.
 
 14) Paste the values into a text editor, such as Notepad, for later reference.
-
-
-
-[Next challenge (Configuration) >](./Host-Configuration.md)

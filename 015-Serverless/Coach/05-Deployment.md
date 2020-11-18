@@ -1,4 +1,19 @@
-# Challenge 4 - Deployment
+# Challenge 5 - Deployment
+
+## Coach's Notes
+*As of May 2020, there is a new Portal view of the functions*
+1) Those that are not familiar with Azure functions will not know about how the Applications Settings work with the Function Code
+2) Key Vault reference in the Function App will require a reference __@Microsoft.KeyVault__ in the app setting value
+3) __ERRORS on KEY VAULT__
+You cannot see if there is an error in the new portal.  Navigate to the old portal and if you see this error, the reference to the key vault is bad: ![Key Vault Error](./images/keyvault-error.PNG)
+
+Participants may need to allow an identity access [Identity Access](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&tabs=dotnet)
+
+Then add permissions in Key Vault to the Function
+Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
+
+
+## Step by Step Instructions
 
 ### Help references
 
@@ -57,5 +72,3 @@
     g. Leave Web Hook as the Endpoint Type.
 
 10. Leave the remaining fields at their default values and select **Create**.
-
-[Next challenge (Create Functions in the Portal) >](./Host-PortalFunctions.md)

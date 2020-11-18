@@ -2,7 +2,7 @@
 
 ## Prerequisities
 
-1. [Challenge 6 - Create Functions in the Portal](./PortalFunctions.md) should be done successfuly.
+1. [Challenge 6 - Create Functions in the Portal](./06-PortalFunctions.md) should be done successfuly.
 
 ## Introduction
 Application Insights can be integrated with Azure Function Apps to provide robust monitoring for your functions. In this challenge, you will provision a new Application Insights account and configure your Function Apps to send telemetry to it.
@@ -33,12 +33,12 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 | Monitor Azure Functions using Application Insights            |     <https://docs.microsoft.com/azure/azure-functions/functions-monitoring>      |
 | Live Metrics Stream: Monitor & Diagnose with 1-second latency | <https://docs.microsoft.com/azure/application-insights/app-insights-live-stream> |
 
-[Next optional challenge A (Scale the Cognitive Service) >](./ScaleCognitive.md)
+[Next optional challenge A (Scale the Cognitive Service) >](./0A-ScaleCognitive.md)
 
 Or
 
-[Next optional challenge B (View Data in Cosmos DB) >](./Cosmos.md)
+[Next optional challenge B (View Data in Cosmos DB) >](./0B-Cosmos.md)
 
 Or
 
-[Next challenge (Data Export Workflow) >](./Workflow.md)
+[Next challenge (Data Export Workflow) >](./08-Workflow.md)

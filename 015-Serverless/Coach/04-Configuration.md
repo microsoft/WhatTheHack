@@ -1,4 +1,9 @@
-# Challenge 3 - Configuration
+# Challenge 4 - Configuration
+
+## Coach's Notes
+None
+
+## Step by Step Instructions
 
 ### Help references
 
@@ -91,7 +96,3 @@ await Send("savePlateData", "TollBooth/CustomerService", data);
 // TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
 await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
-
-
-
-[Next challenge (Deployment) >](./Host-Deployment.md)
