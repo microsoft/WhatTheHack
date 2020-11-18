@@ -36,20 +36,56 @@ Azure services and related products leveraged to create this one possible soluti
 *	Azure Key Vault
 *	Logic Apps
 
-
 ## Azure Solution Architecture
 This one possible Cloud Solution Architecture classifies under the **Application Modernization** category.
 
+## Challenges
+1.	Challenge 1: **[Setup](./01-Setup.md)**
+    - Prepare your workstation to develop your Serverless Solution.
+1.	Challenge 2: **[Create a Hello World Function](./02-FunctionIntro.md)**
+    - Create your first "Hello World" Azure Function in Visual Studio Code.
+1.  Challenge 3: **[Create Resources](./03-CreateResources.md)**
+    - Provision the basic resources in Azure to prepare your deployment ground.
+1.  Challenge 4: **[Configuration](./04-Configuration.md)**
+    - Configure application settings on the Microsoft Azure Portal and update the TollBooth application code.
+1.  Challenge 5: **[Deployment](./05-Deployment.md)**
+    - Deploy the Tollbooth project to the "App" in the Azure Portal Function App and configure the Event Grid.
+1.  Challenge 6: **[Create Functions in the Portal](./06-PortalFunctions.md)**
+    - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics.
+1.  Challenge 7: **[Monitoring](./07-Monitoring.md)**
+    - Configure application monitoring with Application Insights Resource on Azure Portal
+1.  Challenge 8: **[Data Export Workflow](./08-Workflow.md)**
+    - Deploy a Logic App to periodically export the license plate data and conditionally send an email.
 
-## Student Resources
-Please refer to the below resources to proceed as a student in this hack.
-1.	[Challenge Guide](./Student/README.md)
-2.  [Resources](./Student/Resources/README.md)
+## Optional Challenges
+1.	Challenge A: **[Scale the Cognitive Service](./0A-ScaleCognitive.md)**
+    - Witness the dynamic scaling of the Function App demonstrating the true Serverless behaviour.
+1.  Challenge B: **[View Data in Cosmos DB](./0B-Cosmos.md)**
+    - Use the Azure Cosmos DB Data Explorer in the portal to view saved license plate data.
+    
+## Prerequisities
 
+1. Your laptop: Win, MacOS or Linux OR A development machine that you have **administrator rights**
+1. Active Azure Subscription with **Contributor Access** to create or modify resources
+1. * [Node.js 8+](https://www.npmjs.com/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.
+- Visual Studio (2017/2019) or Visual Studio Code
+- Azure development workload for Visual Studio 2017 or 2019
+- Azure Functions and Web jobs tools
+- .NET Framework 4.7 runtime (or higher)
+- .NET Core 2.1
+- Any extentions required by your language of choice
 
-## Coach Resources
-Below are the coach resources to be leveraged while guiding the students through this hack.
-1.	[Coach Notes](./Coach/README.md)
+*To setup Azure Functions on Visual studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
+
+## Repository Contents
+- `../Coach`
+  - Coach's Guide and related files
+- `../Student/Resources`
+  - Image files and code for TollBooth Application
+- `../images`
+  - Generic image files needed
+- `../Student`
+  - Student's Challenge Guide
 
 ## Contributors
 - Ali Sanjabi
