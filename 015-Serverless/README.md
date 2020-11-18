@@ -40,27 +40,27 @@ Azure services and related products leveraged to create this one possible soluti
 This one possible Cloud Solution Architecture classifies under the **Application Modernization** category.
 
 ## Challenges
-1.	Challenge 1: **[Setup](./01-Setup.md)**
+1.	Challenge 1: **[Setup](./Student/01-Setup.md)**
     - Prepare your workstation to develop your Serverless Solution.
-1.	Challenge 2: **[Create a Hello World Function](./02-FunctionIntro.md)**
+1.	Challenge 2: **[Create a Hello World Function](./Student/02-FunctionIntro.md)**
     - Create your first "Hello World" Azure Function in Visual Studio Code.
-1.  Challenge 3: **[Create Resources](./03-CreateResources.md)**
+1.  Challenge 3: **[Create Resources](./Student/03-CreateResources.md)**
     - Provision the basic resources in Azure to prepare your deployment ground.
-1.  Challenge 4: **[Configuration](./04-Configuration.md)**
+1.  Challenge 4: **[Configuration](./Student/04-Configuration.md)**
     - Configure application settings on the Microsoft Azure Portal and update the TollBooth application code.
-1.  Challenge 5: **[Deployment](./05-Deployment.md)**
+1.  Challenge 5: **[Deployment](./Student/05-Deployment.md)**
     - Deploy the Tollbooth project to the "App" in the Azure Portal Function App and configure the Event Grid.
-1.  Challenge 6: **[Create Functions in the Portal](./06-PortalFunctions.md)**
+1.  Challenge 6: **[Create Functions in the Portal](./Student/06-PortalFunctions.md)**
     - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics.
-1.  Challenge 7: **[Monitoring](./07-Monitoring.md)**
+1.  Challenge 7: **[Monitoring](./Student/07-Monitoring.md)**
     - Configure application monitoring with Application Insights Resource on Azure Portal
-1.  Challenge 8: **[Data Export Workflow](./08-Workflow.md)**
+1.  Challenge 8: **[Data Export Workflow](./Student/08-Workflow.md)**
     - Deploy a Logic App to periodically export the license plate data and conditionally send an email.
 
 ## Optional Challenges
-1.	Challenge A: **[Scale the Cognitive Service](./0A-ScaleCognitive.md)**
+1.	Challenge A: **[Scale the Cognitive Service](./Student/0A-ScaleCognitive.md)**
     - Witness the dynamic scaling of the Function App demonstrating the true Serverless behaviour.
-1.  Challenge B: **[View Data in Cosmos DB](./0B-Cosmos.md)**
+1.  Challenge B: **[View Data in Cosmos DB](./Student/0B-Cosmos.md)**
     - Use the Azure Cosmos DB Data Explorer in the portal to view saved license plate data.
     
 ## Prerequisities
