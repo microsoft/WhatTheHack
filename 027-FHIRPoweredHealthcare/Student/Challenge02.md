@@ -4,10 +4,10 @@
 
 ## Introduction
 
-In this challenge, you will implement the Health Architecture FHIR Converter sample reference architecture to ingest, transform, and load patient clinical data into FHIR server.  You will generate synthetic patient clinical data, convert them into FHIR Bundle and ingest them into FHIR server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient clinical data in HL7 C-CDA format.  
+In this challenge, you will implement the Health Architecture FHIR Converter sample reference architecture to ingest, transform, and load patient clinical data into FHIR Server.  You will generate synthetic patient clinical data, convert them into FHIR Bundle and ingest them into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient clinical data in HL7 C-CDA format.  
 
 ### Clinical data ingest and convert Scenario
-In this scenario, you will develop a logic app based workflow to perform the C-CDA-to-FHIR conversion using **[FHIR Converter API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** and import the resulting FHIR bundle into FHIR server.
+In this scenario, you will develop a logic app based workflow to perform the C-CDA-to-FHIR conversion using **[FHIR Converter API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** and import the resulting FHIR bundle into FHIR Server.
 
 ![Ingest and Convert](../images/fhir-convert-samples-architecture.jpg)
 
@@ -16,7 +16,7 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
 
 You will deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert scenarios as follows:
 - Deploy **[FHIR Converter](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** to Azure using the **[Quickstart template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** to expose the C-CDA Conversion service endpoint: `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
-- Deploy a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR bundle into FHIR server.  
+- Deploy a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR Bundle into FHIR Server.  
    Hint:
    Your logic app needs to perform the following steps in the workflow:
     - Step 1: Create a new BLOB triggered Logic App.
@@ -33,7 +33,7 @@ You will deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert
    - You have provisioned the FHIR Converter environment in Azure.
    - You have generated synthetic FHIR patient clinical data in C-CDA format.
    - You have converted C-CDA format to FHIR bundle.
-   - You have loaded the patient clinical data into FHIR server.
+   - You have loaded the patient clinical data into FHIR Server.
    - You have use Postman to retrieve the newly loaded patient clinical data in FHIR Server.
 
 ## Learning Resources
