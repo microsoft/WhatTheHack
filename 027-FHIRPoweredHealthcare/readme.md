@@ -21,7 +21,7 @@ To get you started, you will be guided through a sequence of challenges to imple
 10. **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to display the patient search results in a set of paginated web pages.
 
 ## Scenario
-Contoso Healthcare is implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with EHR (Electronic Health Record) systems and HLS (Life Science) research databases.  To help its healthcare practitioners and administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing new FHIR powered **[Health Architectures](https://github.com/rsliang/health-architectures)** to ingest and convert patient data from EMR (Electronic Medical Record), Clinical Data, Lab System, Scheduling System, etc. into FHIR bundles and persist them into a FHIR Compliant store in near real-time.
+Contoso Healthcare is implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with EHR (Electronic Health Record) systems and HLS (Life Science) research databases.  To help its healthcare practitioners and administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing new FHIR powered **[Health Architectures](https://github.com/rsliang/health-architectures)**.  This FHIR powered event-driven platform will provide services to ingest and convert patient data from EMR (Electronic Medical Record), Clinical Data, Lab System, Scheduling System, etc. into FHIR Bundles and persist them into a FHIR Compliant store in near real-time.
 
 Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
 1. Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
@@ -61,6 +61,7 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - [**Java 1.8 JDK**](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 - [**Node Module Extension**](https://code.visualstudio.com/docs/nodejs/extensions)
+- Postman
 
 ## Repository Contents
 - `../Student`
