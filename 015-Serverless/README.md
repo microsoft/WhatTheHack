@@ -53,7 +53,7 @@ This one possible Cloud Solution Architecture classifies under the **Application
 1.  Challenge 6: **[Create Functions in the Portal](./Student/06-PortalFunctions.md)**
     - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics.
 1.  Challenge 7: **[Monitoring](./Student/07-Monitoring.md)**
-    - Configure application monitoring with Application Insights Resource on Azure Portal
+    - Configure application monitoring with Application Insights Resource on Azure Portal.
 1.  Challenge 8: **[Data Export Workflow](./Student/08-Workflow.md)**
     - Deploy a Logic App to periodically export the license plate data and conditionally send an email.
 
