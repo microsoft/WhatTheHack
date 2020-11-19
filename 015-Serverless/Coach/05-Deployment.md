@@ -21,7 +21,7 @@ Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 |                                       |                                                                        |
 | ------------------------------------- | :--------------------------------------------------------------------: |
 | **Description**                       |                               **Links**                                |
-| Deploy Functions to Azure | <https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio/> |
+| Deploy Functions to Azure | <https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/> |
 
 
 ### **Errors in new portal**
