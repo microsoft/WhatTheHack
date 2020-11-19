@@ -1,4 +1,4 @@
-# Coach Intructions
+# Coach Instructions
 This is a challenge-based hack. The instuctions in this section have notes as well as step-by-step instructions. These are intended to be helpful tips should you not know what the student may have done wrong.  Screenshots are only as accurate as the time of screen capture and are subject to change.
 - Estimated duration is 12 hours depending on student skill level
 
