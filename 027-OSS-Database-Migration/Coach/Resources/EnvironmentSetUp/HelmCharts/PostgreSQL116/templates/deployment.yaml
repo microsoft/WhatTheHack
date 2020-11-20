@@ -18,6 +18,7 @@ spec:
       containers:
       - image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
         name: {{ .Values.infrastructure.appName }}
+        args: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
         resources:
           requests:
             memory: "{{ .Values.resources.requests.memory }}"
@@ -51,10 +52,15 @@ spec:
         volumeMounts:
         - name: "{{ .Values.infrastructure.appName }}-volume"
           mountPath: {{ .Values.infrastructure.dataVolume }}
+        - name: "postgresql-configuration"
+          mountPath: "/etc/postgresql"
       volumes:
       - name: "{{ .Values.infrastructure.appName }}-volume"
         persistentVolumeClaim:
           claimName: "{{ .Values.infrastructure.appName }}-persistent-storage"
+      - name: postgresql-configuration
+        configMap:
+          name: postgresql-config
 
 ---
 apiVersion: v1
