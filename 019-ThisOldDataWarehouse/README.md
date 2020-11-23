@@ -10,7 +10,7 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 1. Azure Synapse Decision Tree
 1. Refactor T-SQL code to be compatible with Synapse
 1. ETL/ELT design patterns and how to build them with ADF + ADLS
-1. Setup a streaming data pipeline with HDInsight Kafka
+1. Setup a streaming data pipeline with Kafka
 1. Tune Synapse for analytical workloads and design report for best performance
 
 ## Challenges
@@ -19,7 +19,7 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 1. [Data Warehouse Migration](./Student/Challenges/Challenge1/readme.md)
    - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
 1. [Data Lake integration](./Student/Challenges/Challenge2/README.md)
-   - Build out Staging tier in Azure Data Lake.  Architect Lake for staging, cleansed and presentation tiers with POSIX setup
+   - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
 1. [Data pipeline Migration](./Student/Challenges/Challenge3/README.md) 
    - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
 1. [Realtime Data pipelines](./Student/Challenges/Challenge4/README.md)
@@ -30,7 +30,7 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 ## Technologies
 1. Azure Synapse Analytics
 2. Azure Data Factory
-3. Azure HDInsight Kafka Cluster
+3. Azure Event Hubs w/ Kafka Cluster
 4. Azure Databricks
 5. Power BI
 
@@ -59,3 +59,5 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 - Jason Virtue
 - Annie Xu
 - Chris Mitchell
+- Brian Hitney
+- Israel Ekpo
