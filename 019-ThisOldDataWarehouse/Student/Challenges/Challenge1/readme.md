@@ -41,7 +41,6 @@ There will be four different object types we'll migrate:
 
 ### Overall Migration
 1. [SQL Server Database to Azure Synapse Analytics - Data Migration Guide](https://datamigration.microsoft.com/scenario/sql-to-sqldw?step=1)
-1. [Data migration techniques](https://github.com/uglide/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-migrate-data.md)
 
 ### Database Schema Migration
 1. [Architecture Document of the MPP platform](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
@@ -57,11 +56,10 @@ There will be four different object types we'll migrate:
     - Talk with coach for need of tool and trade-offs.  
 
 ### Database code rewrite (T-SQL)
-1. [Design Considerations when refactoring your code](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-develop)
-1. [Migrate T-SQL Code](https://github.com/uglide/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-migrate-code.md)
 1. [Common table Expression (WITH)](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15#features-and-limitations-of-common-table-expressions-in--and-)
 1. [Check your T-SQL for incompatibilies #3](https://www.blue-granite.com/blog/5-important-steps-when-migrating-to-your-scaled-out-data-warehouse)
 1. [SQL Differences in T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot#differences-from-sql-database)
+1. [T-SQL Reference Doc](https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-ver15)
 
 ### SSIS Job
 1. [Provision SSIS Runtime in Azure](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure)
@@ -81,9 +79,9 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 	WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
 	OR  y.[is_user_defined] = 1;
 ```
-3. Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse.
-4. For you to work in the SSIS Catalog on your server after setup follow these instructions.  Open SQL Server Management Studio. Connect to the SSISDB database. Select Options to expand the Connect to Server dialog box. In the expanded Connect to Server dialog box, select the Connection Properties tab. In the Connect to database field, select or enter SSISDB.
-
+1. Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse.
+1. For you to work in the SSIS Catalog on your server after setup follow these instructions.  Open SQL Server Management Studio. Connect to the SSISDB database. Select Options to expand the Connect to Server dialog box. In the expanded Connect to Server dialog box, select the Connection Properties tab. In the Connect to database field, select or enter SSISDB.
+1. ADF SSIS Runtime is not supported in Azure Synapse Analytics Pipelines.
 
 ## Additional Challenges
 

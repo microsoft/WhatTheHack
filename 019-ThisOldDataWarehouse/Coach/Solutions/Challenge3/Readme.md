@@ -29,6 +29,8 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 ## Environment Setup
 
+<b>Note: </b> Until Synapse Analytics goes GA, the coach's notes and students guides will leverage the terms Azure Data Lake Store Gen2, Azure Data Factory and Azure Synapse Database.  These terms will be replaced with Linked Storage, Data Pipelines and SQL Pools respectively as the reference documentation is updated upon GA.  It is acceptable to use Synapse Analytics Workspace as one of the adventures. We did not explicitly mention it since supporting documentation is missing.
+
 1. Add a new activity to your Azure Data Factory to load data from the new Azure Data Lake into the _Staging tables in the Data Warehouse in Azure Synapse via Polybase
     - The primary benefit of using ELT loading pattern in Azure is to take advantage of the capabilities of scale out cloud technologies to load data as quickly as possible and then leverage the power of Azure Synapse Analytics to transform that data, and finally merge it into its final destination.  In order to ingest the data that was loaded into the data lake in the previous challenge, you should add a new acitvity to the existing Azure Data Factory to load each table via Polybase.  A way to implement this dynamically would be to create parameterized stored procedures and call them using a Stored Procedure activity.  An example of how to load data via CTAS can be found [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase).
 
