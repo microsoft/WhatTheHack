@@ -11,13 +11,12 @@ The objective of this lab is to setup your on-premise data warehouse environment
 3. Estimate the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
 
 ## Learning Resources
-1. [Decision Tree for Analytics](/images/decisiontree.png)
-1. [Patterns & Anti-patterns](https://docs.microsoft.com/en-us/archive/blogs/sqlcat/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)
+1. [Decision Tree for Analytics](../../../images/decisiontree.png)
 1. [ISV Patterns](https://docs.microsoft.com/en-us/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse)
 1. [DWU Units](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)
 1. [Capacity Settings](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits#data-warehouse-capacity-settings)
 1. [DWU Architecture](https://www.databasejournal.com/features/mssql/getting-started-with-azure-sql-data-warehouse-part-2.html)
-1. [DWU Configuration](/images/dwuconfig.png)
+1. [DWU Configuration](../../../images/dwuconfig.png)
 
 
 ## Pre-requisites
