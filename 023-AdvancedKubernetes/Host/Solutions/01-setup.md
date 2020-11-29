@@ -1,3 +1,7 @@
+# Challenge 1 - Setup
+
+[Next Challenge>](./02-helm.md)
+
 ## Instructions
 
 Create accounts:
