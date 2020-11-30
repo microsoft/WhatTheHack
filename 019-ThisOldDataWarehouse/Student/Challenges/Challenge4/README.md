@@ -15,7 +15,11 @@ In order to generate the source data stream for this exercise, you will need to 
 
 Note: You can start the stream of data by executing script below in Azure Cloud Shell:
 
-``` az container create -g [Resource Group Name] --name [container name] --image alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]' 'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]' ```
+``` 
+az container create -g [Resource Group Name] --name [container name] --image
+alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]'
+'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]' 
+```
 
 ### Data Sink:
 Azure Databricks will be used to consume data from Event Hub and write the stream to Delta Lake tables stored in Azure Data Lake.

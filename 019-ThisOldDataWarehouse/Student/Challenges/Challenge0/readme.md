@@ -38,23 +38,28 @@ is for their data warehouse (OLAP).  You will need to setup both environments as
 
 2. Go into the cloud shell and select the subscription you plan to use for this WTH.
 
-        az account set --subscription {"Subscription Name"}
-        az account show
-
+```
+az account set --subscription {"Subscription Name"}
+az account show
+```
 
 3. Create a resource group to store the Modern Data Warehouse What the Hack.  This will be the services for your source systems/environments.  In Cloudshell, run this command
 
-        az group create --location eastus2 --name {"Resource Group Name"}
-
+```
+az group create --location eastus2 --name {"Resource Group Name"}
+```
 
 4. In the Cloudshell, run this command to create a SQL Server instance and restore the databases.  This will create an Azure Container Instance and restore the WideWorldImporters and WideWorldImoprtersDW databases.  These two databases are your LOB databases for this hack.
 
-        az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
-
+```
+az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7
+--ports 1433 --ip-address Public
+```
 
 5. At the start of Challenge 1, reach out to your coach and they will share hostname, username and password for your team.
 
 6. [Upload](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#upload-files) your ARM templates into Azure CloudShell. 
+
 
     /Student/Challenges/Challenge0/ARM.  
     The files are parametersFile.json and template.json.
@@ -63,8 +68,10 @@ is for their data warehouse (OLAP).  You will need to setup both environments as
 
 7. Run the last command to setup Azure Data Factory, SSIS Runtime, Vnet, and Azure SQL Database to host the SSIS catalog.  This will build out for Challenge one the SSIS environment in Azure Data Factory.
 
-        az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json --parameters parametersFile.json
-
+```
+az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json
+--parameters parametersFile.json
+```
 
 8. Last step and most important start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  Run before the kickoff presentation so it has enough time to start up before you start Challenge 1.  The startup time is approximately 30 minutes.
 
