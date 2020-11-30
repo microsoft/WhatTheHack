@@ -33,7 +33,11 @@ Open and configure Click Stream Generator application found [here](https://githu
 
 Here is a script to simplify deployment and reduce setup time for the hack.  This script is provided in the student's challenge.  
 
-``` az container create -g [Resource Group Name] --name [container name] --image alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]' 'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]' ```
+``` 
+az container create -g [Resource Group Name] --name [container name] --image
+alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]'
+'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]'
+```
 
 **Step 3 - Create Azure Data Lake Storage Account**
 Create a new ADLS Gen 2 storage account (or new folder in existing storage account) in your Resource Group.  This will be used as the backend storage for Delta Lake tables created in subsequent steps.
