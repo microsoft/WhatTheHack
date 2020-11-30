@@ -7,7 +7,7 @@
 WWI leadership team wants to leverage Power BI to create rich semantic models to promote self-service BI using Azure Synapse Analytics (ASA). Additionally, they want to empower different analysts from different organizations to use Power BI reporting capability and build out analytics reports and dashboards from those data models. The final solution needs to consider both report design as well as optimal response times.  Dashboards need to return in less 5 seconds.
 
 ## Description
-The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to return in less than 5 seconds.  This will require you to optimize the Power BI data model and report.  Secondly, you will need to tune the Azure Synapse database to ensure your table design is setup properly and you have setup statistics and results-set cache.  After completion, review your results with the coach to determine optimal design.
+The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to return in less than 5 seconds.  This will require you to optimize the Power BI data model and report.  Secondly, you will need to tune the Azure Synapse SQL Pool to ensure your table design is setup properly and you have setup statistics and results-set cache.  After completion, review your results with the coach to determine optimal design.
 
 ## Success Criteria
 * Reduce Response time to less than 10 seconds thru removing skew in Azure Synapse Analytics tables.
@@ -29,24 +29,21 @@ The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to ret
     
 ## Learning resources
 
-|                                            |                                                                                                                                                       |
-| ------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Description**                            |                                                                       **Links**                                                                       |
-| Performance Tuning | <https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a> |
-| Azure Synapse Analytics & Power BI performance| <https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/> |
-| Power BI Composite Model |<https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models>|
-| Power BI change table storage mode| <https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode>|
-| Table skew | <https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice> |
-| Table skew workflow | <https://github.com/rgl/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-manage-distributed-data-skew.md> |
-| Explain Plan | <https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest> |
-| Result-set cache | <https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching> |
-| Statistics | <https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics#use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database> |
+1. [Performance Tuning](https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a)
+1. [Azure Synapse Analytics & Power BI performance](https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/)
+1. [Power BI Composite Model](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models)
+1. [Power BI change table storage mode](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode)
+1. [Table skew](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
+1. [Table skew workflow](https://github.com/rgl/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-manage-distributed-data-skew.md)
+1. [Explain Plan](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)
+1. [Result-set cache](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching)
+1. [Statistics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics#use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database)
 
 
 
 ## Tips
 1. Request from the coach the student zip file
-1. Use SQL Credential when connecting to the Azure Synapse Analytics database
+1. Use SQL Credential when connecting to the Azure Synapse Analytics SQL Pool
 1. Make sure the ASA service is running in Azure Portal since it might pause based on your settings
 1. Create direct query mode data model first because you can convert direct query mode to imported mode but not vice versa 
 1. Use Power BI Perforamance Analyzer to check power bi query time and performance
