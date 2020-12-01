@@ -30,7 +30,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
 - [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/README.md)
-- [Azure Arc Enabled Servers](/025-ArcEnabledServers/README.md)
+- [Azure Arc enabled servers](/025-ArcEnabledServers/README.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
