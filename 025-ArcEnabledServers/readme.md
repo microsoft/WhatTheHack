@@ -20,7 +20,7 @@ This hack will help you learn:
  - [Challenge 2](./Student/challenge02.md) - Policy for Azure Arc connected servers
  - [Challenge 3](./Student/challenge03.md) - Arc Value Add: Integrate Security Center
  - [Challenge 4](./Student/challenge04.md) - Arc Value Add: Enable Sentinel
- - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Azure Lighthouse *Coming Soon*
+ - [Challenge 5](./Student/challenge05.md) - Arc Value Add: Azure Lighthouse
  
 
 ## Prerequisites
