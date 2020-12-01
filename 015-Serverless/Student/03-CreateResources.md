@@ -1,8 +1,8 @@
-# Challenge 2 - Create Resources
+# Challenge 3 - Create Resources
 
 ## Prerequisities
 
-1. [Challenge 1 - Setup](./Setup.md) should be done successfuly.
+1. [Challenge 2 - Create a Hello World Function](./02-FunctionIntro.md) should be done successfuly.
 
 
 ## Introduction
@@ -66,4 +66,4 @@ _HINT : Record names and keys_
 | Key Vault Secret Identifiers        |                                              <https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates>                                              |
 
 
-[Next challenge (Configuration) >](./Configuration.md)
+[Next challenge (Configuration) >](./04-Configuration.md)

@@ -1,4 +1,19 @@
-# Challenge 6 - Monitoring
+# Challenge 7 - Monitoring
+
+## Coach's Notes
+The App insights can be created in new or old functions portal.  In new, Instrumentation key is not needed.  In old, the key will need to be added to the app settings.
+
+For edits to the App.config, the following will need to be added:
+```javascript
+  <appSettings>
+    <add key ="blobStorageConnection" value="THEIR_BLOB_CONNECTION_STRING"></add>
+  </appSettings>
+```
+
+If students still get a storage account error, then they need to add the connection string to the Debug tab in the Function's properties Command Line arguements
+
+
+## Step by Step Instructions
 
 ### Help references
 
@@ -87,15 +102,3 @@ Now that Application Insights has been integrated into your Function Apps, you c
 13. Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. It is possible that the process will run so efficiently that no more than two servers will be allocated at a time. You should also notice things such as a steady cadence for the Request Rate monitor, the Request Duration hovering below \~500ms second, and the Process CPU percentage roughly matching the Request Rate.
 
 14. After this has run for a while, close the image uploader console window once again, but leave the Live Metrics Stream window open.
-
-
-
-[Next optional challenge A (Scale the Cognitive Service) >](./Host-ScaleCognitive.md)
-
-Or
-
-[Next optional challenge B (View Data in Cosmos DB) >](./Host-Cosmos.md)
-
-Or
-
-[Next challenge (Data Export Workflow) >](./Host-Workflow.md)

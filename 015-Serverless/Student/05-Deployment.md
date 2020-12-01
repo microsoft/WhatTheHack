@@ -1,8 +1,8 @@
-# Challenge 4 - Deployment
+# Challenge 5 - Deployment
 
 ## Prerequisities
 
-1. [Challenge 3 - Configuration](./Configuration.md) should be done successfuly.
+1. [Challenge 4 - Configuration](./04-Configuration.md) should be done successfuly.
 
 ## Introduction
 In this challenge, you will deploy the VS project to Azure.
@@ -27,7 +27,7 @@ In this challenge, you will deploy the VS project to Azure.
 |                                       |                                                                        |
 | ------------------------------------- | :--------------------------------------------------------------------: |
 | **Description**                       |                               **Links**                                |
-| Deploy Functions to Azure | <https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio/> |
+| Deploy Functions to Azure | <https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/> |
 
 
-[Next challenge (Create Functions in the Portal) >](./PortalFunctions.md)
+[Next challenge (Create Functions in the Portal) >](./06-PortalFunctions.md)

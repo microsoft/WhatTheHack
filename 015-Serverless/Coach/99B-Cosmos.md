@@ -1,5 +1,11 @@
 # Optional Challenge B - Data in Cosmos DB
 
+## Coach's Notes
+None
+
+## Step by Step Instructions
+
+
 ### Help references
 
 |                       |                                                           |
@@ -32,4 +38,4 @@ SELECT VALUE COUNT(c.id) FROM c WHERE c.exported = false
 
 9.  Execute the query and observe the results. In our case, we have 1,369 processed documents that need to be exported.
 
-[Next challenge (Data Export Workflow) >](./Host-Workflow.md)
+
