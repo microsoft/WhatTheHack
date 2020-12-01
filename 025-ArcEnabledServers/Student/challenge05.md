@@ -1,4 +1,4 @@
-# What the Hack: Azure Arc enabled Servers 
+# What the Hack: Azure Arc enabled servers 
 
 ## Challenge 5 – Arc Value Add: Enable Lighthouse *Coming Soon*
 [Back](challenge04.md) - [Home](../readme.md) - [Next](challenge06.md)
