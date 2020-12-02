@@ -15,13 +15,13 @@ This requires Helm3 and the latest version of Azure CLI to be installed
 ```shell
 
 # Clone the Git Repository
-git clone WhatTheHackGitURL
+#git clone WhatTheHackGitURL
 
 # Get into the WhatTheHack repo
-cd WhatTheHack
+#cd WhatTheHack
 
 # Navigate to the Helm Charts
-cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
+#cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
 
 # Install the Kubernetes Resources
 helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.password=OCPHack8
@@ -36,7 +36,7 @@ kubectl -n postgresql get svc
 
 ```
 
-## Checking the Pod for Postgresl
+## Checking the Pod for Postgres
 
 ```shell
 
@@ -52,18 +52,23 @@ kubectl -n postgresql get pods
 kubectl -n postgresql exec deploy/postgres -it -- bash
 
 # Use this to login to the service
-psql -U postgres
 
-# Check the DB Version
+psql -U postgres 
+```
+Run the following commands to check the Postgres Version
+
+```sql
+
+--Check the DB Version
 SELECT version();
 
-# Show databases
+--List databases notice that there is a database called wth with data
 \l
 
-# Set default database
-\c databasename
+-- Set default database to wth
+\c wth
 
-# Show tables in database
+--Show tables in database
 \dt
 
 ```
@@ -74,7 +79,7 @@ Use this to uninstall the PostgreSQL 11 instance from Kubernetes cluster
 
 ```shell
 
-# Use this to connect to the database server
+# Uninstall to the database server. To install again, run helm upgrade
 helm uninstall wth-postgresql
 
 ```
@@ -98,7 +103,7 @@ kubectl -n mysqlwth get svc
 
 ```
 
-## Checking the Pod for Postgresl
+## Checking the Pod for MySQL
 
 ```shell
 
@@ -115,19 +120,32 @@ kubectl -n mysqlwth exec deploy/mysql -it -- bash
 
 # Use this to login to the service
 mysql -u root -pOCPHack8
+```
+```sql
 
-# Check the DB Version
+-- Check the mysql DB Version
 SELECT version();
 
-# Show databases
+-- List databases
 SHOW DATABASES;
 
-# Set default database
-USE ocpwth
+-- Set default database to wth
+USE wth
 
-# Show tables in database
+-- Show tables in wth database
 
 SHOW TABLES;
+
+```
+
+## Uninstalling the MySQL from Kubernetes
+
+Use this to uninstall the MySQL instance from Kubernetes cluster
+
+```shell
+
+# Uninstall to the database server. To install again, run helm upgrade command previously executed
+helm uninstall wth-mysql
 
 ```
 
@@ -161,24 +179,6 @@ appConfig:
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 ```
 
-After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
-
-```shell
-
-# get service ports and IP addresses
-kubectl -n {infrastructure.namespace goes here} get svc
-
-# get service pods running the app
-kubectl -n {infrastructure.namespace goes here} get pods
-
-# view the first 5k lines of the application logs
-kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
-
-# example for ports and services
-kubectl -n contosoappmysql get svc
-
-```
-
 To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
 
 ```shell
@@ -193,4 +193,44 @@ To deploy the app backed by PostgreSQL, run the following command after you have
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
 
+```
+
+If you wish to uninstall the app, you can use one of the following commands:
+
+```shell
+
+# Use this to uninstall, if you are using MySQL as the database
+helm uninstall mysql-contosopizza
+
+# Use this to uninstall, if you are using PostgreSQL as the database
+helm uninstall postgres-contosopizza
+
+```
+
+
+After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
+
+```shell
+
+# get service ports and IP addresses
+kubectl -n {infrastructure.namespace goes here} get svc
+
+# get service pods running the app
+kubectl -n {infrastructure.namespace goes here} get pods
+
+# view the first 5k lines of the application logs
+kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
+
+# example for ports and services
+kubectl -n {infrastructure.namespace goes here} get svc
+
+```
+
+Verify that contoso pizza application is running on AKS
+
+```shell
+
+# Insert the external IP address of the command <kubectl -n contosoappmysql or contosoapppostgres get svc below>
+
+http://{external_ip_contoso_app}:8081/pizzeria/   
 ```
