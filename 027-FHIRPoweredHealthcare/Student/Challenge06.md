@@ -1,10 +1,10 @@
-# Challenge 6: Add patient lookup function to the JavaScript app
+# Challenge 6: Create a new React Single Page App (SPA) for patient search
 
 [< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** 
 
 ## Introduction
 
-In this challenge, you will create a new React app and use msal configurations for FHIR Server from previous JavaScript app to connect, read and search FHIR data.
+In this challenge, you will create a new React Singe Page App (SPA) and use FHIR Server msal configurations from previous JavaScript app to connect, read and search for FHIR data.
 
 ## Description
 
