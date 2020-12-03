@@ -4,12 +4,12 @@
 
 ## Introduction
 
-In this challenge, you will create a new React Singe Page App (SPA) and use FHIR Server msal configurations from previous JavaScript app to connect, read and search for FHIR data.
+In this challenge, you will create a new React Single Page App (SPA) and use FHIR Server msal configurations from previous JavaScript app to connect, read and search for FHIR patient data.
 
 ## Description
 
 - Create a new React Single Page App (SPA) using `Create React App` frontend build pipeline.
-- Create a patient lookup by Given name for SPA.
+- Create a patient lookup by Given name in SPA.
 - Build and deploy the new React Patient Search React app to Azure App Services.
 
     Hint: 
