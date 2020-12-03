@@ -1,0 +1,83 @@
+config:
+    phases:
+      - duration: 120
+        arrivalRate: 2
+        rampTo: 15
+        name: "Warm up the application"
+      - duration: 300
+        arrivalRate: 15
+        name: "Sustained max load"
+scenarios:
+    - name: "Main Page"
+      flow:
+      - get:
+          url: "/"
+          capture:
+            - header: "X-ContosoMasks-StaticEndpoint"
+              as: "staticendpoint"            
+      - get:
+          url: "{{ staticendpoint }}images/usa.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/golf-small.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/matzah-small.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/minecraft-small.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/spicey-small.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/stone-small.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/usa-small.jpg"
+      - get:
+          url: "{{ staticendpoint }}lib/jquery/dist/jquery.min.js"
+      - get:
+          url: "{{ staticendpoint }}lib/jquery-validation/dist/jquery.validate.min.js"
+      - get:
+          url: "{{ staticendpoint }}lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+      - get:
+          url: "{{ staticendpoint }}lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+      - get:
+          url: "{{ staticendpoint }}js/site.js"
+      - get:
+          url: "{{ staticendpoint }}favicon.ico"
+      - get:
+          url: "{{ staticendpoint }}lib/bootstrap/dist/css/bootstrap.min.css"
+      - get:
+          url: "{{ staticendpoint }}css/site.css"
+      - get:
+          url: "{{ staticendpoint }}images/homescreen.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/golf.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/matzah.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/minecraft.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/spicey.jpg"
+      - get:
+          url: "{{ staticendpoint }}images/stone.jpg"              
+    - name: "Message Page"
+      flow:              
+      - get:
+          url: "/Message"
+          capture:
+            - header: "X-ContosoMasks-StaticEndpoint"
+              as: "staticendpoint"                        
+      - get:
+          url: "{{ staticendpoint }}lib/jquery/dist/jquery.min.js"
+      - get:
+          url: "{{ staticendpoint }}lib/jquery-validation/dist/jquery.validate.min.js"
+      - get:
+          url: "{{ staticendpoint }}lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+      - get:
+          url: "{{ staticendpoint }}lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+      - get:
+          url: "{{ staticendpoint }}js/site.js"
+      - get:
+          url: "{{ staticendpoint }}favicon.ico"
+      - get:
+          url: "{{ staticendpoint }}lib/bootstrap/dist/css/bootstrap.min.css"
+      - get:
+          url: "{{ staticendpoint }}css/site.css"
+  
