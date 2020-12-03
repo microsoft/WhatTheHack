@@ -4,13 +4,17 @@
 
 ## Introduction
 
-In this challenge, you will create a new React Single Page App (SPA) and use FHIR Server msal configurations from previous JavaScript app to connect, read and search for FHIR patient data.
+In this challenge, you will create a new React Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
 ## Description
 
-- Create a new React Single Page App (SPA) using `Create React App` frontend build pipeline.
+- Create a new React Single-Page App (SPA) 
+
+  Hint:
+  You can use **[`Create React App`](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to quickly create a new single-page app.
+
+- Integrate and configure the Microsoft Authentication Library (MSAL) with your React application to access FHIR Server.
 - Create a patient lookup by Given name in SPA.
-- Build and deploy Patient Search React app to Azure App Service.
 
     Hint: 
     For patient search by Given name example, your code should call the following FHIR Server API operation:
@@ -18,6 +22,7 @@ In this challenge, you will create a new React Single Page App (SPA) and use FHI
     `GET {{fhirurl}}/Patient?given:contains=[pass-your-search-text]`
 
 - (Optional) Include any other modern UI features to improve the user experience.
+- Build and deploy React Patient Search web app to Azure App Service.
 - Test the React Patient Search app:
   - Browse to App Service website URL in In-private mode
   - Sign in with your secondary tenant used in deploying FHIR Server Samples reference architecture
@@ -26,13 +31,16 @@ In this challenge, you will create a new React Single Page App (SPA) and use FHI
     - This will filter patient data that contains the specified Given name and return search results to browser
 
 ## Success Criteria
-- You have created a React Patient Search app
-- You have built and deployed the React app to Azure App Service.
-- You have tested the new Patient Search web app.
+- You have created a React Patient Search app and deployed it to Azure.
+- You have tested React Patient Search web app.
 
 ## Learning Resources
 
-- **[Create React App frontend build pipeline](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
-- **[react aad msal getting started](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
-- **[react aad msal sample applications](https://www.npmjs.com/package/react-aad-msal#cd-sample-applications)**
+- **[Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html)**
+- **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
+- **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
+- **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
+- **[Getting Started: Using `React AAD MSAL` library components to integrate MSAL with AAD in your React app](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
+- **[`React AAD MSAL` sample applications](https://www.npmjs.com/package/react-aad-msal#cd-sample-applications)**
+- **[How to create a simple search app in React](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
 - **[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux)**
