@@ -10,7 +10,7 @@ In this challenge, you will create a new React Single Page App (SPA) and use FHI
 
 - Create a new React Single Page App (SPA) using `Create React App` frontend build pipeline.
 - Create a patient lookup by Given name in SPA.
-- Build and deploy the new React Patient Search React app to Azure App Services.
+- Build and deploy Patient Search React app to Azure App Service.
 
     Hint: 
     For patient search by Given name example, your code should call the following FHIR Server API operation:
@@ -28,7 +28,7 @@ In this challenge, you will create a new React Single Page App (SPA) and use FHI
 ## Success Criteria
 - You have created a React Patient Search app
 - You have built and deployed the React app to Azure App Service.
-- You have tested the new patient search web app.
+- You have tested the new Patient Search web app.
 
 ## Learning Resources
 
