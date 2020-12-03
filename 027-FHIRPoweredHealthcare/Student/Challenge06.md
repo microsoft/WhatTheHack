@@ -29,7 +29,7 @@ In this challenge, you will extend the previously deployed sample JavaScript app
 
 ## Learning Resources
 
-- **[Quickstart: Create an Azure Cognitive Search index in Node.js using REST APIs](https://docs.microsoft.com/en-us/azure/search/search-get-started-nodejs)**
-- **[Azure Search JavaScript Samples for Accessing an Azure Search Service](https://github.com/liamca/azure-search-javascript-samples)**
+- **[Create a new react app](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
+- **[react aad msal getting started](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
+- **[react aad msal sample applications](https://www.npmjs.com/package/react-aad-msal#cd-sample-applications)**
 - **[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux)**
-
