@@ -31,7 +31,8 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
    - HINT: The default annotations are ok
    - HINT: Use nip.io for DNS resolution
 1. Verify App is available at myapp.$INGRESS_IP.nip.io
-   - HINT: `INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)`
+   - HINT: `INGRESS_IP=$(kubectl get service -n ingress-basic nginx-ingress-ingress-nginx-controller -o json |
+ jq '.status.loadBalancer.ingress[0].ip' -r)`
 
 
 ## Success Criteria
