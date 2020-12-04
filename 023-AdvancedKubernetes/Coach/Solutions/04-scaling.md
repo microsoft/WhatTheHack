@@ -22,7 +22,10 @@ When scaling in Kubernetes, there are some considerations:
 #### Using az cli:
 
 ``` bash
-az aks nodepool update --cluster-name $CLUSTER_NAME -n $NODEPOOL_NAME -g $RESOURCE_GROUP --enable-cluster-autoscaler --min-count=1 --max-count=10
+az aks nodepool update --cluster-name $CLUSTER_NAME -g $RESOURCE_GROUP \
+  -n $NODEPOOL_NAME \
+  --enable-cluster-autoscaler \
+  --min-count=1 --max-count=10
 ```
 
 #### Using Azure portal:
@@ -91,10 +94,10 @@ kubectl autoscale deployment/hpa-example --max=10
 
 ### Simulate load by sending requests to the service
 
-Create a pod that continuously sends requests to the service
+Create pods to continuously send requests to the service
 
 ``` bash
-kubectl run busybox --image=busybox --restart=Never -- /bin/sh -c "while true; do wget -q -O- hpa-example; done"
+kubectl create deployment busybox --image=busybox -- /bin/sh -c "while true; do wget -q -O- hpa-example; done" --replicas=10
 ```
 
 Examine pod resource usage:
@@ -109,7 +112,7 @@ hpa-example-69757b4d69-q4kgb   501m         12Mi
 Examine the pod autoscaler (it will take a few moments to update):
 
 ``` bash
-$kubectl get hpa -w
+$ kubectl get hpa -w
 hpa-example   Deployment/hpa-example   100%/80%        1         10        1          15s
 hpa-example   Deployment/hpa-example   100%/80%        1         10        2          30s
 hpa-example   Deployment/hpa-example   64%/80%         1         10        2          61s
@@ -122,7 +125,7 @@ Notice that the autoscaler has scaled up the number of pods in the deployment du
 Kill the busybox pod from the prior step:
 
 ``` bash
-kubectl delete pod busybox
+kubectl delete deployment busybox
 ```
 
 The pod autoscaler should automatically remove pods as load decreases.
