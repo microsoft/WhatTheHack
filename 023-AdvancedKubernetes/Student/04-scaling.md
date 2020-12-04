@@ -23,7 +23,7 @@ When scaling in Kubernetes, there are some considerations:
     - HINT: Don't forget about requests/limits
 - Create the HPA for this deployment
 - Simulate load by sending requests to the service
-    - Use a busybox deployment to continuously send traffic:  `kubectl create deployment busybox --image=busybox -- /bin/sh -c "while true; do wget -q -O- hpa-example; done" --replicas=10`
+    - Use a busybox deployment to continuously send traffic:  `kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- hpa-example; done"`
     - Adjust the number of replicas as needed
 
 ## Success Criteria
