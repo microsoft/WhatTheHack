@@ -31,7 +31,7 @@ az acr create -n $ACR_NAME -g $RG_NAME --sku basic
 ```
 RG_NAME=aks-wth
 AKS_NAME=aks-wth
-NP_NAME=userpool
+NODEPOOL_NAME=userpool
 LOCATION=eastus
 
 # create resource group
@@ -47,7 +47,7 @@ az aks create -n $AKS_NAME -g $RG_NAME \
 
 # add new nodepool
 az aks nodepool add --cluster-name AKS_NAME -g $RG_NAME \
-    -n $NP_NAME \
+    -n $NODEPOOL_NAME \
     --enable-cluster-autoscaler \
     --min-count 1 --max-count 5
     
