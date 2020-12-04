@@ -97,7 +97,7 @@ kubectl autoscale deployment/hpa-example --max=10
 Create pods to continuously send requests to the service
 
 ``` bash
-kubectl create deployment busybox --image=busybox -- /bin/sh -c "while true; do wget -q -O- hpa-example; done" --replicas=10
+kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- hpa-example; done"
 ```
 
 Examine pod resource usage:
