@@ -39,8 +39,8 @@ most common and prevalent tasks in Machine Learning.
     *pip install -r ./environment_setup/requirements.txt*
 
 3.  Configure your Azure ML Workspace for the project. 
-    Hint: Add workspace details through Azure DevOps pipeline variables
-    Hint: Add workspace details in config.json. You can download it from portal too
+    *Hint:* Add workspace details through Azure DevOps pipeline variables
+    *Hint:* Add workspace details in config.json. You can download it from portal too
 
 4.  Now that you have environment setup, explore the python files in the
     following order to train an ARIMA forecasting model
