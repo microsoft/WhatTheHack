@@ -30,7 +30,7 @@ most common and prevalent tasks in Machine Learning.
     1.  Import quickstart code from **github repo** (actually you will need to
         fork the repo into your own git account and then import it)
 
-    2.  Create a new service connection for Azure ML service using service
+    2.  Create new service connections in Project Settings for your Azure ML service and Azure Subscription using service
         principal
       
     3.  Clone the project in VS Code
@@ -38,8 +38,9 @@ most common and prevalent tasks in Machine Learning.
 2.  Install library requirements to setup your environment:  
     *pip install -r ./environment_setup/requirements.txt*
 
-3.  Configure your Azure ML Workspace for the project. Hint: Add workspace
-    details through Azure DevOps pipeline variables
+3.  Configure your Azure ML Workspace for the project. 
+    Hint: Add workspace details through Azure DevOps pipeline variables
+    Hint: Add workspace details in config.json. You can download it from portal too
 
 4.  Now that you have environment setup, explore the python files in the
     following order to train an ARIMA forecasting model
