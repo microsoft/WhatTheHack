@@ -39,26 +39,26 @@ most common and prevalent tasks in Machine Learning.
     *pip install -r ./environment_setup/requirements.txt*
 
 3.  Configure your Azure ML Workspace for the project. 
-    - **Hint:** Add workspace details through Azure DevOps pipeline variables
-    - **Hint:** Add workspace details in config.json. You can download it from portal too
+    - **Hint:** Add workspace details through Azure DevOps pipeline variables.
+    - **Hint:** Add workspace details in config.json. You can download it from portal too.
 
 4.  Now that you have environment setup, explore the python files in the
     following order to train an ARIMA forecasting model
 
-    1.  Workspace.py to setup connection with your Azure ML service workspace
+    1.  Workspace.py to setup connection with your Azure ML service workspace.
 
-    2.  AcquireData.py to get daily transactions data from AdventureWorks
+    2.  AcquireData.py to get daily transactions data from AdventureWorks.
 
     3.  TrainOnLocal.py to train the model local. Explore and run
-        transactions_arima.py file to understand how ARIMA model is built
+        transactions_arima.py file to understand how ARIMA model wass built.
 
-    4.  EvaluateModel.py to evaluate the model
+    4.  EvaluateModel.py to evaluate the model.
 
-    5.  RegisterModel.py to register the model with Model registry
+    5.  RegisterModel.py to register the model with Model registry.
 
     6.  ScoreModel.py for scoring/forecasting using the trained model.
 
-    7.  deployOnAci.py to deploy the scoring image on ACI
+    7.  deployOnAci.py to deploy the scoring image on ACI.
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
     
