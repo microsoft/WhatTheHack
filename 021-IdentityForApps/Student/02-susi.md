@@ -1,73 +1,54 @@
 # What The Hack - Challenge Template
 
-_This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it._
-
-_This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc_
-
 # Challenge \#2 - Sign Me Up! Sign Me In!
 
 [< Previous Challenge](./01-provision-b2c.md) - **[Home](../readme.md)** - [Next Challenge>](./03-external-idp.md)
 
-## Pre-requisites (Optional)
+## Introduction
 
-_Include any technical pre-requisites needed for this challenge. Typically, it is completion of one or more of the previous challenges if there is a dependency._
+Now that you've created your B2C tenant, Contoso Manufacturing's consultant management website requires the ability for the consultants to sign-up and sign-in to the site.
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-_Provide an overview of the technologies or tasks that will be needed to complete the next challenge. This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge._
-
-_Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic._
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+In addition to providing some basic demographic information about the consultant (such as first and last name, display name, email address), you also want to collect the consultant's CMC Consultant ID during the sign-up process. The CMC Consultant ID is a 10 digit alphanumeric string that is assigned by Contoso Manufacturing to each of their consultants. When the consultant signs up on the management website, they need to provide this ID.
 
 ## Description
 
-_The challenge description and details go here. This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge. If this is more than 2-3 paragraphs, it's likely you are not doing it right._
+CMC's IT Management has asked you to set up the newly created B2C tenant to allow CMC consultants to sign-up for an account and also to be able to sign-in to the B2C tenant.
 
-_Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts._
+They are asking that you collect the following attributes of each consultant:
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- First Name
+- Last Name
+- Display Name
+- Email Address
+- City
+- State
+- CMC Consultant ID
+
+It should be noted that CMC only is licensed to do business in the following states: **NY, PA, OH, IN, IL, MN, WI, KY, WV, IA**.
+
+CMC IT Management has also asked that First and Last Name are displayed BEFORE Display Name on the sign up form. There's also a rumor that IT Management has also expressed that they are partial to the Slate Gray User Flow template.
 
 ## Success Criteria
 
-_Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge._
+In order to be successful, CMC IT Management is requiring that consultants can:
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
+- Sign-up for a new management website account
+- Sign-in with their newly created account
+- Ensure that the consultant provides a CMC ID
+- Ensure that consultants in the states that CMC is certified in are allowed to sign up.
+- Ensure that the email provided is a valid email address.
+- Ensure that the user attributes are displayed in preferred order along with the proper template being used.
 
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+There isn't a consultant management web application yet (the developers are a bit behind schedule), so IT Management is fine with testing our sign-up and sign-in capabilities in the B2C tenant portal (for now!).
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-_Add tips and hints here to give students food for thought._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
+- [Azure AD B2C User Flow Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-flow-overview)
+- [Azure AD B2C Custom Attributes](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-flow-custom-attributes)
 
 ## Advanced Challenges (Optional)
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+1. IT Management has decided that the sign-up policy doesn't require Email Verification (I mean, who would enter a non-existant email address??). Disable this in your sign-up policy.
+2. IT Management is also considering allowing users to edit their account after creation. Get a head start on this by putting together an Edit Profile User Flow and test it in the B2C Tenant Portal.

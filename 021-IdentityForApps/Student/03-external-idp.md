@@ -1,73 +1,39 @@
-# What The Hack - Challenge Template
-
-_This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it._
-
-_This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc_
-
 # Challenge \#3 - External Identity Providers
 
 [< Previous Challenge](./02-susi.md) - **[Home](../readme.md)** - [Next Challenge>](./04-l14n.md)
 
 ## Pre-requisites (Optional)
 
-_Include any technical pre-requisites needed for this challenge. Typically, it is completion of one or more of the previous challenges if there is a dependency._
+**- To complete this challenge, you should have completed the following:**
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-_Provide an overview of the technologies or tasks that will be needed to complete the next challenge. This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge._
-
-_Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic._
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+- Provisioned a B2C tenant
+- Created a SignUp / SignIn (SUSI) User Flow
+- Tested the User Flow via the Azure AD B2C Portal
 
 ## Description
 
-_The challenge description and details go here. This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge. If this is more than 2-3 paragraphs, it's likely you are not doing it right._
+CMC IT Leadership is very excited with the SignUp / SignIn flow that you developed....BUT, they want some more features. They've decided that they would like to streamline the ability of consultants to sign in and sign up by allowing the consultants to use their social identity to sign up and sign in.
 
-_Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts._
+CMC IT has empowered you to determine which 3rd party Identity Provider (IdP) to integrate into your User Flow. Some examples that IT Leadership provided included Facebook, GitHub, and Twitter, but it's your decision.
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+CMC IT Leadership has asked that the consultant can choose, during sign-up, to either create a new account or use their 3rd party identity. IF they choose to use a 3rd party identity, they would be directed to the 3rd party IdP to authenticate before their Azure AD B2C user account is created. You should also collect the same information that you're collecting for new account creation (see Challenge 2), but most importantly is collecting the CMC Consultant ID. Other attributes are optional (as they may depend on the 3rd party IdP being integrated), but the CMC Consultant ID is **required** to be collected.
 
 ## Success Criteria
 
-_Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge._
+CMC IT Leadership will judge your success based on:
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- Successful integration of a 3rd party IdP of your choosing for account SignUp and SignIn
+- You are collecting additional attributes for the user, and the CMC Consultant ID is a required attribute. If the user does not provide it, do not allow the user to proceed.
+- You are still enforcing the certified states and not allowing a user to choose a state that CMC is not certified.
+- You can sign-up with both 3rd party social identities and also create a new account; you can sign-in with both 3rd party identities and also local accounts.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-_Add tips and hints here to give students food for thought._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
+- [Integrate Facebook with Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-facebook)
+- [Integrate GitHub with Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-github)
 
 ## Advanced Challenges (Optional)
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+**- Instead of using a 3rd party social IdP, integrate an [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant). This could be a new AAD Tenant that you create for this challenge, but you will need permission to create Application Registrations.**
