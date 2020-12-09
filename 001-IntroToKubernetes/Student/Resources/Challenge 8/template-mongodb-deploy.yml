@@ -23,18 +23,11 @@ spec:
   selector:
     matchLabels:
       name: mongo-db
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
       labels:
         name:  mongo-db
     spec:
-      nodeSelector:
-        "failure-domain.beta.kubernetes.io/zone": "<your zone>"
       containers:
       - image:  mongo
         name:  mongo-db-cntnr
@@ -50,7 +43,6 @@ spec:
           name: azuredisk-db
         - mountPath: /data/configdb
           name: azuredisk-configdb
-        imagePullPolicy: Always
       volumes:
         - name: azuredisk-db
           persistentVolumeClaim:
@@ -58,4 +50,3 @@ spec:
         - name: azuredisk-configdb
           persistentVolumeClaim:
             claimName: <config pvc>
-      restartPolicy: Always
