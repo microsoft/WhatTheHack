@@ -23,18 +23,11 @@ spec:
   selector:
     matchLabels:
       name: mongo-db
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
       labels:
         name:  mongo-db
     spec:
-      nodeSelector:
-        "failure-domain.beta.kubernetes.io/zone": "eastus-2"
       containers:
       - image:  mongo
         name:  mongo-db-cntnr
@@ -50,7 +43,6 @@ spec:
           name: mongodb-datadisk
         - mountPath: /data/configdb
           name: mongodb-configdisk
-        imagePullPolicy: Always
       volumes:
         - name: mongodb-datadisk
           persistentVolumeClaim:
@@ -58,4 +50,3 @@ spec:
         - name: mongodb-configdisk
           persistentVolumeClaim:
             claimName: mongodb-configdisk-pvc
-      restartPolicy: Always

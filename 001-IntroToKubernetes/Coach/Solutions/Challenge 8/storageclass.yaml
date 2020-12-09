@@ -1,10 +1,6 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: eastus2-disk
+  name: zone-disk
 provisioner: kubernetes.io/azure-disk
-allowedTopologies:
-  - matchLabelExpressions:
-    - key: failure-domain.beta.kubernetes.io/zone
-      values:
-        - eastus-2
+volumeBindingMode: WaitForFirstConsumer
