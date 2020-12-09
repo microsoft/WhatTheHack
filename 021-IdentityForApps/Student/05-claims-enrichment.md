@@ -1,73 +1,50 @@
-# What The Hack - Challenge Template
-
-_This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it._
-
-_This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc_
-
-# Challenge \#5 - Claims Enrichment
+# Challenge \#5 - Claims Enrichment - The ID Verify-inator!!
 
 [< Previous Challenge](./04-l14n.md) - **[Home](../readme.md)** - [Next Challenge>](./06-conditional-access.md)
 
 ## Pre-requisites (Optional)
 
-_Include any technical pre-requisites needed for this challenge. Typically, it is completion of one or more of the previous challenges if there is a dependency._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-_Provide an overview of the technologies or tasks that will be needed to complete the next challenge. This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge._
-
-_Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic._
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+- Provisioned a B2C tenant
+- Created a SignUp / SignIn (SUSI) User Flow
+- Tested the User Flow via the Azure AD B2C Portal
+- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
+- Using a custom HTML template
+- Localized resources along with multi-language support
+- A working Profile Edit User Flow
 
 ## Description
 
-_The challenge description and details go here. This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge. If this is more than 2-3 paragraphs, it's likely you are not doing it right._
+CMC IT Leadership is really impressed with your work - you might get that sweet promotion you've been in line for over the past several years....BUT (oh no), you are hearing rumblings that QA has found an issue with your SignUp / SignIn policy. It seems that QA has been able to enter bogus CMC Consultant IDs during the SignUp process. As a result, anyone could sign up as a consultant with an invalid CMC Consultant ID, which would distort CMC's numbers.
 
-_Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts._
+Luckily, a developer on your team has developed a CMC Consultant ID checker function, and named it the "CMC ID Verify-inator". It validates that the CMC Consultant ID entered adheres to the following rules:
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- the ID is 10 alphanumeric characters (no special characters or spaces allowed);
+- the first three characters are digits, the next four are letters, and the last three are digits;
+- the regex for this validation is `[0-9]{3}[a-z,A-Z]{4}[0-9]{3}`
+
+Also, your developer has packaged this in an Azure function (in your resources) which will validate a passed-in CMC Consultant ID and return `true` if the CMC Consultant ID is valid and `false` otherwise. CMC IT Leadership has heard about the "CMC ID Verify-inator" and would like you to incorporate it into your SignUp / SignIn User Flow. If the user passes in an invalid CMC Consultant ID during sign-up, you should prevent the user's account from being created.
+
+Also, your innovative developer has also developed an enhancement to the "CMC ID Verify-inator" that will generate a Consultant Territory Name. Of course, your developer is trying to make a name for themselves, and has leaked this to IT Leadership. As a result, IT Leadership would like you to incorporate this enhancement as part of the sign-up process and this territory name should be a new custom attribute added to the new consultant's account and one of the returned claims when a consultant signs in.
+
+Your developer has also included a configuration setting so for the B2C tenant's extensions attribute ID. You may want to investigate this setting.
 
 ## Success Criteria
 
-_Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge._
+CMC IT Leadership considers success in dealing with this QA issue if you are able to:
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- Create the new custom attribute for Territory Name in your B2C tenant;
+- Deploy the Azure function (the "CMC ID Verify-inator");
+- Ensure that, during sign-up, a consultant enters a valid CMC Consultant ID; if they pass in an invalid ID, the consultant is presented with a friendly error message;
+- Ensure that, during sign-up, a territory name is generated and added to the consultant's account;
+- Ensure that, during sign-in, the consultant's territory name is returned as part of their token;
+- Ensure that, during profile editing, the consultant's territory name is editable but the CMC Consultant ID is not editable.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+**[API Connector Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/api-connectors-overview)**
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
+**[Adding an API Connector](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector)**
 
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
+## Tips
 
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-_Add tips and hints here to give students food for thought._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-## Advanced Challenges (Optional)
-
-_Too comfortable? Eager to do more? Try these additional challenges!_
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+**- [API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)**

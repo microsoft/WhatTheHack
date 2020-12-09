@@ -1,73 +1,48 @@
-# What The Hack - Challenge Template
-
-_This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it._
-
-_This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc_
-
-# Challenge \#6 - Conditional Access
+# Challenge \#6 - Conditional Access - Are You Who You Say You Are?
 
 [< Previous Challenge](./05-claims-enrichment.md) - **[Home](../readme.md)** - [Next Challenge>](./07-admin-graph.md)
 
 ## Pre-requisites (Optional)
 
-_Include any technical pre-requisites needed for this challenge. Typically, it is completion of one or more of the previous challenges if there is a dependency._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-_Provide an overview of the technologies or tasks that will be needed to complete the next challenge. This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge._
-
-_Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic._
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+- Provisioned a B2C tenant
+- Created a SignUp / SignIn (SUSI) User Flow
+- Tested the User Flow via the Azure AD B2C Portal
+- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
+- Using a custom HTML template
+- Localized resources along with multi-language support
+- A working Profile Edit User Flow
+- A functioning web harness application (either local or in Azure)
+- Azure function that validates the CMC Consultant ID and also generates a Consultant Territory Name
+- User SignUp process validates CMC Consultant ID and saves territory name to the user's account
+- Profile Edit process allows the consultant to modify their territory name but not their CMC Consultant ID
 
 ## Description
 
-_The challenge description and details go here. This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge. If this is more than 2-3 paragraphs, it's likely you are not doing it right._
+As a result of incorporating the [CMC Consultant ID Verify-inator](https://phineasandferb.fandom.com/wiki/List_of_Doofenshmirtz%27s_schemes_and_inventions/Season_1) (and the [Territory Name-inator](https://phineasandferb.fandom.com/wiki/List_of_Doofenshmirtz%27s_schemes_and_inventions/Season_2)), QA has been satisfied with the fixes and CMC IT Leadership is happy again......BUT (here we go), they have realized that the site might need a little more tightening up.
 
-_Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts._
+IT Leadership has requested that we (you) incorporate policies in your SignUp / SignIn User Flow that will require users to verify who they are using either a code sent to their phone or to their email address.
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+As a result, during the sign in process, a user should be prompted to enter a verification code (acquired either via a phone call, text message, or email). IT Leadership wants the conditional access policy to be based on user location, although for now, they want all locations to force a MFA challenge.
+
+After some tests, IT Leadership decided to change your conditional access policies to only force a MFA challenge for all locations but only for users using Android devices. (Most of leadership has iPhones, so there's that.)
+
+Lastly, IT Leadership has asked to block risky users, which we've decided to rely on Azure AD's risk detection in order to determine what users are risky. Leadership has decided to upgrade our B2C tenant to a P2 pricing tier (if it wasn't there already) and have asked you to implement an additional Conditional Access policy to detect Medium and High risk users and block them from logging in to any application. A typical scenario for Medium and High risk user activities could be using anonymous browsers (such as a [Tor browser](https://www.torproject.org/download/)) to access our apps.
 
 ## Success Criteria
 
-_Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge._
+CMC IT Leadership considers your efforts a success (and your odds of a promotion more likely) if you accomplish the following:
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- You've implemented a Conditional Access policy that prompts for a MFA challenge for users from any location and on any device;
+- You then modify your Conditional Access policy to only force a MFA for users from an Android device;
+- You've created another Conditional Access policy to block users from accessing any B2C app for Medium and High risk users
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-_Add tips and hints here to give students food for thought._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
+- [Conditional Access in B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/conditional-access-identity-protection-overview)
+- [Create and Test a B2C Conditional Access Policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/conditional-access-user-flow)
 
 ## Advanced Challenges (Optional)
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+**- You can create several different app registrations in your B2C tenant and then configure Conditional Access policies that are specific to each app registration. For one app reg, always force MFA; for another, only force MFA for iOS devices; for a third, force MFA for risky behaviors.**

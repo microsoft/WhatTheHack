@@ -1,73 +1,52 @@
-# What The Hack - Challenge Template
-
-_This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it._
-
-_This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc_
-
 # Challenge \#7 - Admin Your B2C Tenant with MS Graph
 
 [< Previous Challenge](./06-conditional-access.md) - **[Home](../readme.md)** - [Next Challenge>](./08-prepare-ief.md)
 
 ## Pre-requisites (Optional)
 
-_Include any technical pre-requisites needed for this challenge. Typically, it is completion of one or more of the previous challenges if there is a dependency._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-_Provide an overview of the technologies or tasks that will be needed to complete the next challenge. This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge._
-
-_Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic._
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+- Provisioned a B2C tenant
+- Created a SignUp / SignIn (SUSI) User Flow
+- Tested the User Flow via the Azure AD B2C Portal
+- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
+- Using a custom HTML template
+- Localized resources along with multi-language support
+- A working Profile Edit User Flow
+- A functioning web harness application (either local or in Azure)
+- Azure function that validates the CMC Consultant ID and also generates a Consultant Territory Name
+- User SignUp process validates CMC Consultant ID and saves territory name to the user's account
+- Profile Edit process allows the consultant to modify their territory name but not their CMC Consultant ID
+- Conditional Access Policies that challenge users if they attempt to sign in from an Android device or block a user if they attempt to sign in from an anonymous browser session (like Tor)
 
 ## Description
 
-_The challenge description and details go here. This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge. If this is more than 2-3 paragraphs, it's likely you are not doing it right._
+It looks like you've done it - CMC IT Leadership is happy with your Identity and Access Management (IAM) policies, QA is satisfied with the functionality of your User Flow policies, and Security is happy that users are being challenged with MFA at appropriate times......BUT, IT Leadership would like some information about the consultants that have signed up. (You knew it was too soon to take some time off!)
 
-_Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts._
+IT Leadership would like to know what territory names have been assigned to their consultants. They'd like to see the consultant name, their CMC Consultant ID, and their Territory Name. It doesn't have to be a fancy report - just a simple output from a console app.
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+Leadership would like you to build an app that can query the B2C tenant and output some basic information about their consultants along with the two custom attributes you created: CMC Consultant ID and Territory Name.
+
+Luckily, your innovative developer is still here (they haven't taken any time off either) and they've built an app that can do some of this (but you'll need to make some modifications). Luckily, the developer has parameterized the B2C bits, so you'll have to just make some updates to the configuration settings file (appsettings.json) in order to connect to your B2C tenant. You can find the developer's application in your resources folder.
 
 ## Success Criteria
 
-_Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge._
+IT Leadership will consider this a success and allow you to take a few hours off on a Friday afternoon sometime in the not-so-distant future if you're able to:
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- Enable your B2C tenant to be queried using the MS Graph API;
+- You're able to connect the developer's .NET Core app to your B2C tenant;
+- You're able to output some basic information about your consultants, including:
+  - Display Name
+  - State
+  - CMC Consultant ID
+  - Territory Name
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+**[Create a Management Application for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-get-started?tabs=app-reg-ga)**
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-_Add tips and hints here to give students food for thought._
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.**
+**[Managing Users via MS Graph for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/manage-user-accounts-graph-api)**
 
 ## Advanced Challenges (Optional)
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+**- It would be really interesting to see what phone number your consultants used for their Conditional Access registration. Can you modify the code to also query and output the consultant's registered phone number?**
