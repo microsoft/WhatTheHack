@@ -22,4 +22,4 @@ In this challenge you'll be connecting to your "on-prem" environment using the d
 * Check MySQL Version: https://phoenixnap.com/kb/how-to-check-mysql-version
 * Check MySQL database engine: https://www.a2hosting.com/kb/developer-corner/mysql/working-with-mysql-database-engines
 * Limitations in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-limits
-
+* Migrating MySQL On-Premises to Azure Database for MySQL: https://github.com/Azure/azure-mysql/tree/master/MigrationGuide
