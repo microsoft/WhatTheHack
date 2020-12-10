@@ -29,12 +29,16 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
+- [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
+- [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
 - [Front Door/CDN](/017-FrontDoorCDN/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
+- [SAP Automation](/024-SAP-Core/README.md)
 
 ## Application Development
 - [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
