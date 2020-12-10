@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 6 - Create a new React Single Page App (SPA) for patient search
+# Coach's Guide: Challenge 6 - Create a new Single Page App (SPA) for patient search
 
 [< Previous Challenge](./Solution05.md) - **[Home](./readme.md)**
 
