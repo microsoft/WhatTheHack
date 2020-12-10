@@ -13,18 +13,16 @@ spec:
   selector:
     name: mongo-db
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  mongo-db-deploy
   labels:
     name:  mongo-db
 spec:
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
+  selector:
+    matchLabels:
+      name: mongo-db
   template:
     metadata:
       labels:
@@ -45,16 +43,10 @@ spec:
           name: azuredisk-db
         - mountPath: /data/configdb
           name: azuredisk-configdb
-        imagePullPolicy: Always
       volumes:
         - name: azuredisk-db
-          azureDisk:
-            kind: Managed
-            diskName: mongodb-datadisk
-            diskURI: [INSERT YOUR DISK ID , e.g /subscriptions/ebb856bd-cdcb-4e79-92bd-02911c47395f/resourceGroups/MC_fabmedical-aks-rg_fabmed_eastus/providers/Microsoft.Compute/disks/mongodb-datadisk]
+          persistentVolumeClaim:
+            claimName: <data pvc>
         - name: azuredisk-configdb
-          azureDisk:
-            kind: Managed
-            diskName: mongodb-configdisk
-            diskURI:  [INSERT YOUR DISK ID , /subscriptions/ebb856bd-cdcb-4e79-92bd-02911c47395f/resourceGroups/MC_fabmedical-aks-rg_fabmed_eastus/providers/Microsoft.Compute/disks/mongodb-configdisk]
-      restartPolicy: Always
+          persistentVolumeClaim:
+            claimName: <config pvc>
