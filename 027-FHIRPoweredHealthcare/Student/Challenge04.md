@@ -40,9 +40,12 @@ Hint:
         - Scopes - Update with Audience from your FHIR Server (under Authentication)
 
 - Deploy your sample code from your local repo to your App Service `wwwroot` folder.
+
+    Hint: Use App Service Editor in-browser editing tool to update your `index.html` code under the `wwwroot` folder.
+
 - Test sample JavaScript app
-  - Browse to App Service website URL in In-private / Incognito window
-  - SignIn with your secondary tenant used in deploying FHIR Server Samples reference architecture
+  - Browse to App Service website URL in In-private / Incognito window.
+  - SignIn with your secondary tenant used in deploying FHIR Server Samples reference architecture.
   - You should see a list of patients that were loaded into FHIR Server.
 
 ## Success Criteria
