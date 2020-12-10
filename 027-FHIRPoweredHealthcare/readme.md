@@ -38,14 +38,12 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - Challenge 5: **[Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
 - Challenge 6: **[Add patient lookup function to the JavaScript app](Student/Challenge06.md)**
 
-## DISCLAIMER
+## Disclaimer
 **You MUST be able to login to your Azure subscription and connect to Azure AD with your primary tenant with directory admin role access (or secondary tenant if you don't have directory admin role access) required for the FHIR Server Sample deployment in challenge 1.**
-
-  NOTE: 
-  - If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources, then Primary AD tenant is same as Secondary AD tenant and use the same AD tenant for both.
-  - If you don't have Administrator access:
-      - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
-      - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
+  - **[If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant directory admin consent, then Primary AD tenant is same as Secondary AD tenant and use the same AD tenant for both.]**
+  - **[If you don't have directory Administrator access:]**
+      - **[Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.]**
+      - **[Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.]**
 
 ## Prerequisites
 - Access to an Azure subscription with Owner access
