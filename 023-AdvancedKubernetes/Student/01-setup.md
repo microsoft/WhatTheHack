@@ -26,7 +26,6 @@ All challenges will be run using Bash.
 1. Install Docker
 1. Install Helm 3
 1. Create a Github Account
-1. Create a Docker Hub account
 1. Create an ACR
 1. Create an AKS cluster with the following:
     - System pool with 1 Standard_DS2_v2
@@ -36,7 +35,7 @@ All challenges will be run using Bash.
 1. Attach ACR to the AKS cluster
 1. Install Curl
 1. Install JQ
-1. Install kubectx/kubens/kube-aliases
+1. [OPTIONAL] Install kubectx/kubens/kube-aliases
 
 ## Success Criteria
 
@@ -47,9 +46,9 @@ All challenges will be run using Bash.
 1. Running `kubectl get nodes` shows your AKS System and User pools
 1. Running `az acr import  -n $ACR_NAME --source docker.io/library/nginx:latest --image nginx:v1` copies an image to your ACR instance
 1. Running `curl -s https://api.github.com/users/octocat/repos | jq '.'`  shows you a pretty-printed JSON doc
-1. Running `kubectx` lets you switch between K8S clusters
-1. Running `kubens` lets you switch between namespaces
-1. Running `ksysgpo` shows all pods in your system namespace
+1. [OPTIONAL] Running `kubectx` lets you switch between K8S clusters
+1. [OPTIONAL] Running `kubens` lets you switch between namespaces
+1. [OPTIONAL] Running `ksysgpo` shows all pods in your system namespace
 
 ## Hints
 
