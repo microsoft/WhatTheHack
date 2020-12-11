@@ -13,7 +13,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Run node-v14.15.1-x64.msi executable to install node.js 
     - Post installation, a cmdline window will popup to install additional tools for Node.js.  In cmdline window, Press any key to continue...
  
-**Create a Node.js AAD MSAL Patient Search SPA**
+**Option 1: Create a Node.js AAD MSAL Patient Search SPA**
 This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
 - Setup you web server or project, **[download project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)**
 - Create and initialize your project
@@ -51,7 +51,7 @@ This step-by-step guide will create a vanilla JavaScript SPA to query protected 
   nmp start
   ```
 
-**Create React AAD MSAL Patient Search SPA**
+**Option 2: Create React AAD MSAL Patient Search SPA**
 - Build a new SPA in React using `Create React App` toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. Note: You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
     `npx create-react-app react-patient-search`
     `cd react-patient-search`
