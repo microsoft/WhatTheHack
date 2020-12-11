@@ -12,7 +12,7 @@ Some of the most popular features include:
 * Traffic Management and manipulation
 * Observability (e.g. distributed tracing)
 
-![ServiceMesh](https://servicemesh.es/img/servicemesh.png)
+![Service Mesh](img/servicemesh.png)
 Credit: <https://servicemesh.es>
 
 There are multiple service meshes, these are the 3 most popular (all of which use [Envoy](https://www.envoyproxy.io/) as the proxy):

@@ -7,6 +7,7 @@
 GitOps is a term coined by WeaveWorks for implementing Continuous Delivery for Cloud Native applications.  The core concept is using a Git repository as the source of truth for the desired state of infrastructure.  Flux is the tool written by WeaveWorks to implement GitOps for Kubernetes.
 
 ![gitops workflow](img/gitops.png)
+Credit: <https://www.weave.works/blog/why-is-a-pull-vs-a-push-pipeline-important>
 
 ## Description
 
