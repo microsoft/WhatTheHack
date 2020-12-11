@@ -39,8 +39,8 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - Challenge 6: **[Create a new Single Page App (SPA) for patient search](Student/Challenge06.md)**
 
 ## Disclaimer
-**You MUST be able to login to your Azure subscription and connect to Azure AD with your primary tenant with directory admin role access (or secondary tenant if you don't have directory admin role access) required for the FHIR Server Sample deployment in challenge 1.**
-  - **If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant directory admin consent, then Primary AD tenant is same as Secondary AD tenant and use the same AD tenant for both.**
+**You MUST be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant if you don't have directory admin role access) required for the FHIR Server Sample deployment (challenge 1).**
+  - **If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.**
   - **If you don't have directory Administrator access:**
       - **Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.**
       - **Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.**
@@ -68,6 +68,9 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)**
 - **[Visual Studio Code](https://code.visualstudio.com/)**
 - **[Node Module Extension](https://code.visualstudio.com/docs/nodejs/extensions)**
+- **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
+- **[Download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
+- **[Download Node.js Window Installer](https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi>)**
 - **[Postman](https://www.getpostman.com)**
 
 ## Repository Contents
@@ -79,7 +82,7 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
    - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
    - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
 - `../Coach/Resources`
-  - Coach's guide to solutions for each challenge, including tips/tricks.
+  - Coach's guide to solutions for challenges, including tips/tricks.
 
 ## Contributors
 - Richard Liang (Microsoft)
