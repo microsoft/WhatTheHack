@@ -29,20 +29,15 @@ function updateUI(data, endpoint) {
     const nameGiven = document.createElement('p');
     const resourceId = document.createElement('p');
     const gender = document.createElement('p');
+    const patient = document.createElement('p');
+    var patientListHtml = '<ol>';
 
-    // Iterate through all returned patient resources
     data.entry.forEach(function(e) {
-      nameFamily.innerHTML = e.resource.name[0].family;
-      nameGiven.innerHTML = e.resource.name[0].given;
-      resourceId.innerHTML = ' (' + e.resource.id + ')';
-      gender.innerHTML = e.resource.gender;
-
-      profileDiv.appendChild(nameFamily);
-      profileDiv.appendChild(nameGiven);
-      profileDiv.appendChild(resourceId);
-      profileDiv.appendChild(gender);
+      patientListHtml += '<li>' + e.resource.name[0].family + ', ' + e.resource.name[0].given + ' (' + e.resource.id + ')' + ', ' + e.resource.gender; 
     });
 
-    
+    patient.innerHTML = patientListHtml;
+    profileDiv.appendChild(patient);
+
   } 
 }
