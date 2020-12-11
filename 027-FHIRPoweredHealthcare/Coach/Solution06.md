@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, you will create a new React Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+In this challenge, you will create a new Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
 - Make sure the following Node.js prerequistes have been completed
   - To see if you already have Node.js and npm installed and check the installed version, run the following commands: `node -v` and `npm -v`
@@ -12,7 +12,47 @@ In this challenge, you will create a new React Single Page App (SPA) integrated 
     - **[Download Node.js Window Installer](https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi>)**
     - Run node-v14.15.1-x64.msi executable to install node.js 
     - Post installation, a cmdline window will popup to install additional tools for Node.js.  In cmdline window, Press any key to continue...
- - Build a new SPA in React using `Create React App` toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. Note: You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+ 
+**Create a Node.js AAD MSAL Patient Search SPA**
+This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
+- Setup you web server or project, **[download project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)**
+- Create and initialize your project
+  - Initialize your SPA, run `npm init` at your project root folder
+  - Install required dependencies, run 
+    ```
+    npm install express --save
+    npm install morgan --save
+    ```
+
+  - Create a simple server to serve your SPA, add `server.js` file from `./Coach/Solutions` folder
+- Create the SPA UI, add `index.html` file from `./Coach/Solutions` folder, which does the following:
+  - Implements UI built with Bootstrap 4 Framework
+  -	Imports script files for 
+    - configuration, 
+    - authentication,
+    - API call
+- Access and update DOM elements, add `ui.js` file from `/Coach/Solutions` folder
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
+  - Set a redirect URL for Node.js app
+- Configure your JavaScript SPA parameters for authentication, add `authConfig.js` from `./Coach/Solutions` folder
+  - Where:
+    - clientId: <Enter_the_Application_Id_Here> is the Application (client) ID for the application you registered.
+    - authority: <Enter_value from FHIR Server Authentication setting>
+    - redirectUri: <Enter_the_redirect_uri>
+    - Scope: <Enter FHIR_Server_endpoint/.default>
+- For authentication and token acquisition logic, add `authPopup.js` file from `./Coach/Solutions` folder
+- Store REST endpoint for FHIR server, add `graphConfig.js` file from `./Coach/Solutions` folder
+- Make REST call to FHIR Server, add `graph.js` file from `./Coach/Solutions` folder
+  - The `callMSGraph()` method is used to make an HTTP GET request against a protected resource, i.e. FHIR Server, that requires a token. The request then returns the content to the caller. This method adds the acquired token in the HTTP Authorization header.
+- Add search components
+- Run your code
+  ```
+  npm install
+  nmp start
+  ```
+
+**Create React AAD MSAL Patient Search SPA**
+- Build a new SPA in React using `Create React App` toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. Note: You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
     `npx create-react-app react-patient-search`
     `cd react-patient-search`
     `npm start`
