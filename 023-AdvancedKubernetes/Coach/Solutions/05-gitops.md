@@ -53,4 +53,4 @@ Sync Flux
 fluxctl sync --k8s-fwd-ns flux
 ```
 
-Go to http://podinfo.<REPLACE WITH INGESS IP>.nip.io and see the changes (i.e., welcome to flux)
+Go to http://podinfo.$INGRESS_IP.nip.io and see the changes (i.e., welcome to flux)
