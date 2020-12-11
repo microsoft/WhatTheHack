@@ -36,6 +36,7 @@ Each of the Service Meshes have their own set of documentation for how to implem
 1. Enable high-level metrics 
 1. Test the "Fault Injection" feature
 1. Use Flagger to automate a canary release
+    - NOTE: make sure to disable mTLS before configuring Flagger
 
 ## Success Criteria
 
