@@ -12,4 +12,4 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Challenge 3: **[Ingest and stream HL7 FHIR CRUD events for post-processing](./Solution03.md)**
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](./Solution04.md)**
 - Challenge 5: **[Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](./Solution05.md)**
-- Challenge 6: **[Add patient Lookup function to the JavaScript app](./Solution06.md)**
+- Challenge 6: **[Create a new Single Page App (SPA) for patient search](./Solution06.md)**
