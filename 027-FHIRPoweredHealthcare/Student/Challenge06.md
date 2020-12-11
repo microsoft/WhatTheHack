@@ -11,10 +11,10 @@ In this challenge, you will create a new React Single Page App (SPA) integrated 
 - Create a new React Single-Page App (SPA) 
 
   Hint:
-  You can use **[`Create React App`](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to quickly create a new single-page app.
+  You can clone a create a **[Node.js JavaSCript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** or use **[`Create React App`](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to quickly create a new single-page app.
 
-- Integrate and configure the Microsoft Authentication Library (MSAL) with your React application to access FHIR Server.
-- Create a patient lookup by Given name in SPA.
+- Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA to fetch data from protected Web API in FHIR Server.
+- Create a patient lookup by name in SPA.
 
     Hint: 
     - You need to use the acquired access token as a bearer in your HTTP request to call the protected FHIR patient search API
@@ -34,6 +34,8 @@ In this challenge, you will create a new React Single Page App (SPA) integrated 
 
 ## Learning Resources
 
+- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)**
+- **[GitHub Azure Samples - MSAL JavaScript Single-page Application using Implicit Flow](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/)**
 - **[Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html)**
 - **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
 - **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
