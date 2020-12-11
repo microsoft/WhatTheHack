@@ -7,11 +7,16 @@
 In this challenge, you will create a new Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
 - Make sure the following Node.js prerequistes have been completed
-  - To see if you already have Node.js and npm installed and check the installed version, run the following commands: `node -v` and `npm -v`
+  - To see if you already have Node.js and npm installed and check the installed version, run: 
+    ```
+    node -v
+    npm -v
+    ```
+
   - **[Download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-    - **[Download Node.js Window Installer](https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi>)**
-    - Run node-v14.15.1-x64.msi executable to install node.js 
-    - Post installation, a cmdline window will popup to install additional tools for Node.js.  In cmdline window, Press any key to continue...
+    - Download **[Node.js Window Installer](https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi>)**
+    - Run downloaded node-v14.15.1-x64.msi executable to install node.js 
+    - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, `Press any key to continue...`
  
 **Option 1: Create a Node.js AAD MSAL Patient Search SPA**
 This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
@@ -33,19 +38,20 @@ This step-by-step guide will create a vanilla JavaScript SPA to query protected 
     - API call
 - Access and update DOM elements, add `ui.js` file from `/Coach/Solutions` folder
 - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-  - Set a redirect URL for Node.js app
+  - Set a redirect URL to your JavaScrip Web App URL in the "Public Client" Web Platform Configuration of your App Registration tenant.
+    - Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
 - Configure your JavaScript SPA parameters for authentication, add `authConfig.js` from `./Coach/Solutions` folder
   - Where:
     - clientId: <Enter_the_Application_Id_Here> is the Application (client) ID for the application you registered.
-    - authority: <Enter_value from FHIR Server Authentication setting>
-    - redirectUri: <Enter_the_redirect_uri>
+    - authority: <Enter_Authority_URL_Here> is the Authority value from FHIR Server Authentication setting.
+    - redirectUri: <Enter_the_redirect_uri> is your JavaScrip Web App URL from App Service.
     - Scope: <Enter FHIR_Server_endpoint/.default>
 - For authentication and token acquisition logic, add `authPopup.js` file from `./Coach/Solutions` folder
 - Store REST endpoint for FHIR server, add `graphConfig.js` file from `./Coach/Solutions` folder
 - Make REST call to FHIR Server, add `graph.js` file from `./Coach/Solutions` folder
   - The `callMSGraph()` method is used to make an HTTP GET request against a protected resource, i.e. FHIR Server, that requires a token. The request then returns the content to the caller. This method adds the acquired token in the HTTP Authorization header.
-- Add search components
-- Run your code
+- Add search components to implement patient lookup.
+- Run your code at the cmdline locallly:
   ```
   npm install
   nmp start
@@ -57,8 +63,8 @@ This step-by-step guide will create a vanilla JavaScript SPA to query protected 
     `cd react-patient-search`
     `npm start`
   Note: npx on the first line is not a typo — it’s a package runner tool that comes with npm 5.2+.
-- **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0 for Browser-Based Single-Page Applications](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)**
-  - **[Install MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**
+- Use **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)** for Browser-Based Single-Page Applications
+  -Install **[MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**, run:
     ```
     npm install react react-dom
     npm install @azure/msal-react @azure/msal-browser
@@ -127,79 +133,79 @@ This step-by-step guide will create a vanilla JavaScript SPA to query protected 
     font-size: 18px;
     }
     ```
-- Store search value entered by user in a variable
-  ```
-  state = {
-    searchValue: '',
-  };
-  ```
-  ```
-  <input
-    name="text"
-    type="text"
-    placeholder="Search"
-    onChange={event => this.handleOnChange(event)}
-    value={this.state.searchValue}
-  />
-  ```
-- Create handleOnChange function to process search event
-  ```
-  handleOnChange = event => {
-    this.setState({ searchValue: event.target.value });
-  };
-  ```
-- Setup the Search button to perform the `handleSearch` function upon a onClick event
-  ```
-  <button onClick={this.handleSearch}>Search</button>
-  ```
-- Create `handleSearch` function to call makeApiCall function to perform the search
-  ```
-  handleSearch = () => {
-    this.makeApiCall(this.state.searchValue);
-  }
-  ```
-- Create 'makeApiCall' function
+  - Store search value entered by user in a variable
+    ```
+    state = {
+      searchValue: '',
+    };
+    ```
+    ```
+    <input
+      name="text"
+      type="text"
+      placeholder="Search"
+      onChange={event => this.handleOnChange(event)}
+      value={this.state.searchValue}
+    />
+    ```
+  - Create handleOnChange function to process search event
+    ```
+    handleOnChange = event => {
+      this.setState({ searchValue: event.target.value });
+    };
+    ```
+  - Setup the Search button to perform the `handleSearch` function upon a onClick event
+    ```
+    <button onClick={this.handleSearch}>Search</button>
+    ```
+  - Create `handleSearch` function to call makeApiCall function to perform the search
+    ```
+    handleSearch = () => {
+      this.makeApiCall(this.state.searchValue);
+    }
+    ```
+  - Create 'makeApiCall' function
 
-  Note: Search function should call FHIR service endpoint: `{fhirurl}/Patient?given:contains=[pass-your-search-text]`
-  ```
-  makeApiCall = searchInput => {
-    var searchUrl = `{fhirurl}/Patient?given:contains=${searchInput}`;
-    fetch(searchUrl)
-    .then(response => {
-      return response.json();
-    })
-    .then(jsonData => {
-      console.log(jsonData.meals);
-      this.setState({ patients: jsonData.meals });
-    });
-  };
-  ```
-- Add array variable used in makeApiCall to hold patients returned from fetching patients containing the search term the user entered in the search field
-  ```
-  state = {
-    searchValue: "",
-    patients: []
-  };
-  ```
-- Render patient data in array
-  ```
-  {this.state.patients ? (
-  <div>
-    {this.state.patients.map((patient, index) => (
-    <div key={index}>
-      <h1>{patient.strPatient}</h1>
+    Note: Search function should call FHIR service endpoint: `{fhirurl}/Patient?given:contains=[pass-your-search-text]`
+    ```
+    makeApiCall = searchInput => {
+      var searchUrl = `{fhirurl}/Patient?given:contains=${searchInput}`;
+      fetch(searchUrl)
+      .then(response => {
+        return response.json();
+      })
+      .then(jsonData => {
+        console.log(jsonData.meals);
+        this.setState({ patients: jsonData.meals });
+      });
+    };
+    ```
+  - Add array variable used in makeApiCall to hold patients returned from fetching patients containing the search term the user entered in the search field
+    ```
+    state = {
+      searchValue: "",
+      patients: []
+    };
+    ```
+  - Render patient data in array
+    ```
+    {this.state.patients ? (
+    <div>
+      {this.state.patients.map((patient, index) => (
+      <div key={index}>
+        <h1>{patient.strPatient}</h1>
+      </div>
+      ))}
     </div>
-    ))}
-  </div>
-  ) : (
-  <p>Try searching for a patient</p>
-  )}
-  ```
+    ) : (
+    <p>Try searching for a patient</p>
+    )}
+    ```
 - (Optional) Include any other modern UI features to improve the user experience.
 - Test updated sample JavaScript app with patient Lookup feature
-  - Browse to App Service website URL in In-private mode
-  - Sign in with your secondary tenant used in deploying FHIR Server Samples reference architecture
+  - Browse to App Service website URL in In-private / Incognito window
+  - Sign in with your secondary tenant (or tenant where App Registration is configured) used in deploying FHIR Server Samples reference architecture
   - You should see a list of patients that were loaded into FHIR Server
-  - Enter full or partial Given name in the Search box and click Search button
-    - This will filter patient data that contains the specified Given name and return search results to browser
+  - Enter full or partial name (Given or Family) in the Search box and click Search button
+    - This will call the FHIR API interface that filters patient data that contains the specified Given name or Family name configured and return the patient search results to browser
  
