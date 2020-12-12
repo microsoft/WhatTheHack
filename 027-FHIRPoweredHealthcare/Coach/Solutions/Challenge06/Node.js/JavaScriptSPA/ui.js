@@ -12,7 +12,7 @@ function showWelcomeMessage(account) {
 
     // Reconfiguring DOM elements
     cardDiv.classList.remove('d-none');
-    welcomeDiv.innerHTML = `Welcome ${account.name}`;
+    welcomeDiv.innerHTML = `Welcome ${account.name} to the patient search app`;
     signInButton.classList.add('d-none');
     signOutButton.classList.remove('d-none');
 }
