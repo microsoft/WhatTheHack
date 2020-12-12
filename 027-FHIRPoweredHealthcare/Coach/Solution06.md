@@ -6,6 +6,8 @@
 
 In this challenge, you will create a new Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
+![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+
 - Make sure the following Node.js prerequistes have been completed
   - To see if you already have Node.js and npm installed and check the installed version, run: 
     ```
@@ -18,7 +20,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Run downloaded node-v14.15.1-x64.msi executable to install node.js 
     - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, `Press any key to continue...`
  
-**Option 1: Create a Node.js AAD MSAL Patient Search SPA**
+**Option 1: Create a Node.js SPA AAD MSAL Patient Search app**
 This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
 - Setup you web server or project, **[download project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)**
 - Create and initialize your project
@@ -38,7 +40,7 @@ This step-by-step guide will create a vanilla JavaScript SPA to query protected 
     - API call
 - Access and update DOM elements, add `ui.js` file from `/Coach/Solutions` folder
 - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-  - Set a redirect URL to your JavaScrip Web App URL in the "Public Client" Web Platform Configuration of your App Registration tenant.
+  - Set a redirect URL to your JavaScrip Web App URL (Azure and Local) in the "Public Client" Web Platform Configuration of your App Registration tenant.
     - Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
 - Configure your JavaScript SPA parameters for authentication, add `authConfig.js` from `./Coach/Solutions` folder
   - Where:
@@ -51,11 +53,13 @@ This step-by-step guide will create a vanilla JavaScript SPA to query protected 
 - Make REST call to FHIR Server, add `graph.js` file from `./Coach/Solutions` folder
   - The `callMSGraph()` method is used to make an HTTP GET request against a protected resource, i.e. FHIR Server, that requires a token. The request then returns the content to the caller. This method adds the acquired token in the HTTP Authorization header.
 - Add search components to implement patient lookup.
-- Run your code at the cmdline locallly:
-  ```
-  npm install
-  nmp start
-  ```
+- Run your code locally 
+  - Set redirectUri to `https://localhost:3000` in `authConfig.js` file 
+  - Run at cmdline:
+    ```
+    npm install
+    nmp start
+    ```
 
 **Option 2: Create React AAD MSAL Patient Search SPA**
 - Build a new SPA in React using `Create React App` toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. Note: You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:

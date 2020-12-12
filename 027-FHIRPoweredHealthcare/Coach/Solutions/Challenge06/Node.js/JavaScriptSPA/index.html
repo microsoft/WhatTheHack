@@ -32,21 +32,19 @@
     <div id="card-div" class="col-md-3 d-none">
     <div class="card text-center">
       <div class="card-body">
-        <h5 class="card-title" id="welcomeMessage">Please sign-in to see your profile and read your mails</h5>
+        <h5 class="card-title" id="welcomeMessage">Please sign-in to search for patients</h5>
+        <div id="main">
+          <!-- Search by Given Name  -->
+          Enter Given Name: <input type="text" id="searchTxt" name="txt" value="Jose871" onchange="handleonChange(this.value)">
+          <button class="btn btn-primary" id="searchPatient" onclick="searchPatient(getElementById('searchTxt').value)">Search Patient</button>
+        </div>
+        <br>
+        <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See All Patients</button>      
+        <br>
+        <br>
+        <!-- Render patient search results  -->
         <div id="profile-div"></div>
         <br>
-
-        <div id="main">
-          <h2>Welcome to the patient search app</h2>
-          Enter Given Name: <input type="text" id="searchTxt" name="txt" value="Jose871">
-          <button class="btn btn-primary" id="searchPatient" onclick="searchPatient(getElementById('searchTxt').value)">Search Patient</button>
-
-        </div>
-
-        <br>
-        <button class="btn btn-primary" id="seeProfile" onclick="seeAllPatients()">See All Patients</button>
-        <br>
-
       </div>
     </div>
     </div>
