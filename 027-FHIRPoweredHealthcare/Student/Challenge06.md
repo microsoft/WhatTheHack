@@ -4,11 +4,13 @@
 
 ## Introduction
 
-In this challenge, you will create a new React Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+
+![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
 ## Description
 
-- Create a new React Single-Page App (SPA) 
+- Create a new JavaScript Single-Page App (SPA) 
 
   Hint:
   You can clone a sample **[Node.js JavaSCript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** or use **[`Create React App`](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to quickly create a new Single-Page App.
