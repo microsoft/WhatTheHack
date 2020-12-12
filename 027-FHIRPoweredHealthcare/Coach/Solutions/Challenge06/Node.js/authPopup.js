@@ -36,7 +36,7 @@ function getTokenPopup(request) {
     });
 }
 
-function seePatients() {
+function seeAllPatients() {
   if (myMSALObj.getAccount()) {
     getTokenPopup(loginRequest)
       .then(response => {
