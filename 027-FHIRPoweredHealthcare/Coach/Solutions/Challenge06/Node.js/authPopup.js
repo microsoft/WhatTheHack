@@ -46,3 +46,16 @@ function seePatients() {
       });
   }
 }
+
+
+function searchPatient(searchTxt) {
+  //endpoint = graphConfig.graphMeEndpoint + "/Patient?given:contains=" + searchTxt;
+  if (myMSALObj.getAccount()) {
+    getTokenPopup(loginRequest)
+      .then(response => {
+        callPatientSearch(graphConfig.graphMeEndpoint, response.accessToken, searchTxt, updateUI);
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+}

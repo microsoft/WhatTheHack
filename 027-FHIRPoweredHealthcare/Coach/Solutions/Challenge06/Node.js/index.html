@@ -35,8 +35,16 @@
         <h5 class="card-title" id="welcomeMessage">Please sign-in to see your profile and read your mails</h5>
         <div id="profile-div"></div>
         <br>
+
+        <div id="main">
+          <h2>Welcome to the patient search app</h2>
+          Enter Given Name: <input type="text" id="searchTxt" name="txt" value="Jose871">
+          <button class="btn btn-primary" id="searchPatient" onclick="searchPatient(getElementById('searchTxt').value)">Search Patient</button>
+
+        </div>
+
         <br>
-        <button class="btn btn-primary" id="seePatients" onclick="seePatients()">See Profile</button>
+        <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See All Patients</button>
         <br>
 
       </div>
