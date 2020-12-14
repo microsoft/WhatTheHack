@@ -17,12 +17,7 @@
     - Install Azure Function core tools via PowerShell: $ npm i -g azure-functions-core-tools@2
         - Validate installation: $ func
 - **Optionally, [Install Azure Storage Explorer](http://storageexplorer.com)**
-- Install ‘jq’ for your version of Linux/Mac/WSL:
-    - brew install jq
-    - sudo apt install jq
-    - sudo yum install jq
-    - sudo zypper install jq
-    - If you see jq not found errors, make sure you’ve updated all your packages.
+- Download and install latest **[Node pre-built installer](https://nodejs.org/en/download/)** for your platform
 - Install the latest version of nodejs (at least 10.x) on your machine, if using Windows, use the bash shell in the Windows Subsystem for Linux
     - Install dotenv npm module: $ npm install dotenv --save
     - Install FHIR npm library: $ npm install fhir

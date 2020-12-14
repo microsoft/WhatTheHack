@@ -22,12 +22,7 @@ Build a patient search web app frontend application with a serverless event-driv
     - Must be at least version 2.0.42
     - For windows OS, use bash shell in Windows Subsystem for Linux (see WLS install under tool-set below)
     - Note: If you are running into issues running Azure CLI command on Windows, Disable Global Protect (VPN)
-- Install ‘jq’ for your version of Linux/Mac/WSL:
-    - brew install jq
-    - sudo apt install jq
-    - sudo yum install jq
-    - sudo zypper install jq
-    - If you see jq not found errors, make sure you’ve updated all your packages.
+- download and install latest **[Node pre-built installer](https://nodejs.org/en/download/)** for your platform
 - Install the latest version of nodejs (at least 10.x) on your machine, if using Windows, use the bash shell in the Windows Subsystem for Linux
 
 
@@ -44,6 +39,6 @@ Build a patient search web app frontend application with a serverless event-driv
 - **[Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)**
 - **[Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)**
 - **[VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)**
-- **[NodeJS downloads](https://nodejs.org/en/download/)**
+- **[NodeJS pre-built installer downloads](https://nodejs.org/en/download/)**
 - **[Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
 
