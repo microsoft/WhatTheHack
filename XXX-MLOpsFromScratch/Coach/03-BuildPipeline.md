@@ -71,9 +71,10 @@ updated Azure Machine Learning pipeline after building the code.
     8.  Azure CLI task to score the model, to forecast future transactions –
         ScoreModel.pys is the file used in the Inline Script
         
-    9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two steps to perform in Build pipeline. 
+    9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
         - Use Copy Files task to copy files from $(Build.SourcesDirectory) to $(Build.ArtifactStagingDirectory)
         - Use Publish Artifact task with $(Build.ArtifactStagingDirectory) as path to publish. 
+        Note: Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
 
 5.  Run the Build pipeline
 
