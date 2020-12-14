@@ -69,8 +69,8 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
 - **[Visual Studio Code](https://code.visualstudio.com/)**
 - **[Node Module Extension](https://code.visualstudio.com/docs/nodejs/extensions)**
 - **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
+- **[Download Node.js Window Installer](https://nodejs.org/en/download/)**
 - **[Download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-- **[Download Node.js Window Installer](https://nodejs.org/dist/v14.15.1/node-v14.15.1-x64.msi>)**
 - **[Postman](https://www.getpostman.com)**
 
 ## Repository Contents
