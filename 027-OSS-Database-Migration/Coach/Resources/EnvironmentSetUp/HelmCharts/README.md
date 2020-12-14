@@ -62,18 +62,18 @@ Run the following commands to check the Postgres Version
 --Check the DB Version
 SELECT version();
 
---List databases notice that there is a database called wth with data
+--Create the wth database
+CREATE DATABASE wth;
+
+--List databases. notice that there is a database called wth 
 \l
 
 -- Set default database to wth
 \c wth
 
---Show tables in database
-\dt
-
 ```
 
-## Uninstalling the PostgreSQL from Kubernetes
+## Uninstalling the PostgreSQL from Kubernetes (only if you need to cleanup and try the helm deployment again)
 
 Use this to uninstall the PostgreSQL 11 instance from Kubernetes cluster
 
@@ -129,16 +129,19 @@ SELECT version();
 -- List databases
 SHOW DATABASES;
 
+--Create wth database
+CREATE DATABASE wth;
+
 -- Set default database to wth
 USE wth
 
--- Show tables in wth database
+-- Show tables in wth database 
 
 SHOW TABLES;
 
 ```
 
-## Uninstalling the MySQL from Kubernetes
+## Uninstalling the MySQL from Kubernetes (only if you need to cleanup and try the helm deployment again)
 
 Use this to uninstall the MySQL instance from Kubernetes cluster
 
