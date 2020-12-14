@@ -9,7 +9,7 @@ All prerequisites from the [README file](../README.md).
 The objective of challenge is to forecast the daily transactions using time
 series
 [ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
-modelling. It includes processing the transactions data from Adventure Works
+modeling. It includes processing the transactions data from AdventureWorks
 database, analyzing it, creating and registering an ARIMA model, and finally
 deploying the model to an ACI instance. This entire lifecycle is done using
 Azure ML Python SDK.
@@ -18,22 +18,20 @@ Time series is a series of data points collected or indexed in time order at
 regular time points. It is a sequence taken at successive equally spaced time
 points. For example, weather data collected every hour or stock data collected
 every day or sensor data collected every minute. As a result, we see a trend and
-seasonality in time series datasets. It is this temporal nature that makes them
+seasonality in time-series datasets. It is this temporal nature that makes them
 different from other conventional datasets and warrants a different type of
-modelling. We will cover that in this challenge as forecasting is one of the
+modeling. We will cover that in this challenge as forecasting is one of the
 most common and prevalent tasks in Machine Learning.
 
 ## Description
 
 1.  Create and setup a new project in Azure DevOps
 
-    1.  Import quickstart code from **github repo** (actually you will need to
-        fork the repo into your own git account and then import it)
+    1.  Import quickstart code from "EnterRepoURLHere"
 
     2.  Create new service connections in Project Settings for your Azure ML service and Azure Subscription using service
         principal
       
-    3.  Clone the project in VS Code
 
 2.  Install library requirements to setup your environment:  
     *pip install -r ./environment_setup/requirements.txt*
@@ -49,8 +47,8 @@ most common and prevalent tasks in Machine Learning.
 
     2.  AcquireData.py to get daily transactions data from AdventureWorks.
 
-    3.  TrainOnLocal.py to train the model local. Explore and run
-        transactions_arima.py file to understand how ARIMA model wass built.
+    3.  TrainOnLocal.py to train the model. Explore and run
+        transactions_arima.py file to understand how ARIMA model was built.
 
     4.  EvaluateModel.py to evaluate the model.
 
@@ -69,3 +67,4 @@ most common and prevalent tasks in Machine Learning.
 ## Learning resources
 
 [Next Challenge – Create Unit Test in Azure DevOps](02-UnitTesting.md)
+
