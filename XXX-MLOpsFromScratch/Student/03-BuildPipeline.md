@@ -29,16 +29,7 @@ updated Azure Machine Learning pipeline after building the code.
 
 ## Description
 
-1.  If you haven’t already done this in
-    [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
-    in Azure DevOps
-
-    1.  Import quickstart code from **github repo**
-
-    2.  Create a new service connection for Azure ML service using service
-        principal
-
-    3.  Make sure your Azure ML workspace is configured for the project. Hint: Either using pipeline variables in Azure DevOps or by adding details in configuration/config.json file 
+1.  Make sure you have setup a new project, imported the code, created service connections, and configured Azure ML Workspace for the project.
 
 2.  Create a Build pipeline
 
@@ -63,6 +54,7 @@ updated Azure Machine Learning pipeline after building the code.
 
     3.  Azure CLI task to get Azure ML Workspace connection – Workspace.py is
         the file used in the Inline Script
+       -**Note:** If you see issues with version 2.0 of Azure CLI, use version 1.0
 
     4.  Azure CLI task to acquire time series transactions data – AcquireData.py
         is the file used in the Inline Script
@@ -78,11 +70,15 @@ updated Azure Machine Learning pipeline after building the code.
 
     8.  Azure CLI task to score the model, to forecast future transactions –
         ScoreModel.pys is the file used in the Inline Script
+        
+    9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
+        - Use Copy Files task to copy files from $(Build.SourcesDirectory) to $(Build.ArtifactStagingDirectory)
+        - Use Publish Artifact task with $(Build.ArtifactStagingDirectory) as path to publish. 
+        Note: Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
 
 5.  Run the Build pipeline
 
 6.  Review Build Outputs - confirm the model and container image have been registered in Azure ML workspace in respective registries.
-
 
 ## Success criteria
 
