@@ -42,14 +42,9 @@ dependencies:
 
 - pip:
     # Required packages for AzureML execution, history, and data preparation.
-  - azureml-sdk[notebooks]    # add the version to lock it ==0.1.74
-  - azureml-defaults
-  - scipy
-  - scikit-learn
-  - joblib
-  - pandas
-  - numpy
-  - statsmodels
-  - matplotlib
-  - seaborn
-
+  - azureml-sdk[notebooks]
+  - pynacl==1.2.1
+  - scipy==1.0.0
+  - scikit-learn==0.19.1
+  - pandas==0.23.1
+  - numpy==1.14.5
