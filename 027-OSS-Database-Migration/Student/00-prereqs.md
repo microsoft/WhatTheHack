@@ -18,12 +18,15 @@ In this challenge you'll be setting up your environment so that you can complete
     - pgAdmin
     - Visual Studio Code (optional)
 
-- Within Azure Cloud Shell, clone the GIT repository at XXXXX and run this command to setup the environment: 
-    XXXXXX
+- Within Azure Cloud Shell, clone the GIT repository at https://github.com/izzymsft/WhatTheHack-1 and run this command to setup the environment: 
+    create-cluster.sh
 
     This will take several minutes
 
-- Determine the external IP address for the Pizzeria application you installed and validate the application is working properly by opening a web browser to http://XXXX:8081/pizzeria/
+Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](../Coach/Resources/EnvironmentSetUp/HelmCharts/README.md) 
+
+- Determine the external IP address for the Pizzeria application you installed and validate the applications are working properly by opening a web browser to http://<Your External IP Address>:8081/pizzeria/ and http://<Your External IP address>:8082/pizzeria/
+    hint: figure out how to use kubectl to list the services on the AKS cluster
 
 ## Success Criteria
 
