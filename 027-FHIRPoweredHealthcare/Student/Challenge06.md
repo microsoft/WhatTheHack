@@ -23,16 +23,16 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
     - You can explore the FHIR API collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
 
 - (Optional) Include any other modern UI features to improve the user experience.
-- Build and start JavaScript SPA app locally.
-  - To run locally, you'll need to change the `redirectUri` property to : `http://localhost:3000/` in `authCongig.js` file.
+- Build and test JavaScript SPA app locally.
+  - To run locally, you'll need to change the `redirectUri` property to : `http://localhost:3000/`.
 - Deploy JavaScript SPA app to Azure App Service.
-  - To run on Azure, you'll need to change the `redirectUri` property to : `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>` in `authCongig.js` file.
-- Register the local and Azure web app URLs in the `redirectURIs` setting in 'Public Client' App Registration.
+  - To run on Azure, you'll need to change the `redirectUri` property to : `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
+- Register the local and Azure web app URLs in the `redirectURIs` setting in your 'Public Client' App Registration.
 - Test the JavaScript SPA Patient Search app:
   - Browse to App Service website URL in a new in-private/Incognito window.
-  - Sign in with your secondary tenant used in deploying FHIR Server Samples reference architecture.
-  - Enter full or partial name in the Search box and click Search button.
-  - You should see a list of patients from your FHIR Server that matches your paitent search criteria.
+  - Sign in with your admin tenant credential from challenge 1.
+  - Enter name in the patient search box and click the search button.
+  - You should see a list of FHIR patient(s) that matches your search criteria.
 
 ## Success Criteria
 - You have created a JavaScript SPA Patient Search app and deployed it to Azure App Service.
