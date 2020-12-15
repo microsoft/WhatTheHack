@@ -20,7 +20,7 @@ deploy an AI model and maintain it in production. You will see how you can adopt
 standard engineering practices around DevOps and CICD process on ML lifecycle to
 get real business value.
 
-You are working with some very talented Data Scientists who have trained an ARIMA forecasting model on monthly sales data from their successful company, AdventureWorks. However, they are getting complaints from upper management that their model is only able to run locally on a laptop and results are pushed out through a spreadsheet. Additionally, whenever new sales months come in, they need to offline the model and retrain it locally before they can push out the new results.
+You are working with some very talented Data Scientists who have trained an [ARIMA (Auto Regressive Integrated Moving Average)](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average) forecasting model on monthly sales data from their successful company, AdventureWorks. However, they are getting complaints from upper management that their model is only able to run locally on a laptop and results are pushed out through a spreadsheet. Additionally, whenever new sales months come in, they need to offline the model and retrain it locally before they can push out the new results.
 
 The CIO of the company would like to push the model training, scoring, and deployment to a more collaborative team within DevOps and allow for the model to be consumed by an endpoint. The CIO would also like to monitor the model on a regular basis and test for data drift and model decay. Additionally, the CIO would like the existing model to remain live in production even while the retraining process is occurring.
 
