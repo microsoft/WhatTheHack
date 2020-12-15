@@ -8,8 +8,7 @@
 ## Introduction
 
 When the new data deviates from the original trained data that the model was
-trained model, the model performance deteriorates. This concept, known as model
-drift, can be mitigated by retraining the model when new data becomes available,
+trained model, the model performance deteriorates. This concept can be mitigated by retraining the model when new data becomes available,
 to reflect the current reality.
 
 In Azure DevOps, you can retrain the model on a schedule or when new data
