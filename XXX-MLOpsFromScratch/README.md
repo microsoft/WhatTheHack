@@ -24,6 +24,9 @@ You are working with some very talented Data Scientists who have trained an ARIM
 
 The CIO of the company would like to push the model training, scoring, and deployment to a more collaborative team within DevOps and allow for the model to be consumed by an endpoint. The CIO would also like to monitor the model on a regular basis and test for data drift and model decay. Additionally, the CIO would like the existing model to remain live in production even while the retraining process is occurring.
 
+Your team may not be a bunch of data scientists at heart, but you understand what is going on from a conceptual level.  
+Here are some questions that you might have:
+
 - What is time series data and time series forecasting?
 
   - How is that different from conventional ML modeling?
@@ -43,6 +46,12 @@ The CIO of the company would like to push the model training, scoring, and deplo
 - How to convert a model into an endpoint?
 
 - How to identify Data Drift?
+
+Your team will have individuals of varying skill sets, so it is imperative to decide who will take on the following roles:
+(1) Data Scientist
+(2) ML Engineer
+(3) DevOps Engineer
+(4) Data/Business Analyst
 
 ## Challenges
 
