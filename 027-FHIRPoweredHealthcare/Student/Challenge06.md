@@ -54,5 +54,5 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 - **[Sample React simple search app](https://github.com/lytes20/meal-search-app)**
 - **[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux)**
 - **[Deploy Node.js to Azure App Service using Visual Studio Code](https://docs.microsoft.com/en-us/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code?tabs=bash)**
-- **[Deploy and host your Node.js app on Azure]*(https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
+- **[Deploy and host your Node.js app on Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
 - **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
