@@ -1,0 +1,30 @@
+
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sitename": {
+            "type": "string"
+        },
+        "certificateThumprint": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "domainName": "[concat(parameters('sitename'), '.contosomasks.com')]",
+        "appServiceName": "[concat('contosomasks-', parameters('sitename'))]",
+        "wwwFQDN": "[concat('www.', variables('domainName'))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[concat(variables('appServiceName'),'/',variables('wwwFQDN'))]",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sslState": "SniEnabled",
+                "thumbprint": "[parameters('certificateThumprint')]"
+            }
+        }
+    ]
+}
