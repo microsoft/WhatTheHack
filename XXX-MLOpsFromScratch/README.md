@@ -24,7 +24,8 @@ You are working with some very talented Data Scientists who have trained an ARIM
 
 The CIO of the company would like to push the model training, scoring, and deployment to a more collaborative team within DevOps and allow for the model to be consumed by an endpoint. The CIO would also like to monitor the model on a regular basis and test for data drift and model decay. Additionally, the CIO would like the existing model to remain live in production even while the retraining process is occurring.
 
-Your team may not be a bunch of data scientists at heart, but you understand what is going on from a conceptual level.  
+Your team may not be a bunch of data scientists at heart, but you understand what is going on from a conceptual level.  You have been given the python scripts that were used for the modeling, now you need to make sense of it and start finding a way to get it into Azure DevOps.
+
 Here are some questions that you might have:
 
 - What is time series data and time series forecasting?
