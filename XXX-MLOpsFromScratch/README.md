@@ -20,11 +20,15 @@ deploy an AI model and maintain it in production. You will see how you can adopt
 standard engineering practices around DevOps and CICD process on ML lifecycle to
 get real business value.
 
+You are working with some very talented Data Scientists who have trained an ARIMA forecasting model on monthly sales data from their successful company, AdventureWorks.  However, they are getting complaints from upper management that their model is only able to run locally on a laptop and results are pushed out through a spreadsheet.  Additionally, whenever new sales months come in, they need to offline the model and retrain it locally before they can push out the new results.  
+
+The CIO of the company would like to push the model training, scoring, and deployment to a more collaborative team within DevOps and allow for the model to be consumed by an endpoint.  The CIO would also like to monitor the model on a regular basis and test for data drift and model decay.  Additionally, the CIO would like the existing model to remain live in production even while the retraining process is occurring.  
+
 -   What is time series data and time series forecasting?
 
-    -   How is that different from conventional ML modelling?
+    -   How is that different from conventional ML modeling?
 
-    -   How is forecasting task different from other tasks?
+    -   How is a forecasting task different from other tasks?
 
 -   How to enable Continuous Integration for our AI project by creating a Build
     pipeline? What artifacts do we deploy into the repo and what is our
@@ -36,24 +40,27 @@ get real business value.
 -   What is retraining? How to evaluate the best model between the current model
     and previous models?
 
--   How to create a Power BI Report that leverages REST API to score this model
-    in Production?
+-   How to convert a model into an endpoint?
+
+-   How to identify Data Drift?
 
 ## Challenges
 
-1.  [Challenge 1 = Build forecasting AI Model using Notebooks or VS
-    Code](Student/01-TimeSeriesForecasting.md)
+1.  [Challenge 1 = Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
 
-2.  [Challenge 2 = Create a Build pipeline in Azure
-    DevOps](Student/02-BuildPipeline.md)
+2.  [Challenge 2 = Create a Unit Test in Azure
+    DevOps](Student/02-UnitTesting.md)
 
-3.  [Challenge 3 = Create a Release pipeline in Azure
-    DevOps](Student/03-ReleasePipeline.md)
+3. [Challenge 3 = Create a Build pipeline in Azure
+    DevOps](Student/03-BuildPipeline.md)
 
-4.  [Challenge 4 = Retraining and Model
-    Evaluation](Student/04-RetrainingAndEvaluation.md)
+4.  [Challenge 3 = Create a Release pipeline in Azure
+    DevOps](Student/04-ReleasePipeline.md)
 
-5.  Challenge 5 (Optional) = Monitor Data Drift for your Model
+5.  [Challenge 5 = Retraining and Model
+    Evaluation](Student/05-RetrainingAndEvaluation.md)
+
+6.  [Challenge 6 = Model Monitoring and Data Drift](Student/06-MonitorDataDrift.md) 
 
 ## Prerequisites
 
@@ -71,7 +78,7 @@ get real business value.
     models.
 
 -   Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
-    for Data Science tasks.
+    for Data Science tasks (This is only required if you wish to test scripts on a local machine or a notebook on Azure).
 
     -   Anaconda - <https://docs.anaconda.com/anaconda/install/windows/>
 
@@ -98,8 +105,4 @@ get real business value.
 
 -   Phil Coachman
 
--   Chris Kahrs
-
 -   Jason Virtue
-
--   Anthony Franklin

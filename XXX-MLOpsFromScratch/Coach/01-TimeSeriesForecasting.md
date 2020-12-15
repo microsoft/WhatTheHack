@@ -62,7 +62,7 @@ most common and prevalent tasks in Machine Learning.
     
 ## Success Criteria
 
-1.  Forecasting project imported into Azure DevOps and cloned in VS Code.
+1.  Forecasting project imported into Azure DevOps.
 
 ## Learning resources
 
