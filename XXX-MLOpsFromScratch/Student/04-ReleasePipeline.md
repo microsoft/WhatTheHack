@@ -20,9 +20,9 @@ leverage the intelligence of the model.
 There are several ways to create a Release pipeline. The 2 common and popular
 ways are
 
--   using a YAML file that represents the entire pipeline,
+- using a YAML file that represents the entire pipeline,
 
--   using an empty job and adding tasks sequentially
+- using an empty job and adding tasks sequentially
 
 We think that latter approach is more comprehensive and intuitive, especially to
 get started on MLOps, so we recommend that.
@@ -57,7 +57,7 @@ across different environments.
     4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
         file used in the Inline Script
 
-5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. Confirm if it is operational by using a tool like Postman or Swagger.
+5.  A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. Confirm if it is operational by using a tool like Postman or Swagger.
 
 ## Success Criteria
 

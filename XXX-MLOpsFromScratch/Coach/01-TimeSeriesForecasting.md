@@ -1,4 +1,4 @@
-# Challenge 1 – Start Project and Import Repo into Azure DevOps 
+# Challenge 1 – Start Project and Import Repo into Azure DevOps
 
 ## Prerequisites
 
@@ -31,12 +31,12 @@ most common and prevalent tasks in Machine Learning.
 
     2.  Create new service connections in Project Settings for your Azure ML service and Azure Subscription using service
         principal
-      
 
 2.  Install library requirements to setup your environment:  
-    *pip install -r ./environment_setup/requirements.txt*
+    _pip install -r ./environment_setup/requirements.txt_
 
-3.  Configure your Azure ML Workspace for the project. 
+3.  Configure your Azure ML Workspace for the project.
+
     - **Hint:** Add workspace details through Azure DevOps pipeline variables.
     - **Hint:** Add workspace details in config.json. You can download it from portal too.
 
@@ -59,7 +59,7 @@ most common and prevalent tasks in Machine Learning.
     7.  deployOnAci.py to deploy the scoring image on ACI.
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
-    
+
 ## Success Criteria
 
 1.  Forecasting project imported into Azure DevOps.
@@ -67,4 +67,3 @@ most common and prevalent tasks in Machine Learning.
 ## Learning resources
 
 [Next Challenge – Create Unit Test in Azure DevOps](02-UnitTesting.md)
-
