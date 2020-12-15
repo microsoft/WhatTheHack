@@ -16,9 +16,9 @@ scoring the model generally by containerizing the model.
 There are several ways to create a Build pipeline. The 2 common and popular ways
 are
 
--   using a YAML file that represents the entire pipeline,
+- using a YAML file that represents the entire pipeline,
 
--   using an empty job and adding tasks sequentially
+- using an empty job and adding tasks sequentially
 
 We think that latter approach is more comprehensive and intuitive, especially to
 get started on MLOps, so we recommend that.
@@ -53,8 +53,7 @@ updated Azure Machine Learning pipeline after building the code.
         install_environment.sh is the file used
 
     3.  Azure CLI task to get Azure ML Workspace connection – Workspace.py is
-        the file used in the Inline Script
-       -**Note:** If you see issues with version 2.0 of Azure CLI, use version 1.0
+        the file used in the Inline Script -**Note:** If you see issues with version 2.0 of Azure CLI, use version 1.0
 
     4.  Azure CLI task to acquire time series transactions data – AcquireData.py
         is the file used in the Inline Script
@@ -70,11 +69,10 @@ updated Azure Machine Learning pipeline after building the code.
 
     8.  Azure CLI task to score the model, to forecast future transactions –
         ScoreModel.pys is the file used in the Inline Script
-        
-    9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
+    9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline.
         - Use Copy Files task to copy files from $(Build.SourcesDirectory) to $(Build.ArtifactStagingDirectory)
-        - Use Publish Artifact task with $(Build.ArtifactStagingDirectory) as path to publish. 
-        Note: Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
+        - Use Publish Artifact task with $(Build.ArtifactStagingDirectory) as path to publish.
+          Note: Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
 
 5.  Run the Build pipeline
 

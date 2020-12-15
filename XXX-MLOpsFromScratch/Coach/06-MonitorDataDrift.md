@@ -1,4 +1,4 @@
-# Challenge 6 (Optional) – Monitor Data Drift for your Model
+# Challenge 6 – Monitor Data Drift for your Model
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ As new data comes in over time, our trained models become obsolete which warrant
 
     1.  Pull up the training code in transactions_arima.py in scripts/training
         folder. The initial model was trained on 2013 transactions data
-        
+
 ## Success criteria
 
 1.  A retrained model (with better performance) is created and registered with

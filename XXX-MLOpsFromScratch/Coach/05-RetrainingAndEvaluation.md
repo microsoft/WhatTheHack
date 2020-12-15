@@ -8,7 +8,7 @@
 ## Introduction
 
 When the new data deviates from the original trained data that the model was
-trained model, the model performance deteriorates. This concept, known as model
+trained, the model performance deteriorates. This concept, known as model
 drift, can be mitigated by retraining the model when new data becomes available,
 to reflect the current reality.
 
@@ -35,7 +35,7 @@ Azure ML Model Registry.
 2.  Rerun the Build pipeline to reflect the changes in training
 
 3.  Rerun the Release pipeline. If the new model has better evaluation metrics
-    than the previous model, then a new webservice is created for your retrained
+    than the previous model, then a new web service is created for your retrained
     model.
 
 4.  Review artifacts and outputs from Build and Release pipelines
