@@ -50,24 +50,28 @@ In this hack you will solve common challenges for companies planning to use Azur
 ## Prerequisites
 
 - Access to an Azure subscription with Owner access
-   - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+  - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
 - [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 - [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-   - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
-   - Update to the latest
-   - Must be at least version 2.7.x
+  - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
+  - Update to the latest
+  - Must be at least version 2.7.x
 - Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 - [**Azure IoT Tools**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
+
+Optionally you may want to:
+
+- Install [**Azure IoT Explorer**](https://docs.microsoft.com/en-us/azure/iot-pnp/howto-use-iot-explorer) to monitor and navigate your IoT Hub/Edge
 
 ## Repository Contents
 
 - `../Coach/Presentations`
   - Contains all presentations listed in the Introduction above.
 - `../Coach/Solutionss`
-   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+  - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student`
-   - Student challenges
+  - Student challenges
 
 ## Contributors
 
