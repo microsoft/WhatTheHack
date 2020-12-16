@@ -3,11 +3,30 @@ replicaCount: 1
 
 # Change the application settings here
 appConfig:
-  databaseType: "mysql" # mysql or postgres
-  dataSourceURL: "jdbc:mysql://10.71.189.3:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
-  dataSourceUser: "root" # your database username goes here
-  dataSourcePassword: "OCPHack8" # your database password goes here
-  webPort: 8081 # the port the app listens on
+  #databaseType: "mysql" # mysql or postgres
+  databaseType: "postgres" # mysql or postgres
+  #local example of Postgres JDBC Connection string
+  dataSourceURL: "jdbc:postgresql://10.71.21.112:5432/wth" # your JDBC connection string goes here
+  
+  #Azure example of Postgres JDBC Connection string
+  #dataSourceURL: "jdbc:postgresql://petepgdbtest01.postgres.database.azure.com:5432/wth?sslmode=require" # your JDBC connection string goes here
+
+  #local example of MySQL JDBC Connection string
+  #dataSourceURL: "jdbc:mysql://10.71.189.3:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
+  
+  #Azure example of MySQL JDBC Connection string
+  #dataSourceURL: "jdbc:mysql://petewthmysql01.mysql.database.azure.com:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
+  
+  #local examples of dataSourceUser and dataSourcePassword
+  dataSourceUser: "postgres" # your database username goes here 
+  dataSourcePassword: "OCPHack8" # your database password goes here 
+  
+  #Azure examples of dataSourceUser and dataSourcePassword  
+  #dataSourceUser: "postgres@petepgdbtest01" # your database username goes here 
+  #dataSourcePassword: "OCPHack8" # your database password goes here 
+  
+  #webPort: 8081 # the port the app listens on
+  webPort: 8082 # the port the app listens on
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 
 # These changes applies to any database type used
@@ -36,7 +55,7 @@ image:
 
 service:
   type: LoadBalancer
-  port: 8081
+  port: 8082
   protocol: TCP
 
 resources:

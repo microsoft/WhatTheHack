@@ -25,20 +25,18 @@ In this challenge you'll be setting up your environment so that you can complete
 
 Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](../Coach/Resources/EnvironmentSetUp/HelmCharts/README.md) 
 
-- Determine the external IP address for the Pizzeria application you installed and validate the applications are working properly by opening a web browser to http://<Your External IP Address>:8081/pizzeria/ and http://<Your External IP address>:8082/pizzeria/
-    hint: figure out how to use kubectl to list the services on the AKS cluster
 
 ## Success Criteria
 
-1. You have a bash shell at your disposal for setting up the Pizzeria application (Azure Cloud Shell)
+1. You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
 1. Visual Studio Code is installed.
 1. You have database management tools installed
 1. You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 
 ## References
 
-PostgreSQL Tools: https://www.pgadmin.org/
-MySQL Workbench: https://www.mysql.com/products/workbench/
-Azure Data Studio: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15
-Visual Studio Code: https://code.visualstudio.com/
+* PostgreSQL Tools: https://www.pgadmin.org/
+* MySQL Workbench: https://www.mysql.com/products/workbench/
+* Azure Data Studio: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15
+* Visual Studio Code: https://code.visualstudio.com/
 
