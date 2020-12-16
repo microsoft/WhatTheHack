@@ -2,21 +2,21 @@
 
 ## Introduction
 
-This hack will work throgh a scenario where a factory...
+This hack will work through a scenario where a factory...
 
 This hack includes presentations that feature lectures introducing key topics associated with each challenge. It is recommended that the host present each lecture before attendees kick off that challenge.
 
 ## Learning Objectives
 
-**(TBD)**
 
-In this hack you will *olve common challenges for companies migrating to the cloud. 
+In this hack you will solve common challenges for companies planning to use Azure IoT in Industrial IoT scenarios. This includes:
+
+**(TBD)**
 
 1. Migrating to the cloud.
 1. Containerizing an application.
 1. Serverless-izing your application.
 1. DevOps-ing your application.
-
 
 ## Challenges
 
@@ -60,17 +60,14 @@ In this hack you will *olve common challenges for companies migrating to the clo
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 - [**Azure IoT Tools**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
 
-
 ## Repository Contents
 
 - `../Coach/Presentations`
-  - Containes all presentations listed in the Introduction above.
-- `../Coach/setupfiles`
+  - Contains all presentations listed in the Introduction above.
+- `../Coach/Solutionss`
    - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
-- `../Student/Resources/src`
-   - Node.js application src code
-- `../Student/images`
-   - Images for documentation
+- `../Student`
+   - Student challenges
 
 ## Contributors
 
