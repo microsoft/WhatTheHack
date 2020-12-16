@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: postgresql-config
   namespace: {{ .Values.infrastructure.namespace }}
-data:
+data: 
   postgresql.conf: |-
     # Mounted at /etc/postgresql/postgresql.conf
     # -----------------------------
@@ -103,11 +103,11 @@ data:
 
     # - SSL -
 
-    #ssl = off
-    #ssl_ca_file = ''
-    #ssl_cert_file = 'server.crt'
+    ssl = on
+    ssl_ca_file = '/etc/postgresql/keys/tls.crt'
+    ssl_cert_file = '/etc/postgresql/keys/tls.crt'
     #ssl_crl_file = ''
-    #ssl_key_file = 'server.key'
+    ssl_key_file = '/etc/postgresql/keys/tls.key'
     #ssl_ciphers = 'HIGH:MEDIUM:+3DES:!aNULL' # allowed SSL ciphers
     #ssl_prefer_server_ciphers = on
     #ssl_ecdh_curve = 'prime256v1'

@@ -55,7 +55,7 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 
 psql -U postgres 
 ```
-Run the following commands to check the Postgres Version
+Run the following commands to check the Postgres Version and create the WTH database (warning: application deployment will fail if you don't do this)
 
 ```sql
 
@@ -121,6 +121,7 @@ kubectl -n mysqlwth exec deploy/mysql -it -- bash
 # Use this to login to the service
 mysql -u root -pOCPHack8
 ```
+Run the following commands to check the MySQL Version and create the WTH database (warning: application deployment will fail if you don't do this)
 ```sql
 
 -- Check the mysql DB Version
