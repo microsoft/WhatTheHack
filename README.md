@@ -34,7 +34,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
-- [Front Door/CDN](/017-FrontDoorCDN/README.md)
+- [Azure Front Door](/017-FrontDoor/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
