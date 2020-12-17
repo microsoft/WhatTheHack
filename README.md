@@ -48,6 +48,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [MasteringLinux](/020-MasteringLinux/README.md)
+- [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
