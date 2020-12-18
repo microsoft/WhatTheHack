@@ -25,3 +25,10 @@ Stream processing is useful in a number of scenarios including:
 1. [to be added]
 2. [to be added]
 3. [to be added]
+
+## Taking it Further
+
+There are other What The Hack hackathons that explore using data in a data lake for other pruposes like data warehousing, machine learning. Below are recommended follow-up hackathons to keep learning:
+
+1. [This Old Data Warehouse](https://github.com/microsoft/WhatTheHack/tree/master/019-ThisOldDataWarehouse)
+2. [Databricks Intro ML](https://github.com/microsoft/WhatTheHack/tree/master/008-DatabricksIntroML)
