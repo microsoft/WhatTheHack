@@ -46,5 +46,5 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
 - **[Copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
 - **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)** 
-- **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**
+- **[Import Postman data, including collections, environments, data dumps, and globals.](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**
 - **[Access Azure API for FHIR using Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/access-fhir-postman-tutorial)**
