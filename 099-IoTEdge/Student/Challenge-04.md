@@ -5,6 +5,10 @@
 
 ## Pre-requisites (Optional)
 
+- ssh
+- iot hub and iot edge device 
+- iot hub in the right region
+
 ## Introduction
 
 ## Description
