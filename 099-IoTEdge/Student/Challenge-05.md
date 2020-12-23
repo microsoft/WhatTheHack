@@ -13,7 +13,7 @@ Stream processing is useful in a number of scenarios including:
   - low latency filtering, aggregation or anomaly detection at the edge
 
 ## Description
-In this challenge we'll be creating an Azure Stream Analytics job, using that job to read from the message route coming from IoT Hub, filtering or aggregating data, writing the output data to the data lake and then visualizing the data with Microsoft Power BI. 
+In this challenge we'll be creating an Azure Stream Analytics job, using that job to read from the message route coming from IoT Hub, filtering or aggregating data, writing the output data to the data lake and then visualizing the data with Microsoft Power BI.
 
 1. In your Azure resource group create a Stream Analytics job.
 2. Set the input of the Stream Analytics job to be the route defined in your IoT Hub.
@@ -26,9 +26,9 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 
 ## Success Criteria
 
-1. IoT messages flowing from Edge module to $upstream route
-2. Stream Analytics job setup & running with input reading data from $upstream
-3. Stream Analytics job setup & running with output being written to data lake store Gen2
+1. IoT messages flowing from Edge module to `$upstream` route
+2. Stream Analytics job setup & running with input reading data from `$upstream`
+3. Stream Analytics job setup & running with output being written to Data Lake Store Gen2
 4. Stream Analytics job filtering or aggregating data that is output
 5. Vizualizing the data in a Power BI report.
 
