@@ -43,7 +43,7 @@ In this hack you will solve common challenges for companies planning to use Azur
     - Output data to data lake & Power BI
 
 - Challenge 6: **[Deploy to devices at scale](Student/Challenge-06.md)** - **JOTA**
-  - IoT Hub at scale – Deployment manifest
+  - Use Deployment manifests to deploy modules to IoT Edge devices at scale
 
 - Challenge 7: **[Connect to Devices with Device Streams](Student/Challenge-07.md)** - **JOTA**
   - Use Azure IoT Hub device streams (in preview) to connect to IoT Devices over SSH
