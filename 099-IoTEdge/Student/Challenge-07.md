@@ -8,24 +8,103 @@ For this challenge you will need the following:
 
 - A `SSH` client installed. On Windows, this is available out-of-the-box in recent builds of Windows 10 and in the Windows Subsystem for Linux (both 1 and 2). You can also download a simple client if needed, such as [PuTTY](https://www.putty.org/). It should also be available out-of-the-box in most Linux distributions and MacOS.
 
-- An Azure IoT Hub created in one of the regions where Device Streams are available. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
+- An Azure IoT Hub created in **one of the regions where Device Streams are available**. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
 
-- A device or VM running IoT Edge that can be SSH'd into.
+- .NET Core SDK 2.1.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
-- **visual studio/code?????**
+- A simulated (or real) IoT device running Linux that can be SSH'd into.
 
 ## Introduction
 
 When you get to this challenge, you'll have used several of the core capabilties of Azure IoT and Azure IoT Edge, as well as some of the ecosystem services what are frequently used together, such as Azure Stream Analytics or Timeseries Insights. If you have done IoT before, you'll know that Device Monitoring and Diagnosing problems are high on the list of requirements.
 
-The goal of this challenge is to experiment with a simple and secure way of connecting remotely to IoT Edge devices to check on their status, using one of the preview capabilities of Azure IoT Hub: **Device Streams**.
+The goal of this challenge is to experiment with a simple and secure way of connecting remotely to IoT Edge devices to check on their status, using one of the preview capabilities of Azure IoT Hub: **Device Streams**. You'll then lock down the firewall to test this capability.
 
 ## Description
 
+The [Device Streams documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview) has a complete description of how Device Streams work. In a simplified way, they allow clients to connect to devices via the bi-directional connection established from the device to an Azure IoT Hub. This connection is outbound (opened by the device), and thus even if a firewall blocks inbound connections, the remote connections will still be possible.
+
+For this challenge, you'll be using Device Streams to set up an `SSH` connection to the simulated IoT Device you've been using, and then locking down firewall to confirm that a connection is still possible.
+
+Steps:
+
+1. Run the steps of the quickstart [Enable SSH and RDP over an IoT Hub device stream by using a C# proxy application (preview)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-device-streams-proxy-csharp#ssh-to-a-device-via-device-streams), in particular the section "SSH to a device via device streams".
+1. Close down inbound SSH traffic (por 22) in your IoT Device. If you're running it in Azure, 
+
+
 ## Success Criteria
+
+1. You are able to succesfully connect via `SSH` to your simulated IoT Device
+1. You have closed down SSH on the firewall and the connection was not impacted
 
 ## Learning Resources
 
-## Tips (optional)
+- [IoT Hub Device Streams (Microsoft Docs)](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview)
+- [Introduction to Azure IoT learning path (Microsoft Learn)](https://docs.microsoft.com/en-us/learn/paths/introduction-to-azure-iot/)
 
-## Advanced Challenges (Optional)
+## Tips
+
+- When running the quickstart, before building, make sure the .csproj file for the device-local proxy (`~/devicestreams/iot-hub/Quickstarts/device-streams-proxy/device`) has `TargetFramework` as `netcoreapp3.1`.
+
+## Advanced Challenges
+
+You're now able to connect to the device via SSH via the connection estabilished to the Azure IoT Hub. However, the connection will only be available while the server on the device is running.
+To have it permanently available you have to have it running as a system service in Linux. For this, follow the next steps. After completion, reboot the simulated IoT device and try connecting again.
+
+The following steps must be executed in the simulated IoT Device (i.e., running Linux).
+
+1. From the folder with the device-local proxy (`~/devicestreams/iot-hub/Quickstarts/device-streams-proxy/device`), build/publish the code with:
+
+    ```bash
+    sudo dotnet publish --configuration Release --output /usr/bin/dlpsvc
+    ```
+
+1.	Create a SystemD service file and start the device-local proxy service
+
+    - Change directory into the SystemD folder (`/lib/systemd/system`) and open a new file with the Nano/Vim text editor
+
+        ```bash
+        sudo nano dlpsvc.service
+        ```
+
+    -  Add the following contents manually to the file and ensure that you fill in the `{iot_hub_device_connection_string}` field with the appropriate value (note it’s the **device’s** connection string, not the IoT Hub’s connection string):
+
+        ```
+        [Unit]
+        Description="Device Local Proxy Service"
+        After=network.target
+        [Service]
+        ExecStart=/usr/bin/dotnet /usr/bin/dlpsvc/DeviceLocalProxyStreamingSample.dll "{iot_hub_device_connection_string}" localhost 22
+        Restart=always
+        [Install]
+        WantedBy=multi-user.target
+        ```
+
+    - Reload SystemD and enable the service, so it will restart on reboots:
+
+        ```
+        sudo systemctl daemon-reload
+        sudo systemctl enable dlpsvc
+        ```
+
+    - Start service
+
+        ```
+        sudo systemctl start dlpsvc
+        ```
+
+    - View service status
+
+        ```
+        systemctl status dlpsvc
+        ```
+    - View detailed service logs
+        ```
+        journalctl --unit dlpsvc --follow
+        ```
+
+After you have completed these steps, you're ready to test.
+
+1. Test the `SSH` connection, to confirm it's working
+1. Reboot the simulated IoT device
+1. Test the `SSH` connection again
