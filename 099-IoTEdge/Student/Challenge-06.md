@@ -2,42 +2,42 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
-IoT Hub at scale – Deployment manifest
+- As part of a previous challenge, you'll have the OPC Simulator container/module published to an Azure Container registry, an IoT Hub instance and a VM running Azure IoT Edge.
 
 ## Introduction
 
 Production IoT solutions typically include hundreds or thousands of devices, potentially running slightly different versions of the base operating system or software components. Azure IoT includes support for simplified deployment of new devices and for the installation of software/updates at scale. The first is achieved with the [Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/), the second with [Deployment Manifests](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring?view=iotedge-2018-06) and integration with DevOps.
 
-This challenge focuses on Deployment Manifests.
+This challenge focuses on **Deployment Manifests**, showing you how to do deployments at scale to devices running Azure IoT Edge.
 
 ## Description
 
-In the previous challenges, you have installed the OPC Simulator by directtly adding it to the VM running IoT Edge in the Azure Portal. An alternative to doing this is creating a **deployment manifest** confguration and then telling Azure IoT Hub to apply it to a set of devices according to some targetting rule (e.g., devices in a given region or with a given set of capabilities).
+In the previous challenges, you have installed the OPC Simulator by directtly adding it to the VM running IoT Edge in the Azure Portal. An alternative to doing this is creating a **deployment manifest** configuration and then telling Azure IoT Hub to apply it to a set of devices according to some targeting rule (e.g., devices in a given region or with a given set of capabilities).
 
-The deployment manifest is a Json file that specifies a set of modules (i.e., docker containers) that must be downloaded/executed - including the two base modules that are part of Azure IoT Edge: `edgeHub` and `edgeAgent`. It also specifies a set of related properties/configurations such as routes (how to route messags inside the device and into IoT Hub) or what folders to map between the modules and the device.
+The deployment manifest is a Json file that specifies a set of modules (i.e., docker containers) that must be downloaded/executed - including the two base modules that are part of Azure IoT Edge: `edgeHub` and `edgeAgent`. It also specifies a set of related configurations such as routes (how to route messags inside the device and into IoT Hub) or what folders to map between the modules and the device.
 
-In this challenge, you'll provision a new VM running Azure IoT Edge, simulating an IoT device, create a Deployment Manifest to deploy a few sample modules, and deploy it to the new VM using a targetted deployment.
+In this challenge, you'll provision a new VM running Azure IoT Edge, simulating an IoT device, create a Deployment Manifest to deploy a few sample modules, and push the deployment to the new device VM using a targeted deployment.
 
 Steps:
 
 1. Create a new IoT Edge device on your IoT Hub
-1. Add a tag to the new device's *device twin*: `environment` with value `development`. This will allow you to do a targetted deployment later on. 
+1. Add a tag to the new device's *device twin*: `environment` with value `development`. This will allow you to do a targeted deployment later on. 
 1. Deploy a new VM running Azure IoT Edge, in the same region/resource group you've used before
     - After deployment, SSH to the VM and confirm that iotedge is running and check its version. It should be the latest (at the time of writing, 1.0.10.4).
-    - Check what module(s) are running on the device and understand why, comparing with what you see in the IoT Edge device page in your IoT Hub, on the Azure Portal
+    - Check what module(s) are running on the device and understand *why*, comparing with what you see in the IoT Edge device page in your IoT Hub, on the Azure Portal
 1. Create a new deployment manifest. This deployment manifest should include the following modules:
 
     - `edgeHub` and `edgeAgent` (IoT Edge's system modules)
     - OPC Simulator module (from a previous challenge) and any required routes/configurations
-    - Simulated Temperature Sensor module and any required routes (*note: this does not require building the module, use the Microsoft-provided one*)
+    - Simulated Temperature Sensor module and any required routes (*note: this does not require building the container, you should use the Microsoft-provided one*)
 
-1. Using either the Azure CLI or the Azure Portal, deploy your deployment manifest. **Make sure to specify a target condition such that only devices with `environment` equal to `development`.** will receive the deployment.
+1. Using either the Azure CLI or the Azure Portal, deploy your deployment manifest. **Make sure to specify a target condition such that only devices with `environment` equal to `development` will receive the deployment**.
 
-    - You can test the targetting condition using the *query editor* in the IoT Hub page that lists the IoT Edge devices.
+    - You can test the targeting condition using the *query editor* in the IoT Hub page that lists the IoT Edge devices.
 
-1. Access the new IoT Edge device and confirm that the modules running are the ones you specified in your deployment manifest.
+1. Access the new IoT Edge device via SSH and confirm that the modules running are the ones you specified in your deployment manifest.
 
 1. Access the IoT Edge device you created in the previous challenges and confirm that the modules running there have not been modified.
 
@@ -47,7 +47,7 @@ After completing the steps above, you'll have learned about Deployment Manifests
 
 - A deployment manifest has been created and deployed
 - The new IoT Edge device VM has the 4 modules listed above running on it
-- The previously created IoT Edge device VM has not been modified and will be running the previously installed modules
+- The previously created IoT Edge device VM has not been modified and will still be running the previously installed modules
 
 ## Learning Resources
 

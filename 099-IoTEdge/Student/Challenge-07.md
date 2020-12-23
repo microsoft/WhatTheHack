@@ -32,9 +32,12 @@ Steps:
 1. Block inbound SSH traffic (por 22) in your IoT Device. If you're running it in Azure, this can be fon for example with a Network Security Group (NSG) attatched to the Vnet. Confirm the device is stil reachable.
 1. Check the Advanced Challenge if you want to have the device-local proxy running as a Linux system service.
 
+After completing the steps above, you'll have learned about Device Streams and how they allow you to leverage Azure IoT Hub in its security and networking capabilities to remotely connect into devices without requiring third party software. The Advanced Challenge guides you through getting the device-local proxy running as a service so that it's always available.
+
+
 ## Success Criteria
 
-1. You are able to succesfully connect via `SSH` to your simulated IoT Device
+1. You are able to succesfully connect via `SSH` over IoT Hub to your simulated IoT Device
 1. You have closed down SSH on the firewall and the connection was not impacted
 
 ## Learning Resources
