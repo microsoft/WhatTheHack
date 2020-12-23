@@ -1,1 +1,18 @@
-# CHALLENGE PLACEHOLDER
+# Challenge 4: Route messages and do time-series analysis
+
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
+
+
+## Pre-requisites (Optional)
+
+## Introduction
+
+## Description
+
+## Success Criteria
+
+## Learning Resources
+
+## Tips (optional)
+
+## Advanced Challenges (Optional)
