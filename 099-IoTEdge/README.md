@@ -46,8 +46,8 @@ In this hack you will solve common challenges for companies planning to use Azur
   - IoT Hub at scale – Deployment manifest
 
 - Challenge 7: **[Connect to Devices with Device Streams](Student/Challenge-07.md)** - **JOTA**
-  - SSH Proxy – Connect to Edge Devices using Device streams:
-  - <https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/iot-hub/quickstart-device-streams-proxy-c.md>
+  - Use Azure IoT Hub device streams (in preview) to connect to IoT Devices over SSH
+  - Close down SSH conectivity in a Firewall to confirm remote access is not impacted
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Optionally you may want to:
 
 - `../Coach/Presentations`
   - Contains all presentations listed in the Introduction above.
-- `../Coach/Solutionss`
+- `../Coach/`
   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student`
   - Student challenges
@@ -78,5 +78,5 @@ Optionally you may want to:
 ## Contributors
 
 - Ryan Berry
-- João Pedro Martins
+- João Pedro Martins (@lokijota)
 - Orrin Edenfield
