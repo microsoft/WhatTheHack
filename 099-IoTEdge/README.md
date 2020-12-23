@@ -37,8 +37,10 @@ In this hack you will solve common challenges for companies planning to use Azur
 - IoT Routing à Event Hub --> TSI
 
 - Challenge 5: **[Process Steaming Data](Student/Challenge-05.md)** - **ORRIN**
-  - ASA – job – IoT Hub Routing
-  - Route messages from IoT hub to DataLake ß Mention Data/AI WTH for follow-ups
+  - Stream processing
+    - Reading from IoT Hub
+    - Aggregating/filtering data (querying)
+    - Output data to data lake & Power BI
 
 - Challenge 6: **[Deploy devices at scale](Student/Challenge-06.md)** - **JOTA**
   - IoT Hub at scale – Deployment manifest
