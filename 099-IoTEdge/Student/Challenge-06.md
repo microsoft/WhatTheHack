@@ -35,6 +35,8 @@ Steps:
 
 1. Using either the Azure CLI or the Azure Portal, deploy your deployment manifest. **Make sure to specify a target condition such that only devices with `environment` equal to `development`.** will receive the deployment.
 
+    - You can test the targetting condition using the *query editor* in the IoT Hub page that lists the IoT Edge devices.
+
 1. Access the new IoT Edge device and confirm that the modules running are the ones you specified in your deployment manifest.
 
 1. Access the IoT Edge device you created in the previous challenges and confirm that the modules running there have not been modified.
