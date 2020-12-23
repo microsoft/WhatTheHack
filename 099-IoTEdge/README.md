@@ -42,7 +42,7 @@ In this hack you will solve common challenges for companies planning to use Azur
     - Aggregating/filtering data (querying)
     - Output data to data lake & Power BI
 
-- Challenge 6: **[Deploy devices at scale](Student/Challenge-06.md)** - **JOTA**
+- Challenge 6: **[Deploy to devices at scale](Student/Challenge-06.md)** - **JOTA**
   - IoT Hub at scale – Deployment manifest
 
 - Challenge 7: **[Connect to Devices with Device Streams](Student/Challenge-07.md)** - **JOTA**
