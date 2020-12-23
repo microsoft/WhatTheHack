@@ -1,4 +1,4 @@
-# Challenge 5: Process Steaming Data 
+# Challenge 5: Process Steaming Data
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
@@ -12,7 +12,6 @@ Stream processing is useful in a number of scenarios including:
   - reducing the amount of data sent to the cloud for bandwidth constrained scenarios
   - low latency filtering, aggregation or anomaly detection at the edge
 
-
 ## Description
 In this challenge we'll be creating an Azure Stream Analytics job, using that job to read from the message route coming from IoT Hub, filtering or aggregating data, writing the output data to the data lake and then visualizing the data with Microsoft Power BI. 
 
@@ -25,7 +24,6 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 7. Create an additional output to the prevously created/identified Power BI workspace.
 8. Run the Stream Analytics job and note the output files created in the data lake & data in the Power BI dataset.
 
-
 ## Success Criteria
 
 1. IoT messages flowing from Edge module to $upstream route
@@ -36,7 +34,7 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 
 ## Taking it Further
 
-There are other What The Hack hackathons that explore using data in a data lake for other pruposes like data warehousing, machine learning. Below are recommended follow-up hackathons to keep learning:
+There are other What The Hack hackathons that explore using data in a data lake for other purposes like data warehousing, machine learning. Below are recommended follow-up hackathons to keep learning:
 
 1. [This Old Data Warehouse](https://github.com/microsoft/WhatTheHack/tree/master/019-ThisOldDataWarehouse)
 2. [Databricks Intro ML](https://github.com/microsoft/WhatTheHack/tree/master/008-DatabricksIntroML)
