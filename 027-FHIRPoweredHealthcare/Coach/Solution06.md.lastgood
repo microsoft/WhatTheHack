@@ -19,7 +19,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Download latest **[Node.js pre-built installer](https://nodejs.org/en/download/)** for your platform
     - Run downloaded node-v14.15.1-x64.msi executable to install node.js 
     - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, `Press any key to continue...`
-- Create a new JavaScript SPA patient search app 
+- Create a new JavasScript SPA patient search app 
   - **Option 1: Create a Node.js SPA AAD MSAL Patient Search app**
   This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
   - Setup you web server or project, **[download project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)**
@@ -73,43 +73,138 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
         npm install react react-dom
         npm install @azure/msal-react @azure/msal-browser
         ```
-      - Setup index.js in root project folder to handle the app startup and basic HTTP web server functionality similar what's done in traditional Apache.
-        - Import react-dom package to provide DOM-specific methods to be used in the app.
-          ```
-          import ReactDOM from "react-dom";
-          ```
-        - Setup **[React Redux store](https://react-redux.js.org/introduction/basic-tutorial)** to make it available to the app. 
-          ```
-          import { Provider } from "react-redux";
-          import { basicReduxStore } from "./reduxStore";
-          ```
-        - Setup react-dom `render` method to render React app to the web page.
-        - **[Providing the Redux store](https://react-redux.js.org/introduction/basic-tutorial#providing-the-store)** by wrapping the app with the `<Provider />` API provided by React Redux in the `ReactDOM.render()` function.
-          ```
-          ReactDOM.render(
-            <Provider store={basicReduxStore}>
-              <App />
-            </Provider>,
-            document.getElementById("root")
-          );
-          ```
-      - Create React SPA UI in App.js to handle MS Identity Platorm authentication services and patient search UI functionalities.
-        - Import authentication provider and instantiate it only once as a singleton service.
-        - Implement patient search UI built with Bootstrap 4 Framework.
-            - **[Include React Bootstrap package in your app](https://react-bootstrap.github.io/getting-started/introduction/)**
-            - **[Create a simple search app in your React app](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
-              - Create a search component
-              - Add a search input and a button to perform the search
-              - Create functions to handle search events in JavaScript
-        -	Access authService.js for:
-          - MSAL configuration
-            - **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)**
-            - **[Configure Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
-          - MSAL client authentication,
-            - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
-        - Create patient search function `callPatientSearch.js` to setup and call FHIR API using fetch method
-          - **[Single-page application: Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
-        - Access and update DOM elements in `updateUI.js` to render patient search results
+      - **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-auth-entication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
+      - **[Configure Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
+        ```
+        const msalConfig = {
+          auth: {
+              clientId: 'your_client_id',
+              authority: 'https://login.microsoftonline.com/common/'
+              redirectUri: 'https://contoso.com'
+          }
+        };
+        ```
+      - **[Login APIs in MSAL to retrieve an authorization code](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md)**
+      - **[Exchange your authorization code for an access token containing the user consented scopes to allow your app to securely call the API](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/acquire-token.md)**
+    - Quickstart using the **[sample react msal app](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/VanillaJSTestApp2.0)**
+      - **[onPageLoad sample app](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/VanillaJSTestApp2.0/app/onPageLoad)** to setup Config object to be passed to Msal on creation.
+    - **[Add a patient search in your React app](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
+      - Create a search component in a new file called `Search.js`
+      - Import search component in the index.js file
+        `ReactDOM.render(<Search />, document.getElementById('root'));`
+      - Add a search input and a button to perform the search in the `render` method of your Search.js file by replacing the `return` statement with below:
+        ```
+        return (
+          <div>
+          <h1>Welcome to the meal search app</h1>
+          <input name="text" type="text" placeholder="Search" />
+          <button>Search</button>
+          </div>
+        );
+        ```
+      - (Optional) You can style it a little bit by creating a Search.css file, for example:
+        ```
+        * {
+        margin: 0;
+        padding: 0;
+        }
+        h1 {
+        color: #4286f4;
+        margin-top: 30px;
+        margin-bottom: 60px;
+        }
+        div {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        }
+        input {
+        width: 100%;
+        margin: 10px;
+        padding: 18px 10px;
+        border-radius: 4px;
+        border: 1px solid #4e5766;
+        box-shadow: 1px 0.5px #888888;
+        font-size: 18px;
+        }
+        button {
+        padding: 12px 10px;
+        width: 30%;
+        border-radius: 4px;
+        background-color: #4286f4;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 18px;
+        }
+        ```
+      - Store search value entered by user in a variable
+        ```
+        state = {
+          searchValue: '',
+        };
+        ```
+        ```
+        <input
+          name="text"
+          type="text"
+          placeholder="Search"
+          onChange={event => this.handleOnChange(event)}
+          value={this.state.searchValue}
+        />
+        ```
+      - Create handleOnChange function to process search event
+        ```
+        handleOnChange = event => {
+          this.setState({ searchValue: event.target.value });
+        };
+        ```
+      - Setup the Search button to perform the `handleSearch` function upon a onClick event
+        ```
+        <button onClick={this.handleSearch}>Search</button>
+        ```
+      - Create `handleSearch` function to call makeApiCall function to perform the search
+        ```
+        handleSearch = () => {
+          this.makeApiCall(this.state.searchValue);
+        }
+        ```
+      - Create 'makeApiCall' function
+
+        Note: Search function should call FHIR service endpoint: `{fhirurl}/Patient?given:contains=[pass-your-search-text]`
+        ```
+        makeApiCall = searchInput => {
+          var searchUrl = `{fhirurl}/Patient?given:contains=${searchInput}`;
+          fetch(searchUrl)
+          .then(response => {
+            return response.json();
+          })
+          .then(jsonData => {
+            console.log(jsonData.meals);
+            this.setState({ patients: jsonData.meals });
+          });
+        };
+        ```
+      - Add array variable used in makeApiCall to hold patients returned from fetching patients containing the search term the user entered in the search field
+        ```
+        state = {
+          searchValue: "",
+          patients: []
+        };
+        ```
+      - Render patient data in array
+        ```
+        {this.state.patients ? (
+        <div>
+          {this.state.patients.map((patient, index) => (
+          <div key={index}>
+            <h1>{patient.strPatient}</h1>
+          </div>
+          ))}
+        </div>
+        ) : (
+        <p>Try searching for a patient</p>
+        )}
+        ```
 - (Optional) Include any other modern UI features to improve the user experience.
 - Test updated sample JavaScript app with patient Lookup feature
   - Browse to App Service website URL in In-private / Incognito window
