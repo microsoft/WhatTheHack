@@ -7,10 +7,10 @@ import { Logger, LogLevel } from "msal";
 export const authProvider = new MsalAuthProvider(
   {
     auth: {
-      authority: "https://login.microsoftonline.com/wthcontosohealthcare.onmicrosoft.com",
-      clientId: "45538afa-75f7-4d3f-8456-d67f363395ab",
+      authority: "[Enter_Authority URL from FHIR Server Authentication Settings_Here]",
+      clientId: "[Enter_the_Application_Id_Here]",
       postLogoutRedirectUri: window.location.origin,
-      redirectUri: "https://react-patient-search-app.azurewebsites.net/",  //window.location.origin,
+      redirectUri: "[Enter_Your_Patient_Search_WebApp_Uri_Here]",  //window.location.origin,
       validateAuthority: true,
 
       // After being redirected to the "redirectUri" page, should user
@@ -36,7 +36,7 @@ export const authProvider = new MsalAuthProvider(
     }
   },
   {
-    scopes: ["https://contosofhir.azurehealthcareapis.com/.default"]
+    scopes: ["<Enter_Your_FHIR_Server_URL_Here>/.default"]
   },
   {
     loginType: LoginType.Popup,

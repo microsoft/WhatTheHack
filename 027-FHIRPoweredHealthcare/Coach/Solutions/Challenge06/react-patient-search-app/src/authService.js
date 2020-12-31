@@ -30,18 +30,18 @@ constructor(configuration) {
     console.log('AuthService: initialized: ', this.msalConfig);
 
     this.loginRequest = {
-      scopes: configuration.loginRequest.scopes //["https://contosofhir.azurehealthcareapis.com/.default"]
+      scopes: configuration.loginRequest.scopes
     };
   
     // Add here scopes for access token to be used at MS Graph API endpoints.
     this.tokenRequest = {
-        scopes: configuration.loginRequest.scopes //["https://contosofhir.azurehealthcareapis.com/.default"]
+        scopes: configuration.loginRequest.scopes
     };
 
     //fhirConfig.js
     // Add here the endpoints for FHIR API services you would like to use.
     this.fhirConfig = {
-        fhirEndpoint: configuration.fhirConfig.fhirEndpoint //fhirEndpoint: "https://contosofhir.azurehealthcareapis.com"
+        fhirEndpoint: configuration.fhirConfig.fhirEndpoint
     };
 }
   
