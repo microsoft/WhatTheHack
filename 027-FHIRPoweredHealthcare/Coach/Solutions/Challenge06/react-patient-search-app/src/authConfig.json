@@ -1,21 +1,21 @@
 {
     "msal": {
-      "authority": "https://login.microsoftonline.com/wthcontosohealthcare.onmicrosoft.com",
-      "clientId": "45538afa-75f7-4d3f-8456-d67f363395ab",
-      "scopes": [ "https://contosofhir.azurehealthcareapis.com/.default" ], 
-      "redirectUri": "http://localhost:3000/"
+      "authority": "<Enter_Authority URL from FHIR Server Authentication Settings_Here>",
+      "clientId": "<Enter_the_Application_Id_Here>",
+      "scopes": [ "<Enter_Your_FHIR_Server_URL_Here>/.default" ], 
+      "redirectUri": "<Enter_Your_Patient_Search_WebApp_Uri_Here>"
     },
       "cache": {
       "cacheLocation": "sessionStorage", 
       "storeAuthStateInCookie": "true" 
     },
     "fhirConfig": {
-      "fhirEndpoint": "https://contosofhir.azurehealthcareapis.com"
+      "fhirEndpoint": "<Enter_Your_FHIR_Server_URL_Here>"
     },
     "loginRequest" : {
-      "scopes": ["https://contosofhir.azurehealthcareapis.com/.default"]
+      "scopes": ["<Enter_Your_FHIR_Server_URL_Here>/.default"]
     },
     "tokenRequest" : {
-      "scopes": ["https://contosofhir.azurehealthcareapis.com/.default"]
+      "scopes": ["<Enter_Your_FHIR_Server_URL_Here>/.default"]
     }    
   }
