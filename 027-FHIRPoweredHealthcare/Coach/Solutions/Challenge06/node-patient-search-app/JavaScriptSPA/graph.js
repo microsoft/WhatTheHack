@@ -1,4 +1,4 @@
-// Helper function to call MS Graph API endpoint 
+// Helper function to call FHIR API endpoint 
 // using authorization bearer token scheme
 function callMSGraph(endpoint, token, callback) {
   const headers = new Headers();
@@ -11,7 +11,7 @@ function callMSGraph(endpoint, token, callback) {
       headers: headers
   };
 
-  console.log('request made to Graph API at: ' + new Date().toString());
+  console.log('request made to FHIR API at: ' + new Date().toString());
   
   fetch(endpoint+"/Patient", options)
     .then(response => response.json())
