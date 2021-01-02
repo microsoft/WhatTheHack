@@ -13,7 +13,7 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 - Create a new JavaScript Single-Page App (SPA) 
 
   Hint:
-  You can clone a sample **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** or use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project file structure.
+  You can git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** or use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
 
 - Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
   
