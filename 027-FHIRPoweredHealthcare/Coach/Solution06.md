@@ -32,7 +32,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
         npm install morgan --save
         ```
 
-      - Create a simple server to serve your SPA in `server.js` file.
+    - Create a simple server to serve your SPA in `server.js` file.
         - Setup front-end source folder, i.e. `JavaScriptSPA`
         - Setup route for `index.html`
         - Start the server
