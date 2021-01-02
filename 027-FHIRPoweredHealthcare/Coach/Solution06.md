@@ -66,12 +66,13 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
   - **Option 2: Create React AAD MSAL Patient Search SPA**
     - Build a new SPA in React using **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. 
     
-      Note: 
       - You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+
         `npx create-react-app react-patient-search`
         `cd react-patient-search`
         `npm start`
-      - npx on the first line is not a typo — it’s a package runner tool that comes with npm 5.2+.
+        
+        Note: `npx` on the first line above refers to a package runner tool that comes with npm 5.2+.
     - Use **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)** for Browser-Based Single-Page Applications
       -Install **[MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**, run:
         ```
@@ -106,15 +107,15 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
             - Create a search component
             - Add a search input textbox and submit button to perform the search
             - Create helper functions to handle search events in JavaScript
-      -	Access authService.js for:
+    -	Access authService.js for:
         - MSAL configuration
-          - **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)**
-          - **[Configure Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
+        - **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)**
+        - **[Configure Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
         - MSAL client authentication,
-          - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
-      - Create patient search function `callPatientSearch.js` to setup and call FHIR API using fetch method
-        - **[Single-page application: Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
-      - Access and update DOM elements in `updateUI.js` to render patient search results
+        - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
+    - Create patient search function `callPatientSearch.js` to setup and call FHIR API using fetch method
+      - **[Single-page application: Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
+    - Access and update DOM elements in `updateUI.js` to render patient search results
 
 - (Optional) Include any other modern UI features to improve the user experience.
 - Test and  run your code locally 
