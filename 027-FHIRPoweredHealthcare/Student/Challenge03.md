@@ -12,7 +12,7 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
 ![Ingest and Convert](../images/fhir-convert-samples-architecture.jpg)
 
 ### Let's put it all together...
-You will extend the FHIR Server Samples reference architecture from previous challenges with HL7 Ingest and FHIR Converter reference architectures to form the end-to-end ingest, transform and load event-driven platform as shown below:
+You have extended the FHIR Server Samples reference architecture with HL7 Ingest and FHIR Converter reference architectures to form the end-to-end ingest, transform and load event-driven platform as shown below:
 ![HL7 ingest, conversion and bulk load](../images/fhir-hl7-ingest-conversion-bulkload-samples-architecture.jpg)
 
 
