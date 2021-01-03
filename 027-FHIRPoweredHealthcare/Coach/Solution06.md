@@ -107,7 +107,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
             - Create a search component
             - Add a search input textbox and submit button to perform the search
             - Create helper functions to handle search events in JavaScript
-    -	Access authService.js for:
+    -	Setup MSAL authentication services in authService.js:
         - MSAL configuration
         - **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)**
         - **[Configure Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
