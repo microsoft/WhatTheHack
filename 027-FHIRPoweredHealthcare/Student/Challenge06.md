@@ -24,14 +24,21 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
     Hint: You can explore the FHIR API collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
 
 - (Optional) Include any other modern UI features to improve the user experience.
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
+
+  Hint: Ensure that the Reply URL matches the local and Azure Web App URL
+    - In AAD App Registration of AAD with directory admin access, configure a new Web platform under Authentication blade
+        - Add Redirect URI for both local and Azure Web App URLs
+        - Enable Implicit Grant by selecting Access token and ID tokens
+        - Configure permissions for Azure Healthcare APIs with User_Impersonation permission (if needed)
+
 - Build and test JavaScript SPA app locally.
   - To run locally, you'll need to change the `redirectUri` property to : `http://localhost:3000/`.
 - Deploy JavaScript SPA web app to Azure App Service.
   - To run on Azure, you'll need to change the `redirectUri` property to : `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
-- Register the local and Azure web app URLs in the `redirectURIs` Authentication setting of Web platform in your 'Public Client' App Registration.
 - Test the JavaScript SPA Patient Search app:
   - Browse to App Service website URL in a new in-private/Incognito window.
-  - Sign in with your admin tenant credential saved in challenge 1.
+  - Sign in with your admin tenant user credential saved in challenge 1.
   - Enter full/partial name in the patient search textbox and click the search button.
   - You should see a list of FHIR patient(s) that matches your search criteria.
 
@@ -55,3 +62,5 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 - **[Deploy Node.js to Azure App Service using Visual Studio Code](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
 - **[Hosting options and deployment scenarios to move your node.js app from a local or cloud repository to Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
 - **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
+- **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)** in Secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
