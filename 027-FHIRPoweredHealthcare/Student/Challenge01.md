@@ -30,8 +30,8 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
 
    - **[Update the default properties of Synthea for this deployment](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
       - Change the Synthea export directory to `./output/fhir`, set `exporter.baseDirectory = ./output/fhir`
-      - Enable FHIR bundle export, set `exporter.fhir.export = true' property
-      - Configure Synthea to generate 1000 patient records, set `generate.default_population = 1000' property
+      - Enable FHIR bundle export, set `exporter.fhir.export = true` property
+      - Configure Synthea to generate 1000 patient records, set `generate.default_population = 1000` property
         
       Note:The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
 
