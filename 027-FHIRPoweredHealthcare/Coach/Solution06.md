@@ -118,6 +118,11 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Access and update DOM elements in `updateUI.js` to render patient search results
 
 - (Optional) Include any other modern UI features to improve the user experience.
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
+  - Set a redirect URL to your local and Azure JavaScript Web App URL in the "Public Client" Web Platform Configuration of your App Registration tenant with directory admin access.
+
+    Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
+
 - Test and  run your code locally 
   - Set redirectUri to `https://localhost:3000` in `authConfig.js` file 
   - Run at cmdline:
