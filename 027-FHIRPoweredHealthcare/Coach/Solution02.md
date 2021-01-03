@@ -24,7 +24,7 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
         - URI: `https://<fhirhl7conv_SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
         - Body: Compose object output (file content)
     - Step 4: Import Response Body (FHIR bundle) to FHIR Server 
-        - Connected to FHIR Server through **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
+        - Connected to FHIR Server through **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
         - Set message object to retuned FHIR resource
 
 **Generate patient clinical data using SyntheaTM Patient Generator tool**

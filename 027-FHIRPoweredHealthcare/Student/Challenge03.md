@@ -19,7 +19,7 @@ You have extended the FHIR Server Samples reference architecture with HL7 Ingest
 ## Description
 
 You will use the Microsoft Health Architectures environment and add a new logic app based workflow for the C-CDA-to-FHIR ingest and convert scenarios as follows:
-- Use **[FHIR Converter infrastructure](https://github.com/rsliang/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
+- Use **[FHIR Converter infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
 
    `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
 
@@ -29,7 +29,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
     - Step 1: Create a new BLOB triggered Logic App.
     - Step 2: Get BLOB content into the request body and call the FHIR Converter API.
     - Step 3: Get response body returned from FHIR Converter API call into Input object.
-    - Step 4: Import response body (FHIR bundle) in Input object into FHIR Server connected through a **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**.
+    - Step 4: Import response body (FHIR bundle) in Input object into FHIR Server connected through a **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**.
 - Generate simulated patient data in C-CDA format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 - Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will trigger the `CCDAtoFHIR` logic app convert and load workflow.
 
@@ -53,7 +53,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
 - **[Deploy FHIR Converter ARM template locally](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell)**
 - **[Deploy FHIR Converter template using Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)**
 - **[Quickstart template to deploy FHIR Converter](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** 
-- **[FHIR Server Proxy](https://github.com/rsliang/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
+- **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
 - **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)**
 - **[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
