@@ -41,7 +41,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
 ## Success Criteria
 
    - You have add a new logic app based workflow in the Microsoft Health Architectures environment to handle C-CDA to FHIR conversion.
-   - You have generated synthetea FHIR patient clinical data in C-CDA format.
+   - You have generated synthetic FHIR patient clinical data in C-CDA format.
    - You have converted Synthea generated patient clinical data in C-CDA format to FHIR bundle.
    - You have loaded the patient clinical data into FHIR Server.
    - You have use Postman to retrieve the newly loaded patient clinical data in FHIR Server.
