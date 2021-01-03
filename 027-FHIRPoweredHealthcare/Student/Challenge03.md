@@ -21,7 +21,7 @@ You will extend the FHIR Server Samples reference architecture from previous cha
 You will use the Microsoft Health Architectures environment and add a new logic app based workflow to for C-CDA-to-FHIR ingest and convert scenarios as follows:
 - Use **[HL7toFHIR Conversion](https://github.com/rsliang/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** infrastructure deployed in challenge 2 to expose the C-CDA Conversion service endpoint: 
 
-`https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
+   `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
 
 - Create a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR Bundle into FHIR Server.  
    Hint:
