@@ -15,7 +15,7 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
 ## Description
 
 You will deploy Microsoft Health Architecture samples for C-CDA-to-FHIR ingest and convert scenarios as follows:
-- Deploy **[FHIR Converter](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** to Azure using the **[custom template](https://github.com/rsliang/WhatTheHack/blob/Dev/027-FHIRPoweredHealthcare/Student/Resources/FHIR%20Converter/deploy/default-azuredeploy.json)** to expose the C-CDA Conversion service endpoint: `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
+- Deploy **[FHIR Converter](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** to Azure using the **[custom template](./Resources/fhir-converter/deploy/default-azuredeploy.json)** to expose the C-CDA Conversion service endpoint: `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`.
 - Deploy a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR Bundle into FHIR Server.  
    Hint:
    Your logic app needs to perform the following steps in the workflow:
