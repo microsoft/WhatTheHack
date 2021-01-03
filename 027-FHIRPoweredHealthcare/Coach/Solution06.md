@@ -130,7 +130,9 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     npm install
     nmp start
     ```
-- **[Deploy and host your JavaScript SPA web app on Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
+- **[Deploy your React web app to Azure from VS Code](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
+  - Set redirectUri to `https://[react-patient-search-app-name].azurewebsites.net` in `authConfig.js` file
+  - Deploy your React web app using VS Code and the Azure App Service extension
 - Test updated sample JavaScript app with patient Lookup feature
   - Browse to App Service website URL in In-private / Incognito window
   - Sign in with your secondary tenant (or tenant where App Registration is configured) used in deploying FHIR Server Samples reference architecture
