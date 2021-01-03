@@ -48,13 +48,9 @@ You will use the Microsoft Health Architectures environment and add a new logic 
 
 ## Learning Resources
 
-- **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** 
-- **[FHIR Converter to Azure](https://github.com/microsoft/FHIR-Converter#deploying-the-fhir-converter)** 
-- **[Deploy FHIR Converter ARM template locally](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell)**
-- **[Deploy FHIR Converter template using Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal)**
-- **[Quickstart template to deploy FHIR Converter](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent)** 
-- **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
 - **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#ingest)**
+- **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** 
+- **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
 - **[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
 - **[Copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
