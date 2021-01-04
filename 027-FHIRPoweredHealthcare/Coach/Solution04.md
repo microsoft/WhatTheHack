@@ -22,7 +22,7 @@ In this challenge, you will deploy a sample JavaScript app to connect and read F
     - Capture client ID and tenant ID from Overview blade for use in later step.
   - Connect with web app
     - Select Authentication blade, click Add a new platform and select Web
-      - Add `https://\<WEB-APP-NAME>.azurewebsites.net` to redirect URI list.
+      - Add `https://[WEB-APP-NAME].azurewebsites.net` to redirect URI list.
       - Select Access tokens and ID tokens check boxes and click Configure.
   - Add API Permissions
     - Select API permissions blade and click Add a new permission
@@ -41,7 +41,7 @@ In this challenge, you will deploy a sample JavaScript app to connect and read F
       
       Note: App Services Editor automatically saves changes.
 - Test sample JavaScript app
-  - Browse to App Service website URL in In-private mode
-  - Sign in with your secondary tenant used in deploying FHIR Server Samples reference architecture
+  - Browse to App Service website URL in a new In-private / InCognito window
+  - Sign in with your secondary tenant (can be primary tenant if you already have directory admin privilege) used in deploying FHIR Server Samples reference architecture
   - You should see a list of patients that were loaded into FHIR Server.
   
