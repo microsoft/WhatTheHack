@@ -28,7 +28,7 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
          - Check App Registration in secondary AAD tenant that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 
-   - **[Update the default properties of Synthea for this deployment](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+   - **[Update the default properties for FHIR output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
       - Change the Synthea export directory to `./output/fhir`, set `exporter.baseDirectory = ./output/fhir`
       - Enable FHIR bundle export, set `exporter.fhir.export = true` property
       - Configure Synthea to generate 1000 patient records, set `generate.default_population = 1000` property
@@ -36,7 +36,7 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
       Note:The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
 
 - Copy Synthea generated FHIR bundle JSON files in its `./output/fhir` folder to `fhirimport` BLOB container.
-   - Hint: You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.
+   - Hint: You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**.
 - Test FHIR bulk load using Postman FHIR API collection to retreive FHIR patient data loaded.
 
    Hint: 
@@ -56,7 +56,7 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
 - **[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
 - **[Copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
-- **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)** 
+- **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** 
 - **[Import Postman data, including collections, environments, data dumps, and globals.](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**
 - **[Register your public client application for Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** 
 - **[Access Azure API for FHIR using Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/access-fhir-postman-tutorial)**
