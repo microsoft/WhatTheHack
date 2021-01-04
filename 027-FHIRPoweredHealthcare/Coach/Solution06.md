@@ -67,12 +67,14 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Build a new SPA in React using **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. 
     
       - You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
-
-        `npx create-react-app react-patient-search`
-        `cd react-patient-search`
-        `npm start`
+        ```
+        npx create-react-app react-patient-search
+        cd react-patient-search
+        npm start
+        ```
         
         Note: `npx` on the first line above refers to a package runner tool that comes with npm 5.2+.
+
     - Use **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)** for Browser-Based Single-Page Applications
       -Install **[MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**, run:
         ```

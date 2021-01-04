@@ -24,7 +24,7 @@ You have extended the FHIR Server Samples reference architecture with HL7 Ingest
 
 - Deploy a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR bundle into FHIR Server.  Your BLOB triggered logic app needs to perform the following steps in the workflow:
     - Step 1: Trigger workflow when a BLOB is added or modified in `cda` container
-    - Step 2: Get BLOB content from C-CDA XML file from `cda` container.
+    - Step 2: Get BLOB content from C-CDA XML file in `cda` BLOB container.
     - Step 3: Compose BLOB content as Input object.
     - Step 4: HTTP - Call FHIR Converter API
         - Method: POST
@@ -95,7 +95,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             Executed 'hl7ingestBlobTrigger' (Succeeded, ...)
             ```
 **Use Postman to retrieve Patients clinical data via FHIR Patients API**
-- Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**.
+- Open Postman and import Postman collection and environment variables for FHIR API (if you have not imported them).
 - Run FHIR API HTTP Requests to validate imported clinical data.
 
 Note: See challenge 1 solution file for detailed guide on using Postman to access FHIR Server APIs.
