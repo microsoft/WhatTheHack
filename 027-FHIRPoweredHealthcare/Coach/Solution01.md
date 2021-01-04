@@ -52,7 +52,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             $ cd synthea
             $ ./gradlew build check test
             ```
-    - **[Changing the default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+    - **[Update the default properties for FHIR output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
         ```
         exporter.baseDirectory = ./output/fhir
         ...
@@ -84,7 +84,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
                ```
                azcopy copy "<your Synthea ./output/fhir directory>" "<fhirimport blob container URL appended with SAS token>"
                ```
-    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**
+    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**
         - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'fhirimport' to list container content
         - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result/fhir' folder and select a FHIR Patient bundle .json file(s)
     - Monitor Log Stream in function app 'FhirBundleBlobTrigger'

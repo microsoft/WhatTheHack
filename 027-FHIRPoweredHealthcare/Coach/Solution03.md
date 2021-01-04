@@ -18,7 +18,7 @@ You have extended the FHIR Server Samples reference architecture with HL7 Ingest
 
 **Deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert scenarios**
 
-- Use **[FHIR Converter infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
+- Use **[HL7toFHIR converion pipeline infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
 
    `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
 
@@ -49,7 +49,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             ```
         Note: This step may have been done in Challenge 1
 
-    - **[Changing the default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+    - **[Update the default properties for CDA output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
         ```
         exporter.baseDirectory = ./output/cda
         ...
@@ -81,7 +81,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
                ```
                azcopy copy "<your Synthea ./output/cda directory>" "<hl7ingest blob container URL appended with SAS token>"
                ```
-    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**
+    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**
         - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'cda' to list container content
         - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result/cda' folder and select C-CDA XML files to upload
     - Monitor Log Stream in function app 'cdafhirconvert.BlobTrigger1'
