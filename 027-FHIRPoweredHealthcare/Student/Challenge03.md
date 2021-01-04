@@ -19,7 +19,7 @@ You have extended the FHIR Server Samples reference architecture with HL7 Ingest
 ## Description
 
 You will use the Microsoft Health Architectures environment and add a new logic app based workflow for the C-CDA-to-FHIR ingest and convert scenarios as follows:
-- Use **[FHIR Converter infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
+- Use **[HL7toFHIR conversion pipeline infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
 
    `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
 
@@ -32,7 +32,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
     - Step 4: Call the FHIR Converter API.
     - Step 5: Import response body (FHIR bundle) in Input object into FHIR Server connected through a **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**.
 - Generate simulated patient data in C-CDA format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
-   - **[Update the default properties of Synthea for this deployment](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+   - **[Update the default properties for CDA output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
       ```
       exporter.baseDirectory = ./output/cda
       ...
@@ -49,7 +49,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
 - Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will trigger the `CCDAtoFHIR` logic app convert and load workflow.
 
    Hint: 
-   You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**.  
+   You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**.  
 
 - Retrieve new FHIR patient clinical data using Postman.
 
@@ -69,5 +69,5 @@ You will use the Microsoft Health Architectures environment and add a new logic 
 - **[Synthea Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
 - **[Copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
-- **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)** 
+- **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** 
 - **[Access Azure API for FHIR using Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/access-fhir-postman-tutorial)**
