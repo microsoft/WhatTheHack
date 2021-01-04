@@ -67,12 +67,14 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Build a new SPA in React using **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. 
     
       - You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
-
-        `npx create-react-app react-patient-search`
-        `cd react-patient-search`
-        `npm start`
+        ```
+        npx create-react-app react-patient-search
+        cd react-patient-search
+        npm start
+        ```
         
         Note: `npx` on the first line above refers to a package runner tool that comes with npm 5.2+.
+
     - Use **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)** for Browser-Based Single-Page Applications
       -Install **[MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**, run:
         ```
@@ -107,7 +109,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
             - Create a search component
             - Add a search input textbox and submit button to perform the search
             - Create helper functions to handle search events in JavaScript
-    -	Access authService.js for:
+    -	Setup MSAL authentication services in authService.js:
         - MSAL configuration
         - **[Initialize of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)**
         - **[Configure Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
@@ -118,6 +120,11 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Access and update DOM elements in `updateUI.js` to render patient search results
 
 - (Optional) Include any other modern UI features to improve the user experience.
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
+  - Set a redirect URL to your local and Azure JavaScript Web App URL in the "Public Client" Web Platform Configuration of your App Registration tenant with directory admin access.
+
+    Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
+
 - Test and  run your code locally 
   - Set redirectUri to `https://localhost:3000` in `authConfig.js` file 
   - Run at cmdline:
@@ -125,7 +132,9 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     npm install
     nmp start
     ```
-- **[Deploy and host your JavaScript SPA web app on Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
+- **[Deploy your React web app to Azure from VS Code](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
+  - Set redirectUri to `https://[react-patient-search-app-name].azurewebsites.net` in `authConfig.js` file
+  - Deploy your React web app using VS Code and the Azure App Service extension
 - Test updated sample JavaScript app with patient Lookup feature
   - Browse to App Service website URL in In-private / Incognito window
   - Sign in with your secondary tenant (or tenant where App Registration is configured) used in deploying FHIR Server Samples reference architecture
