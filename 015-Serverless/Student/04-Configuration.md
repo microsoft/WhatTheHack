@@ -68,6 +68,6 @@ await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 | ------------------------------------- | :--------------------------------------------------------------------: |
 | **Description**                       |                               **Links**                                |
 | Code and test Azure Functions locally | <https://docs.microsoft.com/azure/azure-functions/functions-run-local> |
-
+| How to add Application Settings to Azure Function | <https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings> |
 
 [Next challenge (Deployment) >](./05-Deployment.md)
