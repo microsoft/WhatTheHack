@@ -61,7 +61,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         generate.default_population = 1000
         ```
         
-        Note:The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+        Note: The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
     - Generate Synthetic Patients
         Generating the population 1000 at a time...
         ```
