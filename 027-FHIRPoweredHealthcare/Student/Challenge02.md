@@ -7,11 +7,11 @@
 In this challenge, you will deploy a Health Architecture **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution that provides the following services within **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**:
 - Import and process valid HL7 bundles and persist them to a FHIR Compliant store
 - FHIR Server Proxy connection to FHIR Server without exposing credentials
-- Publish successful FHIR CRUD events referencing FHIR Resources to an event hub
+- Publish successful FHIR CUD events referencing FHIR Resources to an event hub
 
 Note: This function is deployed and configured as a part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture.
 
-![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
+![FHIR CUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
 
 **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
@@ -91,7 +91,7 @@ Note: After successful deployment, the FHIR converter pipeline is integrated wit
 - You have deployed HL7 Ingest, Conversion reference architectures that includes the FHIR Event Processor and FHIR Converter components.
 - You have tested sending sample HL7v2 message via HL7OverHTTPS ingest service.
 - You have validated the end-to-end HL7 Ingest and Conversion process.
-- You have validated FHIR CRUD event is published to Event Hub for post-processing.
+- You have validated FHIR CUD event is published to Event Hub for post-processing.
 
 ## Learning Resources
 
