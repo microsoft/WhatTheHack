@@ -7,11 +7,11 @@
 In this challenge, you will deploy a Health Architecture **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution that provides the following services within **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**:
 - Import and process valid HL7 bundles and persist them to a FHIR Compliant store
 - FHIR Server Proxy connection to FHIR Server without exposing credentials
-- Publish successful FHIR CRUD events referencing FHIR Resources to an event hub
+- Publish successful FHIR CUD events referencing FHIR Resources to an event hub
 
 Note: This function is deployed and configured as a part of the HL72FHIR Workflow Platform.
 
-![FHIR CRUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
+![FHIR CUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
 
 **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
@@ -76,7 +76,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
 
     Note: You should receive the following acknowledgement at the end of deployment.
     ```
-    HL72FHIR Workflow Platform has successfully been deployed to group [ENVIRONMENTNAME] on Sun, Nov  1, 2020  2:37:59 PM
+    HL72FHIR Workflow Platform has successfully been deployed to group [ENVIRONMENTNAME] on Sun, Nov 1, 2020  2:37:59 PM
     Please note the following reference information for future use:
     Your HL7 FHIR Converter Host is: XXXfhirhl7conv####
     Your HL7 FHIR Converter Key is:

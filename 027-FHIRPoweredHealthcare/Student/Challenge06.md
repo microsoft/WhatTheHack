@@ -33,9 +33,9 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
         - Configure permissions for Azure Healthcare APIs with User_Impersonation permission (if needed)
 
 - Build and test JavaScript SPA app locally.
-  - To run locally, you'll need to change the `redirectUri` property to : `http://localhost:3000/`.
+  - To run locally, you'll need to change the `redirectUri` property to: `http://localhost:3000/`.
 - Deploy JavaScript SPA web app to Azure App Service.
-  - To run on Azure, you'll need to change the `redirectUri` property to : `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
+  - To run on Azure, you'll need to change the `redirectUri` property to: `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
 - Test the JavaScript SPA Patient Search app:
   - Browse to App Service website URL in a new in-private/Incognito window.
   - Sign in with your admin tenant user credential saved in challenge 1.

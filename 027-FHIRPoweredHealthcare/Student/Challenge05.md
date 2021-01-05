@@ -19,7 +19,7 @@ You will perform the following steps to access patient medical records and explo
 - Access FHIR Dashboard app
     - Open In-private/Incognito browser and navigate to FHIR Dashboard app URL.
     - Use the dashboard user credentials to sign in (captured during FHIR Server Samples deployment in challenge 1).
-    - In popup Consent dialog box, Accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
+    - In popup Consent dialog box, accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
 - Explore patient medical records through FHIR Dashboard app, including:
     - Patient and its FHIR bundle details
     - Patient medical elements
