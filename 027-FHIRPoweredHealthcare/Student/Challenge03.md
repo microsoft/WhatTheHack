@@ -44,7 +44,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
       generate.default_population = 1000
       ```
       
-      Note:The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+      Note: The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
       
 - Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will trigger the `CCDAtoFHIR` logic app convert and load workflow.
 
@@ -55,7 +55,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
 
 ## Success Criteria
 
-   - You have add a new logic app based workflow in the Microsoft Health Architectures environment to handle C-CDA to FHIR conversion.
+   - You have added a new logic app based workflow in the Microsoft Health Architectures environment to handle C-CDA to FHIR conversion.
    - You have generated synthetic FHIR patient clinical data in C-CDA format.
    - You have converted Synthea generated patient clinical data in C-CDA format to FHIR bundle.
    - You have loaded the patient clinical data into FHIR Server.

@@ -125,7 +125,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
 
     Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
 
-- Test and  run your code locally 
+- Test and run your code locally 
   - Set redirectUri to `https://localhost:3000` in `authConfig.js` file 
   - Run at cmdline:
     ```

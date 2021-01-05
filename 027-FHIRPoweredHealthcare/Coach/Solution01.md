@@ -64,7 +64,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         generate.default_population = 1000
         ```
         
-        Note:The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+        Note: The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
     - Generate Synthetic Patients
         Generating the population 1000 at a time...
         ```
@@ -115,7 +115,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 - Run FHIR API HTTP Requests:
     - First, open "AuthorizeGetToken SetBearer" and confirm WTH FHIR environment is selected in the top-right environment drop-down. 
         - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
-    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR Server. (Postman may not show all of the results.)
+    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR Server. (Postman may not show all the results.)
     - Open "Get Patient Count" and click the 'Send' button.  This will return Count of Patients stored in your FHIR Server.  
     - Open "Get Patient Filter ID" and click the 'Send' button.  This will return a Patient with that ID. Change the ID to one you have loaded and validate that it exists.
     - Open "Get Patient Filter Exact" and click the 'Send' button.  This will return a Patient with the specified given name. Specify a given name from your FHIR import and validate it exists.
