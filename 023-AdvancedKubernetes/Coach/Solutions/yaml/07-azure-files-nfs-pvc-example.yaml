@@ -1,0 +1,66 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: managed-disk-pvc
+  annotations:
+    volume.beta.kubernetes.io/storage-class: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: managed-disk-svc
+spec:
+  selector:
+    app: managed-disk-pod
+  ports:
+  - name: web
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-1
+  labels:
+    app: managed-disk-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: managed-disk-pod 
+  template:
+    metadata:
+      labels:
+        app: managed-disk-pod
+    spec:
+      containers:
+      - name: busybox-writer
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "while true; do sleep 1; echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) >> /mnt/index.html; done"
+        volumeMounts:
+        - mountPath: /mnt
+          name: managed-disk-volume
+      - name: busybox-web
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "httpd -p 80 -f -v -h /mnt"
+        volumeMounts:
+        - mountPath: /mnt
+          name: managed-disk-volume
+      volumes:
+      - name: managed-disk-volume
+        persistentVolumeClaim:
+          claimName: managed-disk-pvc
