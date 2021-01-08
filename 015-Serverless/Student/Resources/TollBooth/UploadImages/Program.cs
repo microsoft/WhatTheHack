@@ -24,8 +24,8 @@ namespace UploadImagesCore
             if (args.Length == 0)
             {
                 Console.WriteLine("You must pass the Blob Storage connection string as an argument when executing this application.");
-                Console.ReadLine();
-                return 1;
+                BlobStorageConnection = Console.ReadLine();
+                //return 1;
             }
             else
             {
