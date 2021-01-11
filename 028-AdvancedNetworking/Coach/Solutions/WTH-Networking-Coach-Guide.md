@@ -3,7 +3,7 @@
 # Challenge 1:
 
 
-# Challnege 2:
+# Challenge 2:
 
 
 **- NSGs should be applied on each subnet.**
