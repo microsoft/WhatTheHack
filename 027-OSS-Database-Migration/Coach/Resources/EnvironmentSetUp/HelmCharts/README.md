@@ -35,6 +35,7 @@ helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.passw
 kubectl -n postgresql get svc
 
 ```
+**Important: you will need to copy the postgres-internal Cluster-IP value to use for the dataSourceURL later in these steps**
 
 ## Checking the Pod for Postgres
 
@@ -102,6 +103,7 @@ helm upgrade --install wth-mysql ./MySQL57 --set infrastructure.password=OCPHack
 kubectl -n mysqlwth get svc
 
 ```
+**Important: you will need to copy the mysql-internal Cluster-IP value to use for the dataSourceURL later in these steps**
 
 ## Checking the Pod for MySQL
 
