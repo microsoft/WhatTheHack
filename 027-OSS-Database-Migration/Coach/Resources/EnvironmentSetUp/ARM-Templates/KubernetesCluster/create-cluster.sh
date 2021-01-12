@@ -1,6 +1,6 @@
 # Add line to set login to az
-#az login 
-# Set your azure subscription 
+#az login
+# Set your azure subscription
 #az account set -s "<subscription-id>"
 # Defines the ARM template file location
 export templateFile="aks-cluster.json"
@@ -19,7 +19,7 @@ export location="westus"
 az group create --name $resourceGroupName --location $location
 
 # Creates the Kubernetes cluster and the associated resources and dependencies for the cluster
-az deployment group create --name dataProductionDeployment --resource-group $resourceGroupName --template-file $templateFile --parameters $parameterFile
+az group deployment create --name dataProductionDeployment --resource-group $resourceGroupName --template-file $templateFile --parameters $parameterFile 
 
 # Install the Kubectl CLI. This will be used to interact with the remote Kubernetes cluster
 #sudo az aks install-cli
@@ -30,4 +30,3 @@ az aks get-credentials --name $clusterName --resource-group $resourceGroupName
 # List the node pools - expect two aks nodepools
 
 az aks nodepool list --resource-group $resourceGroupName --cluster-name $clusterName -o table
-
