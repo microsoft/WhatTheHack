@@ -34,7 +34,6 @@ In this hack you will solve common challenges for companies planning to use Azur
   - Get familiar with the basic concepts of Azure IoT Hub and Azure IoT Edge.
   - Iot Hub Creation
   - Edge Device creation
-  - Edge Virtual Device deploy Linux VM w/ IoT Edge Configured
 
 - Challenge 2: **[Deploy OPC Simulator](Student/Challenge-02.md)** **RYAN**
   - OPC Simulator deploy & Git Repo link

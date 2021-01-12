@@ -1,0 +1,20 @@
+[
+    {
+      "EndpointUrl": "opc.tcp://aci-contoso-wpckdll-plc1.eastus.azurecontainer.io:50000",
+      "UseSecurity": false,
+      "OpcNodes": [
+        {
+          "Id": "ns=2;s=SlowUInt1",
+          "OpcSamplingInterval": 2000,
+          "OpcPublishingInterval": 5000,
+          "DisplayName": "Slow Int"
+        },
+        {
+          "Id": "ns=2;s=FastUInt43",
+          "OpcSamplingInterval": 2000,
+          "OpcPublishingInterval": 5000,
+          "DisplayName": "Fast Int"
+        }
+      ]
+    }
+  ]
