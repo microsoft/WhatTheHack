@@ -2,11 +2,13 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites 
 
-Note-jota: challenge 7 requires creating the iot hub in one of the regions where device streams are supported: "At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia".
+- An Azure IoT Hub created in **one of the regions where Device Streams are available**. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
 
 ## Introduction
+
+
 
 ## Description
 
