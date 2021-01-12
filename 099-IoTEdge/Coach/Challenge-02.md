@@ -1,10 +1,10 @@
-# Challenge 1: Deploy IoTHub/Edge
+# Challenge 2: Deploy OPC Simulator
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
+**[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 
 ## Learning Resources
- - Options for OPC Simulators
+ - Options for OPC Simulators -- first 2 are VM-based options
  1. [ProsysOPC UA Simulator](https://www.prosysopc.com/) -Free and supports many simulated endpoints
  1. [Software ToolBox Top OPC Server](https://www.softwaretoolbox.com/) - Demo can run for 2 hours
  1. [Microsoft OPC PLC Simulator](https://github.com/Azure-Samples/iot-edge-opc-plc)  - Easiest and requires no registration; but doesn't align with a typical customer deployment involving OPC software.  This can be deployed as an Azure Container Instance Endpoint that IoT Edge can be pointed at.
