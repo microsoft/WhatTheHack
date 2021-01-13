@@ -29,7 +29,7 @@ source and saved in the working directory
 
 ## Success criteria
 
-1.  Confirming the number of files extracted
+1.  Confirming the number of files extracted in Azure DevOps
 
 2.  Visualizing and exploring the data
 
