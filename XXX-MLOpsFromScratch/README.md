@@ -74,14 +74,14 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
 ## Prerequisites
 
-1. Azure subscription. If you do not have one, you can sign up for a [free
+1.  Azure subscription. If you do not have one, you can sign up for a [free
   trial](https://azure.microsoft.com/en-us/free/).  
 
-2. Azure Machine Learning service workspace. It is a foundational resource in
+2.  Azure Machine Learning service workspace. It is a foundational resource in
   the cloud that you use to experiment, train, and deploy machine learning
   models.
 
-3. Azure DevOps subscription. If you do not have one, you can sign up for a
+3.  Azure DevOps subscription. If you do not have one, you can sign up for a
   [free account](https://azure.microsoft.com/en-us/services/devops/).
 
   - Install [Azure DevOps Machine Learning
@@ -90,7 +90,7 @@ Your team will have individuals of varying skill sets, so it is imperative to de
   - Request Admin access to create Service Principals within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those Service Princials ahead of time. To do that, create new service connections in Project Settings for your Azure ML service and Azure Subscription using service principal. 
   Note: Azure ML Workspace must be created first before creating Service Principals. 
   
-4 Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
+4. Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
   for Data Science tasks (This is only required if you wish to test scripts on a local machine or a notebook on Azure).
 
   - Anaconda - <https://docs.anaconda.com/anaconda/install/windows/>
