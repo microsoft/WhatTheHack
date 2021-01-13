@@ -72,6 +72,9 @@ CREATE DATABASE wth;
 -- Set default database to wth
 \c wth
 
+-- List the tables in wth
+\dt
+
 ```
 
 ## Uninstalling the PostgreSQL from Kubernetes (only if you need to cleanup and try the helm deployment again)

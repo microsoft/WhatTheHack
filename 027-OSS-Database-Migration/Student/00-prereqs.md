@@ -19,9 +19,12 @@ In this challenge you'll be setting up your environment so that you can complete
     - Visual Studio Code (optional)
 
 - Within Azure Cloud Shell, clone the GIT repository at https://github.com/izzymsft/WhatTheHack-1 and run this command to setup the environment: 
-    create-cluster.sh
 
-    This will take several minutes
+```shell
+create-cluster.sh
+```
+
+*Note: this will take several minutes*
 
 Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](../Coach/Resources/EnvironmentSetUp/HelmCharts/README.md) 
 

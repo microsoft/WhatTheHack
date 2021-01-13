@@ -13,11 +13,13 @@ Hints:
 * Use the Premium version of the Azure Database Migration Service
 * Put the Database Migration Service in its own virtual network
 * You may have to drop open database connections if you are coming from a prior challenge where you ran the application. Alternatively, you could uninstall the web application(s) using helm, drop the database(s) and redeploy the application using helm. 
-
+* You will need to find the endpoint IP Address for your PostgreSQL/MySQL container running in AKS. This is different than the cluster IP address. This is needed because Azure DMS is running outside of the AKS cluster.
+* You will need to add the public IP address for Azure DMS to connection security in Azure DB for PostgreSQL/MySQL
+* For MySQL, the tutorial mentions dropping foreign keys on the target database. You will not be able to run the script as is in that article. You will need to replace KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName' with KCU.REFERENCED_TABLE_SCHEMA = 'wth'
 
 ## Success Criteria
 
-1. 
+1. Demonstrate that all tables have been migrated successfully to Azure DB for PostgreSQL/MySQL
 
 ## References
 
@@ -27,5 +29,7 @@ Hints:
 * Create, change, or delete a virtual network peering: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering
 * Drop open database connections for Postgres: https://dba.stackexchange.com/questions/11893/force-drop-db-while-others-may-be-connected
 * Setup SSL for PostgreSQL: https://www.postgresql.org/docs/9.1/ssl-tcp.html
+* Minimal downtime migration to Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/howto-migrate-online
+* Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS: https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-online
 
 
