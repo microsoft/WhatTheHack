@@ -5,7 +5,7 @@ application:
   labelValue: mysql
 
 infrastructure:
-  namespace: mysqlwth
+  namespace: mysql
   appName: mysql
   username: izzy
   password: "OCPHack8"
