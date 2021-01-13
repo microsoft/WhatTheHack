@@ -13,5 +13,8 @@
 ## Learning Resources
 
 ## Tips (optional)
+* Documentation on OPC Publisher Module -- challenging to locate
+    - https://github.com/Azure/iot-edge-opc-publisher/blob/main/CommandLineArguments.md
+    - https://github.com/azure/iot-edge-opc-publisher
 
 ## Advanced Challenges (Optional)

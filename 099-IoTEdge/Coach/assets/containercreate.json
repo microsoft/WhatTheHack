@@ -1,0 +1,27 @@
+{
+    "Hostname": "publisher",
+    "Cmd": [
+        "publisher",
+        "--pf=/appdata/pn.json",
+        "--di=60",
+        "--to",
+        "--aa",
+        "--si=10",
+        "--ms=262144"
+    ],
+    "HostConfig": {
+        "PortBindings": {
+            "62222/tcp": [
+                {
+                    "HostPort": "62222"
+                }
+            ]
+        },
+        "Binds": [
+            "/iiotedge:/appdata:rw"
+        ],
+        "ExtraHosts": [
+            "localhost:127.0.0.1"
+        ]
+    }
+}
