@@ -26,11 +26,12 @@ source and saved in the working directory
        - **Hint:** Add workspace details in config.json. You can download it from portal too.
 
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
+    - **Hint:** It is encouraged to leverage the Python Script task using the pipeline task manager in Azure DevOps
 
 ## Success criteria
 
 1.  Count the number of csv files extracted into /Data folder locally using a Python script in Azure DevOps.
-
+    
 2.  Visualizing and exploring the data
 
 ## Learning resources
