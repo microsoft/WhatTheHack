@@ -62,10 +62,12 @@ most common and prevalent tasks in Machine Learning.
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
 
+
 ## Success Criteria
 
-1.  Creating an ARIMA model locally using VS Code.
-2.  Forecasting project imported into Azure DevOps.
+1.  Count the number of csv files extracted into /Data folder locally using a Python script in VS Code.
+2.  Creating an ARIMA model locally using VS Code.
+3.  Forecasting project imported into Azure DevOps.
 
 ## Learning resources
 
