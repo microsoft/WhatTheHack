@@ -54,7 +54,7 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 
 # Use this to login to the service
 
-psql -U postgres 
+psql -U postgres
 ```
 Run the following commands to check the Postgres Version and create the WTH database (warning: application deployment will fail if you don't do this)
 
@@ -66,7 +66,7 @@ SELECT version();
 --Create the wth database
 CREATE DATABASE wth;
 
---List databases. notice that there is a database called wth 
+--List databases. notice that there is a database called wth
 \l
 
 -- Set default database to wth
@@ -138,7 +138,7 @@ CREATE DATABASE wth;
 -- Set default database to wth
 USE wth
 
--- Show tables in wth database 
+-- Show tables in wth database
 
 SHOW TABLES;
 
@@ -171,7 +171,11 @@ We can deploy in two ways
 * Backed by MySQL Database
 * Backed by PostgreSQL Database
 
-In the ContosoPizza/values.yaml file we can specify the database Type (appConfig.databaseType) as "mysql" or postgres" and then we can set the JDBC URL, username and password under the appConfig object
+For the MySQL database setup, the developer/operator can make changes to the values-mysql.yaml file.
+
+For the PostgreSQL database setup, the developer/operator can make changes to the values-postgresql.yaml file.
+
+In the yaml files we can specify the database Type (appConfig.databaseType) as "mysql" or postgres" and then we can set the JDBC URL, username and password under the appConfig objects.
 
 In the globalConfig object we can change the merchant id, public keys and other values as needed but you generally can leave those alone as they apply to both MySQL and PostgreSL deployment options
 
@@ -185,11 +189,23 @@ appConfig:
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 ```
 
+The developer or operator can specify the '--values'/'-f' flag multiple times.
+When more than one values file is specified, priority will be given to the last (right-most) file specified in the sequence.
+For example, if both values.yaml and override.yaml contained a key called 'namespace', the value set in override.yaml would take precedence.
+
+The commands below allows us to use settings from the values file and then override certain values in the database specific values file.
+
+```shell
+
+helm upgrade --install release-name ./HelmChartFolder -f values.yaml -f override.yaml
+
+```
+
 To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
 
 ```shell
 
-helm upgrade --install mysql-contosopizza ./ContosoPizza --set appConfig.databaseType=mysql --set infrastructure.namespace=contosoappmysql
+helm upgrade --install mysql-contosopizza ./ContosoPizza -f values.yaml -f values-mysql.yaml
 
 ```
 
@@ -197,7 +213,7 @@ To deploy the app backed by PostgreSQL, run the following command after you have
 
 ```shell
 
-helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
+helm upgrade --install postgres-contosopizza ./ContosoPizza -f values.yaml -f values-postgresql.yaml
 
 ```
 
@@ -238,5 +254,5 @@ Verify that contoso pizza application is running on AKS
 
 # Insert the external IP address of the command <kubectl -n contosoappmysql or contosoapppostgres get svc below>
 
-http://{external_ip_contoso_app}:8081/pizzeria/   
+http://{external_ip_contoso_app}:8081/pizzeria/
 ```
