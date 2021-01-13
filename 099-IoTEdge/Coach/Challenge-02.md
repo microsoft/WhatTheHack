@@ -10,8 +10,11 @@
  1. [Microsoft OPC PLC Simulator](https://github.com/Azure-Samples/iot-edge-opc-plc)  - Easiest and requires no registration; but doesn't align with a typical customer deployment involving OPC software.  This can be deployed as an Azure Container Instance Endpoint that IoT Edge can be pointed at.
  [Additional details and instructions](https://docs.microsoft.com/en-us/samples/azure-samples/iot-edge-opc-plc/azure-iot-sample-opc-ua-server/)
 
-## Tips (optional)
 
+
+
+
+## Tips (optional)
 ### If using the ProSys OPC Server:
 You can see the endpoint by opening the service
 ![image info](../assets/prosysopc.png)
@@ -20,12 +23,12 @@ If you need to troubleshoot whether or not the IoT Edge Is connecting, you can o
 ![image info](../assets/prosysopc_sessions.png)
 
 When configuring the Iot Edge OPC Module, you will need to have the node-IDs of data-points you wish to capture.  The simulated values would work to pacify the Hack with elements for feeding into TSI.  Participants can select which values they want to use as all of the simulated values would drive subsequent modules
-![image info](../assets/prosysopc_simulation.png)
-
+![image info](../assets/prosysopc_simulation.png)    
+* * *
 ### The Microsoft PLC Simulator:
 Image versions are [posted here](https://mcrflowprodcentralus.data.mcr.microsoft.com/mcrprod/iotedge/opc-plc?P1=1610482034&P2=1&P3=1&P4=CswLo%2F%2B8A3qDWT2fu5tbMM8MQhBFTPI1Datu8g7VHV0%3D&se=2021-01-12T20%3A07%3A14Z&sig=ZUawNjtnHG4rnQw9F9tsCjMDOg2RobQHAVzPKDFocbM%3D&sp=r&sr=b&sv=2015-02-21)
 
-Easy mechnism to deploy this container into Azure w/o a VM is with a Container Instance as follows.  Ensure it's in the same region as the IoT Edge to eliminate egress.  You can also use the ARM template on the link above or the [one in the coaches folder to deploy](../assets/aci_plc_sim.json)
+Easy mechanism to deploy this container into Azure w/o a VM is with a Container Instance as follows.  Ensure it's in the same region as the IoT Edge to eliminate egress.  You can also use the ARM template on the link above or the [one in the coaches folder to deploy](../assets/aci_plc_sim.json)
 ![image info](../assets/plc_create.png)
 
 The deployment configuration allows you to specify the quantity of slow/fast changing values that will be used on the IoT Edge OPC modules.

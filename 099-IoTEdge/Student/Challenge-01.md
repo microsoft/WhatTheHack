@@ -7,7 +7,7 @@
 - An Azure IoT Hub created in **one of the regions where Device Streams are available**. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
 
 ## Introduction
- This is the first step of getting an environment setup to work from. This will be a straightforward challenge to ensure you have your subscritption setup and to devise a plan to work with your team if you're working as part of a group.
+ This is the first step of getting an environment setup to work from. This will be a straightforward challenge to ensure you have your subscription setup and to devise a plan to work with your team if you're working as part of a group.
 
 ## Description
 
