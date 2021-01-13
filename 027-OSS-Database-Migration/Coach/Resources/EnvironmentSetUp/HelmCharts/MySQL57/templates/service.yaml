@@ -12,19 +12,3 @@ spec:
     protocol: {{ .Values.service.protocol }}
   selector:
     app: {{ .Values.application.labelValue }}
----
-# This is the external load balancer, routing traffic to the MySQL Pod
-apiVersion: v1
-kind: Service
-metadata:
-  name: "{{ .Values.infrastructure.appName }}-internal"
-  namespace: {{ .Values.infrastructure.namespace }}
-  annotations:
-        service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-spec:
-  type: "{{ .Values.service.type }}"
-  ports:
-  - port: {{ .Values.service.port }}
-    protocol: {{ .Values.service.protocol }}
-  selector:
-    app: {{ .Values.application.labelValue }}
