@@ -29,7 +29,7 @@ source and saved in the working directory
 
 ## Success criteria
 
-1.  Confirming the number of files extracted in Azure DevOps
+1.  Count the number of csv files extracted into /Data folder locally using a Python script in Azure DevOps.
 
 2.  Visualizing and exploring the data
 
