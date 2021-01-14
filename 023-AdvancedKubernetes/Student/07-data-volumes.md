@@ -4,7 +4,7 @@
 
 ## Introduction
 
-When working with cloud native applications, the ideal location for persisting data is in SaaS Database service or object/blob storage.  However, that isn't always possible, and some applications need to access local file storage.  Kubernetes uses Persistent Volumes and Persistent Volume Claims to manage volumes mounted inside running containers.
+When working with cloud native applications, the ideal location for persisting data is in SaaS Database or object/blob storage.  However, that isn't always possible, and some applications need to access local file storage.  Kubernetes uses Persistent Volumes and Persistent Volume Claims to manage volumes mounted inside running containers.
 
 A Kubernetes persistent volume represents storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned.
 
@@ -35,19 +35,21 @@ The Kubernetes concepts for storage are:
 
 This challenge has multiple, independent sub-challenges.  Complete each of them to complete the Data Volumes challenge.
 
-In the first sub-challenge you will deploy the sample pod using Azure Disk as a PVC, verify that it works and kill the pod and kill the node to see the impact.  
-
-In the subsequent sub-challanges, you will deploy new pods with different scenarios (e.g. Azure Files with NFS as a PVC; Azure Disk using an existing disk as a PV; etc.) and perform the same verification, killing the pod and then killing the node.
+Instead of creating all of the required Kubernetes resources from scratch, the first set of resources are given to you to deploy and should work as-is.  In subsequent sub-challenges, you must clone and modify the working example to fit the challenge requirements.
 
 The architecture for the sample pod is:
+
 * 1 pod with 2 containers
   * busybox-writer: every 1 second, will append the current timestamp to /mnt/index.html.  This simulates an application writing data to a local filesystem.
   * busybox-reader: Listens on port 80 and returns the contents of /mnt/index.html.  This simulate an application serving the data from the local filesystem.
 * 1 service of type LoadBalancer
   * This provides an external endpoint for busybox-reader so the user can see the latest timestamp
+
 ![AKS Volumes](Resources/aks-volumes.png)
 
 ### Sub-Challenge 1: Azure Disk with PVC
+
+Deploy the sample StatefulSet using Azure Disk as a PVC, verify that it works and kill the pod and kill the node to see the impact.  
 
 For this challenge:
 * View the existing and default Storage Classes on your cluster
@@ -57,7 +59,10 @@ For this challenge:
 
 ### Sub-Challenge 1: Success Criteria
 
-* Validate that the pod is writing new logs every second:
+After installing the resources, verify they are working:
+* Validate the StatefulSet, Pods, PVC and PV
+  * You should have 1 Service with a Public IP, 1 Ready StatefulSet, 1 Pod Running, 1 Bound PVC and 1 Bound PV
+* Validate that the Pod is writing new logs every second:
   * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
 
 Now that the service, pod and PVC have been validated, simulate failures:
@@ -71,10 +76,15 @@ Now that the service, pod and PVC have been validated, simulate failures:
   * HINT: `kubectl cordon`
   * Validate the pod comes up on a different node
 
+Scale your app:
+* Change the replica from 1 to 2
+  * Validate you have: 1 Ready StatefulSet, 2 Pods Running, 2 Bound PVC and 2 Bound PV 
+  * What impact to the curl output do you notice?
 
 ### Sub-Challenge 2: Azure Files with NFS with PVC
 
 In the previous sub-challenge, the service, PVC and deployment were generated for you.  In this sub-challenge, use the previous YAML to duplicate scenario with the following changes:
+
 * Using Azure Files with NFS instead of an Azure Disk
 * Change the Deployment replicas to 2
 
