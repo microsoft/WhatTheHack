@@ -1,16 +1,3 @@
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: managed-disk-pvc
-  annotations:
-    volume.beta.kubernetes.io/storage-class: default
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
 kind: Service
 apiVersion: v1
 metadata:
@@ -26,28 +13,30 @@ spec:
   type: LoadBalancer
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: challenge-1
-  labels:
-    app: managed-disk-pod
 spec:
   replicas: 1
+  serviceName: managed-disk-svc
   selector:
     matchLabels:
-      app: managed-disk-pod 
+      app: managed-disk-pod
   template:
     metadata:
       labels:
         app: managed-disk-pod
     spec:
-      initContainers:
-      - name: init-container
-        image: busybox
-        command: ['sh', '-c', "echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) - ***POD STARTING*** >> /mnt/index.html"]
-        volumeMounts:
-        - mountPath: /mnt
-          name: managed-disk-volume
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - managed-disk-pod 
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: busybox-writer
         image: busybox
@@ -67,7 +56,12 @@ spec:
         volumeMounts:
         - mountPath: /mnt
           name: managed-disk-volume
-      volumes:
-      - name: managed-disk-volume
-        persistentVolumeClaim:
-          claimName: managed-disk-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: managed-disk-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: default
+      resources:
+        requests:
+          storage: 50Mi
