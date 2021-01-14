@@ -7,9 +7,18 @@
  - Options for OPC Simulators -- first 2 are VM-based options
  1. [ProsysOPC UA Simulator](https://www.prosysopc.com/) -Free and supports many simulated endpoints
  1. [Software ToolBox Top OPC Server](https://www.softwaretoolbox.com/) - Demo can run for 2 hours
- 1. [Microsoft OPC PLC Simulator](https://github.com/Azure-Samples/iot-edge-opc-plc)  - Easiest and requires no registration; but doesn't align with a typical customer deployment involving OPC software.  This can be deployed as an Azure Container Instance Endpoint that IoT Edge can be pointed at.
- [Additional details and instructions](https://docs.microsoft.com/en-us/samples/azure-samples/iot-edge-opc-plc/azure-iot-sample-opc-ua-server/)                    
+ 1. [Microsoft OPC PLC Simulator](https://github.com/Azure-Samples/iot-edge-opc-plc)  - Easiest and requires no registration; but doesn't align with a typical customer deployment involving OPC software.  This can be deployed as an Azure Container Instance Endpoint that IoT Edge can be pointed at.  This is important for participants to understand and articulate a design to address common security concerns.
+    - [ISA-95 Details](https://en.wikipedia.org/wiki/ANSI/ISA-95)
+    - [Details on the Purdue Network Model](https://docs.microsoft.com/en-us/samples/azure-samples/iot-edge-opc-plc/azure-iot-sample-opc-ua-server/)
+                    
 
+* * *
+For this module to be successful, participants must have the following tasks completed:
+1. Creation of an OPC server (running on a VM) or the PLC Simulator running as an Azure container instance
+1. Explanation of the addresses that will be used on the Edge to connect into the OPC server
+1. Validation of any ports (if a VM is used or private network with ACI) will need to be opened to allow OPC connectivity to work from the Edge
+1. Explanation of how the participants intend to secure the solution aligned with a typical manufacturing plant [Review some notes on the Purdue model and ISA-95](https://www.automationworld.com/factory/iiot/article/21132891/is-the-purdue-model-still-relevant)
+* * * 
 
 ## Tips (optional)
 
