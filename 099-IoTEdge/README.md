@@ -36,10 +36,10 @@ In this hack you will solve common challenges for companies planning to use Azur
   - Edge Device creation
 
 - Challenge 2: **[Deploy OPC Simulator](Student/Challenge-02.md)** 
-  - OPC Simulator deploy & Git Repo link to serve as virtual 'factory'
+  - OPC Simulator to serve as our virtual 'factory'
 
-- Challenge 3: **[Deploy Industrial IoT solution](Student/Challenge-03.md)** - **RYAN**
-  - Deploy IIoT to Edge
+- Challenge 3: **[Deploy Industrial IoT solution](Student/Challenge-03.md)**
+  - Deploy Industrial IoT platform to the IoT Edge
 
 - Challenge 4: **[Route messages and do time-series analysis](Student/Challenge-04.md)** **RYAN/AMIT**
 - IoT Routing à Event Hub --> TSI
