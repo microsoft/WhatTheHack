@@ -26,6 +26,10 @@ The Kubernetes concepts for storage are:
 * [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) (PVC) - A request for a storage instance (e.g. Request for a 30Gi disk with a Storage Class).  When this request is fulfilled, it will create a Persistent Volume.
 
 
+## References
+
+* [Detailed Walkthrough with working example](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+
 
 ## Success Criteria
 
@@ -43,11 +47,10 @@ The architecture for the sample pod is:
   * This provides an external endpoint for busybox-reader so the user can see the latest timestamp
 ![AKS Volumes](Resources/aks-volumes.png)
 
-
-
-### Sub-Challenge 1: Deploy Azure Disk with PVC
+### Sub-Challenge 1: Azure Disk with PVC
 
 For this challenge:
+* View the existing and default Storage Classes on your cluster
 * Deploy the Service, PVC and Pod in [the sample yaml](Resources/azure-disk-pvc-example.yaml)
 * Validate that the Service has a Public IP, the PVC is bound and the Pod is running
   * HINT: To see the write is being written to: `kubectl exec <POD> -- tail -f /mnt/index.html`
@@ -57,22 +60,25 @@ For this challenge:
 * Validate that the pod is writing new logs every second:
   * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
 
-Now that the service, pod and PVC have been verified, simulate failures:
-* Kill the pod
+Now that the service, pod and PVC have been validated, simulate failures:
+* Kill the pod and determine the impact (e.g. `kubectl rm pod`)
   * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
   * Validate the service recovers
-  * NOTE: There might be a pause in the service and a gap in the logs
-* Reboot the node the pod is running
-  * Validate the service stays up
-  * NOTE: There should DEFINITELY be a pause in the service and a gap in the logs
+* Reboot the node and determine the impact (e.g. `az vmss restart`)
+  * HINT: To see the status of nodes: `kubectl get nodes -o wide -w`
+  * Validate the service recovers
+* Cordon the node, kill the pod and determine the impact
+  * HINT: `kubectl cordon`
+  * Validate the pod comes up on a different node
 
-### Sub-Challenge 2: Deploy Azure Files with NFS with PVC
 
-In the previous sub-challenge, the service, PVC and deployment were generated for you.  In this sub-challenge, use the previous YAML to create the same scenario with the following changes:
+### Sub-Challenge 2: Azure Files with NFS with PVC
+
+In the previous sub-challenge, the service, PVC and deployment were generated for you.  In this sub-challenge, use the previous YAML to duplicate scenario with the following changes:
 * Using Azure Files with NFS instead of an Azure Disk
 * Change the Deployment replicas to 2
 
-NOTE: [You might need to Register the feature in your subscription](https://github.com/kubernetes-sigs/azurefile-csi-driver/tree/master/deploy/example/nfs)
+NOTE: [You might need to Register the feature in your subscription and create a Storage Class](https://github.com/kubernetes-sigs/azurefile-csi-driver/tree/master/deploy/example/nfs)
 
 ### Sub-Challenge 2: Success Criteria
 
@@ -80,9 +86,26 @@ NOTE: [You might need to Register the feature in your subscription](https://gith
   * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
 
 Now that the service, pod and PVC have been verified, simulate failures:
-* Kill the pod
+* Kill one the pods
   * Validate the service stays up
   * NOTE: There should be NO gap in the logs
 * Reboot the node the pod is running
   * Validate the service stays up
   * NOTE: There should be NO gap in the logs
+
+### Sub-Challenge 3: Azure Disk with NFS with PV
+
+In the previous sub-challenges you used a PVC, which created the Disk for you.  However, sometimes, you need to use an existing disk.  In this sub-challenge, copy the YAML from sub-challenge 1 with the following changes:
+
+* Create an Azure Disk 
+* Remove the PVC resource
+* Use the Azure Disk as a PV and mount to the same volume
+
+### Sub-Challenge 3: Success Criteria
+
+* Validate that the pod is writing new logs every second:
+  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
+* In the portal, validate that the drive you created is consuming Throughput and IOPS
+* Kill the pod and determine the impact (e.g. `kubectl rm pod`)
+  * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
+  * Validate the service recovers

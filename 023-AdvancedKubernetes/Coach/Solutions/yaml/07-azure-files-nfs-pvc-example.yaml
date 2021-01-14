@@ -1,9 +1,20 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azurefile-csi-nfs
+provisioner: file.csi.azure.com
+parameters:
+  protocol: nfs
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: managed-disk-pvc
+  name: azure-files-nfs-pvc
   annotations:
-    volume.beta.kubernetes.io/storage-class: default
+    volume.beta.kubernetes.io/storage-class: azurefile-csi-nfs
 spec:
   accessModes:
   - ReadWriteOnce
@@ -14,10 +25,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: managed-disk-svc
+  name: azure-files-nfs-svc
 spec:
   selector:
-    app: managed-disk-pod
+    app: azure-files-nfs-pod
   ports:
   - name: web
     protocol: TCP
@@ -28,19 +39,36 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: challenge-1
+  name: challenge-2
   labels:
-    app: managed-disk-pod
+    app: azure-files-nfs-pod
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: managed-disk-pod 
+      app: azure-files-nfs-pod 
   template:
     metadata:
       labels:
-        app: managed-disk-pod
+        app: azure-files-nfs-pod
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - azure-files-nfs-pod 
+              topologyKey: "kubernetes.io/hostname"
+      initContainers:
+      - name: init-container
+        image: busybox
+        command: ['sh', '-c', "echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) - ***POD STARTING*** >> /mnt/index.html"]
+        volumeMounts:
+        - mountPath: /mnt
+          name: azure-files-nfs-volume
       containers:
       - name: busybox-writer
         image: busybox
@@ -50,7 +78,7 @@ spec:
         - "while true; do sleep 1; echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) >> /mnt/index.html; done"
         volumeMounts:
         - mountPath: /mnt
-          name: managed-disk-volume
+          name: azure-files-nfs-volume
       - name: busybox-web
         image: busybox
         command:
@@ -59,8 +87,8 @@ spec:
         - "httpd -p 80 -f -v -h /mnt"
         volumeMounts:
         - mountPath: /mnt
-          name: managed-disk-volume
+          name: azure-files-nfs-volume
       volumes:
-      - name: managed-disk-volume
+      - name: azure-files-nfs-volume
         persistentVolumeClaim:
-          claimName: managed-disk-pvc
+          claimName: azure-files-nfs-pvc

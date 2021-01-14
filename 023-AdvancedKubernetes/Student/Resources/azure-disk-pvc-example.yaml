@@ -41,6 +41,13 @@ spec:
       labels:
         app: managed-disk-pod
     spec:
+      initContainers:
+      - name: init-container
+        image: busybox
+        command: ['sh', '-c', "echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) - ***POD STARTING*** >> /mnt/index.html"]
+        volumeMounts:
+        - mountPath: /mnt
+          name: managed-disk-volume
       containers:
       - name: busybox-writer
         image: busybox

@@ -41,6 +41,16 @@ spec:
       labels:
         app: managed-disk-pod
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - managed-disk-pod 
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: busybox-writer
         image: busybox
