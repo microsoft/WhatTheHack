@@ -26,7 +26,7 @@ For this module to be successful, participants must have the following tasks com
 1. Illustration that the participants understand how to add tags, adjust polling intervals and define the names for published values to IoT hub.
 1. Illustration that participants understand the options passed to the OPCPublisher module and how they work 
 1. Explanation from the team on what protocol was choose to communicate to IoT hub and what ports at the Contoso's plants would need to be opened
-
+* * *
 
 ## Tips (optional)
 + IoT Edge needs to be running the following modules:

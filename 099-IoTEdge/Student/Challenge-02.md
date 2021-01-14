@@ -2,17 +2,22 @@
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-## Pre-requisites (Optional)
-1. Creation of IoT Hub + Edge device
+## Pre-requisites
++ Creation of IoT Hub + Edge device
 
 ## Introduction
-Now that there's a cloud environment in place 
+Now that there's a cloud environment in place we need to build out a sample Contoso Virtual Factory.  Typically, factories and industrial control applications have Programmable Logic Controllers (PLC) running operations and the interfacing mechanism used by commercial software is via an OPC Server provided by the PLC vendor.  In this challenge, you will deploy a simulated OPC server that produces data via tags that can be referenced from the IoT Edge device in a later lab to capture.  
 
 ## Description
 
 ## Success Criteria
+1. Deployment of an OPC UA server of some sort producing simulated data. 
+1. Plan for network ports that need to be opened and OPC tags that will be consumed from the Edge deployed into the factory.
+1. Explanation of the OPC Address that would be used to connect the IoT Edge device to
 
 ## Learning Resources
+1. [Video of how tags work in a modern OPC server](https://www.inductiveuniversity.com/videos/creating-opc-tags/8.1)
+
 
 ## Tips (optional)
  - Options for OPC Simulators -- first 2 are VM-based options
