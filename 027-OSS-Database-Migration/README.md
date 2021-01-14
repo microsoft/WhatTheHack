@@ -29,6 +29,11 @@ The participants will learn how to:
    - Create new databases in Azure DB for PostgreSQL/MySQL and use the Azure Database Migration Service to replicate the data from the on-prem databases
 - Challenge 6: **[Online Cutover and Validation](Student/06-online-cutover-validation.md)**
    - Reconfigure the application to use the appropriate connection string for Azure DB for PostgreSQL/MySQL
+- Challenge 7: **[Private Endpoints](Student/07-private-endpoint.md)**
+   - Reconfigure the application to use configure Azure DB for PostgreSQL/MySQL with a private endpoint so it can be used with a private IP address
+- Challenge 8: **[Replication](Student/08-replication.md)**
+   - Add an additional replica to the Azure DB for PostgreSQL/MySQL 
+
    
 ## Prerequisites
 
