@@ -24,13 +24,16 @@ ARISING IN ANY WAY OUT OF THE USE OF THE SOFTWARE CODE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
 from azureml.core import Workspace
-import os, json, sys
+import os
+import json
+import sys
 import azureml.core
 from azureml.core.authentication import AzureCliAuthentication
 
 print("SDK Version:", azureml.core.VERSION)
-# print('current dir is ' +os.curdir)
-with open("./configuration/config.json") as f:
+root_path = os.path.abspath(os.path.join(__file__, "../../.."))
+config_path = os.path.join(root_path, 'configuration/config.json')
+with open(config_path) as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]

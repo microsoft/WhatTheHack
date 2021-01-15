@@ -23,7 +23,10 @@ IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THE SOFTWARE CODE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
-import os, json, datetime, sys
+import os
+import json
+import datetime
+import sys
 from operator import attrgetter
 from azureml.core import Workspace
 from azureml.core import Environment
@@ -33,7 +36,9 @@ from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import AciWebservice, Webservice
 from azureml.core.environment import Environment
 
-with open("./configuration/config.json") as f:
+root_path = os.path.abspath(os.path.join(__file__, "../../.."))
+config_path = os.path.join(root_path, 'configuration/config.json')
+with open(config_path) as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -47,19 +52,20 @@ cli_auth = AzureCliAuthentication()
 # Get workspace
 #ws = Workspace.from_config(auth=cli_auth)
 ws = Workspace.get(
-        name=workspace_name,
-        subscription_id=subscription_id,
-        resource_group=resource_group,
-        auth=cli_auth
-    )
+    name=workspace_name,
+    subscription_id=subscription_id,
+    resource_group=resource_group,
+    auth=cli_auth
+)
 
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
-#print(env)
+# print(env)
 
 Environment(name="arimaenv")
 
 # From a Conda specification file
-arimaenv = Environment.from_conda_specification(name = "arimaenv", file_path = "./scripts/scoring/conda_dependencies.yml")
+arimaenv = Environment.from_conda_specification(
+    name="arimaenv", file_path="./scripts/scoring/conda_dependencies.yml")
 print(arimaenv)
 
 arimaenv.register(workspace=ws)
@@ -79,7 +85,8 @@ model_name = config["model_name"]
 model_version = config["model_version"]
 
 model_list = Model.list(workspace=ws)
-model, = (m for m in model_list if m.version == model_version and m.name == model_name)
+model, = (m for m in model_list if m.version ==
+          model_version and m.name == model_name)
 print(
     "Model picked: {} \nModel Description: {} \nModel Version: {}".format(
         model.name, model.description, model.version
@@ -87,7 +94,8 @@ print(
 )
 
 # Combine scoring script & environment in Inference configuration
-inference_config = InferenceConfig(entry_script="./scripts/scoring/score.py", environment=arimaenv)
+inference_config = InferenceConfig(
+    entry_script="./scripts/scoring/score.py", environment=arimaenv)
 
 deployment_config = AciWebservice.deploy_configuration(
     cpu_cores=1,
@@ -99,14 +107,14 @@ deployment_config = AciWebservice.deploy_configuration(
 aci_service_name = "arimaaciws" + datetime.datetime.now().strftime("%m%d%H%M")
 
 service = Model.deploy(
-    workspace = ws,
-    name = aci_service_name,
-    models = [model],
-    inference_config = inference_config,
-    deployment_config = deployment_config)
+    workspace=ws,
+    name=aci_service_name,
+    models=[model],
+    inference_config=inference_config,
+    deployment_config=deployment_config)
 
 try:
-    service.wait_for_deployment(show_output = True)
+    service.wait_for_deployment(show_output=True)
 except:
     print("**************LOGS************")
     print(service.state)
@@ -118,8 +126,6 @@ print(
         service.name, service.scoring_uri
     )
 )
-
-
 
 
 # Writing the ACI details to /aml_config/aci_webservice.json
