@@ -24,14 +24,16 @@ ARISING IN ANY WAY OUT OF THE USE OF THE SOFTWARE CODE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
 
-
+import os
 from azureml.core.runconfig import RunConfiguration
 from azureml.core import Workspace, Experiment, ScriptRunConfig
 import json
 from azureml.core.authentication import AzureCliAuthentication
 
 
-with open("./configuration/config.json") as f:
+root_path = os.path.abspath(os.path.join(__file__, "../../.."))
+config_path = os.path.join(root_path, 'configuration/config.json')
+with open(config_path) as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -44,11 +46,11 @@ cli_auth = AzureCliAuthentication()
 # Get workspace
 #ws = Workspace.from_config(auth=cli_auth)
 ws = Workspace.get(
-        name=workspace_name,
-        subscription_id=subscription_id,
-        resource_group=resource_group,
-        auth=cli_auth
-    )
+    name=workspace_name,
+    subscription_id=subscription_id,
+    resource_group=resource_group,
+    auth=cli_auth
+)
 
 # Attach Experiment
 experiment_name = "arima-mlops-localrun"

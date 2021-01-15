@@ -23,7 +23,9 @@ IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THE SOFTWARE CODE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
-import os, json, sys
+import os
+import json
+import sys
 from azureml.core import Workspace
 from azureml.core import Run
 from azureml.core import Experiment
@@ -32,7 +34,9 @@ from azureml.core.model import Model
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.authentication import AzureCliAuthentication
 
-with open("./configuration/config.json") as f:
+root_path = os.path.abspath(os.path.join(__file__, "../../.."))
+config_path = os.path.join(root_path, 'configuration/config.json')
+with open(config_path) as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -46,12 +50,11 @@ cli_auth = AzureCliAuthentication()
 # Get workspace
 #ws = Workspace.from_config(auth=cli_auth)
 ws = Workspace.get(
-        name=workspace_name,
-        subscription_id=subscription_id,
-        resource_group=resource_group,
-        auth=cli_auth
-    )
-
+    name=workspace_name,
+    subscription_id=subscription_id,
+    resource_group=resource_group,
+    auth=cli_auth
+)
 
 
 # Get the latest evaluation result
@@ -59,7 +62,8 @@ try:
     with open("./configuration/run_id.json") as f:
         config = json.load(f)
     if not config["run_id"]:
-        raise Exception("No new model to register as production model perform better")
+        raise Exception(
+            "No new model to register as production model perform better")
 except:
     print("No new model to register as production model perform better")
     # raise Exception('No new model to register as production model perform better')
