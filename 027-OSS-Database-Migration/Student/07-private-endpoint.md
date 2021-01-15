@@ -35,6 +35,6 @@ helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.data
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change for the private endpoint. 
 
 ## References
-Private Link for Azure Database for PostgreSQL-Single server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-private-link
-Private Link for Azure Database for MySQL using Portal: https://docs.microsoft.com/en-us/azure/mysql/howto-configure-privatelink-portal
+* Private Link for Azure Database for PostgreSQL-Single server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-private-link
+* Private Link for Azure Database for MySQL using Portal: https://docs.microsoft.com/en-us/azure/mysql/howto-configure-privatelink-portal
 
