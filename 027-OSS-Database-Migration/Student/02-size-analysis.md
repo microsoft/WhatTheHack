@@ -1,6 +1,6 @@
 # Challenge 2: Size analysis
 
-[< Previous Challenge](./01-size-analysis.md) - **[Home](../README.md)** - [Next Challenge >](./03-offline-migration.md)
+[< Previous Challenge](./01-assessment.md) - **[Home](../README.md)** - [Next Challenge >](./03-offline-migration.md)
 
 ## Introduction
 
