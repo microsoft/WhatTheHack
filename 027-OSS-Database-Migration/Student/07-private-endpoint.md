@@ -8,7 +8,7 @@ Up to this point you have been using a public IP address for Azure DB for Postgr
 
 ## Description
 You will add a private endpoint for Azure DB for PostgreSQL/MySQL
-You will reconfigure the application to use a connection string that points to the private IP address for Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values.yaml file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
+You will reconfigure the application to use a connection string that points to the private IP address for Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values-mysql.yaml or ContosoPizza/values-postgresql.yaml values file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
 ```yaml
 appConfig:
   ...
@@ -18,7 +18,7 @@ appConfig:
 Once you make your changes, you will need to run a helm upgrade command to see the changes reflected:
 ```shell
 
-helm upgrade --install mysql-contosopizza ./ContosoPizza --set appConfig.databaseType=mysql --set infrastructure.namespace=contosoappmysql
+helm upgrade --install mysql-contosopizza ./ContosoPizza -f values.yaml -f values-mysql.yaml
 
 ```
 
@@ -26,13 +26,13 @@ To deploy the app backed by PostgreSQL, run the following command after you have
 
 ```shell
 
-helm upgrade --install postgres-contosopizza ./ContosoPizza --set appConfig.databaseType=postgres --set infrastructure.namespace=contosoapppostgres
+helm upgrade --install postgres-contosopizza ./ContosoPizza -f values.yaml -f values-postgresql.yaml
 
 ```
 
 ## Success Criteria
 
-* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change for the private endpoint. 
+* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change for the private endpoint.
 
 ## References
 Private Link for Azure Database for PostgreSQL-Single server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-private-link
