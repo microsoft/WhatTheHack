@@ -29,11 +29,10 @@ For this challenge, you'll be using Device Streams to set up an `SSH` connection
 Steps:
 
 1. Run the steps of the quickstart [Enable SSH and RDP over an IoT Hub device stream by using a C# proxy application (preview)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-device-streams-proxy-csharp#ssh-to-a-device-via-device-streams), in particular the section "SSH to a device via device streams". Make sure you test them and that you are able to run commands on the device via the Device Streams tunnel.
-1. Block inbound SSH traffic (por 22) in your IoT Device. If you're running it in Azure, this can be fon for example with a Network Security Group (NSG) attatched to the Vnet. Confirm the device is stil reachable.
+1. Block inbound SSH traffic (port 22) in your IoT Device and confirm the device is stil reachable using what you created for step 1, but not if you try to reach it directly via its IP.
 1. Check the Advanced Challenge if you want to have the device-local proxy running as a Linux system service.
 
 After completing the steps above, you'll have learned about Device Streams and how they allow you to leverage Azure IoT Hub in its security and networking capabilities to remotely connect into devices without requiring third party software. The Advanced Challenge guides you through getting the device-local proxy running as a service so that it's always available.
-
 
 ## Success Criteria
 
@@ -112,4 +111,6 @@ After you have completed these steps, you're ready to test.
 
 1. Test the `SSH` connection, to confirm it's working
 1. Reboot the simulated IoT device
-1. Test the `SSH` connection again
+1. Test the `SSH` connection again and confirm it came back up and that you can connect.
+
+
