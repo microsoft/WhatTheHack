@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./02-susi.md) - **[Home](../readme.md)** - [Next Challenge>](./04-l14n.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 **- To complete this challenge, you should have completed the following:**
 

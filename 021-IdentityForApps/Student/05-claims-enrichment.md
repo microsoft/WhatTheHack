@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./04-l14n.md) - **[Home](../readme.md)** - [Next Challenge>](./06-conditional-access.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 - Provisioned a B2C tenant
 - Created a SignUp / SignIn (SUSI) User Flow
@@ -26,7 +26,7 @@ Also, your developer has packaged this in an Azure function (in your resources) 
 
 Also, your innovative developer has also developed an enhancement to the "CMC ID Verify-inator" that will generate a Consultant Territory Name. Of course, your developer is trying to make a name for themselves, and has leaked this to IT Leadership. As a result, IT Leadership would like you to incorporate this enhancement as part of the sign-up process and this territory name should be a new custom attribute added to the new consultant's account and one of the returned claims when a consultant signs in.
 
-Your developer has also included a configuration setting so for the B2C tenant's extensions attribute ID. You may want to investigate this setting.
+Your developer has also included a configuration setting for the B2C tenant's extension attribute ID. You may want to investigate this setting.
 
 ## Success Criteria
 
