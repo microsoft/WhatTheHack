@@ -37,4 +37,4 @@ For this challenge you should focus on the steps below to successfully establish
 * [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)
 
 ## Advanced Challenges (Optional)
-Consider using [Device Provisioning service](https://docs.microsoft.com/en-us/azure/iot-dps/) as a means to provision/attest the IoT Edge device to connect to a hub.  There are a number of ways in which this can be done and would demonstrate how this could be implemented to better support provisioning devices at scale.
+Think about how you can better manage many IoT Edge devices in lieu of going to a singular device one by one in the portal.  [IoT Hub supports features to deploy at scale](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-at-scale?view=iotedge-2018-06) -- consider exploring this as a pathway to facilitate deploying the IoT modules needed to support this challenge to your IoT Edge device.
