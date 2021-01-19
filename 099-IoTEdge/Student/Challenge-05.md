@@ -34,7 +34,7 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 
 ## Taking it Further
 
-There are other What The Hack hackathons that explore using data in a data lake for other purposes like data warehousing, machine learning. Below are recommended follow-up hackathons to keep learning:
+There are other What The Hack hackathons that explore using data in a data lake for other purposes like data warehousing, machine learning. Below are some recommended follow-up hackathons to keep learning:
 
 1. [This Old Data Warehouse](https://github.com/microsoft/WhatTheHack/tree/master/019-ThisOldDataWarehouse)
 2. [Databricks Intro ML](https://github.com/microsoft/WhatTheHack/tree/master/008-DatabricksIntroML)
