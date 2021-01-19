@@ -1,5 +1,5 @@
 # Challenge 6: Connect to Devices with Device Streams
-
+[< Previous Challenge](./Challenge-05.md) - **[Home](README.md)** - [Next Challenge >](./Challenge-07.md)
 ## Notes & Guidance
 
 Detailed steps:

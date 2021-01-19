@@ -1,6 +1,6 @@
 # Challenge 3: Deploy Industrial IoT solution
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
+**[Home](README.md)** - [Next Challenge >](./Challenge-04.md)
 
 
 ## Learning Resources
