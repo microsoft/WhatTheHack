@@ -21,7 +21,7 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 4. Create a Query that filters or aggregates your data bases upon business requirements. Test this filter/aggregation (HAVING clause for example) but don't save in the query, only test.
 5. Test the query to ensure it is functioning as expected.
 6. Create a Power BI workspace (or identify an existing workspace for this workload).
-7. Create an additional output to the prevously created/identified Power BI workspace.
+7. Create an additional output to the previously created/identified Power BI workspace.
 8. Run the Stream Analytics job and note the output files created in the data lake & data in the Power BI dataset.
 
 ## Success Criteria

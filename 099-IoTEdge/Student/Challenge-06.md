@@ -14,15 +14,15 @@ This challenge focuses on **Deployment Manifests**, showing you how to do deploy
 
 ## Description
 
-In the previous challenges, you have installed the OPC Simulator by directtly adding it to the VM running IoT Edge in the Azure Portal. An alternative to doing this is creating a **deployment manifest** configuration and then telling Azure IoT Hub to apply it to a set of devices according to some targeting rule (e.g., devices in a given region or with a given set of capabilities).
+In the previous challenges, you have installed the OPC Simulator by directly adding it to the VM running IoT Edge in the Azure Portal. An alternative to doing this is creating a **deployment manifest** configuration and then telling Azure IoT Hub to apply it to a set of devices according to some targeting rule (e.g., devices in a given region or with a given set of capabilities).
 
-The deployment manifest is a Json file that specifies a set of modules (i.e., docker containers) that must be downloaded/executed - including the two base modules that are part of Azure IoT Edge: `edgeHub` and `edgeAgent`. It also specifies a set of related configurations such as routes (how to route messags inside the device and into IoT Hub) or what folders to map between the modules and the device.
+The deployment manifest is a Json file that specifies a set of modules (i.e., docker containers) that must be downloaded/executed - including the two base modules that are part of Azure IoT Edge: `edgeHub` and `edgeAgent`. It also specifies a set of related configurations such as routes (how to route messages inside the device and into IoT Hub) or what folders to map between the modules and the device.
 
 In this challenge, you'll provision a new VM running Azure IoT Edge, simulating an IoT device, create a Deployment Manifest to deploy a few sample modules, and push the deployment to the new device VM using a targeted deployment.
 
 High-level steps:
 
-1. Provision a new Ubuntu VM running the latest version of IoT Edge and add it to an IoT Hub. You'll want to do a targetted deployment later on, so you'll want to look at adding a tag in the device twin properties.
+1. Provision a new Ubuntu VM running the latest version of IoT Edge and add it to an IoT Hub. You'll want to do a targeted deployment later on, so you'll want to look at adding a tag in the device twin properties.
 
 1. Create a new deployment manifest. This deployment manifest should include the following modules:
 
