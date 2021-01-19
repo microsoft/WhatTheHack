@@ -26,11 +26,19 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 
 ## Success Criteria
 
-1. IoT messages flowing from Edge module to `$upstream` route
-2. Stream Analytics job setup & running with input reading data from `$upstream`
-3. Stream Analytics job setup & running with output being written to Data Lake Store Gen2
-4. Stream Analytics job filtering or aggregating data that is output
-5. Vizualizing the data in a Power BI report.
+  - IoT messages flowing from Edge module to `$upstream` route
+  - Stream Analytics job setup & running with input reading data from `$upstream`
+  - Stream Analytics job setup & running with output being written to Data Lake Store Gen2
+  - Stream Analytics job filtering or aggregating data that is output
+  - Vizualizing the data in a Power BI report.
+
+## Learning Resources
+1. [Azure Stream Analytics Introduction](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
+2. [Common query patterns in Azure Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-stream-analytics-query-patterns)
+3. [Stream Analytics Query Language Reference](https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference)
+4. [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-power-bi-dashboard)
+5. [Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/blob-storage-azure-data-lake-gen2-output)
+
 
 ## Taking it Further
 
