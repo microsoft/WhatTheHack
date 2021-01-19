@@ -26,3 +26,4 @@
 ## Tips (optional)
 
 ## Advanced Challenges (Optional)
+Think about how you can better manage many IoT Edge devices in lieu of going to a singular device one by one in the portal.  [IoT Hub supports features to deploy at scale](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-at-scale?view=iotedge-2018-06) -- consider exploring this as a pathway to facilitate deploying the IoT modules needed to support this challenge to your IoT Edge device.

@@ -42,7 +42,8 @@ In this hack you will solve common challenges for companies planning to use Azur
   - Deploy Industrial IoT platform to the IoT Edge
 
 - Challenge 4: **[Route messages and do time-series analysis](Student/Challenge-04.md)** **RYAN/AMIT**
-- IoT Routing à Event Hub --> TSI
+    - Route IoT Hub data to Event Hub
+    - Route Event Hub to a time series data store
 
 - Challenge 5: **[Process Steaming Data](Student/Challenge-05.md)** - **ORRIN**
   - Stream processing

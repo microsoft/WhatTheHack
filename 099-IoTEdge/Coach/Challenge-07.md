@@ -1,5 +1,5 @@
 # Challenge 7: Connect to Devices with Device Streams
-
+[< Previous Challenge](./Challenge-06.md) - **[Home](README.md)** 
 ## Notes & Guidance
 
 Keep this link in mind: <https://azure.microsoft.com/en-us/updates/iot-hub-device-streams-new-region-availability/> which tells you what regions are Device Streams available.
