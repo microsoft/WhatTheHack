@@ -3,6 +3,9 @@
 **[Home](README.md)** - [Next Challenge >](./Challenge-02.md)
 
 
+## Success Criteria
+1. 
+
 ## Learning Resources
 1. [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
 1. [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge?view=iotedge-2018-06)
