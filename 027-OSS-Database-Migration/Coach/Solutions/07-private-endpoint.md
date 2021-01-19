@@ -4,4 +4,5 @@
 
 ## Proctor Tips
 
-1) 
+1) If the attendee has trouble with private endpoint working with the Pizzeria application, make sure they check the logs. It's common for the dataSourceURL/username/password to be misconfigured
+1

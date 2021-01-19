@@ -4,4 +4,4 @@
 
 ## Proctor Tips
 
-1) 
+1) After they complete this one, remind the attendee to delete the replica since it will increase billing while it is running. 
