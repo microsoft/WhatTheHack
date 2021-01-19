@@ -16,9 +16,14 @@ We are going to build out a LUIS triggered dialog flow to help answer the curren
 1. Add a new trigger by Intent, name the intent something that makes sense like StockPrice
 2. Then  add the trigger phrases, this will actually train the LUIS model. The best practice is that your utterances are  unique, with significantly different phrasing.
 3. In the same box that you add trigger phrases you can also train the model to detect Stock Symbols like MSFT, APPL, TSLA, JKS using entity extraction.
-4. Add dialog in this trigger to print back out the stock that they are asking for. The flow of the Bot should look like this to the user
+4. Add dialog in this trigger to print back out the stock that they are asking for, we will add additional functionality in future challenges. The flow of the Bot should look like this to the user
    - Bot: "Hello I am the FSIBot. Please ask me a question about ESG ratings or Stocks."
-   - User: " What is the stock price of 
+   - User: " What is the stock price of MSFT?"
+   - Bot: "You want to know the stock price of MSFT?"
+   
+   - User: "TSLA stock price?"
+   - Bot: "You want to know the stock price of TSLA?"
+
 5. Test your bot locally with unknown phrases and entities
 
 ## Success Criteria
