@@ -15,7 +15,7 @@ Encourage participants to [use deployments](https://docs.microsoft.com/en-us/azu
 * * *
 
 For this module to be successful, participants must have the following tasks completed:
-1. Creation of IoT Hub and Edge device in the Azure portal and the ability to describe where to navigate to find keys/connection strings and validation of understanding from participants on how they plan to deploy modules to the device for Challenge 4.  Additionally, 
+1. Creation of IoT Hub and Edge device in the Azure portal and the ability to describe where to navigate to find keys/connection strings and validation of understanding from participants on how they plan to deploy modules to the device.  
 1. Creation of an IoT Edge device on a VNET in Azure (Linux VM Strongly recommended as IoT Edge was designed/built on Linux; but Windows would work)
 1. Deployment of [IoT Edge Runtime components ](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&tabs=windows)
 1. Configuration of IoT Edge Runtime to communicate with deployed hub
