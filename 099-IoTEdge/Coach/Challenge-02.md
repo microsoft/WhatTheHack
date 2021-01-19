@@ -2,6 +2,12 @@
 
 **[Home](README.md)** - [Next Challenge >](./Challenge-03.md)
 
+## Success Criteria
+Verify challengers have performed the following:
+
+1. Created an OPC server that can be used to simulated data flow from the 'plant floor'
+1. Describe security requirements needed to connect to the OPC server
+
 
 ## Learning Resources
  - Options for OPC Simulators -- first 2 are VM-based options
