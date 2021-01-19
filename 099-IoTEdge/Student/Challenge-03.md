@@ -13,9 +13,7 @@ Now that Contoso has a device installed in their plant and cloud services deploy
 ## Success Criteria
 1. Creation of IoT Hub and Edge device in the Azure portal and the ability to describe where to navigate to find keys/connection strings and validation of understanding on how IoT Edge module would be deployed to the device.
 1. Creation of an IoT Edge device on a VNET in Azure (Linux VM Strongly recommended as IoT Edge was designed/built on Linux; but Windows would work)
-1. Deployment of [IoT Edge Runtime components ](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&tabs=windows)
-1. Configuration of IoT Edge Runtime to communicate with deployed hub
-1. Creation of a deployment to push Industrial IoT modules to the Edge; or manually if the participants have challenges
+1. Configuration of IoT Edge Runtime to communicate with deployed hub in an automated fashion (preferred)
 1. Configuration of OPC module(s) as per documentation -- this requires customization to the deployment/modules running on the Edge as shown in the tips below.
 1. Demonstrate how to view logs of running modules on the hub and see the current status from the portal.
 1. Demonstration of adding tags, adjust polling intervals and define the names for published values to IoT hub.
@@ -27,6 +25,7 @@ Now that Contoso has a device installed in their plant and cloud services deploy
 * Documentation on OPC Publisher Module -- challenging to locate
     - https://github.com/Azure/iot-edge-opc-publisher/blob/main/CommandLineArguments.md
     - https://github.com/azure/iot-edge-opc-publisher
+* [IoT Edge Runtime components ](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&tabs=windows)
 
 ## Advanced Challenges (Optional)
 Consider using [Device Provisioning service](https://docs.microsoft.com/en-us/azure/iot-dps/) as a means to provision/attest the IoT Edge device to connect to a hub.  There are a number of ways in which this can be done and would demonstrate how this could be implemented to better support provisioning devices at scale.
