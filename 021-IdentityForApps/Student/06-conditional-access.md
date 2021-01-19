@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./05-claims-enrichment.md) - **[Home](../readme.md)** - [Next Challenge>](./07-admin-graph.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 - Provisioned a B2C tenant
 - Created a SignUp / SignIn (SUSI) User Flow
@@ -20,13 +20,13 @@
 
 As a result of incorporating the [CMC Consultant ID Verify-inator](https://phineasandferb.fandom.com/wiki/List_of_Doofenshmirtz%27s_schemes_and_inventions/Season_1) (and the [Territory Name-inator](https://phineasandferb.fandom.com/wiki/List_of_Doofenshmirtz%27s_schemes_and_inventions/Season_2)), QA has been satisfied with the fixes and CMC IT Leadership is happy again......BUT (here we go), they have realized that the site might need a little more tightening up.
 
-IT Leadership has requested that we (you) incorporate policies in your SignUp / SignIn User Flow that will require users to verify who they are using either a code sent to their phone or to their email address.
+IT Leadership has requested that we (you) incorporate policies in your SignUp / SignIn User Flow that will require users to verify who they are, using either a code sent to their phone or to their email address.
 
 As a result, during the sign in process, a user should be prompted to enter a verification code (acquired either via a phone call, text message, or email). IT Leadership wants the conditional access policy to be based on user location, although for now, they want all locations to force a MFA challenge.
 
 After some tests, IT Leadership decided to change your conditional access policies to only force a MFA challenge for all locations but only for users using Android devices. (Most of leadership has iPhones, so there's that.)
 
-Lastly, IT Leadership has asked to block risky users, which we've decided to rely on Azure AD's risk detection in order to determine what users are risky. Leadership has decided to upgrade our B2C tenant to a P2 pricing tier (if it wasn't there already) and have asked you to implement an additional Conditional Access policy to detect Medium and High risk users and block them from logging in to any application. A typical scenario for Medium and High risk user activities could be using anonymous browsers (such as a [Tor browser](https://www.torproject.org/download/)) to access our apps.
+Lastly, IT Leadership has asked to block risky users, which we've decided to rely on Azure AD's risk detection in order to determine what users are risky. Leadership has decided to upgrade our B2C tenant to a P2 pricing tier (if it wasn't there already) and have asked you to implement an additional Conditional Access policy to detect medium and high risk users and block them from logging in to any application. A typical scenario for medium and high risk user activities could be using anonymous browsers (such as a [Tor browser](https://www.torproject.org/download/)) to access our apps.
 
 ## Success Criteria
 

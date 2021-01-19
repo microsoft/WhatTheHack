@@ -8,13 +8,11 @@
 
 ## Introduction
 
-The first step in this hack will be to provision an Azure AD B2C tenant for your usage.
+You are a cloud engineer at Contoso Manaufacturing (CMC). Recently, CMC IT Leadership has become interested in offering a fully feature white-label identity solution to individuals outside of the company. They do not wish to see these identities inside of your primary Azure AD tenant, nor do they want these identities to be used for collaborating in your Microsoft 365 environment.
 
 ## Description
 
-In this challenge, you will create an Azure AD B2C tenant. Your tenant will need a globally unique name.
-If you already have a B2C tenant, you can link this to your subscription instead. 
-Switch to the directory containing your Azure AD B2C tenant. 
+As an engineer, you have heard of Azure AD B2C. You know that your tenant will need a globally unique name. You mentioned this as an option to your IT Leadership, and they jumped at the chance to pilot this solution. They have asked you to get a new B2C tenant deployed. 
 
 ## Success Criteria
 

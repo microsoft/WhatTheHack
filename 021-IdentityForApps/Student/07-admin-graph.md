@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./06-conditional-access.md) - **[Home](../readme.md)** - [Next Challenge>](./08-prepare-ief.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 - Provisioned a B2C tenant
 - Created a SignUp / SignIn (SUSI) User Flow
