@@ -5,9 +5,9 @@
 ## Proctor Tips
 
 1) The attendee should be to connect to the PostgreSQL/MySQL container like this:
-kubectl -n postgresql exec deploy/postgres -it -- bash
-or
-kubectl -n mysqlwth exec deploy/mysql -it -- bash
+    kubectl -n postgresql exec deploy/postgres -it -- bash
+    or
+    kubectl -n mysqlwth exec deploy/mysql -it -- bash
 
-Once they do that they can use psql or mysql to check the version
+    Once they do that they can use psql or mysql to check the version
 
