@@ -50,5 +50,5 @@ There isn't a consultant management web application yet (the developers are a bi
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-1. IT Management has decided that the sign-up policy doesn't require Email Verification (I mean, who would enter a non-existant email address??). Disable this in your sign-up policy.
+1. IT Management has decided that the sign-up policy doesn't require Email Verification (I mean, who would enter a non-existent email address??). Disable this in your sign-up policy.
 2. IT Management is also considering allowing users to edit their account after creation. Get a head start on this by putting together an Edit Profile User Flow and test it in the B2C Tenant Portal.
