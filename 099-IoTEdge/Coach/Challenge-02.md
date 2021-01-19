@@ -1,6 +1,6 @@
 # Challenge 2: Deploy OPC Simulator
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+**[Home](README.md)** - [Next Challenge >](./Challenge-03.md)
 
 
 ## Learning Resources

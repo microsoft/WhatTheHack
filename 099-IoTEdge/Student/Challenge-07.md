@@ -16,7 +16,7 @@ For this challenge you will need the following:
 
 ## Introduction
 
-When you get to this challenge, you'll have used several of the core capabilties of Azure IoT and Azure IoT Edge, as well as some of the ecosystem services what are frequently used together with them, such as Azure Stream Analytics or Timeseries Insights. And if you have done IoT before, you'll know that Device Monitoring and Diagnosing problems are high on the list of requirements for production deployments.
+When you get to this challenge, you'll have used several of the core capabilities of Azure IoT and Azure IoT Edge, as well as some of the ecosystem services what are frequently used together with them, such as Azure Stream Analytics or Timeseries Insights. And if you have done IoT before, you'll know that Device Monitoring and Diagnosing problems are high on the list of requirements for production deployments.
 
 The goal of this challenge is to experiment with a simple and secure way of connecting remotely to devices connected to Azure IoT Hub to check on their status, using one of the preview capabilities of Azure IoT Hub: **Device Streams**. You'll then lock down inbound traffic to the firewall to test this capability and confirm it's not impacted.
 
@@ -29,14 +29,14 @@ For this challenge, you'll be using Device Streams to set up an `SSH` connection
 Steps:
 
 1. Run the steps of the quickstart [Enable SSH and RDP over an IoT Hub device stream by using a C# proxy application (preview)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-device-streams-proxy-csharp#ssh-to-a-device-via-device-streams), in particular the section "SSH to a device via device streams". Make sure you test them and that you are able to run commands on the device via the Device Streams tunnel.
-1. Block inbound SSH traffic (port 22) in your IoT Device and confirm the device is stil reachable using what you created for step 1, but not if you try to reach it directly via its IP.
+1. Block inbound SSH traffic (port 22) in your IoT Device and confirm the device is still reachable using what you created for step 1, but not if you try to reach it directly via its IP.
 1. Check the Advanced Challenge if you want to have the device-local proxy running as a Linux system service.
 
 After completing the steps above, you'll have learned about Device Streams and how they allow you to leverage Azure IoT Hub in its security and networking capabilities to remotely connect into devices without requiring third party software. The Advanced Challenge guides you through getting the device-local proxy running as a service so that it's always available.
 
 ## Success Criteria
 
-1. You are able to succesfully connect via `SSH` over IoT Hub to your simulated IoT Device
+1. You are able to successfully connect via `SSH` over IoT Hub to your simulated IoT Device
 1. You have closed down SSH on the firewall and the connection was not impacted
 
 ## Learning Resources
@@ -51,7 +51,7 @@ After completing the steps above, you'll have learned about Device Streams and h
 
 ## Advanced Challenges
 
-You're now able to connect to the device via SSH over the connection estabilished to the Azure IoT Hub. However, the connection will only be available while the application on the device is running.
+You're now able to connect to the device via SSH over the connection established to the Azure IoT Hub. However, the connection will only be available while the application on the device is running.
 
 To have it permanently available you have to have it running as a system service in Linux. For this, follow the next steps. After completion, reboot the simulated IoT device and try connecting again.
 
