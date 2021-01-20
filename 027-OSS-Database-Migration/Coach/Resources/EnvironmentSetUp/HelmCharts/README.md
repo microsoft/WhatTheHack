@@ -136,7 +136,9 @@ CREATE DATABASE wth;
 
 -- Create a user Contosoapp that would own the application data for migration
 
-CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
+CREATE USER if not exists 'contosoapp'   identified by 'OCPHack8' ;
+
+GRANT SUPER on *.* to conotosoapp identified by 'OCPHack8';
 
 -- Show tables in wth database
 
