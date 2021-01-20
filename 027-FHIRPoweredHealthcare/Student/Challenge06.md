@@ -1,6 +1,6 @@
 # Challenge 6: Create a new Single Page App (SPA) for patient search
 
-[< Previous Challenge](./Challenge05.md) - [Next Challenge>](./Challenge07.md) **[Home](../readme.md)** 
+[< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge07.md)
 
 ## Introduction
 
