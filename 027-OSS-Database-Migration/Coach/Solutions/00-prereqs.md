@@ -6,7 +6,7 @@
 
 There are a lot of opportunities for things to go wrong in this step especially if the attendee does not follow the instructions!
 
-1) If the attendees are sharing an Azure subscription, the following items will need to be made unique for each attendee:
+1) If the attendees are sharing an Azure subscription, the following items will need to be made unique in the create-clusher.sh file for each attendee:
 
     * resourceGroupName
     * clusterName
