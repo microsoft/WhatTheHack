@@ -14,12 +14,6 @@ This requires Helm3 and the latest version of Azure CLI to be installed
 
 ```shell
 
-# Clone the Git Repository
-#git clone WhatTheHackGitURL
-
-# Get into the WhatTheHack repo
-#cd WhatTheHack
-
 # Navigate to the Helm Charts
 #cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
 
@@ -44,17 +38,16 @@ kubectl -n postgresql get svc
 kubectl -n postgresql get pods
 
 ```
+Wait a few minutes till the pod status shows as Running
 
 ## Getting into the Container
 
 ```shell
 
-# Use this to connect to the database server
-kubectl -n postgresql exec deploy/postgres -it -- bash
+# Use this to connect to the database server SQL prompt
 
-# Use this to login to the service
+kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres
 
-psql -U postgres
 ```
 Run the following commands to check the Postgres Version and create the WTH database (warning: application deployment will fail if you don't do this)
 
@@ -69,11 +62,15 @@ CREATE DATABASE wth;
 --List databases. notice that there is a database called wth
 \l
 
--- Set default database to wth
-\c wth
+-- Create user contosoapp that would own the application schema
+
+ CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
 
 -- List the tables in wth
 \dt
+
+-- exit out of Postgres Sql prompt
+exit
 
 ```
 
@@ -103,7 +100,7 @@ helm upgrade --install wth-mysql ./MySQL57 --set infrastructure.password=OCPHack
 
 ```shell
 
-kubectl -n mysqlwth get svc
+kubectl -n mysql get svc
 
 ```
 **Important: you will need to copy the mysql-external Cluster-IP value to use for the dataSourceURL later in these steps**
@@ -112,7 +109,7 @@ kubectl -n mysqlwth get svc
 
 ```shell
 
-kubectl -n mysqlwth get pods
+kubectl -n mysql get pods
 
 ```
 
@@ -121,10 +118,9 @@ kubectl -n mysqlwth get pods
 ```shell
 
 # Use this to connect to the database server
-kubectl -n mysqlwth exec deploy/mysql -it -- bash
 
-# Use this to login to the service
-mysql -u root -pOCPHack8
+kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u root -pOCPHack8
+
 ```
 Run the following commands to check the MySQL Version and create the WTH database (warning: application deployment will fail if you don't do this)
 ```sql
@@ -138,12 +134,16 @@ SHOW DATABASES;
 --Create wth database
 CREATE DATABASE wth;
 
--- Set default database to wth
-USE wth
+-- Create a user Contosoapp that would own the application data for migration
+
+CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
 
 -- Show tables in wth database
 
 SHOW TABLES;
+
+-- exit out of mysql Sql prompt
+exit
 
 ```
 
@@ -169,7 +169,7 @@ cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
 
 ```
 
-We can deploy in two ways
+We can deploy in two ways. As part of this hack, you will need to do both ways
 
 * Backed by MySQL Database
 * Backed by PostgreSQL Database
@@ -185,9 +185,9 @@ In the globalConfig object we can change the merchant id, public keys and other 
 ```yaml
 appConfig:
   databaseType: "databaseType goes here" # mysql or postgres
-  dataSourceURL: "jdbc url goes here" # your JDBC connection string goes here
-  dataSourceUser: "user name goes here" # your database username goes here
-  dataSourcePassword: "Pass word goes here!" # your database password goes here
+  dataSourceURL: "jdbc url goes here" # database is either mysql or postgres - jdbc:database://ip-address/wth
+  dataSourceUser: "user name goes here" # database username mentioned in values-postgres or values-mysql yaml - contosoap
+  dataSourcePassword: "Pass word goes here!" # your database password goes here - # OCPHack8
   webPort: 8083 # the port the app listens on
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 ```
