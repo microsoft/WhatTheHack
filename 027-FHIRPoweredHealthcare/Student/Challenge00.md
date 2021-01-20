@@ -4,12 +4,11 @@
 
 ## Pre-requisites
 
-**- Make sure that you have joined Teams group for this track.  The first person on your team at your table should create a new channel in this Team with your team name.**
+**Make sure that you have joined Teams group for this track.  The first person on your team at your table should create a new channel in this Team with your team name.**
 
 ## Introduction
 
-**Goal**
-Build a patient search web app frontend application with a serverless event-driven backend.
+**Goal** is to complete all pre-requisites needed to finish all challenges.
 
 ## Description
 
@@ -42,10 +41,15 @@ Build a patient search web app frontend application with a serverless event-driv
 
 ## Success Criteria
 
-1. You have a bash shell at your disposal (WSL, Mac, Linux or Azure Cloud Shell)
-2. Running az --version shows the version of your Azure CLI
-3. Visual Studio Code and required extensions are installed
-4. Node.js and npm are installed
+- Azure Subscription is ready for use
+- Powershell is installed
+- Azure Ad and Az modules are installed
+- Bash shell (WSL, Mac, Linux or Azure Cloud Shell) is installed
+- .NET Core is installed
+- Java JDK is installed
+- Visual Studio Code and required extensions are installed
+- Node.js and npm are installed
+- Postman is installed
 
 ## Learning Resources
 
