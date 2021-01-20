@@ -30,7 +30,7 @@ You will deploy using the [Microsoft Health Architectures](https://github.com/mi
         ```
     - Navigate to the repo directory
         ```powershell
-	cd health-architectures-master\Research-and-Analytics\FHIRExportwithAnonymization
+        cd health-architectures-master\Research-and-Analytics\FHIRExportwithAnonymization
         ```
     - Create variables and deploy
         ```powershell
@@ -39,17 +39,18 @@ You will deploy using the [Microsoft Health Architectures](https://github.com/mi
  
         ./deployFHIRExportwithAnonymization.ps1 -EnvironmentName $EnvironmentName -EnvironmentLocation $EnvironmentLocation #Environment Location is optional
         ```
-    - Validate deployment resources
-        - Resource Group {ENVIRONMENTNAME} 
-	- Azure Data Factory {ENVIRONMENTNAME}adf
-	- Batch Account {ENVIRONMENTNAME}batch
-	- Key Vault {ENVIRONMENTNAME}kv
-	- Logic App {ENVIRONMENTNAME}la
-	- Storage Account {ENVIRONMENTNAME}dlg2
-    - Post-deployment setup
-	- In Azure Portal, navigate to the FHIR Integration Storage Account entered in the parameters file in the Setup above. Locate the storage account 'Access key' blade under 'Settings'. Copy one of the connection strings. 
-	- Navigate to the new key vault {ENVIRONMENTNAME}kv deployed with the script. Open the key vault, locate 'Secrets' blade under 'Settings'. Click on the secret named 'blobstorageacctstring'. Then click "+ New Version". In the 'Value' box paste the connection string from the storage account. Then click the 'Create' button at the bottom the page. This will point the Azure Data Factory to the pre-configured FHIR Integration Storage Account.
-	- Navigate to the Logic App Logic App {ENVIRONMENTNAME}la deployed with the script and click Run Trigger. Click on the Running status in Runs History below in the same screen. The time taken to complete depends on the volume of data you have in Azure API for FHIR.
+- **Validate deployment resources**
+    - Resource Group {ENVIRONMENTNAME} 
+    - Azure Data Factory {ENVIRONMENTNAME}adf
+    - Batch Account {ENVIRONMENTNAME}batch
+    - Key Vault {ENVIRONMENTNAME}kv
+    - Logic App {ENVIRONMENTNAME}la
+    - Storage Account {ENVIRONMENTNAME}dlg2
+
+- **Post-deployment setup**
+    - In Azure Portal, navigate to the FHIR Integration Storage Account entered in the parameters file in the Setup above. Locate the storage account 'Access key' blade under 'Settings'. Copy one of the connection strings. 
+    - Navigate to the new key vault {ENVIRONMENTNAME}kv deployed with the script. Open the key vault, locate 'Secrets' blade under 'Settings'. Click on the secret named 'blobstorageacctstring'. Then click "+ New Version". In the 'Value' box paste the connection string from the storage account. Then click the 'Create' button at the bottom the page. This will point the Azure Data Factory to the pre-configured FHIR Integration Storage Account.
+    - Navigate to the Logic App Logic App {ENVIRONMENTNAME}la deployed with the script and click Run Trigger. Click on the Running status in Runs History below in the same screen. The time taken to complete depends on the volume of data you have in Azure API for FHIR.
 
 - **Validate export and anonymization** 
     - Compare pre de-identified data in the container with the latest date in the Storage Account entered in the parameters file in the Setup above, and post de-identified data in the container with output as suffix in the Storage Account {ENVIRONMENTNAME}dlg2 deployed with the script. Look for the container with output as suffix. 
