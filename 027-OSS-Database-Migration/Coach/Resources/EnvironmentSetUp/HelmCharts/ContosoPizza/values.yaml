@@ -7,25 +7,25 @@ appConfig:
   #databaseType: "postgres" # mysql or postgres
   #local example of Postgres JDBC Connection string
   #dataSourceURL: "jdbc:postgresql://10.71.25.217:5432/wth" # your JDBC connection string goes here
-  
+
   #Azure example of Postgres JDBC Connection string
   #dataSourceURL: "jdbc:postgresql://petepgdbtest01.postgres.database.azure.com:5432/wth?sslmode=require" # your JDBC connection string goes here
 
   #local example of MySQL JDBC Connection string
   dataSourceURL: "jdbc:mysql://10.71.215.5:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
-  
+
   #Azure example of MySQL JDBC Connection string
   #dataSourceURL: "jdbc:mysql://petewthmysql01.mysql.database.azure.com:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
-  
+
   #local examples of dataSourceUser and dataSourcePassword
-  dataSourceUser: "root" # your database username goes here 
-  dataSourcePassword: "OCPHack8" # your database password goes here 
-  
-  #Azure examples of dataSourceUser and dataSourcePassword  
-  #dataSourceUser: "postgres@petepgdbtest01" # your database username goes here 
-  #dataSourcePassword: "OCPHack8" # your database password goes here 
-  
-  webPort: 8081 # the port the app listens on
+  dataSourceUser: "root" # your database username goes here
+  dataSourcePassword: "OCPHack8" # your database password goes here
+
+  #Azure examples of dataSourceUser and dataSourcePassword
+  #dataSourceUser: "postgres@petepgdbtest01" # your database username goes here
+  #dataSourcePassword: "OCPHack8" # your database password goes here
+
+  webPort: 8083 # the port the app listens on
   #webPort: 8082 # the port the app listens on
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 

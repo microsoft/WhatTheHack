@@ -188,7 +188,7 @@ appConfig:
   dataSourceURL: "jdbc url goes here" # your JDBC connection string goes here
   dataSourceUser: "user name goes here" # your database username goes here
   dataSourcePassword: "Pass word goes here!" # your database password goes here
-  webPort: 8081 # the port the app listens on
+  webPort: 8083 # the port the app listens on
   webContext: "pizzeria" # the application context http://hostname:port/webContext
 ```
 
@@ -200,7 +200,7 @@ The commands below allows us to use settings from the values file and then overr
 
 ```shell
 
-helm upgrade --install release-name ./HelmChartFolder -f values.yaml -f override.yaml
+helm upgrade --install release-name ./HelmChartFolder -f ./HelmChartFolder/values.yaml -f ./HelmChartFolder/override.yaml
 
 ```
 
@@ -208,7 +208,7 @@ To deploy the app backed by MySQL, run the following command after you have edit
 
 ```shell
 
-helm upgrade --install mysql-contosopizza ./ContosoPizza -f values.yaml -f values-mysql.yaml
+helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
 
 ```
 
@@ -216,7 +216,7 @@ To deploy the app backed by PostgreSQL, run the following command after you have
 
 ```shell
 
-helm upgrade --install postgres-contosopizza ./ContosoPizza -f values.yaml -f values-postgresql.yaml
+helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
 
 ```
 
