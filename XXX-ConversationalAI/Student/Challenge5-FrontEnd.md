@@ -5,11 +5,13 @@
 Now that we've finished deployed our Bot into Azure. You can then enriching your Bot user interface through a sample web application and enabling speech capabilities of the Bot. 
 	
 ## Description
-1. Register the Direct Line Speech channel on your Bot Registration
+1. Create a Microsoft Azure Speech Cognitive Service
 
-2. Create a token controller for the Bot communication to the application and create a token controller for the Bot direct line speech token 
+2. Register the Direct Line Speech channel on your Bot Registration
 
-3. Embed your Bot to the sample web front app 
+3. Create a token controller for the Bot communication to the application and create a token controller for the Bot direct line speech token 
+
+4. Embed your Bot to the sample web front app 
 	- open the application in the Resources folder
 	- Update 
 

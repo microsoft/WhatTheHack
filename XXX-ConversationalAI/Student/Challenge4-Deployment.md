@@ -11,6 +11,7 @@ Now that we've finished developing our bot locally we can deploy the bot. Deploy
 2. Then we can integrate with Teams. (if you do not have Teams licenses in your organization, this challenge is optional for you.)
 	 - In your Azure Bot Channel Registration, create a Teams Channel
 	 - Add the bot as an app in Microsoft Teams
+	 - You can use the sample image icons as you Teams App icon - those png files are in the [Resource folder](./Resources/).
 
 ## Success Criteria
 1. The bot has been deployed out to a Azure Web Apps and you're able to test against it using the Bot Framework Emulator.
