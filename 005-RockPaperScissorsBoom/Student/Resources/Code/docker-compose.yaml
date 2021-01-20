@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile-Server
     container_name: rockpaperscissors-server
     environment:
-      "ConnectionStrings:DefaultConnection": "Server=rockpaperscissors-sql,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=M1cr0s0ft2018;"
+      "ConnectionStrings:DefaultConnection": "Server=tcp:<azure-sql-server>.database.windows.net,1433;Database=<azure-sql-db>;User ID=<username>;Password=<password>;Encrypt=true;Connection Timeout=30;"
     ports:
         - "80:80"
     depends_on:
