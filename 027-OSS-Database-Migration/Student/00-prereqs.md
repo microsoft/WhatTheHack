@@ -13,15 +13,15 @@ In this challenge you'll be setting up your environment so that you can complete
 - Make sure that you have joined the Microsoft Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
 
 - Install the recommended toolset:
-    - Azure Data Studio
+    - Azure Data Studio or pgAdmin
     - MySQL Workbench
-    - pgAdmin
     - Visual Studio Code (optional)
 
 - Within Azure Cloud Shell, clone the GIT repository at https://github.com/izzymsft/WhatTheHack-1 and run this command to setup the environment: 
 
 ```shell
-create-cluster.sh
+cd Coach/Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
+./create-cluster.sh
 ```
 
 *Note: this will take several minutes*
@@ -38,7 +38,7 @@ Go to this file to see the instructions to install PostgreSQL, MySQL and the Con
 
 ## References
 
-* PostgreSQL Tools: https://www.pgadmin.org/
+* pgAdmin: https://www.pgadmin.org/
 * MySQL Workbench: https://www.mysql.com/products/workbench/
 * Azure Data Studio: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15
 * Visual Studio Code: https://code.visualstudio.com/
