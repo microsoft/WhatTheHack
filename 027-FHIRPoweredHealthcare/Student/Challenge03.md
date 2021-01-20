@@ -1,4 +1,4 @@
-# Challenge 3: Extract, transform and load clinical healthcare data
+# Challenge 3: Extract, transform and load C-CDA medical data
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 

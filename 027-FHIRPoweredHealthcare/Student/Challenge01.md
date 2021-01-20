@@ -1,4 +1,4 @@
-# Challenge 1: Extract and load FHIR patient medical records
+# Challenge 1: Extract and load FHIR medical data
 
 [< Previous Challenge](./Challenge00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge02.md)
 

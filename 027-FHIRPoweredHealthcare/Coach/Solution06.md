@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 6 - Create a new Single Page App (SPA) for patient search
 
-[< Previous Challenge](./Solution05.md) - **[Home](./readme.md)**
+[< Previous Challenge](./Solution05.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution07.md)
 
 ## Notes & Guidance
 
