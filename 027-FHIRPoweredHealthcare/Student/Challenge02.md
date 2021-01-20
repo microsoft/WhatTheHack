@@ -1,4 +1,4 @@
-# Challenge 2: Ingest and stream medical events for post-processing
+# Challenge 2: Extract, transform and load HL7 medical data
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 
