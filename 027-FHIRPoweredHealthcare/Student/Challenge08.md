@@ -42,6 +42,7 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
         ]
       }
      ```
+
     - On the IoT Connector page, click on **Configure FHIR mapping** button. On the Device mapping page, add the following script to the JSON editor and click Save.
       ```
       {
