@@ -20,7 +20,7 @@ appConfig:
 Once you make your changes, you will need to run a helm upgrade command to see the changes reflected:
 ```shell
 
-helm upgrade --install mysql-contosopizza ./ContosoPizza -f values.yaml -f values-mysql.yaml
+helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
 
 ```
 
@@ -28,7 +28,7 @@ To deploy the app backed by PostgreSQL, run the following command after you have
 
 ```shell
 
-helm upgrade --install postgres-contosopizza ./ContosoPizza -f values.yaml -f values-postgresql.yaml
+helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
 
 ```
 
