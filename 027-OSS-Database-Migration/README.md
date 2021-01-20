@@ -13,6 +13,8 @@ The participants will learn how to:
 1. Use offline tools to copy the databases to Azure OSS databases
 1. Use the Azure Database Migration Service to perform an online migration
 1. Do cutover and validation to ensure the application is working properly with the new configuration
+1. Use a private endpoint for Azure OSS databases instead of a public IP address for the database
+1. Configure a read replica for the Azure OSS databases
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Setup Environment and Prerequisites!](Student/00-prereqs.md)**
@@ -45,7 +47,7 @@ The participants will learn how to:
 - `../Coach/Guides`
   - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
 - `../Coach/Solutions`
-   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
+   - Example solutions and proctor tips to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
    - Pizzeria app code
 
