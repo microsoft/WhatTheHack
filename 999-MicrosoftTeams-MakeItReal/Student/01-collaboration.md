@@ -23,6 +23,12 @@ During an emergency, the Public Affairs group often prepares a PowerPoint presen
 1. During any shift change, an onboarded Contoso user can easily pick up and continue discussions from the previous shift. 
 1. Your team has deployed a way for the response team to track shared actions.
 
+## Advanced Challenges (Optional)
+
+*Too comfortable?  Eager to do more?  Try these additional challenges!*
+
+1. Demonstrate that a non-Contoso account (representing local authorities) can be invited and access Contoso content related to the emergency. 
+1. Your team demonstrates a solution for the Public Affairs team to brief the media including Q&A with stored recordings available to HQ for review. 
 
 ## Learning Resources
 
@@ -36,11 +42,6 @@ Reference articles on Microsoft Teams:
 -<https://docs.microsoft.com/en-us/stream/overview>
 
 
-## Advanced Challenges (Optional)
 
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-1. Demonstrate that a non-Contoso account (representing local authorities) can be invited and access Contoso content related to the emergency. 
-1. Your team demonstrates a solution for the Public Affairs team to brief the media including Q&A with stored recordings available to HQ for review. 
 
 

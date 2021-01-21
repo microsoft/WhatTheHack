@@ -20,7 +20,11 @@ Another citizen facing service for emergencies is enabling the public to request
 1. A citizen can provide the details of a missing person to the response team.
 1. The response team can see the missing person data.
 
+## Advanced Challenges (Optional)
 
+*Too comfortable?  Eager to do more?  Try these additional challenges!*
+
+1. A report of the missing person data is available filtering the data by city and/or gender.  
 
 ## Learning Resources
 
@@ -35,11 +39,7 @@ Reference articles:
 
 
 
-## Advanced Challenges (Optional)
 
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-1. A report of the missing person data is available filtering the data by city and/or gender.  
 
 
 

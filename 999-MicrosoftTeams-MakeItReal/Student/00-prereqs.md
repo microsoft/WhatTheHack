@@ -14,6 +14,8 @@ This challenge details the requirements for your M365 tenant in preparation for 
 - You will need the [Power BI Desktop Client](https://powerbi.microsoft.com/en-us/downloads/) installed on your machine.
 - Make sure Microsoft Office is installed on your machine and that you can sign into Office using a user credential from your tenant.
 - Sign into the [OneDrive client](https://support.microsoft.com/en-us/office/get-started-with-onedrive-work-or-school-b30da4eb-ddd2-44b6-943b-e6fbfc6b8dde) on your machine using a user credential from your tenant.
+- Having access to a mobile device that can use the Office 365 apps to sign into your tenant is desired but not a requirement.
+
 
 ## Success Criteria
 

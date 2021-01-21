@@ -15,10 +15,14 @@ Often, these first responders gather key photos from the scene that are used to 
 
 1. Demonstrate that a user can access the emergency information from a mobile device.
 1. Demonstrate that a user can take a set of documents from the emergency documentation offline on a device. 
-1. Contoso users can easily search for information across roles related to the emergency.
 1. Demonstrate the ability to schedule and host a meeting where a user could dial in through telephony without the Microsoft Teams client. 
 1. Demonstrate how your team suggests standardizing the photo gathering business process of first responders. Based on the photo and information gathered, either the Logistics or Engineering team should be notified of the request. 
 
+## Advanced Challenges (Optional)
+
+*Too comfortable?  Eager to do more?  Try these additional challenges!*
+
+1. If the mobile device is not managed by the organization, the user is prompted for the multi-factor authentication. 
 
 ## Learning Resources
 
@@ -33,11 +37,7 @@ Reference articles:
 
 
 
-## Advanced Challenges (Optional)
 
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-1. If the mobile device is not managed by the organization, the user is prompted for the multi-factor authentication. 
 
 
 

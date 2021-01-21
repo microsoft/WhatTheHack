@@ -33,12 +33,11 @@ Contoso recently deployed Office 365 and is currently using all of its services 
 - [Power BI Desktop Client](https://powerbi.microsoft.com/en-us/downloads/)
 
 ## Repository Contents
-- `../Coach/Guides`
+- `../Coach/`
   - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
-- `../Coach/Solutions`
-   - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
-- `../Student/Resources`
-   - FabMedial app code and sample templates to aid with challenges
+  - [Example solutions and Guidance](Coach/readme.md) to the challenges (If you're a student, don't cheat yourself out of an education!)
+- `../Coach/Resources`
+   - Any PowerShell scripts used to setup the configuration of a tenant used in the hack
 
 ## Contributors
 - Ed Hild
