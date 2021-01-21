@@ -18,8 +18,5 @@ In this challenge you'll be connecting to your "on-prem" environment using the d
 
 ## References
 
-* Check Postgres Version: https://phoenixnap.com/kb/check-postgresql-version#:~:text=Check%20Postgres%20Version%20from%20SQL%20Shell,-The%20version%20number&text=Type%20the%20following%20SQL%20statement,information%20for%20the%20PostgreSQL%20server
-* Check MySQL Version: https://phoenixnap.com/kb/how-to-check-mysql-version
-* Check MySQL database engine: https://www.a2hosting.com/kb/developer-corner/mysql/working-with-mysql-database-engines
-* Limitations in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-limits
+*  Limitations in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-limits
 * Migrating MySQL On-Premises to Azure Database for MySQL: https://github.com/Azure/azure-mysql/tree/master/MigrationGuide
