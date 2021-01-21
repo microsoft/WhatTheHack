@@ -32,8 +32,8 @@ Below is a diagram of the solution architecture you will build in this hack. Ple
  - [Challenge 2](./Student/Challenge2-LUIS.md) - Create LUIS Intent
  - [Challenge 3](./Student/Challenge3-API.md) - Make API Call  
  - [Challenge 4](./Student/Challenge4-Deployment.md) - Publish your Bot to Azure and enable Teams Channel
- - [Challenge 5](./Student/Challenge5-FrontEnd.md) - Embed your Bot to the sample Front End Web Application and enable Direct Line Speech (In progress)
- - [Challenge 6](./Student/Challenge6-ACS.md) - Integrate your Bot with Azure Communication Services (In progress)
+ - [Challenge 5](./Student/Challenge5-FrontEnd.md) - Embed your Bot to the sample Front End Web Application and enable Direct Line Speech 
+ - [Challenge 6](./Student/Challenge6-ACS.md) - Integrate your Bot with Azure Communication Services 
  - [Challenge 7](./Student/Challenge7-CICD.md) - Implement DevOps best practices into your Bot 
  - [Challenge 8](./Student/Challenge8.md) - Add Advanced intelligence to your Bot using Azure Data Services (Phase 2)
 

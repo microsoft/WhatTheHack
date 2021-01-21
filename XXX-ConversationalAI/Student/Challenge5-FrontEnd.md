@@ -25,7 +25,7 @@ Now that we've finished deployed our Bot into Azure. You can then enriching your
 
 
 ## Resources
-	- [Connect a bot to Direct Line Speech](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0#:~:text=Add%20the%20Direct%20Line%20Speech%20channel%20In%20your,the%20bot.%20In%20the%20left%20panel%2C%20select%20Channels.)
-	- [Sample - Integrating with Direct Line Speech channel](https://github.com/microsoft/BotFramework-WebChat/tree/master/samples/03.speech/a.direct-line-speech)
+- [Connect a bot to Direct Line Speech](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0#:~:text=Add%20the%20Direct%20Line%20Speech%20channel%20In%20your,the%20bot.%20In%20the%20left%20panel%2C%20select%20Channels.)
+- [Sample - Integrating with Direct Line Speech channel](https://github.com/microsoft/BotFramework-WebChat/tree/master/samples/03.speech/a.direct-line-speech)
 
 [Next Challenge - Extent to Azure Communication Service >](./Challenge6-ACS.md)
