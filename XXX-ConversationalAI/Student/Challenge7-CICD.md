@@ -20,9 +20,9 @@ Now that we've finished deployed our Bot into Azure. In order to make it product
 
 
 ## Resources
-	- [How to Export Bot Composer Project to a Run Time](https://docs.microsoft.com/en-us/composer/how-to-add-custom-action#export-runtime)
-	- [ASP.net core Azure DevOps Pipeline Creation and Deployment](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops)
-	- [Create CICD for LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-devops-automation#continuous-delivery-cd)
+* [How to Export Bot Composer Project to a Run Time](https://docs.microsoft.com/en-us/composer/how-to-add-custom-action#export-runtime)
+* [ASP.net core Azure DevOps Pipeline Creation and Deployment](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops)
+* [Create CICD for LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-devops-automation#continuous-delivery-cd)
 
 Congratuations!! You have finihsed the challenges for this Hack. 
 We are updating the content continious. In the upcoming phase 2 of this hack content we can extending this Bot solution to data services such as Azure Databricks to unlock more advanced ML capabilities.
