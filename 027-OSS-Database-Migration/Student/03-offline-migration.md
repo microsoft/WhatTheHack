@@ -12,7 +12,7 @@ You are not required to point the application to Azure in this challenge.
 In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it scales performance. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. 
 
 Hints: 
-* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, you can connect to the database from your computer and take a backup of the data 
+* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, if database copy tools are installed on your machine, you can connect to the database from your computer as well. 
 * Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') ---> NEED to verify - does apt install vim work ?
 
 ## Success Criteria
