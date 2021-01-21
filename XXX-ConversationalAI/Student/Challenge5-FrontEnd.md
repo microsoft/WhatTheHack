@@ -2,26 +2,26 @@
 [< Previous Challenge](./Challenge4-Deployment.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge6-ACS.md)
 
 ## Introduction
-Now that we've finished deployed our Bot into Azure. You can then enriching your Bot user interface through a sample web application. Also, in this challenge, let's explore how you can enable the speech capabilities of the Bot. 
-	
+Now that we've finished deployed our Bot into Azure. You can then enriching your Bot user interface through a sample web application. Also, in this challenge, let's explore how you can enable the Bot's speech capabilities. 
+    
 ## Description
 1. Embed the Bot into a Web Page. 
-	* By going to Azure Portal, go to the Bot Channel Registration resource
-	* Navigate to the Web Chat Channel - click Edit, you will find the Secret key as well as the Embed Iframe code
-	* Create a HTML file in your machine, place the HTML boy section the the iframe code and add the secret key to the iframe code.
-	* Now you can run the web page locally 
+    * By going to Azure Portal, go to the Bot Channel Registration resource
+    * Navigate to the Web Chat Channel - click Edit, you will find the Secret key as well as the Embed Iframe code
+    * Create an HTML page locally; add Secret Key to the iframe code; Place the provided iframe code to the HTML body section.
+    * Now you can run the web page locally 
 
-2. Voice enable your bot through Direct Line Speech channel
+2. Make your Bot into a Voice-Enabled Bot through the Direct Line Speech channel
 
-3. Explore different capabilities you can do with Direct Line Speech 
+3. Explore different capabilities you can do with the Direct Line Speech channel
 
-4. Demostrate to the coach your voice enabled Bot through Microsoft Speech SDK. 
+4. Demonstrate to the coach that your voice-enabled Bot through Microsoft Speech SDK. 
 
-5. (optional) Can you make a simple page with speech-to-text and text-to-speech feature from Direct Line Speech channel? 
+5. (optional) Can you make a simple page with a speech-to-text and text-to-speech feature from the Direct Line Speech channel? 
 
 ## Success Criteria
-1. Created a Web Page with your Bot embeded on it. 
-2. Demostrated the speech capability of your bot through Microsoft Speech SDK. 
+1. Created a Web Page with your Bot embedded on it. 
+2. Demonstrated the speech capability of your Bot through Microsoft Speech SDK. 
 
 
 ## Resources
