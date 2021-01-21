@@ -12,7 +12,7 @@ appConfig:
   ...
   dataSourceURL: "jdbc url goes here" # your JDBC connection string goes here
   dataSourceUser: "user name goes here" # your database username goes here
-  dataSourcePassword: "Pass word goes here!" # your database password goes here
+  dataSourcePassword: "Password goes here!" # your database password goes here
   ...
 ```
 Once you make your changes, you will need to run a helm upgrade command to see the changes reflected:

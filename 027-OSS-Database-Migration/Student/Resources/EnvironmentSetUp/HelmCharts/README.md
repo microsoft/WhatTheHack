@@ -1,6 +1,6 @@
 ## Setting up Kubernetes
 
-First we need to navigate to the ARM templates folder in the Coaches Resource folder to provision the AKS cluster
+First we need to navigate to the ARM templates folder in the Student Resource folder to provision the AKS cluster
 
 The steps to deploy the AKS cluster, scale it up and scale it down are available in the README files for that section
 
@@ -15,7 +15,7 @@ This requires Helm3 and the latest version of Azure CLI to be installed
 ```shell
 
 # Navigate to the Helm Charts
-#cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
+#cd Resources/EnvironmentSetUp/HelmCharts
 
 # Install the Kubernetes Resources
 helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.password=OCPHack8
@@ -166,7 +166,7 @@ First we navigate to the Helm charts directory
 
 ```shell
 
-cd 027-OSS-Database-Migration/Coach/Resources/EnvironmentSetUp/HelmCharts
+cd Resources/EnvironmentSetUp/HelmCharts
 
 
 ```
