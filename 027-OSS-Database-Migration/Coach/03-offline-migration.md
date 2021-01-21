@@ -13,7 +13,7 @@ curl ifconfig.me
 
 ```
 
-Another way is to login to the database container, and then try to launch a connection to the Azure DB for MySQL or Postgres. It will fail wuth a firewall error that will reveal the address. In the example below, pgtarget is the Postgres server name, serveradmin is the admin user created on Azure.
+Another way is to login to the database container, and then try to launch a connection to the Azure DB for MySQL or Postgres. It will fail wuth a firewall error that will reveal the address. In the example below, pgtarget is the Postgres server name, pgtarget2 is the mysql servername and both has serveradmin as the admin user created on Azure.
 
 ```shell
 
@@ -29,6 +29,13 @@ Alternately connect to Azure DB using  Azure Data studio or Pgadmin tool
 
 kubectl -n postgresql exec deploy/postgres -it -- bash
 psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget -d postgres
+
+```
+
+```shell
+
+kubectl -n mysql exec deploy/mysql -it -- bash
+mysql -h mytarget2.mysql.database.azure.com -P 3306 -u serveradmin@mytarget2 -p
 
 ```
 
