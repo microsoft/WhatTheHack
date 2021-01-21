@@ -5,7 +5,7 @@
 ## Introduction
 
 Create an appropriate PaaS database service based on previous challenge in Azure and copy the pizzera application data to Azure. 
-You are not required to point the application to Azure in this challenge.
+You are not required to point the application to Azure database in this challenge.
 
 ## Description
 
@@ -13,7 +13,7 @@ In the offline migration approach, your application can tolerate some downtime t
 
 Hints: 
 * You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, if database copy tools are installed on your machine, you can connect to the database from your computer as well. 
-* Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') ---> NEED to verify - does apt install vim work ?
+* Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') 
 
 ## Success Criteria
 
