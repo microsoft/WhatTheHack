@@ -17,16 +17,16 @@ In this challenge you'll be setting up your environment so that you can complete
     - MySQL Workbench
     - Visual Studio Code (optional)
 
-- Within Azure Cloud Shell, clone the GIT repository at https://github.com/izzymsft/WhatTheHack-1 and run this command to setup the environment: 
+- Within Azure Cloud Shell, download and unzip the resources.zip file in the Student/Resources folder. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment: 
 
 ```shell
-cd Coach/Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
+cd Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
 ./create-cluster.sh
 ```
 
 *Note: this will take several minutes*
 
-Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](../Coach/Resources/EnvironmentSetUp/HelmCharts/README.md) 
+Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](Resources/EnvironmentSetUp/HelmCharts/README.md) 
 
 
 ## Success Criteria
