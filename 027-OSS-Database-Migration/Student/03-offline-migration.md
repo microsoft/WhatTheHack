@@ -1,22 +1,25 @@
-# Challenge 3: Offline migration
+# Challenge 3: Offline migration of database
 
 [< Previous Challenge](./02-size-analysis.md) - **[Home](../README.md)** - [Next Challenge >](./04-offline-cutover-validation.md)
 
 ## Introduction
-Dump the on-premises databases, create Azure databases for PostgreSQL/MySQL and restore the on-premises databases 
+
+Create an appropriate PaaS database service based on previous challenge in Azure and copy the pizzera application data to Azure. 
+You are not required to point the application to Azure in this challenge.
 
 ## Description
-In this challenge you will dump the on-premises databases, create Azure database servers for PostgreSQL/MySQL, create the WTH database in Azure DB for PostgreSQL/MySQL and restore the databases. Once you've exported your existing database to a sql script file, you will create your Azure DB server for PostgreSQL/MySQL and then import the data. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. 
+
+In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it scales performance. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. 
 
 Hints: 
-* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. 
-* Azure DB for PostgreSQL has a default database called "postgres". You won't use it except to initially connect with psql so you can create the wth database. 
-* Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim')
+* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, you can connect to the database from your computer and take a backup of the data 
+* Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') ---> NEED to verify - does apt install vim work ?
 
 ## Success Criteria
 
-1. You have a copy of the on-premises databases running in Azure DB for PostgreSQL/MySQL
-1. Demonstrate to your proctor that the data has migrated successfully
+1. You have chosen the proper PaaS database service at an appropriate service tier based on sizing analysis
+1. Demonstrate to your proctor that the "on-premise" pizzeria application data has migrated successfully to Azure
+1. It is not required to  point the application to the Azure database in this challenge
 
 ## References
 * Migrate your PostgreSQL database using export and import: https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import
