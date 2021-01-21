@@ -1,24 +1,23 @@
 # Challenge 0: Coach's Guide
 
-**[Home](README.md)** - [Next Challenge >](./01-containers.md)
+**[Home](README.md)** - [Next Challenge >](./01-collaboration.md)
 
 ## Notes & Guidance
+This hack includes a [Sample Invite](/Resources/SampleInvite.oft) which you can modify to give you an idea of how we recommend advertising this offering.
 
-Links to install the tooling for this hack:
+The ideal size of a participant team for this hack is 4-5 people. The number of teams you can support is proportionally related to how many coaches you have to provide assistance when a team gets stuck or has questions. It is recommended to limit a coach to 1 or 2 teams so they are available and there isn't a lot of wasted time by the participants.
 
-- [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- *Optional:* [Azure Storage Explorer](http://storageexplorer.com)
+Ideally, each participant in a team has a unique login to an Office 365 environment, but they don't necessarily need their own tenant. In fact, there is only one advanced challenge where there is the possibility of admins colliding. It is possible to host several teams in a single Office 365 tenant. Each hack team though will create a single Microsoft Team collaboration area where their accounts are members.
 
-If attendees will be using a shared Azure subscription, you should be aware of the following:
-- In addition to the “Contributor” role, all attendees should have the  “Azure account administrator” role on the Azure subscription in order to authenticate their AKS clusters against their Azure Container Registries.  For more info: <https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration>
-- CPU and Public IP quotas will need to be raised for the subscription.  Default quota is 10 for each.  Each student will be spinning up:
-	- 3 x 2core VMs for the AKS cluster + 2 PIPs. 1 for AKS cluster, 1 for content-web
-	- 1 x 2core VM for the Docker Build machine + one PIP
-	- Total: 8 cores + 3 PiPs per attendee
-- **NOTE:** Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.
-- **NOTE:** If there is no access to an administrator who can request quota increases, have the students deploy to different regions to stay within the quota limit of each region.
-- **NOTE:** If the students will deploy AKS across Availability Zones, coaches should ensure they pick a region where Availability Zones are supported. 
-<https://docs.microsoft.com/en-us/azure/availability-zones/az-region>
+Ideally, we recommend that the host provide this environment instead of the teams signing up for their own trials. If you are a Microsoft employee or partner, a CIE tenant provisioned through [CDX](https://demos.microsoft.com) is a perfect start. The reason recommending a host provided tenant is that there are several configurations in the tenant that should be setup in advance of the hack. Some of these configurations (Teams guest access) can take up to 24hrs to set, so please do these in advance. 
 
+Required Configurations:
+- We recommend setting an easier to enter password for the users in the tenant. The first block of commands in this [PowerShell script](/Resources/MakeItReal.ps1) assign a password to all the user accounts.
+- For every user to do any action in the hack, we recommend making all the accounts Global Admins. The [PowerShell script](/Resources/MakeItReal.ps1) has an example of how to do that.
+- In the Microsoft Teams admin center, you will need to create a new Emergency Location. We recommend using a Microsoft address or the customer's location. [Adding an emergency location](https://docs.microsoft.com/en-us/MicrosoftTeams/add-change-remove-emergency-location-organization)
+- For participants to experience dialing telephone numbers, you will need to Purchase Services and add a Domestic Calling Plan trial subscription to the tenant.
+- The [PowerShell script](/Resources/MakeItReal.ps1) has a sample for how to assign the calling plan licenses to your users. The prefix for the tenant will be unique to your environment.
+- In the Microsoft Teams admin center, request phone numbers for a local area code where you will be hosting the hack. [Getting phone numbers for your users](https://docs.microsoft.com/en-us/microsoftteams/getting-phone-numbers-for-your-users)
+- Assign a phone number and the emergency location to each of the tenant's users. [Assign a phone number to a user](https://docs.microsoft.com/en-us/microsoftteams/assign-change-or-remove-a-phone-number-for-a-user)
+- Confirm that Guest Access is turned on for Microsoft Teams. [Setup Guest Access](https://docs.microsoft.com/en-us/microsoftteams/set-up-guests)
+- Configure Microsoft Teams Live Events settings so that Everyone can join and schedule them. Also enable the service to always record them. [Setup Live Events](https://docs.microsoft.com/en-us/microsoftteams/teams-live-events/set-up-for-teams-live-events)
