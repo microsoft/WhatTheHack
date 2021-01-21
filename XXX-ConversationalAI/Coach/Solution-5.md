@@ -1,7 +1,7 @@
 # Challenge 5: Direct Line Speech Channel and Front End
 [< Previous Solution](./Solution-4.md) - **[Home](../readme.md)** - [Next Solution>](./Solution-6.md)
 ## Notes and Tips
-1. You just need to follow [this step by step guidance](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) to create a Direct Line Speech Channel for your Bot. 
+1. Embed the Bot into a Web Page. The specific guildance has been provided in the student guide. Some advanced students may create more creative or elegant solution. As long as student shows a function Bot on a web page it is a pass.
 2. 
         
 
