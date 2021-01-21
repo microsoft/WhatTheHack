@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](../readme.md)** - [Next Challenge>](./02-firstresponders.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](./readme.md)** - [Next Challenge>](./02-firstresponders.md)
 
 ## Notes & Guidance
 Being the coaches guide, this content includes comments, guidance, possible gotchas related to the challenges facing the partipants. The success criteria for the challenge has been duplicated here, but within them, you will find the notes for coaches. In many cases, there is no single solution so coaches are encouraged to be flexibile and focus on the outcome. Did the team accomplish the spirit of the task not necessarily did they do it in the way it is described here?

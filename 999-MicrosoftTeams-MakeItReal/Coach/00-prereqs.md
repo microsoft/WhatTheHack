@@ -1,6 +1,6 @@
 # Challenge 0: Coach's Guide
 
-**[Home](README.md)** - [Next Challenge >](./01-collaboration.md)
+**[Home](./readme.md)** - [Next Challenge >](./01-collaboration.md)
 
 ## Notes & Guidance
 This hack includes a [Sample Invite](./Resources/SampleInvite.oft) which you can modify to give you an idea of how we recommend advertising this offering.

@@ -1,6 +1,6 @@
 # Challenge 3: Coach's Guide
 
-[< Previous Challenge](./02-firstresponders.md) - **[Home](../readme.md)**
+[< Previous Challenge](./02-firstresponders.md) - **[Home](./readme.md)**
 
 ## Notes & Guidance
 
