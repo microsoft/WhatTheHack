@@ -1,4 +1,4 @@
-# Challenge 6: Connect to Devices with Device Streams
+# Challenge 6: Deploy to devices at scale 
 [< Previous Challenge](./Challenge-05.md) - **[Home](README.md)** - [Next Challenge >](./Challenge-07.md)
 ## Notes & Guidance
 
