@@ -12,16 +12,17 @@ The power of the Bot Service is the ability to add your own API's. In this chall
 2. Get a [Finnhub](https://finnhub.io/dashboard) API key, we're going to be using it to get the current stock price.
 3. We're going to be using the "Quote" feature from Finnhub, look at their [API documentation](https://finnhub.io/docs/api#quote) and get a better understanding of the requirements.
 4. In Bot Composer, add a "Send an HTTP request action" inside of your LUIS triggered dialog. 
-5. Set the correct properties to the API link. Instead of statically adding the Ticker Name, do it dynamically by pulling out the entity in the utterance sent to the bot.
-6. Have the bot print what is sent back from the API. You should not be running into any issues.
-7. Develop the  to Ask for a stock and then reply with the opening price of that stock
+5. Dynamically call the API with the stock ticker name that the user sent. You should *not* be hard coding the symbol.
+7. Respond to the user with the *opening price* of the stock that they asked about.
 
 ## Success Criteria
 1. The bot successfully calls the Finnhub API without any errors
+2. The bot can return the opening stock price of a variety of different companies such as MSFT, AAPL, JNJ, or FB. 
 2. The bot runs in the Bot Framework Emulator and displays the opening stock price.
 
 ## Resources:
 1. [API Documentation | Finnhub](https://finnhub.io/docs/api)
 2. [Send an HTTP request  - Bot Composer](https://docs.microsoft.com/en-us/composer/how-to-send-http-request)
+3. [Intents and Entities](https://docs.microsoft.com/en-us/composer/how-to-define-intent-entity)
 
 [Next Challenge - Deploying and integrating with Microsoft Teams >](./Challenge4-Deployment.md)
