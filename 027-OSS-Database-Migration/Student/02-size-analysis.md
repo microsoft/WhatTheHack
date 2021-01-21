@@ -11,17 +11,17 @@ Determine the CPU/memory configuration, database I/O and file size and map to an
 In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required and map it to an equivalent size in Azure. You will run a synthetic benchmark to simulate I/O for the database. 
 
 To run the synthetic benchmark for Postgres:
-*
+
 * Create a database in your on-prem database called samples
-*
+
 * Create benchmark objects in the database - run this on the bash prompt on the database host
-*
+
 * pgbench -i  -h localhost -U postgres -d samples 
-*
+
 * Run a synthetic workload for 5 minutes and watch the system load while it is running. 
-*
+
 * pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
-*
+
 
 ## Success Criteria
 
