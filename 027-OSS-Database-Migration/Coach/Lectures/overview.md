@@ -1,0 +1,1 @@
+[![OSS DB on Azure](http://img.youtube.com/vi/ElKfEurMi9E/0.jpg)](http://www.youtube.com/watch?v=ElKfEurMi9E "OSS DB on Azure")
