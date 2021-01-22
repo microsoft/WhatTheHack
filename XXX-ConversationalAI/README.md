@@ -29,8 +29,8 @@ Below is a diagram of the solution architecture you will build in this hack. Ple
 ## Challenges
  - [Challenge 0](./Student/Challenge0-Setup.md) - Setup and Introduction
  - [Challenge 1](./Student/Challenge1-QnA.md) - Create Multi-Turn QNA Knowledge Base
- - [Challenge 2](./Student/Challenge2-LUIS.md) - Create LUIS Intent
- - [Challenge 3](./Student/Challenge3-API.md) - Make API Call  
+ - [Challenge 2](./Student/Challenge2-LUIS.md) - Create LUIS Intents to direct conversations
+ - [Challenge 3](./Student/Challenge3-API.md) - Make API Calls from your Bot  
  - [Challenge 4](./Student/Challenge4-Deployment.md) - Publish your Bot to Azure and enable Teams Channel
  - [Challenge 5](./Student/Challenge5-FrontEnd.md) - Embed your Bot to the sample Front End Web Application and enable Direct Line Speech 
  - [Challenge 6](./Student/Challenge6-ACS.md) - Integrate your Bot with Azure Communication Services 
