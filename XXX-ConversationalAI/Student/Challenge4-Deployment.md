@@ -22,5 +22,7 @@ Now that we've finished developing our bot locally, we can deploy the bot. Deplo
 * [How to publish a Bot](https://docs.microsoft.com/en-us/composer/how-to-publish-bot)
 * [Connect a bot to Microsoft Teams](https://docs.microsoft.com/en-us/azure/bot-service/channel-connect-teams?view=azure-bot-service-4.0) 
 
-
+## What a sample result looks like
+![Sample](./Images/Ch4-1.JPG)
+![Sample](./Images/Ch4-2.JPG)
 [Next Challenge - Embed your bot >](./Challenge5-FrontEnd.md)

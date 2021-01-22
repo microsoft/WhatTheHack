@@ -24,6 +24,9 @@ Now that we've finished deployed our Bot into Azure. In order to make it product
 * [ASP.net core Azure DevOps Pipeline Creation and Deployment](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops)
 * [Create CICD for LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-devops-automation#continuous-delivery-cd)
 
+## What a sample result looks like
+![Sample](./Images/Ch7-1.JPG)
+
 Congratuations!! You have finihsed the challenges for this Hack. 
 We are updating the content continious. In the upcoming phase 2 of this hack content we can extending this Bot solution to data services such as Azure Databricks to unlock more advanced ML capabilities.
 Stay tuned!

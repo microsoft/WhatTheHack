@@ -15,14 +15,13 @@ Bot Composer is an open source visual authoring canvas for developers and multid
 ## Success Criteria
 1. You have successfully installed Bot Framework Composer and the Bot Framework Emulator
 2. When the bot Emulator is booted up you get a message from your bot welcoming the user and prompting the next conversational flow.
-
-
-
-
 ## Learning Resources
 1. [BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md)
 2. [Introduction to Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction)
 3. [Install Bot Framework Composer](https://docs.microsoft.com/en-us/composer/install-composer)
 4. [Create your first bot - Bot Composer](https://docs.microsoft.com/en-us/composer/quickstart-create-bot)
+
+## What a sample result looks like
+![Sample](./Images/Ch0-1.JPG)
 
 [Next Challenge - Using QnA Maker >](./Challenge1-QnA.md)

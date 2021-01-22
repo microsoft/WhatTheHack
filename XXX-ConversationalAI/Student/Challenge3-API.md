@@ -25,4 +25,7 @@ The power of the Bot Service is the ability to add your own API's. In this chall
 2. [Send an HTTP request  - Bot Composer](https://docs.microsoft.com/en-us/composer/how-to-send-http-request)
 3. [Intents and Entities](https://docs.microsoft.com/en-us/composer/how-to-define-intent-entity)
 
+## What a sample result looks like
+![Sample](./Images/Ch3-1.JPG)
+
 [Next Challenge - Deploying and integrating with Microsoft Teams >](./Challenge4-Deployment.md)

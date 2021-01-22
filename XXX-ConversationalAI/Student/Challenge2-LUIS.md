@@ -34,4 +34,7 @@ We are going to build out a LUIS triggered dialog flow to help answer the curren
 1. [Introduction to LUIS](https://docs.microsoft.com/en-us/composer/tutorial/tutorial-luis)
 2. [Define intents with entities](https://docs.microsoft.com/en-us/composer/how-to-define-intent-entity)
 
+## What a sample result looks like
+![Sample](./Images/Ch2-1.JPG)
+
 [Next Challenge - Making API Calls >](./Challenge3-API.md)
