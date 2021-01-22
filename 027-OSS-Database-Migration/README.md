@@ -5,7 +5,7 @@ This intro level hackathon will help you get hands-on experience migrating datab
 This hack includes a optional [lecture presentation](Coach/Lectures/README.md) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 ## Learning Objectives
-In this hack you will solve a common challenge for companies migrating to the cloud: migrating open source databases to Azure. The application using the database is a sample e-commerce application written in Java. It will be configured to use both PostgreSQL and MySQL databases.
+In this hack you will solve a common challenge for companies migrating to the cloud: migrating open source databases to Azure. The application using the database is a sample e-commerce application written in Java (https://github.com/pzinsta/pizzeria). It will be configured to use both PostgreSQL and MySQL databases.
 
 The participants will learn how to:
 
@@ -49,7 +49,7 @@ The participants will learn how to:
 - `../Coach/Solutions`
    - Example solutions and proctor tips to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
-   - Pizzeria app code
+   - Pizzeria application environment setup
 
 ## Contributors
 - Brian Hitney
