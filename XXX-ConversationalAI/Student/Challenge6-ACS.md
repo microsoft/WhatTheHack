@@ -5,11 +5,11 @@
 Now that we've finished deployed our Bot into Azure. You can extend your Bot from a Bot2Human interaction to Human2Human interaction through Azure Communication Services. Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The use case for our FSI Bot and the goal of this challenge is for you to create a functionality that allows use initiate a 'talk to human' intent, which allows the user of your bot to talk to a finance expert through video chat. 
 	
 ## Description
-1.	Create Web Call Service using Azure Communication Services (portal or IaC)
+1.	Create a Web Call Service using Azure Communication Services (portal or IaC)
 
 Hint: There is a web call sample that could be leveraged for this challenge and it can be found here: https://docs.microsoft.com/en-us/azure/communication-services/samples/calling-hero-sample
 
-2. In your Bot Composer, create an Intent and Dialog which triggers the API call to your Web Call Service.
+2. In your Bot Composer, create an Intent and a Dialog which triggers the API call to your Web Call Service.
  
 ## Success Criteria
 1. There is a talk to human intent from your bot so user can initiate video chat.
