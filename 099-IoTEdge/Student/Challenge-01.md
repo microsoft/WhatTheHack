@@ -9,6 +9,8 @@
 ## Introduction
  This is the first step of getting an environment setup to work from. This will be a straightforward challenge to ensure you have your subscription setup and to devise a plan to work with your team if you're working as part of a group.  This will be used to work as the starting point for IoT Edge communication in subsequent modules. 
 
+## Description
+In this challenge you will establish all necessary cloud components needed to deploy an Edge device.  Consideration should be given to using automated deployment/provisioning capabilities of Azure IoT hub as a means to gain insight into activity occurring within the plant.  
 
 ## Success Criteria
 1. IoT Hub created
@@ -23,7 +25,5 @@
 1. [IoT Edge BackGround Deck for WTH](./assets/IoTHub_Edge.pptx)
 
 
-## Tips (optional)
-
 ## Advanced Challenges (Optional)
-Think about how you can better manage many IoT Edge devices in lieu of going to a singular device one by one in the portal.  [IoT Hub supports features to deploy at scale](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-at-scale?view=iotedge-2018-06) -- consider exploring this as a pathway to facilitate deploying the IoT modules needed to support this challenge to your IoT Edge device.
+Consider using [Device Provisioning service](https://docs.microsoft.com/en-us/azure/iot-dps/) as a means to provision/attest the IoT Edge device to connect to a hub.  There are a number of ways in which this can be done and would demonstrate how this could be implemented to better support provisioning devices at scale.
