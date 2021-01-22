@@ -52,6 +52,6 @@ create database wth ;
 ```shell
 
  pg_dump -C -Fd  wth -j 4 -f exportdir -U contosoapp
- pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -c -Fd exportdir
+ pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -Fd exportdir
 
 ```
