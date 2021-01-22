@@ -38,6 +38,7 @@ Contoso recently deployed Office 365 and is currently using all of its services 
   - [Example solutions and Guidance](Coach/readme.md) to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Coach/Resources`
    - Any PowerShell scripts used to setup the configuration of a tenant used in the hack
+   - Sample email invitation for the event
 
 ## Contributors
 - Ed Hild
