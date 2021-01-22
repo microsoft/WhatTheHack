@@ -47,3 +47,11 @@ CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPL
 create database wth ;
 
 ```
+* Postgres command to do offline export to exportdir directory and import offline to Azure Postgres. First bash into the postgres container and then two commands
+
+```shell
+
+ pg_dump -C -Fd  wth -j 4 -f exportdir -U contosoapp
+ pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -c -Fd exportdir
+
+```
