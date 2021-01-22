@@ -5,8 +5,9 @@ QnA maker is a no code experience that allows you to create a natural conversati
 
 
 ## Description
-1. Create an new QNA KB using source [Microsoft Investor FAQ](https://www.microsoft.com/en-us/Investor/FAQ.aspx) through Bot Composer locally. Please refer to the Resources section on how to make a QNA KB in composer. This KB concept will be used for integrated local CICD experience for your later challenge.
-2. Your knowledge base needs to be based off of the [FSI Use Case document](./Resources/T20-FSI-ESG-BOT-ACS-IndustryUseCase.docx). Upload the document, look at how the format was automatically uploaded, and fine tune as necessary
+1. You are going to be upload two different sources into a QnA knowledge base. You should be doing this through Bot Composer and **not** through the QnaMaker UI. Please refer to the resources section on how to make a QNA KB in composer. This KB concept will be used for integrated local CICD experience for your later challenge.
+	- Create an new QNA KB using source [Microsoft Investor FAQ](https://www.microsoft.com/en-us/Investor/FAQ.aspx)
+	- Also include the conversation from here [FSI Use Case document](./Resources/T20-FSI-ESG-BOT-ACS-IndustryUseCase.docx). Upload the document, look at how the format was automatically uploaded -- fine tune as necessary
 3. Ensure that you are using the multi-turn conversation feature so that when you ask - for example - " What Is Microsoft's ESG rating?" you have the option of clicking "Climate Change", "Human Capital", "Corporate Governance", and "Product Liability".
 4. Under "Carbon Emissions" and "Financing Environment" add a followup to return to the previous conversation flow - it should be titled "Return to previous".
 5. Test your bot locally using the Bot Framework Emulator. You should be able to flow through the conversations easily.
