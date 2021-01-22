@@ -25,4 +25,7 @@ QnA maker is a no code experience that allows you to create a natural conversati
 - [Create a QnA KB in Composer](https://docs.microsoft.com/en-us/composer/how-to-create-qna-kb)
 - [Multiturn Conversations](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/how-to/multiturn-conversation)
 
+## What a sample result looks like
+![Sample](./Images/Ch1-1.JPG)
+
 [Next Challenge - Implementing LUIS >](./Challenge2-LUIS.md)

@@ -8,4 +8,6 @@
 - Make sure they are pulling out the **opening** stock price, not just returning the entire json object.
    - You can index into the returned object using ${dialog.stock.o}
 
+![Sample logic 1](./Images/Ch3-1.JPG)
+![Sample logic 1](./Images/Ch3-2.JPG)
 [Next Solution - Publish and Teams Integration >](./solution-4.md)
