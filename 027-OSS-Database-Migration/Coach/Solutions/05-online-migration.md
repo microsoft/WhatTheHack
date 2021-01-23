@@ -65,7 +65,7 @@ Run the file
 
 * \i  drop_fk.sql
 
-There is no triggers in the application schema. Still it is best practice to check for it
+There is no trigger in the application schema. Still it is best practice to check for it
 
 * \out drop_trigger.sql
 * SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
