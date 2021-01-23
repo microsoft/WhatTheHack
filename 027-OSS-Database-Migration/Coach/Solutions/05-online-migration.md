@@ -65,6 +65,12 @@ Run the file
 
 * \i  drop_fk.sql
 
+There is no triggers in the application schema. Still it is best practice to check for it
+
+* \out drop_trigger.sql
+* SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
+FROM information_schema.triggers
+
 For Azure DMS,  you need to create a migration project
 
 in DMS wizard, connect to source as the IP from kubectl -n postgresql get svc command
