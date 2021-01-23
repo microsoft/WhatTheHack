@@ -23,9 +23,10 @@ Import the schema to target
 
 * psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth2 < dump_wth.sql
 
-Verify count of tables and indexes created on the target database from psql 
+Verify count of tables and indexes created on the target database from psql. 26tables, 39 indices.
 
 *\dt+
+
 *\di+
 
 The query to disable all foreign key in DMS  (https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online-portal )  shows more results than needed. It can be simplified bu saving the output of a SQL command that just drops the constraints. From psql,
