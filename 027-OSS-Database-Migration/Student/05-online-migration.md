@@ -27,8 +27,7 @@ Hints:
 * Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure Portal: https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online-portal
 * Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure CLI: https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online 
 * Create, change, or delete a virtual network peering: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering
-* Drop open database connections for Postgres: https://dba.stackexchange.com/questions/11893/force-drop-db-while-others-may-be-connected
-* Setup SSL for PostgreSQL: https://www.postgresql.org/docs/9.1/ssl-tcp.html
+* Drop open database connections for Postgres: https://dataedo.com/kb/query/postgresql/kill-session
 * Minimal downtime migration to Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/howto-migrate-online
 * Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS: https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-online
 
