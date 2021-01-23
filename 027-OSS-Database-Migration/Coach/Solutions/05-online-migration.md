@@ -66,3 +66,13 @@ Edit the file drop_fk.sql to clean up to run as a  SQL statement
 Run the file
 
 * \i  drop_fk.sql
+
+
+
+For Azure DMS,  you need to create a migration project
+
+in DMS wizard, connect to source as the IP from kubectl -n postgresql get svc command
+Make sure the radio buttons are checked for Trust Server Certificate and Encrypt connection
+The user contosoapp does not have replication role enabled. They should get an error. To resolve this, connect to psql as superuser
+
+* postgres=# alter role contosoapp with replication ;
