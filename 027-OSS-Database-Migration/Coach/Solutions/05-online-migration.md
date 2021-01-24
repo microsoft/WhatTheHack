@@ -18,7 +18,7 @@ This creates a psql dump text file. We need to import it to the target - schema 
 To drop all the tables with indexes
 
 *  \out drop_tables.sql
-* select 'drop table "' || tablename || '"cascade;' from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
+*  select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
 
 To import the schema only to target using psql
 
