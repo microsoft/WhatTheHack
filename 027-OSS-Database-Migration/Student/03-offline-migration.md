@@ -14,6 +14,7 @@ In the offline migration approach, your application can tolerate some downtime t
 Hints: 
 * You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, if database copy tools are installed on your machine, you can connect to the database from your computer as well. 
 * Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') 
+* For both mysql and postgres, you can use Azure Data Factory to copy the data.
 
 ## Success Criteria
 
@@ -28,3 +29,5 @@ Hints:
 * Create an Azure Database for PostgreSQL server: https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal
 * Firewall rules in Azure Database for PostgreSQL - Single Server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-firewall-rules 
 * Firewall rules in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-firewall-rules 
+* Copy using Azure Data Factory: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-postgresql   and   https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-mysql
+ 
