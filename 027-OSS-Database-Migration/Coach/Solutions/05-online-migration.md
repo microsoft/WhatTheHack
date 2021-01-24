@@ -18,7 +18,6 @@ This creates a psql dump text file. We need to import it to the target - schema 
 * psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  postgres
 
 postgres=> create database wth2
-postgres=>\q
 
 Import the schema to target
 
