@@ -15,7 +15,7 @@ Connect to database container and run the export
 
 This creates a psql dump text file. We need to import it to the target - schema only. Create a separate database for online migration (suggeted ). Alternately you can drop and re-create the database wth
 
-* psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  postgres
+* psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  -d wth <dump_wth.sql
 
 postgres=> create database wth2
 
