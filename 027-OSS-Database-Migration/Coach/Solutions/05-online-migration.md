@@ -13,7 +13,14 @@ Connect to database container and run the export
 * kubectl -n postgresql exec deploy/postgres -it -- bash
 * pg_dump -o -h localhost -U contosoapp -d wth -s >dump_wth.sql
 
-This creates a psql dump text file. We need to import it to the target - schema only. Create a separate database for online migration (suggeted ). Alternately you can drop and re-create the database wth
+This creates a psql dump text file. We need to import it to the target - schema only. Create a separate database for online migration (suggeted ). Alternately you can drop and re-create the database wth.
+
+To drop all the tables with indexes
+
+*  \out drop_tables.sql
+* select 'drop table "' || tablename || '"cascade;' from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
+
+To import the schema only to target using psql
 
 * psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  -d wth <dump_wth.sql
 
