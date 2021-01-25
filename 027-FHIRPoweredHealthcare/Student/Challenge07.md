@@ -8,7 +8,7 @@ In this challenge, you will explore bulk exporting, anonymizing and storing FHIR
 
 The **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** is an open-source project that helps anonymize healthcare FHIR data, on-premises or in the cloud, for secondary usage such as research, public health, and more. This architecture uses multiple Azure services for creating an automated pipeline to process the bulk export and anonymization for FHIR. The goal of the template is to enable quick and continuous creation of research datasets while applying HIPAA safe harbor rules.
 
-<center><img src="../images/challenge07-architecture.png" width="550"></center>
+<center><img src="../images/challenge07-architecture.jpg" width="550"></center>
 
 A Timer is used to trigger the Logic App which bulk exports data from FHIR and stores in a preset storage location. The Logic App loops on an adjustable 5 minute interval until Bulk Export finishes exporting all data from FHIR. Logic App runs Azure Data Factory which in triggers Azure Batch which performs the deidentification with the FHIR Tools for Anonymization. The deidentified data is stored in Azure Data Lake Gen 2 for further use. 
 
