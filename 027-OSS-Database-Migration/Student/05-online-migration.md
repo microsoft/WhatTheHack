@@ -29,6 +29,7 @@ Hints:
 * Create, change, or delete a virtual network peering: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering
 * Drop open database connections for Postgres: https://dataedo.com/kb/query/postgresql/kill-session
 * Minimal downtime migration to Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/howto-migrate-online
+* Configure Azure MySQL data-in replication: https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication
 * Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS: https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-online
 
 
