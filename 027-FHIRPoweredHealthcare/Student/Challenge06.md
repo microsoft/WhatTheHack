@@ -6,7 +6,7 @@
 
 In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
-![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+<center><img src="../images/challenge06-architecture.png" width="350"></center>
 
 ## Description
 
@@ -18,6 +18,8 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 - Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
   
     Hint: You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
+
+    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
 - Create a patient lookup by Given or Family name in JavaScript SPA app.
 
