@@ -8,7 +8,7 @@ Being the coaches guide, this content includes comments, guidance, possible gotc
 
 1. **Your team has configured Teams to store the information related to an emergency so that it is centralized for the specified roles.**
 	* creation of a team in Microsoft Teams for the mock emergency event with the personas designated for the group
-	* channels for different swim lanes in the team: General, Communications & Public Affairs, Engineering, First Responders, Headquarters, Legal, Logistics
+	* channels for different swim lanes in the team: General, Communications & Public Affairs, Engineering, First Responders, Headquarters, Legal, Logistics\
 	![Teams Channels](images/1teamschannels.png)
 1. **All members of the response team can easily find the common operating procedure document for reference.**
 	* create a Word document in the General channel's files. Pin it as a tab in the channel so it is easy to find
