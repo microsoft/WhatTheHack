@@ -50,7 +50,7 @@ Being the coaches guide, this content includes comments, guidance, possible gotc
     * If the group decides to take on this challenge, be sure they only create a policy for one of their users. We don't want to create an unwelcome experience as they work on the other challenges.
     * First, the group will have to enable MFA through the user object in Azure Active Directory. [Steps to enable MFA for user](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates) 
     * Then they will want to create a new Conditional Access Policy (use a name that clearly maps to the group of participants). In user assignments, specify the user that was enabled earlier.\
-    ![Creating Conditional Access Policy](images/2condaccess.png)
+    ![Creating Conditional Access Policy](images/2condaccess.png)\
     Target the Microsoft Teams application\
     ![Target MS Teams](images/2condaccessteams.png)\
     No Conditions. Grant access if the device is compliant or if MFA is done\
