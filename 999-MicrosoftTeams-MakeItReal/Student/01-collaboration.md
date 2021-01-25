@@ -1,6 +1,6 @@
 # Challenge 1: Emergency Response Collaboration
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](../readme.md)** - [Next Challenge>](./02-firstresponders.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-firstresponders.md)
 
 ## Pre-requisites
 To begin this challenge, you must have access to a Microsoft 365 subscription as described in the Pre-requisites challenge. Do not limit yourself to a particular license level, use all of the capabilities of Microsoft 365.
