@@ -1,4 +1,4 @@
-# Challenge 1: Coach's Guide
+# Challenge 1: Collaboration Coach's Guide
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](./readme.md)** - [Next Challenge>](./02-firstresponders.md)
 
