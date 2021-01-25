@@ -26,14 +26,14 @@ Being the coaches guide, this content includes comments, guidance, possible gotc
     * The Attachments feature of a SP list is good enough for gathering the photo.
     * They should pin the list to the First Responders channel in Teams.
     * A Power Automate flow should be created triggering of the creation of a new item in the list.
-    * The "Post a message to Microsoft Teams for a selcted item" flow template for SharePoint is a good starting point, but you will have to change the trigger to "When a new item is created".
+    * The "Post a message to Microsoft Teams for a selcted item" flow template for SharePoint is a good starting point, but you will have to change the trigger to "When a new item is created".\
     ![Trigger On New Item](images/2newitemtrigger.png)
-    * A condition action helps create paths for each of the request type choices.
+    * A condition action helps create paths for each of the request type choices.\
     ![Condition](images/2condition.png)
-    * The correct team can be alerted by posting a teams message in the correct channel. Dynamic placeholders can be used to provide details of the specific request.
+    * The correct team can be alerted by posting a teams message in the correct channel. Dynamic placeholders can be used to provide details of the specific request.\
     ![Post Message](images/2postmessage.png)  
     * One the group create's one "Post Message" action they can copy and paste it into the other branch.
-    * The entire flow could look something like this:
+    * The entire flow could look something like this:\
     ![Flow](images/2flow.png)
     * Creating with with Microsoft Dataverse for Teams would be very similar accept that the data repository would be the strucutured "CDS-lite" database and the group would need to use the PowerApp designer to modify the input screens.
     * If the group wanted to make the message in Teams more appealing, they can use adaptive cards:
@@ -49,11 +49,11 @@ Being the coaches guide, this content includes comments, guidance, possible gotc
 1. **If the mobile device is not managed by the organization, the user is prompted for the multi-factor authentication.**
     * If the group decides to take on this challenge, be sure they only create a policy for one of their users. We don't want to create an unwelcome experience as they work on the other challenges.
     * First, the group will have to enable MFA through the user object in Azure Active Directory. [Steps to enable MFA for user](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates) 
-    * Then they will want to create a new Conditional Access Policy (use a name that clearly maps to the group of participants). In user assignments, specify the user that was enabled earlier.
+    * Then they will want to create a new Conditional Access Policy (use a name that clearly maps to the group of participants). In user assignments, specify the user that was enabled earlier.\
     ![Creating Conditional Access Policy](images/2condaccess.png)
-    Target the Microsoft Teams application
-    ![Target MS Teams](images/2condaccessteams.png)
-    No Conditions. Grant access if the device is compliant or if MFA is done
+    Target the Microsoft Teams application\
+    ![Target MS Teams](images/2condaccessteams.png)\
+    No Conditions. Grant access if the device is compliant or if MFA is done\
     ![Grant Access](images/2condaccessgrant.png)
     Enable the policy. It is best to use a private browser session which will trigger the MFA enrollment. The mobile device (if being used) will likely have a cached token. So signing out and waiting a period of time may be required.
 
