@@ -1,4 +1,4 @@
-# What The Hack - What The Hack - Microsoft Teams: Make It Real
+# What The Hack - Microsoft Teams: Make It Real
 ## Introduction
 Welcome to the coach's guide for the Microsoft Teams: Make It Real What The Hack. Here you will find links to guidance for coaches for each of the challenges, notes about setting up the hack, and sample Powershell scripts that will help you get setup more quickly.
 
