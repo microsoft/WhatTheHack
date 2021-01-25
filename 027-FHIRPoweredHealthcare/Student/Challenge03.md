@@ -5,7 +5,7 @@
 ## Introduction
 
 In this challenge, you will use the FHIR Converter reference architecture in Microsoft Health Architectures, deployed in challenge 2, to ingest, transform, and load clinical healthcare data into FHIR Server.  You will generate synthetic patient clinical data (C-CDA), convert them into FHIR Bundle and ingest them into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient clinical data in HL7 C-CDA format.  
-<center><img src="../images/challenge03-architecture.png" width="550"></center>
+<center><img src="../images/challenge03-architecture.jpg" width="550"></center>
 
 ### Clinical data ingest and convert scenario
 In this scenario, you will develop a logic app based workflow to perform the C-CDA-to-FHIR conversion using **[FHIR Converter API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** and import the resulting FHIR Bundle into FHIR Server.

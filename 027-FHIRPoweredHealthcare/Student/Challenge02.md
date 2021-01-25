@@ -11,7 +11,7 @@ In this challenge, you will deploy a Health Architecture **[FHIR Event Processor
 
 Note: This function is deployed and configured as a part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture.
 
-<center><img src="../images/challenge02-architecture.png" width="550"></center>
+<center><img src="../images/challenge02-architecture.jpg" width="550"></center>
 
 **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
