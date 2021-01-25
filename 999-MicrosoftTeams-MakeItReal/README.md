@@ -2,7 +2,7 @@
 ## Introduction
 This hack will help you get hands-on experience with the Microsoft 365 platform, combining its services such as Teams, SharePoint, Forms, Power Automate, and Power BI to solve real-world problems for an organization. The hack is designed for power users who are comfortable with the basics of Microsoft Teams and SharePoint. The hack is performed in the context of a fictious organization with use cases (the challenges) that your team is going to solve.
 
-This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge or to do it all at the front of the day (host's choice).
 
 ## Learning Objectives
 In this hack you will work with your team to configure M365 services to solve a common collaboration challenges and to improve business processes. You will focus on how the organization itself collaborates and shares information during an emergency response, how the organization supports their first responders in the field, and how the organization interacts with public citizens.
