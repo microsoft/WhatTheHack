@@ -12,7 +12,7 @@ Once the data is loaded into FHIR, there are many ways to utilize FHIR data to d
 One option is to use the [Power Query connector for FHIR](https://docs.microsoft.com/en-us/power-query/connectors/fhir/fhir) in PowerBI to import and shape data from a FHIR server.
 Another option is to first structure the data using Databricks and store in Azure SQL DB. Then use Azure SQL DB Connector in PowerBI to visualze. 
 
-![Analyze FHIR Data](../images/fhir-dataservices.jpg)
+<center><img src="../images/challenge09-architecture.png" width="550"></center>
 
 ## Description
 

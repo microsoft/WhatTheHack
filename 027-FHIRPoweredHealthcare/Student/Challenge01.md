@@ -9,7 +9,7 @@ In this challenge, you will implement the FHIR Server Samples reference architec
 ### FHIR bulk load scenario
 In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR Server.  This bulk ingestion is performed by a BLOB triggered function app as depicted below:
 
-![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
+<center><img src="../images/challenge01-architecture.png" width="550"></center>
 
 ## Description
 

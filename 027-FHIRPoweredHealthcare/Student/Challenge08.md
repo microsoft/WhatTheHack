@@ -10,7 +10,7 @@ The **[Azure IoT Connector for FHIR](https://docs.microsoft.com/en-us/azure/heal
 
 Azure offers an extensive suite of IoT products to connect and manage your IoT devices. Users can build their own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. This challenge leverages Azure IoT Central, which has industry-focused solution templates to help get started. Once IoT Central application is deployed, two out-of-the-box simulated devices will start generating telemetry.
  
-![IoT Connector for FHIR](../images/fhir-iot.jpg)
+<center><img src="../images/challenge08-architecture.png" width="550"></center>
 
 ## Description
 

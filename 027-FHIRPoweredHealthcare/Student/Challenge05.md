@@ -6,7 +6,7 @@
 
 In this challenge, you will explore patient medical records and SMART on FHIR apps through the FHIR Dashboard app. 
 
-![SMART on FHIR applications](../images/smart-on-fhir-applications.jpg)
+<center><img src="../images/challenge05-architecture.png" width="550"></center>
 
 **[What is SMART on FHIR?](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-faq#what-is-smart-on-fhir)** 
 SMART ((Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner apps with FHIR Servers and other Health IT systems, i.e. Electronic Health Records and Health Information Exchanges.  By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by different systems.
