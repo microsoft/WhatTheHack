@@ -1,6 +1,6 @@
 # FHIR Powered Healthcare
 ## Introduction
-Contoso Healthcare is implementing FHIR (Fast Healthcare Interoperability Resources) to rapidly and securely exchange data in the HL7 FHIR standard format with a single, simplified data management solution for protected health information (PHI). Azure API for FHIR is fully managed, enterprise-grade FHIR service in the cloudlets you quickly connect existing data sources, such as electronic health record systems and research databases. Create new opportunities with analytics, machine learning, and actionable intelligence across your health data.
+Contoso Healthcare is implementing FHIR (Fast Healthcare Interoperability Resources) to rapidly and securely exchange data in the HL7 FHIR standard format with a single, simplified data management solution for protected health information (PHI). Azure API for FHIR is fully managed, enterprise-grade FHIR service in the cloud lets you quickly connect existing data sources, such as electronic health record systems and research databases. Create new opportunities with analytics, machine learning, and actionable intelligence across your health data.
 
 You will implement a collection of FHIR reference architectures frome **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)** that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architectures for Azure API for FHIR.
 ![Health Architecture](./images/HealthArchitecture.png)
@@ -17,7 +17,7 @@ Your team's assistance is needed to implement the following scenarios using FHIR
    * Analyze and Visualize data (EHR, HL7, CCDA, IoMT) in PowerBI using PowerQuery Connector for FHIR and SQL DB Connector.
 
 ## Challenges
-<center><img src="./images/architecture.jpg" width="850"></center>
+<center><img src="./images/challenges_architecture.png" width="850"></center>
 
 **Required in this sequence:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
