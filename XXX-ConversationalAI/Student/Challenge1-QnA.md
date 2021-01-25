@@ -5,6 +5,7 @@ QnA maker is a no code experience that allows you to create a natural conversati
 
 
 ## Description
+
 1. You are going to upload two different sources into a QnA knowledge base. You should be doing this through Bot Composer and **not** through the QnaMaker UI. 
 
 	- Create a new QNA KB using [Microsoft Investor FAQ](https://www.microsoft.com/en-us/Investor/FAQ.aspx)
@@ -18,7 +19,7 @@ QnA maker is a no code experience that allows you to create a natural conversati
 
 
 ## Successful criteria
-1. Your bot run without errors in the Bot Framework Emulator
+1. Your bot runs without errors in the Bot Framework Emulator
 2. You are able to recreate the conversational flow from the source document, this includes being able to have multi-turn conversations and return to the previous conversation.
 ![Sample](./Images/Ch1-1.JPG)
 
