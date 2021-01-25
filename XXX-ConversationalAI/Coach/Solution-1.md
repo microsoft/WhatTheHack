@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide
 
-[< Previous Challenge](./Solution-0.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution-2.md)
+[< Previous Challenge](./Solution-0.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution-2.md)
 
 ## Notes & Guidance
 - The free tier will be fine for this WTH
@@ -10,8 +10,8 @@
 - They have to add follow-up prompts under Carbon Emissions and Financing Environment with the display text "Return to Previous" and link it to the "Climate Change" QnA
 - It's ok if not all of the Qnas have the follow up prompts
 
-Here is an example of what their QnaMaker could look like
-![QnaExample](./Qna1.png)
-![QnaExample2](./Qna2.png)
+- Here is an example of what their QnaMaker could look like
+- ![QnaExample](./images/Qna1.png)
+- ![QnaExample2](./images/Qna2.png)
 
 - There should be no major roadblocks to integrating a Qna Knowledge base in Bot Composer if they were able to create a sample in the previous challenge
