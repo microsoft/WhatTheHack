@@ -1,6 +1,6 @@
 # Challenge 2: Supporting First Responders
 
-[< Previous Challenge](./01-collaboration.md) - **[Home](../readme.md)** - [Next Challenge>](./03-citizenservices.md)
+[< Previous Challenge](./01-collaboration.md) - **[Home](../README.md)** - [Next Challenge>](./03-citizenservices.md)
 
 ## Pre-requisites
 For this challenge, you must have at least setup Microsoft Teams in accordace with the goals in Challenge 1. Your tenant must have phone conferencing configured for Microsoft Teams meetings. Your group will also need access to a mobile device that you can sign into with your tenant's user credentials. For the Advanced Challenges, you must have admin level rights in the tenant configure Azure AD and corresponding policies.

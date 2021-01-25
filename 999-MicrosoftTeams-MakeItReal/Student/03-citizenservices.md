@@ -1,6 +1,6 @@
 # Challenge 3: Citizen Services
 
-[< Previous Challenge](./02-firstresponders.md) - **[Home](../readme.md)**
+[< Previous Challenge](./02-firstresponders.md) - **[Home](../README.md)**
 
 ## Pre-requisites
 For this challenge, you must have at least setup Microsoft Teams in accordace with the goals in Challenge 1. 
