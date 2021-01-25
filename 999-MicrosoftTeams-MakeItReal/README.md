@@ -19,9 +19,9 @@ Contoso recently deployed Office 365 and is currently using all of its services 
 ## Challenges
 - Challenge 0: **[Pre-requisites](Student/00-prereqs.md)**
    - Prepare your environment for the hack
-- Challenge 1: **[Emergency Response Collaboration](Student/01-collaboration)**
+- Challenge 1: **[Emergency Response Collaboration](Student/01-collaboration.md)**
    - Provide support for Contoso's internal teams to collaborate on the response to the emergency
-- Challenge 2: **[Supporting First Responders](Student/02-firstresponders)**
+- Challenge 2: **[Supporting First Responders](Student/02-firstresponders.md)**
    - Enable first responders in the field to get access to resources even in poor network conditions and to send in photos which get routed to the appropriate response team
 - Challenge 3: **[Citizen Services](Student/03-citizenservices.md)**
    - Empower skilled citizens to volunteer their services as well as report missing persons
