@@ -29,21 +29,21 @@ Being the coaches guide, this content includes comments, guidance, possible gotc
 	* prove that they can invite an external personal email account to the team
 	* note that changing the Guest Access setting in Microsoft Teams can take up to 24 hours to enable
 1. **Your team demonstrates a solution for the Public Affairs team to brief the media including Q&A with stored recordings available to HQ for review.**
-	* the group should schedule a Teams Live Event with external user access and moderated Q&A. 
-	![Create Live Event](images/1createliveevent.png)
-	![Live Event Permissions](images/1liveeventpermissions.png)
+	* the group should schedule a Teams Live Event with external user access and moderated Q&A. \
+	![Create Live Event](images/1createliveevent.png)\
+	![Live Event Permissions](images/1liveeventpermissions.png)\
 	![Create Live Event](images/1liveeventsettings.png)
 	
-	* Ask them to join, start, and end the event.
-	![Live Event Details](images/1liveeventdetails.png)
+	* Ask them to join, start, and end the event.\
+	![Live Event Details](images/1liveeventdetails.png)\
 	![Create Live Event](images/1liveevent.png)
 	
-	* Have them locate the recording (it can take a few minutes to process), post it to Stream, and add a tab in the Headquarters channel to show those videos.
+	* Have them locate the recording (it can take a few minutes to process), post it to Stream, and add a tab in the Headquarters channel to show those videos.\
 	![Live Event Video](images/1liveeventvideo.png)
 	
-	* When going to Stream - it is important to post it in the context of the group that corresponds to the emergency team. This keeps security in alignment. Locate the Group/Team in Stream first before creating the channel and uploading.
-	![Stream](images/1stream.png)
-	![Stream Channel](images/1streamchannel.png)
+	* When going to Stream - it is important to post it in the context of the group that corresponds to the emergency team. This keeps security in alignment. Locate the Group/Team in Stream first before creating the channel and uploading.\
+	![Stream](images/1stream.png)\
+	![Stream Channel](images/1streamchannel.png)\
 	![Stream in Teams](images/1streamtabinteams.png)
 	
 
