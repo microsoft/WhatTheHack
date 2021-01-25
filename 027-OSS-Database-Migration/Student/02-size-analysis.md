@@ -8,7 +8,7 @@ Determine the CPU/memory configuration, database I/O and file size and map to an
 
 ## Description
 
-In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required and map it to an equivalent size in Azure. You will run a synthetic benchmark to simulate I/O for the database. 
+In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required and map it to an equivalent size in Azure. You will run a synthetic benchmark to simulate I/O for the database. In order to watch the system load, you can install tools like htop ( apt update ; apt install htop )
 
 To run the synthetic benchmark for Postgres:
 
@@ -21,6 +21,12 @@ To run the synthetic benchmark for Postgres:
 * Run a synthetic workload for 5 minutes and watch the system load while it is running. 
 
 * pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
+
+To run the ynthetic benchmark for Mysql:
+
+* Connect to the on-prem mysql database container and use mysqlslap tool
+
+mysqlslap -u root -p --concurrency=70 --iterations=30 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
 
 
 ## Success Criteria
@@ -35,3 +41,5 @@ To run the synthetic benchmark for Postgres:
 * Standard Unix monitoring tools: https://sysaix.com/top-20-linux-unix-performance-monitoring-tools
 * Choose the right MySQL Server option in Azure: https://docs.microsoft.com/en-us/azure/mysql/select-right-deployment-type
 * Pricing tiers in Azure Database for PostgreSQL - Single Server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers 
+* Mysql load emulation client: https://dev.mysql.com/doc/refman/5.7/en/mysqlslap.html
+* Postgres benchmark test: https://www.postgresql.org/docs/11/pgbench.html
