@@ -54,7 +54,7 @@ Being the coaches guide, this content includes comments, guidance, possible gotc
     Target the Microsoft Teams application\
     ![Target MS Teams](images/2condaccessteams.png)\
     No Conditions. Grant access if the device is compliant or if MFA is done\
-    ![Grant Access](images/2condaccessgrant.png)
+    ![Grant Access](images/2condaccessgrant.png)\
     Enable the policy. It is best to use a private browser session which will trigger the MFA enrollment. The mobile device (if being used) will likely have a cached token. So signing out and waiting a period of time may be required.
 
 
