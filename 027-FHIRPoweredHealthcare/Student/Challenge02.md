@@ -22,8 +22,6 @@ Note: This function is deployed and configured as a part of the **[HL7 to FHIR C
 - Persists converted HL7v2 message into FHIR Server through secure proxied FHIR Server connection (FHIR Server Proxy). 
 - Publishes FHIR change events referencing FHIR Resources to an Event Hub.
 
-![HL7 to FHIR Conversion](../images/hl72fhirconversion.png)
-
 Note: After successful deployment, the FHIR converter pipeline is integrated with the HL7 Ingest platform.
 
 ## Description
