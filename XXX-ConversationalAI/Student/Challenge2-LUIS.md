@@ -32,8 +32,8 @@ We are going to build out a LUIS triggered dialog flow to help answer the curren
 ![Sample](./Images/Ch2-2.png)
 
 ## Resources
-1. [Introduction to LUIS](https://docs.microsoft.com/en-us/composer/tutorial/tutorial-luis)
-2. [Define intents with entities](https://docs.microsoft.com/en-us/composer/how-to-define-intent-entity)
+- [Introduction to LUIS](https://docs.microsoft.com/en-us/composer/tutorial/tutorial-luis)
+- [Define intents with entities](https://docs.microsoft.com/en-us/composer/how-to-define-intent-entity)
 
 
 
