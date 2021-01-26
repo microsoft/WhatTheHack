@@ -14,8 +14,8 @@ Bot Composer is an open source visual authoring canvas for developers and multid
     - Hint: If you are running into issues installing and running the Composer try uninstalling and reinstalling the application.
 
 ## Success Criteria
-1. You have successfully installed Bot Framework Composer and the Bot Framework Emulator
-2. When the bot Emulator is booted up you get a message from your bot welcoming the user and prompting the next conversational flow.
+- You have successfully installed Bot Framework Composer and the Bot Framework Emulator
+- When the bot Emulator is booted up you get a message from your bot welcoming the user and prompting the next conversational flow.
 ![Sample](./Images/Ch0-1.JPG)
 
 ## Learning Resources

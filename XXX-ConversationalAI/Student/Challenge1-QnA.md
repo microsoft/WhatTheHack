@@ -19,8 +19,8 @@ QnA maker is a no code experience that allows you to create a natural conversati
 
 
 ## Successful criteria
-1. Your bot runs without errors in the Bot Framework Emulator
-2. You are able to recreate the conversational flow from the source document, this includes being able to have multi-turn conversations and return to the previous conversation.
+- Your bot runs without errors in the Bot Framework Emulator
+- You are able to recreate the conversational flow from the source document, this includes being able to have multi-turn conversations and return to the previous conversation.
 ![Sample](./Images/Ch1-1.JPG)
 
 

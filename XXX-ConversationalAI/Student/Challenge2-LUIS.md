@@ -26,9 +26,9 @@ We are going to build out a LUIS triggered dialog flow to help answer the curren
 5. Test your bot locally with unknown phrases and entities
 
 ## Success Criteria
-1. The bot runs without errors in the Bot Framework Emulator
-2. The bot can recognize when the utterance has a StockPrice intent and triggers the correct conversational flow
-3. You bot returns the correct Stock Ticker price when it is responding.
+- The bot runs without errors in the Bot Framework Emulator
+- The bot can recognize when the utterance has a StockPrice intent and triggers the correct conversational flow
+- You bot returns the correct Stock Ticker price when it is responding.
 ![Sample](./Images/CH2-2.png)
 
 ## Resources
