@@ -13,7 +13,7 @@ Before you start this challenge, ensure you have completed Challenge-7.
 
 ## Description
 
-Contoso Payment Solutions provides SaaS service to it customers. One of the challenges is with with IP addressing conflict with these customers IP ranges. For customers hosted in Azure, Contoso is looking for a way to avoid such conflicts and simplify access to it services.
+Contoso Payment Solutions provides SaaS service to it customers. One of the challenges is with IP addressing conflict with these customers IP ranges. For customers hosted in Azure, Contoso is looking for a way to avoid such conflicts and simplify access to it services.
 
 <br />
 
