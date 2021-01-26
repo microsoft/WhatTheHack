@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- **Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md).
+- **Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md)**.
 
 - Use the pre-built [PowerBI - PowerQuery Connector for FHIR](./PowerBI%20-%20PowerQuery%20Connector%20for%20FHIR.pbit).
 
