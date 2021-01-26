@@ -1,7 +1,7 @@
 
 # Challenge 5 - Azure Firewall
 
-[< Previous Challenge](./Challenge-4.md) - [Home](../readme.md) - [Next Challenge>](./Challenge-6.md)
+[< Previous Challenge](./Challenge-4.md) - [Home](../README.md) - [Next Challenge>](./Challenge-6.md)
 
 <br />
 
