@@ -1,6 +1,6 @@
 # Challenge 4: Deploy the bot and integrate with teams
-[< Previous Solution](./Solution-3.md) - **[Home](../readme.md)** - [Next Solution>](./Solution-5.md)
-## Notes and Tips
+[< Previous Solution](./Solution-3.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-5.md)
+## Notes & Guidance
 1. First, you must deploy your bot to Azure Web Apps:
      - Follow the official Doc Guidance step by step. https://docs.microsoft.com/en-us/composer/how-to-publish-bot
      - Publish may take a while. 
@@ -20,6 +20,3 @@
         * and click on the Connect to a different bot id. You can find the Bot ID in Azure Portal: Bot Channels Registration Service, under Bot management, Settings, and find the Microsoft App ID.
 
         
-
-
-[Next Solution - Embed your bot >](./solution-5.md)

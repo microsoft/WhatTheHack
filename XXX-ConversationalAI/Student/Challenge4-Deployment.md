@@ -1,4 +1,4 @@
-# Challenge 4: Deploy the bot and integrate with teams
+# Challenge 4: Deploy the bot and integrate with Teams
 [< Previous Challenge](./Challenge3-API.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge5-FrontEnd.md)
 ## Introduction
 Now that we've finished developing our bot locally, we can deploy the bot. Deployment is key so that we can get the bot in our Testers' hands to ensure our dialogs are robust enough. Fortunately, deployment is semi-built into the Bot Composer interface.
@@ -14,15 +14,17 @@ Now that we've finished developing our bot locally, we can deploy the bot. Deplo
      - You can use the sample image icons as your Teams App icon - those png files are in the [Resource folder](./Resources/).
 
 ## Success Criteria
-1. The bot has been deployed out to Azure Web Apps, and you're able to test against it using the Bot Framework Emulator.
-2. Successfully message the bot in Microsoft Teams (if you do not have Teams licenses in your organization, this challenge is optional for you.)
+* The bot has been deployed out to Azure Web Apps, and you're able to test against it using the Bot Framework Emulator.
+* Successfully message the bot in Microsoft Teams 
+     * If you do not have Teams licenses in your organization, this challenge is optional for you.
+* What a sample result looks like
+![Sample](./Images/Ch4-1.JPG)
+![Sample](./Images/Ch4-2.JPG)
+
 
 
 ## Resources
 * [How to publish a Bot](https://docs.microsoft.com/en-us/composer/how-to-publish-bot)
 * [Connect a bot to Microsoft Teams](https://docs.microsoft.com/en-us/azure/bot-service/channel-connect-teams?view=azure-bot-service-4.0) 
 
-## What a sample result looks like
-![Sample](./Images/Ch4-1.JPG)
-![Sample](./Images/Ch4-2.JPG)
 [Next Challenge - Embed your bot >](./Challenge5-FrontEnd.md)

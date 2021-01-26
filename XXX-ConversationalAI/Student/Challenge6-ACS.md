@@ -1,4 +1,4 @@
-# Challenge 6: Extend your Bot with Azure Communication Services capabilities
+# Challenge 6: Extend your Bot with Azure Communication Services
 [< Previous Challenge](./Challenge5-FrontEnd.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge7-CICD.md)
 
 ## Introduction
