@@ -1,6 +1,6 @@
 # Challenge 2: Coach's Guide
 
-[< Previous Challenge](./Solution-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution-3.md)
+[< Previous Challenge](./Solution-1.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-3.md)
 
 ## Notes & Guidance
 - The participants will likely run into issues getting synced with LUIS. Make sure they're creating their luis resource as seen in [Create LUIS resources in the azure portal](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-the-azure-portal). This will ensure they have the necessary fields created. 
