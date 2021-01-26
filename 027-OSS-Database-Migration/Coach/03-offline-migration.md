@@ -71,9 +71,8 @@ show grants for contosoapp ;
 ```
 Grants for contosoapp should report
 
-+--------------------------------------------------------+
-| Grants for contosoapp@%                                |
-+--------------------------------------------------------+
-| GRANT SELECT, PROCESS ON *.* TO 'contosoapp'@'%'       |
-| GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'    |
-+--------------------------------------------------------+
+
+GRANT SELECT, PROCESS ON *.* TO 'contosoapp'@'%' 
+ 
+GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'    
+
