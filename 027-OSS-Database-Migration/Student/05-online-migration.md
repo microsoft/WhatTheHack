@@ -7,11 +7,11 @@
 Perform an online migration using the Azure Database Migration Service
 
 ## Description
-In this challenge you will do a schema only dump of the on-premises databases, create Azure database servers for PostgreSQL/MySQL (if required), create the WTH database in Azure DB for PostgreSQL/MySQL(if required), deploy an instance of the Azure Database Migration Service and setup continuous sync to the Azure DB for Postgres/MySQL databases. In an actual production environment on-premises, you would need to have connectivity to your source databases to Azure using either a Site To Site VPN or Azure ExpressRoute. It's suggested to use VNet Peering but it's your choice. 
+In this challenge you will do a schema only dump of the on-premises databases, create Azure database servers for PostgreSQL/MySQL (if required), create the WTH database in Azure DB for PostgreSQL/MySQL(if required), deploy an instance of the Azure Database Migration Service and setup continuous sync to the Azure DB for Postgres/MySQL databases. In an actual production environment on-premises, you would need to have connectivity to your source databases to Azure using either a Site To Site VPN or Azure ExpressRoute. It's suggested to use VNet Peering since you are running both the Azure DMS and source databases in Azure but it's your choice. 
 
 Hints:
 * Use the Premium version of the Azure Database Migration Service
-* Put the Database Migration Service in its own virtual network
+* Put the Database Migration Service in its own Azure virtual network
 * You may have to drop open database connections if you are coming from a prior challenge where you ran the application. Alternatively, you could uninstall the web application(s) using helm, drop the database(s) and redeploy the application using helm. 
 * You will need to find the endpoint IP Address for your PostgreSQL/MySQL container running in AKS. This is different than the cluster IP address. This is needed because Azure DMS is running outside of the AKS cluster.
 * You will need to add the public IP address for Azure DMS to connection security in Azure DB for PostgreSQL/MySQL
@@ -19,7 +19,7 @@ Hints:
 
 ## Success Criteria
 
-1. Demonstrate that all tables have been migrated successfully to Azure DB for PostgreSQL/MySQL
+* Demonstrate that all tables have been migrated successfully to Azure DB for PostgreSQL/MySQL
 
 ## References
 

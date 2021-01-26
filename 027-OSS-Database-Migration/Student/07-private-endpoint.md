@@ -4,7 +4,7 @@
 
 
 ## Introduction
-Up to this point you have been using a public IP address for Azure DB for PostgreSQL/MySQL for your Pizzeria application. A preferred approach from a security perspective would be to use a private endpoint which will expose Azure DB for PostgreSQL/MySQL using a private IP address from within the application's virtual network.
+Up to this point you have been using a public IP address for Azure DB for PostgreSQL/MySQL for your Pizzeria application. From a security perspective a preferred approach would be to use a private endpoint which will expose Azure DB for PostgreSQL/MySQL using a private IP address from within the application's virtual network.
 
 ## Description
 You will add a private endpoint for Azure DB for PostgreSQL/MySQL

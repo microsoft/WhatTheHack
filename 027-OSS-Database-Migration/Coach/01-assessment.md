@@ -4,7 +4,7 @@
 
 ## Proctor Tips
 
-1) The attendee should be to connect to the PostgreSQL/MySQL container like this:
+1) The attendee should be able to connect to the PostgreSQL/MySQL container like this:
     kubectl -n postgresql exec deploy/postgres -it -- bash
     or
     kubectl -n mysqlwth exec deploy/mysql -it -- bash

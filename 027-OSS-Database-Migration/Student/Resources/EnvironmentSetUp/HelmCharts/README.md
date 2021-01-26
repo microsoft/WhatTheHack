@@ -1,14 +1,16 @@
+**[Home](../../../../README.md)** - [Prerequisites >](../../../00-prereqs.md)
+
 ## Setting up Kubernetes
 
-First we need to navigate to the ARM templates folder in the Student Resource folder to provision the AKS cluster
+The steps to deploy the AKS cluster, scale it up and scale it down are available in the README file for that section: [README](../ARM-Templates/README.md). 
 
-The steps to deploy the AKS cluster, scale it up and scale it down are available in the README files for that section
+You should have not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites >](../../../00-prereqs.md)
 
 ## PostgreSQL Setup on Kubernetes
 
 These instructions provide guidance on how to setup PostgreSQL 11 on AKS
 
-This requires Helm3 and the latest version of Azure CLI to be installed
+This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure CloudShell but you will need to install or download them if you are using a different environment. 
 
 ## Installing the PostgreSQL Database
 
@@ -29,7 +31,7 @@ helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.passw
 kubectl -n postgresql get svc
 
 ```
-**Important: you will need to copy the postgres-external Cluster-IP value to use for the dataSourceURL later in these steps**
+**Important: you will need to copy the postgres-external Cluster-IP value to use for the dataSourceURL in later steps**
 
 ## Checking the Pod for Postgres
 
@@ -38,7 +40,7 @@ kubectl -n postgresql get svc
 kubectl -n postgresql get pods
 
 ```
-Wait a few minutes till the pod status shows as Running
+Wait a few minutes until the pod status shows as Running
 
 ## Getting into the Container
 
@@ -85,8 +87,6 @@ helm uninstall wth-postgresql
 
 ```
 
-
-
 ## Installing MySQL
 
 ```shell
@@ -103,7 +103,7 @@ helm upgrade --install wth-mysql ./MySQL57 --set infrastructure.password=OCPHack
 kubectl -n mysql get svc
 
 ```
-**Important: you will need to copy the mysql-external Cluster-IP value to use for the dataSourceURL later in these steps**
+**Important: you will need to copy the mysql-external Cluster-IP value to use for the dataSourceURL in later steps**
 
 ## Checking the Pod for MySQL
 
