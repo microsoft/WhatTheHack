@@ -1,7 +1,7 @@
 
 # Challenge 6 - Azure Bastion
 
-[< Previous Challenge](./Challenge-5.md) - [Home](../readme.md) - [Next Challenge>](./Challenge-7.md)
+[< Previous Challenge](./Challenge-5.md) - [Home](../README.md) - [Next Challenge>](./Challenge-7.md)
 
 
 ## Pre-requisites
