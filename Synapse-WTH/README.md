@@ -16,11 +16,11 @@ Contoso Powerlifting Federation (CPF) are in dire need to modernize their data a
    - Loading the data
 - Challenge 3:  **[Visualization](Student/03-visualization.md)**
    - Visualizing the data
-Challenge 4:  **[Incremental Loads](Student/04-incrementals.md)**
+- Challenge 4:  **[Incremental Loads](Student/04-incrementals.md)**
    - Load incrementals
-Challenge 5:  **[(BONUS) Add New Data Source(s)](Student/05-new-data.md)**
+- Challenge 5:  **[(BONUS) Add New Data Source(s)](Student/05-new-data.md)**
    - Additional data sources
-Challenge 6:  **[(BONUS) Leverage Machine Learning](Student/06-ml.md)**
+- Challenge 6:  **[(BONUS) Leverage Machine Learning](Student/06-ml.md)**
    - Additional data sources
 
 ## Contributors
