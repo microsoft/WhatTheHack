@@ -11,7 +11,7 @@
 - It's ok if not all of the Qnas have the follow up prompts
 
 - Here is an example of what their QnaMaker could look like
-- ![QnaExample](./images/Qna1.png)
-- ![QnaExample2](./images/Qna2.png)
+- ![QnaExample](./Images/Qna1.png)
+- ![QnaExample2](./Images/Qna2.png)
 
 - There should be no major roadblocks to integrating a Qna Knowledge base in Bot Composer if they were able to create a sample in the previous challenge
