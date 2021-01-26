@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>Microsoft.BotFramework.Composer.Core.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>Microsoft.BotFramework.Composer.Core.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bot.Builder" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.Luis" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.QnA" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.ApplicationInsights" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Azure" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Azure.Blobs" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Debugging" Version="4.11.0-preview" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Declarative" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.ApplicationInsights.Core" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Connector" Version="4.11.0" />
+  </ItemGroup>
+
+</Project>

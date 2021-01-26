@@ -1,8 +1,0 @@
-{
-    "$kind": "Microsoft.MultiLanguageRecognizer",
-    "id": "LUIS_fsibotwth_2",
-    "recognizers": {
-        "en-us": "fsibotwth_2.en-us.lu",
-        "": "fsibotwth_2.en-us.lu"
-    }
-}

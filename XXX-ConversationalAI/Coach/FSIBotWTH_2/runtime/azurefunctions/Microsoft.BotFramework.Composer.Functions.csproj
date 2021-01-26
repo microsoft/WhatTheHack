@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+    <UserSecretsId>2eb1c70c-5cd2-4c08-8aab-df989c347067</UserSecretsId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>..\core\Microsoft.BotFramework.Composer.Core.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>..\core\Microsoft.BotFramework.Composer.Core.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Bot.Builder" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.Luis" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.QnA" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.ApplicationInsights" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Azure" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Debugging" Version="4.11.0-preview" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Declarative" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.ApplicationInsights.Core" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Bot.Connector" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.3" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\core\Microsoft.BotFramework.Composer.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ComposerDialogs\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ComposerDialogs\settings\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="host.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
