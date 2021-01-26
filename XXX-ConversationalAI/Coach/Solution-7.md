@@ -1,5 +1,5 @@
 # Challenge 7: CI/CD
-[< Previous Solution](./Solution-6.md) - **[Home](./readme.md)** 
+[< Previous Solution](./Solution-6.md) - **[Home](./Readme.md)** 
 ## Notes & Guidance
 1. Bot composer doesn't provide built in CI/CD integration. [issue1](https://github.com/microsoft/BotFramework-Composer/issues/3339) , [issue2](https://github.com/microsoft/BotFramework-Composer/issues/5581)
 2. In order to setup CI/CD first we need to export the underline code from the bot composer. [Ref](https://docs.microsoft.com/en-us/composer/how-to-add-custom-action#export-runtime)
