@@ -57,3 +57,23 @@ create database wth ;
 ```
 
 * For MySQL the MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
+
+Privileges required to run Mysql export 
+
+```sql
+grant ALL PRIVILEGES ON wth.* TO contosoapp ;
+grant process, select on *.*  to contosoapp ;
+
+-- check privileges already granted
+
+show grants for contosoapp ;
+
+```
+Grants for contosoapp should report
+
++--------------------------------------------------------+
+| Grants for contosoapp@%                                |
++--------------------------------------------------------+
+| GRANT SELECT, PROCESS ON *.* TO 'contosoapp'@'%'       |
+| GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'    |
++--------------------------------------------------------+
