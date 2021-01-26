@@ -1,7 +1,7 @@
 
-# Challenge \#4 - Network Connectivity
+# Challenge 4 - Network Connectivity
 
-[< Previous Challenge](./Challenge-3.md) - **[Home](../readme.md)** - [Next Challenge >](./Challenge-5.md)
+[< Previous Challenge](./Challenge-3.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-5.md)
 
 <br />
 
