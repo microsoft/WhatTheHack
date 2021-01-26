@@ -4,5 +4,9 @@
 
 ## Notes & Guidance
 
-**Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md).
+- **Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md).
+
+- Use the pre-built [PowerBI - PowerQuery Connector for FHIR](./PowerBI - PowerQuery Connector for FHIR.pbit).
+
+- Use [SQL Tables using Scripts](./SQL DDL Script.txt). Use [Databricks Notebook](./fhirhackdatabrickstemplate.dbc). Use the pre-built [PowerBI - SQL Connector](./PowerBI - SQL Connector.pbit).
 
