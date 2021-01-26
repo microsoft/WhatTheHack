@@ -1,5 +1,5 @@
 # Challenge 1 - QnA Maker
-[< Previous Challenge](./Challenge0-Setup.md) - **[Home](./readme.md)** - [Next Challenge>](./Challenge2-LUIS.md)
+[< Previous Challenge](./Challenge0-Setup.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge2-LUIS.md)
 ## Introduction
 QnA maker is a no code experience that allows you to create a natural conversational layer over you data. It is used to find the most appropriate answer for any input from your custom knowledge base of information. We're going to be building out a QnA based off of the FSI Industry Use Case Document that is in the Student folder of this Github. However you can build QnA out of a website, excel document, FAQ, etc. Our QnA Knowledge base will deal with the ESG portion of our project. You can imagine that a Investment Manager is looking at their stocks and considering what to buy. They can interact with the bot to ask for the ESG rating of a specific company and then dive deeper into  the Company belief's for specific Environmental topics. In this hack we're just focusing on Microsoft, but building out a enterpris bot you would have a much larger knowledge base to pull from.
 

@@ -1,5 +1,5 @@
 # Challenge 3: Making API calls
-[< Previous Challenge](./Challenge2-LUIS.md) - **[Home](./readme.md)** - [Next Challenge>](./Challenge4-Deployment.md)
+[< Previous Challenge](./Challenge2-LUIS.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge4-Deployment.md)
 ## Introduction:
 
 The power of the Bot Service is the ability to add your own APIs. In this challenge you will add a HTTP call out to a free API endpoint to get the stock price of certain companies. We'll be building onto the Dialog from the prior challenge and utilizing the entities pulled out from the utterance to make dynamic API calls. As the investment manager it's critical that you get the latest stock data, as prices can change within the hour, minute, or even second. Therefore pulling from a database won't be sufficient for this task.

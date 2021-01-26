@@ -1,5 +1,5 @@
 # Challenge 0 - Setting up Bot Composer
-**[Home](./readme.md)** - [Next Challenge>](./Challenge1-QnA.md)
+**[Home](../README.md)** - [Next Challenge>](./Challenge1-QnA.md)
 ## Introduction
 
 Bot Composer is an open source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer is available as a desktop application and a web-based component. In the past a company could build out a bot using the Bot Framework SDK, Bot Composer is built with the latest features of the SDK in one self contained environment. In this challenge, you will set up your local machine and cloud environment with the minimum requirements that will set you up for success in later challenges. 
