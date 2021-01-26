@@ -1,0 +1,11 @@
+{
+  "fsibotwth_2.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "stock": [
+        "getStockPrice.en-us"
+      ],
+      "ESG": []
+    }
+  }
+}

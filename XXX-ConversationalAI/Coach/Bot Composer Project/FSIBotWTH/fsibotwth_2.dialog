@@ -80,9 +80,6 @@
           "$designer": {
             "id": "T9FuTJ"
           },
-          "knowledgeBaseId": "179daf90-f67e-4c6d-8fb9-80855614307d",
-          "endpointKey": "9a71ce5c-693c-4b2e-acdc-68e16a3b2c12",
-          "hostname": "https://esgrating.azurewebsites.net/qnamaker",
           "noAnswer": "Sorry, I did not find an answer.",
           "threshold": 0.3,
           "activeLearningCardTitle": "Did you mean:",
