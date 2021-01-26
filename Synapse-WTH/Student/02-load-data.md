@@ -1,4 +1,4 @@
-# Challenge 1: Gathering Open Powerlifting Data
+# Challenge 2: Load data into a relational database/warehouse
 
 [< Previous Challenge](./01-data-gathering.md) - **[Home](../README.md)** - [Next Challenge >](./03-visualization.md)
 
