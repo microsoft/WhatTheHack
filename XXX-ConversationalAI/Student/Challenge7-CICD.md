@@ -1,7 +1,7 @@
-# Challenge 7: CICD for your Bot Solution
+# Challenge 7: CI/CD for your Bot Solution
 [< Previous Challenge](./Challenge6-ACS.md) - **[Home](../readme.md)** 
 ## Introduction
-Now that we've finished deployed our Bot into Azure. In order to make it productionized. The team need to automate CICD pipeline
+Now that we've finished deployed our Bot into Azure. In order to make it a enterprise level repeatable solution. The team need to automate CI/CD pipeline
 	
 ## Description
 
@@ -15,18 +15,18 @@ Now that we've finished deployed our Bot into Azure. In order to make it product
 
 
 ## Success Criteria
-1. The Bot local Run Time is created
-2. Successfully complemeted CI pipepline and CD pipeline 
-
+* The Bot local Run Time is created
+* Have completed CI and CD pipelines 
+* What a sample result looks like:
+![Sample](./Images/Ch7-1.JPG)
 
 ## Resources
 * [How to Export Bot Composer Project to a Run Time](https://docs.microsoft.com/en-us/composer/how-to-add-custom-action#export-runtime)
 * [ASP.net core Azure DevOps Pipeline Creation and Deployment](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops)
-* [Create CICD for LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-devops-automation#continuous-delivery-cd)
+* [Create CI/CD for LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-devops-automation#continuous-delivery-cd)
 
-## What a sample result looks like
-![Sample](./Images/Ch7-1.JPG)
+## Congratulations
 
-Congratuations!! You have finihsed the challenges for this Hack. 
-We are updating the content continious. In the upcoming phase 2 of this hack content we can extending this Bot solution to data services such as Azure Databricks to unlock more advanced ML capabilities.
+You have finished the challenges for this Hack. 
+We are updating the content continuously. In the upcoming phase 2 of this hack content we can extending this Bot solution to data services such as Azure DataBricks to unlock more advanced ML capabilities.
 Stay tuned!
