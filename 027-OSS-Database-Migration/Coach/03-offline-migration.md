@@ -55,3 +55,5 @@ create database wth ;
  pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -Fd exportdir
 
 ```
+
+* For MySQL the MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.

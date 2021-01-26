@@ -4,24 +4,23 @@
 
 ## Introduction
 
-Create an appropriate PaaS database service based on previous challenge in Azure and copy the pizzera application data to Azure. 
-You are not required to point the application to Azure database in this challenge.
+Create an appropriate PaaS database service based on previous challenge in Azure and copy the Pizzeria application data to Azure. 
+You are not required to reconfigure the application to Azure DB for PostgreSQL/MySQL in this challenge as you will do that in the next one. 
 
 ## Description
 
-In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it scales performance. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. 
+In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it performs. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. 
 
 Hints: 
 * You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, if database copy tools are installed on your machine, you can connect to the database from your computer as well. 
-* Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') 
-* For both mysql and postgres, you can use Azure Data Factory to copy the data.
-* You are free to choose other 3rd party tools like mysqlworkbench, dbeaver for this challenge
+* You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') in case you need to make changes to the MySQL dump file
+* For both MySQL and PostgreSQL, you can use Azure Data Factory to copy the data.
+* You are free to choose other 3rd party tools like MySQLWorkbench, dbeaver for this challenge
 
 ## Success Criteria
 
 1. You have chosen the proper PaaS database service at an appropriate service tier based on sizing analysis
-1. Demonstrate to your proctor that the "on-premise" pizzeria application data has migrated successfully to Azure
-1. It is not required to  point the application to the Azure database in this challenge
+1. Demonstrate to your proctor that the "on-premises" Pizzeria application data has migrated successfully to Azure
 
 ## References
 * Migrate your PostgreSQL database using export and import: https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import
@@ -30,5 +29,5 @@ Hints:
 * Create an Azure Database for PostgreSQL server: https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal
 * Firewall rules in Azure Database for PostgreSQL - Single Server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-firewall-rules 
 * Firewall rules in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-firewall-rules 
-* Copy using Azure Data Factory: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-postgresql   and   https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-mysql
+* Copy using Azure Data Factory: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-postgresql and https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-mysql
  
