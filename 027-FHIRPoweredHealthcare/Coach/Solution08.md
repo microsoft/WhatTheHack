@@ -4,5 +4,9 @@
 
 ## Notes & Guidance
 
-**Complete [Challenge00](./Solution00.md).
+- **Complete [Challenge00](./Solution00.md).
+
+- Data from IoT Central sometimes takes longer to load into Azure API for FHIR.
+
+- If the data takes much longer, check if the mapping templates match the output format of the data in IoT Central.
 
