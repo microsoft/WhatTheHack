@@ -2,6 +2,7 @@
 
 * Create a database in your on-premises database called samples
 ``` shell
+    create database samples ;
     \c samples
 ```
 * Create benchmark objects in the database - run this on the bash prompt on the database host
