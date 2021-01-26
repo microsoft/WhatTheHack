@@ -1,7 +1,7 @@
 
 # Challenge 3 - Load Balancing
 
-[< Previous Challenge](./Challenge-2.md) - **[Home](../readme.md)** - [Next Challenge >](./Challenge-4.md)
+[< Previous Challenge](./Challenge-2.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-4.md)
 
 <br />
 
