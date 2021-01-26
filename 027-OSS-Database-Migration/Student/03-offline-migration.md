@@ -15,6 +15,7 @@ Hints:
 * You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternately, if database copy tools are installed on your machine, you can connect to the database from your computer as well. 
 * Your MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing. You can install the editor of your choice in the container (e.g.'apt update' and 'apt install vim') 
 * For both mysql and postgres, you can use Azure Data Factory to copy the data.
+* You are free to choose other 3rd party tools like mysqlworkbench, dbeaver for this challenge
 
 ## Success Criteria
 
