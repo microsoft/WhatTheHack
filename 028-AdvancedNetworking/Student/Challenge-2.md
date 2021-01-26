@@ -2,7 +2,7 @@
 # Challenge 2 - Network Security Groups
 
 
-[< Previous Challenge](./Challenge-1.md) - [Home](../../readme.md) - [Next Challenge >](./Challenge-3.md)
+[< Previous Challenge](./Challenge-1.md) - [Home](../Readme.md) - [Next Challenge >](./Challenge-3.md)
 
 <br />
 
