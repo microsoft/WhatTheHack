@@ -1,6 +1,6 @@
 # Challenge 3: Coach's Guide
 
-[< Previous Challenge](./Solution-2.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution-4.md)
+[< Previous Challenge](./Solution-2.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-4.md)
 
 ## Notes & Guidance
 - Relatively straight forward section as long as they're able to get the key for the API. 

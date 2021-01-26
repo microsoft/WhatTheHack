@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide
 
-[< Previous Challenge](./Solution-0.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution-2.md)
+[< Previous Challenge](./Solution-0.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-2.md)
 
 ## Notes & Guidance
 - The free tier will be fine for this WTH
