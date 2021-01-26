@@ -4,7 +4,7 @@
 ## Introduction
 Welcome to the coach's guide for Conversational AI Attach Play What The Hack. For each challenges we have a solution tips and notes for you coach. You can get an end Bot Composer solution in this folder under Bot Composer Project. You can open that Bot Composer Project on your local Bot Framework Composer application to check the sample core logic this Bot has.
 
-Also, we have prepared a [presentation ppt](Coach\Solutions\FSIBotAttachPlayProgramIntro.pptx) for you to kick off the event under the Coach/Solutions folder. In the same folder, we have provided a [high-level architectural diagram Visio file](Coach\Solutions\ArchitecturalDiagram.vsdx) for this solution.
+Also, we have prepared a presentation ppt for you to kick off the event under the Coach/Solutions folder. In the same folder, we have provided a high-level architectural diagram Visio file for this solution.
 
 ## Coach's Guides
  - Challenge 0: [Setup and Introduction](./Solution-0.md)
