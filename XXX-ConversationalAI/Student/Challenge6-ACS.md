@@ -1,5 +1,5 @@
 # Challenge 6: Extend your Bot with Azure Communication Services
-[< Previous Challenge](./Challenge5-FrontEnd.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge7-CICD.md)
+[< Previous Challenge](./Challenge5-FrontEnd.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge7-CICD.md)
 
 ## Introduction
 Now that we've finished deployed our Bot into Azure. You can extend your Bot from a Bot2Human interaction to Human2Human interaction through Azure Communication Services. Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The use case for our FSI Bot and the goal of this challenge is for you to create a functionality that allows use initiate a 'talk to human' intent, which allows the user of your bot to talk to a finance expert through video chat. 

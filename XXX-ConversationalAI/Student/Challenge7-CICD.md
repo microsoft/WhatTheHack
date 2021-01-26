@@ -1,5 +1,5 @@
 # Challenge 7: CI/CD for your Bot Solution
-[< Previous Challenge](./Challenge6-ACS.md) - **[Home](../readme.md)** 
+[< Previous Challenge](./Challenge6-ACS.md) - **[Home](../README.md)** 
 ## Introduction
 Now that we've finished deployed our Bot into Azure. In order to make it a enterprise level repeatable solution. The team need to automate CI/CD pipeline
 	

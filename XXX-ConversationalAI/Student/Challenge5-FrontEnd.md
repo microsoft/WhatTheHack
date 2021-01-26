@@ -1,5 +1,5 @@
 # Challenge 5: Embed your Bot 
-[< Previous Challenge](./Challenge4-Deployment.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge6-ACS.md)
+[< Previous Challenge](./Challenge4-Deployment.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge6-ACS.md)
 
 ## Introduction
 Now that we've finished deployed our Bot into Azure. You can then enriching your Bot user interface through a sample web application. Also, in this challenge, let's explore how you can enable the speech capabilities of your FSI Bot. 
