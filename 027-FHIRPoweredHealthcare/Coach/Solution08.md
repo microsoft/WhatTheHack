@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- **Complete [Challenge00](./Solution00.md).
+- **Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md)**.
 
 - Data from IoT Central sometimes takes longer to load into Azure API for FHIR.
 

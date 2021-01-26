@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- **Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md).
+- **Complete [Challenge00](./Solution00.md) and [Challenge01](./Solution01.md)**.
 
 - If you get **Azure Batch error**, either Azure Batch is not enabled in your subscription or Azure Batch already deployed the max number of time in your subscription.
 
