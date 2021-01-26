@@ -11,7 +11,7 @@ Bot Composer is an open source visual authoring canvas for developers and multid
 4. Write a dialog welcoming the user and prompting them to ask a question about a Stock Prices or an ESG rating.
     - Hint: Change what response is sent in the "Greeting" Action. Look at The Bot Responses tab to see how WelcomeUser() propogates through the bot logic.
 5. Test your bot locally in the Bot Framework Emulator, if you do not currently have it on your computer you can install it from [here](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md)
-
+    - Hint: If you are running into issues installing and running the Composer try uninstalling and reinstalling the application.
 
 ## Success Criteria
 1. You have successfully installed Bot Framework Composer and the Bot Framework Emulator
