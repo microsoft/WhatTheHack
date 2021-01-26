@@ -43,10 +43,10 @@ Below is a diagram of the solution architecture you will build in this hack. Ple
 - [Git SCM](https://git-scm.com/download)
 
 ## Contributors
-- Annie Xu;
-- Anthony Franklin;
-- Ariel Luna;
-- Claire Rehfuss;
-- Praveen Rawat;
-- Sowmyan Soman Chullikkattil;
-- Wayne Smith.
+- Annie Xu
+- Anthony Franklin
+- Ariel Luna
+- Claire Rehfuss
+- Praveen Rawat
+- Sowmyan Soman Chullikkattil
+- Wayne Smith
