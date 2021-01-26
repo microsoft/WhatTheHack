@@ -12,8 +12,10 @@ Contoso Powerlifting Federation (CPF) are in dire need to modernize their data a
    - Prepare your workstation to work with Azure
 - Challenge 1:  **[Gathering Open Powerlifting Data](Student/01-data-gathering.md)**
    - Retrieve data and upload to Azure using a storage service
-
-
+- Challenge 2:  **[Load data into a relational database/warehouse](Student/02-load-data.md)**
+   - Loading the data
+- Challenge 3:  **[Visualization](Student/03-visualization.md)**
+   - Visualizing the data
 
 ## Contributors
 - [James Jones](https://github.com/JamJarchitect/)
