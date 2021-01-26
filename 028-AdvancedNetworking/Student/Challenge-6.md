@@ -18,7 +18,7 @@ In this challenge, you will learn how to securely provide management access to y
 
 ## Description
 
-Contoso wants to provide a more secure way to access the servers in Azure. Contoso's IT administrators and application developers need to be able to access and manage the servers remotely from anywhere. Opening up all the servers to the internet is not a desired solution. Contoso is looking for a robust managed solution that prevents the need to open up management ports on the virtual machines to the internet while also improving potection against zero day exploits. Security team should be able to audit access to resources in the subscription.
+Contoso wants to provide a more secure way to access the servers in Azure. Contoso's IT administrators and application developers need to be able to access and manage the servers remotely from anywhere. Opening up all the servers to the internet is not a desired solution. Contoso is looking for a robust managed solution that prevents the need to open up management ports on the virtual machines to the internet while also improving protection against zero day exploits. Security team should be able to audit access to resources in the subscription.
 
 For this challenge:
 
@@ -31,7 +31,7 @@ For this challenge:
 
 ## Success Criteria
 
-- Servers should not have direct rdp and ssh access from the internet.
+- Servers should not have direct RDP and SSH access from the internet.
 
 - You should be able to view active connections.
 
