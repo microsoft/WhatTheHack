@@ -1,4 +1,4 @@
-# Challenge 1: Coach's Guide
+# Challenge 1: QnA Maker
 
 [< Previous Challenge](./Solution-0.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-2.md)
 

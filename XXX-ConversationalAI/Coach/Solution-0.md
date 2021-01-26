@@ -1,4 +1,4 @@
-# Challenge 0: Coach's Guide
+# Challenge 0: Setting up Bot Composer
 
 **[Home](./Readme.md)** - [Next Challenge>](./Solution-1.md)
 
