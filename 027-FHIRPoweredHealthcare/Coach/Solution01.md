@@ -52,7 +52,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             $ cd synthea
             $ ./gradlew build check test
             ```
-    - **[Changing the default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+    - **[Update the default properties for FHIR output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
         ```
         exporter.baseDirectory = ./output/fhir
         ...
@@ -64,7 +64,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         generate.default_population = 1000
         ```
         
-        Note:The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+        Note: The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
     - Generate Synthetic Patients
         Generating the population 1000 at a time...
         ```
@@ -84,7 +84,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
                ```
                azcopy copy "<your Synthea ./output/fhir directory>" "<fhirimport blob container URL appended with SAS token>"
                ```
-    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#use-azcopy-in-azure-storage-explorer)**
+    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**
         - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'fhirimport' to list container content
         - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result/fhir' folder and select a FHIR Patient bundle .json file(s)
     - Monitor Log Stream in function app 'FhirBundleBlobTrigger'
@@ -115,7 +115,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 - Run FHIR API HTTP Requests:
     - First, open "AuthorizeGetToken SetBearer" and confirm WTH FHIR environment is selected in the top-right environment drop-down. 
         - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
-    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR Server. (Postman may not show all of the results.)
+    - Open "Get Patient" and click the 'Send' button. This will return all Patients stored in your FHIR Server. (Postman may not show all the results.)
     - Open "Get Patient Count" and click the 'Send' button.  This will return Count of Patients stored in your FHIR Server.  
     - Open "Get Patient Filter ID" and click the 'Send' button.  This will return a Patient with that ID. Change the ID to one you have loaded and validate that it exists.
     - Open "Get Patient Filter Exact" and click the 'Send' button.  This will return a Patient with the specified given name. Specify a given name from your FHIR import and validate it exists.
