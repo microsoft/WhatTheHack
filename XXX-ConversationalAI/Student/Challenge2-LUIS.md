@@ -1,5 +1,5 @@
 # Challenge 2 - Implementing LUIS
-[< Previous Challenge](./Challenge1-QnA.md) - **[Home](./readme.md)** - [Next Challenge>](./Challenge3-API.md)
+[< Previous Challenge](./Challenge1-QnA.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge3-API.md)
 ## Introduction
 
 We are going to build out a LUIS triggered dialog flow to help answer the current stock price, we'll implement returning the actual price in the next challenge. For now we are just going to recognize that the utterance is Stock based and pull out the Ticker Symbol entity that is included in the utterance. Below goes into more depth
@@ -29,7 +29,7 @@ We are going to build out a LUIS triggered dialog flow to help answer the curren
 1. The bot runs without errors in the Bot Framework Emulator
 2. The bot can recognize when the utterance has a StockPrice intent and triggers the correct conversational flow
 3. You bot returns the correct Stock Ticker price when it is responding.
-![Sample](./Images/Ch2-2.png)
+![Sample](./Images/CH2-2.png)
 
 ## Resources
 - [Introduction to LUIS](https://docs.microsoft.com/en-us/composer/tutorial/tutorial-luis)
