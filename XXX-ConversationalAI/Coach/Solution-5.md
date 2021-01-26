@@ -1,5 +1,5 @@
 # Challenge 5: Direct Line Speech Channel and Front End
-[< Previous Solution](./Solution-4.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-6.md)
+[< Previous Solution](./Solution-4.md) - **[Home](./Readme.md)** - [Next Solution>](./Solution-6.md)
 ## Notes & Guidance
 1. Embed the Bot into a HTML Web Page. 
     * By going to Azure Portal, go to the Bot Channel Registration resource
