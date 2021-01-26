@@ -24,7 +24,7 @@ To import the schema only to target using psql
 
 * psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  -d wth <dump_wth.sql
 
-postgres=> create database wth2
+postgres=> create database wth
 
 Import the schema to target
 
