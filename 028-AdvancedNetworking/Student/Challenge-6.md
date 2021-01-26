@@ -1,49 +1,44 @@
-# What The Hack Networking - Challenge 6
 
+# Challenge 6 - Azure Bastion
 
-
-
-# Challenge \#6 - Azure Bastion
-
-[< Previous Challenge](./Challenge-5.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-7.md)
+[< Previous Challenge](./Challenge-5.md) - [Home](../readme.md) - [Next Challenge>](./Challenge-7.md)
 
 
 ## Pre-requisites
 
-*Before you start this challenge, ensure you have completed Challenge-5.*
+Before you start this challenge, ensure you have completed Challenge-5.
 
-
+<br />
 
 ## Introduction
 
-*In this challenge, you will learn how to securely provide management access to your Azure environment.*
+In this challenge, you will learn how to securely provide management access to your Azure environment.
 
-
+<br />
 
 ## Description
 
-*Contoso wants to provide a more secure way to access the servers in Azure. Contoso's IT administrators and application developers need to be able to access and manage the servers remotely from anywhere. Opening up all the servers to the internet is not a desired solution. Contoso is looking for a robust managed solution that prevents the need to open up management ports on the virtual machines to the internet while also improving potection against zero day exploits.*
+Contoso wants to provide a more secure way to access the servers in Azure. Contoso's IT administrators and application developers need to be able to access and manage the servers remotely from anywhere. Opening up all the servers to the internet is not a desired solution. Contoso is looking for a robust managed solution that prevents the need to open up management ports on the virtual machines to the internet while also improving potection against zero day exploits. Security team should be able to audit access to resources in the subscription.
 
-*For this challenge:*
+For this challenge:
 
-**1. Enable a secure way to access the virtual machines.**
+- Enable a secure way to access the virtual machines.
 
-**2. All virtual machines in the Payments and Finance servers should be accessed privately.**
-
-**3. Security team should be able to audit access.**
+- All virtual machines in the Payments and Finance servers should be accessed privately.
 
 
+<br />
 
 ## Success Criteria
 
-**- Servers should not have direct rdp and ssh access from the internet.**
+- Servers should not have direct rdp and ssh access from the internet.
 
-**- Verify connection in theastion session tab.**
+- You should be able to view active connections.
 
-**- Retrieve and view access logs.**
+- Audit logs should be available to view.
 
-
+<br />
 
 ## Learning Resources
 
-**[Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)**
+[Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
