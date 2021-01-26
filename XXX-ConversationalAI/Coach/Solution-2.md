@@ -12,8 +12,8 @@
 
 
 - Here's an example of what their trigger phrases could look like:
-- ![Trigger](./images/LUIStrigger.png)
+- ![Trigger](./Images/LUIStrigger.png)
 
 
 - This challenge should be pretty straight forward once they figure out the syntax. Here is how you extract the entity and set it as a variable
-- ![LuisSyntax](./images/LUISEntitySyntax.png)
+- ![LuisSyntax](./Images/LUISEntitySyntax.png)
