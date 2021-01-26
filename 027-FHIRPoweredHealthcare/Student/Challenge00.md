@@ -16,11 +16,11 @@ Build a patient search web app frontend application with a serverless event-driv
 **Install the recommended tool set:** 
 - Windows Subsystem for Linux
 - Visual Studio Code
-- Visual Studio Code extensions for Node.js, Azure Functions, etc.
+- Visual Studio Code extensions for Azure Account, Azure Functions, Azure App Service and Node.js.
 - Azure CLI:
     - Update to the latest
     - Must be at least version 2.0.42
-    - For windows OS, use bash shell in Windows Subsystem for Linux (see WLS install under tool-set below)
+    - For windows OS, use bash shell in Windows Subsystem for Linux (see WLS install under toolset below)
     - Note: If you are running into issues running Azure CLI command on Windows, Disable Global Protect (VPN)
 - download and install latest **[Node pre-built installer](https://nodejs.org/en/download/)** for your platform
 - Install the latest version of nodejs (at least 10.x) on your machine, if using Windows, use the bash shell in the Windows Subsystem for Linux
