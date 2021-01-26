@@ -1,4 +1,4 @@
-# Challenge 3: Coach's Guide
+# Challenge 3: Making API calls
 
 [< Previous Challenge](./Solution-2.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-4.md)
 

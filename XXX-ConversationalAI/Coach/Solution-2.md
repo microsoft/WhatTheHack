@@ -1,4 +1,4 @@
-# Challenge 2: Coach's Guide
+# Challenge 2: Implementing LUIS
 
 [< Previous Challenge](./Solution-1.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-3.md)
 
