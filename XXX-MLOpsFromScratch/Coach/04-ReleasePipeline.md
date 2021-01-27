@@ -17,15 +17,14 @@ Release Pipeline is a REST endpoint (a Scoring URI) used to predict/forecast on
 a new dataset. Additionally, it can be plugged into business applications to
 leverage the intelligence of the model.
 
-There are several ways to create a Release pipeline. The 2 common and popular
-ways are
+There are several ways to create a Release pipeline. The two most common and popular
+ways are: 
 
 -   using a YAML file that represents the entire pipeline,
 
 -   using an empty job and adding tasks sequentially
 
-We think that latter approach is more comprehensive and intuitive, especially to
-get started on MLOps, so we recommend that.
+As we had mentioned in the previous challenge, we believe that the latter approach is more comprehensive and intuitive, especially to get started on MLOps, so we recommend that route.
 
 We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
 pipeline shows how to operationalize the scoring image and promote it safely
@@ -36,7 +35,7 @@ across different environments.
 1.  Create a Release pipeline with an empty Job
 
 2.  Add Build Artifact that you created in the [previous
-    challenge](02-BuildPipeline.md)
+    challenge](03-BuildPipeline.md)
 
 3.  Setup Agent Job
 
@@ -57,17 +56,19 @@ across different environments.
     4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
         file used in the Inline Script
 
-5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. Confirm if it is operational by using a tool like Postman or Swagger.
+5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. 
 
 ## Success Criteria
 
 1.  An end-to-end Release pipeline created from an empty job (from scratch)
     using the classic editor (without YAML) in Azure DevOps
 
-2.  A “healthy” ACI deployment is created under Azure ML Endpoints
+2.  A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like Postman or Swagger.
 
 ## Learning resources
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
 [Next challenge – Retraining and Model Evaluation](05-RetrainingAndEvaluation.md)
+
+[Release pipelines General Resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
