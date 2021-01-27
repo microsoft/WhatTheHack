@@ -137,3 +137,39 @@ mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -p wth <dump
 
 ```
 
+Run script on the target to drop all the foreign keys
+
+drop_fk_query.sql
+
+ SET group_concat_max_len = 8192;
+ SELECT GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery
+    FROM
+    (SELECT
+            KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
+            KCU.TABLE_NAME,
+            KCU.COLUMN_NAME,
+            CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery
+            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
+            WHERE
+              KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+              AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+          AND KCU.REFERENCED_TABLE_SCHEMA = 'wth') Queries
+  GROUP BY SchemaName
+  
+  Run the script and store the output to a file. Running this the following way requires to format the file again
+
+```shell
+
+ mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -pOCPHack8 wth <drop_fk_query.sql >drop_fk.sql
+ cat drop_fk.sql | sed 's/\\n/\n/g' | sed '/DropQuery/d' >drop.sql
+ 
+ ```
+ Run the sql script to drop all the FKs
+ 
+ ```sql
+ 
+ source drop.sql
+ 
+ ```
+ 
+ 
