@@ -30,9 +30,9 @@ source and saved in the working directory
 
 ## Success criteria
 
-1.  Count the number of csv files extracted into /Data folder locally using a Python script in Azure DevOps.
+1.  Count the number of CSV files extracted into /Data folder using a Python script in Azure DevOps pipeline. (This can be the same script used in Challenge#1)
     
-2.  Visualizing and exploring the data
+2.  Visualizing and exploring the data (using a python visualization library like matplotlib or seaborn or dash)
 
 ## Learning resources
 
