@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 2 - Ingest and stream medical events for post-processing
+# Coach's Guide: Challenge 2 - Extract, transform and load HL7 medical data
 
 [< Previous Challenge](./Solution01.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution03.md)
 
@@ -11,8 +11,6 @@ In this challenge, you will deploy a Health Architecture **[FHIR Event Processor
 
 Note: This function is deployed and configured as a part of the HL72FHIR Workflow Platform.
 
-![FHIR CUD Post Processing Sample](../images/fhir-serverless-streaming.jpg)
-
 **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
 **[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to ingest HL7 messages and produce a consumable event in a Service Bus queue for processing by FHIR Event Processor function app.  It provides a sample `samplemsg.hl7` for testing the hl7overhttps ingest service.
@@ -22,10 +20,7 @@ Note: This function is deployed and configured as a part of the HL72FHIR Workflo
 - Persists converted HL7v2 message into FHIR Server through secure proxied FHIR Server connection (FHIR Server Proxy). 
 - Publishes FHIR change events referencing FHIR Resources to an Event Hub.
 
-![HL7 to FHIR Conversion](../images/hl72fhirconversion.png)
-
 Note: After successful deployment, the converter pipeline is integrated with HL7 Ingest platform.
-
 
 **[Deploy HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7-ingest-conversion-samples)** reference architectures below:
 
