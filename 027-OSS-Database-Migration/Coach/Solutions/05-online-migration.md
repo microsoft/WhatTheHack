@@ -6,7 +6,7 @@
 
 Perform an online migration using the Azure Database Migration Service
 
-## Steps
+## Steps -- PostgreSQL
 
 Connect to database container and run the export 
 
@@ -116,3 +116,15 @@ WHERE constraint_type = 'FOREIGN KEY'
     GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
     ) Q
     GROUP BY Q.table_schema, Q.table_name;
+
+
+
+## Steps -- MySQL
+
+Run the export 
+
+```shell
+
+ mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --databases wth --no-data  --skip-column-statistics >dump_nodata.sql
+
+```
