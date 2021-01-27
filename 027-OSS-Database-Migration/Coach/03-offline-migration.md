@@ -29,6 +29,7 @@ Alternately connect to Azure DB using  Azure Data studio or Pgadmin tool
 
 kubectl -n postgresql exec deploy/postgres -it -- bash
 psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget -d postgres
+create database wth ;
 
 ```
 
@@ -36,6 +37,7 @@ psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget -d 
 
 kubectl -n mysql exec deploy/mysql -it -- bash
 mysql -h mytarget2.mysql.database.azure.com -P 3306 -u serveradmin@mytarget2 -p
+create database wth ;
 
 ```
 
@@ -81,3 +83,33 @@ It is possible to use mysql workbench tool to run the export with proper setting
 the flag  --set-gtid-purged
 
 Running: mysqldump.exe --defaults-file="C:\Users\susengu\AppData\Local\Temp\tmp_akgbble.cnf"  --host=<container ip> --port=3306 --default-character-set=utf8 --user=contosoapp --protocol=tcp --no-data --skip-triggers --skip-column-statistics "wth" "bakestyle" --set-gtid-purged=off
+ 
+ Alternately from command prompt 
+ 
+ ```shell
+ 
+  mysqldump -h <contained ip> -u contosoapp -p --set-gtid-purged=off --skip-column-statistics -d wth >dump_data.sql
+ 
+ ```
+ 
+ * Mysql command to do offline import from import directory. When run from MySQL workbench
+ 
+ mysql  --protocol=tcp --host=mytarget2.mysql.database.azure.com --user=contosoapp@mytarget2 --port=3306 --default-character-set=utf8 --comments --database=wth < "C:\\Documents\\OneDrive - Microsoft\\Dump20210126 (2)\\wth_users.sql"
+ 
+ Or from shell prompt 
+ 
+ ```shell
+ 
+  mysql  -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8  wth <dump_data.sql
+ 
+ ```
+ 
+ From command line shell script to load all files one at a time 
+ 
+ ```shell
+ 
+ for file in `ls wth_*sql`; do mysql -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8 wth <$file; done
+ 
+ ```
+ 
+
