@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-All of the prerequisites from the [README file](../README.md).
+All prerequisites from the [README file](../README.md).
 
 ## Introduction
 
@@ -12,7 +12,7 @@ series
 modeling. It includes processing the transactions data from AdventureWorks
 database, analyzing it, creating and registering an ARIMA model, and finally
 deploying the model to an ACI instance. This entire lifecycle is done using
-Azure ML Python SDK.
+[Azure ML Python SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py).
 
 Time series is a series of data points collected or indexed in time order at
 regular time points. It is a sequence taken at successive equally spaced time
@@ -31,8 +31,10 @@ most common and prevalent tasks in Machine Learning.
 
     2.  Create new service connections in Project Settings for your Azure ML service and Azure Subscription using service
         principal
+        
+2.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
 
-2.  Install library requirements to setup your environment:  
+3.  Install library requirements to setup your environment inside VS Code Terminal or equivalent Shell application:  
     _pip install -r ./environment_setup/requirements.txt_
 
 3.  Configure your Azure ML Workspace for the project.
@@ -40,7 +42,7 @@ most common and prevalent tasks in Machine Learning.
     - **Hint:** Add workspace details through Azure DevOps pipeline variables.
     - **Hint:** Add workspace details in config.json. You can download it from portal too.
 
-4.  Now that you have environment setup, explore the python files in the
+4.  Now that you have environment setup, explore and run locally the python files in the
     following order to train an ARIMA forecasting model
 
     1.  Workspace.py to setup connection with your Azure ML service workspace.
@@ -60,9 +62,12 @@ most common and prevalent tasks in Machine Learning.
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
 
+
 ## Success Criteria
 
-1.  Forecasting project imported into Azure DevOps.
+1.  Count the number of CSV files extracted into /Data folder LOCALLY using a Python script in VS Code or any popular IDE.
+2.  Creating an ARIMA model locally using VS Code.
+3.  Forecasting project imported into Azure DevOps.
 
 ## Learning resources
 
