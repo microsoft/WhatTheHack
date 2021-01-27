@@ -13,15 +13,15 @@ stages generally constitute creating a project environment, preparing the data,
 training the model, evaluating the model, registering/versioning the model, and
 scoring the model generally by containerizing the model.
 
-There are several ways to create a Build pipeline. The 2 common and popular ways
-are
+There are several ways to create a Build pipeline. The two most common and popular ways
+are:
 
 -   using a YAML file that represents the entire pipeline,
 
 -   using an empty job and adding tasks sequentially
 
-We think that latter approach is more comprehensive and intuitive, especially to
-get started on MLOps, so we recommend that.
+We believe that the latter approach is more comprehensive and intuitive, especially to
+get started on MLOps, so we recommend that route.  This will be the focus of this hack.
 
 We can setup Continuous Integration (CI) trigger for every Build pipeline. The
 CI pipeline gets triggered every time code is checked in. It publishes an
@@ -35,7 +35,7 @@ updated Azure Machine Learning pipeline after building the code.
 
     1.  Use the classic editor to create a pipeline without YAML
 
-    2.  Select the repo that was imported above
+    2.  Select the repo that was imported in the previous challenge
 
     3.  Create an Empty Job
 
@@ -69,7 +69,7 @@ updated Azure Machine Learning pipeline after building the code.
         versioning – RegisterModel.py is the file used in the Inline Script
 
     8.  Azure CLI task to score the model, to forecast future transactions –
-        ScoreModel.pys is the file used in the Inline Script
+        ScoreModel.py is the file used in the Inline Script
         
     9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
         - Use Copy Files task to copy files from $(Build.SourcesDirectory) to $(Build.ArtifactStagingDirectory)
@@ -78,7 +78,7 @@ updated Azure Machine Learning pipeline after building the code.
 
 5.  Run the Build pipeline
 
-6.  Review Build Outputs - confirm the model and container image have been registered in Azure ML workspace in respective registries.
+6.  Review Build Outputs - confirm that the model and azure container image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
 
 ## Success criteria
 
