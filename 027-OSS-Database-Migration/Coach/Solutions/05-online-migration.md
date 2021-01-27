@@ -80,9 +80,9 @@ FROM information_schema.triggers
 
 For Azure DMS,  you need to create a migration project
 
-in DMS wizard, connect to source as the IP from kubectl -n postgresql get svc command
+in DMS wizard, connect to source as the external IP from kubectl -n postgresql get svc command
 Make sure the radio buttons are checked for Trust Server Certificate and Encrypt connection
-The user contosoapp does not have replication role enabled. They should get an error. To resolve this, connect to psql as superuser
+The user contosoapp does not have replication role enabled. They should get an error (Insufficient permission on server. 'userepl' permission is required to perform migration). To resolve this, connect to psql as superuser
 
 * postgres=# alter role contosoapp with replication ;
 
