@@ -58,7 +58,7 @@ create database wth ;
 
 * For MySQL the MySQL database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
 
-Privileges required to run Mysql export 
+Privileges required to run Mysql export on the source database - connect as root
 
 ```sql
 grant ALL PRIVILEGES ON wth.* TO contosoapp ;
@@ -76,3 +76,8 @@ GRANT SELECT, PROCESS ON *.* TO 'contosoapp'@'%'
  
 GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'    
 
+It is possible to use mysql workbench tool to run the export with proper settings.  The mysql workbench version ( 8.0.23 as of Jan 2021 ) being different from mysql version 
+5.7 is not a factor for this challenge. The mysql export runs series of exports for each table like this. If you do not want to see the warnings about --set-gtid-purged, use 
+the flag  --set-gtid-purged
+
+Running: mysqldump.exe --defaults-file="C:\Users\susengu\AppData\Local\Temp\tmp_akgbble.cnf"  --host=<container ip> --port=3306 --default-character-set=utf8 --user=contosoapp --protocol=tcp --no-data --skip-triggers --skip-column-statistics "wth" "bakestyle" --set-gtid-purged=off
