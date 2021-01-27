@@ -128,3 +128,12 @@ Run the export
  mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --databases wth --no-data  --skip-column-statistics >dump_nodata.sql
 
 ```
+
+Import with no data. Create the wth database
+
+```shell
+
+mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -p wth <dump_nodata.sql
+
+```
+
