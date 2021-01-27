@@ -12,7 +12,7 @@ series
 modeling. It includes processing the transactions data from AdventureWorks
 database, analyzing it, creating and registering an ARIMA model, and finally
 deploying the model to an ACI instance. This entire lifecycle is done using
-Azure ML Python SDK.
+[Azure ML Python SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py).
 
 Time series is a series of data points collected or indexed in time order at
 regular time points. It is a sequence taken at successive equally spaced time
