@@ -88,8 +88,8 @@ Running: mysqldump.exe --defaults-file="C:\Users\susengu\AppData\Local\Temp\tmp_
  
  ```shell
  
-  mysqldump -h <contained ip> -u contosoapp -p --set-gtid-purged=off --skip-column-statistics -d wth >dump_data.sql
- 
+mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --skip-column-statistics --databases wth >dump_data.sql
+
  ```
  
  * Mysql command to do offline import from import directory. When run from MySQL workbench
@@ -100,7 +100,7 @@ Running: mysqldump.exe --defaults-file="C:\Users\susengu\AppData\Local\Temp\tmp_
  
  ```shell
  
-  mysql  -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8  wth <dump_data.sql
+  mysql  -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8  <dump_data.sql
  
  ```
  
