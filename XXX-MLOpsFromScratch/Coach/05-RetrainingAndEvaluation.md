@@ -42,8 +42,7 @@ Azure ML Model Registry.
 
 ## Success criteria
 
-1.  A retrained model (with better performance) is created and registered with
-    Azure ML Model Registry
+1.  A retrained model (if necessary with better performance) is created and registered within the Azure ML Model Registry
 
 2.  A container image for your retrained model is created under Azure ML Images
 
@@ -54,4 +53,6 @@ Azure ML Model Registry.
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-[Next challenge – Monitor Data Drift for your Model](06-MonitorDataDrift.md)
+## Congratulations
+
+You have finished the challenges for this Hack. We are updating the content continuously. In the upcoming phase 2 of this hack content we will be extending this solution to encompass AKS Data Drift in Challenge 5 as well as incorporate other ML platforms, such as ONNX and mlflow. Stay tuned!
