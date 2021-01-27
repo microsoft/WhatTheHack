@@ -17,7 +17,7 @@ In this challenge you'll be setting up your environment so that you can complete
     - MySQL Workbench
     - Visual Studio Code (optional)
 
-- Within Azure Cloud Shell, download and unzip the resources.zip file. The location will be given to you by your proctor. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment: 
+- Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your proctor. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment: 
 
 ```shell
 cd Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
