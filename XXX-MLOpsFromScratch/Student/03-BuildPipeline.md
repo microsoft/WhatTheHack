@@ -45,19 +45,17 @@ updated Azure Machine Learning pipeline after building the code.
 
     2.  Set Agent Specification to ubuntu-16.04
 
-4.  Setup Build pipeline – Add the following tasks
+4.  Setup Build pipeline – Add the following tasks by clicking "+"
 
     1.  Python version – 3.6
 
-    2.  Bash task to setup environment using Script Path –
-        install_environment.sh is the file used
+    2.  Add a task to setup environment by using install_environment.sh file in environment_setup folder. This will install all the python modules required for the project.
+        -**Hint:** Use a command line task
 
-    3.  Azure CLI task to get Azure ML Workspace connection – Workspace.py is
-        the file used in the Inline Script
-       -**Note:** If you see issues with version 2.0 of Azure CLI, use version 1.0
+    3.  Add a task to get Azure ML Workspace connection by using Workspace.py in "service/code" folder. This will establish connection to Azure ML workspace by using yourd workspace details in config.json file
+       -**Note:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
 
-    4.  Azure CLI task to acquire time series transactions data – AcquireData.py
-        is the file used in the Inline Script
+    4.  Add a task to acquire time series transactions data by using AcquireData.py in "service/code" folder. This will download and extract the data required to train a forecasting model in the next steps.
 
     5.  Azure CLI task to train ARIMA model to forecast transactions –
         TrainOnLocal.py is the file used in the Inline Script
