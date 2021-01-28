@@ -68,6 +68,7 @@ across different environments.
 ## Learning resources
 
 <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+
 [Release pipelines General Resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
 
 [Next challenge – Retraining and Model Evaluation](05-RetrainingAndEvaluation.md)
