@@ -21,9 +21,9 @@ source and saved in the working directory
     2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
         principal
 
-    3.  Make sure your Azure ML workspace is configured for the project.  
-       - **Hint:** Add workspace details through Azure DevOps pipeline variables.
+    3.  Make sure your Azure ML workspace is configured for the project.         
        - **Hint:** Add workspace details in config.json. You can download it from portal too.
+       - **Hint:** Add workspace details through Azure DevOps pipeline variables.
 
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
     - **Hint:** It is encouraged to leverage the Python Script task using the pipeline task manager in Azure DevOps
