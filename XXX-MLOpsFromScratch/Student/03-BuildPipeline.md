@@ -51,27 +51,24 @@ updated Azure Machine Learning pipeline after building the code.
 
     2.  Add a task to setup environment by using install_environment.sh file in environment_setup folder. This will install all the python modules required for the project.
     
-        -**Hint:** Use a command line task
+        **Hint:** Use a command line task that allows you to run the shell script.
 
-    3.  Add a task to get Azure ML Workspace connection by using Workspace.py in "service/code" folder. This will establish connection to Azure ML workspace by using yourd workspace details in config.json file.
-    
-        -**Note:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
-
-    4.  Add a task to acquire time series transactions data by using AcquireData.py in "service/code" folder. This will download and extract the data required to train a forecasting model in the next steps.
-
-    5.  Azure CLI task to train ARIMA model to forecast transactions –
-        TrainOnLocal.py is the file used in the Inline Script
-
-    6.  Azure CLI task to evaluate the model performance – EvaluateModel.py is
-        the file used in the Inline Script
-
-    7.  Azure CLI task to register the model in Azure ML Workspace for model
-        versioning – RegisterModel.py is the file used in the Inline Script
-
-    8.  Azure CLI task to score the model, to forecast future transactions –
-        ScoreModel.py is the file used in the Inline Script
+    3.  Add a task to get Azure ML Workspace connection using Workspace.py in "service/code" folder. This will establish connection to Azure ML workspace by using yourd workspace details in config.json file.
         
-    9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
+        **Hint:** Use a command line task that allows you to run the python script.
+        **Note:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
+
+    4.  Add a task to acquire time series transactions data using AcquireData.py in "service/code" folder. This will download and extract the data required to train a forecasting model in the next steps.
+
+    5.  Add a task to train ARIMA forecasting model using TrainOnLocal.py in "service/code" folder. This will build a model to forecast demand of items from AdventureWorks database.
+
+    6.  Add a task to evaluate the model performance using EvaluateModel.py in "service/code" folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
+
+    7.  Add a task to register the model in Azure ML Model Registry for model versioning using RegisterModel.py in "service/code" folder. 
+    
+    8.  Add a task to score the model, to forecast future transactions using ScoreModel.py in "service/code" folder. This will create a scoring file 
+        
+    9.  At this point, you have the option of choosing an artifact for your Release pipeline. An artifact is the deployable component of your applicaton/model. If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
         - Use Copy Files task to copy files from $(Build.SourcesDirectory) to $(Build.ArtifactStagingDirectory)
         - Use Publish Artifact task with $(Build.ArtifactStagingDirectory) as path to publish. 
         Note: Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
