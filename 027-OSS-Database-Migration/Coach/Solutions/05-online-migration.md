@@ -182,7 +182,7 @@ drop_fk_query.sql
  ```
  
  If during the DMS online copy the copy fails with some error message "Migrating data to a mysql other than Azure DB for MySQL is not supported", it is because the
- user connecting to the target database does not have enough privilege on MySQL. The exact and minimum set of privileges is TBD but this works ( screenshot from Mysql workbench ) 
+ user connecting to the target database does not have enough privilege on MySQL. The exact and minimum set of privileges is TBD but this works ( screenshot from Mysql workbench ) See this **[Image](./workbench.png)**
  
  
  
