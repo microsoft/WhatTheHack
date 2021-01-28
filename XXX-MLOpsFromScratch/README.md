@@ -107,8 +107,6 @@ Your team will have individuals of varying skill sets, so it is imperative to de
     > translates to **Ensure that the user has 'Owner' or 'User Access
     > Administrator' permissions on the Subscription**.
 
-## Repository Contents
-
 ## Contributors
 
 - Shiva Chittamuru
