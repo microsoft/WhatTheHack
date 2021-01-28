@@ -47,16 +47,16 @@ across different environments.
 
     1.  Python version – 3.6
 
-    2.  Bash task to setup environment using Script Path –
-        install_environment.sh is the file used
+    2.  Add a task to setup environment by using install_environment.sh file in environment_setup folder. This will install all the python modules required to deploy the forecasting model.
 
-    3.  Azure CLI task to deploy the scoring image on ACI – deployOnAci.py is
-        the file used in the Inline Script
+    3.  Add a task to deploy the scoring image on ACI using deployOnAci.py in "service/code" folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
+    
+        **Note:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster.
 
-    4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
-        file used in the Inline Script
-
-5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. 
+    4.  Add a task to test the ACI web service using WebserviceTest.py in "service/code" folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
+        
+        **Note:** If the deployment fails or the web service is "unhealthy", check logs for issues and additional information.
+ 
 
 ## Success Criteria
 
