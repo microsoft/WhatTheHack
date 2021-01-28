@@ -55,7 +55,7 @@ across different environments.
 
     4.  Add a task to test the ACI web service using WebserviceTest.py in "service/code" folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
         
-        **Note:** If the deployment fails or the web service is "unhealthy", check logs for issues and additional information.
+        **Note:** If the deployment fails or the web service is "unhealthy", check logs in Azure DevOps or Azure ML Studio for issues and additional information.
  
 
 ## Success Criteria
