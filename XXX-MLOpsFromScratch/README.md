@@ -76,7 +76,7 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
 1.  Azure subscription. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).  
 
-2.  Azure Machine Learning service workspace. It is a foundational resource in
+2.  [Azure Machine Learning service workspace](https://ml.azure.com/) - It is a foundational resource in
     the cloud that you use to experiment, train, and deploy machine learning
     models.
 
