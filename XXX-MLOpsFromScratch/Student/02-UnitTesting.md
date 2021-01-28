@@ -18,7 +18,7 @@ source and saved in the working directory
 
     1.  Import quickstart code from [Insert Github Repo Here]
 
-    2.  Create new service connections in Project Settings for your Azure ML service and Azure Subscription using service
+    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
         principal
 
     3.  Make sure your Azure ML workspace is configured for the project.  
