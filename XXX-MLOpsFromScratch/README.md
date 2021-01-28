@@ -86,8 +86,8 @@ Your team will have individuals of varying skill sets, so it is imperative to de
     - Install [Azure DevOps Machine Learning
       extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 
-    - Request Admin access to create Service Principals within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those Service Princials ahead of time. To do that, create new service connections in Project Settings for your Azure ML service and Azure Subscription using service principal. 
-    Note: Azure ML Workspace must be created first before creating Service Principals. 
+    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, create new service connections in Project Settings for your Azure ML service and Azure Subscription using service principal. 
+    Note: Azure ML Workspace must be created first before creating Service Connections. 
   
 4.  Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
     for Data Science tasks (This is only required if you wish to test scripts on a local machine or a notebook on Azure).
