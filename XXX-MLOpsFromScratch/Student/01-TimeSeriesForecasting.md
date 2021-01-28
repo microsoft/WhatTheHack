@@ -29,7 +29,7 @@ most common and prevalent tasks in Machine Learning.
 
     1.  Import quickstart code from "EnterRepoURLHere"
 
-    2.  Create new service connections in Project Settings for your Azure ML service and Azure Subscription using service
+    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
         principal
         
 2.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
