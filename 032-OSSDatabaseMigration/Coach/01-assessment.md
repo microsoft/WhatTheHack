@@ -1,6 +1,6 @@
 # Challenge 1: Assessment (feature differences and compatibility)
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-size-analysis.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-size-analysis.md)
 
 ## Coach Tips
 
