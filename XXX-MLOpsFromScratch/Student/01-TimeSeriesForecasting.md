@@ -27,47 +27,29 @@ most common and prevalent tasks in Machine Learning.
 
 1.  Create and setup a new project in Azure DevOps
 
-    1.  Import quickstart code from "EnterRepoURLHere"
+    1.  Import quickstart code from the GitHub Repo (Will be provided to you by the Proctors)
 
     2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
         principal
         
 2.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
 
-3.  Install library requirements to setup your environment inside VS Code Terminal or equivalent Shell application:  
-    _pip install -r ./environment_setup/requirements.txt_
+3.  Install library requirements to setup your environment
 
-3.  Configure your Azure ML Workspace for the project.
+4.  Configure your Azure ML Workspace for the project.
 
     - **Hint:** Add workspace details through Azure DevOps pipeline variables.
     - **Hint:** Add workspace details in config.json. You can download it from portal too.
 
-4.  Now that you have environment setup, explore and run locally the python files in the
-    following order to train an ARIMA forecasting model
-
-    1.  Workspace.py to setup connection with your Azure ML service workspace.
-
-    2.  AcquireData.py to get daily transactions data from AdventureWorks.
-
-    3.  TrainOnLocal.py to train the model. Explore and run
-        transactions_arima.py file to understand how ARIMA model was built.
-
-    4.  EvaluateModel.py to evaluate the model.
-
-    5.  RegisterModel.py to register the model with Model registry.
-
-    6.  ScoreModel.py for scoring/forecasting using the trained model.
-
-    7.  deployOnAci.py to deploy the scoring image on ACI.
-
-    8.  WebserviceTest.py to the ACI deployment/endpoint.
-
+5.  Now that you have environment setup, explore and run locally the python files in the folder Data_and_Code/service/code/
+    What should be the order?  What are these files trying to do?
 
 ## Success Criteria
 
-1.  Count the number of CSV files extracted into /Data folder LOCALLY using a Python script in VS Code or any popular IDE.
-2.  Creating an ARIMA model locally using VS Code.
-3.  Forecasting project imported into Azure DevOps.
+1.  Understand the contents of the python files under Data_and_Code/service/code/
+2.  Count the number of CSV files extracted into /Data folder LOCALLY using a Python script in VS Code or any popular IDE.
+3.  Creating an ARIMA model locally using VS Code.
+4.  Forecasting project imported into Azure DevOps.
 
 ## Learning resources
 
