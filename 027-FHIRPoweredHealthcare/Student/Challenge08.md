@@ -20,7 +20,7 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
 	- Navigate to Azure API for FHIR resource. Click on IoT Connector under the Add-ins section. Click on the Add button to open the Create IoT Connector page. Enter Connector name for the new Azure IoT Connector for FHIR. Choose Create for Resolution Type and click on Create button.
 - **Configure Azure IoT Connector for FHIR**
     - On the IoT Connector page, click on **Configure device mapping** button. On the Device mapping page, add the following script to the JSON editor and click Save.
-      ```
+      ```json
       {
         "templateType": "CollectionContent",
         "template": [
@@ -42,9 +42,8 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
         ]
       }
      ```
-
     - On the IoT Connector page, click on **Configure FHIR mapping** button. On the Device mapping page, add the following script to the JSON editor and click Save.
-      ```
+      ```json
       {
         "templateType": "CollectionFhir",
         "template": [
