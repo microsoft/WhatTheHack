@@ -12,9 +12,9 @@ In this challenge you'll be connecting to your "on-prem" environment using the d
 
 ## Success Criteria
 
-1. You have connected to the "on-prem" databases using the database tools and taken an inventory of the databases - the application database objects, the owner, schema object dependency
-1. You have verified that the "on-prem" database versions are supported in Azure DB for PostgreSQL/MySQL
-1. You have checked for any other compatibility of the database that needs to resolve before migrating it to Azure
+* You have connected to the "on-prem" databases using the database tools and taken an inventory of the databases - the application database objects, the owner, schema object dependency
+* You have verified that the "on-prem" database versions are supported in Azure DB for PostgreSQL/MySQL
+* You have checked for any other compatibility of the database that needs to resolve before migrating it to Azure
 
 ## References
 

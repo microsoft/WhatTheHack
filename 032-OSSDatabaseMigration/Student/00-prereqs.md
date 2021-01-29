@@ -33,10 +33,10 @@ Go to this file to see the instructions to install PostgreSQL, MySQL and the Con
 
 ## Success Criteria
 
-1. You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
-1. Visual Studio Code is installed.
-1. You have database management tools installed
-1. You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
+* You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
+* Visual Studio Code is installed.
+* You have database management tools installed
+* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 
 ## References
 
