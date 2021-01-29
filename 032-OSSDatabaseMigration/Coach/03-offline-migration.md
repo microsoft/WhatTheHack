@@ -12,6 +12,7 @@ apt install curl
 curl ifconfig.me
 
 ```
+Please note there are many 3rd party tools similar to SQL wokbench and dbeaver . There is also mydumper and myloader ( https://centminmod.com/mydumper.html ) to use for MySQL
 
 Another way is to login to the database container, and then try to launch a connection to the Azure DB for MySQL or Postgres. It will fail wuth a firewall error that will reveal the address. In the example below, pgtarget is the Postgres server name, pgtarget2 is the mysql servername and both has serveradmin as the admin user created on Azure.
 
