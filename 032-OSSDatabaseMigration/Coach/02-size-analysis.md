@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./01-assessment.md) - **[Home](../README.md)** - [Next Challenge >](./03-offline-migration.md)
 
-## Proctor Tips
+## Coach Tips
 
  Make sure the attendees can explain both the business and technical motivations for choosing a particular service tier. The goal here is to simulate a workload for the
  database, watch the system load and then pick the right service tier in Azure DB for Postgres/MySQL. To do this in Postgres

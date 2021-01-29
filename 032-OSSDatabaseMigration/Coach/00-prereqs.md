@@ -2,7 +2,7 @@
 
 **[Home](../README.md)** - [Next Challenge >](./01-assessment.md)
 
-## Proctor tips
+## Coach tips
 
 There are a lot of opportunities for things to go wrong in this step especially if the attendee does not follow the instructions!
 
