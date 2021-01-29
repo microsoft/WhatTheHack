@@ -27,7 +27,7 @@ To run the synthetic benchmark for PostgreSQL:
 1. You have determined the peak workload - CPU, memory, disk I/O on the server during the synthetic workload test
 1. You have discovered the database file size of the application database wth
 1. You have selected the appropriate database service tier (e.g. Basic, General Purpose or Memory Optimized) and server size to meet the peak workload
-1. You can explain to your proctor why you would go with a specific database deployment option (Single Server, Flexible Server or HyperScale (PostgreSQL only))
+1. You can explain to your coach why you would go with a specific database deployment option (Single Server, Flexible Server or HyperScale (PostgreSQL only))
 
 ## References
 * Standard UNIX monitoring tools: https://sysaix.com/top-20-linux-unix-performance-monitoring-tools

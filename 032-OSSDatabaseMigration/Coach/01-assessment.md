@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-size-analysis.md)
 
-## Proctor Tips
+## Coach Tips
 
 1) The attendee should be able to connect to the PostgreSQL/MySQL container like this:
 

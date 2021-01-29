@@ -20,7 +20,7 @@ Hints:
 ## Success Criteria
 
 1. You have chosen the proper PaaS database service at an appropriate service tier based on sizing analysis
-1. Demonstrate to your proctor that the "on-premises" Pizzeria application data has migrated successfully to Azure
+1. Demonstrate to your coach that the "on-premises" Pizzeria application data has migrated successfully to Azure
 
 ## References
 * Migrate your PostgreSQL database using export and import: https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import

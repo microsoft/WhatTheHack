@@ -47,7 +47,7 @@ The participants will learn how to:
 - `../Coach/Guides`
   - [Lecture presentation](Coach/Lectures/README.md) with short presentations to introduce each challenge.
 - `../Coach/Solutions`
-   - Example solutions and proctor tips to the challenges (If you're a student, don't cheat yourself out of an education!)
+   - Example solutions and coach tips to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
    - Pizzeria application environment setup
 
