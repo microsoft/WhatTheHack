@@ -21,7 +21,7 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
 - **Configure Azure IoT Connector for FHIR**
    * To **upload mapping templates**, click on the newly deployed Azure IoT Connector for FHIR to go to the IoT Connector page.
       * Device mapping template transforms **device data into a normalized schema**. On the IoT Connector page, click on **Configure device mapping** button to go to the Device mapping page. On the Device mapping page, add the following script to the JSON editor and click Save.
-      ```
+      ```json
       {
         "templateType": "CollectionContent",
         "template": [
@@ -44,7 +44,7 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
       }
      ``` 
       * FHIR mapping template **transforms a normalized message to a FHIR-based Observation resource**. On the IoT Connector page, click on **Configure FHIR mapping** button to go to the FHIR mapping page. On the FHIR mapping page, add the following script to the JSON editor and click Save.
-      ```
+      ```json
       {
         "templateType": "CollectionFhir",
         "template": [
