@@ -34,4 +34,4 @@ helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/va
 
 ## Success Criteria
 
-* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change. You can do this by registering yourself as a user in the application. You would then connect to the Azure DB for PostgreSQL/MySQL and do a 'select * from users' to see if the new user is in the database(s)
+* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change. You can do this by registering yourself as a user in the application. You would then connect to the Azure DB for PostgreSQL/MySQL and do a `select * from users` to see if the new user is in the database(s)
