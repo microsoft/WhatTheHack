@@ -10,7 +10,7 @@
 
 - If you would like to **adjust the start time or run interval**, open the Logic App in the deployed resource group. The first step called 'Recurrence' is where the timer is stored.
 
-- If **Logic App fails on Get Token**, create a new token for {ENVIRONMENTNAME}-service-client for Azure API for FHIR, and save that as new secret in {ENVIRONMENTNAME}-clientsecret Secrets created in this challenge.
+- If **Logic App fails on Get Token**, create a new token for `{ENVIRONMENTNAME}-service-client` for Azure API for FHIR, and save that as new secret in `{ENVIRONMENTNAME}-clientsecret Secrets` created in this challenge.
 
-- Logic App succeeded, but **no output was found in Storage Account {ENVIRONMENTNAME}dlg2**, check if blobstorageacctstring secret in {ENVIRONMENTNAME}kv KeyVault has the connection string of Export Storage Account.
+- Logic App succeeded, but **no output was found in Storage Account `{ENVIRONMENTNAME}dlg2`**, check if blobstorageacctstring secret in `{ENVIRONMENTNAME}kv` KeyVault has the connection string of Export Storage Account.
 

@@ -6,8 +6,6 @@
 
 In this challenge, you will analyze and visualize FHIR data using PowerQuery Connector for FHIR and SQL DB Connector in PowerBI. 
 
-Fast Healthcare Interoperability Resources (FHIR®) is a new standard for healthcare data interoperability. Healthcare data is represented as resources such as Patient, Observation, Encounter, and so on, and a REST API is used for querying healthcare data served by a FHIR server. 
-
 Once the data is loaded into FHIR, there are many ways to utilize FHIR data to draw out additional insights whether it is to do some basic analysis or for some deep analysis.
 One option is to use the [Power Query connector for FHIR](https://docs.microsoft.com/en-us/power-query/connectors/fhir/fhir) in PowerBI to import and shape data from a FHIR server.
 Another option is to first structure the data using Databricks and store in Azure SQL DB. Then use Azure SQL DB Connector in PowerBI to visualze. 
