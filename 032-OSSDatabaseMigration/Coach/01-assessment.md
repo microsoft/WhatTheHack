@@ -1,4 +1,4 @@
-# Challenge 1: Assessment (feature differences and compatibility)
+# Challenge 1: Assessment 
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-size-analysis.md)
 
