@@ -1,4 +1,4 @@
-**[Home](../../../../README.md)** - [Prerequisites >](../../../00-prereqs.md)
+**[Home](../../../README.md)** - [Prerequisites >](../../../00-prereqs.md)
 
 ## Setting up Kubernetes
 
