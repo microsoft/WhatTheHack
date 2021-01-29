@@ -20,7 +20,7 @@ In this challenge you'll be setting up your environment so that you can complete
 - Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment:
 
 ```bash
-cd Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
+cd Resources/ARM-Templates/KubernetesCluster
 
 ./create-cluster.sh
 
@@ -28,7 +28,7 @@ cd Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
 
 *Note: this will take several minutes*
 
-Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](Resources/EnvironmentSetUp/HelmCharts/README.md)
+Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](Resources/HelmCharts/README.md)
 
 
 ## Success Criteria
