@@ -11,7 +11,7 @@ You can run the following commands to do the following:
 * How to Scale down the cluster node pools
 
 
-```shell
+```bash
 # Defines the ARM template file location
 export templateFile="aks-cluster.json"
 

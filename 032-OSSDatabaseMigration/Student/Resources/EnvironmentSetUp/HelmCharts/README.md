@@ -2,7 +2,7 @@
 
 ## Setting up Kubernetes
 
-The steps to deploy the AKS cluster, scale it up and scale it down are available in the README file for that section: [README](../ARM-Templates/README.md). 
+The steps to deploy the AKS cluster, scale it up and scale it down are available in the README file for that section: [README](../ARM-Templates/README.md).
 
 You should have not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites >](../../../00-prereqs.md)
 
@@ -10,11 +10,11 @@ You should have not have to do provisioning again since you have already provisi
 
 These instructions provide guidance on how to setup PostgreSQL 11 on AKS
 
-This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure CloudShell but you will need to install or download them if you are using a different environment. 
+This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure CloudShell but you will need to install or download them if you are using a different environment.
 
 ## Installing the PostgreSQL Database
 
-```shell
+```bash
 
 # Navigate to the Helm Charts
 #cd Resources/EnvironmentSetUp/HelmCharts
@@ -26,7 +26,7 @@ helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.passw
 
 ## Checking the Service IP Addresses and Ports
 
-```shell
+```bash
 
 kubectl -n postgresql get svc
 
@@ -35,7 +35,7 @@ kubectl -n postgresql get svc
 
 ## Checking the Pod for Postgres
 
-```shell
+```bash
 
 kubectl -n postgresql get pods
 
@@ -44,7 +44,7 @@ Wait a few minutes until the pod status shows as Running
 
 ## Getting into the Container
 
-```shell
+```bash
 
 # Use this to connect to the database server SQL prompt
 
@@ -80,7 +80,7 @@ exit
 
 Use this to uninstall the PostgreSQL 11 instance from Kubernetes cluster
 
-```shell
+```bash
 
 # Uninstall to the database server. To install again, run helm upgrade
 helm uninstall wth-postgresql
@@ -89,7 +89,7 @@ helm uninstall wth-postgresql
 
 ## Installing MySQL
 
-```shell
+```bash
 
 # Install the Kubernetes Resources
 helm upgrade --install wth-mysql ./MySQL57 --set infrastructure.password=OCPHack8
@@ -98,7 +98,7 @@ helm upgrade --install wth-mysql ./MySQL57 --set infrastructure.password=OCPHack
 
 ## Checking the Service IP Addresses and Ports
 
-```shell
+```bash
 
 kubectl -n mysql get svc
 
@@ -107,7 +107,7 @@ kubectl -n mysql get svc
 
 ## Checking the Pod for MySQL
 
-```shell
+```bash
 
 kubectl -n mysql get pods
 
@@ -115,14 +115,16 @@ kubectl -n mysql get pods
 
 ## Getting into the Container
 
-```shell
+```bash
 
 # Use this to connect to the database server
 
 kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u root -pOCPHack8
 
 ```
+
 Run the following commands to check the MySQL Version and create the WTH database (warning: application deployment will fail if you don't do this)
+
 ```sql
 
 -- Check the mysql DB Version
@@ -155,7 +157,7 @@ exit
 
 Use this to uninstall the MySQL instance from Kubernetes cluster
 
-```shell
+```bash
 
 # Uninstall to the database server. To install again, run helm upgrade command previously executed
 helm uninstall wth-mysql
@@ -166,7 +168,7 @@ helm uninstall wth-mysql
 
 First we navigate to the Helm charts directory
 
-```shell
+```bash
 
 cd Resources/EnvironmentSetUp/HelmCharts
 
@@ -202,7 +204,7 @@ For example, if both values.yaml and override.yaml contained a key called 'names
 
 The commands below allows us to use settings from the values file and then override certain values in the database specific values file.
 
-```shell
+```bash
 
 helm upgrade --install release-name ./HelmChartFolder -f ./HelmChartFolder/values.yaml -f ./HelmChartFolder/override.yaml
 
@@ -210,7 +212,7 @@ helm upgrade --install release-name ./HelmChartFolder -f ./HelmChartFolder/value
 
 To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
 
-```shell
+```bash
 
 helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
 
@@ -218,7 +220,7 @@ helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/value
 
 To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
 
-```shell
+```bash
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
 
@@ -226,7 +228,7 @@ helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/va
 
 If you wish to uninstall the app, you can use one of the following commands:
 
-```shell
+```bash
 
 # Use this to uninstall, if you are using MySQL as the database
 helm uninstall mysql-contosopizza
@@ -239,7 +241,7 @@ helm uninstall postgres-contosopizza
 
 After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
 
-```shell
+```bash
 
 # get service ports and IP addresses
 kubectl -n {infrastructure.namespace goes here} get svc
@@ -257,7 +259,7 @@ kubectl -n {infrastructure.namespace goes here} get svc
 
 Verify that contoso pizza application is running on AKS
 
-```shell
+```bash
 
 # Insert the external IP address of the command <kubectl -n contosoappmysql or contosoapppostgres get svc below>
 
