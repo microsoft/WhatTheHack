@@ -70,8 +70,6 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 5.  [Challenge 5 = Retraining and Model
     Evaluation](Student/05-RetrainingAndEvaluation.md)
 
-6.  [Challenge 6 = Model Monitoring and Data Drift](Student/06-MonitorDataDrift.md)
-
 ## Prerequisites
 
 1.  Azure subscription. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).  
