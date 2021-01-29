@@ -9,16 +9,16 @@
 ## Description
 You will initiate a database cutover in Azure DMS
 You will reconfigure the application to use a connection string that points to the Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values-mysql.yaml or ContosoPizza/values-postgresql.yaml values file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
+
 ```yaml
 appConfig:
-  ...
   dataSourceURL: "jdbc url goes here" # your JDBC connection string goes here
   dataSourceUser: "user name goes here" # your database username goes here
   dataSourcePassword: "Password goes here!" # your database password goes here
-  ...
 ```
 Once you make your changes, you will need to run a helm upgrade command to see the changes reflected:
-```shell
+
+```bash
 
 helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
 
@@ -26,7 +26,7 @@ helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/value
 
 To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
 
-```shell
+```bash
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
 

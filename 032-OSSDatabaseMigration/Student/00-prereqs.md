@@ -1,10 +1,10 @@
-# Challenge 0: Pre-requisites - Ready, Set, GO! 
+# Challenge 0: Pre-requisites - Ready, Set, GO!
 
 **[Home](../README.md)** - [Next Challenge >](./01-assessment.md)
 
 ## Introduction
 
-It's time to set up what you will need in order to do these challenges for OSS DB migration 
+It's time to set up what you will need in order to do these challenges for OSS DB migration
 
 ## Description
 
@@ -17,16 +17,18 @@ In this challenge you'll be setting up your environment so that you can complete
     - MySQL Workbench
     - Visual Studio Code (optional)
 
-- Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your proctor. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment: 
+- Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your proctor. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment:
 
-```shell
+```bash
 cd Resources/EnvironmentSetUp/ARM-Templates/KubernetesCluster
+
 ./create-cluster.sh
+
 ```
 
 *Note: this will take several minutes*
 
-Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](Resources/EnvironmentSetUp/HelmCharts/README.md) 
+Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](Resources/EnvironmentSetUp/HelmCharts/README.md)
 
 
 ## Success Criteria
