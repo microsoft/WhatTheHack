@@ -8,7 +8,7 @@
 
 ## Introduction
 
-In this challenge you will secure Azure workloads using Network Security Groups.
+In this challenge, you will secure Azure workloads using Network Security Groups.
 
 
 <br />
