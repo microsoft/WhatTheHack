@@ -2,7 +2,7 @@
 
 [Home](./README.md) - [Next Challenge >](./Challenge-2.md)
 
-## Notes & Guidance
+## Notes and Guidance
 
 - Make sure the attendees planned their IP addressing.
 
