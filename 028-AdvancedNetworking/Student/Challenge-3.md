@@ -3,14 +3,6 @@
 
 [< Previous Challenge](./Challenge-2.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-4.md)
 
-<br />
-
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge-2.
-
-<br />
-
 ## Introduction
 
 In this challenge, you will learn how to deploy resilient, auto-scaling applications.
@@ -34,8 +26,6 @@ For this challenge:
 <br />
 
 ## Success Criteria
-
-At the end of this challenge, you should be able to verify the following:
 
 - Application should be successfully accessible by external clients.
 
