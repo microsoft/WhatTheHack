@@ -5,12 +5,6 @@
 
 <br />
 
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge-4.
-
-<br />
-
 ## Introduction
 
 In this challenge, you will build an edge security architecture for Contoso.
@@ -32,8 +26,6 @@ For this challenge:
 <br />
 
 ## Success Criteria
-
-At the end of this challenge, you should be able to verify the following:
 
 - You should have all flows secured by the firewalls in the Azure environment.
 
