@@ -42,11 +42,9 @@ For this challenge:
 
 ## Success Criteria
 
-At the end of this challenge, you should be able to verify the following:
+- You should have planned IP addressing for your virtual networks.
 
-- Planned IP addressing for your virtual networks.
-
-- Successfully created two virtual networks with subnets.
+- Successfully provisioned isolated environments for Payment Solutions and Finance departments.
 
 <br />
 
