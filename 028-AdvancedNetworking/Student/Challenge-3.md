@@ -3,6 +3,8 @@
 
 [< Previous Challenge](./Challenge-2.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-4.md)
 
+<br />
+
 ## Introduction
 
 In this challenge, you will learn how to deploy resilient, auto-scaling applications.
