@@ -1,6 +1,6 @@
-# Challenge 2: Coaches Guide
+# Challenge 2: Coach's Guide
 
-[< Previous Challenge](./Challenge-1.md) - [Home](../readme.md) - [Next Challenge >](./Challenge-3.md)
+[< Previous Challenge](./Challenge-1.md) - [Home](./README.md) - [Next Challenge >](./Challenge-3.md)
 
 ## Notes and Guidance
 
