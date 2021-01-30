@@ -5,12 +5,6 @@
 
 <br />
 
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge-3.
-
-<br />
-
 ## Introduction
 
 In this challenge, you will learn how to peer virtual networks and connect to external environments.
@@ -34,8 +28,6 @@ For this challenge:
 <br />
 
 ## Success Criteria
-
-At the end of this challenge, you should be able to verify the following:
 
 - You should have established secure connectivity from on-premises to the resources in Azure.
 
