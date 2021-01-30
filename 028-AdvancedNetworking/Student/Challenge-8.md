@@ -5,9 +5,8 @@
 
 <br />
 
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge-7.
+## Introduction
+In this challenge, you will learn how to expose a service to end customers privately. 
 
 <br />
 
@@ -28,8 +27,6 @@ For this challenge:
 <br />
 
 ## Success Criteria
-
-At the end of this challenge, you should be able to verify the following:
 
 - The client should be able to successfully access the Payments application.
 
