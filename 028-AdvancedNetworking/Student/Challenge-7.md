@@ -5,9 +5,8 @@
 
 <br />
 
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge-6.
+## Introduction
+In this challenge, you will learn how to expose a service to end customers privately. 
 
 <br />
 
@@ -21,8 +20,6 @@ For this challenge:
 <br />
 
 ## Success Criteria
-
-At the end of this challenge, you should be able to verify the following:
 
 - The servers in the Payments and Finance networks should be able to access the storage service successfully.
 
