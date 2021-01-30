@@ -1,6 +1,6 @@
 # Challenge 4: Coach's Guide
 
-[< Previous Challenge](./Challenge-3.md) - [Home](../README.md) - [Next Challenge >](./Challenge-5.md)
+[< Previous Challenge](./Challenge-3.md) - [Home](./README.md) - [Next Challenge >](./Challenge-5.md)
 
 ## Notes and Guidance
 
