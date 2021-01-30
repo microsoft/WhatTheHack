@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide
 
-[Home](../README.md) - [Next Challenge >](./Challenge-2.md)
+[Home](./README.md) - [Next Challenge >](./Challenge-2.md)
 
 ## Notes & Guidance
 
