@@ -4,10 +4,6 @@
 [< Previous Challenge](./Challenge-5.md) - [Home](../README.md) - [Next Challenge>](./Challenge-7.md)
 
 
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge-5.
-
 <br />
 
 ## Introduction
