@@ -4,7 +4,7 @@
 
 Welcome to the Coach's guide. Below is guidance on what to check in the configuration for each lab to ensure it satisfies the success criteria and requirements.
 
- - Estinmated duration is 2.5 days depending on student skill level.
+ - Estimated duration is 2.5 days depending on student skill level.
 
 ## Coach's Guides
 
