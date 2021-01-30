@@ -18,7 +18,7 @@ Before you start this challenge, ensure you have the following setup and access:
 
 ## Introduction
 
-In this challenge you will learn how to design and deploy Azure virtual networks.
+In this challenge, you will learn how to design and deploy Azure virtual networks.
 
 <br />
 
