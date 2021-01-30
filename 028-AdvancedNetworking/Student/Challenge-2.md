@@ -6,12 +6,6 @@
 
 <br />
 
-## Pre-requisites
-
-Before you start this challenge, ensure you have completed Challenge 1.
-
-<br />
-
 ## Introduction
 
 In this challenge you will secure Azure workloads using Network Security Groups.
@@ -51,11 +45,9 @@ For this challenge:
 
 ## Success Criteria
 
-At the end of this challenge, you should be able to verify the following:
-
 - You should have management access to each of the virtual machines.
 
-- You should be able to access the web server successfully.
+- You should be able to access the web service successfully.
 
 - Payment solution group's web servers should be able to access the app servers on port 80.
 
