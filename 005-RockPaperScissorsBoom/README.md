@@ -44,12 +44,12 @@ Here are the technologies and services you will leverage:
 1. [Run the app on Azure](./Student/Guides/challenges/RunOnAzure.md)
 1. [Run the Game Continuously](./Student/Guides/challenges/RunTheGameContinuously.md)
 1. [Add Application Monitoring](./Student/Guides/challenges/AddApplicationMonitoring.md)
-1. [Build a CI/CD pipeline with Azure DevOps](./Student/Guides/challenges/BuildCICDPipelineWithAzureDevOps.md)
-1. [Implement AAD B2C](./Student/Guides/challenges/ImplementAADB2C.md)
-1. [Leverage SignalR](./Student/Guides/challenges/LeverageSignalR.md)
-1. [Leverage CDN](./Student/Guides/challenges/LeverageCDN.md)
-1. [Send a Winner Notification](./Student/Guides/challenges/SendWinnerNotification.md)
-1. [Run a Load Test](./Student/Guides/challenges/RunALoadTest.md)
+2. [Build a CI/CD pipeline with GitHub Actions](./Student/Guides/challenges/BuildCICDPipelineWithGithubActions.md)
+3. [Implement AAD B2C](./Student/Guides/challenges/ImplementAADB2C.md)
+4. [Leverage SignalR](./Student/Guides/challenges/LeverageSignalR.md)
+5. [Leverage CDN](./Student/Guides/challenges/LeverageCDN.md)
+6. [Send a Winner Notification](./Student/Guides/challenges/SendWinnerNotification.md)
+7. [Run a Load Test](./Student/Guides/challenges/RunALoadTest.md)
 
 ### Tournament
 

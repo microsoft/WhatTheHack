@@ -34,6 +34,6 @@ Too comfortable? Eager to do more? Try this:
 
 ## Learning resources
 
-1. [What is Application Insights?](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)
+1. [What is Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
-[Next challenge (Build a CI/CD pipeline with Azure DevOps) >](./BuildCICDPipelineWithAzureDevOps.md)
+[Next challenge (Build a CI/CD pipeline with Azure DevOps) >](./BuildCICDPipelineWithGithubActions.md)
