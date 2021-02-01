@@ -18,9 +18,9 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
 
 - **Deploy Azure IoT Connector for FHIR**
 	- Navigate to Azure API for FHIR resource. Click on IoT Connector under the Add-ins section. Click on the Add button to open the Create IoT Connector page. Enter Connector name for the new Azure IoT Connector for FHIR. Choose Create for Resolution Type and click on Create button.
-- **Configure Azure IoT Connector for FHIR**
-    - On the IoT Connector page, click on **Configure device mapping** button. On the Device mapping page, add the following script to the JSON editor and click Save.
-      ```
+- **Configure Azure IoT Connector for FHIR**. To **upload mapping templates**, click on the newly deployed Azure IoT Connector for FHIR to go to the IoT Connector page.
+   * Device mapping template transforms **device data into a normalized schema**. On the IoT Connector page, click on **Configure device mapping** button to go to the Device mapping page. On the Device mapping page, add the following script to the JSON editor and click Save.
+      ```json
       {
         "templateType": "CollectionContent",
         "template": [
@@ -41,10 +41,9 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
           }
         ]
       }
-     ```
-
-    - On the IoT Connector page, click on **Configure FHIR mapping** button. On the Device mapping page, add the following script to the JSON editor and click Save.
-      ```
+     ``` 
+   * FHIR mapping template **transforms a normalized message to a FHIR-based Observation resource**. On the IoT Connector page, click on **Configure FHIR mapping** button to go to the FHIR mapping page. On the FHIR mapping page, add the following script to the JSON editor and click Save.
+      ```json
       {
         "templateType": "CollectionFhir",
         "template": [
@@ -69,6 +68,7 @@ You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and C
           }
         ]
       }
+     ``` 
 - **Generate a connection string for IoT Device**
     - On the IoT Connector page, select **Manage client connections** button. Click on **Add** button. Provide a name and select the **Create** button. Select the newly created connection from the Connections page and copy the value of Primary connection string field from the overlay window on the right.
 
