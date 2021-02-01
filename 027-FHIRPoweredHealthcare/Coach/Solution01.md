@@ -12,7 +12,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
 
 **Deploy FHIR Server Samples reference architecture for Bulk Load scenario**
 - To deploy **[FHIR Server Samples PaaS scenario (above)](https://github.com/microsoft/fhir-server-samples)**:
-    - First, clone the **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects and find the deployment scripts folder
+    - First, clone the **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples)** git repo to your local project repo, i.e. c:/projects and find the deployment scripts folder
         ```bash
         git clone https://github.com/Microsoft/fhir-server-samples
         cd fhir-server-samples/deploy/scripts
@@ -22,7 +22,6 @@ In this scenario, you will deploy a storage account with a BLOB container called
         Login-AzAccount
         Connect-AzureAd -TenantDomain <AAD TenantDomain>
         ```
-
         **Note:**
         - If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources, then Primary AD tenant is same as Secondary AD tenant and use the same AD tenant for both.
         - If you don't have Administrator access:
