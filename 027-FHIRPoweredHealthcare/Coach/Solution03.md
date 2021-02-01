@@ -12,7 +12,7 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
 
 **Deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert scenarios**
 
-- Use **[HL7toFHIR converion pipeline infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in challenge 2) to expose the C-CDA Conversion service endpoint: 
+- Use **[HL7toFHIR converion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline infrastructure (deployed in **[challenge 2](./Solution02.md)**) to expose the C-CDA Conversion service endpoint: 
 
    `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
 
@@ -41,7 +41,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             $ cd synthea
             $ ./gradlew build check test
             ```
-        Note: This step may have been done in Challenge 1
+        Note: This step may have been done in **[Challenge 1](./Solution01.md)**.
 
     - **[Update the default properties for CDA output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
         ```propoerties
