@@ -27,7 +27,7 @@ In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion
 - **Deploy HL7 Ingest Platform** reference architecture.
     - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
     - Open a bash shell into the Azure CLI 2.0 environment
-    - Switch to 'HL7Conversion' subdirectory in your local repo
+    - Switch to `HL7Conversion` subdirectory in your local repo
     - Run the `./deployhl7ingest.bash` script and follow the prompts
         - Enter your subscription ID
         - Enter a Resource Group name (new or existing)
