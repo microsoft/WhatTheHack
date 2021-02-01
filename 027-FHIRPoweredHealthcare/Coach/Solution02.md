@@ -27,15 +27,15 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
 **Deploy HL7 Ingest Platform**
 - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
 - Open a bash shell into the Azure CLI 2.0 environment
-- Switch to 'HL7Conversion' subdirectory in your local repo
+- Switch to `HL7Conversion` subdirectory in your local repo
 - Run the `./deployhl7ingest.bash` script and follow the prompts
     - Enter your subscription ID
     - Enter a Resource Group name (new or existing)
     - Enter Resource Group location
     - Enter deployment prefix (environment name)
 
-    Note: You should receive the following acknowledgement at the end of deployment.
-    ```
+    **Note:** You should receive the following acknowledgement at the end of deployment.
+    ```bash
     HL7 Ingest Platform has successfully been deployed to group wth-fhir on Sat, Oct 31, 2020 11:26:59 PM
     Please note the following reference information for future use:
     Your ingest host is: https://hl7ingest#####.azurewebsites.net
@@ -47,10 +47,10 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     ```
 
 - Validate resources created in the deployment
-    - Storage account: XXXstore##### and container: hl7
-    - Service Bus Namespace: hlsb#### and queue: hl7ingest
-    - Function App (HTTP Trigger): hl7ingest#####
-    - Application Insights: hl7ingest#####
+    - Storage account: `XXXstore#####` and container: `hl7`
+    - Service Bus Namespace: `hlsb####` and queue: `hl7ingest`
+    - Function App (HTTP Trigger): `hl7ingest#####`
+    - Application Insights: `hl7ingest#####`
 
 **Deploy HL7 to FHIR Conversion Workflow**
 - In bash shell, run the `./deployhl72fhir.bash` script and follow the prompts
@@ -58,7 +58,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter a Resource Group name (new or existing)
     - Enter Resource Group location
     - Enter deployment prefix (environment name)
-    - Enter a resource group name to deploy the converter to: [EVIRONMENTNAME]hl7conv
+    - Enter a resource group name to deploy the converter to: `[EVIRONMENTNAME]hl7conv`
     - Enter the name of the HL7 Ingest Resource Group (from above hl7ingest deployment)
     - Enter the name of the HL7 Ingest storage account (from above hl7ingest deployment)
     - Enter the name of the HL7 ServiceBus namespace (from above hl7ingest deployment)
