@@ -2,7 +2,7 @@
 
 **[Home](./readme.md)** - [Next Challenge>](./Solution01.md)
 
-## Pre-requisite
+## Notes & Guidance
 
 **Install the recommended tool set:** 
 - Access to an **Azure subscription** with Owner access. **[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)**
