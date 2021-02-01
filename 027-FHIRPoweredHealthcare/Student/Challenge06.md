@@ -1,32 +1,30 @@
 # Challenge 6: Create a new Single Page App (SPA) for patient search
 
-[< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** 
+[< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge07.md)
 
 ## Introduction
 
 In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
-![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+<center><img src="../images/challenge06-architecture.jpg" width="350"></center>
 
 ## Description
 
 - Create a new JavaScript Single-Page App (SPA) 
-
-  Hint:
-  You can git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** or use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
+  - You can git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** or use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
 
 - Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
   
-    Hint: You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
+    - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
+
+    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
 - Create a patient lookup by Given or Family name in JavaScript SPA app.
-
-    Hint: You can explore the FHIR API collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
+  - Explore the FHIR API collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
 
 - (Optional) Include any other modern UI features to improve the user experience.
 - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
-
-  Hint: Ensure that the Reply URL matches the local and Azure Web App URL
+  - Ensure that the Reply URL matches the local and Azure Web App URL
     - In AAD App Registration of AAD with directory admin access, configure a new Web platform under Authentication blade
         - Add Redirect URI for both local and Azure Web App URLs
         - Enable Implicit Grant by selecting Access token and ID tokens
@@ -62,4 +60,4 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 - **[Hosting options and deployment scenarios to move your node.js app from a local or cloud repository to Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
 - **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
 - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-- **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)** in Secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
+- **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)**
