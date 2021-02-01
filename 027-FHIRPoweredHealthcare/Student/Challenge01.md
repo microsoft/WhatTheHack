@@ -38,7 +38,7 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
 - Copy Synthea generated FHIR bundle JSON files in its `./output/fhir` folder to `fhirimport` BLOB container.
    - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**.
 - Test FHIR bulk load using Postman FHIR API collection to retreive FHIR patient data loaded.
-   - You can import Postman collection and environment variables for FHIR API from **[`./Student/Resources` folder](./Resources/Postman)**.
+   - You can import Postman collection and environment variables for FHIR API from **[`./Student/Resources`](./Resources/Postman)** folder.
    - You need to **[register your public client application to connect Postman desktop app to FHIR Server](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
 
 ## Success Criteria
