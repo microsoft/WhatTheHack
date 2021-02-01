@@ -29,7 +29,7 @@ In this challenge, you will deploy a sample JavaScript app to connect and read F
     - Select `APIs my organization uses`, search for `Azure Healthcare APIs` and select it.
     - Select `user_impersonation` and click `add permissions`.
 - Update the sample JavaScript app to connect and read FHIR patient data from your FHIR Serer.
-  - Open and copy **[index.html](../Student/Resources/JavaScript-Sample/index.html)** sample JavaScript code in the Student Resources folder. 
+  - Start with the sample code from the **[FHIR patient JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)** site or **[index.html](../Student/Resources/JavaScript-Sample/index.html)** file in the Student Resources folder. 
   - Open App Service resource for sample web app in Azure Portal.
     - Select App Service Editor and select `index.html` file to open it in the editor.
     - Paste the sample code into the editor to replace the content.
