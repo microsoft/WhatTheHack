@@ -4,10 +4,10 @@
 
 ## Notes & Guidance
 
-In this challenge, you will deploy a Health Architecture **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** serverless solution that provides the following services within **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**:
+In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** serverless solution that provides the following services within **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** and FHIR Proxy:
 - Import and process valid HL7 bundles and persist them to a FHIR Compliant store
 - FHIR Server Proxy connection to FHIR Server without exposing credentials
-- Publish successful FHIR CUD events referencing FHIR Resources to an event hub
+- Publish successful FHIR CUD events referencing FHIR Resources to an event hub to support pre-processing and/or post-processing for event driven workflow and orchestration scenarios.  This can be done by enabling the PublishFHIREventPostProcess module of the FHIR Proxy.
 
 Note: This function is deployed and configured as a part of the HL72FHIR Workflow Platform.
 
