@@ -12,16 +12,16 @@ SMART ((Substitutable Medical Applications and Reusable Technology) on FHIR is a
 Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** to integrate partner apps with FHIR Servers and EMR systems through FHIR interfaces. This set of open specifications describes how an app should discover authentication endpoints for FHIR Server and start an authentication sequence.  Specifically, the proxy enables the **[EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence)**.  
 
 **Explore patient medical records and SMART on FHIR apps**
-- Open {ENVIRONMENTNAME}dash App Service and copy 'URL' from Overview blade
+- Open `{ENVIRONMENTNAME}dash` App Service and copy `URL` from `Overview` blade
 - Open browser in In-private/Incognito mode and navigate to FHIR Dashboard app URL (above) 
 - Use the dashboard user credentials to sign in (captured during FHIR Server Samples deployment in challenge 1)
   - In popup Consent dialog box, accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
 - After a successful login, explore patient medical records through FHIR Dashboard app, including:
     - Patient and its FHIR bundle details
-    - Patient medical details
-        - Conditions
-        - Encounters
-        - Observations
+    - Patient medical details:
+        - `Conditions`
+        - `Encounters`
+        - `Observations`
 - Explore SMART on FHIR Apps through FHIR Dashboard app, including:
-    - Growth Chart
-    - Medications
+    - `Growth Chart`
+    - `Medications`
