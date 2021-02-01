@@ -13,3 +13,6 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](./Solution04.md)**
 - Challenge 5: **[Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](./Solution05.md)**
 - Challenge 6: **[Create a new Single Page App (SPA) for patient search](./Solution06.md)**
+- Challenge 7: **[Bulk export, anonymize and store FHIR data into Data Lake](./Solution07.md)**
+- Challenge 8: **[Stream IoMT Device data into FHIR from IoT Central](./Solution08.md)**
+- Challenge 9: **[Analyze and Visualize FHIR data using PowerBI](./Solution09.md)**

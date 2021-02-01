@@ -75,7 +75,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter the FHIR Server/Service Client Tenant ID
 
     Note: You should receive the following acknowledgement at the end of deployment.
-    ```
+    ```bash
     HL72FHIR Workflow Platform has successfully been deployed to group [ENVIRONMENTNAME] on Sun, Nov 1, 2020  2:37:59 PM
     Please note the following reference information for future use:
     Your HL7 FHIR Converter Host is: XXXfhirhl7conv####
@@ -83,21 +83,21 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     Your HL7 FHIR Converter Resource Group is: XXXfhirhl7conv
     ```
 - Validate resources created in the deployment
-    - Storage account: [ENVIRONMENTNAME]store#####
-    - FHIR Event Hub Namespace: fehub###
-    - FHIR Event Hub: fhirevents
-    - FHIREventProcessor Function App: fhirevt####
-    - Application Insights: fhirevt####
+    - Storage account: `[ENVIRONMENTNAME]store#####`
+    - FHIR Event Hub Namespace: `fehub###`
+    - FHIR Event Hub: `fhirevents`
+    - FHIREventProcessor Function App: `fhirevt####`
+    - Application Insights: `fhirevt####`
     - Logic App: HL7toFHIR.  Workflow steps are:
-        - When a message is received in a hl7ingest queue (HL7ServiceBus)
-        - Get blob content (hl7blobstorage)
-        - Connections - Custom Logic App connection (HL7FHIRConverter)
+        - When a message is received in a `hl7ingest` queue (`HL7ServiceBus`)
+        - Get blob content (`hl7blobstorage`)
+        - Connections - Custom Logic App connection (`HL7FHIRConverter`)
         - Import Bundle to FHIR Server (Connected thru FHIR Server Proxy)
 - Test send a sample hl7 message via HL7 over HTTPS
-    - Locate the sample message samplemsg.hl7 in the root directory of the cloned GitHub repo
+    - Locate the sample message `samplemsg.hl7` in the root directory of the cloned GitHub repo
     - Use a text editor to see contents
-    - From the Linux command shell run the following command to test the hl7overhttps ingest
-        ```
+    - From the Linux command shell run the following command to test the `hl7overhttps` ingest
+        ```bash
         curl --trace-ascii - -H "Content-Type:text/plain" --data-binary @samplemsg.hl7 <your ingest host name from above>/api/hl7ingest?code=<your ingest host key from above>
         ```
     - You should receive back an HL7 ACK message to validate that the sample hl7 message was accepted securely stored into blob storage and queued for HL7 to FHIR Conversion processing on the deployed service bus queue

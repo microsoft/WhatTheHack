@@ -5,44 +5,7 @@ Contoso Healthcare is implementing FHIR (Fast Healthcare Interoperability Resour
 You will implement a collection of FHIR reference architectures frome **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)** that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architectures for Azure API for FHIR.
 ![Health Architecture](./images/HealthArchitecture.png)
 
-## Scenario
-Contoso Healthcare is implementing a FHIR-based data management solution. 
-Your team's assistance is needed to implement the following scenarios using FHIR Powered Healthcare hack:
-   * Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
-   * Generate FHIR CUD (create, update, or delete) events whenever FHIR CUD operations take place in FHIR Server for post-processing.
-   * Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
-   * Explore a patient's medical records and encounters in FHIR Patient Dashboard and SMART on FHIR apps.
-   * Bulk export data from FHIR, de-identify the data and store in Data Lake for further processing.
-   * Ingest and Persist IoT device data from IoT Central using IoT Connector for FHIR.
-   * Analyze and Visualize data (EHR, HL7, CCDA, IoMT) in PowerBI using PowerQuery Connector for FHIR and SQL DB Connector.
-
-## Challenges
-<center><img src="./images/challenges_architecture.png" width="850"></center>
-
-**Required in this sequence:**
-- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-- Challenge 1: **[Extract and load FHIR synthetic medical data](Student/Challenge01.md)**
-
-**Complete in sequence or in parallel:**
-- Challenge 2: **[Extract, transform and load HL7 medical data](Student/Challenge02.md)**
-- Challenge 3: **[Extract, transform and load C-CDA medical data](Student/Challenge03.md)**
-- Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
-- Challenge 5: **[Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
-- Challenge 6: **[Create a new Single Page App (SPA) for patient search](Student/Challenge06.md)**
-- Challenge 7: **[Bulk export, anonymize and store FHIR data into Data Lake](Student/Challenge07.md)**
-- Challenge 8: **[Stream IoMT Device data into FHIR from IoT Central](Student/Challenge08.md)**
-- Challenge 9: **[Analyze and Visualize FHIR data using PowerBI](Student/Challenge09.md)**
-
-## Disclaimer
-**You MUST be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant with directory admin role access if you don't have directory admin role access in the primary AD tenant) required for the FHIR Server deployment (Challenge 1).**
-  - **If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.**
-  - **If you don't have directory Administrator access:**
-      - **Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.**
-      - **Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.**
-
-## Prerequisites
-The prerequisites for the hack are covered in [Challenge00](Student/Challenge00.md).
-
+## Learning Objectives
 FHIR Powered Healthcare hack uses these Azure Services to implement Azure API for FHIR (PaaS) use cases:
 1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
 2. **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the `fhirimport` BLOB container.
@@ -64,6 +27,45 @@ FHIR Powered Healthcare hack uses these Azure Services to implement Azure API fo
 18. **[PowerBI](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)** is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 19. **[IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/healthcare/concept-continuous-patient-monitoring-architecture)** helps create, customize, and manage healthcare IoT solutions using IoT Central application templates. Continuous patient monitoring is one application template in healthcare IoT space.
 
+## Scenario
+Contoso Healthcare is implementing a FHIR-based data management solution. 
+Your team's assistance is needed to implement the following scenarios using FHIR Powered Healthcare hack:
+   * Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
+   * Generate FHIR CUD (create, update, or delete) events whenever FHIR CUD operations take place in FHIR Server for post-processing.
+   * Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
+   * Explore a patient's medical records and encounters in FHIR Patient Dashboard and SMART on FHIR apps.
+   * Bulk export data from FHIR, de-identify the data and store in Data Lake for further processing.
+   * Ingest and Persist IoT device data from IoT Central using IoT Connector for FHIR.
+   * Analyze and Visualize data (EHR, HL7, CCDA, IoMT) in PowerBI using PowerQuery Connector for FHIR and SQL DB Connector.
+
+## Challenges
+<center><img src="./images/challenges_architecture.jpg
+" width="850"></center>
+
+**Required challenges complete in order:**
+- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
+- Challenge 1: **[Extract and load FHIR synthetic medical data](Student/Challenge01.md)**
+
+**Complete challenges in any order:**
+- Challenge 2: **[Extract, transform and load HL7 medical data](Student/Challenge02.md)**
+- Challenge 3: **[Extract, transform and load C-CDA medical data](Student/Challenge03.md)**
+- Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
+- Challenge 5: **[Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
+- Challenge 6: **[Create a new Single Page App (SPA) for patient search](Student/Challenge06.md)**
+- Challenge 7: **[Bulk export, anonymize and store FHIR data into Data Lake](Student/Challenge07.md)**
+- Challenge 8: **[Stream IoMT Device data into FHIR from IoT Central](Student/Challenge08.md)**
+- Challenge 9: **[Analyze and Visualize FHIR data using PowerBI](Student/Challenge09.md)**
+
+## Disclaimer
+**You MUST be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant with directory admin role access if you don't have directory admin role access in the primary AD tenant) required for the FHIR Server deployment (Challenge 1).**
+  - **If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.**
+  - **If you don't have directory Administrator access:**
+      - **Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.**
+      - **Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.**
+
+## Prerequisites
+The prerequisites for the hack are covered in [Challenge00](Student/Challenge00.md).
+
 ## Repository Contents
 - `../Student`
   - Student Challenge Guides
@@ -78,7 +80,5 @@ FHIR Powered Healthcare hack uses these Azure Services to implement Azure API fo
 ## Contributors
 - Aruna Ranganathan (Microsoft)
 - Richard Liang (Microsoft)
-- Peter Laudati (Microsoft)
-- Gino Filicetti (Microsoft)
 
 

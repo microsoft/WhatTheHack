@@ -21,7 +21,7 @@
     - Confirm PowerShell module versions.  Re-install the required version below (if needed):
       - Az version 4.1.0 
       - AzureAd version 2.0.2.4
-        ```
+        ```PowerShell
         Get-InstalledModule -Name Az -AllVersions
         Get-InstalledModule -Name AzureAd -AllVersions
         ```

@@ -42,7 +42,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
     - **[Installation](https://github.com/synthetichealth/synthea#installation)**
         - System Requirements: SyntheaTM requires Java 1.8 or above.
         - Clone the SyntheaTM repo, then build and run the test suite:
-            ```
+            ```bash
             $ git clone https://github.com/synthetichealth/synthea.git
             $ cd synthea
             $ ./gradlew build check test
@@ -50,7 +50,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         Note: This step may have been done in Challenge 1
 
     - **[Update the default properties for CDA output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
-        ```
+        ```propoerties
         exporter.baseDirectory = ./output/cda
         ...
         exporter.ccda.export = true
@@ -61,10 +61,10 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         generate.default_population = 1000
         ```
         
-        Note: The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+        **Note:** The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
     - Generate Synthetic Patients
         Generating the population 1000 at a time...
-        ```
+        ```bash
         ./run_synthea -p 1000
         ```
     - For this configuration, Synthea will output 1000 patient records in FHIR formats in `./output/cda` folder.
@@ -77,8 +77,8 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
         - Add directory location of AzCopy executable to your system path
         - Type `azcopy` or `./azcopy` in Windows PowerShell command prompts to get started
         - Use a SAS token to copy Synthea generated patient clinical data XML file(s) to hl7ingest Azure Blob storage
-               Sample AzCopy command:
-               ```
+            - Sample AzCopy command:
+               ```bash
                azcopy copy "<your Synthea ./output/cda directory>" "<hl7ingest blob container URL appended with SAS token>"
                ```
     - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**
@@ -87,7 +87,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
     - Monitor Log Stream in function app 'cdafhirconvert.BlobTrigger1'
         - Verify in log that 'FhirBundleBlobTrigger' function auto runs when new blob detected
             Sample log output:
-            ```
+            ```bash
             Executing 'hl7ingestBlobTrigger' (Reason='New blob detected...)...
             ...
             Uploaded /...
@@ -98,7 +98,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 - Open Postman and import Postman collection and environment variables for FHIR API (if you have not imported them).
 - Run FHIR API HTTP Requests to validate imported clinical data.
 
-Note: See challenge 1 solution file for detailed guide on using Postman to access FHIR Server APIs.
+**Note:** See **[challenge 1 solution file](./Solution01.md)** for detailed guide on using Postman to access FHIR Server APIs.
 
 
 
