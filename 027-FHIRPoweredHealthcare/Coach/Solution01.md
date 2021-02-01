@@ -98,7 +98,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 **Use Postman to retrieve Patients data via FHIR Patients API**
 - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
     - In Postman, click Import.
-    - In your `../Student/Resources/Postman` folder, select **[Environment json file](../Student/Resources/Postman/WTHFHIR.postman_environment)** and **[Collection](../Student/Resources/Postman/WTHFHIR.postman_collection.json)** JSON files.
+    - In your `../Student/Resources/Postman` folder, select **[Environment](../Student/Resources/Postman/WTHFHIR.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTHFHIR.postman_collection.json)** JSON files.
     - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
     - You will get confirmation that WTH Collection and Environment were imported and see in Postman a new 'WTH FHIR' in Collections (left) blade and top right Environment Var drop-down list.
    - Select `WTH FHIR` environment and click `Environment Quick Look` button to see a list of env vars: 
