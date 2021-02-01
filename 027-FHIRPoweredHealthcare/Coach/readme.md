@@ -1,4 +1,4 @@
-# Event-driven FHIR Patient Search
+# FHIR Powered Healthcare
 
 ## Introduction
 Welcome to the coach's guide for the FHIR Powered Heathcare What The Hack. Here you will find links to specific coaches' guidance for each of the challenges.
