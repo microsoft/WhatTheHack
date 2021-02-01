@@ -33,7 +33,7 @@
 - **[.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)**
 - **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)** (needed to run Synthea Patient Generator tool)
 - **[Visual Studio Code](https://code.visualstudio.com/)**
-- **[Node Module Extension](https://code.visualstudio.com/docs/nodejs/extensions)**
+- **[Node Module Extension for VS Code](https://code.visualstudio.com/docs/nodejs/extensions)**
 - **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
 - **[Download Node.js Window Installer](https://nodejs.org/en/download/)**
 - **[Download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
