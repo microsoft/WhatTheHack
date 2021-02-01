@@ -36,13 +36,13 @@ In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion
 - Deploy **[HL7toFHIR Conversion Workflow](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#-deploying-your-own-hl7tofhir-conversion-workflow)** reference architecture.
     - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)** if you have not done so.
     - Open a bash shell into the Azure CLI 2.0 environment
-    - Switch to HL7Conversion subdirectory of this repo
+    - Switch to `HL7Conversion` subdirectory of this repo
     - Run the `deployhl72fhir.bash` script and follow the prompts
         - Enter your subscription ID
         - Enter a Resource Group name (new or existing)
         - Enter Resource Group location
         - Enter deployment prefix (environment name)
-        - Enter a resource group name to deploy the converter to: [EVIRONMENTNAME]hl7conv
+        - Enter a resource group name to deploy the converter to: `[EVIRONMENTNAME]hl7conv`
         - Enter the name of the HL7 Ingest Resource Group (from above hl7ingest deployment)
         - Enter the name of the HL7 Ingest storage account (from above hl7ingest deployment)
         - Enter the name of the HL7 ServiceBus namespace (from above hl7ingest deployment)
@@ -54,18 +54,18 @@ In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion
         - Enter the FHIR Server/Service Client Tenant ID  
           
 - Validate resources created in the deployment
-    - Storage account: [ENVIRONMENTNAME]store#####
-    - FHIR Event Hub Namespace: fehub###
-    - FHIR Event Hub: fhirevents
-    - FHIREventProcessor Function App: fhirevt####
-    - Application Insights: fhirevt####
-    - Logic App: HL7toFHIR.  Workflow steps are:
-        - When a message is received in a hl7ingest queue (HL7ServiceBus)
-        - Get blob content (hl7blobstorage)
-        - Connections - Custom Logic App connection (HL7FHIRConverter)
+    - Storage account: `[ENVIRONMENTNAME]store#####`
+    - FHIR Event Hub Namespace: `fehub###`
+    - FHIR Event Hub: `fhirevents`
+    - FHIREventProcessor Function App: `fhirevt####`
+    - Application Insights: `fhirevt####`
+    - Logic App: `HL7toFHIR` Workflow steps are:
+        - When a message is received in a `hl7ingest` queue (`HL7ServiceBus`)
+        - Get blob content (`hl7blobstorage`)
+        - Connections - Custom Logic App connection (`HL7FHIRConverter`)
         - Import Bundle to FHIR Server (Connected thru FHIR Server Proxy)
 
-- Test send sample HL7v2 message via hl7overhttps ingestion service.
+- Test send sample HL7v2 message via `hl7overhttps` ingestion service.
     - Locate the sample message `samplemsg.hl7` in the root directory of the cloned Health Architecture GitHub repo
     - Use a text editor to see contents
     - From the Linux command shell run the following command to test the hl7overhttps ingest
@@ -77,7 +77,7 @@ In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion
 
 ## Success Criteria
 - You have deployed HL7 Ingest, Conversion reference architectures that includes the FHIR Event Processor and FHIR Converter components.
-- You have tested sending sample HL7v2 message via HL7OverHTTPS ingest service.
+- You have tested sending sample HL7v2 message via `HL7OverHTTPS` ingest service.
 - You have validated the end-to-end HL7 Ingest and Conversion process.
 - You have validated FHIR CUD event is published to Event Hub for post-processing.
 
