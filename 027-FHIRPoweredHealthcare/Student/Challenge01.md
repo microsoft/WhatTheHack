@@ -15,17 +15,17 @@ In this scenario, you will deploy a storage account with a BLOB container called
 
 You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture as follows:
 - Deploy **[FHIR Server Samples PaaS scenario (above)](https://github.com/microsoft/fhir-server-samples)** to ingest and bulk load Synthea generated FHIR patient data into FHIR Server in near real-time.
-   - Hint:
-      - First, clone **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
-      - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
-         - Before running this **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant (can be primary tenant if you already have directory admin privilege) that provides you with directory admin role access required for this setup.
+   - Clone **['FHIR Server Samples' git repo](https://github.com/microsoft/fhir-server-samples)** to your local project repo, i.e. c:/projects.
+   - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
+      - Before running this **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant (can be primary tenant if you already have directory admin privilege) that provides you with directory admin role access required for this setup.
 
-         NOTE: The connection to Azure AD can be made using a different tenant domain than the one tied to your Azure subscription. If you don't have privileges to create app registrations, users, grant admin consent, etc. in your Azure AD tenant, you can create a new secondary tenant, which will just be used for demo identities, etc. 
-         - Post deployment, save your admin tenant user credential to be used in later challenges for web app sign-in.
+      **NOTE:** The connection to Azure AD can be made using a different tenant domain than the one tied to your Azure subscription. If you don't have privileges to create app registrations, users, grant admin consent, etc. in your Azure AD tenant, you can create a new secondary tenant, which will just be used for demo identities, etc. 
+
+   - Post deployment, save your admin tenant user credential to be used in later challenges for web app sign-in.
          
-      - To Validate your deployment, 
-         - Check Azure resources created in {ENVIRONMENTNAME} and {ENVIRONMENTNAME}-sof Resource Groups
-         - Check App Registration in secondary AAD tenant that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
+   - To Validate your deployment, 
+      - Check Azure resources created in `{ENVIRONMENTNAME}` and `{ENVIRONMENTNAME}-sof` Resource Groups
+      - Check App Registration in secondary AAD tenant that **[all three different client application types are registered for Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)**
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 
    - **[Update the default properties for FHIR output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
@@ -33,13 +33,11 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
       - Enable FHIR bundle export, set `exporter.fhir.export = true` property
       - Configure Synthea to generate 1000 patient records, set `generate.default_population = 1000` property
         
-      Note: The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
+      **Note:** The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
 
 - Copy Synthea generated FHIR bundle JSON files in its `./output/fhir` folder to `fhirimport` BLOB container.
-   - Hint: You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**.
+   - You can **[copy data to Azure Storage using Azure AzCopy via commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** or **[copy data to Azure Storage via Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**.
 - Test FHIR bulk load using Postman FHIR API collection to retreive FHIR patient data loaded.
-
-   Hint: 
    - You can import Postman collection and environment variables for FHIR API from **[`./Student/Resources` folder](./Resources/Postman)**.
    - You need to **[register your public client application to connect Postman desktop app to FHIR Server](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)**
 

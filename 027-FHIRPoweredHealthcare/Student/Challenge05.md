@@ -18,7 +18,7 @@ Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.
 You will perform the following steps to access patient medical records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
 - Access FHIR Dashboard app
     - Open In-private/Incognito browser and navigate to FHIR Dashboard app URL.
-    - Use the dashboard user credentials to sign in (captured during FHIR Server Samples deployment in challenge 1).
+    - Use the dashboard user credentials to sign in (captured during FHIR Server Samples deployment in **[challenge 1](./Challenge01.md)**.
     - In popup Consent dialog box, accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
 - Explore patient medical records through FHIR Dashboard app, including:
     - Patient and its FHIR bundle details
