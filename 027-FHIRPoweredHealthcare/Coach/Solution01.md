@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 1 - Extract and load FHIR patient medical records
+# Coach's Guide: Challenge 1 - Extract and load FHIR medical data
 
 [< Previous Challenge](./Solution00.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution02.md)
 
@@ -8,9 +8,7 @@ In this challenge, you will implement the FHIR Server Samples reference architec
 
 **FHIR bulk load scenario**
 
-In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR Server.  This bulk ingestion is performed by a BLOB triggered function app as depicted below:
-
-![FHIR Server Bulk Load](../images/fhir-serverless-bulk-load.jpg)
+In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR Server.  This bulk ingestion is performed by a BLOB triggered function app.
 
 **Deploy FHIR Server Samples reference architecture for Bulk Load scenario**
 - To deploy **[FHIR Server Samples PaaS scenario (above)](https://github.com/microsoft/fhir-server-samples)**:
