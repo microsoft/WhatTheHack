@@ -39,8 +39,7 @@ Your team's assistance is needed to implement the following scenarios using FHIR
    * Analyze and Visualize data (EHR, HL7, CCDA, IoMT) in PowerBI using PowerQuery Connector for FHIR and SQL DB Connector.
 
 ## Challenges
-<center><img src="./images/challenges_architecture.jpg
-" width="850"></center>
+<center><img src="./images/challenges_architecture.jpg" width="850"></center>
 
 **Required challenges complete in order:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
