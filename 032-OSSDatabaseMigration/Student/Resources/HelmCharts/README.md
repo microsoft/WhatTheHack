@@ -4,7 +4,7 @@
 
 The steps to deploy the AKS cluster, scale it up and scale it down are available in the README file for that section: [README](../ARM-Templates/README.md).
 
-You should have not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites](../../../00-prereqs.md)
+You should not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites](../../../00-prereqs.md)
 
 ## PostgreSQL Setup on Kubernetes
 
