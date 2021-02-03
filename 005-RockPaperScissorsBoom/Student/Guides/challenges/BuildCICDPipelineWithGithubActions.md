@@ -33,6 +33,7 @@ Too comfortable? Eager to do more? Try this:
 
 1. Instead of deploying the app on every, you could only deploy when a release event is executed [Events that trigger workflows](https://docs.github.com/actions/guides/about-continuous-integration).
 2. Instead of pushing your containers images ACR, you could use [GitHub Container Registry](https://docs.github.com/packages/guides/about-github-container-registry).
+3. Deploying the image is a disruptive operation, consider using [App Service Deployment Slots](https://docs.microsoft.com/azure/app-service/deploy-best-practices#use-deployment-slots) to have a Blue/Green deployment strategy
 
 ## Learning resources
 

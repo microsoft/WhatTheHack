@@ -95,7 +95,7 @@ docker push <container-registry>/<image-name>:<image-tag>
         -n $appName \
         -p $appPlan \
         -i $registryUrl/$imageName:$imageTag \
-        -u $registryUserName \
+        -s $registryUserName \
         -w $registryPassword
    ```
 
