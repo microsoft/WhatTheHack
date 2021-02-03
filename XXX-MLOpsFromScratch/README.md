@@ -88,7 +88,7 @@ Your team will have individuals of varying skill sets, so it is imperative to de
     Note: Azure ML Workspace must be created first before creating Service Connections. 
   
 4.  Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
-    for Data Science tasks (This is only required if you wish to test scripts on a local machine or a notebook on Azure).
+    for Data Science tasks.
 
     - Anaconda - <https://docs.anaconda.com/anaconda/install/windows/>
 
