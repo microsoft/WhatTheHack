@@ -96,7 +96,7 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
     - <https://www.python.org/downloads/release/python-3611/>
 
-5.  Visual Studio Code (Only required if you wish to test python code locally)
+5.  Visual Studio Code or any Python IDE
 
       - Python extensions
 
