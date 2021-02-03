@@ -1,8 +1,6 @@
 # Challenge 1 – Start Project and Import Repo into Azure DevOps
 
-## Prerequisites
-
-All prerequisites from the [README file](../README.md).
+[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-UnitTesting.md)
 
 ## Introduction
 
@@ -61,14 +59,9 @@ most common and prevalent tasks in Machine Learning.
     7.  deployOnAci.py to deploy the scoring image on ACI.
 
     8.  WebserviceTest.py to the ACI deployment/endpoint.
-
-
-## Success Criteria
-
-1.  Count the number of CSV files extracted into /Data folder LOCALLY using a Python script in VS Code or any popular IDE.
-2.  Creating an ARIMA model locally using VS Code.
-3.  Forecasting project imported into Azure DevOps.
+    
 
 ## Learning resources
 
-[Next Challenge – Create Unit Test in Azure DevOps](02-UnitTesting.md)
+-   https://azure.microsoft.com/en-us/services/machine-learning/mlops/
+-   https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/
