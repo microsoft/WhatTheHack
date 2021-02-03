@@ -1,8 +1,6 @@
 # Challenge 1 – Start Project and Import Repo into Azure DevOps
 
-## Prerequisites
-
-All prerequisites from the [README file](../README.md).
+[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-UnitTesting.md)
 
 ## Introduction
 
@@ -53,4 +51,6 @@ most common and prevalent tasks in Machine Learning.
 
 ## Learning resources
 
-[Next Challenge – Create Unit Test in Azure DevOps](02-UnitTesting.md)
+-   https://azure.microsoft.com/en-us/services/machine-learning/mlops/
+-   https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/
+
