@@ -1,9 +1,7 @@
 # Challenge 5 – Retraining and Model Evaluation
 
-## Prerequisites
+[< Previous Challenge](./04-ReleasePipeline.md) - **[Home](../README.md)**
 
-1.  [Challenge\#4 (Create a Release Pipeline)](04-ReleasePipeline.md) should be
-    done successfully
 
 ## Introduction
 
@@ -51,7 +49,7 @@ Azure ML Model Registry.
 
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
 ## Congratulations
 
