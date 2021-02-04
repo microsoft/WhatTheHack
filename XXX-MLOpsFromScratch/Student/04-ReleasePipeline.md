@@ -1,11 +1,7 @@
 # Challenge 4 – Create a Release Pipeline In Azure DevOps
 
-## Prerequisites
+[< Previous Challenge](./03-BuildPipeline.md) - **[Home](../README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
 
-1.  [Challenge 3 – Create a Build Pipeline](03-BuildPipeline.md) should be done
-    successfully.
-
-2.  Build artifact ready to be used in the Release pipeline.
 
 ## Introduction
 
@@ -67,10 +63,8 @@ across different environments.
 
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
-
-[Release pipelines General Resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
-
-[Next challenge – Retraining and Model Evaluation](05-RetrainingAndEvaluation.md)
+-   https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   [Release pipelines General Resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
 
 
