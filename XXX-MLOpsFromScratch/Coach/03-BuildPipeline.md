@@ -1,9 +1,7 @@
 # Challenge 3 – Create a Build Pipeline in Azure DevOps
 
-## Prerequisites
+[< Previous Challenge](./02-UnitTesting.md) - **[Home](../README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
 
-1.  [Challenge\#2](02-UnitTesting.md) (Create a Unit Test in Azure DevOps)
-    should be done successfully
 
 ## Introduction
 
@@ -80,17 +78,8 @@ updated Azure Machine Learning pipeline after building the code.
 
 6.  Review Build Outputs - confirm that the model and azure container image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
 
-## Success criteria
-
-1.  An end-to-end Build pipeline created from an empty job (from scratch) using
-    the classic editor (without YAML) in Azure DevOps
-
-2.  Forecasting model registered with the Azure ML Model Registry
-
-3.  A container image for your model must be created under Azure ML Images
 
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
-
-[Next challenge – Create a Release Pipeline](04-ReleasePipeline.md)
+-   https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
