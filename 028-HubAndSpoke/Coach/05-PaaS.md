@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenging you will have a deep look at ways of integrating Azure PaaS services with your Virtual Network.
+In this challenge you will have a deep look at ways of integrating Azure PaaS services with your Virtual Network.
 
 ## Description
 

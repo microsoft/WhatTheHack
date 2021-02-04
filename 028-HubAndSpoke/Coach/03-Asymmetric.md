@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenging participants will diagnose a hub and spoke configuration.
+In this challenge participants will diagnose a hub and spoke configuration.
 
 ## Description
 
