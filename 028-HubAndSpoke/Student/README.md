@@ -16,7 +16,7 @@ These are your challenges, it is recommended to start with the first one and pro
 
 Please make sure that your deployment meets these objectives:
 
-- Challenge 0: **[Pre-requisites](00-prereqs.md)**
+- Challenge 0: **[Pre-requisites](00-Prereqs.md)**
    - Prepare your workstation to work with Azure
 - Challenge 1: **[Hub and spoke](01-HubNSpoke-basic.md)**
     - Configure a basic hub and spoke design with hybrid connectivity
