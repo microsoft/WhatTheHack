@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenging participants will be fine-tuning their routing design to send VM traffic through the firewall.
+In this challenge participants will be fine-tuning their routing design to send VM traffic through the firewall.
 
 ## Description
 

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenging you will integrate an Application Gateway in the design.
+In this challenge you will integrate an Application Gateway in the design.
 
 ## Description
 
