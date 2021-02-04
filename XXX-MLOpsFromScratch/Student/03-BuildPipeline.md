@@ -1,9 +1,6 @@
 # Challenge 3 – Create a Build Pipeline in Azure DevOps
 
-## Prerequisites
-
-1.  [Challenge\#2](02-UnitTesting.md) (Create a Unit Test in Azure DevOps)
-    should be done successfully
+[< Previous Challenge](./02-UnitTesting.md) - **[Home](../README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
 
 ## Introduction
 
@@ -89,6 +86,7 @@ updated Azure Machine Learning pipeline after building the code.
 
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
-[Next challenge – Create a Release Pipeline](04-ReleasePipeline.md)
+
