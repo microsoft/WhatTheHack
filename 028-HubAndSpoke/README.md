@@ -31,7 +31,7 @@ No specific prerequisites are needed, but familiarity with Azure Networking is a
 
 Start this WhatTheHack with the [student guide](Student/README.md)
 
-- Challenge 0: **[Pre-requisites](Student/00-prereqs.md)**
+- Challenge 0: **[Pre-requisites](Student/00-Prereqs.md)**
    - Prepare your workstation to work with Azure
 - Challenge 1: **[Hub and spoke](Student/01-HubNSpoke-basic.md)**
     - Configure a basic hub and spoke design with hybrid connectivity
