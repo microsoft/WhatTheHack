@@ -1,6 +1,6 @@
 # Challenge 2: Firewalling traffic
 
-[< Previous Challenge](./01-HubNSpoke-basic.md) - **[Home](README.md)** - [Next Challenge >](./03-k8sintro.md)
+[< Previous Challenge](./01-HubNSpoke-basic.md) - **[Home](README.md)** - [Next Challenge >](./03-Asymmetric.md)
 
 ## Introduction
 
