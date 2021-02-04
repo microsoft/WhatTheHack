@@ -1,9 +1,6 @@
 # Challenge 5 – Retraining and Model Evaluation
 
-## Prerequisites
-
-1.  [Challenge\#4 (Create a Release Pipeline)](04-ReleasePipeline.md) should be
-    done successfully
+[< Previous Challenge](./04-ReleasePipeline.md) - **[Home](../README.md)**
 
 ## Introduction
 
@@ -40,18 +37,9 @@ Azure ML Model Registry.
 
 4.  Review artifacts and outputs from Build and Release pipelines
 
-## Success criteria
-
-1.  A retrained model (if necessary with better performance) is created and registered within the Azure ML Model Registry
-
-2.  A container image for your retrained model is created under Azure ML Images
-
-3.  A “healthy” ACI deployment for your retrained model is created under Azure
-    ML Endpoints
-
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 
 ## Congratulations
 
