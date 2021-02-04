@@ -1,9 +1,6 @@
 # Challenge 2 – Create a Unit Test in Azure DevOps
 
-## Prerequisites
-
-1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Import Forecasting Project into Azure DevOps)
-    should be done successfully
+[< Previous Challenge](./01-TimeSeriesForecasting.md) - **[Home](../README.md)** - [Next Challenge >](./03-BuildPipeline.md)
 
 ## Introduction
 
@@ -36,7 +33,9 @@ source and saved in the working directory
 
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   https://azure.microsoft.com/en-us/services/machine-learning/mlops/
+-   https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/
 
-[Next challenge – Create a Build Pipeline](03-BuildPipeline.md)
+
 
