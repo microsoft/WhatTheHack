@@ -1,9 +1,6 @@
 # Challenge 2 – Create a Unit Test in Azure DevOps
 
-## Prerequisites
-
-1.  [Challenge\#1](01-TimeSeriesForecasting.md) (Import Forecasting Project into Azure DevOps)
-    should be done successfully
+[< Previous Challenge](./01-TimeSeriesForecasting.md) - **[Home](../README.md)** - [Next Challenge >](./03-BuildPipeline.md)
 
 ## Introduction
 
@@ -28,15 +25,10 @@ source and saved in the working directory
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
     - **Hint:** It is encouraged to leverage the Python Script task using the pipeline task manager in Azure DevOps
 
-## Success criteria
-
-1.  Count the number of CSV files extracted into /Data folder using a Python script in Azure DevOps pipeline. (This can be the same script used in Challenge#1)
-    
-2.  Visualizing and exploring the data (using a python visualization library like matplotlib or seaborn or dash)
 
 ## Learning resources
 
-<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
-
-[Next challenge – Create a Build Pipeline](03-BuildPipeline.md)
+-   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   https://azure.microsoft.com/en-us/services/machine-learning/mlops/
+-   https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/
 
