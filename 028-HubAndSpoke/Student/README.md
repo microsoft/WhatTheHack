@@ -14,7 +14,7 @@ These are your challenges, it is recommended to start with the first one and pro
 
 ## Challenges
 
-Please make sure that your deployment meets these objectives:
+Please visit the relevant page for each challenge in order:
 
 - Challenge 0: **[Pre-requisites](00-Prereqs.md)**
    - Prepare your workstation to work with Azure
