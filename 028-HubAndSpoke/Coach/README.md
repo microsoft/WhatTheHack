@@ -12,14 +12,10 @@
 
 These topics are not covered, and you might want to introduce them along the way depending on the participants interests:
 
-* **IP addressing/subnetting**: if this is not clear, you might want to whiteboard this in the first scenario (hub and spoke), or have a participant explain to the others
-* **NAT gateway/ALB outbound rules**: this could be discussed in the NVA scenario
-* **NSGs**: complex NSG scenarios (like interaction with standard ALB, applying NSGs to both subnet and NIC, flog logs, etc) and ASGs are not covered in this FastHack. If the question comes up you could make them configure NSGs in the first scenario (hub and spoke)
+* **IP addressing/subnetting**: if this is not clear, you might want to whiteboard this in the first scenario (hub and spoke), or have a participant explain to the others. You can use a web-based IP subnet calculator
 
 ## Challenges
 
-- Challenge 0: **[Pre-requisites](00-Prereqs.md)**
-   - Prepare your workstation to work with Azure
 - Challenge 1: **[Hub and spoke](01-HubNSpoke-basic.md)**
     - Configure a basic hub and spoke design with hybrid connectivity
 - Challenge 2: **[Azure Firewall](02-AzFW.md)**
