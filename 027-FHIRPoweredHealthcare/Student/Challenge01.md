@@ -29,7 +29,7 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 
    - **[Update the default properties for FHIR output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
-      - Set Synthea export directory:  
+      - Set Synthea export directory: 
       `exporter.baseDirectory = ./output/fhir`
       - Enable FHIR bundle export: 
       `exporter.fhir.export = true`
