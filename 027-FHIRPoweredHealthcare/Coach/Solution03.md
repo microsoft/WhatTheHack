@@ -65,7 +65,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
 
 **Bulk Load Synthea generated patient FHIR Bundles to FHIR Server**
 - Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will automatically trigger the new logic app C-CDA to FHIR conversion workflow created above to convert and persist resulted FHIR bundle into FHIR Server. 
-    - To **[Copy data to Azure Storage using AzCopy commandline](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
+    - To Copy data to Azure Storage using **[AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** commandline tool
         - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
         - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
         - Add directory location of AzCopy executable to your system path
@@ -75,11 +75,11 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
                ```bash
                azcopy copy "<your Synthea ./output/cda directory>" "<hl7ingest blob container URL appended with SAS token>"
                ```
-    - Alternatively **[Copy data to Azure Storage using Azure Storage Explorer UI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)**
-        - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on 'cda' to list container content
-        - Click 'Upload', and in 'Upload blob' window, browse to Synthea './result/cda' folder and select C-CDA XML files to upload
-    - Monitor Log Stream in function app 'cdafhirconvert.BlobTrigger1'
-        - Verify in log that 'FhirBundleBlobTrigger' function auto runs when new blob detected
+    - Alternatively, copy data to Azure Storage using **[Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** user interface
+        - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on `cda` to list container content
+        - Click `Upload`, and in `Upload blob` window, browse to Synthea `./result/cda` folder and select C-CDA XML files to upload
+    - Monitor Log Stream in function app `cdafhirconvert.BlobTrigger1`
+        - Verify in log that `FhirBundleBlobTrigger` function auto runs when new blob detected
             Sample log output:
             ```bash
             Executing 'hl7ingestBlobTrigger' (Reason='New blob detected...)...
