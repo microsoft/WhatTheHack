@@ -63,7 +63,7 @@ Your team's assistance is needed to implement the following scenarios using FHIR
       - **Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.**
 
 ## Prerequisites
-The prerequisites for the hack are covered in [Challenge00](Student/Challenge00.md).
+The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
 
 ## Repository Contents
 - `../Student`
