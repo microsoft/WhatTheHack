@@ -84,8 +84,8 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
         npm install react react-dom
         npm install @azure/msal-react @azure/msal-browser
         ```
-    - Setup index.js in root project folder to handle the app startup and basic HTTP web server functionality similar what's done in traditional Apache.
-      - Import react-dom package to provide DOM-specific methods to be used in the app.
+    - Setup `index.js` in root project folder to handle the app startup and basic HTTP web server functionality similar what's done in traditional Apache.
+      - Import `react-dom` package to provide DOM-specific methods to be used in the app.
         ```DotNet
         import ReactDOM from "react-dom";
         ```
@@ -94,7 +94,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
         import { Provider } from "react-redux";
         import { basicReduxStore } from "./reduxStore";
         ```
-      - Setup react-dom `render` method to render React app to the web page.
+      - Setup `react-dom` `render` method to render React app to the web page.
       - **[Providing the Redux store](https://react-redux.js.org/introduction/basic-tutorial#providing-the-store)** by wrapping the app with the `<Provider />` API provided by React Redux in the `ReactDOM.render()` function.
         ```DotNet
         ReactDOM.render(
@@ -104,7 +104,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
           document.getElementById("root")
         );
         ```
-    - Create React SPA UI in App.js to handle MS Identity Platorm authentication services and patient search UI functionalities.
+    - Create React SPA UI in `App.js` to handle MS Identity Platorm authentication services and patient search UI functionalities.
       - Import authentication provider and instantiate it only once as a singleton service.
       - Implement patient search UI built with Bootstrap 4 Framework.
           - **[Include React Bootstrap package in your app](https://react-bootstrap.github.io/getting-started/introduction/)**
@@ -117,9 +117,10 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
         - Initialize **[MSAL (@azure/msal-react)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)** in React app
         - Configure **[Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
         - MSAL client authentication,
-        - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
+          - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
     - Create patient search function `callPatientSearch.js` to setup and call FHIR API using `fetch` method
-      - Single-page application: **[Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
+      - Single-page application: **[Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** 
+      - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
     - Access and update DOM elements in `updateUI.js` to render patient search results
 
 - (Optional) Include any other modern UI features to improve the user experience.
