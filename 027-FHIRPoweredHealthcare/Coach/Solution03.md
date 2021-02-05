@@ -1,10 +1,10 @@
-# Coach's Guide: Challenge 3 - Extract, transform and load C-CDA medical data
+# Coach's Guide: Challenge 3 - Extract, transform and load C-CDA synthetic medical data
 
 [< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
 
 ## Notes & Guidance
 
-In this challenge, you will use the FHIR Converter reference architecture in Microsoft Health Architectures, deployed in challenge 2, to ingest, transform, and load clinical healthcare data into FHIR Server.  You will generate synthetic patient clinical data (C-CDA), convert them into FHIR Bundle and ingest them into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient clinical data in HL7 C-CDA format. 
+In this challenge, you will use the FHIR Converter reference architecture in Microsoft Health Architectures, deployed in **[challenge 2](./Solution02.md)**, to ingest, transform, and load clinical healthcare data into FHIR Server.  You will generate synthetic patient clinical data (C-CDA), convert them into FHIR Bundle and ingest them into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient clinical data in HL7 C-CDA format. 
 
 **Clinical data ingest and convert Scenario**
 

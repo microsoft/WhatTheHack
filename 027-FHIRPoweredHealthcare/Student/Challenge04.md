@@ -24,22 +24,21 @@ You will deploy a FHIR sample JavaScript app in Azure to read patient data from 
 
 - **[Register your public client application to connect web app to FHIR Server](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)** in Secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
     - Ensure that the Reply URL matches the Web App URL
-        - In AAD App Registration, configure a new Web platform under Authentication blade
-            - Set Redirect URIs to [Web App URL]
-            - Enable Implicit Grant by selecting Access token and ID tokens
-            - Configure permissions for Azure Healthcare APIs with User_Impersonation permission (if needed)
+        - In AAD `App Registration`, configure a new `Web Platform` under `Authentication` blade
+            - Set `Redirect URIs` to your [Web App URL]
+            - Enable `Implicit Grant` by selecting Access token and ID tokens
+            - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
  
 - Write a new JavaScript application to connect and read FHIR patient data
     - Start with the sample code from the **[FHIR patient JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**.
-    - **[Initialize MSAL ((Mirosoft Authentication Library)](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** provider configuration for your FHIR environment:
-        - clientId - Update with your client application ID of public client app registered earlier
-        - authority - Update with Authority from your FHIR Server (under Authentication)
-        - FHIRendpoint - Update the FHIRendpoint to have your FHIR service name
-        - Scopes - Update with Audience from your FHIR Server (under Authentication)
+    - Initialize **[MSAL](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** (Mirosoft Authentication Library) provider configuration for your FHIR environment:
+        - `clientId` - Update with your client application ID of public client app registered earlier
+        - `authority` - Update with Authority from your FHIR Server (under Authentication)
+        - `FHIRendpoint` - Update the FHIRendpoint to have your FHIR service name
+        - `Scopes` - Update with Audience from your FHIR Server (under Authentication)
 
 - Deploy your sample code from your local repo to your App Service `wwwroot` folder.
-
-    **Hint:** Use App Service Editor in-browser editing tool to update your `index.html` code under the `wwwroot` folder.
+    - Use App Service Editor in-browser editing tool in Azure Portal to update your `index.html` code under the `wwwroot` folder.
 
 - Test sample JavaScript app
   - Browse to App Service website URL in In-private / Incognito window.

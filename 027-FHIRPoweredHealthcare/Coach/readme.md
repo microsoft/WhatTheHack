@@ -9,7 +9,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](./Solution00.md)**
 - Challenge 1: **[Extract and load FHIR synthetic medical data](./Solution01.md)**
 - Challenge 2: **[Extract, transform and load HL7 medical data](./Solution02.md)**
-- Challenge 3: **[Extract, transform and load C-CDA medical data](./Solution03.md)**
+- Challenge 3: **[Extract, transform and load C-CDA synthetic medical data](./Solution03.md)**
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](./Solution04.md)**
 - Challenge 5: **[Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps](./Solution05.md)**
 - Challenge 6: **[Create a new Single Page App (SPA) for patient search](./Solution06.md)**
