@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, you will deploy a sample JavaScript app to connect and read FHIR patient data.  You will configure public client application registration to allow JavaScript app to access FHIR Server.
+In this challenge, you will deploy a **[FHIR sample JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)** to connect and read FHIR patient data.  You will configure **[public client application registration](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** to allow JavaScript app to access FHIR Server.
 
 **[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
 
@@ -18,13 +18,13 @@ In this challenge, you will deploy a sample JavaScript app to connect and read F
 
 - **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
   - Go to Azure AD and switch to your secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege)
-  - Click App Registration and add a new Public client/native (mobile & desktop) registration or open existing one if already exist (from FHIR Server Samples deployment).
-    - Capture client ID and tenant ID from Overview blade for use in later step.
+  - Click `App Registration` and add a new Public client/native (mobile & desktop) registration or open existing one if already exist (from FHIR Server Samples deployment).
+    - Capture `client ID` and `tenant ID` from `Overview` blade for use in later step.
   - Connect with web app
-    - Select Authentication blade, click Add a new platform and select Web
-      - Add `https://[WEB-APP-NAME].azurewebsites.net` to redirect URI list.
-      - Select Access tokens and ID tokens check boxes and click Configure.
-  - Add API Permissions
+    - Select `Authentication` blade, click `Add a new platform` and select `Web`
+      - Add `https://[WEB-APP-NAME].azurewebsites.net` to `redirect URI` list.
+      - Select `Access tokens` and `ID tokens` check boxes and click `Configure`.
+  - Add `API Permissions`
     - Select `API permissions` blade and click `Add a new permission`
     - Select `APIs my organization uses`, search for `Azure Healthcare APIs` and select it.
     - Select `user_impersonation` and click `add permissions`.
