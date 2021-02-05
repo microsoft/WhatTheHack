@@ -25,7 +25,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
 **[Deploy HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7-ingest-conversion-samples)** reference architectures below:
 
 **Deploy HL7 Ingest Platform**
-- **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
+- Download or Clone the**[Microsoft Health Archtectures](https://github.com/microsoft/health-architectures)** GitHub repo
 - Open a bash shell into the Azure CLI 2.0 environment
 - Switch to `HL7Conversion` subdirectory in your local repo
 - Run the `./deployhl7ingest.bash` script and follow the prompts
@@ -65,7 +65,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter the name of the HL7 ServiceBus destination queue (from above `hl7ingest` deployment)
     - Enter the destination FHIR Server URL
     - Enter the FHIR Server Service Client Application ID
-    - Enter the FHIR Server Service Client Secret:
+    - Enter the FHIR Server Service Client Secret
     - Enter the FHIR Server/Service Client Audience/Resource (`https://azurehealthcareapis.com`)
     - Enter the FHIR Server/Service Client Tenant ID
 
