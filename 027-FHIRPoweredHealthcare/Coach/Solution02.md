@@ -25,7 +25,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
 **[Deploy HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7-ingest-conversion-samples)** reference architectures below:
 
 **Deploy HL7 Ingest Platform**
-- Download or Clone the**[Microsoft Health Archtectures](https://github.com/microsoft/health-architectures)** GitHub repo
+- Download or Clone the **[Microsoft Health Archtectures](https://github.com/microsoft/health-architectures)** GitHub repo
 - Open a bash shell into the Azure CLI 2.0 environment
 - Switch to `HL7Conversion` subdirectory in your local repo
 - Run the `./deployhl7ingest.bash` script and follow the prompts
