@@ -43,7 +43,7 @@ SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output syn
             ```
         Note: This step may have been done in **[Challenge 1](./Solution01.md)**.
 
-    - **[Update the default properties for CDA output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+    - Update the **[default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for CDA output
         ```propoerties
         exporter.baseDirectory = ./output/cda
         ...
