@@ -28,7 +28,7 @@ You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture 
       - Check `App Registration` in secondary AAD tenant that all three different **[client application types are registered](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration#application-registrations)** for Azure API for FHIR
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
 
-   - **[Update the default properties for FHIR output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+   - Update the **[default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for FHIR output
       - Set Synthea export directory: 
       `exporter.baseDirectory = ./output/fhir`
       - Enable FHIR bundle export: 

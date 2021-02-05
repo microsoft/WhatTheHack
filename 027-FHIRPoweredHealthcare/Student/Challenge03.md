@@ -13,7 +13,7 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
 ## Description
 
 You will use the Microsoft Health Architectures environment and add a new logic app based workflow for the C-CDA-to-FHIR ingest and convert scenarios as follows:
-- Use **[HL7toFHIR conversion pipeline infrastructure](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** (deployed in **[challenge 2](./Challenge02.md)**) to expose the C-CDA Conversion service endpoint: 
+- Use **[HL7toFHIR conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline infrastructure (deployed in **[challenge 2](./Challenge02.md)**) to expose the C-CDA Conversion service endpoint: 
 
    `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
 
@@ -25,7 +25,7 @@ You will use the Microsoft Health Architectures environment and add a new logic 
       - Step 4: Call the FHIR Converter API.
       - Step 5: Import response body (FHIR bundle) in Input object into FHIR Server connected through a **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**.
 - Generate simulated patient data in C-CDA format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
-   - **[Update the default properties for CDA output](https://github.com/synthetichealth/synthea#changing-the-default-properties)**
+   - Update the **[default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for CDA output
       ```properties
       exporter.baseDirectory = ./output/cda
       ...
