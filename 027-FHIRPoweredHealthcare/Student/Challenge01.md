@@ -16,7 +16,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
 You will implement the FHIR Bulk Load scenario in Microsoft Health Architecture as follows:
 - Deploy **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples)** PaaS scenario (above) to ingest and bulk load Synthea generated FHIR patient data into FHIR Server in near real-time.
    - Clone **['FHIR Server Samples'](https://github.com/microsoft/fhir-server-samples)** git repo.
-   - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
+   - Deploy **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** environment.
       - Before running this **[PowerShell deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your secondary tenant (can be primary tenant if you already have directory admin privilege) that provides you with directory admin role access required for this setup.
 
       **NOTE:** The connection to Azure AD can be made using a different tenant domain than the one tied to your Azure subscription. If you don't have privileges to create app registrations, users, grant admin consent, etc. in your Azure AD tenant, you can create a new secondary tenant, which will just be used for demo identities, etc. 

@@ -28,7 +28,7 @@ In this scenario, you will deploy a storage account with a BLOB container called
             - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
             - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
             
-    - **[Deploy FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** with the managed Azure API for FHIR (PaaS) scenario:
+    - Deploy **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** with the managed Azure API for FHIR (PaaS) scenario:
         - Run `Create-FhirServerSamplesEnvironment.ps1` from the cloned `./deploy/scripts` folder.
     - To Validate your deployment, 
         - Check Azure resources created in `{ENVIRONMENTNAME}` and `{ENVIRONMENTNAME}-sof` Resource Groups
