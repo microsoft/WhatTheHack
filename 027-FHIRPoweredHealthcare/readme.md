@@ -47,7 +47,7 @@ Your team's assistance is needed to implement the following scenarios using FHIR
 
 **Complete challenges in any order:**
 - Challenge 2: **[Extract, transform and load HL7 medical data](Student/Challenge02.md)**
-- Challenge 3: **[Extract, transform and load C-CDA medical data](Student/Challenge03.md)**
+- Challenge 3: **[Extract, transform and load C-CDA synthetic medical data](Student/Challenge03.md)**
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
 - Challenge 5: **[Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
 - Challenge 6: **[Create a new Single Page App (SPA) for patient search](Student/Challenge06.md)**

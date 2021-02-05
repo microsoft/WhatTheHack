@@ -35,8 +35,8 @@
 - **[Visual Studio Code](https://code.visualstudio.com/)**
 - **[Node Module Extension for VS Code](https://code.visualstudio.com/docs/nodejs/extensions)**
 - **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
-- **[Download Node.js Window Installer](https://nodejs.org/en/download/)**
-- **[Download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
+- **[Node.js Window Installer](https://nodejs.org/en/download/)**
+- **[Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
 - **[Postman](https://www.getpostman.com)**
 
 ## Success Criteria

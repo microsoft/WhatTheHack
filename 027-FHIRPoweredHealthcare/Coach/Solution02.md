@@ -13,9 +13,9 @@ Note: This function is deployed and configured as a part of the HL72FHIR Workflo
 
 **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
-**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to ingest HL7 messages and produce a consumable event in a Service Bus queue for processing by FHIR Event Processor function app.  It provides a sample `samplemsg.hl7` for testing the hl7overhttps ingest service.
+**[HL7 Ingest Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#deploying-your-own-hl7-ingest-platform)** reference architeture is deployed to ingest HL7 messages and produce a consumable event in a Service Bus queue for processing by FHIR Event Processor function app.  It provides a sample `samplemsg.hl7` for testing the `hl7overhttps` ingest service.
 
-**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture deployment will create a Logic App based workflow that is triggered whenever new HL7 message is added to the queue of hl7ingest Service Bus. This conversion workflow performs the following tasks:
+**[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** reference architecture deployment will create a Logic App based workflow that is triggered whenever new HL7 message is added to the queue of `hl7ingest` Service Bus. This conversion workflow performs the following tasks:
 - Orderly conversion from HL7 to FHIR via the **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**
 - Persists converted HL7v2 message into FHIR Server through secure proxied FHIR Server connection (FHIR Server Proxy). 
 - Publishes FHIR change events referencing FHIR Resources to an Event Hub.
@@ -59,10 +59,10 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter Resource Group location
     - Enter deployment prefix (environment name)
     - Enter a resource group name to deploy the converter to: `[EVIRONMENTNAME]hl7conv`
-    - Enter the name of the HL7 Ingest Resource Group (from above hl7ingest deployment)
-    - Enter the name of the HL7 Ingest storage account (from above hl7ingest deployment)
-    - Enter the name of the HL7 ServiceBus namespace (from above hl7ingest deployment)
-    - Enter the name of the HL7 ServiceBus destination queue (from above hl7ingest deployment)
+    - Enter the name of the HL7 Ingest Resource Group (from above `hl7ingest` deployment)
+    - Enter the name of the HL7 Ingest storage account (from above `hl7ingest` deployment)
+    - Enter the name of the HL7 ServiceBus namespace (from above `hl7ingest` deployment)
+    - Enter the name of the HL7 ServiceBus destination queue (from above `hl7ingest` deployment)
     - Enter the destination FHIR Server URL
     - Enter the FHIR Server Service Client Application ID
     - Enter the FHIR Server Service Client Secret:
@@ -83,7 +83,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - FHIR Event Hub: `fhirevents`
     - FHIREventProcessor Function App: `fhirevt####`
     - Application Insights: `fhirevt####`
-    - Logic App: HL7toFHIR.  Workflow steps are:
+    - Logic App: `HL7toFHIR`.  Workflow steps are:
         - When a message is received in a `hl7ingest` queue (`HL7ServiceBus`)
         - Get blob content (`hl7blobstorage`)
         - Connections - Custom Logic App connection (`HL7FHIRConverter`)
@@ -96,6 +96,6 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
         curl --trace-ascii - -H "Content-Type:text/plain" --data-binary @samplemsg.hl7 <your ingest host name from above>/api/hl7ingest?code=<your ingest host key from above>
         ```
     - You should receive back an HL7 ACK message to validate that the sample hl7 message was accepted securely stored into blob storage and queued for HL7 to FHIR Conversion processing on the deployed service bus queue
-    - You can also see execution from the HL7toFHIR Logic App Run History in the HL7toFHIR resource group. This will also provide you with detailed steps to see the transform process
+    - You can also see execution from the `HL7toFHIR` Logic App Run History in the `HL7toFHIR` resource group. This will also provide you with detailed steps to see the transform process
 
 
