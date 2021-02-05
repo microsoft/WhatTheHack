@@ -31,7 +31,7 @@ You will deploy a FHIR sample JavaScript app in Azure to read patient data from 
  
 - Write a new JavaScript application to connect and read FHIR patient data
     - Start with the sample code from the **[FHIR patient JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**.
-    - Initialize **[MSAL](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** (Mirosoft Authentication Library) provider configuration for your FHIR environment:
+    - Initialize **[MSAL (Mirosoft Authentication Library) provider](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** configuration for your FHIR environment:
         - `clientId` - Update with your client application ID of public client app registered earlier
         - `authority` - Update with Authority from your FHIR Server (under Authentication)
         - `FHIRendpoint` - Update the FHIRendpoint to have your FHIR service name
