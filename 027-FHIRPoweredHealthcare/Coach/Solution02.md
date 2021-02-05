@@ -66,7 +66,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter the destination FHIR Server URL
     - Enter the FHIR Server Service Client Application ID
     - Enter the FHIR Server Service Client Secret:
-    - Enter the FHIR Server/Service Client Audience/Resource (https://azurehealthcareapis.com)
+    - Enter the FHIR Server/Service Client Audience/Resource (`https://azurehealthcareapis.com`)
     - Enter the FHIR Server/Service Client Tenant ID
 
     Note: You should receive the following acknowledgement at the end of deployment.
