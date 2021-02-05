@@ -41,7 +41,9 @@
         $ npm install dotenv --save
         ```
         - Install FHIR npm library: 
-        ```$ npm install fhir`
+        ```bash
+        $ npm install fhir
+        ```
 - Install **[Postman](https://www.getpostman.com)**
 
 
