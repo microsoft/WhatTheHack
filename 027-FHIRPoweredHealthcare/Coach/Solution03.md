@@ -10,7 +10,7 @@ In this challenge, you will use the **[FHIR Converter](https://github.com/micros
 
 In this scenario, you will develop a logic app based workflow to perform the C-CDA-to-FHIR conversion using **[FHIR Converter API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** and import the resulting FHIR Bundle into FHIR Server.
 
-**Deploy Health Architecture samples for C-CDA-to-FHIR ingest and convert scenarios**
+**Deploy **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)** samples for C-CDA-to-FHIR ingest and convert scenarios**
 
 - Use **[HL7toFHIR converion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline infrastructure (deployed in **[challenge 2](./Solution02.md)**) to expose the C-CDA Conversion service endpoint: 
 
@@ -28,10 +28,9 @@ In this scenario, you will develop a logic app based workflow to perform the C-C
         - Connected to FHIR Server through **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
         - Set message object to retuned FHIR resource
 
-**Generate patient clinical data using SyntheaTM Patient Generator tool**
+**Generate patient clinical data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** tool**
 
-**[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**
-SyntheaTM is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)** for more information.
+**[SyntheaTM](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)** for more information.
 - **[Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start)**
     - **[Installation](https://github.com/synthetichealth/synthea#installation)**
         - System Requirements: SyntheaTM requires Java 1.8 or above.
