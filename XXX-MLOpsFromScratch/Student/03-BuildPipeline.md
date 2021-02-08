@@ -34,7 +34,7 @@ updated Azure Machine Learning pipeline after building the code.
 
     2.  Select the repo that was imported in the previous challenge
 
-    3.  Create an *Empty Job*
+    3.  Create an **Empty Job**
 
 3.  Setup Agent Job
 
