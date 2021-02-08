@@ -19,7 +19,7 @@ source and saved in the working directory
         principal
 
     3.  Make sure your Azure ML workspace is configured for the project.         
-        - **Hint:** Add workspace details in config.json. You can download it from portal too.
+        - **Hint:** Add workspace details in `config.json`. You can download it from portal too.
         - **Hint:** Alternatively, add workspace details through Azure DevOps pipeline variables.
 
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
