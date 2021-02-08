@@ -9,7 +9,7 @@ In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion
 - FHIR Server Proxy connection to FHIR Server without exposing credentials
 - Publish successful FHIR CUD events referencing FHIR Resources to an event hub to support pre-processing and/or post-processing for event driven workflow and orchestration scenarios.  This can be done by enabling the PublishFHIREventPostProcess module of the FHIR Proxy.
 
-Note: This function is deployed and configured as a part of the HL72FHIR Workflow Platform.
+**NOTE**: This function is deployed and configured as a part of the HL72FHIR Workflow Platform.
 
 **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that runs as a REST web service for converting health data from legacy formats to FHIR bundles.  Microsoft FHIR Converter currently supports HL7v2 and C-CDA to FHIR conversion.  It uses pre-installed **[Handlebars templates](https://handlebarsjs.com/)** to define data mapping for HL7v2 to FHIR and C-CDA to FHIR conversion.  It can be deploy separately or as part of the **[HL7 to FHIR Conversion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline.
 
@@ -20,7 +20,7 @@ Note: This function is deployed and configured as a part of the HL72FHIR Workflo
 - Persists converted HL7v2 message into FHIR Server through secure proxied FHIR Server connection (FHIR Server Proxy). 
 - Publishes FHIR change events referencing FHIR Resources to an Event Hub.
 
-Note: After successful deployment, the converter pipeline is integrated with HL7 Ingest platform.
+**NOTE**: After successful deployment, the converter pipeline is integrated with HL7 Ingest platform.
 
 **[Deploy HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7-ingest-conversion-samples)** reference architectures below:
 
@@ -34,7 +34,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter Resource Group location
     - Enter deployment prefix (environment name)
 
-    **Note:** You should receive the following acknowledgement at the end of deployment.
+    **NOTE:** You should receive the following acknowledgement at the end of deployment.
     ```bash
     HL7 Ingest Platform has successfully been deployed to group wth-fhir on Sat, Oct 31, 2020 11:26:59 PM
     Please note the following reference information for future use:
@@ -69,7 +69,7 @@ Note: After successful deployment, the converter pipeline is integrated with HL7
     - Enter the FHIR Server/Service Client Audience/Resource (`https://azurehealthcareapis.com`)
     - Enter the FHIR Server/Service Client Tenant ID
 
-    Note: You should receive the following acknowledgement at the end of deployment.
+    **NOTE**: You should receive the following acknowledgement at the end of deployment.
     ```bash
     HL72FHIR Workflow Platform has successfully been deployed to group [ENVIRONMENTNAME] on Sun, Nov 1, 2020  2:37:59 PM
     Please note the following reference information for future use:
