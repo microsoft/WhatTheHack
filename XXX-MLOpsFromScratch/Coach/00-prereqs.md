@@ -2,13 +2,9 @@
 
 **[Home](../README.md)** - [Next Challenge >](./01-TimeSeriesForecasting.md)
 
-## Introduction
+## Solution 
 
-Similar to DevOps, MLOps is a very broad topic and you have lots of choices when it comes to the tools that you use. In this challenge, our focus is to make sure you have right tools installed on your computer.
-
-## Description
-
-In this challenge we'll be setting up all the tools we will need to complete our challenges.
+In this challenge we'll be setting up all the tools we will need to complete our challenges, preferably done a few days before the event.
 
 1.  Azure subscription. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).  
 
