@@ -28,28 +28,28 @@ across different environments.
 
 ## Description
 
-1.  Create a Release pipeline with an empty Job
+1.  Create a Release pipeline with an **Empty Job**
 
 2.  Add Build Artifact that you created in the [previous
     challenge](03-BuildPipeline.md)
 
 3.  Setup Agent Job
 
-    1.  Set Agent Pool to Azure Pipelines
+    1.  Set Agent Pool to `Azure Pipelines`
 
-    2.  Set Agent Specification to ubuntu-16.04
+    2.  Set Agent Specification to `ubuntu-16.04`
 
 4.  Setup Release pipeline – Add the following tasks
 
     1.  Python version – 3.6
 
-    2.  Add a task to setup environment by using install_environment.sh file in environment_setup folder. This will install all the python modules required to deploy the forecasting model.
+    2.  Add a task to setup environment by using `install_environment.sh` file in `environment_setup` folder. This will install all the python modules required to deploy the forecasting model.
 
-    3.  Add a task to deploy the scoring image on ACI using deployOnAci.py in "service/code" folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
+    3.  Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
     
         **Note:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster.
 
-    4.  Add a task to test the ACI web service using WebserviceTest.py in "service/code" folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
+    4.  Add a task to test the ACI web service using `WebserviceTest.py` in `service/code` folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
         
         **Note:** If the deployment fails or the web service is "unhealthy", check logs in Azure DevOps or Azure ML Studio for issues and additional information.
  
