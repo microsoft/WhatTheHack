@@ -41,11 +41,11 @@ Your team's assistance is needed to implement the following scenarios using FHIR
 ## Challenges
 <center><img src="./images/challenges_architecture.jpg" width="850"></center>
 
-**Required challenges complete in order:**
+**These challenges must be completed in order:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
 - Challenge 1: **[Extract and load FHIR synthetic medical data](Student/Challenge01.md)**
 
-**Complete challenges in any order:**
+**These challenges can be completed in any order:**
 - Challenge 2: **[Extract, transform and load HL7 medical data](Student/Challenge02.md)**
 - Challenge 3: **[Extract, transform and load C-CDA synthetic medical data](Student/Challenge03.md)**
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
@@ -56,11 +56,11 @@ Your team's assistance is needed to implement the following scenarios using FHIR
 - Challenge 9: **[Analyze and Visualize FHIR data using PowerBI](Student/Challenge09.md)**
 
 ## Disclaimer
-**You MUST be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant with directory admin role access if you don't have directory admin role access in the primary AD tenant) required for the FHIR Server deployment (Challenge 1).**
-  - **If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.**
-  - **If you don't have directory Administrator access:**
-      - **Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.**
-      - **Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.**
+You **MUST** be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant with directory admin role access if you don't have directory admin role access in the primary AD tenant) required for the FHIR Server deployment (Challenge 1).
+  - If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.
+  - If you don't have directory Administrator access:
+      - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
+      - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
@@ -77,7 +77,7 @@ The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.
   - Coach's guide to solutions for challenges, including tips/tricks.
 
 ## Contributors
-- Aruna Ranganathan (Microsoft)
-- Richard Liang (Microsoft)
+- Aruna Ranganathan
+- Richard Liang
 
 
