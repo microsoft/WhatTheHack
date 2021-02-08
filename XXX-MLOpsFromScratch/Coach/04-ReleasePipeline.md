@@ -21,7 +21,7 @@
     1.  Python version – 3.6
 
     2.  Bash task to setup environment using Script Path –
-        install_environment.sh is the file used
+        `install_environment.sh` is the file used
 
     3.  Azure CLI task to deploy the scoring image on ACI – `deployOnAci.py` is
         the file used in the Inline Script
