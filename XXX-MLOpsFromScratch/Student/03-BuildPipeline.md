@@ -48,15 +48,15 @@ updated Azure Machine Learning pipeline after building the code.
 
     2.  Add a task to setup environment by using install_environment.sh file in environment_setup folder. This will install all the python modules required for the project.
     
-        **Hint:** Use a command line task that allows you to run the shell script.
+            **Hint:** Use a command line task that allows you to run the shell script.
 
     3.  Add a task to get Azure ML Workspace connection using Workspace.py in "service/code" folder. This will establish connection to Azure ML workspace by using your workspace details in config.json file. 
         
-        **Hint:** Use a command line task that allows you to run the python script.
+            **Hint:** Use a command line task that allows you to run the python script.
         
-        **Note:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
+            **Note:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
 
-    4.  Add a task to acquire time series transactions data using AcquireData.py in "service/code" folder. This will download and extract the data required to train a forecasting model in the next steps.
+    4.  Add a task to acquire time series transactions data using AcquireData.py in `service/code` folder. This will download and extract the data required to train a forecasting model in the next steps.
 
     5.  Add a task to train ARIMA forecasting model using TrainOnLocal.py in "service/code" folder. This will build a model to forecast demand of items from AdventureWorks database.
 
