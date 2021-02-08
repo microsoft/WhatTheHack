@@ -19,7 +19,7 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     - Download latest **[Node.js pre-built installer](https://nodejs.org/en/download/)** for your platform
     - Run downloaded `node-v14.15.1-x64.msi` executable to install node.js 
     - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, 
-    ````Command
+    ```Command
     Press any key to continue...
     ```
 - Create a new JavaScript SPA patient search app 
