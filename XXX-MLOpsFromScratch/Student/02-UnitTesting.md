@@ -13,7 +13,7 @@ source and saved in the working directory
     [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
     in Azure DevOps
 
-    1.  Import quickstart code from [Insert Github Repo Here]
+    1.  Import quickstart zipped code folder from your Teams Channel
 
     2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
         principal
