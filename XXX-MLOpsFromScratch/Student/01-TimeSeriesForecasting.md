@@ -37,14 +37,14 @@ most common and prevalent tasks in Machine Learning.
 4.  Configure your Azure ML Workspace for the project.
 
     - **Hint:** Add workspace details through Azure DevOps pipeline variables.
-    - **Hint:** Add workspace details in config.json. You can download it from portal too.
+    - **Hint:** Add workspace details in `config.json`. You can download it from portal too.
 
-5.  Now that you have environment setup, explore and run locally the python files in the folder Data_and_Code/service/code/
+5.  Now that you have environment setup, explore and run locally the python files in the folder `Data_and_Code/service/code/`
     What should be the order?  What are these files trying to do?
 
 ## Success Criteria
 
-1.  Understand the contents of the python files under Data_and_Code/service/code/
+1.  Understand the contents of the python files under `Data_and_Code/service/code/`
 2.  Count the number of CSV files extracted into /Data folder LOCALLY using a Python script in VS Code or any popular IDE.
 3.  Creating an ARIMA model locally using VS Code.
 4.  Forecasting project imported into Azure DevOps.
