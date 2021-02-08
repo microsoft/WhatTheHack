@@ -1,6 +1,6 @@
 # What The Hack - Intro To OSS DB Migration to Azure OSS DB
 ## Introduction
-This hackathon will help you get hands-on experience migrating databases from on-premises PostgreSQL and MySQL to Azure DB for PostgreSQL and MySQL.
+This hackathon will give you hands-on experience migrating databases from on-premises PostgreSQL and MySQL to Azure DB for PostgreSQL and MySQL.
 
 This hack includes an optional [lecture presentation](Coach/Lectures/README.md) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
