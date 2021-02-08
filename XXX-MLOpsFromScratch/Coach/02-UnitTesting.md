@@ -2,12 +2,7 @@
 
 [< Previous Challenge](./01-TimeSeriesForecasting.md) - **[Home](../README.md)** - [Next Challenge >](./03-BuildPipeline.md)
 
-## Introduction
-
-Use this challenge to perform tasks to confirm data has been extracted from
-source and saved in the working directory
-
-## Description
+## Solution
 
 1.  If you haven’t already done this in
     [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
@@ -25,10 +20,4 @@ source and saved in the working directory
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
     - **Hint:** It is encouraged to leverage the Python Script task using the pipeline task manager in Azure DevOps
 
-
-## Learning resources
-
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
--   https://azure.microsoft.com/en-us/services/machine-learning/mlops/
--   https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/
 
