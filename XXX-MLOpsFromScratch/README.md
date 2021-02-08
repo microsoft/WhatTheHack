@@ -56,18 +56,18 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
 ## Challenges
 
-1.  [Challenge 1 = Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
+1.  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
 
-2.  [Challenge 2 = Create a Unit Test in Azure
+2.  [Challenge 2: Create a Unit Test in Azure
     DevOps](Student/02-UnitTesting.md)
 
-3.  [Challenge 3 = Create a Build pipeline in Azure
+3.  [Challenge 3: Create a Build pipeline in Azure
     DevOps](Student/03-BuildPipeline.md)
 
-4.  [Challenge 4 = Create a Release pipeline in Azure
+4.  [Challenge 4: Create a Release pipeline in Azure
     DevOps](Student/04-ReleasePipeline.md)
 
-5.  [Challenge 5 = Retraining and Model
+5.  [Challenge 5: Retraining and Model
     Evaluation](Student/05-RetrainingAndEvaluation.md)
 
 ## Prerequisites
@@ -100,10 +100,10 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
       - Python extensions
 
-    > **Note**: You will need privileges to create projects on the DevOps account.
-    > Also, you need privileges to create Service Principal in the tenet. This
-    > translates to **Ensure that the user has 'Owner' or 'User Access
-    > Administrator' permissions on the Subscription**.
+    **Note**: You will need privileges to create projects on the DevOps account.
+    Also, you need privileges to create Service Principal in the tenet. This
+    translates to **Ensure that the user has 'Owner' or 'User Access
+    Administrator' permissions on the Subscription**.
 
 ## Contributors
 
