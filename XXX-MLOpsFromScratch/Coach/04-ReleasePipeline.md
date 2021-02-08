@@ -3,30 +3,7 @@
 [< Previous Challenge](./03-BuildPipeline.md) - **[Home](../README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
 
 
-## Introduction
-
-The Release pipeline demonstrates the automation of various stages/tasks
-involved in deploying an ML model and operationalizing the model in production.
-The stages generally constitute collecting the Build Artifacts, creating a web
-service and testing the web service. This web service that gets created in the
-Release Pipeline is a REST endpoint (a Scoring URI) used to predict/forecast on
-a new dataset. Additionally, it can be plugged into business applications to
-leverage the intelligence of the model.
-
-There are several ways to create a Release pipeline. The two most common and popular
-ways are: 
-
--   using a YAML file that represents the entire pipeline,
-
--   using an empty job and adding tasks sequentially
-
-As we had mentioned in the previous challenge, we believe that the latter approach is more comprehensive and intuitive, especially to get started on MLOps, so we recommend that route.
-
-We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
-pipeline shows how to operationalize the scoring image and promote it safely
-across different environments.
-
-## Description
+## Solution
 
 1.  Create a Release pipeline with an empty Job
 
@@ -46,17 +23,10 @@ across different environments.
     2.  Bash task to setup environment using Script Path –
         install_environment.sh is the file used
 
-    3.  Azure CLI task to deploy the scoring image on ACI – deployOnAci.py is
+    3.  Azure CLI task to deploy the scoring image on ACI – `deployOnAci.py` is
         the file used in the Inline Script
 
-    4.  Azure CLI task to test the ACI web service – WebserviceTest.py is the
+    4.  Azure CLI task to test the ACI web service – `WebserviceTest.py` is the
         file used in the Inline Script
 
 5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. 
-
-
-## Learning resources
-
--   https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
--   [Release pipelines General Resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
