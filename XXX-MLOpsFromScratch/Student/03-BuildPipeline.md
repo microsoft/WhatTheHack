@@ -34,13 +34,13 @@ updated Azure Machine Learning pipeline after building the code.
 
     2.  Select the repo that was imported in the previous challenge
 
-    3.  Create an Empty Job
+    3.  Create an *Empty Job*
 
 3.  Setup Agent Job
 
-    1.  Set Agent Pool to Azure Pipelines
+    1.  Set Agent Pool to 'Azure Pipelines'
 
-    2.  Set Agent Specification to ubuntu-16.04
+    2.  Set Agent Specification to 'ubuntu-16.04'
 
 4.  Setup Build pipeline – Add the following tasks by clicking "+"
 
