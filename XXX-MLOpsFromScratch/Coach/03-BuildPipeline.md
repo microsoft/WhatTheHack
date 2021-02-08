@@ -2,30 +2,7 @@
 
 [< Previous Challenge](./02-UnitTesting.md) - **[Home](../README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
 
-
-## Introduction
-
-The Build pipeline demonstrates the automation of various stages/tasks involved
-in building an ML model and creating a container image on top of that model. The
-stages generally constitute creating a project environment, preparing the data,
-training the model, evaluating the model, registering/versioning the model, and
-scoring the model generally by containerizing the model.
-
-There are several ways to create a Build pipeline. The two most common and popular ways
-are:
-
--   using a YAML file that represents the entire pipeline,
-
--   using an empty job and adding tasks sequentially
-
-We believe that the latter approach is more comprehensive and intuitive, especially to
-get started on MLOps, so we recommend that route.  This will be the focus of this hack.
-
-We can setup Continuous Integration (CI) trigger for every Build pipeline. The
-CI pipeline gets triggered every time code is checked in. It publishes an
-updated Azure Machine Learning pipeline after building the code.
-
-## Description
+## Solution
 
 1.  Make sure you have setup a new project, imported the code, created service connections, and configured Azure ML Workspace for the project.
 
@@ -64,7 +41,7 @@ updated Azure Machine Learning pipeline after building the code.
         the file used in the Inline Script
 
     7.  Azure CLI task to register the model in Azure ML Workspace for model
-        versioning – RegisterModel.py is the file used in the Inline Script
+        versioning – `RegisterModel.py` is the file used in the Inline Script
 
     8.  Azure CLI task to score the model, to forecast future transactions –
         ScoreModel.py is the file used in the Inline Script
@@ -77,9 +54,3 @@ updated Azure Machine Learning pipeline after building the code.
 5.  Run the Build pipeline
 
 6.  Review Build Outputs - confirm that the model and azure container image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
-
-
-## Learning resources
-
--   https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
