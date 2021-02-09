@@ -35,8 +35,9 @@ Contoso recently deployed Office 365 and is currently using all of its services 
 ## Repository Contents
 - `../Coach/`
   - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
-  - [Example solutions and Guidance](Coach/readme.md) to the challenges (If you're a student, don't cheat yourself out of an education!)
+  - Example solutions and guidance to the challenges
 - `../Coach/Resources`
+   - This hack requires setup of the Office 365 environment by the host. Please review the instructions in the Pre-Reqs portion of the coach's guide. **This must be done at least 24 hours prior to hosting the hack.**
    - Any PowerShell scripts used to setup the configuration of a tenant used in the hack
    - Sample email invitation for the event
 
