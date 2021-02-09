@@ -84,7 +84,6 @@ In this challenge, you will deploy a Health Architecture **[HL7toFHIR Conversion
 ## Learning Resources
 
 - **[Working Reference Architectures combining Microsoft capabilities and FHIR Resources](https://microsoft.github.io/health-architectures/Architectures.html)**
-- **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)**
 - **[HL7 Ingest, Conversion Samples](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)**
 - **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)**
 - **[FHIR Converter API Details](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)**
