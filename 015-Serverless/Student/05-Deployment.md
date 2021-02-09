@@ -28,6 +28,6 @@ In this challenge, you will deploy the VS project to Azure.
 | ------------------------------------- | :--------------------------------------------------------------------: |
 | **Description**                       |                               **Links**                                |
 | Deploy Functions to Azure | <https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/> |
-
+| Create Event Grid Subscription in Azure Function |<https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=csharp%2Cbash#azure-portal> |
 
 [Next challenge (Create Functions in the Portal) >](./06-PortalFunctions.md)
