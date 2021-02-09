@@ -59,3 +59,25 @@
 - **[NodeJS pre-built installer downloads](https://nodejs.org/en/download/)**
 - **[Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
 
+- **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
+- **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the `fhirimport` BLOB container.
+- **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is a logic app based workflow to ingest and convert C-CDA and HL7v2 message into FHIR bundle.
+- **[FHIR Proxy](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy)** is a function app solution that acts as an intelligent and secure gateway (reverse proxy) to FHIR Server and provides a consolidated approach to **[pre and post processing](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)** of FHIR Server, i.e. `PublishFHIREventPostProcess` to publish FHIR CUD events for resources to a configured eventhub.  It acts as a FHIR specific reverse proxy rewriting responses and brokering requests to FHIR Servers.
+- **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR Servers and EMR systems through FHIR interfaces.
+- **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
+- **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)** conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR Server.
+- **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7v2 messages, pushed to the FHIR Service Bus, into FHIR bundles.
+- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to search for patient(s) stored in FHIR Server and display the results in web page(s).
+- **[Azure Batch](https://docs.microsoft.com/en-us/azure/batch/)** runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
+- **[Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)** is a fully managed enterprise integration message broker. Service Bus can decouple applications and services. 
+- **[Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)** is Microsoft's object storage solution, optimized for storing massive amounts of unstructured data. 
+- **[Azure Data Lake Store Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)** is a set of capabilities dedicated to big data analytics, is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1.
+- **[Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)** is Azure storage management used to upload, download, and manage Azure blobs, files, queues, and tables, as well as Azure Cosmos DB and Azure Data Lake Storage entities.
+- **[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)** is Azure's cloud ETL service for scale-out serverless data integration and data transformation.
+- **[Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)** is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. 
+- **[Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/)** is a managed, secure, and intelligent product that use the SQL Server database engine in the Azure cloud.
+- **[PowerBI](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)** is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+- **[IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/healthcare/concept-continuous-patient-monitoring-architecture)** helps create, customize, and manage healthcare IoT solutions using IoT Central application templates. Continuous patient monitoring is one application template in healthcare IoT space.
+
+
+
