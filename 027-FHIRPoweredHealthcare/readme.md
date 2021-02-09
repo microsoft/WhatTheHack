@@ -6,7 +6,7 @@ You will implement a collection of FHIR reference architectures frome **[Microso
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
-This hack will help you learn:
+This hack will help you:
 1. Deploy Azure API for FHIR.
 2. Generate and load synthetic medical data into FHIR Server.
 3. Load HL7 and C-CDA data into FHIR Server.
