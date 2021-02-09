@@ -14,7 +14,7 @@ Now that we have a basic understanding of version control and Git, lets get some
 
 1. Begin by cloning the GitHub repository you created in the [first challenge](challenge01.md) to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
 
-2. Next, download the code for the application [here](https://github.com/OCPDemos/WhatTheHack/blob/027-DevOps-with-GitHub/027-DevOpsWithGitHub/Student/Code/Code.zip). Unzip the download and copy the contents into the root of the repository you just cloned.
+2. Next, obtain the code (sample application and ARM template) from the Resource files provided by your coach.
 
 3. Finally, commit the files to your GitHub repository using your preferred Git client.
 

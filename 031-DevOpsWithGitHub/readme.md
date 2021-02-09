@@ -18,11 +18,11 @@ This DevOps with GitHub hack will help you learn:
  - [Challenge 2](./Student/challenge02.md) - Centralize your code with GitHub Repos
  - [Challenge 3](./Student/challenge03.md) - Infrastructure as Code
  - [Challenge 4](./Student/challenge04.md) - Continuous Integration
- - [Challenge 5](./Student/challenge04.md) - Build and push Docker image to container registry
- - [Challenge 6](./Student/challenge05.md) - Continuous Delivery
- - [Challenge 7](./Student/challenge06.md) - Branching & Policies
- - [Challenge 8](./Student/challenge07.md) - Monitoring: Application Insights
- - [Challenge 9](./Student/challenge08.md) - Security
+ - [Challenge 5](./Student/challenge05.md) - Build and push Docker image to container registry
+ - [Challenge 6](./Student/challenge06.md) - Continuous Delivery
+ - [Challenge 7](./Student/challenge07.md) - Branching & Policies
+ - [Challenge 8](./Student/challenge08.md) - Monitoring: Application Insights
+ - [Challenge 9](./Student/challenge09.md) - Security
 
 
 ## Prerequisites
