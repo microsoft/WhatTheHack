@@ -30,12 +30,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
     - <https://www.python.org/downloads/release/python-3611/>
 
-5.  Visual Studio Code or any Python IDE
+5.  Upload [data and code](Data_and_Code.zip) to the Teams Channel for the students to access for upcoming challenges.
 
-      - Python extensions
-
-    **Note**: You will need privileges to create projects on the DevOps account.
-    Also, you need privileges to create Service Principal in the tenet. This
-    translates to **Ensure that the user has 'Owner' or 'User Access
-    Administrator' permissions on the Subscription**.
+6.  Download [presentation](MLOps%20Lectures.pptx) locally to present to the students.
 
