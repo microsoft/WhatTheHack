@@ -55,13 +55,13 @@ updated Azure Machine Learning pipeline after building the code.
 
     4.  Add a task to acquire time series transactions data using `AcquireData.py` in `service/code` folder. This will download and extract the data required to train a forecasting model in the next steps.
 
-    5.  Add a task to train ARIMA forecasting model using `TrainOnLocal.py` in `service/code` folder. This will build a model to forecast demand of items from AdventureWorks database.
+    5.  Add a task to train ARIMA forecasting model using `TrainOnLocal.py` in `Data_and_Code/service/code/` folder. This will build a model to forecast demand of items from AdventureWorks database.
 
-    6.  Add a task to evaluate the model performance using `EvaluateModel.py` in `service/code` folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
+    6.  Add a task to evaluate the model performance using `EvaluateModel.py` in `Data_and_Code/service/code/` folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
 
-    7.  Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `service/code` folder. 
+    7.  Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `Data_and_Code/service/code/` folder. 
     
-    8.  Add a task to score the model, to forecast future transactions using `ScoreModel.py` in `service/code` folder. This will create a scoring file 
+    8.  Add a task to score the model, to forecast future transactions using `ScoreModel.py` in `Data_and_Code/service/code/` folder. This will create a scoring file 
         
     9.  Now you are at a point of creating an artifact for your Release pipeline. An artifact is the deployable component of your model or application. Build Artifact is one of the many artifact types. The following two tasks are required to create Build artifact in your Build pipeline. 
         - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`
