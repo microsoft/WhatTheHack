@@ -1,78 +1,57 @@
 # FHIR Powered Healthcare
 ## Introduction
-Contoso Healthcare is implementing a FHIR (Fast Healthcare Interoperability Resources) powered event-driven serverless platform to ingest and transform patient data and medical events from EHR (Electronic Health Record) systems into a HL7 FHIR standard format and persist them to a centralized FHIR Compliant store.  To support post-processing of medical events, an event is generated whenever FHIR CUD (create, update and delete) operations occurs in FHIR Server.  The platform will enable exploration of FHIR patient data through frontend web apps and SMART on FHIR apps.
+Contoso Healthcare is implementing FHIR (Fast Healthcare Interoperability Resources) to rapidly and securely exchange data in the HL7 FHIR standard format with a single, simplified data management solution for protected health information (PHI). Azure API for FHIR is fully managed, enterprise-grade FHIR service in the cloud lets you quickly connect existing data sources, such as electronic health record systems and research databases. Create new opportunities with analytics, machine learning, and actionable intelligence across your health data.
 
-You will implement a collection of FHIR reference architectures in the Microsoft **[Health Architectures](https://github.com/microsoft/health-architectures)** for FHIR use cases that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architectures for Azure API for FHIR.
+You will implement a collection of FHIR reference architectures frome **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)** that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architectures for Azure API for FHIR.
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
-In this FHIR Powered Healthcare hack, you will implement Microsoft Health reference architectures to extract, transform and load patient data into a FHIR Compliant store.  You will deploy an event-driven serverless architecture to ingest HL7v2 messages and publish FHIR CUD events to an Event Hub.  Topic subscribers to these events can then trigger downstream post-processing workflows whenever new medical event is published.  You will then write JavaScript code to connect and read FHIR data to explore FHIR patient data.
-
-To get you started, you will be guided through a sequence of challenges to implement Microsoft Health Architectures for FHIR Server use cases using the following Azure managed services (PaaS):
-1. **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
-2. **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the `fhirimport` BLOB container.
-3. **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is a logic app based workflow to ingest and convert C-CDA and HL7v2 message into FHIR bundle.
-4. **[FHIR Event Processor](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIREventProcessor)** is a function app solution that provides services for ingesting FHIR Resources into FHIR Server and publishes successful FHIR Server CUD events to an Event Hub for topic subscribers to facilitate FHIR post-processing orchestrated workflows, i.e. CDS, Audits, Alerts, etc.  It is deployed and configured as a part of the **[HL72FHIR Workflow Platform](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#-deploying-your-own-hl7tofhir-conversion-workflow)**
- and has been incorporated into the **[FHIR Proxy](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy)**, which provides built-in modules for **[Pre and Post Processing Support](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)**.
-5. **[FHIR Proxy](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy)** is a function app solution that acts as an intelligent and secure gateway (reverse proxy) to FHIR Server and provides a consolidated approach to **[pre and post processing](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)** of FHIR Server, i.e. `PublishFHIREventPostProcess` to publish FHIR CUD events for resources to a configured eventhub.  It acts as a FHIR specific reverse proxy rewriting responses and brokering requests to FHIR Servers.
-6. **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR Servers and EMR systems through FHIR interfaces.
-7. **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
-8. **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)** conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR Server.
-9. **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7v2 messages, pushed to the FHIR Service Bus, into FHIR bundles.
-10. **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to search for patient(s) stored in FHIR Server and display the results in web page(s).
+This hack will help you:
+1. Deploy Azure API for FHIR.
+2. Generate and load synthetic medical data into FHIR Server.
+3. Load HL7 and C-CDA data into FHIR Server.
+4. Read FHIR data through a Dashboard, SMART on FHIR apps, JavaScript app and Single Page App.
+5. Export and anonymize FHIR data.
+6. Stream IoMT Device data into FHIR.
+7. Visualize FHIR data using PowerBI.
 
 ## Scenario
-Contoso Healthcare is implementing a FHIR-based data management solution to rapidly exchange data in the HL7 FHIR standard format with EHR (Electronic Health Record) systems and HLS (Life Science) research databases.  To help its healthcare practitioners and administrators manage and access patient data for day-to-day operations, your team's assistance is needed in implementing new FHIR powered **[Health Architectures](https://github.com/microsoft/health-architectures)**.  This FHIR powered event-driven serverless platform will provide services to ingest and convert patient data from EMR (Electronic Medical Record), Clinical Data, Lab System, Scheduling System, etc. into FHIR Bundles and persist them into a FHIR Compliant store in near real-time.
-
-Your team's assistance is needed to implement this new event-driven FHIR ecosystem to build-out the following scenarios:
-1. Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
-2. Generate FHIR CUD (create, update, or delete) events whenever FHIR CUD operations take place in FHIR Server for post-processing.
-3. Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
-4. Explore a patient's medical records and encounters in FHIR Patient Dashboard and SMART on FHIR apps.
+Contoso Healthcare is implementing a FHIR-based data management solution. 
+Your team's assistance is needed to implement the following scenarios using FHIR Powered Healthcare hack:
+   * Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
+   * Generate FHIR CUD (create, update, or delete) events whenever FHIR CUD operations take place in FHIR Server for post-processing.
+   * Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
+   * Explore a patient's medical records and encounters in FHIR Patient Dashboard and SMART on FHIR apps.
+   * Bulk export data from FHIR, de-identify the data and store in Data Lake for further processing.
+   * Ingest and Persist IoT device data from IoT Central using IoT Connector for FHIR.
+   * Analyze and Visualize data (EHR, HL7, CCDA, IoMT) in PowerBI using PowerQuery Connector for FHIR and SQL DB Connector.
 
 ## Challenges
+<center><img src="./images/challenges_architecture.jpg" width="850"></center>
+
+**These challenges must be completed in order:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-- Challenge 1: **[Extract and load FHIR patient medical records](Student/Challenge01.md)**
-- Challenge 2: **[Ingest and stream medical events for post-processing](Student/Challenge02.md)**
-- Challenge 3: **[Extract, transform and load patient clinical data](Student/Challenge03.md)**
+- Challenge 1: **[Extract and load FHIR synthetic medical data](Student/Challenge01.md)**
+
+**These challenges can be completed in any order:**
+- Challenge 2: **[Extract, transform and load HL7 medical data](Student/Challenge02.md)**
+- Challenge 3: **[Extract, transform and load C-CDA synthetic medical data](Student/Challenge03.md)**
 - Challenge 4: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge04.md)**
-- Challenge 5: **[Explore patient medical records and encounters through FHIR Patient Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
+- Challenge 5: **[Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps](Student/Challenge05.md)**
 - Challenge 6: **[Create a new Single Page App (SPA) for patient search](Student/Challenge06.md)**
+- Challenge 7: **[Bulk export, anonymize and store FHIR data into Data Lake](Student/Challenge07.md)**
+- Challenge 8: **[Stream IoMT Device data into FHIR from IoT Central](Student/Challenge08.md)**
+- Challenge 9: **[Analyze and Visualize FHIR data using PowerBI](Student/Challenge09.md)**
 
 ## Disclaimer
-**You MUST be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant with directory admin role access if you don't have directory admin role access in the primary AD tenant) required for the FHIR Server Sample deployment (challenge 1).**
-  - **If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.**
-  - **If you don't have directory Administrator access:**
-      - **Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.**
-      - **Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.**
+You **MUST** be able to log into your Azure subscription and connect to Azure AD primary tenant with directory admin role access (or secondary tenant with directory admin role access if you don't have directory admin role access in the primary AD tenant) required for the FHIR Server deployment (Challenge 1).
+  - If you have full Administrator directory access to your AD tenant where you can create App Registrations, Role Assignments, Azure Resources and grant login directory admin consent, then your Primary AD tenant is same as Secondary AD tenant and should use the same AD tenant for both.
+  - If you don't have directory Administrator access:
+      - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
+      - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
 
 ## Prerequisites
-- Access to an Azure subscription with Owner access
-   - If you don't have one, **[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)**
-- **[Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**
-- **[Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7)** version 5.1
-  - Confirm PowerShell version is **[5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)** `$PSVersionTable.PSVersion`
-  - **[PowerShell modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7)**
-    - Confirm PowerShell module versions.  Re-install the required version below (if needed):
-      - Az version 4.1.0 
-      - AzureAd version 2.0.2.4
-        ```
-        Get-InstalledModule -Name Az -AllVersions
-        Get-InstalledModule -Name AzureAd -AllVersions
-        ```
-- **[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)**
-   - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
-   - Update to the latest
-   - Must be at least version 2.7.x
-- Alternatively, you can use the **[Azure Cloud Shell](https://shell.azure.com/)**
-- **[.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)**
-- **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)** (needed to run Synthea Patient Generator tool)
-- **[Visual Studio Code](https://code.visualstudio.com/)**
-- **[Node Module Extension](https://code.visualstudio.com/docs/nodejs/extensions)**
-- **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
-- **[Download Node.js Window Installer](https://nodejs.org/en/download/)**
-- **[Download and install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-- **[Postman](https://www.getpostman.com)**
+The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
 
 ## Repository Contents
 - `../Student`
@@ -86,8 +65,7 @@ Your team's assistance is needed to implement this new event-driven FHIR ecosyst
   - Coach's guide to solutions for challenges, including tips/tricks.
 
 ## Contributors
-- Richard Liang (Microsoft)
-- Peter Laudati (Microsoft)
-- Gino Filicetti (Microsoft)
+- Aruna Ranganathan
+- Richard Liang
 
 
