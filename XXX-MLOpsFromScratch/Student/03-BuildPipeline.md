@@ -46,7 +46,7 @@ updated Azure Machine Learning pipeline after building the code.
 
     1.  Python version – 3.6
 
-    2.  Add a task to setup environment by using `install_environment.sh` file in `environment_setup` folder. This will install all the python modules required for the project.
+    2.  Add a task to setup environment by using `install_environment.sh` file in `Data_and_Code/environment_setup/` folder. This will install all the python modules required for the project.
         -   **Hint:** Use a command line task that allows you to run the shell script.
 
     3.  Add a task to get Azure ML Workspace connection using `Workspace.py` in `service/code` folder. This will establish connection to Azure ML workspace by using your workspace details in `config.json` file.         
