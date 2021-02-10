@@ -12,6 +12,11 @@
 - Localized resources along with multi-language support
 - A working Profile Edit User Flow
 
+## Introduction
+
+Azure Active Directory B2C provides the ability to integrate RESTful APIs into your User Flows using a feature called API Connectors, or from your custom policies. This is a great solution for claims enrichment, input validation, workflow kick-off, and many more scenarios.
+
+![REST Integration](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/technical-overview/lob-integration.png)
 ## Description
 
 CMC IT Leadership is really impressed with your work - you might get that sweet promotion you've been in line for over the past several years....BUT (oh no), you are hearing rumblings that QA has found an issue with your SignUp / SignIn policy. It seems that QA has been able to enter bogus CMC Consultant IDs during the SignUp process. As a result, anyone could sign up as a consultant with an invalid CMC Consultant ID, which would distort CMC's numbers.

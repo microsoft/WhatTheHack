@@ -8,6 +8,10 @@
 - Deployed User Flows and/or Custom Policies
 - Added External IdPs, Included Conditional Access, Called to REST APIs
 
+## Introduction
+Azure Active Directory sign-in and auditing logs can be routed to many different monitoring solutions, such as a Log Analytics Workspace. You can then use the power of Log Analytics to query data, create alerts, and produce workbooks and visualizations.
+
+![Azure AD B2C Log Export](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/azure-monitor/azure-monitor-flow.png)
 ## Description
 
 We've done a lot with Azure AD B2C and CMC Leadership is really thrilled with everything. They have one last ask -- is there a way we can monitor our B2C activity around logins, conditional access request, failed logins, etc.

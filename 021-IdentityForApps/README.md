@@ -2,8 +2,10 @@
 
 ## Introduction
 
-The Identity for Developers Hack will provide you a deep dive experience into enabling internal and external identity solutions for your applications. Identity is a booming area of the Microsoft Cloud platform and enabling identity solutions in your engagements allows for faster production deployments.
+The Identity for Developers Hack will provide you a deep dive experience into enabling customer-facing identity solutions for your applications. Identity is a booming area of the Microsoft Cloud platform and enabling identity solutions in your engagements allows for faster production deployments. Azure Active Directory B2C enables you to provide custom identity access management solutions for your applications.
 
+
+![B2C Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-singlesignon.png)
 ## Learning Objectives
 
 In this hack, we'll enable identity solutions using Azure Active Direcotry B2C, demonstrating how to:
