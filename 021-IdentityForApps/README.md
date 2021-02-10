@@ -6,17 +6,15 @@ The Identity for Developers Hack will provide you a deep dive experience into en
 
 ## Learning Objectives
 
-In this hack, we'll enable identity solutions for several applications, demonstrating how to
+In this hack, we'll enable identity solutions using Azure Active Direcotry B2C, demonstrating how to:
 
-1. Provision several types of Managed Identities
-2. Set up an Azure Active Directory and enable External Identities
-3. Set up an Azure Active Directory B2C directory for customer-facing applications, utilizing:
+  1. Create and integrate out of the box user flows
 
-   a. Out of the box user flows
+  2. Create and integrate customized policies
 
-   b. Customized policies
+  3. Call REST APIs for token enrichment and claims validation
 
-   c. REST APIs for token enrichment and custom approval workflows
+  4. Monitor and report on your B2C tenant
 
 ## Challenges
 
@@ -64,23 +62,11 @@ Challenge 10: **[Tracking a User's Journey in a Policy](Student/10-appinsights.m
 
 - Enable App Insights in your custom policy so you can track a user through the various steps in the Orchestration. Add custom events to your Orchestration and track them in App Insights.
 
-Challenge 11: **[Add a SubJourney for Terms of Service](Student/11-subjourney.md)**
-
-- Create a subjourney in your orchestration to check whether a user needs to accept an updated version of the company's Terms of Service and record that the user has accepted them.
-
-Challenge 12: **[Parameterize Your Custom Policies](Student/12-parameterize.md)**
+Challenge 11: **[Parameterize Your Custom Policies](Student/11-parameterize.md)**
 
 - Take your custom policies and parameterize the values that could change from environment to environment, and use the B2C extension to VS Code to generate environment-specific policy files.
 
-Challenge 13: **[BONUS: Set Up a CI/CD Pipeline for Your B2C Tenant Policies](Student/13-cicd.md)**
-
-- Enable a CI/CD pipeline for your policies to be applied to a DEV and a PROD B2C tenant in order to simulate a multiple environment environment.
-
-Challenge 14: **[BONUS: Enable Multi-Tenancy Support in Your B2C Tenant](Student/14-multi-tenant.md)**
-
-- Enable multi-tenancy support in your B2C tenant to allow sign-ins from multiple Azure AD tenants.
-
-Challenge 15: **[BONUS: Monitoring Your Tenant](Student/15-monitor.md)**
+Challenge 15: **[BONUS: Monitoring Your Tenant](Student/12-monitor.md)**
 
 - Monitor your B2C tenant by combining logs and app insights logs
 
@@ -92,16 +78,21 @@ Challenge 15: **[BONUS: Monitoring Your Tenant](Student/15-monitor.md)**
 
 ## Repository Contents (Optional)
 
-- `../Coach/Guides`
+- `../Coach`
   - Coach's Guide and related files
-- `../SteamShovel`
-  - Image files and code for steam shovel microservice
-- `../images`
-  - Generic image files needed
-- `../Student/Guides`
+- `../Resources/HarnessApp`
+  - Sample AspNetCore app to be used to interact with your B2C tenant
+- `../Resources/MSGraphApp`
+  - Sample DotNetCore Console app to be used to query your B2C tenant
+- `../Resources/Verify-inator`
+  - Sample AspNetCore WebApi app to be called by your B2C tenant's SignUp User Flows
+- `../Resources/PageTemplates`
+  - Sample HTML page template that can be used to customize User Flows and Custom Policies
+- `../Student`
   - Student's Challenge Guide
 
 ## Contributors
 
 - David Hoerster
-- ???
+- Nick Thomas
+- Tim Sullivan
