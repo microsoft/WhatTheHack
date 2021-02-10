@@ -1,0 +1,54 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+
+    inputs:
+      wth_name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'WTH Name - Ex: 005-RockPaperScissorsBoom'
+        # Input has to be provided for the workflow to run
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  publish_artifact:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    env:
+      resourcesPath: ${{ github.event.inputs.wth_name }}/Student/Resources
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Zip
+      run: |
+        zip -r ${{ github.event.inputs.wth_name }}.zip ${{ env.resourcesPath }}
+
+    - name: Release Name
+      id: release-name
+      run: |
+        echo "::set-output name=release-name::$(date +%Y%m)"
+
+    - name: Create Release
+      # You may pin to the exact commit or the version.
+      # uses: ncipollo/release-action@4b71ee3b25951e6098e7434cdc485edc5b3adab2
+      uses: ncipollo/release-action@v1.7.3
+      with:
+        # An optional flag which indicates if we should update a release if it already exists. Defaults to false.
+        allowUpdates: true
+        # An optional set of paths representing artifacts to upload to the release. This may be a single path or a comma delimited list of paths (or globs)
+        artifacts: '${{ github.event.inputs.wth_name }}.zip'
+        artifactContentType: zip
+        # An optional body for the release.
+        body: 'Release is mapped to year/month, and assets represent student resources for specified challenges'
+        name: ${{ github.repository }}-${{ steps.release-name.outputs.release-name }}
+        tag: ${{ steps.release-name.outputs.release-name }}
+        token: ${{ secrets.WTH_CR_PAT}}
