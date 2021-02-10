@@ -10,6 +10,11 @@
 - Created a SignUp / SignIn (SUSI) User Flow
 - Tested the User Flow via the Azure AD B2C Portal
 
+## Introduction
+
+In addition to creating local accounts, Azure Active Directory B2C allows your users to sign in with credentials from enterprise or social identity providers (IdP), supporting OAuth 1.0 and 2.0, OpenID Connect, and SAML protocols.
+
+![Identity Providers Supported by B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/technical-overview/external-idps.png)
 ## Description
 
 CMC IT Leadership is very excited with the SignUp / SignIn flow that you developed....BUT, they want some more features. They've decided that they would like to streamline the ability of consultants to sign in and sign up by allowing the consultants to use their social identity to sign up and sign in.
