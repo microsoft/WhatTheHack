@@ -10,12 +10,6 @@
 - Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
 - Using a custom HTML template
 - Localized resources along with multi-language support
-- A working Profile Edit User Flow
-- A functioning web harness application (either local or in Azure)
-- Azure function that validates the CMC Consultant ID and also generates a Consultant Territory Name
-- User SignUp process validates CMC Consultant ID and saves territory name to the user's account
-- Profile Edit process allows the consultant to modify their territory name but not their CMC Consultant ID
-- Conditional Access Policies that challenge users if they attempt to sign in from an Android device or block a user if they attempt to sign in from an anonymous browser session (like Tor)
 
 ## Description
 
