@@ -22,9 +22,9 @@ They are asking that you collect the following attributes of each consultant:
 - Email Address
 - City
 - State
-- CMC Consultant ID
+- CMC Consultant ID (named "ConsultantID")
 
-It should be noted that CMC only is licensed to do business in the following states: **NY, PA, OH, IN, IL, MN, WI, KY, WV, IA**.
+It should be noted that CMC only is licensed to do business in the following states: **NY, PA, OH, IN, IL, MN, WI, KY, WV, IA, MI**.
 
 CMC IT Management has also asked that First and Last Name are displayed BEFORE Display Name on the sign up form. There's also a rumor that IT Management has also expressed that they are partial to the Slate Gray User Flow template.
 
