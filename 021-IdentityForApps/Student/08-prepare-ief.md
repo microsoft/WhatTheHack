@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./07-admin-graph.md) - **[Home](../readme.md)** - [Next Challenge>](./09-custom-policy.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 - Provisioned a B2C tenant
 - Created a SignUp / SignIn (SUSI) User Flow
@@ -20,7 +20,7 @@
 
 ## Description
 
-Custom policies are configuration files that define the behavior of your AAD B2C tenant. Leadership at CMC wants you to enable your tenant to allow custom policies to be used in the future. These may be used to allow different types of user interactions other than the pre-set User Flows defined in the Azure portal. Custom policies are a set of XML files that define technical profiles and user journeys in your AAD B2C tenant. Microsoft provides a starter pack of custom policies you can find down below in the learning resources. 
+Custom policies are configuration files that define the behavior of your AAD B2C tenant. Leadership at CMC wants you to enable your tenant to allow custom policies to be used in the future. These may be used to allow different types of user interactions other than the pre-set User Flows defined in the Azure portal. Custom policies are a set of XML files that define technical profiles and user journeys in your AAD B2C tenant. Microsoft provides a starter pack of custom policies you can find down below in the learning resources.
 
 ## Success Criteria
 

@@ -1,5 +1,4 @@
 #TODO: update alt text on images
-#TODO: how do we limit acceptable states for a user to sign in from?
 
 # Challenge 2 - Sign Up, Sign In User Flow
 
@@ -32,6 +31,7 @@ This challenge will walk your attendees through a standard, simple sign up & sig
     - State
     - CMC Consultant ID
 10. To customize the appearance, select "Page layouts" under Customize, and then select the templates dropdown. For this hack, the slate gray template is preferred: <br><img src="images/02/customize-template.png" alt="image of search" width="700"/>
+11. You'd restrict the states a user can signup with by changing the data type of State/Province from TextBox to DropDownSingleSelect and entering the valid values there.
 
 ## Alternate Hackflow
 

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>User details</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style id="common">
+        @font-face {
+            font-family: 'SegoeUI';
+            src: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/fonts/segoeui.WOFF);
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'SegoeUI';
+            src: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/fonts/segoeui_bold.WOFF);
+            font-weight: bold;
+        }
+        #AmazonExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
+        }
+        #AmazonExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/amazon.svg);
+        }
+        #FacebookExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/facebook.svg);
+        }
+        #FacebookExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/facebook.svg);
+        }
+        #GitHubExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/github.svg);
+        }
+        #GitHubExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/github.svg);
+        }
+        #AppleExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/apple.svg);
+        }
+        #AppleExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/apple.svg);
+        }
+        #GoogleExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/google.svg);
+        }
+        #GoogleExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/google.svg);
+        }
+        #LinkedInExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/linkedin.svg);
+        }
+        #LinkedInExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/linkedin.svg);
+        }
+        #MicrosoftAccountExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/microsoft.svg);
+        }
+        #MicrosoftAccountExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/microsoft.svg);
+        }
+        #QQExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/qq.svg);
+        }
+        #QQExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/qq.svg);
+        }
+        #TwitterExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/twitter.svg);
+        }
+        #TwitterExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/twitter.svg);
+        }
+        #WeChatExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/wechat.svg);
+        }
+        #WeChatExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/wechat.svg);
+        }
+        #WeiboExchange {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/weibo.svg);
+        }
+        #WeiboExchange:hover {
+          background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/weibo.svg);
+        }
+        .buttons #cancel:before {
+            content: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/images/left-arrow.svg);
+        }
+    </style>
+    <style id="idpselector">
+        #SignInWithLogonNameExchange, #SignUpWithLogonEmailExchange, #SignUpWithLogonNameExchange {
+            background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/colored/local.svg);
+        }
+        #SignInWithLogonNameExchange:hover, #SignUpWithLogonEmailExchange:hover, #SignUpWithLogonNameExchange:hover {
+            background-image: url(https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/idp_logos/white/local.svg);
+        }
+    </style>
+
+    <style>
+        /* Following are generated styles via gulp. */
+        /* inject: css */
+        html{background:0 0}body{font-family:Segoe UI,SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;background-attachment:fixed;background-color:#fff;background-position:center;background-repeat:no-repeat;background-size:cover;text-align:left}p{margin:0}a:focus{outline:0}input,select{border:1px solid #605e5c}input::placeholder{color:#6a6a6a}img[data-tenant-branding-background=true]{width:100%;height:100%;object-fit:cover;z-index:0;position:fixed;left:0;overflow:hidden;top:0}div[data-tenant-branding-background-color=true]{width:100%;height:100%;position:fixed;z-index:0}.container{text-align:center;width:100%;display:table;height:100vh;padding:0}#api{margin:0 auto}.col-lg-6{max-width:470px;width:100%;float:none;display:inline-block;vertical-align:top;padding:0}.row{width:100%;margin:0;display:table-cell;vertical-align:middle}ul{padding:0}#simplemodal-container .simplemodal-data{padding:5px 8px;overflow:hidden;background-color:#fff;border-radius:3px;font-style:italic}#SignInWithLogonNameExchange{background-color:#296ec6;background-image:url(none);background-size:10%;background-position-x:95%;background-position-y:50%;background-repeat:no-repeat;border-radius:.5rem;width:100%;width:100%;font-size:1em;margin-left:auto}#SignInWithLogonNameExchange:hover{background-color:#1662c7}#AmazonExchange:hover{background-color:#36474f!important}#FacebookExchange:hover{background-color:#3b5595!important}#GitHubExchange:hover{background-color:#0f0f0f!important}#AppleExchange:hover{background-color:#0f0f0f!important}#GoogleExchange:hover{background-color:#c64a29!important}#LinkedInExchange:hover{background-color:#0274b3!important}#MicrosoftAccountExchange:hover{background-color:#01a4ef!important}#QQExchange:hover{background-color:#1a97df!important}#TwitterExchange:hover{background-color:#1da1f2!important}#WeChatExchange:hover{background-color:#4cc522!important}#WeiboExchange:hover{background-color:#e81123!important}.buttons #continue:disabled{margin:0 auto;width:60%;height:50px;background-color:#296ec6;opacity:.3;border-radius:.5rem;border:none;color:#fff;font-size:1em}.buttons #continue{margin:0 auto;width:60%;height:50px;background-color:#296ec6;opacity:1;border-radius:.5rem;border:none;color:#fff;font-size:1em;box-shadow:0 0 30px 0 #dae1f7}.buttons #continue:hover{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;background-color:#1662c7;border-color:#204d74}.buttons #cancel{padding:0;margin-left:auto;background:0 0;border:0;width:inherit;position:absolute;background-color:transparent;top:2px;left:15px;font-size:1em;color:#505050;box-shadow:none;text-align:left}.buttons #cancel:hover{color:#000!important}.buttons #cancel:before{padding:10px;vertical-align:sub;zoom:90%;display:inline-block}#attributeList ul{padding:0}#attributeList ul li{list-style:none;margin:1rem 0}label{font-weight:600}#attributeList ul li label{display:block;text-align:left;float:none}#attributeList ul li.EmailBox label,#attributeList ul li.Password label,#attributeList ul li.TextBox label{display:none!important}#attributeList ul li label[for=country]{float:left;display:inline-block!important;margin-bottom:.5rem}#attributeList ul li label[for=cpiminternal_legalCountry]{float:none;display:block!important;text-align:left;margin-bottom:.5rem}#attributeList ul li label[for=cpiminternal_dateOfBirth]{float:none;text-align:left;display:block!important;margin-bottom:.5rem}#attributeList ul li input{height:50px;width:70%;border-radius:.5rem;text-indent:20px}#attributeList ul li input::-webkit-input-placeholder{text-indent:20px}#attributeList ul li .attrEntry.validate input.invalid,#attributeList ul li .attrEntry.validate input:invalid{border:1px solid #b00}#attributeList ul li .attrEntry .verify{margin-top:2rem;padding-bottom:10px;position:relative}#attributeList ul li .attrEntry .verificationControlContent .buttons{margin-top:2rem;padding-bottom:10px;position:relative}#attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_send]{width:60%;height:50px;background-color:#296ec6;color:#fff;border-radius:.5rem}#attributeList ul li .attrEntry .verificationControlContent .sendCode{width:60%;height:50px;background-color:#296ec6;color:#fff;border-radius:.5rem}#attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_send]:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verificationControlContent .sendCode:hover{background-color:#1662c7}@media screen and (-ms-high-contrast:active){#attributeList ul li .attrEntry .verify button,.buttons #continue{border:1px dashed #fff!important}#attributeList ul li .attrEntry .verify button:hover,.buttons #continue:hover{border:1px solid #fff!important}}#attributeList ul li .attrEntry .verify .verifyButton{width:inherit;padding:0 20px;height:50px;background-color:#296ec6;color:#fff;margin-right:5px;border-radius:.5rem}#attributeList ul li .attrEntry .verificationControlContent .verifyCode{width:inherit;padding:0 20px;height:50px;background-color:#296ec6;color:#fff;margin-right:5px;border-radius:.5rem}#attributeList ul li .attrEntry .verify .verifyButton:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verificationControlContent .verifyCode:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_resend]{width:inherit;padding:0 20px;border:0;font-size:1em;height:50px;right:0;bottom:-38px;background-color:#296ec6;color:#fff;border-radius:.5rem}#attributeList ul li .attrEntry .verificationControlContent .sendNewCode{width:inherit;padding:0 20px;border:0;font-size:1em;height:50px;right:0;bottom:-38px;background-color:#296ec6;color:#fff;border-radius:.5rem}#attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_resend]:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verificationControlContent .sendNewCode:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verify .editButton{border:none;color:#fff;background-color:#296ec6;width:60%;height:50px;border-radius:.5rem}#attributeList ul li .attrEntry .verificationControlContent .changeClaims{border:none;color:#fff;background-color:#296ec6;width:60%;height:50px;border-radius:.5rem}#attributeList ul li .attrEntry .verify .editButton:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verificationControlContent .changeClaims:hover{background-color:#1662c7}#attributeList ul li .attrEntry .verify #email_ver_input_label{display:none!important}#api .working{background:url(data:image/gif;base64,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) no-repeat;height:30px;width:auto;background-position:center bottom}#attributeList ul li .attrEntry .itemLevel{display:none}input[type=email],input[type=password],input[type=text],select{-webkit-appearance:none}#attributeList ul li .attrEntry .dropdown_single{height:45px;border-radius:.5rem;width:100%;padding-left:15px}#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth.date{display:table;width:100%}#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth.date select{border-radius:.5rem;display:inline-block;height:50px;padding-left:15px}#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_day.day{margin-right:3%;width:23%}#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_month.month{margin-right:3%;width:38%}#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_year.year{width:33%}#attributeList ul li .helpLink{display:none}#attributeVerification .buttons{margin-top:30px}@media screen and (max-width:100%){.row .panel-default .panel-body{margin-top:40px}.row .panel-default .panel-body .branding img{display:block;height:80px;width:auto;margin:0 auto}.row .panel-default .panel-body .branding h1{display:none}.row .panel-default .panel-body h3{font-size:1.5em;margin-top:15px}#attributeVerification #attributeList ul li input{width:60%;height:40px;border-radius:.5rem;border:1px solid #605e5c;text-indent:10px}#attributeVerification #attributeList ul li input::-webkit-input-placeholder{text-indent:10px}#attributeVerification #attributeList ul li #email{width:65%;float:left;position:relative;z-index:2}#attributeVerification #attributeList ul li #email_ver_but_verify{background:0 0;border:0;color:#496ad8;font-size:1em;position:relative;right:0;top:60px;font-size:1.1em;width:auto;z-index:1;height:20px}#attributeVerification #attributeList ul li #email_ver_input{min-width:50%;width:60%;float:left}#attributeVerification #attributeList ul li #email_ver_but_resend{top:10px;font-size:1.1em;height:20px}#attributeVerification #attributeList ul li .attrEntry #email{height:40px}#attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_send:after{content:" Verify";font-size:1.1em;font-style:bold;margin-left:40%}#attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_send{height:40px;width:auto;float:right;overflow:hidden;text-indent:-200px}#attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_edit{margin-bottom:15px;border:none;color:#fff;background-color:#496ad8;border-radius:.5rem;font-size:1em;box-shadow:0 0 40px 2px #dae1f7;width:30%;height:40px;overflow:hidden;padding-top:6px;margin-left:40%}#attributeVerification #attributeList ul li .attrEntry .verify:after{content:" ";display:block;clear:both}#attributeVerification #attributeList #verifying_blurb{margin-top:15px}#attributeVerification .buttons #continue{height:40px}#attributeVerification .buttons #cancel{font-size:1em;left:40%}}.panel,.panel_layout,.panel_layout_row,body,html{height:100%}.accountButton,.buttons button{background-color:#fff;-moz-border-radius:.5rem;-webkit-border-radius:.5rem;border-radius:.5rem;width:60%;border:none;font-size:1em;color:#000;cursor:pointer;margin-top:10px;margin-right:auto;white-space:normal;box-shadow:0 2px 10px rgba(0,0,150,.15)}.accountButton:hover,.buttons button:hover{border:none;-moz-box-shadow:none;-webkit-box-shadow:none;background-color:#1662c7;color:#fff!important}@media only screen and (max-width:600px){img[data-tenant-branding-background=true]{display:none}.container{background-color:#fff}.container .row .panel-default{border-radius:0;border:none;box-shadow:none}}
+        /* endinject */
+    </style>
+    
+    
+    <style>
+        /* Following are generated styles via gulp. */
+        /* inject: css */
+        .self_asserted_container .row .panel-default{padding:40px 30px;margin:auto;height:100%;background-color:#fff}.self_asserted_container .row .panel-default .panel-body{margin:0 auto;max-width:380px;width:auto;padding:0}.self_asserted_container .row .panel-default .panel-body img.companyLogo{display:block;margin:auto;height:70px}.self_asserted_container .row .panel-default .panel-body .branding h1{font-size:1.5em;color:#505050}.self_asserted_container .row .panel-default .panel-body h3{font-size:1.5em;color:#505050;margin-top:5px;margin-bottom:30px}.self_asserted_container .row .panel-default .panel-body .intro{display:none;text-align:left;margin-top:2rem}.self_asserted_container .row .panel-default .panel-body #api #attributeVerification .pageLevel{color:#b00;text-align:left}.self_asserted_container .row .panel-default .panel-body #api #attributeVerification .error{color:#b00;text-align:left;margin-bottom:5px}.errorText{border:none;padding:0;background:0 0;color:#a61e0c}.self_asserted_container .row .panel-default .panel-body #api .verifying-modal{display:none;margin-top:10px}#attributeVerification #attributeList ul{display:flex;flex-direction:column}#attributeVerification #attributeList ul li input{width:100%}#attributeVerification #attributeList ul li .helpText{display:none;color:#a61e0c;text-align:justify}#attributeVerification #attributeList ul li #email_success.verificationSuccessText{float:left}#attributeVerification #attributeList ul li #email_info{float:left}#attributeVerification #attributeList ul li .attrEntry.validate #email_fail_retry{float:left}#attributeVerification #attributeList ul li .attrEntry.validate #email_fail_server{float:left;text-align:left}#attributeVerification #attributeList ul li #email_fail_no_retry{float:left}div#email_intro{width:100%;float:left;text-align:left}div#email_info{text-align:left}#attributeVerification #attributeList ul li input[type=checkbox],#attributeVerification #attributeList ul li input[type=radio]{width:24px!important;box-shadow:none;height:24px;display:inline-block;float:left;clear:left;margin:.5rem}#attributeVerification #attributeList ul li input[type=checkbox].invalid{border:none}#attributeList ul li input[type=checkbox]+label{float:left;display:inline-block!important;margin:.8rem 0 0 .8rem;font-weight:400}#attributeList ul li input[type=checkbox]{border:none;position:relative;width:24px;height:24px;font-size:20px;margin:0;display:inline-block;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:0;text-indent:0}#attributeVerification #attributeList ul li input[type=checkbox]:focus{box-shadow:0 0 0 2px #000;border-radius:.2rem}#attributeList ul li input[type=checkbox]:after{content:'';position:absolute;display:block;z-index:1;width:24px;height:24px;border:1px solid #605e5c;border-radius:2px}#attributeList ul li input[type=checkbox]:before{background:#00f;background-size:10px 8px;background-repeat:no-repeat;background-position:3px 4px;position:absolute;left:2px;z-index:2;opacity:0;width:100%;height:100%;color:#f6ac4f}#attributeList ul li input[type=checkbox]:checked:after{content:'\2713';position:absolute;box-sizing:border-box;padding-left:4px;line-height:23px;color:#fff;background-color:#296ec6;top:0;opacity:1;left:0;border:1px solid #296ec6;border-radius:2px}#attributeList ul li input[type=radio]+label{float:left;display:inline-block!important;margin:.5rem;font-weight:400}#attributeList ul li input[type=radio]{-webkit-appearance:none;appearance:none;width:20px;height:20px;border:1px solid #dedede;border-radius:50%;background-color:#fff;outline:0}#attributeVerification #attributeList ul li input[type=radio]:focus{box-shadow:0 0 0 3px #000}#attributeList ul li input[type=radio]:checked{background-color:#296ec6;border:1px solid #296ec6}.attrEntry .verificationInfoText{margin-bottom:5px}#attributeList ul li .attrEntry select{-moz-appearance:none;-webkit-appearance:none;appearance:none;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAA9ElEQVRIie3T20rDQBSF4e8JKkhpa7WeUBTFB/Mt9U4Qb7TaekJFxcNLxJuJDmHSkw2CZMG+yV5r/ROSoVatv1QDh2jOoasZuhrFxQJOkGGA7i8gbVyErjMsxsvjsMhnOCOsG7Jx11FsuCwsM9yiNwWkFzLFnv4kpkdsTgBZxV1JfqNoXimBPWFrBGQN94ncA9bLQh1cJUJv2Ev4t/Gc8N+Eg49UR/qbvWM/8u3gpQSyPA6Sq10C+8ABdvGa2F9PA8mV+lUzfIYpPp/1Sny/WT9ROldIrpafm14ZZBxsiKV5QWLYeQQZVAGJYadhWlVBav1zfQHKJIAi7N8iJQAAAABJRU5ErkJggg==);background-repeat:no-repeat,repeat;background-position:right .7em top 50%,0 0;background-size:.65em auto,100%}#attributeList ul li .attrEntry select::-ms-expand{display:none}#attributeList ul li .attrEntry select:hover{border-color:#888}#attributeList ul li .attrEntry select option{font-weight:400}
+        /* endinject */
+    </style>
+
+</head>
+<body>
+    <div id="background_branding_container" data-tenant-branding-background-color="true">
+      <img data-tenant-branding-background="true" src="https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/backgrounds/1-1.png" alt="Illustration"/>
+    </div>
+    <p id="screen_reader_msg" role="alert" aria-label="Page has been loaded successfully"></p>
+    <div class="container  self_asserted_container " role="presentation">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img class="companyLogo" data-tenant-branding-logo="true" src="https://identitysamplesb2cpreview.b2clogin.com/static/tenant/templates/images/logo.svg" alt="Company Logo">
+                        <div id="api">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Hide the elements that contain user attributes which the user should not see, as
+    // they will be populated afterwards with information from the user invitation anyway.
+    $("#extension_CompanyId").parents("li").hide();
+    $("#extension_DelegatedUserManagementRole").parents("li").hide();
+  });
+</script>
+</html>

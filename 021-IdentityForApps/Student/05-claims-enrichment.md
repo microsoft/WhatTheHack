@@ -32,7 +32,7 @@ Your developer has also included a configuration setting for the B2C tenant's ex
 
 CMC IT Leadership considers success in dealing with this QA issue if you are able to:
 
-- Create the new custom attribute for Territory Name in your B2C tenant;
+- Create the new custom attribute for Territory Name in your B2C tenant (named "TerritoryName");
 - Deploy the Azure function (the "CMC ID Verify-inator");
 - Ensure that, during sign-up, a consultant enters a valid CMC Consultant ID; if they pass in an invalid ID, the consultant is presented with a friendly error message;
 - Ensure that, during sign-up, a territory name is generated and added to the consultant's account;
@@ -47,4 +47,4 @@ CMC IT Leadership considers success in dealing with this QA issue if you are abl
 
 ## Tips
 
-**- [API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)**
+**[API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)**
