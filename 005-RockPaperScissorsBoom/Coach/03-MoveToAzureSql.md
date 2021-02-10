@@ -1,5 +1,7 @@
 # Challenge 3 - Move to Azure SQL
 
+[< Previous Challenge](02-RunTheApp.md) - **[Home](README.md)** - [Next Challenge >](04-RunOnAzure.md)
+
 ## Provision Azure SQL
 
 1. Prepare and define environment by defining easy to re-use variables in Azure CLI
@@ -87,7 +89,7 @@
 ## Validate the application is using Azure SQL
 
 1. Connect to Azure SQL via your preferred SQL client
-![Azure SQL DB](./ch-03-sqldb.png)
+![Azure SQL DB](assets/03-sqldb.png)
 
-2. Query the database to observe records
-![Azure SQL Query](./ch-03-sqlquery.png)
+1. Query the database to observe records
+![Azure SQL Query](assets/ch-03-sqlquery.png)

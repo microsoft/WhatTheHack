@@ -1,5 +1,7 @@
 # Challenge 7 - Build a CI/CD workflow with GitHub actions
 
+[< Previous Challenge](06-AddApplicationMonitoring.md) - **[Home](README.md)** - [Next Challenge >]()
+
 ## Setup repository secrets
 
 1. The folowwing is a list of secrets that are needed for the workflow to succeed

@@ -1,5 +1,7 @@
 # Challenge 5 - Run the game continuously
 
+[< Previous Challenge](04-RunOnAzure.md) - **[Home](README.md)** - [Next Challenge >](06-AddApplicationMonitoring.md)
+
 ## Automatically call app's URL
 
 ### Using Azure LogicApps
@@ -54,7 +56,7 @@
 
 3. If you don't have a workflow definition, it is best to create it via the Azure Portal: [Create logic apps via - Portal](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
 
-    ![LogicApp](./recurrentTrigger.png)
+    ![LogicApp](assets/05-recurrentTrigger.png)
 
 ### Using Azure Functions
 

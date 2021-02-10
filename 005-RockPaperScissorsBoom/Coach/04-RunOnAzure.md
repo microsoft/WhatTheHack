@@ -1,6 +1,8 @@
 
 # Challenge 4 - Run the app on Azure
 
+[< Previous Challenge](03-MoveToAzureSql.md) - **[Home](README.md)** - [Next Challenge >](05-RunTheGameContinuously.md)
+
 ## Prepare the environment
 
 If using the same terminal session, you may skip this step

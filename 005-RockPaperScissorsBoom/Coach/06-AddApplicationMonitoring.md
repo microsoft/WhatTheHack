@@ -1,5 +1,7 @@
 # Challenge 6 - Add Application Monitoring
 
+[< Previous Challenge](05-RunTheGameContinuously.md) - **[Home](README.md)** - [Next Challenge >](07-CICDWithGithubActions.md)
+
 ## Create Application Insights
 
 1. Add Application insights extension if you don't already have it
