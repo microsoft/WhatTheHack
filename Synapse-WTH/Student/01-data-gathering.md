@@ -21,9 +21,13 @@ Your security requirements include:
 
 *Bonus*
     - Explain how you would store access keys to said storage service without putting sensitive credentials in connection strings/code
+    - Explain the manageability and security benefits of using Azure Active Directory identity to control access
 
 ## Learning Resources
 
 Reference articles:
 - https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
 - https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction
+
+- https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts
+- https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
