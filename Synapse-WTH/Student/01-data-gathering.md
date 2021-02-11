@@ -31,3 +31,5 @@ Reference articles:
 
 - https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts
 - https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
+
+- https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/active-directory-authentication
