@@ -27,12 +27,16 @@ Sport Management Perspective (analysis oriented to healthy and growing organizat
 1. Explain the team's choice of visualization tool
 2. Show the coach (your executive) some of the visuals they can use in their next board meeting
 3. Demonstrate the ability to filter your visualizations
+4. For this challenge, a report in a desktop app is the minimum requirement.
 
 Bonus
-- Create a metric that would identify outliers
+- Deploy reports and/or dashboards to the Power BI cloud service for broader access.
 
 ## Learning Resources
 
 Reference articles:
-- Article 1
-- Article 2
+- https://powerbi.microsoft.com/en-us/
+- https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources
+- https://docs.microsoft.com/en-us/power-bi/create-reports/
+- https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-service-overview
+- https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboards
