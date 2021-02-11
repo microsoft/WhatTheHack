@@ -20,8 +20,8 @@ Your security requirements include:
 2. Show the data uploaded to the storage service of choice
 
 *Bonus*
-    - Explain how you would store access keys to said storage service without putting sensitive credentials in connection strings/code
-    - Explain the manageability and security benefits of using Azure Active Directory identity to control access
+- Explain how you would store access keys to said storage service without putting sensitive credentials in connection strings/code
+- Explain the manageability and security benefits of using Azure Active Directory identity to control access
 
 ## Learning Resources
 
