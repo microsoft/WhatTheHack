@@ -15,7 +15,7 @@ Additional results have been recorded. Your team’s task is to create a process
 3. Show updates to the visualizations as a result of the delta data
 
 Bonus
-- Create a hot stream that immediately sends an alert to the reporting tool for any new personal records (PRs) 
+- Create the ability to immediately sends an alert (via the reporting tool or another notification mechanism) for any new personal records (PRs).
 
 ## Learning Resources
 Reference articles:
