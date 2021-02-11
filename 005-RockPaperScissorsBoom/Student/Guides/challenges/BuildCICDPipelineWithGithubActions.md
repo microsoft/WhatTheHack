@@ -8,6 +8,8 @@
 
 In a previous challenge we manually deployed the app on Azure. Now with this challenge you will be able to build an entire CI/CD workflow with GitHub actions.
 
+![GitHub Actions CI/CD](images/07-CICDwGithubActions-arch.png)
+
 ## Challenges
 
 1. Create a Build workflow with GitHub actions to build your Docker images and push it to your Azure Container Registry (ACR). Your workflow should use `Continuous Integration` to build and push a new image with every relevant commit.

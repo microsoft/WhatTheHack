@@ -14,6 +14,7 @@ With this second challenge you will be able to run "locally" in your Azure Cloud
 
 1. Leveraging Azure Container Instance, build and run the app from within Azure Cloud Shell. You can use the `deploy-aci.yaml` file we have provided in /WhatTheHack/005-RockPaperScissorsBoom/Student/Resources/Code.
      * See **Tips** below for an example of how to do this.
+
 2. Test the app as an end-user, and play a game. You can reach the app via the dockerhost's public IP address. Try `az container show` to find the IP address or FQDN of your ACI deployment. Or, look for it in the portal.
 
 ## Success criteria
