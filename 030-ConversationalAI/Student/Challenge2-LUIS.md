@@ -1,4 +1,4 @@
-# Challenge 2 - Implementing LUIS
+# Challenge 2 - Create LUIS Intents to direct conversations
 [< Previous Challenge](./Challenge1-QnA.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge3-API.md)
 ## Introduction
 
@@ -37,4 +37,4 @@ We are going to build out a LUIS triggered dialog flow to help answer the curren
 
 
 
-[Next Challenge - Making API Calls >](./Challenge3-API.md)
+[Next Challenge -  Make API Calls from your Bot >](./Challenge3-API.md)

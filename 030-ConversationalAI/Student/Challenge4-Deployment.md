@@ -1,4 +1,4 @@
-# Challenge 4: Deploy the bot and integrate with Teams
+# Challenge 4: Publish your Bot to Azure and enable Teams Channel
 [< Previous Challenge](./Challenge3-API.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge5-FrontEnd.md)
 ## Introduction
 Now that we've finished developing our bot locally, we can deploy the bot. Deployment is key so that we can get the bot in our Testers' hands to ensure our dialogs are robust enough. Fortunately, deployment is semi-built into the Bot Composer interface.
@@ -27,4 +27,4 @@ Now that we've finished developing our bot locally, we can deploy the bot. Deplo
 * [How to publish a Bot](https://docs.microsoft.com/en-us/composer/how-to-publish-bot)
 * [Connect a bot to Microsoft Teams](https://docs.microsoft.com/en-us/azure/bot-service/channel-connect-teams?view=azure-bot-service-4.0) 
 
-[Next Challenge - Embed your bot >](./Challenge5-FrontEnd.md)
+[Next Challenge - Embed your Bot to the sample Front End Web Application and enable Direct Line Speech  >](./Challenge5-FrontEnd.md)

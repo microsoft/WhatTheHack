@@ -1,4 +1,4 @@
-# Challenge 6: Extend your Bot with Azure Communication Services
+# Challenge 6: Integrate your Bot with Azure Communication Services
 [< Previous Challenge](./Challenge5-FrontEnd.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge7-CICD.md)
 
 ## Introduction
@@ -28,4 +28,4 @@ Now that we've finished deployed our Bot into Azure. You can extend your Bot fro
 
 
 
-[Next Challenge - Create CI/CD pipelines for your solution >](./Challenge7-CICD.md)
+[Next Challenge -  Implement DevOps best practices into your Bot >](./Challenge7-CICD.md)

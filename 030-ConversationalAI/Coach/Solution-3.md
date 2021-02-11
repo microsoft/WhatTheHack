@@ -10,4 +10,4 @@
 
 ![Sample logic 1](./Images/Ch3-1.JPG)
 ![Sample logic 1](./Images/Ch3-2.JPG)
-[Next Solution - Publish and Teams Integration >](./solution-4.md)
+
