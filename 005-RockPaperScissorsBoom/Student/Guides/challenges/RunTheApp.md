@@ -8,7 +8,7 @@
 
 With this second challenge you will be able to run "locally" in your Azure Cloud Shell the given "Rock Paper Scissors Boom" app.
 
-![Run the app](../docs/RunTheApp.png)
+![Run the app](images/02-RunApp-arch.png)
 
 ## Challenges
 

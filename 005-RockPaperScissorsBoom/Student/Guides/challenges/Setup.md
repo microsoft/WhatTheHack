@@ -8,6 +8,8 @@
 
 ## Introduction
 
+![Setup](images/01-Setup-arch.png)
+
 ### Set up your *local* environment
 
 The first challenge is to setup an environment that will help you build the Rock Paper Scissors Boom! Game Server and deploy it locally. We need to make sure everything is working before bringing it to Azure.
