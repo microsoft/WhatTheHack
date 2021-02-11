@@ -38,5 +38,6 @@ Reference articles:
 - https://powerbi.microsoft.com/en-us/
 - https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources
 - https://docs.microsoft.com/en-us/power-bi/create-reports/
+- https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-use-directquery
 - https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-service-overview
 - https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboards
