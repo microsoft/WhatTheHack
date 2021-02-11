@@ -26,5 +26,5 @@ Reference articles:
 - https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is
 - https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks
 - https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace
-- [Load Data with COPY statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Load Data with the COPY statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Load Data with an Integration Pipeline](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-copy-activity-load-sql-pool)
