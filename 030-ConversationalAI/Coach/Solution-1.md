@@ -3,7 +3,7 @@
 [< Previous Challenge](./Solution-0.md) - **[Home](./Readme.md)** - [Next Challenge>](./Solution-2.md)
 
 ## Notes & Guidance
-- The free tier will be fine for this WTH
+- The free tier will be fine for this What the Hack
 - To connect to their QnA service they need to note what subscription they made it under, it will take a few moments for the newly created QnA service to populate.
 - No need to add chit chat
 - They need to have multi-turn extractions selected, if not it won't break the doc down correctly

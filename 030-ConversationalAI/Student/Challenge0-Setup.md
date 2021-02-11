@@ -1,4 +1,4 @@
-# Challenge 0 - Setting up Bot Composer
+# Challenge 0 - Setup and Introduction
 **[Home](../README.md)** - [Next Challenge>](./Challenge1-QnA.md)
 ## Introduction
 
@@ -26,4 +26,4 @@ Bot Composer is an open source visual authoring canvas for developers and multid
 
 
 
-[Next Challenge - Using QnA Maker >](./Challenge1-QnA.md)
+[Next Challenge - Create Multi-Turn QNA Knowledge Base >](./Challenge1-QnA.md)

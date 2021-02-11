@@ -1,4 +1,4 @@
-# Challenge 3: Making API calls
+# Challenge 3:  Make API Calls from your Bot  
 [< Previous Challenge](./Challenge2-LUIS.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge4-Deployment.md)
 ## Introduction
 
@@ -26,4 +26,4 @@ The power of the Bot Service is the ability to add your own APIs. In this challe
 - [Intents and Entities](https://docs.microsoft.com/en-us/composer/how-to-define-intent-entity)
 
 
-[Next Challenge - Deploying and integrating with Microsoft Teams >](./Challenge4-Deployment.md)
+[Next Challenge - Publish your Bot to Azure and enable Teams Channel >](./Challenge4-Deployment.md)
