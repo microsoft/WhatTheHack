@@ -17,6 +17,6 @@
         * Create a New App
         * In the App details page, fill in all the customized information you like. The challenging part is to get app icons to be exact size so you can online to find one.
         * In the Capabilities, choose 'Bots' and click on Setup -> Choose the 'Existing Bot' Tab
-        * and click on the Connect to a different bot id. You can find the Bot ID in Azure Portal: Bot Channels Registration Service, under Bot management, Settings, and find the Microsoft App ID.
+        * and click on the Connect to a different bot id. You can find the Bot ID in Azure Portal: Bot Channels Registration Service, under Bot management, Settings, and find the Microsoft App ID. 
 
         

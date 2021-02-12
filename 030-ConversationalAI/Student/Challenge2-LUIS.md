@@ -2,7 +2,7 @@
 [< Previous Challenge](./Challenge1-QnA.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge3-API.md)
 ## Introduction
 
-We are going to build out a LUIS triggered dialog flow to help answer the current stock price, we'll implement returning the actual price in the next challenge. For now we are just going to recognize that the utterance is Stock based and pull out the Ticker Symbol entity that is included in the utterance. Below goes into more depth
+We are going to build out a LUIS triggered dialog flow to help answer the current stock price, we'll implement returning the actual price in the next challenge. For now we are just going to recognize that the utterance is Stock based and pull out the Ticker Symbol entity that is included in the utterance. Below goes into more depth.
 
 - This intent needs to recognize when a Stock Price question is asked. So it should recognize questions like
   - What is the MSFT stock today?

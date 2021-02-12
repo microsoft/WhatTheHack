@@ -26,4 +26,4 @@ Also, we have prepared a [presentation ppt](https://github.com/microsoft/WhatThe
 
 
 
- Helpfully this is helpful to you. And we are also welcome your contribution. Please feel free to submit Issue/Pull request to this repo. 
+ Helpfully this is helpful to you. We welcome your contributions if there is something to improve or add. Please feel free to submit Issues/Pull requests to this repo. 
