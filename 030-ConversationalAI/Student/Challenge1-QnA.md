@@ -9,7 +9,7 @@ QnA maker is a no code experience that allows you to create a natural conversati
 1. You are going to upload two different sources into a QnA knowledge base. You should be doing this through Bot Composer and **not** through the QnaMaker UI. 
 
 	- Create a new QNA KB using [Microsoft Investor FAQ](https://www.microsoft.com/en-us/Investor/FAQ.aspx)
-	- Also upload thhe  [FSI Use Case document](./Resources/T20-FSI-ESG-BOT-ACS-IndustryUseCase.docx). 
+	- Also upload the  [FSI Use Case document](https://github.com/microsoft/WhatTheHack/blob/master/030-ConversationalAI/Student/Resources/T20-FSI-ESG-BOT-ACS-IndustryUseCase.docx?raw=true). 
 	
 2. Look at how the format from the word doc was automatically uploaded -- fine tune as necessary
 3. Ensure that you are using the multi-turn conversation feature so that when you ask - for example - " What Is Microsoft's ESG rating?" you have the option of clicking "Climate Change", "Human Capital", "Corporate Governance", and "Product Liability".
