@@ -1,7 +1,7 @@
 # Challenge 1 - Create Multi-Turn QNA Knowledge Base
 [< Previous Challenge](./Challenge0-Setup.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge2-LUIS.md)
 ## Introduction
-QnA maker is a no code experience that allows you to create a natural conversational layer over you data. It is used to find the most appropriate answer for any input from your custom knowledge base of information. We're going to be building out a QnA based off of the FSI Industry Use Case Document that is in the Student folder of this Github. However you can build QnA out of a website, excel document, FAQ, etc. Our QnA Knowledge base will deal with the ESG portion of our project. You can imagine that a Investment Manager is looking at their stocks and considering what to buy. They can interact with the bot to ask for the ESG rating of a specific company and then dive deeper into  the Company belief's for specific Environmental topics. In this hack we're just focusing on Microsoft, but building out a enterpris bot you would have a much larger knowledge base to pull from.
+QnA maker is a no code experience that allows you to create a natural conversational layer over you data. It is used to find the most appropriate answer for any input from your custom knowledge base of information. We're going to be building out a QnA based off of the FSI Industry Use Case Document that is in the Student folder of this GitHub. However you can build QnA out of a website, excel document, FAQ, etc. Our QnA Knowledge base will deal with the ESG portion of our project. You can imagine that a Investment Manager is looking at their stocks and considering what to buy. They can interact with the bot to ask for the ESG rating of a specific company and then dive deeper into  the Company belief's for specific Environmental topics. In this hack we're just focusing on Microsoft, but building out a enterprise bot you would have a much larger knowledge base to pull from. 
 
 
 ## Description
@@ -13,7 +13,7 @@ QnA maker is a no code experience that allows you to create a natural conversati
 	
 2. Look at how the format from the word doc was automatically uploaded -- fine tune as necessary
 3. Ensure that you are using the multi-turn conversation feature so that when you ask - for example - " What Is Microsoft's ESG rating?" you have the option of clicking "Climate Change", "Human Capital", "Corporate Governance", and "Product Liability".
-4. Under "Carbon Emissions" and "Financing Environment" add a followup to return to the previous conversation flow - it should be titled "Return to previous".
+4. Under "Carbon Emissions" and "Financing Environment" add a follow-up to return to the previous conversation flow - it should be titled "Return to previous".
 5. Test your bot locally using the Bot Framework Emulator. You should be able to flow through the conversations easily.
 
 

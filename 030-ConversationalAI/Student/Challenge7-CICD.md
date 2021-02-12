@@ -1,17 +1,17 @@
 # Challenge 7: Implement DevOps best practices into your Bot 
 [< Previous Challenge](./Challenge6-ACS.md) - **[Home](../README.md)** 
 ## Introduction
-Now that we've finished deployed our Bot into Azure. In order to make it a enterprise level repeatable solution. The team need to automate CI/CD pipeline
+We've now finished deploying our Bot into Azure. In order to make it a enterprise level repeatable solution, the team needs to automate a CI/CD pipeline
 	
 ## Description
 
 1. Export our Bot to a Run Time
 
-2. Make sure exported run time is linked to you github/devops repo
+2. Make sure exported run time is linked to you GitHub/DevOps repo
 
-3. Set up Continuous Integration pipeline in your Github/Devops project to automatically build webapp 
+3. Set up Continuous Integration pipeline in your GitHub/DevOps project to automatically build the Web App 
 
-4. Set up a Continuous Deployment (CD) to deploy the project. Make sure the BOT api, QnA Knowledge Base, and LUIS are considered in the CD. 
+4. Set up a Continuous Deployment (CD) to deploy the project. Make sure the BOT API, QnA Knowledge Base, and LUIS are considered in the CD. 
 
 
 ## Success Criteria

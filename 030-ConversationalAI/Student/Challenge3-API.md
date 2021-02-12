@@ -8,7 +8,7 @@ The power of the Bot Service is the ability to add your own APIs. In this challe
 
 ## Description
 
-1. From your LUIS challenge you're going to extract the entity and call an api. You should already have the syntax necessary for pulling out the entities.
+1. From your LUIS challenge you're going to extract the entity and call an API. You should already have the syntax necessary for pulling out the entities.
 2. Get a [Finnhub](https//finnhub.io/dashboard) API key, we're going to be using it to get the current stock price.
 3. We're going to be using the "Quote" feature from Finnhub, look at their [API documentation](https://finnhub.io/docs/api#quote) and get a better understanding of the requirements.
 5. Dynamically call the API with the stock ticker name that the user sent. You should *not* be hard coding the symbol in your HTTP request.
