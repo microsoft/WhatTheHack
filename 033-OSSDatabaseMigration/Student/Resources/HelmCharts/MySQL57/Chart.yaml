@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: MySQL Database Server
+
+description: A Helm chart for deploying a single node MySQL database server
+
+type: application
+
+version: 2.0
+
+appVersion: 5.7

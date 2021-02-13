@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.infrastructure.appName }}
+  namespace: "{{ .Values.infrastructure.namespace }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.application.labelValue }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application.labelValue }}
+    spec:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 999
+        fsGroup: 999
+      containers:
+      - image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        name: {{ .Values.infrastructure.appName }}
+        args: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
+        resources:
+          requests:
+            memory: "{{ .Values.resources.requests.memory }}"
+            cpu: "{{ .Values.resources.requests.cpu }}"
+          limits:
+            memory: "{{ .Values.resources.limits.memory }}"
+            cpu: "{{ .Values.resources.limits.cpu }}"
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: postgres_password
+        - name: PGDATA
+          value: {{ .Values.infrastructure.dataPath }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+          name: postgres
+        readinessProbe:
+          tcpSocket:
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+        livenessProbe:
+          tcpSocket:
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 15
+          failureThreshold: 5
+          periodSeconds: 16
+        volumeMounts:
+        - name: "{{ .Values.infrastructure.appName }}-volume"
+          mountPath: {{ .Values.infrastructure.dataVolume }}
+        - name: "postgresql-configuration"
+          mountPath: "/etc/postgresql"
+        - name: "postgresql-tls-keys"
+          mountPath: "/etc/postgresql/keys"
+      volumes:
+      - name: "{{ .Values.infrastructure.appName }}-volume"
+        persistentVolumeClaim:
+          claimName: "{{ .Values.infrastructure.appName }}-persistent-storage"
+      - name: postgresql-configuration
+        configMap:
+          name: postgresql-config
+      - name: postgresql-tls-keys
+        secret: 
+          secretName: postgresql-tls-secret
+          items:
+          - key: tls.crt
+            path: "tls.crt"
+          - key: tls.key  
+            path: "tls.key"          
+            mode: 0640
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "{{ .Values.infrastructure.appName }}-persistent-storage"
+  namespace: "{{ .Values.infrastructure.namespace }}"
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: {{ .Values.resources.volume.storageClass }}
+  resources:
+    requests:
+      storage: {{ .Values.resources.volume.size }}
