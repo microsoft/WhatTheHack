@@ -4,7 +4,7 @@
 
 
 ## Introduction
- Reconfigure the application to use the appropriate connection string and validate that the application is working
+Reconfigure the application to use the appropriate connection string and validate that the application is working
 
 ## Description
 You will initiate a database cutover in Azure DMS
