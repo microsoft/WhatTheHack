@@ -35,10 +35,11 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
+- [Advanced Networking](/028-AdvancedNetworking/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [SAP Automation](/024-SAP-Core/README.md)
+
 
 ## Application Development
 - [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
@@ -47,7 +48,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
 
 
@@ -55,14 +56,16 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
 
 ## Data & AI
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
+- [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
+
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
