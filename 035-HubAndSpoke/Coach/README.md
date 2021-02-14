@@ -14,7 +14,7 @@ These topics are not covered, and you might want to introduce them along the way
 
 * **IP addressing/subnetting**: if this is not clear, you might want to whiteboard this in the first scenario (hub and spoke), or have a participant explain to the others. You can use a web-based IP subnet calculator
 
-## Challenges
+## Coach Guides
 
 - Challenge 1: **[Hub and spoke](01-HubNSpoke-basic.md)**
     - Configure a basic hub and spoke design with hybrid connectivity

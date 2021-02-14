@@ -1,6 +1,6 @@
-# Challenge 2: Firewalling traffic
+# Challenge 2: Firewalling Traffic
 
-[< Previous Challenge](./01-HubNSpoke-basic.md) - **[Home](README.md)** - [Next Challenge >](./03-Asymmetric.md)
+[< Previous Challenge](./01-HubNSpoke-basic.md) - **[Home](../README.md)** - [Next Challenge >](./03-Asymmetric.md)
 
 ## Introduction
 
@@ -31,3 +31,9 @@ Additionally, you should install a web server on each VM (hub-vm, spoke1-vm and 
   * [Inspector Gadget](https://github.com/jelledruyts/InspectorGadget) (.netcore)
   * [whoami](https://github.com/erjosito/whoami/tree/master/api-vm) (python/flask)
   * [KUARD](https://github.com/kubernetes-up-and-running/kuard) (container)
+
+## Advanced Challenges (Optional)
+
+If you want to dive even deeper in the technology:
+
+- Deploy a second VM in spoke1, in the same subnet that you used for the web server in spoke1, and make sure that intra-subnet VM goes through the Azure Firewall as well. This is what sometimes is called microsegmentation or zero-trust firewalling.

@@ -2,11 +2,7 @@
 
 [< Previous Challenge](./03-Asymmetric.md) - **[Home](README.md)** - [Next Challenge >](./05-PaaS.md)
 
-## Introduction
-
-In this challenge you will integrate an Application Gateway in the design.
-
-## Description
+## Notes and Guidance
 
 * Whether placing the AppGW in the hub or the spokes is a design decision (whether the appgw is a central component shared across apps, or more app-specific)
 * When configuring reaching multiple backends, participants have two options:
@@ -34,8 +30,8 @@ az network application-gateway ssl-cert create -g $rg --gateway-name $appgw_name
   --cert-file /tmp/contoso.com.bundle.pfx --cert-password $cert_passphrase
 ```
 
-## Additional optional challenges
+## Advanced Challenges
 
-* You can challenge participants to place the AppGW in front or behind the AzFW, and discuss pros/cons
-* You can challenge participants to add more sophisticated rules, such as URL matching or header manipulation
-* You can add the objectives to include SSL and WAF. For SSL you can use self-signed certificates
+- If the AzFW should inspect the traffic with end-to-end SSL, it needs to sit behind the AppGW with TLS inspection active (AzFW Premium)
+- To configure TLS inspection in the firewall, you will need well-known certificates in the servers (at the time of this writing)
+- When using URL matching rules, if the web site has subfolders the rules will easily break, try to show them that
