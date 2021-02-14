@@ -18,18 +18,19 @@ After completing this WTH, participants will be familiar with these concepts, am
 - Designs combining the Azure Firewall and the Application Gateway
 - PaaS Networking options such as Vnet service endpoints and Private Link
 
-## Prerequisites
+## Before you start
 
-No specific prerequisites are needed, but familiarity with Azure Networking is a plus.
+Please read these instructions carefully:
 
-## Contributors
+- Setting expectations: all of the challenges in this FastHack would take around 2 days to complete. Please do not expect to finish all of the exercises in a shorter event
+- It is recommended going one challenge after the other, without skipping any. However, if your team decides to modify the challenge order, that is possible too. Please consult with your coach to verify that the challenge order you wish to follow is doable, and there are no dependencies on the challenges you skip
+- **Think** before rushing to configuration. One minute of planning might save you hours of work
+- Look at the **relevant information** in each challenge, they might contain useful information and tools
+- You might want to split the individual objectives of a challenge across team members, but please consider that all of the team members need to understand every part of a challenge, so run a retrospective after each subteam has finished and share lessons learnt
 
-- Thomas Vuylsteke
-- Jose Moreno
+These are your challenges, it is recommended to start with the first one and proceed to the next one when your coach confirms that you have completed each challenge successfully:
 
-## Getting started
-
-Start this WhatTheHack with the [student guide](Student/README.md)
+## Challenges
 
 - Challenge 0: **[Pre-requisites](Student/00-Prereqs.md)**
    - Prepare your workstation to work with Azure
@@ -43,3 +44,12 @@ Start this WhatTheHack with the [student guide](Student/README.md)
     - Add an Application Gateway to the mix
 - Challenge 5: **[PaaS Networking](Student/05-Paas.md)**
     - Integrate Azure Web Apps and Azure SQL Databases with your hub and spoke design
+
+## Prerequisites
+
+No specific prerequisites are needed, but familiarity with Azure Networking is a plus.
+
+## Contributors
+
+- Thomas Vuylsteke
+- Jose Moreno

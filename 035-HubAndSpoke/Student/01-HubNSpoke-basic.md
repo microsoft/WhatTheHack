@@ -1,6 +1,6 @@
-# Challenge 1: Building a basic Hub And Spoke topology 
+# Challenge 1: Building a Basic Hub And Spoke Topology
 
-[< Previous Challenge](./00-Prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-AzFW.md)
+[< Previous Challenge](./00-Prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-AzFW.md)
 
 ## Introduction
 

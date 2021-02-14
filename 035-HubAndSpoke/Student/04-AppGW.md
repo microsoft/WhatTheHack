@@ -1,6 +1,6 @@
 # Challenge 4: Application Gateway
 
-[< Previous Challenge](./03-Asymmetric.md) - **[Home](README.md)** - [Next Challenge >](./05-PaaS.md)
+[< Previous Challenge](./03-Asymmetric.md) - **[Home](../README.md)** - [Next Challenge >](./05-PaaS.md)
 
 ## Introduction
 
@@ -23,3 +23,10 @@ Your security department has decided that you need to put a Web Application Fire
 - [What is Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
 - [How an Application Gateway works](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works)
 - [nip.io](https://nip.io/)
+
+## Advanced Challenges (Optional)
+
+- Configure SSL encryption on the App Gateway. For SSL you can use self-signed certificates or generate them with [LetsEncrypt](https://letsencrypt.org/
+- Configure end-to-end SSL (you would need a backend with SSL support). For SSL you can use self-signed certificates or generate them with [LetsEncrypt](https://letsencrypt.org/)
+- Make both sites (spoke1 and spoke2) reachable under the same listener, but have a different URL for each site (like `https://appgw.contoso.com/spoke1` and `https://appgw.contoso.com/spoke2`, for example)
+- Modify the design so that the Azure Firewall inspects the web traffic, optionally while using end-to-end SSL

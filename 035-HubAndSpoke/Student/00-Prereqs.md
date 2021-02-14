@@ -1,6 +1,6 @@
-# Challenge 0: Pre-requisites - Ready, Set, GO! 
+# Challenge 0: Pre-requisites - Ready, Set, Go! 
 
-**[Home](README.md)** - [Next Challenge >](./01-HubNSpoke-basic.md)
+**[Home](../README.md)** - [Next Challenge >](./01-HubNSpoke-basic.md)
 
 ## Introduction
 
