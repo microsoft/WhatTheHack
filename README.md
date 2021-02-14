@@ -37,7 +37,6 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Front Door](/017-FrontDoor/README.md)
 - [Advanced Networking](/028-AdvancedNetworking/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [SAP Automation](/024-SAP-Core/README.md)
 
@@ -49,7 +48,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
 
 
@@ -57,7 +56,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
-- [MasteringLinux](/020-MasteringLinux/README.md)
+- [Mastering Linux](/020-MasteringLinux/README.md)
 
 ## Data & AI
 - [BI 2 AI](/018-BI2AI/README.md)
