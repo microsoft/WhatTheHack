@@ -23,11 +23,9 @@ In this hack, database administrators, developers who work extensively with SQL 
 5. [Auditing & Compliance](./Student/Challenge05.md)
 
 ## Technologies
-1. Azure Synapse Analytics
-2. Azure Data Factory
-3. Azure Event Hubs w/ Kafka Cluster
-4. Azure Databricks
-5. Power BI
+1. Azure SQL Database / Managed Instance
+1. Azure Database Migration service
+1. Azure Data Studio
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
