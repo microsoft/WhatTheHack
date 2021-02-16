@@ -20,7 +20,7 @@ The objective of the setup is to ensure you have access to a subscription where 
 
 ## Success Criteria
 
-1. Pick a cool team name!  You and your team are part of a new SI start-up that is developing a practice on migrating data solutions.
+1. Pick a cool team name!  You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions.  
 1. Decide on the on-premises environment and have the following databases loaded; note, this can be in a VM in Azure running SQL Server, on a local SQL instance, in containers/Docker, etc.:
     - AdventureWorks2017
     - WideWorldImporters (OLTP)
@@ -38,7 +38,7 @@ The objective of the setup is to ensure you have access to a subscription where 
 ## Tips (Optional)
 
 * [Quickstart: Run SQL Server container with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-powershell)
-
+* When considering the environment to host the "on premises" databases, consider connectivity constraints.  Most corporate environments will limit your ability to connect to a database from outside of the network.  Home environments may work well if you are comfortable in configuring NAT / port forwarding.  
 
 ## Advanced Challenges (Optional)
 
