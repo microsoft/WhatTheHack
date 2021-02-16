@@ -8,9 +8,9 @@ Now that we have data streaming into Azure and we are able to gather general ins
 
 Stream processing is useful in a number of scenarios including:
 
-  - triggering actions and initiating workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data in a data lake for later use
-  - reducing the amount of data sent to the cloud for bandwidth constrained scenarios
-  - low latency filtering, aggregation or anomaly detection at the edge
+  - Triggering actions and initiating workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data in a data lake for later use.
+  - Reducing the amount of data sent to the cloud for bandwidth constrained scenarios.
+  - Low latency filtering, aggregation or anomaly detection at the edge.
 
 ## Description
 In this challenge we'll be creating an Azure Stream Analytics job, using that job to read from the message route coming from IoT Hub, filtering or aggregating data, writing the output data to the data lake and then visualizing the data with Microsoft Power BI.
