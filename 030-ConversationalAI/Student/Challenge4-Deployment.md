@@ -18,6 +18,7 @@ Now that we've finished developing our bot locally, we can deploy the bot. Deplo
 * Successfully message the bot in Microsoft Teams 
      * If you do not have Teams licenses in your organization, this challenge is optional for you.
 * What a sample result looks like
+
 ![Sample](./Images/Ch4-1.JPG)
 ![Sample](./Images/Ch4-2.JPG)
 
