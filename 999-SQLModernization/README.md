@@ -29,9 +29,7 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- Download WideWorldImporters Database (OLTP & OLAP) & Adventureworks Database
+- See the [setup challenge](./Student/Challenge00.md) for information on setting up your environment.
 
 ## Repository Contents
 - `../Coach/Solutions`
@@ -44,6 +42,8 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Learning Path for Modern Data Warehouse
 
-- [Modern Data Warehouse](https://github.com/bhitney/Learning-Plans/wiki/Modern-Data-Warehouse)
+* [SQL Migration To Azure Learning Plan](https://github.com/microsoft/PartnerResources/blob/main/LearningPlanResources/Azure/Data%2C%20Analytics%2C%20and%20AI/SQL%20Server%20Migration%20to%20Azure.md)
+* [Azure Synapse Analytics Learning Plan](https://github.com/microsoft/PartnerResources/blob/main/LearningPlanResources/Azure/Data%2C%20Analytics%2C%20and%20AI/Modern%20Data%20Warehouse.md)
 
 ## Contributors
+Brian Hitney
