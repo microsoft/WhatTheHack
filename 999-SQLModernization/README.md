@@ -17,20 +17,10 @@ In this hack, database administrators, developers who work extensively with SQL 
 ## Challenges
 
 0. [Setup](./Student/Challenge00.md)
-1. [Migration]
-
-
-0. [Setup](./Student/Challenges/Challenge0/readme.md)
-1. [Data Warehouse Migration](./Student/Challenges/Challenge1/readme.md)
-   - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
-1. [Data Lake integration](./Student/Challenges/Challenge2/README.md)
-   - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
-1. [Data pipeline Migration](./Student/Challenges/Challenge3/README.md) 
-   - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
-1. [Realtime Data pipelines](./Student/Challenges/Challenge4/README.md)
-   - Real-time data with Kafka and Databricks
-1. [Analytics migration](./Student/Challenges/Challenge5/README.md)
-   - Migrate reporting into Azure
+1. [Migration](./Student/Challenge01.md)
+3. [Performance & Tuning](./Student/Challenge03.md)
+4. [Security](./Student/Challenge04.md)
+5. [Auditing & Compliance](./Student/Challenge05.md)
 
 ## Technologies
 1. Azure Synapse Analytics
@@ -43,7 +33,7 @@ In this hack, database administrators, developers who work extensively with SQL 
 - Your own Azure subscription with Owner access
 - Visual Studio Code
 - Azure CLI
-- Download WorldWide Importers Database (OLTP & OLAP)
+- Download WideWorldImporters Database (OLTP & OLAP) & Adventureworks Database
 
 ## Repository Contents
 - `../Coach/Solutions`
@@ -58,11 +48,4 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 - [Modern Data Warehouse](https://github.com/bhitney/Learning-Plans/wiki/Modern-Data-Warehouse)
 
-
 ## Contributors
-- Alex Karasek
-- Jason Virtue
-- Annie Xu
-- Chris Mitchell
-- Brian Hitney
-- Israel Ekpo
