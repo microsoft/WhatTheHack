@@ -1,8 +1,23 @@
 # Challenge 2 - Run the app
 
-[< Previous Challenge]() - **[Home](README.md)** - [Next Challenge >](03-MoveToAzureSql.md)
+[< Previous Challenge](01-Setup.md) - **[Home](README.md)** - [Next Challenge >](03-MoveToAzureSql.md)
 
-Easiest way it's run docker-compose to build the images and run the containers:
+## Create a private container registry
+
+1. Create an ACR instance using the [az acr create](https://docs.microsoft.com/cli/azure/acr#az-acr-create) command
+
+    ```bash
+    # If using the same terminal session, you can recall the previously defined variables $resourceGroupName and $randomIdentifier
+
+    # Azure Container Registry
+    az acr create \ 
+        -g $resourceGroupName \
+        -n myContainerRegistry-$randomIdentifier \
+        --sku Basic
+
+    # If using GitHub:
+    # 
+    ```
 
 ## Running the app in Azure as a local environment
 

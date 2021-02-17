@@ -34,7 +34,7 @@ sqlConnectionString=<azure-sql-db-conn-string>
 
 ## Create a private container registry
 
-1. Create an ACR instance using the [az acr create](https://docs.microsoft.com/cli/azure/acr#az-acr-create) command
+1. Reuse previously created ACR instance using the [az acr create](https://docs.microsoft.com/cli/azure/acr#az-acr-create) command
 
     ```bash
     # If using the same terminal session, you can recall the previously defined variables $resourceGroupName and $randomIdentifier
