@@ -8,7 +8,7 @@ Your fledgling company has two migration tasks at hand. In both cases, your clie
 
 ## Description
 
-The objective of this challenge is to migrate AdventureWorks and WWI Databases (OLTP and OLAP) to Azure. Each presents a unique set of customer requirements as detailed below.
+The objective of this challenge is to migrate AdventureWorks and WWI Databases (OLTP and OLAP) to Azure. Each presents a unique set of customer requirements; be sure to at least read the optional advanced challenges -- while completing the advanced challenges is not required for this challenge, be aware of what they are as they may impact your implementation choices.
 
 ### AdventureWorks 
 
@@ -51,3 +51,6 @@ Download the Workload Driver solution or executable here:
 
 1. Migrate WWI DW to Azure Synapse Analytics (Azure SQL DW)
 1. Migrate WWI DW SSIS ETL to either ADF or Synapse Pipelines
+1. WWI is interested in understanding the performance impact of zone redundant availability
+    1. Use [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15), [Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15), or other similar analytics to provide data to back up your analysis; workloads may be simulated using the WWI Order Insert Solution referenced above
+
