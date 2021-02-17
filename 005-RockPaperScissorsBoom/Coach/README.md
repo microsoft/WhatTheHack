@@ -2,13 +2,13 @@
 
 ## Coach's Guides
 
-- Challenge 1: Setup
-- Challenge 2: [Run the app](Solutions/02-RunTheApp.md)
-- Challenge 3: [Move to Azure SQL Database](Solutions/03-MoveToAzureSql.md)
-- Challenge 4: [Run the app on Azure](Solutions/04-RunOnAzure.md)
-- Challenge 5: [Run the game continuously](Solutions/05-RunTheGameContinuously.md)
-- Challenge 6: [Add application monitoring](Solutions/06-AddApplicationMonitoring.md)
-- Challenge 7: [Build a CI/CD workflow with Github Actions](Solutions/07-CICDWithGithubActions.md)
+- Challenge 1: [Setup](01-Setup.md)
+- Challenge 2: [Run the app](02-RunTheApp.md)
+- Challenge 3: [Move to Azure SQL Database](03-MoveToAzureSql.md)
+- Challenge 4: [Run the app on Azure](04-RunOnAzure.md)
+- Challenge 5: [Run the game continuously](05-RunTheGameContinuously.md)
+- Challenge 6: [Add application monitoring](06-AddApplicationMonitoring.md)
+- Challenge 7: [Build a CI/CD workflow with Github Actions](07-CICDWithGithubActions.md)
 - Challenge 8: Implement Azure AD B2C
 - Challenge 9: Leverage SignalR
 - Challenge 10: Leverage CDN
