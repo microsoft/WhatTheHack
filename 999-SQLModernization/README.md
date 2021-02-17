@@ -7,7 +7,7 @@ SQL Server has come a long way!  From OLTP to OLAP, on-premises to cloud, big da
 ## Related Hacks
 For more in-depth work with Azure Synapse Analytics and Data Ops, see these hacks:
 
-* [Modern Data Warehouse What the Hack](https://github.com/)
+* [Modern Data Warehouse What the Hack](https://github.com/microsoft/WhatTheHack/tree/master/019-ThisOldDataWarehouse)
 * [Data Ops What the Hack](https://github.com/)
 * [OSS DB Migration to Azure](https://github.com/)
 
@@ -16,11 +16,11 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Challenges
 
-0. [Setup](./Student/Challenge00.md)
-1. [Migration](./Student/Challenge01.md)
-3. [Performance & Tuning](./Student/Challenge03.md)
-4. [Security](./Student/Challenge04.md)
-5. [Auditing & Compliance](./Student/Challenge05.md)
+0. [Setup](./Student/Challenges/Challenge00/Challenge00.md)
+1. [Migration](./Student/Challenges/Challenge01/Challenge01.md)
+2. [Performance & Tuning](./Student/Challenges/Challenge02/Challenge02.md)
+3. [Security](./Student/Challenges/Challenge03/Challenge03.md)
+4. [Auditing & Compliance](./Student/Challenges/Challenge04/Challenge04.md)
 
 ## Technologies
 1. Azure SQL Database / Managed Instance
@@ -29,7 +29,7 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
-- See the [setup challenge](./Student/Challenge00.md) for information on setting up your environment.
+- See the [setup challenge](./Student/Challenges/Challenge00/Challenge00.md) for information on setting up your environment.
 
 ## Repository Contents
 - `../Coach/Solutions`
