@@ -1,0 +1,23 @@
+# Challenge 5: Mask Data for Privacy
+
+[< Previous Challenge](./04-incrementals.md) - **[Home](../README.md)** - [Next Challenge >](./06-new-data.md)
+
+## Introduction
+Clever phrase here
+
+## Description
+The powerlifting event data contains participants first and last names.  This falls within the terms of use ofr the current data set.  However, the federation is planning some data analysis and data sharing initiatives that may require limiting the use of identifiying information.  As a trial of capabilities, the data privacy team has asked you to implement masking of first and last names 
+
+
+## Success Criteria
+1. Explain to your coach how you will incorporate the delta data into your repository
+2. Demonstrate how the delta data has been incorporated
+3. Show updates to the visualizations as a result of the delta data
+
+Bonus
+- Create the ability to immediately send an alert (via the reporting tool or another notification mechanism) for any new personal records (PRs).
+
+## Learning Resources
+Reference articles:
+- Article 1
+- Article 2
