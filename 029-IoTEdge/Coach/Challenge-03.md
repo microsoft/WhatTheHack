@@ -1,7 +1,6 @@
 # Challenge 3: Deploy Industrial IoT solution
 
-**[Home](README.md)** - [Next Challenge >](./Challenge-04.md)
-
+[< Previous Challenge](./Challenge-02.md) - **[Home](README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ## Learning Resources
 This module involves participants deploying the Industrial IoT Edge modules to their Edge devices.  Use the 2 links below to understand how modules are deployed as well as documentation on the Industrial IoT solutions available from Microsoft.  
@@ -28,7 +27,7 @@ For this module to be successful, participants must have the following tasks com
 1. Explanation from the team on what protocol was choose to communicate to IoT hub and what ports at the Contoso's plants would need to be opened
 * * *
 
-## Tips (optional)
+## Tips
 + IoT Edge needs to be running the following modules:
     -![image info](./assets/iothub_modules.png)
     

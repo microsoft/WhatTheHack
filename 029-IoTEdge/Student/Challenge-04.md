@@ -19,13 +19,11 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 
 ## Success Criteria
 
-To compete this lab successfully, you need to finish the following tasks: 
-
-• Stand up Azure Time Series Insight Instance 
-• Define the asset model 
-• Connect the TSI instance with IoT Hub and consume the events in real time
-• Create visualization with the time series data
-• Create dashboard to show multiple charts.
+  - Stand up Azure Time Series Insight Instance 
+  - Define the asset model 
+  - Connect the TSI instance with IoT Hub and consume the events in real time
+  - Create visualization with the time series data
+  - Create dashboard to show multiple charts.
 
 ## Taking it Further
 
