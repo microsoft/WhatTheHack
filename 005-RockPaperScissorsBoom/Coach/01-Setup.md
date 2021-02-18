@@ -23,7 +23,6 @@
     ```bash
     ls -al
     az --version
-    docker images
     code .
     ```
 
@@ -39,6 +38,9 @@
 
     # Unzip - use your favorite utility to unzip the archive 
     unzip MY_WTH_NAME.zip
+
+    # Alternatively clone the repository
+    git clone <REPO>
     ```
 
 3. Validate the environment
@@ -46,6 +48,5 @@
     ```bash
     ls -al
     az --version
-    docker images
     code .
     ```
