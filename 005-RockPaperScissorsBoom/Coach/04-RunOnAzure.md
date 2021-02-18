@@ -3,77 +3,51 @@
 
 [< Previous Challenge](03-MoveToAzureSql.md) - **[Home](README.md)** - [Next Challenge >](05-RunTheGameContinuously.md)
 
+## Prerequisites
+
+1. [Challenge 3](03-MoveToAzureSql.md)
+
 ## Prepare the environment
 
-If using the same terminal session, you may skip this step
-
 ```bash
-# Set the resource group name and location for your server
-resourceGroupName=WTH-RockPaper
-location=eastus
-
-# Random Identifier for deploying resources
-randomIdentifier=$RANDOM
-appPlan=<plan-name>-$randomIdentifier
-appName=<unique-app-name>-$randomIdentifier
-appSku=S1
+appPlan="<PLAN-NAME>-$randomId"
+appName="<APP-NAME>-$randomId"
+appSku="S1"
 
 # If using GitHub container registry, obtain Personal Access Token (PAT) from GitHub
-githubPat=<your-pat>
+githubPat="<PAT>"
 
 # Registry and container resources
-registryUrl=<registry-url>
-registryUserName=<github-repo-username>
-registryPassword=$githubPat
-imageName=<my-app-image>
-imageTag=<my-app-image-tag>
+registryUrl="<REGISTRY-URL>"
+registryUserName="<ANY-NAME>"
+registryPassword="$GITHUB_PAT"
 
 # Azure SQL connection string
-sqlConnectionString=<azure-sql-db-conn-string>
+sqlConnectionString="<SQL-CONNECTION-STRING>"
 ```
 
-## Create a private container registry
+## Using Github Container Registry
 
-1. Reuse previously created ACR instance using the [az acr create](https://docs.microsoft.com/cli/azure/acr#az-acr-create) command
+1. Use GitHub packages or container registry by [Enable improved container support](https://docs.github.com/en/packages/guides/enabling-improved-container-support)
 
-    ```bash
-    # If using the same terminal session, you can recall the previously defined variables $resourceGroupName and $randomIdentifier
-
-    # Azure Container Registry
-    az acr create \ 
-        -g $resourceGroupName \
-        -n myContainerRegistry-$randomIdentifier \
-        --sku Basic
-
-    # If using GitHub:
-    # 
-    ```
-
-    Or
-
-2. Use GitHub packages or container registry by [Enable improved container support](https://docs.github.com/en/packages/guides/enabling-improved-container-support)
-
-3. Configure Docker to you the private registry
+2. Configure Docker to use your private registry
 
    ```bash
-   # Using Azure Container Registry
-   az acr login -n mycontainerregistry
-
    # Using GitHub container registry
    echo $GITHUB_PAT | docker login ghcr.io -u USERNAME --password-stdin
    ```
 
-## Build the app image
+3. Build and push the container image
 
-```bash
-# Don't forget the path arg in the docker command, in this case it's "."
-docker build \
-    -f Dockerfile-Server \
-    -t <container-registry>/<image-name>:<image-tag> .
+    ```bash
+    # Don't forget the path arg in the docker command, in this case it's "."
+    docker build \
+        -f Dockerfile-Server \
+        -t $registryUrl/$imageName:$imageTag .
 
-# Publish the image to your container registry
-docker push <container-registry>/<image-name>:<image-tag>
-```
+    # Publish the image to your container registry
+    docker push $registryUrl/$imageName:$imageTag
+    ```
 
 ## Deploy the app to Azure AppService
 

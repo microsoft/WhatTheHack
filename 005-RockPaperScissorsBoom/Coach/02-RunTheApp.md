@@ -52,7 +52,7 @@
     # Create and deploy the application
     az container create \
         -g $resourceGroupName \
-        -f deploy-aci.yaml .
+        -f deploy-aci.yaml
     
     # Obtain the FQDN to test your app using the browser
     az container show \

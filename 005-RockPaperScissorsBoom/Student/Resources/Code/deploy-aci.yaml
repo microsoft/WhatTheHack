@@ -28,7 +28,7 @@ properties:
           memoryInGb: 1.5
       environmentVariables:
         - name: 'ConnectionStrings__DefaultConnection'
-          value: 'Server=<YOUR-ACR-DNS-LABEL>,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=M1cr0s0ft2018;'
+          value: 'Server=localhost,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=M1cr0s0ft2018;'
   imageRegistryCredentials:
   - server: <YOUR-ACR-LOGIN-SERVER>
     username: <ACR-USERNAME>
