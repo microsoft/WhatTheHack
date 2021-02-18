@@ -1,6 +1,6 @@
 # Challenge 2: Deploy OPC Simulator
 
-**[Home](README.md)** - [Next Challenge >](./Challenge-03.md)
+[< Previous Challenge](./Challenge-01.md) - **[Home](README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Success Criteria
 Verify challengers have performed the following:
@@ -10,7 +10,7 @@ Verify challengers have performed the following:
 
 
 ## Learning Resources
- - Options for OPC Simulators -- first 2 are VM-based options
+Options for OPC Simulators -- first 2 are VM-based options
  1. [ProsysOPC UA Simulator](https://www.prosysopc.com/) -Free and supports many simulated endpoints
  1. [Software ToolBox Top OPC Server](https://www.softwaretoolbox.com/) - Demo can run for 2 hours
  1. [Microsoft OPC PLC Simulator](https://github.com/Azure-Samples/iot-edge-opc-plc)  - Easiest and requires no registration; but doesn't align with a typical customer deployment involving OPC software.  This can be deployed as an Azure Container Instance Endpoint that IoT Edge can be pointed at.  This is important for participants to understand and articulate a design to address common security concerns.
@@ -26,7 +26,7 @@ For this module to be successful, participants must have the following tasks com
 1. Explanation of how the participants intend to secure the solution aligned with a typical manufacturing plant [Review some notes on the Purdue model and ISA-95](https://www.automationworld.com/factory/iiot/article/21132891/is-the-purdue-model-still-relevant)
 * * * 
 
-## Tips (optional)
+## Tips
 
 ### If using the ProSys OPC Server:
 You can see the endpoint by opening the service
@@ -45,6 +45,3 @@ Easy mechanism to deploy this container into Azure w/o a VM is with a Container 
 The deployment configuration allows you to specify the quantity of slow/fast changing values that will be used on the IoT Edge OPC modules.
 
 If deploying manually, ensure port is 50000 opened as outlined in the documentation above.
-
-
-## Advanced Challenges (Optional)
