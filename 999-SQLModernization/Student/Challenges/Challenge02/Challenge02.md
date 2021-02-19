@@ -19,6 +19,7 @@ To begin, download and open the [Intelligent Query Processing notebook](./assets
 
 While it's clear the SQL Server 2019 version performs better, the challenge is to understand why. Leverage Query Store to evaluate the differences in performance and execution plans.  
 
+
 ### Understand key blockers
 
 There's a saying, "If you can't measure it, you can't improve it." Looking at the execution plan is a key way to understand how a query is parsed and executed so that changes can be intentional and evaluated. This part of the challenge involves understanding the indexing and reading the execution plan. While altering a table and its indexes to improve a query may harm another query, the goal is to find the appropriate tradeoffs.
@@ -34,8 +35,8 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 ## Success Criteria
 
-1. Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference?  Show the execution plans to your coach and explain why they different.
-1. Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved?  Once evaluated, explain the problem and show the data that illustrates the improvements.
+1. Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they different.
+1. Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
 
 ## Learning Resources
 * [SQL Server Compatability Levels](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15)
