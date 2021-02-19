@@ -2,9 +2,13 @@
 
 [< Previous Challenge](06-AddApplicationMonitoring.md) - **[Home](README.md)** - [Next Challenge >]()
 
+## Prerequisites
+
+1. [Challenge 6](06-AddApplicationMonitoring.md)
+
 ## Setup repository secrets
 
-1. The folowwing is a list of secrets that are needed for the workflow to succeed
+1. Setup repository secrets that are needed for the workflow to succeed
 
     ```bash
     # GitHub Personal Access Token with Repo access
@@ -28,6 +32,7 @@
     env:
       registry: '<REGISTRY-SERVER>'
       ghOrgName: '<GITHUB-ORG-NAME>'
+      basePath: 'Student/Resources'
       imageName: 'rockpaperscisors-server'
       imageDockerFile: 'Dockerfile-Server'
 
@@ -56,8 +61,8 @@
     - name: Build and push image
       uses: docker/build-push-action@v2.2.1
       with:
-        context: ./Code
-        file: ./Code/${{ env.imageDockerFile }}
+        context: ${{ env.basePath }}/Code
+        file: ${{ env.basePath }}/Code/${{ env.imageDockerFile }}
         push: true
         tags: ${{ env.registry }}/${{ env.ghOrgName }}/${{ env.imageName }}:${{ steps.image-tag.outputs.tag }}
 
