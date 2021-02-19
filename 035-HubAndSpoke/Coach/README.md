@@ -1,4 +1,4 @@
-# Azure Networking - What The Hack - Info for coaches
+# What The Hack - Azure Networking with Hub and Spoke
 
 ## Before you start
 
