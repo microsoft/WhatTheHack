@@ -1,8 +1,8 @@
-# Challenge 2: Firewalling traffic
+# Challenge 2: Firewalling Traffic
 
 [< Previous Challenge](./01-HubNSpoke-basic.md) - **[Home](README.md)** - [Next Challenge >](./03-Asymmetric.md)
 
-## Notes and guidance
+## Notes and Guidance
 
 In this challenge participants will be fine-tuning their routing design to send VM traffic through the firewall.
 
