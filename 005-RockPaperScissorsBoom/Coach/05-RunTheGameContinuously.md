@@ -2,9 +2,11 @@
 
 [< Previous Challenge](04-RunOnAzure.md) - **[Home](README.md)** - [Next Challenge >](06-AddApplicationMonitoring.md)
 
-## Automatically call app's URL
+## Prerequisites
 
-### Using Azure LogicApps
+1. [Challenge 4](04-RunOnAzure.md)
+
+## Use Azure LogicApps to continuously run games
 
 1. Create your workflow definition `httpRunner.json`
 
@@ -45,32 +47,41 @@
 2. Create a LogicApps workflow with: [az logic workflow](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create) using the already created workflow definition
 
     ```bash
+    #Set your env var
+    workflowName="<MY-WORKFLOW-NAME>"
+
+    # Create the workflow
     az logic workflow create \
         -g $resourceGroup \
         -l $location \
-        -n <logic-app-workflow-name> \
+        -n $workflowName \
         --definition "httpRunner.json"
     ```
 
-    or
+    Alternatively
 
-3. If you don't have a workflow definition, it is best to create it via the Azure Portal: [Create logic apps via - Portal](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
+3. Use the designer view in the portal to create the workflow: [Create logic apps via - Portal](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
 
-    ![LogicApp](assets/05-recurrentTrigger.png)
+    ![LogicApp](images/05-recurrentTrigger.png)
 
-### Using Azure Functions
+### Use Azure Functions to continuously run games
 
 1. Create a local function with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Ccsharp%2Cbash)
 
     ```bash
+    # Set your vars
+    funcApp="<FUNCTION-APP>"
+    funcName="<FUNCTION-NAME>"
+    apiEndPoint="<APPSERVICE-URL/api/rungame>"
+
     # Create a new function app
-    func init <FUNCTION-APP>
+    func init $funcApp
 
     # Create a new function
-    func new -l c# -n <FUNCTION-NAME> -t TimerTrigger
+    func new -l c# -n $funcName -t TimerTrigger
     ```
 
-2. Call your app API endpoint
+2. Code the function
 
     ```c#
     public static class runGameHttp
@@ -99,17 +110,17 @@
     # Create Azure Function App
     az functionapp create \
         -g $resourceGroup \
-        -n $funcAppName \
+        -n $funcApp \
         --consumption-plan-location $location \
         --functions-version 3 \
         --storage-account $storageAccount
     
     # Publish your function
-    func azure functionapp publish $funcAppName
+    func azure functionapp publish $funcApp
 
     # Configure appsettings
     az functionapp config appsettings set \
-        -n $funcAppName \
+        -n $funcName \
         -g $resourceGroup \
-        --settings "API_ENDPOINT=<app-api-endpoint>"
+        --settings "API_ENDPOINT=$apiEndPoint"
     ```
