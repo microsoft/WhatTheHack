@@ -1,6 +1,6 @@
 # Azure Networking - What The Hack - Info for coaches
 
-## 0. Before you start
+## Before you start
 
 * Try to get participants to use code (PS or CLI)
 * Make sure they have a way to share code, ideally via git
