@@ -1,4 +1,4 @@
-# Challenge 3: Troubleshooting routing
+# Challenge 3: Troubleshooting Routing
 
 [< Previous Challenge](./02-AzFW.md) - **[Home](README.md)** - [Next Challenge >](./04-AppGW.md)
 
