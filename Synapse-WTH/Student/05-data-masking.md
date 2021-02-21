@@ -19,7 +19,7 @@ The suggested masking should correctly show the first two characters of the foir
 3. Show how you would turn the masking "on" or "off" altogether.
 
 Bonus
-- Show the least privilege approach to allowing someone to manage masking (e.g., enforce or bypass) without granting them full databse admin permissions.
+- Show the least privilege approach to allowing someone to manage masking (e.g., enforce or bypass) without granting them full database admin permissions.
 - Show how a database admin could identify all the columns in the data store which currently have masking policies applied.
 
 ## Learning Resources
