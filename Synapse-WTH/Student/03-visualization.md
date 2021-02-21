@@ -13,8 +13,8 @@ You will need to create reports and/or dashboard to meet their requirements.  Yo
 Your visualization tools should be able to connect to the database/warehouse loaded in Challenge 2 and produce visuals that address these requirements:
 
 Lifter Performance/Participation Perspective
-1.	Show a listing of the Top 20 lifters at meets in the past 1 year, as measured by their Goodlift score from the meet.  Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.
-2.	Show a listing of lifters with the longest participation period in the sport.  In other words, calculate the time between the lifter’s first and most recent Meet, and rank in descending order.  Call this list the XXX Leaderboard.  Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.
+1.	Show a listing of the Top 20 lifters at meets in the past 1 year, as measured by their Goodlift score from the meet.  Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.  It should also be possible to filter on Event type; the default filter should be SBD (Full Power) and BD (Ironman) as these are the most common scored events.
+2.	Show a listing of lifters with the longest participation period in the sport.  In other words, calculate the time between the lifter’s first and most recent Meet, and rank in descending order.  Call this list the Commitment Leaderboard.  Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.
 
 Sport Management Perspective (analysis oriented to healthy and growing organization)
 1.	Show meets per year over time
