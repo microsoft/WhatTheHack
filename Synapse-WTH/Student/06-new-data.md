@@ -1,4 +1,4 @@
-# (BONUS) Challenge 5: Add New Data Source(s)
+# (BONUS) Challenge 6: Add New Data Source(s)
 
 [< Previous Challenge](./04-incrementals.md) - **[Home](../README.md)** - [Next Challenge >](./07-ml.md)
 
