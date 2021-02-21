@@ -3,18 +3,21 @@
 [< Previous Challenge](./04-incrementals.md) - **[Home](../README.md)** - [Next Challenge >](./07-ml.md)
 
 ## Introduction
-Re-defining weight classes, additional data, more competition! 
+Pump up participation! 
 
 ## Description
-CPF is considering re-defining their weight classes for their athletes. They have tasked your team to create a visualization that shows the most appropriate groups of lifters by weight class and performance. 
+CPF wants to do more sophisticated analysis of sport participation and growth around the world.  They have asked you to add population data by country and year.  They want to be able to use this data to analyze participation rates.  Participation rate is defined as number of lifters by country compared to the population of the country.  Of course, this analysis is time sensitive since both number of lifters and population change every year.  So, you need to be able to analyze participation rate by country and year.
 
 
 ## Success Criteria
-1. Describe the technologies and solutions used to achieve the above
-2. Provide an example visualization from your environment of the above
-3. Make a recommendation on whether there should be new weight classes 
+1. Add a new data ingestion flow to put yearly population data by country into the data store.
+2. Cleanse or transform the data so "country" in the population data and in the powerlifting data can be correlated (i.e. joined).
+3. Create a query, view, or dataset that calculates participation rate by country, by year.
+4. Add the resulting data to your visualizations from Challenge 3.
+
+Bonus
+- Idenfity another country level metric (e.g., GDP, health score, BMI, diet, education) that can be compared to lifter participation to gain insights on growth of the sport.
+- Locate suitable data and implement this analysis.
 
 ## Learning Resources
 Reference articles:
-- Article 1
-- Article 2
