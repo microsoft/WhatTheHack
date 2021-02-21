@@ -19,4 +19,4 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 - An Azure Subscription has been set up 
 - Access to the Azure Portal
-- Show the accounts necessary have Owner on the Subscription
+- Show the accounts necessary have Owner or Contributor permissions on the Subscription
