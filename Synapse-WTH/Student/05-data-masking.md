@@ -24,5 +24,5 @@ Bonus
 
 ## Learning Resources
 Reference articles:
-[Dynamic Data Masking in Azure Synapse](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=azure-sqldw-latest)
+- [Dynamic Data Masking in Azure Synapse](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=azure-sqldw-latest)
 
