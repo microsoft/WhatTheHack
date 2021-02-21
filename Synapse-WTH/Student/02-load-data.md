@@ -10,6 +10,8 @@ The data has been loaded into a cloud storage service. Your team's next task is 
 
 Your method of loading should anticipate that later files with the same structure will need to be loaded to keep the database/warehouse up-to-date.  You can make the simplifying assumption that all future files will only contain new records (i.e., INSERTs).
 
+Although the data used in the Hack is less than 10 GB in size (think of this as your test data set), you need to design for an expected data size of 20 TB or more.  Choose your tools appropriately.
+
 ## Success Criteria
 
 1. Explain and justify your choice of database/warehouse/engine for the challenge.
