@@ -20,3 +20,5 @@ Bonus
 
 ## Learning Resources
 Reference articles:
+- [Schedule Driven Pipelines in Azure Synapse](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Event Driven Pipelines in Azure Synapse](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-event-trigger?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
