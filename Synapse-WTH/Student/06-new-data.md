@@ -1,6 +1,6 @@
 # (BONUS) Challenge 5: Add New Data Source(s)
 
-[< Previous Challenge](./04-incrementals.md) - **[Home](../README.md)** - [Next Challenge >](./06-ml.md)
+[< Previous Challenge](./04-incrementals.md) - **[Home](../README.md)** - [Next Challenge >](./07-ml.md)
 
 ## Introduction
 Re-defining weight classes, additional data, more competition! 
