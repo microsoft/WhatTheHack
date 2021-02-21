@@ -1,6 +1,6 @@
 # Challenge 4: Incrementals
 
-[< Previous Challenge](./03-visualizations.md) - **[Home](../README.md)** - [Next Challenge >](./05-data-masking.md)
+[< Previous Challenge](./03-visualization.md) - **[Home](../README.md)** - [Next Challenge >](./05-data-masking.md)
 
 ## Introduction
 Making gains, get that data updated!
