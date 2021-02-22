@@ -12,7 +12,7 @@ Some of the most popular features include:
 * Traffic Management and manipulation
 * Observability (e.g. distributed tracing)
 
-![ServiceMesh](https://servicemesh.es/img/servicemesh.png)
+![Service Mesh](img/servicemesh.png)
 Credit: <https://servicemesh.es>
 
 There are multiple service meshes, these are the 3 most popular (all of which use [Envoy](https://www.envoyproxy.io/) as the proxy):
@@ -36,6 +36,7 @@ Each of the Service Meshes have their own set of documentation for how to implem
 1. Enable high-level metrics 
 1. Test the "Fault Injection" feature
 1. Use Flagger to automate a canary release
+    - NOTE: make sure to disable mTLS before configuring Flagger
 
 ## Success Criteria
 
