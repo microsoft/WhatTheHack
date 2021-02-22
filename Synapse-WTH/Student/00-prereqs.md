@@ -12,13 +12,11 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 - Make sure that you have joined the Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
 - Install the recommended toolset:
-    - Visual Studio Code
-    - Azure Storage Explorer
+    - Web browser to interact with Azure Portal and web-based data tools
+    - Power BI Desktop
 
 ## Success Criteria
 
 - An Azure Subscription has been set up 
 - Access to the Azure Portal
-- Show the accounts necessary have Owner on the Subscription
-- Show Visual Studio Code has been installed
-- Show Azure Storage Explorer has been installed
+- Show the accounts necessary have Owner or Contributor permissions on the Subscription
