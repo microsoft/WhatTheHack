@@ -9,7 +9,6 @@ The goal of each challenge is to be as loosely coupled as possible to support a 
 
 * [Migrating SQL Server to Azure](./assets/SQLMigration.pptx)
 
-
 ## Coach's Guides
 
 * [Challenge 0 - Setup](./Solutions/Solution00.md)
