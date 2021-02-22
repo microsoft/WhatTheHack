@@ -36,6 +36,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
 - [Advanced Networking](/028-AdvancedNetworking/README.md)
+- [Azure Networking with Hub & Spoke](/035-HubAndSpoke/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [SAP Automation](/024-SAP-Core/README.md)
@@ -54,6 +55,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
+- [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
 - [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
