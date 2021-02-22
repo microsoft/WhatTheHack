@@ -1,0 +1,14 @@
+[import](common.lg)
+
+# SendActivity_Welcome()
+-Hi! I'm ESG Rating Bot. How can I assist? You can say STOCK, ESG, Call Agent, or other investor related questions.
+
+
+# TextInput_Prompt_PgN5ve()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_fjSiiF()
+- ${expandText(@answer)}

@@ -1,4 +1,4 @@
-# What the Hack: Azure Arc enabled Servers 
+# What the Hack: Azure Arc enabled servers 
 
 ## Challenge 4 – Arc Value Add: Integrate Sentinel
 [Back](challenge03.md) - [Home](../readme.md) - [Next](challenge05.md)
