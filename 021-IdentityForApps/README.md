@@ -35,7 +35,7 @@ Challenge 1: **[Provision an Azure AD B2C Tenant](Student/01-provision-b2c.md)**
 
 Challenge 2: **[Create a Sign Up and Sign In Experience](Student/02-susi.md)**
 
-- Create a simple Sign Up and Sign In user flow and connect it to an ASPNETCORE MVC App
+- Create a simple Sign Up and Sign In user flow and test it in the Azure AD B2C portal
 
 Challenge 3: **[Set Up an External IdP](Student/03-external-idp.md)**
 
@@ -43,7 +43,7 @@ Challenge 3: **[Set Up an External IdP](Student/03-external-idp.md)**
 
 Challenge 4: **[Customize Look and Feel and Localization](Student/04-l14n.md)**
 
-- Add a bit of flare to your sign up and sign in pages by adding your company's logo, colors, and custom layouts to the user experience along with supporting multiple languages
+- Add a bit of flare to your sign up and sign in pages by adding a custom template and colors, wiring up your User Flows to an ASPNETCORE MVC app, and use language customization to modify string values displayed to the user
 
 Challenge 5: **[Enrich Claims During Sign-Up](Student/05-claims-enrichment.md)**
 
@@ -87,13 +87,13 @@ Challenge 12: **[Monitoring Your Tenant](Student/12-monitor.md)**
 
 - `../Coach`
   - Coach's Guide and related files
-- `../Resources/HarnessApp`
+- `./Student/Resources/HarnessApp`
   - Sample AspNetCore app to be used to interact with your B2C tenant
-- `../Resources/MSGraphApp`
+- `./Student/Resources/MSGraphApp`
   - Sample DotNetCore Console app to be used to query your B2C tenant
-- `../Resources/Verify-inator`
+- `./Student/Resources/Verify-inator`
   - Sample AspNetCore WebApi app to be called by your B2C tenant's SignUp User Flows
-- `../Resources/PageTemplates`
+- `./Student/Resources/PageTemplates`
   - Sample HTML page template that can be used to customize User Flows and Custom Policies
 - `../Student`
   - Student's Challenge Guide

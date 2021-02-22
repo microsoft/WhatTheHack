@@ -1,0 +1,125 @@
+﻿.buttons button:hover {
+    background-image: none;
+}
+.phonefactor_container .row .panel-default {
+  margin: auto;
+  height: 100%;
+  background-color: white;
+  min-width: 400px;
+}
+.phonefactor_container .row .panel-body {
+  margin: 0 auto;
+  max-width: 400px;
+  width: auto;
+  padding: 4.2rem 1rem;
+}
+.phonefactor_container .row .panel-body img {
+  height: 70px;
+  margin: 0 auto;
+}
+.accountButton, .buttons button {
+  width: 60%;
+  height: 50px;
+}
+button#verifyCode {
+  background-color: #296ec6 !important;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+button#verifyCode:hover {
+  background-color: #1662c7 !important;
+}
+button#verifyPhone {
+  background-color: #296ec6 !important;
+  border-radius: 0.5rem;
+  color: white;
+}
+button#verifyPhone:hover {
+  background-color: #1662c7 !important;
+}
+#api #codeVerification {
+  text-align: left;
+  margin-top: 1rem;
+}
+#codeVerification #verificationCode {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 50px;
+  border: none;
+  text-indent: 20px;
+  box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+  outline: none;
+}
+#codeVerification #retryCode {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: none;
+}
+#codeVerification #retryCode:hover {
+    text-decoration: underline;
+}
+#codeVerification .error.itemLevel p {
+    color: #d30000;
+}
+#api #phonefactor_initial .intro p {
+    text-align: left;
+}
+#api p {
+  text-align: left;
+  margin-top: 1rem;
+}
+#api .intro p {
+  margin-top: 20px;
+}
+#api #phoneEntry.phoneEntry {
+  margin-top: 10px;
+}
+#api #phoneEntry.phoneEntry .input .code {
+  text-align: left;
+}
+#api #phoneEntry .input .code #countryCode {
+  height: 50px;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+}
+#api #phoneEntry .input .number .error.itemLevel p {
+  color: #d30000;
+}
+#api #phoneEntry.phoneEntry .input .number {
+  text-align: left;
+}
+#api #phoneEntry.phoneEntry .input .number #number {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 50px;
+  border: none;
+  text-indent: 20px;
+  box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+  outline: none;
+}
+#api #phonefactor_initial #phoneEntry select#countryCode {
+  height: 50px;
+  border-color: #608ef1;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin-bottom: 15px;
+}
+#api #phonefactor_initial #phoneEntry input#localNumber {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 50px;
+  border: none;
+  text-indent: 20px;
+  box-shadow: 0 0px 30px 0px #dae1f7;
+  outline: none;
+}
+.phoneNumbers .phoneNumber .type, .phoneNumbers .phoneNumber .displayName {
+    display: none;
+}
+.phoneNumbers .phoneNumber .number, .phoneNumbers .phoneNumber label[for="1"] {
+    margin-top: 10px;
+}
