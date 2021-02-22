@@ -1,0 +1,54 @@
+{
+  "Sample": {
+    "Title": "A simple JavaScript single-page application calling Microsoft Graph API using msal.js (w/ AAD v2 endpoint)",
+    "Level": 100,
+    "Client": "SinglePageApplication"
+  },
+  "AppRegistrations": [
+    {
+      "x-ms-id": "JavaScriptSpa",
+      "x-ms-name": "active-directory-javascript-graphapi-v2",
+      "x-ms-version": "2.0",
+      "replyUrlsWithType": [
+        {
+          "url": "http://localhost:3000/",
+          "type": "Web"
+        }
+      ],
+      "oauth2AllowImplicitFlow": true,
+      "oauth2AllowIdTokenImplicitFlow": true,
+      "requiredResourceAccess": [
+        {
+          "x-ms-resourceAppName": "Microsoft Graph",
+          "resourceAppId": "00000003-0000-0000-c000-000000000000",
+          "resourceAccess": [
+            {
+              "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+              "type": "Scope",
+              "x-ms-name": "user.read"
+            }
+          ]
+        }
+      ],
+      "codeConfigurations": [	
+        {
+        "settingFile": "/JavaScriptSPA/authConfig.js", 
+          "replaceTokens": 
+            {
+            "appId": "Enter_the_Application_Id_Here",
+            "tenantId": "Enter_the_Tenant_Info_Here",
+            "authorityEndpointHost": "Enter_the_Cloud_Instance_Id_Here",
+            "redirectUri": "Enter_the_Redirect_Uri_Here"
+          }
+        },
+        {
+          "settingFile": "/JavaScriptSPA/graphConfig.js", 
+            "replaceTokens": 
+              {
+              "msgraphEndpointHost": "Enter_the_Graph_Endpoint_Here"
+            }
+        }
+      ]
+    }
+  ]
+}

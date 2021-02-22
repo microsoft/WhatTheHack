@@ -1,4 +1,4 @@
-# What the Hack: Azure Arc enabled Servers 
+# What the Hack: Azure Arc enabled servers 
 
 ## Challenge 2 – Policy for Azure Arc connected servers
 [Back](challenge01.md) - [Home](../readme.md) - [Next](challenge03.md)
