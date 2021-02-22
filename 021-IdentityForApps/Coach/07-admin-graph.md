@@ -23,3 +23,5 @@ extension_<ext_app_id_no_dashes>_AttributeName
 ## Tips
 
 Review the README file for the console app - it has a lot of good information about how the application uses MSGraph.
+
+The student needs to change the name of the attributes referenced in the [UserService.cs](../Resources/MSGraphApp/src/Services/UserService.cs) file. Look for the "TODO" call out for the place to make the change.

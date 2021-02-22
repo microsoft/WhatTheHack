@@ -26,6 +26,7 @@ It should be noted that CMC only is licensed to do business in the following sta
 
 CMC IT Management has also asked that First and Last Name are displayed BEFORE Display Name on the sign up form. There's also a rumor that IT Management has also expressed that they are partial to the Slate Gray User Flow template.
 
+CMC IT Management also wants the same attributes returned when the user successfully logs in, along with the Identity Provider name.
 ## Success Criteria
 
 In order to be successful, CMC IT Management is requiring that consultants can:
@@ -36,6 +37,7 @@ In order to be successful, CMC IT Management is requiring that consultants can:
 - Ensure that consultants in the states that CMC is certified in are allowed to sign up.
 - Ensure that the email provided is a valid email address.
 - Ensure that the user attributes are displayed in preferred order along with the proper template being used.
+- Ensure a successful signin returns the attributes collected during signup, along with the Identity Provider name.
 
 There isn't a consultant management web application yet (the developers are a bit behind schedule), so IT Management is fine with testing our sign-up and sign-in capabilities in the B2C tenant portal (for now!).
 

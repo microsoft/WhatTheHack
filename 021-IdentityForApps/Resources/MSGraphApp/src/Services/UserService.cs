@@ -41,21 +41,22 @@ namespace b2c_ms_graph
             }
 
             // Declare the names of the custom attributes
-            const string customAttributeName1 = "FavouriteSeason";
-            const string customAttributeName2 = "LovesPets";
+            // TODO -- change the attribute names!!
+            const string customAttributeName1 = "<cmc-id-attribute-name>";
+            const string customAttributeName2 = "<territory-name-attribute-name>";
 
             // Get the complete name of the custom attribute (Azure AD extension)
             Helpers.B2cCustomAttributeHelper helper = new Helpers.B2cCustomAttributeHelper(b2cExtensionAppClientId);
-            string favouriteSeasonAttributeName = helper.GetCompleteAttributeName(customAttributeName1);
-            string lovesPetsAttributeName = helper.GetCompleteAttributeName(customAttributeName2);
+            string consultandIdAttrName = helper.GetCompleteAttributeName(customAttributeName1);
+            string territoryNameAttrName = helper.GetCompleteAttributeName(customAttributeName2);
 
-            Console.WriteLine($"Getting list of users with the custom attributes '{customAttributeName1}' (string) and '{customAttributeName2}' (boolean)");
+            Console.WriteLine($"Getting list of users with the custom attributes '{customAttributeName1}' (string) and '{customAttributeName2}' (string)");
             Console.WriteLine();
 
             // Get all users (one page)
             var result = await graphClient.Users
                 .Request()
-                .Select($"id,displayName,identities,{favouriteSeasonAttributeName},{lovesPetsAttributeName}")
+                .Select($"id,displayName,identities,{consultandIdAttrName},{territoryNameAttrName}")
                 .GetAsync();
 
             foreach (var user in result.CurrentPage)

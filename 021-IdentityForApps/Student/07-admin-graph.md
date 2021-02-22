@@ -21,6 +21,7 @@ Leadership would like you to build an app that can query the B2C tenant and outp
 
 Luckily, your innovative developer is still here (they haven't taken any time off either) and they've built a [console app](../Resources/MSGraphApp/README.md) that can do some of this (but you'll need to make some modifications). Luckily, the developer has parameterized the B2C bits, so you'll have to just make some updates to the configuration settings file (appsettings.json) in order to connect to your B2C tenant. You can find the developer's application in your [resources folder](../Resources/MSGraphApp/README.md).
 
+The console app does quite a bit with your B2C tenant, so perhaps this could be useful later on with some B2C tasks. But for now, you're just concerned with querying the directory to view the users' Consultant ID and Territory Name (option 8 in the console app).
 ## Success Criteria
 
 IT Leadership will consider this a success and allow you to take a few hours off on a Friday afternoon sometime in the not-so-distant future if you're able to:

@@ -14,7 +14,7 @@ You've been asked to add some debugging to the Delete My Account policy in order
 
 The CMC Product Team would like to know:
 
-- How can we tell, by using metrics, how many "user not found" events were encountered by users?
+- How can we tell, by using metrics, how many "delete request" events were requested by users?
 - How many "successful delete" events were encountered by users?
 
 ## Success Criteria
@@ -22,7 +22,7 @@ The CMC Product Team would like to know:
 You will be successful with this challenge if you are able to:
 
 - Inject Application Insights into your User Journey
-- Record specific events for "user not found" and "successful delete"
+- Record specific events for "delete requested" and "successful delete"
 - Display the recorded events to your Coach
 
 ## Learning Resources
