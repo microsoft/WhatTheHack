@@ -8,7 +8,7 @@ The Identity for Developers Hack will provide you a deep dive experience into en
 ![B2C Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-singlesignon.png)
 ## Learning Objectives
 
-In this hack, we'll enable identity solutions using Azure Active Direcotry B2C, demonstrating how to:
+In this hack, we'll enable identity solutions using Azure Active Directory B2C, demonstrating how to:
 
   1. Create and integrate out of the box user flows
 
@@ -18,6 +18,11 @@ In this hack, we'll enable identity solutions using Azure Active Direcotry B2C, 
 
   4. Monitor and report on your B2C tenant
 
+## Overall Architecture
+
+In this hack, you will build Azure AD B2C policies that enable users to be able to sign up, sign in, edit their profile, and delete their account. Along the way, you will enable API integration, conditional access checks, monitoring, and other services. The below diagram shows the various services this hack involves, along with the corresponding challenges where you will encounter these services. The section that follows this provides additional information and links to the specific challenges.
+
+![Contoso Manufacturing Consultant App Architecture](Azure_AD_B2C_WTH_Final_Design.png)
 ## Challenges
 
 Challenge 0: **[Prepare your workstation for Identity development](Student/00-pre-reqs.md)**
@@ -68,7 +73,7 @@ Challenge 11: **[Parameterize Your Custom Policies](Student/11-parameterize.md)*
 
 - Take your custom policies and parameterize the values that could change from environment to environment, and use the B2C extension to VS Code to generate environment-specific policy files.
 
-Challenge 12: **[BONUS: Monitoring Your Tenant](Student/12-monitor.md)**
+Challenge 12: **[Monitoring Your Tenant](Student/12-monitor.md)**
 
 - Monitor your B2C tenant by combining logs and app insights logs
 
