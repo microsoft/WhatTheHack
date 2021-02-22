@@ -4,7 +4,7 @@
     <ul class="nav navbar-nav navbar-right">
         <li class="navbar-text">Hello @User.Identity.Name</li>
         <!-- The Account controller is not defined in this project. Instead, it is part of Microsoft.Identity.Web.UI nuget package and
-                    it defines some well known actions such as SignUp/In, SignOut and EditProfile-->
+                        it defines some well known actions such as SignUp/In, SignOut and EditProfile-->
         <li class="navbar-btn">
             <form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="EditProfile">
                 <button type="submit" class="btn btn-primary" style="margin-right:5px">Edit Profile</button>
@@ -16,7 +16,7 @@
             </form>
         </li>
         <li class="navbar-btn">
-            <form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="DeleteUser">
+            <form method="get" asp-controller="HarnessAccount" asp-action="DeleteMyAccount">
                 <button type="submit" class="btn btn-primary btn-danger" style="margin-right:5px">Delete My Account</button>
             </form>
         </li>
