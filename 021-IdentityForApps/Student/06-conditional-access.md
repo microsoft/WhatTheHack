@@ -11,7 +11,7 @@
 
 ## Description
 
-As a result of incorporating the [CMC Consultant ID Verify-inator](https://phineasandferb.fandom.com/wiki/List_of_Doofenshmirtz%27s_schemes_and_inventions/Season_1) (and the [Territory Name-inator](https://phineasandferb.fandom.com/wiki/List_of_Doofenshmirtz%27s_schemes_and_inventions/Season_2)), QA has been satisfied with the fixes and CMC IT Leadership is happy again......BUT (here we go), they have realized that the site might need a little more tightening up.
+As a result of incorporating the [CMC Consultant ID Verify-inator](./Resources/Verify-inator) , QA has been satisfied with the fixes and CMC IT Leadership is happy again......BUT (here we go), they have realized that the site might need a little more tightening up.
 
 IT Leadership has requested that we (you) incorporate policies in your SignUp / SignIn User Flow that will require users to verify who they are, using either a code sent to their phone or to their email address.
 

@@ -1,4 +1,4 @@
-# Challenge \#12 - BONUS: Hey, What's Going On In My B2C Tenant??
+# Challenge \#12 - Hey, What's Going On In My B2C Tenant??
 
 [< Previous Challenge](./11-parameterize.md) - **[Home](../readme.md)**
 
@@ -44,3 +44,12 @@ _List of relevant links and online articles that should give the attendees the k
 
 **- Utilize the Learning Resources above for enabling Azure Monitor.**
 
+## Advanced Challenges (Optional)
+
+_Too comfortable? Eager to do more? Try these additional challenges!_
+
+**- Can you create a custom dashboard that has some views from the various B2C workbooks?**
+
+**- Configure Azure Sentinel for the Log Analytics Workspace where you are exporting your B2C logs to. What additional information does Sentinel provide?**
+
+**- Can you create some alerts in your Log Analytics workspace for certain B2C events?**
