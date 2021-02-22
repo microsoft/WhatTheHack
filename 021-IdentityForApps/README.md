@@ -68,7 +68,7 @@ Challenge 11: **[Parameterize Your Custom Policies](Student/11-parameterize.md)*
 
 - Take your custom policies and parameterize the values that could change from environment to environment, and use the B2C extension to VS Code to generate environment-specific policy files.
 
-Challenge 15: **[BONUS: Monitoring Your Tenant](Student/12-monitor.md)**
+Challenge 12: **[BONUS: Monitoring Your Tenant](Student/12-monitor.md)**
 
 - Monitor your B2C tenant by combining logs and app insights logs
 
