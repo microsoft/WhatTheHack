@@ -8,7 +8,7 @@ Your fledgling company has two migration tasks at hand. In both cases, your clie
 
 ## Description
 
-The objective of this challenge is to migrate AdventureWorks and WWI Databases (OLTP and OLAP) to Azure. Each presents a unique set of customer requirements; be sure to at least read the optional advanced challenges -- while completing the advanced challenges is not required for this challenge, be aware of what they are as they may impact your implementation choices.
+The objective of this challenge is to migrate AdventureWorks and WWI Databases (OLTP and OLAP) to Azure. Each presents a unique set of customer requirements; be sure to read the optional advanced challenges -- while completing the advanced challenges is not required for this challenge, it may impact your implementation choices.
 
 ### AdventureWorks 
 
@@ -26,13 +26,14 @@ Wide World Importers has provided the following requirements and guidelines:
 1. Both WWI OLTP and data warehouse databases are to be migrated; they do not need to be on the same server
 1. Wide World Importers would prefer to take advantage of PaaS services if possible
 1. Database migration for the OLTP database must be done online with minimum downtime
-    1. For the purposes of this challenge, use the WWI Order Insert Solution (Windows Application) to simulate load on the on-premises database during migration
+    1. For the purposes of this challenge, use the WWI Order Insert Solution (Windows Application) to simulate load on the on-premises database during migration/assessment
 1. Database migration for the data warehouse can be done offline
 1. SSIS package as part of the WWI DW ETL is a *bonus challenge* and not required
 
 ## Success Criteria
 
 1. Successfully migrate AdventureWorks meeting the above criteria
+1. Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment
 1. Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration
 
 ## Learning Resources
@@ -46,6 +47,7 @@ Download the Workload Driver solution or executable here:
 * Learn about the [Azure Database Migration Service](https://azure.microsoft.com/en-us/services/database-migration/) and leverage the [Azure Database Migration Guide](https://datamigration.microsoft.com/)
 * Read up on [Microsoft Data Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595) including [this overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver15) for more information
 * Read more on getting started with [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15), and refer to this [Azure Data Studio Quickstart](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server?view=sql-server-ver15) for more information
+* Any assessment tool may be used to perform an assessment; DMA (Data Migration Assistant) includes assessment and SKU recommendation tools
 
 ## Advanced Challenges (Optional)
 
