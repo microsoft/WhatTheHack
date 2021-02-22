@@ -29,8 +29,15 @@ Azure Databricks will be used to consume Event Hub, and write streaming data to 
 Follow Event Hub quickstart instructions [here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create).
 
 **Step 2 - Set up and configure data source**
-Open and configure Click Stream Generator application found [here](https://github.com/alexkarasek/ClickStreamGenerator).  You will need to provide your host name and shared access policy key in the appsettings.json file.
-(Note: If you do not have Visual Studio or Visual Studio Code configured on your local machine, you may want to complete this step by installing Visual Studio on your new SQL Server VM)
+Open and configure Click Stream Generator application found [here](https://github.com/alexkarasek/ClickStreamGenerator).  You will need to provide your host name and shared access policy key in the appsettings.json file.  
+
+Here is a script to simplify deployment and reduce setup time for the hack.  This script is provided in the student's challenge.  
+
+``` 
+az container create -g [Resource Group Name] --name [container name] --image
+alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]'
+'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]'
+```
 
 **Step 3 - Create Azure Data Lake Storage Account**
 Create a new ADLS Gen 2 storage account (or new folder in existing storage account) in your Resource Group.  This will be used as the backend storage for Delta Lake tables created in subsequent steps.
