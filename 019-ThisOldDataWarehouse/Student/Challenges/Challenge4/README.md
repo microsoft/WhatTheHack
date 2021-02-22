@@ -11,20 +11,25 @@ Worldwide importers wanted to build out their data warehouse to include clickstr
 Build a streaming pipeline to ingest simulated click stream data into enterprise Delta Lake via Azure Databricks.
 
 ### Data Source: 
-In order to generate the source data stream for this exercise, you will need to execute sample .Net application (Stream Generator).  This code will randomly generate product related data, and write it to an Azure Event Hub.
+In order to generate the source data stream for this exercise, you will need to execute sample .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
+
+Note: You can start the stream of data by executing script below in Azure Cloud Shell:
+
+``` 
+az container create -g [Resource Group Name] --name [container name] --image
+alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]'
+'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]' 
+```
 
 ### Data Sink:
 Azure Databricks will be used to consume data from Event Hub and write the stream to Delta Lake tables stored in Azure Data Lake.
 
-
 ## Success Criteria
 1. Deploy new Event Hub in Azure
 1. Setup and configure data source
-1. Deploy Azure Databricks
-1. Create Azure Data Lake Storage Account
-1. Import and Configure Databricks Notebook
 1. Start Data stream
 1. Ingest data stream
+1. Write a query to view current number of clicks per product
 
 ## Learning Resources
 
@@ -43,3 +48,4 @@ Azure Databricks will be used to consume data from Event Hub and write the strea
 
 1. Setup external table in Azure Synapse Analytics
 1. Create Power BI report to use clickstream data
+1. Create an Azure Stream Analytics job to process streaming data and write to Data Lake and/or Azure Synapse Analytics SQL Pool directly

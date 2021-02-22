@@ -29,15 +29,17 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
-- [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/README.md)
-- [Azure Arc Enabled Servers](/025-ArcEnabledServers/README.md)
+- [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
+- [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
-- [Front Door](/017-FrontDoor/README.md)
+- [Azure Front Door](/017-FrontDoor/README.md)
+- [Advanced Networking](/028-AdvancedNetworking/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
-- [SAP Automation](/022-SAP-Core/README.md)
+- [SAP Automation](/024-SAP-Core/README.md)
+
 
 ## Application Development
 - [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
@@ -45,8 +47,10 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Microservices In Azure](/009-MicroservicesInAzure/README.md)
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
-- [Identity For Applications](/021-IdentityForApps/README.md)
+- [IdentityForApps](/021-IdentityForApps/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
+- [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
@@ -57,9 +61,11 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Data & AI
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
+- [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
+
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).

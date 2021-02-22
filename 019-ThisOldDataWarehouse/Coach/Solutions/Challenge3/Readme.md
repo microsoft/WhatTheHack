@@ -10,7 +10,7 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 ![Current SSIS Workflow](../../../images/SSISFlow.png)
 
-<b>Below is a summary of each of the tasks in the existing SSIS package.  Note that we will be able to re-use the existing scripts for all of these tasks except for step 6.</b>
+**Below is a summary of each of the tasks in the existing SSIS package.  Note that we will be able to re-use the existing scripts for all of these tasks except for step 6.**
 
 1. The first step of the pipeline is to retrieve the “ETL Cutoff Date”. This date can be found in the [Integration].[Load_Control] in Azure Synapse DW and should have been created as part of challenge 1.
 1. The next step ensures that the [Dimension].[Date] table is current by executing the [Integration].[PopulateDateDimensionForYear] in Azure Synapse DW
@@ -19,7 +19,7 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 1. This step retrieves the cutoff date for the last successful load of each table from the [Integration].[ETL Cutoffs] Table
 1. New data is now read from the OLTP source (using [Integration].[Get[Table]Updates] procedures) and copied into the [Integration].[[Table]_Staging] tables in the target DW
 1. Finally the staged data is merged into the [Dimension] and [Fact] tables in the target DW by executing the [Integration].[MigrateStaged[Table]] stored procedures in the target DW
-    - <b>NOTE: As part of this step, surrogate keys are generated for new attributes in Dimension tables (tables in the [Dimension] schema), so Dimenion tables must be loaded before FACT tables to maintain data integrity</b>
+    - **NOTE: As part of this step, surrogate keys are generated for new attributes in Dimension tables (tables in the [Dimension] schema), so Dimenion tables must be loaded before FACT tables to maintain data integrity**
 
 ## Coach Notes
 
@@ -29,22 +29,24 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 ## Environment Setup
 
+**Note:** Until Synapse Analytics goes GA, the coach's notes and students guides will leverage the terms Azure Data Lake Store Gen2, Azure Data Factory and Azure Synapse Database.  These terms will be replaced with Linked Storage, Data Pipelines and SQL Pools respectively as the reference documentation is updated upon GA.  It is acceptable to use Synapse Analytics Workspace as one of the adventures. We did not explicitly mention it since supporting documentation is missing.
+
 1. Add a new activity to your Azure Data Factory to load data from the new Azure Data Lake into the _Staging tables in the Data Warehouse in Azure Synapse via Polybase
     - The primary benefit of using ELT loading pattern in Azure is to take advantage of the capabilities of scale out cloud technologies to load data as quickly as possible and then leverage the power of Azure Synapse Analytics to transform that data, and finally merge it into its final destination.  In order to ingest the data that was loaded into the data lake in the previous challenge, you should add a new acitvity to the existing Azure Data Factory to load each table via Polybase.  A way to implement this dynamically would be to create parameterized stored procedures and call them using a Stored Procedure activity.  An example of how to load data via CTAS can be found [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase).
 
-    <b>NOTE:</b> This process leverages stored procedures to import the data via CTAS statements in Azure Synapse.  The scripts for those stored procedures can be found in the \Scripts folder of the solution guide. As mentioned, alternative approaches could be to execute Copy commands or leverage the Copy activity directly. 
+    **NOTE:** This process leverages stored procedures to import the data via CTAS statements in Azure Synapse.  The scripts for those stored procedures can be found in the \Scripts folder of the solution guide. As mentioned, alternative approaches could be to execute Copy commands or leverage the Copy activity directly. 
 
 1. Add an activity to execute the Get Lineage Key stored procedure so that the process can be logged (this will correlate to Step 3 in existing SSIS package described above)
 
 1. Create another activity to merge the new data into the target Fact and Dimension tables in your DW from your _Staging tables
     - Now that your data has been loaded into the DW, you will need to merge the results into the Fact and Dimension schemas.  To accomplish this, you can use the Integration.Migrate... stored procedures that were created in Challenge 1.  In order to execute the queries via your Azure Data Factory pipeline:
         - add a new Execute Stored Procedure Activity, and configure it to execute the Integration.MigrateStagedCityData stored procedure in your Synapse DW
-        <b>Note:</b> As mentioned before, you should use expressions to call the stored procedure so that the activity can be reused for each table being merged
-    <b>NOTE: </b>As stated in the Description above, Dimension tables will need to be fully loaded before Fact tables, so be sure to account for that when building this activity.  In the solution included, this is achieved by creating a concept of "SequenceId" in the [Integration].[ETL Cutoffs] table in the Azure Synapse DW.  The script to add the sequence id to the table, and populate correctly can be found (./Scripts/PopulateEtLCutoffs.sql).  
+        **Note:** As mentioned before, you should use expressions to call the stored procedure so that the activity can be reused for each table being merged
+    **NOTE:** As stated in the Description above, Dimension tables will need to be fully loaded before Fact tables, so be sure to account for that when building this activity.  In the solution included, this is achieved by creating a concept of "SequenceId" in the [Integration].[ETL Cutoffs] table in the Azure Synapse DW.  The script to add the sequence id to the table, and populate correctly can be found (./Scripts/PopulateEtLCutoffs.sql).  
 
 1. Add another new activity to your new pipeline to move the files to the \RAW\WWIDB\ [Table]\{YYYY}\{MM}\{DD} directory in your data lake once they have been loaded into your DW table
     - Now that you are able to load and merge the updated data, you will want to add a final activity to your pipeline that will copy the files from the \In\WWIDB\ [TABLE]\ directory in your data lake into the corresponding folder in your \RAW directory.  This will let any downstream process and/or client know that it no longer needs to be loaded.  Keeping it in the \RAW directory, however will allow the data to be persisted in your lake for future use.  You can refer back to challenge 2 for guidance on how to create a copy data activity inside Azure Data Factory
-    <b>Note:</b> Depending on how dynamic you made the dataset for the Azure Data Lake store, you will likely need to create a 2nd dataset at this point for the archive directly.
+    **Note:** Depending on how dynamic you made the dataset for the Azure Data Lake store, you will likely need to create a 2nd dataset at this point for the archive directly.
 
 
 1. Test your new Azure Data Factory Pipeline by validating that data added to the source system will flow through to final target tables
