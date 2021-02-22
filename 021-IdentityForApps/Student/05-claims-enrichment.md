@@ -33,7 +33,41 @@ Also, your innovative developer has also developed an enhancement to the "CMC ID
 
 Your developer has also included a configuration setting for the B2C tenant's extension attribute ID. You may want to investigate this setting.
 
+You will call the Verify-inator at its `/Territory` endpoint. So if you deployed the Verify-inator to `https://foo.azurewebsites.net`, then when you create the API Connector, you should set its endpoint to be `https://foo.azurewebsites.net/Territory`.
+
 Lastly, CMC IT Leadership does not want to present the "Territory Name" attribute to the user during sign-up. They have asked you to please remove this field from the sign-up experience.
+
+## Background
+
+Azure AD B2C has a new feature named API Connectors, which allow your B2C User Flows to communicate with REST APIs during the user sign up process. Our application will take advantage of API Connectors.
+
+When calling the Verify-inator API Connector, all attributes collected from the user signing up will be passed to the Verify-inator. It will be in a flat JSON payload, looking like this:
+
+```Javascript
+{
+    "givenName": "Dave",
+    "surname": "Lassname",
+    "extension_123xzy_ConsultantID": "123ABCD456",
+    "state": "PA",
+    "city": "Pittsburgh"
+}
+```
+
+Notice that when the `ConsultantID` is passed to the API Connector, it is formatted as `extension_<ext_app_id>_ConsultantID`. The `<ext_app_id>` piece in the middle is the App ID of the B2C Extensions app in your B2C tenant. That app registration was created when your B2C tenant was created - you'll just need to copy the Client (App) ID and update your project's appsettings.json file.
+
+The Verify-inator will return a JSON object back to your B2C User Flow. Generally, it will be in this format:
+
+```javascript
+{
+    { "version": "1.0.0" },
+    { "action": "Continue" },
+    { "userMessage", "Success!" },
+    { "extension_123xyz_ConsultantID": "123ABCD456" },
+    { "extension_123xyz_TerritoryName": "Shiny-Bubble" }
+}
+```
+
+Your UserFlow will update all claims that are returned (such as TerritoryName) and persist them.
 
 ## Success Criteria
 
