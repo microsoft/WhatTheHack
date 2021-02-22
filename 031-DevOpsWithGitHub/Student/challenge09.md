@@ -20,7 +20,7 @@ In this challenge, you will improve the security of your repository using some o
 
 2. Enable Dependabot alerts for the repository. Dependabot is an automated tool that creates a pull request when any dependencies in the code base has a known vulnerability. 
 
-3. (NOTE: Skip this step while code scanning is in Beta.) Finally, set up and run a Code scanning workflow for the repository using GitHub's 'CodeQL Analysis.' This workflow can run either on each pull request or on a schedule, and it checks your code for common vulnerabilities or errors. 
+3. (**NOTE**: Skip this step while code scanning is in Beta.) Finally, set up and run a Code scanning workflow for the repository using GitHub's 'CodeQL Analysis.' This workflow can run either on each pull request or on a schedule, and it checks your code for common vulnerabilities or errors. 
 
 ## Success Criteria
 

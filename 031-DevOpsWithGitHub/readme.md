@@ -30,7 +30,7 @@ This DevOps with GitHub hack will help you learn:
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Git SCM](https://git-scm.com/download)
 
-## Repository Contents (Optional)
+## Repository Contents
 - `../Student`
   - Student Challenge Guides
 - `../Student/Resources`

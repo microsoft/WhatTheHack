@@ -73,6 +73,6 @@ and pass the value as a overriding template parameter (as described in Advanced 
     - When you have successfully created the `staging2` environment, you can delete it as it will not be used in the upcoming challenges.
 
 
-NOTE: If you are interested in learning more about Infrastructure as Code, there are [multiple](https://github.com/microsoft/WhatTheHack) What the Hacks that cover it in greater depth.
+**NOTE**: If you are interested in learning more about Infrastructure as Code, there are [multiple](https://github.com/microsoft/WhatTheHack) What the Hacks that cover it in greater depth.
 
 [< Previous](challenge02.md) - [Home](../readme.md) - [Next >](challenge04.md)
