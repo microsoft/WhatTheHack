@@ -50,12 +50,12 @@ In this challenge, you will practice this flow. Additionally, GitHub offers a fe
 - If using the git command line interface, try adding '--help' after a command to get helpful information about arguments and usage.
 
 
-### Advanced Challenges
+### Advanced Challenges (optional)
 
 In this challenge, we focused on creating a feature branch directly off of the main branch. Some organizations, however, prefer to do phased deployments. Instead of merging feature branches directly back into production, this alternate strategy involves having a main production branch and a development branch which runs parallel to the main branch. Feature and bug fix branches are created from and merged into the development branch. When you want to release new features to production, create a pull request to merge changes from development into the main branch. 
 
 If you would like to explore this flow, try to set up your repository for these 'phased deployments.' Begin by creating a development branch off of your main branch. On the development branch, repeat the flow from above. When you are ready to release, create and complete a pull request merging the development branch into the main branch. 
 
-IMPORTANT: Do not delete the development branch after completing the deployment. You will want to use this same branch to repeat the process for your next deployment. 
+**IMPORTANT**: Do not delete the development branch after completing the deployment. You will want to use this same branch to repeat the process for your next deployment. 
 
 [< Previous](challenge06.md) - [Home](../readme.md) - [Next >](challenge08.md)
