@@ -1,6 +1,6 @@
 # Challenge \#11 - Parameterize Your Policies
 
-[< Previous Challenge](./10-appinsights.md) - **[Home](../readme.md)** - [Next Challenge>](./12-monitor.md)
+[< Previous Challenge](./10-appinsights.md) - **[Home](../README.md)** - [Next Challenge>](./12-monitor.md)
 
 ## Description
 

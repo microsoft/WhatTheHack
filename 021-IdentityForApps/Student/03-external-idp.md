@@ -1,6 +1,6 @@
 # Challenge \#3 - External Identity Providers
 
-[< Previous Challenge](./02-susi.md) - **[Home](../readme.md)** - [Next Challenge>](./04-l14n.md)
+[< Previous Challenge](./02-susi.md) - **[Home](../README.md)** - [Next Challenge>](./04-l14n.md)
 
 ## Introduction
 

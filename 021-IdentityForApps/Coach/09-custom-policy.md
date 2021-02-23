@@ -1,6 +1,6 @@
 # Challenge \#9 - Creating Custom Policies
 
-[< Previous Challenge](./08-prepare-ief.md) - **[Home](./readme.md)** - [Next Challenge>](./10-appinsights.md)
+[< Previous Challenge](./08-prepare-ief.md) - **[Home](./README.md)** - [Next Challenge>](./10-appinsights.md)
 ## Introduction
 
 In this challenge, we'll deploy a custom policy to allow a user to Delete Their Account.

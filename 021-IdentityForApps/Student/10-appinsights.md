@@ -1,6 +1,6 @@
 # Challenge \#10 - Getting Insights Into B2C
 
-[< Previous Challenge](./09-custom-policy.md) - **[Home](../readme.md)** - [Next Challenge>](./11-parameterize.md)
+[< Previous Challenge](./09-custom-policy.md) - **[Home](../README.md)** - [Next Challenge>](./11-parameterize.md)
 
 ## Description
 

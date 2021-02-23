@@ -1,6 +1,6 @@
 # Challenge \#8 - Preparation for Identity Experience Framework
 
-[< Previous Challenge](./07-admin-graph.md) - **[Home](./readme.md)** - [Next Challenge>](./09-custom-policy.md)
+[< Previous Challenge](./07-admin-graph.md) - **[Home](./README.md)** - [Next Challenge>](./09-custom-policy.md)
 ## Introduction
 
 This challenge lays the groundwork for using Custom Policies in Azure AD B2C. In the next challenge, we'll create a "Delete My Account" Custom Policy that will use the TrustFramework that we deploy in this step.
