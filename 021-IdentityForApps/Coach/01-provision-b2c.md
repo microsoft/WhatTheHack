@@ -1,11 +1,6 @@
 # Challenge 1 - Provision B2C Instance
 
-## Prerequisites
-
-You will want to ensure that your students have gone through the preparation in their environment. At this point, they should have:
-- [Azure Subscription](https://azure.microsoft.com/en-us/free/), at least with contributor permissions
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Visual Studio Code plugins for B2C](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+[< Previous Challenge](./00-pre-reqs.md) - **[Home](./readme.md)** - [Next Challenge>](./02-susi.md)
 
 ## Introduction 
 

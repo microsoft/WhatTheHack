@@ -22,7 +22,7 @@ In this hack, we'll enable identity solutions using Azure Active Directory B2C, 
 
 In this hack, you will build Azure AD B2C policies that enable users to be able to sign up, sign in, edit their profile, and delete their account. Along the way, you will enable API integration, conditional access checks, monitoring, and other services. The below diagram shows the various services this hack involves, along with the corresponding challenges where you will encounter these services. The section that follows this provides additional information and links to the specific challenges.
 
-![Contoso Manufacturing Consultant App Architecture](Azure_AD_B2C_WTH_Final_Design.png)
+![Contoso Manufacturing Consultant App Architecture](./Images/Azure_AD_B2C_WTH_Final_Design.png)
 ## Challenges
 
 Challenge 0: **[Prepare your workstation for Identity development](Student/00-pre-reqs.md)**
@@ -61,7 +61,7 @@ Challenge 8: **[Prepare Environment for Custom Policies](Student/08-prepare-ief.
 
 - We'll need custom policies, so let's get things ready. Apply the Trust Framework and also create an OIDC IdP for your external IdP
 
-Challenge 9: **[Stepping Up To Custom Policies](Student/09-custom-policy.md)**
+Challenge 9: **[Creating Custom Policies](Student/09-custom-policy.md)**
 
 - Implement a custom policy for Sign In that will call to your custom REST API to perform claims enrichment for users that signed up prior to Challenge 5. Also, we'll break the Sign Up and Sign In policy to be just a Sign Up policy.
 
@@ -83,7 +83,7 @@ Challenge 12: **[Monitoring Your Tenant](Student/12-monitor.md)**
 - Visual Studio Code
 - Azure CLI
 
-## Repository Contents (Optional)
+## Repository Contents
 
 - `../Coach`
   - Coach's Guide and related files

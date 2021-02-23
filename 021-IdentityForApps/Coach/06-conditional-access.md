@@ -1,5 +1,6 @@
 # Challenge \#6 - Conditional Access - Are You Who You Say You Are?
 
+[< Previous Challenge](./05-claims-enrichment.md) - **[Home](./readme.md)** - [Next Challenge>](./07-admin-graph.md)
 ## Introduction
 This challenge allows your team to create a few Conditional Access policies and then enable them in their User Flows.
 
@@ -13,5 +14,3 @@ This is a pretty straightforward challenge and shouldn't take long to implement.
 4. Modify your SUSI User Flow to enable Conditional Access policy evaluation.
 5. Test this out using an Android emulator (Dev Tools in Chrome can do this) and also by using a browser like a Tor Browser to simulate Med/High User Risk.
 6. Take a look at the Risky User reports after a few minutes.
-
-## Tips

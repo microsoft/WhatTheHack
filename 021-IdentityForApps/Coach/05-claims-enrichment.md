@@ -1,6 +1,7 @@
 # Challenge \#5 - Claims Enrichment - The ID Verify-inator!!
 
-## introduction
+[< Previous Challenge](./04-l14n.md) - **[Home](./readme.md)** - [Next Challenge>](./06-conditional-access.md)
+## Introduction
 
 In this challenge, the team will host an simple Azure App Service and connect their SUSI User Flow to it for claims enrichment and validation.
 
@@ -20,7 +21,7 @@ curl --location --request POST 'https://localhost:5001/Territory' \
     "extension_c25a588869c34cb48d8d87dbbce4816b_ConsultantID": "123abcd450"
 }'
 
-### RESOPNSE ###
+### RESPONSE ###
 
 {
     "version": "1.0.0",
