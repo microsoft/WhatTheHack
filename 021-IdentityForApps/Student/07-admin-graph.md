@@ -2,15 +2,6 @@
 
 [< Previous Challenge](./06-conditional-access.md) - **[Home](../readme.md)** - [Next Challenge>](./08-prepare-ief.md)
 
-## Pre-requisites
-
-- Provisioned a B2C tenant
-- Created a SignUp / SignIn (SUSI) User Flow
-- Tested the User Flow via the Azure AD B2C Portal
-- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
-- Using a custom HTML template
-- Localized resources along with multi-language support
-
 ## Description
 
 It looks like you've done it - CMC IT Leadership is happy with your Identity and Access Management (IAM) policies, QA is satisfied with the functionality of your User Flow policies, and Security is happy that users are being challenged with MFA at appropriate times......BUT, IT Leadership would like some information about the consultants that have signed up. (You knew it was too soon to take some time off!)
@@ -36,12 +27,12 @@ IT Leadership will consider this a success and allow you to take a few hours off
 
 ## Learning Resources
 
-**[Create a Management Application for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-get-started?tabs=app-reg-ga)**
+- [Create a Management Application for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-get-started?tabs=app-reg-ga)
 
-**[Managing Users via MS Graph for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/manage-user-accounts-graph-api)**
+- [Managing Users via MS Graph for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/manage-user-accounts-graph-api)
 
 ## Advanced Challenges (Optional)
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- It would be really interesting to see what phone number your consultants used for their Conditional Access registration. Can you modify the code to also query and output the consultant's registered phone number?**
+- It would be really interesting to see what phone number your consultants used for their Conditional Access registration. Can you modify the code to also query and output the consultant's registered phone number?

@@ -2,13 +2,6 @@
 
 [< Previous Challenge](./05-claims-enrichment.md) - **[Home](../readme.md)** - [Next Challenge>](./07-admin-graph.md)
 
-## Pre-requisites
-
-- Provisioned a B2C tenant
-- Created a SignUp / SignIn (SUSI) User Flow
-- Tested the User Flow via the Azure AD B2C Portal
-- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
-
 ## Description
 
 As a result of incorporating the [CMC Consultant ID Verify-inator](./Resources/Verify-inator) , QA has been satisfied with the fixes and CMC IT Leadership is happy again......BUT (here we go), they have realized that the site might need a little more tightening up.
@@ -38,4 +31,4 @@ CMC IT Leadership considers your efforts a success (and your odds of a promotion
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- You can create several different app registrations in your B2C tenant and then configure Conditional Access policies that are specific to each app registration. For one app reg, always force MFA; for another, only force MFA for iOS devices; for a third, force MFA for risky behaviors.**
+- You can create several different app registrations in your B2C tenant and then configure Conditional Access policies that are specific to each app registration. For one app reg, always force MFA; for another, only force MFA for iOS devices; for a third, force MFA for risky behaviors.

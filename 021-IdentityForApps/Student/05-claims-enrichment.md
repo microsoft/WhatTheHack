@@ -1,17 +1,6 @@
 # Challenge \#5 - Claims Enrichment - The ID Verify-inator!!
 
 [< Previous Challenge](./04-l14n.md) - **[Home](../readme.md)** - [Next Challenge>](./06-conditional-access.md)
-
-## Pre-requisites
-
-- Provisioned a B2C tenant
-- Created a SignUp / SignIn (SUSI) User Flow
-- Tested the User Flow via the Azure AD B2C Portal
-- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
-- Using a custom HTML template
-- Localized resources along with multi-language support
-- A working Profile Edit User Flow
-
 ## Introduction
 
 Azure Active Directory B2C provides the ability to integrate RESTful APIs into your User Flows using a feature called API Connectors, or from your custom policies. This is a great solution for claims enrichment, input validation, workflow kick-off, and many more scenarios.
@@ -83,10 +72,8 @@ CMC IT Leadership considers success in dealing with this QA issue if you are abl
 
 ## Learning Resources
 
-**[API Connector Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/api-connectors-overview)**
+- [API Connector Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/api-connectors-overview)
 
-**[Adding an API Connector](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector)**
+- [Adding an API Connector](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector)
 
-## Tips
-
-**[API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)**
+- [API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)

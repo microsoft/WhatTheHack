@@ -2,13 +2,6 @@
 
 [< Previous Challenge](./10-appinsights.md) - **[Home](../readme.md)** - [Next Challenge>](./12-monitor.md)
 
-## Pre-requisites (Optional)
-
-- Provisioned a B2C tenant
-- Deployed the Identity Experience Framework (IEF)
-- Deployed the Challenge 9 Delete My Account Policy
-
-
 ## Description
 
 Now that we have Custom Policies in place with the Delete My Account policy, our CMC management wants to allow these custom policies to be deployed to different environments, such as dev/test or production.
@@ -33,11 +26,11 @@ You will have successfully passed this challenge if you can:
 
 ## Learning Resources
 
-**- [Visual Studio Code Azure AD B2C Extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)**
+- [Visual Studio Code Azure AD B2C Extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
 
-**- [Visual Studio Code Azure AD B2C Extension GitHub Repo](https://github.com/azure-ad-b2c/vscode-extension)**
+- [Visual Studio Code Azure AD B2C Extension GitHub Repo](https://github.com/azure-ad-b2c/vscode-extension)
 
 
 ## Advanced Challenges (Optional)
 
-**- Set up another B2C tenant, which we'll consider it to be 'production', and set up the Trust Framework policies along with your Delete My Account policy using your parameterized policies.**
+- Set up another B2C tenant, which we'll consider it to be 'production', and set up the Trust Framework policies along with your Delete My Account policy using your parameterized policies.
