@@ -21,3 +21,12 @@ The recommended flow for this WhatTheHack:
     - Redirect traffic for a part of the website to a Static Web Site
   - Challenge 5: [Force HTTPS thru Rules Engine](Solution05.md)
     - Write your frist rule!
+
+## Additional Resource
+Under the [Resources](./Resources) folder, there are two folders the contain single item resources that are hosted centrally.  **THERE IS NO ACTION FOR COACHES**:
+- [ContosoMasks.com](Resources/ContosoMasks.com) - Source code for the Demo site.  It's deployed in a central Azure subscription and can be accessed:
+  - https://www.contosomasks.com - Base website direct to App Service
+  - https://frontdoor.contosomasks.com - Front Door fronted version
+  - https://frontdoorwithredirect.contosomasks.com - Front Door fronted version with redirection rule to a Static Website for /Messages
+  - https://frontdoorwithwaf.contosomasks.com - Front Door fronted version with WAF
+- [frontdoor-cdn-lab-management](./Resources/frontdoor-cdn-lab-management) - Source code for Function app that manages the lab.  It's centrally hosted, **no need for coach deployment**.  The central deployment has the Public DNS Zone for **ContosoMasks.com**.  When a student does the first Challenge and deploys the template, the deployment calls one of hte functions to create the necessary records in the DNZ Zone for **ContosoMasks.com** to properly delegate the subdomain the student will use for the lab.  Another function runs on a timer and ensures to clean up old records.
