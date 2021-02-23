@@ -22,7 +22,7 @@ While it's clear the SQL Server 2019 version performs better, the challenge is t
 
 ### Understand key blockers
 
-There's a saying, "If you can't measure it, you can't improve it." Looking at the execution plan is a key way to understand how a query is parsed and executed so that changes can be intentional and evaluated. This part of the challenge involves understanding the indexing and reading the execution plan. While altering a table and its indexes to improve a query may harm another query, the goal is to find the appropriate tradeoffs.
+There's a saying, "If you can't measure it, you can't improve it." Perhaps for code optimizations, it's more accurate to say, "To effectively improve something, you begin by measuring it." Looking at the execution plan is a key way to understand how a query is parsed and executed so that changes can be intentional and evaluated. This part of the challenge involves understanding the indexing and reading the execution plan. While altering a table and its indexes to improve a query may harm another query, the goal is to find the appropriate tradeoffs.
 
 The WWI team powers a dashboard that uses a query similar to the below to track current invoices for a given day. Execute and evaluate its execution plan. 
 

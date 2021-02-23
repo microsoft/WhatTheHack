@@ -1,5 +1,7 @@
 # Solution 00 - Migration
 
+**[Home](../readme.md)** - [Next Challenge>](./Solution01.md)
+
 ## Introduction
 
 The primary objective of this challenge is to download and install all of the required tools and databases. There should not be any major challenges encountered unless teams do not have any members with any database experience.
