@@ -31,15 +31,15 @@ If the attendees need more direction, have them read up on [Intelligent Query Pr
 
 Once the queries have been run for each compatability level, the Query Store should reveal the difference in performance (this is most easily done using SQL Server Enterprise Management Studio). Under the Top Resource Consuming Queries, teams should see something similar to:
 
-![Query Store](../../assets/query_plans_for_table_variable.png)
+![Query Store](../assets/query_plans_for_table_variable.png)
 
 Typically when evaluating performance using the execution plan, you'd focus on the big ticket items in the plan -- what index is being used? In this case, the clustered index scan estimates a single row for the output:
 
-![Slower Plan](./Coach/assets/query_stats_for_slower_plan.png)
+![Slower Plan](../assets/query_stats_for_slower_plan.png)
 
 The query looks different when running under SQL Server 2019. The clustered index scan remains, but is much more accurate in its estimate:
 
-![Faster Plan](./assets/query_stats_for_faster_plan.png)
+![Faster Plan](../assets/query_stats_for_faster_plan.png)
 
 By leveraging *table variable deferred compilation*, the compilation of the statement is deferred until the first execution. Cardinality estimates can then be based on the actual table row counts, allowing for better downstream operation choices.  
 
@@ -51,7 +51,7 @@ Lastly, *batch mode for rowstore*, previously exclusive to columnstore indexes, 
 
 Depending on the team's ability to read/process query plans, this may either an instant answer or may take some research. An execution plan similar to the following should be displayed when running the provided query: 
 
-![Key Lookup](./assets/keylookup.png)
+![Key Lookup](../assets/keylookup.png)
 
 In this case, the tuning advisor shows a missing index at the top of the execution plan that would make this query run faster, so the answer is (somewhat unfortunately) in plain site. But why? Be sure the team understands the reasons before blindly creating indexes.
 
