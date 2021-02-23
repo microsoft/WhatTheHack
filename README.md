@@ -68,6 +68,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
 
+## Microsoft Teams Platform
+- [Microsoft Teams: Make It Real](/034-MicrosoftTeams-MakeItReal/README.md)
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
