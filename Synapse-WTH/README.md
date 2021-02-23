@@ -28,3 +28,4 @@ Contoso Powerlifting Federation (CPF) are in dire need to modernize their data a
 ## Contributors
 - [James Jones](https://github.com/JamJarchitect/)
 - [Art Rask](https://github.com/artraskmsft)
+- [Orrin Edenfield](https://github.com/OrrinEdenfield)
