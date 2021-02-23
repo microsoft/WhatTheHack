@@ -19,9 +19,11 @@ Contoso Powerlifting Federation (CPF) are in dire need to modernize their data a
 - Challenge 4:  **[Incremental Loads](Student/04-incrementals.md)**
    - Load incrementals
 - Challenge 5:  **[(BONUS) Mask Data for Privacy](Student/05-data-masking.md)**
+   - Putting your mask on
+ - Challenge 6: **[(BONUS) Add New Data Source(s)]**
    - Additional data sources
-- Challenge 6:  **[(BONUS) Leverage Machine Learning](Student/06-ml.md)**
-   - Additional data sources
+- Challenge 7:  **[(BONUS) Leverage Machine Learning](Student/07-ml.md)**
+   - The machines know too much!
 
 ## Contributors
 - [James Jones](https://github.com/JamJarchitect/)
