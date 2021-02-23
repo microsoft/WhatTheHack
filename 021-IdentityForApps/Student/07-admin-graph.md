@@ -2,15 +2,6 @@
 
 [< Previous Challenge](./06-conditional-access.md) - **[Home](../readme.md)** - [Next Challenge>](./08-prepare-ief.md)
 
-## Pre-requisites
-
-- Provisioned a B2C tenant
-- Created a SignUp / SignIn (SUSI) User Flow
-- Tested the User Flow via the Azure AD B2C Portal
-- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
-- Using a custom HTML template
-- Localized resources along with multi-language support
-
 ## Description
 
 It looks like you've done it - CMC IT Leadership is happy with your Identity and Access Management (IAM) policies, QA is satisfied with the functionality of your User Flow policies, and Security is happy that users are being challenged with MFA at appropriate times......BUT, IT Leadership would like some information about the consultants that have signed up. (You knew it was too soon to take some time off!)
@@ -19,7 +10,9 @@ IT Leadership would like to know what territory names have been assigned to thei
 
 Leadership would like you to build an app that can query the B2C tenant and output some basic information about their consultants along with the two custom attributes you created: CMC Consultant ID and Territory Name.
 
-Luckily, your innovative developer is still here (they haven't taken any time off either) and they've built a [console app](./Resources/MSGraphApp/README.md) that can do some of this (but you'll need to make some modifications). Luckily, the developer has parameterized the B2C bits, so you'll have to just make some updates to the configuration settings file (appsettings.json) in order to connect to your B2C tenant. You can find the developer's application in your [resources folder](./Resources/MSGraphApp/README.md).
+Luckily, your innovative developer is still here (they haven't taken any time off either) and they've built a **console app** that can do some of this (but you'll need to make some modifications). Luckily, the developer has parameterized the B2C bits, so you'll have to just make some updates to the configuration settings file (appsettings.json) in order to connect to your B2C tenant.
+
+**NOTE:** This DOTNETCORE console application is located in the folder named **MSGraphApp** in your Teams channel Files tab.
 
 The console app does quite a bit with your B2C tenant, so perhaps this could be useful later on with some B2C tasks. But for now, you're just concerned with querying the directory to view the users' Consultant ID and Territory Name (option 8 in the console app).
 ## Success Criteria
@@ -36,12 +29,12 @@ IT Leadership will consider this a success and allow you to take a few hours off
 
 ## Learning Resources
 
-**[Create a Management Application for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-get-started?tabs=app-reg-ga)**
+- [Create a Management Application for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/microsoft-graph-get-started?tabs=app-reg-ga)
 
-**[Managing Users via MS Graph for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/manage-user-accounts-graph-api)**
+- [Managing Users via MS Graph for B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/manage-user-accounts-graph-api)
 
 ## Advanced Challenges (Optional)
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- It would be really interesting to see what phone number your consultants used for their Conditional Access registration. Can you modify the code to also query and output the consultant's registered phone number?**
+- It would be really interesting to see what phone number your consultants used for their Conditional Access registration. Can you modify the code to also query and output the consultant's registered phone number?
