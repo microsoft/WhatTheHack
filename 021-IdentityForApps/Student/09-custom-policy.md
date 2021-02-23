@@ -2,11 +2,6 @@
 
 [< Previous Challenge](./08-prepare-ief.md) - **[Home](../readme.md)** - [Next Challenge>](./10-appinsights.md)
 
-## Pre-requisites (Optional)
-
-- Provisioned a B2C tenant
-- Deployed the Identity Experience Framework (IEF)
-
 ## Description
 
 Now that you've set up the IEF environment, we can implement a new custom policy.
@@ -28,19 +23,20 @@ To successfully pass this challenge, you should be able to demonstrate:
 - You should be able to delete a local account and a social identity account from your B2C tenant;
 - If you cancel out of the policy, the user account should not be deleted
 
-## Learning Resources
-
-**[RESTful Technical Profile for Custom Policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/restful-technical-profile)**
-**[AD B2C Sample - Delete My Account](https://github.com/azure-ad-b2c/samples/tree/master/policies/delete-my-account)**
-**[UserJourneys and Preconditions reference](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userjourneys)**
 
 ## Tips
 
-**- Take a look at the referenced Custom Policy example.**
+- Take a look at the referenced Custom Policy example.
 
-**- Consider creating a few dummy users via the Azure B2C Portal for testing.**
+- Consider creating a few dummy users via the Azure B2C Portal for testing.
+
+## Learning Resources
+
+- [RESTful Technical Profile for Custom Policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/restful-technical-profile)
+- [AD B2C Sample - Delete My Account](https://github.com/azure-ad-b2c/samples/tree/master/policies/delete-my-account)
+- [UserJourneys and Preconditions reference](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userjourneys)
 
 
 ## Advanced Challenges (Optional)
 
-Incorporate a button on the sample web page that allows your user to launch the "Delete My Account" custom policy instead of just running and testing it from the Azure AD B2C portal.
+- Incorporate a button on the sample web page that allows your user to launch the "Delete My Account" custom policy instead of just running and testing it from the Azure AD B2C portal.

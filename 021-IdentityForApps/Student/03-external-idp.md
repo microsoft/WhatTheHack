@@ -2,14 +2,6 @@
 
 [< Previous Challenge](./02-susi.md) - **[Home](../readme.md)** - [Next Challenge>](./04-l14n.md)
 
-## Pre-requisites
-
-**- To complete this challenge, you should have completed the following:**
-
-- Provisioned a B2C tenant
-- Created a SignUp / SignIn (SUSI) User Flow
-- Tested the User Flow via the Azure AD B2C Portal
-
 ## Introduction
 
 In addition to creating local accounts, Azure Active Directory B2C allows your users to sign in with credentials from enterprise or social identity providers (IdP), supporting OAuth 1.0 and 2.0, OpenID Connect, and SAML protocols.
@@ -41,4 +33,4 @@ CMC IT Leadership will judge your success based on:
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-**- Instead of using a 3rd party social IdP, integrate an [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant). This could be a new AAD Tenant that you create for this challenge, but you will need permission to create Application Registrations.**
+- Instead of using a 3rd party social IdP, integrate an [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant). This could be a new AAD Tenant that you create for this challenge, but you will need permission to create Application Registrations.

@@ -1,5 +1,6 @@
 # Challenge \#3 - External Identity Providers
 
+[< Previous Challenge](./02-susi.md) - **[Home](./readme.md)** - [Next Challenge>](./04-l14n.md)
 ## Introduction 
 
 This challenge will walk your attendees through creating an external IdP (Identity Provider) based on a social identity provider, like GitHub. 
