@@ -1,6 +1,6 @@
 # Challenge \#6 - Conditional Access - Are You Who You Say You Are?
 
-[< Previous Challenge](./05-claims-enrichment.md) - **[Home](./readme.md)** - [Next Challenge>](./07-admin-graph.md)
+[< Previous Challenge](./05-claims-enrichment.md) - **[Home](./README.md)** - [Next Challenge>](./07-admin-graph.md)
 ## Introduction
 This challenge allows your team to create a few Conditional Access policies and then enable them in their User Flows.
 

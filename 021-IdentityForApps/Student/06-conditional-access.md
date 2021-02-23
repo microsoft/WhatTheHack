@@ -1,6 +1,6 @@
 # Challenge \#6 - Conditional Access - Are You Who You Say You Are?
 
-[< Previous Challenge](./05-claims-enrichment.md) - **[Home](../readme.md)** - [Next Challenge>](./07-admin-graph.md)
+[< Previous Challenge](./05-claims-enrichment.md) - **[Home](../README.md)** - [Next Challenge>](./07-admin-graph.md)
 
 ## Description
 

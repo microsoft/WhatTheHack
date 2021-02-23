@@ -1,6 +1,6 @@
 # Challenge \#12 - Hey, What's Going On In My B2C Tenant??
 
-[< Previous Challenge](./11-parameterize.md) - **[Home](../readme.md)**
+[< Previous Challenge](./11-parameterize.md) - **[Home](../README.md)**
 
 ## Introduction
 Azure Active Directory sign-in and auditing logs can be routed to many different monitoring solutions, such as a Log Analytics Workspace. You can then use the power of Log Analytics to query data, create alerts, and produce workbooks and visualizations.

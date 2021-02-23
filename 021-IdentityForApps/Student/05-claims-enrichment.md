@@ -1,6 +1,6 @@
 # Challenge \#5 - Claims Enrichment - The ID Verify-inator!!
 
-[< Previous Challenge](./04-l14n.md) - **[Home](../readme.md)** - [Next Challenge>](./06-conditional-access.md)
+[< Previous Challenge](./04-l14n.md) - **[Home](../README.md)** - [Next Challenge>](./06-conditional-access.md)
 ## Introduction
 
 Azure Active Directory B2C provides the ability to integrate RESTful APIs into your User Flows using a feature called API Connectors, or from your custom policies. This is a great solution for claims enrichment, input validation, workflow kick-off, and many more scenarios.

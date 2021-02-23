@@ -1,6 +1,6 @@
 # Challenge \#7 - Admin Your B2C Tenant with MS Graph
 
-[< Previous Challenge](./06-conditional-access.md) - **[Home](../readme.md)** - [Next Challenge>](./08-prepare-ief.md)
+[< Previous Challenge](./06-conditional-access.md) - **[Home](../README.md)** - [Next Challenge>](./08-prepare-ief.md)
 
 ## Description
 

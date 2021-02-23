@@ -1,6 +1,6 @@
 # Challenge \#8 - Preparation for Identity Experience Framework
 
-[< Previous Challenge](./07-admin-graph.md) - **[Home](../readme.md)** - [Next Challenge>](./09-custom-policy.md)
+[< Previous Challenge](./07-admin-graph.md) - **[Home](../README.md)** - [Next Challenge>](./09-custom-policy.md)
 
 ## Description
 
