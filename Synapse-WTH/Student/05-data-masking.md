@@ -3,7 +3,8 @@
 [< Previous Challenge](./04-incrementals.md) - **[Home](../README.md)** - [Next Challenge >](./06-new-data.md)
 
 ## Introduction
-Clever phrase here
+My team says that I don't give them enough privacy...
+...at least that's what their sent emails say.
 
 ## Description
 The powerlifting event data contains participants first and last names.  This falls within the terms of use for the current data set.  However, the federation is planning some data analysis and data sharing initiatives that may require limiting the use of identifiying information.  
