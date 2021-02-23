@@ -39,7 +39,7 @@ Reference articles on Microsoft Teams:
 - <https://docs.microsoft.com/en-us/microsoftteams/teams-live-events/what-are-teams-live-events>
 - <https://docs.microsoft.com/en-us/microsoftteams/communicate-with-users-from-other-organizations>
 - <https://docs.microsoft.com/en-us/microsoftteams/built-in-custom-tabs>
--<https://docs.microsoft.com/en-us/stream/overview>
+- <https://docs.microsoft.com/en-us/stream/overview>
 
 
 
