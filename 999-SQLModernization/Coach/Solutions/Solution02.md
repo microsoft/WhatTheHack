@@ -35,7 +35,7 @@ Once the queries have been run for each compatability level, the Query Store sho
 
 Typically when evaluating performance using the execution plan, you'd focus on the big ticket items in the plan -- what index is being used? In this case, the clustered index scan estimates a single row for the output:
 
-![Slower Plan](././assets/query_stats_for_slower_plan.png)
+![Slower Plan](./Coach/assets/query_stats_for_slower_plan.png)
 
 The query looks different when running under SQL Server 2019. The clustered index scan remains, but is much more accurate in its estimate:
 
