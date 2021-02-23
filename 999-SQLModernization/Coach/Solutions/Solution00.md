@@ -1,6 +1,6 @@
 # Solution 00 - Migration
 
-**[Home](../readme.md)** - [Next Challenge>](./Solution01.md)
+**[Home](../README.md)** - [Next Challenge>](./Solution01.md)
 
 ## Introduction
 
