@@ -1,5 +1,6 @@
 # Challenge \#7 - Admin Your B2C Tenant with MS Graph
 
+[< Previous Challenge](./06-conditional-access.md) - **[Home](./readme.md)** - [Next Challenge>](./08-prepare-ief.md)
 ## Introduction
 
 This challenge is about using an SDK to access the B2C tenant and query it.
@@ -24,4 +25,4 @@ extension_<ext_app_id_no_dashes>_AttributeName
 
 Review the README file for the console app - it has a lot of good information about how the application uses MSGraph.
 
-The student needs to change the name of the attributes referenced in the [UserService.cs](./Resources/MSGraphApp/src/Services/UserService.cs) file. Look for the "TODO" call out for the place to make the change.
+The student needs to change the name of the attributes referenced in the [UserService.cs](../Student/Resources/MSGraphApp/src/Services/UserService.cs) file. Look for the "TODO" call out for the place to make the change.

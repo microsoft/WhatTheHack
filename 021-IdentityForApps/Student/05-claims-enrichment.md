@@ -1,17 +1,6 @@
 # Challenge \#5 - Claims Enrichment - The ID Verify-inator!!
 
 [< Previous Challenge](./04-l14n.md) - **[Home](../readme.md)** - [Next Challenge>](./06-conditional-access.md)
-
-## Pre-requisites
-
-- Provisioned a B2C tenant
-- Created a SignUp / SignIn (SUSI) User Flow
-- Tested the User Flow via the Azure AD B2C Portal
-- Incorporated a 3rd party IdP (e.g. GitHub, Facebook, etc.)
-- Using a custom HTML template
-- Localized resources along with multi-language support
-- A working Profile Edit User Flow
-
 ## Introduction
 
 Azure Active Directory B2C provides the ability to integrate RESTful APIs into your User Flows using a feature called API Connectors, or from your custom policies. This is a great solution for claims enrichment, input validation, workflow kick-off, and many more scenarios.
@@ -21,7 +10,7 @@ Azure Active Directory B2C provides the ability to integrate RESTful APIs into y
 
 CMC IT Leadership is really impressed with your work - you might get that sweet promotion you've been in line for over the past several years....BUT (oh no), you are hearing rumblings that QA has found an issue with your SignUp / SignIn policy. It seems that QA has been able to enter bogus CMC Consultant IDs during the SignUp process. As a result, anyone could sign up as a consultant with an invalid CMC Consultant ID, which would distort CMC's numbers.
 
-Luckily, a developer on your team has developed a CMC Consultant ID checker function, and named it the "CMC ID Verify-inator". You can find this application in your [Resources](./Resources/Verify-inator) directory. It validates that the CMC Consultant ID entered adheres to the following rules:
+Luckily, a developer on your team has developed a CMC Consultant ID checker function, and named it the "CMC ID Verify-inator". It validates that the CMC Consultant ID entered adheres to the following rules:
 
 - the ID is 10 alphanumeric characters (no special characters or spaces allowed);
 - the first three characters are digits, the next four are letters, and the last three are digits;
@@ -37,6 +26,7 @@ You will call the Verify-inator at its `/Territory` endpoint. So if you deployed
 
 Lastly, CMC IT Leadership does not want to present the "Territory Name" attribute to the user during sign-up. They have asked you to please remove this field from the sign-up experience.
 
+**NOTE:** This ASPNETCORE web api application is located in the folder named **Verify-inator** in your Teams channel Files tab.
 ## Background
 
 Azure AD B2C has a new feature named API Connectors, which allow your B2C User Flows to communicate with REST APIs during the user sign up process. Our application will take advantage of API Connectors.
@@ -83,10 +73,8 @@ CMC IT Leadership considers success in dealing with this QA issue if you are abl
 
 ## Learning Resources
 
-**[API Connector Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/api-connectors-overview)**
+- [API Connector Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/api-connectors-overview)
 
-**[Adding an API Connector](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector)**
+- [Adding an API Connector](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector)
 
-## Tips
-
-**[API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)**
+- [API Connector Best Practices](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-api-connector#best-practices-and-how-to-troubleshoot)

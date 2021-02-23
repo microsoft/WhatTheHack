@@ -1,5 +1,6 @@
 # Challenge \#10 - Getting Insights Into B2C
 
+[< Previous Challenge](./09-custom-policy.md) - **[Home](./readme.md)** - [Next Challenge>](./11-parameterize.md)
 ## Introduction
 
 This challenge will have the team provision an App Insights resource and then enable tracking in their RelyParty policy for Delete My Account.
@@ -20,4 +21,4 @@ The team will:
 
 ## Tips
 
-1. Investigate the Azure AD B2C VS Code extension for App Insights viewing
+1. Suggest to the students to investigate the Azure AD B2C VS Code extension for App Insights viewing

@@ -1,5 +1,6 @@
 # Challenge \#9 - Creating Custom Policies
 
+[< Previous Challenge](./08-prepare-ief.md) - **[Home](./readme.md)** - [Next Challenge>](./10-appinsights.md)
 ## Introduction
 
 In this challenge, we'll deploy a custom policy to allow a user to Delete Their Account.
@@ -17,4 +18,3 @@ This challenge uses a custom policy found in the Azure AD B2C Custom Policy gall
 7. Now run the Delete My Account policy
 8. Incorporate the Delete My Account into the harness web app and wire up the Button on the LoginPartial view via the appsettings.json file
 
-## Tips
