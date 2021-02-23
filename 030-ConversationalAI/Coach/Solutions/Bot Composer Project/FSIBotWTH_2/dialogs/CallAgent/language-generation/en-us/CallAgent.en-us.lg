@@ -1,0 +1,18 @@
+[import](common.lg)
+
+# SendActivity_mj8rVu()
+- Let us connect you with an Agent through Web Video call.
+# CallAgent()
+[HeroCard
+    title = Set up a call with agent
+    buttons = ${cardActionTemplate('signin', 'Open Web Call Window', '(your own ACS url)')}
+]
+# cardActionTemplate(type, title, value)
+[CardAction
+    Type = ${if(type == null, 'imBack', type)}
+    Title = ${title}
+    Value = ${value}
+    Text = ${title}
+]
+# SendActivity_e5qvDZ()
+-${CallAgent()}

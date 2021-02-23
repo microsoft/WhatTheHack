@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.LuisRecognizer",
+  "id": "LUIS_fsibotwth_2",
+  "applicationId": "=settings.luis.fsibotwth_2_en_us_lu.appId",
+  "version": "=settings.luis.fsibotwth_2_en_us_lu.version",
+  "endpoint": "=settings.luis.endpoint",
+  "endpointKey": "=settings.luis.endpointKey"
+}
