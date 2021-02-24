@@ -18,8 +18,8 @@
 
 3.  Configure your Azure ML Workspace for the project.
 
-    - **Hint:** Add workspace details through Azure DevOps pipeline variables.
-    - **Hint:** Add workspace details in config.json. You can download it from portal too.
+    - **HINT:** Add workspace details through Azure DevOps pipeline variables.
+    - **HINT:** Add workspace details in config.json. You can download it from portal too.
 
 4.  Now that you have environment setup, explore and run locally the python files in the
     following order to train an ARIMA forecasting model
