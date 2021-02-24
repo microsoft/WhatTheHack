@@ -38,7 +38,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
       - Python extensions
 
-    **Note**: You will need privileges to create projects on the DevOps account.
+    **NOTE**: You will need privileges to create projects on the DevOps account.
     Also, you need privileges to create Service Principal in the tenet. This
     translates to **Ensure that the user has 'Owner' or 'User Access
     Administrator' permissions on the Subscription**.
