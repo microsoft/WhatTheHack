@@ -16,9 +16,9 @@ leverage the intelligence of the model.
 There are several ways to create a Release pipeline. The two most common and popular
 ways are: 
 
--   using a YAML file that represents the entire pipeline,
+-   Using a YAML file that represents the entire pipeline,
 
--   using an empty job and adding tasks sequentially
+-   Using an empty job and adding tasks sequentially
 
 As we had mentioned in the previous challenge, we believe that the latter approach is more comprehensive and intuitive, especially to get started on MLOps, so we recommend that route.
 
@@ -60,7 +60,7 @@ across different environments.
 
 ## Learning resources
 
--   https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+-   <https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops>
 -   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
 -   [Release pipelines General Resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
 
