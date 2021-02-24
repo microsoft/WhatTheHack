@@ -4,7 +4,7 @@
 
 ## Solution 
 
-In this challenge we'll be setting up all the tools we will need to complete our challenges, preferably done a few days before the event. Additionally, we have a [presentation](MLOps%20Lectures.pptx) that can be used to help give a high level introduction to MLOps for the students, at both a general level as well as at an Azure level.  Finally, we have a [data and code](Data_and_Code.zip) set that will need to be uploaded to the Teams channel for the students to download and reference in the upcoming challenges. 
+In this challenge we'll be setting up all the tools we will need to complete our challenges, preferably done a few days before the event. Additionally, we have a [presentation](MLOpsLectures.pptx) that can be used to help give a high level introduction to MLOps for the students, at both a general level as well as at an Azure level.  Finally, we have a [data and code](Data_and_Code.zip) set that will need to be uploaded to the Teams channel for the students to download and reference in the upcoming challenges. 
 
 1.  Azure subscription. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).  
 
@@ -32,5 +32,4 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 5.  Upload [data and code](Data_and_Code.zip) to the Teams Channel for the students to access for upcoming challenges.
 
-6.  Download [presentation](MLOpsLectures.pptx) locally to present to the students.
 
