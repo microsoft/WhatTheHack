@@ -22,9 +22,12 @@ source and saved in the working directory
 
 ## Learning resources
 
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
--   <https://azure.microsoft.com/en-us/services/machine-learning/mlops/>
--   <https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/>
+-   [MLOps Home page to discover more](<https://azure.microsoft.com/en-us/services/machine-learning/mlops/>)
+-   [MLOps documentation: Model management, deployment, and monitoring with Azure Machine Learning](<https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment>)
+-   [A blog on MLOps - How to accelerate DevOps with ML Lifecycle Management](<https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/>)
+-   [MLOps Reference Architecture](<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>)
+
+
 
 
 
