@@ -49,25 +49,25 @@ Here are some questions that you might have:
 - How to identify Data Drift?
 
 Your team will have individuals of varying skill sets, so it is imperative to decide who will take on the following roles:
-(1) Data Scientist
-(2) ML Engineer
-(3) DevOps Engineer
-(4) Data/Business Analyst
+1. Data Scientist
+2. ML Engineer
+3  DevOps Engineer
+4. Data/Business Analyst
 
 ## Challenges
 
-1.  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
+-  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
 
-2.  [Challenge 2: Create a Unit Test in Azure
+-  [Challenge 2: Create a Unit Test in Azure
     DevOps](Student/02-UnitTesting.md)
 
-3.  [Challenge 3: Create a Build pipeline in Azure
+-  [Challenge 3: Create a Build pipeline in Azure
     DevOps](Student/03-BuildPipeline.md)
 
-4.  [Challenge 4: Create a Release pipeline in Azure
+-  [Challenge 4: Create a Release pipeline in Azure
     DevOps](Student/04-ReleasePipeline.md)
 
-5.  [Challenge 5: Retraining and Model
+-  [Challenge 5: Retraining and Model
     Evaluation](Student/05-RetrainingAndEvaluation.md)
 
 ## Prerequisites
@@ -100,7 +100,7 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
       - Python extensions
 
-    **Note**: You will need privileges to create projects on the DevOps account.
+    **NOTE**: You will need privileges to create projects on the DevOps account.
     Also, you need privileges to create Service Principal in the tenet. This
     translates to **Ensure that the user has 'Owner' or 'User Access
     Administrator' permissions on the Subscription**.
