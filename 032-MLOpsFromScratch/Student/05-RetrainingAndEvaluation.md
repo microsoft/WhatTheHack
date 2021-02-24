@@ -49,7 +49,8 @@ Azure ML Model Registry.
 
 ## Learning resources
 
--   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
+-   [MLOps documentation: Model management, deployment, and monitoring with Azure Machine Learning](<https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment>)
+-   [MLOps Reference Architecture](<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>)
 
 ## Congratulations
 
