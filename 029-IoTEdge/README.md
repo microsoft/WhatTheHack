@@ -41,20 +41,20 @@ In this hack you will solve common challenges for companies planning to use Azur
 - Challenge 3: **[Deploy Industrial IoT solution](Student/Challenge-03.md)**
   - Deploy Industrial IoT platform to the IoT Edge
 
-- Challenge 4: **[Route messages and do time-series analysis](Student/Challenge-04.md)** **RYAN/AMIT**
+- Challenge 4: **[Route messages and do time-series analysis](Student/Challenge-04.md)**
     - Route IoT Hub data to Event Hub
     - Route Event Hub to a time series data store
 
-- Challenge 5: **[Process Steaming Data](Student/Challenge-05.md)** - **ORRIN**
+- Challenge 5: **[Process Steaming Data](Student/Challenge-05.md)**
   - Stream processing
     - Reading from IoT Hub
     - Aggregating/filtering data (querying)
     - Output data to data lake & Power BI
 
-- Challenge 6: **[Deploy to devices at scale](Student/Challenge-06.md)** - **JOTA**
+- Challenge 6: **[Deploy to devices at scale](Student/Challenge-06.md)**
   - Use Deployment manifests to deploy modules to IoT Edge devices at scale
 
-- Challenge 7: **[Connect to Devices with Device Streams](Student/Challenge-07.md)** - **JOTA**
+- Challenge 7: **[Connect to Devices with Device Streams](Student/Challenge-07.md)**
   - Use Azure IoT Hub device streams (in preview) to connect to IoT Devices over SSH
   - Close down SSH conectivity in a Firewall to confirm remote access is not impacted
 
