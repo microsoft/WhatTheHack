@@ -56,6 +56,8 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
 ## Challenges
 
+-  [Challenge 0: Pre-requisities](Student/00-prereqs.md)
+
 -  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
 
 -  [Challenge 2: Create a Unit Test in Azure
