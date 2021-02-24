@@ -51,7 +51,7 @@ Here are some questions that you might have:
 Your team will have individuals of varying skill sets, so it is imperative to decide who will take on the following roles:
 1. Data Scientist
 2. ML Engineer
-3  DevOps Engineer
+3. DevOps Engineer
 4. Data/Business Analyst
 
 ## Challenges
