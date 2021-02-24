@@ -23,8 +23,8 @@ source and saved in the working directory
 ## Learning resources
 
 -   <https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>
--   https://azure.microsoft.com/en-us/services/machine-learning/mlops/
--   https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/
+-   <https://azure.microsoft.com/en-us/services/machine-learning/mlops/>
+-   <https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/>
 
 
 
