@@ -1,6 +1,0 @@
-{
-    "subscription_id": "<your subscription_id>",
-    "resource_group": "<your resource_group name",
-    "workspace_name": "<your Azure ML workspace_name",
-    "location": "<your workspace location>"
-}
