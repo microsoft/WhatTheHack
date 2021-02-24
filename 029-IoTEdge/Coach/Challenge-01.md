@@ -12,6 +12,3 @@ Verify challengers have performed the following:
 1. Provisioning a 'virtual' IoT Edge Device1. Participants should have IoT hub deployed and devices 
 
 
-## Tips (optional)
-
-## Advanced Challenges (Optional)

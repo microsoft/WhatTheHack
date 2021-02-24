@@ -13,10 +13,10 @@
 In this challenge you will establish all necessary cloud components needed to deploy an Edge device.  Consideration should be given to using automated deployment/provisioning capabilities of Azure IoT hub as a means to gain insight into activity occurring within the plant.  
 
 ## Success Criteria
-1. IoT Hub created
-1. IoT Edge Device Endpoint created in the hub
-1. Ability to show what the device connection string is
-1. Provisioning a 'virtual' IoT Edge Device
+  - IoT Hub created
+  - IoT Edge Device Endpoint created in the hub
+  - Ability to show what the device connection string is
+  - Provisioning a 'virtual' IoT Edge Device
 
 ## Learning Resources
 1. [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)

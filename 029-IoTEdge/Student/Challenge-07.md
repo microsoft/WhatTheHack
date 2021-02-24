@@ -6,7 +6,7 @@
 
 For this challenge you will need the following:
 
-- A `SSH` client installed. On Windows, this is available out-of-the-box in recent builds of Windows 10 and in the Windows Subsystem for Linux (both 1 and 2). You can also download a simple client if needed, such as [PuTTY](https://www.putty.org/). It should also be available out-of-the-box in most Linux distributions and MacOS.
+- A SSH client installed. On Windows, this is available out-of-the-box in recent builds of Windows 10 and in the Windows Subsystem for Linux (both 1 and 2). You can also download a simple client if needed, such as [PuTTY](https://www.putty.org/). It should also be available out-of-the-box in most Linux distributions and MacOS.
 
 - An Azure IoT Hub created in **one of the regions where Device Streams are available**. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
 
@@ -24,7 +24,7 @@ The goal of this challenge is to experiment with a simple and secure way of conn
 
 The [Device Streams documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview) has a complete description of how Device Streams work. In a simplified way, they allow clients to connect to devices via the bi-directional connection established from the device to an Azure IoT Hub. This connection is outbound (opened by the device), and thus even if a firewall blocks inbound connections, the remote connections will still be possible. You will need to have something running in the device (which we'll call "device-local proxy") to handle these connections.
 
-For this challenge, you'll be using Device Streams to set up an `SSH` connection to the simulated IoT Device you've been using, and then locking down firewall to confirm that a connection is still possible.
+For this challenge, you'll be using Device Streams to set up an SSH connection to the simulated IoT Device you've been using, and then locking down firewall to confirm that a connection is still possible.
 
 Steps:
 
@@ -36,7 +36,7 @@ After completing the steps above, you'll have learned about Device Streams and h
 
 ## Success Criteria
 
-1. You are able to successfully connect via `SSH` over IoT Hub to your simulated IoT Device
+1. You are able to successfully connect via SSH over IoT Hub to your simulated IoT Device
 1. You have closed down SSH on the firewall and the connection was not impacted
 
 ## Learning Resources
@@ -109,8 +109,8 @@ The following steps must be executed in the simulated IoT Device (i.e., running 
 
 After you have completed these steps, you're ready to test.
 
-1. Test the `SSH` connection, to confirm it's working
+1. Test the SSH connection, to confirm it's working
 1. Reboot the simulated IoT device
-1. Test the `SSH` connection again and confirm it came back up and that you can connect.
+1. Test the SSH connection again and confirm it came back up and that you can connect.
 
 
