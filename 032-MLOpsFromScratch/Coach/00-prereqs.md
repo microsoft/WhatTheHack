@@ -32,5 +32,5 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 5.  Upload [data and code](Data_and_Code.zip) to the Teams Channel for the students to access for upcoming challenges.
 
-6.  Download [presentation](MLOps%20Lectures.pptx) locally to present to the students.
+6.  Download [presentation](MLOpsLectures.pptx) locally to present to the students.
 
