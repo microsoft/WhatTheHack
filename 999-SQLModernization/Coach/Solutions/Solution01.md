@@ -6,18 +6,26 @@
 
 This challenge focuses on two main components of any cloud transition: assessment and migration. Assessment involves evaluating the source system for compatability as well as performance considerations. Compatability can be largely done via tools: it is effectively 90% tooling and 10% skill/experience. Performance considerations are more difficult, closer to 25% tooling and 75% skill. While tools can capture performance counters and overall statistics, balancing that information while meeting customer requirements is challenging: are SQL elastic pools an option and/or do they offer any benefit? Is a premium/business crticial required? What licensing model works best?
 
+## Overall Tips
+
+Some resources, such as Azure SQL Database Managed Instance, can take some time deploy -- potentially several hours. Depending on the skill level of the group and discussions taking place, nudge them to create resources earlier than later to minimize wait time during provisioning.
+
 ## AdventureWorks Migration
 
-Migrating the AdventureWorks database is largely intended to be an easy migration to introduce core concepts without too much complexity. Indeed, those with experience in SQL Server migrations to Azure should be able to accomplish this in a few minutes. Below are the requirements with coaches notes under each requirement:
+Migrating the AdventureWorks database is largely intended to be an easy migration to introduce core concepts without too much complexity. Indeed, those with experience in SQL Server migrations to Azure should be able to accomplish this quickly. Teams have the choice of using AdventureWorksLT2017 (the 'light' version) or the full AdventureWorks2017 database. As noted in the challenge, the LT version should be the easiest/smallest, which is encouraged if a team has no experience.
+
+Below are the requirements with coaches notes under each requirement:
 
 1. Must take advantage of PaaS services for easier administration
-    * This limits the choice to either Azure SQL Database or Azure SQL Database Managed Instance.
+    * This limits the choice to either Azure SQL Database or Azure SQL Database Managed Instance.  Azure SQL Database is preferred.
 1. Database must be able to scale rapidly and easily for seasonal demand
     * Azure SQL Database offers the most flexibility here; in general the DTU Standard model will be fine3
 1. Requires database backups to be maintained for 1 year, with weekly granularity
     * Accomplishing this requires the [configuration of long-term retention policies](https://docs.microsoft.com/en-us/azure/azure-sql/database/long-term-backup-retention-configure) for the database.
 1. Database can be migrated offline during one of the nightly maintenance windows
     * The Database Migration service offers a free and premium tier; the free tier supports offline migrations only and is suitable for this task. This should be easier to accomplish, and also allows the team to resolve any connectivity issues with the "on-premises" databases, wherever they happen to be.
+1. If there are any migration blockers/remediation steps, document them with any suggested fixes.
+    * The LT database should migrate without issue. The full version should have an issue with uspSearchCandidateResumes, as it contains a FREETEXT predicate as part the full text search, which the underlying table, HumanResources.JobCandidate, won't likely have depending on the tools used to migrate. Data Migration Assistant will indicate an error and while it will stub out uspSearchCandidateResumes, the procedure will be empty. The table HumanResources.JobCandidate will migrate except for the full text index. Part of the challenge will be having the team recreate the index or engineer another solution.
 
 ## Wide World Importers Migration
 

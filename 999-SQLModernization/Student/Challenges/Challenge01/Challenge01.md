@@ -18,6 +18,7 @@ AdventureWorks has provided the following requirements and guidelines:
 1. Database must be able to scale rapidly and easily for seasonal demand
 1. Requires database backups to be maintained for 1 year, with weekly granularity
 1. Database can be migrated offline during one of the nightly maintenance windows
+1. If there are any migration blockers/remediation steps, document them with any suggested fixes.
 
 ### Wide World Importers
 
@@ -32,7 +33,7 @@ Wide World Importers has provided the following requirements and guidelines:
 
 ## Success Criteria
 
-1. Successfully migrate AdventureWorks meeting the above criteria
+1. Successfully migrate AdventureWorks meeting the above criteria; if any objects cannot be fully migrated, be sure to note which objects and suggestions for remediation.
 1. Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment
 1. Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration
 
@@ -48,6 +49,7 @@ Download the Workload Driver solution or executable here:
 * Read up on [Microsoft Data Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595) including [this overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver15) for more information
 * Read more on getting started with [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15), and refer to this [Azure Data Studio Quickstart](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server?view=sql-server-ver15) for more information
 * Any assessment tool may be used to perform an assessment; DMA (Data Migration Assistant) includes assessment and SKU recommendation tools
+* Provisioning of some resources, such as Azure SQL Database Managed Instance, can take some time (potentially several hours, though it typically faster).
 
 ## Advanced Challenges (Optional)
 
