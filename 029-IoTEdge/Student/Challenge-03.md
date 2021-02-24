@@ -2,11 +2,6 @@
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-## Pre-requisites (Optional)
-+ Creation of IoT Hub + Edge device
-+ Deployment of OPC endpoint to an endpoint the Edge device has network permission to connect
-
-
 ## Introduction
 Now that Contoso has a device installed in their plant and cloud services deployed to interact with the Edge device; we will need to deploy services onto the Edge device allowing communication via OPC from the simulated Plant-floor 'machine' in Challenge-2 to the Edge.  This challenge involves deploying specialized modules to the Edge to facilitate the communication with a configuration that will connect and ingest OPC data changes from the Programmable Logic Controller running the 'machine' and push them into the cloud for later analysis.
 
@@ -24,11 +19,11 @@ For this challenge you should focus on the steps below to successfully establish
 
 
 ## Success Criteria
-1. Communication flowing, in a secure manner, from the Plant-floor to Azure via an Edge device using OPC modules
-1. Demonstrate how to view logs of running modules on the hub and see the current status from the portal.
-1. Demonstration of adding tags, adjust polling intervals and define the names for published values to IoT hub.
-1. Walkthrough of the OPC module(s) and what they are used for.
-1. Explanation from the team on what protocol was choose to communicate to IoT hub and what ports at the Contoso's plants would need to be opened
+- Communication flowing, in a secure manner, from the Plant-floor to Azure via an Edge device using OPC modules
+- Demonstrate how to view logs of running modules on the hub and see the current status from the portal.
+- Demonstration of adding tags, adjust polling intervals and define the names for published values to IoT hub.
+- Walk-through of the OPC module(s) and what they are used for.
+- Explanation from the team on what protocol was choose to communicate to IoT hub and what ports at the Contoso's plants would need to be opened
 
 
 ## Learning Resources

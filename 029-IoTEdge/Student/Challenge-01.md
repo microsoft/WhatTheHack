@@ -2,9 +2,33 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Pre-requisites 
+## Requirements to Begin 
+For this challenge you will need the following:
 
-- An Azure IoT Hub created in **one of the regions where Device Streams are available**. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
+- - Access to an Azure subscription with Owner access
+  - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+- [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+  - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
+  - Update to the latest
+  - Must be at least version 2.7.x
+- Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
+- [**Visual Studio Code**](https://code.visualstudio.com/)
+- [**Azure IoT Tools**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
+
+
+- An Azure IoT Hub will be needed that is created in **one of the regions where Device Streams are available**. At the time of writing, these are: 
+    - Central US
+    - Central US 
+    - EUAP (Early Updates Access Program)
+    - North Europe
+    - Southeast Asia. 
+     
+  Check for the updated list of supported regions here: [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
+
+- A SSH client installed. On Windows, this is available out-of-the-box in recent builds of Windows 10 and in the Windows Subsystem for Linux (both 1 and 2). You can also download a simple client if needed, such as [PuTTY](https://www.putty.org/). It should also be available out-of-the-box in most Linux distributions and MacOS.
+
+- .NET Core SDK 2.1.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
 ## Introduction
  This is the first step of getting an environment setup to work from. This will be a straightforward challenge to ensure you have your subscription setup and to devise a plan to work with your team if you're working as part of a group.  This will be used to work as the starting point for IoT Edge communication in subsequent modules. 

@@ -58,28 +58,14 @@ In this hack you will solve common challenges for companies planning to use Azur
   - Use Azure IoT Hub device streams (in preview) to connect to IoT Devices over SSH
   - Close down SSH conectivity in a Firewall to confirm remote access is not impacted
 
-## Prerequisites
-
-- Access to an Azure subscription with Owner access
-  - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
-- [**Windows Subsystem for Linux (Windows 10-only)**](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-- [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-  - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
-  - Update to the latest
-  - Must be at least version 2.7.x
-- Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
-- [**Visual Studio Code**](https://code.visualstudio.com/)
-- [**Azure IoT Tools**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-
 
 ## Repository Contents
 
 - `../Coach/Presentations`
   - Contains all presentations listed in the Introduction above.
-- `../Coach/`
-  - Example solutions to the challenges (If you're a student, don't cheat yourself out of an education!)
-- `../Student`
-  - Student challenges
+- `../Coach/Assets`
+  - Screenshots and ARM templates to deploy PLC simulator
+
 
 ## Contributors
 
