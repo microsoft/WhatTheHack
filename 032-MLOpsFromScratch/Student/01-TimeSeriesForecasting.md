@@ -36,8 +36,8 @@ most common and prevalent tasks in Machine Learning.
 
 4.  Configure your Azure ML Workspace for the project.
 
-    - **Hint:** Add workspace details through Azure DevOps pipeline variables.
-    - **Hint:** Add workspace details in `config.json`. You can download it from portal too.
+    - **HINT:** Add workspace details through Azure DevOps pipeline variables.
+    - **HINT:** Add workspace details in `config.json`. You can download it from portal too.
 
 5.  Now that you have environment setup, explore and run locally the python files in the folder `Data_and_Code/service/code/`
     What should be the order?  What are these files trying to do?
