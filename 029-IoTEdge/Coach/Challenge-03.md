@@ -3,13 +3,8 @@
 **[Home](README.md)** - [Next Challenge >](./Challenge-04.md)
 
 
-## Learning Resources
-This module involves participants deploying the Industrial IoT Edge modules to their Edge devices.  Use the 2 links below to understand how modules are deployed as well as documentation on the Industrial IoT solutions available from Microsoft.  
-* https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules?view=iotedge-2018-06
-* https://azure.github.io/Industrial-IoT/
-* Details on the Industrial IoT Architecture on Edge: https://azure.github.io/Industrial-IoT/architecture.html
 
-
+## Notes and Guidance
 
 Encourage participants to [use deployments](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-deploy-at-scale?view=iotedge-2018-06) to deploy their modules and IoT Runtime updates to understand how this works at scale versus doing it in the portal 1 by 1 for each device.
 * * *
