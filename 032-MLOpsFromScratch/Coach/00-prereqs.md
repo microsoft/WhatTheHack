@@ -30,7 +30,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
     - <https://www.python.org/downloads/release/python-3611/>
 
-5.  Upload [data and code](Data_and_Code.zip) to the Teams Channel for the students to access for upcoming challenges.
+5.  Zip up the `Data_and_Code` folder from `Student/Resources` and upload to the Teams Channel for the students to access for upcoming challenges.
 
 6.  Download [presentation](MLOps%20Lectures.pptx) locally to present to the students.
 
