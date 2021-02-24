@@ -52,6 +52,6 @@ most common and prevalent tasks in Machine Learning.
 ## Learning resources
 
 -   [MLOps Home page to discover more](<https://azure.microsoft.com/en-us/services/machine-learning/mlops/>)
--   [MLOps documentation](<https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment>)
+-   [MLOps documentation: Model management, deployment, and monitoring with Azure Machine Learning](<https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment>)
 -   [A blog on MLOps - How to accelerate DevOps with ML Lifecycle Management](<https://azure.microsoft.com/en-us/blog/how-to-accelerate-devops-with-machine-learning-lifecycle-management/>)
 
