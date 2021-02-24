@@ -1,11 +1,11 @@
 # What The Hack - IoT Process Control at the Edge - Coaches Guide
 
 
-## Learning Objectives
-
-+ [Slide Deck to use for Delivery](../Student/assets/IoTHub_Edge.pptx)
+## Notes & Guidance
 
 In this hack you participants will solve common challenges for companies planning to use Azure IoT in Industrial IoT scenarios.  This is the coaches guide to aid individuals guiding participants through the challenges.  
+
++ [Slide Deck to use for Delivery](../Student/assets/IoTHub_Edge.pptx)
 
 1. Deploying and configuring the IoT Edge runtime
 1. Deploying modules to the running IoT Edge device

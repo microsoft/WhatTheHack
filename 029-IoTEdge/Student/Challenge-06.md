@@ -2,9 +2,6 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites
-
-- As part of a previous challenge, you'll have the OPC Simulator container/module published to an Azure Container registry, an IoT Hub instance and a VM running Azure IoT Edge.
 
 ## Introduction
 
@@ -55,7 +52,7 @@ After completing the steps above, you'll have learned about Deployment Manifests
 
 - The Simulated Temperature Sensor module is available for use and published in a Microsoft-owned Azure Container Registry. It **does not** have to be built from scratch. See: <https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux?view=iotedge-2018-06>
 
-## Advanced Challenges
+## Advanced Challenges (Optional)
 
 The deployment process to IoT can be fully automated using a DevOps -- from building and publishing containers to generating a deployment manifest and pushing it with target conditions to sets of devices.
 

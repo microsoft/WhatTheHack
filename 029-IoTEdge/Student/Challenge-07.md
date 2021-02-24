@@ -4,15 +4,7 @@
 
 ## Pre-requisites
 
-For this challenge you will need the following:
 
-- A SSH client installed. On Windows, this is available out-of-the-box in recent builds of Windows 10 and in the Windows Subsystem for Linux (both 1 and 2). You can also download a simple client if needed, such as [PuTTY](https://www.putty.org/). It should also be available out-of-the-box in most Linux distributions and MacOS.
-
-- An Azure IoT Hub created in **one of the regions where Device Streams are available**. At the time of writing, these are: Central US, Central US EUAP (Early Updates Access Program), North Europe, and Southeast Asia. Check the updated list here [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
-
-- .NET Core SDK 2.1.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
-
-- A simulated (or real) IoT device running Linux that can be SSH'd into.
 
 ## Introduction
 
@@ -36,8 +28,8 @@ After completing the steps above, you'll have learned about Device Streams and h
 
 ## Success Criteria
 
-1. You are able to successfully connect via SSH over IoT Hub to your simulated IoT Device
-1. You have closed down SSH on the firewall and the connection was not impacted
+- You are able to successfully connect via SSH over IoT Hub to your simulated IoT Device
+- You have closed down SSH on the firewall and the connection was not impacted
 
 ## Learning Resources
 
@@ -49,7 +41,7 @@ After completing the steps above, you'll have learned about Device Streams and h
 - When running the quickstart, before building the code, if you have a recent version of .Net Core, make sure the .csproj file for the device-local proxy (`~/devicestreams/iot-hub/Quickstarts/device-streams-proxy/device`) has `TargetFramework` as `netcoreapp3.1`.
 - If you're installing .Net Core for the first time, you'll need to do a reboot.
 
-## Advanced Challenges
+## Advanced Challenges (Optional)
 
 You're now able to connect to the device via SSH over the connection established to the Azure IoT Hub. However, the connection will only be available while the application on the device is running.
 
