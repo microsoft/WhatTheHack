@@ -4,18 +4,7 @@
 
 ## Solution
 
-1.  If you haven’t already done this in
-    [Challenge\#1](01-TimeSeriesForecasting.md), create and setup a new project
-    in Azure DevOps
-
-    1.  Download and extract `Data_and_Code.zip` from Teams Channel 
-
-    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
-        principal
-
-    3.  Make sure your Azure ML workspace is configured for the project.  
-       - **HINT:** Add workspace details in `config.json`. You can download it from portal too.
-       - **HINT:** Alternatively, add workspace details through Azure DevOps pipeline variables.
+1.  Make sure you have created a new project in Azure DevOps, created new service connections and have Azure ML workspace configured for the project using config.json file.
 
 2.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into Data folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
     - **HINT:** It is encouraged to leverage the Python Script task using the pipeline task manager in Azure DevOps
