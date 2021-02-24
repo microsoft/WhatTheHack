@@ -47,11 +47,11 @@ updated Azure Machine Learning pipeline after building the code.
     1.  Python version – 3.6
 
     2.  Add a task to setup environment by using `install_environment.sh` file in `Data_and_Code/environment_setup/` folder. This will install all the python modules required for the project.
-        -   **Hint:** Use a command line task that allows you to run the shell script.
+        -   **HINT:** Use a command line task that allows you to run the shell script.
 
     3.  Add a task to get Azure ML Workspace connection using `Workspace.py` in `Data_and_Code/service/code/` folder. This will establish connection to Azure ML workspace by using your workspace details in `Data_and_Code/configuration/config.json` file.         
-        -   **Hint:** Use a command line task that allows you to run the python script.        
-        -   **Note:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
+        -   **HINT:** Use a command line task that allows you to run the python script.        
+        -   **NOTE:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
 
     4.  Add a task to acquire time series transactions data using `AcquireData.py` in `Data_and_Code/service/code/` folder. This will download and extract the data required to train a forecasting model in the next steps.
 
@@ -66,7 +66,7 @@ updated Azure Machine Learning pipeline after building the code.
     9.  Now you are at a point of creating an artifact for your Release pipeline. An artifact is the deployable component of your model or application. Build Artifact is one of the many artifact types. The following two tasks are required to create Build artifact in your Build pipeline. 
         - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`
         - Use Publish Artifact task with `$(Build.ArtifactStagingDirectory)` as path to publish. 
-        Note: Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
+        **NOTE:** Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
 
 5.  Run the Build pipeline
 
