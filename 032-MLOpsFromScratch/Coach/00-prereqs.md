@@ -1,6 +1,6 @@
 # Challenge 0: Pre-requisites
 
-**[Home](../README.md)** - [Next Challenge >](./01-TimeSeriesForecasting.md)
+**[Home](./README.md)** - [Next Challenge >](./01-TimeSeriesForecasting.md)
 
 ## Solution 
 
