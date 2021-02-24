@@ -29,7 +29,7 @@
 
     3.  Azure CLI task to get Azure ML Workspace connection – `Workspace.py` is
         the file used in the Inline Script
-       -**NOTE:** If you see issues with version 2.0 of Azure CLI, use version 1.0
+        **NOTE:** If you see issues with version 2.0 of Azure CLI, use version 1.0
 
     4.  Azure CLI task to acquire time series transactions data – `AcquireData.py`
         is the file used in the Inline Script
