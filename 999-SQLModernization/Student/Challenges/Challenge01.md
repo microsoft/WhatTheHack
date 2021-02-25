@@ -1,6 +1,6 @@
 # Challenge 1 - Migration
 
-[< Previous Challenge](../Challenge00/Challenge00.md) - **[Home](../../../README.md)** - [Next Challenge>](../Challenge02/Challenge02.md)
+[< Previous Challenge](../Challenge00.md) - **[Home](../../README.md)** - [Next Challenge >](../Challenge02.md)
 
 ## Introduction 
 

@@ -12,6 +12,8 @@ The purpose of this challenge is threefold:
 1. Ensure would-be data engineers and DBAs are comfortable evaluating performance
 1. Leverage newer tools like Azure Data Explorer and Notebooks
 
+In addition to getting hands on with troubleshooting and exploring new features of SQL Server, this challenge will help those purpsuing DP-300 or related certifications that evaluate these skills.
+
 ## Explore new features
 
 This notebook walks through two queries that perform quite differently in pre-SQL Server 2019 versions compared to SQL Server 2019+. The Notebook walks through setting up the test, and effectively changing the way the query is run by altering the database compatability level.
@@ -69,3 +71,5 @@ INCLUDE (CustomerId, TotalDryItems, TotalChillerItems)
 DROP INDEX IX_Sales_Invoices_ConfirmedDelivery_TotalDry_TotalChiller
 ON Sales.Invoices
 ```
+
+Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.

@@ -16,11 +16,11 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Challenges
 
-0. [Setup](./Student/Challenges/Challenge00/Challenge00.md)
-1. [Migration](./Student/Challenges/Challenge01/Challenge01.md)
-2. [Performance & Tuning](./Student/Challenges/Challenge02/Challenge02.md)
-3. [Security](./Student/Challenges/Challenge03/Challenge03.md)
-4. [Auditing & Compliance](./Student/Challenges/Challenge04/Challenge04.md)
+0. [Setup](./Student/Challenges/Challenge00.md)
+1. [Migration](./Student/Challenges/Challenge01.md)
+2. [Performance & Tuning](./Student/Challenges/Challenge02.md)
+3. [Security & Auditing](./Student/Challenges/Challenge03.md)
+4. [TBD](./Student/Challenges/Challenge04.md)
 
 ## Technologies
 1. Azure SQL Database / Managed Instance
@@ -29,7 +29,7 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
-- See the [setup challenge](./Student/Challenges/Challenge00/Challenge00.md) for information on setting up your environment.
+- See the [setup challenge](./Student/Challenges/Challenge00.md) for information on setting up your environment.
 
 ## Repository Contents
 - `../Coach/Solutions`
@@ -47,3 +47,5 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Contributors
 Brian Hitney
+
+Thank you to the SQL Engineering team for many labs and samples that were leveraged in many of the challenges!
