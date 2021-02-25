@@ -1,6 +1,6 @@
 # Solution 02 - Performance
 
-[< Previous Challenge](./Solution01.md) - **[Home](../README.md)** - [Next Challenge>](./Solution02.md)
+[< Previous Challenge](./Solution01.md) - **[Home](../README.md)** - [Next Challenge>](./Solution03.md)
 
 ## Introduction
 
