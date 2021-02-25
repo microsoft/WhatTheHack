@@ -17,7 +17,7 @@ The suggested masking should correctly show the first two characters of the foir
 
 ## Success Criteria
 1. Modify your solution so that any user queries against the data store return masked values for First and Last name.  This should apply to all user queries whether via reporting tool or direct SQL queries.
-2. Show how you would grant specific users or user groups the abaility to bypass the masking and see the full names.
+2. Show how you would grant specific users or user groups the ability to bypass the masking and see the full names.
 3. Show how you would turn the masking "on" or "off" altogether.
 
 Bonus

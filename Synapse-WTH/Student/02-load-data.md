@@ -17,7 +17,8 @@ Although the data used in the Hack is less than 10 GB in size (think of this as 
 1. Explain and justify your choice of database/warehouse/engine for the challenge.
 2. Create and describe the data model.
 3. Describe the process used to load data to your coach.  Discuss what options you considered and why you chose the one you did.
-4. Show the populated data your coach.
+4. Show the populated data to your coach.
+
 
 Bonus
 - Explain the data distribution methodologies used and why
