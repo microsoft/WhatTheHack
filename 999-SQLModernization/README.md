@@ -20,7 +20,8 @@ In this hack, database administrators, developers who work extensively with SQL 
 1. [Migration](./Student/Challenges/Challenge01.md)
 2. [Performance & Tuning](./Student/Challenges/Challenge02.md)
 3. [Security & Auditing](./Student/Challenges/Challenge03.md)
-4. [TBD](./Student/Challenges/Challenge04.md)
+4. [High Availability & Disaster Recovery](./Student/Challenges/Challenge04.md)
+5. [Analytics & Polybase](./Student/Challenges/Challenge05.md)
 
 ## Technologies
 1. Azure SQL Database / Managed Instance
