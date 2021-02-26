@@ -1,4 +1,4 @@
-# What The Hack – MLOps
+# What The Hack – MLOps From Scratch
 
 ## Introduction
 
