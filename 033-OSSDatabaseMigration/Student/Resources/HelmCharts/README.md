@@ -196,7 +196,7 @@ In the globalConfig object we can change the merchant id, public keys and other 
 ```yaml
 appConfig:
   databaseType: "databaseType goes here" # mysql or postgres
-  dataSourceURL: "jdbc url goes here" # database is either mysql or postgres - jdbc:database://ip-address/wth
+  dataSourceURL: "jdbc url goes here" # database is either mysql or postgres - jdbc:database://ip-address:port/wth
   dataSourceUser: "user name goes here" # database username mentioned in values-postgres or values-mysql yaml - contosoap
   dataSourcePassword: "Pass word goes here!" # your database password goes here - # OCPHack8
   webPort: 8083 # the port the app listens on
