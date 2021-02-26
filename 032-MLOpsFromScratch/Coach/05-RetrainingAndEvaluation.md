@@ -1,6 +1,6 @@
 # Challenge 5 – Retraining and Model Evaluation
 
-[< Previous Challenge](./04-ReleasePipeline.md) - **[Home](../README.md)**
+[< Previous Challenge](./04-ReleasePipeline.md) - **[Home](./README.md)**
 
 ## Solution
 
