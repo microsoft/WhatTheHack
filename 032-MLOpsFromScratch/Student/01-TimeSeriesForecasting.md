@@ -25,7 +25,7 @@ most common and prevalent tasks in Machine Learning.
 
 1.  Create and setup a new project in Azure DevOps
 
-    1.  Download and extract Data_and_Code.zip from Teams Channel (Channel will be provided to students by Coaches)
+    1.  Import project files from Github Repo using this Clone URL: <https://github.com/microsoft-us-ocp-ai/DemandForecasting>
 
     2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
         principal
