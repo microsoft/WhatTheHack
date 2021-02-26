@@ -32,7 +32,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
     - Miniconda - <https://docs.conda.io/en/latest/miniconda.html>
 
-    - <https://www.python.org/downloads/release/python-3611/>
+    - Python - <https://www.python.org/downloads/>
 
 5.  Visual Studio Code or any Python IDE
 
