@@ -245,6 +245,8 @@ helm uninstall postgres-contosopizza
 
 
 After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
+Your infrastructure.namespace is contosoappmysql for app running on MySQL and contosoapppostgres for app running on Postgres
+You can confirm the name namespace by running "kubectl get ns".
 
 ```bash
 
