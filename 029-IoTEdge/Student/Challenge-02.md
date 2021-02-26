@@ -1,6 +1,6 @@
 # Challenge 2: Deploy OPC Simulator
 
-[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+[< Previous Challenge](./Challenge-01.md)  - [Next Challenge >](./Challenge-03.md)
 
 ## Pre-requisites
 + Creation of IoT Hub + Edge device
