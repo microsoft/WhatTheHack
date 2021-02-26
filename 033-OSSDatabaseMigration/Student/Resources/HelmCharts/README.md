@@ -242,16 +242,14 @@ You can confirm the name namespace by running "kubectl get ns".
 ```bash
 
 # get service ports and IP addresses
-kubectl -n {infrastructure.namespace goes here} get svc
+kubectl -n  {contosoapppostgres or contosoappmysql} get svc
 
 # get service pods running the app
-kubectl -n {infrastructure.namespace goes here} get pods
+kubectl -n  {contosoapppostgres or contosoappmysql} get pods
 
 # view the first 5k lines of the application logs
-kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
+kubectl -n  {contosoapppostgres or contosoappmysql} logs deploy/contosopizza --tail=5000
 
-# example for ports and services
-kubectl -n {infrastructure.namespace goes here} get svc
 
 ```
 
