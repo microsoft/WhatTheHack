@@ -22,7 +22,7 @@ In this challenge you'll be setting up your environment so that you can complete
 ```bash
 cd Resources/ARM-Templates/KubernetesCluster
 
-./create-cluster.sh
+sh ./create-cluster.sh
 
 ```
 
