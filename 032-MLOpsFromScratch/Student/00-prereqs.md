@@ -22,7 +22,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - Install [Azure DevOps Machine Learning
       extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 
-    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, [create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure Subscription and Azure ML service using Azure Resource Manager service principal.
+    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, create a new project and [create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure Subscription and Azure ML service using Azure Resource Manager service principal.
     
     **Note:** Azure ML Workspace must be created first before creating Service Connections. 
   
