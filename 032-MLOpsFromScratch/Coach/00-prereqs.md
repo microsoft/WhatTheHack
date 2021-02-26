@@ -28,7 +28,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
     - Miniconda - <https://docs.conda.io/en/latest/miniconda.html>
 
-    - <https://www.python.org/downloads/release/python-3611/>
+    - Python - <https://www.python.org/downloads/>
 
 5.  Upload [data and code](Data_and_Code.zip) to the Teams Channel for the students to access for upcoming challenges.
 
