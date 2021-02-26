@@ -27,20 +27,19 @@ most common and prevalent tasks in Machine Learning.
 
     1.  Import project files from Github Repo using this Clone URL: <https://github.com/microsoft-us-ocp-ai/DemandForecasting>
 
-    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
-        principal
+    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using Azure Resource Manager service principal. This will enable you to connect to external and remote services to execute tasks in a pipeline.
         
 2.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
+    **NOTE:** This is the data science part. The focus of this hack is **not** on data science, but more on MLOps to help you understand how you can apply DevOps practices and principles to accelerate your ML projects and increase the efficiency of your ML workflows.
 
 3.  Install library requirements to setup your environment
 
 4.  Configure your Azure ML Workspace for the project.
-
-    - **HINT:** Add workspace details through Azure DevOps pipeline variables.
     - **HINT:** Add workspace details in `config.json`. You can download it from portal too.
+    - **NOTE:** Alternatively, you can configure your Azure ML Workspace by using Azure DevOps pipeline variables.
 
-5.  Now that you have environment setup, explore and run locally the python files in the folder `Data_and_Code/service/code/`
-    What should be the order?  What are these files trying to do?
+5.  Now that you have environment setup, explore and run locally the python files in the folder `service/code/`
+    What are these files trying to do? What should be the order of execution? 
 
 ## Success Criteria
 
