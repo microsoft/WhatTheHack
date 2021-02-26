@@ -46,22 +46,22 @@ updated Azure Machine Learning pipeline after building the code.
 
     1.  Python version – 3.6
 
-    2.  Add a task to setup environment by using `install_environment.sh` file in `Data_and_Code/environment_setup/` folder. This will install all the python modules required for the project.
+    2.  Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required for the project.
         -   **HINT:** Use a command line task that allows you to run the shell script.
 
-    3.  Add a task to get Azure ML Workspace connection using `Workspace.py` in `Data_and_Code/service/code/` folder. This will establish connection to Azure ML workspace by using your workspace details in `Data_and_Code/configuration/config.json` file.         
+    3.  Add a task to get Azure ML Workspace connection using `Workspace.py` in `service/code/` folder. This will establish connection to Azure ML workspace by using your workspace details in `Data_and_Code/configuration/config.json` file.         
         -   **HINT:** Use a command line task that allows you to run the python script.        
         -   **NOTE:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue. 
 
-    4.  Add a task to acquire time series transactions data using `AcquireData.py` in `Data_and_Code/service/code/` folder. This will download and extract the data required to train a forecasting model in the next steps.
+    4.  Add a task to acquire time series transactions data using `AcquireData.py` in `service/code/` folder. This will download and extract the data required to train a forecasting model in the next steps.
 
-    5.  Add a task to train ARIMA forecasting model using `TrainOnLocal.py` in `Data_and_Code/service/code/` folder. This will build a model to forecast demand of items from AdventureWorks database.
+    5.  Add a task to train ARIMA forecasting model using `TrainOnLocal.py` in `service/code/` folder. This will build a model to forecast demand of items from AdventureWorks database.
 
-    6.  Add a task to evaluate the model performance using `EvaluateModel.py` in `Data_and_Code/service/code/` folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
+    6.  Add a task to evaluate the model performance using `EvaluateModel.py` in `service/code/` folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
 
-    7.  Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `Data_and_Code/service/code/` folder. 
+    7.  Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `service/code/` folder. 
     
-    8.  Add a task to score the model, to forecast future transactions using `ScoreModel.py` in `Data_and_Code/service/code/` folder. This will create a scoring file 
+    8.  Add a task to score the model, to forecast future transactions using `ScoreModel.py` in `service/code/` folder. This will create a scoring file 
         
     9.  Now you are at a point of creating an artifact for your Release pipeline. An artifact is the deployable component of your model or application. Build Artifact is one of the many artifact types. The following two tasks are required to create Build artifact in your Build pipeline. 
         - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`
