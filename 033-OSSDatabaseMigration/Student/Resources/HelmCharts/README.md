@@ -68,7 +68,10 @@ CREATE DATABASE wth;
 
  CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
 
--- List the tables in wth
+-- Show tables in wth database - should be empty now
+
+\c wth
+
 \dt
 
 -- exit out of Postgres Sql prompt
@@ -144,7 +147,9 @@ GRANT SUPER on *.* to conotosoapp identified by 'OCPHack8'; -- may not be needed
 
 GRANT ALL PRIVILEGES ON wth.* to contosoapp ;
 
--- Show tables in wth database
+-- Show tables in wth database - should be empty now
+
+USE wth ;
 
 SHOW TABLES;
 
