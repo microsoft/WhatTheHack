@@ -13,7 +13,7 @@
 
 
     ```bash
-    kubectl -n mysqlwth exec deploy/mysql -it -- bash
+    kubectl -n mysql exec deploy/mysql -it -- bash
     ```
 
     Once they do that they can use psql or mysql to check the version
