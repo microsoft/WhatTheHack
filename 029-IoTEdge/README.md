@@ -63,7 +63,7 @@ In this hack you will solve common challenges for companies planning to use Azur
 
 - `../Coach/Presentations`
   - Contains all presentations listed in the Introduction above.
-- `../Coach/Assets`
+- `../Coach/assets`
   - Screenshots and ARM templates to deploy PLC simulator
 
 

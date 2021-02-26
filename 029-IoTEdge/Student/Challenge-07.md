@@ -2,9 +2,6 @@
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
-## Pre-requisites
-
-
 
 ## Introduction
 
