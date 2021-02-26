@@ -250,14 +250,11 @@ kubectl -n  {contosoapppostgres or contosoappmysql} get pods
 # view the first 5k lines of the application logs
 kubectl -n  {contosoapppostgres or contosoappmysql} logs deploy/contosopizza --tail=5000
 
-
 ```
 
 Verify that contoso pizza application is running on AKS
 
 ```bash
-kubectl -n contosoappmysql get svc
-kubectl -n contosoapppostgres get svc
 
 # Insert the external IP address of the command <kubectl -n contosoappmysql or contosoapppostgres get svc below>
 http://{external_ip_contoso_app}:8081/pizzeria/
