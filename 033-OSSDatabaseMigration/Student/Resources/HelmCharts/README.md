@@ -17,7 +17,7 @@ This requires Helm3 and the latest version of Azure CLI to be installed. These a
 ```bash
 
 # Navigate to the Helm Charts
-#cd Resources/HelmCharts
+cd Resources/HelmCharts
 
 # Install the Kubernetes Resources
 helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.password=OCPHack8
@@ -171,11 +171,11 @@ helm uninstall wth-mysql
 
 ## Deploying the Web Application
 
-First we navigate to the Helm charts directory
+First we navigate to the Helm charts directory for the ContosoPizza application
 
 ```bash
 
-cd Resources/HelmCharts
+cd Resources/HelmCharts/ContosoPizza
 
 
 ```
