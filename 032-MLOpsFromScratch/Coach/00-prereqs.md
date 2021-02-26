@@ -18,7 +18,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - Install [Azure DevOps Machine Learning
       extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
 
-    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, create new service connections in Project Settings for your Azure ML service and Azure Subscription using service principal. 
+    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, [create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure Subscription and Azure ML service using Azure Resource Manager service principal.
     Note: Azure ML Workspace must be created first before creating Service Connections. 
   
 4.  Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
@@ -30,6 +30,5 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
     - Python - <https://www.python.org/downloads/>
 
-5.  Upload [data and code](Data_and_Code.zip) to the Teams Channel for the students to access for upcoming challenges.
 
 
