@@ -1,6 +1,6 @@
 # Challenge 3 – Create a Build Pipeline in Azure DevOps
 
-[< Previous Challenge](./02-UnitTesting.md) - **[Home](../README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
+[< Previous Challenge](./02-UnitTesting.md) - **[Home](./README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
 
 ## Solution
 
