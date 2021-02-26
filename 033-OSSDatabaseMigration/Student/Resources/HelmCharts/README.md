@@ -177,7 +177,6 @@ First we navigate to the Helm charts directory for the ContosoPizza application
 
 cd Resources/HelmCharts/ContosoPizza
 
-
 ```
 
 We can deploy in two ways. As part of this hack, you will need to do both ways
