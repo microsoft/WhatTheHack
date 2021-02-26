@@ -7,10 +7,11 @@
  Make sure the attendees can explain both the business and technical motivations for choosing a particular service tier. The goal here is to simulate a workload for the
  database, watch the system load and then pick the right service tier in Azure DB for Postgres/MySQL. To do this in Postgres
 
- * Create a database in your on-premises database called samples
+ * Create a database in your on-premises database called samples, create pgbench schema and run a synthetic load
+ 
 ```bash
 
-    kubectl -n postgresql exec deploy/postgres -it -- bash0
+    kubectl -n postgresql exec deploy/postgres -it -- bash
     
     psql -U contosoapp postgres
      
