@@ -29,5 +29,9 @@
 * To run the synthetic benchmark for MySQL:
     Connect to the on-premises MySQL database container and use mysqlslap tool
 ```bash
+
+    kubectl -n mysql exec deploy/mysql -it -- bash
+    
+    
     mysqlslap -u root -p --concurrency=70 --iterations=30 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
 ```
