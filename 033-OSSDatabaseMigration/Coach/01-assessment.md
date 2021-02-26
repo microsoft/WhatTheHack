@@ -4,7 +4,7 @@
 
 ## Coach Tips
 
-1) The attendee should be able to connect to the PostgreSQL/MySQL container like this:
+1) The attendee should be able to connect to the PostgreSQL/MySQL container like this to run monitoring tool for assessment :
 
     ```bash
     kubectl -n postgresql exec deploy/postgres -it -- bash
