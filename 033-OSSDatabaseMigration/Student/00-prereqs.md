@@ -14,7 +14,7 @@ In this challenge you'll be setting up your environment so that you can complete
 
 - Install the recommended toolset:
     - Azure Data Studio or pgAdmin
-    - MySQL Workbench
+    - MySQL Workbench (note if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, go to https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
     - Visual Studio Code (optional)
 
 - Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment:
