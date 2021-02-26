@@ -44,8 +44,8 @@ most common and prevalent tasks in Machine Learning.
 
 ## Success Criteria
 
--   Understand the contents of the python files under `Data_and_Code/service/code/`
--   Count the number of CSV files extracted into `Data_and_Code/Data/` folder LOCALLY using a Python script in VS Code or any popular IDE.
+-   Understand the contents of the python files under `service/code/`
+-   Count the number of CSV files extracted into `Data` folder LOCALLY using a Python script in VS Code or any popular IDE.
 -   Creating an ARIMA model locally using VS Code.
 -   Forecasting project imported into Azure DevOps.
 
