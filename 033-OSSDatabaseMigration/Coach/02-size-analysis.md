@@ -9,6 +9,11 @@
 
  * Create a database in your on-premises database called samples
 ```bash
+
+    kubectl -n postgresql exec deploy/postgres -it -- bash0
+    
+    psql -U contosoapp postgres
+     
     create database samples ;
     \c samples
 ```
