@@ -1,4 +1,4 @@
-﻿# What The Hack – MLOps
+﻿# What The Hack – MLOps From Scratch
 
 ## Introduction
 Welcome to the coach's guide for the MLOps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
