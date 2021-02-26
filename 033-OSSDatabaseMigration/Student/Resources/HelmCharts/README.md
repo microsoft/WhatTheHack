@@ -136,7 +136,7 @@ SELECT version();
 -- List databases
 SHOW DATABASES;
 
---Create wth database
+-- Create wth database
 CREATE DATABASE wth;
 
 -- Create a user Contosoapp that would own the application data for migration
@@ -205,14 +205,6 @@ appConfig:
 The developer or operator can specify the '--values'/'-f' flag multiple times.
 When more than one values file is specified, priority will be given to the last (right-most) file specified in the sequence.
 For example, if both values.yaml and override.yaml contained a key called 'namespace', the value set in override.yaml would take precedence.
-
-The commands below allows us to use settings from the values file and then override certain values in the database specific values file.
-
-```bash
-
-helm upgrade --install release-name ./HelmChartFolder -f ./HelmChartFolder/values.yaml -f ./HelmChartFolder/override.yaml
-
-```
 
 To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
 
