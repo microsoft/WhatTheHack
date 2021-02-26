@@ -143,7 +143,7 @@ CREATE DATABASE wth;
 
 CREATE USER if not exists 'contosoapp'   identified by 'OCPHack8' ;
 
-GRANT SUPER on *.* to conotosoapp identified by 'OCPHack8'; -- may not be needed
+GRANT SUPER on *.* to contosoapp identified by 'OCPHack8'; -- may not be needed
 
 GRANT ALL PRIVILEGES ON wth.* to contosoapp ;
 
