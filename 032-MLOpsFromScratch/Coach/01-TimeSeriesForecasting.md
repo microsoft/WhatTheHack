@@ -8,8 +8,7 @@
 
     1.  Download and extract `Data_and_Code.zip` from Teams Channel 
 
-    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using service
-        principal
+    2.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using Azure Resource Manager service principal. This will enable you to connect to external and remote services to execute tasks in a pipeline.
         
 2.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
 
