@@ -20,8 +20,8 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
     - [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure Subscription and Azure ML service using Azure Resource Manager service principal.
     
-    -**Note:** Azure ML Workspace must be created first before creating Service Connections. 
-    -**NOTE**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to **Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription**.
+    -   **Note:** Azure ML Workspace must be created first before creating Service Connections. 
+    -   **NOTE**: You will need privileges to create projects on the DevOps account. Also, you need privileges to create Service Principal in the tenet. This translates to **Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription**.
   
 4.  Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
     for Data Science tasks.
