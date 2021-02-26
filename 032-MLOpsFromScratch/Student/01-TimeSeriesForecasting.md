@@ -31,7 +31,7 @@ most common and prevalent tasks in Machine Learning.
         
 2.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
     
-    **NOTE:** This is the data science part. The focus of this hack is **not** on data science, but more on MLOps to help you understand how you can apply DevOps practices and principles to accelerate your ML projects and increase the efficiency of your ML workflows.
+    **NOTE:** This is the data science part. The focus of this hack is **not** on data science, but more on MLOps to help you understand how you can apply DevOps practices and principles to accelerate your ML projects and increase the efficiency, quality, and consistency of your ML workflows.
 
 3.  Install library requirements to setup your environment
 
