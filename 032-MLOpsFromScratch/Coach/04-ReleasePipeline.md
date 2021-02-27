@@ -16,7 +16,7 @@
 
     2.  Set Agent Specification to ubuntu-16.04
 
-4.  Setup Release pipeline – Edit the pipeline and add the following tasks (Similar to what you have in Build pipeline)
+4.  Setup Release pipeline – Create a new pipeline, edit the pipeline and add the following tasks (similar to what you have in the Build pipeline)
 
     1.  Python version – 3.6
 
