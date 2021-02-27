@@ -27,7 +27,7 @@ Azure ML Model Registry.
     2.  Along with 2013 data, also read 2014 transactions data that was created
         in `service/code/AcquireData.py`
 
-    3.  Concatenate these two datasets or dataframes and build an ARIMA trained
+    3.  Concatenate these two datasets/dataframes and build an ARIMA trained
         model on this bigger dataset
 
 2.  Rerun the Build pipeline to reflect the changes in training
