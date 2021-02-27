@@ -24,28 +24,21 @@
 
     1.  Python version – 3.6
 
-    2.  Bash task to setup environment using Script Path –
-        `install_environment.sh` is the file used
+    2.  Bash task to setup environment with `pip install -r ./environment_setup/requirements.txt` in the Inline Script
 
-    3.  Azure CLI task to get Azure ML Workspace connection – `Workspace.py` is
-        the file used in the Inline Script.
+    3.  Azure CLI task for Azure ML Workspace connection with `python service/code/WorkSpace.py` in the Inline Script
         
         **NOTE:** If you see issues with version 2.0 of Azure CLI, use version 1.0
 
-    4.  Azure CLI task to acquire time series transactions data – `AcquireData.py`
-        is the file used in the Inline Script
+    4.  Azure CLI task to acquire time series transactions data with `python service/code/AcquireData.py` in the Inline Script
 
-    5.  Azure CLI task to train ARIMA model to forecast transactions –
-        `TrainOnLocal.py` is the file used in the Inline Script
+    5.  Azure CLI task to train ARIMA model to forecast transactions with `python service/code/TrainOnLocal.py` in the Inline Script
 
-    6.  Azure CLI task to evaluate the model performance – `EvaluateModel.py` is
-        the file used in the Inline Script
+    6.  Azure CLI task to evaluate the model performance with `python service/code/EvaluateModel.py` in the Inline Script
 
-    7.  Azure CLI task to register the model in Azure ML Workspace for model
-        versioning – `RegisterModel.py` is the file used in the Inline Script
+    7.  Azure CLI task to register the model in Azure ML Workspace for model versioning with `python service/code/RegisterModel.py` in the Inline Script
 
-    8.  Azure CLI task to score the model, to forecast future transactions –
-        `ScoreModel.py` is the file used in the Inline Script
+    8.  Azure CLI task to score the model, to forecast future transactions with `python service/code/ScoreModel.py` in the Inline Script
         
     9.  At this point, you have the option of choosing an artifact for your Release pipeline (An artifact is the deployable component of your applicaton/model). If you like to use Build Artifact, then you have two following steps to perform in Build pipeline. 
         - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`
