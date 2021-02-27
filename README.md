@@ -58,9 +58,11 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
 - [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
+- [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 
 ## Data & AI
+- [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
