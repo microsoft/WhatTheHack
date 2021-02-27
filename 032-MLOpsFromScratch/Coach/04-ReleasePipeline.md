@@ -16,17 +16,14 @@
 
     2.  Set Agent Specification to ubuntu-16.04
 
-4.  Setup Release pipeline – Add the following tasks
+4.  Setup Release pipeline – Edit the pipeline and add the following tasks (Similar to what you have in Build pipeline)
 
     1.  Python version – 3.6
 
-    2.  Bash task to setup environment using Script Path –
-        `install_environment.sh` is the file used
+    2.  Bash task to setup environment using `install_environment.sh` file
 
-    3.  Azure CLI task to deploy the scoring image on ACI – `deployOnAci.py` is
-        the file used in the Inline Script
+    3.  Azure CLI task to deploy the scoring image on ACI using `deployOnAci.py` file
 
-    4.  Azure CLI task to test the ACI web service – `WebserviceTest.py` is the
-        file used in the Inline Script
+    4.  Azure CLI task to test the ACI web service using `WebserviceTest.py` file.
 
 5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. 
