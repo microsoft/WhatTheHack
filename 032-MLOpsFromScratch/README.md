@@ -60,17 +60,13 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
 -  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Student/01-TimeSeriesForecasting.md)
 
--  [Challenge 2: Create a Unit Test in Azure
-    DevOps](Student/02-UnitTesting.md)
+-  [Challenge 2: Create a Unit Test in Azure DevOps](Student/02-UnitTesting.md)
 
--  [Challenge 3: Create a Build pipeline in Azure
-    DevOps](Student/03-BuildPipeline.md)
+-  [Challenge 3: Create a Build pipeline in Azure DevOps](Student/03-BuildPipeline.md)
 
--  [Challenge 4: Create a Release pipeline in Azure
-    DevOps](Student/04-ReleasePipeline.md)
+-  [Challenge 4: Create a Release pipeline in Azure DevOps](Student/04-ReleasePipeline.md)
 
--  [Challenge 5: Retraining and Model
-    Evaluation](Student/05-RetrainingAndEvaluation.md)
+-  [Challenge 5: Retraining and Model Evaluation](Student/05-RetrainingAndEvaluation.md)
 
 
 ## Contributors
