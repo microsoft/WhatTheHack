@@ -21,6 +21,8 @@ Also, your developer has packaged this in an ASPNETCORE Web Api project (in your
 Also, your innovative developer has also developed an enhancement to the "CMC ID Verify-inator" that will generate a Consultant Territory Name. Of course, your developer is trying to make a name for themselves, and has leaked this to IT Leadership. As a result, IT Leadership would like you to incorporate this enhancement as part of the sign-up process and this territory name should be a new custom attribute added to the new consultant's account and one of the returned claims when a consultant signs in.
 
 Your developer has also included a configuration setting for the B2C tenant's extension attribute ID. You may want to investigate this setting.
+<<<<<<< HEAD
+=======
 
 You will call the Verify-inator at its `/Territory` endpoint. So if you deployed the Verify-inator to `https://foo.azurewebsites.net`, then when you create the API Connector, you should set its endpoint to be `https://foo.azurewebsites.net/Territory`.
 
@@ -58,6 +60,7 @@ The Verify-inator will return a JSON object back to your B2C User Flow. Generall
 ```
 
 Your UserFlow will update all claims that are returned (such as TerritoryName) and persist them.
+>>>>>>> upstream/master
 
 ## Success Criteria
 
