@@ -1,8 +1,6 @@
-# Challenge 7 - iBGP Between VNG Instances
+# Challenge 8: iBGP Between VNG Instances - Solution
 
-[< Previous Challenge](./06-communities.md) - **[Home](./README.md)**
-
-A mistake that is sometimes done in Azure is breaking iBGP between Virtual Network Gateways by having the wrong route in the GatewaySubnet. Let's do it, and see what happens. We will create a route table in the Virtual Network for vng, and send all traffic to the vnet to the test VM (which will drop it, since it is not configured to forward traffic):
+We will create a route table in the Virtual Network for the GatewaySubnet, and send all traffic to the vnet to the test VM (which will drop it, since it is not configured to forward traffic):
 
 ```bash
 # Deploy route table to GatewaySubnet in vnet2

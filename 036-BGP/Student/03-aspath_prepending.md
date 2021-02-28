@@ -4,7 +4,7 @@
 
 ## Description
 
-Make sure that VNG1 prefers CSR3 to send traffic to 10.3.0.0/16, and CSR4 for 10.4.0.0/24. You might use this code on your Cisco CSR appliances:
+Make sure that VNG1 prefers CSR3 to send traffic to 10.3.0.0/16, and CSR4 for 10.4.0.0/24. You might use this configuration sample on your Cisco CSR appliances:
 
 ```
 router bgp ?
