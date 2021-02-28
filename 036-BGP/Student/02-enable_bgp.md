@@ -4,9 +4,7 @@
 
 ## Description
 
-1. Connect VNG1 (an active/passive Virtual Gateway) to CSR3 via BGP. The following Cisco commands could come handy.
-    1. Explore the configuration and how routes are learnt and propagated
-    1. Check with your coach before proceeding
+1. Connect VNG1 (an active/passive Virtual Gateway) to CSR3 via BGP. The following Cisco configuration sample could come handy. Explore the configuration and how routes are learnt and propagated.
 
 ```
 router bgp ?
@@ -18,7 +16,7 @@ router bgp ?
 > **Note**: This setup is equivalent to the [Azure active-passive VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy):
 > ![](media/active-standby.png)
 
-2. Similarly, configure the BGP adjacency between VNG2 and CSR4 (remember that VNG2 is configured as an active-active gateway) and compare it to the adjacency between VNG1 and CSR3
+2. Similarly, configure the BGP adjacency between VNG2 and CSR4 (remember that VNG2 is configured as an active-active gateway). Compare this connection  to the adjacency between VNG1 and CSR3.
 
 > **Note**: This setup is equivalent to the [Azure active-active VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-azure-vpn-gateway):
 > ![](media/active-active.png)
@@ -39,8 +37,8 @@ router bgp ?
     - VNG2 and CSR3
     - VNG2 and CSR4
     - CSR3 and CSR4
-- Every virtual machines can reach all other virtual machines
-- Participants can read and interpret the routing tables in each device
+- Every virtual machine can reach all other virtual machines
+- Participants can read and interpret the routing tables in each device of the setup, and show the received and advertised routes
 
 ## Relevant Information
 

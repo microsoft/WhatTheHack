@@ -11,8 +11,7 @@
 - For each challenge, you can ask the least participative members to describe what has been done and why
 - Feel free to customize scenarios to match your participants' level: if they are too new to Azure, feel free to remove objectives. If they are too advanced, give them additional ones
 
-
-## 6. BGP
+## Notes and Guidance
 
 - Let participants use whatever BGP-able NVA they feel most comfortable with
 - If they dont have any preference, recommend them whatever you as coach feel most comfortable with, like the Cisco CSR or a Linux box with Quagga
@@ -20,7 +19,7 @@
 - Make sure they understand how BGP route selection works
 - Make sure participants understand the difference between eBGP and iBGP
 - Optionally, if participants feel comfortable with advanced BGP configuration, you can ask them to modify BGP configuration to introduce AS-path prepending. You can find a config example for Cisco CSR [here](https://community.cisco.com/t5/networking-blogs/bgp-as-path-prepending-configuration/ba-p/3819334)
-- The objectives below help to illustrate some of these concepts:
+- The challenges below will illustrate some of these concepts:
     - Route learning and advertising
     - AS path prepending
     - Filtering based on AS path
@@ -44,6 +43,7 @@
     - Prevent your on-premises network from acting as transit between external AS
 - Challenge 6: **[BGP Communities](06-communities.md)**
     - Explore the usage of BGP communities
-- Challenge 7: **[iBGP between Virtual Network Gateways](07-vng_ibgp.md)**
+- Challenge 7: **[Default Routing](07-default.md)**
+    - Advertise a default route over BGP
+- Challenge 8: **[iBGP between Virtual Network Gateways](07-vng_ibgp.md)**
     - Troubleshoot a connectivity problem between Virtual Network Gateways
-

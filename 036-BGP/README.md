@@ -45,7 +45,9 @@ These are your challenges, it is recommended to start with the first one and pro
     - Prevent your on-premises network from acting as transit between external AS
 - Challenge 6: **[BGP Communities](Student/06-communities.md)**
     - Explore the usage of BGP communities
-- Challenge 7: **[iBGP between Virtual Network Gateways](Student/07-vng_ibgp.md)**
+- Challenge 7: **[Default Routing](Student/07-default.md)**
+    - Advertise a default route over BGP
+- Challenge 8: **[iBGP between Virtual Network Gateways](Student/08-vng_ibgp.md)**
     - Troubleshoot a connectivity problem between Virtual Network Gateways
 
 ## Prerequisites
