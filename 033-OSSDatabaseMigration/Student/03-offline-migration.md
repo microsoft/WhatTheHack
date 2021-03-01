@@ -9,7 +9,7 @@ You are not required to reconfigure the application to Azure DB for PostgreSQL/M
 
 ## Description
 
-In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it performs. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. **Do not use the Basic tier**
+In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it performs. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. **Do not use the Basic tier.**
 
 ## Success Criteria
 
