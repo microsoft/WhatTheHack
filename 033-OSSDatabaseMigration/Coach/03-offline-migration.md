@@ -4,7 +4,7 @@
 
 ## Coach Tips
 
-When creating Azure Posgres DB, create it in GP or MO tier - as Basic tier does not support private link
+When creating Azure Postgres DB, create it in GP or MO tier - as Basic tier does not support private link
 
 The attendees will not be able to connect to Azure DB for PostgreSQL/MySQL from within the container. In order to connect, they will need to add the public IP address to the DB firewall. This is the ip address the container is using for egress to connect to Azure DB. One way to find it is to do this:
 ```bash
