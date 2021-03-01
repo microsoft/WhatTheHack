@@ -26,7 +26,8 @@ root@postgres-64786b846-khk28:/#  psql -h pgtarget.postgres.database.azure.com -
 ```
 
 Before migrating the data, they need to create an empty database and create the application user. Connect to the database container first and from there connect to Azure DB.
-Alternately connect to Azure DB using  Azure Data studio or Pgadmin tool
+Alternately connect to Azure DB using  Azure Data studio or Pgadmin tool. The example below connects to postgres on-premise database container. You can run it from azure 
+cloud shell also. 
 
 ```bash
 
