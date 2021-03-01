@@ -1,6 +1,6 @@
 # Challenge 6: Deploy to devices at scale
 
-[< Previous Challenge](./Challenge-05.md) - [Next Challenge >](./Challenge-07.md)
+[< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 
 ## Introduction
