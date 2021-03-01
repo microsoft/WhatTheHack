@@ -11,9 +11,12 @@
     ```
     or
 
-
     ```bash
     kubectl -n mysql exec deploy/mysql -it -- bash
     ```
 
-    Once they do that they can use psql or mysql to check the version
+    Once they do that they can use psql or mysql to check the version. In MySQL to check the db engine and what type of tables we have
+    
+    ```sql
+    select table_schema, engine, count(1) from information_schema.tables group by table_schema, engine  ;
+    ```
