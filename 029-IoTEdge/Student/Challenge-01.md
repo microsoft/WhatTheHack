@@ -1,6 +1,6 @@
 # Challenge 1: Deploy IoTHub/Edge
 
-[Next Challenge >](./Challenge-02.md)
+**[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Requirements to Begin 
 For this challenge you will need the following:
