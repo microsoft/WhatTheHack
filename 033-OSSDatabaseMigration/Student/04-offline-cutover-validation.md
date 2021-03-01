@@ -18,9 +18,6 @@ Once you make your changes, you will need to run helm uninstall and helm upgrade
 
 ```bash
 
-# Use this to uninstall, if you are using MySQL as the database
-helm uninstall mysql-contosopizza
-
 helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
 
 ```
@@ -28,9 +25,6 @@ helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/value
 To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type:
 
 ```bash
-
-# Use this to uninstall, if you are using PostgreSQL as the database
-helm uninstall postgres-contosopizza
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
 
