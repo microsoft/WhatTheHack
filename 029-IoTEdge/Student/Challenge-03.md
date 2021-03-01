@@ -1,6 +1,6 @@
 # Challenge 3: Deploy Industrial IoT solution
 
-[< Previous Challenge](./Challenge-02.md) - [Next Challenge >](./Challenge-04.md)
+[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ## Introduction
 Now that Contoso has a device installed in their plant and cloud services deployed to interact with the Edge device; we will need to deploy services onto the Edge device allowing communication via OPC from the simulated Plant-floor 'machine' in Challenge-2 to the Edge.  This challenge involves deploying specialized modules to the Edge to facilitate the communication with a configuration that will connect and ingest OPC data changes from the Programmable Logic Controller running the 'machine' and push them into the cloud for later analysis.
