@@ -14,7 +14,7 @@ appConfig:
   dataSourceUser: "user name goes here" # your database username goes here
   dataSourcePassword: "Password goes here!" # your database password goes here
 ```
-Once you make your changes, you will need to run helm uninstall and helm upgrade commands to see the changes reflected:
+Once you make your changes, you will need to run helm upgrade command to see the changes reflected:
 
 ```bash
 
