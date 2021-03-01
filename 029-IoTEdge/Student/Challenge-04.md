@@ -1,6 +1,6 @@
 # Challenge 4: Route messages and do time-series analysis
 
-[< Previous Challenge](./Challenge-03.md) - [Next Challenge >](./Challenge-05.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
 
