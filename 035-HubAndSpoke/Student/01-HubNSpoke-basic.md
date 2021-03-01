@@ -10,14 +10,15 @@ In this challenge you will be setting up a basic hub and spoke topology with con
 
 In this challenge you will create the topology described in this diagram:
 
-![hubnspoke basic](media/hubnspoke-01.png)
+![hubnspoke basic](media/nofw.png)
 
 To simulate the onprem environment (represented as the "onprem vnet" in the diagram above) you have multiple options. See the related documentation and speak to your coach.
 
 ## Success Criteria
 
-1. You have a hub and spoke topology with one hub and two spokes, and one VM in each VNet. All three VMs can ping each other
-1. You have found a way of simulating an onprem environment, and you have connected it via VPN to your Azure hub. An onprem VM is able to reach all three VMs in Azure
+1. You have a hub and spoke topology with one hub and two spokes.
+1. The hub VM can ping the spoke VMs.
+1. You have found a way of simulating an onprem environment, and you have connected it via VPN to your Azure hub. An onprem system (either a VM or the onprem VPN device) is able to reach all three Azure VMs.
 
 ## Related documentation
 
