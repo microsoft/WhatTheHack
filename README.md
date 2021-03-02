@@ -51,6 +51,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+- [IoT Process Control at the Edge](/029-IoTEdge/README.md)
 
 
 ## Operations
