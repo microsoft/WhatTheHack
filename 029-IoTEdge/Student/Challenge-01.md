@@ -2,7 +2,7 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Requirements to Begin 
+## Pre-requisites 
 For this challenge you will need the following:
 
 - - Access to an Azure subscription with Owner access
@@ -16,25 +16,25 @@ For this challenge you will need the following:
 - [**Visual Studio Code**](https://code.visualstudio.com/)
 - [**Azure IoT Tools**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
 
-
-- An Azure IoT Hub will be needed that is created in **one of the regions where Device Streams are available**. At the time of writing, these are: 
-    - Central US
-    - Central US 
-    - EUAP (Early Updates Access Program)
-    - North Europe
-    - Southeast Asia. 
-     
-  Check for the updated list of supported regions here: [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
-
 - A SSH client installed. On Windows, this is available out-of-the-box in recent builds of Windows 10 and in the Windows Subsystem for Linux (both 1 and 2). You can also download a simple client if needed, such as [PuTTY](https://www.putty.org/). It should also be available out-of-the-box in most Linux distributions and MacOS.
 
 - .NET Core SDK 2.1.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
+
 ## Introduction
- This is the first step of getting an environment setup to work from. This will be a straightforward challenge to ensure you have your subscription setup and to devise a plan to work with your team if you're working as part of a group.  This will be used to work as the starting point for IoT Edge communication in subsequent modules. 
+ This is the first step of getting an environment setup to work from. This will be a straightforward challenge to ensure you have your subscription setup and to devise a plan to work with your team if you're working as part of a group. This will be used to work as the starting point for IoT Edge communication in subsequent modules. 
 
 ## Description
-In this challenge you will establish all necessary cloud components needed to deploy an Edge device.  Consideration should be given to using automated deployment/provisioning capabilities of Azure IoT hub as a means to gain insight into activity occurring within the plant.  
+In this challenge you will establish all necessary cloud components needed to deploy an Edge device. Consideration should be given to using automated deployment/provisioning capabilities of Azure IoT hub as a means to gain insight into activity occurring within the plant with an Edge endpoint & provision of a virtual IoT edge device.  
+
+Azure IoT Hub will be needed that is created in **one of the regions where Device Streams are available**. At the time of writing, these are: 
+  - Central US
+  - Central US 
+  - EUAP (Early Updates Access Program)
+  - North Europe
+  - Southeast Asia. 
+     
+Check for the updated list of supported regions here: [Device Streams: Regional availability](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#regional-availability).
 
 ## Success Criteria
   - IoT Hub created
