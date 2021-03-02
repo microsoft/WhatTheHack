@@ -51,7 +51,6 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
-- [IoT Process Control at the Edge](/029-IoTEdge/README.md)
 
 
 ## Operations
@@ -64,6 +63,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Data & AI
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
+- [IoT Process Control at the Edge](/029-IoTEdge/README.md)
 - [BI 2 AI](/018-BI2AI/README.md)
 - [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
@@ -73,6 +73,12 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Microsoft Teams Platform
 - [Microsoft Teams: Make It Real](/034-MicrosoftTeams-MakeItReal/README.md)
+
+## Smart Edge & Devices
+
+- [IoT Process Control at the Edge](/029-IoTEdge/README.md)
+- [Azure Arc enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
+- [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
