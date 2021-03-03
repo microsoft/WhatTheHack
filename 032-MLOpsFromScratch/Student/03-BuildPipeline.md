@@ -61,7 +61,7 @@ updated Azure Machine Learning pipeline after building the code.
 
     7.  Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `service/code/` folder. 
     
-    8.  Add a task to score the model, to forecast future transactions using `ScoreModel.py` in `service/code/` folder. This will create a scoring file 
+    8.  Add a task to score the model, to forecast future transactions using `CreateScoringImage.py` in `service/code/` folder. This will create a scoring file 
         
     9.  Now you are at a point of creating an artifact for your Release pipeline. An artifact is the deployable component of your model or application. Build Artifact is one of the many artifact types. The following two tasks are required to create Build artifact in your Build pipeline. 
         - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`
