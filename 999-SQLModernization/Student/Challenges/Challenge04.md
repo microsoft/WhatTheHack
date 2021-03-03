@@ -18,7 +18,8 @@ Configure failover group
 https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal
 Configure active geo-replication and failover in the Azure portal (Azure SQL Database) 
 https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-configure-portal
-
+Overview of business continuity with Azure SQL Database
+https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 
 ## Tips
 Best practices for SQL Managed Instance
