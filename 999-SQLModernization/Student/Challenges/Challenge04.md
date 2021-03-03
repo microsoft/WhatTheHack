@@ -6,7 +6,7 @@
 Your fledgling company has Azure SQL Server Databases running on Azure SQL database or Azure SQL Managed instance. AdventureWorks and Wide World Importers (OLTP). The Recovery Time Objective (RTO) for these two databases are 5 minutes. The Recovery Pont Objective (RPO) is 5 minutes. Your fledgling company disaster recovery site is on different region with the primary Azure region. 
 
 ## Description
-When disaster happens on the primary region, business requires the databases automatically failover to the disaster recovery region. Your company needs to use the readable secondary databases to offload read-only query workloads. After failover, your application can continue connect to the database by using the same connection string.
+1 When disaster happens on the primary region, business requires the databases automatically failover to the disaster recovery region. Your company needs to use the readable secondary databases to offload read-only query workloads. After failover, your application can continue connect to the database by using the same connection string.
 
 ## Success Criteria
 Meet Your fledgling company RTO and RPO. You can connect to the secondary database after it fails over to Disaster recovery site by using the same users or logins. 
@@ -20,6 +20,8 @@ Configure active geo-replication and failover in the Azure portal (Azure SQL Dat
 https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-configure-portal
 Overview of business continuity with Azure SQL Database
 https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
+High availability for Azure SQL Database and SQL Managed Instance
+https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla
 
 ## Tips
 Best practices for SQL Managed Instance
