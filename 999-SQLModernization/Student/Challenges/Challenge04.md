@@ -36,6 +36,7 @@ https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla
 Best practices for SQL Managed Instance
 
 https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#best-practices-for-sql-managed-instance
+
 Best practices for SQL Database 
 
 https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#best-practices-for-sql-database
