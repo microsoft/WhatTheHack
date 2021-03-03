@@ -1,4 +1,4 @@
-# Challenge 4 - TBD
+# Challenge 4 - High Availability & Disaster Recovery
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../../README.md)** - [Next Challenge >](./Challenge05.md)
 
