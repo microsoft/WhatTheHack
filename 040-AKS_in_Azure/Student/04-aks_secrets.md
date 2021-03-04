@@ -1,6 +1,6 @@
 # Challenge 4: Secrets and Configuration Management
 
-[< Previous Challenge](./03_aks_monitoring.md) - **[Home](../README.md)** - [Next Challenge >](./05-aks_security.md)
+[< Previous Challenge](./03-aks_monitoring.md) - **[Home](../README.md)** - [Next Challenge >](./05-aks_security.md)
 
 ## Introduction
 

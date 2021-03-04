@@ -1,6 +1,6 @@
 # Challenge 2: AKS VNet Integration and Private Clusters
 
-[< Previous Challenge](./01-containers.md) - **[Home](../README.md)** - [Next Challenge >](./02-aks_monitoring.md)
+[< Previous Challenge](./01-containers.md) - **[Home](../README.md)** - [Next Challenge >](./03-aks_monitoring.md)
 
 ## Introduction
 

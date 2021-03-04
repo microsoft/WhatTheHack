@@ -1,6 +1,6 @@
 # Challenge 8: Azure Arc for Kubernetes and for Data Services
 
-[< Previous Challenge](./07_aks_mesh.md) - **[Home](../README.md)**
+[< Previous Challenge](./07-aks_mesh.md) - **[Home](../README.md)**
 
 ## Introduction
 
