@@ -1,6 +1,6 @@
 # Challenge 1: Containers
 
-**[Home](../README.md)*- - [Next Challenge >](./02-aks_private.md)
+**[Home](../README.md)** - [Next Challenge >](./02-aks_private.md)
 
 ## Introduction
 
