@@ -1,0 +1,82 @@
+###############################################
+# Azure Container Instances with Azure CLI
+#
+# Creates container groups with the sqlapi and
+#   the sqlweb images with an Azure SQL DB as
+#   backend to test the correct operation of the 
+#   application images
+#
+# Jose Moreno, November 2020
+###############################################
+
+# Variables
+rg=acitest
+location=westeurope
+api_image=erjosito/sqlapi:1.0
+web_image=erjosito/sqlweb:1.0
+
+# Create RG
+az group create -n $rg -l $location
+
+# Create database
+sql_server_name=sqlserver$RANDOM
+sql_db_name=mydb
+sql_username=azure
+sql_password=Microsoft123!
+az sql server create -n $sql_server_name -g $rg -l $location --admin-user $sql_username --admin-password $sql_password
+sql_server_fqdn=$(az sql server show -n $sql_server_name -g $rg -o tsv --query fullyQualifiedDomainName)
+az sql db create -n $sql_db_name -s $sql_server_name -g $rg -e Basic -c 5 --no-wait
+
+#############################################
+# Option 1: Create SQL Web and API with ACI #
+#############################################
+
+# Create ACI with SQL API
+az container create -n sqlapi -g $rg --image $api_image --ip-address public --ports 8080 \
+  -e "SQL_SERVER_USERNAME=$sql_username" "SQL_SERVER_PASSWORD=$sql_password" "SQL_SERVER_FQDN=${sql_server_fqdn}"
+api_ip=$(az container show -n sqlapi -g $rg --query 'ipAddress.ip' -o tsv) && echo "SQL API IP address: $api_ip"
+curl -s http://$api_ip:8080/api/healthcheck
+
+# Update Azure SQL firewall rules
+api_egress_ip=$(curl -s http://$api_ip:8080/api/ip | jq -r .my_public_ip) && echo "SQL API egress IP: ${api_egress_ip}"
+az sql server firewall-rule create -g $rg -s $sql_server_name -n public_sqlapi_aci-source --start-ip-address $api_egress_ip --end-ip-address $api_egress_ip
+
+# Create ACI with SQL Web
+az container create -n sqlweb -g $rg --image $web_image --ip-address public --ports 80 -e "API_URL=http://${api_ip}:8080"
+web_ip=$(az container show -n sqlweb -g $rg --query 'ipAddress.ip' -o tsv) && echo "SQL Web portal IP address: $web_ip"
+
+#########################################
+# Option 2: Create web app with SQL Web #
+#########################################
+
+svcplan_name=webappplan
+app_name=sqlweb-$RANDOM
+az appservice plan create -n $svcplan_name -g $rg --sku B1 --is-linux
+az webapp create -n $app_name -g $rg -p $svcplan_name --deployment-container-image-name $web_image
+az webapp config appsettings set -n $app_name -g $rg --settings "API_URL=http://${api_ip}:8080"
+az webapp restart -n $app_name -g $rg
+app_hostname=$(az webapp show -n $app_name -g $rg --query defaultHostName -o tsv) && echo "$app_hostname"
+
+# Test
+echo "Web portal reachable under http://${web_ip} or http://${app_hostname}, API under http://${api_ip}:8080"
+
+# Diagnostics
+az container list -g $rg -o table
+az container logs -n sqlapi -g $rg
+az container logs -n sqlweb -g $rg
+az container show -n sqlweb -g $rg
+
+###############################
+# Option 3. Deployment on AKS #
+###############################
+
+# This assumes an existing cluster
+kubectl run sqlapi --image=$api_image --env="SQL_SERVER_USERNAME=$sql_username" --env="SQL_SERVER_PASSWORD=$sql_password" --env="SQL_SERVER_FQDN=${sql_server_fqdn}" --port=8080
+kubectl expose pod/sqlapi --type=LoadBalancer --port=8080 --target-port=8080
+kubectl run sqlweb --image=$web_image --env="http://sqlapi:8080" --port=80
+kubectl expose pod/sqlweb --type=LoadBalancer --port=80 --target-port=80
+
+# Cleanup
+# az container delete -n sqlapi -g $rg -y
+# az container delete -n sqlweb -g $rg -y
+# az group delete -n $rg -y --no-wait
