@@ -23,7 +23,7 @@
 - Challenge 8: **[Arc for k8s/data](Student/08-arc.md)**
    - Leverage Arc for Kubernetes to manage a non-AKS cluster, and Arc for data to deploy a managed database there
 
-You can find the source code and documentation for the required containers [here](resources/README.md).
+You can find the source code and documentation for the required containers [here](Student/resources/README.md).
 
 ## Prerequisites
 
