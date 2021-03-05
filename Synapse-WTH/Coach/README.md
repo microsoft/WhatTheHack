@@ -4,7 +4,7 @@ The es section is dedicated to those who are running the What The Hack
 
 # Introduction
 
-# es Guide
+# Coach Guide
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](00-prereqs.md)**
    - Prepare your workstation to work with Azure
 - Challenge 1:  **[Gathering Open Powerlifting Data](01-data-gathering.md)**
