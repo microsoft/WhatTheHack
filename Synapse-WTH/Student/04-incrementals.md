@@ -11,14 +11,11 @@ Additional results have been recorded. Your team’s task is to create a process
 For simplification, it can be assumed that all new data is simply new event results (i.e., INSERTs).  No modification or deletion of past data is to be supported.
 
 ## Success Criteria
-1. Explain to your coach how you will incorporate the new data into your repository
-2. Demonstrate how the new data has been incorporated
-3. Show updates to the visualizations as a result of the new data
-
-Bonus
+- Explain to your coach how you will incorporate the new data into your repository
+- Demonstrate how the new data has been incorporated
+- Show updates to the visualizations as a result of the new data
 - Create the ability to immediately send an alert (via the reporting tool or another notification mechanism) for any new personal records (PRs).
 
 ## Learning Resources
-Reference articles:
 - [Schedule Driven Pipelines in Azure Synapse](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Event Driven Pipelines in Azure Synapse](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-event-trigger?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
