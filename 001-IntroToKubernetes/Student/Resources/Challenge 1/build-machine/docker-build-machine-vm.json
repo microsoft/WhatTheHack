@@ -81,7 +81,8 @@
     "vmSize": "Standard_DS2_v2",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "extensionName": "vmSetupScript"
+    "extensionName": "vmSetupScript",
+    "sshPort": "2266"
   },
   "resources": [
     {
@@ -97,7 +98,7 @@
               "description": "Allow SSH",
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRange": "22",
+              "destinationPortRange": "[variables('sshPort')]",
               "sourceAddressPrefix": "Internet",
               "destinationAddressPrefix": "*",
               "access": "Allow",
