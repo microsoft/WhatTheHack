@@ -72,3 +72,4 @@ In this hack you will solve common challenges for companies planning to use Azur
 - Ryan Berry
 - João Pedro Martins (@lokijota)
 - Orrin Edenfield
+- Amit Agrawal
