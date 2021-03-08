@@ -2,7 +2,13 @@
 
 ## Introduction
 
+This What The Hack has an objective studying in depth the integration surface between AKS and different Azure services. Some are optional components (for example monitoring), but others are required to successfully operate Kubernetes clusters on Azure (such as networking or storage).
+
 ## Learning Objectives
+
+In this hack you will start by deploying a 3-tier application to AKS with very specific networking requirements.
+
+The complexity will quickly evolve towards security and storage, finishing with the last challenge focusing on Arc technology.
 
 ## Challenges
 
@@ -28,9 +34,10 @@ You can find the source code and documentation for the required containers [here
 ## Prerequisites
 
 - Access to an Azure subscription (owner privilege is required in some exercises)
-- Docker locally installed (optional)
 
 ## Contributors
 
-- TBD
+- Adrian Joian
+- Gitte Vermeiren
 - Jose Moreno
+- Victor Viriya-ampanond
