@@ -20,8 +20,11 @@
     "subnetPrefix": {
       "value": "10.0.0.0/24"
     },
-    "scriptUri" : {
+    "scriptUriOrig" : {
       "value": "https://raw.githubusercontent.com/Microsoft/WhatTheHack/master/001-IntroToKubernetes/Student/Resources/Challenge%201/build-machine/docker-build-machine-config.sh"
+    },
+    "scriptUri" : {
+      "value": "https://raw.githubusercontent.com/gfilicetti/WhatTheHack/FixBuildMachine/001-IntroToKubernetes/Student/Resources/Challenge%201/build-machine/docker-build-machine-config.sh"
     },
     "scriptName" : {
       "value": "docker-build-machine-config.sh"
