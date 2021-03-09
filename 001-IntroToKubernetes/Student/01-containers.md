@@ -10,7 +10,9 @@ The first step in our journey will be to take our application and package it as 
 
 In this challenge we'll be building and running the node.js based FabMedical app locally on our machines to see it working. Then we'll be creating Dockerfiles to build a container image of our app.
 
-- Deploy build agent VM with Linux + Docker using provided ARM Template and parameters file in the "Files" tab of the Team's General channel. Run the Fab Medical application locally on the VM and verify access
+- Deploy build machine VM with Linux + Docker using provided ARM Template and parameters file in the "Files" tab of the Team's General channel. Run the Fab Medical application locally on the VM and verify access
+	- **NOTE:** To ssh into the build machine using port 2266 on the VMs public IP:
+    	- `ssh -p 2266 wthadmin@12.12.12.12` 
 	- Each part of the app (api and web) runs independently.
 	- Build the API app by navigating to the content-api folder and run `npm install`.
 	- To start the app, run `node ./server.js &`
