@@ -1,0 +1,28 @@
+# Challenge 0 - Getting your feet wet
+
+**[Home](../README.md)** - [Next Challenge>](./challenge-01.md)
+
+
+## Introduction 
+
+Spring Boot ... and running it on Azure
+
+
+## Description
+
+Clone/unzip the `spring-petclinic` project which is a slightly modified version of the quintessential Spring Boot petclinic application. Run things locally, browse the application. 
+
+## Success Criteria
+
+1. Create a new owner, a new pet, and a new visit 
+1. Search for the newly created owner 
+1. Browse vets
+1. No file needs to be changed for this challenge
+
+
+## Learning Resources
+
+https://github.com/spring-projects/spring-petclinic
+
+
+[Next Challenge - Head in the cloud, feet on the ground >](./challenge-01.md)
