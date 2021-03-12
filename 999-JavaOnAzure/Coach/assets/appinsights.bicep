@@ -27,4 +27,4 @@ resource appInsightsSecret 'Microsoft.KeyVault/vaults/secrets@2019-09-01' = {
 }
 
 
-output appInsightsConnectionString string = '@Microsoft.KeyVault(SecretUri=${reference(appInsightsSecret.id).secretUri})'
+output appInsights string = '@Microsoft.KeyVault(SecretUri=${reference(appInsightsSecret.id).secretUri})'
