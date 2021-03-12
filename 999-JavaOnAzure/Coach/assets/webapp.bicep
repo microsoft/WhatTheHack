@@ -96,4 +96,4 @@ resource webAppSettings 'Microsoft.Web/sites/config@2020-06-01' = {
 }
 
 
-output webAppUrl string = webApp.name //reference(webApp.id).defaultHostName
+output webAppName string = webApp.name //reference(webApp.id).defaultHostName

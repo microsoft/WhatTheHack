@@ -3,7 +3,7 @@ param databaseName string = 'petclinic'
 param userName string = 'petclinic'
 @secure()
 param password string = concat('P', uniqueString(resourceGroup().id), 'x!')
-param accessIp string
+param clientIp string
 
 
 // Default location for the resources
@@ -31,8 +31,8 @@ resource firewallAzure 'Microsoft.DBForMySQL/servers/firewallRules@2017-12-01' =
 resource firewallClient 'Microsoft.DBForMySQL/servers/firewallRules@2017-12-01' = {
   name: '${mysql.name}/AllowClientIP'
   properties: {
-    startIpAddress: accessIp
-    endIpAddress: accessIp
+    startIpAddress: clientIp
+    endIpAddress: clientIp
   }
 }
 
