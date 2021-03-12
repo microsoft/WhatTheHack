@@ -1,6 +1,7 @@
 param baseName string = 'wth'
 param databaseName string = 'petclinic'
 param userName string = 'petclinic'
+@secure()
 param password string = concat('P', uniqueString(resourceGroup().id), 'x!')
 param accessIp string
 
