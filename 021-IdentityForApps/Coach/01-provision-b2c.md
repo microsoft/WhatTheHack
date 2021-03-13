@@ -1,4 +1,4 @@
-# Challenge 1 - Provision B2C Instance
+# Challenge \#1 - Getting Started with B2C
 
 [< Previous Challenge](./00-pre-reqs.md) - **[Home](./README.md)** - [Next Challenge>](./02-susi.md)
 

@@ -7,6 +7,8 @@ In this challenge, we'll deploy a custom policy to allow a user to Delete Their 
 
 This challenge uses a custom policy found in the Azure AD B2C Custom Policy gallery GitHub Repo, linked in the challenge.
 
+Also note that the solution for the custom policies are located in the [Challenge-09](./Solutions/Challenge-09) which includes the applicable TrustFramework policies along with the specific policy for the "DeleteMyAccount" requirement.
+
 ## Hackflow
 
 1. Review the Delete My Account Custom Policy in the GitHub repo.

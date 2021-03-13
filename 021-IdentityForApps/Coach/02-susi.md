@@ -1,4 +1,4 @@
-# Challenge 2 - Sign Up, Sign In User Flow
+# Challenge \#2 - Sign Me Up! Sign Me In!
 
 [< Previous Challenge](./01-provision-b2c.md) - **[Home](./README.md)** - [Next Challenge>](./03-external-idp.md)
 
