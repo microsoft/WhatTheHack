@@ -1,6 +1,6 @@
 # Challenge 3 - Do you know what’s going on in your application?
 
-[< Previous Challenge](./challenge-02.md) - **[Home](../README.md)** - [Next Challenge>](./challenge-04.md)
+[< Previous Challenge](./challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-04.md)
 
 
 ## Introduction 
@@ -14,9 +14,9 @@ Create an App Service instance and deploy the app. Make sure that credentials ar
 ## Success Criteria
 
 1. Verify functionality by creating a new owner, a new pet and a new visit through the new webapp
-1. Verify that app insights is collecting metrics and logs
+1. Verify that Application Insights is collecting metrics and logs
+1. Application map contains the App Service instance and the MySQL database
 1. No file needs to be changed for this challenge
-
 
 ## Learning Resources
 

@@ -14,12 +14,16 @@ Create a MySQL database on Azure and make sure that the application (running loc
 ## Success Criteria
 
 1. Verify functionality by creating a new owner, a new pet and a new visit 
-1. Connect to the database through cloud shell 
+1. Connect to the database through a `mysql` client
 1. Verify that the tables include the newly created entities (owner/pet/visit) 
 1. No file needs to be changed for this challenge
 
 ## Learning Resources
 
 - https://docs.microsoft.com/en-us/azure/mysql/
+
+## Tips
+
+[Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) includes a bunch of various tools, including a `mysql` client.
 
 [Next Challenge - Azure App Services <3 Spring Boot >](./challenge-02.md)
