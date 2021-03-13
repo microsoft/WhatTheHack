@@ -1,6 +1,6 @@
 # Challenge 1 - Head in the cloud, feet on the ground
 
-[< Previous Challenge](./challenge-00.md) - **[Home](../README.md)** - [Next Challenge>](./challenge-01.md)
+[< Previous Challenge](./challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-01.md)
 
 
 ## Introduction 
@@ -18,9 +18,8 @@ Create a MySQL database on Azure and make sure that the application (running loc
 1. Verify that the tables include the newly created entities (owner/pet/visit) 
 1. No file needs to be changed for this challenge
 
-
 ## Learning Resources
 
-https://docs.microsoft.com/en-us/azure/mysql/
+- https://docs.microsoft.com/en-us/azure/mysql/
 
 [Next Challenge - Azure App Services <3 Spring Boot >](./challenge-02.md)

@@ -1,6 +1,6 @@
 # Challenge 2: 
 
-[< Previous Challenge](./solution-01.md) - **[Home](../README.md)** - [Next Challenge>](./solution-03.md)
+[< Previous Challenge](./solution-01.md) - **[Home](../README.md)** - [Next Challenge >](./solution-03.md)
 
 ## Notes & Guidance
 
@@ -14,7 +14,7 @@
         --query properties.outputs.webAppName.value -o tsv`
     ```
 
-- Once the App Service is up and running, the easiest way to deploy the application is through the CLI. Make sure that the `app.jar` has been created. You can achive that running the following commands from the `code/spring-petclinic` directory.
+- Once the App Service is up and running, the easiest way to deploy the application is through the CLI. Make sure that the `app.jar` has been created. You can achieve that running the following commands from the `code/spring-petclinic` directory.
 
     ```shell
     mvnw package

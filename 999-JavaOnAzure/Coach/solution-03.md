@@ -1,6 +1,6 @@
 # Challenge 3: 
 
-[< Previous Challenge](./solution-02.md) - **[Home](../README.md)** - [Next Challenge>](./solution-04.md)
+[< Previous Challenge](./solution-02.md) - **[Home](../README.md)** - [Next Challenge >](./solution-04.md)
 
 ## Notes & Guidance
 
@@ -34,4 +34,5 @@
         JAVA_OPTS="-Dspring.profiles.active=mysql $AGENT_CONFIG"    
     ```
 
+- Although the idea is not to change any of the files, including the pom file, the deployment (including the agent jar) can also be done through `mvn`. See https://github.com/meken/app-services-app-insights-java for an example and instructions.
 
