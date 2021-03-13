@@ -1,6 +1,6 @@
 # Challenge 2 - Azure App Services <3 Spring Boot
 
-[< Previous Challenge](./challenge-01.md) - **[Home](../README.md)** - [Next Challenge>](./challenge-03.md)
+[< Previous Challenge](./challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-03.md)
 
 
 ## Introduction 
@@ -25,4 +25,4 @@ Create an App Service instance and deploy the app. Make sure that credentials ar
 - https://docs.microsoft.com/en-us/azure/app-service/
 - https://docs.microsoft.com/en-us/azure/key-vault/general/overview
 
-[Next Challenge - Do you know what’s going on in your application?](./challenge-03.md)
+[Next Challenge - Do you know what’s going on in your application? >](./challenge-03.md)

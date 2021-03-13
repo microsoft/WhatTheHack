@@ -23,4 +23,4 @@ Create an App Service instance and deploy the app. Make sure that credentials ar
 - https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
 - https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent
 
-[Next Challenge - Hello microservices!](./challenge-04.md)
+[Next Challenge - Hello microservices! >](./challenge-04.md)

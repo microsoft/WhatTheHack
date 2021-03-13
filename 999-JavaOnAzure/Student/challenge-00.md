@@ -5,7 +5,7 @@
 
 ## Introduction 
 
-Spring Boot ... and running it on Azure
+The objective of this WTH is that we're going to take a typical Spring Boot application and host that completely on Azure without making any changes. Before we start this journey, let's get introduced to the application. 
 
 
 ## Description
@@ -22,7 +22,7 @@ Clone/unzip the `spring-petclinic` project which is a slightly modified version 
 
 ## Learning Resources
 
-https://github.com/spring-projects/spring-petclinic
+- https://github.com/spring-projects/spring-petclinic
 
 
 [Next Challenge - Head in the cloud, feet on the ground >](./challenge-01.md)

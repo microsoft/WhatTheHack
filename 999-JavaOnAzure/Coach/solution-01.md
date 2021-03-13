@@ -1,10 +1,10 @@
 # Challenge 1: 
 
-[< Previous Challenge](./solution-00.md) - **[Home](../README.md)** - [Next Challenge>](./solution-02.md)
+[< Previous Challenge](./solution-00.md) - **[Home](../README.md)** - [Next Challenge >](./solution-02.md)
 
 ## Notes & Guidance
 
-- There's a number of different methods to deploy a MySQL database, you can use the included [mysql.bicep](./assets/mysql.bicep) file for that. The only required parameter is the accessIp, which you can provide or retrieve as shown below, a more or less random (but deterministic) password is created if none is passed (and shown as an output)
+- There's a number of different methods to deploy a MySQL database, you can use the included [mysql.bicep](./assets/mysql.bicep) file for that. The only required parameter is the `clientIp`, which you can retrieve and provide as shown below, a more or less random (but deterministic) password is created if none is passed (and captured as an env variable)
 
     ```shell
     CLIENT_IP=`curl -s https://ifconfig.me`
@@ -14,15 +14,15 @@
     MYSQL_PASS=`echo "$MYSQL" | jq -r .password.value`
     ```
 
-- Important thing to keep in mind is that the firewall needs to be opened for the client IP address
-- Once the database is up and running, you can connect to it by providing the configuration parameters MYSQL_URL, MYSQL_USER and MYSQL_PASS. Easiest method is to define those in the current shell as environment variables, but alternatively you could pass them to the `mvn` as well. And don't forget to turn on the `mysql` profile.
+- Important thing to keep in mind is that the firewall needs to be opened for the client IP address, and also the local machine needs to be able to connect to the outside world through port `3306` (for some organizations this might require connecting to the guest wi-fi :/)
+- Once the database is up and running, you can connect to it by providing the configuration parameters MYSQL_URL, MYSQL_USER and MYSQL_PASS. Easiest method is to define those in the current shell as environment variables, but alternatively you could pass them to the `mvn` command as well. And don't forget to turn on the `mysql` profile.
 
     ```shell
     mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.profiles.active=mysql -DMYSQL_URL=$MYSQL_URL -DMYSQL_USER=$MYSQL_USER -DMYSQL_PASS=$MYSQL_PASS"
     ```
 
-- Note that the MYSQL_URL is the full jdbc url, and the MYSQL_USER must include the database server name as a suffix. In addition the MYSQL_URL should contain the `serverTime=UTC` option as well.
-- Verifying that database has been updated can be done through cloud shell
+- Note that the MYSQL_URL is the full jdbc url, and the MYSQL_USER must include the database server name as a suffix. In addition the MYSQL_URL needs to contain the `serverTime=UTC` option too. If you've used the included bicep file, the generated output already contains this information.
+- Verifying that the database has been updated can be done through the cloud shell as it contains the `mysql` client. We're using default setting for the MySQL database when using the bicep file, which turns on SSL, hence the `--ssl` option.
 
     ```shell
     $ mysql --ssl -h MYSQL_SERVER_FQDN -D petclinic -u MYSQL_USER -p
