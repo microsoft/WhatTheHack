@@ -36,6 +36,7 @@ resource webApp 'Microsoft.Web/sites@2020-06-01' = {
       linuxFxVersion: 'JAVA|8'
     }
     serverFarmId: plan.id
+    httpsOnly: true
   }
 }
 
