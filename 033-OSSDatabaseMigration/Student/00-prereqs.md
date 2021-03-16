@@ -27,9 +27,9 @@ sh ./create-cluster.sh
 
 ```
 
-*Note: this will take several minutes*
+*Note: creating the cluster will take several minutes*
 
-- Go to this file to see the instructions to install PostgreSQL, MySQL and the ContosoPizza application: [README](Resources/HelmCharts/README.md)
+- Next, go to this file to see the instructions to **install PostgreSQL, MySQL and the ContosoPizza application:**  [README](Resources/HelmCharts/README.md)
 
 
 ## Success Criteria
