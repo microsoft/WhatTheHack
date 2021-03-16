@@ -35,7 +35,6 @@ sh ./create-cluster.sh
 ## Success Criteria
 
 * You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
-* Visual Studio Code is installed.
 * You have database management tools installed
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 
