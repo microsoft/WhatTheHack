@@ -36,7 +36,7 @@ sh ./create-cluster.sh
 
 * You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
-* You have database management tools installed and are able to connect to the Postgres and MySQL databaase for Pizzeria app
+* You have database management tools installed and are able to connect to the Postgres and MySQL databases for the Pizzeria app
 * You can update the value of column  "name" in table "ingredients" for any row with your favorite pizza flavor and it shows up on the webapp. 
 
 ## References
