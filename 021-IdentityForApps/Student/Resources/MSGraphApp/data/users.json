@@ -1,0 +1,53 @@
+{
+   "users": [
+    {
+
+      "displayName": "[TEST] Bridgette Harmon (Local account)",
+      "givenName": "Bridgette",
+      "surname": "Harmon",
+      "identities": [
+        {
+            "signInType": "emailAddress",
+            "issuerAssignedId": "bridgette@wingtiptoys.com"
+        }
+      ],
+      "password": "Pass!w0rd"
+    },
+    {
+
+      "displayName": "[TEST] Curt Foret (Social)",
+      "givenName": "Curt",
+      "surname": "Foret",
+      "identities": [
+        {
+            "signInType": "federated",
+            "issuer": "facebook.com",
+            "issuerAssignedId": "0987654321"
+        }],
+      "otherMails": ["curt@fabrikam.com"]
+    },
+    {
+
+      "displayName": "[TEST] Edith Porter (Local and social)",
+      "givenName": "Edith",
+      "surname": "Porter",
+      "identities": [
+        {
+            "signInType": "federated",
+            "issuer": "google.com",
+            "issuerAssignedId": "1234567890"
+        },
+        {
+          "signInType": "federated",
+          "issuer": "github.com",
+          "issuerAssignedId": "abcdef"
+        },
+        {
+            "signInType": "emailAddress",
+            "issuerAssignedId": "edith@wingtiptoys.com"
+        }
+      ],
+      "password": "1234"
+    }
+  ]
+}
