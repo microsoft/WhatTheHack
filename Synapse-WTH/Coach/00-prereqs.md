@@ -10,3 +10,4 @@
 - Make sure your team creates the Teams channel for their team
 - PowerBI Desktop is to be installed on their desktops
 - Access to a web browser should be allowed as well
+- Run the lab notebook and make the output data ("/dailyReports/*", "/initialData/*") available
