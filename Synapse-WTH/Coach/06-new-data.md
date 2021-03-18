@@ -2,17 +2,8 @@
 
 [< Previous Challenge](./05-data-masking.md) - **[Home](../README.md)** - [Next Challenge >](./07-ml.md)
 
-## Introduction
-Pump up participation! 
 
-## Description
-The CPF wants to do more sophisticated analysis of sport participation and growth around the world.  They have asked you to add population data by country and year.  They want to be able to use this data to analyze participation rates.  Participation rate is defined as number of lifters by country compared to the population of the country.  Of course, this analysis is time sensitive since both number of lifters and population change every year.  So, you need to be able to analyze participation rate by country and year.
-
-
-## Success Criteria
-- Locate suitable data and implement this analysis.
-- Add a new data ingestion flow to put yearly population data by country into the data store.
-- Cleanse or transform the data so "country" in the population data and in the powerlifting data can be correlated (i.e. joined).
-- Create a query, view, or dataset that calculates participation rate by country, by year.
-- Add the resulting data to your visualizations from Challenge 3.
-- Idenfity another country level metric (e.g., GDP, health score, BMI, diet, education) that can be compared to lifter participation to gain insights on growth of the sport. (BONUS)
+## Notes and Guidance
+- [An example source of population data](https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations))
+- [Another example source of data](https://www.numbeo.com/health-care/rankings_by_country.jsp)
+- [BMI Data](https://en.wikipedia.org/wiki/List_of_countries_by_body_mass_index)
