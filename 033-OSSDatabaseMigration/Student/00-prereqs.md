@@ -30,7 +30,7 @@ sh ./create-cluster.sh
 *Note: creating the cluster will take several minutes*
 
 - Next, go to this file to see the instructions to **install PostgreSQL, MySQL and the ContosoPizza application:**  [README](Resources/HelmCharts/README.md)
-- Please refer to the [AKS cheatsheet](./k8s_cheetsheet.md) for reference of running aks commands to validate your environment.
+- Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for reference of running aks commands to validate your environment.
 
 
 ## Success Criteria
