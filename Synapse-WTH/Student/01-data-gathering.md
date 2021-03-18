@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In the challenges ahead, you will need to **[load this data](https://github.com/sstangl/openpowerlifting-static/raw/gh-pages/openpowerlifting-latest.zip)** into a data store from which it can be queried, visualized, and analyzed.  The data comes from [OpenPowerlifting.org](https://www.openpowerlifting.org/) and is [licensed](https://openpowerlifting.gitlab.io/opl-csv/) for Public Domain use.
+In the challenges ahead, the coach will provide you with data to load into a data store from which it can be queried, visualized, and analyzed.  The [data]((https://github.com/sstangl/openpowerlifting-static/raw/gh-pages/openpowerlifting-latest.zip)) comes from [OpenPowerlifting.org](https://www.openpowerlifting.org/) and is [licensed](https://openpowerlifting.gitlab.io/opl-csv/) for Public Domain use.
 
 ## Description
 
