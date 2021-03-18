@@ -11,3 +11,4 @@
 - PowerBI Desktop is to be installed on their desktops
 - Access to a web browser should be allowed as well
 - Run the lab notebook and make the output data ("/dailyReports/", "/initialData/") available
+- The lab notebook will split the data from OpenPowerlifting.org into an initial dataset and daily incremental datasets. This will be important in Challenge 4
