@@ -17,7 +17,7 @@ The es section is dedicated to those who are running the What The Hack
    - Load incrementals
 - Challenge 5:  **[(BONUS) Mask Data for Privacy](5-data-masking.md)**
    - Putting your mask on
- - Challenge 6: **[(BONUS) Add New Data Source(s)]**(6-new-data.md)
+ - Challenge 6: **[(BONUS) Add New Data Source(s)](6-new-data.md)**
    - Additional data sources
 - Challenge 7:  **[(BONUS) Leverage Machine Learning](7-ml.md)**
    - The machines know too much!
