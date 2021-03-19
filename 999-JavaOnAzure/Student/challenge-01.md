@@ -2,8 +2,7 @@
 
 [< Previous Challenge](./challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-01.md)
 
-
-## Introduction 
+## Introduction
 
 The Spring Boot application uses JPA and supports both in memory databases as well as MySQL. In this challenge we'll put our database on Azure while the code is running locally. Taking baby steps :)
 
@@ -13,10 +12,10 @@ Create a MySQL database on Azure and make sure that the application (running loc
 
 ## Success Criteria
 
-1. Verify functionality by creating a new owner, a new pet and a new visit 
+1. Verify the application is working by creating a new owner, a new pet and a new visit
 1. Connect to the database through a `mysql` client
-1. Verify that the tables include the newly created entities (owner/pet/visit) 
-1. No file needs to be changed for this challenge
+1. Verify that the tables include the newly created entities (owner/pet/visit)
+1. No files should be changed for this challenge
 
 ## Learning Resources
 
