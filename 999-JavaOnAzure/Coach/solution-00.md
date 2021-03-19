@@ -1,4 +1,3 @@
-
 # Challenge 0: Getting your feet wet
 
 [**[Home](../README.md)** - [Next Challenge >](./solution-01.md)
@@ -16,4 +15,3 @@
     ```shell
     mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081"
     ```
-

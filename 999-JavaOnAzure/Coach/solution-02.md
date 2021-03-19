@@ -1,4 +1,4 @@
-# Challenge 2: 
+# Challenge 2: Azure App Services :heart: Spring Boot
 
 [< Previous Challenge](./solution-01.md) - **[Home](../README.md)** - [Next Challenge >](./solution-03.md)
 

@@ -2,21 +2,20 @@
 
 [< Previous Challenge](./challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-04.md)
 
-
-## Introduction 
+## Introduction
 
 Now things are running on Azure, how can we keep an eye on what's going on? And what about the logs?
 
 ## Description
 
-Create an App Service instance and deploy the app. Make sure that credentials are in a KeyVault and app settings don’t contain any credentials/keys in cleartext.
+Create an Application Insights instance and connect the application running on the App Service to use that instance. Make sure that credentials are in a KeyVault and app settings don’t contain any credentials/keys in cleartext.
 
 ## Success Criteria
 
-1. Verify functionality by creating a new owner, a new pet and a new visit through the new webapp
+1. Verify the application is working by creating a new owner, a new pet and a new visit through the new webapp
 1. Verify that Application Insights is collecting metrics and logs
-1. Application map contains the App Service instance and the MySQL database
-1. No file needs to be changed for this challenge
+1. The Application Map in Application Insights contains the App Service instance and the MySQL database
+1. No files should be modified for this challenge
 
 ## Learning Resources
 
