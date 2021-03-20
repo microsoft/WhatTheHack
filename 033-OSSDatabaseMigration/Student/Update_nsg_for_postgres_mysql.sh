@@ -20,7 +20,7 @@ export nsg_name=`az network nsg list  -g $rg_nsg -o table | tail -1 | awk '{prin
 # For this NSG, there are two rules for connecting to Postgres and MySQL.
 
 export pg_nsg_rule_name=`az network nsg rule list -g $rg_nsg --nsg-name $nsg_name --query '[].[name]' | grep "TCP-5432" | sed 's/"//g'`
-export my_nsg_rule_name=`az network nsg rule list -g $rg_nsg --nsg-name $nsg_name --query '[].[name]' | grep "TCP-3306" | | sed 's/"//g'`
+export my_nsg_rule_name=`az network nsg rule list -g $rg_nsg --nsg-name $nsg_name --query '[].[name]' | grep "TCP-3306" | sed 's/"//g'`
 
 # Update the rule to allow access to Postgres and MySQL only from your client ip address - "myip"
    
