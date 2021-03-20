@@ -6,7 +6,7 @@
 
 echo " 
 
-If you are running rest of this script from Azure cloud shell, you need to run this curl on your machine. Alternately you can point your browser to https://ifconfig.me
+If you are running this script from Azure Cloud Shell, then you need to also run this on your local machine. Alternatively, you can point your browser to https://ifconfig.me
 
  "
 myip=`curl ifconfig.me`/32

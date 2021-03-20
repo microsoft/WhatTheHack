@@ -12,7 +12,7 @@
         "value": "OSSDBMigrationSNet"
       },
       "clusterName": {
-        "value": "ossdbmigrationpar"
+        "value": "ossdbmigration"
       },
       "maxPods": {
         "value": 64
