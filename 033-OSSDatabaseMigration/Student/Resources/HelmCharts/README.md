@@ -1,10 +1,10 @@
-**[Home](../../../README.md)** - [Prerequisites >](../../00-prereqs.md)
+**[Home](../../../README.md)** - [Prerequisites >](../../../00-prereqs.md)
 
 ## Setting up Kubernetes
 
 The steps to deploy the AKS cluster, scale it up and scale it down are available in the README file for that section: [README](../ARM-Templates/README.md).
 
-You should have not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites](../../00-prereqs.md)
+You should have not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites >](../../../00-prereqs.md)
 
 ## PostgreSQL Setup on Kubernetes
 
@@ -17,7 +17,7 @@ This requires Helm3 and the latest version of Azure CLI to be installed. These a
 ```bash
 
 # Navigate to the Helm Charts
-cd Resources/HelmCharts
+#cd Resources/HelmCharts
 
 # Install the Kubernetes Resources
 helm upgrade --install wth-postgresql ./PostgreSQL116 --set infrastructure.password=OCPHack8
@@ -68,10 +68,7 @@ CREATE DATABASE wth;
 
  CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
 
--- Show tables in wth database - should be empty now
-
-\c wth
-
+-- List the tables in wth
 \dt
 
 -- exit out of Postgres Sql prompt
@@ -136,20 +133,18 @@ SELECT version();
 -- List databases
 SHOW DATABASES;
 
--- Create wth database
+--Create wth database
 CREATE DATABASE wth;
 
 -- Create a user Contosoapp that would own the application data for migration
 
 CREATE USER if not exists 'contosoapp'   identified by 'OCPHack8' ;
 
-GRANT SUPER on *.* to contosoapp identified by 'OCPHack8'; -- may not be needed
+GRANT SUPER on *.* to conotosoapp identified by 'OCPHack8'; -- may not be needed
 
 GRANT ALL PRIVILEGES ON wth.* to contosoapp ;
 
--- Show tables in wth database - should be empty now
-
-USE wth ;
+-- Show tables in wth database
 
 SHOW TABLES;
 
@@ -171,11 +166,12 @@ helm uninstall wth-mysql
 
 ## Deploying the Web Application
 
-First we navigate to the Helm charts directory for the ContosoPizza application
+First we navigate to the Helm charts directory
 
 ```bash
 
-cd Resources/HelmCharts/ContosoPizza
+cd Resources/HelmCharts
+
 
 ```
 
@@ -195,7 +191,7 @@ In the globalConfig object we can change the merchant id, public keys and other 
 ```yaml
 appConfig:
   databaseType: "databaseType goes here" # mysql or postgres
-  dataSourceURL: "jdbc url goes here" # database is either mysql or postgres - jdbc:database://ip-address:port/wth
+  dataSourceURL: "jdbc url goes here" # database is either mysql or postgres - jdbc:database://ip-address/wth
   dataSourceUser: "user name goes here" # database username mentioned in values-postgres or values-mysql yaml - contosoap
   dataSourcePassword: "Pass word goes here!" # your database password goes here - # OCPHack8
   webPort: 8083 # the port the app listens on
@@ -205,6 +201,14 @@ appConfig:
 The developer or operator can specify the '--values'/'-f' flag multiple times.
 When more than one values file is specified, priority will be given to the last (right-most) file specified in the sequence.
 For example, if both values.yaml and override.yaml contained a key called 'namespace', the value set in override.yaml would take precedence.
+
+The commands below allows us to use settings from the values file and then override certain values in the database specific values file.
+
+```bash
+
+helm upgrade --install release-name ./HelmChartFolder -f ./HelmChartFolder/values.yaml -f ./HelmChartFolder/override.yaml
+
+```
 
 To deploy the app backed by MySQL, run the following command after you have edited the values file to match your desired database type
 
@@ -236,19 +240,20 @@ helm uninstall postgres-contosopizza
 
 
 After the apps have booted up, you can find out their service addresses and ports as well as their status as follows
-Your infrastructure.namespace is contosoappmysql for app running on MySQL and contosoapppostgres for app running on Postgres
-You can confirm the name namespace by running "kubectl get ns".
 
 ```bash
 
 # get service ports and IP addresses
-kubectl -n  {contosoapppostgres or contosoappmysql} get svc
+kubectl -n {infrastructure.namespace goes here} get svc
 
 # get service pods running the app
-kubectl -n  {contosoapppostgres or contosoappmysql} get pods
+kubectl -n {infrastructure.namespace goes here} get pods
 
 # view the first 5k lines of the application logs
-kubectl -n  {contosoapppostgres or contosoappmysql} logs deploy/contosopizza --tail=5000
+kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
+
+# example for ports and services
+kubectl -n {infrastructure.namespace goes here} get svc
 
 ```
 
@@ -257,7 +262,6 @@ Verify that contoso pizza application is running on AKS
 ```bash
 
 # Insert the external IP address of the command <kubectl -n contosoappmysql or contosoapppostgres get svc below>
-http://{external_ip_contoso_app}:8081/pizzeria/
-http://{external_ip_contoso_app}:8082/pizzeria/
 
+http://{external_ip_contoso_app}:8081/pizzeria/
 ```
