@@ -19,7 +19,7 @@ export location="westus"
 az group create --name $resourceGroupName --location $location
 
 # Creates the Kubernetes cluster and the associated resources and dependencies for the cluster
-az group deployment create --name dataProductionDeployment --resource-group $resourceGroupName --template-file $templateFile --parameters $parameterFile 
+az deployment group create --name dataProductionDeployment --resource-group $resourceGroupName --template-file $templateFile --parameters $parameterFile 
 
 # Install the Kubectl CLI. This will be used to interact with the remote Kubernetes cluster
 #sudo az aks install-cli

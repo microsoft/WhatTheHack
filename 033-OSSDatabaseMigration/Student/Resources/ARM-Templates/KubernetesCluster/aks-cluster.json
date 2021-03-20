@@ -18,15 +18,7 @@
         "type": "string",
         "metadata": {
           "description": "SKU or Type of virtual machines in the agent pool"
-        },
-        "allowedValues": [
-          "Standard_D2s_v3",
-          "Standard_D4s_v3",
-          "Standard_D8s_v3",
-          "Standard_D16s_v3",
-          "Standard_D32s_v3",
-          "Standard_D64s_v3"
-        ]
+        }
       },
       "systemPoolNodeCount": {
         "type": "int",
@@ -38,15 +30,7 @@
         "type": "string",
         "metadata": {
           "description": "SKU or Type of virtual machines in the system pool"
-        },
-        "allowedValues": [
-          "Standard_D2s_v3",
-          "Standard_D4s_v3",
-          "Standard_D8s_v3",
-          "Standard_D16s_v3",
-          "Standard_D32s_v3",
-          "Standard_D64s_v3"
-        ]
+        }
       },
       "resourceGroupName": {
         "type": "string",
