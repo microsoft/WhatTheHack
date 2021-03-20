@@ -21,6 +21,7 @@ Create an App Service instance and deploy the app. Make sure that credentials ar
 ## Learning Resources
 
 - https://docs.microsoft.com/en-us/azure/app-service/
+- https://docs.microsoft.com/en-us/azure/app-service/deploy-zip
 - https://docs.microsoft.com/en-us/azure/key-vault/general/overview
 - https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
 
