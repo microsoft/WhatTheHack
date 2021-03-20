@@ -15,7 +15,7 @@ Create a MySQL database on Azure and make sure that the application (running loc
 1. Verify the application is working by creating a new owner, a new pet and a new visit
 1. Connect to the database through a `mysql` client
 1. Verify that the tables include the newly created entities (owner/pet/visit)
-1. No files should be changed for this challenge
+1. No files should be modified for this challenge
 
 ## Learning Resources
 
@@ -25,4 +25,6 @@ Create a MySQL database on Azure and make sure that the application (running loc
 
 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) includes a bunch of various tools, including a `mysql` client.
 
-[Next Challenge - Azure App Services <3 Spring Boot >](./challenge-02.md)
+And note that you can also pass configuration information to Spring Boot through [environment variables](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
+
+[Next Challenge - Azure App Services :heart: Spring Boot >](./challenge-02.md)
