@@ -34,4 +34,6 @@ helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/va
 
 ## Success Criteria
 
-* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change. You can do this by registering yourself as a user in the application. You would then connect to the Azure DB for PostgreSQL/MySQL and do a `select * from users` to see if the new user is in the database(s)
+* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change
+* You can update the value of column  "name" in table "ingredients" for any row with your favorite pizza flavor and it shows up on the Pizzeria web page
+
