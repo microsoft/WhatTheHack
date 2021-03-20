@@ -27,7 +27,7 @@ sh ./create-cluster.sh
 
 ```
 
-*Note: creating the cluster will take several minutes*
+### Note: creating the cluster will take several minutes*
 
 - Next, go to this file to see the [instructions](Resources/HelmCharts/README.md) to **install PostgreSQL, MySQL and the ContosoPizza on-premise application on Azure AKS**
 - Optional but highly recommended - run this [shell script](./Update_nsg_for_postgres_mysql.sh) to block public access to your on-premise databases.
