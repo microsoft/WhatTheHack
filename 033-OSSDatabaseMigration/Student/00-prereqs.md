@@ -23,15 +23,24 @@ In this challenge you'll be setting up your environment so that you can complete
 ```bash
 cd Resources/ARM-Templates/KubernetesCluster
 chmod +x ./create-cluster.sh
-sh ./create-cluster.sh
+./create-cluster.sh
 
 ```
 
 ### Note: creating the cluster will take several minutes
 
-- Next, go to this file to see the [instructions](Resources/HelmCharts/README.md) to **install PostgreSQL, MySQL and the ContosoPizza on-premise application on Azure AKS**
-- Optional but highly recommended - run this [shell script](./Update_nsg_for_postgres_mysql.sh) to block public access to your on-premise databases.
-- Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for reference of running handy aks commands to validate your environment. You may need this throughout the hack.
+- Now you will deploy the Pizzeria application and its associated PostgreSQL and MySQL databases
+
+```bash
+cd Resources/HelmCharts/ContosoPizza
+chmod +x ./*.sh
+./deploy-pizza.sh
+
+```
+### Note: deploying the Pizzeria application will take several minutes
+
+- Optional but highly recommended - run this [shell script](./Update_nsg_for_postgres_mysql.sh) to block public access to your on-premise databases. You should run this on your local machine (not Azure Cloud Shell). You will need the Azure CLI to do that. 
+- Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of running handy AKS commands to validate your environment. You will need this throughout the hack.
 
 
 ## Success Criteria
@@ -39,7 +48,6 @@ sh ./create-cluster.sh
 * You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 * You have database management tools installed and are able to connect to the Postgres and MySQL databases for the Pizzeria app
-* You can update the value of column  "name" in table "ingredients" for any row with your favorite pizza flavor and it shows up on the webapp. 
 
 ## References
 
