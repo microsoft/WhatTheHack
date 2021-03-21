@@ -49,7 +49,7 @@ kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U contosoapp po
 ```
 
 
-# Open a Bash shell to the MySQL service
+# Open a Bash shell to the MySQL and Postgres service
 ```
 kubectl -n mysql exec deploy/mysql -it -- bash
 ```
