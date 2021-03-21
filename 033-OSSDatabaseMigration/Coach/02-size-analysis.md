@@ -34,5 +34,5 @@
     kubectl -n mysql exec deploy/mysql -it -- bash
     
     apt update ; apt install htop
-    mysqlslap -u root -p --concurrency=70 --iterations=30 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
+    mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
 ```
