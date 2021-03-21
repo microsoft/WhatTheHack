@@ -45,7 +45,7 @@ chmod +x ./*.sh
 
 ## Success Criteria
 
-* You have a bash shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2, etc.)
+* You have a Unix shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 * You have database management tools installed and are able to connect to the Postgres and MySQL databases for the Pizzeria app
 
