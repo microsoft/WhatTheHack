@@ -17,9 +17,9 @@
     psql -U contosoapp postgres
      
     create database samples ;
-    \c samples
+    \q
 ```
-* Create benchmark objects in the database - run this on the bash prompt on the database host
+* Create benchmark objects in the database - run this on the bash prompt on the database host 
 ```bash
     pgbench -i  -h localhost -U postgres -d samples
 ```
