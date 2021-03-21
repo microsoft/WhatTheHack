@@ -22,7 +22,7 @@
 ```bash
     pgbench -i  -h localhost -U postgres -d samples
 ```
-* Run a synthetic workload for 5 minutes and watch the system load while it is running.
+* Run a synthetic workload for 5 minutes and watch the system load from another bash prompt using unix tools while it is running.
 ```bash
     pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
 ```
