@@ -29,6 +29,30 @@ To run the synthetic benchmark for PostgreSQL:
 * You have selected the appropriate database service tier (e.g. General Purpose or Memory Optimized) and server size to meet the peak workload
 * You can explain to your coach why you would go with a specific database deployment option (Single Server, Flexible Server or HyperScale (PostgreSQL only))
 
+## Hint
+
+* For both  MySQL and Postgres, install htop 
+
+```bash
+
+  apt update ; apt install htop
+  
+```
+* Stress test for MySQL
+
+```bash
+
+mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
+
+```
+
+* Postgres - create benchmark objects in the database and run a synthetic workload for 5 minutes and watch the system load from another bash prompt using unix tools while it is running.
+
+```bash
+    pgbench -i  -h localhost -U postgres -d samples
+    pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
+```
+
 ## References
 * Standard UNIX monitoring tools: https://sysaix.com/top-20-linux-unix-performance-monitoring-tools
 * Choose the right MySQL Server option in Azure: https://docs.microsoft.com/en-us/azure/mysql/select-right-deployment-type
