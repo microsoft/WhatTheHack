@@ -5,7 +5,7 @@
 ## Coach Tips
 
  Make sure the attendees can explain both the business and technical motivations for choosing a particular service tier. The goal here is to simulate a workload for the
- database, watch the system load and then pick the right service tier in Azure DB for Postgres/MySQL. To do this in Postgres
+ database, watch the system load and then pick the right service tier in Azure DB for Postgres/MySQL. To monitor system load using tools like htop, you need to upgrade the OS and install the tool first. Following is an example in Postgres
 
  * Create a database in your on-premises database called samples, create pgbench schema and run a synthetic load
  
@@ -13,6 +13,7 @@
 
     kubectl -n postgresql exec deploy/postgres -it -- bash
     
+    apt update ; apt install htop
     psql -U contosoapp postgres
      
     create database samples ;
@@ -32,6 +33,6 @@
 
     kubectl -n mysql exec deploy/mysql -it -- bash
     
-    
+    apt update ; apt install htop
     mysqlslap -u root -p --concurrency=70 --iterations=30 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
 ```
