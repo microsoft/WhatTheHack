@@ -31,7 +31,7 @@ To run the synthetic benchmark for PostgreSQL:
 
 ## Hint
 
-* For both  MySQL and Postgres, install htop 
+* For both  MySQL and Postgres, install htop. You will need it to watch the system load while the synthetic workload is running against the databases.
 
 ```bash
 
@@ -46,7 +46,7 @@ mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --nu
 
 ```
 
-* Postgres - create benchmark objects in the database and run a synthetic workload for 5 minutes and watch the system load from another bash prompt using unix tools while it is running.
+* Postgres - create benchmark objects in the database and run a synthetic workload for 5 minutes
 
 ```bash
     pgbench -i  -h localhost -U postgres -d samples
