@@ -39,7 +39,7 @@ chmod +x ./*.sh
 ```
 ### Note: deploying the Pizzeria application will take several minutes
 
-- Optional but highly recommended - run this [shell script](./Update_nsg_for_postgres_mysql.sh) to block public access to your on-premise databases. You should run this on your local machine (not Azure Cloud Shell). You will need the Azure CLI to do that. 
+- Optional but highly recommended - run this [shell script](./Resources/HelmCharts/ContosoPizza/Update_nsg_for_postgres_mysql.sh) to block public access to your on-premise databases. You should run this on your local machine (not Azure Cloud Shell). You will need the Azure CLI to do that. 
 - Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of running handy AKS commands to validate your environment. You will need this throughout the hack.
 
 
