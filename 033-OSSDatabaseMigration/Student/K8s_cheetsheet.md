@@ -41,7 +41,7 @@ kubectl -n contosoapppostgres get svc
 kubectl -n contosoapppostgres get pods
 ```
 
-# Connect to the MySQL and database
+# Connect to the MySQL and Postgres database
 
 ```
 kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u contosoapp -pOCPHack8
