@@ -37,6 +37,8 @@ This challenge has multiple, independent sub-challenges.  Complete each of them 
 
 Instead of creating all of the required Kubernetes resources from scratch, the first set of resources are given to you to deploy and should work as-is.  In subsequent sub-challenges, you must clone and modify the working example to fit the challenge requirements.
 
+## Architecture
+
 The architecture for the sample pod is:
 
 * 1 pod with 2 containers
