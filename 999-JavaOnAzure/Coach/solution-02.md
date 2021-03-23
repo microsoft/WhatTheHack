@@ -14,6 +14,7 @@
         --query properties.outputs.webAppName.value -o tsv`
     ```
 
+- On the Azure Marketplace App Service could be difficult to find, make sure that students are looking for Web App by Microsoft. It's important that a production tier is chosen as we'd like to utilize auto scale later on. And JavaSE (Embedded Web Server) must be chosen for Spring Boot.
 - Once the App Service is up and running, the easiest way to deploy the application is through the CLI. Make sure that the `app.jar` has been created. You can achieve that running the following commands from the `code/spring-petclinic` directory.
 
     ```shell

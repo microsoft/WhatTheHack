@@ -8,7 +8,7 @@ So far we've been running the Spring Boot app locally, now it's time to run it o
 
 ## Description
 
-Create an App Service instance and deploy the app.
+Create a Web App running on an App Service instance and deploy the app. Choose a tier that allows autoscaling (will be introduced later).
 
 ## Success Criteria
 

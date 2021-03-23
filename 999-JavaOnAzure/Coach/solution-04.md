@@ -7,7 +7,7 @@
 - First, create an Application Insights instance, there's again many different ways to achieve that, but you can use the included [appinsights.bicep](./assets/appinsights.bicep) file for that.
 
     ```shell
-    APPI_CONN_STR=`az deployment group create -g $RG -f assets/webapp.bicep --query properties.outputs.appInsights.value -o tsv`
+    APPI_CONN_STR=`az deployment group create -g $RG -f assets/appinsights.bicep --query properties.outputs.appInsights.value -o tsv`
     ```
 
 - This template puts the Application Insights connection string into the Key Vault and displays the reference to be used by the web app. If you don't use the template, you'll have to do that yourself.

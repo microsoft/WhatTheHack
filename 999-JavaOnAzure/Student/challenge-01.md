@@ -8,7 +8,7 @@ The Spring Boot application uses JPA and supports both in memory databases as we
 
 ## Description
 
-Create a MySQL database on Azure and make sure that the application (which is still running locally) can connect to it without changing any code.
+Create an Azure Database for MySQL and make sure that the application (which is still running locally) can connect to it without changing any code.
 
 ## Success Criteria
 

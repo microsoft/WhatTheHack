@@ -14,6 +14,7 @@
     MYSQL_PASS=`echo "$MYSQL" | jq -r .password.value`
     ```
 
+- On the Azure Marketplace there are multiple MySQL offerings, make sure that Azure Database for MySQL is chosen when the portal is used. Any configuration is fine but a single server on the basic tier with a single vCore and 50GB storage should be sufficient.
 - Important thing to keep in mind is that the firewall needs to be opened for the client IP address, and also the local machine needs to be able to connect to the outside world through port `3306` (for some organizations this might require connecting to the guest wi-fi :/)
 - Once the database is up and running, you can connect to it by providing the configuration parameters MYSQL_URL, MYSQL_USER and MYSQL_PASS. Easiest method is to define those in the current shell as environment variables, but alternatively you could pass them to the `mvn` command as well. And don't forget to turn on the `mysql` profile.
 
