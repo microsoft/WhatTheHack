@@ -2,13 +2,15 @@
 
 ## Introduction
 
-> TODO intro
+There's a number of ways to host a Java app on Azure. Depending on the nature of the application (Spring Boot, microservices as Spring Cloud or containerized services, WAR/EAR projects) Azure provides different options to host your application in a managed fashion.
+
+During this hack we'll explore one of the easiest paths to host a simple Java application (using Spring Boot) on Azure, without making any changes to the application.
 
 ## Learning Objectives
 
-In this hack you will be deploying a Java (web) application on Azure using a managed service, without making any changes to the application.
+In this hack you'll address the most common challenges faced when deploying any application on a cloud service. We'll assume that there's an application that works just fine, and we'd like to host that on Azure without making any changes to the application and/or introducing any Azure specific functionality.
 
-> TODO elaborate
+You'll get introduced to App Service for hosting applications, you'll learn about managed Open Source databases on Azure, you'll monitor your applications's performance without making any changes and observe it scale automatically.
 
 ## Challenges
 
