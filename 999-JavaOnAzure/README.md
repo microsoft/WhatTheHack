@@ -18,11 +18,13 @@ In this hack you will be deploying a Java (web) application on Azure using a man
   - Deploy a Azure Database for MySQL and configure the app to connect to it
 - Challenge 2: **[Azure App Services :heart: Spring Boot](Student/challenge-02.md)**
   - Deploy the application on a new Azure App Service instance
-- Challenge 3: **[Do you know what's going on in your application?](Student/challenge-03.md)**
+- Challenge 3: **[Keep your secrets safe](Student/challenge-03.md)**
+  - Store credentials and other sensitive data in a Key Vault
+- Challenge 4: **[Do you know what's going on in your application?](Student/challenge-04.md)**
   - Configure an Application Insights instance and monitor the basics
-- Challenge 4: **[Operational dashboards](Student/challenge-04.md)**
+- Challenge 5: **[Operational dashboards](Student/challenge-05.md)**
   - Create a dashboard with Azure Monitor metrics and Application Insights information
-- Challenge 5: **[It's all about the scale](Student/challenge-05.md)**
+- Challenge 6: **[It's all about the scale](Student/challenge-06.md)**
   - Configure the App Service instance to scale
 
 ## Prerequisites

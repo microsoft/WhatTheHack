@@ -4,11 +4,11 @@
 
 ## Introduction
 
-The objective of this WTH is that we're going to take a typical Spring Boot application and host that completely on Azure without making any changes. Before we start this journey, let's get introduced to the application.
+The objective of this WTH is to take a typical Spring Boot application and host that completely on Azure without making any changes. Before we start this journey, let's get introduced to the application.
 
 ## Description
 
-Clone/unzip the `spring-petclinic` project which is a slightly modified version of the quintessential Spring Boot petclinic application. Run things locally, browse the application.
+Examine the `spring-petclinic` project which is a slightly modified version of the quintessential Spring Boot petclinic application. Run things locally, browse the application.
 
 ## Success Criteria
 
@@ -19,6 +19,6 @@ Clone/unzip the `spring-petclinic` project which is a slightly modified version 
 
 ## Learning Resources
 
-- https://github.com/spring-projects/spring-petclinic
+- [Spring Petclinic on Github](https://github.com/spring-projects/spring-petclinic)
 
 [Next Challenge - Head in the cloud, feet on the ground >](./challenge-01.md)

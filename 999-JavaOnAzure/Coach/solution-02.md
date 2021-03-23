@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- There's a number of different methods to deploy an App Services instance, you can use the included [webapp.bicep](./assets/webapp.bicep) file for that. 
+- There's a number of different methods to deploy an App Services instance, you can use the included [webapp.bicep](./assets/webapp.bicep) file for that.
 
     ```shell
     WEBAPP=`az deployment group create -g $RG -f assets/webapp.bicep -p \
