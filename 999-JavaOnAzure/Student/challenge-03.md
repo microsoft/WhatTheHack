@@ -1,25 +1,24 @@
-# Challenge 3 - Do you know what’s going on in your application?
+# Challenge 3 - Keep your secrets safe
 
 [< Previous Challenge](./challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-04.md)
 
 ## Introduction
 
-Now things are running on Azure, how can we keep an eye on what's going on? And what about the logs?
+Things are running fine on App Service, but the Application Settings contain the database credentials in cleartext. That's not too secure, let's fix that.
 
 ## Description
 
-Create an Application Insights instance and connect the application running on the App Service to use that instance. Make sure that credentials are in a KeyVault and app settings don’t contain any credentials/keys in cleartext.
+Create a Key Vault and connect it to App Service. Make sure that all database settings (url, user, password) are in the Key Vault and accessed by the App Service instance through that Key Vault only.
 
 ## Success Criteria
 
 1. Verify the application is working by creating a new owner, a new pet and a new visit through the new webapp
-1. Verify that Application Insights is collecting metrics and logs
-1. The Application Map in Application Insights contains the App Service instance and the MySQL database
+1. Verify that Application Settings don't contain any of the database settings in cleartext
 1. No files should be modified for this challenge
 
 ## Learning Resources
 
-- https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-- https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent
+- [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts)
+- [Managed identities on Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
 
 [Next Challenge - Hello microservices! >](./challenge-04.md)

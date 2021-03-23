@@ -16,7 +16,9 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
   - Deploy the application on a new Azure App Service instance
 - Challenge 3: **[Do you know what's going on in your application?](solution-03.md)**
   - Configure an Application Insights instance and monitor the basics
-- Challenge 4: **[Operational dashboards](solution-04.md)**
+- Challenge 4: **[Keep your secrets safe](solution-04.md)**
+  - Store credentials and other sensitive data in a Key Vault
+- Challenge 5: **[Operational dashboards](solution-05.md)**
   - Create a dashboard with Azure Monitor metrics and Application Insights information
-- Challenge 5: **[It's all about the scale](solution-05.md)**
+- Challenge 6: **[It's all about the scale](solution-06.md)**
   - Configure the App Service instance to scale
