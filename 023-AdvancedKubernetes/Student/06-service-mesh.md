@@ -1,6 +1,6 @@
 # Challenge 6 - Service Mesh
 
-[< Previous Challenge](./05-gitops.md)
+[< Previous Challenge](./05-gitops.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./07-data-volumes.md)
 
 ## Introduction
 
