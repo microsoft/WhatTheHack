@@ -120,18 +120,13 @@ Follow the instructions [here](https://docs.microsoft.com/en-us/azure/aks/ingres
 
 ``` bash
 # Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
+kubectl create namespace nginx-ingress
 
-# Add the ingress-nginx repository
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
-    --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install nginx-ingress stable/nginx-ingress --namespace nginx-ingress
 ```
 
 You can see all of your helm deployments:
@@ -145,8 +140,7 @@ helm ls --all-namespaces
 Get the ingress ip:
 
 ``` bash
-INGRESS_IP=$(kubectl get service -n ingress-basic nginx-ingress-ingress-nginx-controller -o json |
- jq '.status.loadBalancer.ingress[0].ip' -r)
+INGRESS_IP=$(kubectl get service -n nginx-ingress nginx-ingress-controller -o json | jq '.status.loadBalancer.ingress[0].ip' -r)
 echo $INGRESS_IP
 ```
 
