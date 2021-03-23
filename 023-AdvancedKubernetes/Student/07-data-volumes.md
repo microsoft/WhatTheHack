@@ -25,12 +25,6 @@ The Kubernetes concepts for storage are:
 * [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PV) - A storage instance (e.g. A specific Azure Disk resource)
 * [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) (PVC) - A request for a storage instance (e.g. Request for a 30Gi disk with a Storage Class).  When this request is fulfilled, it will create a Persistent Volume.
 
-
-## References
-
-* [Detailed Walkthrough with working example](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
-
-
 ## Success Criteria
 
 This challenge has multiple, independent sub-challenges.  Complete each of them to complete the Data Volumes challenge.
@@ -47,7 +41,7 @@ The architecture for the sample pod is:
 * 1 service of type LoadBalancer
   * This provides an external endpoint for busybox-reader so the user can see the latest timestamp
 
-![AKS Volumes](Resources/aks-volumes.png)
+![AKS Volumes](img/aks-volumes.png)
 
 ### Sub-Challenge 1: Azure Disk with PVC
 
@@ -65,10 +59,10 @@ After installing the resources, verify they are working:
 * Validate the StatefulSet, Pods, PVC and PV
   * You should have 1 Service with a Public IP, 1 Ready StatefulSet, 1 Pod Running, 1 Bound PVC and 1 Bound PV
 * Validate that the Pod is writing new logs every second:
-  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
+  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
 
 Now that the service, pod and PVC have been validated, simulate failures:
-* Kill the pod and determine the impact (e.g. `kubectl rm pod`)
+* Kill the pod and determine the impact (e.g. `kubectl delete pod`)
   * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
   * Validate the service recovers
 * Reboot the node and determine the impact (e.g. `az vmss restart`)
@@ -118,6 +112,10 @@ In the previous sub-challenges you used a PVC, which created the Disk for you.  
 * Validate that the pod is writing new logs every second:
   * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
 * In the portal, validate that the drive you created is consuming Throughput and IOPS
-* Kill the pod and determine the impact (e.g. `kubectl rm pod`)
+* Kill the pod and determine the impact (e.g. `kubectl delete pod`)
   * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
   * Validate the service recovers
+
+## Hints
+
+* [Detailed Walkthrough with working example](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
