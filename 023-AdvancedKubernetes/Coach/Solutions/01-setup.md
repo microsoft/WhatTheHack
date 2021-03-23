@@ -1,32 +1,56 @@
+# Challenge 1 - Setup
+
+[Next Challenge>](./02-helm.md)
+
 ## Instructions
 
 Create accounts:
 
-* https://github.com/join
-* https://hub.docker.com/account/signup/
+* <https://github.com/join>
+* <https://hub.docker.com/account/signup/>
 
 Install tools:
 
-* https://helm.sh/docs/intro/install/
-* https://stedolan.github.io/jq/
-* https://github.com/ahmetb/kubectx
-* https://github.com/ahmetb/kubectl-aliases
+* <https://helm.sh/docs/intro/install/>
+* <https://stedolan.github.io/jq/>
+* <https://github.com/ahmetb/kubectx>
+* <https://github.com/ahmetb/kubectl-aliases>
 
 
 ## Create ACR
 
 ```
-ACR=<replace with the name of your acr>
-az acr create -n $ACR -g $RG --sku basic
+RG_NAME=aks-wth
+ACR_NAME=akswthacr
+
+az acr create -n $ACR_NAME -g $RG_NAME --sku basic
 ```
 
 ## Create AKS cluster with attached ACR
 
 ```
-RG=<replace with the name of your resource group>
-LOCATION=<replace with your location>
-az group create $RG -l $LOCATION
-az aks create -n $RG -g $RG --enable-cluster-autoscaler --enable-managed-identity --min-count 1 --max-count 5 --attach-acr $ACR --node-count 1
-az aks nodepool add --cluster-name $RG -g $RG -n userpool --enable-cluster-autoscaler --min-count 1 --max-count 5
-az aks get-credentials -g $RG -n $RG
+RG_NAME=aks-wth
+AKS_NAME=aks-wth
+NODEPOOL_NAME=userpool
+LOCATION=eastus
+
+# create resource group
+az group create $RG_NAME --location $LOCATION
+
+# create AKS cluster
+az aks create -n $AKS_NAME -g $RG_NAME \
+    --node-count 1 \
+    --enable-cluster-autoscaler \
+    --min-count 1 --max-count 5 \
+    --enable-managed-identity \
+    --attach-acr $ACR
+
+# add new nodepool
+az aks nodepool add --cluster-name AKS_NAME -g $RG_NAME \
+    -n $NODEPOOL_NAME \
+    --enable-cluster-autoscaler \
+    --min-count 1 --max-count 5
+    
+# authenticate to AKS cluster
+az aks get-credentials -g $RG_NAME -n $AKS_NAME
 ```
