@@ -118,4 +118,6 @@ In the previous sub-challenges you used a PVC, which created the Disk for you.  
 
 ## Hints
 
-* [Detailed Walkthrough with working example](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+* [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+* [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+* [Persistent Volume Claims]()

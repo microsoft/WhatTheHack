@@ -86,3 +86,4 @@ This repository is licensed under MIT license. More info can be found [here](htt
 # [Contributing](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md)
 
 We welcome contributions and suggestions. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md).
+
