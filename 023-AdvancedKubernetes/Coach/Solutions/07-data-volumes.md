@@ -54,7 +54,27 @@ You should see something like the below:
 
 Verify that the timestamps are continued. If it is unclear from the stream, run `curl <PUBLIC IP>` to check.
 
+### Scaling
 
+What happens if you try to scale the application? One of two things:
+
+1. Multiple pods are scheduled on the same node. Due to the way the infrastructure works, since the data disk is attached to the node, the pods can share the same volume. Thus both pods will persist to the same location and the stream will look like this:
+
+```
+2021-03-24:22:55:17 - static-disk-app-5dbd479c7f-74kfj
+2021-03-24:23:17:21 - static-disk-app-5dbd479c7f-74kfj
+2021-03-24:23:17:22 - static-disk-app-5dbd479c7f-jzg5n
+2021-03-24:23:17:22 - static-disk-app-5dbd479c7f-74kfj
+2021-03-24:23:17:23 - static-disk-app-5dbd479c7f-jzg5n
+2021-03-24:23:17:23 - static-disk-app-5dbd479c7f-74kfj
+2021-03-24:23:17:24 - static-disk-app-5dbd479c7f-jzg5n
+2021-03-24:23:17:24 - static-disk-app-5dbd479c7f-74kfj
+2021-03-24:23:17:25 - static-disk-app-5dbd479c7f-jzg5n
+2021-03-24:23:17:25 - static-disk-app-5dbd479c7f-74kfj
+2021-03-24:23:17:26 - static-disk-app-5dbd479c7f-jzg5n
+```
+
+2. Pods are scheduled on different nodes. Due to the way the infrastructure works, a disk can usually only be attached to a single node. The second pod will try to attach the disk to the node it runs on and fail.
 
 
 
