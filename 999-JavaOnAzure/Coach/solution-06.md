@@ -1,4 +1,4 @@
-# Challenge 5: It's all about the scale
+# Challenge 6: It's all about the scale
 
 [< Previous Challenge](./solution-05.md) - **[Home](../README.md)**
 
@@ -17,8 +17,11 @@
         --command-line "wrk -t2 -c100 -d10m -R300 -L https://$WEBAPP.azurewebsites.net/owners?lastName=Black"
     ```
 
-- You can follow the number of instances on the _Observed resource instance count chart_, available through App Service Plan Scale Out blade, or use the CLI for that purpose.
+- You can follow the number of instances through the CLI.
 
     ```shell
-    az webapp list-instances -g $RG -n $WEBAPP | wc -l
+    az webapp list-instances -g $RG -n $WEBAPP -o tsv | wc -l
     ```
+
+- However it's also possible to monitor the number of instances through the _Observed resource instance count chart_, available through App Service Plan Scale Out blade.
+    ![Instances](./images/autoscale-instances.png)
