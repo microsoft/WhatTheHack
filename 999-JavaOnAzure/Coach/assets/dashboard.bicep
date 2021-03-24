@@ -17,7 +17,6 @@ resource mysql 'Microsoft.DBForMySQL/servers@2017-12-01' existing = {
   name: 'mysql-${resourceSuffix}'
 }
 
-
 resource dashboard 'Microsoft.Portal/dashboards@2020-09-01-preview' = {
   name: 'dashboard-${resourceSuffix}'
   location: location
@@ -32,70 +31,6 @@ resource dashboard 'Microsoft.Portal/dashboards@2020-09-01-preview' = {
           {
             position: {
               x: 0
-              y: 0
-              colSpan: 4
-              rowSpan: 3
-            }
-            metadata: {
-              inputs: [
-                {
-                  name: 'options'
-                  isOptional: true
-                }
-                {
-                  name: 'sharedTimeRange'
-                  isOptional: true
-                }
-              ]
-              type: 'Extension/HubsExtension/PartType/MonitorChartPart'
-              settings: {
-                content: {
-                  options: {
-                    chart: {
-                      metrics: [
-                        {
-                          resourceMetadata: {
-                            id: appInsights.id
-                          }
-                          name: 'performanceCounters/requestsPerSecond'
-                          aggregationType: 3 // max
-                          namespace: 'Microsoft.Insights/components'
-                          metricVisualization: {
-                            displayName: 'HTTP request rate'
-                            resourceDisplayName: appInsights.name
-                          }
-                        }
-                      ]
-                      title: 'Request rate'
-                      titleKind: 1
-                      visualization: {
-                        chartType: 2
-                        legendVisualization: {
-                          isVisible: true
-                          position: 2
-                          hideSubtitle: false
-                        }
-                        axisVisualization: {
-                          x: {
-                            isVisible: true
-                            axisType: 2
-                          }
-                          y: {
-                            isVisible: true
-                            axisType: 1
-                          }
-                        }
-                        disablePinning: true
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          {
-            position: {
-              x: 4
               y: 0
               colSpan: 4
               rowSpan: 3
@@ -159,7 +94,7 @@ resource dashboard 'Microsoft.Portal/dashboards@2020-09-01-preview' = {
           }
           {
             position: {
-              x: 8
+              x: 4
               y: 0
               colSpan: 4
               rowSpan: 3
@@ -359,82 +294,6 @@ resource dashboard 'Microsoft.Portal/dashboards@2020-09-01-preview' = {
                         }
                       ]
                       title: 'Database CPU/Memory'
-                      titleKind: 1
-                      visualization: {
-                        chartType: 2
-                        legendVisualization: {
-                          isVisible: true
-                          position: 2
-                          hideSubtitle: false
-                        }
-                        axisVisualization: {
-                          x: {
-                            isVisible: true
-                            axisType: 2
-                          }
-                          y: {
-                            isVisible: true
-                            axisType: 1
-                          }
-                        }
-                        disablePinning: true
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          {
-            position: {
-              x: 8
-              y: 3
-              colSpan: 4
-              rowSpan: 3
-            }
-            metadata: {
-              inputs: [
-                {
-                  name: 'options'
-                  isOptional: true
-                }
-                {
-                  name: 'sharedTimeRange'
-                  isOptional: true
-                }
-              ]
-              type: 'Extension/HubsExtension/PartType/MonitorChartPart'
-              settings: {
-                content: {
-                  options: {
-                    chart: {
-                      metrics: [
-                        {
-                          resourceMetadata: {
-                            id: mysql.id
-                          }
-                          name: 'io_consumption_percent'
-                          aggregationType: 4 // avg
-                          namespace: 'Microsoft.DBforMysql/servers'
-                          metricVisualization: {
-                            displayName: 'IO Percentage'
-                            resourceDisplayName: mysql.name
-                          }
-                        }
-                        {
-                          resourceMetadata: {
-                            id: mysql.id
-                          }
-                          name: 'storage_percent'
-                          aggregationType: 4 // avg
-                          namespace: 'Microsoft.DBforMysql/servers'
-                          metricVisualization: {
-                            displayName: 'Storage Percentage'
-                            resourceDisplayName: mysql.name
-                          }
-                        }
-                      ]
-                      title: 'Database IO/Storage'
                       titleKind: 1
                       visualization: {
                         chartType: 2

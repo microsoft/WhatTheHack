@@ -8,7 +8,7 @@ Azure Application Insights provides app specific metrics. But what if we'd like 
 
 ## Description
 
-Create a dashboard that includes Azure Application Insights metrics for max request rate, average response time, number of total and failed requests and Azure Monitor metrics for the App Service average CPU/Memory utilization as well as for MySQL database CPU/Memory/IO/Storage utilization.
+Create a dashboard that includes Azure Application Insights metrics for average response time, number of total and failed requests and Azure Monitor metrics for the App Service average CPU/Memory utilization as well as for MySQL database CPU/Memory utilization.
 
 ## Success Criteria
 
