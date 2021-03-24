@@ -14,7 +14,7 @@
 
     ```shell
     az container create -g $RG -n wrk2 --image bootjp/wrk2 --restart-policy Never \
-        --command-line "wrk -t2 -c100 -d7m -R200 -L https://$WEBAPP.azurewebsites.net/owners?lastName=Black
+        --command-line "wrk -t2 -c100 -d7m -R300 -L https://$WEBAPP.azurewebsites.net/owners?lastName=Black"
     ```
 
 - You can follow the number of instances on the _Observed resource instance count chart_, available through App Service Plan Scale Out blade, or use the CLI for that purpose.
