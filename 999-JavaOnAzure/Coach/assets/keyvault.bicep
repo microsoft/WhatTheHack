@@ -14,6 +14,10 @@ var mysqlUrlSecretKey = 'secret-mysql-url'
 var mysqlUserSecretKey = 'secret-mysql-user'
 var mysqlPasswordSecretKey = 'secret-mysql-password'
 
+var mysqlUrlRef = '@Microsoft.KeyVault(SecretUri=${reference(mysqlUrlSecret.id).secretUri})'
+var mysqlUserRef = '@Microsoft.KeyVault(SecretUri=${reference(mysqlUserSecret.id).secretUri})'
+var mysqlPasswordRef = '@Microsoft.KeyVault(SecretUri=${reference(mysqlPasswordSecret.id).secretUri})'
+
 
 resource webApp 'Microsoft.Web/sites@2020-06-01' existing = {
   name: 'web-${resourceSuffix}'
@@ -64,15 +68,17 @@ resource mysqlPasswordSecret 'Microsoft.KeyVault/vaults/secrets@2019-09-01' = {
   }
 }
 
-
-resource webAppSettings 'Microsoft.Web/sites/config@2020-09-01' = {
-  name: '${webApp.name}/appsettings'
-  properties: {
-    MYSQL_URL: '@Microsoft.KeyVault(SecretUri=${reference(mysqlUrlSecret.id).secretUri})'
-    MYSQL_USER: '@Microsoft.KeyVault(SecretUri=${reference(mysqlUserSecret.id).secretUri})'
-    MYSQL_PASS: '@Microsoft.KeyVault(SecretUri=${reference(mysqlPasswordSecret.id).secretUri})'
-    JAVA_OPTS: '-Dspring.profiles.active=mysql'
+module webAppSettings './appsettings.bicep' = {
+  name: 'appsettings'
+  params: {
+    webAppName: webApp.name
+    mysqlUrl: mysqlUrlRef
+    mysqlUser: mysqlUserRef
+    mysqlPassword: mysqlPasswordRef
   }
 }
 
 output keyVaultName string = keyVault.name
+output mysqlUrl string = mysqlUrlRef
+output mysqlUser string = mysqlUserRef
+output mysqlPassword string = mysqlPasswordRef
