@@ -8,11 +8,11 @@ Azure Application Insights provides app specific metrics. But what if we'd like 
 
 ## Description
 
-Create a dashboard that includes Azure Application Insights metrics on _TODO_ and Azure Monitor metrics on _TODO_ (database cpu/mem, app service cpu/mem, number of instances?)
+Create a dashboard that includes Azure Application Insights metrics for max request rate, average response time, number of total and failed requests and Azure Monitor metrics for the App Service average CPU/Memory utilization as well as for MySQL database CPU/Memory/IO/Storage utilization.
 
 ## Success Criteria
 
-1. Verify that the dashboard contains widget for the following information: _TODO_
+1. Verify that the dashboard contains widgets for all of the metrics mentioned in the description
 1. No files should be modified for this challenge
 
 ## Learning Resources
