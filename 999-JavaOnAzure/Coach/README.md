@@ -8,6 +8,8 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 
 ## Coach's Guides
 
+There's a number of Azure resources that need to be created during this hack. You could create those incrementally, following the challenges and their corresponding solutions, but you could also create all of the resources at once as described in the [final solution](solution-all.md). Otherwise see the solutions for individual challenges as listed below.
+
 - Challenge 0: **[Getting your feet wet](solution-00.md)**
   - Get yourself ready to deploy a Spring Boot application on Azure
 - Challenge 1: **[Head in the cloud, feet on the ground](solution-01.md)**

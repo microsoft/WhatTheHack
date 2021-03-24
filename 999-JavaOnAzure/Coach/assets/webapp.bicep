@@ -36,15 +36,14 @@ resource webApp 'Microsoft.Web/sites@2020-09-01' = {
   }
 }
 
-
-resource webAppSettings 'Microsoft.Web/sites/config@2020-09-01' = {
-  name: '${webApp.name}/appsettings'
-  properties: {
-    MYSQL_URL: mysqlUrl
-    MYSQL_USER: mysqlUser
-    MYSQL_PASS: mysqlPassword
-    JAVA_OPTS: '-Dspring.profiles.active=mysql'
+module webAppSettings './appsettings.bicep' = {
+  name: 'appsettings'
+  params: {
+    webAppName: webApp.name
+    mysqlUrl: mysqlUrl
+    mysqlUser: mysqlUser
+    mysqlPassword: mysqlPassword
   }
 }
 
-output webAppName string = webApp.name //reference(webApp.id).defaultHostName
+output webAppName string = webApp.name
