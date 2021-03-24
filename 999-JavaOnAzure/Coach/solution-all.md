@@ -1,6 +1,6 @@
 # Final state for the challenges
 
-[**[Home](../README.md)** - [Next Challenge >](./solution-00.md)
+**[Home](../README.md)** - [Next Challenge >](./solution-00.md)
 
 ## Notes & Guidance
 
