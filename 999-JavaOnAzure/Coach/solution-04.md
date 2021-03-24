@@ -35,6 +35,6 @@
     ```
 
 - Although the idea is not to change any of the files, including the pom file, the deployment (including the agent jar) can also be done through `mvn`. See here [an example and instructions](https://github.com/meken/app-services-app-insights-java).
-
+- Metrics could be explored through Applicaton Insights Overview or Live Metrics blades. Application Insights agent has support for [SLF4J/Logback](https://logback.qos.ch) and hence can capture all logs without any modification. In order to explore the logs you'd need to look at the `traces` table through Application Insights Logs blade. Note that if `Find owners` is called from the web app without specifying the owner name, an INFO log statement is emitted by the application with the message `Request to list all owners registered`.
 - Once there's sufficient data collected (will take a few minutes and some exploration of the application), you should see something like the picture below (the screenshot shows 4 instances because it was created after a load test, but it should be 1 for the students at this stage).
     ![Application Map](./images/application-map.png)

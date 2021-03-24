@@ -21,4 +21,4 @@ Create a Key Vault and connect it to App Service. Make sure that all database se
 - [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts)
 - [Managed identities on Azure](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
 
-[Next Challenge - Hello microservices! >](./challenge-04.md)
+[Next Challenge - Do you know what’s going on in your application? >](./challenge-04.md)
