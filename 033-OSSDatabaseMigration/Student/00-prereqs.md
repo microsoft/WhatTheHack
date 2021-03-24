@@ -21,7 +21,7 @@ In this challenge you'll be setting up your environment so that you can complete
 - Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment:
 
 ```bash
-cd Resources/ARM-Templates/KubernetesCluster
+cd ~/Resources/ARM-Templates/KubernetesCluster
 chmod +x ./create-cluster.sh
 ./create-cluster.sh
 
@@ -32,7 +32,7 @@ chmod +x ./create-cluster.sh
 - Now you will deploy the Pizzeria application and its associated PostgreSQL and MySQL databases
 
 ```bash
-cd Resources/HelmCharts/ContosoPizza
+cd ~/Resources/HelmCharts/ContosoPizza
 chmod +x ./*.sh
 ./deploy-pizza.sh
 
