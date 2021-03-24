@@ -16,7 +16,7 @@ az disk create -g MC_<resource group>_<cluster name>_<region> -n managed-disk-1 
 
 Make sure that diskName and diskURI match and point to the same disk. See [static-disk-deployment.yaml](../Resources/07-data-volumes/static-disk-deployment.yaml) for an example.
 
-### Deploy the yaml file and verify the application has deployed successfully.
+### Deploy the yaml file and verify the application has deployed successfully
 
 ```bash
 $ kubectl get deploy
@@ -76,11 +76,50 @@ What happens if you try to scale the application? One of two things:
 
 2. Pods are scheduled on different nodes. Due to the way the infrastructure works, a disk can usually only be attached to a single node. The second pod will try to attach the disk to the node it runs on and fail.
 
+## Sub-challenge 2: Dynamic provisioning with Azure Disks
 
+### Use PVCs in the deployment yaml
 
+See [dynamic-disk-deployment.yaml](../Resources/07-data-volumes/dynamic-disk-deployment.yaml).
 
+### Deploy the yaml file and verify the application has deployed successfully
 
+```bash
+$ kubectl get deploy
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+disk-app   1/1     1            1           2m37s
 
+$ kubectl get pod
+NAME                      READY   STATUS    RESTARTS   AGE
+disk-app-78d66989-dmr55   2/2     Running   0          2m39s
+
+$ kubectl get svc
+NAME         TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+disk-app     LoadBalancer   10.0.32.228   52.191.218.25   80:30684/TCP   2m47s
+
+$ kubectl get pvc
+NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+managed-disk-claim   Bound    pvc-b43420ee-b94b-4621-b60b-2ce3a03c45bc   5Gi        RWO            default        34s
+
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                        STORAGECLASS   REASON   AGE
+pvc-b43420ee-b94b-4621-b60b-2ce3a03c45bc   5Gi        RWO            Delete           Bound    default/managed-disk-claim   default                 35s
+```
+
+### Stream content of persisted file 
+
+```
+2021-03-24:23:45:44 - disk-app-78d66989-dmr55
+2021-03-24:23:45:45 - disk-app-78d66989-dmr55
+2021-03-24:23:45:46 - disk-app-78d66989-dmr55
+2021-03-24:23:45:47 - disk-app-78d66989-dmr55
+2021-03-24:23:45:48 - disk-app-78d66989-dmr55
+2021-03-24:23:45:49 - disk-app-78d66989-dmr55
+2021-03-24:23:45:50 - disk-app-78d66989-dmr55
+2021-03-24:23:45:51 - disk-app-78d66989-dmr55
+2021-03-24:23:45:52 - disk-app-78d66989-dmr55
+2021-03-24:23:45:53 - disk-app-78d66989-dmr55
+```
 
 
 

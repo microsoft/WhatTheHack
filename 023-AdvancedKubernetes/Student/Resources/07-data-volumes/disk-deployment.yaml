@@ -45,8 +45,8 @@ spec:
         - name: managed-disk-volume
           azureDisk:
             kind: Managed
-            diskName: managed-disk
-            diskURI: /subscriptions/<subscription ID>/resourceGroups/<managed resource group>/providers/Microsoft.Compute/disks/managed-disk
+            diskName: <disk name>
+            diskURI: <disk resource ID>
 
 ---
 
