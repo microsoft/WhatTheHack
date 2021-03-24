@@ -25,12 +25,6 @@ The Kubernetes concepts for storage are:
 * [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PV) - A storage instance (e.g. A specific Azure Disk resource)
 * [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) (PVC) - A request for a storage instance (e.g. Request for a 30Gi disk with a Storage Class).  When this request is fulfilled, it will create a Persistent Volume.
 
-## Success Criteria
-
-This challenge has multiple, independent sub-challenges.  Complete each of them to complete the Data Volumes challenge.
-
-Instead of creating all of the required Kubernetes resources from scratch, the first set of resources are given to you to deploy and should work as-is.  In subsequent sub-challenges, you must clone and modify the working example to fit the challenge requirements.
-
 ## Architecture
 
 The architecture for the sample pod is:
@@ -42,6 +36,101 @@ The architecture for the sample pod is:
   * This provides an external endpoint for busybox-reader so the user can see the latest timestamp
 
 ![AKS Volumes](img/aks-volumes.png)
+
+## Sub-Challenge 1: Static provisioning with Azure Disks
+
+In this sub-challenge, we will provision an Azure Disk and attach it to your pods for persistence.
+
+### Description
+
+1. Provision an Azure Disk in the `MC_<resource group>_<cluster name>_<region>` resource group.
+    1. **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
+1. Modify the static-disk-deployment.yaml to use the disk.
+1. Deploy the yaml file and verify the application has deployed successfully.
+1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
+1. Delete the pod. The deployment should automatically start a new pod. Verify that the contents of the /mnt/index.html file have persisted.
+
+### Success Criteria
+
+- You have provisioned an Azure Disk.
+- You have configured your application to use the disk.
+- You have demonstrated persistence in your application.
+- You have explained to your coach why scaling up the deployment may not work.
+
+### Hints
+
+- [Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Sub-Challenge 2: Dynamic provisioning with Azure Disks
+
+In this sub-challenges, we will allow AKS to dynamically provision storage via disks. We will also learn how to scale an application that requires persistence.
+
+### Description
+
+1. Modify the dynamic-disk-deployment.yaml.
+1. Deploy the yaml file and verify the application has deployed successful.
+
+### Success Criteria
+
+- You have explained to your coach what is a StatefulSet and why it is appropriate.
+
+### Hints
+
+- [Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv)
+
+## Sub-Challenge 3: Dynamic provisioning with Azure Files
+
+### Description
+
+### Success Criteria
+
+- You have explained to your coach why a StatefulSet is not appropriate.
+
+### Hints
+
+- [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-files-dynamic-pv)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Sub-Challenge 3: Success Criteria
+
+* Validate that the pod is writing new logs every second:
+  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
+* In the portal, validate that the drive you created is consuming Throughput and IOPS
+* Kill the pod and determine the impact (e.g. `kubectl delete pod`)
+  * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
+  * Validate the service recovers
 
 ### Sub-Challenge 1: Azure Disk with PVC
 
@@ -99,7 +188,7 @@ Now that the service, pod and PVC have been verified, simulate failures:
   * Validate the service stays up
   * NOTE: There should be NO gap in the logs
 
-### Sub-Challenge 3: Azure Disk with NFS with PV
+### Sub-Challenge 3: Azure Disk with PV
 
 In the previous sub-challenges you used a PVC, which created the Disk for you.  However, sometimes, you need to use an existing disk.  In this sub-challenge, copy the YAML from sub-challenge 1 with the following changes:
 
@@ -119,3 +208,5 @@ In the previous sub-challenges you used a PVC, which created the Disk for you.  
 ## Hints
 
 * [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+* [Static provisioning with Azure Disks](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume)
+* [Dynamic provisioning with Azure Disks]()
