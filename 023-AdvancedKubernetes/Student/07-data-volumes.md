@@ -45,10 +45,10 @@ In this sub-challenge, we will provision an Azure Disk and attach it to your pod
 
 1. Provision an Azure Disk in the `MC_<resource group>_<cluster name>_<region>` resource group.
     1. **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
-1. Modify the static-disk-deployment.yaml to use the disk.
+1. Modify disk-deployment.yaml to use the disk.
 1. Deploy the yaml file and verify the application has deployed successfully.
 1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
-1. Delete the pod. The deployment should automatically start a new pod. Verify that the contents of the /mnt/index.html file have persisted.
+1. Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 
 ### Success Criteria
 
@@ -61,39 +61,75 @@ In this sub-challenge, we will provision an Azure Disk and attach it to your pod
 
 - [Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume)
 
+## Sub-challenge 2: Dynamic provisioning with Azure Disks
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Sub-Challenge 2: Dynamic provisioning with Azure Disks
-
-In this sub-challenges, we will allow AKS to dynamically provision storage via disks. We will also learn how to scale an application that requires persistence.
+Most of the time, we have no interest in manually configuring storage for our application. In this challenge, we will use Persistent Volumes Claims to automatically provision storage.
 
 ### Description
 
-1. Modify the dynamic-disk-deployment.yaml.
-1. Deploy the yaml file and verify the application has deployed successful.
+1. Delete the deployment from the previous sub-challenge.
+1. Modify the yaml from the previous sub-challenge to create and use a PVC.
+1. Deploy the yaml file and verify the application has deployed successfully.
+1. Verify that the persistent volume has been provisioned.
+1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
+1. Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 
 ### Success Criteria
 
-- You have explained to your coach what is a StatefulSet and why it is appropriate.
+- You have configured your application to dynamically provision storage.
+- You have examined the persistent volume.
+- You have demonstrated persistence in your application.
 
 ### Hints
 
 - [Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv)
+- [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
 
-## Sub-Challenge 3: Dynamic provisioning with Azure Files
+
+
+
+
+
+
+## Sub-Challenge 3: Scaling persistent applications with Azure Disks
+
+In this sub-challenge, we will learn how to scale an application that requires persistence.
+
+### Description
+
+1. Modify dynamic-disk-deployment.yaml.
+1. Deploy the yaml file and verify the application has deployed successfully.
+1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
+1. Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
+1. Scale up the StatefulSet. Check what happens to the /mnt/index.html file stream.
+
+### Success Criteria
+
+- You have configured your application to use persistence.
+- You have demonstrated persistence in your application.
+- You have scaled up your StatefulSet.
+- You have explained to your coach what is a StatefulSet and why it is appropriate.
+
+### Hints
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Sub-Challenge 4: Dynamic provisioning with Azure Files
 
 ### Description
 
