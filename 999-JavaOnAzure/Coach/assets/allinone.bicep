@@ -79,3 +79,5 @@ module autoscale './autoscale.bicep' = {
     webApp
   ]
 }
+
+output webAppName string = webApp.outputs.webAppName
