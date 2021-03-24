@@ -1,4 +1,4 @@
-# Challenge 0: Getting your feet wet
+# Final state for the challenges
 
 [**[Home](../README.md)** - [Next Challenge >](./solution-00.md)
 
