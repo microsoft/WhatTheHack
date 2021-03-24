@@ -35,3 +35,6 @@
     ```
 
 - Although the idea is not to change any of the files, including the pom file, the deployment (including the agent jar) can also be done through `mvn`. See here [an example and instructions](https://github.com/meken/app-services-app-insights-java).
+
+- Once there's sufficient data collected (will take a few minutes and some exploration of the application), you should see something like the picture below (the screenshot shows 4 instances because it was created after a load test, but it should be 1 for the students at this stage).
+    ![Application Map](./images/application-map.png)
