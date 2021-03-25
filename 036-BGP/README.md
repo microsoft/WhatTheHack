@@ -2,15 +2,17 @@
 
 ## Introduction
 
-In this WTH exercise students will explore how to use BGP in a complex environment between an on-premises network and two Azure regions. Both active/passive and active/active Azure VPN Gateways will be used in Azure, and Cisco CSR 1000v will be used to simulate onprem devices.
+In this Hack exercise students will explore how to use BGP in a complex environment between an on-premises network and two Azure regions. Both active/passive and active/active Azure VPN Gateways will be used in Azure, and Cisco CSR 1000v will be used to simulate onprem devices.
 
 The challenges will show real-world scenarios that have been observed in customers deploying their applications to Azure
 
 The estimated duration time for this hack is 1.5-2 days.
 
+The only cost for this Hack is Azure infrastructure, there are no licensing costs associated to the Cisco NVAs.
+
 ## Learning Objectives
 
-After completing this WTH, participants will be familiar with these concepts, amongst others:
+After completing this Hack, participants will be familiar with these concepts, amongst others:
 
 - BGP
 - Differences between eBGP and iBGP
@@ -23,7 +25,8 @@ After completing this WTH, participants will be familiar with these concepts, am
 
 Please read these instructions carefully:
 
-- Setting expectations: all of the challenges in this FastHack would take around 2 days to complete. Please do not expect to finish all of the exercises in a shorter event
+- Since this Hack is not about deploying VNets or NVAs, you can use a script to deploy the infrastructure that you will be working on. You will find a script called `bgp.sh` in the file resources supplied for this Hack, which you can run to deploy the environment. The script has been tested to run in Azure Cloud Shell. Note that the script takes around 1 hour to complete, and it requires certain dependencies to exist. Therefore, it is recommended to deploy the environment the day before the Hack:
+- Setting expectations: all of the challenges in this Hack would take around 2 days to complete. Please do not expect to finish all of the exercises in a shorter event
 - It is recommended going one challenge after the other, without skipping any. However, if your team decides to modify the challenge order, that is possible too. Please consult with your coach to verify that the challenge order you wish to follow is doable, and there are no dependencies on the challenges you skip
 - **Think** before rushing to configuration. One minute of planning might save you hours of work
 - Look for the **relevant information** section in each challenge, they might contain useful information and tools
@@ -33,7 +36,7 @@ These are your challenges, it is recommended to start with the first one and pro
 
 ## Challenges
 
-- Challenge 1: **[Lab Setup](Student/01-lab_setup.md)**
+- Challenge 1: **[Environment Setup](Student/01-lab_setup.md)**
    - Deploy the required infrastructure for the exercises
 - Challenge 2: **[Enable BGP](Student/02-enable_bpg.md)**
     - Configure BGP in the missing connections

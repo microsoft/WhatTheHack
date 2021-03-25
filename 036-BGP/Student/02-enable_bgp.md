@@ -1,4 +1,4 @@
-# Challenge 2 - Enable BGP
+# Challenge 2: Enable BGP
 
 [< Previous Challenge](./01-lab_setup.md) - **[Home](../README.md)** - [Next Challenge >](./03-aspath_prepending.md)
 
@@ -40,7 +40,7 @@ router bgp ?
 - Every virtual machine can reach all other virtual machines
 - Participants can read and interpret the routing tables in each device of the setup, and show the received and advertised routes
 
-## Relevant Information
+## Learning Resources
 
 - [About BGP with Azure VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
 - CLI commands for Virtual Network Gateways:

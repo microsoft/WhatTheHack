@@ -1,4 +1,4 @@
-# Challenge 5 - Prevent Transit Routing
+# Challenge 5: Prevent Transit Routing
 
 [< Previous Challenge](./04-filtering.md) - **[Home](../README.md)** - [Next Challenge >](./06-communities.md)
 
@@ -20,6 +20,6 @@ How can this configuration be useful for an onprem router connected to both Expr
 - VNGs do not learn each other's prefixes via the onprem routers
 - Participants understand the importance of this configuration in a ExpressRoute scenario with private and Microsoft peerings (see the Azure SQL MI link in the relevant information).
 
-## Relevant Information
+## Learning Resources
 
 - [Azure SQL Managed Instance Networking Constraints](https://docs.microsoft.com/azure/azure-sql/managed-instance/connectivity-architecture-overview#networking-constraints)

@@ -1,4 +1,4 @@
-# Challenge 8 - iBGP Between VNG Instances
+# Challenge 8: iBGP Between VNG Instances
 
 [< Previous Challenge](./07-default.md) - **[Home](../README.md)**
 

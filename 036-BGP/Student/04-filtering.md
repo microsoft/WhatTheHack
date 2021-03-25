@@ -1,4 +1,4 @@
-# Challenge 4 - Route Filtering
+# Challenge 4: Route Filtering
 
 [< Previous Challenge](./03-aspath_prepending.md) - **[Home](../README.md)** - [Next Challenge >](./05-transit.md)
 
