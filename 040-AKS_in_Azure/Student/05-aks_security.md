@@ -24,7 +24,7 @@ You need to fulfill these requirements to complete this challenge:
 - Access to the application via the ingress controller is carried out over SSL
 - AAD authentication is required before being able to run any kubectl operation on the cluster
 
-## Optional Objectives
+## Advanced Challenges (Optional)
 
 - Make sure that the flag `--admin` is never required when using the command `az aks get-credentials`
 
