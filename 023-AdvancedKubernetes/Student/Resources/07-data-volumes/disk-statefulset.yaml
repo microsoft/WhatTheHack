@@ -11,11 +11,13 @@ spec:
     port: 80
     targetPort: 80
   type: LoadBalancer
+
 ---
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: challenge-1
+  name: managed-disk-statefulset
 spec:
   replicas: 1
   serviceName: managed-disk-svc
@@ -27,16 +29,6 @@ spec:
       labels:
         app: managed-disk-pod
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: "app"
-                    operator: In
-                    values:
-                    - managed-disk-pod 
-              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: busybox-writer
         image: busybox
@@ -64,4 +56,4 @@ spec:
       storageClassName: default
       resources:
         requests:
-          storage: 50Mi
+          storage: 5Gi
