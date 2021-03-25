@@ -1,10 +1,10 @@
-# 7. Service mesh<a id="challenge7"></a>
+# Challenge 7. Service Mesh - Coach's Guide
 
 [< Previous Challenge](./06-aks_storage.md) - **[Home](./README.md)** - [Next Challenge >](./08-arc.md)
 
 ## Notes and Guidance
 
-* No specific service mesh preferred, linkerd is typically the easiest to start with.
+* No specific service mesh preferred, linkerd is typically the easiest to start with. If participants want to explore the Microsoft native offering, OSM might be better.
 
 ## Solution Guide
 

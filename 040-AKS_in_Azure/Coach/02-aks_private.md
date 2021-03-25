@@ -1,4 +1,4 @@
-# 2. AKS Network integration - Coach's Guide
+# Challenge 2. AKS Network Integration and Private Clusters - Coach's Guide
 
 [< Previous Challenge](./01-containers.md) - **[Home](./README.md)** - [Next Challenge >](./03-aks_monitoring.md)
 

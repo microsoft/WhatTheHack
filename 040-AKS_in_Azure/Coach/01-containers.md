@@ -1,4 +1,4 @@
-# Challenge 1. Docker and ACI - Coach's Guide
+# Challenge 1. Containers - Coach's Guide
 
 **[Home](./README.md)** - [Next Challenge >](./02-aks_private.md)
 
