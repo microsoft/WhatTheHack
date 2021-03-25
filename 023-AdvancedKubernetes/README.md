@@ -51,9 +51,10 @@ Before starting this hack you should have hands-on experience with the following
    1. Apply weight-based routing
    1. Apply distributed tracing with Jaeger
 1. [Data Volumes](./Student/07-data-volumes.md)
-   1. Deploy a Stateful App with Azure Disk with PVC
-   1. Deploy a Stateful App with Azure Files (NFS) with PVC
-   1. Deploy a Stateful App with Azure Disk with PV
+   1. Static provisioning with Azure Disks
+   1. Dynamic provisioning with Azure Disks
+   1. Scaling persistent applications with Azure Disks
+   1. Scaling persistent applications with Azure Files
 
 ## Prerequisites
 
