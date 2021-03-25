@@ -121,39 +121,72 @@ pvc-b43420ee-b94b-4621-b60b-2ce3a03c45bc   5Gi        RWO            Delete     
 2021-03-24:23:45:53 - disk-app-78d66989-dmr55
 ```
 
+## Sub-challenge 3: Scaling persistent applications with Azure Disks
 
+### Deploy the yaml file and verify the application has deployed successfully
 
+```bash
+$ kubectl get sts
+NAME                       READY   AGE
+managed-disk-statefulset   1/1     46s
 
+$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+managed-disk-statefulset-0   2/2     Running   0          47s
 
+$ kubectl get pvc
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+managed-disk-volume-managed-disk-statefulset-0   Bound    pvc-61eab3a2-314c-4b06-af7c-e3971d037846   5Gi        RWO            default        50s
 
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                    STORAGECLASS   REASON   AGE
+pvc-61eab3a2-314c-4b06-af7c-e3971d037846   5Gi        RWO            Delete           Bound    default/managed-disk-volume-managed-disk-statefulset-0   default                 51s
 
-
-
-```yaml
-kubectl apply -f ../Resources/07-data-volumes/azure-disk-pvc-example.yaml
-kubectl get pvc
-kubectl get pv
-
-export MANAGED_DISK_IP=`kubectl get svc/managed-disk-svc -o json  | jq '.status.loadBalancer.ingress[0].ip' -r`
-echo $MANAGED_DISK_IP
-
-# Validate service is up
-curl $MANAGED_DISK_IP
-
-watch -n 1 'curl -s $MANAGED_DISK_IP | tail | head -20'
+$ kubectl get svc
+NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+managed-disk-svc   LoadBalancer   10.0.142.223   20.42.39.51   80:32581/TCP   2m48s
 ```
 
-## Sub-challenge 2
-```yaml
-kubectl apply -f ../Resources/07-data-volumes/azure-files-nfs-pvc-example.yaml
-kubectl get pvc
-kubectl get pv
+### Stream content of persisted file 
 
-export FILES_NFS_IP=`kubectl get svc/azure-files-nfs-svc -o json  | jq '.status.loadBalancer.ingress[0].ip' -r`
-echo $FILES_NFS_IP
-
-# Validate service is up
-curl $FILES_NFS_IP
-
-watch -n 1 'curl -s $FILES_NFS_IP | tail | head -20'
 ```
+Every 1.0s: curl -s 20.42.39.51 | tail | head -20                                       ubuntu: Thu Mar 25 00:05:18 2021
+
+2021-03-25:00:05:08 - managed-disk-statefulset-0
+2021-03-25:00:05:09 - managed-disk-statefulset-0
+2021-03-25:00:05:10 - managed-disk-statefulset-0
+2021-03-25:00:05:11 - managed-disk-statefulset-0
+2021-03-25:00:05:12 - managed-disk-statefulset-0
+2021-03-25:00:05:13 - managed-disk-statefulset-0
+2021-03-25:00:05:14 - managed-disk-statefulset-0
+2021-03-25:00:05:15 - managed-disk-statefulset-0
+2021-03-25:00:05:16 - managed-disk-statefulset-0
+2021-03-25:00:05:17 - managed-disk-statefulset-0
+```
+
+### Scale up statefulset
+
+```bash
+$ kubectl scale sts managed-disk-statefulset --replicas=2
+statefulset.apps/managed-disk-statefulset scaled
+```
+
+Check on the additional resources provisioned.
+
+```bash
+$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+managed-disk-statefulset-0   2/2     Running   0          5m2s
+managed-disk-statefulset-1   2/2     Running   0          49s
+
+$ kubectl get pvc
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+managed-disk-volume-managed-disk-statefulset-0   Bound    pvc-61eab3a2-314c-4b06-af7c-e3971d037846   5Gi        RWO            default        5m4s
+managed-disk-volume-managed-disk-statefulset-1   Bound    pvc-6ba497f9-613c-4277-88fd-49ba6e377a6b   5Gi        RWO            default        51s
+
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                    STORAGECLASS   REASON   AGE
+pvc-61eab3a2-314c-4b06-af7c-e3971d037846   5Gi        RWO            Delete           Bound    default/managed-disk-volume-managed-disk-statefulset-0   default                 5m4s
+pvc-6ba497f9-613c-4277-88fd-49ba6e377a6b   5Gi        RWO            Delete           Bound    default/managed-disk-volume-managed-disk-statefulset-1   default                 50s
+```
+

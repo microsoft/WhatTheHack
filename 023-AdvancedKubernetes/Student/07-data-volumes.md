@@ -43,12 +43,13 @@ In this sub-challenge, we will provision an Azure Disk and attach it to your pod
 
 ### Description
 
-1. Provision an Azure Disk in the `MC_<resource group>_<cluster name>_<region>` resource group.
-    1. **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
-1. Modify disk-deployment.yaml to use the disk.
-1. Deploy the yaml file and verify the application has deployed successfully.
-1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
-1. Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
+- Provision an Azure Disk in the `MC_<resource group>_<cluster name>_<region>` resource group.
+    - **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
+- Modify disk-deployment.yaml to use the disk.
+- Deploy the yaml file and verify the application has deployed successfully.
+- Validate that the pod is writing new logs every second
+    - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+- Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 
 ### Success Criteria
 
@@ -67,12 +68,13 @@ Most of the time, we have no interest in manually configuring storage for our ap
 
 ### Description
 
-1. Delete the deployment from the previous sub-challenge.
-1. Modify the yaml from the previous sub-challenge to create and use a PVC.
-1. Deploy the yaml file and verify the application has deployed successfully.
-1. Verify that the persistent volume has been provisioned.
-1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
-1. Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
+- Delete the deployment from the previous sub-challenge.
+- Modify the yaml from the previous sub-challenge to create and use a PVC.
+- Deploy the yaml file and verify the application has deployed successfully.
+- Verify that the persistent volume has been provisioned.
+- Validate that the pod is writing new logs every second
+    - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+- Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 
 ### Success Criteria
 
@@ -85,33 +87,29 @@ Most of the time, we have no interest in manually configuring storage for our ap
 - [Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv)
 - [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
 
-
-
-
-
-
-
 ## Sub-Challenge 3: Scaling persistent applications with Azure Disks
 
-In this sub-challenge, we will learn how to scale an application that requires persistence.
+In this sub-challenge, we will learn how to scale an application where each instance of the application requires separate storage.
 
 ### Description
 
-1. Modify dynamic-disk-deployment.yaml.
-1. Deploy the yaml file and verify the application has deployed successfully.
-1. Run `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'` in a separate window to stream the contents of the /mnt/index.html file.
-1. Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
-1. Scale up the StatefulSet. Check what happens to the /mnt/index.html file stream.
+- Deploy disk-statefulset.yaml and verify the application has deployed successfully.
+- Examine the PVC and PV created.
+- Validate that the pod is writing new logs every second
+    - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+- Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
+- Scale up the StatefulSet. Check what happens to the /mnt/index.html file stream.
 
 ### Success Criteria
 
-- You have configured your application to use persistence.
 - You have demonstrated persistence in your application.
 - You have scaled up your StatefulSet.
 - You have explained to your coach what is a StatefulSet and why it is appropriate.
 
 ### Hints
 
+- [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+- [StatefulSet Basics](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/)
 
 
 
@@ -129,7 +127,7 @@ In this sub-challenge, we will learn how to scale an application that requires p
 
 
 
-## Sub-Challenge 4: Dynamic provisioning with Azure Files
+## Sub-Challenge 5: Dynamic provisioning with Azure Files
 
 ### Description
 
@@ -140,109 +138,3 @@ In this sub-challenge, we will learn how to scale an application that requires p
 ### Hints
 
 - [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-files-dynamic-pv)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Sub-Challenge 3: Success Criteria
-
-* Validate that the pod is writing new logs every second:
-  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
-* In the portal, validate that the drive you created is consuming Throughput and IOPS
-* Kill the pod and determine the impact (e.g. `kubectl delete pod`)
-  * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
-  * Validate the service recovers
-
-### Sub-Challenge 1: Azure Disk with PVC
-
-Deploy the sample StatefulSet using Azure Disk as a PVC, verify that it works and kill the pod and kill the node to see the impact.  
-
-For this challenge:
-* View the existing and default Storage Classes on your cluster
-* Deploy the Service, PVC and Pod in [the sample yaml](Resources/azure-disk-pvc-example.yaml)
-* Validate that the Service has a Public IP, the PVC is bound and the Pod is running
-  * HINT: To see the write is being written to: `kubectl exec <POD> -- tail -f /mnt/index.html`
-
-### Sub-Challenge 1: Success Criteria
-
-After installing the resources, verify they are working:
-* Validate the StatefulSet, Pods, PVC and PV
-  * You should have 1 Service with a Public IP, 1 Ready StatefulSet, 1 Pod Running, 1 Bound PVC and 1 Bound PV
-* Validate that the Pod is writing new logs every second:
-  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
-
-Now that the service, pod and PVC have been validated, simulate failures:
-* Kill the pod and determine the impact (e.g. `kubectl delete pod`)
-  * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
-  * Validate the service recovers
-* Reboot the node and determine the impact (e.g. `az vmss restart`)
-  * HINT: To see the status of nodes: `kubectl get nodes -o wide -w`
-  * Validate the service recovers
-* Cordon the node, kill the pod and determine the impact
-  * HINT: `kubectl cordon`
-  * Validate the pod comes up on a different node
-
-Scale your app:
-* Change the replica from 1 to 2
-  * Validate you have: 1 Ready StatefulSet, 2 Pods Running, 2 Bound PVC and 2 Bound PV 
-  * What impact to the curl output do you notice?
-
-### Sub-Challenge 2: Azure Files with NFS with PVC
-
-In the previous sub-challenge, the service, PVC and deployment were generated for you.  In this sub-challenge, use the previous YAML to duplicate scenario with the following changes:
-
-* Using Azure Files with NFS instead of an Azure Disk
-* Change the Deployment replicas to 2
-
-NOTE: [You might need to Register the feature in your subscription and create a Storage Class](https://github.com/kubernetes-sigs/azurefile-csi-driver/tree/master/deploy/example/nfs)
-
-### Sub-Challenge 2: Success Criteria
-
-* Validate that the pod is writing new logs every second:
-  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
-
-Now that the service, pod and PVC have been verified, simulate failures:
-* Kill one the pods
-  * Validate the service stays up
-  * NOTE: There should be NO gap in the logs
-* Reboot the node the pod is running
-  * Validate the service stays up
-  * NOTE: There should be NO gap in the logs
-
-### Sub-Challenge 3: Azure Disk with PV
-
-In the previous sub-challenges you used a PVC, which created the Disk for you.  However, sometimes, you need to use an existing disk.  In this sub-challenge, copy the YAML from sub-challenge 1 with the following changes:
-
-* Create an Azure Disk 
-* Remove the PVC resource
-* Use the Azure Disk as a PV and mount to the same volume
-
-### Sub-Challenge 3: Success Criteria
-
-* Validate that the pod is writing new logs every second:
-  * HINT: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail -r | head -20'`
-* In the portal, validate that the drive you created is consuming Throughput and IOPS
-* Kill the pod and determine the impact (e.g. `kubectl delete pod`)
-  * HINT: To see the update of the nodes: `kubectl get pods -o wide -w`
-  * Validate the service recovers
-
-## Hints
-
-* [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
-* [Static provisioning with Azure Disks](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume)
-* [Dynamic provisioning with Azure Disks]()
