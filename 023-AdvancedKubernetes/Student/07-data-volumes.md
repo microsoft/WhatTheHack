@@ -45,7 +45,7 @@ In this sub-challenge, we will provision an Azure Disk and attach it to your pod
 
 - Provision an Azure Disk in the `MC_<resource group>_<cluster name>_<region>` resource group.
   - **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
-- Modify disk-deployment.yaml to use the disk.
+- Modify [disk-deployment.yaml](Resources/07-data-volumes/disk-deployment.yaml) to use the disk.
 - Deploy the yaml file and verify the application has deployed successfully.
 - Validate that the pod is writing new logs every second
   - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
@@ -93,7 +93,7 @@ In this sub-challenge, we will learn how to scale an application where each inst
 
 ### Description
 
-- Deploy disk-statefulset.yaml and verify the application has deployed successfully.
+- Deploy [disk-statefulset.yaml](Resources/07-data-volumes/disk-statefulset.yaml) and verify the application has deployed successfully.
 - Examine the PVC and PV created.
 - Validate that the pod is writing new logs every second
   - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
@@ -121,7 +121,7 @@ In the last sub-challenge, the application required separate storage per instanc
   - **HINT**: The basic units of scaling differ between the two constructs. Which is appropriate here?
 - Use an appropriate yaml file from one of the previous sub-challenges. Modify it to use dynamically provisioned Azure Files for storage. Set to two replicas.
   - **HINT**: there are two settings that will need to be modified in the PVC
-  - If you have not completed the above sub-challenges, either use disk-statefulset.yaml (statefulset) or dynamic-deployment.yaml (deployment) as a starting template.
+  - If you have not completed the above sub-challenges, either use [disk-statefulset.yaml](Resources/07-data-volumes/disk-statefulset.yaml) (statefulset) or [dynamic-deployment.yaml](Resources/07-data-volumes/dynamic-deployment.yaml) (deployment) as a starting template.
 - Deploy your yaml and verify the application has deployed successfully.
 - Validate that the pod is writing new logs every second
   - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
