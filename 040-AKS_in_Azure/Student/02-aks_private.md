@@ -1,4 +1,4 @@
-# Challenge 2: AKS VNet Integration and Private Clusters
+# Challenge 2: AKS Network Integration and Private Clusters
 
 [< Previous Challenge](./01-containers.md) - **[Home](../README.md)** - [Next Challenge >](./03-aks_monitoring.md)
 
@@ -20,7 +20,7 @@ You need to fulfill these requirements to complete this challenge:
 - The application is reachable over the ingress controller, and the API can read the database version successfully
 - The links in the `Direct access to API` section of the frontend are working
 
-## Optional Objectives
+## Advanced Challenges (Optional)
 
 - Make sure the AKS cluster does not have **any** public IP address
 - Configure the Azure SQL Database so that it is only reachable over a private IP address

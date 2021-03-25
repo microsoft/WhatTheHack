@@ -21,7 +21,7 @@ You need to fulfill these requirements to complete this challenge:
 - The SQL password is not stored as a Kubernetes secret or Kubernetes config map
 - No Service Principal secret is stored in Kubernetes
 
-## Optional objectives
+## Advanced Challenges (Optional)
 
 - Enable SSL in the ingress controller, and have its SSL certificate supplied from a purpose-built store such as Azure Key Vault
 

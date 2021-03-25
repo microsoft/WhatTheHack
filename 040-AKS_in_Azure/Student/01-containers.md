@@ -10,11 +10,11 @@ This challenge will cover the basics of containers and container runtimes, and g
 
 Create an Azure Container Registry. Build the API and Web images in this repository and store them in your new ACR.
 
-The application we will use in this FastHack has three components, as the following picture describes: a [web](./resources/web) tier offers an HTML portal that shows the information produced by the [api](./resources/api)], that in its turn access a **database** with a simple query that shows the database version:
+The application we will use in this hack has three components, as the following picture describes: a [web](./Resources/web) tier offers an HTML portal that shows the information produced by the [api](./Resources/api)], that in its turn access a **database** with a simple query that shows the database version. You will find the source code for each application in the files supplied for this hack:
 
 ![app architecture](./images/app_arch.png)
 
-One of these options:
+You can fulfill the challenge with either one of these two options:
 
 1. Using your local Docker installation:
   - Deploy the **database** as a SQL Server as container in your local machine
@@ -32,7 +32,7 @@ For both you should get in the web frontend something like the following. If the
 ## Success Criteria
 
 - You can access the web component
-- The web container can access the api
+- The web container can access the API container
 - The api can access the database, and the database version is correctly displayed in the frontend
 
 Here a sample screenshot of what it should look like:
@@ -41,16 +41,18 @@ Here a sample screenshot of what it should look like:
 
 Note the two links at the bottom of the page in the picture above will not work at this stage yet.
 
-## Optional Objectives
+## Advanced Challenges (Optional)
 
 - Use an open source database (such as mysql, MariaDB or Postgres)
+- If you used your local Docker installation, complete the challenge using Azure Container Instances
+- If you used Azure Container Instances, complete the challenge using your local Docker installation
 
 ## Related Documentation
 
 These docs might help you achieving these objectives:
 
-- [API image documentation and source code](./resources/api/README.md)
-- [Web image documentation and source code](./resources/web/README.md)
+- [API image documentation and source code](./Resources/api/README.md)
+- [Web image documentation and source code](./Resources/web/README.md)
 - [Run SQL Server container images with Docker](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)
 - [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)
