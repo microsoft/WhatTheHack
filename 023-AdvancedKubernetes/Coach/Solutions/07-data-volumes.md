@@ -190,3 +190,86 @@ pvc-61eab3a2-314c-4b06-af7c-e3971d037846   5Gi        RWO            Delete     
 pvc-6ba497f9-613c-4277-88fd-49ba6e377a6b   5Gi        RWO            Delete           Bound    default/managed-disk-volume-managed-disk-statefulset-1   default                 50s
 ```
 
+The stream should now switch between the two pods, alternating between the two outputs:
+
+```
+Every 1.0s: curl -s 20.42.39.51 | tail | head -20                                       ubuntu: Thu Mar 25 00:11:20 2021
+
+2021-03-25:00:11:11 - managed-disk-statefulset-0
+2021-03-25:00:11:12 - managed-disk-statefulset-0
+2021-03-25:00:11:13 - managed-disk-statefulset-0
+2021-03-25:00:11:14 - managed-disk-statefulset-0
+2021-03-25:00:11:15 - managed-disk-statefulset-0
+2021-03-25:00:11:16 - managed-disk-statefulset-0
+2021-03-25:00:11:17 - managed-disk-statefulset-0
+2021-03-25:00:11:18 - managed-disk-statefulset-0
+2021-03-25:00:11:19 - managed-disk-statefulset-0
+2021-03-25:00:11:20 - managed-disk-statefulset-0
+```
+
+```
+Every 1.0s: curl -s 20.42.39.51 | tail | head -20                                       ubuntu: Thu Mar 25 00:10:53 2021
+
+2021-03-25:00:10:44 - managed-disk-statefulset-1
+2021-03-25:00:10:45 - managed-disk-statefulset-1
+2021-03-25:00:10:46 - managed-disk-statefulset-1
+2021-03-25:00:10:47 - managed-disk-statefulset-1
+2021-03-25:00:10:48 - managed-disk-statefulset-1
+2021-03-25:00:10:49 - managed-disk-statefulset-1
+2021-03-25:00:10:50 - managed-disk-statefulset-1
+2021-03-25:00:10:51 - managed-disk-statefulset-1
+2021-03-25:00:10:52 - managed-disk-statefulset-1
+2021-03-25:00:10:53 - managed-disk-statefulset-1
+```
+
+## Sub-Challenge 4: Scaling persistent applications with Azure Files
+
+The correct construct to use here is a deployment. The statefulset as configured in sub-challenge 3 bundles the pod and the PVC into a single unit of scale. When the application is scaled, new storage is provisioned.
+
+We do not need multiple storage. Therefore, a single PVC should be created and a deployment should be created with pods configured to use the same PVC.
+
+### Create yaml
+
+See [dynamic-files-deployment.yaml](../Resources/07-data-volumes/dynamic-files-deployment.yaml).
+
+### Deploy the yaml file and verify the application has deployed successfully
+
+```bash
+$ kubectl get deploy
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+files-app   2/2     2            2           12m
+
+$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+files-app-75858d768c-5b28p   2/2     Running   0          19s
+files-app-75858d768c-66rc4   2/2     Running   0          12m
+
+$ kubectl get pvc
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+azure-files-claim                                Bound    pvc-e5071639-b252-4f60-a908-06c40155f6f1   5Gi        RWX            azurefile      12m
+
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                    STORAGECLASS   REASON   AGE
+pvc-e5071639-b252-4f60-a908-06c40155f6f1   5Gi        RWX            Delete           Bound    default/azure-files-claim                                azurefile               12m
+
+$ kubectl get svc
+NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+files-app          LoadBalancer   10.0.129.252   20.42.33.25   80:30759/TCP   12m
+```
+
+### Stream content of persisted file 
+
+```
+Every 1.0s: curl -s 20.42.33.25 | tail | head -20                                       ubuntu: Thu Mar 25 00:34:28 2021
+
+2021-03-25:00:34:23 - files-app-75858d768c-66rc4
+2021-03-25:00:34:24 - files-app-75858d768c-5b28p
+2021-03-25:00:34:24 - files-app-75858d768c-66rc4
+2021-03-25:00:34:25 - files-app-75858d768c-5b28p
+2021-03-25:00:34:26 - files-app-75858d768c-66rc4
+2021-03-25:00:34:26 - files-app-75858d768c-5b28p
+2021-03-25:00:34:27 - files-app-75858d768c-66rc4
+2021-03-25:00:34:27 - files-app-75858d768c-5b28p
+2021-03-25:00:34:28 - files-app-75858d768c-66rc4
+2021-03-25:00:34:28 - files-app-75858d768c-5b28p
+```

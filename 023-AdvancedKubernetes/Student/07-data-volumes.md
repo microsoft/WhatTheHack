@@ -44,11 +44,11 @@ In this sub-challenge, we will provision an Azure Disk and attach it to your pod
 ### Description
 
 - Provision an Azure Disk in the `MC_<resource group>_<cluster name>_<region>` resource group.
-    - **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
+  - **NOTE**: If you created a cluster with availability zones enabled, make sure to specify a zone when creating a disk. See [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations).
 - Modify disk-deployment.yaml to use the disk.
 - Deploy the yaml file and verify the application has deployed successfully.
 - Validate that the pod is writing new logs every second
-    - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+  - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
 - Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 
 ### Success Criteria
@@ -73,7 +73,7 @@ Most of the time, we have no interest in manually configuring storage for our ap
 - Deploy the yaml file and verify the application has deployed successfully.
 - Verify that the persistent volume has been provisioned.
 - Validate that the pod is writing new logs every second
-    - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+  - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
 - Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 
 ### Success Criteria
@@ -96,7 +96,7 @@ In this sub-challenge, we will learn how to scale an application where each inst
 - Deploy disk-statefulset.yaml and verify the application has deployed successfully.
 - Examine the PVC and PV created.
 - Validate that the pod is writing new logs every second
-    - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+  - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
 - Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 - Scale up the StatefulSet. Check what happens to the /mnt/index.html file stream.
 
@@ -111,29 +111,30 @@ In this sub-challenge, we will learn how to scale an application where each inst
 - [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 - [StatefulSet Basics](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/)
 
+## Sub-Challenge 4: Scaling persistent applications with Azure Files
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Sub-Challenge 5: Dynamic provisioning with Azure Files
+In the last sub-challenge, the application required separate storage per instance. In this sub-challenge, we will learn how to scale an application where all instances can share the same storage.
 
 ### Description
 
+- Decide whether a deployment or a statefulset is appropriate in this sitation.
+  - **HINT**: The basic units of scaling differ between the two constructs. Which is appropriate here?
+- Use an appropriate yaml file from one of the previous sub-challenges. Modify it to use dynamically provisioned Azure Files for storage. Set to two replicas.
+  - **HINT**: there are two settings that will need to be modified in the PVC
+  - If you have not completed the above sub-challenges, either use disk-statefulset.yaml (statefulset) or dynamic-deployment.yaml (deployment) as a starting template.
+- Deploy your yaml and verify the application has deployed successfully.
+- Validate that the pod is writing new logs every second
+  - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
+- Delete one of the pods. Verify that the contents of the /mnt/index.html file have persisted.
+  - **NOTE**: There should be NO gap in the logs.
+
 ### Success Criteria
 
-- You have explained to your coach why a StatefulSet is not appropriate.
+- You have explained to your coach why you decided to use a deployment or statefulset.
+- You have explained to your coach why Azure Files is the correct choice of storage for this situation.
+- You have successfully deployed multiple replicas of your application.
+- You have demonstrated persistence in your application.
+- You have demonstrated high availability in your application.
 
 ### Hints
 
