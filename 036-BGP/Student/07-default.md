@@ -1,4 +1,4 @@
-# Challenge 7 - Default Routing
+# Challenge 7: Default Routing
 
 [< Previous Challenge](./06-communities.md) - **[Home](../README.md)** - [Next Challenge >](./08-vng_ibgp.md)
 

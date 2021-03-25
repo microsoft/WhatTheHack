@@ -1,4 +1,4 @@
-# Challenge 6 - BGP Communities
+# Challenge 6: BGP Communities
 
 [< Previous Challenge](./05-transit.md) - **[Home](../README.md)** - [Next Challenge >](./07-default.md)
 

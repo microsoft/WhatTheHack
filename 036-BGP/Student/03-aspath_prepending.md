@@ -1,4 +1,4 @@
-# Challenge 3 - Influencing Routing
+# Challenge 3: Influencing Routing
 
 [< Previous Challenge](./02-enable_bgp.md) - **[Home](../README.md)** - [Next Challenge >](./04-filtering.md)
 
@@ -24,6 +24,6 @@ Would the solution have been different if CSR3 and CSR4 had different ASNs?
 - VNG1/VNG2 prefer CSR4 to reach 10.4.0.0/16
 - Participants can relate the configuration in this challenge to the scenario with redundant ER connections in two Azure regions
 
-## Relevant Information
+## Learning Resources
 
 - [Optimize ExpressRoute routing](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing)
