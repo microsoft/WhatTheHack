@@ -1,4 +1,4 @@
-# 5. AKS Security - Coach's Guide
+# Challenge 5. AKS Security - Coach's Guide
 
 [< Previous Challenge](./04-aks_secrets.md) - **[Home](./README.md)** - [Next Challenge >](./06-aks_storage.md)
 

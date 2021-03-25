@@ -1,4 +1,4 @@
-# 6. AKS Storage
+# Challenge 6. AKS Storage - Coach's Guide
 
 [< Previous Challenge](./05-aks_security.md) - **[Home](./README.md)** - [Next Challenge >](./07-aks_mesh.md)
 

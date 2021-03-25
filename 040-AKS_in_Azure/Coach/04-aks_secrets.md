@@ -1,12 +1,14 @@
-# 4. Secrets - Coach's Guide
+# Challenge 4. Secrets - Coach's Guide
 
-[< Previous Challenge](./03-aks_monitoring.md) - **[Home](./README.md)** - [Next Challenge >](./04-aks_secrets.md)
+[< Previous Challenge](./03-aks_monitoring.md) - **[Home](./README.md)** - [Next Challenge >](./05-aks_security.md)
 
 ## Notes and Guidance
 
 * The fact that no static passwords can be used implies that AAD Pod Identity is a prerequisite
 * Note that with the nginx ingress controller injecting certificates as files is not possible. The new CSI driver can inject secrets as files **and** variables. However, since certificates are not a must in this challenge, you can ignore this point
 * Note that Flexvol is deprecated in favor of CSI. Steer participants towards the CSI implementation
+* The identity space in AKS is quite dynamic, consider that there might a way of fulfilling this challenge without using pod identity
+* Pod identity is now an addon for AKS, it would be recommended using that addon instead of the helm installation
 * Along this lab a large number of pods will be created. Chances are that the number of pods will exceed 30, the maximum per node for Azure CNI. If the participant has deployed one single node, some pods will not start. One possible solution is enable the cluster autoscaler:
 
 ## Solution Guide

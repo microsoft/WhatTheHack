@@ -1,4 +1,4 @@
-# 8. Arc for Kubernetes
+# Challenge 8. Arc enabled Kubernetes and Arc enabled data Services - Coach's Guide
 
 [< Previous Challenge](./07-aks_mesh.md) - **[Home](./README.md)**
 

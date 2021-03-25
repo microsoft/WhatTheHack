@@ -1,14 +1,14 @@
-# AKS - Integration with Azure Components
+# What The Hack - AKS Enterprise-Grade
 
 ## Introduction
 
-This What The Hack has an objective studying in depth the integration surface between AKS and different Azure services. Some are optional components (for example monitoring), but others are required to successfully operate Kubernetes clusters on Azure (such as networking or storage).
+This Hack has an objective studying in depth the integration surface between AKS and different Azure services. Some are optional components (for example monitoring), but others are required to successfully operate Kubernetes clusters on Azure (such as networking or storage).
 
 ## Learning Objectives
 
 In this hack you will start by deploying a 3-tier application to AKS with very specific networking requirements.
 
-The complexity will quickly evolve towards security and storage, finishing with the last challenge focusing on Arc technology.
+The complexity will quickly evolve towards security and storage, finishing with the last challenge focusing on Arc-enabled kubernetes clusters and arc-enabled data services.
 
 ## Challenges
 
@@ -29,7 +29,7 @@ The complexity will quickly evolve towards security and storage, finishing with 
 - Challenge 8: **[Arc for k8s/data](Student/08-arc.md)**
    - Leverage Arc for Kubernetes to manage a non-AKS cluster, and Arc for data to deploy a managed database there
 
-You can find the source code and documentation for the required containers [here](Student/resources/README.md).
+You can find the source code and documentation in the resources files provided to you for the hack.
 
 ## Prerequisites
 
