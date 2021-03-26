@@ -1,11 +1,10 @@
 # What The Hack - Synapse What The Hack
 
 ## Introduction
-
-Intro into Synapse What The Hack
+Contoso Powerlifting Federation (CPF) are in dire need to modernize their data approach. Among the tasks required by your team, you will be challenged to retrieve the source data and upload it into a modern data warehouse repository in a cleansed/modelled format to be able to report and visualize. 
 
 ## Learning Objective
-Contoso Powerlifting Federation (CPF) are in dire need to modernize their data approach. Among the tasks required by your team, you will be challenged to retrieve the source data and upload it into a modern data warehouse repository in a cleansed/modelled format to be able to report and visualize. The solution should also consider future incoming data entries.  
+The solution should also consider future incoming data entries.  
 
 ## Challenges
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/00-prereqs.md)**
