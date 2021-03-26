@@ -8,4 +8,4 @@ export vmss_system=$(az vmss list -g MC_OSSDBMigration_ossdbmigration_westus --q
 # Now stop the VM scale sets
 
 az vmss stop -g MC_OSSDBMigration_ossdbmigration_westus -n $vmss_user
-az vmss stop -g MC_OSSDBMigration_ossdbmigration_westus -n $vms_system
+az vmss stop -g MC_OSSDBMigration_ossdbmigration_westus -n $vmss_system
