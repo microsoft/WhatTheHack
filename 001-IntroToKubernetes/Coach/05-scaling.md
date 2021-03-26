@@ -6,12 +6,14 @@
 
 - In the YAML file, they will have to update the **spec.replicas** value. They can use this command to edit the deployment resource:
 	- `kubectl edit deployment content-web`
+	- Alternatively (and perhaps preferably!), they can edit the yaml directly in the Azure portal.  
 - They can watch cluster events by using the following command:
 	- `kubectl get events --sort-by='{.lastTimestamp}' --watch`
 - The error they will encounter is that there aren’t enough CPUs in the cluster to support the number of replicas they want to scale to.
 - The three fixes to address resource constraints are:
 	- Use the Azure portal or CLI to add more nodes to the AKS cluster.
 	- Use the cluster autoscaler to automatically add more nodes to the cluster as resources are needed.
+    	- Once the challenge is complete, show the team how easy it is to enable the cluster autoscaler  (Portal -> Cluster -> Node Pools -> Scale, then select 'Autoscale')
 	- Change the deployment and reduce the needed CPU number from “0.5” to “0.125” (500m to 125m).
 		- This is the preferred solution as long as the application remains responsive!
 		- **NOTE** In the case the last option doesn't work, delete the old pods and reapply the deployments. Kubernetes deploys new pods before tearing down old ones and if we are out of resources, no new pods will be deployed.
