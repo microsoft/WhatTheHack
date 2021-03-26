@@ -1,6 +1,6 @@
 # Challenge 1: Gathering Open Powerlifting Data
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-load-data.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-load-data.md)
 
 ## Notes and Guidance
 - There is a link on the student page to get the data. Link is [here](https://github.com/sstangl/openpowerlifting-static/raw/gh-pages/openpowerlifting-latest.zip) should they need additional guidance 

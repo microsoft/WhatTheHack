@@ -1,6 +1,6 @@
 # Challenge 2: Load data into a relational database/warehouse
 
-[< Previous Challenge](./01-data-gathering.md) - **[Home](../README.md)** - [Next Challenge >](./03-visualization.md)
+[< Previous Challenge](./01-data-gathering.md) - **[Home](README.md)** - [Next Challenge >](./03-visualization.md)
 
 ## Notes and Guidance
 - Loading into a relational SQL Database for Azure Synapse Analytics
