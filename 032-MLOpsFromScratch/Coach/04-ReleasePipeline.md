@@ -24,6 +24,6 @@
 
     3.  Azure CLI task to deploy the scoring image on ACI using `deployOnAci.py` file
 
-    4.  Azure CLI task to test the ACI web service using `WebserviceTest.py` file.
+    4.  Azure CLI task to test the ACI web service using `AciWebserviceTest.py` file.
 
 5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. 
