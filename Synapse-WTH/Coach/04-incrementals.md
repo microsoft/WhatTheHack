@@ -1,4 +1,4 @@
-# Challenge 4: Incrementals
+# Challenge 4: Loading Incrementals
 
 [< Previous Challenge](./03-visualization.md) - **[Home](../README.md)** - [Next Challenge >](./05-data-masking.md)
 

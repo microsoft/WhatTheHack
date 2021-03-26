@@ -1,4 +1,4 @@
-# (BONUS) Challenge 6: Add New Data Source(s)
+# Challenge 6: Add New Data Source(s)
 
 [< Previous Challenge](./05-data-masking.md) - **[Home](../README.md)** - [Next Challenge >](./07-ml.md)
 
