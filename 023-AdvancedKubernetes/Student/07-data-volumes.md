@@ -105,11 +105,13 @@ In this sub-challenge, we will learn how to scale an application where each inst
   - **HINT**: In separate window, run: `watch -n 1 'curl -s <PUBLIC IP> | tail | head -20'`
 - Delete the pod. Another pod should automatically be started. Verify that the contents of the /mnt/index.html file have persisted.
 - Scale up the StatefulSet. Check what happens to the /mnt/index.html file stream.
+- Delete one of the pods. Check what happens to the stream.
 
 ### Success Criteria
 
 - You have demonstrated persistence in your application.
 - You have scaled up your StatefulSet.
+- You have demonstrated high availability in your application.
 - You have explained to your coach what is a StatefulSet and why it is appropriate.
 
 ### Hints
