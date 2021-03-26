@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./03-visualization.md) - **[Home](../README.md)** - [Next Challenge >](./05-data-masking.md)
 
-## Notes and guidance
+## Notes and Guidance
 - Refer to the notes on prereqs markdown on the daily reports data
 - This section is all about how the team will load incremental data changes into the database
 - New data is new event results (INSERTs) **NOT** modification
