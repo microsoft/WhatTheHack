@@ -1,6 +1,6 @@
 # Challenge 3: Visualization
 
-[< Previous Challenge](./02-load-data.md) - **[Home](../README.md)** - [Next Challenge >](./04-incrementals.md)
+[< Previous Challenge](./02-load-data.md) - **[Home](README.md)** - [Next Challenge >](./04-incrementals.md)
 
 ## Notes and Guidance
 - Team should have downloaded PowerBI Desktop 

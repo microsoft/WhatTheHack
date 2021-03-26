@@ -1,6 +1,6 @@
 # Challenge 0: Pre-requisites - Ready, Set, GO! 
 
-**[Home](../README.md)** - [Next Challenge >](./01-data-gathering.md)
+**[Home](README.md)** - [Next Challenge >](./01-data-gathering.md)
 
 ## Notes and Guidance
 - Make sure that you have joined the Teams group for this track. The first person/coach on your team at your table should create a new channel in this Team with your team name.
