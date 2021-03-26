@@ -20,7 +20,7 @@ Although the data used in the Hack is less than 10 GB in size (think of this as 
 - Show the populated data to your coach.
 
 
-Bonus
+## Bonus
 - Explain the data distribution methodologies used and why
 
 ## Learning Resources

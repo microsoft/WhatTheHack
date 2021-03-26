@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./02-load-data.md) - **[Home](../README.md)** - [Next Challenge >](./04-incrementals.md)
 
-## Notes and guidance
+## Notes and Guidance
 - Team should have downloaded PowerBI Desktop 
 - Connecting to the database is part of data source selection in Power BI
 - There are some reports that can be used for examples in Coaches Resources

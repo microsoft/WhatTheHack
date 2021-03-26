@@ -2,10 +2,10 @@
 
 [< Previous Challenge](./01-data-gathering.md) - **[Home](../README.md)** - [Next Challenge >](./03-visualization.md)
 
-## Notes and guidance
+## Notes and Guidance
 - Loading into a relational SQL Database for Azure Synapse Analytics
 - Azure Synapse Analytics, Azure SQL Database
 - Have them create the data model and show you what it is they're working with
-- Dicussion around loading the data
+- Discussion around loading the data
 - Team should show the data populated
 - Team should be able to give the coach some discussion points around data distribution methodologies (BONUS)
