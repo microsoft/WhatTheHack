@@ -4,6 +4,12 @@
 
 ## Notes & Guidance
 
+**NOTE TO COACH: Timebox this challenge!**  It is easy for students/teams to get stuck and spend multiple hours on this challenge, which takes away precious time that could be spent on Kubernetes challenges.  I suggest limiting this to one hour at most.  After that time has been reached, show the students how to run `az acr import` to pull the existing images from dockerhub into their ACR in challenge 2.
+
+##############
+
+
+
 - Deploy build machine VM with Linux + Docker using provided ARM Template
 	- **`az group create -g <resourcegroupname> -l <region>`**
 	- **`az deployment group create -g <rgname> -n <deploymentName> --template-file docker-build-machine-vm.json --parameters docker-build-machine-vm.parameters.json`**
