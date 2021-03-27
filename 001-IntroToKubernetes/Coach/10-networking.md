@@ -8,9 +8,6 @@
 - The Ingress Controller has many capabilities, students are going to experiment only with its DNS routing capability in this challenge
 - Make sure that each student's AKS cluster has the nginx Ingress Controller installed. They should eventually find this page that is a step by step walkthrough on installing the nginx Ingress Controller on an AKS cluster:
 	- <https://docs.microsoft.com/en-us/azure/aks/ingress-basic>
-- Refer to the AKS documentation for the verification of logs
-- Validate DNS entries in the portal by navigating to the "special" `MC_xxx` resource group created for each AKS cluster and find the **DNS Zone** object in there.
-	- **NOTE**: The DNS entries are **NOT** required but encouraged to be in the "special" resource group. The students will deploy a **DNS Zone** into the resource group of their choice after installing the Ingress Controller.
-- The documentation below contains a section "Add an A record to your DNS zone". This is how the students will add the Ingress Controller external IP to their DNS zone.
-	- <https://docs.microsoft.com/en-us/azure/aks/ingress-tls>
-- In `template-web-ingress-deploy.yml` the host name should be changed to "name-of-ingress-controller.MY_CUSTOM_DOMAIN"
+- Regarding the question _"Discuss with your coach how you might link a 'real' DNS name (eg, conferenceinfo.fabmedical.com) with this "azure-specific" DNS name (eg, conferenceinfo.eastus.cloudapp.azure.com)"_, the answer is, use a CNAME.
+  - eg, in your DNS system of record, you would set conferenceinfo.fabmedical.com as a CNAME pointing to conferenceinfo.eastus.cloudapp.azure.com
+- Optionally, if the coach has access to a valid (personal) domain, they could demonstrate setting up the CNAME for the students.
