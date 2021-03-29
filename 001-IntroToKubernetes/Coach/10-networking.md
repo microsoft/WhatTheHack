@@ -5,7 +5,15 @@
 ## Notes & Guidance
 
 - Make sure that students have a clear picture of what services are and the different types (ClusterIP, LoadBalancer, etc) and how they map to different types of networking.
-- The Ingress Controller has many capabilities, students are going to experiment only with its DNS routing capability in this challenge
+- Part 1, Step 1:  The metadata they need to add is:
+```
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: myserviceuniquelabel
+```
+
+
+
 - Make sure that each student's AKS cluster has the nginx Ingress Controller installed. They should eventually find this page that is a step by step walkthrough on installing the nginx Ingress Controller on an AKS cluster:
 	- <https://docs.microsoft.com/en-us/azure/aks/ingress-basic>
 - Regarding the question _"Discuss with your coach how you might link a 'real' DNS name (eg, conferenceinfo.fabmedical.com) with this "azure-specific" DNS name (eg, conferenceinfo.eastus.cloudapp.azure.com)"_, the answer is, use a CNAME.
