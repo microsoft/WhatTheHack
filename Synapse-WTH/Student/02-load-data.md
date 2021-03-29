@@ -13,19 +13,15 @@ Your method of loading should anticipate that later files with the same structur
 Although the data used in the Hack is less than 10 GB in size (think of this as your test data set), you need to design for an expected data size of 20 TB or more.  Choose your tools appropriately.
 
 ## Success Criteria
-
-- Explain and justify your choice of database/warehouse/engine for the challenge.
-- Create and describe the data model.
-- Describe the process used to load data to your coach.  Discuss what options you considered and why you chose the one you did.
-- Show the populated data to your coach.
-
+- Explained and justified to your coach the choice of database/warehouse/engine for the challenge.
+- Created and can describe a data model.
+- Described and explained the process used to load data to your coach. Discussed what options you considered and explained the team choice.
+- Shown the populated data to your coach.
 
 ## Bonus
 - Explain the data distribution methodologies used and why
 
 ## Learning Resources
-
-Reference articles:
 - https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is
 - https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks
 - https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace
