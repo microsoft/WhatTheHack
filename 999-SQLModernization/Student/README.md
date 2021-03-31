@@ -8,4 +8,5 @@
 5. [High Availability & Disaster Recovery](./Student/Challenges/Challenge05.md)
 6. Secure Enclaves / Always Encryped ??
 7. Analytics & Polybase ??
-8. ???
+8. Blockchain ??
+9. ???
