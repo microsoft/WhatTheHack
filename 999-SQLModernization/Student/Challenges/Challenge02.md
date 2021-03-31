@@ -1,49 +1,46 @@
-# Challenge 2 - Performance
+# Challenge 2 - Migration at Scale
 
-[< Previous Challenge](./Challenge01.md) - **[Home](../../README.md)** - [Next Challenge>](./Challenge03.md)
+[< Previous Challenge](./Challenge00.md) - **[Home](../../README.md)** - [Next Challenge >](./Challenge03.md)
 
 ## Introduction 
 
-Although SQL Server is easier than ever to deploy with Azure SQL Database, containers, and VMs, knowing how to properly use the monitoring and evaluation tools, like Query Store, can make a difference between an application that simply "performs ok" to one that "flies."  While SQL Server has evolved with features over the years, it's a good idea to understand how these changes might impact an application.
+Your team is wondering what options are available to leverage automation for the migration of SQL Server infrastructure to the cloud. In doing so they would be able to accelerate the migration at scale and take advantage of intelligence learnings from the field. 
 
 ## Description
 
-The purpose of this challenge is threefold:
-1. Explore new features of SQL Server that may improve performance intrinsically
-1. Ensure would-be data engineers and DBAs are comfortable evaluating performance 
-1. Leverage newer tools like Azure Data Explorer and Notebooks
+The objective of this challenge is to migrate TPCC (benchmark database - http://www.tpc.org/tpcc/) to Azure. The TPCC database is used as a benchmark for a typical OLTP workloads. 
 
-### Explore new features
+### Challenge details 
 
-To begin, download and open the [Intelligent Query Processing notebook](./assets/SQLWTH_Challenge2_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatability mode 130 vs 150.
+Your company has provided the following requirements and guidelines:
 
-While it's clear the SQL Server 2019 version performs better, the challenge is to understand why. Leverage Query Store to evaluate the differences in performance and execution plans.  
+1. Must take advantage of latest automation tools available to execute migration at scale
+2. Migration efforts must be strategic by taking into considerations the recommendations provided through Machine 
+   Learning algorithms
+3. Improve the quality of the process by ensuring it could be repeated
+4. Source databases setup is using the industry benchmark tools  
 
-
-### Understand key blockers
-
-There's a saying, "If you can't measure it, you can't improve it." Perhaps for code optimizations, it's more accurate to say, "To effectively improve something, you begin by measuring it." Looking at the execution plan is a key way to understand how a query is parsed and executed so that changes can be intentional and evaluated. This part of the challenge involves understanding the indexing and reading the execution plan. While altering a table and its indexes to improve a query may harm another query, the goal is to find the appropriate tradeoffs.
-
-The WWI team powers a dashboard that uses a query similar to the below to track current invoices for a given day. Execute and evaluate its execution plan. 
-
-```sql
-SELECT InvoiceId, CustomerId, TotalChillerItems, TotalDryItems, ConfirmedDeliveryTime
-FROM Sales.Invoices
-WHERE ConfirmedDeliveryTime BETWEEN '2016-01-07 00:00:00.000' AND '2016-01-07 23:59:59.998'
-ORDER BY ConfirmedDeliveryTime DESC
-```
 
 ## Success Criteria
 
-1. Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they different.
-1. Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
+1. Susccessfully migrate the SQL Server VM hosting TPCC database meeting the above criteria
+2. Share the Assement report with the team for collaboration on knowledge sharing
+3. Complete validation of the migrated TPCC database
+
 
 ## Learning Resources
-* [SQL Server Compatability Levels](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15)
-* [Administering Relational Databases Exam](https://docs.microsoft.com/en-us/learn/certifications/exams/dp-300)
 
 ## Tips
-* If you are able to evaluate and see what how the plans are different but not sure why, read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15); cross reference your observations with the details in the document
 
+* Learn about the [Azure Migrate](https://docs.microsoft.com/en-us/azure/migrate/), [Tutorial1](https://docs.microsoft.com/en-us/azure/migrate/tutorial-discover-physical), [Tutorial2](https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-physical), [Tutorial3](https://docs.microsoft.com/en-us/azure/migrate/tutorial-migrate-physical-virtual-machines)
+* Learn about [HammerDB automation tool](https://www.hammerdb.com/) 
+* Learn about [TPCC benchmark database](http://www.tpc.org/tpcc/) 
+
+
+## Advanced Challenges (Optional)
+
+1. Migrate On-premises SQL Server (physical server) to Azure SQL Server (IaaS)
+2. Migrate On-premises SQL Server (physical server) to Azure SQL db (PaaS)
+3. Migrate SQL Server VM on VMWare (IaaS) to Azure SQL Server (IaaS)
 
 

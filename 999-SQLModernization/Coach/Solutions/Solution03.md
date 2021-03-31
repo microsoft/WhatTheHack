@@ -1,100 +1,75 @@
-# Solution 03 - Security & Auditing
+# Solution 3 - Performance
 
 [< Previous Challenge](./Solution02.md) - **[Home](../README.md)** - [Next Challenge>](./Solution04.md)
 
 ## Introduction
 
-The purpose of this challenge is to get attendees hands-on with several security features on SQL Server. This is not meant to be exhaustive and inclusive of all best practices, but rather demonstrate how several features can be used together to provide a "defense in depth" model.
+This challenge requires attendees to use a Jupyter Notebook and Azure Data Studio (or equivalent tool) to run/experiment with SQL Server performance and evaluating performance.
 
-## Vulnerability Assessment & Threat Protection
+The purpose of this challenge is threefold:
 
-An example of implementing this is [located in Microsoft SQL Workshop](https://github.com/microsoft/sqlworkshops-azuresqlworkshop/blob/master/azuresqlworkshop/03-Security.md). 
+1. Explore new features of SQL Server that may improve performance intrinsically
+1. Ensure would-be data engineers and DBAs are comfortable evaluating performance
+1. Leverage newer tools like Azure Data Explorer and Notebooks
 
-Once configured, you can test SQL Injection by opening a new connection to the database, adding something like "Application Name=testapp" to the Additional Connection Parameters dialog. Then, using that connection, execute a query such as:
+In addition to getting hands on with troubleshooting and exploring new features of SQL Server, this challenge will help those purpsuing DP-300 or related certifications that evaluate these skills.
 
-```sql
-SELECT * FROM sys.databases WHERE database_id like '' or 1 = 1 --' and family = 'test1';
-```
+## Explore new features
 
-The above should trigger an alert that will result in an email like this:
+This notebook walks through two queries that perform quite differently in pre-SQL Server 2019 versions compared to SQL Server 2019+. The Notebook walks through setting up the test, and effectively changing the way the query is run by altering the database compatability level.
 
-![Alert](../assets/sqlinjection.png)
+The chart of compatability levels is as follows:
 
-## Data Discovery & Classification
+|SQL Version|Compat Level|Software Version|Notable Changes|
+|-----------|------------|----------------|-------|
+|SQL Server 2019|150|15|Intelligent Query Processing|
+|SQL Server 2017|140|14||
+|SQL Server 2016|130|13|New Query Plan and Execution features, Query Store|
+|SQL Server 2014|120|12|New Cardinality Estimator|
+|SQL Server 2012|110|11||
+|SQL Server 2008|100|10||
 
-Most of this is straightforward and can be done in the portal, in SSMS, or via SQL and PowerShell. For green teams, using the portal is fine. However, for more advanced teams, encourage writing SQL directly as this can be added to a code repository and included in a data ops pipeline.
+If the attendees need more direction, have them read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15) to get a better sense of what is being asked for.
 
-## Auditing
+Once the queries have been run for each compatability level, the Query Store should reveal the difference in performance (this is most easily done using SQL Server Enterprise Management Studio). Under the Top Resource Consuming Queries, teams should see something similar to:
 
-Log Analytics may take some time to begin adding auditing events. It's important to write logs to both blob storage and Log Analytics. The files in blob storage can be opened in SSMS and evaluated using the built-in dashboard.
+![Query Store](../assets/query_plans_for_table_variable.png)
 
-## Dynamic Data Masking
+Typically when evaluating performance using the execution plan, you'd focus on the big ticket items in the plan -- what index is being used? In this case, the clustered index scan estimates a single row for the output:
 
-Dynamic data masking is an easy way to add "defense in depth" measures to mask all or parts of a column -- for example, masking all but the last 4 of a social security number of credit card number. A call center agent or website, for example, would only "see" the last 4 digits for verification purposes. 
+![Slower Plan](../assets/query_stats_for_slower_plan.png)
 
-The example code block contains the TSQL needed to query sample rows, set up a mask, configure a test user, re-query the same rows to check for consistency, and optionally drop the mask if desired. (There is no reason to drop the mask, but providing the code here for how to do it.)
+The query looks different when running under SQL Server 2019. The clustered index scan remains, but is much more accurate in its estimate:
 
-```sql
+![Faster Plan](../assets/query_stats_for_faster_plan.png)
 
---example query
-SELECT top 10 person.FirstName, person.LastName, phone.PhoneNumber
-FROM Person.Person person
-INNER JOIN Person.PersonPhone phone 
-ON person.BusinessEntityID = phone.BusinessEntityID
-WHERE person.LastName LIKE 'S%'
-ORDER BY person.LastName ASC
+By leveraging *table variable deferred compilation*, the compilation of the statement is deferred until the first execution. Cardinality estimates can then be based on the actual table row counts, allowing for better downstream operation choices.  
 
---add mask
-ALTER TABLE Person.PersonPhone
-ALTER COLUMN PhoneNumber ADD MASKED WITH (FUNCTION = 'partial(0,"x",5)');
+Similarly, *adaptive joins* delays the selection of the type of join until after the first input has been scanned, so either a Hash Join or Nested Loop Join can be selected.
 
---create a user to test
-CREATE USER TestUser WITHOUT LOGIN;  
-GRANT SELECT ON Person.Person TO TestUser;  
-GRANT SELECT ON Person.PersonPhone TO TestUser;  
+Lastly, *batch mode for rowstore*, previously exclusive to columnstore indexes, now exists for rowstore and can greatly increase the efficiency the processing of multiple rows as batches instead of a single row at a time. Compare the stats for the slower vs longer plan -- the slower Estimated Execution Mode is Row, while the faster has an Extimated Execution Mode as Batch.
 
-EXECUTE AS USER = 'TestUser';
-SELECT top 10 person.FirstName, person.LastName, phone.PhoneNumber
-FROM Person.Person person
-INNER JOIN Person.PersonPhone phone 
-ON person.BusinessEntityID = phone.BusinessEntityID
-WHERE person.LastName LIKE 'S%'
-ORDER BY person.LastName ASC
-REVERT;
+## Understand key blockers
 
---drop mask if needed
-ALTER TABLE Person.PersonPhone
-ALTER COLUMN PhoneNumber DROP MASKED;
+Depending on the team's ability to read/process query plans, this may either an instant answer or may take some research. An execution plan similar to the following should be displayed when running the provided query: 
 
-```
+![Key Lookup](../assets/keylookup.png)
 
-Dynamic data masking doesn't protect the underlying data or encrypt it in any way. The permissions are applied via an UNMASK permission. There are weaknesses to using data masking: for example, if a user has ad-hoc query persmissions and the column in question is a "salary" value, the user can use search predicates to filter the results -- for example, WHERE Table.Salary > 100000 and Table.Salary < 1100000. The results may still be masked, but it would be trivial to write a query to self-join the table into salary buckets, for example. Therefore, while a useful features, it is considered a "defense in depth" measure best used in conjuction with other best practices.
+In this case, the tuning advisor shows a missing index at the top of the execution plan that would make this query run faster, so the answer is (somewhat unfortunately) in plain site. But why? Be sure the team understands the reasons before blindly creating indexes.
 
-For the advanced challenge on Data Masking, consider the following script:
+The 'key' is in the key lookup; because it uses the most time, it makes sense to focus here. A key lookup occurs when SQL doesn't have all of the information in an index to satisfy its predicates. The result is the clustered index is referenced for the missing information, as shown in the image.
+
+To fix this issue, a new index can be created that covers the predicates required by the query; in this case, it is considered to be a *covering index* because the index itself contains all of the information needed to answer the query. But, indexes can be expensive to maintain, so need to be chosen carefully. Every time a new record is inserted into Sales.Invoices, all indexes require updating, too.
+
+The following helper queries will create and drop the needed index:
 
 ```sql
+CREATE NONCLUSTERED INDEX [IX_Sales_Invoices_ConfirmedDelivery_TotalDry_TotalChiller] 
+ON Sales.Invoices (ConfirmedDeliveryTime) 
+INCLUDE (CustomerId, TotalDryItems, TotalChillerItems)
 
--- example query
-SELECT TOP 20 * from HumanResources.EmployeePayHistory
-ORDER BY BusinessEntityID ASC
-
--- add permission to table
-GRANT SELECT ON HumanResources.EmployeePayHistory TO TestUser;  
-
--- add mask
-ALTER TABLE HumanResources.EmployeePayHistory
-ALTER COLUMN Rate ADD MASKED WITH (FUNCTION = 'default()');
-
--- query w mask -- observe the 'RateBucket' 
-EXECUTE AS USER = 'TestUser';
-SELECT TOP 20 *, 
-    CASE 
-        WHEN Rate > 100 THEN '>100'
-        WHEN Rate > 50 THEN '>50'
-        ELSE '<50'
-    END AS RateBucket
-    FROM HumanResources.EmployeePayHistory
-ORDER BY BusinessEntityID ASC
-REVERT;
-
+DROP INDEX IX_Sales_Invoices_ConfirmedDelivery_TotalDry_TotalChiller
+ON Sales.Invoices
 ```
+
+Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.
