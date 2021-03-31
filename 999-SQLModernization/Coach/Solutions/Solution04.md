@@ -1,75 +1,100 @@
-# Solution 4 -High Availability & Disaster Recovery
+# Solution 4 - Security & Auditing
 
+[< Previous Challenge](./Solution03.md) - **[Home](../README.md)** - [Next Challenge>](./Solution05.md)
 
-DNS zone
+## Introduction
 
-A unique ID that is automatically generated when a new SQL Managed Instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone.
+The purpose of this challenge is to get attendees hands-on with several security features on SQL Server. This is not meant to be exhaustive and inclusive of all best practices, but rather demonstrate how several features can be used together to provide a "defense in depth" model.
 
- Note
+## Vulnerability Assessment & Threat Protection
 
-A DNS zone ID is not required for failover groups created for SQL Database.
+An example of implementing this is [located in Microsoft SQL Workshop](https://github.com/microsoft/sqlworkshops-azuresqlworkshop/blob/master/azuresqlworkshop/03-Security.md). 
 
-Failover group read-write listener
+Once configured, you can test SQL Injection by opening a new connection to the database, adding something like "Application Name=testapp" to the Additional Connection Parameters dialog. Then, using that connection, execute a query such as:
 
-A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as <fog-name>.database.windows.net. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as <fog-name>.<zone_id>.database.windows.net.
+```sql
+SELECT * FROM sys.databases WHERE database_id like '' or 1 = 1 --' and family = 'test1';
+```
 
-Failover group read-only listener
+The above should trigger an alert that will result in an email like this:
 
-A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It is created automatically when the failover group is created and allows the read-only SQL workload to transparently connect to the secondary using the specified load-balancing rules. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as <fog-name>.secondary.database.windows.net. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as <fog-name>.secondary.<zone_id>.database.windows.net.
-  
- Multiple failover groups
+![Alert](../assets/sqlinjection.png)
 
-You can configure multiple failover groups for the same pair of servers to control the scope of failovers. Each group fails over independently. If your multi-tenant application uses elastic pools, you can use this capability to mix primary and secondary databases in each pool. This way you can reduce the impact of an outage to only half of the tenants.
+## Data Discovery & Classification
 
- Note
+Most of this is straightforward and can be done in the portal, in SSMS, or via SQL and PowerShell. For green teams, using the portal is fine. However, for more advanced teams, encourage writing SQL directly as this can be added to a code repository and included in a data ops pipeline.
 
-SQL Managed Instance does not support multiple failover groups.
+## Auditing
 
+Log Analytics may take some time to begin adding auditing events. It's important to write logs to both blob storage and Log Analytics. The files in blob storage can be opened in SSMS and evaluated using the built-in dashboard.
 
-Enabling replication traffic between two instances
-Because each instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See Azure VPN gateway
+## Dynamic Data Masking
 
-Add SQL Managed Instance to a failover group
+Dynamic data masking is an easy way to add "defense in depth" measures to mask all or parts of a column -- for example, masking all but the last 4 of a social security number of credit card number. A call center agent or website, for example, would only "see" the last 4 digits for verification purposes. 
 
-https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal
+The example code block contains the TSQL needed to query sample rows, set up a mask, configure a test user, re-query the same rows to check for consistency, and optionally drop the mask if desired. (There is no reason to drop the mask, but providing the code here for how to do it.)
 
-Enabling geo-replication between managed instances and their VNet
+```sql
 
-https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#enabling-geo-replication-between-managed-instances-and-their-vnets
+--example query
+SELECT top 10 person.FirstName, person.LastName, phone.PhoneNumber
+FROM Person.Person person
+INNER JOIN Person.PersonPhone phone 
+ON person.BusinessEntityID = phone.BusinessEntityID
+WHERE person.LastName LIKE 'S%'
+ORDER BY person.LastName ASC
 
-When you set up a failover group between primary and secondary SQL Managed Instances in two different regions, each instance is isolated using an independent virtual network. To allow replication traffic between these VNets ensure these prerequisites are met:
+--add mask
+ALTER TABLE Person.PersonPhone
+ALTER COLUMN PhoneNumber ADD MASKED WITH (FUNCTION = 'partial(0,"x",5)');
 
-The two instances of SQL Managed Instance need to be in different Azure regions.
+--create a user to test
+CREATE USER TestUser WITHOUT LOGIN;  
+GRANT SELECT ON Person.Person TO TestUser;  
+GRANT SELECT ON Person.PersonPhone TO TestUser;  
 
-The two instances of SQL Managed Instance need to be the same service tier, and have the same storage size.
+EXECUTE AS USER = 'TestUser';
+SELECT top 10 person.FirstName, person.LastName, phone.PhoneNumber
+FROM Person.Person person
+INNER JOIN Person.PersonPhone phone 
+ON person.BusinessEntityID = phone.BusinessEntityID
+WHERE person.LastName LIKE 'S%'
+ORDER BY person.LastName ASC
+REVERT;
 
-Your secondary instance of SQL Managed Instance must be empty (no user databases).
+--drop mask if needed
+ALTER TABLE Person.PersonPhone
+ALTER COLUMN PhoneNumber DROP MASKED;
 
-The virtual networks used by the instances of SQL Managed Instance need to be connected through a VPN Gateway or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is supported with the limitation described in the note below.
+```
 
- Important
+Dynamic data masking doesn't protect the underlying data or encrypt it in any way. The permissions are applied via an UNMASK permission. There are weaknesses to using data masking: for example, if a user has ad-hoc query persmissions and the column in question is a "salary" value, the user can use search predicates to filter the results -- for example, WHERE Table.Salary > 100000 and Table.Salary < 1100000. The results may still be masked, but it would be trivial to write a query to self-join the table into salary buckets, for example. Therefore, while a useful features, it is considered a "defense in depth" measure best used in conjuction with other best practices.
 
-On 9/22/2020 we announced global virtual network peering for newly created virtual clusters. That means that global virtual network peering is supported for SQL Managed Instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL Managed Instances peering support is limited to the networks in the same region due to the constraints of global virtual network peering. See also the relevant section of the Azure Virtual Networks frequently asked questions article for more details.
+For the advanced challenge on Data Masking, consider the following script:
 
-The two SQL Managed Instance VNets cannot have overlapping IP addresses.
+```sql
 
-You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the subnet of the other managed instance. This is to allow replication traffic between the instances.
+-- example query
+SELECT TOP 20 * from HumanResources.EmployeePayHistory
+ORDER BY BusinessEntityID ASC
 
- Important
+-- add permission to table
+GRANT SELECT ON HumanResources.EmployeePayHistory TO TestUser;  
 
-Misconfigured NSG security rules leads to stuck database copy operations.
+-- add mask
+ALTER TABLE HumanResources.EmployeePayHistory
+ALTER COLUMN Rate ADD MASKED WITH (FUNCTION = 'default()');
 
-The secondary SQL Managed Instance is configured with the correct DNS zone ID. DNS zone is a property of a SQL Managed Instance and underlying virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first SQL Managed Instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. SQL Managed Instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance.
+-- query w mask -- observe the 'RateBucket' 
+EXECUTE AS USER = 'TestUser';
+SELECT TOP 20 *, 
+    CASE 
+        WHEN Rate > 100 THEN '>100'
+        WHEN Rate > 50 THEN '>50'
+        ELSE '<50'
+    END AS RateBucket
+    FROM HumanResources.EmployeePayHistory
+ORDER BY BusinessEntityID ASC
+REVERT;
 
- Note
-
-For a detailed tutorial on configuring failover groups with SQL Managed Instance, see add a SQL Managed Instance to a failover group.
-
-
-
-
-
-
-
-
-
+```

@@ -1,75 +1,241 @@
-# Solution 02 - Performance
+# Solution 2 - Migration at Scale
 
 [< Previous Challenge](./Solution01.md) - **[Home](../README.md)** - [Next Challenge>](./Solution03.md)
 
 ## Introduction
 
-This challenge requires attendees to use a Jupyter Notebook and Azure Data Studio (or equivalent tool) to run/experiment with SQL Server performance and evaluating performance.
+This optional challenge focuses on performing On-prem SQL Server migration to SQL Server on Azure VM (IaaS). The challenge involves step by step approach on managing the migreation using new capabilities of "Azure Migrate". The new capabilities includes creation of migration project with two main phases. Phase 1 is discvery and assessment, whle phase 2 is using the assement recommendtions to perform actuall migration of the VM.   
 
-The purpose of this challenge is threefold:
+## Overall Tips
 
-1. Explore new features of SQL Server that may improve performance intrinsically
-1. Ensure would-be data engineers and DBAs are comfortable evaluating performance
-1. Leverage newer tools like Azure Data Explorer and Notebooks
+Although this challeng only includes migrating from SQL Server VM to IaaS, the new capabilities inlcude migrating from SQL Server VM to Azure SQL DB (PaaS). Please refer to additional documentation -  https://docs.microsoft.com/en-us/azure/migrate/how-to-create-azure-sql-assessment .
 
-In addition to getting hands on with troubleshooting and exploring new features of SQL Server, this challenge will help those purpsuing DP-300 or related certifications that evaluate these skills.
+## Envoronment Setup
 
-## Explore new features
+The challenge environment steup includes creating a Azure SQL Server VM in a source virtual network to mimic on premises scenario.  The SSQL Server VM will be in Virtual Network and have the HammerDB (SQL trafic benchmarking tool) running on it. The tool could be downloaded from here - https://www.hammerdb.com/HammerDB. The tool will continuously generate the traffic for 'n' virtual users to mimic the real life sceanrio. The HammerDB is a handy tool to not only build the database but also generate the traffic patterns, The assement phase of the challenge takes this traffic pattern into consideration, while recommending the right solution.
 
-This notebook walks through two queries that perform quite differently in pre-SQL Server 2019 versions compared to SQL Server 2019+. The Notebook walks through setting up the test, and effectively changing the way the query is run by altering the database compatability level.
+![Generated Traffic](../assets/hammerDB-VirtualUser-traffic.png)
 
-The chart of compatability levels is as follows:
+# Discovery and Assement 
+1. Login to Azure Portal and create a Resource Group, to host subsequent resources as described below.
+2. Create Azure Migrate Project. https://docs.microsoft.com/en-us/azure/migrate/tutorial-discover-physical#set-up-a-project
+    
+3. Setup Discovery Appliance. 
+    - Create/Deploy Windows Server 2016 (Datacenter) VM
 
-|SQL Version|Compat Level|Software Version|Notable Changes|
-|-----------|------------|----------------|-------|
-|SQL Server 2019|150|15|Intelligent Query Processing|
-|SQL Server 2017|140|14||
-|SQL Server 2016|130|13|New Query Plan and Execution features, Query Store|
-|SQL Server 2014|120|12|New Cardinality Estimator|
-|SQL Server 2012|110|11||
-|SQL Server 2008|100|10||
+    - RDP to the VM as an administrator and download the AzureMIgrateINstallerServer-Public 
+    
+    - Login to Azure Portal and navigate to "Azure Migrate". If the previously created project is not selected   
+      select it on tghe top right corner.
+    
+    - Under "Windows, Linux and SQL Server" -> Assement tools -> Click "Discover". This will take you to setup   
+      screen for discover appliance.
+     
+    - Select the "Physical or other (AWS, GCP, Xen etc." dropdown option for "Are your servers virtualized?".  
+    
+    - Generate project key, by giving a appliance name and keep it handy. It wil be required when associating the 
+      appliance with Azure migrate project. 
+    
+    - Download and extract the "Azure Migrate Appliance". Navigate to the folder where extracted
+    - Open a powershell session and run the Azure migrate installer script - .\AzureMigrateInstaller.ps1
 
-If the attendees need more direction, have them read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15) to get a better sense of what is being asked for.
+      ![Discovery Appliance installer](../assets/azmigratediscoveryinstaller.png)
 
-Once the queries have been run for each compatability level, the Query Store should reveal the difference in performance (this is most easily done using SQL Server Enterprise Management Studio). Under the Top Resource Consuming Queries, teams should see something similar to:
+4. Verify Appliance can access the public URLs
+    - Ensure windows firewall is allowing outbound traffic to Azure
 
-![Query Store](../assets/query_plans_for_table_variable.png)
+5. Configure the applicance
+    - Navigate to the URL - https://<appliancename>:44368
+    - Let the step 1 Set up prerequisite finish
 
-Typically when evaluating performance using the execution plan, you'd focus on the big ticket items in the plan -- what index is being used? In this case, the clustered index scan estimates a single row for the output:
+      ![Discovery Appliance configuration 1](../assets/azmigratediscoveryinstallersetup1.png)
 
-![Slower Plan](../assets/query_stats_for_slower_plan.png)
+    - Register the appliance with Azure migrate by loginingin. The key "Project key" obtained in step above will 
+      be validated automatically
 
-The query looks different when running under SQL Server 2019. The clustered index scan remains, but is much more accurate in its estimate:
+      ![Discovery Appliance configuration 2](../assets/azmigratediscoveryinstallersetup2.png)
 
-![Faster Plan](../assets/query_stats_for_faster_plan.png)
+6. Start continuous discovery
 
-By leveraging *table variable deferred compilation*, the compilation of the statement is deferred until the first execution. Cardinality estimates can then be based on the actual table row counts, allowing for better downstream operation choices.  
+    - Add Credentials. This are the default server login admin crdeentials (one used during VM creation)
 
-Similarly, *adaptive joins* delays the selection of the type of join until after the first input has been scanned, so either a Hash Join or Nested Loop Join can be selected.
+      ![Add Credentials](../assets/azmigratediscoveryinstallersetup3credentials.png)
 
-Lastly, *batch mode for rowstore*, previously exclusive to columnstore indexes, now exists for rowstore and can greatly increase the efficiency the processing of multiple rows as batches instead of a single row at a time. Compare the stats for the slower vs longer plan -- the slower Estimated Execution Mode is Row, while the faster has an Extimated Execution Mode as Batch.
+    - Add discovery source. This a friendly name representation of the Source 
 
-## Understand key blockers
+      ![Add Discovery source](../assets/azmigratediscoveryinstallersetup3discoverysrc.png)
 
-Depending on the team's ability to read/process query plans, this may either an instant answer or may take some research. An execution plan similar to the following should be displayed when running the provided query: 
+    - Validate/re-validate connection and start the discovery. This will start a job and discover the servers to 
+      be migrated. 
 
-![Key Lookup](../assets/keylookup.png)
+      ![Validate connection](../assets/azmigratediscoveryinstallersetup3startdiscovery.png)
 
-In this case, the tuning advisor shows a missing index at the top of the execution plan that would make this query run faster, so the answer is (somewhat unfortunately) in plain site. But why? Be sure the team understands the reasons before blindly creating indexes.
+8. Validate/verify the discovered servers in the Azure migrate project
 
-The 'key' is in the key lookup; because it uses the most time, it makes sense to focus here. A key lookup occurs when SQL doesn't have all of the information in an index to satisfy its predicates. The result is the clustered index is referenced for the missing information, as shown in the image.
+      ![Validate Discovered Server](../assets/azmigratediscovery-serverdiscovered.png)
 
-To fix this issue, a new index can be created that covers the predicates required by the query; in this case, it is considered to be a *covering index* because the index itself contains all of the information needed to answer the query. But, indexes can be expensive to maintain, so need to be chosen carefully. Every time a new record is inserted into Sales.Invoices, all indexes require updating, too.
+9. Create and review an assessment. More details are here. https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-physical
 
-The following helper queries will create and drop the needed index:
+    - Click on "Create Assessment"
 
-```sql
-CREATE NONCLUSTERED INDEX [IX_Sales_Invoices_ConfirmedDelivery_TotalDry_TotalChiller] 
-ON Sales.Invoices (ConfirmedDeliveryTime) 
-INCLUDE (CustomerId, TotalDryItems, TotalChillerItems)
+    ![Create Assessment](../assets/azmigratediscoveryiassessment1.png)
 
-DROP INDEX IX_Sales_Invoices_ConfirmedDelivery_TotalDry_TotalChiller
-ON Sales.Invoices
-```
+    - Assements are organized by groups. You could run multiple assemenst if needed. Everytime you create a new 
+      assessment , newly collected metric data is used for the recommendations that are generated. In production scenarios, it is recommended that you let the discovery run for few days, before creating an assessment
 
-Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.
+    ![Create Assessment group](../assets/azmigratediscoveryiassessment2.png)
+
+    - Review assements and if required export it.
+
+    ![Create Assessment export](../assets/azmigratediscoveryiassessmentreview1.png)
+
+    - Check on the exported assement
+
+    ![View Assessment](../assets/azmigratediscoveryiassessmentexported.png)
+
+
+10. Review the recommendation before moving to phase 2 below
+
+    ![View Recommendations](../assets/azmigratediscoveryiassessmentfinal.png)
+
+# Replicate, Test and Migrate 
+
+1. Review the recommendations in phase 1 above by navigating to Azure migrate project
+2. Prepare replication Appliance
+   Azure Migrate: Server Migration uses a replication appliance to replicate machines to Azure. First step to enable replication is to build and configure a replication appliance. Follow below steps
+
+    - Create/Deploy Windows Server 2016 (Datacenter) VM, within previously created "source" resource group. In 
+      addition create a target resource group with Virtual network created in it. We'll use the "default" subnet in this target Virtual network as our landing spot for migrated SQL server VM. Lets call this a "target" resource group. 
+
+    - Add a new data disk to the VM (1TB), which will be used by the repliacation agent (ASR agent). Mde details 
+      below.
+
+    - RDP to the VM as an administrator and ensure the newly attached data disk is attached and active nby 
+      configuring it in the "disk management" system utility. A new volume letter is allocated for this new volume. This volume is used latter during the installation process
+    
+    - Login to Azure Portal and navigate to "Azure Migrate". If the previously created project is not selected   
+      select it on tghe top right corner.
+    
+    - Under "Windows, Linux and SQL Server" -> Migration tools -> Click "Discover". This will take you to setup   
+      screen for replication appliance.   
+
+    - Select Target Region. 
+
+    - Select the "Physical or other (AWS, GCP, Xen etc." dropdown option for "Are your servers virtualized?"
+
+    - Select the "Install a replication appliance" dropdown option for "do you want to install a new replication 
+      appliance or scale out existing setup"
+    
+    - Download the replication appliance software (AzureSiteREcoveryUnifiedSetup.exe) and the registration key 
+      file. Run the setup and select the downloaded "registration key" in the wizzard. For install path, select the newly attached datadisk volume.
+      
+    - Once the installation completess, validate that the "hostconfigwxcommon" and "cspsconfigtool" shortcuts are 
+      seen on the desktop. These are the programs to setup configuration and process server.
+
+    - Open "cspsconfigtool" and add a new account to be used for replication. Ensure this is the local account on  
+      the target machine
+
+    ![Configuration Server - Setup Account](../assets/azmigrateConfiurationServerSetup1.png)
+
+    - Access "vault registration" tab and complete ASR registration process
+
+    ![Configuration Server - Vault registration](../assets/azmigrateConfiurationServerSetup2.png)
+
+    - Validate completion of ASR registration process
+
+    ![Configuration Server - ASR registration](../assets/azmigrateConfiurationServerSetup3.png)
+
+
+3. Setup Moblity Service
+    - Before replication could start, the mobility service agent must be installed on the source SQL Server 
+      machine that needs to be replicated. This is required for non-virtualized VMs which are on-premises or in other clouds (GCP, AWS). PLease refer to this link for details - https://docs.microsoft.com/en-us/azure/migrate/tutorial-migrate-physical-virtual-machines#install-the-mobility-service
+
+      Follow the instructions on the link and start the installation on the source SQL Server VM.
+
+    ![Mobility Service - setup](../assets/azmigrateMobilityServiceSetup1.png)
+
+    - Once extraction is complete run below commands to do the registration (details on the link above)
+
+    ![Mobility Service - setup](../assets/azmigrateMobilityServiceSetup2.png)
+
+    - Validate successful registration
+
+    ![Mobility Service - setup](../assets/azmigrateMobilityServiceSetup3.png)
+
+4. Ensure the Azure migrate project reflects the successful replication appliance registration
+    
+    ![Validate replication appliance registration](../assets/azmigrateReplicationappliancesetup.png)
+
+4. Start replication
+
+    - Login to Azure Portal and navigate to "Azure Migrate". If the previously created project is not selected   
+      select it on tghe top right corner.
+    
+    - Under "Windows, Linux and SQL Server" -> Migration tools -> Click "Replicate". This will take you to setup   
+      screen to bgin replication. RUn through the wizzard by selecting the source settings. Select the previously created replication appliance and the user account that was created in the previous step. Click Next
+
+    ![Replicate - start](../assets/azmigrateReplicate1.png)
+
+    - Select the virtual machine that was discovered in the discovery step. You could select multiple of them in 
+      production scenario. Click Next
+
+    ![Replicate - select VM](../assets/azmigrateReplicate2.png)
+
+    - Select the target environmet settings. This includes target subscription, resource group, virtual network 
+      and subnet. The migrated SQL Server VM will be landing here. Click Next
+
+    ![Replicate - select target env](../assets/azmigrateReplicate3.png)
+
+    - Select the target VM compute settings. Click Next
+
+    ![Replicate - select target compute](../assets/azmigrateReplicate4.png)
+
+    - Select the target VM disk settings. Ensure number of disks match the discovered disks. Click Next
+
+    ![Replicate - select target disks](../assets/azmigrateReplicate5.png)
+
+    - Review ans start replication. This action will initiate a job to replicate the VM. Wait for the job to 
+      finish typically it takes 8-10 hrs. for completion 
+
+    ![Replicate - start replication](../assets/azmigrateReplicate6.png)
+
+    - Validate job completion status as below
+
+    ![Replicate - validate completion](../assets/azmigrateReplicate7.png)
+
+    - Review the topology of the replication model to understand the actions taken in the background
+
+    ![Replicate - review topology](../assets/azmigrateReplicate8.png)
+
+
+5. Before you initiate migration, it is a best practice to test it. Test MIgration allows to test the replicated 
+   server failover and uncover any issues. 
+    - Start Test migration
+
+    ![Start Test](../assets/azmigratestarttest.png)
+
+    - Check status
+
+    ![Check status test](../assets/azmigratestarttestfailover.png)
+
+    - Validate completion
+
+    ![Validate Test](../assets/azmigrateendtest.png)
+
+
+6. Now that the tesing is complete proceed with actual Migration of the VM to the target resource group
+    - Start Migration
+    
+    ![Start Migration](../assets/azmigratestartmigrate.png)
+
+    - Validate completion
+
+    ![Validate Migration](../assets/azmigrateendmigrate.png)
+
+
+7. Congratulations!! At this point you have successfully migrated an on-prem VM to Azure using the Azure migrate 
+   automation and took advantage of the scale and Machine learning based migration reccomndations. Validate migrated VM in the target resource group by logging into the VM and see the databases. Left is source and right is the migrated target VM below
+
+    ![Successful completion](../assets/azmigratefinalvalidation.png)
+
+

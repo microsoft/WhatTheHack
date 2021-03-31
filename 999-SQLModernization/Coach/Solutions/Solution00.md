@@ -1,4 +1,4 @@
-# Solution 00 - Migration
+# Solution 0 - Migration
 
 **[Home](../README.md)** - [Next Challenge>](./Solution01.md)
 

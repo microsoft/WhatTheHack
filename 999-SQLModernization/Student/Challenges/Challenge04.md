@@ -1,56 +1,50 @@
-# Challenge 4 - High Availability & Disaster Recovery
+# Challenge 3 - Security & Auditing
 
-[< Previous Challenge](./Challenge03.md) - **[Home](../../README.md)** - [Next Challenge >](./Challenge05.md)
+[< Previous Challenge](./Challenge03.md) - **[Home](../../README.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction 
-Your fledgling company has Azure SQL Server Databases running on Azure SQL database or Azure SQL Managed instance. AdventureWorks and Wide World Importers (OLTP). The Recovery Time Objective (RTO) for these two databases are 5 minutes. The Recovery Pont Objective (RPO) is 5 minutes. Your fledgling company disaster recovery site is on different region with the primary Azure region. 
+
+More than ever, organizations require rigorous security and auditing requirements to meet internal standards and external regulations, such as [GDPR](https://gdpr.eu/) and [HIPAA](https://www.hhs.gov/hipaa/index.html). While [Azure has obtained many compliance certifications](https://docs.microsoft.com/en-us/azure/compliance/), best practices must be followed by application and data engineers to ensure their applications meet their stated requirements. More information is available on the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview).
+
+The purpose of this challenge is to introduce features of SQL Server that may help meet these obligations. This is not intended to be exhaustive or imply compliance with any particular certification. 
 
 ## Description
-1 When disaster happens on the primary region, business requires the databases automatically failover to the disaster recovery region. Your company needs to use the readable secondary databases to offload read-only query workloads. After failover, your application can continue connect to the database by using the same connection string.
+
+AdventureWorks would like to encrypt their database using transparent data encryption (TDE). TDE encrypts the data at rest which assists in mitigating offline malicious activity, preventing a backup from being restored, transaction logs being copied, etc. TDE is transparent to the application.
+
+AdventureWorks would also like to have a vulnerability assessment done on the database, both immediately and on an on-going basis with the results sent as emails, and have Advanced Threat Protection enabled to notify in the event of security events like SQL injection or data exfiltration.
+
+An important step in monitoring and securing a database is classifying and labelling the database. Just like taking inventory of goods, this step servers as the baseline for auditing and additional seurity steps. Using the Data Discovery and Classification tools, classify the database with appropriate types and sensitivites. At a minimum, any personal information should be classified as Personal or Contact Info, any login or password related columns as Credentials, and so on.
+
+With Data Discovery and Classification complete, auditing is a much more effective tool -- here, too, AdventureWorks needs all access to sensitive data audited. This should be configured to audit to both blob storage and Log Analytics.
+
+As an early implementation to improve security, the team would like to implement Dynamic Data Masking on the Person.PersonPhone (if using AdventureWorks full) or SalesLT.Phone (if using AdventureWorksLT) to mask the full phone number in downstream application so that customer service representatives do not see the full phone number, but can confirm the last 4 digits with the caller.
+
+
+
+
+
 
 ## Success Criteria
-Meet Your fledgling company RTO and RPO. You can connect to the secondary database after it fails over to Disaster recovery site by using the same users or logins. 
+
+1. Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault with an expiration date of 1 year.
+2. Enable vulnerability assessment scanning on the database, notiying the team (or a member of the team) when assessments are done. Perform the first assessment on-demand and review the findings.
+3. Using Data Discovery and Classification, label all sensitive fields with the appropriate types and sensitivities; at a minimum, label all personal contact/PII fields, financial, and authentication related fields.
+4. Configuring Auditing to write audit logs to both a storage account and to Log Analytics. Verify logs are writing to the storage account by executing a query on a table with sensitive information.
+5. Configure Advanced Threat Protection to capture all event types and send an email in the event of a security alert. Test this by authoring an example script (such as a SQL injection attempt and verify your team receives an email notification).
+6. Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. Demonstrate the functionality works as intended using a test script. What permissions determine whether a user sees masked vs unmasked data? In what ways 
 
 ## Learning Resources
-Use auto-failover groups to enable transparent and coordinated failover of multiple databases 
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell
-
-Configure failover group  
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal
-
-Configure active geo-replication and failover in the Azure portal (Azure SQL Database) 
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-configure-portal
-
-Overview of business continuity with Azure SQL Database
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
-
-High availability for Azure SQL Database and SQL Managed Instance
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla
+* [TDE for Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
+* [Azure SQL Database Security Overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview)
+* [Data Discovery and Classification Overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [Azure Defender for SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/azure-defender-for-sql)
+* [Dynamic Data Masking](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15)
 
 ## Tips
-Best practices for SQL Managed Instance
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#best-practices-for-sql-managed-instance
-
-Best practices for SQL Database 
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#best-practices-for-sql-database
 
 ## Advanced Challenges (Optional)
 
-User accidentally deleted a row in a table, you need recovery the row. 
-
-Temporal tables
-
-https://docs.microsoft.com/en-us/azure/azure-sql/temporal-tables
-
-Recover using automated database backups - Azure SQL Database & SQL Managed Instance
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#deleted-database-restore
-
-
+1. For the Data Discovery and Classification task, perform the steps using PowerShell cmdlets or the Rest API.
+2. Create a Power BI dashboard to display audit log information.
+3. (AdventureWorks database Only -- not LT) WWI is excited about using Dynamic Data Masking, but your team needs to demonstrate why it is considered "defense in depth," best used with other best practices. Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
