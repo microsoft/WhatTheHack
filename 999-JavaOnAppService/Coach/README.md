@@ -1,4 +1,4 @@
-# What The Hack - Java on Azure
+# What The Hack - Java on App Service
 
 ## Introduction
 
