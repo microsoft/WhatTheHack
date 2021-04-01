@@ -11,9 +11,9 @@ It's time to set up what you will need in order to do these challenges for OSS D
 In this challenge you'll be setting up your environment so that you can complete your challenges.
 
 - Install the recommended toolset:
-    - To connect to Postgres database, [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
+    - To connect to PostgreSQL database, use [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
     - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
-    - Another option is to use a single tool for both mysql and postgres - like [dbeaver](https://dbeaver.io/download/). 
+    - Another option is to use a single tool for both MySQL and PostgreSQL - like [dbeaver](https://dbeaver.io/download/). 
     - Visual Studio Code (optional)
 
 - Within Azure Cloud Shell, download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment:
