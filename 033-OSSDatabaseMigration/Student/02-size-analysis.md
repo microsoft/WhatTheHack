@@ -8,7 +8,7 @@ Determine the CPU/memory configuration, database I/O and file size, and map to a
 
 ## Description
 
-In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required, and map it to an equivalent size in Azure. You will run a synthetic benchmark to simulate I/O for the database. In order to watch the system load, you can install tools like htop (`apt update ; apt install htop`)
+In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required, and map it to an equivalent size in Azure. You will run a synthetic benchmark to simulate I/O for the database. In order to watch the system load, you can install tools like htop `(apt update ; apt install htop)`
 
 To run the synthetic benchmark for PostgreSQL:
 
@@ -31,7 +31,7 @@ To run the synthetic benchmark for PostgreSQL:
 
 ## Hint
 
-* For both  MySQL and Postgres, install htop. You will need it to watch the system load while the synthetic workload is running against the databases.
+* For both MySQL and PostgreSQL, install htop. You will need it to watch the system load while the synthetic workload is running against the databases.
 
 ```bash
 
