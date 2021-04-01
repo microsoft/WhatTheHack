@@ -1,5 +1,7 @@
 # What The Hack - Intro To OSS DB Migration to Azure OSS DB
 ## Introduction
+This hack includes a optional [lecture presentation](Coach/OSS-DB-What-the-Hack-Lecture.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+
 The tips in this coach's guide are intended to help you guide the attendees as they go through the challenges. You should not immediately give them out. It is okay for the attendees to struggle for a bit before arriving at the solution. This is often the best way for them to learn. Use your best judgement for deciding when to give them additional help.
 
 ## Challenge tips
