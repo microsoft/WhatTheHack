@@ -43,7 +43,7 @@ mysqlClusterIP=$(kubectl -n mysql get svc -o json |jq .items[0].spec.clusterIP |
 sed "s/XXX.XXX.XXX.XXX/$postgresClusterIP/" ./values-postgresql-orig.yaml >temp_postgresql.yaml && mv temp_postgresql.yaml ./values-postgresql.yaml
 sed "s/XXX.XXX.XXX.XXX/$mysqlClusterIP/" ./values-mysql-orig.yaml >temp_mysql.yaml && mv temp_mysql.yaml ./values-mysql.yaml
 
-helm upgrade --install mysql-contosopizza . -f ./values.yaml -f ./values-mysql.yaml
+helm upgrade --install mysql-contosopizza . -f ./values.yaml -f ./values-mysql.yaml 
 
 helm upgrade --install postgres-contosopizza . -f ./values.yaml -f ./values-postgresql.yaml
 
