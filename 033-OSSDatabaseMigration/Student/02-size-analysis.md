@@ -54,8 +54,8 @@ mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --nu
 ```
 
 ## References
-* Standard UNIX monitoring tools: https://sysaix.com/top-20-linux-unix-performance-monitoring-tools
-* Choose the right MySQL Server option in Azure: https://docs.microsoft.com/en-us/azure/mysql/select-right-deployment-type
-* Pricing tiers in Azure Database for PostgreSQL - Single Server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers 
-* MySQL load emulation client: https://dev.mysql.com/doc/refman/5.7/en/mysqlslap.html
-* PostgreSQL benchmark test: https://www.postgresql.org/docs/11/pgbench.html
+* [Standard UNIX monitoring tools](https://sysaix.com/top-20-linux-unix-performance-monitoring-tools)
+* [Choose the right MySQL Server option in Azure](https://docs.microsoft.com/en-us/azure/mysql/select-right-deployment-type)
+* [Pricing tiers in Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers)
+* [MySQL load emulation client](https://dev.mysql.com/doc/refman/5.7/en/mysqlslap.html)
+* [PostgreSQL benchmark test](https://www.postgresql.org/docs/11/pgbench.html)

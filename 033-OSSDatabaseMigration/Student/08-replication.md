@@ -17,8 +17,8 @@ Read replicas can improve the performance scale of read-intensive workloads. The
 * You are able to stop the replication and convert the read replica to read-write and test it
 
 ## References
-* Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal: https://docs.microsoft.com/en-us/azure/postgresql/howto-read-replicas-portal
-* Read replicas in Azure Database for PostgreSQL - Single Server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas
-* How to create and manage read replicas in Azure Database for MySQL using the Azure portal: https://docs.microsoft.com/en-us/azure/mysql/howto-read-replicas-portal
-* Read replicas in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-read-replicas
+* [Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal](https://docs.microsoft.com/en-us/azure/postgresql/howto-read-replicas-portal)
+* [Read replicas in Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas)
+* [How to create and manage read replicas in Azure Database for MySQL using the Azure portal](https://docs.microsoft.com/en-us/azure/mysql/howto-read-replicas-portal)
+* [Read replicas in Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/concepts-read-replicas)
 

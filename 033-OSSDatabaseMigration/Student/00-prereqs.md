@@ -25,7 +25,7 @@ chmod +x ./create-cluster.sh
 
 ```
 
-### Note: creating the cluster will take several minutes
+#### NOTE: creating the cluster will take several minutes
 
 - Now you will deploy the Pizzeria application and its associated PostgreSQL and MySQL databases
 
@@ -35,7 +35,7 @@ chmod +x ./*.sh
 ./deploy-pizza.sh
 
 ```
-### Note: deploying the Pizzeria application will take several minutes
+#### NOTE: deploying the Pizzeria application will take several minutes
 
 - Optional but highly recommended - run the shell script in the files given to you for this hack at this path:
 `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh`
@@ -51,8 +51,8 @@ This will block public access to your on-premise databases. You should run this 
 
 ## References
 
-* pgAdmin: https://www.pgadmin.org/
-* MySQL Workbench: https://www.mysql.com/products/workbench/
-* Azure Data Studio: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15
-* Visual Studio Code: https://code.visualstudio.com/
+* [pgAdmin](https://www.pgadmin.org)
+* [MySQL Workbench](https://www.mysql.com/products/workbench/)
+* [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
+* [Visual Studio Code](https://code.visualstudio.com/) (optional)
 
