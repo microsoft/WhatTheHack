@@ -16,7 +16,7 @@ curl ifconfig.me
 
 There are other 3rd party tools similar to MySQL Workbench and dbeaver which the attendees may choose if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL
 
-Another way is to login to the database container and then try to launch a connection to the Azure DB for MySQL or PostgreSQL. It will fail with a firewall error that will reveal the address. In the example below, pgtarget is the PostgreSQL server name, pgtarget2 is the MySQL servername and both has serveradmin as the admin user created on Azure.
+Another way is to login to the database container and then try to launch a connection to the Azure DB for MySQL or PostgreSQL. It will fail with a firewall error that will reveal the address. In the example below, pgtarget is the PostgreSQL server name, pgtarget2 is the MySQL servername and both has serveradmin as the admin user created on Azure:
 
 ```bash
 
@@ -26,7 +26,7 @@ root@postgres-64786b846-khk28:/#  psql -h pgtarget.postgres.database.azure.com -
 ```
 
 Before migrating the data, they need to create an empty database and create the application user. Connect to the database container first and from there connect to Azure DB.
-Alternatively, connect to the Azure DB using Azure Data Studio or Pgadmin tool. The example below connects to the PostgreSQL on-premises database container. You can also run it from Azure Cloud Shell. 
+Alternatively, connect to the Azure DB using Azure Data Studio or Pgadmin tool. The example below connects to the PostgreSQL on-premises database container. You can also run it from Azure Cloud Shell: 
 
 ```bash
 kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -41,7 +41,7 @@ mysql -h mytarget2.mysql.database.azure.com -P 3306 -u serveradmin@mytarget2 -pP
 create database wth ;
 ```
 
-Create the pizzeria application database user and the database wth
+Create the pizzeria application database user and the database wth:
 
 ```sql
 CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
@@ -57,7 +57,7 @@ create database wth ;
 
 * For MySQL the database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
 
-Privileges required to run MySQL export on the source database - connect as root
+Privileges required to run MySQL export on the source database - connect as root:
 
 ```sql
 grant ALL PRIVILEGES ON wth.* TO contosoapp ;
@@ -83,7 +83,7 @@ mysqldump.exe --defaults-file="tmp_akgbble.cnf"  --host=<container ip> --port=33
 
 ```
 
- Alternatively, do this from command prompt
+ Alternatively, do this from command prompt:
 
  ```bash
 
@@ -91,14 +91,14 @@ mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --skip-column
 
  ```
 
- * MySQL command to do offline import from import directory. When run from MySQL workbench
+ * MySQL command to do offline import from import directory. When run from MySQL workbench:
 
 ```bash
 
  mysql  --protocol=tcp --host=mytarget2.mysql.database.azure.com --user=contosoapp@mytarget2 --port=3306 --default-character-set=utf8 --comments --database=wth < wth_users.sql
 
 ```
- Or from shell prompt
+ Or from shell prompt:
 
  ```bash
 
@@ -106,7 +106,7 @@ mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --skip-column
 
  ```
 
- From command line shell script, do this to load all files one at a time
+ From command line shell script, do this to load all files one at a time:
 
  ```bash
 
