@@ -44,10 +44,8 @@ The participants will learn how to:
 - (optional)[**Visual Studio Code**](https://code.visualstudio.com/)
 
 ## Repository Contents
-- `../Coach/Guides`
-  - [Lecture presentation](Coach/README.md) with short presentations to introduce each challenge.
-- `../Coach/Solutions`
-   - Example solutions and coach tips to the challenges (If you're a student, don't cheat yourself out of an education!)
+- `../Coach`
+  - [Lecture presentation](Coach/README.md) with short presentations to introduce each challenge and example solutions and coach tips to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
    - Pizzeria application environment setup
 
