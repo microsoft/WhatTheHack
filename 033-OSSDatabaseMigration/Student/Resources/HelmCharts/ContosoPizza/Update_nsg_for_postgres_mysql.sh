@@ -12,7 +12,7 @@ If you are running this script from Azure Cloud Shell, then you need to also run
 myip=`curl ifconfig.me`/32
 
 
-# In this resource group, there is only one  NSG
+# In this resource group, there is only one NSG. Change the value of the resource group, if required
 
 export rg_nsg="MC_OSSDBMigration_ossdbmigration_westus"
 export nsg_name=`az network nsg list  -g $rg_nsg -o table | tail -1 | awk '{print $2}'`
