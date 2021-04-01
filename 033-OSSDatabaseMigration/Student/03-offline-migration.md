@@ -18,7 +18,7 @@ In the offline migration approach, your application can tolerate some downtime t
 
 ## Hints
 
-* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternatively, if database copy tools are installed on your machine, you can connect to the database from your computer as well. 
+* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternatively, if the database copy tools are installed on your machine, you can connect to the database from your computer as well. 
 * You can install the editor of your choice in the container (e.g.`apt update` and `apt install vim`) in case you need to make changes to the MySQL dump file
 * For both MySQL and PostgreSQL, you can use Azure Data Factory to copy the data.
 * You are free to choose other 3rd party tools like MySQLWorkbench, dbeaver for this challenge
