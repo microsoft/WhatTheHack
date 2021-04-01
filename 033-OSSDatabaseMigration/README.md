@@ -45,7 +45,7 @@ The participants will learn how to:
 
 ## Repository Contents
 - `../Coach/Guides`
-  - [Lecture presentation](Coach/Lectures/README.md) with short presentations to introduce each challenge.
+  - [Lecture presentation](Coach/README.md) with short presentations to introduce each challenge.
 - `../Coach/Solutions`
    - Example solutions and coach tips to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
