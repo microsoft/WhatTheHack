@@ -19,7 +19,7 @@ There are a lot of opportunities for things to go wrong in this step especially 
 
 * Attendees should not be using the public IP address of the PostgreSQL/MySQL containers when configuring the application.
 
-* The attendees may make mistakes with the datasourceURL and username/password for PostgreSQL/MySQL. If the application isn't work, have the attendees check the log:
+* The attendees may make mistakes with the datasourceURL and username/password for PostgreSQL/MySQL. If the application isn't working, have the attendees check the log:
 
 ```bash
     kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
