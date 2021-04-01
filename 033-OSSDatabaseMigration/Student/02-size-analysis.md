@@ -31,7 +31,7 @@ To run the synthetic benchmark for PostgreSQL:
 
 ## Hint
 
-* For both  MySQL and Postgres, install htop. You will need it to watch the system load while the synthetic workload is running against the databases.
+* For both MySQL and PostgreSQL, install htop. You will need it to watch the system load while the synthetic workload is running against the databases.
 
 ```bash
 
