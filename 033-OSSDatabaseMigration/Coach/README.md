@@ -4,6 +4,8 @@ This hack includes a optional [lecture presentation](Coach/OSS-DB-What-the-Hack-
 
 The tips in this coach's guide are intended to help you guide the attendees as they go through the challenges. You should not immediately give them out. It is okay for the attendees to struggle for a bit before arriving at the solution. This is often the best way for them to learn. Use your best judgement for deciding when to give them additional help.
 
+You will need to zip up the files in the Resources directory under the Student directory and place it in the Files section of the General Teams channel. 
+
 ## Challenge tips
 - Challenge 0: **[Pre-requisites - Setup Environment and Prerequisites!](00-prereqs.md)**
    - Prepare your environment to run the sample application
