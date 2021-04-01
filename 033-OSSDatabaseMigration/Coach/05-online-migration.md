@@ -4,8 +4,7 @@
 
 ## Coach Tips
 
-The intent of this WTH is not to focus on networking so if the attendee has trouble configuring VPN/VNET peering, feel free to hand hold them through it
-Remind the attendees to review the hints section if they get stuck
+The intent of this WTH is not to focus on networking so if the attendee has trouble configuring VPN/VNET peering, feel free to help them through it. 
 
 ## Introduction
 
@@ -13,7 +12,7 @@ Perform an online migration using the Azure Database Migration Service
 
 ## Steps -- PostgreSQL
 
-Connect to database container and run the export
+Connect to the database container and run the export:
 
 ```bash
 kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -21,7 +20,7 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 pg_dump -o -h localhost -U contosoapp -d wth -s >dump_wth.sql
 ```
 
-This creates a psql dump text file. We need to import it to the target - schema only. Create a separate database for online migration (suggeted ). Alternately you can drop and re-create the database wth.
+This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration. Alternatively, you can drop and re-create the wth database.
 
 To drop all the tables with indexes
 
@@ -45,7 +44,7 @@ Import the schema to target
 psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth2 < dump_wth.sql
 ```
 
-Verify count of tables and indexes created on the target database from psql. 26tables, 39 indices.
+Verify count of tables and indexes created on the target database from psql. 26 tables, 39 indices.
 
 ```bash
 \dt+
@@ -54,7 +53,7 @@ Verify count of tables and indexes created on the target database from psql. 26t
 
 ```
 
-The query to disable all foreign key in DMS  (https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online-portal )  shows more results than needed. It can be simplified bu saving the output of a SQL command that just drops the constraints. From psql,
+[Disabling Foreign Keys in Azure DMS](https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) shows more results than needed. It can be simplified by saving the output of a SQL command that just drops the constraints. From psql, do this:
 
 ```bash
 \out drop_fk.sql
@@ -92,14 +91,14 @@ WHERE constraint_type = 'FOREIGN KEY'
 
 ```
 
-Edit the file drop_fk.sql to clean up to run as a  SQL statement
-Run the file
+Edit the file drop_fk.sql to clean up to run as a SQL statement
+Run the file:
 
 ```bash
 \i  drop_fk.sql
 ```
 
-There is no trigger in the application schema. Still it is best practice to check for it
+There is no trigger in the application schema. It is still a best practice to check for it:
 
 ```sql
 \out drop_trigger.sql
@@ -107,15 +106,15 @@ SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_ta
 FROM information_schema.triggers
 ```
 
-For Azure DMS,  you need to create a migration project
+* For Azure DMS, the attendee needs to create a migration project in the DMS wizard. When they connect to the source, they will need the external IP which the attendee can get using the `kubectl -n postgresql get svc` command. 
+* Make sure the radio buttons are checked for "Trust Server Certificate" and "Encrypt Connection"
+* The user contosoapp does not have replication role enabled. They should get an error (Insufficient permission on server. 'userepl' permission is required to perform migration). To resolve this, connect to psql as superuser
 
-in DMS wizard, connect to source as the external IP from kubectl -n postgresql get svc command
-Make sure the radio buttons are checked for Trust Server Certificate and Encrypt connection
-The user contosoapp does not have replication role enabled. They should get an error (Insufficient permission on server. 'userepl' permission is required to perform migration). To resolve this, connect to psql as superuser
+```bash 
+postgres=# alter role contosoapp with replication ;
+```
 
-* postgres=# alter role contosoapp with replication ;
-
-IN DMS, trying to connect to the target service if you get a connection error, check "Allow access to Azure Services" in the azure portal for the database. After migration, do a cutover and re-nable the foreign keys. Run the followin on source and run it on target after cleaning the header.
+* In DMS, if the attendee gets a connection error when trying to connect to the target service, check "Allow access to Azure Services" in the Azure Portal for the database. After migration, do a cutover and re-enable the foreign keys. Run the following on the source and run it on the target after cleaning the header:
 
 ```sql
 \out enable_fk.sql
@@ -152,7 +151,7 @@ WHERE constraint_type = 'FOREIGN KEY'
 
 ## Steps -- MySQL
 
-Run the export
+Run the export:
 
 ```bash
 
@@ -160,7 +159,7 @@ Run the export
 
 ```
 
-Import with no data. Create the wth database
+Import with no data. Create the wth database:
 
 ```bash
 
@@ -168,7 +167,7 @@ mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -p wth <dump
 
 ```
 
-Run script on the target to drop all the foreign keys
+Run script on the target to drop all the foreign keys:
 
 ```bash
 drop_fk_query.sql
@@ -192,7 +191,7 @@ drop_fk_query.sql
 
 ```
 
-  Run the script and store the output to a file. Running this the following way requires to format the file again
+  Run the script and store the output to a file. Running this the following way requires to format the file again:
 
 ```bash
 
@@ -200,7 +199,7 @@ drop_fk_query.sql
  cat drop_fk.sql | sed 's/\\n/\n/g' | sed '/DropQuery/d' >drop.sql
 
  ```
- Run the sql script to drop all the FKs
+ Run the sql script to drop all the FKs:
 
  ```sql
 
@@ -208,7 +207,7 @@ drop_fk_query.sql
 
  ```
 
- Grant replication client and save to contosoapp user for DMS online migration
+ Grant replication client and save to contosoapp user for DMS online migration:
 
  ```sql
 
@@ -217,7 +216,7 @@ drop_fk_query.sql
 
  ```
 
- If during the DMS online copy the copy fails with some error message "Migrating data to a mysql other than Azure DB for MySQL is not supported", it is because the
- user connecting to the target database does not have enough privilege on MySQL. The exact and minimum set of privileges is TBD but this works ( screenshot from Mysql workbench ) See this **[Image](./workbench.png)**
-
+ If the copy fails during the DMS online copy with an error message like "Migrating data to a mysql other than Azure DB for MySQL is not supported", it is because the user connecting to the target database does not have enough privileges on MySQL. The exact minimum set of privileges is TBD but this works as a workaround. This screenshot from MySQL Workbench shows the privileges that are required:
+ 
+ ![MySQL Workbench Privileges](./workbench.png)
 
