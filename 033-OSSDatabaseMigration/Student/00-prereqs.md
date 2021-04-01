@@ -10,8 +10,6 @@ It's time to set up what you will need in order to do these challenges for OSS D
 
 In this challenge you'll be setting up your environment so that you can complete your challenges.
 
-- Make sure that you have joined the Microsoft Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
-
 - Install the recommended toolset:
     - To connect to Postgres database, [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
     - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
