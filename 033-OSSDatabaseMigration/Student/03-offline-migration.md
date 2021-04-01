@@ -24,11 +24,12 @@ In the offline migration approach, your application can tolerate some downtime t
 * You are free to choose other 3rd party tools like MySQLWorkbench, dbeaver for this challenge
 
 ## References
-* Migrate your PostgreSQL database using export and import: https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import
-* Migrate your MySQL database to Azure Database for MySQL using dump and restore: https://docs.microsoft.com/en-us/azure/mysql/concepts-migrate-dump-restore
-* Create an Azure Database for MySQL server: https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-* Create an Azure Database for PostgreSQL server: https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal
-* Firewall rules in Azure Database for PostgreSQL - Single Server: https://docs.microsoft.com/en-us/azure/postgresql/concepts-firewall-rules 
-* Firewall rules in Azure Database for MySQL: https://docs.microsoft.com/en-us/azure/mysql/concepts-firewall-rules 
-* Copy using Azure Data Factory: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-postgresql and https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-mysql
+* [Migrate your PostgreSQL database using export and import](https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import)
+* [Migrate your MySQL database to Azure Database for MySQL using dump and restore](https://docs.microsoft.com/en-us/azure/mysql/concepts-migrate-dump-restore)
+* [Create an Azure Database for MySQL server](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+* [Create an Azure Database for PostgreSQL server](https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal)
+* [Firewall rules in Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/en-us/azure/postgresql/concepts-firewall-rules)
+* [Firewall rules in Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/concepts-firewall-rules)
+* [Copy using Azure Data Factory for PostgreSQL](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-postgresql)
+* [Copy using Azure Data Factory for MySQL](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-mysql)
  
