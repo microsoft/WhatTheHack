@@ -8,7 +8,7 @@ This challenge focuses on two main components of any cloud transition: assessmen
 
 ## Overall Tips
 
-Some resources, such as Azure SQL Database Managed Instance, can take some time deploy -- potentially several hours. Depending on the skill level of the group and discussions taking place, nudge them to create resources earlier than later to minimize wait time during provisioning.
+Some resources, such as Azure SQL Managed Instance, can take some time deploy -- potentially several hours. Depending on the skill level of the group and discussions taking place, nudge them to create resources earlier than later to minimize wait time during provisioning.
 
 ## AdventureWorks Migration
 
@@ -17,7 +17,7 @@ Migrating the AdventureWorks database is largely intended to be an easy migratio
 Below are the requirements with coaches notes under each requirement:
 
 1. Must take advantage of PaaS services for easier administration
-    * This limits the choice to either Azure SQL Database or Azure SQL Database Managed Instance.  Azure SQL Database is preferred.
+    * This limits the choice to either Azure SQL Database or Azure SQL Managed Instance.  Azure SQL Database is preferred.
 1. Database must be able to scale rapidly and easily for seasonal demand
     * Azure SQL Database offers the most flexibility here; in general the DTU Standard model will be fine3
 1. Requires database backups to be maintained for 1 year, with weekly granularity
@@ -32,9 +32,9 @@ Below are the requirements with coaches notes under each requirement:
 With the AdventureWorks migration done, any frustrating connectivity issues and initial barriers should be eliminated. This part of the challenge should involve quite a bit more work, particularly if the team pursues the advanced challenges. Comments beneath each requirement:
 
 1. Both WWI OLTP and data warehouse databases are to be migrated; they do not need to be on the same server
-    * The team may decide to migrate these to Azure SQL Database, but Azure SQL Database Managed Instance is an arguably better choice. The purpose of calling out they do not need to be on the same server is to encourage a split architecture to leveral Synapse.
+    * The team may decide to migrate these to Azure SQL Database, but Azure SQL Managed Instance is an arguably better choice. The purpose of calling out they do not need to be on the same server is to encourage a split architecture to leveral Synapse.
 1. Wide World Importers would prefer to take advantage of PaaS services if possible
-    * Azure SQL Database, Azure SQL Database Managed Instance, and Azure Synapse are the best choices
+    * Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are the best choices
 1. Database migration for the OLTP database must be done online with minimum downtime
     1. For the purposes of this challenge, use the WWI Order Insert Solution (Windows Application) to simulate load on the on-premises database during migration/assessment
     * An online migration requires the premium tier of the Azure Database Migration Service. If running the order insert tool is difficult to do for performance, bandwidth, or other reasons, do the following:

@@ -20,15 +20,14 @@ Your company has provided the following requirements and guidelines:
 3. Improve the quality of the process by ensuring it could be repeated
 4. Source databases setup is using the industry benchmark tools  
 
-
 ## Success Criteria
 
 1. Susccessfully migrate the SQL Server VM hosting TPCC database meeting the above criteria
 2. Share the Assement report with the team for collaboration on knowledge sharing
 3. Complete validation of the migrated TPCC database
 
-
 ## Learning Resources
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
 
 ## Tips
 

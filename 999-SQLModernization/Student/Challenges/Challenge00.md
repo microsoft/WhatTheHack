@@ -4,7 +4,7 @@
 
 ## Pre-requisites 
 
-An Azure subscription is required that can deploy Azure SQL resources (Azure SQL Database and Azure SQL Database Managed Instance), Virtual Machines.
+An Azure subscription is required that can deploy Azure SQL resources (Azure SQL Database and Azure SQL Managed Instance), Virtual Machines.
 
 ## Introduction
 
@@ -31,6 +31,7 @@ The objective of the setup is to ensure you have access to a subscription where 
 
 ## Learning Resources
 
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 * [SQL Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 * [AdventureWorks Databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
