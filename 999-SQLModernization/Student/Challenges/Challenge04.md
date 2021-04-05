@@ -20,11 +20,6 @@ With Data Discovery and Classification complete, auditing is a much more effecti
 
 As an early implementation to improve security, the team would like to implement Dynamic Data Masking on the Person.PersonPhone (if using AdventureWorks full) or SalesLT.Phone (if using AdventureWorksLT) to mask the full phone number in downstream application so that customer service representatives do not see the full phone number, but can confirm the last 4 digits with the caller.
 
-
-
-
-
-
 ## Success Criteria
 
 1. Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault with an expiration date of 1 year.
@@ -35,6 +30,7 @@ As an early implementation to improve security, the team would like to implement
 6. Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. Demonstrate the functionality works as intended using a test script. What permissions determine whether a user sees masked vs unmasked data? In what ways 
 
 ## Learning Resources
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
 * [TDE for Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
 * [Azure SQL Database Security Overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview)
 * [Data Discovery and Classification Overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/data-discovery-and-classification-overview)

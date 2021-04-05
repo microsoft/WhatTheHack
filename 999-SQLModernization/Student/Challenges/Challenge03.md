@@ -15,7 +15,7 @@ The purpose of this challenge is threefold:
 
 ### Explore new features
 
-To begin, download and open the [Intelligent Query Processing notebook](./assets/SQLWTH_Challenge2_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatability mode 130 vs 150.
+To begin, download and open the [Intelligent Query Processing notebook](./assets/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatability mode 130 vs 150.
 
 While it's clear the SQL Server 2019 version performs better, the challenge is to understand why. Leverage Query Store to evaluate the differences in performance and execution plans.  
 
@@ -39,11 +39,14 @@ ORDER BY ConfirmedDeliveryTime DESC
 1. Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
 
 ## Learning Resources
+
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
 * [SQL Server Compatability Levels](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15)
 * [Administering Relational Databases Exam](https://docs.microsoft.com/en-us/learn/certifications/exams/dp-300)
 
 ## Tips
-* If you are able to evaluate and see what how the plans are different but not sure why, read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15); cross reference your observations with the details in the document
 
+* If you are able to evaluate and see what how the plans are different but not sure why, read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15); cross reference your observations with the details in the document
+* Look at the [Azure SQL Database tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) for examples of checking best practices.
 
 

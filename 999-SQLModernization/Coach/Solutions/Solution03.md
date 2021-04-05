@@ -73,3 +73,6 @@ ON Sales.Invoices
 ```
 
 Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.
+
+## Tips
+TODO: The student guide tips reference the [Azure SQL Tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) project for a collection of best practices. Need to spend some more time on these and investigate how to leverage better.

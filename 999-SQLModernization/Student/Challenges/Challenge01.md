@@ -39,6 +39,8 @@ Wide World Importers has provided the following requirements and guidelines:
 
 ## Learning Resources
 
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
+
 Download the Workload Driver solution or executable here:
 * [WWI Order Insert Solution](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/workload-drivers/order-insert)
 * [WWI Order Insert Executable (workload-drivers.zip)](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
@@ -49,7 +51,7 @@ Download the Workload Driver solution or executable here:
 * Read up on [Microsoft Data Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595) including [this overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver15) for more information
 * Read more on getting started with [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15), and refer to this [Azure Data Studio Quickstart](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server?view=sql-server-ver15) for more information
 * Any assessment tool may be used to perform an assessment; DMA (Data Migration Assistant) includes assessment and SKU recommendation tools
-* Provisioning of some resources, such as Azure SQL Database Managed Instance, can take some time (potentially several hours, though it typically faster).
+* Provisioning of some resources, such as Azure SQL Managed Instance, can take some time (potentially several hours, though it typically faster).
 
 ## Advanced Challenges (Optional)
 
