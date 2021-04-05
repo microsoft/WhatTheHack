@@ -15,7 +15,7 @@ The purpose of this challenge is threefold:
 
 ### Explore new features
 
-To begin, download and open the [Intelligent Query Processing notebook](../../assets/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatability mode 130 vs 150.
+To begin, download and open the [Intelligent Query Processing notebook](../assets/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatability mode 130 vs 150.
 
 While it's clear the SQL Server 2019 version performs better, the challenge is to understand why. Leverage Query Store to evaluate the differences in performance and execution plans.  
 
