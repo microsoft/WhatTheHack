@@ -48,5 +48,5 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 * If you are able to evaluate and see what how the plans are different but not sure why, read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15); cross reference your observations with the details in the document
 * Look at the [Azure SQL Database tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) for examples of checking best practices.
-
+* Want more hands-on material? Check out the [Microsoft Ground-to-Cloud](https://github.com/microsoft/sqlworkshops-sqlg2c/blob/master/README.md) series.
 
