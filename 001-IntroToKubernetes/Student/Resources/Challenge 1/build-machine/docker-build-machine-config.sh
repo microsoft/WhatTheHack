@@ -47,7 +47,10 @@ mv -v $CURUSERHOME/wth/001-IntroToKubernetes/Student/Resources/Challenge\ 1/cont
 #9. Delete the git repo now, we don't want to leave it behind
 rm -rfv $CURUSERHOME/wth
 
-#10. Change sshd port to 2266 and restart it
+#10. Give yourself full ownership of your home directory
+sudo chown $ADMINUSER.$ADMINUSER $CURUSERHOME
+
+#11. Change sshd port to 2266 and restart it
 sudo systemctl stop sshd.service
 sudo chown $ADMINUSER.$ADMINUSER /etc/ssh/sshd_config 
 sudo cat <<EOF >> /etc/ssh/sshd_config 
