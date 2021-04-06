@@ -22,8 +22,8 @@ Although the data used in the Hack is less than 10 GB in size (think of this as 
 - Explain the data distribution methodologies used and why
 
 ## Learning Resources
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is
-- https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace
+- [What is Azure Synapse Analytics?](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is)
+- [What is Azure Databricks?](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)
+- [Quickstart: Create a Synapse workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace)
 - [Load Data with the COPY statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Load Data with an Integration Pipeline](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-copy-activity-load-sql-pool)
