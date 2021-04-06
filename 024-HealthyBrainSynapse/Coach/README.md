@@ -1,6 +1,6 @@
 # Overview
 
-The es section is dedicated to those who are running the What The Hack
+The coach section is dedicated to those who are running the What The Hack
 
 # Introduction
 
