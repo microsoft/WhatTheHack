@@ -13,7 +13,7 @@ You will need to create reports and/or dashboard to meet their requirements.  Yo
 Your visualization tools should be able to connect to the database/warehouse loaded in Challenge 2 and produce visuals that address these requirements:
 
 Lifter Performance/Participation Perspective
-- Show a listing of the Top 20 lifters at meets in the past 1 year, as measured by their Goodlift score from the meet. Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.  It should also be possible to filter on Event type; the default filter should be SBD (Full Power) and B (Ironman) as these are the most common scored events.
+- Show a listing of the Top 20 lifters at meets in the past 1 year, as measured by their wilks score from the meet. Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.  It should also be possible to filter on Event type; the default filter should be SBD (Full Power) and BD (Benchpress, Deadlift) as these are the most common scored events.
 - Show a listing of lifters with the longest participation period in the sport.  In other words, calculate the time between the lifter’s first and most recent Meet, and rank in descending order.  Call this list the Commitment Leaderboard.  Default view can be based on all lifters, but it should be possible filer by sex, federation, and country.
 
 Sport Management Perspective (analysis oriented to healthy and growing organization)
@@ -26,16 +26,16 @@ Sport Management Perspective (analysis oriented to healthy and growing organizat
 ![Example Visual](..\Images\Leaderboard.png)
 
 ## Success Criteria
-- Explain the team's choice of visualization tool
-- Show the coach (your executive) some of the visuals they can use in their next board meeting
+- Explained the team's choice of visualization tool
+- Shown the coach (your executive) some of the visuals they can use in their next board meeting
 - Demonstrate the ability to filter your visualizations
-- For this challenge, a report in a desktop app is the minimum requirement.
-- Deploy reports and/or dashboards to the Power BI cloud service for broader access.
+- A generated report in a desktop app is the minimum requirement
+- Deployed reports and/or dashboards to the Power BI cloud service for broader access.
 
 ## Learning Resources
-- https://powerbi.microsoft.com/en-us/
-- https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources
-- https://docs.microsoft.com/en-us/power-bi/create-reports/
-- https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-use-directquery
-- https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-service-overview
-- https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboards
+- [Microsoft Power BI](https://powerbi.microsoft.com/en-us/)
+- [Data sources in Power BI Desktop](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources)
+- [Create reports and dashboards in Power BI](https://docs.microsoft.com/en-us/power-bi/create-reports/)
+- [Use DirectQuery in Power BI Desktop](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-use-directquery)
+- [What is the Power BI service?](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-service-overview)
+- [Introduction to dashboards for Power BI designers](https://docs.microsoft.com/en-us/power-bi/create-reports/service-dashboards)

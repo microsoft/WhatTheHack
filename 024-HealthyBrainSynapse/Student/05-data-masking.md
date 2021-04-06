@@ -16,11 +16,11 @@ The suggested masking should correctly show the first two characters of the foir
 
 
 ## Success Criteria
-- Modify your solution so that any user queries against the data store return masked values for First and Last name.  This should apply to all user queries whether via reporting tool or direct SQL queries.
-- Show how you would grant specific users or user groups the ability to bypass the masking and see the full names.
-- Show how you would turn the masking "on" or "off" altogether.
-- Show the least privilege approach to allowing someone to manage masking (e.g., enforce or bypass) without granting them full database admin permissions.
-- Show how a database admin could identify all the columns in the data store which currently have masking policies applied.
+- Modified your solution so that any user queries against the data store return masked values for First and Last name.  This should apply to all user queries whether via reporting tool or direct SQL queries.
+- Shown how you would grant specific users or user groups the ability to bypass the masking and see the full names.
+- Shown how you would turn the masking "on" or "off" altogether.
+- Shown the least privilege approach to allowing someone to manage masking (e.g., enforce or bypass) without granting them full database admin permissions.
+- Shown how a database admin could identify all the columns in the data store which currently have masking policies applied.
 
 ## Learning Resources
 - [Dynamic Data Masking in Azure Synapse](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=azure-sqldw-latest)

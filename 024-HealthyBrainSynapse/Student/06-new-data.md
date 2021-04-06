@@ -10,9 +10,9 @@ The CPF wants to do more sophisticated analysis of sport participation and growt
 
 
 ## Success Criteria
-- Locate suitable data and implement this analysis.
-- Add a new data ingestion flow to put yearly population data by country into the data store.
-- Cleanse or transform the data so "country" in the population data and in the powerlifting data can be correlated (i.e. joined).
-- Create a query, view, or dataset that calculates participation rate by country, by year.
-- Add the resulting data to your visualizations from Challenge 3.
-- Idenfity another country level metric (e.g., GDP, health score, BMI, diet, education) that can be compared to lifter participation to gain insights on growth of the sport.
+- Located suitable data and implement this analysis
+- Added a new data ingestion flow to put yearly population data by country into the data store
+- Cleansed or transformed the data so "country" in the population data and in the powerlifting data can be correlated (i.e. joined)
+- Created a query, view, or dataset that calculates participation rate by country, by year
+- Added the resulting data to your visualizations from Challenge 3
+- Identified another country level metric (e.g., GDP, health score, BMI, diet, education) that can be compared to lifter participation to gain insights on growth of the sport.
