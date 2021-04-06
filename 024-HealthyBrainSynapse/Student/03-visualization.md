@@ -23,7 +23,7 @@ Sport Management Perspective (analysis oriented to healthy and growing organizat
 - Show meets and participants by country, over time
 - Be creative in defining other visual analysis to present that would help Federation executives understand activity and trends in the sport.
 
-![Example Visual](Images/Leaderboard.png)
+![Example Visual](../Images/Leaderboard.png)
 
 ## Success Criteria
 - Explained the team's choice of visualization tool
