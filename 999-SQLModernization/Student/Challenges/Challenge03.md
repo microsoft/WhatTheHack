@@ -10,7 +10,7 @@ Although SQL Server is easier than ever to deploy with Azure SQL Database, conta
 
 The purpose of this challenge is threefold:
 1. Explore new features of SQL Server that may improve performance intrinsically
-1. Ensure would-be data engineers and DBAs are comfortable evaluating performance 
+1. Ensure would-be data engineers and DBAs are comfortable monitoring, evaluating performance 
 1. Leverage newer tools like Azure Data Explorer and Notebooks
 
 ### Explore new features
@@ -35,7 +35,7 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 ## Success Criteria
 
-1. Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they different.
+1. Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they are different.
 1. Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
 
 ## Learning Resources
