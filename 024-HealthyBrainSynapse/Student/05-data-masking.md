@@ -12,7 +12,7 @@ The powerlifting event data contains participants first and last names.  This fa
 
 As a trial of capabilities, the data privacy team has asked you to implement masking of first and last names.
 
-The suggested masking should correctly show the first two characters of the foirst and last name.  All subseuqent characters should be replaced with an "x".
+The suggested masking should correctly show the first two characters of the foirst and last name. All subsequent characters should be replaced with an "x".
 
 
 ## Success Criteria
