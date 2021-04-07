@@ -19,11 +19,7 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 		- Connect to the new pod and you should observe that the “contentdb” database is no longer there since the pod was not configured with persistent storage.
 	- Delete your existing MongoDB deployment
 - Redeploy MongoDB with dynamic persistent storage
-	- **NOTE**: Some types of persistent volumes (such as Azure disks) are associated with a single zone: see [here](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations). Since we enabled availability zones in challenge 3, we need to guarantee that the two volumes and the node that the pod runs on are in the same zone.
-	- Create a new Storage Class for Azure Disks using storageclass.yaml in the resources folder
-		- A storage class allows configuration on the "type" of storage
-		- Note the "volumeBindingMode: WaitForFirstConsumer" setting which forces kubernetes to wait for a workload to be scheduled before provisioning the disks
-	- Create two Persistent Volume Claims (PVC) using the new Storage Class, one for data and one for config.
+	- Create two Persistent Volume Claims (PVC) using the 'managed-premium' Storage Class, one for data and one for config.
 	- Modify your MongoDB deployment to use the PVCs.
 	- Deploy MongoDB
 		- Examine the automatically provisioned Persistent Volumes (PVs) and verify that both are in the same zone.
