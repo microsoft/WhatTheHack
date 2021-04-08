@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "namePrefix": {
+            "type": "string",
+            "defaultValue": "ohdata",
+            "maxLength": 30
+        },
+        "databaseName": {
+            "type": "string",
+            "defaultValue": "covid19",
+            "maxLength": 30
+        }
+    },
+    "variables": {
+        "accountName": "[concat(parameters('namePrefix'), '-cosmosdb-', uniqueString(resourceGroup().id))]",
+        "resourceId": "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]",
+        "apiVersion": "[providers('Microsoft.DocumentDB', 'databaseAccounts').apiVersions[0]]"
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('namePrefix'), '-cosmosdb-', uniqueString(resourceGroup().id))]",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "apiVersion": "2015-04-08",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "kind": "GlobalDocumentDB",
+            "properties": {
+                "locations": [
+                    {
+                        "locationName": "[parameters('location')]",
+                        "failoverPriority": 0
+                    }
+                ],
+                "databaseAccountOfferType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+            "apiVersion": "2020-06-01-preview",
+            "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
+            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
+            "properties": {
+                "resource": {
+                    "id": "[parameters('databaseName')]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "connectionString": {
+            "type": "string",
+            "value": "[concat('AccountEndpoint=https://', variables('accountName'), '.documents.azure.com:443/;AccountKey=', listKeys(variables('resourceId'), variables('apiVersion')).primaryMasterKey, ';')]"
+        }
+    }
+}
