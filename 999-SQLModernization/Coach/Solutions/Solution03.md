@@ -78,7 +78,7 @@ Depending on the skill level of the group, it may be needed to discuss the basic
 TODO: The student guide tips reference the [Azure SQL Tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) project for a collection of best practices. Need to spend some more time on these and investigate how to leverage better.
 
 [rocavalc TODO:]
-- Add the screenshots and the steps to run Azure SQL DB Tips
+- Add the screenshots and the steps to run [Azure SQL Tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) 
 - Show the steps on how to setup and run [SQL Insights](https://techcommunity.microsoft.com/t5/azure-sql/azure-monitor-sql-insights-preview/ba-p/2211405)
 - borrow out scenario from [Module 4](https://github.com/microsoft/sqlworkshops-azuresqlworkshop/blob/master/azuresqlworkshop/04-Performance.md) of Azure SQL Fundamentals
 - Add all related steps to the Jupyter Notebook
