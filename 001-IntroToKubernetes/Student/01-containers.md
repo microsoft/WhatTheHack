@@ -18,24 +18,27 @@ In this challenge we'll be creating an Azure Linux VM, building, and running the
 		- Have a special character 
 
 	- **NOTE:** To ssh into the build machine using port 2266 on the VMs public IP:
-    	- `ssh -p 2266 wthadmin@12.12.12.12` 
-    	- Verity that docker and Azure CLI are installed on the VM.
+    	- `ssh -p 2266 wthadmin@<VM Public IP>` 
+    	- Verify that docker and Azure CLI are installed on the VM.
 - Run the node.js application
 	- Each part of the app (api and web) runs independently.
 	- Build the API app by navigating to the content-api folder and run `npm install`.
 	- To start the app, run `node ./server.js &`
 	- Verify the API app runs by hitting its URL with one of the three function names. Eg: **<http://localhost:3001/speakers>**
-	- Repeat for the steps above for the content-web app, but verify it's available via a browser on the Internet!
+- Repeat for the steps above for the content-web app, but verify it's available via a browser on the Internet!
 	- **NOTE:** The content-web app expects an environment variable named `CONTENT_API_URL` that points to the API app's URL. 
 - Create a Dockerfile for the content-api app that will:
 	- Create a container based on the **node:8** container image
 	- Build the Node application like you did above (Hint: npm install)
 	- Exposes the needed port
 	- Starts the node application
+
 - Create a Dockerfile for the content-web app that will:
 	- Do the same as the Dockerfile for the content-api
 	- Also sets the environment variable value as above
+
 - Build Docker images for both content-api and content-web
+
 - Run both containers you just built and verify that it is working. 
 	- **Hint:** Run the containers in 'detached' mode so that they run in the background.
 	- **NOTE:** The containers need to run in the same network to talk to each other. 
@@ -46,13 +49,12 @@ In this challenge we'll be creating an Azure Linux VM, building, and running the
 
 ## Success Criteria
 
-1. You can run both the web and api parts of the FabMedical app on your VM.
+1. You can run both the node.js based web and api parts of the FabMedical app on the VM
 2. You have created 2 Dockerfiles files and created a container image for both web and api.
-3. You can run the application on the containers.
+3. You can run the application using containers.
 
 ## Learning Resources
 
-Reference articles on how to Dockerize a Node.js app:
 - <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>
 - <https://buddy.works/guides/how-dockerize-node-application>
 - <https://www.cuelogic.com/blog/why-and-how-to-containerize-modern-nodejs-applications>
