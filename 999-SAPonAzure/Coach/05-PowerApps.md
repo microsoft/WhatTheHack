@@ -4,16 +4,17 @@
 
 ## Notes & Guidance
 
-## Step 1 **Build infrastructure**
+## Step 1 - **Build infrastructure**
 
 - Make sure that fully activated SAP S/4 Hana system is installed. User name and password are working in SAP business client.
 - Select a VM to install On-premise data gateway that can access SAP S/4 Hana system on dispatcher and gateway ports. Typical port ranges are 33**,32**,36**.
 - Make sure correct on-premise data gateway and SAP .Net connectors are installed. Both should be of same platform type. (Either X64 / X86, mixing will not work. In doubt install SAP .Net connector for both X86 and X64 and restart on-premise data gateway).
 - Register the on-premise datagateway with correct user and make sure that user can see connector in power platform at https://make.powerapps.com under gateways. If this is not visible, power application cannot communicate with SAP system. 
 
-## Step 2 **Develop power automate (flows) **
+## Step 2 - **Develop power automate (flows)**
 
-- dsf
+- Make sure user enabled Microsoft power Apps Plan2 Trail and Microsoft Power Automate Free. E5 developer is also preferred. 
+- 
 	- `kubectl edit deployment content-web`
 
 - In the YAML file, they will have to update the **spec.replicas** value. They can use this command to edit the deployment resource:
