@@ -8,7 +8,7 @@ Mango Inc has migrated SAP landscape on Microsoft Cloud Azure. Now Mango Inc wan
 
 ## Description
 
-Build a simple power application for Tablet that can  fetch available materials from the user sales organization and plant. Application should also allow user to select material from the list and display complete details for that material upon selection. High level architecture for this application may look like as shown below. 
+Configure Azure Monitor a simple power application for Tablet that can  fetch available materials from the user sales organization and plant. Application should also allow user to select material from the list and display complete details for that material upon selection. High level architecture for this application may look like as shown below. 
 
 
 
