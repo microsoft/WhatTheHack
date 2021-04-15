@@ -34,6 +34,7 @@ This challenge requires you to build foundational infrastructure along with powe
 - Power Automate is very useful to connect SAP system and fetch data. 
 - Request & Response step can be used to pass information from power automate (flow) to power application. 
 - Sample end application may look like below: (It is only to give an idea but can be much better than this).
+![](Images/Challenge5-SampleApplicationScreen.png)
 
 ## References
 
