@@ -1,4 +1,4 @@
-# Challenge 5: Scaling and High Availability
+# Challenge 5: Power Apps integration
 
 [< Previous Challenge](./04-k8sdeployment.md) - **[Home](../README.md)** - [Next Challenge >](./06-deploymongo.md)
 
