@@ -1,4 +1,4 @@
-# Challenge 1 - Provision
+# Challenge 1: Provision
 
 [< Previous Challenge](./00-Background.md) - **[Home](../README.md)** - [Next Challenge >](./02-CloudIngest.md)
 
