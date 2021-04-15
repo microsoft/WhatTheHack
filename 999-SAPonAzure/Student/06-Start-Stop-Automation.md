@@ -4,21 +4,23 @@
 
 ## Introduction
 
-We are going to need MongoDB for v2 of our application and we'll be running it in our Kubernetes cluster.
+The goal of this solution is to facilitate a controlled shutdown & startup of SAP systems, which is a common mechanism to save costs for non Reserved Instances (RI) VMs in Azure.
+
+Note: VMs must be deallocated for Azure charges to stop and that's facilitated by scripts
+
+This is ready, flexible, end-to-end solution (including Azure automation runtime environment, scripts, and runbooks, tagging process etc.) that enables:
+
+- Start & Stop of your SAP application servers, central services, database, and corrosponding VMs
+- Optionally convert Premium Managed Disks to Standard during the stop procedure, and back to Premium during the start procedure, thus saving cost storage as well  
+
+SAP systems start and stop is done gracefully (using SAP native commands), allowing SAP users and batch jobs to finish (with timeout) minimizing downtime impact.  
 
 ## Description
 
-In this challenge we'll be installing MongoDB into our cluster.
 
-- Deploy a MongoDB container in a pod for v2 of the FabMedical app
-- **Hint:** Check out the Docker Hub container registry and see what you can find. 
-- Confirm it is running with:
-	- `kubectl exec -it <mongo pod name> -- mongo "--version"`
 
 ## Success Criteria
 
-1. MongoDB is installed and run in our cluster
-1. The `mongo --version` command can be run in a pod and shown to work.
 
 
 # Table of Contents
