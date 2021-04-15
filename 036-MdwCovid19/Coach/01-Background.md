@@ -1,12 +1,12 @@
-# Coaches Guide - Modern Data Warehousing COVID 19
+# Challenge 1: Coach's Guide
 
-**Note:  The Majority of this content is taken from the work done by the MDW OpenHack Team as this hack is based on that just with a COVID-19 data set so it is more relevant.**
+[< Previous Challenge](./00-PreReqs.md) - **[Home](README.md)** - [Next Challenge >](./02-Provision.md)
 
 Your role as a coach is to encourage your team to work together to solve the
 challenges for themselves. You may provide critical assessment of their ideas
 and suggest potential avenues of exploration when they get stuck; but you should
 *not* provide solutions to the challenges. The outcome that customers value most
-from OpenHack is the satisfaction of having solved the challenges for
+from WhatTheHack is the satisfaction of having solved the challenges for
 themselves, and the in-depth learning that comes from that experience.
 
 So what *is* expected of a coach?

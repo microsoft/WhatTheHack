@@ -1,4 +1,6 @@
-## Challenge 3: On Premises Ingest
+# Challenge 4: Coach's Guide
+
+[< Previous Challenge](./03-CloudIngest.md) - **[Home](README.md)** - [Next Challenge >](./05-TransformLoad.md)
 
 In this challenge, the team is incorporating additional data sources into their
 new data lake. While the initial data was extracted from cloud based Azure SQL
@@ -40,7 +42,7 @@ Help them disable it as well:
 Install the self-hosted integration runtime to extract the data into the
 data lake. Note that in true production scenarios, we would not advise
 installing the runtime on the SQL Server itself, but would rather use a jump
-box. To streamline the OpenHack experience and to save VM costs, we will
+box. To streamline the WhatTheHack experience and to save VM costs, we will
 allow teams to install the runtime directly on the SQL Server VM.
 
 You can find more about Jumpboxes on the following links:

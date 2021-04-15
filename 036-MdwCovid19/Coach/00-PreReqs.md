@@ -1,17 +1,18 @@
+# Challenge 0: Coach's Guide
 
-# COVID19 Modern Data Warehouse OpenHack
+**[Home](README.md)** - [Next Challenge >](./01-Background.md)
 
 ## Setting up Permissions 
 
-Before continuing ensure you understand the permissions needed to run the OpenHack on your Azure subscription.
+Before continuing ensure you understand the permissions needed to run the WhatTheHack on your Azure subscription.
 
 Attendees should have Azure subscription permissions which allow the creation of resources in their resource group. Additionally, attendees should have sufficient subscription permissions to create service principals in Azure AD and to register applications in Azure AD. Typically, all that is required is a user account with `Owner` role on their resource group.
 
 ## Common Azure Resources
 
-The following is a list of common Azure resources that are deployed and utilized during the OpenHack. 
+The following is a list of common Azure resources that are deployed and utilized during the WhatTheHack. 
 
-Ensure that these services are not blocked by Azure Policy.  As this is an OpenHack, the services that attendees can utilize are not limited to this list so subscriptions with a tightly controlled service catalog may run into issues if the service an attendee wishes to use is disabled via policy.
+Ensure that these services are not blocked by Azure Policy.  As this is an WhatTheHack, the services that attendees can utilize are not limited to this list so subscriptions with a tightly controlled service catalog may run into issues if the service an attendee wishes to use is disabled via policy.
 
 | Azure resource           | Resource Providers |
 | ------------------------ | --------------------------------------- |
@@ -28,7 +29,7 @@ Ensure that these services are not blocked by Azure Policy.  As this is an OpenH
 
 ## Attendee Computers
 
-Attendees will be required to install software on the workstations that they are performing the OpenHack on. Ensure they have adequate permissions to perform software installation.
+Attendees will be required to install software on the workstations that they are performing the WhatTheHack on. Ensure they have adequate permissions to perform software installation.
 
 ## Deployment Instructions 
 
@@ -73,7 +74,7 @@ Attendees will be required to install software on the workstations that they are
    git clone https://github.com/SLGOH/slg-c19-mdwoh.git
    ```
    
-8. Execute the following from the `LabDeployment\deploy` directory of the OpenHack repository clone to deploy the environment (this process may take 10-15 minutes):
+8. Execute the following from the `LabDeployment\deploy` directory of the WhatTheHack repository clone to deploy the environment (this process may take 10-15 minutes):
 
     ```powershell
      .\deployAll.ps1 -sqlAdminLoginPassword $sqlpwd -vmAdminPassword $vmpwd
@@ -94,7 +95,7 @@ Resource Groups exist for each of the teams, members are in each team appropriat
 
 Prerequisites/other things to check for each team:
 
-The deployment of the COVID19 Modern Data Warehousing OpenHack Lab environment includes the following for each team.
+The deployment of the COVID19 Modern Data Warehousing WhatTheHack Lab environment includes the following for each team.
 
 ##### COVID Policy Resources
 

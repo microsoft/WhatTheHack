@@ -1,4 +1,6 @@
-# 2 - Ingest from Cloud
+# Challenge 2 - Ingest from Cloud
+
+[< Previous Challenge](./01-Provision.md) - **[Home](../README.md)** - [Next Challenge >](./03-OnPremIngest.md)
 
 ## Background story
 
@@ -12,12 +14,12 @@ This will set the stage for incorporating additional data from the on-premise co
 
 ## Technical details
 
-The team has the freedom during OpenHack to choose the solutions which best fit the needs of Caladan.
+The team has the freedom during WhatTheHack to choose the solutions which best fit the needs of Caladan.
 However, the team must be able to explain the thought process behind the decisions to the team's coach.
 
 At present, encryption and access control is not a requirement for the data.
 
-The team will find the following resources in the OpenHack lab subscription.
+The team will find the following resources in the WhatTheHack lab subscription.
 
 ### Caladan Resources
 
@@ -32,7 +34,7 @@ The team's coach can provide credentials for the SQL database. They are also ava
 **Note:** Each team member should add their Client IP to the database if they are going to connect from their home machine via Azure Data Studio, etc.  
 
 Alternatively, the team may [set the Active Directory Admin](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
-to one of the provided OpenHack accounts.
+to one of the provided WhatTheHack accounts.
 
 ## Success criteria
 

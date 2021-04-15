@@ -1,7 +1,7 @@
 
 # Modern Data Warehouse - COVID 19
 ## Introduction
-This hack is inspired by the Modern Data Warehouse Open Hack.  It is designed so that the students will construct a fully functional Modern Data Pipeline utilizing COVID-19 data and then creating calcuations on growth vs policies enacted by different governments.  The process of collecting, organizing and making inferences based on different data sources is someting that most data practioners need to do at some point in there career.  This hack teaches how to do this in Azure.  
+This hack is designed so that the students will construct a fully functional Modern Data Pipeline utilizing COVID-19 data and then creating calcuations on growth vs policies enacted by different governments.  The process of collecting, organizing and making inferences based on different data sources is someting that most data practioners need to do at some point in there career.  This hack teaches how to do this in Azure.  
 **Note:  This lab is recommended to be done over at least three days.  Is it very in-depth and will test most students.**
 
 ## Learning Objectives
@@ -19,35 +19,35 @@ The technical learning objectives:
 8. Enable Unit Tests
 
 ## Challenges
-1. Background: **[Learn about the fictional government of Caladan and your tasks](Student/00-Background.md)**
+- Background: **[Learn about the fictional government of Caladan and your tasks](Student/00-Background.md)**
    - Prepare for the challenge
-2. Challenge 01: **[Provision](Student/01-Provision.md)**
+- Challenge 1: **[Provision](Student/01-Provision.md)**
    - Provision a Data Storage solution for landing your COVID-19 data sources.
-3. Challenge 02: **[Ingest 1](Student/02-CloudIngest.md)**
+- Challenge 2: **[Ingest 1](Student/02-CloudIngest.md)**
    - Ingest COVID-19 data sources from cloud resources.
-4. Challenge 03: **[Ingest 2](Student/03-OnPremIngest.md)**
+- Challenge 3: **[Ingest 2](Student/03-OnPremIngest.md)**
    - Ingest COVID-19 data sources from On-Premises resources.
-5. Challenge 04: **[Transform and Load](Student/04-TransformLoad.md)**
-   - Configure data pipelines to transform and load the data into usable sources for a Data Warehouse
-6. Challenge 05: **[Calculate](Student/05-Calculate.md)**
+- Challenge 4: **[Transform and Load](Student/04-TransformLoad.md)**
+   - Configure data pipelines to transform and load the data into usable sources for a Data Warehouse.
+- Challenge 5: **[Calculate](Student/05-Calculate.md)**
    - Create Data Warehouse and calculations for growth vs policy. 
 
 ## Prerequisites
-- Your own Azure subscription with Owner access and follow the instruction of the **[Lab Deployment](036-MDW-COVID19\Student\LabDeployment\README.md)**
+- Your own Azure subscription with Owner access and follow the instruction of the **[Lab Deployment](036-MDW-COVID19\Coach\00-PreReqs.md)**
 - Visual Studio Code
 - Azure CLI
 - Azure Data Explorer
 - Azure Storage Explorer
 - Public Github Repository
 
-## Repository Contents (Optional)
+## Repository Contents
 - `../Coach`
     - Coach's Guide
 - `../images`
     - Generic image files needed
 - `../Student`  
     - Student Challenges
-- `../Student/LabDeployment`
+- `../Coach/LabDeployment`
     - ARM Templates 
     - Powershell Scripts 
     - Data for deploying the lab environment
@@ -63,4 +63,3 @@ The technical learning objectives:
 - [Amanda Howard](https://github.com/amandajeanhoward11)
 - [Madhu Chanthati](https://github.com/machanth)
 - [Chris Blevins](https://github.com/blevinscm)
-

@@ -1,4 +1,6 @@
-# 4 -Staging and Transformation
+# Challenge 4 -Staging and Transformation
+
+[< Previous Challenge](./03-OnPremIngest.md) - **[Home](../README.md)** - [Next Challenge >](./05-Calculate.md)
 
 ## Background story
 
