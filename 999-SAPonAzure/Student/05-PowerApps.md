@@ -21,16 +21,27 @@ This challenge requires you to build foundational infrastructure along with powe
 
 ## Hints
 
-- BAPI Names to fetch data from **SAP S/4 Hana system** 
+- BAPI Names to fetch data from **SAP S/4 Hana system**.
 	- Materials list can be fetched from SAP system using BAPI named "BAPI_MATERIAL_GETLIST".
 		- You can use below selection criteria to fetch materials using above BAPI.
-		- Material selection: **I CP *** (like MATNRSELECTION SIGN as I, MATNRSELECTION OPTION as CP, and MATNRSELECTION MATNR LOW as *)
-		- 
+		- Material selection: I CP * (like MATNRSELECTION SIGN as I, MATNRSELECTION OPTION as CP, and MATNRSELECTION MATNR LOW as *)
+		- Plant selection: I EQ 1010
+		- Sales organization selectionL I EQ 1010
+		- You can leave rest of the selection criteria empty. 
+		- MATNRLIST in the received outfrom SAP system has list of materials. 
 	- Material information can be fetched from SAP system using BAPI named "BAPI_MTERIAL_GET_DETAIL"
 
-
+- Power Automate is very useful to connect SAP system and fetch data. 
+- Request & Response step can be used to pass information from power automate (flow) to power application. 
 
 ## References
+
+1. SAP ERP Connector in power applications: https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/
+2. Power Apps canvas applications: https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/ 
+3. Create collection object in power apps: https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/create-update-collection 
+4. Using power (flows) Automate in power apps: https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/using-logic-flows
+
+
 
 In this challenge we will cover scale and resiliency from multiple aspects. We'll make sure enough replicas of our container are running to handle load. We'll make sure that there are enough resources in our cluster to handle all the containers we want to run and we'll figure out how Kubernetes repairs itself.
 
