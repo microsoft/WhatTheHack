@@ -10,7 +10,7 @@ Mango Inc has established SAP landscape for several years. Now Mango Inc wants t
 
 Build a simple power application for Tablet that can  fetch available materials from the user sales organization and plant. Application should also allow user to select material from the list and display complete details for that material upon selection. High level architecture for this application may look like as shown below. 
 
-![image](https://user-images.githubusercontent.com/45843990/114922791-f4c94b80-9de0-11eb-908a-33aecc253f9a.png)
+![image](/images/Challenge5-SampleArchiteture.png)
 
 
 
