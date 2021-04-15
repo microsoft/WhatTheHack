@@ -15,7 +15,8 @@
         - `docker tag content-api peteacr01.azurecr.io/wthaks/content-api`
 - To push the docker image, use: 
     - `docker push <name of ACR>/<namespace>/<name of image> `
-    - For example: 
+    - For example: ![image](https://user-images.githubusercontent.com/24598299/114923357-a2118300-9e24-11eb-8b34-4a824966c140.png)
+
         - `docker push peteacr01.azurecr.io/wthaks/content-web `
         - `docker push peteacr01.azurecr.io/wthaks/content-api`
 - To list images in the repository, use:
