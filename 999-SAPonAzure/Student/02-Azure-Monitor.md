@@ -1,6 +1,6 @@
 # Challenge 2: Azure Monitor SAP Workload On Azure. 
 
-[< Previous Challenge](./04-k8sdeployment.md) - **[Home](../README.md)** - [Next Challenge >](./06-deploymongo.md)
+[< Previous Challenge](./04-k8sdeployment.md) - **[Home](../README.md)** - [Next Challenge >](./03-SAP-Security.md)
 
 ## Introduction
 
