@@ -34,7 +34,7 @@
 - ![Flow for Material Information](Images/Challenge5-Screen6.png)
 - ![Flow for Material Information](Images/Challenge5-Screen7.png)
 
-**Build Power Application**
+## Step 3 - **Build Power Application**
 
 - Create power application with tablet layout. Sample screen can look like as shown below:
 - ![Sample screen](Images/Challenge5-SampleApplicationScreen.png)
