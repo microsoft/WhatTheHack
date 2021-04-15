@@ -1,4 +1,6 @@
-## Challenge 4: Transform and Load
+# Challenge 5: Coach's Guide
+
+[< Previous Challenge](./04-OnPremIngest.md) - **[Home](README.md)** - [Next Challenge >](./06-Calculate.md)
 
 In this challenge, the team will find that they need to combine the data;
 it is up to them to preprocess it to be consistent for downstream consumers.

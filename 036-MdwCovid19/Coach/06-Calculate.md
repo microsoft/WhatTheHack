@@ -1,10 +1,12 @@
-## Challenge 5: Calculate
+# Challenge 6: Coach's Guide
+
+[< Previous Challenge](./05-TransformLoad.md) - **[Home](README.md)**
 
 Now that the team has established the bulk loads and conformed the data, it is time to build the Data Warehouse and perform the necessary calculations. 
 
 ### Creating and populating the star schema
 
-> In this OpenHack, we recommend using Azure Synapse Analytics (formerly Azure SQL Data Warehouse). The team will create the
+> In this WhatTheHack, we recommend using Azure Synapse Analytics (formerly Azure SQL Data Warehouse). The team will create the
 > dimension and fact tables. They may [work with the data in the data
 > lake](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)
 > using [external tables

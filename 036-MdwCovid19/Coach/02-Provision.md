@@ -1,11 +1,13 @@
-## Challenge 1: Provision
+# Challenge 2: Coach's Guide
+
+[< Previous Challenge](./01-Background.md) - **[Home](README.md)** - [Next Challenge >](./03-CloudIngest.md)
 
 The first challenge is designed to establish an enterprise data lake.
 The goal of this challenge is to get the team to choose and provision their storage.
 
 ### Provisioning an enterprise data lake
 
-In the OpenHack, we recommend using ADLS Gen 2.
+In the WhatTheHack, we recommend using ADLS Gen 2.
 
 #### Alternative Setups
 

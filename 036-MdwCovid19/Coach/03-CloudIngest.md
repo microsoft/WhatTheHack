@@ -1,4 +1,6 @@
-## Challenge 2: Cloud Ingest
+# Challenge 3: Coach's Guide
+
+[< Previous Challenge](./02-Provision.md) - **[Home](README.md)** - [Next Challenge >](./04-OnPremIngest.md)
 
 The second challenge is to extract the Cloud COVID-19 data 
 from Azure SQL databases and a Cosmos DB collection.

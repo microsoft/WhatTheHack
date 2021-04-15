@@ -1,4 +1,6 @@
-# 3 - Ingest from On-Premises SQL DB
+# Challenge 3 - Ingest from On-Premises SQL DB
+
+[< Previous Challenge](./02-CloudIngest.md) - **[Home](../README.md)** - [Next Challenge >](./04-TransformLoad.md)
 
 ## Background story
 
@@ -70,7 +72,7 @@ apply to the selected format.
     the self-hosted integration runtime is ideally installed on a separate
     machine from the one that hosts the data itself (e.g., on a
     [jumpbox](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server#architecture)).
-    For the scope of this OpenHack, it is acceptable to install the runtime on the machine which hosts the data.
+    For the scope of this WhatTheHack, it is acceptable to install the runtime on the machine which hosts the data.
 - It is only required that the team persists **their authored solutions** to
 version control.
 
