@@ -40,20 +40,8 @@
 - ![Sample screen](Images/Challenge5-SampleApplicationScreen.png)
 - Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist. 
 - ![Conecting flow from application](Images/Challenge5-Screen8.png)
-
-	- `kubectl edit deployment content-web`
-
-- In the YAML file, they will have to update the **spec.replicas** value. They can use this command to edit the deployment resource:
-	- `kubectl edit deployment content-web`
-- They can watch cluster events by using the following command:
-	- `kubectl get events --sort-by='{.lastTimestamp}' --watch`
-- The error they will encounter is that there aren’t enough CPUs in the cluster to support the number of replicas they want to scale to.
-- The three fixes to address resource constraints are:
-	- Use the Azure portal or CLI to add more nodes to the AKS cluster.
-	- Use the cluster autoscaler to automatically add more nodes to the cluster as resources are needed.
-	- Change the deployment and reduce the needed CPU number from “0.5” to “0.125” (500m to 125m).
-		- This is the preferred solution as long as the application remains responsive!
-		- **NOTE** In the case the last option doesn't work, delete the old pods and reapply the deployments. Kubernetes deploys new pods before tearing down old ones and if we are out of resources, no new pods will be deployed.
-- **NOTE:** In case they do **NOT** get an error and are able to scale up, check how many nodes they have in their cluster and the size of the node VMs. Over provisioned clusters will not fail.
-	- If a team doesn’t get a failure, just have them double the number of Web and API app instances.  
-
+- Adjust the onvisible property of screen as shown in below screenshot. Below Screen shot has different flow name, please ignore it and use correct flow name. Screenshot is given to show the property "OnVisible" and collection object "QueryResults".
+- ![Conecting flow from application](Images/Challenge5-Screen9.png)
+- Create second collection object to store individual material details upon selection in the gallery. Click on select icon on gallery and adjust onselect property to call second flow Get_SAP_Material and store in collection object for example material. User power automate button under menu item Action to connect to the flow. Select the flow (Get_SAP_Material)  that get material details from SAP. Below screen shot has flow named powerappsbutton that should be replaced with the one that you created.
+- ![Conecting flow from application](Images/Challenge5-Screen10.png)	
+- Create
