@@ -10,12 +10,19 @@ Participants work together in teams to complete challenges and are actively enga
 
 #### Challenge #1: SAP Deployment
 
+Mango Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, they want to migrate existing SAP systems from on-premise to Azure more rapid way. They identified SAP on Azure github repo and liked the Microsoft provided automation content. Deploy SAP S/4 hana system using the available automation script in resourses folder. After deployment is completed, verify all the deployed resource and be familiarize yourself. 
+ 
 [Automated deployment of SAP environment](https://github.com/Microsoft-SAPonAzure-OpenHack/Learning-the-OpenHack-Way/tree/main/01-SAP-Auto-Deployment)
-
 
 ####  Challenge #2: Azure Monitor
 
+As Mango Inc is running SAP landscape on on-premise for long time, they already had well established monitoring processes. However most of the monitoring is based on age old scripting. They want to modernize monitoring infrastructure by using azure native services as much as possible while maintaining same or better standards than existing. Design end to end monitoring for SAP Infrastructure that can monitor all underlying infrastructure, Operating system, databases and SAP application. 
+
 ####  Challenge #3: SAP Security
+
+Like every organization, Security & compliance are the top most priority for Mango Inc. They have very big security team to manage IT security infrastructure. Over a period of time, thier security engineers built sophisticated security policies which every IT team in Mango Inc has to follow mandatorily. As systems are moving to Azure, they would like to use native services as much as possible while maintaining established standards. Design end to end proactive and reactive monitoring for SAP infrastructure with easy to understand dashboards. 
+
+
 ####  Challenge #4: BCDR with ANF
 
 
