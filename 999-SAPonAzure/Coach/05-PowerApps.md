@@ -16,9 +16,12 @@
 - Make sure user enabled Microsoft power Apps Plan2 Trail and Microsoft Power Automate Free. E5 developer is also preferred. 
 ![Licenses](Images/Challenge5-PowerAppsLicense.png)
 - Create power automate (flow) with name Get_SAP_MaterialList (note: Name can be anything). Insert steps PowerApps, Call SAP Function and response as shown below:
-
-![Flow for Materiallist](Images/Challenge5-Screen1.png)
-- sdf
+- ![Flow for Materiallist](Images/Challenge5-Screen1.png)
+- Input SAP system details in call SAP function step along with BAPI Name and its import parameters. See below screenshot.
+- ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen2.png)
+- ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen3.png)
+- ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen4.png)
+- - sdf
 
 
 	- `kubectl edit deployment content-web`
