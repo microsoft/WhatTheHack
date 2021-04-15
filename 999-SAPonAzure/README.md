@@ -28,7 +28,7 @@ Like every organization, Security & compliance are the top most priority for Man
 
 [BCDR with ANF documentation](https://github.com/Microsoft-SAPonAzure-OpenHack/Learning-the-OpenHack-Way/tree/main/04-BCDR%20with%20ANF)
 
-####  Challenge #5: PowerApps
+####  Challenge #5: Mobile Application surrounding SAP.
 
 As Mango Inc has established SAP landscape. Now Mango Inc wants to enable users with simplified mobile user interface that requires data from multiple sources and one of the data source is S/4 Hana system. Assume that production workers on site want to know material information on their mobile devices. Design a power application that can be accessible from company provided tablet to search materials on employees own sales organization and plant. 
 
@@ -50,7 +50,7 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 
 Go to the following link to get started with participant guide: [Start-Stop Automation documentation](https://github.com/Microsoft-SAPonAzure-OpenHack/SAPOH/blob/main/06-Start-Stop-Automation)
 
-####  Challenge #7: Power BI report query
+####  Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system. 
 
 Generate self-service sales report from SAP system. 
 - Option 1: Extract sales data from SAP system to ADLS and generate analytics report using power BI /Synapse. 
