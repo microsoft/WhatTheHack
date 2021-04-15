@@ -6,7 +6,9 @@
 
 Now that we have our application packaged as container images, where do they go?
 
-![](/Images/Netweaver.png)
+![](Images/Netweaver.png)
+
+
 ![image](/Images/Netweaver.png)
 ## Description
 
