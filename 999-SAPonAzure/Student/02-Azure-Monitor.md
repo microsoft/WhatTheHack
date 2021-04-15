@@ -1,10 +1,10 @@
-# Challenge 5: Build Mobile Application around SAP. 
+# Challenge 2: Azure Monitor SAP Workload On Azure. 
 
 [< Previous Challenge](./04-k8sdeployment.md) - **[Home](../README.md)** - [Next Challenge >](./06-deploymongo.md)
 
 ## Introduction
 
-Mango Inc has established SAP landscape for several years. Now Mango Inc wants to enable users with simplified mobile user interface that requires data from multiple sources and one of the data source is S/4 Hana system. Assume that production workers on site want to know material information on their mobile devices. How do you build mobile application using No/Low code platform that can interact with SAP system seemlessly? In this challenge, we'll find that out.
+Mango Inc has migrated SAP landscape on Microsoft Cloud Azure. Now Mango Inc wants to enable Azure native monitoring services to monitor SAP Solution on Azure. It is critical for Mango Inc to monitor and review resource usage trend for last 30 days. How to configure & capture critical monitoring metrics for SAP Solution on Azure? In this challenge, we'll find that out.
 
 ## Description
 
