@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./05-scaling.md) - **[Home](README.md)** - [Next Challenge >](./07-updaterollback.md)
 
-## Notes & Guidance
+# Notes & Guidance
 
 # Table of Contents
 
