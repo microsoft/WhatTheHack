@@ -35,9 +35,9 @@ In this challenge we will cover scale and resiliency from multiple aspects. We'l
 
 ## Success Criteria
 
-Task1: Create a Log Analytics Workspace.
-Task2: Deploy Azure Monitor for SAP.
-Task3: Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.
-Task4: Configure OS, SAP NetWeaver providers.
-Task5: Check for Monitoring data in Log Analytics Workspace.
-Task6: Use Kusto query to create custom dashboard and setup alerts.
+- Task1: Create a Log Analytics Workspace.
+- Task2: Deploy Azure Monitor for SAP.
+- Task3: Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.
+- Task4: Configure OS, SAP NetWeaver providers.
+- Task5: Check for Monitoring data in Log Analytics Workspace.
+- Task6: Use Kusto query to create custom dashboard and setup alerts.
