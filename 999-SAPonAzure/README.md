@@ -53,6 +53,6 @@ Generate self-service sales report from SAP system.
 
 ## Prerequisites
 
-## REpository Contents
+## Repository Contents
 
 ## Contributors
