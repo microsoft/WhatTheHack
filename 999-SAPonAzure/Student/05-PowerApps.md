@@ -1,10 +1,10 @@
-# Challenge 5: Power Apps integration
+# Challenge 5: Build Mobile Application around SAP. 
 
 [< Previous Challenge](./04-k8sdeployment.md) - **[Home](../README.md)** - [Next Challenge >](./06-deploymongo.md)
 
 ## Introduction
 
-Now that you have your application running there are a few things to consider. How do you make it responsive? How do you make it resilient? How do you control costs while mananging load? In this challenge, we'll find that out.
+Mango Inc has established SAP landscape for several years. Now Mango Inc wants to enable users with simplified mobile user interface that requires data from multiple sources and one of the data source is S/4 Hana system. Assume that production workers on site want to know material information on their mobile devices. How do you build mobile application using No/Low code platform that can interact with SAP system seemlessly? In this challenge, we'll find that out.
 
 ## Description
 
