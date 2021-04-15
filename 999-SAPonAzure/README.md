@@ -2,6 +2,7 @@
 
 Participants work together in teams to complete challenges and are actively engaged, requiring deep collaboration, as they learn together!
 
+MANGO inc .  
 
 ## Challenge #1: SAP Deployment
 
