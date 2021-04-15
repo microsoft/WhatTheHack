@@ -10,18 +10,17 @@ It's time to update your application, what do you do in a containerized world? K
 
 In this challenge you'll be deploying a v2 of the FabMedical application to your Kubernetes cluster. We're going to do this using two different update strategies: "Rolling Update" and "Blue/Green Deployment".
 
+### Update the app and load data
 - We have staged an updated version of the app on Docker Hub with id and version:
 	- **whatthehackmsft/content-web:v2**
 	- **whatthehackmsft/content-api:v2**
 - **NOTE:** If you have been building your docker container images from source code and deploying to an Azure Container Registry, you can find v2 of the source code in your Challenge 7 Resources folder.
-- Version 2 of FabMedical stores its data in MongoDB.  We have provided a container image with an initialization script called “content-init” that loads the database with the sample content (Student/Resources/Challenge 7).  The container runs as a Kubernetes Job.  The container image is available on Dockerhub at:
-	- **whatthehackmsft/content-init**
+- Version 2 of FabMedical stores its data in MongoDB.  We have provided a container image with an initialization script called “content-init” that loads the database with the sample content (Student/Resources/Challenge 7).  The container runs as a Kubernetes Job.  The container image is available on Dockerhub at: **whatthehackmsft/content-init**
 	- Use the content-init “Job” yaml provided to run the initialization of MongoDB for our new version of the app.
 	- You should verify that the MongoDB contains the FabMedical data after content-init job has completed.  Hint:
     	- Connect to the mongodb pod
     	- Use the mongodb command `show dbs`
 	- Logs for content-init will provide the detailed logs showing whether it was able to successfully connect and add the contents to the MongoDB. You can use kubectl (or the Azure Portal) to check the logs.
-
 
 ### Rolling update
 - Next, you will need to perform a rolling update of content-web on your cluster to the new version of content-web.  You will need to edit your deployment to incorporate the following:
