@@ -25,7 +25,7 @@ Participants work together in teams to complete challenges and are actively enga
 
 As Mango Inc has established SAP landscape. Now Mango Inc wants to enable users with simplified mobile user interface that requires data from multiple sources and one of the data source is S/4 Hana system. Assume that production workers on site want to know material information on their mobile devices. Design a power application that can be accessible from company provided tablet to search materials on employees own sales organization and plant. 
 
-[PowerApps documentation](https://github.com/Microsoft-SAPonAzure-OpenHack/Learning-the-OpenHack-Way/blob/main/05-PowerApps)
+[PowerApps documentation](Student/05-PowerApps.md)
 
 
 ####  Challenge #6: Application aware maintenance (Start/Stop/Scale)
