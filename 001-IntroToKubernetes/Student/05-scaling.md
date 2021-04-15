@@ -17,11 +17,11 @@ In this challenge we will cover scale and resiliency from multiple aspects. We'l
 2. Next, scale the **Web** app to 2 instances
 	- This should be done by modifying the YAML file for the Web app and re-deploying it 
 3.  Now, scale the **API** app to 4 instances using the same technique as above.  
-4. Watch events using kubectl with its special watch option:  **`kubectl get events --sort-by='{.lastTimestamp}' --watch`**
-  - You will find an error occurs because the cluster does not have enough resources to support that many instances.
-  - There are two ways to fix this problem: 
-    1. Increase the size of your cluster, either manually, or by enabling the cluster autoscaler.
-    2. Decrease the resources needed by the deployments
+4. Watch events using kubectl with its special watch option.
+   - You will find an error occurs because the cluster does not have enough resources to support that many instances.
+   - There are two ways to fix this problem: 
+     1. Increase the size of your cluster, either manually, or by enabling the cluster autoscaler.
+     2. Decrease the resources needed by the deployments
   - For this exercise, we want you to adjust the resources used by your deployments.
 5. To fully deploy the application, you will need 4 instances of the API app running and 2 instances of the Web app. 
 	- Hint: If you fixed the issue above correctly (look at pod resource request!), you should be able to do this with the resources of your original cluster.
@@ -36,3 +36,6 @@ In this challenge we will cover scale and resiliency from multiple aspects. We'l
 1. Run 2 replicas of content-web.
 1. Run 4 replicas of content-api.
 1. Fix the resource issues.
+
+## Learning Resources
+[* Watch Kubernetes events](https://stackoverflow.com/questions/45226732/what-kubectl-command-can-i-use-to-get-events-sorted-by-specific-fields-and-print)
