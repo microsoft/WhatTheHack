@@ -10,9 +10,6 @@ Mango Inc has migrated SAP landscape on Microsoft Cloud Azure. Now Mango Inc wan
 
 Build a simple power application for Tablet that can  fetch available materials from the user sales organization and plant. Application should also allow user to select material from the list and display complete details for that material upon selection. High level architecture for this application may look like as shown below. 
 
-![](Images/Challenge5-SampleArchiteture.png)
-
-![image](../images/Challenge5-SampleArchiteture.png)
 
 
 
@@ -38,7 +35,9 @@ In this challenge we will cover scale and resiliency from multiple aspects. We'l
 
 ## Success Criteria
 
-1. You can scale your cluster down to 1 node.
-1. Run 2 replicas of content-web.
-1. Run 4 replicas of content-api.
-1. Fix the resource issues.
+Task1: Create a Log Analytics Workspace. 
+Task2: Deploy Azure Monitor for SAP. 
+Task3: Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1. 
+Task4: Configure OS, SAP NetWeaver providers. 
+Task5: Check for Monitoring data in Log Analytics Workspace. 
+Task6: Use Kusto query to create custom dashboard and setup alerts.
