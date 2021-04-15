@@ -1,0 +1,26 @@
+---
+# LoadBalancer Service used to access Python Web deployment
+# 
+# Deploy as follows:
+# kubectl create -f webapp-services.yml
+# 
+# Verify as follows:
+# kubectl get services -n whatthehack
+# 
+# kubectl describe service webapp-loadbalancer -n whatthehack
+# 
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.serviceDefinition.name }}
+  namespace: {{ .Values.appData.namespace }}
+  labels:
+    k8s-app: {{ .Values.serviceDefinition.name }}
+spec:
+  type: {{ .Values.serviceDefinition.type }}
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: ui
+  selector:
+    k8s-app: {{ .Values.appData.labelValue }}
