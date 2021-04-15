@@ -12,10 +12,25 @@ Build a simple power application for Tablet that can  fetch available materials 
 
 ![](Images/Challenge5-SampleArchiteture.png)
 
-![image](../images/Challenge5-SampleArchiteture.png)
+This challenge requires you to build foundational infrastructure along with power application. 
+
+## Success Criteria
+
+1. Setup working ERP connection in the power automate (or flow).
+2. Run the power application and display selected material information. 
+
+## Hints
+
+- BAPI Names to fetch data from **SAP S/4 Hana system** 
+	- Materials list can be fetched from SAP system using BAPI named "BAPI_MATERIAL_GETLIST".
+		- You can use below selection criteria to fetch materials using above BAPI.
+		- Material selection: **I CP *** (like MATNRSELECTION SIGN as I, MATNRSELECTION OPTION as CP, and MATNRSELECTION MATNR LOW as *)
+		- 
+	- Material information can be fetched from SAP system using BAPI named "BAPI_MTERIAL_GET_DETAIL"
 
 
 
+## References
 
 In this challenge we will cover scale and resiliency from multiple aspects. We'll make sure enough replicas of our container are running to handle load. We'll make sure that there are enough resources in our cluster to handle all the containers we want to run and we'll figure out how Kubernetes repairs itself.
 
@@ -36,9 +51,3 @@ In this challenge we will cover scale and resiliency from multiple aspects. We'l
 - Scale the API app back down to 1, and immediately keep refreshing the `/stats.html` page.
 	- You will notice that without any downtime it now directs traffic only to the single instance left.
 
-## Success Criteria
-
-1. You can scale your cluster down to 1 node.
-1. Run 2 replicas of content-web.
-1. Run 4 replicas of content-api.
-1. Fix the resource issues.
