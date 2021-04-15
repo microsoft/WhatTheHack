@@ -37,7 +37,7 @@
 **Build Power Application**
 
 - Create power application with tablet layout. Sample screen can look like as shown below:
-- ![Flow for Material Information](Images/Challenge5-Screen8.png)
+- ![Sample screen](Images/Challenge5-SampleApplicationScreen.png)
 - Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist. 
 - ![Conecting flow from application](Images/Challenge5-Screen8.png)
 
