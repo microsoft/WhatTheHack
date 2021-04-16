@@ -16,20 +16,18 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
 - Challenge 4: **[Your First Deployment](04-k8sdeployment.md)**
    - Pods, Services, Deployments: Getting your YAML on! Deploy the "FabMedical" app to your AKS cluster. 
 - Challenge 5: **[Scaling and High Availability](05-scaling.md)**
-   - Flex Kubernetes' muscles by scaling pods, and then nodes. Observe how Kubernetes responds to resource limits.
+   - Flex Kubernetes' muscles by scaling pods, and then nodes. Observe how Kubernetes responds to resource limits
+
+
 
 
 -  Challenge #6: **[Application aware maintenance(Start/Stop/Scale)](06-Start-Stop-Automation.md)**
     - Use Azure Runbooks to Start, Stop, and Scale SAP applications
 
 
+
+
+
 - Challenge 7: **[Updates and Rollbacks](07-updaterollback.md)**
    - Deploy v2 of FabMedical to AKS via rolling updates, roll it back, then deploy it again using the blue/green deployment methodology.
-- Challenge 8: **[Storage](08-storage.md)**
-   - Delete the MongoDB you created earlier and observe what happens when you don't have persistent storage. Fix it!
-- Challenge 9: **[Helm](09-helm.md)**
-   - Install Helm tools, customize a sample Helm package to deploy FabMedical, publish the Helm package to Azure Container Registry and use the Helm package to redeploy FabMedical to AKS.
-- Challenge 10: **[Networking](10-networking.md)**
-   - Explore different ways of routing traffic to FabMedical by configuring an Ingress Controller with the HTTP Application Routing feature in AKS.
-- Challenge 11: **[Operations and Monitoring](11-opsmonitoring.md)**
-   - Explore the logs provided by Kubernetes using the Kubernetes CLI, configure Azure Monitor and build a dashboard that monitors your AKS cluster
+
