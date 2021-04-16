@@ -35,7 +35,7 @@ NODEPOOL_NAME=userpool
 LOCATION=eastus
 
 # create resource group
-az group create $RG_NAME --location $LOCATION
+az group create -n $RG_NAME --location $LOCATION
 
 # create AKS cluster
 az aks create -n $AKS_NAME -g $RG_NAME \

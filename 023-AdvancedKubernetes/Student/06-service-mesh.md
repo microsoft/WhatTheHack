@@ -1,6 +1,6 @@
 # Challenge 6 - Service Mesh
 
-[< Previous Challenge](./05-gitops.md)
+[< Previous Challenge](./05-gitops.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./07-data-volumes.md)
 
 ## Introduction
 
@@ -43,3 +43,9 @@ Each of the Service Meshes have their own set of documentation for how to implem
 - After enabling distributed tracing, make a request to the service and confirm you can see how long it takes in each service.
 - Verify that you can only access pod to pod traffic via HTTPS
 - You can view the high-level metrics in Grafana
+
+## Hints
+
+- If using Cloud Shell:
+    - It may use an older version of `istioctl`.  Instead of `istioctl install`, use `istioctl manifest apply`
+    - None of the dashboards/port-forwarding will work because the ports are opened on the Cloud Shell, NOT on your local host.
