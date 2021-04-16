@@ -1,6 +1,6 @@
 # Challenge 2: Azure Monitor for SAP - Coach's Guide
 
-[< Previous Challenge](./04-k8sdeployment.md) - **[Home](README.md)** - [Next Challenge >](./06-deploymongo.md)
+[< Previous Challenge](./01-SAP-Auto-Deployment.md) - **[Home](README.md)** - [Next Challenge >](./03-SAP-Security.md)
 
 ## Notes & Guidance
 
