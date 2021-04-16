@@ -1,4 +1,4 @@
-# Challenge 9 - Automate WVD Tasks
+# Challenge 9: Automate WVD Tasks
 
 [< Previous Challenge](./08-Plan-Implement-BCDR.md) - **[Home](README.md)** - [Next Challenge>](./10-Monitor-Manage-Performance-Health.md)
 
