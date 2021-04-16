@@ -39,6 +39,7 @@ As Mango Inc has established SAP landscape. Now Mango Inc wants to enable users 
     - Use Azure Runbooks to Start, Stop, and Scale SAP applications
 
 -  **Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.** 
+
 Mango Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, they want to Generate self-service sales report from SAP system. 
 - Option 1: Extract sales data from SAP system to ADLS and generate analytics report using power BI desktop client.
 - Option 2: Generate self-service sales report using direct query to SAP HANA system.
