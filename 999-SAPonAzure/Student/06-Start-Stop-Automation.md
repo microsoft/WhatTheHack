@@ -33,7 +33,7 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 The solution is using Azure automation account PaaS solution to execute the SAP shutdown/startup jobs (as shown in the below diagram).
 Runbooks are written in PowerShell. There is also a PowerShell module SAPAzurePowerShellModules that is used by all runbooks. These runbooks and module are stored in PowerShell Gallery, and are easy to import. 
 
-![](Pictures/media/image5.png)
+![image](https://user-images.githubusercontent.com/26795040/115051125-19d1c300-9ea2-11eb-9df9-e2d5425e3c70.png)
 
 Information about SAP landscape and instances are to be stored in VM Tags.
 
@@ -133,7 +133,7 @@ Here is an example of a distributed SAP ABAP System **TS1** with HANA
 DB. ALL VMs are Linux VMs. SAP HANA SID **TS2** is different than SAP
 SID **TS1**.
 
-![](Pictures/media/image53.png)
+![image](https://user-images.githubusercontent.com/26795040/115051256-3a9a1880-9ea2-11eb-90ce-c7f4c2e4e328.png)
 
 **HANA DB VM**
 
