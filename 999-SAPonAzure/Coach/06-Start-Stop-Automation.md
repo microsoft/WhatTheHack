@@ -49,9 +49,9 @@ In details, with this solution you can do the following:
 
     Here you have:
     -	One DBMS VM (HA is currently not implemented)
-    - One ASCS/SCS or DVEBMGS VM (HA is currently not implemented)
+    -   One ASCS/SCS or DVEBMGS VM (HA is currently not implemented)
     -	One or more SAP application servers
-    -	It is assumed that SAPMNT file share is located on SAP ASCS or DVEBMGS VM.
+    -	This solutution assumed that SAPMNT file share is located on SAP ASCS or DVEBMGS VM.
 
 
 -	In a distributed SAP landscape, you can deploy your SAP instances across multiple VMs, and those VMs can be placed in different Azure resources groups.
@@ -79,7 +79,7 @@ In details, with this solution you can do the following:
 
 -	Starting / Stopping is possible to executed manually by a user, or it can be scheduled.
 
-  ![](Pictures/media/image76.png)
+![image](https://user-images.githubusercontent.com/26795040/115053651-fa886500-9ea4-11eb-93b5-93bec67053cb.png)
 
 
 
@@ -89,29 +89,24 @@ In details, with this solution you can do the following:
 
 The stopping of the SAP system or SAP application server will be done using an [SAP soft shutdown or graceful shutdown procedure](https://help.sap.com/saphelp_aii710/helpdata/en/f7/cb8577bc244a25a994fc3f9c16ce66/frameset.htm), within specified timeout. SAP soft shutdown, and is gracefully handling SAP process, users etc. in a specified downtime time, during the stop of whole SAP system or one SAP application server. 
 
- ![](Pictures/media/image2.png)  
+![image](https://user-images.githubusercontent.com/26795040/115053673-007e4600-9ea5-11eb-8cc7-ca55e87207e6.png)
 
  Users will get a popup to log off, SAP application server(s) will be removed from different logon groups (users, batch RFC etc.), procedure will wait for SAP batch job to be finished (until a specified timeout is reached). This is functionality implemented in the SAP kernel.
 
-![](Pictures/media/image3.png)  
+![image](https://user-images.githubusercontent.com/26795040/115053690-06742700-9ea5-11eb-9aad-6b4e43f556dd.png)
 
 > [!NOTE]
 > You can specify in the user interface the SAP soft shutdown time. Default value is 300 sec.  
->![](Pictures/media/image4.png)
+![image](https://user-images.githubusercontent.com/26795040/115053725-0d9b3500-9ea5-11eb-9fcf-4883fc2e753f.png)
 
 
 ## DBMS Shutdown
 
 For SAP HANA and SQL Server, it is also implemented DB soft shutdown, which will gracefully stop these DBMS, so DB will have time to flush consistently all content from memory to storage and stop all DB process. 
 
-## User Interface Possibilities
+## How to execute
 
-A user can trigger start / stop in two ways:
-
-- using Azure Automation account portal UI
-
-- or even better is to use a fancy SAP Azure Power App, which can be consumed in a browser,  smart phones or Teams:
-  >![](Pictures/media/image77.png)
+A user can trigger start / stop using Azure Automation account portal UI
 
 
 # Architecture
@@ -119,7 +114,7 @@ A user can trigger start / stop in two ways:
 The solution is using Azure automation account PaaS solution as an automation platform to execute the SAP shutdown/startup jobs.
 Runbooks are written in PowerShell. There is also a PowerShell module SAPAzurePowerShellModules that is used by all runbooks. These runbooks and module are stored in PowerShell Gallery, and are easy to import. 
 
-![](Pictures/media/image5.png)
+![image](https://user-images.githubusercontent.com/26795040/115053911-3d4a3d00-9ea5-11eb-9576-db36d86022f9.png)
 
 Information about SAP landscape and instances are store in VM Tags.
 
@@ -192,25 +187,11 @@ Plus, it is easy to set it up and use it.
 
 ## Create Azure Automation Account
 
-First, [create an Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
+[How to create an Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
-**Create Resources** -\> search for **Automation**
 
-![](Pictures/media/image6.png)
+![image](https://user-images.githubusercontent.com/26795040/115053994-56eb8480-9ea5-11eb-9d1d-c344e4d7546e.png)
 
-![](Pictures/media/image7.png)
-
-Click **Create**.
-
-![](Pictures/media/image8.png)
-
-Specify parameters:
-
-![](Pictures/media/image9.png)
-
-Azure Automation Account is created.
-
-![](Pictures/media/image10.png)
 
 ## Import Az.Modules
 
@@ -232,84 +213,36 @@ Go to ***Module*** -\> ***Browse Gallery***
 
 Search for **Az.Account** module.
 
-![](Pictures/media/image11.png)
+![image](https://user-images.githubusercontent.com/26795040/115054115-7aaeca80-9ea5-11eb-97bb-26be3bdff2a1.png)
 
 Select **Az.Account** module and click **Import:**
 
-![](Pictures/media/image12.png)
+![image](https://user-images.githubusercontent.com/26795040/115054130-7edae800-9ea5-11eb-9a20-a99bb23845c1.png)
 
 Import is in progress..
 
-![](Pictures/media/image13.png)
+![image](https://user-images.githubusercontent.com/26795040/115054144-826e6f00-9ea5-11eb-8b3d-b2fbeae17167.png)
 
 Import is finished:
 
-![](Pictures/media/image14.png)
+![image](https://user-images.githubusercontent.com/26795040/115054161-87cbb980-9ea5-11eb-8f16-612d5531bcac.png)
 
 ## Import Az.Compute
 
-Go to ***Module*** -\> ***Browse Gallery***
-
-Search for **Az.Compute**
-
-![](Pictures/media/image15.png)
-
-Select **Az.Compute** module and click **Import:**
-
-Import in progress…
-
-![](Pictures/media/image16.png)
-
-Import is finished.
-
-![](Pictures/media/image17.png)
+Simlar to Az.Account
 
 ## Import Az.Automation
 
-Go to ***Module*** -\> ***Browse Gallery***
-
-Search for **Az.Automation** module.
-
-![](Pictures/media/image18.png)
-
-Select **Az.Automation** module and click **Import:  
-**
-
-![](Pictures/media/image19.png)
-
-Import is in progress…
-
-![](Pictures/media/image20.png)
-
-Import is finished.
-
-![](Pictures/media/image21.png)
+Simlar to Az.Account
 
 
 ## Az.Resources
 
-Go to ***Module*** -\> ***Browse Gallery***
-
-Search for **Az.Resources** module.
-
-![](Pictures/media/image22.png)
-
-Select **Az.Resources** module and click **Import:**
-
-![](Pictures/media/image23.png)
-
-Import is in progress…
-
-![](Pictures/media/image24.png)
-
-Import is finished.
-
-![](Pictures/media/image25.png)
+Simlar to Az.Account
 
 ALL new modules are imported.
 
-![A screenshot of a cell phone Description automatically
-generated](Pictures/media/image26.png)
+![image](https://user-images.githubusercontent.com/26795040/115054276-ad58c300-9ea5-11eb-9c80-fd82b0f5d38c.png)
 
 ## Import SAP PowerShell Module
 
@@ -322,21 +255,21 @@ Go to ***Module*** -\> ***Browse Gallery***
 
 Search for ***SAPAzurePowerShellModules*** module.
 
-![](Pictures/media/image27.png)
+![image](https://user-images.githubusercontent.com/26795040/115054308-b6e22b00-9ea5-11eb-949a-e3be9455e79e.png)
 
 Select ***SAPAzurePowerShellModules*** module and click **Import** and **OK:**
 
-![](Pictures/media/image28.png)
+![image](https://user-images.githubusercontent.com/26795040/115054328-bcd80c00-9ea5-11eb-8724-12ed1488c32d.png)
 
-![](Pictures/media/image29.png)
+![image](https://user-images.githubusercontent.com/26795040/115054399-ca8d9180-9ea5-11eb-9a7a-941d6b7f187b.png)
 
 Import is in progress…
 
-![](Pictures/media/image30.png)
+![image](https://user-images.githubusercontent.com/26795040/115054431-cfeadc00-9ea5-11eb-89d0-86b2529e7d23.png)
 
 Import is finished.
 
-![](Pictures/media/image31.png)
+![image](https://user-images.githubusercontent.com/26795040/115054452-d5e0bd00-9ea5-11eb-9eb7-6fd769fc96cc.png)
 
 # Import SAP Runbook
 
@@ -360,82 +293,58 @@ Import these runbooks:
 
   - Stop-SAPApplicationServer
 
-  - Tag-SAPCentralSystemHANA
-
-  - Tag-SAPCentralSystemSQLServer
-
   - Tag-SAPSystemASCSInstanceLinux
-
-  - Tag-SAPSystemASCSInstanceWindows
 
   - Tag-SAPSystemDialogInstanceLinux
 
-  - Tag-SAPSystemDialogInstanceWindows
-
   - Tag-SAPSystemDVEBMGSInstanceLinux
-
-  - Tag-SAPSystemDVEBMGSInstanceWindows
 
   - Tag-SAPSystemSCSInstanceLinux
 
-  - Tag-SAPSystemSCSInstanceWindows
-
   - Tag-SAPSystemJavaApplicationServerInstanceLinux
-
-  - Tag-SAPSystemJavaApplicationServerInstanceWindows
 
   - Tag-SAPSystemStandaloneHANA
 
-  - Tag-SAPStandaloneSQLServer
-
-  -
 > [!NOTE] 
-> All SAP runbooks are stored in PowerShell Gallery and are easy to import into Azure automation account.
+> All SAP runbooks are stored in PowerShell Gallery and are easy to import into Azure automation account. There are Runbooks for different scenarios, you may not need all of those for your use-case
 
 Go to **Runbooks** **Gallery**
 
 For **Source** choose: **PowerShell Gallery**
 
-![Graphical user interface, text, application Description automatically
-generated](Pictures/media/image35.png)
+![image](https://user-images.githubusercontent.com/26795040/115054602-07598880-9ea6-11eb-8db6-0ff1dd9ec5b8.png)
 
 In the search field type: **Start-SAPSystem** and press Enter.
 
-![Graphical user interface, text, application Description automatically
-generated](Pictures/media/image36.png)
+![image](https://user-images.githubusercontent.com/26795040/115054619-0aed0f80-9ea6-11eb-9d69-f40255c578ea.png)
 
 Click on **Start-SAPSystem** Runbook and click on **Import**.
 
-![Graphical user interface, text, application, email Description
-automatically generated](Pictures/media/image37.png)
+![image](https://user-images.githubusercontent.com/26795040/115054623-0e809680-9ea6-11eb-86e6-2f402057aab5.png)
 
 Click **OK**.
 
-![](Pictures/media/image38.png)
+![image](https://user-images.githubusercontent.com/26795040/115054638-12acb400-9ea6-11eb-9be7-e5ff8d33aecb.png)
 
 Import succeeded:
 
-![Graphical user interface, text, application, email Description
-automatically generated](Pictures/media/image39.png)
+![image](https://user-images.githubusercontent.com/26795040/115054659-193b2b80-9ea6-11eb-9aab-24b22e850a8f.png)
 
 Go to **Runbooks** and click on **Start-SAPSystem** runbook.
 
-![Graphical user interface, text, application, email Description
-automatically generated](Pictures/media/image40.png)
+![image](https://user-images.githubusercontent.com/26795040/115054679-20fad000-9ea6-11eb-852b-6847b7241a8d.png)
 
 Click on **Edit**.
 
-![Graphical user interface, application Description automatically
-generated](Pictures/media/image41.png)
+![image](https://user-images.githubusercontent.com/26795040/115054694-2526ed80-9ea6-11eb-834b-ae4f60efd404.png)
 
 Click **Publish** **and confirm** .
 
-![Graphical user interface, text, application, email Description
-automatically generated](Pictures/media/image42.png)
+![image](https://user-images.githubusercontent.com/26795040/115054713-2a843800-9ea6-11eb-85c0-c73d4a11b1bb.png)
 
 And confirm it.
 
-![](Pictures/media/image43.png)
+![image](https://user-images.githubusercontent.com/26795040/115054742-3243dc80-9ea6-11eb-8e2f-f7afda82bda7.png)
 
 Now **Start-SAPSystem** runbook is now published and ready to be used.
 
@@ -443,7 +352,7 @@ Import in the same way for all other runbooks.
 
 All runbooks are imported.
 
-![](Pictures/media/image50.png)
+![image](https://user-images.githubusercontent.com/26795040/115054761-366ffa00-9ea6-11eb-8e11-53d9722d5974.png)
 
 # Tagging Approach
 
@@ -481,178 +390,7 @@ General approach to tag VMs is following:
 
 
 
-# Sample configurations
-
-## Central SAP ABAP System
-
-### Central SAP-ABAP System With HANA
-
-Here is an example of Central SAP ABAP System with HANA DB.
-
-![](Pictures/media/image51.png)
-
-<table>
-<thead>
-<tr class="header">
-<th><strong>Properties</strong></th>
-<th><strong>Value</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Azure Resource Group Name</td>
-<td>gor-linux-eastus2</td>
-</tr>
-<tr class="even">
-<td>VM Name</td>
-<td>ce1-db</td>
-</tr>
-<tr class="odd">
-<td>SAP System SID</td>
-<td>SP1</td>
-</tr>
-<tr class="even">
-<td><p>SAP HANA SID *</p>
-<p>* in central SAP system HANA SID is always different than SAP System SID</p></td>
-<td>CE1</td>
-</tr>
-<tr class="odd">
-<td>SAP ASCS Instance Nr.<br />
-[variation is to have an old DVEBMGS]</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>SAP HANA Instance Nr</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-VM \[ce1-db\] has to be tagged with following Tags:
-
-| Tag                          | Value     |
-| ---------------------------- | --------- |
-| SAPSystemSID                 | SP1       |
-| SAPHANASID                   | CE1       |
-| SAPDBMSType                  | HANA      |
-| SAPHANAInstanceNumber        | 0         |
-| SAPApplicationInstanceType   | SAP\_ASCS |
-| SAPApplicationInstanceNumber | 1         |
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook: **Tag-SAPCentralSystemHANA**
-
-| Parameter                    | Mandatory | Comment                                                        |
-| ---------------------------- | --------- | -------------------------------------------------------------- |
-| ResourceGroupName            | YES       |                                                                |
-| VMName                       | YES       |                                                                |
-| SAPSID                       | YES       | SAP System SID                                                 |
-| SAPApplicationInstanceNumber | YES       | Any SAP instance number – ASCS / SCS or SAP application server |
-| SAPHANASID                   | YES       | SAP HANA SID – on central system it is DIFFERENT than SAPSID   |
-| SAPHANAINstanceNumber        | YES       | SAP Instance umber                                             |
-
-**INFO:** If you have two or more SAP application instance on one host
-you will **tag only** **ONE** of them.  
-Priority has SAP ASCS instance or DVEBMGS instance. 
-
-### Central SAP ABAP System With SQL Server
-
-Here is an example of Central SAP ABAP System with SQL Server.
-
-![](Pictures/media/image52.png)
-
-<table>
-<thead>
-<tr class="header">
-<th><strong>Properties</strong></th>
-<th><strong>Value</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Azure Resource Group Name</td>
-<td>gor-linux-eastus2</td>
-</tr>
-<tr class="even">
-<td>VM Name</td>
-<td>ct1-vm</td>
-</tr>
-<tr class="odd">
-<td>SAP System SID</td>
-<td>CT1</td>
-</tr>
-<tr class="even">
-<td>SAP ASCS Instance Nr.<br />
-[variation is to have an old DVEBMGS]</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
-VM \[ct1-vm\] has to be tagged with following Tags:
-
-| Tag                          | Value            |
-| ---------------------------- | ---------------- |
-| SAPSystemSID                 | CT1              |
-| SAPApplicationInstanceType   | SAP\_ASCS        |
-| SAPApplicationInstanceNumber | 1                |
-| PathToSAPControl             | PathToSAPControl |
-| SAPDBMSType                  | SQLServer        |
-| DBInstanceName               |                  |
-
-**  
-  
-  
-INFO:** SQL Server could be installed either as:
-
-  - **Default** **instance** – in this case DBInstanceName value is an
-    empty string.  
-    SQL Server would be addressed as **hostname**.
-
-  - **Named instances** - in this case DBInstanceName has some value.  
-    SQL Server would be addressed as **hostname\\\<DBInstanceName\>**.
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook:
-**Tag-SAPCentralSystemSQLServer**
-
-| Parameter                          | Mandatory | Comment                                                            |
-| ---------------------------------- | --------- | ------------------------------------------------------------------ |
-| ResourceGroupName                  | YES       |                                                                    |
-| VMName                             | YES       |                                                                    |
-| SAPSID                             | YES       | SAP System SID                                                     |
-| SAPASCSInstanceNumber              | YES       | Any SAP instance number – ASCS / SCS or SAP application server     |
-| PathToSAPControl                   | YES       |                                                                    |
-| SAPsidadmUserPassword              | YES       |                                                                    |
-| DBInstanceName                     | No        | Default value is an empty string (for default SQL Server Instance) |
-| AutomationAccountResourceGroupName | YES       |                                                                    |
-| AutomationAccountName              | YES       |                                                                    |
-
-**INFO:** If you have two or more SAP application instance on one host
-you will **tag only ONE** of them.  
-Priority has SAP ASCS instance or DVEBMGS instance.
-
-### Central SAP ABAP System With Oracle, IBM DB2, Sybase, Max DB
-
-In the case of DBMS like: Oracle, IBM DB2 , Sybase or MaxDB, tag the VM:
-
-  - On windows with runbook **Tag-SAPSystemASCSInstanceWindows**
-
-  - On Linux **Tag-SAPSystemASCSInstanceLinux**
-
-  - Add the tag for :
-    
-      - **Oracle**  
-        SAPDBMSType = Oracle
-    
-      - **IBM DB2**  
-        SAPDBMSType = IBMDB2
-    
-      - **MaxDB**  
-        SAPDBMSType = MaxDB
-    
-      - **Sybase**  
-        SAPDBMSType = Sybase
+# Configuration for thic challenge
 
 ## Distributed SAP ABAP System with HANA – ALL Linux
 
@@ -660,7 +398,7 @@ Here is an example of a distributed SAP ABAP System **TS1** with HANA
 DB. ALL VMs are Linux VMs. SAP HANA SID **TS2** is different than SAP
 SID **TS1**.
 
-![](Pictures/media/image53.png)
+![image](https://user-images.githubusercontent.com/26795040/115054859-5b646d00-9ea6-11eb-8a2d-071a1f91f89b.png)
 
 ### HANA DB VM
 
@@ -806,345 +544,6 @@ Tagging process run this Azure runbook: Tag-SAPSystemDialogInstanceLinux
 | SAPSID                  | YES       | TS1                 |
 | SAPDialogInstanceNumber | YES       | 2                   |
 
-## Distributed SAP ABAP System with HANA – Application Layer Windows
-
-Here is an example of a distributed SAP ABAP System **PR2** with HANA
-DB.  
-Application layer (SAP ASCS and Dialog instances) VMs are Windows VMs.  
-SAP HANA SID **PR2** is same as SAP SID **PR1**.
-
-![](Pictures/media/image54.png)
-
-### HANA DB VM
-
-DB has following properties.
-
-<table>
-<thead>
-<tr class="header">
-<th><strong>Properties</strong></th>
-<th><strong>Value</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>VM Name</td>
-<td>pr2-db</td>
-</tr>
-<tr class="even">
-<td>Azure Resource Group Name</td>
-<td>gor-linux-eastus2</td>
-</tr>
-<tr class="odd">
-<td>SAP System SID</td>
-<td>PR2</td>
-</tr>
-<tr class="even">
-<td><p>SAP HANA SID *</p>
-<p>* in central SAP system HANA SID is can be different than SAP System SID</p></td>
-<td>PR2</td>
-</tr>
-<tr class="odd">
-<td>SAP HANA Instance Nr</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-VM \[ts2-db\] has to be tagged with following Tags:
-
-| Tag                   | Value |
-| --------------------- | ----- |
-| SAPSystemSID          | PR2   |
-| SAPHANASID            | PR2   |
-| SAPDBMSType           | HANA  |
-| SAPHANAINstanceNumber | 0     |
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook: **Tag-SAPSystemStandaloneHANA**
-
-| Parameter             | Mandatory | Value             |
-| --------------------- | --------- | ----------------- |
-| ResourceGroupName     | YES       | gor-linux-eastus2 |
-| VMName                | YES       | pr2-db            |
-| SAPSID                | YES       | PR2               |
-| SAPHANASID            | YES       | PR2               |
-| SAPHANAINstanceNumber | YES       | 0                 |
-
-### ASCS VM \[Windows\]
-
-ASCS has following properties.
-
-| **Properties**            | **Value**           |
-| ------------------------- | ------------------- |
-| Azure Resource Group Name | gor-linux-eastus2-2 |
-| VM Name                   | pr2-ascs            |
-| SAP System SID            | PR2                 |
-| SAP ASCS Instance Nr      | 0                   |
-
-VM \[ts2-ascs\] has to be tagged with following Tags:
-
-| Tag                          | Value                                          |
-| ---------------------------- | ---------------------------------------------- |
-| SAPSystemSID                 | PR2                                            |
-| SAPApplicationInstanceType   | SAP\_ASCS                                      |
-| SAPApplicationInstanceNumber | 0                                              |
-| PathToSAPControl             | C:\\usr\\sap\\PR2\\ASCS00\\exe\\sapcontrol.exe |
-
-Create in \<sid\>adm password in **Credential** area of Azure automation
-account.
-
-Click **Add credentials**, ***Name*** = prdadm, ***User name*** = pr2adm
-, ***Password*** = \<password\>
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook:
-**Tag-SAPSystemASCSInstanceWindows  
-**Tags runbook will store \<sid\>adm password in secure area as well.
-
-| Parameter                          | Mandatory | Value                                          |
-| ---------------------------------- | --------- | ---------------------------------------------- |
-| ResourceGroupName                  | YES       | gor-linux-eastus2-2                            |
-| VMName                             | YES       | pr2-ascs                                       |
-| SAPSID                             | YES       | PR2                                            |
-| SAPASCSInstanceNumber              | YES       | 0                                              |
-| PathToSAPControl                   | YES       | C:\\usr\\sap\\PR2\\ASCS00\\exe\\sapcontrol.exe |
-| SAPsidadmUserPassword              | YES       | Mypr2admpassword                               |
-| AutomationAccountResourceGroupName | YES       | gor-startstop-rg                               |
-| AutomationAccountName              | YES       | gor-sap-start-stop                             |
-
-### SAP Application Server VM \[Windows\]
-
-SAP application server has following properties.
-
-| **Properties**            | **Value**           |
-| ------------------------- | ------------------- |
-| Azure Resource Group Name | gor-linux-eastus2-2 |
-| VM Name                   | pr2-di0             |
-| SAP System SID            | PR1                 |
-| SAP Dialog Instance Nr    | 0                   |
-
-VM \[pr2-di0\] has to be tagged with following Tags:
-
-| Tag                          | Value                                       |
-| ---------------------------- | ------------------------------------------- |
-| SAPSystemSID                 | PR2                                         |
-| SAPApplicationInstanceType   | SAP\_D                                      |
-| SAPApplicationInstanceNumber | 0                                           |
-| PathToSAPControl             | C:\\usr\\sap\\PR2\\D00\\exe\\sapcontrol.exe |
-
-Create in \<sid\>adm password in **Credential** area of Azure automation
-account.
-
-Click **Add credentials**, ***Name*** = prdadm, ***User name*** = pr2adm
-, ***Password*** = \<password\>
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook:
-**Tag-SAPSystemDialogInstanceWindows  
-**Tags runbook will store \<sid\>adm password in secure area as well.
-
-| Parameter                          | Mandatory | Value                                       |
-| ---------------------------------- | --------- | ------------------------------------------- |
-| ResourceGroupName                  | YES       | gor-linux-eastus2-2                         |
-| VMName                             | YES       | pr2-di0                                     |
-| SAPSID                             | YES       | PR2                                         |
-| SAPDialogInstanceNumber            | YES       | 0                                           |
-| PathToSAPControl                   | YES       | C:\\usr\\sap\\PR2\\D00\\exe\\sapcontrol.exe |
-| SAPsidadmUserPassword              | YES       | \<MyPR2ADMPassword\>                        |
-| AutomationAccountResourceGroupName | YES       | gor-startstop-rg                            |
-| AutomationAccountName              | YES       | gor-sap-start-stop                          |
-
-## DVEBMGS Instance on Linux
-
-If you would have an old so-called central instance e.g. DVEBMGS
-instance on Linux, then VM has to be tagged with following Tags:
-
-| **Tag**                      | **Value**    |
-| ---------------------------- | ------------ |
-| SAPSystemSID                 | TS1          |
-| SAPApplicationInstanceType   | SAP\_DVEBMGS |
-| SAPApplicationInstanceNumber | 0            |
-
-You can create these Tags manually.
-
-To simplify and automate Tagging process run this Azure runbook:
-**Tag-** **SAPSystemDVEBMGSInstanceLinux**.
-
-**  
-**
-
-## DVEBMGS Instance on Windows
-
-If you would have an old so-called central instance e.g. DVEBMGS
-instance on Windows, then VM must be tagged with following Tags:
-
-| Tag                          | Value                                              |
-| ---------------------------- | -------------------------------------------------- |
-| SAPSystemSID                 | PR2                                                |
-| SAPApplicationInstanceType   | SAP\_DVEBMGS                                       |
-| SAPApplicationInstanceNumber | 0                                                  |
-| PathToSAPControl             | C:\\usr\\sap\\PR2\\ DVEBMGS00\\exe\\sapcontrol.exe |
-
-Create in \<sid\>adm password in **Credential** area of Azure automation
-account.
-
-Click **Add credentials**, ***Name*** = pr2adm, ***User name*** = pr2adm
-, ***Password*** = \<password\>
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook: **Tag-**
-**SAPSystemDVEBMGSInstanceWindows**.
-
-| Parameter                          | Mandatory | Value                                             |
-| ---------------------------------- | --------- | ------------------------------------------------- |
-| ResourceGroupName                  | YES       | gor-linux-eastus2-2                               |
-| VMName                             | YES       | pr2-ascs                                          |
-| SAPSID                             | YES       | PR2                                               |
-| SAPDVEBMGSInstanceNumber           | YES       | 0                                                 |
-| PathToSAPControl                   | YES       | C:\\usr\\sap\\PR2\\DVEBMGS00\\exe\\sapcontrol.exe |
-| SAPsidadmUserPassword              | YES       | \<MyPR2ADMPassword\>                              |
-| AutomationAccountResourceGroupName | YES       | gor-startstop-rg                                  |
-| AutomationAccountName              | YES       | gor-sap-start-stop                                |
-
-## Two or more SAP Instances on ONE VM
-
-If you have two or more SAP application instances (ASCS, DVEBMS, Dialog)
-on ONE VM:
-
-  - Tag only ONE SAP instance
-
-  - Tag always ASCS or DVEBMGS instance if existing
-
-![](Pictures/media/image55.png)
-
-## Standalone SAP HANA 
-
-You have just standalone SAP HANA DB on one VM, without an SAP system.
-
-DB has following properties.
-
-<table>
-<thead>
-<tr class="header">
-<th><strong>Properties</strong></th>
-<th><strong>Value</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>VM Name</td>
-<td>pr2-db</td>
-</tr>
-<tr class="even">
-<td>Azure Resource Group Name</td>
-<td>gor-linux-eastus2</td>
-</tr>
-<tr class="odd">
-<td><p>SAP HANA SID *</p>
-<p>* in central SAP system HANA SID is can be different than SAP System SID</p></td>
-<td>PR2</td>
-</tr>
-<tr class="even">
-<td>SAP HANA Instance Nr</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-VM \[ts2-db\] must be tagged with following Tags:
-
-| Tag                   | Value |
-| --------------------- | ----- |
-| SAPHANASID            | PR2   |
-| SAPDBMSType           | HANA  |
-| SAPHANAINstanceNumber | 0     |
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook: **Tag-SAPStandaloneHANA**
-
-| Parameter             | Mandatory | Value             |
-| --------------------- | --------- | ----------------- |
-| ResourceGroupName     | YES       | gor-linux-eastus2 |
-| VMName                | YES       | pr2-db            |
-| SAPSID                | YES       | PR2               |
-| SAPHANASID            | YES       | PR2               |
-| SAPHANAINstanceNumber | YES       | 0                 |
-
-## Distributed SAP ABAP System with SQL Server
-
-![](Pictures/media/image56.png) 
-
-### SQL Server DB VM 
-
-### 
-
-### DB has following properties.
-
-| **Properties**            | **Value**         |
-| ------------------------- | ----------------- |
-| VM Name                   | st1-db            |
-| Azure Resource Group Name | gor-linux-eastus2 |
-| SAP System SID            | ST1               |
-| SQL Server Instance       | ST1               |
-
-VM \[st1-db\] has to be tagged with following Tags:
-
-| Tag                                   | Value     |
-| ------------------------------------- | --------- |
-| SAPSystemSID                          | ST1       |
-| SAPDBMSType                           | SQLServer |
-| DBInstanceName (it is named instance) | ST1       |
-
-You can create these Tags manually. However, to simplify and automate
-Tagging process run this Azure runbook: **Tag-SAPStandaloneSQLServer**
-
-| Parameter         | Mandatory | Value             |
-| ----------------- | --------- | ----------------- |
-| ResourceGroupName | YES       | gor-linux-eastus2 |
-| VMName            | YES       | st1-db            |
-| SAPSID            | YES       | ST1               |
-| DBInstanceName    | YES       | ST1               |
-
-### ASCS VM \[Windows\]  
-
-Check above chapter how to tag ASCS VM on Windows .
-
-### Application Server VM \[Windows\]
-
-Check above chapter how to tag application server VM on Windows.
-
-## Distributed SAP ABAP System with Other DBMS
-
-For distributed systems with Oracle , IBM DB2, Sybase, MAxDB:
-
-  - On DBMS VM create these tags
-    
-      - **Oracle**  
-        SAPDBMSType = Oracle
-    
-      - **IBM DB2**  
-        SAPDBMSType = IBMDB2
-    
-      - **MaxDB**  
-        SAPDBMSType = MaxDB
-    
-      - **Sybase**  
-        SAPDBMSType = Sybase
-
-Tag ASCS instance VM using runbooks:
-
-  - Tag-SAPSystemASCSInstanceLinux - on Linux
-
-  - Tag-SAPSystemASCSInstanceWindows – on Windows
-
-Tah SAP Application server VMs using runbooks:
-
-  - Tag-SAPSystemDialogInstanceLinux - on Linux
-
-<!-- end list -->
-
-  - Tag-SAPSystemDialogInstanceWindows – on Windows
 
 # Runbook Description
 
@@ -1347,28 +746,28 @@ Runtime steps:
 
 Go to **Runbooks**
 
-![](Pictures/media/image57.png)
+![image](https://user-images.githubusercontent.com/26795040/115055041-95ce0a00-9ea6-11eb-9286-68e918c4233c.png)
 
 Click on one runbook, for example **Start-SAPSystem**
 
-![](Pictures/media/image58.png)
+![image](https://user-images.githubusercontent.com/26795040/115055068-9c5c8180-9ea6-11eb-8b02-395f7cd69e84.png)
 
 And click **Start** , fill the required parameters (**\***), and click
 **OK**
 
-![](Pictures/media/image59.png)
+![image](https://user-images.githubusercontent.com/26795040/115055088-a2eaf900-9ea6-11eb-9aa8-4ba4c723825d.png)
 
 **INFO**: Parameters with **\*** are **mandatory\!**
 
 Runbook is running.
 
-![](Pictures/media/image60.png)
+![image](https://user-images.githubusercontent.com/26795040/115055098-a7afad00-9ea6-11eb-9576-c87940393146.png)
 
 Check the logs in ***All logs*** or ***Output.***
 
-![](Pictures/media/image61.png)
+![image](https://user-images.githubusercontent.com/26795040/115055139-b4cc9c00-9ea6-11eb-847e-7c72e086e11b.png)
 
-![](Pictures/media/image62.png)
+![image](https://user-images.githubusercontent.com/26795040/115055156-b8f8b980-9ea6-11eb-9823-62cce47624af.png)
 
 # Schedule Start/Stop DEV Systems
 
@@ -1382,22 +781,21 @@ Creating schedules make sense for repeating tasks, for example.
 
 Go to ***Schedules*** tab and click ***Add schedule***
 
-![](Pictures/media/image63.png)
+![image](https://user-images.githubusercontent.com/26795040/115055166-bd24d700-9ea6-11eb-80da-d97a52a36d87.png)
 
 Configure parameters and click ***Create***  
 In example below, it is configured Start Schedule at 9 am , from Monday
 till Friday:
 
-![](Pictures/media/image64.png)
-
-![](Pictures/media/image65.png)
+![image](https://user-images.githubusercontent.com/26795040/115055176-c31ab800-9ea6-11eb-8a62-4f3267526a21.png)
+![image](https://user-images.githubusercontent.com/26795040/115055184-c6ae3f00-9ea6-11eb-98c6-95a0585d7f86.png)
 
 ### Link Schedule to a runbook and specify input parameters.
 
 Go to ***Runbooks*** and click on one runbook, choose Schedules tab,
 click ***Add a schedule***.
 
-![](Pictures/media/image66.png)
+![image](https://user-images.githubusercontent.com/26795040/115055196-cb72f300-9ea6-11eb-9b8a-cae638bdbb21.png)
 
 ![](Pictures/media/image67.png)
 
