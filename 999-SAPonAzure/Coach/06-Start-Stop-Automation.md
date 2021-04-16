@@ -3,6 +3,8 @@
 [< Previous Challenge](./05-scaling.md) - **[Home](README.md)** - [Next Challenge >](./07-updaterollback.md)
 
 # Notes & Guidance
+
+Here are the details of the solution and instructions on how to execute it in your landscape
     
 # Overview of the solution 
 
