@@ -8,25 +8,27 @@ The goal of this solution is to facilitate a controlled shutdown & startup of SA
 
 Note: VMs must be deallocated for Azure charges to stop and that's facilitated by scripts
 
-This is ready, flexible, end-to-end solution (including Azure automation runtime environment, scripts, and runbooks, tagging process etc.) that enables:
+## Description
+
+This is a flexible and end-to-end solution (including Azure automation runtime environment, scripts, and runbooks, tagging process etc.) that enables:
 
 - Start & Stop of your SAP application servers, central services, database, and corrosponding VMs
 - Optionally convert Premium Managed Disks to Standard during the stop procedure, and back to Premium during the start procedure, thus saving cost storage as well  
 
-SAP systems start and stop is done gracefully (using SAP native commands), allowing SAP users and batch jobs to finish (with timeout) minimizing downtime impact.  
-
-## Description
-
-
+SAP systems start and stop is done gracefully (using SAP native commands), allowing SAP users and batch jobs to finish (with timeout) minimizing downtime impact. 
 
 ## Success Criteria
 
-- Import AZ modules and SAP runbooks
-- Tag SAP systems correctly
-- Use runbooks to start, stop, and scale SAP systems
+- Create Azure Automation account
+- Tag all the VMs for the **SID** in place
+- List the SID to ensure all the systems were tagged correctly
+- Execute runbook manually to stop systems
+- Schedule the runbook to start the systems
+- Schedule scale out & scale in out the Application servers
+- (Optional) Restrict access to runbooks to an individual user
 
 
-# Architecture of the Start/Stop solution 
+## Architecture of the Start/Stop solution 
 
 The solution is using Azure automation account PaaS solution to execute the SAP shutdown/startup jobs (as shown in the below diagram).
 Runbooks are written in PowerShell. There is also a PowerShell module SAPAzurePowerShellModules that is used by all runbooks. These runbooks and module are stored in PowerShell Gallery, and are easy to import. 
@@ -45,7 +47,7 @@ SQL Server start / stop / monitoring is implemented using scripts (calling SAP H
 
 Azure runbooks can either be executed manually or scheduled. 
 
-# Deployed SAP Landscape
+## Deployed SAP Landscape
 
 In the deployed SAP landscape we have: (Deployment scenario #2 in below diagram)
 
@@ -55,34 +57,20 @@ In the deployed SAP landscape we have: (Deployment scenario #2 in below diagram)
 
 ![image](https://user-images.githubusercontent.com/26795040/113913301-c83e7f80-97a1-11eb-891c-8ba22219ae26.png)
 
-# Tasks for participents
-
-- Create Azure Automation account
-
-- Tag all the VMs for the **SID** in place
-
-- List the SID to ensure all the systems were tagged correctly
-
-- Execute runbook manually to stop systems
-
-- Schedule the runbook to start the systems
-
-- Schedule scale out & scale in out the Application servers
-
-- (Optional) Restrict access to runbooks to an individual user
 
 
-# Implementation details
+
+## Implementation details
 
 This section details the implementation flow of the solution
 
-## **Create Azure Automation Account**
+### **Create Azure Automation Account**
 
  [How to create Azure automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
 
 
 
-## **Import Az.Modules**
+### **Import Az.Modules**
 
 SAP start / stop PowerShell (PS) runbooks use new Az PS module, which must be [imported](https://docs.microsoft.com/en-us/azure/automation/az-modules#import-the-az-modules) .
 
@@ -97,7 +85,7 @@ Import Az modules:
   - **Az.Resources**
 
 
-## **Import SAP PowerShell Module**
+### **Import SAP PowerShell Module**
 
 Import **SAPAzurePowerShellModules** PowerShell module that will be used by SAP Runbooks.
 
@@ -105,7 +93,7 @@ Import **SAPAzurePowerShellModules** PowerShell module that will be used by SAP 
 > PowerShell module **SAPAzurePowerShellModules** is stored in PowerShell Gallery and is easy to import into Azure automation account.
 
 
-## **Import SAP Runbooks**
+### **Import SAP Runbooks**
 
 Navigate to **Runbook** and click **Import a runbook**.
 
@@ -137,7 +125,7 @@ Import these runbooks:
 > All SAP runbooks are stored in PowerShell Gallery and are easy to import into Azure automation account.
 
 
-## Tagging and executing Runbooks
+### Tagging and executing Runbooks
 
 **Example Distributed SAP ABAP System with HANA – ALL Linux**
 
@@ -291,7 +279,7 @@ VM \[ts2-di0\] has to be tagged with following Tags:
 | SAPDialogInstanceNumber | YES       | 2                   |
 
 
-##  Runbook Description
+###  Runbook Description
 
 **Listing SAP System \<SID\> VMs: List-SAPSystemInstance**s
 
