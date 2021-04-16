@@ -2,23 +2,6 @@
 
 [< Previous Challenge](./05-scaling.md) - **[Home](README.md)** - [Next Challenge >](./07-updaterollback.md)
 
-# Table of Contents
-
-- [Overview of the solution](#Overview-of-the-solution)
-- [Solution Capabilities](#Solution-Capabilities)
-- [Soft / Graceful Shutdown of SAP System, Application Servers, and DBMS](#Graceful-Shutdown-of-SAP-System-Application-Servers-and-DBMS)
-- [Architecture](#Architecture)
-- [Cost Optimization Potential](#Cost-Optimization-Potential)
-- [Implementation](#Implementation)
-- [Import SAP Runbook](#Import-SAP-Runbook)
-- [Tagging Approach](#Tagging-Approach)
-- [Sample configurations](#Sample-configurations)
-- [Runbook Description](#Runbook-Description)
-- [How to start a runbook](#How-to-start-a-runbook)
-- [Schedule Scale Out and Scale In of SAP Application Servers](#Schedule-Scale-Out-and-Scale-In-of-SAP-Application-Servers)
-- [Access consideration for Azure Automation Runbooks and Jobs](#Access-consideration-for-Azure-Automation-Runbooks-and-Jobs)
-- [Frequently Asked Questions](#Frequently-Asked-Questions)
-
 # Notes & Guidance
     
 # Overview of the solution 
