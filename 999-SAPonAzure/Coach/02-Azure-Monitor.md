@@ -19,17 +19,11 @@ Click Review + create to review the settings and then Create to create the works
 
 ## Step 2 - **Deploy Azure Monitor for SAP.**
 
-- Make sure user enabled Microsoft power Apps Plan2 Trail and Microsoft Power Automate Free. E5 developer is also preferred. 
-
-
-**Getting Material list from SAP**
-
-- Create power automate (flow) with name Get_SAP_MaterialList (note: Name can be anything). Insert steps PowerApps, Call SAP Function and response as shown below: Note that SAP ERP connection can be created from Flow as well by selecting the registered on-premise gateway. Student/Participant might have created the connection in advance. In that case, he has to use the existing connection. 
-
-
-**Getting Material information from SAP**
-
-- Create power automate (flow) with name Get_SAP_Material (note: Name can be anything). Note that this step requires input from power application which is not yet ready. Create the flow and come back later to complete. Insert 3 steps in PowerApps as similar to earlier but with different SAP BAPI. Flow may look like below:
+- Select Azure Monitor for SAP Solutions from Azure Marketplace.
+![Azure Monitor for SAP](Images/02-Azure-Monitor-Create_Monitor-1.png)
+- In the Basics tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
+![Azure Monitor for SAP](Images/02-Azure-Monitor-Create_Monitor-2.png)
+- When selecting a virtual network, ensure that the systems you want to monitor are reachable from within that VNET.
 
 
 ## Step 3 - **Build Power Application**
