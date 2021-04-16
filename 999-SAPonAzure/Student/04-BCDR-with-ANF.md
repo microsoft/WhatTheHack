@@ -1,4 +1,4 @@
-# Challenge 4: Your First Deployment
+# Challenge 4: System protection with backup
 
 [< Previous Challenge](./03-k8sintro.md) - **[Home](../README.md)** - [Next Challenge >](./05-scaling.md)
 
