@@ -27,7 +27,9 @@ steps include --
 
 Login in SAP HANA Database using HANA Studio: 
 
- 
+WhatTheHack/999-SAPonAzure/Coach/Images/Challnege - 07/SAP HANA studio.png
+
+ https://github.com/Microsoft-SAPonAzure-OpenHack/WhatTheHack/blob/master/999-SAPonAzure/Coach/Images/Challnege%20-%2007/SAP%20HANA%20studio.png?raw=true
 
  
 
