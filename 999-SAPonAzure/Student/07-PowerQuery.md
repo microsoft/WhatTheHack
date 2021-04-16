@@ -61,9 +61,8 @@ Generate self-service sales report from SAP system. Option 1: Extract sales data
  
 
 # Final Architecture 
+![image](https://user-images.githubusercontent.com/81314847/115074617-eefa6580-9ec7-11eb-9eaa-ca09b29708cb.png)
 
- 
-![](media/GetImage.png)
  
 
 # Documentation URLs  
