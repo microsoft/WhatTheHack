@@ -36,7 +36,10 @@ As Mango Inc has established SAP landscape. Now Mango Inc wants to enable users 
 
 
 -  **Challenge #6: [Application aware maintenance (Start/Stop/Scale)](Student/06-Start-Stop-Automation.md)**
-    - Use Azure Runbooks to Start, Stop, and Scale SAP applications
+
+Mango Inc is looking to optimize the cost of SAP landscape and exploring ways to do that. They're leaning towards getting Reserves Instances (RI) for all production systems and would like to save cost on non-production (sandboxes, project systems, etc.) systems by not operating those during non-business hours. This solution helps them achieve that either using automation tools or schedule based![image](https://user-images.githubusercontent.com/26795040/115080638-b60ec080-9ec8-11eb-8689-245515477f22.png)
+
+[Application aware maintenance (Start/Stop/Scale)](Student/06-Start-Stop-Automation.md)
 
 -  **Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.** 
 
