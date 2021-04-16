@@ -23,3 +23,20 @@ steps include --
    2. IN power BI clinet GUI add the user name / password of HANA db users and connection strings with tables name to poulate the data
    3. Once the data populate in power BI client, use appropariate colume , row and filter criteria to create the quesry to show vistulaization using PIE or nbar char.
    4. publish the power BI app for the end user so they can use on their desktop for future use.
+
+
+Login in SAP HANA Database using HANA Studio: 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+Or  
+
+ 
+
