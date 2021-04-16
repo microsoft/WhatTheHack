@@ -1,6 +1,6 @@
 # Challenge 0: Coach Guide
 
-**[Home](README.md)** - [Next Challenge>](./01-Plan-WVD-Architecture.md)
+**[Home](./README.md)** - [Next Challenge>](./01-Plan-WVD-Architecture.md)
 
 ## Notes & Guidance
 
