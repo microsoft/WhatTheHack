@@ -1,6 +1,6 @@
 # Challenge 11: Configure settings for user experience - Coach's guide
 
-[< Previous Challenge](./10-Manage-Monitor-Performance-Health.md) - **[Home](../README.md)**
+[< Previous Challenge](./10-Monitor-Manage-Performance-Health.md) - **[Home](README.md)**
 
 ## Notes & Guidance
 
@@ -22,20 +22,20 @@
     * **TIP:** The printer can't be installed as a shared printer from another device.  It needs to be installed directly on the system running the connector (doesn't have to necessarily be physically connected).
     * ***Note:** If you unregister the printer, you will likely need to cycle the "Print Connector Service" service to get it to stop showing up as registered in the connector tool*
 
-
-
 * In the [admin portal](https://portal.azure.com/#blade/Universal_Print/MainMenuBlade/Printers), grant user permissions for the printer and share it with either a group or everyone
 
 * Add the printer manually on your WVD and print a test page
     * **TIP:** If everything looks good, but the print job just sits in a pending state try removing the printer registration from the portal and readding it on the connector system again (seems to clear up most issues), you should also verify drivers, and potentially can solve issues by enabling "Document conversion" in the admin portal
 
 Deploying to devices
+
 1. Download the [Universal Print printer provisioning tool](https://www.microsoft.com/en-us/download/details.aspx?id=101453) ***and*** sample policy (have to check both boxes)
 1. Deploy the included intunewin file to the systems first to prep them for provisioning
 1. The ID you need for printers.csv is in the Azure portal under the printer's share blade
 1. InstallPolicy.cmd and the updated printers.csv are the only files that need to be in the source folder the intunewin utility
 
 ## Reference
+
 - [Set up Azure MFA and Conditional Access](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa)
 - [Device restrictions](https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-windows-10)
 - Windows Update for Business - [Intune](https://docs.microsoft.com/en-us/windows/deployment/update/deploy-updates-intune),[Group Policy](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wufb-group-policy)

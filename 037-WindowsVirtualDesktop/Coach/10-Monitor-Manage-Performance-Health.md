@@ -1,8 +1,10 @@
 # Challenge 10: Monitor and manage the performance and health of your WVD environment
 
-### Notes:
+[< Previous Challenge](./09-Automate-WVD-Tasks.md) - **[Home](README.md)** - [Next Challenge>](./11-Configure-User-Experience-Settings.md)
 
-Students should be able to demonstrate a number of key elements to be successful in this challenge. They are expected to deploy the following WVD services and features. 
+## Notes
+
+Students should be able to demonstrate a number of key elements to be successful in this challenge. They are expected to deploy the following WVD services and features.
 
 - WVD Azure Monitor Insights portal
 - WVD Autoscaling Session Hosts
@@ -18,8 +20,8 @@ Students should be able to demonstrate a number of key elements to be successful
 
 **Tips**
 - Students should configure the Azure Monitor Agent and enable all required counters [Azure Monitor for WVD documentation](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor). 
-- Data typically flows within a few minutes of enabling the agent and counters however only new data will be received so testing should occur after confirmation that some data is being recieved by Log Analytics. 
-- Enabling alerts is an optional feature and not required for the purpose of this challenge however in operational environments it is recommend after baselines of the environment are performed. We don't offer fixed guidance on what alerts should be enabled today however the below links offer some suggestions and guidance on what customers may consider in a real environment.   
+- Data typically flows within a few minutes of enabling the agent and counters however only new data will be received so testing should occur after confirmation that some data is being recieved by Log Analytics.
+- Enabling alerts is an optional feature and not required for the purpose of this challenge however in operational environments it is recommend after baselines of the environment are performed. We don't offer fixed guidance on what alerts should be enabled today however the below links offer some suggestions and guidance on what customers may consider in a real environment.
 
 **Useful Links**
 - [Use Azure Monitor for WVD to monitor environment](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor)
@@ -70,9 +72,9 @@ WVDCheckpoints | summarize count() by Source, ActivityType, _ResourceId
         - SessionThresholdPerCPU: 1 (this is to allow easier testing and demonstration of scaling without having to add too many sessions if the threshold was higher)
         - MinimumNumberofRDSH: 5% of the host pool session hosts to meet business objectives. (this can be set to a lower/higher value as required for the lab however students should be able to explain this value is needing to allow for off-peak hosts to support after-hours remote users)
         - LimitSecondstoForceLogOffUser: 300 (300secs is 5mins before users will be force logged off hosts during scale-in at the end of the day)
-        - LogOffMessageTitle and LogOffMessageBody: Any title and body text respectively to warn users they will be logged off in 5mins and that they should save their work and try to reconnect shortly. 
+        - LogOffMessageTitle and LogOffMessageBody: Any title and body text respectively to warn users they will be logged off in 5mins and that they should save their work and try to reconnect shortly.
 
-### Success Criteria
+## Success Criteria
 
 To be successful for this challenge students should be able to demonstrate the following;
 
@@ -96,16 +98,15 @@ To be successful for this challenge students should be able to demonstrate the f
     - Using WVD Insights Monitor within WVD Blade
     - Change "TimeRange" dropdown parameter to "Last 30 Days"
     - Open "Users" tab, enter UPN of user to search and choose from matching users
-    - Students should be able to show the history of connections over the time range and demonstrate key items such as last seen, client types and errors impacting connectivity. 
+    - Students should be able to show the history of connections over the time range and demonstrate key items such as last seen, client types and errors impacting connectivity.
 
     ![User History over 30 days](/Images/Challenge10-UserHistory30days.png =955x508)
-
 
 4. Identify performance metrics of a WVD host which has a currently connected user and demonstrate how you can view the "User Input Delay per Process" object and "Max Input Delay" counters for that VM. 
     - Using WVD Insights Monitor within WVD Blade
     - Open "Host Performance" tab and scroll down to "Input delay by process"
     - [User Input Delay Counters](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters) require the students to successfully add custom performance counters as per requirements of WVD Insights
-    
+
     ![User Input Delay by Process](/Images/Challenge10-InputDelaybyProcess.png =438x595)
 
 5. Enable automatic scaling of WVD session hosts to start and stop machines during peak/off-peak hours across each region. 
@@ -130,10 +131,9 @@ Extra Challenge
     - Virtual Machine dropdown: "WVDHostsId" selected and add the VM CPU Performance counter. 
     ![Add CPU Metric](/Images/Challenge10-AddMetricValue.png =775x480)
 
-    - Save work by first hitting the done editing button and choosing the "Save As" option before hitting Done edit. Users, if successful will have a new metric counter that they added. 
+    - Save work by first hitting the done editing button and choosing the "Save As" option before hitting Done edit. Users, if successful will have a new metric counter that they added.
 
-
-### Reference
+## Reference
 
 - [Azure Monitor for WVD](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor)
 - Perform an online [CPU Stress Test](https://cpux.net/cpu-stress-test-online) to simulate CPU load for a user session. 
