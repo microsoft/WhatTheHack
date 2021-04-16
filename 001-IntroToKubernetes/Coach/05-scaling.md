@@ -13,8 +13,8 @@
 	- Use the Azure portal or CLI to add more nodes to the AKS cluster.
 	- Use the cluster autoscaler to automatically add more nodes to the cluster as resources are needed.
 	- Change the deployment and reduce the needed CPU number from “0.5” to “0.125” (500m to 125m).
-		- This is the preferred solution as long as the application remains responsive!
-		- **NOTE** In the case the last option doesn't work, delete the old pods and reapply the deployments. Kubernetes deploys new pods before tearing down old ones and if we are out of resources, no new pods will be deployed.
+		- In production environment, consider a discussion with the application owner/architect before reducing any resources.
+		- **NOTE** In this Challenge, if the last option doesn't work, delete the old deployment and reapply it. Kubernetes deploys new pods before tearing down old ones and if we are out of resources, no new pods will be deployed.
 - **NOTE:** In case they do **NOT** get an error and are able to scale up, check how many nodes they have in their cluster and the size of the node VMs. Over provisioned clusters will not fail.
 	- If a team doesn’t get a failure, just have them double the number of Web and API app instances.  
 
