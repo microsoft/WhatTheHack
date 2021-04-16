@@ -23,10 +23,10 @@ As Mango Inc is running the SAP landscape on on-premise for a long time, they al
 Like every organization, Security & compliance are the top most priority for Mango Inc. They have very big security team to manage IT security infrastructure. Over a period of time, thier security engineers built sophisticated security policies which every IT team in Mango Inc has to follow mandatorily. As systems are moving to Azure, they would like to use native services as much as possible while maintaining established standards. Design end to end proactive and reactive monitoring for SAP infrastructure with easy to understand dashboards. 
 
 
--   **Challenge #4: BCDR with ANF**
+-   **Challenge #4: Business continuity and Disaster recovery**
 
+Mango Inc heavily relies on SAP infrastructure to perform day to day business transactions. Unavailability of IT infrastructure for SAP or SAP application itself can heavily impact business transactions and potentially delay revenue recognition. Mango Inc is concerning about the data consistency on backups and restorability with online backups and necessity of offline backups along with periodicity. CIO heard about Azure netapp files and its features and took a decision to use ANF across the SAP infrastructure for Hana database. Design and implement BCDR solution for SAP S/4 Hana system. 
 
-[BCDR with ANF documentation](https://github.com/Microsoft-SAPonAzure-OpenHack/Learning-the-OpenHack-Way/tree/main/04-BCDR%20with%20ANF)
 
 -   **Challenge #5: Mobile Application surrounding SAP.**
 
