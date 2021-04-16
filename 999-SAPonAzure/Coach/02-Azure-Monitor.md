@@ -59,6 +59,5 @@ Ref: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tut
 
 ## Step 6 - Use Kusto query to create custom dashboard and setup alerts.
 
-- Create power application with tablet layout. Sample screen can look like as shown below:
+- select Logs from the Azure Monitor menu in your subscription. This will set the initial scope to a Log Analytics workspace meaning that your query will select from all data in that workspace.
 
-- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist.
