@@ -21,6 +21,9 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 
 ## Success Criteria
 
+- Import AZ modules and SAP runbooks
+- Tag SAP systems correctly
+- Use runbooks to start, stop, and scale SAP systems
 
 
 # Table of Contents
