@@ -29,7 +29,8 @@ Login in SAP HANA Database using HANA Studio:
 
 WhatTheHack/999-SAPonAzure/Coach/Images/Challnege - 07/SAP HANA studio.png
 
- https://github.com/Microsoft-SAPonAzure-OpenHack/WhatTheHack/blob/master/999-SAPonAzure/Coach/Images/Challnege%20-%2007/SAP%20HANA%20studio.png?raw=true
+ ![image](https://user-images.githubusercontent.com/81314847/115057716-68875900-9eb2-11eb-8b4c-44ab96bdf459.png)
+
 
  
 
