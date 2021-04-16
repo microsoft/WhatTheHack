@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Domain": {
+            "type": "string"
+        },
+        "Environment": {
+            "type": "string",
+            "metadata": {
+                "description": "Determines the environment of the resource (e.g., 'd' for Development)"
+            },
+            "defaultValue": "d"
+        },
+        "Location": {
+            "type": "string",
+            "metadata": {
+                "description": "Location is used to specify the deployment location for each Resource"
+            },
+            "defaultValue": "eastus"
+        },
+        "LocationAbbr": {
+            "type": "string",
+            "metadata": {
+                "description": "Location Abbreviation is used to name Resources"
+            },
+            "defaultValue": "eus"
+        },
+        "Timestamp": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
+        },
+        "VmPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password used for the Local Administrator, Domain Administrator, and User accounts"
+            }
+        },
+        "VmUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Local Adminstrator Username for the Domain Controllers"
+            }
+        }
+    },
+    "variables": {
+        "IpAddresses": [
+            "10.0.0.196",
+            "10.0.0.197"
+        ]
+    },
+    "resources": [
+        {
+            "comments": "---------- LINKED DEPLOYMENT > NETWORK ----------",
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat('Network_',parameters('Timestamp'))]",
+            "apiVersion": "2019-10-01",
+            "resourceGroup": "[concat('rg-wth-network-', parameters('Environment'),'-', parameters('LocationAbbr'))]",
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Environment": {
+                        "value": "[parameters('Environment')]"
+                    },
+                    "IpAddresses": {
+                        "value": "[variables('IpAddresses')]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "LocationAbbr": {
+                        "value": "[parameters('LocationAbbr')]"
+                    }
+                },
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/jamasten/WhatTheHack/main/templates/challenge-02_network.json"
+                }
+            }
+        },
+        {
+            "comments": "---------- LINKED DEPLOYMENT > IDENTITY ----------",
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat('Identity_',parameters('Timestamp'))]",
+            "apiVersion": "2019-10-01",
+            "dependsOn": [
+                "[concat('Network_', parameters('Timestamp'))]"
+            ],
+            "resourceGroup": "[concat('rg-wth-identity-', parameters('Environment'),'-', parameters('LocationAbbr'))]",
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Domain": {
+                        "value": "[parameters('Domain')]"
+                    },
+                    "Environment": {
+                        "value": "[parameters('Environment')]"
+                    },
+                    "IpAddresses": {
+                        "value": "[variables('IpAddresses')]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "LocationAbbr": {
+                        "value": "[parameters('LocationAbbr')]"
+                    },
+                    "Timestamp": {
+                        "value": "[parameters('Timestamp')]"
+                    },
+                    "VmPassword": {
+                        "value": "[parameters('VmPassword')]"
+                    },
+                    "VmUsername": {
+                        "value": "[parameters('VmUsername')]"
+                    }
+                },
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/jamasten/WhatTheHack/main/templates/challenge-02_identity.json"
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
