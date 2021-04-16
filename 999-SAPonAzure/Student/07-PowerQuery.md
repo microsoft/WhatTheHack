@@ -1,7 +1,8 @@
 # Challenge 7: Design a power BI application that connect SAP HANA database using direct query and transform data using power BI desktop client. 
 
-https://github.com/Microsoft-SAPonAzure-OpenHack/WhatTheHack/blob/master/999-SAPonAzure/Student/Images/Challenge7_direct_query_main.png?raw=true
 
+
+![image](https://user-images.githubusercontent.com/81314847/115069386-7db7b400-9ec1-11eb-8c2a-e018b1e4ceaf.png)
 
 
 
