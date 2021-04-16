@@ -17,8 +17,12 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
    - Pods, Services, Deployments: Getting your YAML on! Deploy the "FabMedical" app to your AKS cluster. 
 - Challenge 5: **[Scaling and High Availability](05-scaling.md)**
    - Flex Kubernetes' muscles by scaling pods, and then nodes. Observe how Kubernetes responds to resource limits.
-- Challenge 6: **[Deploy MongoDB to AKS](06-deploymongo.md)**
-   - Deploy MongoDB to AKS from a public container registry.
+
+
+-  Challenge #6: [Application aware maintenance(Start/Stop/Scale)](06-Start-Stop-Automation.md)
+    - Use Azure Runbooks to Start, Stop, and Scale SAP applications
+
+
 - Challenge 7: **[Updates and Rollbacks](07-updaterollback.md)**
    - Deploy v2 of FabMedical to AKS via rolling updates, roll it back, then deploy it again using the blue/green deployment methodology.
 - Challenge 8: **[Storage](08-storage.md)**
