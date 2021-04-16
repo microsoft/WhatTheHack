@@ -34,12 +34,8 @@ Login in SAP HANA Database using HANA Studio:
 
  
 
- 
-
-
- 
-
 Or  
 
- 
+![image](https://user-images.githubusercontent.com/81314847/115066150-1ef03b80-9ebd-11eb-8a05-7f04660b070a.png)
+
 
