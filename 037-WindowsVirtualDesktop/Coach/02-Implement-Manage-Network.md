@@ -1,6 +1,6 @@
 # Challenge 2: Implement and Manage Network
 
-[< Previous Challenge](./01-Plan-WVD-Architecture.md) - **[Home](README.md)** - [Next Challenge >](./03-Implement-Manage-Storage.md)
+[< Previous Challenge](./01-Plan-WVD-Architecture.md) - **[Home](./README.md)** - [Next Challenge >](./03-Implement-Manage-Storage.md)
 
 ## Notes and Guidance
 

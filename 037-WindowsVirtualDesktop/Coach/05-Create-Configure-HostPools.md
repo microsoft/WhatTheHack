@@ -1,6 +1,6 @@
 # Challenge 5: Coach's Guide
 
-[< Previous Challenge](./04-Create-Manage-Images.md) - **[Home](README.md)** - [Next Challenge >](./06-Implement-Manage-FsLogix.md)
+[< Previous Challenge](./04-Create-Manage-Images.md) - **[Home](./README.md)** - [Next Challenge >](./06-Implement-Manage-FsLogix.md)
 
 ## Notes & Guidance
 

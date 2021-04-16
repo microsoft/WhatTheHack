@@ -1,6 +1,6 @@
 # Challenge 6: Coach's Guide
 
-[< Previous Challenge](./05-Create-Configure-HostPools.md) - **[Home](README.md)** - [Next Challenge >](./07-Install-Configure-Apps.md)
+[< Previous Challenge](./05-Create-Configure-HostPools.md) - **[Home](./README.md)** - [Next Challenge >](./07-Install-Configure-Apps.md)
 
 ## Notes & Guidance
 

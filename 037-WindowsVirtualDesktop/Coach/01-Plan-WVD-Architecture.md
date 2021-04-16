@@ -1,6 +1,6 @@
 # Challenge 1: Plan WVD architecture
 
-[< Previous Challenge](./00-Pre-Reqs.md) - **[Home](README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
+[< Previous Challenge](./00-Pre-Reqs.md) - **[Home](./README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
 ## Notes and Guidance
 
