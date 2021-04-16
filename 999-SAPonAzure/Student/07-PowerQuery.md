@@ -11,13 +11,9 @@ Documentation URL :
 Use SAP HANA in Power BI - Power BI | Microsoft Docs 
 
 https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana
+
 Power Query SAP HANA database connector | Microsoft Docs 
-
 https://docs.microsoft.com/en-us/power-query/connectors/sap-hana/overview#:~:text=To%20connect%20to%20an%20SAP%20HANA%20database%20from,your%20credentials%20for%20authentication.%20...%20More%20items...
-
- 
-
- 
 
  
 
