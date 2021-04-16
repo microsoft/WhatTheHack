@@ -1,14 +1,6 @@
-# Table of Contents 
-
-- [Finalize the description for challenge](#Finalize-the-description-for-challenge)
-- [Understand required Architecture and Azure components](#Understand-required-Architecture-and-Azure-components) 
-- [Get equipped with necessary skills and Knowledge](#Get-equipped-with-necessary-skills-and-Knowledge)
-- [Final Architecture](#Final-Architecture)
-- [Documentation URLs](#Documentation-URLs)
-- [Reference documents](#Reference-documents)
 
 
-**Description:**
+**Introduction
 
  
 
@@ -16,7 +8,7 @@ Generate self-service sales report from SAP system. Option 1: Extract sales data
 
  
 
-# Finalize the description for challenge
+# Description
 
     Generate self-service SAP system  report about batch jobs status and  name from SAP system. 
 
@@ -27,7 +19,7 @@ Generate self-service sales report from SAP system. Option 1: Extract sales data
  
 
 
-# Understand required Architecture and Azure components
+# Hints
  
 
    * Download Power  BI  desktop from windows power app platfrom  
@@ -48,7 +40,7 @@ Generate self-service sales report from SAP system. Option 1: Extract sales data
 
  
 
- # Get equipped with necessary skills and Knowledge 
+ # Guidelines
 
  
 
@@ -95,38 +87,4 @@ Generate self-service sales report from SAP system. Option 1: Extract sales data
 
 
 
-Student introduction 
-===================
 
-# Challenge 7: Design a power BI application that connect SAP HANA database using direct query and transform data using power BI desktop client. 
-
-
-
-![image](https://user-images.githubusercontent.com/81314847/115069386-7db7b400-9ec1-11eb-8c2a-e018b1e4ceaf.png)
-
-
-
-
-Documentation URL :  
-Use SAP HANA in Power BI - Power BI | Microsoft Docs 
-
-https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana
-
-Power Query SAP HANA database connector | Microsoft Docs 
-https://docs.microsoft.com/en-us/power-query/connectors/sap-hana/overview#:~:text=To%20connect%20to%20an%20SAP%20HANA%20database%20from,your%20credentials%20for%20authentication.%20...%20More%20items...
-
- 
-
-Reference documents: 
-
- Direct Query in Power  
- https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-sap-hana
-
-Bring your SAP HANA data to life with Microsoft Power BI  
-https://powerbi.microsoft.com/en-us/blog/bring-your-sap-hana-data-to-life-with-microsoft-power-bi/
-
-SAP HANA DB administration
-https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/e77aff8345c640698b69173c034ce094.html
-
-SAP Blog on connect Microsoft power BI desktop to HANA 
-https://blogs.sap.com/2017/01/23/connect-microsoft-power-bi-desktop-to-a-hana-system-in-hcp-using-hana-cloud-connector-service-channels/ 
