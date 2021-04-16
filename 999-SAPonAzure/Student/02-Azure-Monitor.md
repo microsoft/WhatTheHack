@@ -11,7 +11,7 @@ Mango Inc has migrated SAP landscape on Microsoft Cloud Azure. Now Mango Inc wan
 Configure Azure Monitor for SAP application that can  fetch critical metrics for Virtual Machine, SAP Application and HANA database.Application should also allow user to select material from the list and display complete details for that material upon selection. High level architecture for this application may look like as shown below. 
 
 
-
+![SAP ON Azure Monitoring](Images/Challenge2_Azure_Monitor_SAP_Architecture.png)
 
 
 In this challenge we will cover scale and resiliency from multiple aspects. We'll make sure enough replicas of our container are running to handle load. We'll make sure that there are enough resources in our cluster to handle all the containers we want to run and we'll figure out how Kubernetes repairs itself.
