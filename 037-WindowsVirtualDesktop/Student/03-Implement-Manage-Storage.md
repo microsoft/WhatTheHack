@@ -1,6 +1,6 @@
 # Challenge 3: Implement and Manage your storage for FsLogix
 
-[< Previous Challenge](./02-Plan-WVD-Architecture.md) - **[Home](../README.md)** - [Next Challenge >](./04-Create-Manage-Images.md)
+[< Previous Challenge](./02-Implement-Manage-Network.md) - **[Home](../README.md)** - [Next Challenge >](./04-Create-Manage-Images.md)
 
 ## Introduction
 
