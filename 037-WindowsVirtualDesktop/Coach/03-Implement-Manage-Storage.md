@@ -1,10 +1,13 @@
 # Steps to solve Challenge 3 - Implement and Manage your storage for FsLogix
 
+[< Previous Challenge](./02-Implement-Manage-Network.md) - **[Home](README.md)** - [Next Challenge >](./04-Create-Manage-Images.md)
+
 1. Capacity planning
 
 According to the projects requirement he solution must support 1/3 of expected users. It means 2000/3=666. Log in/Log off needs avg. of 50 IOPS per user, per share. Steady state is 10 IOPS per user per share.
 
 Possible solution would a storage account with the following size:
+
 - 10240 GiB
 - Baseline IO/s: 10640
 - Burst IO/s: 30720
@@ -50,10 +53,7 @@ The function New-StgPrivateDNS must be executed only once to create the Private 
 
 Finally you need to link the private DNS to a VNet and setup the config records to auto register. You must run the function New-StgPrivateDNSConfig once per storage account to link it.
 
-
 ```PowerShell
-# 
-
 ##########################################
 # Private End-Point Function
 ##########################################
@@ -164,10 +164,10 @@ New-StgPrivateDNSConfig -resourceGroupName $resourceGroupName -privateEndpointNa
 This script must be executed from a Domain Controller logged in with an user Account that has access to both AD and Azure Subscription.
 The following parameters must be changed:
 
- - $SubscriptionId = "\<your-subscription-id-here>"
- - $ResourceGroupName = "\<resource-group-name-here>"
- - $StorageAccountName = "\<storage-account-name-here>"
- - $OU = "\<ou-distinguishedname-here>"
+- $SubscriptionId = "\<your-subscription-id-here>"
+- $ResourceGroupName = "\<resource-group-name-here>"
+- $StorageAccountName = "\<storage-account-name-here>"
+- $OU = "\<ou-distinguishedname-here>"
 
 This script must be executed for all Storage Account regions.
 
@@ -352,20 +352,18 @@ AllowNSG -resourceGroupName $resourceGroupName -NSGName "nsg-wvd-d-uks" -Storage
 
 - [WVD - MSIX app attach file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/app-attach-file-share)
 
-
-
-
 ### Draft - (Everything under Draft are points that need to be documented in this challenge. The draft will be removed at the end.)
 
 Points of attention:
+
 - Storage Account Name: we need to standardize it to be used by scripts in the subsequent challenges.
 
 Setup Private Endpoint - Each stg will have two private endpoints one for DC Auth and one for Host Pool access. *** requires validation
 Setup AAD Auth, File Share Permission and RBAC Permission (Azure Files Share Permissions)
-We need 3 groups in the domain controller 
+We need 3 groups in the domain controller
 wvd_users_japan,
 wvd_users_uk,
-wvd_users_usa 
+wvd_users_usa
 These are to be used to grant permissions to the Azure Files shares in the portal and in the Windows NTFS Permissions
 
 We need to cover MSIX AD Auth permission since they are different than FSLogix
@@ -373,25 +371,24 @@ Keep DR in mind for the next challenge
 
 Capacity:
 
-* Field in UK 
+* Field in UK
     - 2000 pooled
     - Remote app only windows Server 2019
 
-* Developers Japan 
-	- 1000 personal 
-	- Windows 10 Enterprise 
-
-* Office workers US 
-    - 2000 pooled 
+* Developers Japan
+	- 1000 personal
+	- Windows 10 Enterprise
+* Office workers US
+    - 2000 pooled
 	- Windows 10 Multi-Session
 
-Log in / Log off needs avg. of 50 IOPS per user, per share 
-Steady state is 10 IOPS per user per share 
- 
-EXAMPLE: 
-1/3 of the 2,000 users in the US performance would be: 
+Log in / Log off needs avg. of 50 IOPS per user, per share
+Steady state is 10 IOPS per user per share
+
+EXAMPLE:
+1/3 of the 2,000 users in the US performance would be:
 33,000+ IOPS per share for Login / LogOff
-6,000+   IOPS for steady state 
+6,000+   IOPS for steady state
 Reference: https://docs.microsoft.com/en-us/azure/virtual-desktop/faq#whats-the-largest-profile-size-fslogix-can-handle
 https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements
 
@@ -408,14 +405,12 @@ SMB
 This is the link I'll follow to create the storage account and assign the permissions for FSLogix:
 https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share
 
-
 Naming for Share:
 shareeusaz140
-sharejwaz140 
-shareukaz140 
+sharejwaz140
+shareukaz140
 
 Private Link names:
 priveusaz140  
 privjwaz140
 privuksaz140
-
