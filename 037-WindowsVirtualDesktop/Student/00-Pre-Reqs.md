@@ -1,4 +1,4 @@
-# Challenge 0 - Getting started
+# Challenge 0: Getting started
 
 **[Home](../README.md)** - [Next Challenge>](./01-Plan-WVD-Architecture.md)
 

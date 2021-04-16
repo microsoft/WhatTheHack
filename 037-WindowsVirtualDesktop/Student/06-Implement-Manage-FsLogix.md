@@ -1,4 +1,4 @@
-# Challenge 6 - Addressing User Profiles with FSLogix
+# Challenge 6: Addressing User Profiles with FSLogix
 
 [< Previous Challenge](./05-Create-Configure-HostPools.md) - **[Home](../README.md)** - [Next Challenge >](./07-Install-Configure-Apps.md)
 
