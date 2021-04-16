@@ -5,17 +5,22 @@
 ## Notes & Guidance
 
 ## Step 1 - **Create Log Analytics workspace**
+In the Azure portal, click All services. In the list of resources, type Log Analytics. As you begin typing, the list filters based on your input. Select Log Analytics workspaces.
+![Create Workspace](Images/02-Azure-Monitor-Workspace-Create_1.png)
+Click Add, and then provide values for the following options:
+- Select a Subscription to link to by selecting from the drop-down list if the default selected is not appropriate.
+- For Resource Group, choose to use an existing resource group already setup or create a new one.
+- Provide a name for the new Log Analytics workspace, such as DefaultLAWorkspace. This name must be unique per resource group.
+- Select an available Region. For more information, see which regions Log Analytics is available in and search for Azure Monitor from the Search for a product field.
 
-- Make sure that fully activated SAP S/4 Hana system is installed. User name and password are working in SAP business client.
-- Select a VM to install On-premise data gateway that can access SAP S/4 Hana system on dispatcher and gateway ports. Typical port ranges are 33**,32**,36**.
-- Make sure correct on-premise data gateway and SAP .Net connectors are installed. Both should be of same platform type. (Either X64 / X86, mixing will not work. In doubt install SAP .Net connector for both X86 and X64 and restart on-premise data gateway).
-- Register the on-premise datagateway with correct user and make sure that user can see connector in power platform at https://make.powerapps.com under gateways. If this is not visible, power application cannot communicate with SAP system. 
-![Licenses](Images/Challenge2_Netweaver.png)
+Click Review + create to review the settings and then Create to create the workspace. This will select a default pricing tier of Pay-as-you-go which will not incur any changes until you start collecting a sufficient amount of data. For more information about other pricing tiers, see Log Analytics Pricing Details.
 
-## Step 2 - **Develop power automate (flows)**
+![Review&Create Worspace](Images/02-Azure-Monitor-Workspace-Create_2.png)
+
+## Step 2 - **Deploy Azure Monitor for SAP.**
 
 - Make sure user enabled Microsoft power Apps Plan2 Trail and Microsoft Power Automate Free. E5 developer is also preferred. 
-![Licenses](Images/Challenge2_VM_Insights.png)
+
 
 **Getting Material list from SAP**
 
