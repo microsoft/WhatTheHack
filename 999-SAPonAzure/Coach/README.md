@@ -19,7 +19,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
    - Flex Kubernetes' muscles by scaling pods, and then nodes. Observe how Kubernetes responds to resource limits.
 
 
--  Challenge #6: [Application aware maintenance(Start/Stop/Scale)](06-Start-Stop-Automation.md)
+-  Challenge #6: **[Application aware maintenance(Start/Stop/Scale)](06-Start-Stop-Automation.md)**
     - Use Azure Runbooks to Start, Stop, and Scale SAP applications
 
 
