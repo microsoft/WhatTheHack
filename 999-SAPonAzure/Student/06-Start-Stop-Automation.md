@@ -4,11 +4,14 @@
 
 ## Introduction
 
-The goal of this solution is to facilitate a controlled shutdown & startup of SAP systems, which is a common mechanism to save costs for non Reserved Instances (RI) VMs in Azure.
+Mango Inc is looking to optimize the cost of SAP landscape and exploring ways to do that. They're leaning towards getting Reserves Instances (RI) for all production systems and would like to save cost on non-production (sandboxes, project systems, etc.) systems by not operating those during non-business hours. This solution helps them achieve that either using automation tools or schedule based
 
-Note: VMs must be deallocated for Azure charges to stop and that's facilitated by scripts
 
 ## Description
+
+The goal of this solution is to facilitate a controlled shutdown & startup of SAP systems, which is a common mechanism to save costs for non Reserved Instances (RI) VMs in Azure.
+
+**Note**: VMs must be deallocated for Azure charges to stop and that's facilitated by scripts
 
 This flexible solution enables (using Azure automation, Azure Tags, Scripting, and PowerShell runbooks):
 
