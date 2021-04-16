@@ -1,6 +1,6 @@
 # Challenge 9 - Automate WVD Tasks
 
-[< Previous Challenge](./08-Plan-Implement-BCDR.md) - **[Home](../readme.md)** - [Next Challenge>](./10-Monitor-Manage-Performance-Health.md)
+[< Previous Challenge](./08-Plan-Implement-BCDR.md) - **[Home](../README.md)** - [Next Challenge>](./10-Monitor-Manage-Performance-Health.md)
 
 ## Introduction
 
@@ -31,7 +31,7 @@ In this challenge you need to complete the following management tasks:
 1. Publish a Remote App on the UK South host pool
 
     - 3.1: Create an application group called "Monet" using Azure CLI
-    - 3.2: Publish Paint as an applicaton in the Monet application group using PowerShell
+    - 3.2: Publish Paint as an application in the Monet application group using PowerShell
     - 3.3: Change the display name for the Paint app to "Monet" using PowerShell
     - 3.4: Create an RBAC assignment for the Monet application group adding only "hulk" using Azure CLI
 
@@ -42,7 +42,7 @@ In this challenge you need to complete the following management tasks:
     - 2 users per CPU
     - Recurrence Interval should be 15 mins
     - Force logoff should be set to 0
-    
+
 1. Group Policy for WVD: the idle session and disconnected session settings are enabled    
 1. Configure the Start VM On Connect solution for the Japan West host pool using PowerShell
 

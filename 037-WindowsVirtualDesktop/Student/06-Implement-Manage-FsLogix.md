@@ -1,13 +1,15 @@
 # Challenge 6 - Addressing User Profiles with FSLogix
 
-[< Previous Challenge](./05-Create-Manage-Images.md) - **[Home](README.md)** - [Next Challenge >](./07-Install-Configure-Apps.md)
+[< Previous Challenge](./05-Create-Configure-HostPools.md) - **[Home](../README.md)** - [Next Challenge >](./07-Install-Configure-Apps.md)
 
-### Introduction
+## Introduction
+
 - FSLogix is the WVD user profile solution which allows yours to log onto any VM in the HostPool and maintain their user experience.  
 - User Profiles are also a critical part of Disaster Recover planning.  
-- Follow the FSLogix requirements & best practices 
+- Follow the FSLogix requirements & best practices.
 
-### Description 
+## Description
+
 Using the 3 Storage accounts that were created in Challenge 3, we now need deploy FSLogix and configure the User Profile Settings. Given the need for Disaster Recover and concerns of the profile data, there is a noted option for Cloud Cache that will need to be used.
 
 - Configure the FSLogix clients
@@ -22,7 +24,8 @@ Using the 3 Storage accounts that were created in Challenge 3, we now need deplo
 Teams cache data can be large sometimes (4-5 GB) and customers may want it omitted it from the profile.
 User FSLogix redirections so TEAMS data is kept on the local system, not in the users profile. 
 
-### Success Criteria
+## Success Criteria
+
 1. Configure FSLogix according to best practices  
 2. Solution should allow users to access profile data if a region is unavailable
 3. Configure FSLogix with GPO
