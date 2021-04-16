@@ -2,8 +2,6 @@
 
 [< Previous Challenge](./05-scaling.md) - **[Home](README.md)** - [Next Challenge >](./07-updaterollback.md)
 
-# Notes & Guidance
-
 # Table of Contents
 
 - [Overview of the solution](#Overview-of-the-solution)
@@ -21,7 +19,7 @@
 - [Access consideration for Azure Automation Runbooks and Jobs](#Access-consideration-for-Azure-Automation-Runbooks-and-Jobs)
 - [Frequently Asked Questions](#Frequently-Asked-Questions)
 
-
+# Notes & Guidance
     
 # Overview of the solution 
 
