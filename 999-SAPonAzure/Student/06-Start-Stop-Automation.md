@@ -10,7 +10,7 @@ Note: VMs must be deallocated for Azure charges to stop and that's facilitated b
 
 ## Description
 
-This is a flexible and end-to-end solution (including Azure automation runtime environment, scripts, and runbooks, tagging process etc.) that enables:
+This flexible solution enables (using Azure automation, Azure Tags, Scripting, and PowerShell runbooks):
 
 - Start & Stop of your SAP application servers, central services, database, and corrosponding VMs
 - Optionally convert Premium Managed Disks to Standard during the stop procedure, and back to Premium during the start procedure, thus saving cost storage as well  
