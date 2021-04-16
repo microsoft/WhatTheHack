@@ -1,6 +1,6 @@
 # Challenge 7: Coach's Guide
 
-[< Previous Challenge](./06-Implement-Manage-FsLogix.md) - **[Home](README.md)** - [Next Challenge >](./08-Plan-Implement-BCDR.md)
+[< Previous Challenge](./06-Implement-Manage-FsLogix.md) - **[Home](./README.md)** - [Next Challenge >](./08-Plan-Implement-BCDR.md)
 
 ## MSIX Packaging
 

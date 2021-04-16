@@ -1,6 +1,6 @@
 # Challenge 11: Configure settings for user experience - Coach's guide
 
-[< Previous Challenge](./10-Monitor-Manage-Performance-Health.md) - **[Home](README.md)**
+[< Previous Challenge](./10-Monitor-Manage-Performance-Health.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
