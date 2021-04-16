@@ -26,25 +26,34 @@ Click Review + create to review the settings and then Create to create the works
 - When selecting a virtual network, ensure that the systems you want to monitor are reachable from within that VNET.
 
 
-## Step 3 - ** Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.**
+## Step 3 - Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1/Step1.
+From the Azure portal, select Virtual machines and select a resource from the list. In the Monitoring section of the menu, select Insights and then Enable.
+- Enable VM Insights
+![VM Insights](Images/Challenge2_VM_Insights.png)
+- Select correct workspace. 
 
-- Create power application with tablet layout. Sample screen can look like as shown below:
+## Step 4 - Configure OS, SAP NetWeaver providers.
 
-- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist. 
+- Prerequisites for adding NetWeaver provider
+1. Open an SAP GUI connection to the SAP server
+2. Login using an administrative account
+3. Execute transaction RZ10
+4. Select the appropriate Profile (DEFAULT.PFL)
+5. Select 'Extended Maintenance' and click Change
+6. Modify the value of the affected parameter “service/protectedwebmethods” to "SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList" to the recommended setting and click Copy
+7. Go back and select Profile->Save
+8. Restart system for parameter to take effect
 
-## Step 4 - ** Configure OS, SAP NetWeaver providers.**
+- Installing NetWeaver provider on the Azure portal 
+![Netweaver](Images/Challenge2_Netweaver.png)
 
-- Create power application with tablet layout. Sample screen can look like as shown below:
-
-- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist. 
-
-## Step 5 - ** Check for Monitoring data in Log Analytics Workspace.**
+## Step 5 - Check for Monitoring data in Log Analytics Workspace.
 
 - Create power application with tablet layout. Sample screen can look like as shown below:
 
 - Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist.
 
-## Step 6 - ** Use Kusto query to create custom dashboard and setup alerts.**
+## Step 6 - Use Kusto query to create custom dashboard and setup alerts.
 
 - Create power application with tablet layout. Sample screen can look like as shown below:
 
