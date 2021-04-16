@@ -47,6 +47,15 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ## Success Criteria
 
-1. You have the **content-api** container image deployed and can get data from the `/speakers` endpoint.
-1. You have the **content-web** container deployed and can access its page from the open internet.
-1. The `/speakers` and `/sessions` pages display speakers and sessions respectively, not just blank pages.
+1. A successfil setup of backup solution and successful backup. 
+2. An automated orchestration of ANF snapshots on hana data/log volumes to achieve point in time recovery.
+3. Availability of offloaded snapshots in azure storage account containers as per the requirement. Demonstrate successful restore that BACKUPTEST user. 
+4. Be able to successfully restore the dual purpose environment with the recent prodution data (with DRTEST user)
+
+## Resources
+
+1. help
+2. netap
+3. blog
+4. 
+
