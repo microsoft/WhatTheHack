@@ -797,7 +797,7 @@ And fill the parameters and click **OK**.
 
 Here is the list of all schedules:
 
-![](Pictures/media/image71.png)
+![image](https://user-images.githubusercontent.com/26795040/115055534-299fd600-9ea7-11eb-9cd0-1e66f7ea689a.png)
 
 Repeat the same steps to create Stop schedule, e.g. using
 **Stop-SAPSystem** runbook, with schedule for example to stop SAP system
@@ -874,15 +874,15 @@ control (IAM).
 On tab Role assignments you can see currently assigned groups to this
 resource.
 
-![](Pictures/media/image72.png)
+![image](https://user-images.githubusercontent.com/26795040/115055568-37edf200-9ea7-11eb-9add-f23976a27d86.png)
 
 Adding Automation (Job/Runbook) Operator
 
-![](Pictures/media/image73.png)
+![image](https://user-images.githubusercontent.com/26795040/115055576-3c1a0f80-9ea7-11eb-88ac-cbd088ab7c7e.png)
 
 Add Names or Emails and in the popped open role assignment tab
 
-![](Pictures/media/image74.png)
+![image](https://user-images.githubusercontent.com/26795040/115055588-3fad9680-9ea7-11eb-8e9d-2647abb3d123.png)
 
 ## Limiting access to individual runbooks/jobs
 
@@ -933,7 +933,7 @@ themselves.
 Below an example of exactly this – only runbooks granted access to a
 user and the actual Azure Automation Account
 
-![](Pictures/media/image75.png)
+![image](https://user-images.githubusercontent.com/26795040/115055612-476d3b00-9ea7-11eb-9b9b-8589c15decf9.png)
 
 
 # Frequently Asked Questions
