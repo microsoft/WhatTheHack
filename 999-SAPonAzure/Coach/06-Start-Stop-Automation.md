@@ -5,6 +5,8 @@
 # Notes & Guidance
 
 Here are the details of the solution and instructions on how to execute it in your landscape
+
+**Be sure to read the Frequently Asked Questions at the end of this document**
     
 # Overview of the solution 
 
