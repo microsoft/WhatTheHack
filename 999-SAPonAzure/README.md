@@ -35,7 +35,7 @@ As Mango Inc has established SAP landscape. Now Mango Inc wants to enable users 
 [PowerApps documentation](Student/05-PowerApps.md)
 
 
--  **Challenge #6: [Application aware maintenance](Student/06-Start-Stop-Automation.md)**
+-  **Challenge #6: [Application aware maintenance (Start/Stop/Scale)](Student/06-Start-Stop-Automation.md)**
     - Use Azure Runbooks to Start, Stop, and Scale SAP applications
 
 -  **Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.** 
