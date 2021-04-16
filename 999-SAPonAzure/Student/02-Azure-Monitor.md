@@ -14,24 +14,25 @@ Configure Azure Monitor for SAP application that can  fetch critical metrics for
 ![SAP ON Azure Monitoring](Images/Challenge2_Azure_Monitor_SAP_Architecture.png)
 
 
-In this challenge we will cover scale and resiliency from multiple aspects. We'll make sure enough replicas of our container are running to handle load. We'll make sure that there are enough resources in our cluster to handle all the containers we want to run and we'll figure out how Kubernetes repairs itself.
+In this challenge we will Azure Monitoring to unlock the monitoring capabilities of Azure native monitoring services. We will configure monitoring data collection and injestion of data into log analytics workspace for trend insights and custom dashboard.
 
-- Scale the nodes in the AKS cluster from 3 to 1.  Make sure you watch the pods after you perform the scale operation.  You can use an Azure CLI command like the following to do this:
+- Enable VM Inisghts on the Virtual Machines hosting SAP Workload.
 
-**`az aks nodepool scale --resource-group wth-rg01-poc --cluster-name wth-aks01-poc --name nodepool1 --node-count 1`**
+**VM Insights can be enable from the Virtual Machine pane on Azure Portal, consider creating a Log Analytics workspace as a pre-requisites**
 
-- Scale the **Web** app to 2 instances
-	- This should be done by modifying the YAML file for the Web app and re-deploying it 
-- Scale the **API** app to 4 instances using the same technique as above.  
-- Watch events using kubectl with its special watch option (the docs are your friend!).
+- Deploy Azure Monitor for SAP resource from Azure Portal
+	- This should be done by searching "Azure Monitor for SAP" as a service under search option on Azure Portal.
+- Create provider for SAP Netweaver  
+- Create & configure SAP HANA & Netweaver providers (the docs are your friend!).
 	- You will find an error occurs because the cluster does not have enough resources to support that many instances.
 	- There are three ways to fix this: increase the size of your cluster, decrease the resources needed by the deployments or deploy the cluster autoscaler to your cluster.  
-- To fully deploy the application, you will need 4 instances of the API app running and 2 instances of the Web app. 
-	- Hint: If you fixed the issue above correctly (look at pod resource request!), you should be able to do this with the resources of your original cluster.
-- When your cluster is fully deployed, browse to the “/stats.html” page of the web application.
-	- Keep refreshing to see the API app’s host name keep changing between the deployed instances.
-- Scale the API app back down to 1, and immediately keep refreshing the `/stats.html` page.
-	- You will notice that without any downtime it now directs traffic only to the single instance left.
+- Review availability of Monitoring stats in the Log Analytics workspace.
+	- Hint: Select the Log Workspace that was used while enabling VM Insighst and attached to Azure Monitor for SAP.
+- When monitoring data is injested into Log workspace.
+	- Execute standard kusto query to visualize the monitoring data.
+- Create a custom dashboard.
+	- Modify standard query to create custom dashboard as required.
+	- Hint:- Example custom queries are available for HoneyComb Dashboard.
 
 ## Success Criteria
 
