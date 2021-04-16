@@ -26,10 +26,26 @@ Click Review + create to review the settings and then Create to create the works
 - When selecting a virtual network, ensure that the systems you want to monitor are reachable from within that VNET.
 
 
-## Step 3 - **Build Power Application**
+## Step 3 - ** Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.**
 
 - Create power application with tablet layout. Sample screen can look like as shown below:
 
 - Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist. 
 
+## Step 4 - ** Configure OS, SAP NetWeaver providers.**
 
+- Create power application with tablet layout. Sample screen can look like as shown below:
+
+- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist. 
+
+## Step 5 - ** Check for Monitoring data in Log Analytics Workspace.**
+
+- Create power application with tablet layout. Sample screen can look like as shown below:
+
+- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist.
+
+## Step 6 - ** Use Kusto query to create custom dashboard and setup alerts.**
+
+- Create power application with tablet layout. Sample screen can look like as shown below:
+
+- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist.
