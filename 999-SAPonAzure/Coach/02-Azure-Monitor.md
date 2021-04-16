@@ -48,10 +48,14 @@ From the Azure portal, select Virtual machines and select a resource from the li
 ![Netweaver](Images/Challenge2_Netweaver.png)
 
 ## Step 5 - Check for Monitoring data in Log Analytics Workspace.
+The solutions Overview page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace.
+- Go to Azure Monitor in the Azure portal. 
+- Under the Insights menu, select More to open the Insights Hub, and then click on Log Analytics workspaces.
+![Log Analytics Workspace](Images/02-Azure-Monitor-workspaces-log1.png)
+- Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
+![Log Analytics Workspace](Images/02-Azure-Monitor-workspaces-log2.png)
 
-- Create power application with tablet layout. Sample screen can look like as shown below:
-
-- Create collection object to store loaded material list from SAP while this application is loading. Click on form, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow Get_SAP_Materiallist.
+Ref: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial
 
 ## Step 6 - Use Kusto query to create custom dashboard and setup alerts.
 
