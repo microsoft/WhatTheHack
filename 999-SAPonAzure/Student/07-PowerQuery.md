@@ -10,8 +10,9 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
 # Description
 
+        
     Generate self-service SAP system  report about batch jobs status and  name from SAP system. 
-
+    
     * Download Power BI client and connect SAP HANA DB using Power BI configuration option. 
 
    * Extract  table TBTCO ( SAP job status ) using SQL and   Generate self-service Job status report  using direct custom query to SAP system. 
