@@ -39,7 +39,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
- # Skills, guidelines, hints
+ # Skills, hints
 
  
 
