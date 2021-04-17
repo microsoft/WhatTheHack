@@ -43,7 +43,7 @@ The participants will learn how to:
 
 ## Repository Contents
 - `../Coach`
-  - [Lecture presentation](Coach/README.md) with short presentations to introduce each challenge and example solutions and coach tips to the challenges (If you're a student, don't cheat yourself out of an education!)
+  - [Lecture presentation](Coach/OSS-DB-What-the-Hack-Lecture.pptx?raw=true) with short presentations to introduce each challenge and example solutions and coach tips to the challenges (If you're a student, don't cheat yourself out of an education!)
 - `../Student/Resources`
    - Pizzeria application environment setup
 
