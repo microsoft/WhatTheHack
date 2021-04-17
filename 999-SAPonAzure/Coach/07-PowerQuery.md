@@ -31,17 +31,18 @@ Login in SAP HANA Database using HANA Studio:
 
  ![image](https://user-images.githubusercontent.com/81314847/115057716-68875900-9eb2-11eb-8b4c-44ab96bdf459.png)
 
-
+![Image1](Images/Challenge7_image1.png)
  
 
 Or  
 
 ![image](https://user-images.githubusercontent.com/81314847/115066150-1ef03b80-9ebd-11eb-8a05-7f04660b070a.png)
 
+![Image2](Images/Challenge7_image2.png)
+
 Following pop up will appear  - 
 
  
-image 3
 
 ![Image3](Images/Challenge7_image3.png)
 
@@ -53,16 +54,16 @@ Select  "Launch" Button ...
 
 After selecting launch ... 
 
- image4
+
+![Image4](Images/Challenge7_image4.png)
 
 
  
 
 Select "Apply and Close " 
 
- 
 
- Image5
+![Image5](Images/Challenge7_image5.png)
 
 
  
@@ -74,7 +75,7 @@ Select description "Open Hack ID"  - apply and close
   
 
   
-Image6
+![Image6](Images/Challenge7_image6.png)
 
  
 
@@ -85,7 +86,7 @@ It will create  "OpenhackID" entry in the SAP studio
  
 
  
-Image 7
+![Image7](Images/Challenge7_image7.png)
   
 
 
@@ -93,7 +94,7 @@ Initial screen of SAP HANA studio will pop up
 
   
 
-Image 8
+![Image8](Images/Challenge7_image8.png)
  
 
  
@@ -101,7 +102,7 @@ Image 8
 Right click on the left space under systems and select “Add System” 
 
   
-Image 9
+![Image9](Images/Challenge7_image9.png)
   
 
 
@@ -109,14 +110,14 @@ Image 9
 
 Enter  the system information as below  
 
-Image 10
+![Image10](Images/Challenge7_image10.png)
  
 
 Enter system user ID and  password for SAP HANA DB  
 
  
 
-Image 11
+![Image11](Images/Challenge7_image11png)
  
 
  
@@ -125,7 +126,7 @@ Add SAP system S4P
 
  
 
-Image 12
+![Image12](Images/Challenge7_image12png)
  
 
  
@@ -136,7 +137,7 @@ Enter the "SYSTEM" DB user and password
 
 
  
-Image 13
+![Image13](Images/Challenge7_image13.png)
  
 
  
@@ -149,7 +150,7 @@ Create a new user ID SAPOPENHACK in SAP HANA, this user will be used to connect 
 
  
 
-Image 14
+![Image14](Images/Challenge7_image14.png)
  
 
  
@@ -157,7 +158,7 @@ Image 14
 Create new user  SAPOPENHACK 
 
  
-Image 15
+![Image15](Images/Challenge7_image15.png)
  
 
 Enter  "SAPOPENHACK" ID and Password -- 
@@ -169,25 +170,25 @@ Add " ABAP admin" "content admin" public" roles
  
 
  
-Image 16
+![Image16](Images/Challenge7_image16.png)
  
 
 Add "catalog read",  "data admin" and "export" system privileges .. 
 
- Image 17
+ ![Image17](Images/Challenge7_image17.png)
 
 
  
 Add following object privileges ---  create and select 
 
  
-Image 18
+![Image18](Images/Challenge7_image18.png)
  
-Image 19
+![Image19](Images/Challenge7_image19.png)
 
 Save the configuration  
 
-Image 20
+![Image20](Images/Challenge7_image20.png)
 
 
  
