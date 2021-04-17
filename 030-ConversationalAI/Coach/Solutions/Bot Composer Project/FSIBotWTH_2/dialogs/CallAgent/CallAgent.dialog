@@ -1,0 +1,39 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "U8sCen",
+    "name": "CallAgent",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "R3AGC2"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "mj8rVu"
+          },
+          "activity": "${SendActivity_mj8rVu()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "e5qvDZ"
+          },
+          "activity": "${SendActivity_e5qvDZ()}"
+        }
+      ]
+    }
+  ],
+  "generator": "CallAgent.lg",
+  "recognizer": "CallAgent.lu.qna",
+  "id": "CallAgent"
+}

@@ -1,0 +1,13 @@
+replicaCount: 1
+
+# Change the application settings here
+appConfig:
+  databaseType: "mysql" # mysql or postgres
+  dataSourceURL: "jdbc:mysql://XXX.XXX.XXX.XXX:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
+  dataSourceUser: "root" # your database username goes here
+  dataSourcePassword: "OCPHack8" # your database password goes here
+  webPort: 8081 # the port the app listens on
+  webContext: "pizzeria" # the application context http://hostname:port/webContext
+
+infrastructure:
+  namespace: contosoappmysql

@@ -1,0 +1,14 @@
+---
+# This is the internal load balancer, routing traffic to the Application
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.infrastructure.appName }}-external"
+  namespace: {{ .Values.infrastructure.namespace }}
+spec:
+  type: "{{ .Values.service.type }}"
+  ports:
+  - port: {{ .Values.appConfig.webPort }}
+    protocol: {{ .Values.service.protocol }}
+  selector:
+    app: {{ .Values.application.labelValue }}
