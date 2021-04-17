@@ -29,14 +29,13 @@ Login in SAP HANA Database using HANA Studio:
 
 
 
- ![image](https://user-images.githubusercontent.com/81314847/115057716-68875900-9eb2-11eb-8b4c-44ab96bdf459.png)
-
+ 
 ![Image1](Images/Challenge7_image1.png)
  
 
 Or  
 
-![image](https://user-images.githubusercontent.com/81314847/115066150-1ef03b80-9ebd-11eb-8a05-7f04660b070a.png)
+
 
 ![Image2](Images/Challenge7_image2.png)
 
