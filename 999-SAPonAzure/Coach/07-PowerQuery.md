@@ -200,7 +200,7 @@ When we update the “Object Privileges” with TBTCO and granter is SYSTEM it w
  
 
 
-Image 21
+![Image21](Images/Challenge7_image21.png)
 
  
 
@@ -210,7 +210,7 @@ Setup the connection in Power BI desktop to SAP HANA Database:
 
 Install Power BI Desktop 
 
-Image 22
+![Image22](Images/Challenge7_image22.png)
 
 
 
@@ -219,41 +219,38 @@ Image 22
 Open Power BI desktop 
 
 
- Image 23
+ ![Image23](Images/Challenge7_image23.png)
 
 Click on “Get data from another source” and select “ Connect” 
 
  
 
- Image 24
-
  
-
 On following screen, type SAP Keyword 
 
  
 
-Image 25
+![Image24](Images/Challenge7_image24.png)
  
 
 Enter SAP DB information on following screen  
 
- Image 25
+ ![Image25](Images/Challenge7_image25.png)
 
 
 Enter port information as follows  
 
  
-Image26 
+![Image26](Images/Challenge7_image26.png) 
 
 Select custom and SQL query as follows  
 
  
-Image 27
+![Image27](Images/Challenge7_image27.png)
 
 Will pop up with information about SAP table TBTCO as follows  
 
-Image 28 
+![Image28](Images/Challenge7_image28.png)
 
  
 
@@ -261,7 +258,7 @@ Image 28
 Select “Load” after the screen appears 
 
  
-Image 29
+![Image29](Images/Challenge7_image29.png)
  
 
 
@@ -269,18 +266,18 @@ Image 29
 
 Select "transform data " on opo up screen as shwon in following screen  
 
-Image 30
+![Image30](Images/Challenge7_image30.png)
 
-Image 31
+![Image31](Images/Challenge7_image31.png)
 
-Image 32
+![Image32](Images/Challenge7_image32.png)
 
 Creating visualization in Power BI using the SAP table TBTCO 
 
 Create a Matrix. 
 
 
-Image 33
+![Image33](Images/Challenge7_image33.png)
 
  
 
@@ -293,7 +290,7 @@ Add field “STATUS” in Columns
 
 Add “EVENTID” in Values 
 
-Image 34
+![Image34](Images/Challenge7_image34.png)
 
 
  
@@ -308,7 +305,7 @@ Drag and drop fields "JOBNAME", "JOBCLASS", "JOBLOG", "REAXSERVER" and "ENDDATE"
 
  
 
-Image 35
+![Image35](Images/Challenge7_image35.png)
 
 Create a Pie chart: 
 
@@ -317,22 +314,23 @@ Create a Pie chart:
 Drag and drop field “AUTHCKMAN” under Legend and  field “JOBCOUNT” under Values ( with count). 
 
 
-Image 36
+![Image36](Images/Challenge7_image36.png)
  
 
 Create a Filter or Slicer 
 
 Drag and drop field “AUTHCKMAN” under Field. 
 
-Image 37
+![Image37](Images/Challenge7_image37.png)
  
-Image 38
-Image 39
+![Image38](Images/Challenge7_image38.png)
+
+![Image39](Images/Challenge7_image39.png)
 
 
 Save the report 
 
-Image 40
+![Image40](Images/Challenge7_image40.png)
  
 
 Once the report is saved need to publish to Power Apps 
