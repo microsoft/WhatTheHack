@@ -30,7 +30,7 @@ Login in SAP HANA Database using HANA Studio:
 
 
  
-![Image1](Images/Challenge7_image1.png)
+![Image1](Images/Challege7_image1.png)
  
 
 Or  
