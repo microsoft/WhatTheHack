@@ -42,9 +42,7 @@ Mango Inc is looking to optimize the cost of SAP landscape and exploring ways to
 
 -  **Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.** 
 
-Mango Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, they want to Generate self-service sales report from SAP system. 
-- Option 1: Extract sales data from SAP system to ADLS and generate analytics report using power BI desktop client.
-- Option 2: Generate self-service sales report using direct query to SAP HANA system.
+Mango Inc is a manufacturing company planning to modernize IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop clients and apps for visualization and analysis purpose. This exercise includes connecting power BI desktop client to HANA DB using direct query with DB user and password, Extract the required tables using semantic SQL query and Generate self-service Job status report using direct custom query to SAP system.
 
 [Power BI report query documentation](https://github.com/Microsoft-SAPonAzure-OpenHack/Learning-the-OpenHack-Way/tree/main/07-%20Power%20BI%20report%20query)
 
