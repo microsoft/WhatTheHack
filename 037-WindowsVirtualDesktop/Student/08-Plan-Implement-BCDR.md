@@ -11,7 +11,7 @@ In this challenge you need to design and implement an Disaster Recovery and Back
 - Backup your Session Host VMs once every 24 hours. 
 - Implement backup strategy for your FsLogix profiles in all regions to once a day using Azure Backup. 
 
-**Note:**
+**NOTE:**
 The reason we are not focusing on DR and Backup for the Pooled/Remote hostpools is because they are multisession and they're lots of ways to DR/Backup Pooled HostPools. There is no reason to backup Multisession VMs. You could use Azure Site Recovery but because there is no data being saved directly to the VMs and with the image being replicated to the secondary site with Share Image Gallery, which was completed in challenge four, you could build new. With using FsLogix Profiles using CLoud Cache, the profiles would be available in both regions and the uses in the Pooled Hostpool would still have direct access to their data.  
 
 ## Success Criteria
