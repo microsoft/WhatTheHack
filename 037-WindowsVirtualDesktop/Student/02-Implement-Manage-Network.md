@@ -10,7 +10,7 @@ In this challenge you will be setting up networking resources in order to deploy
 
 In this challenge you will create the topology described in this diagram:
 
-![WVD Architecture](/Images/WVDArch.png)
+![WVD Architecture](../Images/WVDArch.png)
 
 * Setup HUB virtual network that will consist of the following resources:
     * Virtual Network with four subnets
