@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This hack is designed to help you ramp up for the WVD 140 certification or just to learn Windows Virtual Desktop. WIth people starting to work remotely WVD has quickly gained adoption across the globe.
+This hack is designed to help you ramp up for the WVD 140 certification or just to learn Windows Virtual Desktop. With people starting to work remotely WVD has quickly gained adoption across the globe.
 
-This hack starts off by covering the basics of WVD and then digs deep into the different components of WVD and the solutions around it.
+The hack starts off by covering the basics of WVD and then digs deep into the different components of WVD and different tyes of solutions you could encounter in a WVD environment.
 
 ## Learning Objectives
 
@@ -40,3 +40,16 @@ In this hack you will learn how to set up a Windows Virtual Desktop environment 
    - Scripts and code templates to help aide with the challenges
 
 ## Contributors
+- Dean Cefola
+- Charles Shea
+- Sherri Babylon
+- Jason Masten
+- Jonathan Core
+- Emily Mclaren
+- Fletcher Kelly
+- Jason Beck
+- Rafael Yactayo
+- Victor Santana
+- Jason Byway
+- Justen Graves
+- John Kim
