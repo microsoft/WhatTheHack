@@ -12,44 +12,54 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ## Guidelines
 
+1. Backup using a temporary solution (HANA native)
+	a. For point-in-time recovery, you need to enable log backups. 
+	b. Take your first native HANA full file level backup
+	c. This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
+2. Backup using a permanent solution (ANF snapshots) :
+	a. Assess the backup requirements:
+		i. Use ANF where possible
+		ii. Cannot afford to lose more than 15 min worth of recent changes
+		iii. Local availability of log backups for up to the last 24 hours
+		iv. Point-in-Time recovery for up to the last 72 hours
+		v. Additional protection of backup files by offloading to an intra region storage account
+	b. Update the below backup schedule (frequency, retention, offloading, sizing)
+
+FIGURE OUT HOW TO INSERT TABLE HERE
+
+(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)
 
 
-
-- **NOTE:** If you have not or cannot deploy your containers to the Azure Container Registry, we have staged the FabMedical apps on Docker Hub at these locations:
-	- **API app:** whatthehackmsft/content-api
-	- **Web app:** whatthehackmsft/content-web
-- Deploy the **API app** from the command line using kubectl and YAML files:
-	- **NOTE:** Sample YAML files to get you started can be found in the Files section of the General channel in Teams.
-	- Number of pods: 1
-	- Service: Internal
-	- Port and Target Port: 3001
-	- CPU: 0.5
-	- Memory: 128MB
-- We have not exposed the API app to the external world. Therefore, to test it you need to:
-	- Figure out how to get a bash shell on the API app pod just deployed.
-	- Curl the url of the `/speakers` end point.
-	- You should get a huge json document in response.
-- Deploy the Web app from the command line using kubectl and YAML files
-	- **NOTE:** Sample YAML files to get you started can be found in the Files section of the General channel in Teams.
-	- **NOTE:** The Web app expects to have an environment variable pointing to the URL of the API app named:
-		- **CONTENT_API_URL**
-	- Create a deployment yaml file for the Web app using the specs from the API app, except for:
-		- Port and Target Port: 3000
-	- Create a service yaml file to go with the deployment
-		- **Hint:** Not all "types" of Services are exposed to the outside world
-	- **NOTE:** Applying your YAML files with kubectl can be done over and over as you update the YAML file. Only the delta will be changed.
-	- **NOTE:** The Kubernetes documentation site is your friend. The full YAML specs can be found there: <https://kubernetes.io/docs>
-- Find out the External IP that was assigned to your service. You can use kubectl for this.
-- Test the application by browsing to the Web app's external IP and port and seeing the front page come up.
-	- Ensure that you see a list of both speakers and sessions on their respective pages.
-	- If you don't see the lists, then the web app is not able to communicate with the API app.
+	c. Adjust log backup volume size for storing log backups, and adjust relevant HANA parameters to use this volume for log backups.
+	d. Build a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by automating the snapshot scheduling using the Linux built-in tool - crontab
+	e. Orchestrate offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
+	f. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
+	g. Create a security user "BACKUPTEST".
+	h. Take a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp
+	i. Delete the security user BACKUPTEST "accidently" - Oops! 
+	j. Restore the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
+3. Disaster Recovery
+	a. Assess the disaster recovery requirements:
+		i. RPO < 30 min, RTO < 4 hrs.
+		ii. Inter-region DR using storage replication capabilities
+	b. Set up ANF storage replication (CRR) to meet the RPO
+	c. Create a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)
+	d. Take a backup (using azacsnap). Give a prefix "UseThisAtDR" and note down the creation time stamp
+	e. Execute the DR by:
+		i. Wait until the replication is Healthy, Mirrored and Idle
+		ii. Shut down the Production HANA instance (Stop VM) at the primary region
+		iii. Stop  or leave the Production HANA instance down at the DR region down
+		iv. Break the replication and swap the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.
+		v. Start HANA recovery (point in time) at the DR region for the Production HANA instance
+		vi. Validate the existence of "DRTEST" user.
 
 ## Success Criteria
 
-1. A successful setup of backup solution and successful backup. 
-2. An automated orchestration of ANF snapshots on hana data/log volumes to achieve point-in-time recovery.
-3. Availability of offloaded snapshots in azure storage account containers as per the requirement. Demonstrate successful restore that BACKUPTEST user. 
-4. Be able to successfully restore the dual purpose environment with the recent prodution data (with DRTEST user)
+1. A successful setup of the temporary backup solution.
+2. An automatic orchestration of ANF snapshots on the data and log backup volumes to achieve point-in-time recovery.
+3. The availability of offloaded snapshots in storage account containers per the requirement. Be able to restore the BACKUPTEST user successfully.
+4. Be able to successfully restore the dual-purpose environment with the recent production data (with DRTEST user)
+
 
 ## Resources
 
