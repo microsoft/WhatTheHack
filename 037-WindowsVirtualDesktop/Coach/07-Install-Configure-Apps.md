@@ -2,7 +2,9 @@
 
 [< Previous Challenge](./06-Implement-Manage-FsLogix.md) - **[Home](./README.md)** - [Next Challenge >](./08-Plan-Implement-BCDR.md)
 
-## MSIX Packaging
+## Notes & Guidance
+
+### MSIX Packaging
 
 - Students will need to use the MSIX Packaging tool MS Store app to convert app installers to .msix format. 
 - [Use Self-Signed Cert Script](https://raw.githubusercontent.com/DeanCefola/PowerShell-Scripts/master/Certificate_Self%20Signed.ps1)
@@ -18,11 +20,12 @@
     - Assign Azure Files Share **READ** permissions to AD Users Groups for the correct regions
     - Assign NTFS Permissions for AD Computer and Users Groups, matching Azure Files Permissions
 
-**User Assignments**
-Follow the tables below to know which applications need to be packaged as MSIX vs what is **ALREADY** included in the Images.  
-**NOTE: Office Apps are already included in the Image.**
+### User Assignments
 
-### Application Deployment Options
+Follow the tables below to know which applications need to be packaged as MSIX vs what is **ALREADY** included in the Images.  
+**NOTE:** Office Apps are already included in the Image.**
+
+#### Application Deployment Options
 
 Applications| Include in image Already | MSIX App Attach |
 ------------|:------------------------:|:---------------:|
@@ -57,7 +60,7 @@ Acrobat Reader  |                     |                       |               
 Notepad++       | X                   | X                     | X                     |
 VS Code (Dev)   | X                   |                       |                       |
 
-## Reference
+## Learning Resources
 
 - [Azure Academy WVD & TEAMS Guide](https://www.youtube.com/watch?v=RfbolIgPcBY)
 - [OneDrive per-Machine Mode](https://docs.microsoft.com/en-us/azure/virtual-desktop/install-office-on-wvd-master-image#install-onedrive-in-per-machine-mode)
