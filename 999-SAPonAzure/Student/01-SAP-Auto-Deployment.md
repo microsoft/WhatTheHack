@@ -84,6 +84,7 @@ Step 8: Generate runnable terraform scripts
 % python3 gen_terraform_script.py 
 
 Step 9: stay in the same directory, run terraform script to build the Azure infrastructure – this will run for 15-20 minutes.
+
 % ./Run_Terraform_Build.sh 
 
 ![image](https://user-images.githubusercontent.com/81709232/115282055-93fe8380-a0fe-11eb-95eb-1cd6d6e7d572.png)
