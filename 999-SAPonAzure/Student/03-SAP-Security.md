@@ -4,11 +4,11 @@
 
 ## Introduction
 
-Now it is time to introduce the container orchestrator we all came for: Kubernetes!
+Now it is time to introduce Security and Threat Monitoring for SAP. Based on challenge 1 and 2, Mango Inc. has deployed the SAP systems and Azure monitoring for SAP is active, and now the team is looking to setup security and threat monitoring checks for the SAP application and its respective infrastucture components.
 
 ## Description
 
-In this challenge we will be provisioning our first Kubernetes cluster using the Azure Kubernetes Service (AKS). This will give us an opportunity to learn how to use the `kubectl` kubernetes command line tool, as well as using the Azure CLI to issue commands to AKS.
+In this challenge we will be enrolling the Azure subscirption for Security Center and Azure defender, and also configure Setinel workspace for active SAP application security monitoring. This will give us an opportunity to learn how to use the Security Center Dashboard, check for security KPI of Azure resources and also enable continous SAP application-tier threat monitoring.
 
 - Install the Kubernetes command line tool (`kubectl`).
 	- **Hint:** This can be done easily with the Azure CLI.
