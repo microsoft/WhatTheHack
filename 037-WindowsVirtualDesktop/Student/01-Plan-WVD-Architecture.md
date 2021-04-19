@@ -1,6 +1,6 @@
 # Challenge 1: Design the Windows Virtual Desktop architecture 
 
-[< Pre-reqs](./00-Pre-Reqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
+[Previous Challenge](./00-Pre-Reqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
 
 ## Introduction 
