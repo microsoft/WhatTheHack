@@ -1,6 +1,6 @@
 # Challenge 1: Background
 
-**[Home](../README.md)** - [Next Challenge >](./01-Provision.md)
+**[Home](../README.md)** - [Next Challenge >](./02-Provision.md)
 
 Caladan is a midsize commonwealth with a total population of 3.2 million with two urban population centers in Duncan and Stillgard.
 The Coronavirus has not hit the commonwealth hard yet, but commonwealth leaders are concerned of a next wave as we move into spring.

@@ -1,6 +1,6 @@
 # Challenge 5: Staging and Transformation
 
-[< Previous Challenge](./03-OnPremIngest.md) - **[Home](../README.md)** - [Next Challenge >](./05-Calculate.md)
+[< Previous Challenge](./04-OnPremIngest.md) - **[Home](../README.md)** - [Next Challenge >](./06-Calculate.md)
 
 ## Introduction
 

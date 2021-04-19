@@ -23,13 +23,13 @@ The technical learning objectives:
    - Prepare for the challenge
 - Challenge 2: **[Provision](Student/02-Provision.md)**
    - Provision a Data Storage solution for landing your COVID-19 data sources.
-- Challenge 3: **[Ingest 1](Student/03-CloudIngest.md)**
+- Challenge 3: **[Ingest from Cloud](Student/03-CloudIngest.md)**
    - Ingest COVID-19 data sources from cloud resources.
-- Challenge 4: **[Ingest 2](Student/04-OnPremIngest.md)**
+- Challenge 4: **[Ingest from On-Premises SQL DB](Student/04-OnPremIngest.md)**
    - Ingest COVID-19 data sources from On-Premises resources.
-- Challenge 5: **[Transform and Load](Student/05-TransformLoad.md)**
+- Challenge 5: **[Staging and Transformation](Student/05-TransformLoad.md)**
    - Configure data pipelines to transform and load the data into usable sources for a Data Warehouse.
-- Challenge 6: **[Calculate](Student/06-Calculate.md)**
+- Challenge 6: **[Calculate and DW Load](Student/06-Calculate.md)**
    - Create Data Warehouse and calculations for growth vs policy. 
 
 ## Prerequisites
