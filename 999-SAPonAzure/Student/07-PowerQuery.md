@@ -1,12 +1,13 @@
-Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.
+# Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](../README.md)** 
- # Introduction 
+
+## Introduction 
 
 Mango Inc is a manufacturing company planning to modernize IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop clients and apps for visualization and analysis purpose. This exercise includes connecting power BI desktop client to HANA DB using direct query with DB user and password, Extract the required tables using semantic SQL query and Generate self-service Job status report using direct custom query to SAP system. 
 
  
 
-# Description
+## Description
 
         
     Generate self-service SAP system  report about batch jobs status and  name from SAP system. 
@@ -18,7 +19,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
  
 
 
-# Success Criteria 
+## Success Criteria 
  
 
    * Task1: Download Power  BI  desktop from windows power app platfrom  
@@ -39,7 +40,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
- # Skills, hints
+## Skills, hints
 
  
 
@@ -59,19 +60,19 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
-# Final Architecture 
+## Final Architecture 
 ![image](https://user-images.githubusercontent.com/81314847/115074617-eefa6580-9ec7-11eb-9eaa-ca09b29708cb.png)
 
  
 
-# Documentation URLs  
+## Documentation URLs  
 
 [Use SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana)
 
 [Power Query SAP HANA database connector](https://docs.microsoft.com/en-us/power-query/connectors/sap-hana/overview)
 
 
-# Reference documents
+## Reference documents
 
 [Direct Query in Power BI DirectQuery for SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-sap-hana)
 
