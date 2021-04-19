@@ -1,8 +1,8 @@
-# Challenge 3: Ingest from On-Premises SQL DB
+# Challenge 4: Ingest from On-Premises SQL DB
 
 [< Previous Challenge](./02-CloudIngest.md) - **[Home](../README.md)** - [Next Challenge >](./04-TransformLoad.md)
 
-## Background story
+## Introduction
 
 Congratulations, Caladan has now centralized their cloud data!
 Remember that the on-premise data also needs to be incorporated. 
@@ -24,7 +24,7 @@ Once there's a baseline for the services used to import data,
 Caladan requires that the team establish version control to ensure that the work performed by the team can be
 persisted, tracked, and potentially audited.
 
-## Technical details
+## Description
 
 The team will now begin working with the on-premise data. 
 
@@ -43,7 +43,7 @@ or the team can [reset the VM's administrator login information](https://docs.mi
 By default, the lab setup process uses `vmadmin` as the VM administrator username.
 By default, the lab setup process uses `sqladmin` as the SQL administrator login username.
 
-## Success criteria
+## Success Criteria
 
 - All data from the `dbo` schema of the COVID19 VM Covid19  database
 has been extracted and stored in the enterprise data lake.
