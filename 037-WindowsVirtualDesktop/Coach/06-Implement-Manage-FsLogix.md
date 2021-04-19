@@ -9,19 +9,19 @@
 - Configure all FSLogix GPOs with Best Practices 
 - Japan Users DO NOT get FSLogix because they have personal hostpools.  
  * US Users
-    * VHDLocations should be used to 1 share in US 
-        - \\\\customdomain.file.core.windows.net\<fileshare-name>
+    * VHDLocations should be used for a single share in US 
+        - `\\\\customdomain.file.core.windows.net\<fileshare-name>`
 
  * UK Users
     * Cloud Cache should be configured to replicatie User profiles to UK and US region
-        - type=smb,connectionString=<\Location1\Folder1>;type=smb,connectionString=<\Location2\folder2>
+        - `type=smb,connectionString=<\Location1\Folder1>;type=smb,connectionString=<\Location2\folder2>`
 
 Student should have the following technologies deployed.  
-1. FSLogix configured for cloud cache to any alternate region  
+1. FSLogix configured for cloud cache for UK South region.   
 2. Group or User added to Local Group on VM for FLogix Profile Exemption(s).  
-3. Backup for US region profile data  
+3. Backup for US region profile data
 
-Docs for Reference
+## Learning Resources
 - [Redirect Teams Cache data due to size of data stored in Profile](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/wvd-fslogix-reduce-profile-container-size-exclude-teams-cache/m-p/1503683)  
 - [Cloud Cache](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)
 - [FSLogix Best Practices](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#best-practice-settings-for-enterprises)
