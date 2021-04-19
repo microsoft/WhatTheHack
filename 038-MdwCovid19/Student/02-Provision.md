@@ -1,8 +1,8 @@
-# Challenge 1: Provision
+# Challenge 2: Provision
 
 [< Previous Challenge](./00-Background.md) - **[Home](../README.md)** - [Next Challenge >](./02-CloudIngest.md)
 
-## Background story
+## Introduction
 
 Caladan has established connections to various COVID-19 data sources for health and safety personnel.
 While these data sources have daily data from different geographies they are not in a format that makes it easy
@@ -19,7 +19,7 @@ Caladan is concerned about their consituents' data,
 so they want to ensure such data will be protected at all times,
 with access limited to those who truly require it for business reasons.
 
-## Technical details
+## Description
 
 The team has the freedom during What the Hack to choose the solutions which best fit the needs of solution.
 However, the team must be able to explain the thought process behind the decisions to the team's coach.
@@ -28,7 +28,7 @@ At present, encryption is not a requirement for the data.
 However, the selected technologies must include mechanisms
 for controlling access to sensitive data.
 
-## Success criteria
+## Success Criteria
 
 - The team has created a repository in Github and all participants have access to the repo
 - The team has selected and provisioned a storage technology for use as an enterprise data lake

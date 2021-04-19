@@ -71,7 +71,7 @@ Attendees will be required to install software on the workstations that they are
 7. If you have not already done so, you will need to download the `LabDeployment` folder from the repository.  You can use the following command to clone the repo to the current directory:
 
    ```shell
-   git clone https://github.com/SLGOH/slg-c19-mdwoh.git
+   git clone https://github.com/microsoft/WhatTheHack.git
    ```
    
 8. Execute the following from the `LabDeployment\deploy` directory of the WhatTheHack repository clone to deploy the environment (this process may take 10-15 minutes):

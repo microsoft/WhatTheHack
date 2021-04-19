@@ -1,8 +1,8 @@
-# Challenge 4: Staging and Transformation
+# Challenge 5: Staging and Transformation
 
 [< Previous Challenge](./03-OnPremIngest.md) - **[Home](../README.md)** - [Next Challenge >](./05-Calculate.md)
 
-## Background story
+## Introduction
 
 Now that Caladan has all the data from their cloud and on-premises data stores it is time to create a usable Operational Data Store.
 
@@ -19,7 +19,7 @@ and it will also enable deeper exploration for use cases such as comparing Globa
 As Caladan looks toward the future, they would also like to introduce a review process
 such that all changes to the solution under source control must be approved by a second developer.
 
-## Technical details
+## Description
 
 - One of Caladan's most immediate needs will be to creata a normalized operational (ODS) as a intermediate data store to combine metric data with policy data. 
     - The creation of this intermediate dataset is the team's opportunity
@@ -52,7 +52,7 @@ the team should not apply any logical business rules at this time.
     The team should not make such decisions now,
     as these downstream requirements have not yet been specified.
 
-## Success criteria
+## Success Criteria
 
 - Policies have been implemented in the version control solution such that:
     - Developers cannot push changes directly to the main branch.

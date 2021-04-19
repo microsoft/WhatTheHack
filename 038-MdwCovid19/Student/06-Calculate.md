@@ -1,8 +1,8 @@
-# Challenge 5: Calculate and DW Load
+# Challenge 6: Calculate and DW Load
 
 [< Previous Challenge](./04-TransformLoad.md) - **[Home](../README.md)**
 
-## Background story
+## Introduction
 
 Caladan is very impressed with the team's work!
 At last, all of their raw data is in one centralized location and normalized data is available in the ODS.
@@ -21,7 +21,7 @@ execution. Considering the time and effort this process requires, and the
 ever-present chance of human error, they would like
 the team to automate the process.
 
-## Technical details
+## Description
 The team can create a rather simple Star/Snowflake schema or make it more elaborate as they see fit.  The calculation should be done as the data is loaded into the Data Warehouse.  
 
 Note that the dimensions should all be considered 
@@ -40,7 +40,7 @@ components are properly connected. However, this challenge deals only with
 the unit tests, which assert the more granular behaviors or
 logic of a single functional component.
 
-## Success criteria
+## Success Criteria
 
 - A data warehouse is created to support the marketing team's reporting requirements.
 - A process exists to load data from the ODS

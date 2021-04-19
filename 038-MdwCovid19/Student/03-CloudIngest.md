@@ -1,8 +1,8 @@
-# Challenge 2: Ingest from Cloud
+# Challenge 3: Ingest from Cloud
 
 [< Previous Challenge](./01-Provision.md) - **[Home](../README.md)** - [Next Challenge >](./03-OnPremIngest.md)
 
-## Background story
+## Introduction
 
 Great job! You now have a central landing zone for your different data sources.  
 
@@ -12,7 +12,7 @@ Azure Cosmos DB.
 They also store case, death and recovery metrics for 5 sample countries in Azure SQL DB.  Caladan would now like to extract the data from these systems into the data lake.
 This will set the stage for incorporating additional data from the on-premise country data from the Azure VM.
 
-## Technical details
+## Description
 
 The team has the freedom during WhatTheHack to choose the solutions which best fit the needs of Caladan.
 However, the team must be able to explain the thought process behind the decisions to the team's coach.
@@ -36,7 +36,7 @@ The team's coach can provide credentials for the SQL database. They are also ava
 Alternatively, the team may [set the Active Directory Admin](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
 to one of the provided WhatTheHack accounts.
 
-## Success criteria
+## Success Criteria
 
 - All data from the `dbo` schema from the `covid19` Azure SQL database
 has been extracted and stored in the enterprise data lake.
