@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+**IMPORTANT:** Check with your stakeholders that you are able to use your current Tenant/Subscription to run this Hack.  
+
 Links to install the tooling for this hack:
 
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -12,7 +14,7 @@ Links to install the tooling for this hack:
 
 If attendees will be using a shared Azure subscription, you should be aware of the following:
 
-- **NOTE:** Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.
-- **NOTE:** If there is no access to an administrator who can request quota increases, have the students deploy to different regions to stay within the quota limit of each region.  
+- Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.
+- If there is no access to an administrator who can request quota increases, have the students deploy to different regions to stay within the quota limit of each region.  
 
-**Remember to point students to learning resources**
+**NOTE** Remember to point students to learning resources
