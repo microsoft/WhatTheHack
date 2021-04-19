@@ -1,6 +1,6 @@
 # Challenge 4: Ingest from On-Premises SQL DB
 
-[< Previous Challenge](./02-CloudIngest.md) - **[Home](../README.md)** - [Next Challenge >](./04-TransformLoad.md)
+[< Previous Challenge](./03-CloudIngest.md) - **[Home](../README.md)** - [Next Challenge >](./05-TransformLoad.md)
 
 ## Introduction
 

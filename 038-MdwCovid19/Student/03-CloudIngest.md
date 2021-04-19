@@ -1,6 +1,6 @@
 # Challenge 3: Ingest from Cloud
 
-[< Previous Challenge](./01-Provision.md) - **[Home](../README.md)** - [Next Challenge >](./03-OnPremIngest.md)
+[< Previous Challenge](./02-Provision.md) - **[Home](../README.md)** - [Next Challenge >](./04-OnPremIngest.md)
 
 ## Introduction
 
