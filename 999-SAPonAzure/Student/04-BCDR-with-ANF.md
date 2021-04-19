@@ -55,9 +55,9 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 1. Help.SAP: [Create Data Backups and Delta Backups (SAP HANA Studio) - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/c51a3983bb571014afa0c67026e44ca0.html)
 2. [SAP Applications on Microsoft Azure](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
-3. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs](https://user-images.githubusercontent.com/35502723/115315411-e1014a80-a13c-11eb-9a00-a902232b8677.png)
-4. 
-5. 
-6. 
-7. 
+3. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
+4. MSFT ANF Blogs: [Search - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=authorId&q=%22maximize%22%20%26%20%22ANF%20investment%22&noSynonym=false&author_id=283165&collapse_discussion=true)
+5. [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+6. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
+7. [Requirements and considerations for using Azure NetApp Files volume cross-region replication | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
 
