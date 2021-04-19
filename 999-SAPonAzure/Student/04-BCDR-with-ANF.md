@@ -1,6 +1,6 @@
 # Challenge 4: System protection with backup
 
-[< Previous Challenge](./03-k8sintro.md) - **[Home](../README.md)** - [Next Challenge >](./05-scaling.md)
+[< Previous Challenge](./03-SAP-Security.md) - **[Home](../README.md)** - [Next Challenge >](./05-PowerApps.md)
 
 ## Introduction
 
