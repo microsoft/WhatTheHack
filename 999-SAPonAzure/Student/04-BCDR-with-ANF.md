@@ -46,15 +46,18 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ## Success Criteria
 
-1. A successfil setup of backup solution and successful backup. 
-2. An automated orchestration of ANF snapshots on hana data/log volumes to achieve point in time recovery.
+1. A successful setup of backup solution and successful backup. 
+2. An automated orchestration of ANF snapshots on hana data/log volumes to achieve point-in-time recovery.
 3. Availability of offloaded snapshots in azure storage account containers as per the requirement. Demonstrate successful restore that BACKUPTEST user. 
 4. Be able to successfully restore the dual purpose environment with the recent prodution data (with DRTEST user)
 
 ## Resources
 
-1. help
-2. netap
-3. blog
+1. Help.SAP: [Create Data Backups and Delta Backups (SAP HANA Studio) - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/c51a3983bb571014afa0c67026e44ca0.html)
+2. [SAP Applications on Microsoft Azure](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
+3. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs](https://user-images.githubusercontent.com/35502723/115315411-e1014a80-a13c-11eb-9a00-a902232b8677.png)
 4. 
+5. 
+6. 
+7. 
 
