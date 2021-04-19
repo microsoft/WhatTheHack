@@ -19,17 +19,17 @@ The technical learning objectives:
 8. Enable Unit Tests
 
 ## Challenges
-- Background: **[Learn about the fictional government of Caladan and your tasks](Student/01-Background.md)**
+- Challenge 1: **[Background](Student/01-Background.md)**
    - Prepare for the challenge
-- Challenge 1: **[Provision](Student/02-Provision.md)**
+- Challenge 2: **[Provision](Student/02-Provision.md)**
    - Provision a Data Storage solution for landing your COVID-19 data sources.
-- Challenge 2: **[Ingest 1](Student/03-CloudIngest.md)**
+- Challenge 3: **[Ingest 1](Student/03-CloudIngest.md)**
    - Ingest COVID-19 data sources from cloud resources.
-- Challenge 3: **[Ingest 2](Student/04-OnPremIngest.md)**
+- Challenge 4: **[Ingest 2](Student/04-OnPremIngest.md)**
    - Ingest COVID-19 data sources from On-Premises resources.
-- Challenge 4: **[Transform and Load](Student/05-TransformLoad.md)**
+- Challenge 5: **[Transform and Load](Student/05-TransformLoad.md)**
    - Configure data pipelines to transform and load the data into usable sources for a Data Warehouse.
-- Challenge 5: **[Calculate](Student/06-Calculate.md)**
+- Challenge 6: **[Calculate](Student/06-Calculate.md)**
    - Create Data Warehouse and calculations for growth vs policy. 
 
 ## Prerequisites
