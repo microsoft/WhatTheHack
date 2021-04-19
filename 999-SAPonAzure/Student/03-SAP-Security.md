@@ -1,4 +1,4 @@
-# Challenge 3: Introduction To Kubernetes
+# Challenge 3: Introduction To Azure Sentinel for SAP and Azure Security Center
 
 [< Previous Challenge](./02-acr.md) - **[Home](../README.md)** - [Next Challenge >](./04-k8sdeployment.md)
 
