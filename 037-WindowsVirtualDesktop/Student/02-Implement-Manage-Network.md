@@ -18,7 +18,7 @@ In this challenge you will create the topology described in this diagram:
     * Azure Bastion service and NSG to secure Bastion
     * Deploy Virtual Network Gateway
 
-**Note** The Hub virtual network and its components will deployed via script located in Resources folder
+**NOTE:** The Hub virtual network and its components will deployed via script located in Resources folder
 
 * Setup a client VPN to your Hub virtual network
 * Build three virtual network spokes in each user region
