@@ -47,6 +47,7 @@ Step 6: Login to the server as the named user “azureuser” and run the follow
 % cd TST200/
 
 % wget “https[package_url]”  -O ophk.tar.gz
+
   coach will provide the package_url during the session.
 
 % gzip -d  ophk.tar.gz
