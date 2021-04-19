@@ -23,9 +23,9 @@ Step 1: Identify your Group number XX (which will be used later for configuratio
 
 Step 2: Open Azure Portal, Powershell Window. Run the following command to create Service Principle and save the Password to Notepad
 
- $sp = New-AzADServicePrincipal -DisplayName AutoSAPDeployAdmin;  
- $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sp.Secret); 
- $password = [System.Runtime.InteropServices.Marshal]::PtrToStringUni($Ptr);  
+ $sp = New-AzADServicePrincipal -DisplayName AutoSAPDeployAdmin  
+ $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sp.Secret)
+ $password = [System.Runtime.InteropServices.Marshal]::PtrToStringUni($Ptr)  
  Write-output $password
 
 ![image](https://user-images.githubusercontent.com/81709232/115281792-3e29db80-a0fe-11eb-801f-bc3d4c2ee57a.png)
@@ -44,25 +44,17 @@ Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: S
 Step 6: Login to the server as the named user “azureuser” and run the following commands:
 
 % mkdir TST200/
-
-% cd TST200/	 
-
+% cd TST200/
 % wget “ [Coach will provide the package_url ]
-
 % gzip -d  ophk.tar .gz
-
-% tar xf  ophk.tar	 
-
+% tar xf  ophk.tar
 % ./local_setup_env.sh  
 
 Step 7: Edit the following parameters in the “main.inputs” file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4. 
 
- subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
- 
- client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"	 
- 
- client_secret:  "xxxxxxxxxxxxxxxxxxxxxxxxxx"      
- 
+ subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+ client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+ client_secret:  "xxxxxxxxxxxxxxxxxxxxxxxxxx"  
  tenant_id:  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"  
 
 Change in the Resource prefix section, change the “teamxx” XX to represent your team number. Eg. “team00” from step 1.
@@ -70,23 +62,18 @@ Change in the Resource prefix section, change the “teamxx” XX to represent y
 Add Team number to the Resource group in the Resource Group section:
 
 Name: “saprg_ophk_teamXX”
-
 State: “new”
-
 Region: “westus2”
 
 You can change the three-letter SAP system ID parameter, if desired. 
 
 e.g. SAP_system_name: “S4P”
-
 Save the “main_inputs” file. Stay in the same directory.
 
 Step 8: Generate runnable terraform scripts 
 
 % python3 gen_terraform_script.py 
-
 Step 9: stay in the same directory, run terraform script to build the Azure infrastructure – this will run for 15-20 minutes.
-
 % ./Run_Terraform_Build.sh 
 
 ![image](https://user-images.githubusercontent.com/81709232/115282055-93fe8380-a0fe-11eb-95eb-1cd6d6e7d572.png)
@@ -114,11 +101,8 @@ HANA studio 2.0: coach will provide the link
 Step 13: From the window jumpbox, logon to the linux jumpbox:
 
 Putty session to “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen in step 3. 
-
-% cd ~azureuser/Current_Deployment 
-
+% cd ~azureuser/Current_Deployment
 % cd ansible 
-
 % ./SAP_Ansible_Deploy.sh 
 
 Note: this script will config and install a complete SAP system which may run up to 7 hours. For a S4Hana instance fresh install it could take much longer. 
