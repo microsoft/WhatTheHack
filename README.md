@@ -62,6 +62,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Mastering Linux](/020-MasteringLinux/README.md)
 
 ## Data & AI
+- [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
 - [IoT Process Control at the Edge](/029-IoTEdge/README.md)
 - [BI 2 AI](/018-BI2AI/README.md)
