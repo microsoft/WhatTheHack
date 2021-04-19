@@ -14,7 +14,7 @@ In this challenge you will be creating three storage accounts one per region. Ea
 
 1. Capacity planning is always a key point for the success of any project. For the success of this deployment your implementation must support the following points:
     * For this PoC the solution **must support 1/3 of the users** on each region. 
-    * The storage capacity must support 1/3 of the users to login at the same time and have steady state sessions. You must calculate the expected amount of IOps fot this solution. **HINT: Check the reference section to calculate the storage requirements.**
+    * The storage capacity must support 1/3 of the users to login at the same time and have steady state sessions. You must calculate the expected amount of IOps fot this solution. **HINT:** Check the reference section to calculate the storage requirements.**
     * Solution breakout:
         * Field in UK 2000 users
         * Developers Japan 1000 users
@@ -27,9 +27,8 @@ In this challenge you will be creating three storage accounts one per region. Ea
         - storjw\<alias>
         - storuks\<alias>
         - Example: storeusvsantana
-
-        | Note: The Storage account name must have less than 15 characters due to NETBIOS limitation. |
-        | --- |
+        
+         **NOTE:** The Storage account name must have less than 15 characters due to NETBIOS limitation.
 
 1. Create Private Endpoint for each Storage Account
     * Create a Private Endpoint connecting each storage account to the respective VNet in each region.
