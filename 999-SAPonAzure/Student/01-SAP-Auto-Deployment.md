@@ -56,7 +56,7 @@ Step 7: Edit the following parameters in the “main.inputs” file in the TST20
  client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
  client_secret:  "xxxxxxxxxxxxxxxxxxxxxxxxxx"  
  tenant_id:  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"  
-
+ 
 Change in the Resource prefix section, change the “teamxx” XX to represent your team number. Eg. “team00” from step 1.
 
 Add Team number to the Resource group in the Resource Group section:
@@ -66,13 +66,12 @@ State: “new”
 Region: “westus2”
 
 You can change the three-letter SAP system ID parameter, if desired. 
-
 e.g. SAP_system_name: “S4P”
 Save the “main_inputs” file. Stay in the same directory.
 
 Step 8: Generate runnable terraform scripts 
-
 % python3 gen_terraform_script.py 
+
 Step 9: stay in the same directory, run terraform script to build the Azure infrastructure – this will run for 15-20 minutes.
 % ./Run_Terraform_Build.sh 
 
@@ -92,18 +91,16 @@ Step 11: Logon to portal: go to ANF account created and display each ANF volumes
 
 Step 12: Logon to the window jumpbox. Download the following tools and SAP packages: Note, you might want to install and switch to some other browser to download these as the default browser with window defender will block the direct download. 
 
-Putty.exe: coach will provide the link 
- 
-SAP GUI 7.60: coach will provide the link 
- 
-HANA studio 2.0: coach will provide the link 
+Putty.exe: coach will provide the link
+SAP GUI 7.60: coach will provide the link
+HANA studio 2.0: coach will provide the link
 
 Step 13: From the window jumpbox, logon to the linux jumpbox:
 
 Putty session to “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen in step 3. 
 % cd ~azureuser/Current_Deployment
-% cd ansible 
-% ./SAP_Ansible_Deploy.sh 
+% cd ansible
+% ./SAP_Ansible_Deploy.sh
 
 Note: this script will config and install a complete SAP system which may run up to 7 hours. For a S4Hana instance fresh install it could take much longer. 
 While the ansible script is running, you can continue with step 5 on install SAPGUI and SAP HANA studio on Window Jumpbox.  
