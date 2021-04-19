@@ -8,7 +8,7 @@ Participants work together in teams to complete challenges and are actively enga
 
 ## Challenges
 
-- **Challenge #1: [Rapid SAP Deployment.](Student/06-Start-Stop-Automation.md)**
+- **Challenge #1: [Rapid SAP Deployment.](Student/01-SAP-Auto-Deployment.md)**
 
 Mango Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, they want to migrate existing SAP systems from on-premise to Azure more rapid way. They identified SAP on Azure github repo and liked the Microsoft provided automation content. Deploy SAP S/4 hana system using the available automation script in resourses folder. After deployment is completed, verify all the deployed resource and be familiarize yourself. 
  
