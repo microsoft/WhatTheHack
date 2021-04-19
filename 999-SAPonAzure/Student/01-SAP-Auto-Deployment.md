@@ -93,7 +93,7 @@ Step 9: stay in the same directory, run terraform script to build the Azure infr
 
 Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the following login credential:  azureuser/Welcome!2345 
 
-Step 11: [Manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check the export policy for every volume has “Root Access” to be “On”. If it shows “Off” then change it to “On” and save – for each NetApp file volumes.
+Step 11: [Manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check the export policy for every volume, make sure that the “Root Access” is set “On”. If it shows “Off” then change it to “On” and save – this is needed for each NetApp file volumes.
 
 ![image](https://user-images.githubusercontent.com/81709232/115282173-bd1f1400-a0fe-11eb-8cb3-8d76f2def7f9.png)
 
@@ -106,7 +106,7 @@ SAP GUI 7.60: coach will provide the link
 HANA studio 2.0: coach will provide the link
 
 Step 13: From the window jumpbox, logon to the linux jumpbox:
-Putty session to “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen in step 3. 
+Putty session to server “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen previously. 
 
 % cd ~azureuser/Current_Deployment
 
@@ -115,12 +115,10 @@ Putty session to “teamxx-linux-jumpbox” with the credential  azureuser/Welco
 % ./SAP_Ansible_Deploy.sh
 
 
-Note: this script will config and install a complete SAP system which may run up to 7 hours. For a S4Hana instance fresh install it could take much longer. 
-While the ansible script is running, you can continue with step 5 on install SAPGUI and SAP HANA studio on Window Jumpbox.  
+Note: this script does all the configs and then install a complete SAP system which may run up to 7 hours. 
+While this ansible script is running, you can continue with next steps on installing SAPGUI on the Window Jumpbox.  
 
-Step 14: Using SAP HANA Studio, connect to SAP HANA DB to verify Database is up and running.
-
-Step 15: Login to SAP GUI to test connection SAP Application.
+Step 14: Once the deployment script completes, login to SAP GUI to test connection SAP Application and continue other challenges.
 
 ## Reference
 
