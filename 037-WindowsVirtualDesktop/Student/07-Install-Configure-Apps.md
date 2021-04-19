@@ -6,6 +6,7 @@
 
 Based on the noted requirements we will need to split up the applications in a few different ways. Image based apps are typically used by all and updated together like the Microsoft Office Applications.
 However if a small subset of users do not require the apps, they can be hidden or masked with FSLogix application masking.  
+
 Those apps that require more frequent updates and assignments may be more dynamic can be mapped on the fly via MSix App Packaging. 
 MSIX requires a few step with regards to preparing the environment as the packages require a signature via certificates.  
 The best practice is to perform application packaging on a dedicated Packaging VM, but in this case, either spin up a new VM on your East US spoke or use your domain controller.
@@ -53,8 +54,9 @@ Create and deploy packages:
 3. Expand the MSIX packages to VHD/VHDx/CIM 
 4. Copy the converted disk image(s) to the MSIX Azure File share created.
 5. Configure the application group for the MSIX packages to apply to the appropriate group of users.
-    `An alternate 3rd party tool for managing MSIX Packages to include expanding to VHD is MSIX Hero. (https://msixhero.net/)`
-    *NOTE: Sometimes in packaging you will run into issues and errors.  If so another good resource is [PSFTooling] (https://www.microsoft.com/en-us/p/tmurgent-psftooling/9nc6k0q954jv#activetab=pivot:overviewtab)
+    - An alternate 3rd party tool for managing MSIX Packages to include expanding to VHD is [MSIX Hero](https://msixhero.net/).
+    
+    **NOTE:** Sometimes in packaging you will run into issues and errors.  If so another good resource is [PSFTooling](https://www.microsoft.com/en-us/p/tmurgent-psftooling/9nc6k0q954jv#activetab=pivot:overviewtab).
 
 ### Remote Apps (Pooled - UK)
 
