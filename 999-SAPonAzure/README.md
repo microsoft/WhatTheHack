@@ -14,7 +14,7 @@ Mango Inc is an established manufacturer planning to modernize IT infrastructure
  
 [Automated deployment of SAP environment](https://github.com/Microsoft-SAPonAzure-OpenHack/Learning-the-OpenHack-Way/tree/main/01-SAP-Auto-Deployment)
 
--  **Challenge #2: [End-to-End Technical monitoring for SAP](Student/06-Start-Stop-Automation.md)**
+-  **Challenge #2: [End-to-End Technical monitoring for SAP](Student/02-Azure-Monitor.md)**
 
 As Mango Inc is running the SAP landscape on on-premise for a long time, they already had well-established monitoring processes. However, most of the monitoring based on age-old scripting. They want to modernize monitoring infrastructure by using azure native services as much as possible while maintaining the same or better standards than existing. Design & configure monitoring solution for SAP workload using Azure native services to capture the key metrics for Virtual Machine, Operating System, SAP Application & database hosted on Microsoft Cloud Azure. 
 
