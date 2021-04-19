@@ -36,7 +36,7 @@ Write-output $password
 
 Step 3: Open Azure Portal, record the Azure Subscription ID and save to Notepad
 
-Step 4: In Azure Portal, go to Azure Active Directory App Registration select Service Principle “AutoSAPDeployAdminXX”  record Application (client) ID and Directory (tenant) ID field to Notepad
+Step 4: In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad
 
 ![image](https://user-images.githubusercontent.com/81709232/115281830-4c77f780-a0fe-11eb-8bc8-ba9a6eac5072.png)
 
