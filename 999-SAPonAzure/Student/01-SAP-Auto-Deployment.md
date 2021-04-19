@@ -52,8 +52,11 @@ Step 6: Login to the server as the named user “azureuser” and run the follow
 % ./local_setup_env.sh  
 
 Step 7: Edit the following parameters in the “main.inputs” file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4. 
+
  subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+ 
  client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"	 
+ 
  client_secret:  "xxxxxxxxxxxxxxxxxxxxxxxxxx"       tenant_id:  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"  
 
 Change in the Resource prefix section, change the “teamxx” XX to represent your team number. Eg. “team00” from step 1.
@@ -61,19 +64,31 @@ Change in the Resource prefix section, change the “teamxx” XX to represent y
 Add Team number to the Resource group in the Resource Group section:
 
 Name: “saprg_ophk_teamXX”
+
 State: “new”
+
 Region: “westus2”
+
 You can change the three-letter SAP system ID parameter, if desired. 
+
 e.g. SAP_system_name: “S4P”
 
 Save the “main_inputs” file. Stay in the same directory.
+
 Step 8: Generate runnable terraform scripts 
+
 % python3 gen_terraform_script.py 
+
 Step 9: stay in the same directory, run terraform script to build the Azure infrastructure – this will run for 15-20 minutes.
+
 % ./Run_Terraform_Build.sh 
+
 Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the publix IP address in order to RDP to the Window Jumpbox. login credential:  azureuser/Welcome!2345 
+
 Step 11: Logon to portal: go to ANF account created and display each ANF volumes and check the export policy for every volume has “Root Access” to be “On”. If it shows “Off” then change it to “On” and save – for each NetApp file volumes.
+
 Step 12: Logon to the window jumpbox. Download the following tools and SAP packages: Note, you might want to install and switch to some other browser to download these as the default browser with window defender will block the direct download. 
+
 Putty.exe: coach will provide the link 
  
 SAP GUI 7.60: coach will provide the link 
@@ -81,6 +96,7 @@ SAP GUI 7.60: coach will provide the link
 HANA studio 2.0: coach will provide the link 
 
 Step 13: From the window jumpbox, logon to the linux jumpbox:
+
 Putty session to “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen in step 3. 
 % cd ~azureuser/Current_Deployment 
 % cd ansible 
