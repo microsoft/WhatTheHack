@@ -33,7 +33,7 @@ Make sure they are designing with scale in mind.
                 - How to Deploy
                 - How to update
     - WVD Roles
-        - NOTE:: Premise of Least privilege user/group security model  
+        - **NOTE:** Premise of Least privilege user/group security model  
         - FSLogix local groups for include/exclude.
         - Local session host groups / GPO based group management.
         - Plan Identity Security  
@@ -48,7 +48,7 @@ Make sure they are designing with scale in mind.
 
 
 
-- **Recommended solution** : subsequent challenges are designed with the following configuration in mind (check resources section for further details)   
+- **Recommended solution:** subsequent challenges are designed with the following configuration in mind (check resources section for further details)   
     - Host Pool & User breakout:
         - Field in UK
             - 2000 pooled
