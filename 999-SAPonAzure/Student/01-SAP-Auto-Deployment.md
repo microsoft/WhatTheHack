@@ -40,6 +40,8 @@ Step 4: In Azure Portal, go to Azure Active Directory App Registration sel
 
 ![image](https://user-images.githubusercontent.com/81709232/115281830-4c77f780-a0fe-11eb-8bc8-ba9a6eac5072.png)
 
+![image](https://user-images.githubusercontent.com/81709232/115281970-77fae200-a0fe-11eb-8b65-8e884527e6cf.png)
+
 Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user “azureuser” and password “Welcome!2345”. You will start all the Azure infrastructure provision from this server.
 
 Step 6: Login to the server as the named user “azureuser” and run the following commands:
@@ -90,9 +92,19 @@ Step 9: stay in the same directory, run terraform script to build the Azure infr
 
 % ./Run_Terraform_Build.sh 
 
+![image](https://user-images.githubusercontent.com/81709232/115282055-93fe8380-a0fe-11eb-95eb-1cd6d6e7d572.png)
+
+![image](https://user-images.githubusercontent.com/81709232/115282096-a1b40900-a0fe-11eb-9c47-88c647cb9310.png)
+
+![image](https://user-images.githubusercontent.com/81709232/115282125-aaa4da80-a0fe-11eb-8f4e-f47907c65188.png)
+
 Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the publix IP address in order to RDP to the Window Jumpbox. login credential:  azureuser/Welcome!2345 
 
 Step 11: Logon to portal: go to ANF account created and display each ANF volumes and check the export policy for every volume has “Root Access” to be “On”. If it shows “Off” then change it to “On” and save – for each NetApp file volumes.
+
+![image](https://user-images.githubusercontent.com/81709232/115282173-bd1f1400-a0fe-11eb-8cb3-8d76f2def7f9.png)
+
+![image](https://user-images.githubusercontent.com/81709232/115282202-c9a36c80-a0fe-11eb-991e-c8aad9222e9a.png)
 
 Step 12: Logon to the window jumpbox. Download the following tools and SAP packages: Note, you might want to install and switch to some other browser to download these as the default browser with window defender will block the direct download. 
 
