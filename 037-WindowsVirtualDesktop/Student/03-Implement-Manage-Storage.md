@@ -75,12 +75,12 @@ In this challenge you will be creating three storage accounts one per region. Ea
 1. Enable Storage Account ADDS authentication to control access to all shared folders (NTFS permission).
 
 1. Apply the least RBAC and NTFS permission to all Storage Accounts and Shared Folders to support FSLogix Container profile and MSIX app attach using the existing groups:
-    - `wvd_users_japan`
-    - `wvd_users_uk`
-    - `wvd_users_usa` 
+    - wvd_users_japan
+    - wvd_users_uk
+    - wvd_users_usa 
 
 1. Allow Network Access to the Storage account for each spoke VNet.
 You must allow access to SMB using protocol TCP and port 445 for the following NSGs:
-    - `nsg-wvd-d-eus`
-    - `nsg-wvd-d-jw`
-    - `nsg-wvd-d-uks`  
+    - nsg-wvd-d-eus
+    - nsg-wvd-d-jw
+    - nsg-wvd-d-uks
