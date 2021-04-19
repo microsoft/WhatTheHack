@@ -18,10 +18,10 @@ In this challenge you will be preparing three images that will be used for the d
         * Microsoft OneDrive
         * Microsoft Teams
         * FSLogix
-            * **NOTE**: Only install FSLogix. The configuration will occur in a future challenge.
+            * **NOTE:**: Only install FSLogix. The configuration will occur in a future challenge.
         * Notepad++
         * Adobe Acrobat Reader
-    * **HINT**: Since this operating system supports more than one user logged in at a time, there may be specific installation steps to consider.
+    * **HINT:**: Since this operating system supports more than one user logged in at a time, there may be specific installation steps to consider.
     * **HINT:** It is recommended to reboot the server after making the customizations to the image.
     * Take a disk snapshot as a recovery point for any subsequent failures and the snapshot will be used when updating the image.
     * Run Sysprep (generalize). Then Capture the VM as a custom image.
@@ -33,13 +33,13 @@ In this challenge you will be preparing three images that will be used for the d
     * Create an Image Template in AIB with the following customizations:
         * The operating system is Windows 10 Enterprise Multi-session, Version 20H2 + Microsoft 365 Apps (Gen 1) with the following software installed.
             * Microsoft Teams
-            * **HINT**: Since this operating system is multi-session, there may be specific installation steps to consider.
+            * **HINT:**: Since this operating system is multi-session, there may be specific installation steps to consider.
         * Add a step to reboot the VM.
         * Add a step to run Windows Update.
         * **NOTE** All Windows 10 Multi-session images from the Azure Marketplace already include the FSLogix agent.
     * Test the image by deploying a VM from the image and validating all customizations persisted. Uploading images to SIG can take some time before the image can be used for VM deployments.
-    * **HINT** If you are in an AAD tenant where you cannot create anymore custom roles for the managed identity for AIB, you can leverage a built-in role with more permissions for the FastHack.
-    * **NOTE** As of the ARM template api version "2020-02-14", AIB does support specifying the number of image replicas per region (default is 1). Therefore setting the replica count to three will be a post deployment task through the portal, PowerShell, CLI, etc.
+    * **HINT:** If you are in an AAD tenant where you cannot create anymore custom roles for the managed identity for AIB, you can leverage a built-in role with more permissions for the FastHack.
+    * **NOTE:** As of the ARM template api version "2020-02-14", AIB does support specifying the number of image replicas per region (default is 1). Therefore setting the replica count to three will be a post deployment task through the portal, PowerShell, CLI, etc.
 
 
 1. Image for the Developers
