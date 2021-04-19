@@ -1,4 +1,4 @@
-
+Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](../README.md)** 
  # Introduction 
 
