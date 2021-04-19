@@ -79,6 +79,7 @@ e.g. SAP_system_name: “S4P”
 Save the “main_inputs” file. Stay in the same directory.
 
 Step 8: Generate runnable terraform scripts 
+
 % python3 gen_terraform_script.py 
 
 Step 9: stay in the same directory, run terraform script to build the Azure infrastructure – this will run for 15-20 minutes.
