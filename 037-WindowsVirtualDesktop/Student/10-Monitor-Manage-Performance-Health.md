@@ -21,14 +21,6 @@ The goal of this challenge is to demonstrate how you can enable a monitoring sol
 	- Approximately 5% of users in each region may attempt to connect from home each night and WVD should be available to them off-peak across each region and meets the cost saving targets set by the company
     - WVD Session Hosts should be gradually powered on as morning peak demand increases and existing hosts should be filled up before additional VMs are powered on to reduce excess capacity.
 
-**Tips**
-
-> _The logging information may take a few minutes to appear in the monitoring portal. You'll also need to generate user traffic by connecting to WVD after enabling the diagnostics for information to flow through._
-
-> _To simulate connection errors you may wish to attempt logins with invalid credentials, closing the client during the logon attempt and deliberately using a different account between the logon to the WVD portal and the WVD session host which should fail._
-
-> _Simulate an unavailable session host by manually stopping the WVD service "RdAgent"_
-
 ## Success Criteria
 
 To be successful for this challenge you should be able to demonstrate the following;
@@ -38,6 +30,15 @@ To be successful for this challenge you should be able to demonstrate the follow
 3. Display recent user activity in WVD activity for a specific user including their most recent login and history within the past 30 days
 4. Identify performance metrics of a WVD host which has a currently connected user and demonstrate how you can view the "User Input Delay per Process" object and "Max Input Delay" counters for that VM.
 5. Enable automatic scaling of WVD session hosts to start and stop machines during peak/off-peak hours across each region. Consider how the peak/off-peak hours and load balancing will influence the configuration. Assume for the purpose of this workshop that VM sizing and user density is designed for a 1CPU per Session to help with testing in a limited size environment.
+
+**Tips**
+
+> _The logging information may take a few minutes to appear in the monitoring portal. You'll also need to generate user traffic by connecting to WVD after enabling the diagnostics for information to flow through._
+
+> _To simulate connection errors you may wish to attempt logins with invalid credentials, closing the client during the logon attempt and deliberately using a different account between the logon to the WVD portal and the WVD session host which should fail._
+
+> _Simulate an unavailable session host by manually stopping the WVD service "RdAgent"_
+
 
 Extra Challenge
 
