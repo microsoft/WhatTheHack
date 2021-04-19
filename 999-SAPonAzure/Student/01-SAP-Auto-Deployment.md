@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This document introduces an automation tool for SAP Basis person on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
+This document introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
 
 ## Description
 
@@ -46,9 +46,10 @@ Step 6: Login to the server as the named user “azureuser” and run the follow
 
 % cd TST200/
 
-% wget “ [Coach will provide the package_url ]
+% wget “https[package_url]”  -O ophk.tar.gz
+  coach will provide the package_url during the session.
 
-% gzip -d  ophk.tar .gz
+% gzip -d  ophk.tar.gz
 
 % tar xf  ophk.tar
 
