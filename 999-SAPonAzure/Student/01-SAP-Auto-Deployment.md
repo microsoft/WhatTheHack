@@ -48,15 +48,16 @@ Step 6: Login to the server as the named user “azureuser” and run the follow
 % wget “ [Coach will provide the package_url ]
 % gzip -d  ophk.tar .gz
 % tar xf  ophk.tar
-% ./local_setup_env.sh 
+% ./local_setup_env.sh
+
 
 Step 7: Edit the following parameters in the “main.inputs” file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4. 
 
  subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
- client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+ client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
  client_secret:  "xxxxxxxxxxxxxxxxxxxxxxxxxx" 
- tenant_id:  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx" 
- 
+ tenant_id:  "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
+  
 Change in the Resource prefix section, change the “teamxx” XX to represent your team number. Eg. “team00” from step 1.
 Add Team number to the Resource group in the Resource Group section:
 Name: “saprg_ophk_teamXX”
@@ -94,7 +95,6 @@ SAP GUI 7.60: coach will provide the link
 HANA studio 2.0: coach will provide the link
 
 Step 13: From the window jumpbox, logon to the linux jumpbox:
-
 Putty session to “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen in step 3. 
 % cd ~azureuser/Current_Deployment
 % cd ansible
