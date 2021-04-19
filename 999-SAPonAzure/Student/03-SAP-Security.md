@@ -54,6 +54,9 @@ The following lists high level perquisites and limitations
 •	The solution supports SAP NetWeaver ABAP systems with SAP_BASIS 740 and higher (* check System – Status.. – Click magnifier in SAP System Data. Check here for SAP product versions) 
 •	The solution supports SAP systems hosted in Azure, on-premises and 3rd party clouds
 •	For optimal functionality please use SAP_BASIS versions 750 SP13 and higher 
+
+<img width="437" alt="image" src="https://user-images.githubusercontent.com/48741882/115249313-79c0a780-a0f6-11eb-9539-e82a92d7d1ae.png">
+
  
 •	Make sure older systems have the following SAP Notes applied (* SAP transaction code : SNOTE)  :
 SAP Note 2641084 – standardized read access for the Security Audit log data
@@ -68,13 +71,14 @@ Each SAP system requires and each SAP client requires its own container instan
 •	ce
 
 o	Network access from the VM to SAP – ports below and to Azure Sentinel/Key Vault if needed
-Designation 	Source	Destination 	TCP Port
-SAP application access
-(XX – system/host number)	Docker IP	SAP host IP	32xx
-			5xx13
-			33xx
 
- 
+<img width="571" alt="Screen Shot 2021-04-19 at 10 04 46 AM" src="https://user-images.githubusercontent.com/48741882/115249646-d02de600-a0f6-11eb-8ea1-d7631a359d68.png">
+
+			
+			
+
+ <img width="297" alt="image" src="https://user-images.githubusercontent.com/48741882/115249417-9361ef00-a0f6-11eb-95a9-d4e330a18ad0.png">
+
 o	The VM and Sentinel workspace can be in different Azure subscriptions and even different Azure AD tenants 
 
 •	Limitations, please refer to full documentation for more details:
