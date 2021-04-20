@@ -110,7 +110,7 @@ SAP GUI 7.60: coach will provide the link
 HANA studio 2.0: coach will provide the link
 
 Step 13: From the window jumpbox, logon to the linux jumpbox:
-Putty session to server “teamxx-linux-jumpbox” with the credential  azureuser/Welcome!2345. Note: Replace “xx” with your team number chosen previously. 
+Putty session to server “teamxx-linux-jumpbox” with the credential  azureuser/<password>. Note: Replace “xx” with your team number chosen previously. 
 
 % cd ~azureuser/Current_Deployment
 
