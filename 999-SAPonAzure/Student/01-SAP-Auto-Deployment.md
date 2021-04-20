@@ -17,7 +17,7 @@ During the exercise, participants will be able to provision a landscape into Azu
 1.	Complete build of SAP S4H and SAP HANA database on Azure Cloud.
 2.	Successful Installation of SAP GUI and test logon to SAP Application Server
 
-## Steps
+## Guidelines
 
 ![image](https://user-images.githubusercontent.com/81709232/115320694-376b8a80-a137-11eb-93f8-ba9d2f6fd64d.png)
 
