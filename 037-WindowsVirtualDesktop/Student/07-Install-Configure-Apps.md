@@ -24,7 +24,8 @@ The best practice is to perform application packaging on a dedicated Packaging V
 
 First we'll need to consider where we want to store the applications for installation. 
 Typically this is a common file share. We will use the MSIX File Shares that were created in Challenge 3.
-NOTE: The packaging admin will need contributor rights on this share, users will only need the SMB Reader role. 
+
+**NOTE:** The packaging admin will need contributor rights on this share, users will only need the SMB Reader role. 
 
 ### Application Masking (FSLogix)
 
