@@ -98,7 +98,7 @@ Step 9: stay in the same directory, run terraform script to build the Azure infr
 
 ![image](https://user-images.githubusercontent.com/81709232/115282125-aaa4da80-a0fe-11eb-8f4e-f47907c65188.png)
 
-Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the following login credential:  azureuser/password that you provided
+Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the following login credential which the coach will provide
 
 Step 11: [Manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the “Root Access” is set “On”. If the export policy shows “Off” then change it to “On” and save – this is NEEDED for each NetApp file volumes.
 
