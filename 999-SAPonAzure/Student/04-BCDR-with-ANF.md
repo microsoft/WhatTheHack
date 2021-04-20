@@ -11,49 +11,50 @@ Mango Inc heavily relies on SAP infrastructure to perform day to day business tr
 SAP S/4 Hana system is fully protected with required IT monitoring, secured & compliance configuration and also with high availabitly for IT component failures. However, it is not protected with accidental errors, unintended data discrepencies, data loss / corruption or geographical catastrophies. Design and implement BCDR solution for SAP S/4 Hana system by implementing secondary copy of SAP system in another seperate azure region from production region with continuous asynchronous data replication.
 
 ## Guidelines
-* Item 1
-1. Backup using a temporary solution (HANA native)
-* Item 1a
-a. For point-in-time recovery, you need to enable log backups. 
-* Item 1b
-b. Take your first native HANA full file level backup
-	c. This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
-2. Backup using a permanent solution (ANF snapshots) :
-	a. Assess the backup requirements:
-		i. Use ANF where possible
-		ii. Cannot afford to lose more than 15 min worth of recent changes
-		iii. Local availability of log backups for up to the last 24 hours
-		iv. Point-in-Time recovery for up to the last 72 hours
-		v. Additional protection of backup files by offloading to an intra region storage account
-	b. Update the below backup schedule (frequency, retention, offloading, sizing)
+
+1. Backup using a temporary solution (HANA native):
+	- a. For point-in-time recovery, you need to enable log backups.
+	- b. Take your first native HANA full file level backup.
+	- c. This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
+2. Backup using a permanent solution (ANF snapshots):
+	- a. Assess the backup requirements:
+		- i. Use ANF where possible
+		- ii. Cannot afford to lose more than 15 min worth of recent changes
+		- iii. Local availability of log backups for up to the last 24 hours
+		- iv. Point-in-Time recovery for up to the last 72 hours
+		- v. Additional protection of backup files by offloading to an intra region storage account
+	- b. Update the below backup schedule (frequency, retention, offloading, sizing)
+
+---
 
 FIGURE OUT HOW TO INSERT TABLE HERE
 
-(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)
+*(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)*
 
+---
 
-	c. Adjust log backup volume size for storing log backups, and adjust relevant HANA parameters to use this volume for log backups.
-	d. Build a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by automating the snapshot scheduling using the Linux built-in tool - crontab
-	e. Orchestrate offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
-	f. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
-	g. Create a security user "BACKUPTEST".
-	h. Take a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp
-	i. Delete the security user BACKUPTEST "accidently" - Oops! 
-	j. Restore the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
-3. Disaster Recovery
-	a. Assess the disaster recovery requirements:
-		i. RPO < 30 min, RTO < 4 hrs.
-		ii. Inter-region DR using storage replication capabilities
-	b. Set up ANF storage replication (CRR) to meet the RPO
-	c. Create a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)
-	d. Take a backup (using azacsnap). Give a prefix "UseThisAtDR" and note down the creation time stamp
-	e. Execute the DR by:
-		i. Wait until the replication is Healthy, Mirrored and Idle
-		ii. Shut down the Production HANA instance (Stop VM) at the primary region
-		iii. Stop  or leave the Production HANA instance down at the DR region down
-		iv. Break the replication and swap the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.
-		v. Start HANA recovery (point in time) at the DR region for the Production HANA instance
-		vi. Validate the existence of "DRTEST" user.
+	c. Adjust log backup volume size for storing log backups, and adjust relevant HANA parameters to use this volume for log backups.<br>
+	d. Build a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by automating the snapshot scheduling using the Linux built-in tool - crontab<br>
+	e. Orchestrate offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.<br>
+	f. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)<br>
+	g. Create a security user "BACKUPTEST".<br>
+	h. Take a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.<br>
+	i. Delete the security user BACKUPTEST "accidently" - Oops! <br>
+	j. Restore the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"<br>
+3. Disaster Recovery<br>
+	a. Assess the disaster recovery requirements:<br>
+		i. RPO < 30 min, RTO < 4 hrs.<br>
+		ii. Inter-region DR using storage replication capabilities<br>
+	b. Set up ANF storage replication (CRR) to meet the RPO<br>
+	c. Create a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)<br>
+	d. Take a backup (using azacsnap). Give a prefix "UseThisAtDR" and note down the creation time stamp<br>
+	e. Execute the DR by:<br>
+		i. Wait until the replication is Healthy, Mirrored and Idle<br>
+		ii. Shut down the Production HANA instance (Stop VM) at the primary region<br>
+		iii. Stop  or leave the Production HANA instance down at the DR region down<br>
+		iv. Break the replication and swap the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.<br>
+		v. Start HANA recovery (point in time) at the DR region for the Production HANA instance<br>
+		vi. Validate the existence of "DRTEST" user.<br>
 
 ## Success Criteria
 
