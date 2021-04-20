@@ -109,7 +109,9 @@ Step 11: [Manual correction process] Logon to portal: go to ANF account created 
 Step 12: Logon to the window jumpbox. Download the following tools and SAP packages: Note, you might want to install and switch to some other browser to download these as the default browser with window defender will block the direct download. 
 
 Putty.exe: coach will provide the link
+
 SAP GUI 7.60: coach will provide the link
+
 HANA studio 2.0: coach will provide the link
 
 Step 13: From the window jumpbox, logon to the linux jumpbox:
