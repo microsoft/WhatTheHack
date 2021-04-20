@@ -32,6 +32,17 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
 	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
+---
+
+Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
+-------- | -------- | -------- | -------- | --------
+**HANA data** | 1 TiB (20% YoY Growth) | ? | ? | To a separate blob container, retain for 7 days. 
+**HANA log backups** | 250 GiB | ? | ? | To a separate blob container, retain for 7 days.
+**Shared binaries and profiles** | 100 GiB | ? | ? | To a separate blob container, retain for 7 days.
+
+*(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)*
+
+---
 3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
 		- RPO < 30 min, RTO < 4 hrs.
