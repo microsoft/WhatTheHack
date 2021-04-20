@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./00-Pre-Reqs.md) - **[Home](./README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
-## Notes and Guidance
+## Notes & Guidance
 
 - Confirm students have followed the pre-req guide -> [Pre-reqs](./00-Pre-Reqs.md)  
 Not strictly required for this session as this is just planning but will be needed for further challenges
