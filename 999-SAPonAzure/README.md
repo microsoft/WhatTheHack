@@ -6,6 +6,12 @@ Participants work together in teams to complete challenges and are actively enga
 
 ## Learning Objectives
 
+## Prerequisites
+
+- **Challenge #0: [Pre-requisites - Ready, Set, GO!](Student/00-prereqs.md)**
+
+---
+
 ## Challenges
 
 - **Challenge #1: [Rapid SAP Deployment.](Student/01-SAP-Auto-Deployment.md)**
@@ -53,12 +59,6 @@ Mango Inc is looking to optimize the cost of SAP landscape and exploring ways to
 -  **Challenge #7: [Self-service analytical dashboard using data from SAP S/4 Hana system.](Student/07-PowerQuery.md)** 
 
 Mango Inc is a manufacturing company planning to modernize IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop clients and apps for visualization and analysis purpose. This exercise includes connecting power BI desktop client to HANA DB using direct query with DB user and password, Extract the required tables using semantic SQL query and Generate self-service Job status report using direct custom query to SAP system.
-
----
-
-## Prerequisites
-
-- **Challenge #0: [Pre-requisites - Ready, Set, GO!](Student/00-prereqs.md)**
 
 ---
 
