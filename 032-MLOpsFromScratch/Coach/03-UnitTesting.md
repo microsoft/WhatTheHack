@@ -1,6 +1,6 @@
-# Challenge 2 – Create a Unit Test Locally and in Azure DevOps
+# Challenge 3 – Create a Unit Test Locally and in Azure DevOps
 
-[< Previous Challenge](./01-TimeSeriesForecasting.md) - **[Home](./README.md)** - [Next Challenge >](./03-BuildPipeline.md)
+[< Previous Challenge](./02-BuildPipeline.md) - **[Home](./README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
 
 ## Solution
 
