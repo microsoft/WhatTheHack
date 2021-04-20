@@ -12,14 +12,14 @@ During the exercise, participants will be able to provision a landscape into Azu
 
 ![image](https://user-images.githubusercontent.com/73615525/115279764-f99d4080-a0fb-11eb-9e56-d43ee96fe173.png)
 
-![image](https://user-images.githubusercontent.com/81709232/115320694-376b8a80-a137-11eb-93f8-ba9d2f6fd64d.png)
-
 ## Success Criteria
 
 1.	Complete build of SAP S4H and SAP HANA database on Azure Cloud.
 2.	Successful Installation of SAP GUI and test logon to SAP Application Server
 
 ## Steps
+
+![image](https://user-images.githubusercontent.com/81709232/115320694-376b8a80-a137-11eb-93f8-ba9d2f6fd64d.png)
 
 Step 1: Identify your Group number XX (which will be used later for configurations)
 
