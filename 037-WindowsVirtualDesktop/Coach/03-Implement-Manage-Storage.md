@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./02-Implement-Manage-Network.md) - **[Home](./README.md)** - [Next Challenge >](./04-Create-Manage-Images.md)
 
-## Notes and Guidance
+## Notes & Guidance
 
 1. Capacity planning
 	- According to the projects requirement he solution must support 1/3 of expected users. It means 2000/3=666. Log in/Log off needs avg. of 50 IOPS per user, per share. Steady state is 10 IOPS per user per share.
@@ -15,7 +15,7 @@ Possible solution would a storage account with the following size:
 - Egress Rate: 674.4 MiBytes/s
 - Ingress Rate: 449.6 MiBytes/s
 
-**NOTE:** Scripts to complete this section are in the Coach's Solution's folder if the Student needs help
+**NOTE:** Scripts to complete this section are in the Coach's Solution's folder if the Student needs help.
 
 Students need too:
 1. Create one storage account per region
