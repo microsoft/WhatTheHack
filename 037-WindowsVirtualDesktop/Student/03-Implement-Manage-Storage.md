@@ -23,46 +23,46 @@ In this challenge you will be creating three storage accounts one per region. Ea
 1. Create one storage account per region
     * You need to create three storage account one per region (East US, UK South and Japan West)
     * Storage account name must follow this name convention:
-        - storeus\<alias>
-        - storjw\<alias>
-        - storuks\<alias>
-        - Example: storeusvsantana
+        - `storeus\<alias>`
+        - `storjw\<alias>`
+        - `storuks\<alias>`
+        - Example: `storeusvsantana`
         
          **NOTE:** The Storage account name must have less than 15 characters due to NETBIOS limitation.
 
 1. Create Private Endpoint for each Storage Account
     * Create a Private Endpoint connecting each storage account to the respective VNet in each region.
     * The private link must be named as follow:
-        - priveusaz140  
-        - privjwaz140
-        - privuksaz140
+        - `priveusaz140`  
+        - `privjwaz140`
+        - `privuksaz140`
 
 1. Enable Storage Account Active Directory Authentication (Join Storage Account to AD DS Domain)
     * WVD requires AD DS authentication to access a Azure file share (Shared folder) to host Windows Profiles (FSLogix profile containers) and MSIX app attach applications.
     * You must enable Storage Account AD DS authentication and assign least privilege RBAC roles.
     * You must apply the permission to the following groups:
-        - wvd_users_japan
-        - wvd_users_uk
-        - wvd_users_usa
+        - `wvd_users_japan`
+        - `wvd_users_uk`
+        - `wvd_users_usa`
 
 1. Create File Share and assign least privilege permission
     * Create a File Share for FSLogix Profile containers and assign least privilege permissions
     * Create a File Share for MSIX app attach and assign least privilege permissions
     * You must apply the permission to the following groups:
-        - wvd_users_japan
-        - wvd_users_uk
-        - wvd_users_usa  
+        - `wvd_users_japan`
+        - `wvd_users_uk`
+        - `wvd_users_usa`  
     * The file shares must be named as follow:
-        - shareeusaz140
-        - sharejwaz140
-        - shareukaz140
+        - `shareeusaz140`
+        - `sharejwaz140`
+        - `shareukaz140`
 
 1. Allow Storage access from Network Security Group for each spoke VNet
     * Allow SMB (TCP 445) access to the storage account for each spoke VNet
     * List of NSG that must be updated:
-        - nsg-wvd-d-eus
-        - nsg-wvd-d-jw
-        - nsg-wvd-d-uks
+        - `nsg-wvd-d-eus`
+        - `nsg-wvd-d-jw`
+        - `nsg-wvd-d-uks`
 
 ## Success Criteria
 
@@ -75,12 +75,12 @@ In this challenge you will be creating three storage accounts one per region. Ea
 1. Enable Storage Account ADDS authentication to control access to all shared folders (NTFS permission).
 
 1. Apply the least RBAC and NTFS permission to all Storage Accounts and Shared Folders to support FSLogix Container profile and MSIX app attach using the existing groups:
-    - wvd_users_japan
-    - wvd_users_uk
-    - wvd_users_usa 
+    - `wvd_users_japan`
+    - `wvd_users_uk`
+    - `wvd_users_usa`
 
 1. Allow Network Access to the Storage account for each spoke VNet.
 You must allow access to SMB using protocol TCP and port 445 for the following NSGs:
-    - nsg-wvd-d-eus
-    - nsg-wvd-d-jw
-    - nsg-wvd-d-uks
+    - `nsg-wvd-d-eus`
+    - `nsg-wvd-d-jw`
+    - `nsg-wvd-d-uks`
