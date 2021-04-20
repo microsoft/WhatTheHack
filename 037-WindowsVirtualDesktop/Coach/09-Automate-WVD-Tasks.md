@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./08-Plan-Implement-BCDR.md) - **[Home](./README.md)** - [Next Challenge>](./10-Monitor-Manage-Performance-Health.md)
 
-## Notes and Guidance
+## Notes & Guidance
 
 To complete the tasks in this challenge, students should use Azure Cloud Shell to run the commands below:
 
