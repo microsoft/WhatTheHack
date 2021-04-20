@@ -106,7 +106,7 @@ Step 10: [Temporarily the manual correction process] Logon to portal: go to ANF 
 ![image](https://user-images.githubusercontent.com/81709232/115282202-c9a36c80-a0fe-11eb-991e-c8aad9222e9a.png)
 
 
-Step 11: At the end of the step 9, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the following login credential which the coach will provide for the next step.
+Step 11: At the end of the step 9, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the login credential which the coach will provide for the next step.
 
 Step 12: Logon to the window jumpbox. Download the following tools and SAP packages: Note, you might want to install and switch to some other browser to download these as the default browser with window defender will block the direct download. 
 
