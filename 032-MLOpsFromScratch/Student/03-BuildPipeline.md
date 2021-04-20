@@ -79,8 +79,6 @@ updated Azure Machine Learning pipeline after building the code.
 
 2.  Forecasting model registered with the Azure ML Model Registry
 
-3.  A container image for your model must be created under Azure ML Images
-
 ## Learning resources
 
 -   [Key concepts for new Azure Pipelines users](<https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops>)
