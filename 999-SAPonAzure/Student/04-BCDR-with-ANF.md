@@ -33,19 +33,19 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
 	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
 3. Disaster Recovery
-	a. **Assess** the disaster recovery requirements:
-		i. RPO < 30 min, RTO < 4 hrs.
-		ii. Inter-region DR using storage replication capabilities
-	b. **Set up** ANF storage replication (CRR) to meet the RPO
-	c. **Create** a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)
-	d. **Take** a backup (using azacsnap). Give a prefix "UseThisAtDR" and note down the creation time stamp
-	e. **Execute** the DR by:
-		i. Wait until the replication is Healthy, Mirrored and Idle
-		ii. Shut down the Production HANA instance (**Stop** VM) at the primary region
-		iii. **Stop** or leave the Production HANA instance down at the DR region down
-		iv. **Break** the replication and **swap** the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.
-		v. **Start** HANA recovery (point in time) at the DR region for the Production HANA instance
-		vi. **Validate** the existence of "DRTEST" user.
+	- **Assess** the disaster recovery requirements:
+		- RPO < 30 min, RTO < 4 hrs.
+		- Inter-region DR using storage replication capabilities
+	- **Set up** ANF storage replication (CRR) to meet the RPO
+	- **Create** a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)
+	- **Take** a backup (using azacsnap). Give a prefix "UseThisAtDR" and note down the creation time stamp
+	- **Execute** the DR by:
+		- Wait until the replication is Healthy, Mirrored and Idle
+		- Shut down the Production HANA instance (**Stop** VM) at the primary region
+		- **Stop** or leave the Production HANA instance down at the DR region down
+		- **Break** the replication and **swap** the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.
+		- **Start** HANA recovery (point in time) at the DR region for the Production HANA instance
+		- **Validate** the existence of "DRTEST" user.
 
 ## Success Criteria
 
