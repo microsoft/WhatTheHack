@@ -13,9 +13,9 @@ Also remember that this hack includes a optional [lecture presentation](MLOpsLec
 
 -  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](01-TimeSeriesForecasting.md)
 
--  [Challenge 2: Create a Unit Test Locally and in Azure DevOps](02-UnitTesting.md)
+-  [Challenge 2: Create a Build pipeline in Azure DevOps](02-BuildPipeline.md)
 
--  [Challenge 3: Create a Build pipeline in Azure DevOps](03-BuildPipeline.md)
+-  [Challenge 3: Create a Unit Test Locally and in Azure DevOps](03-UnitTesting.md)
 
 -  [Challenge 4: Create a Release pipeline in Azure DevOps](04-ReleasePipeline.md)
 
