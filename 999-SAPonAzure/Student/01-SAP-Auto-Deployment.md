@@ -40,7 +40,7 @@ Step 4: In Azure Portal, go to Azure Active Directory => App Registration => sel
 
 ![image](https://user-images.githubusercontent.com/81709232/115281970-77fae200-a0fe-11eb-8b65-8e884527e6cf.png)
 
-Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user “azureuser” and password “Welcome!2345”. You will start all the Azure infrastructure provision from this server.
+Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user “azureuser” and password “<use your own password and remember it>”. You will start all the Azure infrastructure provision from this server.
 
 Step 6: Login to the server as the named user “azureuser” and run the following commands:
 
@@ -95,7 +95,7 @@ Step 9: stay in the same directory, run terraform script to build the Azure infr
 
 ![image](https://user-images.githubusercontent.com/81709232/115282125-aaa4da80-a0fe-11eb-8f4e-f47907c65188.png)
 
-Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the following login credential:  azureuser/Welcome!2345 
+Step 10: At the end of the execution, locate Window Jumpbox  (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the following login credential:  azureuser/<password>
 
 Step 11: [Manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check the export policy for every volume, make sure that the “Root Access” is set “On”. If it shows “Off” then change it to “On” and save – this is needed for each NetApp file volumes.
 
