@@ -126,7 +126,7 @@ Putty session to server “teamxx-linux-jumpbox” with the credential  azureuse
 % ./SAP_Ansible_Deploy.sh
 
 
-Note: this script does all the configs and then install a complete SAP system which may run up to 7 hours. 
+Note: this script does all the configs and then install a complete SAP system which may run up to 4 hours. 
 While this ansible script is running, you can continue with next steps on installing SAPGUI on the Window Jumpbox.  
 
 Step 14: Once the deployment script completes, login to SAP GUI to test connection SAP Application and continue other challenges.
