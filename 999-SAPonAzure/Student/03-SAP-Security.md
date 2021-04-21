@@ -10,6 +10,11 @@ Now it is time to introduce Security and Threat Monitoring for SAP. Since challe
 
 In this challenge we will be enrolling the Azure subscirption for Security Center and Azure defender, and also configure Setinel workspace for active SAP application security monitoring. This will give us an opportunity to learn how to use the Security Center Dashboard, check for security KPI of Azure resources and also enable continous SAP application-tier threat monitoring.
 
+- This challenge has two parts - 
+1) Security center and Azure defender (intro and basics) please follow MS docs on [Security Center](https://docs.microsoft.com/en-us/azure/security-center/).
+
+2) Azure Sentinel (requires Sentinel workspace and SAP knowledge) Detailed documentation provided seperately 
+
 
 ## Success Criteria
 
