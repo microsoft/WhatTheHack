@@ -17,7 +17,7 @@ From Security Center's menu, open the Recommendations page to see the recommenda
 
 
 
-Recommendations flagged as Preview aren't included in the calculations of your secure score.
+- Recommendations flagged as Preview aren't included in the calculations of your secure score.
 They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 ![image](https://user-images.githubusercontent.com/48741882/115581113-b4ad1180-a295-11eb-9c73-719a1c83957f.png)
 
