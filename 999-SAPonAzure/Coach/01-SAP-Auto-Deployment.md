@@ -22,6 +22,7 @@ They should still be remediated wherever possible, so that when the preview peri
 ![image](https://user-images.githubusercontent.com/48741882/115581113-b4ad1180-a295-11eb-9c73-719a1c83957f.png)
 
 - Azure Sentinel for SAP
+
 NOTE:- Azure SENTINEL for SAP application portfolio, is currently under strict NDA guidelines and documentation for this portion of the hack is contained in a zip file, sahred with coach seperately, not stored in this public repo.
 
 
