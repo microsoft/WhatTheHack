@@ -32,7 +32,7 @@ From the Azure portal, select Virtual machines and select a resource from the li
 ![VM Insights](Images/Challenge2_VM_Insights.png)
 - Select correct workspace. 
 
-## Step 4 - Configure OS, SAP NetWeaver providers.
+## Step 4 - Configure SAP NetWeaver providers.
 
 - Prerequisites for adding NetWeaver provider
 1. Open an SAP GUI connection to the SAP server
@@ -44,7 +44,7 @@ From the Azure portal, select Virtual machines and select a resource from the li
 7. Go back and select Profile->Save
 8. Restart system for parameter to take effect
 
-- Installing NetWeaver provider on the Azure portal 
+- Configuration of NetWeaver provider on the Azure portal 
 ![Netweaver](Images/Challenge2_Netweaver.png)
 
 ## Step 5 - Check for Monitoring data in Log Analytics Workspace.
