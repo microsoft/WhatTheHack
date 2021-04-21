@@ -24,8 +24,7 @@ In this challenge, we will Azure Monitoring to unlock the monitoring capabilitie
 	- This should be done by searching "Azure Monitor for SAP" as a service under the search option on Azure Portal.
 - Create provider for SAP Netweaver  
 - Create & configure SAP HANA & Netweaver providers (the docs are your friend!).
-	- You will find an error occurs because the cluster does not have enough resources to support that many instances.
-	- There are three ways to fix this: increase the size of your cluster, decrease the resources needed by the deployments or deploy the cluster autoscaler to your cluster.  
+ 
 - Review availability of Monitoring stats in the Log Analytics workspace.
 	- Hint: Select the Log Workspace that was used while enabling VM Insights and attach it to Azure Monitor for SAP.
 - When monitoring data is ingested into Log workspace.
