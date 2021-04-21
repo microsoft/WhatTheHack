@@ -61,7 +61,7 @@ only that they have previously communicated **how they would** do so.
 When selecting a technology to ingest the datasets for this challenge,
 the team should consider whether that same technology may be leveraged in the future.
 
-## Resources
+## Learning Resources
 
 ### Ramp Up
 

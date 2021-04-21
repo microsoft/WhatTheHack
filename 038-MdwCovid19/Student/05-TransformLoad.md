@@ -73,7 +73,7 @@ the team should not apply any logical business rules at this time.
 - The team shoud not worry about creating a star schema or DW at this time. 
 
 
-## Resources
+## Learning Resources
 
 ### Ramp Up
 

@@ -6,11 +6,9 @@ Now that the team has established the bulk loads and conformed the data, it is t
 
 ### Creating and populating the star schema
 
-> In this WhatTheHack, we recommend using Azure Synapse Analytics (formerly Azure SQL Data Warehouse). The team will create the
-> dimension and fact tables. They may [work with the data in the data
-> lake](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)
-> using [external tables
-> functionality](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-2017).
+In this WhatTheHack, we recommend using Azure Synapse Analytics (formerly Azure SQL Data Warehouse). The team will create the dimension and fact tables. They may [work with the data in the data lake](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)
+using [external tables
+functionality](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-2017).
 
 
 - [Guidance for designing distributed tables in Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute)
@@ -18,18 +16,18 @@ Now that the team has established the bulk loads and conformed the data, it is t
 
 ### Alternative Approaches
 
-> A team that is more familiar with Scala or Python could connect to Azure
-> Synapse Analytics (or other technology chosen for the serving layer),
-> using code in their notebook to populate the star schema.
+A team that is more familiar with Scala or Python could connect to Azure
+Synapse Analytics (or other technology chosen for the serving layer),
+using code in their notebook to populate the star schema.
 
 ### Unit testing Scala or Python code
 
-> The takeaway concept here is that any business logic or transformation code
-> in the notebook can be extracted to jars or pip packages. Having done this,
-> it can all be tested in the same ways that any application or service code
-> could be tested. The jar or pip package can later be attached to the
-> cluster, and the notebook becomes a driver or host process that orchestrates
-> calls to the tested units of code.
+The takeaway concept here is that any business logic or transformation code
+in the notebook can be extracted to jars or pip packages. Having done this,
+it can all be tested in the same ways that any application or service code
+could be tested. The jar or pip package can later be attached to the
+cluster, and the notebook becomes a driver or host process that orchestrates
+calls to the tested units of code.
 
 - [Unit testing in data pipelines](https://medium.com/@GeekTrainer/unit-testing-in-data-a711d2053f7e)
 - [Social Posts Pipeline sample - Integration Tests](https://github.com/ricardoserradas/twitter-databricks-analyzer-cicd#integration-tests)
@@ -42,24 +40,19 @@ Based on what path the team has taken, they may also find value in these more ta
 
 #### Alternative Approaches
 
-> While extracting the code into jars or pip packages is the strongly
-> recommend approach, a team could choose to [use notebook
-> workflows](https://docs.databricks.com/user-guide/notebooks/notebook-workflows.html)
-> to isolate units of work. This approach is not ideal, as it becomes
-> difficult to manage return values, handle errors, or leverage shared
-> business logic with processes that exist outside of Databricks.
+While extracting the code into jars or pip packages is the strongly
+recommend approach, a team could choose to [use notebook
+workflows](https://docs.databricks.com/user-guide/notebooks/notebook-workflows.html)
+to isolate units of work. This approach is not ideal, as it becomes
+difficult to manage return values, handle errors, or leverage shared
+business logic with processes that exist outside of Databricks.
 
 #### Including tests in code review / pull request processes
 
-> If the team has extracted the business logic to standard Scala or Python
-> projects, the tests can be run in Azure DevOps Pipelines, Travis, etc.
->
-> If the team is using separate notebooks, the Databricks Jobs API could be
-> used to automate test runs.
-
-
-
-
+If the team has extracted the business logic to standard Scala or Python
+projects, the tests can be run in Azure DevOps Pipelines, Travis, etc.
+If the team is using separate notebooks, the Databricks Jobs API could be
+used to automate test runs.
 
 ### Gotchas and Pitfalls
 

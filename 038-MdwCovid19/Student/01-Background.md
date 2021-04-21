@@ -29,7 +29,7 @@ The data you need is located in three places in your Azure environment:
 
 The credentials for your environment.
 
-**VM Username**    vmadmin
-**VM Password**   Password.1!!
-**SQL Username**   sqladmin
-**SQL Password**  Password.1!!
+- **VM Username**    vmadmin
+- **VM Password**   Password.1!!
+- **SQL Username**   sqladmin
+- **SQL Password**  Password.1!!
