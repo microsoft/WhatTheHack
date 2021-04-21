@@ -41,4 +41,4 @@ In this challenge, we will Azure Monitoring to unlock the monitoring capabilitie
 - Task3: Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.
 - Task4: Configure OS, SAP NetWeaver providers.
 - Task5: Check for Monitoring data in Log Analytics Workspace.
-- Task6: Use Kusto query to create custom dashboard and setup alerts.
+- Task6: Use Kusto query to create custom dashboard.
