@@ -23,9 +23,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Local availability of log backups for up to the last 24 hours
 		- Point-in-Time recovery for up to the last 72 hours
 		- Additional protection of backup files by offloading to an intra region storage account
-	- **Update** the below backup schedule (frequency, retention, offloading, sizing)
-
-
+	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  (See Table below)
 	- **Adjust** log backup volume size for storing log backups, and **adjust** relevant HANA parameters to use this volume for log backups.
 	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
 	- **Orchestrate** offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
@@ -49,6 +47,18 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- **Break** the replication and **swap** the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.
 		- **Start** HANA recovery (point in time) at the DR region for the Production HANA instance
 		- **Validate** the existence of "DRTEST" user.
+
+---
+
+Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
+-------- | -------- | -------- | -------- | --------
+**HANA data** | 1 TiB (20% YoY Growth) | ? | ? | To a separate blob container, retain for 7 days. 
+**HANA log backups** | 250 GiB (daily change) | ? | ? | To a separate blob container, retain for 7 days.
+**Shared binaries and profiles** | 100 GiB | ? | ? | To a separate blob container, retain for 7 days.
+
+*(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)*
+
+---
 
 ## Success Criteria
 
