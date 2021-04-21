@@ -12,6 +12,6 @@ From Security Center's menu, open the Recommendations page to see the recommenda
 
 
 
-/*******Azure SENTINEL for SAP application portfolio, is currently under strict NDA guidelines and documentation for this portion of the hack is contained in a zip file, sahred with coach seperately, not stored in this public repo./*********
+*bold*Azure SENTINEL for SAP application portfolio, is currently under strict NDA guidelines and documentation for this portion of the hack is contained in a zip file, sahred with coach seperately, not stored in this public repo.
 
 
