@@ -60,7 +60,8 @@ Ref: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tut
 ## Step 6 - Use Kusto query to create custom dashboard.
 
 - select Logs from the Azure Monitor menu in your subscription. This will set the initial scope to a Log Analytics workspace meaning that your query will select from all data in that workspace.
-Example Query:
+- Example Query:
+
 InsightsMetrics
 | where Origin == 'vm.azm.ms'
 | where Computer == 'Server1' or Computer == 'Server2'
