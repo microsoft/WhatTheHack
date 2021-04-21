@@ -18,9 +18,11 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 3. Improve security KPI by atleast 5 pts.
 4. Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
 
-NOTE: - Microsoft Azure Sentinel SAP / NetWeaver Continuous Threat Monitoring Limited Private Preview
+NOTE: -  Azure SENTINEL for SAP application portfolio, is currently under strict NDA guidelines and documentation for this portion of the hack is contained in a zip 	      file, sahred with coach seperately, not stored in this public repo.
+
+	Microsoft Azure Sentinel SAP / NetWeaver Continuous Threat Monitoring Limited Private Preview
 	Copyright © Microsoft Corporation. This preview software is Microsoft Confidential, and is subject to your Non-Disclosure Agreement with Microsoft. 
-	You may use this preview software internally and only in accordance with the Azure preview terms, located at [private peview-supplemental-terms](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). Microsoft reserves all other rights
+	You may use this preview software internally and only in accordance with the Azure preview terms, located at [private peview-supplemental-terms](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). Microsoft reserves all other rights.
 
 
 
