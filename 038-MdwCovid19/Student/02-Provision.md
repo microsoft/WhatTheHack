@@ -48,7 +48,7 @@ The team should consider the features and tradeoffs between these offerings.
 a variety of comonwealth needs and user personas.
 File system semantics will be extremely useful as the team advances through the challenges.
 
-## Resources
+## Learning Resources
 
 ### Ramp Up
 

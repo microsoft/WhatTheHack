@@ -34,9 +34,7 @@ So what *is* expected of a coach?
     team progress through the challenges; being sure to celebrate the team’s
     successes along the way!
 
-## Preparing to Coach this What the Hack
-
-### Recommendations
+## Preparing to Coach This What The Hack - Recommendations
 
 ### 1. Build Foundational Knowledge
 

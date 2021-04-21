@@ -76,7 +76,7 @@ apply to the selected format.
 - It is only required that the team persists **their authored solutions** to
 version control.
 
-## Resources
+## Learning Resources
 
 ### Ramp Up
 
