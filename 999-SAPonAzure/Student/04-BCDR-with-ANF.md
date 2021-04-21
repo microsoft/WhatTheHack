@@ -23,7 +23,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Local availability of log backups for up to the last 24 hours
 		- Point-in-Time recovery for up to the last 72 hours
 		- Additional protection of backup files by offloading to an intra region storage account
-	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  ***(See Table below)***
+	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  ***(See Table in Figure 1 below)***
 	- **Adjust** log backup volume size for storing log backups, and **adjust** relevant HANA parameters to use this volume for log backups.
 	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
 	- **Orchestrate** offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
@@ -50,6 +50,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ---
 
+***Figure 1***
 Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 -------- | -------- | -------- | -------- | --------
 **HANA data** | 1 TiB (20% YoY Growth) | ? | ? | To a separate blob container, retain for 7 days. 
@@ -57,6 +58,7 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 **Shared binaries and profiles** | 100 GiB | ? | ? | To a separate blob container, retain for 7 days.
 
 *(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)*
+
 
 ---
 
