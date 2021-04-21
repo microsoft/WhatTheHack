@@ -24,17 +24,8 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Point-in-Time recovery for up to the last 72 hours
 		- Additional protection of backup files by offloading to an intra region storage account
 	- **Update** the below backup schedule (frequency, retention, offloading, sizing)
----
 
-Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
--------- | -------- | -------- | -------- | --------
-**HANA data** | 1 TiB (20% YoY Growth) | ? | ? | To a separate blob container, retain for 7 days. 
-**HANA log backups** | 250 GiB (daily change) | ? | ? | To a separate blob container, retain for 7 days.
-**Shared binaries and profiles** | 100 GiB | ? | ? | To a separate blob container, retain for 7 days.
 
-*(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)*
-
----
 	- **Adjust** log backup volume size for storing log backups, and **adjust** relevant HANA parameters to use this volume for log backups.
 	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
 	- **Orchestrate** offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
@@ -46,7 +37,7 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 
 3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
-		- RPO < 30 min, RTO < 4 hrs.
+		- RPO < 30 min, RTO < 4 hrs.	
 		- Inter-region DR using storage replication capabilities
 	- **Set up** ANF storage replication (CRR) to meet the RPO
 	- **Create** a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)
