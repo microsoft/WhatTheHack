@@ -24,14 +24,6 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Point-in-Time recovery for up to the last 72 hours
 		- Additional protection of backup files by offloading to an intra region storage account
 	- **Update** the below backup schedule (frequency, retention, offloading, sizing)
-	- **Adjust** log backup volume size for storing log backups, and **adjust** relevant HANA parameters to use this volume for log backups.
-	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
-	- **Orchestrate** offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
-	- Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
-	- **Create** a security user "BACKUPTEST".
-	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
-	- **Delete** the security user BACKUPTEST "accidently" - Oops!
-	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
 ---
 
 Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
@@ -43,6 +35,15 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 *(Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.)*
 
 ---
+	- **Adjust** log backup volume size for storing log backups, and **adjust** relevant HANA parameters to use this volume for log backups.
+	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
+	- **Orchestrate** offloading of the required snapshot using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
+	- Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
+	- **Create** a security user "BACKUPTEST".
+	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
+	- **Delete** the security user BACKUPTEST "accidently" - Oops!
+	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
+
 3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
 		- RPO < 30 min, RTO < 4 hrs.
