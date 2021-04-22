@@ -1,4 +1,4 @@
-# What The Hack - Synapse What The Hack
+# What The Hack: Do You Even Synapse?
 
 ## Introduction
 Contoso Powerlifting Federation (CPF) are in dire need to modernize their data approach. Among the tasks required by your team, you will be challenged to retrieve the source data and upload it into a modern data warehouse repository in a cleansed/modelled format to be able to report and visualize. 
@@ -32,3 +32,4 @@ The purpose of this What The Hack is to learn:
 - [James Jones](https://github.com/JamJarchitect/)
 - [Art Rask](https://github.com/artraskmsft)
 - [Orrin Edenfield](https://github.com/OrrinEdenfield)
+- [Frank Lopez]
