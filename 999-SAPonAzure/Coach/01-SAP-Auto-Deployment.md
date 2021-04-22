@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-acr.md)
 
-## Notes & Guidance
+## Reference and links:
 package link	https://csasapdemo.blob.core.windows.net/saptools/OPHK-2021-0415.tar.gz?sp=r&st=2021-04-16T15:23:09Z&se=2022-04-16T23:23:09Z&spr=https&sv=2020-02-10&sr=b&sig=17oTU7%2F2tyGUqEdD7CFLWpUi7N0rOi4I1aZMva8ICWs%3D
 	
 putty link	https://csasapdemo.blob.core.windows.net/saptools/putty.exe?sp=r&st=2021-03-05T18:25:36Z&se=2022-03-06T02:25:36Z&spr=https&sv=2020-02-10&sr=b&sig=TBEcQMZgVKmD7a%2FCgEJTRdotZcltmXX%2FUtZRDBwIJyc%3D
@@ -32,7 +32,6 @@ SYSTEMDB	Welcome12345
 
 tenantDB (S4P)	Basis123
 
-![image](https://user-images.githubusercontent.com/81709232/115639236-f1463080-a2c8-11eb-813e-9f5f3a23cc82.png)
 
 ## important notes
 
