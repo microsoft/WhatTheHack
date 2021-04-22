@@ -24,6 +24,11 @@ Taking into account our scenario, specify the details for the following:
 
 - Created a document defining all of the parameters that will be used in the deployment challenges.  
 
+## Tips
+
+Have you designed with both the PoC and eventual size in mind?  Consider [Enterprise level deployment guidance](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop) and confirm if Azure limits are adhered to.
+How might cost be balanced with capacity in a follow the sun model?
+
 ## Learning Resources
 
 Here are some links that may help inform design decisions:
@@ -47,8 +52,3 @@ Here are some links that may help inform design decisions:
 [Security](https://docs.microsoft.com/en-us/azure/virtual-desktop/security-baseline)
 
 [Role based access control](https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac)
-
-## Tips
-
-Have you designed with both the PoC and eventual size in mind?  Consider [Enterprise level deployment guidance](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop) and confirm if Azure limits are adhered to.
-How might cost be balanced with capacity in a follow the sun model?
