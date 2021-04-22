@@ -40,7 +40,6 @@ In this challenge you will be preparing three images that will be used for the d
     * **HINT:** If you are in an AAD tenant where you cannot create anymore custom roles for the managed identity for AIB, you can leverage a built-in role with more permissions for the FastHack.
     * **NOTE:** As of the ARM template api version "2020-02-14", AIB does support specifying the number of image replicas per region (default is 1). Therefore setting the replica count to three will be a post deployment task through the portal, PowerShell, CLI, etc.
 
-
 1. Image for the Developers
     * This image can be deployed from the Azure Marketplace and other applications will be delivered with MSIx App Attach. Out of the Azure Marketplace, use the Windows 10 Enterprise, Version 20H2 (Gen 2).
     * Since there is no custom image involved for the Developers, no testing is required during this challenge.
@@ -59,6 +58,7 @@ In this challenge you will be preparing three images that will be used for the d
     * Within Azure Image Builder, add steps to install the language packs for Spanish (Spain) and Japanese (Japan) as a new image version.
     * Test the updated image by deploying a VM from the image and validating all customizations persisted.
     * Distribute the image to Japan West, UK South, and US East with three image replicas per region. Do not delete the original version.
+
 ## Success Criteria
 
 1. The Developers should not have a custom image.
