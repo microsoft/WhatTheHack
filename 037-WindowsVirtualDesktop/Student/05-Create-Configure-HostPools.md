@@ -11,7 +11,7 @@ In this challenge you will create and configure host pools and session hosts for
 In this challenge we will be provisioning our Host Pools and Session Hosts. You will need to create four Host Pools with three different OS. You will also need to use three different ways to deploy those HostPools.
 Once you created the Host Pools you will need to add Session Hosts, assign users to the Host Pools, and configure Host Pool settings. VMs for each region should be added to the domain's region OU.
 
-**Note:** ALL HOST POOLS MUST BE CONFIGURED AS VALIDATION POOLS
+**NOTE:** ALL HOST POOLS MUST BE CONFIGURED AS VALIDATION POOLS
 * East US Region
     * Pooled Host Pool via an ARM Template, Win 10 multi-session OS
         * Metadata located in East US
