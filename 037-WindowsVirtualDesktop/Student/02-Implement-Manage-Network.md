@@ -47,7 +47,6 @@ az deployment sub create --location 'eastus' --template-uri 'https://raw.githubu
 1. Participants should be able to control inbound and outbound rules on WVD subnets
 1. Participants should be able to monitor, diagnose, view metrics, and enable or disable logs for networks
 
-
 ## Advanced Challenges (Optional)
 
 If you would like to dive deeper in WVD networking:
