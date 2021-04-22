@@ -15,7 +15,21 @@
 	- The application's YAML files should NOT include a namespace, we will leave namespace creation up to helm (see below).
 
 ## Helm Commands 
-In this section we'll lay out all the commands needed to create the chart using the `app-languages-helm-chart` folder in the Coach Solutions for **Challenge 9** and get it pushed up to your Azure Container Registry
+First let's install our new chart and make sure it is in the releases as well as check that everything is deployed in Kubernetes
+- **NOTE:** Take special note of the `helm install` command and how we are telling it to create a new namespace. Because we did NOT put a namespace in the yaml file templates in our Chart, those resources will go into the namespace we pass into the `-n` parameter, in our case `mynamespace`. We're also using the `--create-namespace` option so that `mynamespace` will be created if it doesn't already exist.
+
+  ```bash
+  # install Helm chart
+  helm install --create-namespace -n mynamespace --set appData.imageVersion=v2 langfacts-release2 langfacts
+
+  # check that the helm chart shows installed and working
+  helm list -A
+
+  # check that all the resources we expect in our new namespace are present
+  kubectl get all -n mynamespace
+  ```
+
+Next we'll lay out all the commands needed to create the chart using the `app-languages-helm-chart` folder in the Coach Solutions for **Challenge 9** and get it pushed up to your Azure Container Registry
 - First of all we need to allow admin access and authenticate ourselves with the ACR and add it as a helm repository on our local system
 
   ```bash
