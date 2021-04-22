@@ -17,10 +17,10 @@ In this challenge you will be preparing three images that will be used for the d
         * Microsoft OneDrive
         * Microsoft Teams
         * FSLogix
-            * **NOTE:**: Only install FSLogix. The configuration will occur in a future challenge.
+            * **NOTE:** Only install FSLogix. The configuration will occur in a future challenge.
         * Notepad++
         * Adobe Acrobat Reader
-    * **HINT:**: Since this operating system supports more than one user logged in at a time, there may be specific installation steps to consider.
+    * **HINT:** Since this operating system supports more than one user logged in at a time, there may be specific installation steps to consider.
     * **HINT:** It is recommended to reboot the server after making the customizations to the image.
     * Take a disk snapshot as a recovery point for any subsequent failures and the snapshot will be used when updating the image.
     * Run Sysprep (generalize). Then Capture the VM as a custom image.
