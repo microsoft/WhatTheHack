@@ -1,4 +1,4 @@
-# Challenge 11: Configure settings for user experience - Coach's guide
+# Challenge 11: Configure Settings for User Experience
 
 [< Previous Challenge](./10-Monitor-Manage-Performance-Health.md) - **[Home](./README.md)**
 
@@ -36,7 +36,7 @@
 1. The ID you need for printers.csv is in the Azure portal under the printer's share blade
 1. InstallPolicy.cmd and the updated printers.csv are the only files that need to be in the source folder the intunewin utility
 
-## Reference
+## Learning Resources
 
 - [Set up Azure MFA and Conditional Access](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa)
 - [Device restrictions](https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-windows-10)

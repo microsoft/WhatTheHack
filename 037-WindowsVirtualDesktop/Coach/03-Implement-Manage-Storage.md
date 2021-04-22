@@ -1,10 +1,10 @@
-# Challenge 3: Implement and Manage your storage for FsLogix
+# Challenge 3: Implement and Manage your Storage for FsLogix
 
 [< Previous Challenge](./02-Implement-Manage-Network.md) - **[Home](./README.md)** - [Next Challenge >](./04-Create-Manage-Images.md)
 
 ## Notes & Guidance
 
-1. Capacity planning
+- Capacity planning
 	- According to the projects requirement he solution must support 1/3 of expected users. It means 2000/3=666. Log in/Log off needs avg. of 50 IOPS per user, per share. Steady state is 10 IOPS per user per share.
 
 Possible solution would a storage account with the following size:
@@ -18,12 +18,12 @@ Possible solution would a storage account with the following size:
 **NOTE:** Scripts to complete this section are in the Coach's Solution's folder if the Student needs help.
 
 Students need too:
+
 1. Create one storage account per region
 1. Create Private Endpoint for each Storage Account
 1. Enable Storage Account Active Directory Authentication (Join Storage Account to AD DS Domain)
 1. Create File Share and assign least privilege permission
 1. Allow SMB/Cifs (TCP 445) in NSG
-
 
 ## Learning Resources
 
@@ -50,4 +50,3 @@ Students need too:
 - [WVD - Create File Share FSLogix container profile](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share)
 
 - [WVD - MSIX app attach file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/app-attach-file-share)
-

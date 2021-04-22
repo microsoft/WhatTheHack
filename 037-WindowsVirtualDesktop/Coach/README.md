@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the Coach's guide for the Windows Virtual Desktop What the Hack. Below are links to each challenge that has specific guidance for each challenge. 
+Welcome to the Coach's guide for the Windows Virtual Desktop What the Hack. Below are links to each challenge that has specific guidance for each challenge.
 
 ## Coach's Guides
 

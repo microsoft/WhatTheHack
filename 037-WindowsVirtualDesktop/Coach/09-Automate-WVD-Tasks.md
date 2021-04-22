@@ -114,7 +114,7 @@ Add image of a properly configured logic app
 Update-AzWvdHostPool -ResourceGroupName 'rg-wth-wvd-d-jw' -HostPoolName <Host Pool Name> -StartVMOnConnect
 ```
 
-## References
+## Learning Resources
 
 - [PowerShell: Desktop Virtualization](https://docs.microsoft.com/en-us/powershell/module/az.desktopvirtualization)
 - [Azure CLI: Desktop Virtualization](https://docs.microsoft.com/en-us/cli/azure/ext/desktopvirtualization/desktopvirtualization)

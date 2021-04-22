@@ -1,10 +1,10 @@
-# Challenge 5: Coach's Guide
+# Challenge 5: Create and Configure Host Pools and Session Hosts
 
 [< Previous Challenge](./04-Create-Manage-Images.md) - **[Home](./README.md)** - [Next Challenge >](./06-Implement-Manage-FsLogix.md)
 
 ## Notes & Guidance
 
-* All HostPools must be set as Validation HostPool because some challenges will only work with HostPools that are set to Validation Environment. 
+* All HostPools must be set as Validation HostPool because some challenges will only work with HostPools that are set to Validation Environment.
 * Scripts for deploying Host Pools for Student are located in the Student Resource Folder. Students have skelton scripts that they will need to fill out before deploying. Complete scripts for Coach's is under the resource folder.
 **Note** Metadata locations will be different location for Uk South and Japan West because of availability. When UK South and Japan West is available for Metadata, use those locations.
 
