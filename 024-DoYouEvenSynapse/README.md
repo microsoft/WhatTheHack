@@ -32,4 +32,4 @@ The purpose of this What The Hack is to learn:
 - [James Jones](https://github.com/JamJarchitect/)
 - [Art Rask](https://github.com/artraskmsft)
 - [Orrin Edenfield](https://github.com/OrrinEdenfield)
-- [Frank Lopez]
+- Frank Lopez
