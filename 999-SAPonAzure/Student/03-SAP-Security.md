@@ -23,7 +23,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 3. Improve security KPI by atleast 5 pts.
 4. Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
 
-##NOTE: 
+## NOTE 
 -  Azure SENTINEL for SAP application portfolio, is currently under strict NDA guidelines and documentation for this portion of the hack is contained in a zip 	      file, shared with coach seperately, not stored in this public repo.
 -  If you are an Internal Microsoft employee, the SAP system that you installed already have all required transports imported. SAP system already have all required Function modules, user and role provisioned. Change password for user Sentinel and use it wherever required. 
 
