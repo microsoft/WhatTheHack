@@ -1,4 +1,4 @@
-# Challenge 1: Plan WVD architecture
+# Challenge 1: Design the WVD Architecture
 
 [< Previous Challenge](./00-Pre-Reqs.md) - **[Home](./README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
@@ -48,7 +48,7 @@ Make sure they are designing with scale in mind.
 
 
 
-- **Recommended solution:** subsequent challenges are designed with the following configuration in mind (check resources section for further details)   
+- **Recommended solution:** subsequent challenges are designed with the following configuration in mind (check resources section for further details)
     - Host Pool & User breakout:
         - Field in UK
             - 2000 pooled
@@ -62,7 +62,7 @@ Make sure they are designing with scale in mind.
             - Windows 10 Multi-Session
     - Network:
         - Include discussion on network and why  
-        - Hub East US 
+        - Hub East US
         - Spoke East US, UK South and Japan West
     - Also see suggested architecture diagram for guidance
     - For Storage, as long as they can justify the design, either NetApp or Az files is appropriate - most students won't be whitelisted for NetApp though, so considering this limitation their deployment will probably use AZ Files.

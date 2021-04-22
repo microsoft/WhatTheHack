@@ -1,4 +1,4 @@
-# Challenge 4: Create & Manage Images
+# Challenge 4: Create and Manage Images
 
 [< Previous Challenge](./03-Implement-Manage-Storage.md) - **[Home](./README.md)** - [Next Challenge>](./05-Create-Configure-HostPools.md)
 

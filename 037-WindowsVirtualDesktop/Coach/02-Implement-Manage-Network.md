@@ -1,4 +1,4 @@
-# Challenge 2: Implement and Manage Network
+# Challenge 2: Implement and Manage Networking for WVD
 
 [< Previous Challenge](./01-Plan-WVD-Architecture.md) - **[Home](./README.md)** - [Next Challenge >](./03-Implement-Manage-Storage.md)
 

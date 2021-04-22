@@ -1,4 +1,4 @@
-# Challenge 10: Monitor and manage the performance and health of your WVD environment
+# Challenge 10: Monitor and Manage the Performance and Health of your WVD Environment
 
 [< Previous Challenge](./09-Automate-WVD-Tasks.md) - **[Home](./README.md)** - [Next Challenge>](./11-Configure-User-Experience-Settings.md)
 
@@ -124,7 +124,7 @@ Students need too:
 
     - Save work by first hitting the done editing button and choosing the "Save As" option before hitting Done edit. Users, if successful will have a new metric counter that they added.
 
-## Reference
+## Learning Resources
 
 - [Use Azure Monitor for WVD to monitor environment](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor)
 - [Use Log Analytics for the diagnostics feature](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics)

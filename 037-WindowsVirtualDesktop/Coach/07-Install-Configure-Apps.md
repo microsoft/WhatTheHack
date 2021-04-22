@@ -1,4 +1,4 @@
-# Challenge 7: Coach's Guide
+# Challenge 7: Install and Configure your Applications
 
 [< Previous Challenge](./06-Implement-Manage-FsLogix.md) - **[Home](./README.md)** - [Next Challenge >](./08-Plan-Implement-BCDR.md)
 
