@@ -32,7 +32,7 @@ In this challenge you will be preparing three images that will be used for the d
     * Create an Image Template in AIB with the following customizations:
         * The operating system is Windows 10 Enterprise Multi-session, Version 20H2 + Microsoft 365 Apps (Gen 1) with the following software installed.
             * Microsoft Teams
-            * **HINT:**: Since this operating system is multi-session, there may be specific installation steps to consider.
+            * **HINT:** Since this operating system is multi-session, there may be specific installation steps to consider.
         * Add a step to reboot the VM.
         * Add a step to run Windows Update.
         * **NOTE** All Windows 10 Multi-session images from the Azure Marketplace already include the FSLogix agent.
