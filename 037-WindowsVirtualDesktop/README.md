@@ -12,18 +12,18 @@ In this hack you will learn how to set up a Windows Virtual Desktop environment 
 
 ## Challenges
 
-- Challenge 0: **[Windows Virtual Desktop  Pre-Reqs](Student/00-Pre-Reqs.md)**
-- Challenge 1: **[Planning your WVD Architecture](Student/01-Plan-WVD-Architecture.md)**
-- Challenge 2: **[Implementing and Managing your WVD Network](Student/02-Implement-Manage-Network.md)**
-- Challenge 3: **[Implement and Manage your storage for FsLogix](Student/03-Implement-Manage-Storage.md)**
-- Challenge 4: **[Create and Manage your Images for your Session Hosts](Student/04-Create-Manage-Images.md)**
-- Challenge 5: **[Create and Configure your WVD HostPools](Student/05-Create-Configure-HostPools.md)**
-- Challenge 6: **[Implement and Manage your FsLogix](Student/06-Implement-Manage-FsLogix.md)**
-- Challenge 7: **[Install and Configure your applications](Student/07-Install-Configure-Apps.md)**
-- Challenge 8: **[Plan and Implement BCDR for your WVD Environment](Student/08-Plan-Implement-BCDR.md)**
-- Challenge 9: **[Automation of your WVD Tasks](Student/09-Automate-WVD-Tasks.md)**
-- Challenge 10: **[Monitor and Manage the performance health of your environment](Student/10-Monitor-Manage-Performance-Health.md)**
-- Challenge 11: **[Configure settings for user experience](Student/11-Configure-User-Experience-Settings.md)**
+- Challenge 0: **[Getting started](Student/00-Pre-Reqs.md)**
+- Challenge 1: **[Design the WVD Architecture](Student/01-Plan-WVD-Architecture.md)**
+- Challenge 2: **[Implement and Manage Networking for WVD](Student/02-Implement-Manage-Network.md)**
+- Challenge 3: **[Implement and Manage your Storage for FSLogix](Student/03-Implement-Manage-Storage.md)**
+- Challenge 4: **[Create and Manage Images](Student/04-Create-Manage-Images.md)**
+- Challenge 5: **[Create and Configure Host Pools and Session Hosts](Student/05-Create-Configure-HostPools.md)**
+- Challenge 6: **[Addressing User Profiles with FSLogix](Student/06-Implement-Manage-FsLogix.md)**
+- Challenge 7: **[Install and Configure your Applications](Student/07-Install-Configure-Apps.md)**
+- Challenge 8: **[Plan and Implement BCDR](Student/08-Plan-Implement-BCDR.md)**
+- Challenge 9: **[Automate WVD Tasks](Student/09-Automate-WVD-Tasks.md)**
+- Challenge 10: **[Monitor and Manage the Performance and Health of your WVD Environment](Student/10-Monitor-Manage-Performance-Health.md)**
+- Challenge 11: **[Configure Settings for User Experience](Student/11-Configure-User-Experience-Settings.md)**
 
 ## Prerequisites
 

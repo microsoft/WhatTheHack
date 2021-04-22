@@ -6,7 +6,6 @@
 
 In this challenge you will create, update, and manage the images used when deploying Session Hosts into your Host Pools.
 
-
 ## Description
 
 In this challenge you will be preparing three images that will be used for the different Host Pool deployments. Each image will be use a different operating system and installed applications based on the different user personas. Each image will be created and updated differently based on the scenario requirements.
