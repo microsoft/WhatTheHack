@@ -53,3 +53,10 @@ In this challenge you need to complete the following management tasks:
 3. The Monet application group has been added to the workspace in UK South, the Paint application has been added to the application group with the correct display name, "Monet", and the RBAC assignment on the application group only includes "hulk" using Azure CLI and PowerShell.
 4. The Scaling Automation solution is deployed and scaling the session hosts in the UK South and East US host pools based on the requirements defined in the description using PowerShell.
 5. The Start VM On Connect solution has been configured for the Japan West host pool using PowerShell.
+
+## Learning Resources
+
+- [PowerShell: Desktop Virtualization](https://docs.microsoft.com/en-us/powershell/module/az.desktopvirtualization)
+- [Azure CLI: Desktop Virtualization](https://docs.microsoft.com/en-us/cli/azure/ext/desktopvirtualization/desktopvirtualization)
+- [Run the Azure Resource Manager template to provision a new host pool](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace#run-the-azure-resource-manager-template-to-provision-a-new-host-pool)
+- [Scale session hosts using Azure Automation](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-scaling-script)
