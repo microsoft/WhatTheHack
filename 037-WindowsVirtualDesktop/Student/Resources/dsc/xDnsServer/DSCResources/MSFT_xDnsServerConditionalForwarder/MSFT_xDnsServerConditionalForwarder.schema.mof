@@ -1,0 +1,10 @@
+[ClassVersion("1.0.0"), FriendlyName("xDnsServerConditionalForwarder")]
+class MSFT_xDnsServerConditionalForwarder : OMI_BaseResource
+{
+    [Write, Description("Ensure whether the zone is absent or present."), ValueMap{"Present", "Absent"}, Values{"Present", "Absent"}] String Ensure;
+    [Key, Description("The name of the zone to manage.")] String Name;
+    [Write, Description("The IP addresses the forwarder should use. Mandatory if Ensure is present.")] String MasterServers[];
+    [Write, Description("Whether the conditional forwarder should be replicated in AD, and the scope of that replication. Default is None."), ValueMap{"None", "Custom", "Domain", "Forest", "Legacy"}, Values{"None", "Custom", "Domain", "Forest", "Legacy"}] String ReplicationScope;
+    [Write, Description("The name of the directory partition to use when the ReplicationScope is Custom. This value is ignored for all other replication scopes.")] String DirectoryPartitionName;
+    [Read, Description("The zone type")] String ZoneType;
+};

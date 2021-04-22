@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADDomainControllerProperties")]
+class MSFT_ADDomainControllerProperties : OMI_BaseResource
+{
+    [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'."), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+    [Write, Description("Specifies the Distributed File System Replication (DFSR) server threshold after the number of days its content is considered stale (MaxOfflineTimeInDays). Once the content is considered stale, the Distributed File System Replication (DFSR) server will no longer be able to replicate.")] UInt32 ContentFreshness;
+};

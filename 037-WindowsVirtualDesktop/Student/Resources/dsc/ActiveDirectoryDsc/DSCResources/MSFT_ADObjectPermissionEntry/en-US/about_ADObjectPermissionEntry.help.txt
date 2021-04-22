@@ -1,0 +1,129 @@
+.NAME
+    ADObjectPermissionEntry
+
+.DESCRIPTION
+    The ADObjectPermissionEntry DSC resource will manage access control lists on Active Directory objects. The resource is
+    designed to to manage just one entry in the list of permissios (ACL) for one AD object. It will only interact with the
+    one permission and leave all others as they were. The resource can be used multiple times to add multiple entries into
+    one ACL.
+
+    ## Requirements
+
+    * Target machine must be running Windows Server 2008 R2 or later.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present,  Absent
+    Indicates if the access will be added (Present) or will be removed (Absent). Default value is 'Present'.
+
+.PARAMETER Path
+    Key - String
+    Active Directory path of the target object to add or remove the permission entry, specified as a Distinguished Name.
+
+.PARAMETER IdentityReference
+    Key - String
+    Indicates the identity of the principal for the ACE. Use the notation DOMAIN\\SamAccountName for the identity.
+
+.PARAMETER ActiveDirectoryRights
+    Write - String
+    Allowed values: AccessSystemSecurity,  CreateChild,  Delete,  DeleteChild,  DeleteTree,  ExtendedRight,  GenericAll,  GenericExecute,  GenericRead,  GenericWrite,  ListChildren,  ListObject,  ReadControl,  ReadProperty,  Self,  Synchronize,  WriteDacl,  WriteOwner,  WriteProperty
+    A combination of one or more of the ActiveDirectoryRights enumeration values that specifies the rights of the access rule. Default value is 'GenericAll'.
+
+.PARAMETER AccessControlType
+    Key - String
+    Allowed values: Allow,  Deny
+    Indicates whether to Allow or Deny access to the target object.
+
+.PARAMETER ObjectType
+    Key - String
+    The schema GUID of the object to which the access rule applies. If the permission entry shouldn't be restricted to a specific object type, use the zero guid (00000000-0000-0000-0000-000000000000).
+
+.PARAMETER ActiveDirectorySecurityInheritance
+    Key - String
+    Allowed values: All,  Children,  Descendents,  None,  SelfAndChildren
+    One of the 'ActiveDirectorySecurityInheritance' enumeration values that specifies the inheritance type of the access rule.
+
+.PARAMETER InheritedObjectType
+    Key - String
+    The schema GUID of the child object type that can inherit this access rule. If the permission entry shouldn't be restricted to a specific inherited object type, use the zero guid (00000000-0000-0000-0000-000000000000).
+
+.EXAMPLE 1
+
+This configuration will add full control (GenericAll) permissions to
+the virtual computer object (VCO) ROLE01 for a cluster name object (CNO)
+CONTOSO\CLUSTER01$. This is used so that the Windows Failover Cluster
+can control the roles AD objects.
+
+Configuration ADObjectPermissionEntry_DelegateFullControl_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADObjectPermissionEntry 'ADObjectPermissionEntry'
+        {
+            Ensure                             = 'Present'
+            Path                               = 'CN=ROLE01,CN=Computers,DC=contoso,DC=com'
+            IdentityReference                  = 'CONTOSO\CLUSTER01$'
+            ActiveDirectoryRights              = 'GenericAll'
+            AccessControlType                  = 'Allow'
+            ObjectType                         = '00000000-0000-0000-0000-000000000000'
+            ActiveDirectorySecurityInheritance = 'None'
+            InheritedObjectType                = '00000000-0000-0000-0000-000000000000'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration will add a group permission to create and delete
+(CreateChild,DeleteChild) computer objects in an OU and any sub-OUs that
+may get created.
+
+Configuration ADObjectPermissionEntry_CreateDeleteComputerObject_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADObjectPermissionEntry 'ADObjectPermissionEntry'
+        {
+            Ensure                             = 'Present'
+            Path                               = 'OU=ContosoComputers,DC=contoso,DC=com'
+            IdentityReference                  = 'CONTOSO\ComputerAdminGroup'
+            ActiveDirectoryRights              = 'CreateChild', 'DeleteChild'
+            AccessControlType                  = 'Allow'
+            ObjectType                         = 'bf967a86-0de6-11d0-a285-00aa003049e2' # Computer objects
+            ActiveDirectorySecurityInheritance = 'All'
+            InheritedObjectType                = '00000000-0000-0000-0000-000000000000'
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This configuration will add a group permission to allow read and write
+(ReadProperty, WriteProperty) of all properties of computer objects in
+an OU and any sub-OUs that may get created.
+
+Configuration ADObjectPermissionEntry_ReadWriteComputerObjectProperties_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADObjectPermissionEntry 'ADObjectPermissionEntry'
+        {
+            Ensure                             = 'Present'
+            Path                               = 'OU=ContosoComputers,DC=contoso,DC=com'
+            IdentityReference                  = 'CONTOSO\ComputerAdminGroup'
+            ActiveDirectoryRights              = 'ReadProperty', 'WriteProperty'
+            AccessControlType                  = 'Allow'
+            ObjectType                         = '00000000-0000-0000-0000-000000000000'
+            ActiveDirectorySecurityInheritance = 'Descendents'
+            InheritedObjectType                = 'bf967a86-0de6-11d0-a285-00aa003049e2' # Computer objects
+        }
+    }
+}
+
+

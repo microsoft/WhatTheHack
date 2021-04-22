@@ -1,0 +1,11 @@
+[ClassVersion("1.0.1.0"), FriendlyName("WaitForADDomain")]
+class MSFT_WaitForADDomain : OMI_BaseResource
+{
+    [Key, Description("Specifies the fully qualified domain name to wait for.")] String DomainName;
+    [Write, Description("Specifies the site in the domain where to look for a domain controller.")] String SiteName;
+    [Write, Description("Specifies the credentials that are used when accessing the domain, unless the built-in PsDscRunAsCredential is used."), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Write, Description("Specifies the timeout in seconds that the resource will wait for the domain to be accessible. Default value is 300 seconds.")] UInt64 WaitTimeout;
+    [Write, Description("Specifies the number of times the node will be reboot in an effort to connect to the domain.")] UInt32 RestartCount;
+    [Write, Description("Specifies that the resource will not throw an error if authentication fails using the provided credentials and continue wait for the timeout. This can be used if the credentials are known to eventually exist but there are a potential timing issue before they are accessible.")] Boolean WaitForValidCredentials;
+    [Read, Description("Returns a value indicating if a domain controller was found.")] Boolean IsAvailable;
+};

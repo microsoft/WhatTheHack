@@ -1,0 +1,55 @@
+$resourceProperties = @()
+$resourceProperties += New-xDscResourceProperty -Name Name -Type String -Attribute Key -Description "Key for the resource.  It doesn't matter what it is as long as it's unique within the configuration."
+$resourceProperties += New-xDscResourceProperty -Name AddressAnswerLimit -Type Uint32 -Attribute Write -Description "Maximum number of host records returned in response to an address request. Values between 5 and 28 are valid."
+$resourceProperties += New-xDscResourceProperty -Name AllowUpdate -Type Uint32 -Attribute Write -Description "Specifies whether the DNS Server accepts dynamic update requests."
+$resourceProperties += New-xDscResourceProperty -Name AutoCacheUpdate -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server attempts to update its cache entries using data from root servers."
+$resourceProperties += New-xDscResourceProperty -Name AutoConfigFileZones -Type Uint32 -Attribute Write -Description "Indicates which standard primary zones that are authoritative for the name of the DNS Server must be updated when the name server changes."
+$resourceProperties += New-xDscResourceProperty -Name BindSecondaries -Type Boolean -Attribute Write -Description "Determines the AXFR message format when sending to non-Microsoft DNS Server secondaries"
+$resourceProperties += New-xDscResourceProperty -Name BootMethod -Type Uint32 -Attribute Write -Description "Initialization method for the DNS Server."
+$resourceProperties += New-xDscResourceProperty -Name DefaultAgingState -Type Boolean -Attribute Write -Description "Default ScavengingInterval value set for all Active Directory-integrated zones created on this DNS Server."
+$resourceProperties += New-xDscResourceProperty -Name DefaultNoRefreshInterval -Type Uint32 -Attribute Write -Description "No-refresh interval, in hours, set for all Active Directory-integrated zones created on this DNS Server."
+$resourceProperties += New-xDscResourceProperty -Name DefaultRefreshInterval -Type Uint32 -Attribute Write -Description "Refresh interval, in hours, set for all Active Directory-integrated zones created on this DNS Server."
+$resourceProperties += New-xDscResourceProperty -Name DisableAutoReverseZones -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server automatically creates standard reverse look up zones."
+$resourceProperties += New-xDscResourceProperty -Name DisjointNets -Type Boolean -Attribute Write -Description "Indicates whether the default port binding for a socket used to send queries to remote DNS Servers can be overridden."
+$resourceProperties += New-xDscResourceProperty -Name DsPollingInterval -Type Uint32 -Attribute Write -Description "Interval, in seconds, to poll the DS-integrated zones."
+$resourceProperties += New-xDscResourceProperty -Name DsTombstoneInterval -Type Uint32 -Attribute Write -Description "Lifetime of tombstoned records in Directory Service integrated zones, expressed in seconds."
+$resourceProperties += New-xDscResourceProperty -Name EDnsCacheTimeout -Type Uint32 -Attribute Write -Description "Lifetime, in seconds, of the cached information describing the EDNS version supported by other DNS Servers."
+$resourceProperties += New-xDscResourceProperty -Name EnableDirectoryPartitions -Type Boolean -Attribute Write -Description "Specifies whether support for application directory partitions is enabled on the DNS Server."
+$resourceProperties += New-xDscResourceProperty -Name EnableDnsSec -Type Uint32 -Attribute Write -Description "Specifies whether the DNS Server includes DNSSEC-specific RRs, KEY, SIG, and NXT in a response."
+$resourceProperties += New-xDscResourceProperty -Name EnableEDnsProbes -Type Boolean -Attribute Write -Description "Specifies the behavior of the DNS Server. When TRUE, the DNS Server always responds with OPT resource records according to RFC 2671, unless the remote server has indicated it does not support EDNS in a prior exchange. If FALSE, the DNS Server responds to queries with OPTs only if OPTs are sent in the original query."
+$resourceProperties += New-xDscResourceProperty -Name EventLogLevel -Type Uint32 -Attribute Write -Description "Indicates which events the DNS Server records in the Event Viewer system log."
+$resourceProperties += New-xDscResourceProperty -Name ForwardDelegations -Type Uint32 -Attribute Write -Description "Specifies whether queries to delegated sub-zones are forwarded."
+$resourceProperties += New-xDscResourceProperty -Name Forwarders -Type String[] -Attribute Write -Description "Enumerates the list of IP addresses of Forwarders to which the DNS Server forwards queries."
+$resourceProperties += New-xDscResourceProperty -Name ForwardingTimeout -Type Uint32 -Attribute Write -Description "Time, in seconds, a DNS Server forwarding a query will wait for resolution from the forwarder before attempting to resolve the query itself."
+$resourceProperties += New-xDscResourceProperty -Name IsSlave -Type Boolean -Attribute Write -Description "TRUE if the DNS server does not use recursion when name-resolution through forwarders fails."
+$resourceProperties += New-xDscResourceProperty -Name ListenAddresses -Type String[] -Attribute Write -Description "Enumerates the list of IP addresses on which the DNS Server can receive queries."
+$resourceProperties += New-xDscResourceProperty -Name LocalNetPriority -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server gives priority to the local net address when returning A records."
+$resourceProperties += New-xDscResourceProperty -Name LogFileMaxSize -Type Uint32 -Attribute Write -Description "Size of the DNS Server debug log, in bytes."
+$resourceProperties += New-xDscResourceProperty -Name LogFilePath -Type String -Attribute Write -Description "File name and path for the DNS Server debug log."
+$resourceProperties += New-xDscResourceProperty -Name LogLevel -Type Uint32 -Attribute Write -Description "Indicates which policies are activated in the Event Viewer system log."
+$resourceProperties += New-xDscResourceProperty -Name LooseWildcarding -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server performs loose wildcarding."
+$resourceProperties += New-xDscResourceProperty -Name MaxCacheTTL -Type Uint32 -Attribute Write -Description "Maximum time, in seconds, the record of a recursive name query may remain in the DNS Server cache."
+$resourceProperties += New-xDscResourceProperty -Name MaxNegativeCacheTTL -Type Uint32 -Attribute Write -Description "Maximum time, in seconds, a name error result from a recursive query may remain in the DNS Server cache."
+$resourceProperties += New-xDscResourceProperty -Name NameCheckFlag -Type Uint32 -Attribute Write -Description "Indicates the set of eligible characters to be used in DNS names."
+$resourceProperties += New-xDscResourceProperty -Name NoRecursion -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server performs recursive look ups. TRUE indicates recursive look ups are not performed."
+$resourceProperties += New-xDscResourceProperty -Name RecursionRetry -Type Uint32 -Attribute Write -Description "Elapsed seconds before retrying a recursive look up."
+$resourceProperties += New-xDscResourceProperty -Name RecursionTimeout -Type Uint32 -Attribute Write -Description "Elapsed seconds before the DNS Server gives up recursive query."
+$resourceProperties += New-xDscResourceProperty -Name RoundRobin -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server round robins multiple A records."
+$resourceProperties += New-xDscResourceProperty -Name RpcProtocol -Type Sint16 -Attribute Write -Description "RPC protocol or protocols over which administrative RPC runs."
+$resourceProperties += New-xDscResourceProperty -Name ScavengingInterval -Type Uint32 -Attribute Write -Description "Interval, in hours, between two consecutive scavenging operations performed by the DNS Server."
+$resourceProperties += New-xDscResourceProperty -Name SecureResponses -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server exclusively saves records of names in the same subtree as the server that provided them."
+$resourceProperties += New-xDscResourceProperty -Name SendPort -Type Uint32 -Attribute Write -Description "Port on which the DNS Server sends UDP queries to other servers."
+$resourceProperties += New-xDscResourceProperty -Name StrictFileParsing -Type Boolean -Attribute Write -Description "Indicates whether the DNS Server parses zone files strictly."
+$resourceProperties += New-xDscResourceProperty -Name UpdateOptions -Type Uint32 -Attribute Write -Description "Restricts the type of records that can be dynamically updated on the server, used in addition to the AllowUpdate settings on Server and Zone objects."
+$resourceProperties += New-xDscResourceProperty -Name WriteAuthorityNS -Type Boolean -Attribute Write -Description "Specifies whether the DNS Server writes NS and SOA records to the authority section on successful response."
+$resourceProperties += New-xDscResourceProperty -Name XfrConnectTimeout -Type Uint32 -Attribute Write -Description "Time, in seconds, the DNS Server waits for a successful TCP connection to a remote server when attempting a zone transfer."
+
+$dnsServerSettingParameters = @{
+    Name         = 'MSFT_xDnsServerSetting' 
+    Property     = $resourceProperties 
+    FriendlyName = 'xDnsServerSetting' 
+    ModuleName   = 'xDnsServer' 
+    Path         = 'C:\Program Files\WindowsPowerShell\Modules\' 
+} 
+ 
+New-xDscResource @dnsServerSettingParameters 

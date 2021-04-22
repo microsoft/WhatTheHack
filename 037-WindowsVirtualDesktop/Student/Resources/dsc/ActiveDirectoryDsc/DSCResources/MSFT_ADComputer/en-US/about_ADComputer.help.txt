@@ -1,0 +1,275 @@
+.NAME
+    ADComputer
+
+.DESCRIPTION
+    The ADComputer DSC resource will manage computer accounts within Active Directory.
+    This resource can be used to provision a computer account before the computer is
+    added to the domain. These pre-created computer objects can be used with offline
+    domain join, unsecure domain Join and RODC domain join scenarios.
+
+    >**Note:** An Offline Domain Join (ODJ) request file will only be created
+    >when a computer account is first created in the domain. Setting an Offline
+    >Domain Join (ODJ) Request file path for a configuration that updates a
+    >computer account that already exists, or restore it from the recycle bin
+    >will not cause the Offline Domain Join (ODJ) request file to be created.
+
+    ## Requirements
+
+    * Target machine must be running Windows Server 2008 R2 or later.
+    * The parameter `RestoreFromRecycleBin` requires that the feature Recycle
+      Bin has been enabled prior to an object is deleted. If the feature
+      Recycle Bin is disabled then the property `msDS-LastKnownRDN` is not
+      added the deleted object.
+
+.PARAMETER ComputerName
+    Key - String
+    Specifies the name of the Active Directory computer account to manage. You can identify a computer by its distinguished name, GUID, security identifier (SID) or Security Accounts Manager (SAM) account name.
+
+.PARAMETER Location
+    Write - String
+    Specifies the location of the computer, such as an office number.
+
+.PARAMETER DnsHostName
+    Write - String
+    Specifies the fully qualified domain name (FQDN) of the computer account.
+
+.PARAMETER ServicePrincipalNames
+    Write - String
+    Specifies the service principal names for the computer account.
+
+.PARAMETER UserPrincipalName
+    Write - String
+    Specifies the User Principal Name (UPN) assigned to the computer account.
+
+.PARAMETER DisplayName
+    Write - String
+    Specifies the display name of the computer account.
+
+.PARAMETER Path
+    Write - String
+    Specifies the X.500 path of the Organizational Unit (OU) or container where the computer is located.
+
+.PARAMETER Description
+    Write - String
+    Specifies a description of the computer account.
+
+.PARAMETER Manager
+    Write - String
+    Specifies the user or group Distinguished Name that manages the computer account. Valid values are the user's or group's DistinguishedName, ObjectGUID, SID or SamAccountName.
+
+.PARAMETER DomainController
+    Write - String
+    Specifies the Active Directory Domain Services instance to connect to perform the task.
+
+.PARAMETER Credential
+    Write - String
+    Specifies the user account credentials to use to perform the task.
+
+.PARAMETER RequestFile
+    Write - String
+    Specifies the full path to the Offline Domain Join Request file to create.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present,  Absent
+    Specifies whether the computer account is present or absent. Default value is 'Present'.
+
+.PARAMETER RestoreFromRecycleBin
+    Write - Boolean
+    Try to restore the computer account from the recycle bin before creating a new one.
+
+.PARAMETER EnabledOnCreation
+    Write - Boolean
+    Specifies if the computer account is created enabled or disabled. By default the Enabled property of the computer account will be set to the default value of the cmdlet New-ADComputer. This property is ignored if the parameter RequestFile is specified in the same configuration. This parameter does not enforce the property Enabled. To enforce the property Enabled see the resource ADObjectEnabledState.
+
+.PARAMETER DistinguishedName
+    Read - String
+    Returns the X.500 path of the computer object.
+
+.PARAMETER SID
+    Read - String
+    Returns the security identifier of the computer object.
+
+.PARAMETER SamAccountName
+    Read - String
+    Returns the security identifier of the computer object.
+
+.PARAMETER Enabled
+    Read - Boolean
+    Returns $true if the computer object is enabled, otherwise it returns $false.
+
+.EXAMPLE 1
+
+This configuration will create two Active Directory computer accounts
+enabled. The property Enabled will not be enforced in either case.
+
+Configuration ADComputer_AddComputerAccount_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADComputer 'CreateEnabled_SQL01'
+        {
+            ComputerName = 'SQL01'
+
+            PsDscRunAsCredential = $Credential
+        }
+
+        ADComputer 'CreateEnabled_SQL02'
+        {
+            ComputerName      = 'SQL02'
+            EnabledOnCreation = $true
+
+            PsDscRunAsCredential = $Credential
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration will create an Active Directory computer account
+disabled. The property Enabled will not be enforced.
+
+Configuration ADComputer_AddComputerAccountDisabled_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADComputer 'CreateDisabled'
+        {
+            ComputerName      = 'CLU_CNO01'
+            EnabledOnCreation = $false
+
+            PsDscRunAsCredential = $Credential
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This configuration will create an Active Directory computer account
+on the specified domain controller and in the specific organizational
+unit.
+
+Configuration ADComputer_AddComputerAccountSpecificPath_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADComputer 'CreateComputerAccount'
+        {
+            DomainController = 'DC01'
+            ComputerName     = 'SQL01'
+            Path             = 'OU=Servers,DC=contoso,DC=com'
+            Credential       = $Credential
+        }
+    }
+}
+
+.EXAMPLE 4
+
+This configuration will create an Active Directory computer account
+on the specified domain controller and in the specific organizational
+unit. After the account is create an Offline Domain Join Request file
+is created to the specified path.
+
+Configuration ADComputer_AddComputerAccountAndCreateODJRequest_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADComputer 'CreateComputerAccount'
+        {
+            DomainController = 'DC01'
+            ComputerName     = 'NANO-200'
+            Path             = 'OU=Servers,DC=contoso,DC=com'
+            RequestFile      = 'D:\ODJFiles\NANO-200.txt'
+            Credential       = $Credential
+        }
+    }
+}
+
+.EXAMPLE 5
+
+This configuration will create a computer account disabled, configure
+a cluster using the disabled computer account, and enforcing the
+computer account to be enabled.
+
+Configuration ADComputer_CreateClusterComputerAccount_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+    Import-DscResource -ModuleName xFailoverCluster
+
+    node localhost
+    {
+        ADComputer 'ClusterAccount'
+        {
+            ComputerName      = 'CLU_CNO01'
+            EnabledOnCreation = $false
+        }
+
+        xCluster 'CreateCluster'
+        {
+            Name                          = 'CLU_CNO01'
+            StaticIPAddress               = '192.168.100.20/24'
+            DomainAdministratorCredential = $Credential
+
+            DependsOn                     = '[ADComputer]ClusterAccount'
+        }
+
+        ADObjectEnabledState 'EnforceEnabledPropertyToEnabled'
+        {
+            Identity    = 'CLU_CNO01'
+            ObjectClass = 'Computer'
+            Enabled     = $true
+
+            DependsOn   = '[xCluster]CreateCluster'
+        }
+    }
+}
+
+

@@ -1,0 +1,9 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADReplicationSubnet")]
+class MSFT_ADReplicationSubnet : OMI_BaseResource
+{
+    [Write, Description("Specifies if the Active Directory replication subnet should be present or absent. Default value is 'Present'."), ValueMap{"Present", "Absent"}, Values{"Present", "Absent"}] String Ensure;
+    [Key, Description("The name of the Active Directory replication subnet, e.g. 10.0.0.0/24.")] String Name;
+    [Required, Description("The name of the assigned Active Directory replication site, e.g. Default-First-Site-Name.")] String Site;
+    [Write, Description("The location for the Active Directory replication site. Default value is empty ('') location.")] String Location;
+    [Write, Description("Specifies a description of the object. This parameter sets the value of the Description property for the object.")] String Description;
+};

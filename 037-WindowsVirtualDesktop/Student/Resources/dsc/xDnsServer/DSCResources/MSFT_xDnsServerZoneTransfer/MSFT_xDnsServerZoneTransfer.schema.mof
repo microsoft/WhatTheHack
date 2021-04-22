@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerZoneTransfer")]
+class MSFT_xDnsServerZoneTransfer : OMI_BaseResource
+{
+    [Key, Description("Name of the DNS zone")] String Name;
+    [Required, Description("Type of transfer allowed"), ValueMap{"None","Any","Named","Specific"}, Values{"None","Any","Named","Specific"}] String Type;
+    [Write, Description("IP address or DNS name of DNS servers where zone information can be transfered")] String SecondaryServer[];
+};
+

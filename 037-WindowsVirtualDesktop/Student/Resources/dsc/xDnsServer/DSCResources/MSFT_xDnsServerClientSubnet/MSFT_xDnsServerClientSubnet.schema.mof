@@ -1,0 +1,9 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerClientSubnet")]
+class MSFT_xDnsServerClientSubnet : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of the client subnet.")] string Name;
+    [Write, Description("Specify an array (1 or more values) of IPv4 Subnet addresses in CIDR Notation.")] string IPv4Subnet[];
+    [Write, Description("Specify an array (1 or more values) of IPv6 Subnet addresses in CIDR Notation.")] string IPv6Subnet[];
+    [Write, Description("Should this DNS server client subnet be present or absent"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};
+

@@ -1,0 +1,155 @@
+.NAME
+    ADObjectEnabledState
+
+.DESCRIPTION
+    This resource enforces the property `Enabled` on the object class *Computer*.
+
+    >This resource could support other object classes like *msDS-ManagedServiceAccount*,
+    >*msDS-GroupManagedServiceAccount*, and *User*. But these object classes
+    >are not yet supported due to that other resources already enforces the
+    >`Enabled` property. If this resource should support another object class,
+    >then it should be made so that only one resource enforces the enabled
+    >property. This is to prevent a potential "ping-pong" behavior if both
+    >resource would be used in a configuration.
+
+    ## Requirements
+
+    * Target machine must be running Windows Server 2008 R2 or later.
+
+.PARAMETER Identity
+    Key - String
+    Specifies the identity of an object that has the object class specified in the parameter ObjectClass. When ObjectClass is set to 'Computer' then this property can be set to either distinguished name, GUID (objectGUID), security identifier (objectSid), or security Accounts Manager account name (sAMAccountName).
+
+.PARAMETER ObjectClass
+    Key - String
+    Allowed values: Computer
+    Specifies the object class.
+
+.PARAMETER Enabled
+    Required - Boolean
+    Specifies the value of the Enabled property.
+
+.PARAMETER DomainController
+    Write - String
+    Specifies the Active Directory Domain Services instance to connect to perform the task.
+
+.PARAMETER Credential
+    Write - String
+    Specifies the user account credentials to use to perform the task.
+
+.EXAMPLE 1
+
+This configuration will create a computer account disabled, and
+enforcing the account to be enabled.
+
+Configuration ADObjectEnabledState_EnabledComputerAccount_Config
+{
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADComputer 'CreateDisabled'
+        {
+            ComputerName      = 'CLU_CNO01'
+            EnabledOnCreation = $false
+        }
+
+        ADObjectEnabledState 'EnforceEnabledPropertyToEnabled'
+        {
+            Identity    = 'CLU_CNO01'
+            ObjectClass = 'Computer'
+            Enabled     = $true
+
+            DependsOn   = '[ADComputer]CreateDisabled'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration will create a computer account disabled, configure
+a cluster using the disabled computer account, and enforcing the
+computer account to be enabled.
+
+Configuration ADObjectEnabledState_CreateClusterComputerAccount_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+    Import-DscResource -ModuleName xFailoverCluster
+
+    node localhost
+    {
+        ADComputer 'ClusterAccount'
+        {
+            ComputerName      = 'CLU_CNO01'
+            EnabledOnCreation = $false
+        }
+
+        xCluster 'CreateCluster'
+        {
+            Name                          = 'CLU_CNO01'
+            StaticIPAddress               = '192.168.100.20/24'
+            DomainAdministratorCredential = $Credential
+
+            DependsOn                     = '[ADComputer]ClusterAccount'
+        }
+
+        ADObjectEnabledState 'EnforceEnabledPropertyToEnabled'
+        {
+            Identity    = 'CLU_CNO01'
+            ObjectClass = 'Computer'
+            Enabled     = $true
+
+            DependsOn   = '[xCluster]CreateCluster'
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This configuration will configure a cluster using a pre-staged computer
+account, and enforcing the pre-staged computer account to be enabled.
+
+Configuration ADObjectEnabledState_EnabledPrestagedClusterComputerAccount_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ActiveDirectoryDsc
+    Import-DscResource -ModuleName xFailoverCluster
+
+    node localhost
+    {
+        xCluster 'CreateCluster'
+        {
+            Name                          = 'CLU_CNO01'
+            StaticIPAddress               = '192.168.100.20/24'
+            DomainAdministratorCredential = $Credential
+        }
+
+        ADObjectEnabledState 'EnforceEnabledPropertyToEnabled'
+        {
+            Identity    = 'CLU_CNO01'
+            ObjectClass = 'Computer'
+            Enabled     = $true
+
+            DependsOn   = @(
+                '[xCluster]CreateCluster'
+            )
+        }
+    }
+}
+
+

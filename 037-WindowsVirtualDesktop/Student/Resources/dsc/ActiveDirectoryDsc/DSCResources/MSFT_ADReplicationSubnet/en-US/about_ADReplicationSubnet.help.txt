@@ -1,0 +1,52 @@
+.NAME
+    ADReplicationSubnet
+
+.DESCRIPTION
+    The ADReplicationSubnet DSC resource will manage replication subnets.
+
+    ## Requirements
+
+    * Target machine must be running Windows Server 2008 R2 or later.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present,  Absent
+    Specifies if the Active Directory replication subnet should be present or absent. Default value is 'Present'.
+
+.PARAMETER Name
+    Key - String
+    The name of the Active Directory replication subnet, e.g. 10.0.0.0/24.
+
+.PARAMETER Site
+    Required - String
+    The name of the assigned Active Directory replication site, e.g. Default-First-Site-Name.
+
+.PARAMETER Location
+    Write - String
+    The location for the Active Directory replication site. Default value is empty ('') location.
+
+.PARAMETER Description
+    Write - String
+    Specifies a description of the object. This parameter sets the value of the Description property for the object.
+
+.EXAMPLE 1
+
+This configuration will create an AD Replication Subnet.
+
+Configuration ADReplicationSubnet_CreateReplicationSubnet_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADReplicationSubnet 'LondonSubnet'
+        {
+            Name        = '10.0.0.0/24'
+            Site        = 'London'
+            Location    = 'Datacenter 3'
+            Description = 'Datacenter Management Subnet'
+        }
+    }
+}
+
+

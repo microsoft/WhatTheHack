@@ -1,0 +1,12 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADObjectPermissionEntry")]
+class MSFT_ADObjectPermissionEntry : OMI_BaseResource
+{
+    [Write, Description("Indicates if the access will be added (Present) or will be removed (Absent). Default value is 'Present'."), ValueMap{"Present", "Absent"}, Values{"Present", "Absent"}] String Ensure;
+    [Key, Description("Active Directory path of the target object to add or remove the permission entry, specified as a Distinguished Name.")] String Path;
+    [Key, Description("Indicates the identity of the principal for the ACE. Use the notation DOMAIN\\SamAccountName for the identity.")] String IdentityReference;
+    [Write, Description("A combination of one or more of the ActiveDirectoryRights enumeration values that specifies the rights of the access rule. Default value is 'GenericAll'."), ValueMap{"AccessSystemSecurity", "CreateChild", "Delete", "DeleteChild", "DeleteTree", "ExtendedRight", "GenericAll", "GenericExecute", "GenericRead", "GenericWrite", "ListChildren", "ListObject", "ReadControl", "ReadProperty", "Self", "Synchronize", "WriteDacl", "WriteOwner", "WriteProperty"}, Values{"AccessSystemSecurity", "CreateChild", "Delete", "DeleteChild", "DeleteTree", "ExtendedRight", "GenericAll", "GenericExecute", "GenericRead", "GenericWrite", "ListChildren", "ListObject", "ReadControl", "ReadProperty", "Self", "Synchronize", "WriteDacl", "WriteOwner", "WriteProperty"}] String ActiveDirectoryRights[];
+    [Key, Description("Indicates whether to Allow or Deny access to the target object."), ValueMap{"Allow", "Deny"}, Values{"Allow", "Deny"}] String AccessControlType;
+    [Key, Description("The schema GUID of the object to which the access rule applies. If the permission entry shouldn't be restricted to a specific object type, use the zero guid (00000000-0000-0000-0000-000000000000).")] String ObjectType;
+    [Key, Description("One of the 'ActiveDirectorySecurityInheritance' enumeration values that specifies the inheritance type of the access rule."), ValueMap{"All", "Children", "Descendents", "None", "SelfAndChildren"}, Values{"All", "Children", "Descendents", "None", "SelfAndChildren"}] String ActiveDirectorySecurityInheritance;
+    [Key, Description("The schema GUID of the child object type that can inherit this access rule. If the permission entry shouldn't be restricted to a specific inherited object type, use the zero guid (00000000-0000-0000-0000-000000000000).")] String InheritedObjectType;
+};

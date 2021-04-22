@@ -1,0 +1,9 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADObjectEnabledState")]
+class MSFT_ADObjectEnabledState : OMI_BaseResource
+{
+    [Key, Description("Specifies the identity of an object that has the object class specified in the parameter ObjectClass. When ObjectClass is set to 'Computer' then this property can be set to either distinguished name, GUID (objectGUID), security identifier (objectSid), or security Accounts Manager account name (sAMAccountName).")] String Identity;
+    [Key, Description("Specifies the object class."), ValueMap{"Computer"}, Values{"Computer"}] String ObjectClass;
+    [Required, Description("Specifies the value of the Enabled property.")] Boolean Enabled;
+    [Write, Description("Specifies the Active Directory Domain Services instance to connect to perform the task.")] String DomainController;
+    [Write, Description("Specifies the user account credentials to use to perform the task."), EmbeddedInstance("MSFT_Credential")] String Credential;
+};
