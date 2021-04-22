@@ -152,7 +152,7 @@
                 },
                 "settings": {
                     "wmfVersion": "latest",
-                    "modulesUrl": "https://github.com/jamasten/WhatTheHack/blob/main/dsc/ActiveDirectoryForest.zip?raw=true",
+                    "modulesUrl": "https://github.com/microsoft/WhatTheHack/blob/master/037-WindowsVirtualDesktop/Student/Resources/dsc/ActiveDirectoryForest.zip?raw=true",
                     "configurationFunction": "ActiveDirectoryForest.ps1\\ActiveDirectoryForest",
                     "properties": {
                         "Domain": "[parameters('Domain')]",
@@ -187,7 +187,7 @@
                 },
                 "settings": {
                     "wmfVersion": "latest",
-                    "modulesUrl": "https://github.com/jamasten/WhatTheHack/blob/main/dsc/ActiveDirectoryReplica.zip?raw=true",
+                    "modulesUrl": "https://github.com/microsoft/WhatTheHack/blob/master/037-WindowsVirtualDesktop/Student/Resources/dsc/ActiveDirectoryReplica.zip?raw=true",
                     "configurationFunction": "ActiveDirectoryReplica.ps1\\ActiveDirectoryReplica",
                     "properties": {
                         "Domain": "[parameters('Domain')]",
