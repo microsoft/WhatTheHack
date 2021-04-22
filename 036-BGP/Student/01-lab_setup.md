@@ -12,7 +12,7 @@ bash ./bgp.sh '1:vng1:65001,2:vng:65002,3:csr:65100,4:csr:65100,5:csr:65100' '1:
 
 The previous command will deploy the topology described in the following diagram without the BGP adjacencies (which you will configure as part of the challenge), including VPN Virtual Network Gateways in VNet 1 (in active/passive mode) and VNet 2 (in active-active mode). The script will take around 1h to run, during which time your coach will give you a theory intro on BGP. The script has been tested to run in Azure Cloud Shell, but it should run in any Linux environments where the dependencies are installed (the script will check for those dependencies and error out if it doesn't find them).
 
-![](media/bgp.png)
+![](Images/bgp.png)
 
 ## Success Criteria
 
