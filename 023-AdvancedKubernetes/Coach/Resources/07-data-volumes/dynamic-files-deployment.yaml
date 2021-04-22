@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: files-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: files-app
+  template:
+    metadata:
+      labels:
+        app: files-app
+    spec:
+      containers:
+      - name: busybox-writer
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "while true; do sleep 1; echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) >> /mnt/index.html; done"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        volumeMounts:
+          - mountPath: /mnt
+            name: azure-files-volume
+      - name: busybox-web
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "httpd -p 80 -f -v -h /mnt"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - mountPath: /mnt
+            name: azure-files-volume
+      volumes:
+        - name: azure-files-volume
+          persistentVolumeClaim:
+            claimName: azure-files-claim
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-files-claim
+spec:
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: azurefile
+  accessModes:
+    - ReadWriteMany
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: files-app
+spec:
+  selector:
+    app: files-app
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer

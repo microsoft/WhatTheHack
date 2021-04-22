@@ -1,0 +1,34 @@
+
+replicaCount: 1
+
+application:
+  labelValue: mysql
+
+infrastructure:
+  namespace: mysql
+  appName: mysql
+  username: izzy
+  password: "OCPHack8"
+  dataVolume: "/usr/local/mysql"
+  volumeName: "wthmysql"
+
+image:
+  name: mysql
+  pullPolicy: IfNotPresent
+  tag: "5.7.32"
+
+service:
+  type: LoadBalancer
+  port: 3306
+  protocol: TCP
+
+resources:
+  limits:
+     cpu: 1000m
+     memory: 4096Mi
+  requests:
+     cpu: 750m
+     memory: 2048Mi
+  volume:
+    size: 5Gi
+    storageClass: managed-premium
