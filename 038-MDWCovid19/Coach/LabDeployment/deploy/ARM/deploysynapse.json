@@ -1,0 +1,263 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataLakeStorageFilesystemName": {
+            "defaultValue": "workspace",
+            "type": "String",
+            "metadata": {
+                "description": "Container in Data Lake Storage account that you will use for Synapse Workspace."
+            }
+        },
+        "sqlAdminLogin": {
+            "type": "String"
+        },
+        "sqlAdminLoginPassword": {
+            "type": "SecureString"
+        },
+        "tagValues": {
+            "defaultValue": { "Created with": "Synapse Azure Resource Manager deploment template" },
+            "type": "Object"
+        },
+        "synapsePoolSku": {
+            "type": "string",
+            "defaultValue": "DW100c",
+            "allowedValues": [
+                "DW100c",
+                "DW200c",
+                "DW300c",
+                "DW400c",
+                "DW500c",
+                "DW1000c",
+                "DW1500c",
+                "DW2000c",
+                "DW2500c",
+                "DW3000c"
+            ],
+            "metadata": {
+                "description": "The SKU of the SQL pool."
+            }
+        },
+        "sqlDeployment": {
+            "type": "string",
+            "defaultValue": "false",
+            "allowedValues": [
+                "true",
+                "false"
+            ],
+            "metadata": {
+                "description": "'True' deploys a SQL pool."
+            }
+        },
+        "sparkDeployment": {
+            "type": "string",
+            "defaultValue": "false",
+            "allowedValues": [
+                "true",
+                "false"
+            ],
+            "metadata": {
+                "description": "'True' deploys an Apache Spark pool as well as a SQL pool. 'False' does not deploy an Apache Spark pool."
+            }
+        },
+        "sparkNodeSize": {
+            "type": "string",
+            "defaultValue": "Small",
+            "allowedValues": [
+                "Small",
+                "Medium",
+                "Large"
+            ],
+            "metadata": {
+                "description": "This parameter will determine the node size if SparkDeployment is true"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "namePrefix": {
+            "type": "string",
+            "defaultValue": "ohdata"
+        }
+    },
+    "variables": {
+        "dataLakeStorageAccountName": "[concat(parameters('namePrefix'), uniqueString(resourceGroup().id))]",
+        "dataLakeStorageAccountUrl": "[concat('https://', variables('dataLakeStorageAccountName'), '.dfs.core.windows.net')]",
+        "synapseSQLPoolName": "[toLower('SQLPool01')]",
+        "synapseSparkPoolName": "[toLower('SparkPool01')]",
+        "ohmdw-synapse-Name": "[concat(parameters('namePrefix'), '-synapse-', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Synapse/workspaces",
+            "apiVersion": "2019-06-01-preview",
+            "name": "[variables('ohmdw-synapse-Name')]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagValues')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "defaultDataLakeStorage": {
+                    "accountUrl": "[variables('dataLakeStorageAccountUrl')]",
+                    "filesystem": "[parameters('dataLakeStorageFilesystemName')]"
+                },
+                "virtualNetworkProfile": {
+                    "computeSubnetId": ""
+                },
+                "sqlAdministratorLogin": "[parameters('sqlAdminLogin')]",
+                "sqlAdministratorLoginPassword": "[parameters('sqlAdminLoginPassword')]"
+            },
+            "resources": [
+                {
+                    "type": "firewallrules",
+                    "apiVersion": "2019-06-01-preview",
+                    "name": "allowAll",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[concat('Microsoft.Synapse/workspaces/', variables('ohmdw-synapse-Name'))]"
+                    ],
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "255.255.255.255"
+                    }
+                },
+                {
+                    "apiVersion": "2019-06-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Synapse/workspaces/', variables('ohmdw-synapse-Name'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "default",
+                    "properties": {
+                        "grantSqlControlToManagedIdentity": {
+                            "desiredState": "Enabled"
+                        }
+                    },
+                    "type": "managedIdentitySqlControlSettings"
+                },
+                {
+                    "condition": "[equals(parameters('sqlDeployment'),'true')]",
+                    "type": "sqlPools",
+                    "apiVersion": "2019-06-01-preview",
+                    "name": "[variables('synapseSQLPoolName')]",
+                    "location": "[parameters('location')]",
+                    "sku": {
+                        "name": "[parameters('synapsePoolSku')]"
+                    },
+                    "dependsOn": [
+                        "[variables('ohmdw-synapse-Name')]"
+                    ],
+                    "properties": {
+                        "createMode": "Default",
+                        "collation": "SQL_Latin1_General_CP1_CI_AS"
+                    }
+                },
+                {
+                    "condition": "[equals(parameters('sparkDeployment'),'true')]",
+                    "type": "bigDataPools",
+                    "apiVersion": "2019-06-01-preview",
+                    "name": "[variables('synapseSparkPoolName')]",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[variables('ohmdw-synapse-Name')]"
+                    ],
+                    "properties": {
+                        "nodeCount": 5,
+                        "nodeSizeFamily": "MemoryOptimized",
+                        "nodeSize": "[parameters('sparkNodeSize')]",
+                        "autoScale": {
+                            "enabled": true,
+                            "minNodeCount": 3,
+                            "maxNodeCount": 40
+                        },
+                        "autoPause": {
+                            "enabled": true,
+                            "delayInMinutes": 15
+                        },
+                        "sparkVersion": "2.4"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[variables('dataLakeStorageAccountName')]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Type": "Synapse Data Lake Storage",
+                "Created with": "Synapse Azure Resource Manager deploment template"
+            },
+            "sku": {
+                "name": "Standard_RAGRS",
+                "tier": "Standard"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "isHnsEnabled": true,
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('dataLakeStorageAccountName'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('dataLakeStorageAccountName'))]"
+            ],
+            "properties": {
+                "cors": {
+                    "corsRules": []
+                },
+                "deleteRetentionPolicy": {
+                    "enabled": false
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('dataLakeStorageAccountName'), '/default/workspace')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('dataLakeStorageAccountName'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('dataLakeStorageAccountName'))]"
+            ],
+            "properties": {
+                "publicAccess": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "name": "[guid(resourceGroup().id)]",
+            "apiVersion": "2020-04-01-preview",
+            "dependsOn": [
+                "[concat('Microsoft.Synapse/workspaces/', variables('ohmdw-synapse-Name'))]"
+            ],
+            "properties": {
+                "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]",
+                "principalId": "[reference(concat('Microsoft.Synapse/workspaces/', variables('ohmdw-synapse-Name')), '2019-06-01-preview', 'Full').identity.principalId]"
+            }
+        }
+    ],
+    "outputs": {}
+}

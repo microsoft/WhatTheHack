@@ -1,0 +1,284 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmAdminUsername": {
+      "type": "string"
+    },
+    "vmAdminPassword": {
+      "type": "securestring"
+    },
+    "sqlAdminLogin": {
+      "type": "string"
+    },
+    "sqlAdminLoginPassword": {
+      "type": "securestring"
+    },
+    "covid19BaseUri": {
+      "type": "string"
+    },
+    "covid19DacPacFileName": {
+      "type": "string"
+    },
+    "covid19BackupFileName": {
+      "type": "string"
+    },
+    "covid19DatabaseName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "namePrefix": {
+      "type": "string",
+      "defaultValue": "ohdata"
+    },
+    "cosmosDBConnectionString": {
+      "type": "string"
+    },
+    "cosmosDBDatabaseName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "vnetId": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks', variables('SQLVirtualNetworkName'))]",
+    "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]",
+    "location": "[parameters('location')]",
+    "SQLVirtualMachineName": "[parameters('namePrefix')]",
+    "SQLVirtualMachineSize": "Standard_D3_v2",
+    "SQLVirtualNetworkName": "[concat(parameters('namePrefix'), '-VNet')]",
+    "SQLNetworkInterfaceName": "[concat(parameters('namePrefix'), '-NIC')]",
+    "SQLNetworkSecurityGroupName": "[concat(parameters('namePrefix'), '-NSG')]",
+    "addressPrefix": "10.0.0.0/24",
+    "subnetName": "default",
+    "subnetPrefix": "10.0.0.0/24",
+    "SQLPublicIpAddressName": "[concat(parameters('namePrefix'), '-PIP')]",
+    "publicIpAddressType": "Dynamic",
+    "publicIpAddressSku": "Basic",
+    "sqlConnectivityType": "Local",
+    "sqlPortNumber": 1433,
+    "sqlStorageDisksCount": 1,
+    "sqlStorageWorkloadType": "GENERAL",
+    "sqlStorageDisksConfigurationType": "NEW",
+    "sqlStorageStartingDeviceId": 2,
+    "rServicesEnabled": "false",
+    "ohmdw-Sqlserver-Name": "[concat(parameters('namePrefix'), '-sqlserver-', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('SQLVirtualMachineName')]",
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2018-06-01",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/networkInterfaces/', variables('SQLNetworkInterfaceName'))]"
+      ],
+      "properties": {
+        "osProfile": {
+          "computerName": "[variables('SQLVirtualMachineName')]",
+          "adminUsername": "[parameters('vmAdminUsername')]",
+          "adminPassword": "[parameters('vmAdminPassword')]",
+          "windowsConfiguration": {
+            "provisionVmAgent": true
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "[variables('SQLVirtualMachineSize')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftSQLServer",
+            "offer": "SQL2019-WS2019",
+            "sku": "Standard",
+            "version": "latest"
+          },
+          "osDisk": {
+            "createOption": "fromImage",
+            "managedDisk": {
+              "storageAccountType": "Standard_LRS"
+            }
+          },
+          "dataDisks": [
+            {
+              "createOption": "empty",
+              "lun": 0,
+              "diskSizeGB": 1023,
+              "caching": "ReadOnly",
+              "managedDisk": {
+                "storageAccountType": "Standard_LRS"
+              }
+            }
+          ]
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('SQLNetworkInterfaceName'))]"
+            }
+          ]
+        }
+      },
+      "resources": [
+        {
+          "name": "RestoreDB",
+          "type": "extensions",
+          "location": "[variables('location')]",
+          "apiVersion": "2018-06-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', variables('SQLVirtualMachineName'))]",
+            "[concat('Microsoft.SqlVirtualMachine/SqlVirtualMachines/', variables('SQLVirtualMachineName'))]"
+          ],
+          "tags": {
+            "displayName": "RestoreDB"
+          },
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.9",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "[uri(parameters('covid19BaseUri'),'deploy/Scripts/DeploySQLVM.ps1')]",
+                "[uri(parameters('covid19BaseUri'),'deploy/Scripts/DeployCosmosDB.ps1')]",
+                "[uri(parameters('covid19BaseUri'),'deploy/Scripts/DisableIEESC.ps1')]",
+                "[uri(parameters('covid19BaseUri'),'deploy/Scripts/SqlVMExtensionDriver.ps1')]"
+              ],
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ./SqlVMExtensionDriver.ps1 ', variables('ohmdw-Sqlserver-Name'), ' ', parameters('covid19DatabaseName'), ' ', parameters('covid19BaseUri'), ' ', parameters('covid19DacPacFileName'), ' ', parameters('covid19BackupFileName'), ' ', parameters('sqlAdminLogin'), ' \"', parameters('sqlAdminLoginPassword'), '\" ', parameters('cosmosDBConnectionString'), ' ', parameters('cosmosDBDatabaseName'))]"
+            },
+            "protectedSettings": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[variables('SQLVirtualMachineName')]",
+      "type": "Microsoft.SqlVirtualMachine/SqlVirtualMachines",
+      "apiVersion": "2017-03-01-preview",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', variables('SQLVirtualMachineName'))]"
+      ],
+      "properties": {
+        "virtualMachineResourceId": "[resourceId('Microsoft.Compute/virtualMachines', variables('SQLVirtualMachineName'))]",
+        "AutoPatchingSettings": {
+          "Enable": false
+        },
+        "KeyVaultCredentialSettings": {
+          "Enable": false,
+          "CredentialName": ""
+        },
+        "ServerConfigurationsManagementSettings": {
+          "SQLConnectivityUpdateSettings": {
+            "ConnectivityType": "[variables('sqlConnectivityType')]",
+            "Port": "[variables('sqlPortNumber')]",
+            "SQLAuthUpdateUserName": "[parameters('sqlAdminLogin')]",
+            "SQLAuthUpdatePassword": "[parameters('sqlAdminLoginPassword')]"
+          },
+          "SQLWorkloadTypeUpdateSettings": {
+            "SQLWorkloadType": "[variables('sqlStorageWorkloadType')]"
+          },
+          "SQLStorageUpdateSettings": {
+            "DiskCount": "[variables('sqlStorageDisksCount')]",
+            "DiskConfigurationType": "[variables('sqlStorageDisksConfigurationType')]",
+            "StartingDeviceID": "[variables('sqlStorageStartingDeviceId')]"
+          },
+          "AdditionalFeaturesServerConfigurations": {
+            "IsRServicesEnabled": "[variables('rServicesEnabled')]"
+          }
+        }
+      }
+    },
+    {
+      "name": "[variables('SQLVirtualNetworkName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[variables('SQLNetworkInterfaceName')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2018-10-01",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('SQLVirtualNetworkName'))]",
+        "[concat('Microsoft.Network/publicIpAddresses/', variables('SQLPublicIpAddressName'))]",
+        "[concat('Microsoft.Network/networkSecurityGroups/', variables('SQLNetworkSecurityGroupName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              },
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIpAddress": {
+                "id": "[resourceId(resourceGroup().name,'Microsoft.Network/publicIpAddresses', variables('SQLPublicIpAddressName'))]"
+              }
+            }
+          }
+        ],
+        "enableAcceleratedNetworking": true,
+        "networkSecurityGroup": {
+          "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('SQLNetworkSecurityGroupName'))]"
+        }
+      }
+    },
+    {
+      "name": "[variables('SQLPublicIpAddressName')]",
+      "type": "Microsoft.Network/publicIpAddresses",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('location')]",
+      "properties": {
+        "publicIpAllocationMethod": "[variables('publicIpAddressType')]"
+      },
+      "sku": {
+        "name": "[variables('publicIpAddressSku')]"
+      }
+    },
+    {
+      "name": "[variables('SQLNetworkSecurityGroupName')]",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('location')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "RDP",
+            "properties": {
+              "priority": 300,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceApplicationSecurityGroups": [],
+              "destinationApplicationSecurityGroups": [],
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "3389"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+  }
+}

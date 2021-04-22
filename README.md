@@ -62,10 +62,12 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Mastering Linux](/020-MasteringLinux/README.md)
 
 ## Data & AI
+- [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
 - [IoT Process Control at the Edge](/029-IoTEdge/README.md)
 - [BI 2 AI](/018-BI2AI/README.md)
-- [ThisOldDataWarehouse](/019-ThisOldDataWarehouse/README.md)
+- [This Old Data Warehouse](/019-ThisOldDataWarehouse/README.md)
+- [Modern Data Warehouse - Covid 19](/038-MDWCovid19/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
@@ -86,3 +88,4 @@ This repository is licensed under MIT license. More info can be found [here](htt
 # [Contributing](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md)
 
 We welcome contributions and suggestions. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md).
+
