@@ -13,19 +13,33 @@ In this challenge you will create the topology described in this diagram:
 ![WVD Architecture](../Images/WVDArch.png)
 
 * Setup HUB virtual network that will consist of the following resources:
+
     * Virtual Network with four subnets
     * Two Domain Controllers
     * Azure Bastion service and NSG to secure Bastion
     * Deploy Virtual Network Gateway
 
-**NOTE:** The Hub virtual network and its components will deployed via script located in Resources folder
-
 * Setup a client VPN to your Hub virtual network
 * Build three virtual network spokes in each user region
+
     * Spokes should be peered with Hub and not with each other
     * Configure network security groups on subnets in spoke vnets
+
 * Enable network watcher for all user regions
 
+### Deploy HUB
+
+#### POWERSHELL
+
+```powershell
+New-AzSubscriptionDeployment -Location 'eastus' -TemplateUri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-02_Template.json' -Verbose
+```
+
+#### AZURE CLI
+
+```shell
+az deployment sub create --location 'eastus' --template-uri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-02_Template.json' --verbose
+```
 
 ## Success Criteria
 
