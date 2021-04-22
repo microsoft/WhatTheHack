@@ -26,8 +26,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  ***(See Table in Figure 1 below)***
 	- **Adjust** log backup volume size for storing log backups, and **adjust** relevant HANA parameters to use this volume for log backups.
 	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
-	- **Orchestrate** offloading of the required snapshots using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM.
-	- Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
+	- **Orchestrate** offloading of the required snapshots using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
 	- **Create** a security user "BACKUPTEST".
 	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
