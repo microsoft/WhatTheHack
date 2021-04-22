@@ -23,7 +23,7 @@ In this challenge, we will Azure Monitoring to unlock the monitoring capabilitie
 - Deploy Azure Monitor for SAP resource from Azure Portal.
 	- This should be done by searching "Azure Monitor for SAP" as a service under the search option on Azure Portal.
 - Create provider for SAP Netweaver  
-- Create & configure SAP HANA & Netweaver providers (the docs are your friend!).
+- Create & configure OS, SAP HANA, & Netweaver providers (the docs are your friend!).
  
 - Review availability of Monitoring stats in the Log Analytics workspace.
 	- Hint: Select the Log Workspace that was used while enabling VM Insights and attach it to Azure Monitor for SAP.
@@ -38,6 +38,6 @@ In this challenge, we will Azure Monitoring to unlock the monitoring capabilitie
 - Task1: Create a Log Analytics Workspace.
 - Task2: Deploy Azure Monitor for SAP.
 - Task3: Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.
-- Task4: Configure OS, SAP NetWeaver providers.
+- Task4: Configure OS, SAP HANA, & NetWeaver providers.
 - Task5: Check for Monitoring data in Log Analytics Workspace.
 - Task6: Use Kusto query to create custom dashboard.
