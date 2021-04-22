@@ -1,0 +1,11 @@
+[ClassVersion("1.0.1.0"), FriendlyName("ADDomainTrust")]
+class MSFT_ADDomainTrust : OMI_BaseResource
+{
+    [Write, Description("Specifies whether the computer account is present or absent. Default value is 'Present'."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Required, Description("Specifies the credentials to authenticate to the target domain."), EmbeddedInstance("MSFT_Credential")] String TargetCredential;
+    [Key, Description("Specifies the name of the Active Directory domain that is being trusted.")] String TargetDomainName;
+    [Required, Description("Specifies the type of trust. The value 'External' means the context Domain, while the value 'Forest' means the context 'Forest'."), ValueMap{"External","Forest"}, Values{"External","Forest"}] String TrustType;
+    [Required, Description("Specifies the direction of the trust."), ValueMap{"Bidirectional","Inbound","Outbound"}, Values{"Bidirectional","Inbound","Outbound"}] String TrustDirection;
+    [Key, Description("Specifies the name of the Active Directory domain that is requesting the trust.")] String SourceDomainName;
+    [Write, Description("Specifies if the is allowed to be recreated if required. Default value is $false.")] Boolean AllowTrustRecreation;
+};

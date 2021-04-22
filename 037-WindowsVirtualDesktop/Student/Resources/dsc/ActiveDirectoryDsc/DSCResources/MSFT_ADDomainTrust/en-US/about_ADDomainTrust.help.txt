@@ -1,0 +1,120 @@
+.NAME
+    ADDomainTrust
+
+.DESCRIPTION
+    The ADDomainTrust DSC resource will manage Domain Trusts within Active Directory. A trust is a relationship, which you establish between domains or forests. To understand more about trusts in Active Directory, please see the article [Forest Design Models](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/forest-design-models) for more information.
+
+    ## Requirements
+
+    * Target machine must be running Windows Server 2008 R2 or later.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Specifies whether the computer account is present or absent. Default value is 'Present'.
+
+.PARAMETER TargetCredential
+    Required - String
+    Specifies the credentials to authenticate to the target domain.
+
+.PARAMETER TargetDomainName
+    Key - String
+    Specifies the name of the Active Directory domain that is being trusted.
+
+.PARAMETER TrustType
+    Required - String
+    Allowed values: External, Forest
+    Specifies the type of trust. The value 'External' means the context Domain, while the value 'Forest' means the context 'Forest'.
+
+.PARAMETER TrustDirection
+    Required - String
+    Allowed values: Bidirectional, Inbound, Outbound
+    Specifies the direction of the trust.
+
+.PARAMETER SourceDomainName
+    Key - String
+    Specifies the name of the Active Directory domain that is requesting the trust.
+
+.PARAMETER AllowTrustRecreation
+    Write - Boolean
+    Specifies if the is allowed to be recreated if required. Default value is $false.
+
+.EXAMPLE 1
+
+This configuration will create a new one way inbound trust between two
+domains.
+
+Configuration ADDomainTrust_ExternalInboundTrust_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $SourceDomain,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $TargetDomain,
+
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.PSCredential]
+        $TargetDomainAdminCred
+    )
+
+    Import-DscResource -module ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADDomainTrust 'Trust'
+        {
+            Ensure           = 'Present'
+            SourceDomainName = $SourceDomain
+            TargetDomainName = $TargetDomain
+            TargetCredential = $TargetDomainAdminCred
+            TrustDirection   = 'Inbound'
+            TrustType        = 'External'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration will create a new one way inbound trust between two
+domains, and allows the trust to recreated if it should have the wrong
+trust type.
+
+Configuration ADDomainTrust_ExternalInboundTrustWithOptInToRecreate_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $SourceDomain,
+
+        [Parameter(Mandatory = $true)]
+        [System.String]
+        $TargetDomain,
+
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.PSCredential]
+        $TargetDomainAdminCred
+    )
+
+    Import-DscResource -module ActiveDirectoryDsc
+
+    node localhost
+    {
+        ADDomainTrust 'Trust'
+        {
+            Ensure               = 'Present'
+            SourceDomainName     = $SourceDomain
+            TargetDomainName     = $TargetDomain
+            TargetCredential     = $TargetDomainAdminCred
+            TrustDirection       = 'Inbound'
+            TrustType            = 'External'
+            AllowTrustRecreation = $true
+        }
+    }
+}
+
+

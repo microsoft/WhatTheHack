@@ -1,0 +1,51 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerSetting")]
+class MSFT_xDnsServerSetting : OMI_BaseResource
+{
+    [Key, Description("Key for the resource.  It doesn't matter what it is as long as it's unique within the configuration.")] String Name;
+    [Write, Description("Maximum number of host records returned in response to an address request. Values between 5 and 28 are valid.")] Uint32 AddressAnswerLimit;
+    [Write, Description("Specifies whether the DNS Server accepts dynamic update requests.")] Uint32 AllowUpdate;
+    [Write, Description("Indicates whether the DNS Server attempts to update its cache entries using data from root servers.")] Boolean AutoCacheUpdate;
+    [Write, Description("Indicates which standard primary zones that are authoritative for the name of the DNS Server must be updated when the name server changes.")] Uint32 AutoConfigFileZones;
+    [Write, Description("Determines the AXFR message format when sending to non-Microsoft DNS Server secondaries")] Boolean BindSecondaries;
+    [Write, Description("Initialization method for the DNS Server.")] Uint32 BootMethod;
+    [Write, Description("Default ScavengingInterval value set for all Active Directory-integrated zones created on this DNS Server.")] Boolean DefaultAgingState;
+    [Write, Description("No-refresh interval, in hours, set for all Active Directory-integrated zones created on this DNS Server.")] Uint32 DefaultNoRefreshInterval;
+    [Write, Description("Refresh interval, in hours, set for all Active Directory-integrated zones created on this DNS Server.")] Uint32 DefaultRefreshInterval;
+    [Write, Description("Indicates whether the DNS Server automatically creates standard reverse look up zones.")] Boolean DisableAutoReverseZones;
+    [Write, Description("Indicates whether the default port binding for a socket used to send queries to remote DNS Servers can be overridden.")] Boolean DisjointNets;
+    [Write, Description("Interval, in seconds, to poll the DS-integrated zones.")] Uint32 DsPollingInterval;
+    [Write, Description("Lifetime of tombstoned records in Directory Service integrated zones, expressed in seconds.")] Uint32 DsTombstoneInterval;
+    [Write, Description("Lifetime, in seconds, of the cached information describing the EDNS version supported by other DNS Servers.")] Uint32 EDnsCacheTimeout;
+    [Write, Description("Specifies whether support for application directory partitions is enabled on the DNS Server.")] Boolean EnableDirectoryPartitions;
+    [Write, Description("Specifies whether the DNS Server includes DNSSEC-specific RRs, KEY, SIG, and NXT in a response.")] Uint32 EnableDnsSec;
+    [Write, Description("Specifies the behavior of the DNS Server. When TRUE, the DNS Server always responds with OPT resource records according to RFC 2671, unless the remote server has indicated it does not support EDNS in a prior exchange. If FALSE, the DNS Server responds to queries with OPTs only if OPTs are sent in the original query.")] Boolean EnableEDnsProbes;
+    [Write, Description("Indicates which events the DNS Server records in the Event Viewer system log.")] Uint32 EventLogLevel;
+    [Write, Description("Specifies whether queries to delegated sub-zones are forwarded.")] Uint32 ForwardDelegations;
+    [Write, Description("Enumerates the list of IP addresses of Forwarders to which the DNS Server forwards queries.")] String Forwarders[];
+    [Write, Description("Time, in seconds, a DNS Server forwarding a query will wait for resolution from the forwarder before attempting to resolve the query itself.")] Uint32 ForwardingTimeout;
+    [Write, Description("TRUE if the DNS server does not use recursion when name-resolution through forwarders fails.")] Boolean IsSlave;
+    [Write, Description("Enumerates the list of IP addresses on which the DNS Server can receive queries.")] String ListenAddresses[];
+    [Write, Description("Indicates whether the DNS Server gives priority to the local net address when returning A records.")] Boolean LocalNetPriority;
+    [Write, Description("Size of the DNS Server debug log, in bytes.")] Uint32 LogFileMaxSize;
+    [Write, Description("File name and path for the DNS Server debug log.")] String LogFilePath;
+    [Write, Description("List of IP addresses used to filter DNS events written to the debug log.")] String LogIPFilterList[];
+    [Write, Description("Indicates which policies are activated in the Event Viewer system log.")] Uint32 LogLevel;
+    [Write, Description("Indicates whether the DNS Server performs loose wildcarding.")] Boolean LooseWildcarding;
+    [Write, Description("Maximum time, in seconds, the record of a recursive name query may remain in the DNS Server cache.")] Uint32 MaxCacheTTL;
+    [Write, Description("Maximum time, in seconds, a name error result from a recursive query may remain in the DNS Server cache.")] Uint32 MaxNegativeCacheTTL;
+    [Write, Description("Indicates the set of eligible characters to be used in DNS names.")] Uint32 NameCheckFlag;
+    [Write, Description("Indicates whether the DNS Server performs recursive look ups. TRUE indicates recursive look ups are not performed.")] Boolean NoRecursion;
+    [Write, Description("Elapsed seconds before retrying a recursive look up.")] Uint32 RecursionRetry;
+    [Write, Description("Elapsed seconds before the DNS Server gives up recursive query.")] Uint32 RecursionTimeout;
+    [Write, Description("Indicates whether the DNS Server round robins multiple A records.")] Boolean RoundRobin;
+    [Write, Description("RPC protocol or protocols over which administrative RPC runs.")] Sint16 RpcProtocol;
+    [Write, Description("Interval, in hours, between two consecutive scavenging operations performed by the DNS Server.")] Uint32 ScavengingInterval;
+    [Write, Description("Indicates whether the DNS Server exclusively saves records of names in the same subtree as the server that provided them.")] Boolean SecureResponses;
+    [Write, Description("Port on which the DNS Server sends UDP queries to other servers.")] Uint32 SendPort;
+    [Write, Description("Indicates whether the DNS Server parses zone files strictly.")] Boolean StrictFileParsing;
+    [Write, Description("Restricts the type of records that can be dynamically updated on the server, used in addition to the AllowUpdate settings on Server and Zone objects.")] Uint32 UpdateOptions;
+    [Write, Description("Specifies whether the DNS Server writes NS and SOA records to the authority section on successful response.")] Boolean WriteAuthorityNS;
+    [Write, Description("Time, in seconds, the DNS Server waits for a successful TCP connection to a remote server when attempting a zone transfer.")] Uint32 XfrConnectTimeout;
+    [Read, Description("Indicates whether there is an available DS on the DNS Server.")] Boolean DsAvailable;
+};

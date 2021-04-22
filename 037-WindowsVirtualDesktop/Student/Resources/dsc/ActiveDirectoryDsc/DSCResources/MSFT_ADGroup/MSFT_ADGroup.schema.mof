@@ -1,0 +1,21 @@
+[ClassVersion("1.0.1.0"), FriendlyName("ADGroup")]
+class MSFT_ADGroup : OMI_BaseResource
+{
+    [Key, Description("Name of the Active Directory group.")] String GroupName;
+    [Write, Description("Active Directory group scope. Default value is 'Global'."), ValueMap{"DomainLocal","Global","Universal"}, Values{"DomainLocal","Global","Universal"}] String GroupScope;
+    [Write, Description("Active Directory group category. Default value is 'Security'."), ValueMap{"Security","Distribution"}, Values{"Security","Distribution"}] String Category;
+    [Write, Description("Location of the group within Active Directory expressed as a Distinguished Name.")] String Path;
+    [Write, Description("Specifies if this Active Directory group should be present or absent. Default value is 'Present'."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Write, Description("Description of the Active Directory group.")] String Description;
+    [Write, Description("Display name of the Active Directory group.")] String DisplayName;
+    [Write, Description("Credentials used to enact the change upon."), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Write, Description("Active Directory domain controller to enact the change upon.")] String DomainController;
+    [Write, Description("Active Directory group membership should match membership exactly.")] String Members[];
+    [Write, Description("Active Directory group should include these members.")] String MembersToInclude[];
+    [Write, Description("Active Directory group should NOT include these members.")] String MembersToExclude[];
+    [Write, Description("Active Directory attribute used to perform membership operations. Default value is 'SamAccountName'."), ValueMap{"SamAccountName","DistinguishedName","ObjectGUID","SID"}, Values{"SamAccountName","DistinguishedName","ObjectGUID","SID"}] String MembershipAttribute;
+    [Write, Description("Active Directory managed by attribute specified as a DistinguishedName.")] String ManagedBy;
+    [Write, Description("Active Directory group notes field.")] String Notes;
+    [Write, Description("Try to restore the group from the recycle bin before creating a new one.")] Boolean RestoreFromRecycleBin;
+    [Read, Description("Returns the distinguished name of the Active Directory group.")] String DistinguishedName;
+};

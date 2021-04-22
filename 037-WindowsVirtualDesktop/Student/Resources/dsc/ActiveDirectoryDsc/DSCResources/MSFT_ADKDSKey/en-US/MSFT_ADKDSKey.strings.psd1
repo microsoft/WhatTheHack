@@ -1,0 +1,25 @@
+
+# culture='en-US'
+ConvertFrom-StringData @'
+    RetrievingKDSRootKey               = Retrieving KDS Root Key with effective date of '{0}'. (KDSK0001)
+    RetrievingKDSRootKeyError          = There was an error retrieving the KDS Root Key with effective date of '{0}'. (KDSK0002)
+    AddingKDSRootKey                   = Creating KDS Root Key with the effective date of '{0}'. (KDSK0003)
+    AddingKDSRootKeyDateInPast         = Effective date is in the past and the 'AllowUnsafeEffectiveTime' is set to Enabled. Adding KDS Root Key with the effective date of '{0}', overriding 10 hour safety measure for domain controller replication. (KDSK0004)
+    AddingKDSRootKeyError              = Effective date of '{0}' is in the past and 'AllowUnsafeEffectiveTime' was not specified so the KDS Root Key will NOT be created. (KDSK0005)
+    KDSRootKeyAddError                 = There was an error when trying to Add the KDS Root Key with the effective date of '{0}'. (KDSK0006)
+    KDSRootKeyRemoveError              = There was an error when trying to Remove the KDS Root Key with the effective date of '{0}'. (KDSK0007)
+    FoundKDSRootKeySameEffectiveTime   = Found more than one KDS Root Keys with the same effective time, please ensure that only one KDS key exists with the effective time of '{0}'. (KDSK0008)
+    FoundKDSRootKeyMultiple            = Found more than one KDS Root Keys. This shouldn't be an issue, but having only one key per domain is recommended. (KDSK0009)
+    FoundKDSRootKey                    = Found KDS Root Key with the effective date of '{0}'. (KDSK0010)
+    NotEnoughKDSRootKeysPresent        = The KDS Root Key with effective date of '{0}' is the only key that exists. Please ensure a key exists if there are existing 'Group Managed Service Accounts (gMSAs)' present. (KDSK0011)
+    NotEnoughKDSRootKeysPresentNoForce = There is only one KDS Root Key left and the 'ForceRemove' parameter no set; therefore, the KDS Root Key with effective date of '{0}' will not be removed. (KDSK0012)
+    RemovingKDSRootKey                 = Removing the KDS Root Key with effective date '{0}'. (KDSK0013)
+    KDSRootKeyNotInDesiredState        = KDS Root Key with the effective date of '{0}' is NOT in the desired state. (KDSK0014)
+    KDSRootKeyInDesiredState           = KDS Root Key with the effective date of '{0}' is in the desired state. (KDSK0015)
+    NotDesiredPropertyState            = The parameter of '{0}' for the KDS Root Key with the effective date of '{1}' is incorrect. Expected '{2}', actual '{3}'. (KDSK0016)
+    IncorrectPermissions               = The DSC resource is running under the context of '{0}' and doesn't have 'Domain Admin' permissions. This resource needs to run as a Domain Admin or on a Domain Controller. (KDSK0017)
+    EffectiveTimeInvalid               = The EffectiveTime of '{0}' is invalid. Please ensure that the date and time is parsable using DateTime. (KDSK0018)
+    CheckingDomainAdminUserRights      = Checking if the user '{0}' has valid Domain Admin permissions. (KDSK0019)
+    CheckingDomainAdminComputerRights  = Checking if the node '{0}' is a Domain Controller. The node has a product type of '{1}'. If the product type is 2, then it is a domain controller. (KDSK0020)
+    RetrievedRootDomainDN              = Retrieved the root domain distinguished name of '{0}'. (KDSK0021)
+'@

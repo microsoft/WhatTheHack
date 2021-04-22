@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADReplicationSite")]
+class MSFT_ADReplicationSite : OMI_BaseResource
+{
+    [Write, Description("Specifies if the Active Directory replication site should be present or absent. Default value is 'Present'."), ValueMap{"Present", "Absent"}, Values{"Present", "Absent"}] String Ensure;
+    [Key, Description("Specifies the name of the Active Directory replication site.")] String Name;
+    [Write, Description("Specifies if the Default-First-Site-Name should be renamed if it exists. Default value is $false.")] Boolean RenameDefaultFirstSiteName;
+    [Write, Description("Specifies a description of the object. This parameter sets the value of the Description property for the object. The LDAP Display Name (ldapDisplayName) for this property is 'description'.")] String Description;
+};

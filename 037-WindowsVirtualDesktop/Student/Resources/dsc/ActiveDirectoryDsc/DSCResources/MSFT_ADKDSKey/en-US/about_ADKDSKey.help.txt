@@ -1,0 +1,104 @@
+.NAME
+    ADKDSKey
+
+.DESCRIPTION
+    The ADKDSKey DSC resource will manage KDS Root Keys within Active Directory. The KDS root keys are used to begin generating Group Managed Service Account (gMSA) passwords.
+
+    ## Requirements
+
+    * Target machine must be running Windows Server 2008 R2 or later.
+
+.PARAMETER EffectiveTime
+    Key - String
+    Specifies the Effective time when a KDS root key can be used. There is a 10 hour minimum from creation date to allow active directory to properly replicate across all domain controllers. For this reason, the date must be set in the future for creation. While this parameter accepts a string, it will be converted into a DateTime object. This will also try to take into account cultural settings. Example: '05/01/1999 13:00 using default or 'en-US' culture would be May 1st, but using 'de-DE' culture would be 5th of January. The culture is automatically pulled from the operating system and this can be checked using 'Get-Culture'.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Specifies if this KDS Root Key should be present or absent. Default value is 'Present'.
+
+.PARAMETER AllowUnsafeEffectiveTime
+    Write - Boolean
+    This option will allow you to create a KDS root key if EffectiveTime is set in the past. This may cause issues if you are creating a Group Managed Service Account right after you create the KDS Root Key. In order to get around this, you must create the KDS Root Key using a date in the past. This should be used at your own risk and should only be used in lab environments.
+
+.PARAMETER ForceRemove
+    Write - Boolean
+    This option will allow you to remove a KDS root key if there is only one key left. It should not break your Group Managed Service Accounts (gMSA), but if the gMSA password expires and it needs to request a new password, it will not be able to generate a new password until a new KDS Root Key is installed and ready for use. Because of this, the last KDS Root Key will not be removed unless this option is specified.
+
+.PARAMETER DistinguishedName
+    Read - String
+    Returns the Distinguished Name (DN) of the KDS root key. The KDS Root Key is stored in 'CN=Master Root Keys,CN=Group Key Distribution Service,CN=Services,CN=Configuration' at the Forest level. This is also why replication needs 10 hours to occur before using the KDS Root Key as a safety measure.
+
+.PARAMETER CreationTime
+    Read - DateTime
+    Returns the Creation date and time of the KDS root key for informational purposes.
+
+.PARAMETER KeyId
+    Read - String
+    Returns the KeyID of the KDS root key. This is the Common Name (CN) within Active Directory and is required to build the Distinguished Name.
+
+.EXAMPLE 1
+
+This configuration will create a KDS root key. If the date is set to a time
+slightly ahead in the future, the key won't be usable for at least 10 hours
+from the creation time.
+
+Configuration ADKDSKey_CreateKDSRootKey_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADKDSKey 'ExampleKDSRootKey'
+        {
+            Ensure        = 'Present'
+            EffectiveTime = '1/1/2030 13:00'
+            # Date must be set to at time in the future
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration will create a KDS root key in the past. This will allow
+the key to be used right away, but if all the domain controllers haven't
+replicated yet, there may be issues when retrieving the gMSA password.
+Use with caution
+
+Configuration ADKDSKey_CreateKDSRootKeyInPast_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADKDSKey 'ExampleKDSRootKeyInPast'
+        {
+            Ensure                   = 'Present'
+            EffectiveTime            = '1/1/1999 13:00'
+            AllowUnsafeEffectiveTime = $true # Use with caution
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This configuration will remove the last KDS root key. Use with caution.
+If gMSAs are installed on the network, they will not be able to reset
+their passwords and it may cause services to fail.
+
+Configuration ADKDSKey_CreateKDSRootKeyRemoveLastKey_Config
+{
+    Import-DscResource -Module ActiveDirectoryDsc
+
+    Node localhost
+    {
+        ADKDSKey 'ExampleKDSRootKeyForceRemove'
+        {
+            Ensure        = 'Absent'
+            EffectiveTime = '1/1/2030 13:00'
+            ForceRemove   = $true # This will allow you to remove the key if it's the last one
+        }
+    }
+}
+
+

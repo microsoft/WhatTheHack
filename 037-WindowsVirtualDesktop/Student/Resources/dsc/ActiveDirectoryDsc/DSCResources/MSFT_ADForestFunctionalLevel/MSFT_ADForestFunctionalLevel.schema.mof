@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADForestFunctionalLevel")]
+class MSFT_ADForestFunctionalLevel : OMI_BaseResource
+{
+    [Key, Description("Specifies the Active Directory forest to modify. You can identify a forest by its fully qualified domain name (FQDN), GUID, DNS host name, or NetBIOS name.")] String ForestIdentity;
+    [Required, Description("Specifies the the functional level for the Active Directory forest."), ValueMap{"Windows2008R2Forest", "Windows2012Forest", "Windows2012R2Forest", "Windows2016Forest"}, Values{"Windows2008R2Forest", "Windows2012Forest", "Windows2012R2Forest", "Windows2016Forest"}] String ForestMode;
+};

@@ -1,0 +1,23 @@
+[ClassVersion("1.0.0"),FriendlyName("MsiPackage")] 
+class MSFT_MsiPackage : OMI_BaseResource
+{
+  [Key, Description("The identifying number used to find the package, usually a GUID.")] String ProductId;
+  [Required, Description("The path to the MSI file that should be installed or uninstalled.")] String Path;
+  [Write, Description("Specifies whether or not the MSI file should be installed or uninstalled."), ValueMap{"Present", "Absent"}, Values{"Present", "Absent"}] String Ensure;
+  [Write, Description("The arguments to be passed to the MSI package during installation or uninstallation.")] String Arguments;
+  [Write, Description("The credential of a user account to be used to mount a UNC path if needed."), EmbeddedInstance("MSFT_Credential")] String Credential;
+  [Write, Description("The path to the log file to log the output from the MSI execution.")] String LogPath;
+  [Write, Description("The expected hash value of the MSI file at the given path.")] String FileHash;
+  [Write, Description("The algorithm used to generate the given hash value."), ValueMap{"SHA1", "SHA256", "SHA384", "SHA512", "MD5", "RIPEMD160"}, Values{"SHA1", "SHA256", "SHA384", "SHA512", "MD5", "RIPEMD160"}] String HashAlgorithm;
+  [Write, Description("The subject that should match the signer certificate of the digital signature of the MSI file.")] String SignerSubject;
+  [Write, Description("The certificate thumbprint that should match the signer certificate of the digital signature of the MSI file.")] String SignerThumbprint;
+  [Write, Description("PowerShell code that should be used to validate SSL certificates for paths using HTTPS.")] String ServerCertificateValidationCallback;
+  [Write, Description("The credential of a user account under which to run the installation or uninstallation of the MSI package."), EmbeddedInstance("MSFT_Credential")] String RunAsCredential;
+  [Read, Description("The display name of the MSI package.")] String Name;
+  [Read, Description("The path to the MSI package.")] String InstallSource;
+  [Read, Description("The date that the MSI package was installed on or serviced on, whichever is later.")] String InstalledOn;
+  [Read, Description("The size of the MSI package in MB.")] UInt32 Size;
+  [Read, Description("The version number of the MSI package.")] String Version;
+  [Read, Description("The description of the MSI package.")] String PackageDescription;
+  [Read, Description("The publisher of the MSI package.")] String Publisher;
+};

@@ -1,0 +1,9 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerSecondaryZone")]
+class MSFT_xDnsServerSecondaryZone : OMI_BaseResource
+{
+    [Key, Description("Name of the secondary zone")] String Name;
+    [Required, Description("IP address or DNS name of the secondary DNS servers")] String MasterServers[];
+    [Write, Description("Should this resource be present or absent"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Read, Description("Type of the DNS server zone")] String Type;
+};
+

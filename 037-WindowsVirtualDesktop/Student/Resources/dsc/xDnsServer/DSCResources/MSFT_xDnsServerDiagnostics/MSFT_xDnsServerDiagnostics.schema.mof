@@ -1,0 +1,34 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerDiagnostics")]
+class MSFT_xDnsServerDiagnostics : OMI_BaseResource
+{
+    [Key, Description("Key for the resource.  It doesn't matter what it is as long as it's unique within the configuration.")] String Name;
+    [Write, Description("Specifies whether to enable the logging of DNS responses.")] Boolean Answers;
+    [Write, Description("Specifies whether to enable log file rollover.")] Boolean EnableLogFileRollover;
+    [Write, Description("Specifies whether the DNS server logs local lookup events.")] Boolean EnableLoggingForLocalLookupEvent;
+    [Write, Description("Specifies whether the DNS server logs dynamic link library (DLL) plug-in events.")] Boolean EnableLoggingForPluginDllEvent;
+    [Write, Description("Specifies whether the DNS server logs recursive lookup events.")] Boolean EnableLoggingForRecursiveLookupEvent;
+    [Write, Description("Specifies whether the DNS server logs remote server events.")] Boolean EnableLoggingForRemoteServerEvent;
+    [Write, Description("Specifies whether the DNS server logs server start and stop events.")] Boolean EnableLoggingForServerStartStopEvent;
+    [Write, Description("Specifies whether the DNS server logs tombstone events.")] Boolean EnableLoggingForTombstoneEvent;
+    [Write, Description("Specifies Controls whether the DNS server logs zone data write events.")] Boolean EnableLoggingForZoneDataWriteEvent;
+    [Write, Description("Specifies whether the DNS server logs zone load events.")] Boolean EnableLoggingForZoneLoadingEvent;
+    [Write, Description("Specifies whether the DNS server logs logging-to-file.")] Boolean EnableLoggingToFile;
+    [Write, Description("Specifies an event log level. Valid values are Warning, Error, and None.")] Uint32 EventLogLevel;
+    [Write, Description("Specifies an array of IP addresses to filter. When you enable logging, traffic to and from these IP addresses is logged. If you do not specify any IP addresses, traffic to and from all IP addresses is logged.")] String FilterIPAddressList[];
+    [Write, Description("Specifies whether the DNS server logs full packets.")] Boolean FullPackets;
+    [Write, Description("Specifies a log file path.")] String LogFilePath;
+    [Write, Description("Specifies the maximum size of the log file. This parameter is relevant if you set EnableLogFileRollover and EnableLoggingToFile to $True.")] Uint32 MaxMBFileSize;
+    [Write, Description("Specifies whether the DNS server logs notifications.")] Boolean Notifications;
+    [Write, Description("Specifies whether the DNS server allows query packet exchanges to pass through the content filter, such as the IPFilterList parameter.")] Boolean Queries;
+    [Write, Description("Specifies whether the DNS server logs queries.")] Boolean QuestionTransactions;
+    [Write, Description("Specifies whether the DNS server logs receive packets.")] Boolean ReceivePackets;
+    [Write, Description("Specifies whether the DNS server saves logs to persistent storage.")] Boolean SaveLogsToPersistentStorage;
+    [Write, Description("Specifies whether the DNS server logs send packets.")] Boolean SendPackets;
+    [Write, Description("Specifies whether the DNS server logs TCP packets.")] Boolean TcpPackets;
+    [Write, Description("Specifies whether the DNS server logs UDP packets.")] Boolean UdpPackets;
+    [Write, Description("Specifies whether the DNS server logs unmatched responses.")] Boolean UnmatchedResponse;
+    [Write, Description("Specifies whether the DNS server logs updates.")] Boolean Update;
+    [Write, Description("Specifies whether the DNS server uses the system event log for logging.")] Boolean UseSystemEventLog;
+    [Write, Description("Specifies whether the DNS server logs write-throughs.")] Boolean WriteThrough;
+};

@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerZoneAging")]
+class MSFT_xDnsServerZoneAging : OMI_BaseResource
+{
+    [Key, Description("Name of the DNS forward or reverse loookup zone.")] String Name;
+    [Required, Description("Option to enable scavenge stale resource records on the zone.")] Boolean Enabled;
+    [Write, Description("Refresh interval for record scavencing in hours. Default value is 7 days.")] UInt32 RefreshInterval;
+    [Write, Description("No-refresh interval for record scavencing in hours. Default value is 7 days.")] UInt32 NoRefreshInterval;
+};

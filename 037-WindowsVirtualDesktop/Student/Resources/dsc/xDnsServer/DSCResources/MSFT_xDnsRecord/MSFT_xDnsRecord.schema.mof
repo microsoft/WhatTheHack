@@ -1,0 +1,11 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsRecord")]
+class MSFT_xDnsRecord : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of the DNS server resource record object.")] string Name;
+    [Key, Description("Specifies the name of a DNS zone.")] string Zone;
+    [Required, Description("Specifies the type of DNS record."), ValueMap{"ARecord","CName","Ptr"}, Values{"ARecord","CName","Ptr"}] string Type;
+    [Key, Description("Specifies the Target Hostname or IP Address.")] string Target;
+    [Write, Description("Name of the DnsServer to create the record on.")] string DnsServer;
+    [Write, Description("Should this DNS resource record be present or absent"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};
+

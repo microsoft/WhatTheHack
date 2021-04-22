@@ -1,0 +1,11 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerADZone")]
+class MSFT_xDnsServerADZone : OMI_BaseResource
+{
+    [Key, Description("DNS Server zone name")] String Name;
+    [Write, Description("Dynamic zone update option"), ValueMap{"None","NonsecureAndSecure","Secure"}, Values{"None","NonsecureAndSecure","Secure"}] String DynamicUpdate;
+    [Required, Description("Replication scope option"), ValueMap{"Custom","Domain","Forest","Legacy"}, Values{"Custom","Domain","Forest","Legacy"}] String ReplicationScope;
+    [Write, Description("Directory partition name")] String DirectoryPartitionName;
+    [Write, Description("DNS Server name")] String ComputerName;
+    [Write, Description("Credential used to set zone"), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Write, Description("Whether the DNS zone should be available or removed"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};

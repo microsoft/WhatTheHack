@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0"), FriendlyName("xDnsServerRootHint")]
+class MSFT_xDnsServerRootHint :  OMI_BaseResource
+{
+    [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'"), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+    [Required, EmbeddedInstance("MSFT_KeyValuePair")] String NameServer[];
+};

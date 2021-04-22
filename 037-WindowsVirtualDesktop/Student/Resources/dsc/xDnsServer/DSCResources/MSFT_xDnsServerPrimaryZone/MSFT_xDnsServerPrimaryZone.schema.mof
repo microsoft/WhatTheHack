@@ -1,0 +1,10 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xDnsServerPrimaryZone")]
+class MSFT_xDnsServerPrimaryZone : OMI_BaseResource
+{
+    [Key, Description("DNS Server primary zone name")] String Name;
+    [Write, Description("DNS Server primary zone file")] String ZoneFile;
+    [Write, Description("Dynamic zone update option"), ValueMap{"None","NonsecureAndSecure"}, Values{"None","NonsecureAndSecure"}] String DynamicUpdate;
+    [Write, Description("Whether the DNS zone should be available or removed"), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};
+
+

@@ -1,0 +1,15 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("ADReplicationSiteLink")]
+class MSFT_ADReplicationSiteLink : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of the site link.")] String Name;
+    [Write, Description("Specifies the cost to be placed on the site link.")] SInt32 Cost;
+    [Write, Description("This parameter sets the value of the Description property for the object.")] String Description;
+    [Write, Description("Species the frequency (in minutes) for which replication will occur where this site link is in use between sites.")] Sint32 ReplicationFrequencyInMinutes;
+    [Write, Description("Specifies the list of sites included in the site link.")] String SitesIncluded[];
+    [Write, Description("Specifies the list of sites to exclude from the site link.")] String SitesExcluded[];
+    [Write, Description("Specifies if the site link should be present or absent. Default value is 'Present'."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Write, Description("Enables or disables Change Notification Replication on a site link. Default value is $false.")] Boolean OptionChangeNotification;
+    [Write, Description("Enables or disables Two Way Sync on a site link. Default value is $false.")] Boolean OptionTwoWaySync;
+    [Write, Description("Enables or disables Compression on a site link. Default value is $false.")] Boolean OptionDisableCompression;
+};

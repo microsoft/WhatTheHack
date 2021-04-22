@@ -1,0 +1,23 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADComputer")]
+class MSFT_ADComputer : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of the Active Directory computer account to manage. You can identify a computer by its distinguished name, GUID, security identifier (SID) or Security Accounts Manager (SAM) account name.")] String ComputerName;
+    [Write, Description("Specifies the location of the computer, such as an office number.")] String Location;
+    [Write, Description("Specifies the fully qualified domain name (FQDN) of the computer account.")] String DnsHostName;
+    [Write, Description("Specifies the service principal names for the computer account.")] String ServicePrincipalNames[];
+    [Write, Description("Specifies the User Principal Name (UPN) assigned to the computer account.")] String UserPrincipalName;
+    [Write, Description("Specifies the display name of the computer account.")] String DisplayName;
+    [Write, Description("Specifies the X.500 path of the Organizational Unit (OU) or container where the computer is located.")] String Path;
+    [Write, Description("Specifies a description of the computer account.")] String Description;
+    [Write, Description("Specifies the user or group Distinguished Name that manages the computer account. Valid values are the user's or group's DistinguishedName, ObjectGUID, SID or SamAccountName.")] String Manager;
+    [Write, Description("Specifies the Active Directory Domain Services instance to connect to perform the task.")] String DomainController;
+    [Write, Description("Specifies the user account credentials to use to perform the task."), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Write, Description("Specifies the full path to the Offline Domain Join Request file to create.")] String RequestFile;
+    [Write, Description("Specifies whether the computer account is present or absent. Default value is 'Present'."), ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] String Ensure;
+    [Write, Description("Try to restore the computer account from the recycle bin before creating a new one.")] Boolean RestoreFromRecycleBin;
+    [Write, Description("Specifies if the computer account is created enabled or disabled. By default the Enabled property of the computer account will be set to the default value of the cmdlet New-ADComputer. This property is ignored if the parameter RequestFile is specified in the same configuration. This parameter does not enforce the property Enabled. To enforce the property Enabled see the resource ADObjectEnabledState.")] Boolean EnabledOnCreation;
+    [Read, Description("Returns the X.500 path of the computer object.")] String DistinguishedName;
+    [Read, Description("Returns the security identifier of the computer object.")] String SID;
+    [Read, Description("Returns the security identifier of the computer object.")] String SamAccountName;
+    [Read, Description("Returns $true if the computer object is enabled, otherwise it returns $false.")] Boolean Enabled;
+};

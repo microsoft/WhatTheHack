@@ -1,0 +1,18 @@
+[ClassVersion("1.0.1.0"), FriendlyName("ADDomain")]
+class MSFT_ADDomain : OMI_BaseResource
+{
+    [Key, Description("The fully qualified domain name (FQDN) of a new domain. If setting up a child domain this must be set to a single-label DNS name.")] String DomainName;
+    [Required, Description("Specifies the user name and password that corresponds to the account used to install the domain controller. When adding a child domain these credentials need the correct permission in the parent domain. The credentials will also be used to query for the existence of the domain or child domain. This will not be created as a user in the new domain. The domain administrator password will be the same as the password of the local Administrator of this node."), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Required, Description("Password for the administrator account when the computer is started in Safe Mode."), EmbeddedInstance("MSFT_Credential")] String SafeModeAdministratorPassword;
+    [Write, Description("Fully qualified domain name (FQDN) of the parent domain.")] String ParentDomainName;
+    [Write, Description("NetBIOS name for the new domain.")] String DomainNetBiosName;
+    [Write, Description("Credential used for creating DNS delegation."), EmbeddedInstance("MSFT_Credential")] String DnsDelegationCredential;
+    [Write, Description("Path to a directory that contains the domain database.")] String DatabasePath;
+    [Write, Description("Path to a directory for the log file that will be written.")] String LogPath;
+    [Write, Description("Path to a directory where the Sysvol file will be written.")] String SysvolPath;
+    [Write, Description("The Forest Functional Level for the entire forest."), ValueMap{"Win2008", "Win2008R2", "Win2012", "Win2012R2", "WinThreshold"}, Values{"Win2008", "Win2008R2", "Win2012", "Win2012R2", "WinThreshold"}] String ForestMode;
+    [Write, Description("The Domain Functional Level for the entire domain."), ValueMap{"Win2008", "Win2008R2", "Win2012", "Win2012R2", "WinThreshold"}, Values{"Win2008", "Win2008R2", "Win2012", "Win2012R2", "WinThreshold"}] String DomainMode;
+    [Read, Description("Returns $true if the domain is available, or $false if the domain could not be found.")] Boolean DomainExist;
+    [Read, Description("Returns the fully qualified domain name (FQDN) DNS root of the domain.")] String DnsRoot;
+    [Read, Description("Returns the fully qualified domain name (FQDN) of the forest.")] String Forest;
+};

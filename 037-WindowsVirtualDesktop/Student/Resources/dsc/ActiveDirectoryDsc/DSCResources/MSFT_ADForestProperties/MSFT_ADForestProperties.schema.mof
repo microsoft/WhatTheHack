@@ -1,0 +1,12 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADForestProperties")]
+class MSFT_ADForestProperties : OMI_BaseResource
+{
+    [Write, Description("Specifies the user account credentials to use to perform this task."), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Key, Description("Specifies the target Active Directory forest for the change.")] String ForestName;
+    [Write, Description("Specifies the Service Principal Name (SPN) Suffix(es) to be explicitly defined in the forest and replace existing Service Principal Names. Cannot be used with ServicePrincipalNameSuffixToAdd or ServicePrincipalNameSuffixToRemove.")] String ServicePrincipalNameSuffix[];
+    [Write, Description("Specifies the Service Principal Name (SPN) Suffix(es) to be added to the forest. Cannot be used with ServicePrincipalNameSuffix.")] String ServicePrincipalNameSuffixToAdd[];
+    [Write, Description("Specifies the Service Principal Name (SPN) Suffix(es) to be removed from the forest. Cannot be used with ServicePrincipalNameSuffix.")] String ServicePrincipalNameSuffixToRemove[];
+    [Write, Description("Specifies the User Principal Name (UPN) Suffix(es) to be explicitly defined in the forest and replace existing User Principal Names. Cannot be used with UserPrincipalNameSuffixToAdd or UserPrincipalNameSuffixToRemove.")] String UserPrincipalNameSuffix[];
+    [Write, Description("Specifies the User Principal Name (UPN) Suffix(es) to be added to the forest. Cannot be used with UserPrincipalNameSuffix.")] String UserPrincipalNameSuffixToAdd[];
+    [Write, Description("Specifies the User Principal Name (UPN) Suffix(es) to be removed from the forest. Cannot be used with UserPrincipalNameSuffix.")] String UserPrincipalNameSuffixToRemove[];
+};

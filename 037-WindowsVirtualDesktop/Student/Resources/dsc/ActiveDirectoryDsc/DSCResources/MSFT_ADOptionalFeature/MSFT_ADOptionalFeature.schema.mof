@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("ADOptionalFeature")]
+class MSFT_ADOptionalFeature : OMI_BaseResource
+{
+    [Key, Description("Specifies the target Active Directory forest for the change.")] String ForestFQDN;
+    [Key, Description("Specifies the feature to be activated")] String FeatureName;
+    [Required, EmbeddedInstance("MSFT_Credential"), Description("Specifies the user account credentials to use to perform this task.")] String EnterpriseAdministratorCredential;
+    [Read, Description("Shows the current state of the feature i.e. enabled or not")] Boolean Enabled;
+};

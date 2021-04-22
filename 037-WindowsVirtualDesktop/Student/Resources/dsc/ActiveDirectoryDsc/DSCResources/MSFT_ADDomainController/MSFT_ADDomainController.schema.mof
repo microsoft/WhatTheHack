@@ -1,0 +1,19 @@
+[ClassVersion("1.0.1.0"), FriendlyName("ADDomainController")]
+class MSFT_ADDomainController : OMI_BaseResource
+{
+    [Key, Description("The fully qualified domain name (FQDN) of the domain the Domain Controller will be joining.")] String DomainName;
+    [Required, Description("The credentials (as a 'PSCredential' object) of a user that has Domain Administrator rights to add the Domain Controller to the domain."), EmbeddedInstance("MSFT_Credential")] String Credential;
+    [Required, Description("The 'PSCredential' object containing the password to use for Directory Services Restore Mode (DSRM)."), EmbeddedInstance("MSFT_Credential")] String SafemodeAdministratorPassword;
+    [Write, Description("The path where the database will be stored.")] String DatabasePath;
+    [Write, Description("The path where the logs will be stored.")] String LogPath;
+    [Write, Description("The path where the Sysvol will be stored.")] String SysvolPath;
+    [Write, Description("The name of the site this Domain Controller will be added to.")] String SiteName;
+    [Write, Description("The path of the media you want to use install the Domain Controller.")] String InstallationMediaPath;
+    [Write, Description("Specifies if the domain controller will be a Global Catalog (GC).")] Boolean IsGlobalCatalog;
+    [Read, Description("Returns the state of the Domain Controller.")] String Ensure;
+    [Write, Description("Indicates that the cmdlet installs the domain controller as an Read-Only Domain Controller (RODC) for an existing domain.")] Boolean ReadOnlyReplica;
+    [Write, Description("Specifies an array of names of user accounts, group accounts, and computer accounts whose passwords can be replicated to this Read-Only Domain Controller (RODC).")] String AllowPasswordReplicationAccountName[];
+    [Write, Description("Specifies the names of user accounts, group accounts, and computer accounts whose passwords are not to be replicated to this Read-Only Domain Controller (RODC).")] String DenyPasswordReplicationAccountName[];
+    [Write, Description("Specifies one or more Flexible Single Master Operation (FSMO) roles to move to this domain controller. The current owner must be online and responding for the move to be allowed."), ValueMap{"DomainNamingMaster", "SchemaMaster", "InfrastructureMaster", "PDCEmulator", "RIDMaster"}, Values{"DomainNamingMaster", "SchemaMaster", "InfrastructureMaster", "PDCEmulator", "RIDMaster"}] String FlexibleSingleMasterOperationRole[];
+    [Write, Description("Specifies if the DNS Server service should be installed and configured on the Domain Controller. If this is not set the default value of the parameter `InstallDns` of the cmdlet Install-ADDSDomainController is used. This parameter is only used during the provisioning of a domain controller. The parameter cannot be used to install or uninstall the DNS server on an already provisioned domain controller.")] Boolean InstallDns;
+};

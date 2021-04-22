@@ -1,0 +1,7 @@
+[ClassVersion("1.0.0"), FriendlyName("xDnsServerForwarder")]
+class MSFT_xDnsServerForwarder :  OMI_BaseResource
+{
+    [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'"), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+    [Write] String IPAddresses[];
+    [Write, Description("Validate if you want to use root hint on DNS Server.")] Boolean UseRootHint;
+};

@@ -1,0 +1,22 @@
+# culture='en-US'
+ConvertFrom-StringData @'
+    SearchDomainController    = Searching for a domain controller in the domain '{0}'. (WFADD0001)
+    RestartWasRequested       = A restart was requested when no domain controller was found. Restart number {0} of a total of {1}. (WFADD0003)
+    DomainInDesiredState      = Domain '{0}' is in the desired state. (WFADD0006)
+    DomainNotInDesiredState   = Domain '{0}' is not in the desired state. (WFADD0007)
+    FoundDomainController     = Found domain controller. (WFADD0009)
+    NoDomainController        = No domain controller was found. (WFADD0010)
+    ImpersonatingCredentials  = Impersonating the credentials '{0}' when looking for a domain controller. (WFADD0011)
+    SearchInSiteOnly          = Limiting the search scope for a domain controller to the site '{0}'. (WFADD0012)
+    TestConfiguration         = Determining the current state of the Active Directory domain '{0}'. (WFADD0013)
+    BackgroundJobFinished     = The background job finished running. (WFADD0014)
+    BackgroundJobFailed       = The background job failed while searching for the domain controller. Returning the result of the background job. (WFADD0015)
+    TimeoutReached            = The background job did not completed before the timeout period. (WFADD0016)
+    WaitingForDomain          = Waiting for a domain '{0}' is available or until the timeout of {1} seconds has been reached. (WFADD0017)
+    StartBackgroundJob        = Starting background job that will be searching for the domain controller. (WFADD0018)
+    WaitBackgroundJob         = Waiting for the background job to finish, or timeout. (WFADD0019)
+    BackgroundJobSuccessful   = The background job completed successfully. (WFADD0020)
+    StartOutputBackgroundJob  = --- Start of result from background job. (WFADD0021)
+    EndOutputBackgroundJob    = --- End of result from background job. (WFADD0022)
+    RemoveBackgroundJob       = Removing the background job. (WFADD0023)
+'@

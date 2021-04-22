@@ -1,0 +1,21 @@
+# culture="en-US"
+ConvertFrom-StringData @'
+    ExistingDomainMemberError            = Computer is already a domain member. Cannot create a new '{0}' domain on this computer. (ADD0001)
+    InvalidCredentialError               = Domain '{0}' is available, but invalid credentials were supplied. (ADD0002)
+    QueryDomainWithLocalCredential       = Computer is a domain member; querying domain '{0}' using local credential. (ADD0003)
+    QueryDomainWithCredential            = Computer is a workgroup member; querying for domain '{0}' using supplied credential. (ADD0004)
+    DomainFound                          = Active Directory domain '{0}' found. (ADD0005)
+    DomainNotFound                       = Active Directory domain '{0}' cannot be found. (ADD0006)
+    CreatingChildDomain                  = Creating domain '{0}' as a child of domain '{1}'. (ADD0007)
+    CreatedChildDomain                   = Child domain '{0}' created. (ADD0008)
+    CreatingForest                       = Creating AD forest '{0}'. (ADD0009)
+    CreatedForest                        = AD forest '{0}' created. (ADD0010)
+    PropertyValueIncorrect               = The value of the property '{0}' is incorrect. Expected the value '{1}', but was '{2}'. (ADD0011)
+    DomainInDesiredState                 = The domain '{0}' is in the desired state. (ADD0012)
+    DomainNotInDesiredState              = The domain '{0}' is NOT in the desired state. (ADD0013)
+    RetryingGetADDomain                  = Attempt {0} of {1} to call Get-ADDomain failed, retrying in {2} seconds. (ADD0014)
+    UnhandledError                       = Unhandled error occurred, detail here: {0} (ADD0015)
+    FaultExceptionAndDomainShouldExist   = ServiceModel FaultException detected and domain should exist, performing retry. (ADD0016)
+    MissingTrackingFile                  = The domain exists but the tracking file '{0}' could not be found. This can make the resource try to recreate the domain in some circumstances, for example if LCM is quicker to start than the domain is when the node restarts. Please recreate the tracking file by running `'Finished' | Out-File -FilePath '{0}' -Force`. (ADD0017)
+    ExpectedDomain                       = Expected to find the domain '{0}', but it was not found. (ADD0016)
+'@
