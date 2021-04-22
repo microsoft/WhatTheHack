@@ -14,6 +14,20 @@ Thinking about the pre-reqs needed for Windows Virtual Desktop. Be ready to expl
 1. Other students need a minimum of Contributor access on the subscription.
 1. M365 Licenses should be assigned to the test users.
 
+### Deploy Resource Groups
+
+#### POWERSHELL
+
+```powershell
+New-AzSubscriptionDeployment -Location 'eastus' -TemplateUri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-00_Template.json' -Verbose
+```
+
+#### AZURE CLI
+
+```shell
+az deployment sub create --location 'eastus' --template-uri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-00_Template.json' --verbose
+```
+
 ## Success Criteria
 
 1. Users are assigned to the correct roles
