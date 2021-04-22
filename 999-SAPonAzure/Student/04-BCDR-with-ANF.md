@@ -30,7 +30,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Create** a security user "BACKUPTEST".
 	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
-	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest"
+	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest". This involves reverting the data volume to an earlier snapshot.
 
 3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
