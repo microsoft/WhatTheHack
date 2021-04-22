@@ -2,8 +2,6 @@
 
 The coach section is dedicated to those who are running the What The Hack
 
-# Introduction
-
 # Coach Guide
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](00-prereqs.md)**
    - Prepare your workstation to work with Azure
@@ -23,4 +21,4 @@ The coach section is dedicated to those who are running the What The Hack
    - The machines know too much!
 
 # Coaches Resources
-- Lab Data Prep.ipynb : A Python notebook that splits the Open Powerlifting data into an initial historical data file and a chosen number of daily incremental files.  To be run in a Synapse Workspace.
+- **Lab Data Prep.ipynb:** A Python notebook that splits the Open Powerlifting data into an initial historical data file and a chosen number of daily incremental files.  To be run in a Synapse Workspace.
