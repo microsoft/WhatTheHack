@@ -25,7 +25,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Additional protection of backup files by offloading to an intra region storage account
 	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  ***(See Table in Figure 1 below)***
 	- **Adjust** log backup volume size for storing log backups based on the size requirement (refer to the table), and **adjust** relevant HANA parameters to use this volume for log backups. In addition, change the hana log backup timeout value in seconds, "log_backup_timeout_s", to align with the backup requirement - use HANA Studio.
-	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab
+	- **Build** a backup (snapshots) orchestration by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
 	- **Orchestrate** offloading of the required snapshots using azcopy in to respective containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
 	- **Create** a security user "BACKUPTEST".
 	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
