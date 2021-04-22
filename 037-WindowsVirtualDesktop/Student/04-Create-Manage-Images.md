@@ -35,7 +35,7 @@ In this challenge you will be preparing three images that will be used for the d
             * **HINT:** Since this operating system is multi-session, there may be specific installation steps to consider.
         * Add a step to reboot the VM.
         * Add a step to run Windows Update.
-        * **NOTE** All Windows 10 Multi-session images from the Azure Marketplace already include the FSLogix agent.
+        * **NOTE:** All Windows 10 Multi-session images from the Azure Marketplace already include the FSLogix agent.
     * Test the image by deploying a VM from the image and validating all customizations persisted. Uploading images to SIG can take some time before the image can be used for VM deployments.
     * **HINT:** If you are in an AAD tenant where you cannot create anymore custom roles for the managed identity for AIB, you can leverage a built-in role with more permissions for the FastHack.
     * **NOTE:** As of the ARM template api version "2020-02-14", AIB does support specifying the number of image replicas per region (default is 1). Therefore setting the replica count to three will be a post deployment task through the portal, PowerShell, CLI, etc.
