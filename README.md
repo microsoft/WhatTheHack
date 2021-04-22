@@ -40,6 +40,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [SAP Automation](/024-SAP-Core/README.md)
+- [Windows Virtual Desktop](/037-WindowsVirtualDesktop/README.md)
 
 
 ## Application Development
