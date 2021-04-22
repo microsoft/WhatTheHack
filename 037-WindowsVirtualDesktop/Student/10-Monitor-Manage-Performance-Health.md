@@ -8,20 +8,22 @@ You've recently deployed WVD for your company and each region started off ok how
 
 ## Description
 
-The goal of this challenge is to demonstrate how you can enable a monitoring solution for WVD and how it may be used to identify and diagnose issues across your deployment. Using this information you should be able to pull in WVD service information, performance metrics and event log information that relates to the service and present it within the WVD insights dashboard. Your environment should also be enabled for automatic scaling based on your companies requirements to optimise costs and ensure sufficient capacity per your peak hour requirements. 
+The goal of this challenge is to demonstrate how you can enable a monitoring solution for WVD and how it may be used to identify and diagnose issues across your deployment. Using this information you should be able to pull in WVD service information, performance metrics and event log information that relates to the service and present it within the WVD insights dashboard. Your environment should also be enabled for automatic scaling based on your companies requirements to optimise costs and ensure sufficient capacity per your peak hour requirements.
 
 **NOTE:** Scaling Automation was deployed in Challenge 9
 
-#### WVD Monitoring
-   - Azure offers numerous ways to monitor resources your solution should offer a view that targets the WVD service diagnostics and host performance and events
-   - The service needs to have the ability to report on both live information and historical information for at least 30 days
-   - Information needs to be presented in an easy to consume dashboard and offer a way to filter views based on which region you're attempting to monitor
+### WVD Monitoring
 
-#### Cost Optimization and Session Host scaling
-   - Assume each region starts seeing staff logon between 8am and 9:30am, there is no sudden spike in logons. The office is closed by 7pm.  
-   - Users can be forcibly logged off after receiving a 5 minute warning if they are still connected to an active host
-	- Approximately 5% of users in each region may attempt to connect from home each night and WVD should be available to them off-peak across each region and meets the cost saving targets set by the company
-   - WVD Session Hosts should be gradually powered on as morning peak demand increases and existing hosts should be filled up before additional VMs are powered on to reduce excess capacity.
+- Azure offers numerous ways to monitor resources your solution should offer a view that targets the WVD service diagnostics and host performance and events
+- The service needs to have the ability to report on both live information and historical information for at least 30 days
+- Information needs to be presented in an easy to consume dashboard and offer a way to filter views based on which region you're attempting to monitor
+
+### Cost Optimization and Session Host scaling
+
+- Assume each region starts seeing staff logon between 8am and 9:30am, there is no sudden spike in logons. The office is closed by 7pm.  
+- Users can be forcibly logged off after receiving a 5 minute warning if they are still connected to an active host
+- Approximately 5% of users in each region may attempt to connect from home each night and WVD should be available to them off-peak across each region and meets the cost saving targets set by the company
+- WVD Session Hosts should be gradually powered on as morning peak demand increases and existing hosts should be filled up before additional VMs are powered on to reduce excess capacity.
 
 ## Success Criteria
 
@@ -33,15 +35,14 @@ To be successful for this challenge you should be able to demonstrate the follow
 - Identify performance metrics of a WVD host which has a currently connected user and demonstrate how you can view the "User Input Delay per Process" object and "Max Input Delay" counters for that VM.
 - Enable automatic scaling of WVD session hosts to start and stop machines during peak/off-peak hours across each region. Consider how the peak/off-peak hours and load balancing will influence the configuration. Assume for the purpose of this workshop that VM sizing and user density is designed for a 1CPU per Session to help with testing in a limited size environment.
 
-**Tips**
+## Tips
 
-> _The logging information may take a few minutes to appear in the monitoring portal. You'll also need to generate user traffic by connecting to WVD after enabling the diagnostics for information to flow through._
+The logging information may take a few minutes to appear in the monitoring portal. You'll also need to generate user traffic by connecting to WVD after enabling the diagnostics for information to flow through.
 
-> _To simulate connection errors you may wish to attempt logins with invalid credentials, closing the client during the logon attempt and deliberately using a different account between the logon to the WVD portal and the WVD session host which should fail._
+To simulate connection errors you may wish to attempt logins with invalid credentials, closing the client during the logon attempt and deliberately using a different account between the logon to the WVD portal and the WVD session host which should fail.
 
-> _Simulate an unavailable session host by manually stopping the WVD service "RdAgent"_
+Simulate an unavailable session host by manually stopping the WVD service "RdAgent".
 
-
-Advanced Challenges (Optional)
+## Advanced Challenges (Optional)
 
 1. Modify the WVD Insights portal to display the CPU % performance metric for the current host pool on the front page of the dashboard. You will need to ensure the metric is only displayed on the Overview tab.
