@@ -20,11 +20,12 @@ Using the 3 Storage accounts that were created in Challenge 3, we now need deplo
     - Use GPO Preference to add admins to the local FSLogix exclude groups
     - Use GPO Preference to add The correct users to the local FSLogix include groups
 
-
 ## Success Criteria
 
 1. Configure FSLogix according to best practices  
 2. Solution should allow users to access profile data if a region is unavailable
 3. Configure FSLogix with GPO
 
-**TIPS:** Teams cache data can be large sometimes (4-5 GB) and customers may want it omitted it from the profile. User FSLogix redirections so TEAMS data is kept on the local system, not in the users profile. 
+## TIPS
+
+Teams cache data can be large sometimes (4-5 GB) and customers may want it omitted it from the profile. User FSLogix redirections so TEAMS data is kept on the local system, not in the users profile.
