@@ -1,4 +1,4 @@
-# Challenge 10: Monitor and manage the performance and health of your WVD environment
+# Challenge 10: Monitor and Manage the Performance and Health of your WVD Environment
 
 [< Previous Challenge](./09-Automate-WVD-Tasks.md) - **[Home](../README.md)** - [Next Challenge>](./11-Configure-User-Experience-Settings.md)
 

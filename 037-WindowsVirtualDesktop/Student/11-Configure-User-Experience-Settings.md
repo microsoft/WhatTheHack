@@ -1,4 +1,4 @@
-# Challenge 11: Configure settings for user experience
+# Challenge 11: Configure Settings for User Experience
 
 [< Previous Challenge](./10-Monitor-Manage-Performance-Health.md) - **[Home](../README.md)**
 

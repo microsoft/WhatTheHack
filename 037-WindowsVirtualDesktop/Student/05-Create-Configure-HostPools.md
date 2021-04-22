@@ -1,4 +1,4 @@
-# Challenge 5: Create and configure host pools and session hosts
+# Challenge 5: Create and Configure Host Pools and Session Hosts
 
 [< Previous Challenge](./04-Create-Manage-Images.md) - **[Home](../README.md)** - [Next Challenge >](./06-Implement-Manage-FsLogix.md)
 

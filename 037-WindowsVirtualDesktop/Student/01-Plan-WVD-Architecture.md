@@ -1,4 +1,4 @@
-# Challenge 1: Design the Windows Virtual Desktop architecture 
+# Challenge 1: Design the WVD Architecture
 
 [Previous Challenge](./00-Pre-Reqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 

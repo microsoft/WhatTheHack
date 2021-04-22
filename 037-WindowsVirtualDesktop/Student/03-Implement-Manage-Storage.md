@@ -1,4 +1,4 @@
-# Challenge 3: Implement and Manage your storage for FsLogix
+# Challenge 3: Implement and Manage your Storage for FSLogix
 
 [< Previous Challenge](./02-Implement-Manage-Network.md) - **[Home](../README.md)** - [Next Challenge >](./04-Create-Manage-Images.md)
 
