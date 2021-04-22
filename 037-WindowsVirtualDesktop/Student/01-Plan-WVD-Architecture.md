@@ -2,8 +2,7 @@
 
 [Previous Challenge](./00-Pre-Reqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
-
-## Introduction 
+## Introduction
 
 This Challenge is to design the WVD architecture that will be deployed in later challenges.  By the end of this session you should have have a plan for the host pools, session hosts, profile storage and client deployment.  
 
@@ -21,11 +20,9 @@ Taking into account our scenario, specify the details for the following:
 1. Networking
 1. FSLogix
 
-
 ## Success Criteria
 
-This Challenge will be succesfully completed when you have created a document defining all of the parameters that will be used in the deployment challenges.  
-
+- Created a document defining all of the parameters that will be used in the deployment challenges.  
 
 ## Learning Resources
 
@@ -38,7 +35,6 @@ Here are some links that may help inform design decisions:
 [Az-140 ep03 | Plan Windows Virtual Desktop Host Pool](https://www.youtube.com/watch?v=FLbcayyodqk&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=4)
 
 [Az-140 ep04 | Plan Your WVD Session Hosts](https://www.youtube.com/watch?v=HNCZ2pzr9mo&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=6)
-
 
 [WVD overview](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
@@ -56,5 +52,3 @@ Here are some links that may help inform design decisions:
 
 Have you designed with both the PoC and eventual size in mind?  Consider [Enterprise level deployment guidance](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop) and confirm if Azure limits are adhered to.
 How might cost be balanced with capacity in a follow the sun model?
-
-
