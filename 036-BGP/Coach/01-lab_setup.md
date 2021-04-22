@@ -2,15 +2,31 @@
 
 **[Home](./README.md)** - [Next Challenge >](./02-enable_bgp.md)
 
-## Notes and Guidance
 
-The script [bgp.sh](../Student/Resources/bgp.sh) can be used to create the basic topology. This script has been tested to run in the Azure Cloud shell, and takes around 1 hour to complete.
+## Before you start
 
-Participants have reportedly struggled with the scripts, sometimes because of not having enough privilege to accept the Cisco CSR Marketplace image, sometimes for other issues.
+- Try to get participants to use code (PS or CLI)
+- Make sure they have a way to share code, ideally via git
+- If there is any concept not clear for everybody, try to make participants explain to each other. Intervene only when no participant has the knowledge
+- Leave participants try designs even if you know it is not going to work, let them explore on themselves. Stop them only if they consume too much time
+- **Make sure no one is left behind**
+- For each challenge, you can ask the least participative members to describe what has been done and why
+- Feel free to customize scenarios to match your participants' level: if they are too new to Azure, feel free to remove objectives. If they are too advanced, give them additional ones
+- A short theoretical introduction to BGP has proven to be useful in previous deliveries of this hack. The method we have used is whiteboarding an analogy of a car trying to find its way to a street in a city, where the roundabouts (the routers) exchange routing information, and the postal codes are the ASNs. Here you can find an example of one of the sessions, but feel free to use your own way of explaining BGP:
 
-Hence it is recommended that the coach runs this script previous to the actual event, or at least one participant has tested it.
+![BGP sample whiteboard](./whiteboard.png)
 
-The resources can of course be created manually, but participants often get a "waste of time" feeling when investing a long time in creating Azure resources and configuring IPsec tunnels.
+## Deploying the environment
+
+Since this Hack is not about deploying VNets or NVAs, you can use a script to deploy the infrastructure that you will be working on. You will find a script called `bgp.sh` in the file resources supplied for this Hack, which you can run to deploy the environment. The script has been tested to run in Azure Cloud Shell. Note that the script takes around 1 hour to complete, and it requires certain dependencies to exist. Therefore, it is recommended to deploy the environment the day before the Hack.
+
+If participants deploy the script during the same day of the event, you can bridge the time it takes to run with a theoretical explanation of BGP (refer to the sample whiteboard of the previous section).
+
+Participants some times struggle with the required dependencies, deploying this in your own subscription in advance might help during the Hack, so you might want to deploy this in your subscription the day before.
+
+The alternative to using the script is creating the resources manually. However, participants often get a "waste of time" feeling when investing a long time in creating Azure resources and configuring IPsec tunnels, which is not relevant for understanding BGP.
+
+Note that there are no licensing costs associated to the Cisco NVAs, but accepting the MarketPlace terms for the Cisco offer is required. The deployment script does that for you, what requires privilege at the subscription scope.
 
 ## Solution Guide
 

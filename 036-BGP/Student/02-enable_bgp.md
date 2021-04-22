@@ -14,12 +14,12 @@ router bgp ?
 ```
 
 > **Note**: This setup is equivalent to the [Azure active-passive VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy):
-> ![](media/active-standby.png)
+> ![](Images/active-standby.png)
 
 2. Similarly, configure the BGP adjacency between VNG2 and CSR4 (remember that VNG2 is configured as an active-active gateway). Compare this connection  to the adjacency between VNG1 and CSR3.
 
 > **Note**: This setup is equivalent to the [Azure active-active VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-azure-vpn-gateway):
-> ![](media/active-active.png)
+> ![](Images/active-active.png)
 
 3. Configure the rest of the BGP adjacencies, and verify full connectivity between the test VMs deployed in each Vnet. Here the adjacencies that you should configure:
     1. VNG1 to CSR4

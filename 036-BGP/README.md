@@ -26,7 +26,7 @@ After completing this Hack, participants will be familiar with these concepts, a
 Please read these instructions carefully:
 
 - Since this Hack is not about deploying VNets or NVAs, you can use a script to deploy the infrastructure that you will be working on. You will find a script called `bgp.sh` in the file resources supplied for this Hack, which you can run to deploy the environment. The script has been tested to run in Azure Cloud Shell. Note that the script takes around 1 hour to complete, and it requires certain dependencies to exist. Therefore, it is recommended to deploy the environment the day before the Hack:
-- Setting expectations: all of the challenges in this Hack would take around 2 days to complete. Please do not expect to finish all of the exercises in a shorter event
+- While this hack was designed with enough content to support a 2-day event, students will still get value if they complete only some of the challenges in a shorter event.
 - It is recommended going one challenge after the other, without skipping any. However, if your team decides to modify the challenge order, that is possible too. Please consult with your coach to verify that the challenge order you wish to follow is doable, and there are no dependencies on the challenges you skip
 - **Think** before rushing to configuration. One minute of planning might save you hours of work
 - Look for the **relevant information** section in each challenge, they might contain useful information and tools
@@ -38,7 +38,7 @@ These are your challenges, it is recommended to start with the first one and pro
 
 - Challenge 1: **[Environment Setup](Student/01-lab_setup.md)**
    - Deploy the required infrastructure for the exercises
-- Challenge 2: **[Enable BGP](Student/02-enable_bpg.md)**
+- Challenge 2: **[Enable BGP](Student/02-enable_bgp.md)**
     - Configure BGP in the missing connections
 - Challenge 3: **[Influence Routing](Student/03-aspath_prepending.md)**
     - Use AS-path prepending to influence routing
