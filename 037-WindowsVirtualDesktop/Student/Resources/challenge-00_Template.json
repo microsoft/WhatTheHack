@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "ResourceGroups": {
+            "type": "array",
+            "metadata": {
+                "description": "Resource group identifier"
+            },
+            "defaultValue": [
+                {          
+                    "Name":"rg-wth-identity-d-eus",
+                    "Location":"eastus"
+                },
+                {
+                    "Name":"rg-wth-network-d-eus",
+                    "Location":"eastus"
+                },
+                {
+                    "Name":"rg-wth-wvd-d-eus",
+                    "Location":"eastus"
+                },
+                {
+                    "Name":"rg-wth-wvd-d-jw",
+                    "Location":"japanwest"
+                },
+                {
+                    "Name":"rg-wth-wvd-d-uks",
+                    "Location":"uksouth"
+                }
+            ]
+        }
+    },
+    "resources": [
+        {
+            "comments": "---------- RESOURCE GROUPS ----------",
+            "name": "[parameters('ResourceGroups')[copyIndex()].Name]",
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "location": "[parameters('ResourceGroups')[copyIndex()].Location]",
+            "tags": {},
+            "properties": {},
+            "copy": {
+                "name": "rgLoop",
+                "count": "[length(parameters('ResourceGroups'))]"
+            }
+        }   
+    ]
+}
