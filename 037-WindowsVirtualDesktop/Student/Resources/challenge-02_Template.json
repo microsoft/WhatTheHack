@@ -76,7 +76,7 @@
                     }
                 },
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/microsoft/WhatTheHack-1/master/037-WindowsVirtualDesktop/Student/Resources/templates/challenge-02_NetworkTemplate.json"
+                    "uri": "https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/templates/challenge-02_NetworkTemplate.json"
                 }
             }
         },
@@ -121,7 +121,7 @@
                     }
                 },
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/microsoft/WhatTheHack-1/master/037-WindowsVirtualDesktop/Student/Resources/templates/challenge-02_IdentityTemplate.json"
+                    "uri": "https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/templates/challenge-02_IdentityTemplate.json"
                 }
             }
         }
