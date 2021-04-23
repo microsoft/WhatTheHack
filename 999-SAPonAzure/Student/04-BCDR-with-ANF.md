@@ -32,22 +32,24 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Create** a security user "BACKUPTEST".
 	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
-	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest". This involves reverting the data volume to an earlier snapshot.
+	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest". This involves reverting only the data volume to an earlier snapshot and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog
 
 3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
+		- DR region is chosen as US East.
 		- RPO < 30 min, RTO < 4 hrs.	
 		- Inter-region DR using storage replication capabilities
-	- **Set up** ANF storage replication (CRR) to meet the RPO
-	- **Create** a security user "DRTEST" on the Production instance in the primary region. (This is to validate the replication.)
-	- **Take** a backup (using azacsnap). Give a prefix "UseThisAtDR" and note down the creation time stamp
-	- **Execute** the DR by:
-		- Wait until the replication is Healthy, Mirrored and Idle
-		- Shut down the Production HANA instance (**Stop** VM) at the primary region
-		- **Stop** or leave the Production HANA instance down at the DR region down
-		- **Break** the replication and **swap** the necessary volume for the Production HANA instance at the DR region. Use snap revert to "UseThisAtDR" snapshot.
-		- **Start** HANA recovery (point in time) at the DR region for the Production HANA instance
-		- **Validate** the existence of "DRTEST" user.
+	- **Set up** ANF storage replication (CRR) to meet the RPO. This also requires creating the ANF account and the replicating volumes in the "standard" performance tier storage pool at the DR region.
+	- **Create** a placeholder file (touch filename) under the data volume (/hana/data/<SID>/mnt00001/) and note down the timestamp. Optionally, you can also create a security user "DRTEST" in HANA, but note that The application-level validation is out of scope for this challenge
+	- **Take** a backup (using azacsnap) of data and log backups volumes. Give a prefix "UseThisAtDR" and note down the creation time stamp.
+	- **Execute** the DR:
+		- By first waiting until the replication is Healthy, Mirrored and Idle.
+		- **Simulate** the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
+		- **Break** and **delete** the replication. Use the "UseThisAtDR" snapshot to revert the data and log backup volumes.
+		- **Change** the performance tier of the volumes from standard to premium.
+		- **Assess** and discuss the remaining steps required for business continuity at the DR site.
+	- **Optionally**, you can set another HANA instance at the DR site, and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
+		
 
 ---
 
@@ -74,10 +76,11 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 ## Resources
 
 1. [Create Data Backups and Delta Backups (SAP HANA Studio) - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/c51a3983bb571014afa0c67026e44ca0.html)
-2. [SAP Applications on Microsoft Azure](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
-3. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
-4. [MSFT ANF Blogs](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=authorId&q=%22maximize%22%20%26%20%22ANF%20investment%22&noSynonym=false&author_id=283165&collapse_discussion=true)
-5. [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-6. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
-7. [Requirements and considerations for using Azure NetApp Files volume cross-region replication | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
+2. [Change the Log Backup Interval - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/6e9eadcd57464e74b9395004cb1aba9a.html)
+3. [SAP Applications on Microsoft Azure - NetApp PDF](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
+4. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
+5. [HANA on ANF Blog Series - Microsoft Tech. Community](aka.ms/anfhanablog)
+6. [SAP HANA Azure virtual machine storage configurations - Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+7. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
+8. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
 
