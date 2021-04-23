@@ -1,4 +1,4 @@
-# Challenge 4: Coach's Guide
+# Challenge 4: # Challenge 4: Backup and Disaster Recovery with Azure NetApp Files - Coach's Guide
 
 [< Previous Challenge](./03-k8sintro.md) - **[Home](README.md)** - [Next Challenge >](./05-scaling.md)
 
