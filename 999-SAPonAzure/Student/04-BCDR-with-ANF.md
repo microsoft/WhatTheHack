@@ -30,7 +30,8 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Change** the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
 	- **Build** a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
 	- **Execute** an ad-hoc snapshot for the data volume.
-	- **Offload** and sync data .snapshots folder and log backups directory content, using azcopy "sync" option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
+	- **Offload** and sync data .snapshots folder and log backups directory content, using azcopy "sync" option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
+	- **Configure** retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
 	- **Create** a security user "BACKUPTEST".
 	- **Take** an ad-hoc snapshot of the data volume using azacsnap. Give a prefix "AfterUserCreated" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
@@ -58,9 +59,9 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 ***Figure 1***
 Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 -------- | -------- | -------- | -------- | --------
-**HANA data** | 1 TiB (20% YoY Growth) | ? | ? | On demand, to a blob container. 
-**HANA log backups** | 250 GiB (daily change) | ? | ? | On demand, to a blob container.
-**Shared binaries and profiles** | 100 GiB | ? | ? | On demand, to a blob container.
+**HANA data** | 1 TiB (20% YoY Growth) | ? | ? | On demand, to a blob container. Retain for 7 days |
+**HANA log backups** | 250 GiB (daily change) | ? | ? | On demand, to a blob container. Retain for 7 days|
+**Shared binaries and profiles** | 100 GiB | ? | ? | On demand, to a blob container.|
 
 ```**Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge**```
 
@@ -86,5 +87,6 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 7. [Authorize access to blobs with AzCopy and Managed ID - Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory)
 8. [SAP HANA Azure virtual machine storage configurations - Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 9. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
-10. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
+10. [Optimize costs by automating Azure Blob Storage access tiers](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal#azure-portal-list-view)
+11. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
 
