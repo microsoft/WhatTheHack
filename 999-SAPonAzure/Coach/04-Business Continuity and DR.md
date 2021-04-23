@@ -6,7 +6,7 @@
 
 |**Section**|**Sub-Section**|**Comments** ```***Leverage the Reference Links for more information.***```|
 |-----------|---------------|------------|
-|Temp.| All|For the temporary backup solution, you will need to take a full file level backup for both the SYSTEM and the tenant Databases. ![Native File Backup](Images/Challenge4-t1.png)|
+|Temp.| All|For the temporary backup solution, you will need to take a full file level backup for both the SYSTEM and the tenant Databases. ![HANA Native Backup](Images/Challenge4-t1.png)|
 |Backup|Update the Backup Schedule Table|Data: Daily, Twice-Daily retain for 3 days. Log Backups: 10 min retain for 3 days (or as fast as every 5 min). Shared: Same as Data|
 |Backup|Adjust Log Backups volume size and HANA volume path change|Change it to 250 GiB from the initial 100 GiB size. This will match with daily log backups requirement. Use HANA Studio to change the log backup basepath parameters - change for both SYSTEM and Tenant DBs. |
 |Backup|Log Backup Timeout| Same method for changing as the log backup volume location parameters|
