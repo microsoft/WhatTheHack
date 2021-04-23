@@ -73,7 +73,7 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 1. A successful setup of the temporary backup solution.
 2. An automatic orchestration of ANF snapshots on the data and log backup volumes to achieve point-in-time recovery.
 3. The availability of offloaded snapshots in storage account containers per the requirement. Be able to restore the BACKUPTEST user successfully.
-4. Be able to successfully restore the dual-purpose environment with the recent production data (with DRTEST user)
+4. Be able to successfully set up DR replication using ANF CRR and validate changes are available at the DR site.
 
 
 ## Resources
