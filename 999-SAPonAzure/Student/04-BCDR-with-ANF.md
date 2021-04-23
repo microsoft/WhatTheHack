@@ -61,7 +61,9 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 **HANA log backups** | 250 GiB (daily change) | ? | ? | On demand, to a blob container.
 **Shared binaries and profiles** | 100 GiB | ? | ? | On demand, to a blob container.
 
-```_Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge_```
+```
+_Please note that this OpenHack environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge_
+```
 
 
 ---
