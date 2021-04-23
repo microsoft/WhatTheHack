@@ -32,7 +32,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Execute** an ad-hoc snapshot for the data volume.
 	- **Offload** and sync data .snapshots folder and log backups directory content, using azcopy "sync" option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
 	- **Create** a security user "BACKUPTEST".
-	- **Take** an ad-hoc backup (using azacsnap). Give a prefix "AfterUserCreated" and note down the creation time stamp.
+	- **Take** an ad-hoc snapshot of the data volume using azacsnap. Give a prefix "AfterUserCreated" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
 	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "AfterUserCreated". This involves reverting only the data volume to an earlier snapshot and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog
 
