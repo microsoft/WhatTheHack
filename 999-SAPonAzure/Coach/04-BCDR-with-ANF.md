@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-|**Section**|**Sub-Section**|**Comments**|
+|**Section**|**Sub-Section**|**Comments** ```***Leverage the Reference Links for more information.***```|
 |-----------|---------------|------------|
 |Temp.| All|For the temporary backup solution, you will need to take a full file level backup for both the SYSTEM and the tenant Databases.|
 |Backup|Update the Backup Schedule Table|Data: Daily, Twice-Daily retain for 3 days. Log Backups: 10 min retain for 3 days (or as fast as every 5 min). Shared: Same as Data|
@@ -20,7 +20,7 @@
 |DR|Take an ad-hoc backup| Use azacsnap|
 |DR|Execute DR||
 
-```***Leverage the Reference Links for more information.***```
+
 
 ## Resources
 
