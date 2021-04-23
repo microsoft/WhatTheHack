@@ -48,7 +48,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- **Break** and **delete** the replication. Use the "UseThisAtDR" snapshot to revert the data and log backup volumes.
 		- **Change** the performance tier of the volumes from standard to premium.
 		- **Assess** and discuss the remaining steps required for business continuity at the DR site.
-	- **Optionally**, you can set another HANA instance at the DR site, and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
+	- **Optionally**, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
 		
 
 ---
@@ -79,7 +79,7 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 2. [Change the Log Backup Interval - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/6e9eadcd57464e74b9395004cb1aba9a.html)
 3. [SAP Applications on Microsoft Azure - NetApp PDF](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
 4. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
-5. [HANA on ANF Blog Series - Microsoft Tech. Community](aka.ms/anfhanablog)
+5. [HANA on ANF Blog Series - Microsoft Tech. Community](https://aka.ms/anfhanablog)
 6. [SAP HANA Azure virtual machine storage configurations - Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 7. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
 8. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
