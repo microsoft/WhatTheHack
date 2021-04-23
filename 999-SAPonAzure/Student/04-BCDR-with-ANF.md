@@ -14,11 +14,11 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ## Guidelines
 
-```1. Backup using a temporary solution (HANA native)```
+1. Backup using a temporary solution (HANA native)
 	- For point-in-time recovery, you need to enable log backups.
 	- **Take** your first native HANA full file level backup.
 	- This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
-```2. Backup using a permanent solution (ANF snapshots)```
+2. Backup using a permanent solution (ANF snapshots)
 	- Assess the backup requirements:
 		- Use ANF where possible
 		- Cannot afford to lose more than 15 min worth of recent changes
@@ -35,7 +35,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
 	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest". This involves reverting only the data volume to an earlier snapshot and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog
 
-```3. Disaster Recovery```
+3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
 		- DR region is chosen as US East.
 		- RPO < 30 min, RTO < 4 hrs.	
