@@ -17,7 +17,9 @@
 
 ## Coach's Guides
 
-- Challenge 1: **[Environment Setup](01-lab_setup.md)**
+- Challenge 0: **[Environment Setup](00-lab_setup.md)**
+   - Deploy the required infrastructure for the exercises
+- Challenge 1: **[Exploration](01-lab_exploration.md)**
    - Deploy the required infrastructure for the exercises
 - Challenge 2: **[Enable BGP](02-enable_bgp.md)**
     - Configure BGP in the missing connections
@@ -31,5 +33,5 @@
     - Explore the usage of BGP communities
 - Challenge 7: **[Default Routing](07-default.md)**
     - Advertise a default route over BGP
-- Challenge 8: **[iBGP between Virtual Network Gateways](07-vng_ibgp.md)**
+- Challenge 8: **[iBGP between Virtual Network Gateways](08-vng_ibgp.md)**
     - Troubleshoot a connectivity problem between Virtual Network Gateways

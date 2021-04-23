@@ -1,6 +1,6 @@
 # Challenge 2: Enable BGP
 
-[< Previous Challenge](./01-lab_setup.md) - **[Home](../README.md)** - [Next Challenge >](./03-aspath_prepending.md)
+[< Previous Challenge](./01-lab_exploration.md) - **[Home](../README.md)** - [Next Challenge >](./03-aspath_prepending.md)
 
 ## Description
 
