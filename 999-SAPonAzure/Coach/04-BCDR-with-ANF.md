@@ -4,42 +4,23 @@
 
 ## Notes & Guidance
 
-- Students will be provided with two sample template yaml files one for a Service resource and one for a Deployment resource. A good recommendation would be to create two copies of each (one set for content-api and one set for content-web)
-- Students will need to find extra settings to add to their template YAML files. They should make use of the Kubernetes docs in addition to whatever else they can find on the web.
-	- **NOTE:** Fully fleshed out YAML files are available in the Coach Solutions folder for Challenge 4.
-	- **NOTE:** If you observe students using **foo** and **bar** unchanged in the template files, you should recommend they consider more relevant names such as **web**, **content-web**, **api**, or **content-api**.
-- In the Deployment YAML for **content-api**, they’ll need these settings in the spec section:	
-	- containers.resources.requests.cpu: **0.5 (or 500m)**
-	- containers.resources.requests.memory: **128Mi**
-    - containers.ports.containerPort: **3001**
-- In the deployment YAML for **content-web**, they will need these settings in the spec section:
-	- containers.resources.requests.cpu: **0.5 (or 500m)**
-	- containers.resources.requests.memory: **128Mi**
-	- containers.ports.containerPort: **3000** 
-	- containers.env.name: **CONTENT_API_URL**
-	- containers.env.value: **http://content-api:3001**
-		- **NOTE:** The value **content-api** in the URL must be whatever was used as the name of the service during deployment. 
-- In the Service YAML for **content-web**, they need to figure out that the type should be changed to “LoadBalancer”.
-- Coaches should be familiar with common kubectl commands in order to help the students troublshoot:
-	- `kubectl get nodes`
-	- `kubectl get pods`
-	- `kubectl describe pod <pod-name>`
-	- `kubectl get services`
-	- `kubectl get deployments`
-	- `kubectl delete deployment <deployment-name>`
-	- `kubectl delete pod <pod-name>`
-  	- `kubectl delete service <service-name>`
-	- `kubectl apply -f <yaml-file>`
-- When the service is deployed it will take some time for an External IP to be assigned.
-	- Issue the following kubectl command and look in the **EXTERNAL-IP** column
-		- `kubectl get services`
-	- You will see `<pending>` if the IP hasn’t yet been assigned.
-- To verify that the API app is correctly deployed the students need to:
-	- Figure out the name of the pod the API app was deployed to, eg: 	
-    	- `content-api-23aceed`
-	- Then use a kubectl command like this to get a bash shell:
-		- `kubectl exec -it content-api-23aceed -- /bin/bash`
-	- To verify the API app is working you need to curl the /speakers endpoint:
-		- `curl http://localhost:3001/speakers`
-    - They should see a huge JSON document printed to the screen.
+|**Section**|**Sub-Section**|**Comments**|
+|-----------|---------------|------------|
+|Temp. Backup| All|Refer to links|
+|Backup|Update the Backup Schedule Table|Data: Daily, Twice-Daily retain for 3 days. Log Backups: 10 min retain for 3 days (or as fast as every 5 min). Shared: Same as Data|
+|Backup|Adjust Log Backups volume size and HANA volume path change|Change it to 250 GiB from the initial 100 GiB size. This will match with daily log backups requirement. Use HANA Studio to change the log backup basepath parameters - change for both SYSTEM and Tenant DBs. |
+|DR|1 2 3|Refer to the links|
+
+## Resources
+
+1. [Create Data Backups and Delta Backups (SAP HANA Studio) - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/c51a3983bb571014afa0c67026e44ca0.html)
+2. [Resize a capacity pool or a volume - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes#:~:text=%20Resize%20a%20volume%20%201%20From%20the,to%20resize%20or%20delete%20the%20volume.%20More%20)
+3. [Change the Log Backup Interval - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/6e9eadcd57464e74b9395004cb1aba9a.html)
+4. [SAP Applications on Microsoft Azure - NetApp PDF](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
+5. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
+6. [HANA on ANF Blog Series - Microsoft Tech. Community](https://aka.ms/anfhanablog)
+7. [SAP HANA Azure virtual machine storage configurations - Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+8. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
+9. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
+
 
