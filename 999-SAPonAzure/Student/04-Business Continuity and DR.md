@@ -1,4 +1,4 @@
-# Challenge 4: Backup and Disaster Recovery with Azure NetApp Files
+# Challenge 4: Business Continuity and Disaster Recovery with Azure NetApp Files
 
 [< Previous Challenge](./03-SAP-Security.md) - **[Home](../README.md)** - [Next Challenge >](./05-PowerApps.md)
 
