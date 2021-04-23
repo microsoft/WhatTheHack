@@ -9,6 +9,10 @@
 |Temp.| All|For the temporary backup solution, you will need to take a full file level backup for both the SYSTEM and the tenant Databases.|
 |Backup|Update the Backup Schedule Table|Data: Daily, Twice-Daily retain for 3 days. Log Backups: 10 min retain for 3 days (or as fast as every 5 min). Shared: Same as Data|
 |Backup|Adjust Log Backups volume size and HANA volume path change|Change it to 250 GiB from the initial 100 GiB size. This will match with daily log backups requirement. Use HANA Studio to change the log backup basepath parameters - change for both SYSTEM and Tenant DBs. |
+|Backup|Log Backup Timeout| Same method for changing as the log backup volume location parameters|
+|Backup|Build snapshot solution (azacsnap)|Using azacsnap. Install azacsnap from the repo provided. Install the tool on the management VM/Jump Server Linux, update config JSON, and add to cron tab. You only need one config JSON for this. Put data volumes in the data section, and log backup in "other" section of the config JSON. Refer to the ANF Blogs (no need to use aztools referenced in the blog
+Azacsnap for data would run twice a day (pick your time, say 00 and 12th hour). Log backup every 12th min (to cover log backups every 10 min)
+|
 |DR|1 2 3|Refer to the links![#f03c15](color here)|
 
 ## Resources
