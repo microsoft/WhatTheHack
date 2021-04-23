@@ -36,8 +36,10 @@ These are your challenges, it is recommended to start with the first one and pro
 
 ## Challenges
 
-- Challenge 1: **[Environment Setup](Student/01-lab_setup.md)**
+- Challenge 0: **[Environment Setup](Student/00-lab_setup.md)**
    - Deploy the required infrastructure for the exercises
+- Challenge 1: **[Exploration](Student/01-lab_exploration.md)**
+   - Get familiar with the deployed topology
 - Challenge 2: **[Enable BGP](Student/02-enable_bgp.md)**
     - Configure BGP in the missing connections
 - Challenge 3: **[Influence Routing](Student/03-aspath_prepending.md)**
