@@ -28,12 +28,13 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  ```***(See Table in Figure 1 below)***```
 	- **Adjust** log backup volume size for storing log backups based on the size requirement (daily change of 250 GB) from Azure NetApp Files blade in Azure Portal. In addition, also **adjust** relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. (Command to change: chown -R user:group <new_backup_location>). 
 	- **Change** the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
-	- **Build** a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool - crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
-	- **Offload** the required snapshots, using azcopy from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
+	- **Build** a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
+	- **Execute** an ad-hoc snapshot for the data volume.
+	- **Offload** and sync data .snapshots folder and log backups directory content, using azcopy "sync" option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity)
 	- **Create** a security user "BACKUPTEST".
-	- **Take** a backup (using azacsnap). Give a prefix "UseThisBackupTest" and note down the creation time stamp.
+	- **Take** an ad-hoc backup (using azacsnap). Give a prefix "AfterUserCreated" and note down the creation time stamp.
 	- **Delete** the security user BACKUPTEST "accidently" - Oops!
-	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "UseThisBackupTest". This involves reverting only the data volume to an earlier snapshot and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog
+	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "AfterUserCreated". This involves reverting only the data volume to an earlier snapshot and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog
 
 3. Disaster Recovery
 	- **Assess** the disaster recovery requirements:
@@ -82,7 +83,8 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 4. [SAP Applications on Microsoft Azure - NetApp PDF](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
 5. [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
 6. [HANA on ANF Blog Series - Microsoft Tech. Community](https://aka.ms/anfhanablog)
-7. [SAP HANA Azure virtual machine storage configurations - Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-8. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
-9. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
+7. [Authorize access to blobs with AzCopy and Managed ID - Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory)
+8. [SAP HANA Azure virtual machine storage configurations - Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+9. [Create and Authorize a User - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/c0555f0bbb5710148faabb0a6e35c457.html)
+10. [Requirements and considerations for using Azure NetApp Files volume cross-region replication - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-requirements-considerations)
 
