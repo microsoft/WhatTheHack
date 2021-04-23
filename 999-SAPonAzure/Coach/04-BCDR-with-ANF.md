@@ -12,8 +12,10 @@
 |Backup|Log Backup Timeout| Same method for changing as the log backup volume location parameters|
 |Backup|Build snapshot solution (azacsnap)|Using azacsnap. Install azacsnap from the repo provided. Install the tool on the management VM/Jump Server Linux, update config JSON, and add to cron tab. You only need one config JSON for this. Put data volumes in the data section, and log backup in "other" section of the config JSON. Refer to the ANF Blogs (no need to use aztools referenced in the blog
 Azacsnap for data would run twice a day (pick your time, say 00 and 12th hour). Log backup every 12th min (to cover log backups every 10 min)
-|Backup|Offload to blob container|Create a Managed ID for HANA VM and assign Blob Owner, Reader and Contributor permissions for the Blob Storage Account. Install azcopy on the HANA VM. Run once to show how the on-demand azcopy would move both data and log backups over to respective containers. For data volumes, you will mo. Refer to the blog|
-|DR|1 2 3|Refer to the links![#f03c15](color here)|
+|Backup|Execute adhoc snapshot|Since the crontab schedule may not immediately trigger snapshots, we want to take an ad-hoc data volume snapshot so that we can proceed with the next steps of offloading to blob container. Use the azansnap command you wrapped in the crontab and execute it thought the command line|
+|Backup|Offload to blob container|Create a Managed ID for HANA VM and assign Blob Owner, Reader and Contributor permissions for the Blob Storage Account. Install azcopy on the HANA VM. Run once to show how the on-demand azcopy would move both data and log backups over to respective containers. For data volumes, you will sync the contents of the .snapshot directory under /hana/data/<SID>/mnt00001/.snapshot, and for the log backups, you will sync the actual log backups files for SYSTEM and tenants by simply syncing the entire /backup/log directory. Refer to the blog for more information|
+|Backup|Restore test|Create the security user using HANA Studio. When reverting volume, use the revert to snapshot option and not the new volumes option - this way, you won't need to swap out the old volumes with the new ones. Start HANA recovery using a specific backup option, and then choose without the backup catalog. Destination Type as Snapshot. Once SYSTEM DB is recovered, start tenant recovery. Finally, validate the the accidentally deleted user is now recovered|  
+
 
 ## Resources
 
