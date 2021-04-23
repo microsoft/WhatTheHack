@@ -10,6 +10,8 @@ Mango Inc heavily relies on SAP infrastructure to perform day to day business tr
 
 SAP S/4 Hana system is fully protected with required IT monitoring, secured & compliance configuration and also with high availabitly for IT component failures. However, it is not protected with accidental errors, unintended data discrepencies, data loss / corruption or geographical catastrophies. Design and implement BCDR solution for SAP S/4 Hana system by implementing secondary copy of SAP system in another seperate azure region from production region with continuous asynchronous data replication.
 
+![Backup and Disaster Recovery - HANA on ANF](Images/Challenge4Arch.PNG)
+
 ## Guidelines
 
 1. Backup using a temporary solution (HANA native):
