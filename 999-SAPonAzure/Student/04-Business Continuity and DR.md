@@ -47,10 +47,11 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Take** a backup (using azacsnap) of data and log backups volumes. Give a prefix "UseThisAtDR" and note down the creation time stamp.
 	- **Execute** the DR:
 		- By first waiting until the replication is Healthy, Mirrored and Idle.
+		- Validate that the ad-hoc snapshot "UseThisAtDR" has been successfully replicated for both the volumes.
 		- **Simulate** the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
 		- **Break** and **delete** the replication. Use the "UseThisAtDR" snapshot to revert the data and log backup volumes.
 		- **Change** the performance tier of the volumes from standard to premium.
-		- **Assess** and discuss the remaining steps required for business continuity at the DR site.
+		- Assess and discuss the remaining steps required for business continuity at the DR site.
 	- **Optionally**, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
 		
 
