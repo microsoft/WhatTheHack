@@ -96,9 +96,7 @@ Import **SAPAzurePowerShellModules** PowerShell module that will be used by SAP 
 
 ### **Import SAP Runbooks**
 
-Navigate to **Runbook** and click **Import a runbook**.
-
-Import these runbooks:
+Navigate to **Runbook Gallery** and Import these runbooks:
 
   - Stop-SAPSystem
 
@@ -123,7 +121,7 @@ Import these runbooks:
   - Tag-SAPSystemStandaloneHANA
 
 > [!NOTE] 
-> All SAP runbooks are stored in PowerShell Gallery and are easy to import into Azure automation account.
+> All SAP runbooks are stored in **PowerShell Gallery** and are easy to import into Azure automation account.
 
 
 ### Tagging and executing Runbooks
