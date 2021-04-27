@@ -2,7 +2,7 @@
 SQL Modernization and Migration What the Hack
 
 ## Introduction
-SQL Server has come a long way!  From OLTP to OLAP, on-premises to cloud, big data clusters to hyperscale -- SQL Server has evolved in many ways.  With that evolution comes complexity as organizations seek to take advantage of new features and cloud efficiency.  This hack puts you (and your team) in the role of an SI (Systems Integrator), working with many clients to modernize their environments and applications.
+SQL Server has come a long way!  From OLTP to OLAP, on-premises to cloud, big data clusters to hyperscale -- SQL Server has evolved in many ways.  With that evolution comes complexity as organizations seek to take advantage of new features and cloud efficiency.  This hack puts you (and your team) in the role of a SI (Systems Integrator), working with many clients to modernize their environments and applications.
 
 ## Related Hacks
 For more in-depth work with Azure Synapse Analytics and Data Ops, see these hacks:
