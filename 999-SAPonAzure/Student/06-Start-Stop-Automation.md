@@ -75,9 +75,7 @@ This section details the implementation flow of the solution
 
 ### **Import Az.Modules**
 
-SAP start / stop PowerShell (PS) runbooks use new Az PS module, which must be [imported](https://docs.microsoft.com/en-us/azure/automation/az-modules#import-the-az-modules) .
-
-Import Az modules:
+SAP start / stop PowerShell (PS) runbooks use new Az PS module, so import following AZ modules:
 
   - **Az.Account**
 
