@@ -116,7 +116,7 @@ Enter system user ID and  password for SAP HANA DB
 
  
 
-![Image11](Images/Challenge7_image11png)
+![Image11](Images/Challenge7_image11.png)
  
 
  
@@ -125,7 +125,7 @@ Add SAP system S4P
 
  
 
-![Image12](Images/Challenge7_image12png)
+![Image12](Images/Challenge7_image12.png)
  
 
  
