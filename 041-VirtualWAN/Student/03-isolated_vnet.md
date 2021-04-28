@@ -12,7 +12,7 @@ Deploy 2 more VNets on each hub. Make sure each hub has 4 VNets in total. Those 
 
 Sample topology:
 
-![topology](./Images/vwan03.png)
+![topology](../Images/vwan03.png)
 
 ## Success Criteria
 

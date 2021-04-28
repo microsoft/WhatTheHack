@@ -12,7 +12,7 @@ Requirements:
 
 Sample topology:
 
-![topology](./Images/vwan02.png)
+![topology](../Images/vwan02.png)
 
 ## Success Criteria
 

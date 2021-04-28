@@ -8,7 +8,7 @@ Deploy an NVA or an Azure Firewall instance in the Common Services VNet. Create 
 
 Sample topology:
 
-![topology](./Images/vwan04.png)
+![topology](../Images/vwan04.png)
 
 ## Success Criteria
 
