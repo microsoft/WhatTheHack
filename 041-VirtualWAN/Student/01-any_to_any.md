@@ -1,6 +1,6 @@
 # Challenge 1: Any to Any connectivity
 
-[< Previous Challenge](./00-lab_setup.md) - **[Home](../README.md)** - [Next Challenge >](./02-vpn.md)
+**[Home](../README.md)** - [Next Challenge >](./02-vpn.md)
 
 ## Description
 

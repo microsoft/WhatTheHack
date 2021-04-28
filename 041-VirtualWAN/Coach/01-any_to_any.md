@@ -1,5 +1,7 @@
 # Challenge 1: Any-To-Any connectivity - Coach's Guide
 
+**[Home](./README.md)** - [Next Challenge >](./02-vpn.md)
+
 ## Notes and Guidance
 
 ## Solution Guide

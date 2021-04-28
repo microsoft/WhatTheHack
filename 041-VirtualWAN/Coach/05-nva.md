@@ -1,5 +1,7 @@
 # Challenge 5: Network Virtual Appliance - Coach's Guide
 
+[< Previous Challenge](./04-secured_hub.md) - **[Home](./README.md)**
+
 ## Notes and Guidance
 
 ## Solution Guide

@@ -1,5 +1,7 @@
 # Challenge 3: Isolated Virtual Networks - Coach's Guide
 
+[< Previous Challenge](./02-vpn.md) - **[Home](./README.md)** - [Next Challenge >](./04-secured_hub.md)
+
 ## Notes and Guidance
 
 ## Solution Guide
