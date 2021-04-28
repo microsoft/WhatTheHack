@@ -12,6 +12,8 @@
 	- Cluster names should be unique within the subscription.  
 	- Here’s an example command that creates a cluster named **wth-aks02-poc** in resource group **wth-rg02-poc:** using basic networking, managed identity, 3 nodes in separate availability zones and an attached ACR and doesn't generate any ssh keys:
 		- `az aks create --location eastus --name wth-aks02-poc --node-count 3  --no-ssh-key --resource-group wth-rg02-poc --zones 1 2 3 --enable-managed-identity --attach-acr <acrname>`
+	- **NOTE:** Attaching an ACR requires the student to have full "Owner" permissions on the subscription. If this is not possible then someone who is an Owner can do the attach for the student after they create the cluster.
+		- See below for the `az aks update` command that is used to attach the ACR.
     - Documentation on installing AKS can be found here:
 		- [Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal)
 		- [CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)

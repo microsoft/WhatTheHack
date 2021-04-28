@@ -17,13 +17,14 @@ In this challenge we will be provisioning our first Kubernetes cluster using the
 	- The cluster will use kubenet (ie: basic networking).  
 	- The cluster will use a managed identity
 	- The cluster will use the maximum number of Availability Zones for improved worker node reliability.
-	- Attach to your ACR created in Challenge 2 (If you didn't do Challenge 2, you don't need to attach to anything).
+	- Attach to your ACR created in Challenge 2 (if you didn't do Challenge 2, you don't need to attach to anything).
+		- **NOTE:** Attaching an ACR requires you to have full "Owner" permissions on the subscription. If this is not possible then someone who is an Owner can do the attach for you after you create the cluster.
 	- **NOTE:** You will need to specify on the command line if you want ssh keys generated or no ssh keys used.
 - Use kubectl to prove that the cluster is a multi-node cluster and is working.
 - Use kubectl to examine which availability zone each node is in.  
 - **Optional:** Bring up the AKS "Workloads" screen in the Azure portal.
 	- **Hint:** Again, the Azure CLI makes this very easy with one command.
-	- **NOTE:** This will not work if you are using an Ubuntu Server jump box to connect to your cluster.
+	- **NOTE:** This will not work if you are using a Linux jump box to connect to your cluster.
 
 ## Success Criteria
 
