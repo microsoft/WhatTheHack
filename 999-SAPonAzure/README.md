@@ -35,7 +35,7 @@ Like every organization, Security & compliance are the top most priority for Man
 ---
 
 
--   **Challenge #4: [Business continuity and Disaster recovery](Student/04-Business Continuity and DR.md)**
+-   **Challenge #4: [Business continuity and Disaster recovery](Student/04-BusinessContinuity-and-DR.md)**
 
 Mango Inc heavily relies on SAP infrastructure to perform day to day business transactions. Unavailability of IT infrastructure for SAP or SAP application itself can heavily impact business transactions and potentially delay revenue recognition. Mango Inc is concerning about the data consistency on backups and restorability with online backups and necessity of offline backups along with periodicity. CIO heard about Azure netapp files and its features and took a decision to use ANF across the SAP infrastructure for Hana database. Design and implement BCDR solution for SAP S/4 Hana system. 
 
