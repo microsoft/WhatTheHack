@@ -19,10 +19,9 @@ In this challenge we will be provisioning our first Kubernetes cluster using the
 	- The cluster will use Availability Zones for improved worker node reliability.
 - Use kubectl to prove that the cluster is a multi-node cluster and is working.
 - Use kubectl to examine which availability zone each node is in.  
-- **Optional:** Bring up the Kubernetes dashboard in your browser
-	- **Hint:** Again, the Azure CLI makes this very easy.
+- **Optional:** Bring up the AKS "Workloads" screen in the Azure portal.
+	- **Hint:** Again, the Azure CLI makes this very easy with one command.
 	- **NOTE:** This will not work if you are using an Ubuntu Server jump box to connect to your cluster.
-	- **NOTE:** Since the cluster is using RBAC by default, you will need to look up how to enable the special permissions needed to access the dashboard.
 
 ## Success Criteria
 
