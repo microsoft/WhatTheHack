@@ -4,9 +4,11 @@
 
 ## Notes and Guidance
 
+- Here again, you might want to create the VNets before the actual event
+
 ## Solution Guide
 
-### Creating VNets 3 and 4 in hubs:
+### Creating VNets 3 and 4 in hubs
 
 <details><summary>Code</summary>
 
@@ -63,7 +65,7 @@ az network vnet subnet update -n vm --vnet-name spoke22-$location2 -g $rg --rout
 </details>
 <br>
 
-### Modifying custom routing to achieve VNet isolation:
+### Modifying custom routing to achieve VNet isolation
 
 <details><summary>Code</summary>
 

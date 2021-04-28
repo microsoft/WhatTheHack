@@ -4,9 +4,13 @@
 
 ## Notes and Guidance
 
+- You might want to pre-create VNets and VMs previous to the event to gain time
+
 ## Solution Guide
 
-**Scenario0.1**: Creating RG, VWAN and hubs:
+The following sections contain a possible solution based on Azure CLI
+
+### Creating RG, VWAN and hubs
 
 <details><summary>Code</summary>
 
@@ -16,8 +20,8 @@ rg=vwanwth
 vwan=vwan
 location1=westeurope
 location2=westus2
-username=jose
-password=Microsoft123!
+username=labuser
+password=your_super_secret_password
 vwan_hub1_prefix=192.168.1.0/24
 vwan_hub2_prefix=192.168.2.0/24
 # Branches
@@ -52,7 +56,7 @@ hub2_none_rt_id=$(az network vhub route-table show --vhub-name hub2 -g $rg -n no
 </details>
 <br>
 
-**Scenario0.2**: Creating VNets:
+### Creating VNets
 
 <details><summary>Code</summary>
 

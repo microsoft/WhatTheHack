@@ -4,9 +4,13 @@
 
 ## Notes and Guidance
 
+- You might want to create the NVAs previously to the event
+- Prod <-> NVA <-> Dev is not going to work
+- Prod <-> NVA <-> Internet is working since March 2021
+
 ## Solution Guide
 
-### Convert VM in CS VNet to NVA
+### Convert VM in Common Services VNet to an NVA
 
 <details><summary>Code</summary>
 

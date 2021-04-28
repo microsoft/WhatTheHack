@@ -4,6 +4,9 @@
 
 ## Notes and Guidance
 
+- Cisco CSRs do not generate any additional cost
+- These scripts leverage Cisco CSR as NVA. If preferred, you can use any other NVA to simulate an onprem VPN device, such as Windows Server, Linux StrongSwan or any other
+
 ## Solution Guide
 
 ### Create VPN Gateways
