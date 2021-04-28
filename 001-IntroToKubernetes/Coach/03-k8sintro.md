@@ -10,7 +10,7 @@
 	- The default Kubernetes version used by the az aks create command should be fine.  
 	- The CLI should be used to create the cluster to give the most realistic experience.  
 	- Cluster names should be unique within the subscription.  
-	- Here’s an example command that creates a cluster named **wth-aks02-poc** in resource group **wth-rg02-poc:** using basic networking, managed identity, 3 nodes in separate availability zones and an attached ACR:
+	- Here’s an example command that creates a cluster named **wth-aks02-poc** in resource group **wth-rg02-poc:** using basic networking, managed identity, 3 nodes in separate availability zones and an attached ACR and doesn't generate any ssh keys:
 		- `az aks create --location eastus --name wth-aks02-poc --node-count 3  --no-ssh-key --resource-group wth-rg02-poc --zones 1 2 3 --enable-managed-identity --attach-acr <acrname>`
     - Documentation on installing AKS can be found here:
 		- [Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal)

@@ -14,9 +14,11 @@ In this challenge we will be provisioning our first Kubernetes cluster using the
 	- **Hint:** This can be done easily with the Azure CLI.
 - Create a new, multi-node AKS cluster.
 	- Use the default Kubernetes version used by AKS.
-	- The cluster will use basic networking and kubenet.  
+	- The cluster will use kubenet (ie: basic networking).  
 	- The cluster will use a managed identity
-	- The cluster will use Availability Zones for improved worker node reliability.
+	- The cluster will use the maximum number of Availability Zones for improved worker node reliability.
+	- Attach to your ACR created in Challenge 2 (If you didn't do Challenge 2, you don't need to attach to anything).
+	- **NOTE:** You will need to specify on the command line if you want ssh keys generated or no ssh keys used.
 - Use kubectl to prove that the cluster is a multi-node cluster and is working.
 - Use kubectl to examine which availability zone each node is in.  
 - **Optional:** Bring up the Kubernetes dashboard in your browser
