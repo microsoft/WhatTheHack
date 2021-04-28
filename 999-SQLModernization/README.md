@@ -8,8 +8,8 @@ SQL Server has come a long way!  From OLTP to OLAP, on-premises to cloud, big da
 For more in-depth work with Azure Synapse Analytics and Data Ops, see these hacks:
 
 * [Modern Data Warehouse What the Hack](https://github.com/microsoft/WhatTheHack/tree/master/019-ThisOldDataWarehouse)
-* [Data Ops What the Hack](https://github.com/) (need link)
-* [OSS DB Migration to Azure](https://github.com/) (need link)
+* [Data Ops What the Hack](https://github.com/) (needs link)
+* [OSS DB Migration to Azure](https://github.com/) (needs link)
 
 ## Learning Objectives
 In this hack, database administrators, developers who work extensively with SQL Server, and architects will migrate solutions to Azure. Several different scenarios are presented that are based on real-world scenarios, and in most cases there are multiple ways to solve the problem given the requirements of each challenge.  This hack also prepares participants for the DP-300 exam.  While some challenges will touch on topics such as ETL/SSIS and modernizing data deployment (ie data ops), there are What The Hacks that focus extensively on these topics; see related hacks above.
@@ -51,7 +51,12 @@ In this hack, database administrators, developers who work extensively with SQL 
 * [Azure Synapse Analytics Learning Plan](https://github.com/microsoft/PartnerResources/blob/main/LearningPlanResources/Azure/Data%2C%20Analytics%2C%20and%20AI/Modern%20Data%20Warehouse.md) (link is broken)
 
 ## Contributors
-Brian Hitney
+
+Brian Hitney\
+Lalit Patel\
+Linda Zhang\
+Roberto Cavalcanti
+
 
 
 Thank you to the SQL Engineering team for many labs and samples that were leveraged in many of the challenges!
