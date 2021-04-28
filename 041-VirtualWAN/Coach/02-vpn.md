@@ -1,5 +1,7 @@
 # Challenge 2. VPN - Coach's Guide
 
+[< Previous Challenge](./01-any_to_any.md) - **[Home](./README.md)** - [Next Challenge >](./03-isolated_vnet.md)
+
 ## Notes and Guidance
 
 ## Solution Guide
