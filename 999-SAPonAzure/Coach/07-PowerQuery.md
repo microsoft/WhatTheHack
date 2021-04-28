@@ -249,7 +249,7 @@ Select custom and SQL query as follows
 
 Note: When entering User credentials please make sure you select "Database" not "Windows" on left hanad side as highlighted on the below image.
 
-![Image41](Images/Challenge7_image41.PNG)
+![Image41](Images/Challenge7_image42.PNG)
 
 Will pop up with information about SAP table TBTCO as follows  
 
