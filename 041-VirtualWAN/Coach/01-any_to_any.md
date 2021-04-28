@@ -12,7 +12,7 @@
 
 ```bash
 # Variables
-rg=vwanfasthack
+rg=vwanwth
 vwan=vwan
 location1=westeurope
 location2=westus2

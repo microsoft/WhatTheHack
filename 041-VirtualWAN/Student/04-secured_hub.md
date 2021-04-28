@@ -16,7 +16,7 @@ Note that Virtual Secure Hub does not support VHHV or VHHB traversing the firewa
 
 Sample topology:
 
-![topology](../Images/vwan05.png)
+![topology](./Images/vwan05.png)
 
 ## Success Criteria
 
