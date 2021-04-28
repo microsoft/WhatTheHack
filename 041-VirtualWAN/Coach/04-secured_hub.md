@@ -5,6 +5,7 @@
 ## Notes and Guidance
 
 - No multi-region support at the time of this writing, inter-region traffic is going to be silently dropped
+- Branch-to-branch traffic is not secured by the Azure Firewall at this time
 
 ## Solution Guide
 

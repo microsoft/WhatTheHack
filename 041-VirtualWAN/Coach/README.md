@@ -4,12 +4,11 @@
 
 Before you start, please consider these points:
 
-- Setting expectations: all of the challenges in this Hack would take around 2 days to complete. Please do not expect to finish all of the exercises in a shorter event
-- It is recommended going one challenge after the other, without skipping any. However, if your team decides to modify the challenge order, that is possible too. Please consult with your coach to verify that the challenge order you wish to follow is doable, and there are no dependencies on the challenges you skip
-- **Think** before rushing to configuration. One minute of planning might save you hours of work
-- Look at the **relevant information** in each challenge, they might contain useful information and tools
-- You might want to split the individual objectives of a challenge across team members, but please consider that all of the team members need to understand every part of a challenge
-- Note that cross-hub traffic does not work with Secure Virtual Hub at the time of this writing, and it is slated for Q4CY20
+- Setting expectations: all of the challenges in this Hack would take around 2 days to complete. In a shorter event you should pick up the challenges most relevant for the participants.
+- If your team decides to modify the challenge order, that is possible too. For example, you could skip challenge 4 (Secure Virtual Hub) and go straight to challenge 5 (NVAs).
+- You might want to split the individual objectives of a challenge across team members (for example one subteam can do each region)
+- Note that cross-hub traffic does not work with Secured Virtual Hubs at the time of this writing, and it is slated for H2CY21
+- The Cisco CSR VMs do not generate any extra cost other than the Azure VM charges
 
 ## Coach's Guides
 
