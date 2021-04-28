@@ -1,11 +1,6 @@
 # Challenge 1: Any-To-Any connectivity - Coach's Guide
 
-* Participants should start with an easy scenario (any-to-any)
-* Note that cross-hub traffic does not work with Secure Virtual Hub at the time of this writing, and it is slated for Q4CY20
-* Look at the more complex scenarios as optional. However, each of them demonstrates a certain aspect of Virtual WAN:
-    * Isolated Vnets: route tables association and propagation
-    * Secure Virtual Hub: AzFW, static routes in route tables
-    * NVA: static routes in connections and route tables
+## Notes and Guidance
 
 ## Solution Guide
 
