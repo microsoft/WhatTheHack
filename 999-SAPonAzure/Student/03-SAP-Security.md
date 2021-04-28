@@ -25,7 +25,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 
 ## NOTE 
 -  Azure SENTINEL for SAP application portfolio, is currently under strict NDA guidelines and documentation for this portion of the hack is contained in a zip 	      file, shared with coach seperately, not stored in this public repo.
--  If you are an Internal Microsoft employee, the SAP system that you installed already have all required transports imported. SAP system already have all required Function modules, user and role provisioned. Change password for user Sentinel and use it wherever required. 
+-  If you are an Internal Microsoft employee, the SAP system that you installed already have all required transports imported. SAP system already have all required Function modules, user and role provisioned. Change password for user Sentinel and use it wherever required. Custom role and user 'Sentinel' are available in client 100. So use client 100 wherever required. 
 
 
 	Microsoft Azure Sentinel SAP / NetWeaver Continuous Threat Monitoring Limited Private Preview
