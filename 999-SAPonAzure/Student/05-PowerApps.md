@@ -1,6 +1,6 @@
 # Challenge 5: Build Mobile Application around SAP. 
 
-[< Previous Challenge](./04-Business Continuity and DR.md) - **[Home](../README.md)** - [Next Challenge >](./06-Start-Stop-Automation.md)
+[< Previous Challenge](./04-BusinessContinuity-and-DR.md) - **[Home](../README.md)** - [Next Challenge >](./06-Start-Stop-Automation.md)
 
 ## Introduction
 
@@ -21,6 +21,7 @@ This challenge requires you to build foundational infrastructure along with powe
 
 ## Hints
 
+- On-premise datagateway along with SAP .Net connector has to be installed to access SAP system. You need S-User to download SAP .Net connector and other components can be downloaded freely. Reference named "SAP ERP connector in power application" mentioned in reference section has all required URLs to download the components. [Note: If you are a Internal Microsoft employee, ask coach for SAP .Net connector location.]
 - BAPI Names to fetch data from **SAP S/4 Hana system**.
 	- Materials list can be fetched from SAP system using BAPI named "BAPI_MATERIAL_GETLIST".
 		- You can use below selection criteria to fetch materials using above BAPI.
