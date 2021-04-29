@@ -1,3 +1,4 @@
+{::options parse_block_html="true" /}
 # Challenge 5: Build Mobile Application around SAP - Coach's Guide
 
 [< Previous Challenge](./04-k8sdeployment.md) - **[Home](README.md)** - [Next Challenge >](./06-deploymongo.md)
