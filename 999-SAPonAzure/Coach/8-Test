@@ -1,0 +1,11 @@
+{::options parse_block_html="true" /}
+## Heading 1 
+<div class="panel panel-info">
+**Note**
+{: .panel-heading}
+<div class="panel-body">
+
+Kiran NOTE DESCRIPTION
+
+</div>
+</div>
