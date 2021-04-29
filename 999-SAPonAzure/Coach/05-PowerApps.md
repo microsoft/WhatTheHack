@@ -1,4 +1,3 @@
-{::options parse_block_html="true" /}
 # Challenge 5: Build Mobile Application around SAP - Coach's Guide
 
 [< Previous Challenge](./04-k8sdeployment.md) - **[Home](README.md)** - [Next Challenge >](./06-deploymongo.md)
@@ -30,16 +29,8 @@
 **Getting Material information from SAP**
 
 - Create power automate (flow) with name Get_SAP_Material (note: Name can be anything). 
--<div class="panel panel-info">
-**Note**
-{: .panel-heading}
-<div class="panel-body">
-
-<b>Note that this step requires input from power application which is not yet ready.</b> Create the flow and come back later to complete. 
-
-</div>
-</div>
-
+- <b>Note that this step requires input from power application which is not yet ready.</b> 
+- Create the flow and come back later to complete. 
 - Insert 3 steps in PowerApps as similar to earlier but with different SAP BAPI. Flow may look like below:
 
 - ![Flow for Material Information](Images/Challenge5-Screen5.png)
