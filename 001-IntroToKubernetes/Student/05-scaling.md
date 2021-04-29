@@ -38,4 +38,4 @@ In this challenge we will cover scale and resiliency from multiple aspects. We'l
 1. Fix the resource issues.
 
 ## Learning Resources
-[* Watch Kubernetes events](https://stackoverflow.com/questions/45226732/what-kubectl-command-can-i-use-to-get-events-sorted-by-specific-fields-and-print)
+* [How to watch Kubernetes events](https://stackoverflow.com/questions/45226732/what-kubectl-command-can-i-use-to-get-events-sorted-by-specific-fields-and-print)
