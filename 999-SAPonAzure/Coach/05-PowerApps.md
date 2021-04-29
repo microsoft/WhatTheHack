@@ -24,7 +24,7 @@
 - ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen2.png)
 - ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen3.png)
 - ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen4.png)
-- Highlighted input details in the above screenshots are required fields for the BAPI_MATERIAL_GETLIST and can be customized as per requirement. Plant and sales organization numbers can be any existing numbers in SAP system. In the response, select MATNRLIST. Framing response is little critical. Follow steps mentioned under "Using the connector in an App" at https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/.
+- Highlighted input details in the above screenshots are required fields for the BAPI_MATERIAL_GETLIST and can be customized as per requirement. Plant and sales organization numbers can be any existing numbers in SAP system. <b style='color:red'>In the response, select MATNRLIST. Framing response is little critical. Follow steps mentioned under "Using the connector in an App" at https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/. </b>
 
 **Getting Material information from SAP**
 
