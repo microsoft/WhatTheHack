@@ -28,10 +28,7 @@
 
 **Getting Material information from SAP**
 
-- Create power automate (flow) with name Get_SAP_Material (note: Name can be anything). <b>Note that this step requires input from power application which is not yet ready.</b> <div class="text-purple mb-2">
-  .text-purple on white
-</div>
-Create the flow and come back later to complete. Insert 3 steps in PowerApps as similar to earlier but with different SAP BAPI. Flow may look like below:
+- Create power automate (flow) with name Get_SAP_Material (note: Name can be anything). <b>Note that this step requires input from power application which is not yet ready.</b> Create the flow and come back later to complete. Insert 3 steps in PowerApps as similar to earlier but with different SAP BAPI. Flow may look like below:
 
 - ![Flow for Material Information](Images/Challenge5-Screen5.png)
 - ![Flow for Material Information](Images/Challenge5-Screen6.png)
