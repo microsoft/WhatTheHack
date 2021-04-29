@@ -24,7 +24,7 @@ In this challenge you'll be deploying a v2 of the FabMedical application to your
 
 
 ### Rolling update
--Perform a rolling update of content-web on your cluster to the v2 version of content-web.  You will need to edit your deployment to incorporate the following:
+- Perform a rolling update of content-web on your cluster to the v2 version of content-web.  You will need to edit your deployment to incorporate the following:
   - You’ll be doing this from the command-line with a kubectl command (remember, Kubernetes docs are your friend!)
   - With kubectl and its watch feature you should be able to see new pods with the new version come online and the old pods terminate.
   - At the same time, hit the front page to see when you’re on the new version by refreshing constantly until you see the conference dates updated to 2019. 
