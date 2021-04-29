@@ -27,7 +27,6 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 - List the SID to ensure all the systems were tagged correctly
 - Execute runbook manually to stop systems
 - Schedule the runbook to start the systems
-- Schedule scale out & scale in out the Application servers
 - (Optional) Restrict access to runbooks to an individual user
 
 
