@@ -10,6 +10,8 @@
 - Select a VM to install On-premise data gateway that can access SAP S/4 Hana system on dispatcher and gateway ports. Typical port ranges are 33**,32**,36**.
 - Make sure correct on-premise data gateway and SAP .Net connectors are installed. Both should be of same platform type. (Either X64 / X86, mixing will not work. In doubt install SAP .Net connector for both X86 and X64 and restart on-premise data gateway).
 - ![Registered Data gateways](Images/Challenge5-RegisteredGateway.JPG)
+- Make sure you are installing correct SAP .Net version and correct platform.
+- ![SAP .Net Connector](Images/Challenge5-sapnetcon.PNG)
 - Register the on-premise datagateway with correct user and make sure that user can see connector in power platform at https://make.powerapps.com under gateways. If this is not visible, power application cannot communicate with SAP system. 
 
 ## Step 2 - **Develop power automate (flows)**
