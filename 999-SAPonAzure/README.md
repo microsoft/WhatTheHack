@@ -65,17 +65,17 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 ## Repository Contents
 
 ## Contributors
-Anbu Govindasamy
-Douglas Helm
-Jason Hobson
-Jitendra Singh
-Moaz Mirza
-Rajesh Elisetty
-Satish Gurjar
-Syed Hussain
-Uday Punati
-Dwiref Sharma
-Kiran Kumar Vejendla
-Young Yi
-Jed Wu
-Ravi Kashyap
+- Anbu Govindasamy
+- Douglas Helm
+- Jason Hobson
+- Jitendra Singh
+- Moaz Mirza
+- Rajesh Elisetty
+- Satish Gurjar
+- Syed Hussain
+- Uday Punati
+- Dwiref Sharma
+- Kiran Kumar Vejendla
+- Young Yi
+- Jed Wu
+- Ravi Kashyap
