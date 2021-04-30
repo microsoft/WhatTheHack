@@ -12,7 +12,7 @@
 
 ### Convert VM in Common Services VNet to an NVA
 
-<details><summary>Code</summary>
+Enable IP forwarding in Azure and inside the VM for hub1:
 
 ```bash
 # NVA in hub1
@@ -36,6 +36,8 @@ mypip=$(curl -s4 ifconfig.co) && echo $mypip
 az network route-table route create -n mypc -g $rg --route-table-name $rt_name --address-prefix "${mypip}/32" --next-hop-type Internet
 ```
 
+And the same for hub2:
+
 ```bash
 # NVA in hub2
 spoke_id=24
@@ -58,13 +60,9 @@ mypip=$(curl -s4 ifconfig.co) && echo $mypip
 az network route-table route create -n mypc -g $rg --route-table-name $rt_name --address-prefix "${mypip}/32" --next-hop-type Internet
 ```
 
-</details>
-<br>
-
-
 ### Create indirect spokes
 
-<details><summary>Code</summary>
+Create some additional Vnets, and peer them to the NVA Vnet in region 1 (not to Virtual WAN):
 
 ```bash
 # Create indirect spokes in hub1
@@ -94,6 +92,8 @@ az network vnet peering create -n spoke${nvaspoke_id}to${spoke_id} -g $rg \
 az network vnet subnet update -n vm --vnet-name spoke${spoke_id}-${location1} -g $rg --route-table $rt_name
 ```
 
+And region 2:
+
 ```bash
 # Create indirect spokes in hub2
 nvaspoke_id=24
@@ -122,12 +122,9 @@ az network vnet peering create -n spoke${nvaspoke_id}to${spoke_id} -g $rg \
 az network vnet subnet update -n vm --vnet-name spoke${spoke_id}-${location2} -g $rg --route-table $rt_name
 ```
 
-</details>
-<br>
-
 ### Inject routes for indirect spokes
 
-<details><summary>Code</summary>
+Create some static routes in Virtual WAN, so that it knows where to reach the indirect spokes:
 
 ```bash
 spoke14_cx_id=$(az network vhub connection show -n spoke14 -g $rg --vhub hub1 --query id -o tsv)
@@ -173,13 +170,9 @@ az network vhub connection create -n spoke24 -g $rg --vhub-name hub2 \
     --route-name spokes --next-hop $vm_ip --address-prefixes 10.2.41.0/24 10.2.42.0/24
 ```
 
-</details>
-<br>
-
-
 ### Connectivity tests
 
-<details><summary>Code</summary>
+You can use this code for connectivity tests:
 
 ```bash
 # 141 -> 142
@@ -276,6 +269,3 @@ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $username@$from_pip "ping $t
 ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $username@$from_pip "nc -vz $to_ip 22"
 az network nic show-effective-route-table -n spoke12-vmVMNic -g $rg -o table
 ```
-
-</details>
-<br>

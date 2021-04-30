@@ -10,7 +10,7 @@
 
 ### Creating VNets 3 and 4 in hubs
 
-<details><summary>Code</summary>
+Creates two additional VNets:
 
 ```bash
 # Spoke13 in location1
@@ -62,12 +62,9 @@ az network vnet subnet update -n vm --vnet-name spoke21-$location2 -g $rg --rout
 az network vnet subnet update -n vm --vnet-name spoke22-$location2 -g $rg --route-table spokes-$location2
 ```
 
-</details>
-<br>
-
 ### Modifying custom routing to achieve VNet isolation
 
-<details><summary>Code</summary>
+Creates new route tables and changes association/propagation settings:
 
 ```bash
 # Create separate RTs in hub1
@@ -114,6 +111,3 @@ az network vpn-gateway connection create -n branch2 --gateway-name hubvpn2 -g $r
     --enable-bgp true --protocol-type IKEv2 --shared-key "$password" --connection-bandwidth 100 --routing-weight 10 --internet-security true \
     --associated-route-table $hub2_default_rt_id --propagated-route-tables $hub2_default_rt_id --labels default dev prod cs
 ```
-
-</details>
-<br>

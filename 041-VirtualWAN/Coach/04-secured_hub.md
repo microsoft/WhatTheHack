@@ -11,7 +11,7 @@
 
 ### Create Azure Firewalls Policy
 
-<details><summary>Code</summary>
+The policy has some sample rules to allow test traffic, you might need to change them if using different protocols to test:
 
 ```bash
 # Create Azure Firewall policy with sample policies
@@ -47,12 +47,9 @@ az network firewall policy rule-collection-group collection add-filter-collectio
     --target-fqdns '*.ubuntu.com' --source-addresses "10.0.0.0/8" --protocols Http=80 Https=443
 ```
 
-</details>
-<br>
-
 ### Create Azure Firewalls
 
-<details><summary>Code</summary>
+The next step is creating the firewalls and attach them to the firewall policy:
 
 ```bash
 # Create Azure Firewalls in the virtual hubs
@@ -69,12 +66,9 @@ az network vhub route-table route add -n defaultRouteTable --vhub-name hub2 -g $
     --next-hop-type ResourceId --next-hop $azfw2_id
 ```
 
-</details>
-<br>
-
 ### Configure logging (optional)
 
-<details><summary>Code</summary>
+Logging is critical for troubleshooting packet drops in the firewalls:
 
 ```bash
 logws_name=$(az monitor log-analytics workspace list -g $rg --query '[0].name' -o tsv)
@@ -107,5 +101,3 @@ while IFS= read -r fw_id; do
                 {"category": "AzureFirewallNetworkRule", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}]' >/dev/null
 done <<< "$fw_id_list"
 ```
-</details>
-<br>
