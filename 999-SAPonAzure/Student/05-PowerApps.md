@@ -16,8 +16,8 @@ This challenge requires you to build foundational infrastructure along with powe
 
 ## Success Criteria
 
-1. Setup working ERP connection in the power automate (or flow).
-2. Run the power application and display selected material information. 
+1. Working ERP connection in the power automate (or flow).
+2. Successful Run of the power application and display selected material information. 
 
 ## Hints
 
