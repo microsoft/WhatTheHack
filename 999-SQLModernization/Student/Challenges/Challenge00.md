@@ -10,7 +10,7 @@ An Azure subscription is required that can deploy Azure SQL resources (Azure SQL
 
 Nearly all challenges require resources in an Azure subscription to complete. A single subscription can be shared to the team, or team members can work in their own individual subscriptions.
 
-The scenarios presented simulate on-premises environments; teams have flexibility to choose how to configure these environments based on preferences and environmental considerations.  For example, a team with limited bandwidth or networking constraints (such as difficulty in forwarding ports to connect to SQL Server from the cloud) may choose to set up the simulated "on-premises" environments in an Azure VM with SQL Server.  Another team may install the databases on a local machine, or configure them in docker.  Choose what works best for the team and hints will be provided along the way.
+The scenarios presented simulate on-premises environments; teams have flexibility to choose how to configure these environments based on preferences and environmental considerations.  For example, a team with limited bandwidth or networking constraints (such as difficulty in forwarding ports to connect to SQL Server from the cloud) may choose to set up the simulated "on-premises" environments in an Azure VM with SQL Server.  Another team may install the databases on a local machine or configure them in docker.  Choose what works best for the team and hints will be provided along the way.
 
 In this hack, some prerequisites will be challenge-specific: for example, a challenge might say, "This challenge requires the AdventureWorks database..." along with any necessary configuration.  As such, this setup is designed to provide general requirements while each challenge will list specific needs for that challenge only, as not all databases and tools are required for all challenges.
 
@@ -23,7 +23,7 @@ The objective of the setup is to ensure you have access to a subscription where 
 1. Pick a cool team name!  You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions.  
 1. Decide on the on-premises environment and have the following databases loaded; note, this can be in a VM in Azure running SQL Server, on a local SQL instance, in containers/Docker, etc.:
     - AdventureWorks2017 *or* AdventureWorksLT2017
-        - AdventureWorksLT2017 is a bit easier and faster, better for teams with no prior experience and extremely limited bandwidth
+        - AdventureWorksLT2017 is a bit easier and faster, better for teams with no prior experience and extremely limited bandwidth.
         - AdventureWorks2017 is the preferred database as it presents a few challenges but may require a bit of experience and higher bandwidth to migrate, if migrating for a local machine.
     - WideWorldImporters (OLTP)
     - WideWorldImporters (DW)
@@ -48,5 +48,9 @@ The objective of the setup is to ensure you have access to a subscription where 
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
+
+
+1. Install and get familiar with this tool to [generate workload](https://geohernandez.net/generating-a-workload-for-sql-server/) against SQL Server and reuse it against your migrated databases in the upcoming challenges.
+1. Create a [Jupyter Notebook](https://docs.microsoft.com/en-us/sql/azure-data-studio/notebooks/notebooks-guidance?view=sql-server-ver15) with your most used DMVs to run against your databases before, and after migration. 
 
 
