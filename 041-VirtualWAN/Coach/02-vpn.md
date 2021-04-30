@@ -11,7 +11,7 @@
 
 ### Create VPN Gateways
 
-<details><summary>Code</summary>
+Note that VPN creation can take some time:
 
 ```bash
 # Create VPN gateways
@@ -21,10 +21,7 @@ az network vpn-gateway create -n hubvpn2 -g $rg -l $location2 --vhub hub2 --asn 
 
 ### Create CSRs
 
-</details>
-<br>
-
-<details><summary>Code</summary>
+Cisco CSRs will only cost the VM pricing:
 
 ```bash
 # Create CSR to simulate branch1
@@ -46,12 +43,9 @@ az network vpn-gateway connection create -n branch2 --gateway-name hubvpn2 -g $r
     --associated-route-table $hub2_default_rt_id --propagated-route-tables $hub2_default_rt_id  --labels default --internet-security true
 ```
 
-</details>
-<br>
-
 ### Configure CSRs
 
-<details><summary>Code</summary>
+Configuring the CSRs will add the required IPsec and BGP configuration:
 
 ```bash
 # Get parameters for VPN GW in hub1
@@ -153,6 +147,8 @@ end
 EOF
 ```
 
+You can verify that all tunnels are up, and BGP adjacencies established:
+
 ```bash
 # Verify
 ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $branch1_ip "sh ip int b"
@@ -160,6 +156,3 @@ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $branch1_ip "sh ip bgp summa
 ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $branch2_ip "sh ip int b"
 ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $branch2_ip "sh ip bgp summary"
 ```
-
-</details>
-<br>
