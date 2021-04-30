@@ -4,13 +4,13 @@
 
 ## Introduction
 
-This challenge requires attendees to use a Jupyter Notebook and Azure Data Studio (or equivalent tool) to run/experiment with SQL Server performance and evaluating performance.
+This challenge requires attendees to use a Jupyter Notebook and Azure Data Studio and Azure Monitor SQL Insights to run/experiment with SQL Server performance and evaluating performance.
 
 The purpose of this challenge is threefold:
 
 1. Explore new features of SQL Server that may improve performance intrinsically
 1. Ensure would-be data engineers and DBAs are comfortable evaluating performance
-1. Leverage newer tools like Azure Data Explorer and Notebooks
+1. Leverage newer tools like Azure Data Studio Notebooks and Azure Monitor SQL Insights
 
 In addition to getting hands on with troubleshooting and exploring new features of SQL Server, this challenge will help those purpsuing DP-300 or related certifications that evaluate these skills.
 
@@ -74,11 +74,10 @@ ON Sales.Invoices
 
 Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.
 
-## Tips
-TODO: The student guide tips reference the [Azure SQL Tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) project for a collection of best practices. Need to spend some more time on these and investigate how to leverage better.
+## Instal and Monitor database with SQL Insights
 
-[rocavalc TODO:]
-- Add the screenshots and the steps to run [Azure SQL Tips](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) 
-- Show the steps on how to setup and run [SQL Insights](https://techcommunity.microsoft.com/t5/azure-sql/azure-monitor-sql-insights-preview/ba-p/2211405)
-- borrow out scenario from [Module 4](https://github.com/microsoft/sqlworkshops-azuresqlworkshop/blob/master/azuresqlworkshop/04-Performance.md) of [Azure SQL Fundamentals](https://github.com/microsoft/sqlworkshops-azuresqlworkshop)
-- Add all related steps to the Jupyter Notebook
+[Azure Monitor SQL insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance.
+
+The steps to set it up are detailed on [this article](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-enable).
+
+By using this tool users will have a comprehensive overview of their environment post migration.

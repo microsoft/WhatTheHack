@@ -68,7 +68,7 @@ ALTER COLUMN PhoneNumber DROP MASKED;
 
 ```
 
-Dynamic data masking doesn't protect the underlying data or encrypt it in any way. The permissions are applied via an UNMASK permission. There are weaknesses to using data masking: for example, if a user has ad-hoc query persmissions and the column in question is a "salary" value, the user can use search predicates to filter the results -- for example, WHERE Table.Salary > 100000 and Table.Salary < 1100000. The results may still be masked, but it would be trivial to write a query to self-join the table into salary buckets, for example. Therefore, while a useful features, it is considered a "defense in depth" measure best used in conjuction with other best practices.
+Dynamic data masking doesn't protect the underlying data or encrypt it in any way. The permissions are applied via an UNMASK permission. There are weaknesses to using data masking: for example, if a user has ad-hoc query permissions and the column in question is a "salary" value, the user can use search predicates to filter the results -- for example, WHERE Table.Salary > 100000 and Table.Salary < 1100000. The results may still be masked, but it would be trivial to write a query to self-join the table into salary buckets, for example. Therefore, while a useful features, it is considered a "defense in depth" measure best used in conjunction with other best practices.
 
 For the advanced challenge on Data Masking, consider the following script:
 

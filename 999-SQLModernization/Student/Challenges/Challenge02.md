@@ -14,17 +14,16 @@ The objective of this challenge is to migrate TPCC (benchmark database - http://
 
 Your company has provided the following requirements and guidelines:
 
-1. Must take advantage of latest automation tools available to execute migration at scale
-2. Migration efforts must be strategic by taking into considerations the recommendations provided through Machine 
-   Learning algorithms
-3. Improve the quality of the process by ensuring it could be repeated
-4. Source databases setup is using the industry benchmark tools  
+1. Must take advantage of latest automation tools available to execute migration at scale.
+2. Migration efforts must be strategic by taking into considerations the recommendations provided through Machine Learning algorithms.
+3. Improve the quality of the process by ensuring it could be repeated.
+4. Source databases setup is using the industry benchmark tools.
 
 ## Success Criteria
 
-1. Susccessfully migrate the SQL Server VM hosting TPCC database meeting the above criteria
-2. Share the Assement report with the team for collaboration on knowledge sharing
-3. Complete validation of the migrated TPCC database
+1. Successfully migrate the SQL Server VM hosting TPCC database meeting the above criteria.
+2. Share the Assessment report with the team for collaboration on knowledge sharing.
+3. Complete validation of the migrated TPCC database.
 
 ## Learning Resources
 * [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
@@ -38,8 +37,8 @@ Your company has provided the following requirements and guidelines:
 
 ## Advanced Challenges (Optional)
 
-1. Migrate On-premises SQL Server (physical server) to Azure SQL Server (IaaS)
-2. Migrate On-premises SQL Server (physical server) to Azure SQL db (PaaS)
-3. Migrate SQL Server VM on VMWare (IaaS) to Azure SQL Server (IaaS)
+1. Migrate On-premises SQL Server (physical server) to Azure SQL Server (IaaS).
+2. Migrate On-premises SQL Server (physical server) to Azure SQL db (PaaS).
+3. Migrate SQL Server VM on VMWare (IaaS) to Azure SQL Server (IaaS).
 
 

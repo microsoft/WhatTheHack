@@ -14,28 +14,28 @@ The objective of this challenge is to migrate AdventureWorks and WWI Databases (
 
 AdventureWorks has provided the following requirements and guidelines:
 
-1. Must take advantage of PaaS services for easier administration
-1. Database must be able to scale rapidly and easily for seasonal demand
-1. Requires database backups to be maintained for 1 year, with weekly granularity
-1. Database can be migrated offline during one of the nightly maintenance windows
+1. Must take advantage of PaaS services for easier administration.
+1. Database must be able to scale rapidly and easily for seasonal demand.
+1. Requires database backups to be maintained for 1 year, with weekly granularity.
+1. Database can be migrated offline during one of the nightly maintenance windows.
 1. If there are any migration blockers/remediation steps, document them with any suggested fixes.
 
 ### Wide World Importers
 
 Wide World Importers has provided the following requirements and guidelines:
 
-1. Both WWI OLTP and data warehouse databases are to be migrated; they do not need to be on the same server
-1. Wide World Importers would prefer to take advantage of PaaS services if possible
-1. Database migration for the OLTP database must be done online with minimum downtime
-    1. For the purposes of this challenge, use the WWI Order Insert Solution (Windows Application) to simulate load on the on-premises database during migration/assessment
-1. Database migration for the data warehouse can be done offline
-1. SSIS package as part of the WWI DW ETL is a *bonus challenge* and not required
+1. Both WWI OLTP and data warehouse databases are to be migrated; they do not need to be on the same server.
+1. Wide World Importers would prefer to take advantage of PaaS services if possible.
+1. Database migration for the OLTP database must be done online with minimum downtime.
+    1. For the purposes of this challenge, use the WWI Order Insert Solution (Windows Application) to simulate load on the on-premises database during migration/assessment.
+1. Database migration for the data warehouse can be done offline.
+1. SSIS package as part of the WWI DW ETL is a *bonus challenge* and not required.
 
 ## Success Criteria
 
 1. Successfully migrate AdventureWorks meeting the above criteria; if any objects cannot be fully migrated, be sure to note which objects and suggestions for remediation.
-1. Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment
-1. Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration
+1. Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment.
+1. Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration.
 
 ## Learning Resources
 
@@ -47,16 +47,16 @@ Download the Workload Driver solution or executable here:
 
 ## Tips
 
-* Learn about the [Azure Database Migration Service](https://azure.microsoft.com/en-us/services/database-migration/) and leverage the [Azure Database Migration Guide](https://datamigration.microsoft.com/)
-* Read up on [Microsoft Data Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595) including [this overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver15) for more information
-* Read more on getting started with [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15), and refer to this [Azure Data Studio Quickstart](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server?view=sql-server-ver15) for more information
-* Any assessment tool may be used to perform an assessment; DMA (Data Migration Assistant) includes assessment and SKU recommendation tools
+* Learn about the [Azure Database Migration Service](https://azure.microsoft.com/en-us/services/database-migration/) and leverage the [Azure Database Migration Guide.](https://datamigration.microsoft.com/)
+* Read up on [Microsoft Data Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595) including [this overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver15) for more information.
+* Read more on getting started with [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15), and refer to this [Azure Data Studio Quickstart](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server?view=sql-server-ver15) for more information.
+* Any assessment tool may be used to perform an assessment; DMA (Data Migration Assistant) includes assessment and SKU recommendation tools.
 * Provisioning of some resources, such as Azure SQL Managed Instance, can take some time (potentially several hours, though it typically faster).
 
 ## Advanced Challenges (Optional)
 
-1. Migrate WWI DW to Azure Synapse Analytics (Azure SQL DW)
-1. Migrate WWI DW SSIS ETL to either ADF or Synapse Pipelines
-1. WWI is interested in understanding the performance impact of zone redundant availability
-    1. Use [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15), [Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15), or other similar analytics to provide data to back up your analysis; workloads may be simulated using the WWI Order Insert Solution referenced above
+1. Migrate WWI DW to Azure Synapse Analytics (Azure SQL DW).
+1. Migrate WWI DW SSIS ETL to either ADF or Synapse Pipelines.
+1. WWI is interested in understanding the performance impact of zone redundant availability.
+    1. Use [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15), [Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15), or other similar analytics to provide data to back up your analysis; workloads may be simulated using the WWI Order Insert Solution referenced above.
 
