@@ -1,6 +1,6 @@
 # Challenge 3: Introduction To Azure Sentinel for SAP and Azure Security Center
 
-[< Previous Challenge](./02-Azure-Monitor.md) - **[Home](../README.md)** - [Next Challenge >](./04-BCDR-with-ANF.md)
+[< Previous Challenge](./02-Azure-Monitor.md) - **[Home](../README.md)** - [Next Challenge >](./04-BusinessContinuity-and-DR.md)
 
 ## Introduction
 
