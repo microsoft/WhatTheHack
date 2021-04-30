@@ -39,12 +39,12 @@ This challenge requires you to build foundational infrastructure along with powe
 
 ## References
 
-1. SAP ERP Connector in power applications: https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/
-2. Power Apps canvas applications: https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/ 
-3. Create collection object in power apps: https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/create-update-collection 
-4. Using power (flows) Automate in power apps: https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/using-logic-flows
-5. Access URL for power application: https://make.powerapps.com/
-6. Access Azure portal: https://portal.azure.com/ 
+1. [SAP ERP Connector in power applications](https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/)
+2. [Power Apps canvas applications](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/) 
+3. [Create collection object in power apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/create-update-collection)
+4. [Using power (flows) Automate in power apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/using-logic-flows)
+5. [Access URL for power application](https://make.powerapps.com/)
+6. [Access Azure portal](https://portal.azure.com/) 
 
 
 
