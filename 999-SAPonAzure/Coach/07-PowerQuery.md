@@ -1,6 +1,6 @@
 # Challenge 7: Coach's Guide
 
-[< Previous Challenge](./06-deploymongo.md) - **[Home](README.md)** - [Next Challenge >](./08-storage.md)
+[< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
 ## Notes & Guidance
 
