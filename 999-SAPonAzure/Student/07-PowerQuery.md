@@ -16,6 +16,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
    * Download Power BI client and connect SAP HANA DB using Power BI configuration option
    * Extract  table TBTCO ( SAP job status ) using SQL and   Generate self-service Job status report  using direct custom query to SAP system. 
 
+![image](https://user-images.githubusercontent.com/81314847/115074617-eefa6580-9ec7-11eb-9eaa-ca09b29708cb.png)
  
 
 
@@ -40,7 +41,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
-## Skills, hints
+## Tips 
 
  
 
@@ -60,19 +61,15 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
-## Final Architecture 
-![image](https://user-images.githubusercontent.com/81314847/115074617-eefa6580-9ec7-11eb-9eaa-ca09b29708cb.png)
+
 
  
 
-## Documentation URLs  
+## Resources  
 
 [Use SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana)
 
 [Power Query SAP HANA database connector](https://docs.microsoft.com/en-us/power-query/connectors/sap-hana/overview)
-
-
-## Reference documents
 
 [Direct Query in Power BI DirectQuery for SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-sap-hana)
 
