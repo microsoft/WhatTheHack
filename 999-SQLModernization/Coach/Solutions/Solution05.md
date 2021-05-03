@@ -10,7 +10,7 @@ A unique ID that is automatically generated when a new SQL Managed Instance is c
 
 A DNS zone ID is not required for failover groups created for SQL Database.
 
-Failover group read-write listener
+Failover group read-write listener.
 
 A DNS CNAME record that points to the current primary's URL. It is created automatically when the failover group is created and allows the read-write workload to transparently reconnect to the primary database when the primary changes after failover. When the failover group is created on a server, the DNS CNAME record for the listener URL is formed as <fog-name>.database.windows.net. When the failover group is created on a SQL Managed Instance, the DNS CNAME record for the listener URL is formed as <fog-name>.<zone_id>.database.windows.net.
 
@@ -42,7 +42,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 
 The two instances of SQL Managed Instance need to be in different Azure regions.
 
-The two instances of SQL Managed Instance need to be the same service tier, and have the same storage size.
+The two instances of SQL Managed Instance need to be the same service tier and have the same storage size.
 
 Your secondary instance of SQL Managed Instance must be empty (no user databases).
 
@@ -58,7 +58,7 @@ You need to set up your Network Security Groups (NSG) such that ports 5022 and t
 
  Important
 
-Misconfigured NSG security rules leads to stuck database copy operations.
+Misconfigured NSG security rules lead to stuck database copy operations.
 
 The secondary SQL Managed Instance is configured with the correct DNS zone ID. DNS zone is a property of a SQL Managed Instance and underlying virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first SQL Managed Instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. SQL Managed Instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance.
 
