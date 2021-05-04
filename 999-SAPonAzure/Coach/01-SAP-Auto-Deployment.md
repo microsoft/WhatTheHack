@@ -13,7 +13,9 @@ During the exercise, participants will be able to provision a landscape into Azu
 ## Prerequisite
 
 A valid Azure subscription which can create azure resources (computed-series, E-series, storage, Network..) for Azure regions: uswest2 and useast2
+
 Azure subscription whitelisted with Azure Netapp Filesystem (ANF)
+
 An estimate of an additional $100/daily Azure budget during the challenge-session days.
  
 ## Success Criteria
