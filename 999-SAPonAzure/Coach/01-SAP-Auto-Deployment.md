@@ -109,6 +109,8 @@ Step 14: Once the deployment script completes, login to SAP system (SID=S4P, ins
 
 ## Learning Resources
 
-SAP GUI installation guide
+SAP GUI Installation Guide
+https://help.sap.com/viewer/1ebe3120fd734f67afc57b979c3e2d46/760.05/en-US
 
 SAP HANA studio installation guide
+https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-US
