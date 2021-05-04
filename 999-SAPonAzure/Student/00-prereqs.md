@@ -10,19 +10,12 @@ A smart cloud solution architect always has the right tools in their toolbox.
 
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
-- Make sure that you have joined the Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
-- Install the recommended toolset:
-    - Windows Subsystem for Linux
-    - Azure CLI 
-        - Update to the latest
-        - Must be at least version 2.7.x
-        - **NOTE:** If you’re running into issues running Azure CLI command on Windows, disable Global Protect (VPN)
-    - Visual Studio Code
-- **NOTE:** You can start the next challenge even if this one is still running by using the Azure Cloud Shell.
-- **Tip:** You can complete almost all of the challenges with the Azure Cloud Shell!  But be a good cloud architect and make sure you have experience installing the tools locally.
-
+- Every team should have Azure subscription with $650 credit. Any team member can share his/her subscription with other members by providing contributor access to other team members.
+- Each team also requires access to power platform. Atleast one team member should have M365 E5 subscription and add other team members temporarily during the hack. Each team member should have licenses Microsoft Power Apps plan 2 Trail, Microsoft power automate free and Microsoft 365 E5 developer.
+- All team members can use default powerapp environment or if your license permits can create other environments. 
+    
 ## Success Criteria
 
-1. You have a bash shell at your disposal (WSL, Mac, Linux or Azure Cloud Shell)
-1. Running `az --version` shows the version of your Azure CLI
-1. Visual Studio Code is installed.
+1. You have a Azure and M365 Subscription.
+2. All team members can access azure resource group.
+3. All team members can login to power platform and create power automate flow, power app and access power BI. 
