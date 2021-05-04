@@ -1,4 +1,4 @@
-# Challenge 1: Update 01-SAP-Auto-Deployment.md
+# Challenge 1: Update 01-SAP-Auto-Deployment.
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
 
