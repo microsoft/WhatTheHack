@@ -8,5 +8,5 @@
 - All team members can login to power platform and create power automate flow, power app and access power BI. Each user requires licenses mentioned in the student guide.
 - Virtual machine with Ubuntu LTS 18.0 with python and terraform installed. 
 
-
+WIP
 
