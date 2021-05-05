@@ -32,9 +32,9 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Execute** an ad-hoc snapshot for the data volume.
 	- **Offload** and sync data .snapshots folder and log backups directory content, using azcopy "sync" option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
 	- **Configure** retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
-	- **Create** a security user "BACKUPTEST".
+	- **Create** a security user **BACKUPTEST**.
 	- **Take** an ad-hoc snapshot of the data volume using azacsnap. Give a prefix "AfterUserCreated" and note down the creation time stamp.
-	- **Delete** the security user BACKUPTEST "accidently" - Oops!
+	- **Delete** the security user **BACKUPTEST**
 	- **Restore** the system so that the BACKUPTEST user is restored using the snapshot "AfterUserCreated". This involves shutting down the SAP system gracefully, reverting only the data volume to an earlier snapshot, and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog. Once the system is back online after the recovery, validate the "BACKUPTEST" user is recovered as well.
 
 3. Disaster Recovery
@@ -47,9 +47,9 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Take** a backup (using azacsnap) of data and log backups volumes. Give a prefix "UseThisAtDR" and note down the creation time stamp.
 	- **Execute** the DR:
 		- By first waiting until the replication is Healthy, Mirrored and Idle.
-		- Validate that the ad-hoc snapshot "UseThisAtDR" has been successfully replicated for both the volumes.
+		- Validate that the ad-hoc snapshot **UseThisAtDR** has been successfully replicated for both the volumes.
 		- **Simulate** the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
-		- **Break** and **delete** the replication. Use the "UseThisAtDR" snapshot to revert the data and log backup volumes.
+		- **Break** and **delete** the replication. Use the **UseThisAtDR** snapshot to revert the data and log backup volumes.
 		- **Change** the performance tier of the volumes from standard to premium.
 		- Assess and discuss the remaining steps required for business continuity at the DR site.
 	- **Optionally**, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
