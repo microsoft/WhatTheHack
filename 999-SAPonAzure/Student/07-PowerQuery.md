@@ -23,21 +23,14 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 ## SUCCESS CRITERIA  
  
 
-   * Task1: Download Power  BI  desktop from windows power app platfrom  
-
-   * Task2: Execute the install and make sure that you have network connectivity from Jump box to SAP HANA DB and required HANA DB ports are open. ( no firewall issues etc..) 
-
-   * Task3: For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and privileges to extract the data. 
-
-   * Task4: Open the BI desktop client and execute the connection configure for SAP HANA database. 
-
-   * Task5: Enter the Server IP address , select ports  (custom ) and port  for the  HANA system ID  ( for example SAP HANA system ID NN ports will be 3NN40-3NN99) 
-
-   * Task6: Select Appropriate user name,  password and SSL encryption - none 
-
-   * Task7: Select direct query for data connectivity Mode  
-
-   * Task8: Extract the data and see the  tabular from of the DB 
+   1. Download Power  BI  desktop from windows power app platfrom  
+   2. Execute the install and make sure that you have network connectivity from Jump box to SAP HANA DB and required HANA DB ports are open. ( no firewall issues etc..) 
+   3. For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and privileges to extract the data. 
+   4. Open the BI desktop client and execute the connection configure for SAP HANA database. 
+   5. Enter the Server IP address , select ports  (custom ) and port  for the  HANA system ID  ( for example SAP HANA system ID NN ports will be 3NN40-3NN99) 
+   6. Select Appropriate user name,  password and SSL encryption - none 
+   7. Select direct query for data connectivity Mode  
+   8. Extract the data and see the  tabular from of the DB 
 
  
 
@@ -45,15 +38,11 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
-   * Target Roles: DBA, BASIS and Technical Architect 
-
-   * SAP HANA database administrator  
-
-   * Report creation and selection for data analytics 
-
-   * HANA DB skills – how to create Schema user and assign roles and privileges 
-
-   * Other tools - perf. benchmark tools, snapshot validation tools, Portal, CLI, bash scripting, Linux Administration 
+- Target Roles: DBA, BASIS and Technical Architect 
+- SAP HANA database administrator  
+- Report creation and selection for data analytics 
+- HANA DB skills – how to create Schema user and assign roles and privileges 
+- Other tools - perf. benchmark tools, snapshot validation tools, Portal, CLI, bash scripting, Linux Administration 
 
  
 
@@ -63,17 +52,17 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
 ## LEARNING RESOURCES 
 
-[Use SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana)
+- [Use SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana)
 
-[Power Query SAP HANA database connector](https://docs.microsoft.com/en-us/power-query/connectors/sap-hana/overview)
+- [Power Query SAP HANA database connector](https://docs.microsoft.com/en-us/power-query/connectors/sap-hana/overview)
 
-[Direct Query in Power BI DirectQuery for SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-sap-hana)
+- [Direct Query in Power BI DirectQuery for SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-directquery-sap-hana)
 
-[Bring your SAP HANA data to life with Microsoft Power BI  Bring your SAP HANA data to life with Microsoft Power BI](https://powerbi.microsoft.com/en-us/blog/bring-your-sap-hana-data-to-life-with-microsoft-power-bi/)
+- [Bring your SAP HANA data to life with Microsoft Power BI  Bring your SAP HANA data to life with Microsoft Power BI](https://powerbi.microsoft.com/en-us/blog/bring-your-sap-hana-data-to-life-with-microsoft-power-bi/)
 
-[SAP HANA DB administration Database Administration Tasks at a Glance](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/e77aff8345c640698b69173c034ce094.html)
+- [SAP HANA DB administration Database Administration Tasks at a Glance](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/e77aff8345c640698b69173c034ce094.html)
 
-[SAP Blog on connect Microsoft power BI desktop to HANA Connect Microsoft Power BI Desktop to a HANA System in SCP using SAP Cloud Connector Service Channels](https://blogs.sap.com/2017/01/23/connect-microsoft-power-bi-desktop-to-a-hana-system-in-hcp-using-hana-cloud-connector-service-channels/)
+- [SAP Blog on connect Microsoft power BI desktop to HANA Connect Microsoft Power BI Desktop to a HANA System in SCP using SAP Cloud Connector Service Channels](https://blogs.sap.com/2017/01/23/connect-microsoft-power-bi-desktop-to-a-hana-system-in-hcp-using-hana-cloud-connector-service-channels/)
 
 
 
