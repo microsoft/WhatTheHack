@@ -20,12 +20,12 @@ This challenge requires you to build foundational infrastructure along with powe
 - BAPI Names to fetch data from **SAP S/4 Hana system**.
 	- Materials list can be fetched from SAP system using BAPI named `BAPI_MATERIAL_GETLIST`.
 		- You can use below selection criteria to fetch materials using above BAPI.
-		- Material selection: I CP * (like MATNRSELECTION SIGN as I, MATNRSELECTION OPTION as CP, and MATNRSELECTION MATNR LOW as *)
-		- Plant selection: I EQ 1010
-		- Sales organization selection: I EQ 1010
+		- Material selection: `I CP * (like MATNRSELECTION SIGN as I, MATNRSELECTION OPTION as CP, and MATNRSELECTION MATNR LOW as *)`
+		- Plant selection: `I EQ 1010`
+		- Sales organization selection: `I EQ 1010`
 		- You can leave rest of the selection criteria empty. 
-		- MATNRLIST in the received outfrom SAP system has list of materials. 
-	- Material information can be fetched from SAP system using BAPI named "BAPI_MTERIAL_GET_DETAIL"
+		- `MATNRLIST` in the received outfrom SAP system has list of materials. 
+	- Material information can be fetched from SAP system using BAPI named `BAPI_MTERIAL_GET_DETAIL`
 
 - Power Automate is very useful to connect SAP system and fetch data. 
 - Request & Response step can be used to pass information from power automate (flow) to power application. 
