@@ -1,4 +1,4 @@
-# Challenge 6: SAP Start Stop Automation
+# Challenge 6: Coach's Guide
 
 [< Previous Challenge](./05-PowerApps.md) - **[Home](README.md)** - [Next Challenge >](./07-PowerQuery.md)
 
