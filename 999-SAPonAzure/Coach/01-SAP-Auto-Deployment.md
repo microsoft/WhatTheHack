@@ -43,7 +43,7 @@ Step 4: In Azure Portal, go to Azure Active Directory => App Registration => sel
 Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user “azureuser” and password “ use your own password and remember it ”. You will start all the Azure infrastructure provision from this server.
 
 Step 6: Login to the server as the named user “azureuser” and run the following commands (please remember to use the named user login “azureuser” instead of any other named user)
-
+```
 % mkdir TST200/
 
 % cd TST200/
@@ -57,10 +57,10 @@ coach will provide the package_url during the session.
 % tar xf ophk.tar
 
 % ./local_setup_env.sh
-
+```
 
 Step 7: Edit the following parameters in the “main.inputs” file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4.
-
+```
 subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -68,18 +68,18 @@ client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 client_secret: "xxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 tenant_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
-
+```
 Change in the Resource prefix section, change the “teamxx” XX to represent your team number. Eg. “team00” from step 1. Add Team number to the Resource group in the Resource Group section: Name: “saprg_ophk_teamXX” State: “new” Region: “westus2”
 
 You can change the three-letter SAP system ID parameter, if desired. e.g. SAP_system_name: “S4P” Save the “main_inputs” file. Stay in the same directory.
 
 Step 8: Generate runnable terraform scripts.
 
-% python3 gen_terraform_script.py
+`% python3 gen_terraform_script.py`
 
 Step 9: stay in the same directory, run terraform script to build the Azure infrastructure – this will run for 15-20 minutes.
 
-% ./Run_Terraform_Build.sh
+`% ./Run_Terraform_Build.sh`
  
 Step 10: [Temporarily the manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the “Root Access” is set “On”. If the export policy shows “Off” then change it to “On” and save – this is NEEDED for each NetApp file volumes.
  
@@ -98,13 +98,13 @@ SAP GUI 7.60: coach will provide the link
 HANA studio 2.0: coach will provide the link
 
 Step 13: From the window jumpbox, logon to the linux jumpbox: Putty session to server “teamxx-linux-jumpbox” with the credential azureuser/correct password. Note: Replace “xx” with your team number chosen previously.
-
+```
 % cd ~azureuser/Current_Deployment
 
 % cd ansible
 
 % ./SAP_Ansible_Deploy.sh
-
+```
 Note: this script does all the configs and then install a complete SAP system which may run up to 4 hours. While this ansible script is running, you can continue with next steps on installing SAPGUI on the Window Jumpbox.
 
 Step 14: Once the deployment script completes, login to SAP system (SID=S4P, instance #00, app server: teamXX-app01) through GUI to test connection SAP Application and continue other challenges.
