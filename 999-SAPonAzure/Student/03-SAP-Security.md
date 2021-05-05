@@ -30,7 +30,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 
 	Microsoft Azure Sentinel SAP / NetWeaver Continuous Threat Monitoring Limited Private Preview
 	Copyright © Microsoft Corporation. This preview software is Microsoft Confidential, and is subject to your Non-Disclosure Agreement with Microsoft. 
-	You may use this preview software internally and only in accordance with the [Azure preview terms](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ Microsoft reserves all other rights).
+	You may use this preview software internally and only in accordance with the [Azure preview terms](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) Microsoft reserves all other rights.
 
 ## Learning Resources
 
