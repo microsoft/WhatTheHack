@@ -27,7 +27,7 @@
 - ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen2.png)
 - ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen3.png)
 - ![Flow for Materiallist - SAP System details](Images/Challenge5-Screen4.png)
-- Highlighted input details in the above screenshots are required fields for the `BAPI_MATERIAL_GETLIST` and can be customized as per requirement. Plant and sales organization numbers can be any existing numbers in SAP system.  <b> In the response, select `MATNRLIST`. Framing response is little critical. Follow steps mentioned under "Using the connector in an App" at https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/. </b> 
+- Highlighted input details in the above screenshots are required fields for the `BAPI_MATERIAL_GETLIST` and can be customized as per requirement. Plant and sales organization numbers can be any existing numbers in SAP system.  In the response, select `MATNRLIST`. Framing response is little critical. Follow steps mentioned under "Using the connector in an App" at https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/. 
 
 **Getting Material information from SAP**
 
@@ -46,7 +46,7 @@
 - ![Sample screen](Images/Challenge5-SampleApplicationScreen.png)
 - Create collection object to store loaded material list from SAP while this application is loading. Click on screen, select onvisible propery and connect it to power automate (flow) named "Get_SAP_Materiallist". To do this, click on menu item Action select power automate. Now select the flow `Get_SAP_Materiallist`. 
 - ![Conecting flow from application](Images/Challenge5-Screen8.png)
-- Adjust the onvisible property of screen as shown in below screenshot. Below Screen shot has different flow name, please ignore it and use correct flow name. Screenshot is given to show the property "OnVisible" and collection object "QueryResults".
+- Adjust the onvisible property of screen as shown in below screenshot. Below Screen shot has different flow name, please ignore it and use correct flow name. Screenshot is given to show the property `OnVisible` and collection object `QueryResults`.
 - ![Conecting flow from application](Images/Challenge5-Screen9.png)
 - Insert vertical gallery and connect it to collection object "QueryResults", which was pre-loaded while screen is being loaded.
 - ![Conecting flow from application](Images/Challenge5-Screen10.png)	
