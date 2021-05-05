@@ -14,12 +14,7 @@ Build a simple power application for Tablet that can  fetch available materials 
 
 This challenge requires you to build foundational infrastructure along with power application. 
 
-## Success Criteria
-
-1. Working ERP connection in the power automate (or flow).
-2. Successful Run of the power application and display selected material information. 
-
-## Hints
+## Tips
 
 - On-premise datagateway along with SAP .Net connector has to be installed to access SAP system. You need S-User to download SAP .Net connector and other components can be downloaded freely. Reference named "SAP ERP connector in power application" mentioned in reference section has all required URLs to download the components. [Note: If you are a Internal Microsoft employee, ask coach for SAP .Net connector location.]
 - BAPI Names to fetch data from **SAP S/4 Hana system**.
@@ -37,6 +32,11 @@ This challenge requires you to build foundational infrastructure along with powe
 - Sample end application may look like below: (It is only to give an idea but can be much better than this).
 
 ![](Images/Challenge5-SampleApplicationScreen.png)
+
+## Success Criteria
+
+1. Working ERP connection in the power automate (or flow).
+2. Successful Run of the power application and display selected material information. 
 
 ## Learning Resources
 
