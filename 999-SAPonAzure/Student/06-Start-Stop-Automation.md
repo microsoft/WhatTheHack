@@ -32,9 +32,9 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 
 ## Learning Resources 
 
-Manage credentials in Azure Automation | Microsoft Docs
-
-Azure Quickstart - Create an Azure Automation account | Microsoft Docs
+[Manage credentials in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/shared-resources/credentials?tabs=azure-powershell)
+ 
+[Azure Quickstart - Create an Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account)
 
 SAP Library - Tools for Monitoring the System
 
