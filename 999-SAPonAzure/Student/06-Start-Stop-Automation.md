@@ -1,4 +1,4 @@
-# Challenge 6: SAP start stop automation
+# Challenge 6: SAP Start Stop Automation
 
 [< Previous Challenge](./05-PowerApps.md) - **[Home](../README.md)** - [Next Challenge >](./07-PowerQuery.md)
 
