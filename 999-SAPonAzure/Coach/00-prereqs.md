@@ -1,6 +1,6 @@
 # Challenge 0: Coach's Guide
 
-**[Home](README.md)** - [Next Challenge >]()
+**[Home](README.md)** - [Next Challenge >](./01-SAP-Auto-Deployment.md)
 
 ## Introduction
 A smart cloud solution architect always has the right tools in their toolbox.
