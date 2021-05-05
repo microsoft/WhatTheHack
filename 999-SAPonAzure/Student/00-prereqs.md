@@ -17,7 +17,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
     
 ## Success Criteria
 
-1. You have a Azure and M365 Subscription.
-2. All team members can access azure resource group.
-3. You can create Azure NetApp Files account and volumes.
-4. All team members can login to power platform and create power automate flow, power app and access power BI. 
+- You have a Azure and M365 Subscription.
+- All team members can access azure resource group.
+- You can create Azure NetApp Files account and volumes.
+- All team members can login to power platform and create power automate flow, power app and access power BI. 
