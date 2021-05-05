@@ -1,4 +1,4 @@
-# Challenge 7: COACH 'S GUIDE 
+# Challenge 7: COACH'S GUIDE 
 
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
