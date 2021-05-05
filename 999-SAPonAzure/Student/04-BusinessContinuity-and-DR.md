@@ -71,11 +71,10 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 
 ## Success Criteria
 
-1. A successful setup of the temporary backup solution.
-2. An automatic orchestration of ANF snapshots on the data and log backup volumes to achieve point-in-time recovery.
-3. The availability of offloaded snapshots in storage account containers per the requirement. Be able to restore the BACKUPTEST user successfully.
-4. Be able to successfully set up DR replication using ANF CRR and validate changes are available at the DR site.
-
+- A successful setup of the temporary backup solution.
+- An automatic orchestration of ANF snapshots on the data and log backup volumes to achieve point-in-time recovery.
+- The availability of offloaded snapshots in storage account containers per the requirement. Be able to restore the BACKUPTEST user successfully.
+- Be able to successfully set up DR replication using ANF CRR and validate changes are available at the DR site.
 
 ## Learning Resources
 
