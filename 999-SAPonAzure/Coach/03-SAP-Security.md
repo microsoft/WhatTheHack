@@ -12,7 +12,7 @@ Security center and Azure defender (intro and basics) please follow MS docs on S
 
 Azure Sentinel (requires Sentinel workspace and SAP knowledge) Detailed documentation provided seperately (see note below)
 
-Security Center and Azure defender Security Center anal(yzes the security state of your resources to identify potential vulnerabilities. From Security Center's menu, open the Recommendations page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
+Security Center and Azure defender Security Center analyze the security state of your resources to identify potential vulnerabilities. From Security Center's menu, open the Recommendations page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 image
 
 Recommendations flagged as Preview aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score. image
