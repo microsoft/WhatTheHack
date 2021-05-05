@@ -8,9 +8,9 @@ Notes & Guidance
 
 This challenge has two parts
 
-Security center and Azure defender (intro and basics) please follow MS docs on Security Center.
+- Security center and Azure defender (intro and basics) please follow MS docs on Security Center.
 
-Azure Sentinel (requires Sentinel workspace and SAP knowledge) Detailed documentation provided seperately (see note below)
+- Azure Sentinel (requires Sentinel workspace and SAP knowledge) Detailed documentation provided seperately (see note below)
 
 Security Center and Azure defender Security Center analyze the security state of your resources to identify potential vulnerabilities. From Security Center's menu, open the Recommendations page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 image
