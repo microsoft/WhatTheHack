@@ -1,4 +1,4 @@
-# Challenge 7: COACH'S GUIDE 
+# Challenge #7: SELF-SERVICE ANALYTICAL DASHBOARD USING DATA FROM SAP S/4 HANA SYSTEM.
 
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
