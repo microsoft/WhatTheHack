@@ -1,6 +1,6 @@
 # Challenge 4: # Challenge 4: Business Continuity and Disaster Recovery with Azure NetApp Files - Coach's Guide
 
-[< Previous Challenge](./03-k8sintro.md) - **[Home](README.md)** - [Next Challenge >](./05-PowerApps.md)
+[< Previous Challenge](./03-SAP-Security.md) - **[Home](README.md)** - [Next Challenge >](./05-PowerApps.md)
 
 ## Notes & Guidance
 
