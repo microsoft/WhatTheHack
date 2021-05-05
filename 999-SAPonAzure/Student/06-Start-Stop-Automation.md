@@ -32,7 +32,17 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 
 ## Learning Resources 
 
+Manage credentials in Azure Automation | Microsoft Docs
 
+Azure Quickstart - Create an Azure Automation account | Microsoft Docs
+
+SAP Library - Tools for Monitoring the System
+
+Azure Automation Start/Stop VMs during off-hours overview | Microsoft Docs
+
+Pricing - Managed Disks | Microsoft Azure
+
+Pricing - Automation | Microsoft Azure
 
 ## Architecture of the Start/Stop solution 
 
