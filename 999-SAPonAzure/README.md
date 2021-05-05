@@ -14,7 +14,7 @@ Azure is SAP certified to run your mission-critical SAP applications. Azure is t
 
 Participants work together in teams to complete challenges and are actively engaged, requiring deep collaboration, as they learn together!
 
-The SAP on Azure WTH chellanges will help you learn common Azure surround services for SAP.
+The SAP on Azure WTH challenges will help you learn common Azure surround services for SAP and is aimed at providing the pariticipants foundational knowledge to begin a successful SAP on Azure Journey.
 
 
 ## Prerequisites
