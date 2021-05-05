@@ -36,7 +36,7 @@ Open AKS resource. Select "Node pools" on the left bar. Find the user nodepool a
 
 ### Create a deployment and service using the container image `k8s.gcr.io/hpa-example`
 
-Create a yaml file similar to the one [here](../Resources/hpa-example.yaml).
+Create a yaml file similar to the one [here](../Resources/04-scaling/hpa-example.yaml).
 
 ```yaml
 apiVersion: apps/v1

@@ -1,0 +1,19 @@
+
+# stock
+>intent phrases:
+-What is the stock price of {ticker=TSLA}?
+-Please give me the stock price of {ticker=MSFT}
+-{tiker=GOOG} stock price right now?
+-stock price
+
+> entity definitions:
+@ml ticker
+
+# ESG
+-ESG Rating
+-ESG
+
+# CallAgent
+-Call Agent
+-Agent
+-Speak to an Angent
