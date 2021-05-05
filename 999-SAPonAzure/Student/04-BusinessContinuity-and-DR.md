@@ -14,7 +14,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 1. Backup using a temporary solution (HANA native)
 	- For point-in-time recovery, you need to enable log backups.
-	- **Take** your first native HANA full file level backup.
+	- Take your first native HANA full file level backup.
 	- This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
 2. Backup using a permanent solution (ANF snapshots)
 	- Assess the backup requirements:
@@ -23,34 +23,34 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Local availability of log backups for up to the last 24 hours
 		- Point-in-Time recovery for up to the last 72 hours
 		- Additional protection of backup files by offloading to an intra region storage account
-	- **Update** the below backup schedule (frequency, retention, offloading, sizing)  `(See Table in Figure 1 below)`
-	- **Adjust** log backup volume size for storing log backups based on the size requirement (daily change of 250 GB) from Azure NetApp Files blade in Azure Portal. In addition, also **adjust** relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. (Command to change: chown -R user:group <new_backup_location>). 
-	- **Change/Validate** the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
-	- **Build** a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
-	- **Execute** an ad-hoc snapshot for the data volume.
-	- **Offload** and sync data `.snapshots` folder and log backups directory content, using `azcopy "sync"` option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
-	- **Configure** retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
-	- **Create** a security user `BACKUPTEST`.
-	- **Take** an ad-hoc snapshot of the data volume using azacsnap. Give a prefix `AfterUserCreated` and note down the creation time stamp.
-	- **Delete** the security user `BACKUPTEST`
-	- **Restore** the system so that the `BACKUPTEST` user is restored using the snapshot `AfterUserCreated`. This involves shutting down the SAP system gracefully, reverting only the data volume to an earlier snapshot, and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog. Once the system is back online after the recovery, validate the `BACKUPTEST` user is recovered as well.
+	- Update the below backup schedule (frequency, retention, offloading, sizing)  `(See Table in Figure 1 below)`
+	- Adjust log backup volume size for storing log backups based on the size requirement (daily change of 250 GB) from Azure NetApp Files blade in Azure Portal. In addition, also adjust relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. (Command to change: chown -R user:group <new_backup_location>). 
+	- Change/Validate the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
+	- Build a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
+	- Execute an ad-hoc snapshot for the data volume.
+	- Offload and sync data `.snapshots` folder and log backups directory content, using `azcopy "sync"` option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
+	- Configure retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
+	- Create a security user `BACKUPTEST`.
+	- Take an ad-hoc snapshot of the data volume using azacsnap. Give a prefix `AfterUserCreated` and note down the creation time stamp.
+	- Delete the security user `BACKUPTEST`
+	- Restore the system so that the `BACKUPTEST` user is restored using the snapshot `AfterUserCreated`. This involves shutting down the SAP system gracefully, reverting only the data volume to an earlier snapshot, and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog. Once the system is back online after the recovery, validate the `BACKUPTEST` user is recovered as well.
 
 3. Disaster Recovery
-	- **Assess** the disaster recovery requirements:
+	- Assess the disaster recovery requirements:
 		- DR region is chosen as US East.
 		- RPO < 30 min, RTO < 4 hrs.	
 		- Inter-region DR using storage replication capabilities
-	- **Set up** ANF storage replication (CRR) to meet the RPO. This also requires creating the ANF account and the replicating volumes in the **"standard" performance tier** storage pool at the DR region.
-	- **Create** a placeholder file (touch filename) under the data volume (/hana/data/<SID>/mnt00001/) and note down the timestamp. Optionally, you can also create a security user `DRTEST` in HANA, but note that The application-level validation is out of scope for this challenge
-	- **Take** a backup (using azacsnap) of data and log backups volumes. Give a prefix `UseThisAtDR` and note down the creation time stamp.
-	- **Execute** the DR:
+	- Set up ANF storage replication (CRR) to meet the RPO. This also requires creating the ANF account and the replicating volumes in the **"standard" performance tier** storage pool at the DR region.
+	- Create a placeholder file (touch filename) under the data volume (/hana/data/<SID>/mnt00001/) and note down the timestamp. Optionally, you can also create a security user `DRTEST` in HANA, but note that The application-level validation is out of scope for this challenge
+	- Take a backup (using azacsnap) of data and log backups volumes. Give a prefix `UseThisAtDR` and note down the creation time stamp.
+	- Execute the DR:
 		- By first waiting until the replication is Healthy, Mirrored and Idle.
 		- Validate that the ad-hoc snapshot `UseThisAtDR` has been successfully replicated for both the volumes.
-		- **Simulate** the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
-		- **Break** and **delete** the replication. Use the `UseThisAtDR` snapshot to revert the data and log backup volumes.
-		- **Change** the performance tier of the volumes from standard to premium.
+		- Simulate the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
+		- Break and **delete** the replication. Use the `UseThisAtDR` snapshot to revert the data and log backup volumes.
+		- Change the performance tier of the volumes from standard to premium.
 		- Assess and discuss the remaining steps required for business continuity at the DR site.
-	- **Optionally**, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
+	- Optionally, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
 		
 
 ---
