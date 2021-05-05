@@ -3,14 +3,14 @@
 
 # Introduction  
 
-Mango Inc is a manufacturing company planning to modernize IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop clients and apps for visualization and analysis purpose. This exercise includes connecting power BI desktop client to HANA DB using direct query with DB user and password, Extract the required tables using semantic SQL query and Generate self-service Job status report using direct custom query to SAP system. 
+Mango Inc is a manufacturing company planning to modernize its IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop client and develop a self-service report for visualization and analysis. 
 
  
 
 # Description 
     
-  ## Generate self-service SAP system  report about batch jobs status and  name from SAP system
   
+  This exercise includes connecting power BI desktop client to HANA DB (using direct query with DB user and password), Extract data from the required tables (using semantic SQL query) and Generate self-service Job status report.
    * Download Power BI client and connect SAP HANA DB using Power BI configuration option
    * Extract  table TBTCO ( SAP job status ) using SQL and   Generate self-service Job status report  using direct custom query to SAP system. 
 
