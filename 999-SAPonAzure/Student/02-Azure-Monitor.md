@@ -4,15 +4,13 @@
 
 ## Introduction
 
-Mango Inc has migrated the SAP landscape on Microsoft Cloud Azure. Now Mango Inc wants to enable Azure native monitoring services to monitor SAP Solution on Azure. It is critical for Mango Inc to monitor and review resource usage trend for the last 30 days. How to configure & capture critical monitoring metrics for SAP Solution on Azure? In this challenge, we'll find that out.
+With your SAP Landscape deployed, now you need to deploy Azure native monitoring services.  In this challenge, you'll configure and capture critical monitoring metrics for SAP solutions on Azure.
 
 ## Description
 
 Configure Azure Monitor for SAP application that can fetch critical metrics for Virtual Machine, SAP Application and HANA database.
 
-
 ![SAP ON Azure Monitoring](Images/Challenge2_Azure_Monitor_SAP_Architecture.png)
-
 
 In this challenge, we will Azure Monitoring to unlock the monitoring capabilities of Azure native monitoring services. We will configure monitoring data collection and ingestion of data into log analytics workspace for trend insights and custom dashboard.
 
@@ -35,9 +33,16 @@ In this challenge, we will Azure Monitoring to unlock the monitoring capabilitie
 
 ## Success Criteria
 
-- Task1: Create a Log Analytics Workspace.
-- Task2: Deploy Azure Monitor for SAP.
-- Task3: Enable VM Insights on Virtual Machines running SAP Workloads and connect to log analytics workspace created as part of Task1.
-- Task4: Configure OS provider in AMS for all SAP Virtual machines, SAP HANA provider for Hana database, & NetWeaver provider for SAP system.
-- Task5: Check for Monitoring data in Log Analytics Workspace.
-- Task6: Use Kusto query to create custom dashboard.
+1. Connect SAP to native Azure Monitoring services.
+2. Check that monitoring data is flowing into your workspace.
+3. Build a custom dashboard with the data
+
+## Learning Resources
+
+[Deploy Azure Monitor for SAP Solutions with Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart)
+
+[AMS Netweaver Provider Portal Link (in preview)](https://ms.portal.azure.com/?feature.nwflag=true#home)
+
+[Log Analytics Workspace] (https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace)
+
+[VM Insights] (https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-overview)
