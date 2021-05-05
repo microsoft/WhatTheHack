@@ -85,11 +85,6 @@ Enter the "SYSTEM" DB user and password
 ![Image13](Images/Challenge7_image13.png)
  
 
-Follow the above steps and add an entry for SAPOPENHACK user also.
-
-![Image7](Images/Challenge7_image7.png)
- 
-
 Setup new User ID in SAP HANA Database: 
 
 Create a new user ID SAPOPENHACK in SAP HANA, this user will be used to connect Power BI to SAP HANA Database 
@@ -150,7 +145,9 @@ When we update the “Object Privileges” with TBTCO and granter is SYSTEM it w
 
 ![Image21](Images/Challenge7_image21.png)
 
- 
+Follow the steps above and add an entry for SAPOPENHACK user also in HANA Studio.
+
+![Image7](Images/Challenge7_image7.png)
 
 HANA configuration is complete … now Let's work on Power BI connection and report... 
 
