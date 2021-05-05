@@ -1,4 +1,4 @@
-# Challenge 5: Build Mobile Application around SAP. 
+# Challenge 5: Build Mobile Application around SAP
 
 [< Previous Challenge](./04-BusinessContinuity-and-DR.md) - **[Home](../README.md)** - [Next Challenge >](./06-Start-Stop-Automation.md)
 
