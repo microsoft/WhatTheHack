@@ -33,63 +33,6 @@ Login into SAP HANA Database using HANA Studio:
 ![Image1](Images/Challege7_image1.png)
  
 
-Or  
-
-use the icon on desktop 
-
-
-![Image2](Images/Challenge7_image2.png)
-
-
-
-Following pop up will appear  - 
-
- 
-
-![Image3](Images/Challenge7_image3.png)
-
- 
-
-Select  "Launch" Button ... 
-
- 
-
-After selecting launch ... 
-
-
-![Image4](Images/Challenge7_image4.png)
-
-
- 
-
-Select "Apply and Close " 
-
-
-![Image5](Images/Challenge7_image5.png)
-
-
- 
-
-Select description "Open Hack ID"  - apply and close 
-
-  
-
-  
-
-  
-![Image6](Images/Challenge7_image6.png)
-
- 
-
- 
-
-It will create  "OpenhackID" entry in the SAP studio 
-
- 
-
- 
-![Image7](Images/Challenge7_image7.png)
-  
 
 
 Initial screen of SAP HANA studio will pop up  
@@ -142,6 +85,9 @@ Enter the "SYSTEM" DB user and password
 ![Image13](Images/Challenge7_image13.png)
  
 
+Follow the above steps and add an entry for SAPOPENHACK user also.
+
+![Image7](Images/Challenge7_image7.png)
  
 
 Setup new User ID in SAP HANA Database: 
