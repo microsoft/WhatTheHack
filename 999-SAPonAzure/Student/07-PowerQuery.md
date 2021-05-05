@@ -1,13 +1,13 @@
-# Challenge #7: Self-service analytical dashboard using data from SAP S/4 Hana system.
+# Challenge #7: SELF-SERVICE ANALYTICAL DASHBOARD USING DATA FROM SAP S/4 HANA SYSTEM.
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](../README.md)** 
 
-## Introduction 
+## INTRODUCTION 
 
 Mango Inc is a manufacturing company planning to modernize IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop clients and apps for visualization and analysis purpose. This exercise includes connecting power BI desktop client to HANA DB using direct query with DB user and password, Extract the required tables using semantic SQL query and Generate self-service Job status report using direct custom query to SAP system. 
 
  
 
-## Description
+## DESCRIPTION 
 
         
     Generate self-service SAP system  report about batch jobs status and  name from SAP system. 
@@ -20,7 +20,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
  
 
 
-## Success Criteria 
+## SUCCESS CRITERIA  
  
 
    * Task1: Download Power  BI  desktop from windows power app platfrom  
@@ -41,7 +41,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
-## Hints 
+## HINTS
 
  
 
@@ -61,7 +61,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
 
 
-## Learning Resources  
+## LEARNING RESOURCES 
 
 [Use SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana)
 
