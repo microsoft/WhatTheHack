@@ -38,7 +38,7 @@ This challenge requires you to build foundational infrastructure along with powe
 
 ![](Images/Challenge5-SampleApplicationScreen.png)
 
-## References
+## Learning Resources
 
 1. [SAP ERP Connector in power applications](https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/)
 2. [Power Apps canvas applications](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/) 
