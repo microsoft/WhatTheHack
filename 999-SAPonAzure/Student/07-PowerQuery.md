@@ -11,9 +11,10 @@ Mango Inc is a manufacturing company planning to modernize its IT infrastructure
     
   
   This exercise includes connecting power BI desktop client to HANA DB (using direct query with DB user and password), Extract data from the required tables (using semantic SQL query) and Generate self-service Job status report.
-   * Download Power BI client and connect SAP HANA DB using Power BI configuration option
-   * Extract  table TBTCO ( SAP job status ) using SQL and   Generate self-service Job status report  using direct custom query to SAP system. 
-
+  
+  A high level architectural diagram can be found below.
+  
+  
 ![image](https://user-images.githubusercontent.com/81314847/115074617-eefa6580-9ec7-11eb-9eaa-ca09b29708cb.png)
  
 
@@ -23,22 +24,13 @@ Mango Inc is a manufacturing company planning to modernize its IT infrastructure
 
    * Download Power  BI  desktop from windows power app platfrom  
 
-   * Execute the install and make sure that you have network connectivity from Jump box to SAP HANA DB and required HANA DB ports are open. ( no firewall issues etc..) 
-
    * For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and privileges to extract the data. 
 
-   * Open the BI desktop client and execute the connection configure for SAP HANA database. 
+   * SAP HANA ports will be 3NN40-3NN99, NN is the system number for HANA.
 
-   * Enter the Server IP address , select ports  (custom ) and port  for the  HANA system ID  ( for example SAP HANA system ID NN ports will be 3NN40-3NN99) 
+   * Leverage direct query for data connectivity Mode  
 
-   * Select Appropriate user name,  password and SSL encryption - none 
-
-   * Select direct query for data connectivity Mode  
-
-   * Extract the data and see the  tabular from of the DB 
-
- 
-
+   * report should have a matrix, a pie chart and a bar chart 
 
  
 
