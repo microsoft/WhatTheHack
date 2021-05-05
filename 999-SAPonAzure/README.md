@@ -2,11 +2,17 @@
 
 ## Introduction 
 
+SAP S/4HANA is SAP's ERP for large enterprises. It is the successor of SAP R/3 and SAP ERP and is optimized for SAP's in-memory database SAP HANA.
 Azure is SAP certified to run your mission-critical SAP applications. Azure is the industry's most performant and scalable SAP cloud infrastructure, offering 192-gigabyte to 12-terabyte SAP HANA–certified virtual machines in more regions than any other public cloud provider. 
 
-Participants work together in teams to complete challenges and are actively engaged, requiring deep collaboration, as they learn together!
+![MicrosoftTeams-image](https://user-images.githubusercontent.com/48741882/117181155-edbfa880-ada2-11eb-8368-70e386667aa4.png)
+![MicrosoftTeams-image (1)](https://user-images.githubusercontent.com/48741882/117181160-ee583f00-ada2-11eb-9300-6c77a0f9d156.png)
+
 
 ## Learning Objectives
+
+
+Participants work together in teams to complete challenges and are actively engaged, requiring deep collaboration, as they learn together!
 
 The SAP on Azure WTH chellanges will help you learn common Azure surround services for SAP.
 
