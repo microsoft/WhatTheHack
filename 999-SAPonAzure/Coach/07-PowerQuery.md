@@ -4,28 +4,28 @@
 
 ## Notes & Guidance 
 
-There are few  actvities for the PowerBI APp intergation with SAP HANA DB ..
-at theigh level we can summerize the actvities in three sections ...
+There are few  actvities for the PowerBI APP intergation with SAP HANA DB ..
+at the high level steps can be summerized into three activities ...
 
 ### Activity 1:  
 
-Make sure that   SAP S/4 appliance is installed and have access details in right SAP client. 
+Make sure that   SAP S/4 appliance is installed and have access details to correct SAP client. 
 
 ### Activity 2:   
 
-Now download  and install  the Power BI client  and SAP HANA studio on SAP   windows jump box to configure the DB connection and create the direct query using power BI desktop, 
+Download  and install  the Power BI client  and SAP HANA studio on SAP  windows jump box to configure the DB connection and create the direct query using power BI desktop, 
  
 ### Activity 3:  
 
-Now  configure the poweBI app connection to SAP HANA DB using Azure  and SAP documenations steps using  HANA studio and power BI desktop clients.
+Configure the poweBI app connection to SAP HANA DB using steps from documenations (both SAP and Azure).
 steps include --
-   1. Create the additiona SAP schema and user , Assign appropriate previleges and roles to newly created users in HANA stusion to conenct SAP S/4 schema.
-   2. IN power BI clinet GUI add the user name / password of HANA db users and connection strings with tables name to poulate the data
-   3. Once the data populate in power BI client, use appropariate colume , row and filter criteria to create the quesry to show vistulaization using PIE or nbar char.
-   4. publish the power BI app for the end user so they can use on their desktop for future use.
+   1. Create the additional SAP schema user , Assign appropriate previleges and roles to newly created users in HANA studio to conenct to SAP S/4 schema.
+   2. In power BI clinet GUI add the user name / password of HANA db user and connection strings with tables name to extract the data.
+   3. Once the data is extracted into power BI client, use appropariate column, row and filter criteria to create the query to show vistulaization using PIE and BAR chart.
+   4. Publish the power BI app for the end user so they can use on their desktop for future use.
 
 
-Login in SAP HANA Database using HANA Studio: 
+Login into SAP HANA Database using HANA Studio: 
 
 
 
@@ -34,10 +34,12 @@ Login in SAP HANA Database using HANA Studio:
  
 
 Or  
+
 use the icon on desktop 
 
 
 ![Image2](Images/Challenge7_image2.png)
+
 
 Following pop up will appear  - 
 
