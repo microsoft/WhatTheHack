@@ -1,6 +1,6 @@
 # Challenge 3: Coach's Guide
 
-[< Previous Challenge](./02-acr.md) - **[Home](README.md)** - [Next Challenge >](./04-k8sdeployment.md)
+[< Previous Challenge](./02-acr.md) - **[Home](README.md)** - [Next Challenge >](./04-Business-Continuity-and-DR.md)
 
 ## Notes & Guidance
 
