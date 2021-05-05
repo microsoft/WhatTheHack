@@ -1,7 +1,7 @@
 # Challenge #7: SELF-SERVICE ANALYTICAL DASHBOARD USING DATA FROM SAP S/4 HANA SYSTEM.
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](../README.md)** 
 
-## INTRODUCTION 
+# INTRODUCTION 
 
 Mango Inc is a manufacturing company planning to modernize IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop clients and apps for visualization and analysis purpose. This exercise includes connecting power BI desktop client to HANA DB using direct query with DB user and password, Extract the required tables using semantic SQL query and Generate self-service Job status report using direct custom query to SAP system. 
 
