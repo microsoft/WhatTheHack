@@ -43,6 +43,6 @@ In this challenge, we will Azure Monitoring to unlock the monitoring capabilitie
 
 [AMS Netweaver Provider Portal Link (in preview)](https://ms.portal.azure.com/?feature.nwflag=true#home)
 
-[Log Analytics Workspace] (https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace)
+[Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace)
 
-[VM Insights] (https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-overview)
+[VM Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-overview)
