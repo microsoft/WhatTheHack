@@ -2,9 +2,7 @@
 
 [< Previous Challenge](./04-Business-Continuity-and-DR.md) - **[Home](README.md)** - [Next Challenge >](./06-Start-Stop-Automation.md)
 
-## Notes & Guidance
-
-## Step 1 - **Build infrastructure**
+## Step 1 - Build Infrastructure
 
 - Make sure that fully activated SAP S/4 Hana system is installed. User name and password are working in SAP business client.
 - Select a VM to install On-premise data gateway that can access SAP S/4 Hana system on dispatcher and gateway ports. Typical port ranges are 33**,32**,36**.
@@ -16,7 +14,7 @@
 - Create SAP connection using registered data gateway and correct username and password.
 - ![SAP connection](Images/Challenge5-SAPConnection.PNG)
 
-## Step 2 - **Develop power automate (flows)**
+## Step 2 - Develop Power Automate (flows)
 
 - Make sure user enabled Microsoft power Apps Plan2 Trail and Microsoft Power Automate Free. E5 developer is also preferred. 
 ![Licenses](Images/Challenge5-PowerAppsLicense.png)
