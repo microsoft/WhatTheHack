@@ -6,13 +6,11 @@
 
 Contoso heavily relies on SAP infrastructure to perform day to day business transactions. Unavailability of IT infrastructure for SAP or SAP application itself can heavily impact business transactions and potentially delay revenue recognition. Contoso is concerning about the data consistency on backups and restorability with online backups and necessity of offline backups along with periodicity. CIO heard about Azure netapp files and its features and took a decision to use ANF across the SAP infrastructure for Hana database.  
 
-## Description
-
 SAP S/4 Hana system is fully protected with required IT monitoring, secured & compliance configuration and also with high availabitly for IT component failures. However, it is not protected with accidental errors, unintended data discrepencies, data loss / corruption or geographical catastrophies. Design and implement BCDR solution for SAP S/4 Hana system by implementing secondary copy of SAP system in another seperate azure region from production region with continuous asynchronous data replication.
 
 ![Backup and Disaster Recovery - HANA on ANF](Images/Challenge4Arch.PNG)
 
-## Guidelines
+## Description
 
 1. Backup using a temporary solution (HANA native)
 	- For point-in-time recovery, you need to enable log backups.
