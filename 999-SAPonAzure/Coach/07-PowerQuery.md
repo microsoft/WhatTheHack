@@ -1,8 +1,8 @@
-# Challenge 7: Coach's Guide
+# Challenge 7: COACH 'S GUIDE 
 
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
-## Notes & Guidance
+## NOTES & GUIDANCE 
 
 There are few  actvities for the PowerBI APp intergation with SAP HANA DB ..
 at theigh level we can summerize the actvities in three sections ...
