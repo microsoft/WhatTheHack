@@ -77,7 +77,7 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 4. Be able to successfully set up DR replication using ANF CRR and validate changes are available at the DR site.
 
 
-## Resources
+## Learning Resources
 
 1. [Create Data Backups and Delta Backups (SAP HANA Studio) - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/c51a3983bb571014afa0c67026e44ca0.html)
 2. [Resize a capacity pool or a volume - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes#:~:text=%20Resize%20a%20volume%20%201%20From%20the,to%20resize%20or%20delete%20the%20volume.%20More%20)
