@@ -40,19 +40,19 @@ This challenge requires you to build foundational infrastructure along with powe
 
 ## Learning Resources
 
-[SAP ERP Connector in power applications](https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/)
+- [SAP ERP Connector in power applications](https://powerapps.microsoft.com/en-us/blog/introducing-the-sap-erp-connector/)
 
-[Power Apps canvas applications](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/) 
+- [Power Apps canvas applications](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/) 
 
-[Create collection object in power apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/create-update-collection)
+- [Create collection object in power apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/create-update-collection)
 
-[Using power (flows) Automate in power apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/using-logic-flows)
+- [Using power (flows) Automate in power apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/using-logic-flows)
 
-[SAP BAPI](https://help.sap.com/doc/saphelp_nw73/7.3.16/en-US/4d/c89000ebfc5a9ee10000000a42189b/content.htm?no_cache=true)
+- [SAP BAPI](https://help.sap.com/doc/saphelp_nw73/7.3.16/en-US/4d/c89000ebfc5a9ee10000000a42189b/content.htm?no_cache=true)
 
-[Access URL for power application](https://make.powerapps.com/)
+- [Access URL for power application](https://make.powerapps.com/)
 
-[Access Azure portal](https://portal.azure.com/) 
+- [Access Azure portal](https://portal.azure.com/) 
 
 
 
