@@ -27,7 +27,7 @@ An estimate of an additional $100/daily Azure budget during the challenge-sessio
 Step 1: Identify your Group number XX (which will be used later for configurations).
 
 Step 2: Open Azure Portal, Powershell Window. Run the following command to create Service Principle and save the Password to Notepad
-
+```
 $sp = New-AzADServicePrincipal -DisplayName AutoSAPDeployAdminXX
 
 $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sp.Secret)
@@ -35,7 +35,7 @@ $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode(
 $password = [System.Runtime.InteropServices.Marshal]::PtrToStringUni($Ptr)
 
 Write-output $password
- 
+```
 Step 3: Open Azure Portal, record the Azure Subscription ID and save to Notepad.
 
 Step 4: In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad.
