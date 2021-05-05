@@ -8,7 +8,7 @@ Participants work together in teams to complete challenges and are actively enga
 
 ## Learning Objectives
 
-The SAP on Azure WTH chellanges will help you learn common Azure surround serices for SAP.
+The SAP on Azure WTH chellanges will help you learn common Azure surround services for SAP.
 
 
 ## Prerequisites
