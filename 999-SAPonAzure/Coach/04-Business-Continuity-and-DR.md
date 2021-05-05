@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-|**Section**|**Sub-Section**|**Comments** ```***Leverage the Reference Links for more information.***```|
+|**Section**|**Sub-Section**|**Comments** |
 |-----------|---------------|------------|
 |Temp.| All|For the temporary backup solution, you will need to take a full file level backup for both the SYSTEM and the tenant Databases. ![HANA Native Backup](Images/Challenge4-t1.png)|
 |Backup|Update the Backup Schedule Table|Data: Daily, Twice-Daily retain for 3 days. Log Backups: 15 min retain for 2 days (log backups already contain the last 24 hrs of log backups so 2 days instead of 3. Shared: Same as Data|
