@@ -30,7 +30,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- **Change/Validate** the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
 	- **Build** a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
 	- **Execute** an ad-hoc snapshot for the data volume.
-	- **Offload** and sync data .snapshots folder and log backups directory content, using azcopy "sync" option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
+	- **Offload** and sync data `.snapshots` folder and log backups directory content, using `azcopy "sync"` option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
 	- **Configure** retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
 	- **Create** a security user `BACKUPTEST`.
 	- **Take** an ad-hoc snapshot of the data volume using azacsnap. Give a prefix `AfterUserCreated` and note down the creation time stamp.
