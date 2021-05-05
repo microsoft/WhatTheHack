@@ -2,9 +2,14 @@
 
 ## Introduction 
 
+Azure is SAP certified to run your mission-critical SAP applications. Azure is the industry's most performant and scalable SAP cloud infrastructure, offering 192-gigabyte to 12-terabyte SAP HANA–certified virtual machines in more regions than any other public cloud provider. 
+
 Participants work together in teams to complete challenges and are actively engaged, requiring deep collaboration, as they learn together!
 
 ## Learning Objectives
+
+The SAP on Azure WTH chellanges will help you learn common Azure surround serices for SAP.
+
 
 ## Prerequisites
 
