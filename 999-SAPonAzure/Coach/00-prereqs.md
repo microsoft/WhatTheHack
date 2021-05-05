@@ -2,11 +2,11 @@
 
 **[Home](README.md)** - [Next Challenge >](./01-SAP-Auto-Deployment.md)
 
-- Each team should have a Azure and M365 Subscription.
-- All team members can access azure resource group.
-- You can create Azure NetApp Files account and volumes.
-- All team members can login to power platform and create power automate flow, power app and access power BI.
-- Virtual machine with Ubuntu LTS 18.0
+- Each team should have a Azure and [M365 E5 subscription](https://go.microsoft.com/fwlink/p/?LinkID=698279). Participant can get M365 E5 Subscription by following the provided URL. 
+- Owner of the resource group should provide contributor access to all team members.
+- Verify whether subscription is whitelisted to use ANF, else participant can't use ANF.
+- All team members can login to power platform and create power automate flow, power app and access power BI. Each user requires licenses mentioned in the student guide.
+- Virtual machine with Ubuntu LTS 18.0 with python and terraform installed. 
 
 
 
