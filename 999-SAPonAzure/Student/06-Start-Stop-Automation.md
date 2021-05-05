@@ -30,6 +30,10 @@ SAP systems start and stop is done gracefully (using SAP native commands), allow
 - (Optional) Restrict access to runbooks to an individual user
 
 
+## Learning Resources 
+
+
+
 ## Architecture of the Start/Stop solution 
 
 The solution is using Azure automation account PaaS solution to execute the SAP shutdown/startup jobs (as shown in the below diagram).
