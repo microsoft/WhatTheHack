@@ -19,6 +19,7 @@ This flexible solution enables (using Azure automation, Azure Tags, Scripting, a
 - Optionally convert Premium Managed Disks to Standard during the stop procedure, and back to Premium during the start procedure, thus saving cost storage as well  
 
 SAP systems start and stop is done gracefully (using SAP native commands), allowing SAP users and batch jobs to finish (with timeout) minimizing downtime impact. 
+For detailed information refer below [Architecture](https://github.com/Microsoft-SAPonAzure-OpenHack/WhatTheHack/blob/master/999-SAPonAzure/Student/06-Start-Stop-Automation.md#Architecture of the Start/Stop solution)
 
 ## Success Criteria
 
