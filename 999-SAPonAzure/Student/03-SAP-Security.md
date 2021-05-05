@@ -34,13 +34,12 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 
 ## Learning Resources
 
-[Create Data Backups and Delta Backups (SAP HANA Studio) - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/c51a3983bb571014afa0c67026e44ca0.html)
+[Azure Security Center overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction)
 
-[Resize a capacity pool or a volume - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes#:~:text=%20Resize%20a%20volume%20%201%20From%20the,to%20resize%20or%20delete%20the%20volume.%20More%20)
+[Azure Defender overview](https://docs.microsoft.com/en-us/azure/security-center/azure-defender)
 
-[Change the Log Backup Interval - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/6e9eadcd57464e74b9395004cb1aba9a.html)
+[Review your security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations)
 
-[SAP Applications on Microsoft Azure - NetApp PDF](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
+[Detect threats out-of-the-box](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-detect-threats-built-in)
 
-[Install the Azure Application Consistent Snapshot tool for Azure NetApp Files - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
-
+[Azure Sentinel overview](https://docs.microsoft.com/en-us/azure/sentinel/overview)
