@@ -2,20 +2,20 @@
 
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
-## NOTES & GUIDANCE 
+## Notes & Guidance 
 
 There are few  actvities for the PowerBI APp intergation with SAP HANA DB ..
 at theigh level we can summerize the actvities in three sections ...
 
-Activity 1:  
+### Activity 1:  
 
 Make sure that   SAP S/4 appliance is installed and have access details in right SAP client. 
 
-Activity 2:   
+### Activity 2:   
 
 Now download  and install  the Power BI client  and SAP HANA studio on SAP   windows jump box to configure the DB connection and create the direct query using power BI desktop, 
  
-Activity 3:  
+### Activity 3:  
 
 Now  configure the poweBI app connection to SAP HANA DB using Azure  and SAP documenations steps using  HANA studio and power BI desktop clients.
 steps include --
@@ -34,7 +34,7 @@ Login in SAP HANA Database using HANA Studio:
  
 
 Or  
-
+use the icon on desktop 
 
 
 ![Image2](Images/Challenge7_image2.png)
