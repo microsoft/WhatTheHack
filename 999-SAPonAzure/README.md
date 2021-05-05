@@ -16,23 +16,11 @@ Participants work together in teams to complete challenges and are actively enga
 
 - **Challenge #1: [Rapid SAP Deployment.](Student/01-SAP-Auto-Deployment.md)**
 
-Mango Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, they want to migrate existing SAP systems from on-premise to Azure more rapid way. They identified SAP on Azure github repo and liked the Microsoft provided automation content. Deploy SAP S/4 hana system using the available automation script in resourses folder. After deployment is completed, verify all the deployed resource and be familiarize yourself. 
-
----
-
- 
 -  **Challenge #2: [End-to-End Technical monitoring for SAP](Student/02-Azure-Monitor.md)**
-
-As Mango Inc is running the SAP landscape on on-premise for a long time, they already had well-established monitoring processes. However, most of the monitoring based on age-old scripting. They want to modernize monitoring infrastructure by using azure native services as much as possible while maintaining the same or better standards than existing. Design & configure monitoring solution for SAP workload using Azure native services to capture the key metrics for Virtual Machine, Operating System, SAP Application & database hosted on Microsoft Cloud Azure. 
-
----
-
 
 -   **Challenge #3: [Securing SAP on Azure.](Student/03-SAP-Security.md)**
 
-Like every organization, Security & compliance are the top most priority for Mango Inc. They have very big security team to manage IT security infrastructure. Over a period of time, thier security engineers built sophisticated security policies which every IT team in Mango Inc has to follow mandatorily. As systems are moving to Azure, they would like to use native services as much as possible while maintaining established standards. Design end to end proactive and reactive monitoring for SAP infrastructure with easy to understand dashboards. 
 
----
 
 
 -   **Challenge #4: [Business continuity and Disaster recovery](Student/04-BusinessContinuity-and-DR.md)**
@@ -63,6 +51,12 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 ---
 
 ## Repository Contents
+
+- ../Student
+-- Student Challenge Guides
+- ../Student/Resources
+-- Student's resource files, code, and templates to aid with challenges
+
 
 ## Contributors
 - Anbu Govindasamy
