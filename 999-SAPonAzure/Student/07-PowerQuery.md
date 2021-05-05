@@ -41,7 +41,7 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
-## Tips 
+## Hints 
 
  
 
@@ -59,13 +59,9 @@ Mango Inc is a manufacturing company planning to modernize IT infrastructure. As
 
  
 
- 
 
 
-
- 
-
-## Resources  
+## Learning Resources  
 
 [Use SAP HANA in Power BI - Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-sap-hana)
 
