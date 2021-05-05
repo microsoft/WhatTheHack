@@ -1,4 +1,4 @@
-# Challenge 7: Self-Service Analytical Dashboard Using Data From SAP S/4 Hana System.
+# Challenge 7: Coach's Guide
 
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
