@@ -1,4 +1,4 @@
-# Challenge 3: Coach's Guide
+# Challenge 3: Secure SAP on Azure
 
 [< Previous Challenge](./02-Azure-Monitor.md) - **[Home](README.md)** - [Next Challenge >](./04-Business-Continuity-and-DR.md)
 
