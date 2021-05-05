@@ -26,7 +26,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- Update the below backup schedule (frequency, retention, offloading, sizing)  `(See Table in Figure 1 below)`
 	- Adjust log backup volume size for storing log backups based on the size requirement (daily change of 250 GB) from Azure NetApp Files blade in Azure Portal. In addition, also adjust relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. (Command to change: chown -R user:group <new_backup_location>). 
 	- Change/Validate the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
-	- Build a backup (snapshots) solution by installing the tool on the Linux jump server, and by **automating** the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
+	- Build a backup (snapshots) solution by installing the tool on the Linux jump server, and by automating the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
 	- Execute an ad-hoc snapshot for the data volume.
 	- Offload and sync data `.snapshots` folder and log backups directory content, using `azcopy "sync"` option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity).
 	- Configure retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
@@ -47,7 +47,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- By first waiting until the replication is Healthy, Mirrored and Idle.
 		- Validate that the ad-hoc snapshot `UseThisAtDR` has been successfully replicated for both the volumes.
 		- Simulate the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
-		- Break and **delete** the replication. Use the `UseThisAtDR` snapshot to revert the data and log backup volumes.
+		- Break and delete the replication. Use the `UseThisAtDR` snapshot to revert the data and log backup volumes.
 		- Change the performance tier of the volumes from standard to premium.
 		- Assess and discuss the remaining steps required for business continuity at the DR site.
 	- Optionally, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
