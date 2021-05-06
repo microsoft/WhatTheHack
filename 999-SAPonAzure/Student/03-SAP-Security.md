@@ -27,7 +27,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 
 1. Enabled Security Ceneter, Azure defender for the Azure subscription.
 2. Check security vulnerabilites, network map, download compliance reports.
-3. Improve security KPI by atleast 5 pts.
+3. **For your OpenHack Resource Group Only** Improve security KPI by at least 5 pts.
 4. Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
 
 
