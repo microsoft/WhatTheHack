@@ -20,7 +20,7 @@ This challenge requires you to build foundational infrastructure along with powe
 - BAPI Names to fetch data from **SAP S/4 Hana system**.
 	- Materials list can be fetched from SAP system using BAPI named `BAPI_MATERIAL_GETLIST`.
 		- You can use below selection criteria to fetch materials using above BAPI.
-		- Material selection: `I CP * (like MATNRSELECTION SIGN as I, MATNRSELECTION OPTION as CP, and MATNRSELECTION MATNR LOW as *)`
+		- Material selection: `I CP * (Example: MATNRSELECTION SIGN = I, MATNRSELECTION OPTION = CP, and MATNRSELECTION MATNR LOW = *)`
 		- Plant selection: `I EQ 1010`
 		- Sales organization selection: `I EQ 1010`
 		- You can leave rest of the selection criteria empty. 
