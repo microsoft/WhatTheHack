@@ -25,7 +25,7 @@ This challenge requires you to build foundational infrastructure along with powe
 		- Sales organization selection: `I EQ 1010`
 		- You can leave rest of the selection criteria empty. 
 		- `MATNRLIST` in the received outfrom SAP system has list of materials. 
-	- Material information can be fetched from SAP system using BAPI named `BAPI_MTERIAL_GET_DETAIL`
+	- Material information can be fetched from SAP system using BAPI named `BAPI_MATERIAL_GET_DETAIL`
 
 - Power Automate is very useful to connect SAP system and fetch data. 
 - Request & Response step can be used to pass information from power automate (flow) to power application. 
