@@ -16,7 +16,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 2) Azure Sentinel (requires Sentinel workspace and SAP knowledge) Detailed documentation provided seperately.
 
 ## Tips
-- If you are an Internal Microsoft employee, 
+- If you are an Internal Microsoft employee and built SAP system using provided terraform script, note below mentioned points before proceeding to part 2 of this challenge.
   - the SAP system that you installed already have all required transports imported. 
   - SAP system already have all required Function modules, user and role provisioned. 
   - Change password for user Sentinel and use it wherever required. Custom role and user 'Sentinel' are available in client 100. So use client 100 wherever required. 
