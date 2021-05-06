@@ -15,7 +15,7 @@ Configure Azure Monitor for SAP Solutions which will fetch critical metrics from
 This will leverage Azure Monitor to unlock critical telemetry.  To do this, you will configure monitoring data collection and ingestion into a log analytics workspace. There you can then perform trend analysis and build custom dashboards.
 
 - Enable VM Insights on the Virtual Machines hosting SAP Workload.
-	- Hint: VM Insights can be enabled from the Virtual Machine panel in the Azure Portal. Also consider creating a Log Analytics workspace as a pre-requisites.
+	- Hint: VM Insights can be enabled from the Virtual Machine panel in the Azure Portal. Also consider creating a Log Analytics workspace as a pre-requisite.
 - Deploy Azure Monitor for SAP Solutions from the Azure Portal.
 	- Hint: This should be done by searching "Azure Monitor for SAP" as a service on the Marketplace.
 - Create & configure OS, SAP HANA, & Netweaver providers.
