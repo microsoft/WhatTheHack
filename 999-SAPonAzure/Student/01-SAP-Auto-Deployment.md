@@ -14,7 +14,7 @@ During the exercise, participants will be able to provision a landscape into Azu
 
 Step 1: Identify your Group number XX (which will be used later for configurations).
 
-Step 2: Open Azure Portal, Powershell Window. Run the following command to create Service Principle and save the Password to Notepad
+Step 2: Open Azure Portal, Powershell Window. Run the following command to create Service Principle and save the Password to Notepad.
 ```
 $sp = New-AzADServicePrincipal -DisplayName AutoSAPDeployAdminXX
 $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sp.Secret)
@@ -25,7 +25,7 @@ Step 3: Open Azure Portal, record the Azure Subscription ID and save to Notepad.
 
 Step 4: **In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad.**
 
-Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user **azureuser** and **password** use your own password and remember it ”. You will start all the Azure infrastructure provision from this server.
+Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with user id **azureuser** and give a **password** and make a note of it. You will start all the Azure infrastructure provision from this server.
 
 Step 6: Login to the server as the named user **azureuser** and run the following commands (please remember to use the named user login **azureuser** instead of any other named user)
 
@@ -38,7 +38,7 @@ coach will provide the package_url during the session.
 % tar xf ophk.tar
 % ./local_setup_env.sh
 ```
-Step 7: Edit the following parameters in the **main.inputs** file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4.
+Step 7: Edit the following parameters in the **main.inputs** file in the TST200 directory: In the azure_login section, replace all the **xxxxx** with the data taken down from step 2-4.
 ```
 subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
