@@ -24,7 +24,7 @@ This will leverage Azure Monitor to unlock critical telemetry.  To do this, you 
 	- Hint: Select the Log Workspace that was used while enabling VM Insights and attach it to Azure Monitor for SAP.
 - Once monitoring data is ingested into the workspace, execute a standard kusto query to visualize the monitoring data.
 - Create a custom dashboard.
-	- Hint:  Example custom queries are available for a honecomb dashboard.  Modify the standard query to create custom dashboard as required.
+	- Hint:  Example custom queries are available for a honeycomb dashboard.  Modify the standard query to create custom dashboard as required.
 
 ## Success Criteria
 
