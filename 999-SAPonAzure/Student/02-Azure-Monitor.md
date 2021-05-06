@@ -1,4 +1,4 @@
-# Challenge 2: Azure Monitor SAP Workload On Azure 
+# Challenge 2: Monitor Your SAP Workload in Azure 
 
 [< Previous Challenge](./01-SAP-Auto-Deployment.md) - **[Home](../README.md)** - [Next Challenge >](./03-SAP-Security.md)
 
