@@ -1,4 +1,4 @@
-# Challenge 1: SAP Auto Deployment.
+# Challenge 1: SAP Auto Deployment
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
 
@@ -23,11 +23,11 @@ Write-output $password
 ```
 Step 3: Open Azure Portal, record the Azure Subscription ID and save to Notepad.
 
-Step 4: In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad.
+Step 4: **In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad.**
 
-Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user “azureuser” and password “ use your own password and remember it ”. You will start all the Azure infrastructure provision from this server.
+Step 5: Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with named user **azureuser** and **password** use your own password and remember it ”. You will start all the Azure infrastructure provision from this server.
 
-Step 6: Login to the server as the named user “azureuser” and run the following commands (please remember to use the named user login “azureuser” instead of any other named user)
+Step 6: Login to the server as the named user **azureuser** and run the following commands (please remember to use the named user login **azureuser** instead of any other named user)
 
 ```
 % mkdir TST200/
@@ -38,13 +38,13 @@ coach will provide the package_url during the session.
 % tar xf ophk.tar
 % ./local_setup_env.sh
 ```
-Step 7: Edit the following parameters in the “main.inputs” file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4.
+Step 7: Edit the following parameters in the **main.inputs** file in the TST200 directory: In the azure_login section, replace all the “xxxxx” with the data taken down from step 2-4.
 ```
 subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 client_secret: "xxxxxxxxxxxxxxxxxxxxxxxxxx"
 tenant_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
-Change in the Resource prefix section, change the “teamxx” XX to represent your team number. Eg. “team00” from step 1. Add Team number to the Resource group in the Resource Group section: Name: “saprg_ophk_teamXX” State: “new” Region: “westus2”
+Change in the Resource prefix section, change the "teamxx** XX to represent your team number. Eg. “team00” from step 1. Add Team number to the Resource group in the Resource Group section: Name: “saprg_ophk_teamXX” State: “new” Region: “westus2”
 You can change the three-letter SAP system ID parameter, if desired. e.g. SAP_system_name: “S4P” Save the “main_inputs” file. Stay in the same directory.
 ```
 Step 8: Generate runnable terraform scripts.
@@ -55,7 +55,7 @@ Step 9: stay in the same directory, run terraform script to build the Azure infr
 ```
 % ./Run_Terraform_Build.sh
 ```
-Step 10: [Temporarily the manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the “Root Access” is set “On”. If the export policy shows “Off” then change it to “On” and save – this is NEEDED for each NetApp file volumes.
+Step 10: [Temporarily the manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the **Root Access** is set **On**. If the export policy shows **Off** then change it to **On** and save – this is needed for each NetApp file volumes.
 
 Step 11: At the end of the step 9, locate Window Jumpbox (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the login credential which the coach will provide for the next step.
 
