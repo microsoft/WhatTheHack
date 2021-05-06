@@ -21,7 +21,7 @@ This will leverage Azure Monitor to unlock critical telemetry.  To do this, you 
 - Create & configure OS, SAP HANA, & Netweaver providers.
 	- Hint: The NetWeaver provider is in public preview.  Access the link below to access this provider.
 - Review availability of telemetry in the Log Analytics workspace.
-	- Hint: Select the Log Workspace that was used while enabling VM Insights and attach it to Azure Monitor for SAP.
+	- Hint: Select the Log Workspace that was used while enabling VM Insights and verify data is flowing in.
 - Once monitoring data is ingested into the workspace, execute a standard kusto query to visualize the monitoring data.
 - Create a custom dashboard.
 	- Hint:  Example custom queries are available for a honeycomb dashboard.  Modify the standard query to create custom dashboard as required.
