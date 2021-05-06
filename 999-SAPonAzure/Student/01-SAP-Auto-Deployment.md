@@ -25,11 +25,11 @@ Write-output $password
 ```
 - Open Azure Portal, record the Azure Subscription ID and save to Notepad.
 
-- **In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad.**
+`In Azure Portal, go to Azure Active Directory => App Registration => select Service Principle “AutoSAPDeployAdminXX” => record Application (client) ID and Directory (tenant) ID field to Notepad.`
 
-- Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with user id **azureuser** and give a **password** and make a note of it. You will start all the Azure infrastructure provision from this server.
+- Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with user id `azureuser` and give a `password` and make a note of it. You will start all the Azure infrastructure provision from this server.
 
-- Login to the server as the named user **azureuser** and run the following commands (please remember to use the named user login **azureuser** instead of any other named user)
+- Login to the server as the named user `azureuser` and run the following commands (please remember to use the named user login `azureuser` instead of any other named user)
 
 ```
 % mkdir TST200/
@@ -40,7 +40,7 @@ coach will provide the package_url during the session.
 % tar xf ophk.tar
 % ./local_setup_env.sh
 ```
-- Edit the following parameters in the **main.inputs** file in the TST200 directory: In the azure_login section, replace all the **xxxxx** with the data taken down from step 2-4.
+- Edit the following parameters in the `main.inputs` file in the TST200 directory: In the azure_login section, replace all the **xxxxx** with the data taken down from step 2-4.
 ```
 subscription_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 client_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -57,7 +57,7 @@ You can change the three-letter SAP system ID parameter, if desired. e.g. SAP_sy
 ```
 % ./Run_Terraform_Build.sh
 ```
-- [Temporarily the manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the **Root Access** is set **On**. If the export policy shows **Off** then change it to **On** and save – this is needed for each NetApp file volumes.
+- [Temporarily the manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the `Root Access` is set `On`. If the export policy shows `Off` then change it to `On` and save – this is needed for each NetApp file volumes.
 
 - At the end of the step 9, locate Window Jumpbox (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the login credential which the coach will provide for the next step.
 
