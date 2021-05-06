@@ -4,6 +4,8 @@
 
 ## Introduction
 
+Contoso Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, Contoso wants to migrate existing SAP systems from on-premise to Azure more rapid way. They identified SAP on Azure github repo and liked the Microsoft provided automation content. Deploy SAP S/4 hana system using the available automation script in resourses folder. After deployment is completed, verify all the deployed resource and be familiarize yourself.
+
 This document introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
 
 ## Description
