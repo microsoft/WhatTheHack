@@ -15,7 +15,11 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 
 2) Azure Sentinel (requires Sentinel workspace and SAP knowledge) Detailed documentation provided seperately.
 
-
+## Tips
+- If you are an Internal Microsoft employee, 
+- - the SAP system that you installed already have all required transports imported. 
+- - SAP system already have all required Function modules, user and role provisioned. Change password for user Sentinel and use it wherever required. Custom role and user 'Sentinel' are available in client 100. So use client 100 wherever required. Ignore steps 2,3, and 4 from quick installation guide given to you by coach. You can also skip step 6 if you use linux jumpbox to install SAP connector for sentinel.
+- 
 ## Success Criteria
 
 1. Enabled Security Ceneter, Azure defender for the Azure subscription.
@@ -23,8 +27,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 3. Improve security KPI by atleast 5 pts.
 4. Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
 
-## Note
-- If you are an Internal Microsoft employee, the SAP system that you installed already have all required transports imported. SAP system already have all required Function modules, user and role provisioned. Change password for user Sentinel and use it wherever required. Custom role and user 'Sentinel' are available in client 100. So use client 100 wherever required. Ignore steps 2,3, and 4 from quick installation guide given to you by coach. You can also skip step 6 if you use linux jumpbox to install SAP connector for sentinel.
+
 
 ## Learning Resources
 
