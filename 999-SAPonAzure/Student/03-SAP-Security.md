@@ -24,7 +24,7 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 4. Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
 
 ## Note
--  
+- If you are an Internal Microsoft employee, the SAP system that you installed already have all required transports imported. SAP system already have all required Function modules, user and role provisioned. Change password for user Sentinel and use it wherever required. Custom role and user 'Sentinel' are available in client 100. So use client 100 wherever required.
 
 ## Learning Resources
 
