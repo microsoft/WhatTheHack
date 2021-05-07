@@ -25,7 +25,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Additional protection of backup files by offloading to an intra region storage account
 	- (SKIP THIS LINE) Update the below backup schedule (frequency, retention, offloading, sizing)  
 	- 
-	- ```**START FROM HERE >>>>**``` The backup team at Contoso has already finished assessing backup requirements and have provided you the below backup schedule `(See Table in Figure 1 below)`
+	- ```**START FROM HERE**``` The backup team at Contoso has already finished assessing backup requirements and have provided you the below backup schedule `(See Table in Figure 1 below)`
 	- Adjust log backup volume size for storing log backups based on the size requirement (daily change of 250 GB) from Azure NetApp Files blade in Azure Portal. In addition, also adjust relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. Command to change: ```chown -R user:group <new_backup_location>```. 
 	- Change/Validate the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
 	- Build a backup (snapshots) solution by installing the tool directly on the HANA DB VM (or optionally on the Linux jump server), and by automating the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
