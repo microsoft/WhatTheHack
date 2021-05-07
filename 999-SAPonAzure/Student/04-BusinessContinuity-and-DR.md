@@ -52,7 +52,6 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- Break and delete the replication. Use the `UseThisAtDR` snapshot to revert the data and log backup volumes.
 		- Change the performance tier of the volumes from standard to premium.
 		- Assess and discuss the remaining steps required for business continuity at the DR site.
-	- Optionally, you can set another HANA instance at the DR site and use these replicated volumes to perform the recovery. Validate that your data is available, both the placeholder file and the security user. You can then install the SAP application on top of it to finish the technical recocovery of the environment.
 		
 
 ---
