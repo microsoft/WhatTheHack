@@ -4,18 +4,16 @@
 
 ## Introduction
 
-Contoso Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, Contoso wants to migrate existing SAP systems from on-premise to Azure more rapid way. They identified SAP on Azure github repo and liked the Microsoft provided automation content. Deploy SAP S/4 hana system using the available automation script in resourses folder. After deployment is completed, verify all the deployed resource and be familiarize yourself.
-
-This document introduces an automation tool for SAP Basis persons on provision of all necessary Azure infrastructure, server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
+Contoso Inc is an established manufacturer planning to modernize IT infrastructure. As part of their plan, Contoso wants to migrate existing SAP systems from on-premise to Azure more rapidly. They identified SAP on Azure github repo and liked the Microsoft provided automation content. The document introduces an automation tool to provision of all necessary Azure infrastructure, server configurations, and SAP system installation. The automation tool is based on Terraform and Ansible script.
 
 ## Description
 
-During the exercise, participants will be able to provision a landscape into Azure for SAP environment and then build a fresh SAP S4H system by using an existing backup files into this environment as shown in the following diagram. SAP HANA DB will use Azure Netapp Filesystem for storage volume. 
+During the exercise, the Participants will be able to provision a landscape into Azure for SAP environment and then build a fresh SAP system by using an existing backup files into this environment as shown in the following diagram. SAP HANA DB will use Azure Netapp Filesystem for the storage volume. 
 
 ![image](https://user-images.githubusercontent.com/73615525/115279764-f99d4080-a0fb-11eb-9e56-d43ee96fe173.png)
 
-1. Identify your Group number XX (which will be used later for configurations).
-2. Open Azure Portal, Powershell Window. Run the following command to create Service Principle and save the Password to Notepad.
+1. Identify your Group number, which will be added to the configuration file.
+2. Open Azure Portal, Powershell Window, run the following command to create Service Principle and save the Password to Notepad.
 ```
 $sp = New-AzADServicePrincipal -DisplayName AutoSAPDeployAdminXX
 $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sp.Secret)
@@ -86,6 +84,8 @@ Note: this script does all the configs and then install a complete SAP system wh
 
 - Complete build of SAP S4H and SAP HANA database on Azure Cloud.
 - Successful Installation of SAP GUI and test logon to SAP Application Server
+- Deploy SAP S/4 hana system using the available automation script in resourses folder.
+- Verify all the resources deployed and be familiarize yourself.
 
 ## Learning Resources
 
