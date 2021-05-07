@@ -21,32 +21,6 @@ This flexible solution enables (using Azure automation, Azure Tags, Scripting, a
 SAP systems start and stop is done gracefully (using SAP native commands), allowing SAP users and batch jobs to finish (with timeout) minimizing downtime impact. 
 For detailed information refer below [Architecture](https://github.com/Microsoft-SAPonAzure-OpenHack/WhatTheHack/blob/master/999-SAPonAzure/Student/06-Start-Stop-Automation.md#architecture-of-the-startstop-solution).
 
-## Success Criteria
-
-- Create Azure Automation account
-- Tag all the VMs for the **SID** in place
-- List the SID to ensure all the systems were tagged correctly
-- Execute runbook manually to stop systems
-- Schedule the runbook to start the systems
-- (Optional) Restrict access to runbooks to an individual user
-
-
-## Learning Resources 
-
-[Manage credentials in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/shared-resources/credentials?tabs=azure-powershell)
- 
-[Azure Quickstart - Create an Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account)
-
-[SAP Library - Tools for Monitoring the System](https://help.sap.com/saphelp_aii710/helpdata/en/f7/cb8577bc244a25a994fc3f9c16ce66/frameset.htm)
-
-[Azure Automation Start/Stop VMs during off-hours overview](https://docs.microsoft.com/en-us/azure/automation/automation-solution-vm-management)
-
-[Pricing - Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
-
-[Pricing - Automation](https://azure.microsoft.com/en-us/pricing/details/automation/)
-
-
-
 ## Architecture of the Start/Stop solution 
 
 The solution is using Azure automation account PaaS solution to execute the SAP shutdown/startup jobs (as shown in the below diagram).
@@ -66,27 +40,28 @@ SQL Server start / stop / monitoring is implemented using scripts (calling SAP H
 
 Azure runbooks can either be executed manually or scheduled. 
 
-## Deployed SAP Landscape
+## Success Criteria
 
-In the deployed SAP landscape we have: (Deployment scenario #2 in below diagram)
+- Create Azure Automation account
+- Tag all the VMs for the **SID** in place
+- List the SID to ensure all the systems were tagged correctly
+- Execute runbook manually to stop systems
+- Schedule the runbook to start the systems
+- (Optional) Restrict access to runbooks to an individual user
 
-* SAP ABAP ASCS instance
-*	ONE DBMS instance (HA for DBMS is currently not implemented)
-* One or more SAP application servers 
+## Learning Resources 
 
-![image](https://user-images.githubusercontent.com/26795040/113913301-c83e7f80-97a1-11eb-891c-8ba22219ae26.png)
+[Manage credentials in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/shared-resources/credentials?tabs=azure-powershell)
+ 
+[Azure Quickstart - Create an Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account)
 
+[SAP Library - Tools for Monitoring the System](https://help.sap.com/saphelp_aii710/helpdata/en/f7/cb8577bc244a25a994fc3f9c16ce66/frameset.htm)
 
+[Azure Automation Start/Stop VMs during off-hours overview](https://docs.microsoft.com/en-us/azure/automation/automation-solution-vm-management)
 
+[Pricing - Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/)
 
-## Implementation details
-
-This section details the implementation flow of the solution
-
-### **Create Azure Automation Account**
-
- [How to create Azure automation account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account).
-
+[Pricing - Automation](https://azure.microsoft.com/en-us/pricing/details/automation/)
 
 
 ### **Import Az.Modules**
