@@ -12,18 +12,20 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ## Description
 
-1. Backup using a temporary solution (HANA native)
+1. (SKIP THIS SECTION) Backup using a temporary solution (HANA native)
 	- For point-in-time recovery, you need to enable log backups.
 	- Take your first native HANA full file level backup.
 	- This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
 2. Backup using a permanent solution (ANF snapshots)
-	- Assess the backup requirements:
+	- (SKIP THIS SECTION) Assess the backup requirements:
 		- Use ANF where possible
 		- Cannot afford to lose more than 15 min worth of recent changes
 		- Local availability of log backups for up to the last 24 hours
 		- Point-in-Time recovery for up to the last 72 hours
 		- Additional protection of backup files by offloading to an intra region storage account
-	- Update the below backup schedule (frequency, retention, offloading, sizing)  `(See Table in Figure 1 below)`
+	- (SKIP THIS LINE) Update the below backup schedule (frequency, retention, offloading, sizing)  
+	- 
+	- ```**START FROM HERE >>>>**``` The backup team at Contoso has already finished assessing backup requirements and have provided you the below backup schedule `(See Table in Figure 1 below)`
 	- Adjust log backup volume size for storing log backups based on the size requirement (daily change of 250 GB) from Azure NetApp Files blade in Azure Portal. In addition, also adjust relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. Command to change: ```chown -R user:group <new_backup_location>```. 
 	- Change/Validate the hana log backup timeout value (log_backup_timeout_s),measured in seconds, to align with the backup requirement - use HANA Studio. 
 	- Build a backup (snapshots) solution by installing the tool directly on the HANA DB VM (or optionally on the Linux jump server), and by automating the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
@@ -58,9 +60,9 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 ***Figure 1***
 Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 -------- | -------- | -------- | -------- | --------
-**HANA data** | 1 TiB (20% YoY Growth) | ? | ? | On demand, to a blob container. Retain for 7 days |
-**HANA log backups** | 250 GiB (daily change) | ? | ? | On demand, to a blob container. Retain for 7 days|
-**Shared binaries and profiles** | 100 GiB | ? | ? | On demand, to a blob container.|
+**HANA data** | 1 TiB (20% YoY Growth) | Twice daily | 3 days | On demand, to a blob container. Retain for 7 days |
+**HANA log backups** | 250 GiB (daily change) | Every 15 min | 2 days | On demand, to a blob container. Retain for 7 days|
+**Shared binaries and profiles** | 100 GiB | Twice daily | 3 days | On demand, to a blob container.|
 
 **Note:** This environment is a scaled down version of the above production-like scenario. Also, we will not protect Shared binaries for this challenge.
 
