@@ -6,7 +6,7 @@
 
 Contoso Inc is an established manufacturer planning to modernize IT infrastructure. As part of that, Contoso wants to migrate existing SAP systems from on-premise to Azure more rapid way. They identified SAP on Azure github repo and liked the Microsoft provided automation content. Deploy SAP S/4 hana system using the available automation script in resourses folder. After deployment is completed, verify all the deployed resource and be familiarize yourself.
 
-This document introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
+This document introduces an automation tool for SAP Basis persons on provision of all necessary Azure infrastructure, server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
 
 ## Description
 
@@ -58,7 +58,11 @@ You can change the three-letter SAP system ID parameter, if desired. e.g. SAP_sy
 ```
 9. [Temporarily the manual correction process] Logon to portal: go to ANF account created and display each ANF volumes and check its export policy, make sure that the `Root Access` is set `On`. If the export policy shows `Off` then change it to `On` and save – this is needed for each NetApp file volumes.
 
-10. At the end of the step 9, locate Window Jumpbox (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the login credential which the coach will provide for the next step.
+    ![image](https://user-images.githubusercontent.com/56409709/117387387-d376ef00-aeb6-11eb-8563-bbd7adf9134f.png)
+
+10. At the end of the step 9, locate Window Jumpbox (pipwinbox) and note the public IP address in order to RDP to the Window Jumpbox. Use the login credential which the coach will provide for the next step (see below).
+
+       ![image](https://user-images.githubusercontent.com/56409709/117386242-901b8100-aeb4-11eb-8d7e-e2a0f2bfc4b9.png)
 
 11. Logon to the window jumpbox. Download the following tools and SAP packages: Note, you might want to install and switch to some other browser to download these as the default browser with window defender will block the direct download.
 
