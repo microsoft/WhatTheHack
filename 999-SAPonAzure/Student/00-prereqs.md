@@ -14,7 +14,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 - Your subscription should able to access Azure netapp files and ANF cross region replication. 
 - Each team also requires access to power platform. Atleast one team member should have [M365 E5 subscription](https://go.microsoft.com/fwlink/p/?LinkID=698279)  and add other team members temporarily during the hack. Each team member should have licenses Microsoft Power Apps plan 2 Trail, Microsoft power automate free and Microsoft 365 E5 developer.
 - Challenge 2 requires atleast contributor access at subscription level to deploy Azure monitor for SAP solutions. 
-- Challenge 6 requires co-administrator access at subscription level to create runas Automation account.
+- Challenge 6 requires co-administrator access at subscription level to create runas Automation account or create Automation account prior to the Hack.
 - All team members can use default powerapp environment or if your license permits can create other environments. 
 - Create a virtual machine with Ubuntu LTS 18.0.
     
