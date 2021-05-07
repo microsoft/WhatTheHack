@@ -48,7 +48,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- Execute the DR:
 		- By first waiting until the replication is Healthy, Mirrored and Idle.
 		- Validate that the ad-hoc snapshot `UseThisAtDR` has been successfully replicated for both the volumes.
-		- Simulate the DR by shutting down the environment (Stop SAP, HANA and then the VMs)
+		- Consider the production region is now unavailable
 		- Break and delete the replication. Use the `UseThisAtDR` snapshot to revert the data and log backup volumes.
 		- Change the performance tier of the volumes from standard to premium.
 		- Assess and discuss the remaining steps required for business continuity at the DR site.
