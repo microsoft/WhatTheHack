@@ -13,14 +13,13 @@ Make sure that   SAP S/4 appliance is installed and have access details to corre
 
 ### Activity 2:   
 
-Download  and install  the Power BI client  and SAP HANA studio on SAP  windows jump box to configure the DB connection and create the direct query using power BI desktop, 
+Download  and install  the Power BI client, SAP Hana client  and SAP HANA studio on SAP  windows jump box to configure the DB connection and create the direct query using power BI desktop, 
  
 ### Activity 3:  
 
 Configure the poweBI app connection to SAP HANA DB using steps from documenations (both SAP and Azure).
 steps include --
    1. Create the additional SAP schema user , Assign appropriate previleges and roles to newly created users in HANA studio to conenct to SAP S/4 schema.
-   2. Install Hana client.
    3. In power BI clinet GUI add the user name / password of HANA db user and connection strings with tables name to extract the data.
    4. Once the data is extracted into power BI client, use appropariate column, row and filter criteria to create the query to show vistulaization using PIE and BAR chart.
    5. Publish the power BI app for the end user so they can use on their desktop for future use.
