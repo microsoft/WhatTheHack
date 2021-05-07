@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Mango Inc is looking to optimize the cost of SAP landscape and exploring ways to do that. They're leaning towards getting Reserves Instances (RI) for all production systems and would like to save cost on non-production (sandboxes, project systems, etc.) systems by not operating those during non-business hours. This solution helps them achieve that either using automation tools or schedule based
+Contoso Inc is looking to optimize the cost of SAP landscape and exploring ways to do that. They're leaning towards getting Reserves Instances (RI) for all production systems and would like to save cost on non-production (sandboxes, project systems, etc.) systems by not operating those during non-business hours. This solution helps them achieve that either using automation tools or schedule based
 
 
 ## Description
