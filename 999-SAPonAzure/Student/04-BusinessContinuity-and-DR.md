@@ -35,7 +35,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 	- Create a security user `BACKUPTEST`.
 	- Take an ad-hoc snapshot of the data volume using azacsnap. Give a prefix `AfterUserCreated` and note down the creation time stamp. Ensure no other snapshot executions or offloading is happening at the time you take this ad-hoc snapshot.
 	- Delete the security user `BACKUPTEST`
-	- Restore the system so that the `BACKUPTEST` user is restored using the snapshot `AfterUserCreated`. This involves shutting down the SAP system gracefully, reverting only the data volume to an earlier snapshot, and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog. Once the system is back online after the recovery, validate the `BACKUPTEST` user is recovered as well.
+	- Restore the system so that the `BACKUPTEST` user is restored using the snapshot `AfterUserCreated`. This involves shutting down the SAP system gracefully, reverting only the data volume to an earlier snapshot, and using HANA's restore option: Recover the database to a specific data backup (snapshot) and without the backup catalog. Once the system is back online after the recovery, validate the `BACKUPTEST` user is recovered as well. You may also want to increase the data and shared volume size to increase the throughput for a faster recovery (It takes about 45 min to restore on volume sizes of 3 TiB each)
 
 3. Disaster Recovery
 	- Assess the disaster recovery requirements:
