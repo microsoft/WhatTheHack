@@ -84,7 +84,9 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 
 - [Change the Log Backup Interval - SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/6e9eadcd57464e74b9395004cb1aba9a.html)
 [SAP Applications on Microsoft Azure - NetApp PDF](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf)
+
 -[Azacsnap download](https://aka.ms/azacsnapdownload)
+
 - [Install the Azure Application Consistent Snapshot tool for Azure NetApp Files - Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-installation)
 
 - [HANA on ANF Blog Series - Microsoft Tech. Community](https://aka.ms/anfhanablog)
