@@ -21,7 +21,7 @@
       "value": ""
     },
     "covid19BaseUri": {
-      "value": "https://raw.githubusercontent.com/chrisbaudo/covid19wth/main/"
+      "value": "https://raw.githubusercontent.com/microsoft/WhatTheHack/master/038-MDWCovid19/Coach/LabDeployment/"
     },
     "covid19DacPacFileName": {
       "value": "covid19.bacpac"
