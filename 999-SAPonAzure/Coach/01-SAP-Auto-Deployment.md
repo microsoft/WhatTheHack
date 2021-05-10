@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
 
-## Introduction
+# Notes & Guidance
 
 This challenge introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. The tool is based on Terraform and Ansible script.
 
@@ -19,10 +19,10 @@ Azure subscription whitelisted with Azure Netapp Filesystem (ANF)
 An estimate of an additional $100/daily Azure budget during the challenge-session days.
  
 ## Success Criteria
-1.	Complete build of SAP S4H and SAP HANA database on Azure Cloud.
-2.	Successful Installation of SAP GUI and test logon to SAP Application Server
+- Complete build of SAP S4H and SAP HANA database on Azure Cloud.
+- Successful Installation of SAP GUI and test logon to SAP Application Server
 
-## Hints
+## Tips
  
 For step 5. Make sure that the students create an ubuntu box with a named user "azureuser"
 
