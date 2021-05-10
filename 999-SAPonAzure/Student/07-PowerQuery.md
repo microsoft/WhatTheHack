@@ -33,10 +33,10 @@ Mango Inc is a manufacturing company planning to modernize its IT infrastructure
    * report should have a matrix, a pie chart and a bar chart 
 
  
+## Success Criteria
 
+- Create PowerBI Dashboard displaying data from SAP.
  
-
-
 
 ## Learning Resources 
 
