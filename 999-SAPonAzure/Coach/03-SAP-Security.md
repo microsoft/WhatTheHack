@@ -15,5 +15,5 @@ image
 
 Recommendations flagged as Preview aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score. image
 
-Azure Sentinel for SAP - Documentation to be provided seperately during the day of hack.
+Azure Sentinel for SAP - Documentation to be provided seperately as zip file, to coach during the day of hack.
 
