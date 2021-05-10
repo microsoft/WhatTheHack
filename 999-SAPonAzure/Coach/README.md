@@ -6,7 +6,7 @@ Welcome to the coach's guide for the SAP on Azure What The Hack. Here you will f
 ## Coach's Guides
 ### Challenges
 
-- Challenge 0: [Pre-requisites - Ready, Set, GO!](Coach/00-prereqs.md)
+- Challenge 0: [Pre-requisites - Ready, Set, GO!](Coach/00-prereqs.md) 
 
 - Challenge 1: [Rapid SAP Deployment.](Coach/01-SAP-Auto-Deployment.md)
 
