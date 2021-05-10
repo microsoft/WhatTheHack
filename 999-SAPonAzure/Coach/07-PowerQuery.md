@@ -4,7 +4,7 @@
 
 # Notes & Guidance 
 
-There are few  actvities for the PowerBI APP intergation with SAP HANA DB.
+There are few  actvities for the PowerBI APP intergation with SAP HANA DB,
 at the high level steps can be summerized into three activities.
 
 ### Activity 1:  
