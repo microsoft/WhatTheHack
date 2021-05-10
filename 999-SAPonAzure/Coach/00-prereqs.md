@@ -2,6 +2,8 @@
 
 **[Home](README.md)** - [Next Challenge >](./01-SAP-Auto-Deployment.md)
 
+[refer Pre reqs](../Student/00-prereqs.md)
+
 - Each team should have a Azure and [M365 E5 subscription](https://go.microsoft.com/fwlink/p/?LinkID=698279). Participant can get M365 E5 Subscription by following the provided URL. 
 - Owner of the resource group should provide contributor access to all team members.
 - Verify whether subscription is whitelisted to use ANF, else participant can't use ANF.
