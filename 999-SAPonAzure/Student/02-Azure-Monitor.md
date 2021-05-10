@@ -32,10 +32,10 @@ This will leverage Azure Monitor to unlock critical telemetry.  To do this, you 
 
 ## Learning Resources
 
-[Deploy Azure Monitor for SAP Solutions with Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart)
+- [Deploy Azure Monitor for SAP Solutions with Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-sap-quickstart)
 
-[AMS Netweaver Provider Portal Link (preview)](https://ms.portal.azure.com/?feature.nwflag=true#home)
+- [AMS Netweaver Provider Portal Link (preview)](https://ms.portal.azure.com/?feature.nwflag=true#home)
 
-[Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace)
+- [Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace)
 
-[VM Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-overview)
+- [VM Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-overview)
