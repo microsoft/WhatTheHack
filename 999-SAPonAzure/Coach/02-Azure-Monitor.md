@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./01-SAP-Auto-Deployment.md) - **[Home](README.md)** - [Next Challenge >](./03-SAP-Security.md)
 
-## Notes & Guidance
+# Notes & Guidance
 
 ## Step 1 - **Create Log Analytics workspace**
 In the Azure portal, click All services. In the list of resources, type Log Analytics. As you begin typing, the list filters based on your input. Select Log Analytics workspaces.
