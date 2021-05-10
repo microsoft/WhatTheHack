@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Now it is time to introduce Security and Threat Monitoring for SAP. Since challenge 1 and 2, Contoso Inc. has deployed the SAP systems, activated Azure monitoring for SAP. Now the team is looking to setup security and threat monitoring checks for the SAP application and its respective infrastucture components.
+Contoso Inc. has deployed the SAP systems, activated Azure monitoring for SAP; now the team is looking to setup security checks and threat monitoring for the SAP application and its respective infrastucture components.
 
 ## Description
 
