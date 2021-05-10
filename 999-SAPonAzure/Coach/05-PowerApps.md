@@ -20,7 +20,9 @@
 
 - Make sure user enabled Microsoft power Apps Plan2 Trail and Microsoft Power Automate Free. E5 developer is also preferred. 
 ![Licenses](Images/Challenge5-PowerAppsLicense.png)
+- Verify user was assigned licenses in Azure active directory as shown in below screen:
 
+![Licenses](Images/Challenge5-UserLicense.png)
 **Getting Material list from SAP**
 
 - Create power automate (flow) with name `Get_SAP_MaterialList` (note: Name can be anything). Insert steps PowerApps, Call SAP Function and response as shown below: Note that SAP ERP connection can be created from Flow as well by selecting the registered on-premise gateway. Student/Participant might have created the connection in advance. In that case, he has to use the existing connection. 
