@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./03-SAP-Security.md) - **[Home](README.md)** - [Next Challenge >](./05-PowerApps.md)
 
-## Notes & Guidance
+# Notes & Guidance
 
 |**Section**|**Sub-Section**|**Comments** |
 |-----------|---------------|------------|
