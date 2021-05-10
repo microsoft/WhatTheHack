@@ -12,30 +12,18 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 
 ## Description
 
-1. (SKIP THIS SECTION) Backup using a temporary solution (HANA native)
-	- For point-in-time recovery, you need to enable log backups.
-	- Take your first native HANA full file level backup.
-	- This backup is a stop-gap solution until the permanent solution is stood up. Also, this will continue to serve as a fallback option.
-2. Backup using a permanent solution (ANF snapshots)
-	- (SKIP THIS SECTION) Assess the backup requirements:
-		- Use ANF where possible
-		- Cannot afford to lose more than 15 min worth of recent changes
-		- Local availability of log backups for up to the last 24 hours
-		- Point-in-Time recovery for up to the last 72 hours
-		- Additional protection of backup files by offloading to an intra region storage account
-	- (SKIP THIS LINE) Update the below backup schedule (frequency, retention, offloading, sizing)  
-	- 
-	- ```**START FROM HERE**``` The backup team at Contoso has already finished assessing backup requirements and have provided you the below backup schedule `(See Table in Figure 1 below)`
+1. Backup using a permanent solution (ANF snapshots)
+	- The backup team at Contoso has already finished assessing backup requirements and have provided you the below backup schedule `(See Table in Figure 1 below)`
 	- Adjust log backup volume size for storing log backups based on the size requirement (daily change of 250 GiB) from Azure NetApp Files blade in Azure Portal. In addition, also adjust relevant HANA parameters (basepath_catalogbackup, basepath_logbackup) to use this volume for log backups. You may also want to validate that the new log backup location has correct <sid>adm user permissions. Command to change: ```chown -R user:group <new_backup_location>```. 
 	- Change/Validate the hana log backup timeout value (log_backup_timeout_s) which is measured in seconds, to align with the backup requirement of 15 min frequency or less - use HANA Studio. 
-	- Build a backup (snapshots) solution by installing the tool directly on the HANA DB VM (or optionally on the Linux jump server), and by automating the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
+	- Build a backup (snapshots) solution by installing the azacsnap tool directly on the HANA DB VM (or optionally on the Linux jump server), and by automating the snapshot scheduling using the Linux built-in tool, crontab. Refer to the table to ensure meeting backup retention and frequency requirements for both data and log backups (other). You can ignore taking snapshots for the shared volume for this challenge (optional).
 	- Execute an ad-hoc snapshot for the data volume.
 	- Offload and sync the `.snapshots` folder under /hana/data/ and the content of the log backups directory, using `azcopy "sync"` option from HANA VM, to respective blob containers in the provided storage account. The azcopy gets installed directly onto the HANA DB VM. Ensure that you log into azcopy without supplying the authentication key or a SAS (use Managed Identity). You may also want to upsize the data volume to provide higher throughout for a quicker offload.
 	- Configure retention on blobs to automatically delete any blobs in the containers that are older than 7 days.
-	- Create a security user `BACKUPTEST`.
-	- Take an ad-hoc snapshot of the data volume using azacsnap. Give a prefix `AfterUserCreated` and note down the creation time stamp. Ensure no other snapshot executions or offloading is happening at the time you take this ad-hoc snapshot.
-	- Delete the security user `BACKUPTEST`
-	- Restore the system so that the `BACKUPTEST` user is restored using the snapshot `AfterUserCreated`. This involves shutting down the SAP system gracefully, reverting only the data volume to an earlier snapshot, and using HANA's restore option: Recover the database to a specific data backup (snapshot) and with the backup catalog but without utilizing log backups. Once the system is back online after the recovery, validate the `BACKUPTEST` user is recovered as well. You may also want to increase the data and shared volume size to increase the throughput for a faster recovery (It takes about 45 min to restore on volume sizes of 3 TiB each)
+	- Now execute a restore test, by first taking an ad-hoc azacsnap snapshot with the prefix ```BeforeResoreTest```
+	- Now delete the latest three log backup files under /backup/log/SYSTEM/ and note down the file names.
+	- Once these log backups files are deleted, execute the restore to the ANF snapshot taken earlier.
+	- Validate the recovery of the three deleted log backup files.
 
 3. Disaster Recovery
 	- Assess the disaster recovery requirements:
@@ -72,7 +60,8 @@ Protect: | Size \(customer provided\) | Frequency | Retention | Offloading
 
 - A successful setup of the temporary backup solution.
 - An automatic orchestration of ANF snapshots on the data and log backup volumes to achieve point-in-time recovery.
-- The availability of offloaded snapshots in storage account containers per the requirement. Be able to restore the BACKUPTEST user successfully.
+- The availability of offloaded snapshots in storage account containers per the requirement. 
+- Be able to restore the lost files using ANF snapshots.
 - Be able to successfully set up DR replication using ANF CRR and validate changes are available at the DR site.
 
 ## Learning Resources
