@@ -3,7 +3,7 @@
 
 # Introduction  
 
-Contoso is a manufacturing company planning to modernize its IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop client and develop a self-service report for visualization and analysis. 
+Contoso inc. is a manufacturing company planning to modernize its IT infrastructure. As a part of that efforts, they want to Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop client and develop a self-service report for visualization and analysis. 
 
  
 
