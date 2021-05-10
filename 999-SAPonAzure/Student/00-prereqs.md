@@ -17,6 +17,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
 - Challenge 6 requires co-administrator access at subscription level to create runas Automation account or create Automation account prior to the Hack.
 - All team members can use default powerapp environment or if your license permits can create other environments. 
 - Create a virtual machine with Ubuntu LTS 18.0.
+- In challenge #6, creating the automation account with "run as" account requires elevated privileges
     
 ## Success Criteria
 
