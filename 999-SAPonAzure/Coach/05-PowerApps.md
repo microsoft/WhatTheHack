@@ -2,6 +2,8 @@
 
 [< Previous Challenge](./04-Business-Continuity-and-DR.md) - **[Home](README.md)** - [Next Challenge >](./06-Start-Stop-Automation.md)
 
+# Notes & Guidance
+
 ## Step 1 - Build Infrastructure
 
 - Make sure that fully activated SAP S/4 Hana system is installed. User name and password are working in SAP business client.
