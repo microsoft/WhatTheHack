@@ -1,4 +1,4 @@
-# Challenge 7: Coach's Guide
+# Challenge 7: Analytical Dashboard Using SAP S/4 Hana DB - Coach's Guide
 
 [< Previous Challenge](./06-Start-Stop-Automation.md) - **[Home](README.md)** 
 
