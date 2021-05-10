@@ -43,7 +43,7 @@ SAP S/4 Hana system is fully protected with required IT monitoring, secured & co
 		- RPO < 30 min, RTO < 4 hrs.	
 		- Inter-region DR using storage replication capabilities
 	- Set up ANF storage replication (CRR) for both data and log backup volumes to meet the RPO. This also requires creating the ANF account and the replicating volumes in the **standard** performance tier storage pool at the DR region.
-	- Create a placeholder file ```touch <filename>``` under the data volume (/hana/data/<SID>/mnt00001/) and note down the timestamp. Optionally, you can also create a security user `DRTEST` in HANA, but note that validation of this file or the security user at the DR site is optional for this challenge
+	- Create a placeholder file ```touch <filename>``` under the data volume (/hana/data/SID/mnt00001/) and note down the timestamp. Optionally, you can also create a security user `DRTEST` in HANA, but note that validation of this file or the security user at the DR site is optional for this challenge
 	- Take a backup (using azacsnap) of data and log backups volumes. Give a prefix `UseThisAtDR` and note down the creation time stamp.
 	- Execute the DR:
 		- By first waiting until the replication is Healthy, Mirrored and Idle.
