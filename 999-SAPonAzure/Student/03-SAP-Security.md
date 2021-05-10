@@ -25,21 +25,21 @@ In this challenge we will be enrolling the Azure subscirption for Security Cente
 
 ## Success Criteria
 
-1. Enabled Security Ceneter, Azure defender for the Azure subscription.
-2. Check security vulnerabilites, network map, download compliance reports.
-3. **For your OpenHack Resource Group Only** Improve security KPI by at least 5 pts.
-4. Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
+- Enabled Security Ceneter, Azure defender for the Azure subscription.
+- Check security vulnerabilites, network map, download compliance reports.
+- **For your OpenHack Resource Group Only** Improve security KPI by at least 5 pts.
+- Setup Azure Sentinel workspace for SAP, configure SAP system for Sentinel integrations.
 
 
 
 ## Learning Resources
 
-[Azure Security Center overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction)
+- [Azure Security Center overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction)
 
-[Azure Defender overview](https://docs.microsoft.com/en-us/azure/security-center/azure-defender)
+- [Azure Defender overview](https://docs.microsoft.com/en-us/azure/security-center/azure-defender)
 
-[Review your security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations)
+- [Review your security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations)
 
-[Detect threats out-of-the-box](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-detect-threats-built-in)
+- [Detect threats out-of-the-box](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-detect-threats-built-in)
 
-[Azure Sentinel overview](https://docs.microsoft.com/en-us/azure/sentinel/overview)
+- [Azure Sentinel overview](https://docs.microsoft.com/en-us/azure/sentinel/overview)
