@@ -14,7 +14,7 @@ Welcome to the coach's guide for the SAP on Azure What The Hack. Here you will f
 
 - Challenge 3: [Securing SAP on Azure.](Coach/03-SAP-Security.md)
 
-- Challenge 4: [Business continuity and Disaster recovery](Coach/04-BusinessContinuity-and-DR.md)
+- Challenge 4: [Business continuity and Disaster recovery](./04-Business-Continuity-and-DR.md)
 
 - Challenge 5: [Mobile Application surrounding SAP.](Coach/05-PowerApps.md)
 
