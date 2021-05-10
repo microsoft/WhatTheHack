@@ -1,4 +1,4 @@
-# Challenge 1: Coach's Guide
+# Challenge 1: Coach's Guide - SAP Auto Deployment
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
 
@@ -42,6 +42,6 @@ For step 13. Sometimes there could be package installation from Azure side causi
 
 ## Learning Resources
 
-[SAP GUI Installation Guide](https://help.sap.com/viewer/1ebe3120fd734f67afc57b979c3e2d46/760.05/en-US)
+- [SAP GUI Installation Guide](https://help.sap.com/viewer/1ebe3120fd734f67afc57b979c3e2d46/760.05/en-US)
 
-[SAP HANA studio installation guide](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-US)
+- [SAP HANA studio installation guide](https://help.sap.com/viewer/a2a49126a5c546a9864aae22c05c3d0e/2.0.01/en-US)
