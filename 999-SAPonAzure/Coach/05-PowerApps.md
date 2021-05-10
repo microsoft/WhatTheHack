@@ -22,7 +22,7 @@
 ![Licenses](Images/Challenge5-PowerAppsLicense.png)
 - Verify user was assigned licenses in Azure active directory as shown in below screen:
 
-![ User Licenses](Images/Challenge5-UserLicense.png)
+![ User Licenses](Images/Challenge5-UserLicense.PNG)
 
 **Getting Material list from SAP**
 
