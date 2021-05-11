@@ -22,20 +22,41 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
 ## Tips
  
 
-   * Download Power  BI  desktop from windows power app platfrom  
+   * Download and install SAP HANA client for windows ( x64 -- Coach will provide software link to download)
+    
+   * Download Power  BI  desktop from windows power app platfrom 
+    
+   * Leverage SAP HANA studio (from Challenge 4) to create the user and required roles and previleges to
+     execute the select query to populate the power BI desktop client. 
+     
+   * For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and        privileges to extract the data. 
+   
+   * New user ID in HANA is able to connect to Tenant database where SAP application DATA is residing              including the SAP Job log table TBTCO.
 
-   * For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and privileges to extract the data. 
+         Note: Below link gives you more details on what is system DB and tenant DB in SAP HANA database.
+         
+   * [SAP HANA Tenant database](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.01/en-US/0baadba82dd9407cbb852ae98f49f6bd.html)
+   
+   * Run the query both in System DB and Tenant DB to indentify the SQL port to connect from Power BI to SAP        HANA.
+
+      Note: All the details will be found how to query the port both from SYSTEM DB and Tenant DB in SAP HANA       from the below link.
+      
+    * [Port Assignment in Tenant Databases in SAP HANA Database]   (https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/2.0.01/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)
 
    * SAP HANA ports will be 3NN40-3NN99, NN is the system number for HANA.
 
    * Leverage direct query for data connectivity Mode  
 
    * report should have a matrix, a pie chart and a bar chart 
+   
 
  
 ## Success Criteria
 
-- Create PowerBI Dashboard displaying data from SAP.
+- Create PowerBI Dashboard displaying data from SAP HANA DB .
+- Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop client and develop a
+  self-service report for visualization and analysis .
+- Publish the visualization from Power BI desktop to power BI Service for broader user community. 
  
 
 ## Learning Resources 
