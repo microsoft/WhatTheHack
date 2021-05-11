@@ -50,7 +50,9 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
 
    * Leverage direct query for data connectivity Mode  
 
-   * report should have a matrix, a pie chart and a bar chart 
+   * Report should have a matrix, a pie chart and a bar chart 
+   
+   * SAP HANA database has to be up and running when participants try to refresh the data from Power BI desktop.
    
 
  
