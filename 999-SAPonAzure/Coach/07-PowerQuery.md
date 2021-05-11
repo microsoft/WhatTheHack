@@ -190,7 +190,9 @@ Enter port information as follows
 
 How to find the right SQL port in SAP HANA
 
-![Image43](Images/Challenge7_image43.png)
+![Image43](Images/Challenge7_image43.PNG)
+
+* [Port Assignment in Tenant Databases in SAP HANA Database](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/2.0.01/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)
 
 Select custom and SQL query as follows  
 
