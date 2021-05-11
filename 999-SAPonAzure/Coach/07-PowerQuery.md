@@ -188,6 +188,10 @@ Enter port information as follows
  
 ![Image26](Images/Challenge7_image26.png) 
 
+How to find the right SQL port in SAP HANA
+
+![Image43](Images/Challenge7_image43.png)
+
 Select custom and SQL query as follows  
 
  
