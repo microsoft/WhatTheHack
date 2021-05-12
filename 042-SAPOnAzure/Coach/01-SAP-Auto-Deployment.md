@@ -4,7 +4,7 @@
 
 # Notes & Guidance
 
-This challenge introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. _The tool is based on Terraform and Ansible script. Contact your Microsoft team for the deployment files._
+This challenge introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. _The tool is based on Terraform and Ansible script. Contact your Microsoft team for the deployment files. Please note that this may take up to 4 hours to complete once automation is kicked off._
 
 ## Description
 
