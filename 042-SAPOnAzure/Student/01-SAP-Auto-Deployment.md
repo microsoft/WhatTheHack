@@ -9,6 +9,7 @@ Contoso Inc is an established manufacturer planning to modernize IT infrastructu
 ## Description
 
 During the exercise, the Participants will be able to provision a landscape into Azure for SAP environment and then build a fresh SAP system by using an existing backup files into this environment as shown in the following diagram. SAP HANA DB will use Azure Netapp Filesystem for the storage volume. 
+_Please note that this may take up to 4 hours to complete once automation is kicked off._
 
 ![image](https://user-images.githubusercontent.com/73615525/115279764-f99d4080-a0fb-11eb-9e56-d43ee96fe173.png)
 
