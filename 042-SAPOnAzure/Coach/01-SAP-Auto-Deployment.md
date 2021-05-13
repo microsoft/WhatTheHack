@@ -2,12 +2,13 @@
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
 
-# Notes & Guidance
+# Note
 
 This challenge introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. 
 
 _The tool is based on Terraform and Ansible script. Contact your Microsoft team for the deployment files. Please note that this may take up to 4 hours to complete once automation is kicked off._
 
+As a coach you wil be given files that are not checked into this repo that need to be given to students. When you obtain these files, zip them up into one file and upload them to the Files tab of the General Channel for this hack.
 
 ## Description
 
