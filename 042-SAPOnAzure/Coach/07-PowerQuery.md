@@ -7,6 +7,8 @@
 There are few  actvities for the PowerBI APP intergation with SAP HANA DB,
 at the high level steps can be summerized into three activities.
 
+#### Contact your Microsoft team for the deployment files like SAP HANA studio, HANA cient etc..
+
 ### Activity 1:  
 
 Make sure that   SAP S/4 appliance is installed and have access details to correct SAP client. 
