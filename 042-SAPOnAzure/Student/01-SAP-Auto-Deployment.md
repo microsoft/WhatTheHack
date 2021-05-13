@@ -6,6 +6,9 @@
 
 Contoso Inc is an established manufacturer planning to modernize IT infrastructure. As part of their plan, Contoso wants to migrate existing SAP systems from on-premise to Azure more rapidly. They identified SAP on Azure github repo and liked the Microsoft provided automation content. The document introduces an automation tool to provision of all necessary Azure infrastructure, server configurations, and SAP system installation. The automation tool is based on Terraform and Ansible script.
 
+**NOTE**
+The files for this challenge can be found in a zip file in the Files tab of the General Channel for this hack.
+
 ## Description
 
 During the exercise, the Participants will be able to provision a landscape into Azure for SAP environment and then build a fresh SAP system by using an existing backup files into this environment as shown in the following diagram. SAP HANA DB will use Azure Netapp Filesystem for the storage volume. 
