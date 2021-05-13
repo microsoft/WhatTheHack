@@ -24,7 +24,7 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
 
    * Download and install SAP HANA client for windows ( x64 -- Coach will provide software link to download)
     
-   * Download Power  BI  desktop from windows power app platfrom 
+   * Download [Power BI](https://www.microsoft.com/en-us/download/details.aspx?id=58494) desktop from windows power app platfrom 
     
    * Leverage SAP HANA studio (from Challenge 4) to create the user and required roles and previleges to
      execute the select query to populate the power BI desktop client. 
