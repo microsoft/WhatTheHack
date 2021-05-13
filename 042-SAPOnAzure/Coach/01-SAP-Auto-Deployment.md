@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
 
-**NOTE**
+# Notes & Guidance
 
 This challenge introduces an automation tool for SAP Basis persons on provision of (1) all necessary Azure infrastructure (compute/storage/network) (2) server configurations and SAP system installation. 
 
