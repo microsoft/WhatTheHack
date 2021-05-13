@@ -48,9 +48,9 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
 
    * SAP HANA ports will be 3NN40-3NN99, NN is the system number for HANA.
 
-   * Leverage direct query for data connectivity Mode  
+   * Leverage direct query for data connectivity Mode.  
 
-   * Report should have a matrix, a pie chart and a bar chart 
+   * Report should have a matrix, a pie chart and a bar chart.
    
    * SAP HANA database has to be up and running when participants try to refresh the data from Power BI desktop.
    
@@ -58,9 +58,9 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
  
 ## Success Criteria
 
-- Create PowerBI Dashboard displaying data from SAP HANA DB .
+- Create PowerBI Dashboard displaying data from SAP HANA DB.
 - Generate self-service report from SAP HANA DB tables using Microsoft power BI desktop client and develop a
-  self-service report for visualization and analysis .
+  self-service report for visualization and analysis.
 - Publish the visualization from Power BI desktop to power BI Service for broader user community. 
  
 
