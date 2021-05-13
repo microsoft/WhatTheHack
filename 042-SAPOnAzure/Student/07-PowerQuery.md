@@ -22,25 +22,25 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
 ## Tips
  
 
-   * Download and install SAP HANA client for windows SAP service marketplace
+   * Download and install SAP HANA client for windows ( x64 -- Coach will provide software link to download).
     
-   * Download [Power BI](https://www.microsoft.com/en-us/download/details.aspx?id=58494) desktop from windows power app platfrom 
+   * Download [Power BI](https://www.microsoft.com/en-us/download/details.aspx?id=58494) desktop from windows power app platfrom.
     
    * Leverage SAP HANA studio (from Challenge 4) to create the user and required roles and previleges to
      execute the select query to populate the power BI desktop client. 
      
-   * For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and        privileges to extract the data. 
+   * For the HANA DB create the SCHEMA user with admin rights on SAP SCHEMA and assign appropriate roles and privileges to extract the data. 
    
-   * New user ID in HANA is able to connect to Tenant database where SAP application DATA is residing              including the SAP Job log table TBTCO.
+   * New user ID in HANA is able to connect to Tenant database where SAP application DATA is residing including the SAP Job log table TBTCO.
 
      **NOTE:** Below link gives you more details on what is system DB and tenant DB in SAP HANA database.       
     
    
       [SAP HANA Tenant database](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.01/en-US/0baadba82dd9407cbb852ae98f49f6bd.html)
    
-   * Run the query both in System DB and Tenant DB to indentify the SQL port to connect from Power BI to SAP        HANA.
+   * Run the query both in System DB and Tenant DB to indentify the SQL port to connect from Power BI to SAP HANA.
 
-      **NOTE:**  All the details will be found how to query the port both from SYSTEM DB and Tenant DB in SAP HANA       from the below link.
+      **NOTE:**  All the details will be found how to query the port both from SYSTEM DB and Tenant DB in SAP HANA from the below link.
       
     
 
