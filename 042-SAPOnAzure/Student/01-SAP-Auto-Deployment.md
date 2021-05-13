@@ -6,7 +6,7 @@
 
 Contoso Inc is an established manufacturer planning to modernize IT infrastructure. As part of their plan, Contoso wants to migrate existing SAP systems from on-premise to Azure more rapidly. They identified SAP on Azure github repo and liked the Microsoft provided automation content. The document introduces an automation tool to provision of all necessary Azure infrastructure, server configurations, and SAP system installation. The automation tool is based on Terraform and Ansible script.
 
-**NOTE**
+###NOTE:- 
 The files for this challenge can be found in a zip file in the Files tab of the General Channel for this hack.
 
 ## Description
@@ -30,13 +30,12 @@ Write-output $password
 
 4. Provision an ubuntu linux server through Azure portal (18.04 LTS, SKU: Standard DS1 v2) with user id `azureuser` and give a `password` and make a note of it. You will start all the Azure infrastructure provision from this server.
 
-5. Login to the server as the named user `azureuser` and run the following commands (please remember to use the named user login `azureuser` instead of any other named user)
+5. Login to the server as the named user `azureuser` and run the following commands (please remember to use the named user login `azureuser` instead of any other named user). _Coach will provide the package_url during the session._
 
 ```
 % mkdir TST200/
 % cd TST200/
 % wget "[package_url]" -O ophk.tar.gz
-coach will provide the package_url during the session.
 % gzip -d ophk.tar.gz
 % tar xf ophk.tar
 % ./local_setup_env.sh
