@@ -81,8 +81,8 @@ SAP start / stop PowerShell (PS) runbooks use new Az PS module, so import follow
 
 Import **SAPAzurePowerShellModules** PowerShell module that will be used by SAP Runbooks.
 
-> [!NOTE]
-> PowerShell module **SAPAzurePowerShellModules** is stored in PowerShell Gallery and is easy to import into Azure automation account.
+**NOTE:**
+PowerShell module `SAPAzurePowerShellModules` is stored in PowerShell Gallery and is easy to import into Azure automation account.
 
 
 ### **Import SAP Runbooks**
@@ -111,8 +111,8 @@ Navigate to **Runbook Gallery** and Import these runbooks:
 
   - Tag-SAPSystemStandaloneHANA
 
-> [!NOTE] 
-> All SAP runbooks are stored in **PowerShell Gallery** and are easy to import into Azure automation account.
+**NOTE:**
+All SAP runbooks are stored in PowerShell Gallery and are easy to import into Azure automation account.
 
 
 ### Tagging and executing Runbooks
@@ -211,7 +211,7 @@ Tagging process run this Azure runbook:
 | SAPSID                | YES       | TS1               |
 | SAPASCSInstanceNumber | YES       | 1                 |
 
-**SAP Application Server VM #1 **
+**SAP Application Server VM #1**
 
 SAP application server 1 has following properties.
 
