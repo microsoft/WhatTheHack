@@ -62,11 +62,11 @@ Ref: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tut
 - select Logs from the Azure Monitor menu in your subscription. This will set the initial scope to a Log Analytics workspace meaning that your query will select from all data in that workspace.
 - Example Query:
 
-InsightsMetrics
+`InsightsMetrics
 | where Origin == 'vm.azm.ms'
 | where Computer == 'Server1' or Computer == 'Server2'
 | where Namespace == "Memory" and Name == "AvailableMB"
 | extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])
 | extend ConsumedMemoryPercentage = 100 - ((toreal(Val) / TotalMemory) * 100.0)
 | summarize MemoryUtilizedPercentage = avg(ConsumedMemoryPercentage)by bin(TimeGenerated, 15m), Computer, _ResourceId
-| render timechart;
+| render timechart;`
