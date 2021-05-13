@@ -22,7 +22,7 @@ Contoso inc. is a manufacturing company planning to modernize its IT infrastruct
 ## Tips
  
 
-   * Download and install SAP HANA client for windows ( x64 -- Coach will provide software link to download)
+   * Download and install SAP HANA client for windows SAP service marketplace
     
    * Download [Power BI](https://www.microsoft.com/en-us/download/details.aspx?id=58494) desktop from windows power app platfrom 
     
