@@ -18,6 +18,8 @@ During the exercise, participants will be able to provision a landscape into Azu
 
 A valid Azure subscription which can create azure resources (computed D-series, E-series, storage, Network..) for Azure regions: uswest2 and useast2
 
+The Participant will need an authorization to create or have a Service Principle with the Contributor Role, provided.
+
 Azure subscription whitelisted with Azure Netapp Filesystem (ANF)
 
 An estimate of an additional $100/daily Azure budget during the challenge-session days.
