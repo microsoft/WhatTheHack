@@ -27,4 +27,14 @@ There are a lot of opportunities for things to go wrong in this step especially 
 
 * Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria
 
+* The approximate cost for this hack is about $15/day:
+    AKS: $90/month
+    Azure DB for MySQL: $153/month
+    Azure DB for PostgreSQL: $139/month
+
+    Total: $382/month (or $13 + any incidental charges for storage, private endpoints, etc.)
+
+* This hack can be done in an Azure trial account (one attendee per Azure trial). However, Microsoft anti-fraud detection may prevent multiple Azure trial subscriptions from being created in the same network location. Also, each attendee will need a working credit card to setup an Azure trial subscription (even though the card will not be charged).
+
+
 
