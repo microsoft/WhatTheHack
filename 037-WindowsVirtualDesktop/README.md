@@ -2,13 +2,13 @@
 
 ## Introduction
 
-This hack is designed to help you ramp up for the WVD 140 certification or just to learn Windows Virtual Desktop. With people starting to work remotely WVD has quickly gained adoption across the globe.
+This hack is designed to help you get hands-on experience to ramp up for the AZ-140 WVD specialst certification or if you just want to learn Windows Virtual Desktop. WVD has quickly gained adoption across the globe with companies moving to remote work for their employees. 
 
-The hack starts off by covering the basics of WVD and then digs deep into the different components of WVD and different tyes of solutions you could encounter in a WVD environment.
+The hack starts off by covering the basics of WVD and then digs deep into the different componets. You will encounter different types of solutions that is or could be needed in a WVD environment. Challenges 0-7 should be done in order, 8-11 can be done randomly once 0-7 are completed. 
 
 ## Learning Objectives
 
-In this hack you will learn how to set up a Windows Virtual Desktop environment from start to finish. You will take a customer scenario and build it out in your own environment. Once your WVD environment is built you will learn how to scale. monitor and manage the environment with Azure resources.
+In this hack you will learn how to set up a Windows Virtual Desktop in a typical scenario and build it out in your own environment. Once your WVD environment is built you will learn how to scale. monitor and manage the environment with other Azure resources. 
 
 ## Challenges
 
@@ -28,8 +28,8 @@ In this hack you will learn how to set up a Windows Virtual Desktop environment 
 ## Prerequisites
 
 - Azure Subscription
-- M365 License
-- Azure experience
+- [M365 License](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview#requirements)
+- Hands-on Azure experience
 - [Azure Academy Az-140 Study Guide](https://aka.ms/AzureAcademy-AZ140)
 
 ## Repository Contents
