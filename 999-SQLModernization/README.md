@@ -22,7 +22,8 @@ In this hack, database administrators, developers who work extensively with SQL 
 3. [Performance & Tuning](./Student/Challenges/Challenge03.md)
 4. [Security & Auditing](./Student/Challenges/Challenge04.md)
 5. [High Availability & Disaster Recovery](./Student/Challenges/Challenge05.md)
-6. Secure Enclaves / Always Encryped ??
+6. [Always Encrypted / Secure Enclaves](./Student/Challenges/Challenge06.md)
+7. [Data Governance](./Student/Challenges/Challenge07.md)
 7. Analytics & Polybase ??
 8. Blockchain ??
 9. ???
