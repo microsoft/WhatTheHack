@@ -37,6 +37,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Front Door](/017-FrontDoor/README.md)
 - [Advanced Networking](/028-AdvancedNetworking/README.md)
 - [Azure Networking with Hub & Spoke](/035-HubAndSpoke/README.md)
+- [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
+- [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [Windows Virtual Desktop](/037-WindowsVirtualDesktop/README.md)
@@ -82,6 +84,13 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [IoT Process Control at the Edge](/029-IoTEdge/README.md)
 - [Azure Arc enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
 - [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
+
+## Networking
+- [Advanced Networking](/028-AdvancedNetworking/README.md)
+- [Azure Networking with Hub & Spoke](/035-HubAndSpoke/README.md)
+- [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
+- [Azure Virtual WAN](/041-VirtualWAN/README.md)
+- [Azure Front Door](/017-FrontDoor/README.md)
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
