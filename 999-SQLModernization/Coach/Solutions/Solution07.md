@@ -10,7 +10,26 @@ This challenge focuses on registering and scanning data source(s) using Azure Pu
 
 The challenge environment setup requires that participants have pre-provisioned at least one supported Azure Purview data source with sample data. A quick and effective option includes Azure SQL Database ([serverless tier](https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview)) with **Sample** data which will include the AdventureWorksLT sample database.
 
-![Generated Traffic](../assets/azpurviewsampledb.png)
+![Sample DB](../assets/azpurviewsampledb.png)
+
+## Table of Contents
+
+**[Create an Azure Purview Account](#create-an-azure-purview-account)**
+1. [Create an Azure Purview Account](#1-create-an-azure-purview-account)
+2. [Grant Access to Azure Purview's Data Plane](#2-grant-access-to-azure-purviews-data-plane)
+3. [Open Purview Studio](#3-open-purview-studio)
+
+**[Register & Scan](#register--scan)**
+1. [Create an Azure SQL Database](#1-create-an-azure-sql-database)
+2. [Create an Azure Key Vault](#2-create-an-azure-key-vault)
+3. [Add Credentials to Azure Purview](#3-add-credentials-to-azure-purview)
+4. [Register a Source](#4-register-a-source)
+5. [Scan a Source with Azure Key Vault Credentials](#5-scan-a-source-with-azure-key-vault-credentials)
+6. [View Assets](#6-view-assets)
+
+**[Search & Enrich](#search--enrich)**
+1. [Search Catalog](#1-search-catalog)
+2. [Update an Asset](#2-update-an-asset)
 
 # Create an Azure Purview Account
   > **Note:** Before proceeding, ensure your Azure subscription has the following resource providers registered: **Microsoft.Purview**, **Microsoft.Storage**, and **Microsoft.EventHub**.
@@ -271,7 +290,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 <div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
-## 4. Register a Source (Azure SQL DB)
+## 4. Register a Source
 
 1. Open Purview Studio, navigate to **Sources** and click **Register**.
 
@@ -333,6 +352,8 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 # Search & Enrich
 
+## 1. Search Catalog
+
 1. Open Purview Studio and from the **Home** screen, type the asterisk character (**\***) into the search bar and hit **Enter**.
 
     ![Search Wildcard](../assets/azpurview03.01-search-wildcard.png)
@@ -343,21 +364,23 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 <div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
-2. Click **Edit** to modify the asset details.
+## 2. Update an Asset
+
+1. Click **Edit** to modify the asset details.
 
     ![Edit Asset](../assets/azpurview03.03-asset-edit.png)
 
-3. Update the **Description** by copying and pasting the sample text below.
+2. Update the **Description** by copying and pasting the sample text below.
 
     > This dataset was curated from the Bing search logs (desktop users only) over the period of Jan 1st, 2020 – (Current Month - 1). Only searches that were issued many times by multiple users were included. The dataset includes queries from all over the world that had an intent related to the Coronavirus or Covid-19. In some cases this intent is explicit in the query itself (e.g., “Coronavirus updates Seattle”), in other cases it is implicit , e.g. “Shelter in place”.
 
     ![Update Description](../assets/azpurview03.04-asset-description.png)
 
-4. Assign a **Classification** (e.g. World Cities) using the drop-down menu.
+3. Assign a **Classification** (e.g. World Cities) using the drop-down menu.
 
     ![Update Classification](../assets/azpurview03.05-asset-classification.png)
 
-5. Navigate to the **Schema** tab and update the **column descriptions** using the sample text below.
+4. Navigate to the **Schema** tab and update the **column descriptions** using the sample text below.
 
     | Column Name  | Description |
     | --- | --- |
@@ -374,7 +397,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![Update Schema](../assets/azpurview03.06-asset-schema.png)
 
-6. Navigate to the **Contacts** tab and set someone within your organization to be an **Expert** and an **Owner**. Click **Save**.
+5. Navigate to the **Contacts** tab and set someone within your organization to be an **Expert** and an **Owner**. Click **Save**.
 
     > :bulb: **Did you know?**
     >
@@ -382,7 +405,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![Update Contacts](../assets/azpurview03.07-asset-contacts.png)
 
-7. To see other assets within the same path, navigate to the **Related** tab.
+6. To see other assets within the same path, navigate to the **Related** tab.
 
     ![Related Assets](../assets/azpurview03.08-asset-related.png)
 
