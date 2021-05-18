@@ -111,4 +111,222 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 <div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
 
-# Create an Azure Purview Account
+# Register & Scan
+
+## 1. Create an Azure SQL Database
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account and from the **Home** screen, click **Create a resource**.
+
+    ![Azure Purview](../images/module01/01.01-create-resource.png)  
+
+2.  Search for `Azure SQL` and click **Create**.
+
+    ![](../assets/azpurview02.31-create-sql.png)
+
+3. Select **Single database** and click **Create**.
+
+    ![](../assets/azpurview02.32-singledb-create.png)
+
+4. Under the **Basics** tab, select a **Resource group** (e.g. `resourcegroup-1`), provide a **Database name** (e.g. `sqldb-team01`) and under **Server** click **Create new**.
+ 
+    ![](../assets/azpurview02.33-sqlsvr-create.png)
+
+5. Provide the necessary inputs and click **OK**.
+
+    > Note: The table below provides example values for illustrative purposes only, ensure to specify values that make sense for your deployment.
+
+    | Property  | Example Value |
+    | --- | --- |
+    | Server name | `sqlsvr-team01` |
+    | Server admin login | `team01` |
+    | Password | `<your-sql-admin-password>` |
+    | Confirm password | `<your-sql-admin-password>` |
+    | Location | `East US 2` |
+
+    > Note: The **admin login** and **password** will be required later in the module. Make note of these two values.
+
+    ![](../assets/azpurview02.34-sqlsvr-new.png)
+
+6. Click **Configure database**.
+
+    ![](../assets/azpurview02.35-sqldb-configure.png)
+
+7. Select **Serverless** and click **Apply**.
+
+    ![](../assets/azpurview02.36-sqldb-serverless.png)
+
+8. Navigate to the **Additional settings** tab, select **Sample**, click **Review + create**.
+
+    ![Additional Settings](../assets/azpurview02.37-sqldb-sample.png)
+
+9. Click **Create**.
+
+    ![](../assets/azpurview02.38-sqldb-create.png)
+
+10. Once the deployment is complete, click **Go to resource**.
+
+    ![](../assets/azpurview02.39-sqldb-complete.png)
+
+11. Navigate to the **Server**.
+
+    ![](../assets/azpurview02.40-sqldb-server.png)
+
+12. Click **Firewalls and virtual networks**, set **Allow Azure services and resources to access this server** to **Yes**, click **Save**.
+
+    ![](../assets/azpurview02.41-sqlsvr-firewall.png)
+
+<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+
+## 2. Create an Azure Key Vault
+
+1. From the **Home** screen of the Azure Portal, click **Create a resource**.
+
+    ![Azure Purview](../images/module01/01.01-create-resource.png)  
+
+2. Search for `Key Vault` and click **Create**.
+
+    ![](../assets/azpurview02.45-create-vault.png)
+
+3. Under the **Basics** tab, select a **Resource group** (e.g. `resourcegroup-1`), provide a **Key vault name** (e.g. `vault-team01`), select a Region (e.g. `East US 2`). 
+
+    ![](../assets/azpurview02.46-vault-basics.png)
+
+4. Navigate to the **Access policy** tab and click **Add Access Policy**.
+
+    ![](../assets/azpurview02.47-policy-add.png)
+
+5. Under **Select principal**, click **None selected**.
+
+    ![](../assets/azpurview02.48-policy-select.png)
+
+6. Search for the name of your Azure Purview account (e.g. `purview-team01`), select the item, click **Select**.
+
+    ![](../assets/azpurview02.49-policy-principal.png)
+
+7. Under **Secret permissions**, select **Get** and **List**.
+
+    ![](../assets/azpurview02.50-secret-permissions.png)
+
+8. Review your selections and click **Add**.
+
+    ![](../assets/azpurview02.51-policy-add.png)
+
+9. Click **Review + create**.
+
+    ![](../assets/azpurview02.52-vault-review.png)
+
+10. Click **Create**.
+
+    ![](../assets/azpurview02.53-vault-create.png)
+
+11. Once your deployment is complete, click **Go to resource**.
+
+    ![](../assets/azpurview02.54-vault-goto.png)
+
+12. Navigate to **Secrets** and click **Generate/Import**.
+
+    ![](../assets/azpurview02.55-vault-secrets.png)
+
+13. Under **Name** type `sql-secret`. Under **Value** provide the same password that was specified for the SQL Server admin account created earlier in step 7.5. Click **Create**.
+
+    ![](../assets/azpurview02.56-vault-sqlsecret.png)
+
+<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+
+## 3. Add Credentials to Azure Purview
+
+1. To make the secret accessible to Azure Purview, we must establish a connection to Azure Key Vault. Open **Purview Studio**, navigate to **Management Center** > **Credentials**, click **Manage Key Vault connections**.
+
+    ![](../assets/azpurview02.57-management-vault.png)
+
+2. Click **New**.
+
+    ![](../assets/azpurview02.58-vault-new.png)
+
+3. Use the drop-down menus to select the appropriate **Subscription** and **Key Vault name**. Click **Create**.
+
+    ![](../assets/azpurview02.59-vault-create.png)
+
+4. Since we have already granted the Purview managed identity access to our Azure Key Vault, click **Confirm**.
+
+    ![](../assets/azpurview02.60-vault-access.png)
+
+5. Click **Close**.
+
+    ![](../assets/azpurview02.61-vault-close.png)
+
+6. Under **Credentials** click **New**.
+
+    ![](../assets/azpurview02.62-credentials-new.png)
+
+7. Provide the necessary details and click **Create**.
+
+    * Overwrite the **Name** to `credential-SQL`
+    * Set the **Authentication method** to `SQL authentication`
+    * Set the **User name** to the SQL Server admin login specified earlier (e.g. `team01`)
+    * Select the **Key Vault connection**
+    * Set the **Secret name** to `sql-secret`
+
+    ![](../assets/azpurview02.63-credentials-create.png)
+
+<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+
+## 4. Register a Source (Azure SQL DB)
+
+1. Open Purview Studio, navigate to **Sources** and click **Register**.
+
+    ![](../assets/azpurview02.42-sources-register.png)
+
+2. Navigate to the **Azure** tab, select **Azure SQL Database**, click **Continue**.
+
+    ![](../assets/azpurview02.43-register-sqldb.png)
+
+3. Select the **Azure subscritpion**, **Server name**, and **Collection**. Click **Register**.
+
+    ![](../assets/azpurview02.44-register-azuresql.png)
+
+<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+
+## 5. Scan a Source with Azure Key Vault Credentials
+
+1. Open Purview Studio, navigate to **Sources**, and within the Azure SQL Database source tile, click the **New Scan** button.
+
+    ![](../assets/azpurview02.64-sources-scansql.png)
+
+2. Select the **Database** and **Credential** from the drop-down menus. Click **Test connection**. Click **Continue**.
+
+    ![](../assets/azpurview02.65-sqlscan-credentials.png)
+
+3. Click **Continue**.
+
+    ![](../assets/azpurview02.66-sqlscan-scope.png)
+
+4. Click **Continue**.
+
+    ![](../assets/azpurview02.67-sqlscan-scanruleset.png)
+
+5. Set the trigger to **Once**, click **Continue**.
+
+    ![](../assets/azpurview02.68-sqlscan-schedule.png)
+
+6. Click **Save and Run**.
+
+    ![](../assets/azpurview02.69-sqlscan-run.png)
+
+7. To monitor the progress of the scan, click **View Details**.
+
+    ![](../assets/azpurview02.70-sqlscan-details.png)
+
+8. Click **Refresh** to periodically update the status of the scan. Note: It will take approximately 5 minutes to complete.
+
+    ![](../assets/azpurview02.71-sqlscan-refresh.png)
+
+<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+
+## 6. View Assets
+
+1. To view the assets that have materialised as an outcome of running the scans, perform a wildcard search by typing the asterisk character (`*`) into the search bar and hitting the Enter key to submit the query and return the search results.
+
+    ![](../assets/azpurview02.72-search-wildcard.png)
+
+<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
