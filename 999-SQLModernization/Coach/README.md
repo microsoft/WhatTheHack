@@ -15,4 +15,8 @@ The goal of each challenge is to be as loosely coupled as possible to support a 
 * [Challenge 1 - Migration](./Solutions/Solution01.md)
 * [Challenge 2 - Performance](./Solutions/Solution00.md)
 * [Challenge 4 - HA/DR](./Solutions/Solution04.md)
+* Challenge 5 ...
+* Challenge 6 ...
+* [Challenge 7 - Data Governance](./Solutions/Solution07.md)
+
 
