@@ -330,3 +330,60 @@ The challenge environment setup requires that participants have pre-provisioned 
     ![](../assets/azpurview02.72-search-wildcard.png)
 
 <div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
+
+# Search & Enrich
+
+1. Open Purview Studio and from the **Home** screen, type the asterisk character (**\***) into the search bar and hit **Enter**.
+
+    ![Search Wildcard](../assets/azpurview03.01-search-wildcard.png)
+
+2. Filter the search results by **Classification** (e.g. Country/Region) and click a hyperlinked asset name to view the details.
+
+    ![Filter by Classification](../assets/azpurview03.02-search-filter.png)
+
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
+
+2. Click **Edit** to modify the asset details.
+
+    ![Edit Asset](../assets/azpurview03.03-asset-edit.png)
+
+3. Update the **Description** by copying and pasting the sample text below.
+
+    > This dataset was curated from the Bing search logs (desktop users only) over the period of Jan 1st, 2020 – (Current Month - 1). Only searches that were issued many times by multiple users were included. The dataset includes queries from all over the world that had an intent related to the Coronavirus or Covid-19. In some cases this intent is explicit in the query itself (e.g., “Coronavirus updates Seattle”), in other cases it is implicit , e.g. “Shelter in place”.
+
+    ![Update Description](../assets/azpurview03.04-asset-description.png)
+
+4. Assign a **Classification** (e.g. World Cities) using the drop-down menu.
+
+    ![Update Classification](../assets/azpurview03.05-asset-classification.png)
+
+5. Navigate to the **Schema** tab and update the **column descriptions** using the sample text below.
+
+    | Column Name  | Description |
+    | --- | --- |
+    | Date | `Date on which the query was issued.` |
+    | Query | `The actual search query issued by user(s).` |
+    | IsImplicitIntent | `True if query did not mention covid or coronavirus or sarsncov2 (e.g, “Shelter in place”). False otherwise.` |
+    | State | `State from where the query was issued.` |
+    | Country | `Country from where the query was issued.` |
+    | PopularityScore | `Value between 1 and 100 inclusive. 1 indicates least popular query on the day/State/Country with Coronavirus intent, and 100 indicates the most popular query for the same geography on the same day.` |
+
+    > :bulb: **Did you know?**
+    >
+    > **Classifications** and **Glossary Terms** can be assigned at the asset level (e.g. a Table within a Database) as well as at the schema level (e.g. a Column within a Table Schema).
+
+    ![Update Schema](../assets/azpurview03.06-asset-schema.png)
+
+6. Navigate to the **Contacts** tab and set someone within your organization to be an **Expert** and an **Owner**. Click **Save**.
+
+    > :bulb: **Did you know?**
+    >
+    > Assets can be related to two different types of contacts. **Experts** are often business process or subject matter experts. Where as **Owners** are often senior executives or business area owners that define governance or business processes over certain data areas.
+
+    ![Update Contacts](../assets/azpurview03.07-asset-contacts.png)
+
+7. To see other assets within the same path, navigate to the **Related** tab.
+
+    ![Related Assets](../assets/azpurview03.08-asset-related.png)
+
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
