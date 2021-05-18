@@ -57,7 +57,8 @@ In this hack, database administrators, developers who work extensively with SQL 
 Brian Hitney\
 Lalit Patel\
 Linda Zhang\
-Roberto Cavalcanti
+Roberto Cavalcanti\
+Taygan Rifat
 
 
 
