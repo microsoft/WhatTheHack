@@ -25,3 +25,6 @@
 	- **NOTE:** They will need to learn how to connect kubectl to their cluster using `az aks get-credentials`
 - If someone needs to attach their ACR to the cluster after they created it, they can use: 
 	- `az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>`
+- **Optional:** The AKS "Workloads" screen in the Azure portal can be brought up with the CLI easily:
+	- `az aks browse --name myAKSCluster --resource-group myAKSCluster`
+	- **NOTE:** This will open a web browser and go to the Azure Portal. If you're not logged in, you will be prompted to do so.
