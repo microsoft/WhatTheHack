@@ -32,6 +32,7 @@ In this hack, database administrators, developers who work extensively with SQL 
 1. Azure SQL Database / Managed Instance
 1. Azure Database Migration service
 1. Azure Data Studio
+1. Azure Purview
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
