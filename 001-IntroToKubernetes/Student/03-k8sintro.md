@@ -12,16 +12,19 @@ In this challenge we will be provisioning our first Kubernetes cluster using the
 
 - Install the Kubernetes command line tool (`kubectl`).
 	- **Hint:** This can be done easily with the Azure CLI.
-- Create a new, multi-node AKS cluster.
+- Use the Azure CLI to create a new, multi-node AKS cluster with the following specifications:
 	- Use the default Kubernetes version used by AKS.
-	- The cluster will use basic networking and kubenet.  
+	- The cluster will use kubenet (ie: basic networking).  
 	- The cluster will use a managed identity
-	- The cluster will use Availability Zones for improved worker node reliability.
+	- The cluster will use the maximum number of Availability Zones for improved worker node reliability.
+	- The cluster should attach to your ACR created in Challenge 2 (if you didn't do Challenge 2, you don't need to attach to anything).
+		- **NOTE:** Attaching an ACR requires you to have Owner or Azure account administrator role on the Azure subscription. If this is not possible then someone who is an Owner can do the attach for you after you create the cluster.
+	- **NOTE:** You will need to specify on the command line if you want ssh keys generated or no ssh keys used. Either option will work, but you should read the documentation and be familiar with the difference.
 - Use kubectl to prove that the cluster is a multi-node cluster and is working.
 - Use kubectl to examine which availability zone each node is in.  
 - **Optional:** Bring up the AKS "Workloads" screen in the Azure portal.
 	- **Hint:** Again, the Azure CLI makes this very easy with one command.
-	- **NOTE:** This will not work if you are using an Ubuntu Server jump box to connect to your cluster.
+	- **NOTE:** This will not work if you are using a Linux jump box to connect to your cluster.
 
 ## Success Criteria
 
