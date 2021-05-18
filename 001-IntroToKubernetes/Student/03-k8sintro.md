@@ -22,7 +22,9 @@ In this challenge we will be provisioning our first Kubernetes cluster using the
 Once the cluster is running:
 - Use kubectl to prove that the cluster is a multi-node cluster and is working properly.
 - Use kubectl to examine which availability zone each node is in.  
-- Use the Azure portal to also view & examine the cluster nodes.
+- **Optional:** Bring up the AKS "Workloads" screen in the Azure portal.
+	- **Hint:** Again, the Azure CLI makes this very easy with one command.
+	- **NOTE:** This will not work if you are using an Ubuntu Server jump box to connect to your cluster.
 
 ## Success Criteria
 
