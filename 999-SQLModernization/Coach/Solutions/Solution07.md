@@ -61,7 +61,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![Go to resource](../assets/azpurview01.06-goto-resource.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 2. Grant Access to Azure Purview's Data Plane
 
@@ -101,7 +101,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![Purview Data Source Administrator](../assets/azpurview01.12-role-assignment2.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 3. Open Purview Studio
 
@@ -109,7 +109,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![Open Purview Studio](../assets/azpurview01.07-open-studio.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 # Register & Scan
 
@@ -175,7 +175,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](../assets/azpurview02.41-sqlsvr-firewall.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 2. Create an Azure Key Vault
 
@@ -231,7 +231,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](../assets/azpurview02.56-vault-sqlsecret.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 3. Add Credentials to Azure Purview
 
@@ -269,7 +269,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](../assets/azpurview02.63-credentials-create.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 4. Register a Source (Azure SQL DB)
 
@@ -285,7 +285,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](../assets/azpurview02.44-register-azuresql.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 5. Scan a Source with Azure Key Vault Credentials
 
@@ -321,7 +321,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](../assets/azpurview02.71-sqlscan-refresh.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
 
 ## 6. View Assets
 
@@ -329,4 +329,4 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](../assets/azpurview02.72-search-wildcard.png)
 
-<div align="right"><a href="#challenge-7---data-governance">↥ back to top</a></div>
+<div align="right"><a href="#solution-7---data-governance">↥ back to top</a></div>
