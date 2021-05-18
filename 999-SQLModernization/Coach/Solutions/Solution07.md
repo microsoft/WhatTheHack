@@ -117,7 +117,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account and from the **Home** screen, click **Create a resource**.
 
-    ![Azure Purview](../images/module01/01.01-create-resource.png)  
+    ![Azure Purview](../assets/azpurview01.01-create-resource.png)  
 
 2.  Search for `Azure SQL` and click **Create**.
 
