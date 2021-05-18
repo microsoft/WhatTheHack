@@ -17,7 +17,6 @@ Your company has provided the following requirements and guidelines:
 1. Select and provision a service that will be capable of automatically scanning and classifying sources within the data estate.
 2. Register and scan data sources to populate the enterprise data catalog.
 3. Demonstrate the ability to enrich data assets with additional metadata beyond what is captured as part of the automated scan.
-4. Demonstrate the ability to store business glossary terms and how those terms can be tagged against data assets.
 
 ## Success Criteria
 
@@ -25,7 +24,6 @@ Your company has provided the following requirements and guidelines:
 2. Each team member has at least read-only access to the service.
 3. At least one data source has been registered and scanned.
 4. At least one data asset has been enriched with additional metadata (e.g. Description).
-5. At least one data asset has been tagged with a glossary term.
 
 ## Learning Resources
 * [Azure Purview](https://docs.microsoft.com/en-us/azure/purview/)
@@ -35,10 +33,3 @@ Your company has provided the following requirements and guidelines:
 * Learn about [Create an Azure Purview account in the Azure Portal](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
 * Learn about [Role-based access control in Azure Purview's Data Plane](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
 * Learn about [Register and scan an Azure SQL Database](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-sql-database)
-* Learn about [How to Create, Import, and Export Glossary Terms](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
-
-
-## Advanced Challenges (Optional)
-
-1. Register and scan an on-premises SQL Server.
-2. Create and scan for a custom classification.
