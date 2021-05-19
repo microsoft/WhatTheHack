@@ -38,13 +38,13 @@ Also make sure that "./local_setup_env.sh" is executed
 
 For step 7. Make sure that the students only modify the top section indicated and not below.
 
-For step 9. The provision of E32 server and ANF provision could take long and timeout and error out. In case it happened, students need to cleanup all the resources and resource group "saprg_ophk_teamXX" and restart this step.
+For step 9. The provision of E32 server and ANF provision could take long and timeout and error out. In case it happened, students need to cleanup all the resources and resource group "saprg_ophk_squdXX" and restart this step.
 
 For step 10. Make sure that the students execute this manual step and set the export policy of root access for ALL ANF vol to ne "ON"
 
 For step 12. Students might have issue download packages like putty/etc through default browser. Recommend them to consider installing a different browser.
 
-For step 13. Sometimes there could be package installation from Azure side causing failure of ansible execution, in case that happens, the students will need to clean up resources and resource group "saprg_ophk_teamXX" and restart from step 9.
+For step 13. Sometimes there could be package installation from Azure side causing failure of ansible execution, in case that happens, the students will need to clean up resources and resource group "saprg_ophk_quadXX" and restart from step 9.
 
 ## Learning Resources
 
