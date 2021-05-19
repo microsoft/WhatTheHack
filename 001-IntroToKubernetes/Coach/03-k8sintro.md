@@ -20,8 +20,8 @@
 - It is usually a good idea to explain to the students what kind of options they have when creating a cluster. Doing a walkthrough demo of provisioning a cluster with the Portal is good showcasing tool, but end by telling them they need to figure out how to achieve the same thing with the CLI.
 - Have the teams show you the running cluster with:
 	- `kubectl get nodes`
-		- This show show three nodes, but it will not show the availability zone.  
-    - To see the availability zone, run:  `kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'`
+		- This should show three nodes, but it will not show the availability zone.  
+    - To see the availability zone, run:  `kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'`  _(BTW, this command comes from the [Azure docs](https://docs.microsoft.com/en-us/azure/aks/availability-zones#verify-node-distribution-across-zones) )_
 	- Each node should be a VM with at least 2 vCPU and 4 GB of memory.  The reason for this is that we need to have enough CPU and RAM for the system pods to run (e.g. CoreDNS and tunnelfront).  See this link for more details: 
     	- <https://docs.microsoft.com/en-us/azure/aks/use-system-pools>
 	- **NOTE:** They will need to learn how to connect kubectl to their cluster using `az aks get-credentials`
