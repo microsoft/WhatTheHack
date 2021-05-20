@@ -132,7 +132,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 ### Register & Scan
 
-##### 1. Create an Azure SQL Database
+#### 1. Create an Azure SQL Database
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account and from the **Home** screen, click **Create a resource**.
 
