@@ -1,4 +1,4 @@
-# Challenge 2 - Migration at Scale
+# Challenge 2 - Advanced Migration at Scale
 
 [< Previous Challenge](./Challenge00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge03.md)
 
@@ -21,24 +21,24 @@ Your company has provided the following requirements and guidelines:
 
 ## Success Criteria
 
-1. Successfully migrate the SQL Server VM hosting TPCC database meeting the above criteria.
-2. Share the Assessment report with the team for collaboration on knowledge sharing.
-3. Complete validation of the migrated TPCC database.
-
-## Learning Resources
-* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
+* Successfully migrate the SQL Server VM hosting TPCC database meeting the above criteria.
+* Share the Assessment report with the team for collaboration on knowledge sharing.
+* Complete validation of the migrated TPCC database.
 
 ## Tips
 
-* Learn about the [Azure Migrate](https://docs.microsoft.com/en-us/azure/migrate/), [Tutorial1](https://docs.microsoft.com/en-us/azure/migrate/tutorial-discover-physical), [Tutorial2](https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-physical), [Tutorial3](https://docs.microsoft.com/en-us/azure/migrate/tutorial-migrate-physical-virtual-machines)
-* Learn about [HammerDB automation tool](https://www.hammerdb.com/) 
-* Learn about [TPCC benchmark database](http://www.tpc.org/tpcc/) 
-
+* [Azure Migrate](https://docs.microsoft.com/en-us/azure/migrate/)
+* [Tutorial 1](https://docs.microsoft.com/en-us/azure/migrate/tutorial-discover-physical)
+* [Tutorial 2](https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-physical)
+* [Tutorial 3](https://docs.microsoft.com/en-us/azure/migrate/tutorial-migrate-physical-virtual-machines)
+* [HammerDB automation tool](https://www.hammerdb.com/) 
+* [TPCC benchmark database](http://www.tpc.org/tpcc/) 
 
 ## Advanced Challenges (Optional)
 
-1. Migrate On-premises SQL Server (physical server) to Azure SQL Server (IaaS).
-2. Migrate On-premises SQL Server (physical server) to Azure SQL db (PaaS).
-3. Migrate SQL Server VM on VMWare (IaaS) to Azure SQL Server (IaaS).
+* Migrate On-premises SQL Server (physical server) to Azure SQL Server (IaaS).
+* Migrate On-premises SQL Server (physical server) to Azure SQL db (PaaS).
+* Migrate SQL Server VM on VMWare (IaaS) to Azure SQL Server (IaaS).
 
-
+## Learning Resources
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)

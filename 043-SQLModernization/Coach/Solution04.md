@@ -1,12 +1,12 @@
-# Solution 4 - Security & Auditing
+# Challenge 4: Security and Auditing - Coach's Guide
 
 [< Previous Challenge](./Solution03.md) - **[Home](README.md)** - [Next Challenge>](./Solution05.md)
 
-## Introduction
+## Notes & Guidance
 
 The purpose of this challenge is to get attendees hands-on with several security features on SQL Server. This is not meant to be exhaustive and inclusive of all best practices, but rather demonstrate how several features can be used together to provide a "defense in depth" model.
 
-## Vulnerability Assessment & Threat Protection
+### Vulnerability Assessment & Threat Protection
 
 An example of implementing this is [located in Microsoft SQL Workshop](https://github.com/microsoft/sqlworkshops-azuresqlworkshop/blob/master/azuresqlworkshop/03-Security.md). 
 
@@ -18,17 +18,17 @@ SELECT * FROM sys.databases WHERE database_id like '' or 1 = 1 --' and family = 
 
 The above should trigger an alert that will result in an email like this:
 
-![Alert](../assets/sqlinjection.png)
+![Alert](./images/sqlinjection.png)
 
-## Data Discovery & Classification
+### Data Discovery & Classification
 
 Most of this is straightforward and can be done in the portal, in SSMS, or via SQL and PowerShell. For green teams, using the portal is fine. However, for more advanced teams, encourage writing SQL directly as this can be added to a code repository and included in a data ops pipeline.
 
-## Auditing
+### Auditing
 
 Log Analytics may take some time to begin adding auditing events. It's important to write logs to both blob storage and Log Analytics. The files in blob storage can be opened in SSMS and evaluated using the built-in dashboard.
 
-## Dynamic Data Masking
+### Dynamic Data Masking
 
 Dynamic data masking is an easy way to add "defense in depth" measures to mask all or parts of a column -- for example, masking all but the last 4 of a social security number of credit card number. A call center agent or website, for example, would only "see" the last 4 digits for verification purposes. 
 

@@ -4,15 +4,9 @@
 
 ## Introduction 
 
-Your team is wondering what options are available to automatically catalog and classify the data estate. In doing so, you will help empower information consumers to find data assets that matter to them and help lay the foundations for effective data governance. 
+After successfully implementing some security best practices in Challenge 4, your team is wondering what options are available to automatically catalog and classify the data estate. In doing so, you will help empower information consumers to find data assets that matter to them and help lay the foundations for effective data governance. 
 
-## Description
-
-The objective of this challenge is to populate a data catalog with the assets that existing within your Azure data estate.
-
-### Challenge details 
-
-Your company has provided the following requirements and guidelines:
+The objective of this challenge is to populate a data catalog with the assets that existing within your Azure data estate. Your company has been provided the following requirements and guidelines:
 
 1. Select and provision a service that will be capable of automatically scanning and classifying sources within the data estate.
 2. Register and scan data sources to populate the enterprise data catalog.
@@ -20,16 +14,17 @@ Your company has provided the following requirements and guidelines:
 
 ## Success Criteria
 
-1. Data governance service provisioned.
-2. Each team member has at least read-only access to the service.
-3. At least one data source has been registered and scanned.
-4. At least one data asset has been enriched with additional metadata (e.g. Description).
-
-## Learning Resources
-* [Azure Purview](https://docs.microsoft.com/en-us/azure/purview/)
+* Data governance service provisioned.
+* Each team member has at least read-only access to the service.
+* At least one data source has been registered and scanned.
+* At least one data asset has been enriched with additional metadata (e.g. Description).
 
 ## Tips
 
-* Learn about [Create an Azure Purview account in the Azure Portal](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
-* Learn about [Role-based access control in Azure Purview's Data Plane](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
-* Learn about [Register and scan an Azure SQL Database](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-sql-database)
+* [Create an Azure Purview account in the Azure Portal](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
+* [Role-based access control in Azure Purview's Data Plane](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
+* [Register and scan an Azure SQL Database](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-sql-database)
+
+## Learning Resources
+
+* [Azure Purview](https://docs.microsoft.com/en-us/azure/purview/)

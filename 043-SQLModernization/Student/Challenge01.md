@@ -33,17 +33,9 @@ Wide World Importers has provided the following requirements and guidelines:
 
 ## Success Criteria
 
-1. Successfully migrate AdventureWorks meeting the above criteria; if any objects cannot be fully migrated, be sure to note which objects and suggestions for remediation.
-1. Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment.
-1. Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration.
-
-## Learning Resources
-
-* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
-
-Download the Workload Driver solution or executable here:
-* [WWI Order Insert Solution](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/workload-drivers/order-insert)
-* [WWI Order Insert Executable (workload-drivers.zip)](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
+* Successfully migrate AdventureWorks meeting the above criteria; if any objects cannot be fully migrated, be sure to note which objects and suggestions for remediation.
+* Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment.
+* Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration.
 
 ## Tips
 
@@ -60,3 +52,9 @@ Download the Workload Driver solution or executable here:
 1. WWI is interested in understanding the performance impact of zone redundant availability.
     1. Use [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15), [Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15), or other similar analytics to provide data to back up your analysis; workloads may be simulated using the WWI Order Insert Solution referenced above.
 
+## Learning Resources
+
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
+* Download the Workload Driver solution or executable here:
+    * [WWI Order Insert Solution](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/workload-drivers/order-insert)
+    * [WWI Order Insert Executable (workload-drivers.zip)](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)

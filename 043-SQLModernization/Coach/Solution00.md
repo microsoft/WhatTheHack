@@ -1,8 +1,8 @@
-# Solution 0 - Migration
+# Challenge 0: Setup - Coach's Guide
 
 **[Home](README.md)** - [Next Challenge>](./Solution01.md)
 
-## Introduction
+## Notes & Guidance
 
 The primary objective of this challenge is to download and install all of the required tools and databases. There should not be any major challenges encountered unless teams do not have any members with any database experience.
 

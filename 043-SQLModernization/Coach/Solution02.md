@@ -1,22 +1,21 @@
-# Solution 2 - Migration at Scale
+# Challenge 2: Advanced Migration at Scale - Coach's Guide
 
 [< Previous Challenge](./Solution01.md) - **[Home](README.md)** - [Next Challenge>](./Solution03.md)
 
-## Introduction
+## Notes & Guidance
 
-This optional challenge focuses on performing On-prem SQL Server migration to SQL Server on Azure VM (IaaS). The challenge involves step by step approach on managing the migreation using new capabilities of "Azure Migrate". The new capabilities includes creation of migration project with two main phases. Phase 1 is discvery and assessment, whle phase 2 is using the assement recommendtions to perform actuall migration of the VM.   
+This optional challenge focuses on performing On-prem SQL Server migration to SQL Server on Azure VM (IaaS). The challenge involves step by step approach on managing the migreation using new capabilities of "Azure Migrate". The new capabilities includes creation of migration project with two main phases. Phase 1 is discvery and assessment, whle phase 2 is using the assessment recommendtions to perform actuall migration of the VM.   
 
-## Overall Tips
+Although this challenge only includes migrating from SQL Server VM to IaaS, the new capabilities inlcude migrating from SQL Server VM to Azure SQL DB (PaaS). Please refer to additional documentation -  https://docs.microsoft.com/en-us/azure/migrate/how-to-create-azure-sql-assessment.
 
-Although this challeng only includes migrating from SQL Server VM to IaaS, the new capabilities inlcude migrating from SQL Server VM to Azure SQL DB (PaaS). Please refer to additional documentation -  https://docs.microsoft.com/en-us/azure/migrate/how-to-create-azure-sql-assessment.
-
-## Envoronment Setup
+### Environment Setup
 
 The challenge environment steup includes creating a Azure SQL Server VM in a source virtual network to mimic on premises scenario.  The SSQL Server VM will be in Virtual Network and have the HammerDB (SQL trafic benchmarking tool) running on it. The tool could be downloaded from here - https://www.hammerdb.com/HammerDB. The tool will continuously generate the traffic for 'n' virtual users to mimic the real life sceanrio. The HammerDB is a handy tool to not only build the database but also generate the traffic patterns, The assement phase of the challenge takes this traffic pattern into consideration, while recommending the right solution.
 
-![Generated Traffic](../assets/hammerDB-VirtualUser-traffic.png)
+![Generated Traffic](./images/hammerDB-VirtualUser-traffic.png)
 
-# Discovery and Assement 
+### Discovery and Assement 
+
 1. Login to Azure Portal and create a Resource Group, to host subsequent resources as described below.
 2. Create Azure Migrate Project. https://docs.microsoft.com/en-us/azure/migrate/tutorial-discover-physical#set-up-a-project
     
@@ -39,7 +38,7 @@ The challenge environment steup includes creating a Azure SQL Server VM in a sou
     - Download and extract the "Azure Migrate Appliance". Navigate to the folder where extracted
     - Open a powershell session and run the Azure migrate installer script - .\AzureMigrateInstaller.ps1.
 
-      ![Discovery Appliance installer](../assets/azmigratediscoveryinstaller.png)
+      ![Discovery Appliance installer](./images/azmigratediscoveryinstaller.png)
 
 4. Verify Appliance can access the public URLs
     - Ensure windows firewall is allowing outbound traffic to Azure.
@@ -48,57 +47,57 @@ The challenge environment steup includes creating a Azure SQL Server VM in a sou
     - Navigate to the URL - https://<appliancename>:44368
     - Let the step 1 Set up prerequisite finish.
 
-      ![Discovery Appliance configuration 1](../assets/azmigratediscoveryinstallersetup1.png)
+      ![Discovery Appliance configuration 1](./images/azmigratediscoveryinstallersetup1.png)
 
     - Register the appliance with Azure migrate by loginingin. The key "Project key" obtained in step above will 
       be validated automatically.
 
-      ![Discovery Appliance configuration 2](../assets/azmigratediscoveryinstallersetup2.png)
+      ![Discovery Appliance configuration 2](./images/azmigratediscoveryinstallersetup2.png)
 
 6. Start continuous discovery.
 
     - Add Credentials. This are the default server login admin crdeentials (one used during VM creation)
 
-      ![Add Credentials](../assets/azmigratediscoveryinstallersetup3credentials.png)
+      ![Add Credentials](./images/azmigratediscoveryinstallersetup3credentials.png)
 
     - Add discovery source. This a friendly name representation of the Source. 
 
-      ![Add Discovery source](../assets/azmigratediscoveryinstallersetup3discoverysrc.png)
+      ![Add Discovery source](./images/azmigratediscoveryinstallersetup3discoverysrc.png)
 
     - Validate/re-validate connection and start the discovery. This will start a job and discover the servers to 
       be migrated. 
 
-      ![Validate connection](../assets/azmigratediscoveryinstallersetup3startdiscovery.png)
+      ![Validate connection](./images/azmigratediscoveryinstallersetup3startdiscovery.png)
 
 8. Validate/verify the discovered servers in the Azure migrate project.
 
-      ![Validate Discovered Server](../assets/azmigratediscovery-serverdiscovered.png)
+      ![Validate Discovered Server](./images/azmigratediscovery-serverdiscovered.png)
 
 9. Create and review an assessment. More details are here. https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-physical
 
     - Click on "Create Assessment".
 
-    ![Create Assessment](../assets/azmigratediscoveryiassessment1.png)
+    ![Create Assessment](./images/azmigratediscoveryiassessment1.png)
 
     - Assements are organized by groups. You could run multiple assemenst if needed. Everytime you create a new 
       assessment , newly collected metric data is used for the recommendations that are generated. In production scenarios, it is recommended that you let the discovery run for few days, before creating an assessment.
 
-    ![Create Assessment group](../assets/azmigratediscoveryiassessment2.png)
+    ![Create Assessment group](./images/azmigratediscoveryiassessment2.png)
 
     - Review assements and if required export it.
 
-    ![Create Assessment export](../assets/azmigratediscoveryiassessmentreview1.png)
+    ![Create Assessment export](./images/azmigratediscoveryiassessmentreview1.png)
 
     - Check on the exported assement.
 
-    ![View Assessment](../assets/azmigratediscoveryiassessmentexported.png)
+    ![View Assessment](./images/azmigratediscoveryiassessmentexported.png)
 
 
 10. Review the recommendation before moving to phase 2 below.
 
-    ![View Recommendations](../assets/azmigratediscoveryiassessmentfinal.png)
+    ![View Recommendations](./images/azmigratediscoveryiassessmentfinal.png)
 
-# Replicate, Test and Migrate 
+### Replicate, Test and Migrate 
 
 1. Review the recommendations in phase 1 above by navigating to Azure migrate project.
 2. Prepare replication Appliance
@@ -129,15 +128,15 @@ The challenge environment steup includes creating a Azure SQL Server VM in a sou
 
     - Open "cspsconfigtool" and add a new account to be used for replication. Ensure this is the local account on the target machine.
 
-    ![Configuration Server - Setup Account](../assets/azmigrateConfiurationServerSetup1.png)
+    ![Configuration Server - Setup Account](./images/azmigrateConfiurationServerSetup1.png)
 
     - Access "vault registration" tab and complete ASR registration process.
 
-    ![Configuration Server - Vault registration](../assets/azmigrateConfiurationServerSetup2.png)
+    ![Configuration Server - Vault registration](./images/azmigrateConfiurationServerSetup2.png)
 
     - Validate completion of ASR registration process.
 
-    ![Configuration Server - ASR registration](../assets/azmigrateConfiurationServerSetup3.png)
+    ![Configuration Server - ASR registration](./images/azmigrateConfiurationServerSetup3.png)
 
 
 3. Setup Moblity Service
@@ -145,19 +144,19 @@ The challenge environment steup includes creating a Azure SQL Server VM in a sou
 
       Follow the instructions on the link and start the installation on the source SQL Server VM.
 
-    ![Mobility Service - setup](../assets/azmigrateMobilityServiceSetup1.png)
+    ![Mobility Service - setup](./images/azmigrateMobilityServiceSetup1.png)
 
     - Once extraction is complete run below commands to do the registration (details on the link above).
 
-    ![Mobility Service - setup](../assets/azmigrateMobilityServiceSetup2.png)
+    ![Mobility Service - setup](./images/azmigrateMobilityServiceSetup2.png)
 
     - Validate successful registration.
 
-    ![Mobility Service - setup](../assets/azmigrateMobilityServiceSetup3.png)
+    ![Mobility Service - setup](./images/azmigrateMobilityServiceSetup3.png)
 
 4. Ensure the Azure migrate project reflects the successful replication appliance registration.
     
-    ![Validate replication appliance registration](../assets/azmigrateReplicationappliancesetup.png)
+    ![Validate replication appliance registration](./images/azmigrateReplicationappliancesetup.png)
 
 4. Start replication.
 
@@ -165,63 +164,63 @@ The challenge environment steup includes creating a Azure SQL Server VM in a sou
     
     - Under "Windows, Linux and SQL Server" -> Migration tools -> Click "Replicate". This will take you to setup screen to bgin replication. RUn through the wizzard by selecting the source settings. Select the previously created replication appliance and the user account that was created in the previous step. Click Next.
 
-    ![Replicate - start](../assets/azmigrateReplicate1.png)
+    ![Replicate - start](./images/azmigrateReplicate1.png)
 
     - Select the virtual machine that was discovered in the discovery step. You could select multiple of them in production scenario. Click Next
 
-    ![Replicate - select VM](../assets/azmigrateReplicate2.png)
+    ![Replicate - select VM](./images/azmigrateReplicate2.png)
 
     - Select the target environmet settings. This includes target subscription, resource group, virtual network and subnet. The migrated SQL Server VM will be landing here. Click Next.
 
-    ![Replicate - select target env](../assets/azmigrateReplicate3.png)
+    ![Replicate - select target env](./images/azmigrateReplicate3.png)
 
     - Select the target VM compute settings. Click Next.
 
-    ![Replicate - select target compute](../assets/azmigrateReplicate4.png)
+    ![Replicate - select target compute](./images/azmigrateReplicate4.png)
 
     - Select the target VM disk settings. Ensure number of disks match the discovered disks. Click Next.
 
-    ![Replicate - select target disks](../assets/azmigrateReplicate5.png)
+    ![Replicate - select target disks](./images/azmigrateReplicate5.png)
 
     - Review ans start replication. This action will initiate a job to replicate the VM. Wait for the job to finish typically it takes 8-10 hrs. for completion.
 
-    ![Replicate - start replication](../assets/azmigrateReplicate6.png)
+    ![Replicate - start replication](./images/azmigrateReplicate6.png)
 
     - Validate job completion status as below.
 
-    ![Replicate - validate completion](../assets/azmigrateReplicate7.png)
+    ![Replicate - validate completion](./images/azmigrateReplicate7.png)
 
     - Review the topology of the replication model to understand the actions taken in the background.
 
-    ![Replicate - review topology](../assets/azmigrateReplicate8.png)
+    ![Replicate - review topology](./images/azmigrateReplicate8.png)
 
 
 5. Before you initiate migration, it is a best practice to test it. Test MIgration allows to test the replicated server failover and uncover any issues. 
     - Start Test migration.
 
-    ![Start Test](../assets/azmigratestarttest.png)
+    ![Start Test](./images/azmigratestarttest.png)
 
     - Check status.
 
-    ![Check status test](../assets/azmigratestarttestfailover.png)
+    ![Check status test](./images/azmigratestarttestfailover.png)
 
     - Validate completion.
 
-    ![Validate Test](../assets/azmigrateendtest.png)
+    ![Validate Test](./images/azmigrateendtest.png)
 
 
 6. Now that the tesing is complete proceed with actual Migration of the VM to the target resource group
     - Start Migration.
     
-    ![Start Migration](../assets/azmigratestartmigrate.png)
+    ![Start Migration](./images/azmigratestartmigrate.png)
 
     - Validate completion.
 
-    ![Validate Migration](../assets/azmigrateendmigrate.png)
+    ![Validate Migration](./images/azmigrateendmigrate.png)
 
 
 7. Congratulations!! At this point you have successfully migrated an on-prem VM to Azure using the Azure migrate automation and took advantage of the scale and Machine learning based migration reccomndations. Validate migrated VM in the target resource group by logging into the VM and see the databases. Left is source and right is the migrated target VM below
 
-    ![Successful completion](../assets/azmigratefinalvalidation.png)
+    ![Successful completion](./images/azmigratefinalvalidation.png)
 
 
