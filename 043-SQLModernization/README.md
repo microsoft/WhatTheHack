@@ -46,8 +46,8 @@ For more in-depth work with Azure Synapse Analytics and Data Ops, see these hack
 
 ## Learning Path Content
 
-* [SQL Migration To Azure Learning Plan](https://github.com/microsoft/PartnerResources/blob/main/LearningPlanResources/Azure/Data%2C%20Analytics%2C%20and%20AI/SQL%20Server%20Migration%20to%20Azure.md) (link is broken)
-* [Azure Synapse Analytics Learning Plan](https://github.com/microsoft/PartnerResources/blob/main/LearningPlanResources/Azure/Data%2C%20Analytics%2C%20and%20AI/Modern%20Data%20Warehouse.md) (link is broken)
+* [SQL Migration To Azure Learning Plan](https://microsoft.github.io/PartnerResources/azure/data-analytics-ai/sql-server-migration-to-azure)
+* [Azure Synapse Analytics Learning Plan](https://microsoft.github.io/PartnerResources/azure/data-analytics-ai/modern-data-warehouse)
 
 ## Contributors
 
@@ -56,7 +56,5 @@ Lalit Patel\
 Linda Zhang\
 Roberto Cavalcanti\
 Taygan Rifat
-
-
 
 Thank you to the SQL Engineering team for many labs and samples that were leveraged in many of the challenges!

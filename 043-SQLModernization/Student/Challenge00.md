@@ -20,14 +20,26 @@ The objective of the setup is to ensure you have access to a subscription where 
 
 ## Success Criteria
 
-1. Pick a cool team name!  You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions.  
-1. Decide on the on-premises environment and have the following databases loaded; note, this can be in a VM in Azure running SQL Server, on a local SQL instance, in containers/Docker, etc.:
+* Pick a cool team name!  You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions.
+* Decide on the on-premises environment and have the following databases loaded; note, this can be in a VM in Azure running SQL Server, on a local SQL instance, in containers/Docker, etc.:
     - AdventureWorks2017 *or* AdventureWorksLT2017
         - AdventureWorksLT2017 is a bit easier and faster, better for teams with no prior experience and extremely limited bandwidth.
         - AdventureWorks2017 is the preferred database as it presents a few challenges but may require a bit of experience and higher bandwidth to migrate, if migrating for a local machine.
     - WideWorldImporters (OLTP)
     - WideWorldImporters (DW)
-1. Install Azure Data Studio and, optionally, SQL Management Studio.
+* Install Azure Data Studio and, optionally, SQL Management Studio.
+
+## Tips
+
+* [Quickstart: Run SQL Server container with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-powershell)
+* When considering the environment to host the "on premises" databases, consider connectivity constraints.  Most corporate environments will limit your ability to connect to a database from outside of the network.  Home environments may work well if you are comfortable in configuring NAT / port forwarding.  
+
+## Advanced Challenges (Optional)
+
+*Too comfortable?  Eager to do more?  Try these additional challenges!*
+
+1. Install and get familiar with this tool to [generate workload](https://geohernandez.net/generating-a-workload-for-sql-server/) against SQL Server and reuse it against your migrated databases in the upcoming challenges.
+1. Create a [Jupyter Notebook](https://docs.microsoft.com/en-us/sql/azure-data-studio/notebooks/notebooks-guidance?view=sql-server-ver15) with your most used DMVs to run against your databases before and after migration. 
 
 ## Learning Resources
 
@@ -38,19 +50,4 @@ The objective of the setup is to ensure you have access to a subscription where 
 * [WideWorldImporters-Full.bak](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 * [WideWorldImportersDW-Full.bak](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 * [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
-
-## Tips (Optional)
-
-* [Quickstart: Run SQL Server container with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-powershell)
-* When considering the environment to host the "on premises" databases, consider connectivity constraints.  Most corporate environments will limit your ability to connect to a database from outside of the network.  Home environments may work well if you are comfortable in configuring NAT / port forwarding.  
-
-## Advanced Challenges (Optional)
-
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-
-
-1. Install and get familiar with this tool to [generate workload](https://geohernandez.net/generating-a-workload-for-sql-server/) against SQL Server and reuse it against your migrated databases in the upcoming challenges.
-1. Create a [Jupyter Notebook](https://docs.microsoft.com/en-us/sql/azure-data-studio/notebooks/notebooks-guidance?view=sql-server-ver15) with your most used DMVs to run against your databases before, and after migration. 
-
 
