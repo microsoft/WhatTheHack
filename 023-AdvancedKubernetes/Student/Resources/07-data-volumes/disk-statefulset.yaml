@@ -1,0 +1,59 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: managed-disk-svc
+spec:
+  selector:
+    app: managed-disk-pod
+  ports:
+  - name: web
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: managed-disk-statefulset
+spec:
+  replicas: 1
+  serviceName: managed-disk-svc
+  selector:
+    matchLabels:
+      app: managed-disk-pod
+  template:
+    metadata:
+      labels:
+        app: managed-disk-pod
+    spec:
+      containers:
+      - name: busybox-writer
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "while true; do sleep 1; echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) >> /mnt/index.html; done"
+        volumeMounts:
+        - mountPath: /mnt
+          name: managed-disk-volume
+      - name: busybox-web
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "httpd -p 80 -f -v -h /mnt"
+        volumeMounts:
+        - mountPath: /mnt
+          name: managed-disk-volume
+  volumeClaimTemplates:
+  - metadata:
+      name: managed-disk-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: default
+      resources:
+        requests:
+          storage: 5Gi

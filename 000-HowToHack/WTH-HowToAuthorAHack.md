@@ -162,7 +162,8 @@ You may be wondering why there is a section called "Presentation Lectures" when 
 When you host a What The Hack event, there is always a kick off meeting where the attendees are welcomed and then introduced to the logistics of the hack. The best way to do that is with a *short* PowerPoint delivered a few slides at a time.
 
 We have provided an Event Kickoff presentation template that you can customize for your hack and use to cover attendee logistics for a WTH event here:
-- [Event Kickoff Presentation Template](WTH-EventKickoff-Template.pptx). 
+- [Event Kickoff Presentation Template (Virtual)](WTH-EventKickoff-Virtual-Template.pptx)
+- [Event Kickoff Presentation Template (In-Person)](WTH-EventKickoff-InPerson-Template.pptx)
 
 After the kickoff meeting, its up to the hack authors if they want to provide any presentation lectures.  Some hack challenges are easy to jump right into.  Others are more complex and are better preceded by a brief introduction presentation.
 

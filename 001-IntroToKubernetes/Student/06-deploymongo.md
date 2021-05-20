@@ -10,11 +10,11 @@ We are going to need MongoDB for v2 of our application and we'll be running it i
 
 In this challenge we'll be installing MongoDB into our cluster.
 
-- Deploy a MongoDB container in a pod for v2 of the FabMedical app
-- **Hint:** Check out the Docker Hub container registry and see what you can find. 
+- Deploy a MongoDB container in a pod for v2 of the FabMedical app.  Use the official MongoDB container image from https://hub.docker.com/_/mongo
 - Confirm it is running with:
 	- `kubectl exec -it <mongo pod name> -- mongo "--version"`
-
+- Hint:  Follow the pattern you used in Challenge 4 and create a deployment and service YAML file for MongoDB.
+- Hint: MongoDB runs on port 27017
 ## Success Criteria
 
 1. MongoDB is installed and run in our cluster
