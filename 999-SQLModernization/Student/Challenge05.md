@@ -1,6 +1,6 @@
 # Challenge 5 - High Availability & Disaster Recovery
 
-[< Previous Challenge](./Challenge04.md) - **[Home](/../README.md)** - [Next Challenge >](./Challenge06.md)
+[< Previous Challenge](./Challenge04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge06.md)
 
 ## Introduction 
 Your company has databases running on Azure SQL database and Azure SQL Managed instance. AdventureWorks and Wide World Importers (OLTP). The Recovery Time Objective (RTO) for these two databases are 5 minutes. The Recovery Pont Objective (RPO) is 5 minutes. Your fledgling company disaster recovery site is on different region with the primary Azure region. 

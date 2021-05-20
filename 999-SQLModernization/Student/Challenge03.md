@@ -1,6 +1,6 @@
 # Challenge 3 - Performance
 
-[< Previous Challenge](./Challenge02.md) - **[Home](../../README.md)** - [Next Challenge>](./Challenge04.md)
+[< Previous Challenge](./Challenge02.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge04.md)
 
 ## Introduction 
 

@@ -1,6 +1,6 @@
 # Challenge 6 - Data Governance
 
-[< Previous Challenge](./Challenge05.md) - **[Home](/../README.md)**
+[< Previous Challenge](./Challenge05.md) - **[Home](../README.md)**
 
 ## Introduction 
 

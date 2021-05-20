@@ -1,6 +1,6 @@
 # Challenge 2 - Migration at Scale
 
-[< Previous Challenge](./Challenge00.md) - **[Home](../../README.md)** - [Next Challenge >](./Challenge03.md)
+[< Previous Challenge](./Challenge00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge03.md)
 
 ## Introduction 
 
