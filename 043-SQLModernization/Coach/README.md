@@ -11,12 +11,11 @@ The goal of each challenge is to be as loosely coupled as possible to support a 
 
 ## Coach's Guides
 
-0. [Setup](./Solution00.md)
-1. [Migration](./Solution01.md)
-2. [Advanced Migration at Scale](./Solution02.md)
-3. [Performance & Tuning](./Solution03.md)
-4. [Security & Auditing](./Solution04.md)
-5. [High Availability & Disaster Recovery](./Solution05.md)
-6. [Data Governance](./Solution06.md)
-
+* Challenge 0: [Setup](./Solution00.md)
+* Challenge 1: [Migration](./Solution01.md)
+* Challenge 2: [Advanced Migration at Scale](./Solution02.md)
+* Challenge 3: [Performance & Tuning](./Solution03.md)
+* Challenge 4: [Security & Auditing](./Solution04.md)
+* Challenge 5: [High Availability & Disaster Recovery](./Solution05.md)
+* Challenge 6: [Data Governance](./Solution06.md)
 

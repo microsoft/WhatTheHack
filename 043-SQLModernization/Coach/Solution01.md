@@ -1,16 +1,14 @@
-# Solution 1 - Migration
+# Challenge 1: Migration - Coach's Guide
 
 [< Previous Challenge](./Solution00.md) - **[Home](README.md)** - [Next Challenge>](./Solution02.md)
 
-## Introduction
+## Notes & Guidance
 
 This challenge focuses on two main components of any cloud transition: assessment and migration. Assessment involves evaluating the source system for compatibility as well as performance considerations. Compatibility can be largely done via tools: it is effectively 90% tooling and 10% skill/experience. Performance considerations are more difficult, closer to 25% tooling and 75% skill. While tools can capture performance counters and overall statistics, balancing that information while meeting customer requirements is challenging: are SQL elastic pools an option and/or do they offer any benefit? Is a Premium/Business Critical required? What licensing model works best?
 
-## Overall Tips
-
 Some resources, such as Azure SQL Managed Instance, can take some time deploy -- generally around 3.5 hours. Depending on the skill level of the group and discussions taking place, nudge them to create resources earlier than later to minimize wait time during provisioning.
 
-## AdventureWorks Migration
+### AdventureWorks Migration
 
 Migrating the AdventureWorks database is largely intended to be an easy migration to introduce core concepts without too much complexity. Indeed, those with experience in SQL Server migrations to Azure should be able to accomplish this quickly. Teams have the choice of using AdventureWorksLT2017 (the 'light' version) or the full AdventureWorks2017 database. As noted in the challenge, the LT version should be the easiest/smallest, which is encouraged if a team has no experience.
 
@@ -27,7 +25,7 @@ Below are the requirements with coaches notes under each requirement:
 1. If there are any migration blockers/remediation steps, document them with any suggested fixes.
     * The LT database should migrate without issue. The full version should have an issue with uspSearchCandidateResumes, as it contains a FREETEXT predicate as part the full text search, which the underlying table, HumanResources.JobCandidate, won't likely have depending on the tools used to migrate. Data Migration Assistant will indicate an error and while it will stub out uspSearchCandidateResumes, the procedure will be empty. The table HumanResources.JobCandidate will migrate except for the full text index. Part of the challenge will be having the team recreate the index or engineer another solution.
 
-## Wide World Importers Migration
+### Wide World Importers Migration
 
 With the AdventureWorks migration done, any frustrating connectivity issues and initial barriers should be eliminated. This part of the challenge should involve quite a bit more work, particularly if the team pursues the advanced challenges. Comments beneath each requirement:
 
@@ -44,6 +42,8 @@ With the AdventureWorks migration done, any frustrating connectivity issues and 
 1. Database migration for the data warehouse can be done offline.
 1. SSIS package as part of the WWI DW ETL is a *bonus challenge* and not required
     * If the team chooses to migrate the SSIS job, they do not need to refactor it (unless they choose to) -- simply hosting in the cloud is sufficient (the ideal way to host would be via ADF -- [read this document](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure) for more information on configuring the SSIS runtime in ADF.
+
+### Assessment
 
 The remaining challenge is completing the database assessment. If there are no team preferences for tooling, the team can leverage the Database Migration Assistant to capture/evalute performance counters. As of this writing, it requires Powershell and is not done from within the GUI. Read the [Microsoft Docs](https://docs.microsoft.com/en-us/sql/dma/dma-sku-recommend-sql-db?view=sql-server-ver15) page with more information; as an example, a script to capture the data for 10 minutes might look like:
 

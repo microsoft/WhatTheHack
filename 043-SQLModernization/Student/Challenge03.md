@@ -15,12 +15,11 @@ The purpose of this challenge is threefold:
 
 ### Explore new features
 
-To begin, download and open the [Intelligent Query Processing notebook](./assets/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatibility mode 130 vs 150.
+To begin, download and open the [Intelligent Query Processing notebook](./resources/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatibility mode 130 vs 150.
 
 Follow the steps to create a Log Analytics workspace, a monitoring user, and an Azure Virtual Machine to [enable Azure Monitor SQL Insights ](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-enable) on your subscription, and start monitoring your databases.
 
 While it's clear the SQL Server 2019 version performs better, the challenge is to understand why. Leverage Query Store to evaluate the differences in performance and execution plans.  
-
 
 ### Understand key blockers
 
@@ -37,15 +36,9 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 ## Success Criteria
 
-1. Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they are different.
-1. Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
-1. Create a performance baseline: Investigate how the over 200 KPIs exposed by [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) to monitor health, diagnose problems, and tune performance can give you a deeper understanding of your databases usage patterns.
-
-## Learning Resources
-
-* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
-* [SQL Server Compatibility Levels](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15)
-* [Administering Relational Databases Exam](https://docs.microsoft.com/en-us/learn/certifications/exams/dp-300)
+* Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they are different.
+* Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
+* Create a performance baseline: Investigate how the over 200 KPIs exposed by [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) to monitor health, diagnose problems, and tune performance can give you a deeper understanding of your databases usage patterns.
 
 ## Tips
 
@@ -57,3 +50,9 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 1. Monitor your SQL deployments with Azure Monitor SQL Insights [log queries](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/get-started-queries). Create and save your own Kusto queries using the Azure Log Analytics workspace you created earlier. 
 1. [Create an email alert](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log) using Log Analytics when CPU% usage reaches over 85%
+
+## Learning Resources
+
+* [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
+* [SQL Server Compatibility Levels](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15)
+* [Administering Relational Databases Exam](https://docs.microsoft.com/en-us/learn/certifications/exams/dp-300)

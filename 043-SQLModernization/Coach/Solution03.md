@@ -1,8 +1,8 @@
-# Solution 3 - Performance
+# Challenge 3: Performance - Coach's Guide
 
 [< Previous Challenge](./Solution02.md) - **[Home](README.md)** - [Next Challenge>](./Solution04.md)
 
-## Introduction
+## Notes & Guidance
 
 This challenge requires attendees to use a Jupyter Notebook and Azure Data Studio and Azure Monitor SQL Insights to run/experiment with SQL Server performance and evaluating performance.
 
@@ -14,7 +14,7 @@ The purpose of this challenge is threefold:
 
 In addition to getting hands on with troubleshooting and exploring new features of SQL Server, this challenge will help those purpsuing DP-300 or related certifications that evaluate these skills.
 
-## Explore new features
+### Explore New Features
 
 This notebook walks through two queries that perform quite differently in pre-SQL Server 2019 versions compared to SQL Server 2019+. The Notebook walks through setting up the test, and effectively changing the way the query is run by altering the database compatability level.
 
@@ -33,15 +33,15 @@ If the attendees need more direction, have them read up on [Intelligent Query Pr
 
 Once the queries have been run for each compatability level, the Query Store should reveal the difference in performance (this is most easily done using SQL Server Enterprise Management Studio). Under the Top Resource Consuming Queries, teams should see something similar to:
 
-![Query Store](../assets/query_plans_for_table_variable.png)
+![Query Store](./images/query_plans_for_table_variable.png)
 
 Typically when evaluating performance using the execution plan, you'd focus on the big ticket items in the plan -- what index is being used? In this case, the clustered index scan estimates a single row for the output:
 
-![Slower Plan](../assets/query_stats_for_slower_plan.png)
+![Slower Plan](./images/query_stats_for_slower_plan.png)
 
 The query looks different when running under SQL Server 2019. The clustered index scan remains, but is much more accurate in its estimate:
 
-![Faster Plan](../assets/query_stats_for_faster_plan.png)
+![Faster Plan](./images/query_stats_for_faster_plan.png)
 
 By leveraging *table variable deferred compilation*, the compilation of the statement is deferred until the first execution. Cardinality estimates can then be based on the actual table row counts, allowing for better downstream operation choices.  
 
@@ -49,11 +49,11 @@ Similarly, *adaptive joins* delays the selection of the type of join until after
 
 Lastly, *batch mode for rowstore*, previously exclusive to columnstore indexes, now exists for rowstore and can greatly increase the efficiency the processing of multiple rows as batches instead of a single row at a time. Compare the stats for the slower vs longer plan -- the slower Estimated Execution Mode is Row, while the faster has an Extimated Execution Mode as Batch.
 
-## Understand key blockers
+## Understand Key Blockers
 
 Depending on the team's ability to read/process query plans, this may either an instant answer or may take some research. An execution plan similar to the following should be displayed when running the provided query: 
 
-![Key Lookup](../assets/keylookup.png)
+![Key Lookup](./images/keylookup.png)
 
 In this case, the tuning advisor shows a missing index at the top of the execution plan that would make this query run faster, so the answer is (somewhat unfortunately) in plain site. But why? Be sure the team understands the reasons before blindly creating indexes.
 
@@ -74,7 +74,7 @@ ON Sales.Invoices
 
 Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.
 
-## Instal and Monitor database with SQL Insights
+## Install and Monitor Database with SQL Insights
 
 [Azure Monitor SQL insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance.
 

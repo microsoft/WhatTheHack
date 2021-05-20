@@ -1,4 +1,4 @@
-# Solution 5 - High Availability & Disaster Recovery
+# Challenge 5: High Availability & Disaster Recovery - Coach's Guide
 
 [< Previous Challenge](./Solution04.md) - **[Home](README.md)** - [Next Challenge>](./Solution06.md)
 

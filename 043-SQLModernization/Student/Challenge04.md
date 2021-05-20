@@ -22,12 +22,18 @@ As an early implementation to improve security, the team would like to implement
 
 ## Success Criteria
 
-1. Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault with an expiration date of 1 year.
-2. Enable vulnerability assessment scanning on the database, notifying the team (or a member of the team) when assessments are done. Perform the first assessment on-demand and review the findings.
-3. Using Data Discovery and Classification, label all sensitive fields with the appropriate types and sensitivities; at a minimum, label all personal contact/PII fields, financial, and authentication related fields.
-4. Configuring Auditing to write audit logs to both a storage account and to Log Analytics. Verify logs are writing to the storage account by executing a query on a table with sensitive information.
-5. Configure Advanced Threat Protection to capture all event types and send an email in the event of a security alert. Test this by authoring an example script (such as a SQL injection attempt and verify your team receives an email notification).
-6. Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. Demonstrate the functionality works as intended using a test script. What permissions determine whether a user sees masked vs unmasked data? In what ways 
+* Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault with an expiration date of 1 year.
+* Enable vulnerability assessment scanning on the database, notifying the team (or a member of the team) when assessments are done. Perform the first assessment on-demand and review the findings.
+* Using Data Discovery and Classification, label all sensitive fields with the appropriate types and sensitivities; at a minimum, label all personal contact/PII fields, financial, and authentication related fields.
+* Configuring Auditing to write audit logs to both a storage account and to Log Analytics. Verify logs are writing to the storage account by executing a query on a table with sensitive information.
+* Configure Advanced Threat Protection to capture all event types and send an email in the event of a security alert. Test this by authoring an example script (such as a SQL injection attempt and verify your team receives an email notification).
+* Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. Demonstrate the functionality works as intended using a test script. What permissions determine whether a user sees masked vs unmasked data? In what ways 
+
+## Advanced Challenges (Optional)
+
+1. For the Data Discovery and Classification task, perform the steps using PowerShell cmdlets or the Rest API.
+2. Create a Power BI dashboard to display audit log information.
+3. (AdventureWorks database Only -- not LT) WWI is excited about using Dynamic Data Masking, but your team needs to demonstrate why it is considered "defense in depth," best used with other best practices. Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
 
 ## Learning Resources
 * [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
@@ -36,11 +42,3 @@ As an early implementation to improve security, the team would like to implement
 * [Data Discovery and Classification Overview](https://docs.microsoft.com/en-us/azure/azure-sql/database/data-discovery-and-classification-overview)
 * [Azure Defender for SQL](https://docs.microsoft.com/en-us/azure/azure-sql/database/azure-defender-for-sql)
 * [Dynamic Data Masking](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15)
-
-## Tips
-
-## Advanced Challenges (Optional)
-
-1. For the Data Discovery and Classification task, perform the steps using PowerShell cmdlets or the Rest API.
-2. Create a Power BI dashboard to display audit log information.
-3. (AdventureWorks database Only -- not LT) WWI is excited about using Dynamic Data Masking, but your team needs to demonstrate why it is considered "defense in depth," best used with other best practices. Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
