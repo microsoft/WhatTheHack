@@ -1,6 +1,6 @@
 # Solution 2 - Migration at Scale
 
-[< Previous Challenge](./Solution01.md) - **[Home](../README.md)** - [Next Challenge>](./Solution03.md)
+[< Previous Challenge](./Solution01.md) - **[Home](README.md)** - [Next Challenge>](./Solution03.md)
 
 ## Introduction
 

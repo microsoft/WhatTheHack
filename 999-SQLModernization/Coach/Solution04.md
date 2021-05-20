@@ -1,6 +1,6 @@
 # Solution 4 - Security & Auditing
 
-[< Previous Challenge](./Solution03.md) - **[Home](../README.md)** - [Next Challenge>](./Solution05.md)
+[< Previous Challenge](./Solution03.md) - **[Home](README.md)** - [Next Challenge>](./Solution05.md)
 
 ## Introduction
 

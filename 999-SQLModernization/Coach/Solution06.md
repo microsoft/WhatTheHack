@@ -1,6 +1,6 @@
 # Solution 7 - Data Governance
 
-[< Previous Challenge](./Solution05.md) - **[Home](../README.md)** 
+[< Previous Challenge](./Solution05.md) - **[Home](README.md)** 
 
 ## Introduction
 

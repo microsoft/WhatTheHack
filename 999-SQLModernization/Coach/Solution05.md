@@ -1,6 +1,6 @@
 # Solution 5 - High Availability & Disaster Recovery
 
-[< Previous Challenge](./Solution04.md) - **[Home](../README.md)** - [Next Challenge>](./Solution06.md)
+[< Previous Challenge](./Solution04.md) - **[Home](README.md)** - [Next Challenge>](./Solution06.md)
 
 DNS zone
 

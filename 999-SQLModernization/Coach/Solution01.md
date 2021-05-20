@@ -1,6 +1,6 @@
 # Solution 1 - Migration
 
-[< Previous Challenge](./Solution00.md) - **[Home](../README.md)** - [Next Challenge>](./Solution02.md)
+[< Previous Challenge](./Solution00.md) - **[Home](README.md)** - [Next Challenge>](./Solution02.md)
 
 ## Introduction
 
