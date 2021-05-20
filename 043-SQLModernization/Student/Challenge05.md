@@ -17,15 +17,14 @@ When disaster happens on the primary region, business requires the databases aut
 
 ## Advanced Challenges (Optional)
 
-User accidentally deleted a row in a table, you need recovery the row. 
+User accidentally deleted 50 rows in a table, you need recovery the rows. If this table is a Temporal table (system-versioned temporal table), how do you recovery the records quickly? 
 
-Temporal tables
+## Success Criteria
+* Recovery the 50 rows to this table. 
 
-https://docs.microsoft.com/en-us/azure/azure-sql/temporal-tables
-
-Recover using automated database backups - Azure SQL Database & SQL Managed Instance
-
-https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#deleted-database-restore
+## Tips
+* [Temporal tables](https://docs.microsoft.com/en-us/azure/azure-sql/temporal-tables)
+* [Recover using automated database backups - Azure SQL Database & SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#deleted-database-restore)
 
 ## Learning Resources
 
