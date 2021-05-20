@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: zone-disk
+  storageClassName: managed-premium
   resources:
     requests:
       storage: 5Gi
@@ -18,7 +18,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: zone-disk
+  storageClassName: managed-premium
   resources:
     requests:
       storage: 5Gi
