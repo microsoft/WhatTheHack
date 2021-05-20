@@ -1,4 +1,4 @@
-# SQL Modernization and Migration
+# What The Hack - SQL Modernization and Migration
 
 ## Introduction
 Welcome to the coach's guide for the SQL Modernization and Migration What The Hack. Here you will find links to specific coaches' guidance for each of the challenges.
@@ -7,16 +7,16 @@ The goal of each challenge is to be as loosely coupled as possible to support a 
 
 ## Presentations
 
-* [Migrating SQL Server to Azure](./assets/SQLMigration.pptx)
+* [Migrating SQL Server to Azure](./Coach/SQLMigration.pptx)
 
 ## Coach's Guides
 
-* [Challenge 0 - Setup](./Solutions/Solution00.md)
-* [Challenge 1 - Migration](./Solutions/Solution01.md)
-* [Challenge 2 - Performance](./Solutions/Solution00.md)
-* [Challenge 4 - HA/DR](./Solutions/Solution04.md)
-* Challenge 5 ...
-* Challenge 6 ...
-* [Challenge 7 - Data Governance](./Solutions/Solution07.md)
+0. [Setup](./Coach/Solution00.md)
+1. [Migration](./Coach/Solution01.md)
+2. [Advanced Migration at Scale](./Coach/Solution02.md)
+3. [Performance & Tuning](./Coach/Solution03.md)
+4. [Security & Auditing](./Coach/Solution04.md)
+5. [High Availability & Disaster Recovery](./Coach/Solution05.md)
+6. [Data Governance](./Coach/Solution06.md)
 
 
