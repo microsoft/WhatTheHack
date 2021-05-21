@@ -4,7 +4,7 @@
 SQL Server has come a long way!  From OLTP to OLAP, on-premises to cloud, big data clusters to hyperscale -- SQL Server has evolved in many ways.  With that evolution comes complexity as organizations seek to take advantage of new features and cloud efficiency.  This hack puts you (and your team) in the role of a SI (Systems Integrator), working with many clients to modernize their environments and applications.
 
 ## Learning Objectives
-In this hack, database administrators, developers who work extensively with SQL Server, and architects will migrate solutions to Azure. Several different scenarios are presented that are based on real-world scenarios, and in most cases there are multiple ways to solve the problem given the requirements of each challenge.  This hack also prepares participants for the DP-300 exam.  While some challenges will touch on topics such as ETL/SSIS and modernizing data deployment (ie data ops), there are What The Hacks that focus extensively on these topics; see related hacks above.
+In this hack, database administrators, developers who work extensively with SQL Server, and architects will migrate solutions to Azure. Several different scenarios are presented that are based on real-world scenarios, and in most cases, there are multiple ways to solve the problem given the requirements of each challenge.  This hack also prepares participants for the DP-300 exam.  While some challenges will touch on topics such as ETL/SSIS and modernizing data deployment (i.e., data ops), there are What The Hacks that focus extensively on these topics; see related hacks above.
 
 ## Challenges
 
