@@ -23,6 +23,8 @@ Create an Azure Database for MySQL and make sure that the application (which is 
 
 ## Tips
 
+In order to find resources in Azure (existing or to be created) you can use the _Search bar_ in the portal, look for the text bar at the top which you can activate by pressing the keys `G` and `/` at the same time.
+
 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) includes a bunch of various tools, including a `mysql` client.
 
 And note that you can also pass configuration information to Spring Boot through [environment variables](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).

@@ -4,7 +4,7 @@
 
 There's a number of ways to host a Java app on Azure. Depending on the nature of the application (Spring Boot, microservices as Spring Cloud or containerized services, WAR/EAR projects) Azure provides different options to host your application in a managed fashion.
 
-During this hack we'll explore one of the easiest paths to host a simple Java application (using Spring Boot) on Azure, without making any changes to the application.
+During this hack we'll explore one of the easiest paths to host a simple Java application (using Spring Boot) on Azure, **without making any changes to the application.**
 
 ## Learning Objectives
 
