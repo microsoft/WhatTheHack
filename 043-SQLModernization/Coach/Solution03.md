@@ -1,8 +1,8 @@
-# Challenge 3: Performance - Coach's Guide
+# Challenge 3: Performance & Tuning - Coach's Guide
 
 [< Previous Challenge](./Solution02.md) - **[Home](README.md)** - [Next Challenge>](./Solution04.md)
 
-## Notes & Guidance
+## Notes & Guidance 
 
 This challenge requires attendees to use a Jupyter Notebook and Azure Data Studio and Azure Monitor SQL Insights to run/experiment with SQL Server performance and evaluating performance.
 
@@ -14,7 +14,7 @@ The purpose of this challenge is threefold:
 
 In addition to getting hands on with troubleshooting and exploring new features of SQL Server, this challenge will help those purpsuing DP-300 or related certifications that evaluate these skills.
 
-### Explore New Features
+### Explore New Features 
 
 This notebook walks through two queries that perform quite differently in pre-SQL Server 2019 versions compared to SQL Server 2019+. The Notebook walks through setting up the test, and effectively changing the way the query is run by altering the database compatability level.
 
@@ -74,7 +74,7 @@ ON Sales.Invoices
 
 Depending on the skill level of the group, it may be needed to discuss the basics of indexing (clustered vs nonclustered), relationships, contraints, and similar topics.
 
-## Install and Monitor Database with SQL Insights
+## Install and Monitor Databases with SQL Insights
 
 [Azure Monitor SQL insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance.
 
