@@ -1,6 +1,6 @@
 # Challenge 4 – Create a Release Pipeline In Azure DevOps
 
-[< Previous Challenge](./03-BuildPipeline.md) - **[Home](../README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
+[< Previous Challenge](./03-UnitTesting.md) - **[Home](../README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
 
 
 ## Introduction
@@ -48,7 +48,7 @@ across different environments.
     3.  Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code/` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
         -   **NOTE:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
 
-    4.  Add a task to test the ACI web service using `WebserviceTest.py` in `service/code/` folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
+    4.  Add a task to test the ACI web service using `AciWebserviceTest.py` in `service/code/` folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
         -   **NOTE:** If the deployment fails or the web service is "unhealthy", check logs in Azure DevOps or Azure ML Studio for issues and additional information.
  
 ## Success Criteria

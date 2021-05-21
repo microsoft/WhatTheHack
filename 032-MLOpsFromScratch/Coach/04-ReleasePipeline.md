@@ -1,6 +1,6 @@
 # Challenge 4 – Create a Release Pipeline In Azure DevOps
 
-[< Previous Challenge](./03-BuildPipeline.md) - **[Home](./README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
+[< Previous Challenge](./03-UnitTesting.md) - **[Home](./README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
 
 
 ## Solution
@@ -24,6 +24,6 @@
 
     3.  Azure CLI task to deploy the scoring image on ACI using `deployOnAci.py` file
 
-    4.  Azure CLI task to test the ACI web service using `WebserviceTest.py` file.
+    4.  Azure CLI task to test the ACI web service using `AciWebserviceTest.py` file.
 
 5. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. 

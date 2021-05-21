@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "cloudFictitiousCompanyNamePrefix": {
+      "value": "covid19"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "vmAdminUserName": {
+      "value": "vmadmin"
+    },
+    "vmAdminPassword": {
+      "value": ""
+    },
+    "sqlAdminLogin": {
+      "value": "sqladmin"
+    },
+    "sqlAdminLoginPassword": {
+      "value": ""
+    },
+    "covid19BaseUri": {
+      "value": "https://raw.githubusercontent.com/microsoft/WhatTheHack/master/038-MDWCovid19/Coach/LabDeployment/"
+    },
+    "covid19DacPacFileName": {
+      "value": "covid19.bacpac"
+    },
+    "covid19BackupFileName": {
+      "value": "covid19.bak"
+    },
+    "covid19DatabaseName": {
+      "value": "covid19"
+    }
+  }
+}
