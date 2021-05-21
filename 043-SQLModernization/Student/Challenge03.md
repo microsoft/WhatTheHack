@@ -1,4 +1,4 @@
-# Challenge 3 - Performance
+# Challenge 3 - Performance & Tuning
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge04.md)
 
