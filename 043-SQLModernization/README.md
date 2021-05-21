@@ -8,13 +8,13 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Challenges
 
-0. [Setup](./Student/Challenge00.md)
-1. [Migration](./Student/Challenge01.md)
-2. [Advanced Migration at Scale](./Student/Challenge02.md)
-3. [Performance & Tuning](./Student/Challenge03.md)
-4. [Security & Auditing](./Student/Challenge04.md)
-5. [High Availability & Disaster Recovery](./Student/Challenge05.md)
-6. [Data Governance](./Student/Challenge06.md)
+0. Challenge 0: [Setup](./Student/Challenge00.md)
+1. Challenge 1: Migration](./Student/Challenge01.md)
+2. Challenge 2: [Advanced Migration at Scale](./Student/Challenge02.md)
+3. Challenge 3: [Performance & Tuning](./Student/Challenge03.md)
+4. Challenge 4: [Security & Auditing](./Student/Challenge04.md)
+5. Challenge 5: [High Availability & Disaster Recovery](./Student/Challenge05.md)
+6. Challenge 6: [Data Governance](./Student/Challenge06.md)
 
 
 ## Technologies
