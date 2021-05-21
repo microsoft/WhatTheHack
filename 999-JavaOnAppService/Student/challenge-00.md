@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The objective of this WTH is to take a typical Spring Boot application and host that completely on Azure without making any changes. Before we start this journey, let's get introduced to the application.
+The objective of this WTH is to take a typical Spring Boot application and host that completely on Azure **without making any changes to the code**. Before we start this journey, let's get introduced to the application.
 
 ## Description
 

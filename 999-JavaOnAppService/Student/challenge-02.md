@@ -20,6 +20,7 @@ Create a Web App running on an App Service instance and deploy the app. Choose a
 ## Learning Resources
 
 - [Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/)
+- [Azure CLI for web apps](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest)
 
 ## Tips
 

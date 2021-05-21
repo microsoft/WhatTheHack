@@ -22,4 +22,8 @@ Create an Application Insights instance and connect the application running on t
 - [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 - [Application Insights Agent](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
 
+## Tips
+
+App Service doesn't contain the Azure Application Insights agent jar, you'll need to include it when you deploy your application.
+
 [Next Challenge - Operational dashboards >](./challenge-05.md)
