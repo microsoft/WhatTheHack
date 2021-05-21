@@ -9,7 +9,7 @@ In this hack, database administrators, developers who work extensively with SQL 
 ## Challenges
 
 0. Challenge 0: [Setup](./Student/Challenge00.md)
-1. Challenge 1: Migration](./Student/Challenge01.md)
+1. Challenge 1: [Migration](./Student/Challenge01.md)
 2. Challenge 2: [Advanced Migration at Scale](./Student/Challenge02.md)
 3. Challenge 3: [Performance & Tuning](./Student/Challenge03.md)
 4. Challenge 4: [Security & Auditing](./Student/Challenge04.md)
