@@ -9,9 +9,9 @@ Although SQL Server is easier than ever to deploy with Azure SQL Database, conta
 ## Description
 
 The purpose of this challenge is threefold:
-1. Explore new features of SQL Server that may improve performance intrinsically.
-1. Ensure would-be data engineers and DBAs are comfortable monitoring, evaluating performance. 
-1. Leverage newer tools like Azure Data Studio Notebooks and [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview).
+* Explore new features of SQL Server that may improve performance intrinsically.
+* Ensure would-be data engineers and DBAs are comfortable monitoring, evaluating performance. 
+* Leverage newer tools like Azure Data Studio Notebooks and [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview).
 
 ### Explore new features
 
@@ -48,8 +48,8 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 ## Advanced Challenges (Optional)
 
-1. Monitor your SQL deployments with Azure Monitor SQL Insights [log queries](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/get-started-queries). Create and save your own Kusto queries using the Azure Log Analytics workspace you created earlier. 
-1. [Create an email alert](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log) using Log Analytics when CPU% usage reaches over 85%
+* Monitor your SQL deployments with Azure Monitor SQL Insights [log queries](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/get-started-queries). Create and save your own Kusto queries using the Azure Log Analytics workspace you created earlier. 
+* [Create an email alert](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log) using Log Analytics when CPU% usage reaches over 85%
 
 ## Learning Resources
 

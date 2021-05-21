@@ -31,9 +31,9 @@ As an early implementation to improve security, the team would like to implement
 
 ## Advanced Challenges (Optional)
 
-1. For the Data Discovery and Classification task, perform the steps using PowerShell cmdlets or the Rest API.
-2. Create a Power BI dashboard to display audit log information.
-3. (AdventureWorks database Only -- not LT) WWI is excited about using Dynamic Data Masking, but your team needs to demonstrate why it is considered "defense in depth," best used with other best practices. Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
+* For the Data Discovery and Classification task, perform the steps using PowerShell cmdlets or the Rest API.
+* Create a Power BI dashboard to display audit log information.
+* (AdventureWorks database Only -- not LT) WWI is excited about using Dynamic Data Masking, but your team needs to demonstrate why it is considered "defense in depth," best used with other best practices. Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
 
 ## Learning Resources
 * [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
