@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge05.md)
 
-## Introduction 
+## Notes & Guidance
 
 More than ever, organizations require rigorous security and auditing requirements to meet internal standards and external regulations, such as [GDPR](https://gdpr.eu/) and [HIPAA](https://www.hhs.gov/hipaa/index.html). While [Azure has obtained many compliance certifications](https://docs.microsoft.com/en-us/azure/compliance/), best practices must be followed by application and data engineers to ensure their applications meet their stated requirements. More information is available on the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview).
 
