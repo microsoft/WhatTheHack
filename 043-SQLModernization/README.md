@@ -41,7 +41,7 @@ For more in-depth work with Azure Synapse Analytics and Data Ops, see these hack
 
 * [This Old Data Warehouse](https://github.com/microsoft/WhatTheHack/tree/master/019-ThisOldDataWarehouse)
 * [Do You Even Synapse?](https://github.com/microsoft/WhatTheHack/tree/master/024-DoYouEvenSynapse)
-* [OSS DB Migration to Azure](https://github.com/microsoft/WhatTheHack/tree/master/033-OSSDatabaseMigration)
+* [Intro To OSS DB Migration to Azure OSS DB](https://github.com/microsoft/WhatTheHack/tree/master/033-OSSDatabaseMigration)
 * [Modern Data Warehouse - COVID 19](https://github.com/microsoft/WhatTheHack/tree/master/038-MDWCovid19)
 
 ## Learning Path Content
