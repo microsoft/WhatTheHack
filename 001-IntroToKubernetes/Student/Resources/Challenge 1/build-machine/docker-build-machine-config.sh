@@ -8,6 +8,7 @@ REPOURL="https://github.com/Microsoft/WhatTheHack"
 CURUSER=${1:-$USER}
 CURUSERHOME=$(eval echo ~$(echo $CURUSER))
 ADMINUSER=wthadmin
+ADMINUSERHOME=$(eval echo ~$(echo $ADMINUSER))
 
 #1. Update the Ubuntu packages and install curl and support for repositories over HTTPS
 #in a single step by typing the following in a single line command.
@@ -47,7 +48,10 @@ mv -v $CURUSERHOME/wth/001-IntroToKubernetes/Student/Resources/Challenge\ 1/cont
 #9. Delete the git repo now, we don't want to leave it behind
 rm -rfv $CURUSERHOME/wth
 
-#10. Change sshd port to 2266 and restart it
+#10. Give yourself full ownership of your home directory
+sudo chown -R $ADMINUSER.$ADMINUSER $ADMINUSERHOME
+
+#11. Change sshd port to 2266 and restart it
 sudo systemctl stop sshd.service
 sudo chown $ADMINUSER.$ADMINUSER /etc/ssh/sshd_config 
 sudo cat <<EOF >> /etc/ssh/sshd_config 

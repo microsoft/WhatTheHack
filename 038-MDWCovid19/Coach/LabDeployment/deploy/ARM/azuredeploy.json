@@ -1,0 +1,166 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "cloudFictitiousCompanyNamePrefix": {
+      "type": "string",
+      "defaultValue": "covid19mdwoh"
+    },
+    "vmAdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vmAdminPassword": {
+      "type": "securestring"
+    },
+    "sqlAdminLogin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sqlAdminLoginPassword": {
+      "type": "securestring"
+    },
+    "covid19BaseUri": {
+      "type": "string"
+    },
+    "covid19DacPacFileName": {
+      "type": "string"
+    },
+    "covid19BackupFileName": {
+      "type": "string"
+    },
+    "covid19DatabaseName": {
+      "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2017-05-10",
+      "name": "deployCosmosLinkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(parameters('covid19BaseUri'),'deploy/ARM/deploycosmosdb.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "namePrefix": {
+            "value": "[parameters('CloudFictitiousCompanyNamePrefix')]"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2017-05-10",
+      "name": "deploySqlAzureLinkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(parameters('covid19BaseUri'),'deploy/ARM/deploysqlazure.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "namePrefix": {
+            "value": "[parameters('CloudFictitiousCompanyNamePrefix')]"
+          },
+          "sqlAdminLogin": {
+            "value": "[parameters('sqlAdminLogin')]"
+          },
+          "sqlAdminLoginPassword": {
+            "value": "[parameters('sqlAdminLoginPassword')]"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2017-05-10",
+      "name": "deploySynapseLinkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(parameters('covid19BaseUri'),'deploy/ARM/deploysynapse.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "namePrefix": {
+            "value": "[parameters('CloudFictitiousCompanyNamePrefix')]"
+          },
+          "sqlAdminLogin": {
+            "value": "[parameters('sqlAdminLogin')]"
+          },
+          "sqlAdminLoginPassword": {
+            "value": "[parameters('sqlAdminLoginPassword')]"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2017-05-10",
+      "name": "deploySqlVmLinkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(parameters('covid19BaseUri'),'deploy/ARM/deploysqlvm.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "namePrefix": {
+            "value": "[parameters('cloudFictitiousCompanyNamePrefix')]"
+          },
+          "vmAdminUsername": {
+            "value": "[parameters('vmAdminUserName')]"
+          },
+          "vmAdminPassword": {
+            "value": "[parameters('vmAdminPassword')]"
+          },
+          "sqlAdminLogin": {
+            "value": "[parameters('sqlAdminLogin')]"
+          },
+          "sqlAdminLoginPassword": {
+            "value": "[parameters('sqlAdminLoginPassword')]"
+          },
+          "covid19BaseUri": {
+            "value": "[parameters('covid19BaseUri')]"
+          },
+          "covid19DacPacFileName": {
+            "value": "[parameters('covid19DacPacFileName')]"
+          },
+          "covid19BackupFileName": {
+            "value": "[parameters('covid19BackupFileName')]"
+          },
+          "covid19DatabaseName": {
+            "value": "[parameters('covid19DatabaseName')]"
+          },
+          "cosmosDBConnectionString":{
+            "value": "[reference('deployCosmosLinkedTemplate').outputs.connectionString.value]"
+          },
+          "cosmosDBDatabaseName":{
+            "value": "[parameters('covid19DatabaseName')]"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

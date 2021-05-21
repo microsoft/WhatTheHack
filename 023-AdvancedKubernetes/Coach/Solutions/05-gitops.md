@@ -35,16 +35,16 @@ Add ingress rule:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: podinfo-ingress
-  namespace: demo
+  name: podinfo-ingress
+  namespace: demo
 spec:
-  rules:
-  - http:
-      paths:
-      - backend:
-          serviceName: podinfo
-          servicePort: 9898
-    host: podinfo.<REPLACE WITH INGESS IP>.nip.io
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: podinfo
+          servicePort: 9898
+    host: podinfo.<REPLACE WITH INGESS IP>.nip.io
 ```
 
 Sync Flux
