@@ -10,8 +10,6 @@ Your team is wondering what options are available to leverage automation for the
 
 The objective of this challenge is to migrate TPCC (benchmark database - http://www.tpc.org/tpcc/) to Azure. The TPCC database is used as a benchmark for a typical OLTP workloads. 
 
-### Challenge details 
-
 Your company has provided the following requirements and guidelines:
 
 1. Must take advantage of latest automation tools available to execute migration at scale.
