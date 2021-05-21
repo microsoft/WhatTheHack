@@ -6,7 +6,7 @@
 
 An Azure subscription is required that can deploy Azure SQL resources (Azure SQL Database and Azure SQL Managed Instance), Virtual Machines.
 
-## Introduction
+## Notes & Guidance
 
 Nearly all challenges require resources in an Azure subscription to complete. A single subscription can be shared to the team, or team members can work in their own individual subscriptions.
 
