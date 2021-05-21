@@ -47,10 +47,10 @@ Wide World Importers has provided the following requirements and guidelines:
 
 ## Advanced Challenges (Optional)
 
-1. Migrate WWI DW to Azure Synapse Analytics (Azure SQL DW).
-1. Migrate WWI DW SSIS ETL to either ADF or Synapse Pipelines.
-1. WWI is interested in understanding the performance impact of zone redundant availability.
-    1. Use [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15), [Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15), or other similar analytics to provide data to back up your analysis; workloads may be simulated using the WWI Order Insert Solution referenced above.
+* Migrate WWI DW to Azure Synapse Analytics (Azure SQL DW).
+* Migrate WWI DW SSIS ETL to either ADF or Synapse Pipelines.
+* WWI is interested in understanding the performance impact of zone redundant availability.
+    * Use [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15), [Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15), or other similar analytics to provide data to back up your analysis; workloads may be simulated using the WWI Order Insert Solution referenced above.
 
 ## Learning Resources
 

@@ -12,10 +12,10 @@ The objective of this challenge is to migrate TPCC (benchmark database - http://
 
 Your company has provided the following requirements and guidelines:
 
-1. Must take advantage of latest automation tools available to execute migration at scale.
-2. Migration efforts must be strategic by taking into considerations the recommendations provided through Machine Learning algorithms.
-3. Improve the quality of the process by ensuring it could be repeated.
-4. Source databases setup is using the industry benchmark tools.
+* Must take advantage of latest automation tools available to execute migration at scale.
+* Migration efforts must be strategic by taking into considerations the recommendations provided through Machine Learning algorithms.
+* Improve the quality of the process by ensuring it could be repeated.
+* Source databases setup is using the industry benchmark tools.
 
 ## Success Criteria
 
