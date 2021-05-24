@@ -1,4 +1,4 @@
-# Challenge 2: The Azure Container Registry
+# Challenge 2a: The Azure Container Registry
 
 [< Previous Challenge](./01-containers.md) - **[Home](../README.md)** - [Next Challenge >](./03-k8sintro.md)
 
