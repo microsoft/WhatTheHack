@@ -1,10 +1,10 @@
-# Challenge 1b & 2b: Coach's Guide
+# Challenge 1c & 2c: Coach's Guide
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](03-k8sintro.md)
 
-## Challenge 1 & 2 Path B
+## Challenge 1 & 2 Path C
 
-This is **PATH B**: Use this path if your students understand docker, don't care about building images locally, and/or have environments issues that would prevent them from building containers locally. In this path, your students will be given a Dockerfile, will create an Azure Container Registry, and then will use ACR tasks to build the images natively inside ACR.
+This is **PATH C**: Use this path if your students understand docker, don't care about building images , and/or have environments issues that would prevent them from building containers locally. In this path, your students will will create an Azure Container Registry, and then will import the images to their ACR.
 
 ### Coach Notes:
 #### Tooling:
@@ -26,13 +26,12 @@ The coach should demonstrate running the application locally.  To run the Fab Me
 	- **NOTE:** The node processes for both content-api and content-web must be stopped before attempting to run the docker containers in the next step. To do this, use the Linux `ps` command to list all processes running, and then the Linux `kill` command to kill the two Node.js processes.
 
 
-#### Dockerizing the Application
+#### Importing the Application
 - You will need to provide the sample Dockerfiles to the students  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  They will use this Dockerfile in conjunction with the source code for content-web and content-api.
 
-If the students get stuck, point them to the ACR documentation for building a container image in Azure:
+If the students get stuck, point them to the ACR documentation:
 
-- https://docs.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli
-- https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task
+- https://docs.microsoft.com/en-us/azure/container-registry/container-registry-import-images
 
 
 
