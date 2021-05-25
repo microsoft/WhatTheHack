@@ -49,4 +49,4 @@ Understand Azure Monitor capabilities, facilitate an Azure Monitor customer conv
 3. Attendees should have a level 200-300 understanding of the Azure platform.  Understand concepts like PowerShell, Azure Cli, ARM, resource groups, RBAC, network, storage, compute, scale sets, virtual machines and security.  Previous experience working with ARM templates is recommended.
 4. Access to a machine with Visual Studio Code and the Azure PowerShell Modules loaded or Azure CLI. VS Code ARM and PowerShell extensions should be configured.
 
-![alt text](.\Images\monitoringhackdiagram.png)
+![alt text](./Images/monitoringhackdiagram.png)
