@@ -21,16 +21,16 @@ The following tools are required to deploy Azure infrastructure using Azure CLI 
 
 - Open this [GitHub repository](https://github.com/rkuehfus/pre-ready-2019-H1) and download the repo as a zip file to your local disk.
 
-![Clone button to download a repo as a ZIP file](..\Images\00-01-Repo.png)
+![Clone button to download a repo as a ZIP file](../Images/00-01-Repo.png)
 
 - Unzip the contents to a local folder on your machine.
 - Open Visual Studio Code, click on the File menu and select the "Open Folder…" option.
 
-![VSCode open folder selection window](..\Images\00-02-Vscode-Open-Folder.png)
+![VSCode open folder selection window](../Images/00-02-Vscode-Open-Folder.png)
 
 - Navigate to the location where you unzipped the files and open the ".\pre-ready-2019-H1-master-master\Student\Resources folder".
 
-![Folder assets](..\Images\00-03-Vscode-Folder-Assets.png)
+![Folder assets](../Images/00-03-Vscode-Folder-Assets.png)
 
 - Open the "DeployMonWorkshopEnv.sh" file and update following variable: `declare monitoringWorkShopName="yourinitials-here"`
 - Do not execute the script yet. We need to edit the "azuredeploy.parameters.json" file.
@@ -39,7 +39,7 @@ The following tools are required to deploy Azure infrastructure using Azure CLI 
 
 This is intended to be run one section at a time as you work through each step.  From your machine you can run Visual Studio Code and Bash in Cloud Shell (Ctrl-Shift-P, then select Azure: Open Bash in Cloud Shell, It will prompt you to connect to Azure)
 
-![Menu option in VSCode to open Bash in Cloud Shell](..\Images\00-04-Bash-In-Cloud-Shell.png)
+![Menu option in VSCode to open Bash in Cloud Shell](../Images/00-04-Bash-In-Cloud-Shell.png)
 
 Tip: To run a single line of CLI/shell code in the VS Code Terminal, Ctrl-Shift-P, then select "Terminal: Run selected text in Active Terminal" The first time you will need to scroll down the drop down until you see this option. After that, it should be on top as the most recent choice and just work!
 
@@ -65,7 +65,7 @@ az group create --name $monitoringWorkShopName -l $location
 
 **Sample Output:**
 
-![Output from creating an Azure Resource Group](..\Images\00-05-Azure-Cli-Create-Resource-Group.png)
+![Output from creating an Azure Resource Group](../Images/00-05-Azure-Cli-Create-Resource-Group.png)
 
 #### Step 3
 
@@ -79,7 +79,7 @@ az keyvault create --name $monitoringWorkShopVaultName -g $monitoringWorkShopNam
 
 **Sample Output:**
 
-![Clone button to download a repo as a ZIP file](..\Images\00-06-Azure-Cli-Create-Key-Vault.png)
+![Clone button to download a repo as a ZIP file](../Images/00-06-Azure-Cli-Create-Key-Vault.png)
 
 #### Step 4
 
@@ -131,7 +131,7 @@ az keyvault secret set --vault-name $monitoringWorkShopVaultName --name 'SPPassw
 
 Sample Output:
 
-![Create an Azure Service Principal](..\Images\00-07-Azure-Cli-Service-Principal.png)
+![Create an Azure Service Principal](../Images/00-07-Azure-Cli-Service-Principal.png)
 
 #### Step 6
 
@@ -143,15 +143,15 @@ az keyvault show --name $monitoringWorkShopVaultName -o json
 
 Copy the Key Vault Resource ID from here:
 
-![Location to copy Key Vault Resource ID](..\Images\00-08-Azure-Cli-Get-Key-Vault.png)
+![Location to copy Key Vault Resource ID](../Images/00-08-Azure-Cli-Get-Key-Vault.png)
 
 Paste here:
 
-![Location to paste Key Vault Resource ID](..\Images\00-09-Azuredeploy-Parameters-KeyVaultId.png)
+![Location to paste Key Vault Resource ID](../Images/00-09-Azuredeploy-Parameters-KeyVaultId.png)
 
 Also, make sure to update the envPrefixName to match what you specified in the DeployMonWorkshopEnv file (yes, I know I could feed this in from the deployment script)
 
-![envPrefixName parameter in azuredeploy.parameters.json file](..\Images\00-10-Azuredeploy-Parameters-Update-Envprefixname.png)
+![envPrefixName parameter in azuredeploy.parameters.json file](../Images/00-10-Azuredeploy-Parameters-Update-Envprefixname.png)
 
 **WARNING:** MAKE SURE TO SAVE THIS FILE BEFORE CONTINUING ON!!!
 
@@ -164,7 +164,7 @@ Make sure you copy the following files to your Cloud Shell before running the la
 
 In Visual Studio code, right click on each file and select "Upload to Cloud Shell" option.
 
-![VSCode menu option to upload file to Cloud Shell](..\Images\00-11-Vscode-Upload-To-CloudShell.png)
+![VSCode menu option to upload file to Cloud Shell](../Images/00-11-Vscode-Upload-To-CloudShell.png)
 
 Verify the two json files are present.
 
@@ -172,7 +172,7 @@ Verify the two json files are present.
 ls -l *.json
 ```
 
-![List of directory files](..\Images\00-12-Azure-Cli-List-Files.png)
+![List of directory files](../Images/00-12-Azure-Cli-List-Files.png)
 
 Run this line and away you go!
 
@@ -182,15 +182,15 @@ az group deployment create --name monitoringWorkShopDeployment -g $monitoringWor
 
 Deployment takes around 42-45 mins due to dependencies.  
 
-![Azure CLI deployment status](..\Images\00-13-Azure-Deployment.png)
+![Azure CLI deployment status](../Images/00-13-Azure-Deployment.png)
 
 You can check on the status of your deployment from the Azure Portal, by navigating to the resource group that was created and clicking on the Deployments blade.
 
-![Resource Group in the Azure Portal](..\Images\00-14-Azure-Portal-Deployment-Resource-Group.png)
+![Resource Group in the Azure Portal](../Images/00-14-Azure-Portal-Deployment-Resource-Group.png)
 
 Click on the deployment name and check out the status.
 
-![Resource Group deployment status in the Azure Portal](..\Images\00-15-Azure-Portal-Resource-Group-Deployment-Status.png)
+![Resource Group deployment status in the Azure Portal](../Images/00-15-Azure-Portal-Resource-Group-Deployment-Status.png)
 
 #### Step 8
 
@@ -201,7 +201,7 @@ Navigate back to your deployment script and open the Bash Cloud Shell (there is 
 
 Rerun the Step 1 declare lines for monitoringWorkshopName and location.
 
-![Resource Group deployment status in the Azure Portal](..\Images\00-16-Azure-Cli-Declare-Variables-For-Aks.png)
+![Resource Group deployment status in the Azure Portal](../Images/00-16-Azure-Cli-Declare-Variables-For-Aks.png)
 
 Create your resource group for your AKS Service
 
@@ -220,11 +220,11 @@ az ad sp show --id '<Service Principal ClientId>' --query objectId
 
 Update the aksdeploy.parameters.json file
 
-![Update the aksdeploy.parameters.json file](..\Images\00-17-Update-Aksdeploy-Parameters.png)
+![Update the aksdeploy.parameters.json file](../Images/00-17-Update-Aksdeploy-Parameters.png)
 
 Save your aksdeploy.parameters.json file and upload both the aksdeploy.json and aksdeploy.parameters.json to your Cloud Shell
 
-![Save json files to Cloud Shell](..\Images\00-18-Vscode-Save-Json-Files-To-CloudShell.png)
+![Save json files to Cloud Shell](../Images/00-18-Vscode-Save-Json-Files-To-CloudShell.png)
 
 Run the deployment.
 
@@ -234,7 +234,7 @@ az group deployment create --name aksmonitoringWorkShopDeployment -g $monitoring
 
 Verify the deployment was successful.
 
-![AKS deployment status in Azure Portal](..\Images\00-19-Azure-Portal-Aks-Deployment-Status.png)
+![AKS deployment status in Azure Portal](../Images/00-19-Azure-Portal-Aks-Deployment-Status.png)
 
 Once the deployment has completed, we need to do one more thing.  When you have enabled Kubernetes RBAC authorization, you will need to [apply cluster role binding for live logs to work](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-live-logs).
 
@@ -265,23 +265,23 @@ code .
 
 **Tip:** To run a single line of CLI/shell code in the VS Code Terminal, Ctrl-Shift-P, then select "Terminal: Run selected text in Active Terminal" The first time you will need to scroll down the drop down until you see this option. After that, it should be on top as the most recent choice and just work!
 
-![VSCode Command Palette to Run Selected Test in Active Terminal](..\Images\00-20-Vscode-Run-Selected-Text-In-Terminal.png)
+![VSCode Command Palette to Run Selected Test in Active Terminal](../Images/00-20-Vscode-Run-Selected-Text-In-Terminal.png)
 
 #### Validation
 
 Once both ARM deployments are completed, navigate to the Outputs section of the VMSS deployment and copy the scaleSetPIPDNSname and paste it in your browser.
 
-![Copy value from Azure Deployment output](..\Images\00-21-Azure-Portal-Deployment-Output-Value.png)
+![Copy value from Azure Deployment output](../Images/00-21-Azure-Portal-Deployment-Output-Value.png)
 
 OR
 
 Copy the DNS Name from the <5-char initials>webscalePIP resource in the Azure Portal
 
-![Copy DNS Name from Public IP Address](..\Images\00-22-Azure-Portal-Copy-Pip-Dns-Name.png)
+![Copy DNS Name from Public IP Address](../Images/00-22-Azure-Portal-Copy-Pip-Dns-Name.png)
 
 You should render the eShopOnWeb site
 
-![Webpage of the eShopOnWeb site](..\Images\00-23-Eshoponweb-Webpage.png)
+![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
 ### Troubleshooting
 
@@ -295,7 +295,7 @@ You should render the eShopOnWeb site
     - If you are stuck on the Visual Studio Custom Script extension (CSE)this is because the Microsoft Image was created with an older version of the CSE and has a bug.  
         - Workaround 1: The workaround has been to log on to the Visual Studio Server and navigate to “C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.9.2” and double click on “enable” this will kick off the extension and the deployment should continue from here.  If the script times out just rerun after you manually kick off the extension and it should finish
         - Workaround 2: From the Azure Portal uninstall the CustomScriptExtension (which will fail your deployment).
- ![Uninstall the Custom Script Extension from the Azure Portal](..\Images\00-24-Azure-Portal-Uninstall-Custom-Script-Extension.png)
+ ![Uninstall the Custom Script Extension from the Azure Portal](../Images/00-24-Azure-Portal-Uninstall-Custom-Script-Extension.png)
         - Then rerun the ARM template and it will pick up where it left off.
 
 ## Success Criteria
