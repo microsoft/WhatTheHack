@@ -1,0 +1,45 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# stock
+- What is the stock price of {@ticker=TSLA}?
+- Please give me the stock price of {@ticker=MSFT}
+- {@tiker=GOOG} stock price right now?
+- stock price
+
+
+# ESG
+- ESG Rating
+- ESG
+
+
+# CallAgent
+- Call Agent
+- Agent
+- Speak to an Angent
+
+
+> # Entity definitions
+
+@ ml ticker
+
+@ ml tiker
+
+
+> # PREBUILT Entity definitions
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

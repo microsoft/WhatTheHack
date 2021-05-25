@@ -1,0 +1,226 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "defaultValue": "contoso",
+            "metadata": {
+                "description": "Name of the factory"
+            }
+        },
+        "numberOfSimulations": {
+            "type": "int",
+            "defaultValue": 1,
+            "maxValue": 100,
+            "minValue": 1,
+            "metadata": {
+                "description": "Number of simulated PLCs"
+            }
+        },
+        "numberOfSlowNodes": {
+            "type": "int",
+            "defaultValue": 250,
+            "maxValue": 2000000,
+            "minValue": 1,
+            "metadata": {
+                "description": "Number of slow nodes"
+            }
+        },
+        "slowNodeRate": {
+            "type": "int",
+            "defaultValue": 10,
+            "maxValue": 255,
+            "minValue": 1,
+            "metadata": {
+                "description": "Rate in seconds to change slow nodes"
+            }
+        },
+        "slowNodeType": {
+            "type": "string",
+            "defaultValue": "uint",
+            "allowedValues": [
+                "",
+                "uint",
+                "double",
+                "bool",
+                "uintarray"
+            ],
+            "metadata": {
+                "description": "Data type for slow nodes"
+            }
+        },
+        "numberOfFastNodes": {
+            "type": "int",
+            "defaultValue": 50,
+            "maxValue": 2000000,
+            "minValue": 1,
+            "metadata": {
+                "description": "Number of fast nodes"
+            }
+        },
+        "fastNodeRate": {
+            "type": "int",
+            "defaultValue": 1,
+            "maxValue": 255,
+            "minValue": 1,
+            "metadata": {
+                "description": "Rate in seconds to change fast nodes"
+            }
+        },
+        "fastNodeType": {
+            "type": "string",
+            "defaultValue": "uint",
+            "allowedValues": [
+                "",
+                "uint",
+                "double",
+                "bool",
+                "uintarray"
+            ],
+            "metadata": {
+                "description": "Data type for fast nodes"
+            }
+        },
+        "memoryInGb": {
+            "type": "int",
+            "defaultValue": 1,
+            "maxValue": 16,
+            "minValue": 1,
+            "metadata": {
+                "description": "ACI memory in GB (~1 GB/250 k nodes), subject to region limits"
+            }
+        },
+        "numberOfCpus": {
+            "type": "int",
+            "defaultValue": 1,
+            "maxValue": 4,
+            "minValue": 1,
+            "metadata": {
+                "description": "Number of ACI CPUs (~1 CPU/1 M nodes), subject to region limits"
+            }
+        },
+        "containerImage": {
+            "type": "string",
+            "defaultValue": "iotedge/opc-plc:1.1.6",
+            "metadata": {
+                "description": "Container image"
+            }
+        },
+        "containerServer": {
+            "type": "string",
+            "defaultValue": "mcr.microsoft.com",
+            "metadata": {
+                "description": "Container server"
+            }
+        },
+        "containerUser": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Username for Container Registry"
+            }
+        },
+        "containerPassword": {
+            "type": "securestring",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Password for Container Registry"
+            }
+        }
+    },
+    "variables": {
+        "instanceId": "[take(uniqueString(subscription().subscriptionId, resourceGroup().id, parameters('factoryName')), 7)]",
+        "factoryCode": "[parameters('factoryName')]",
+        "nameInfix": "[tolower(concat(variables('factoryCode'), '-', variables('instanceId')))]",
+
+        "aciPlc": "[concat('aci-', variables('nameInfix'), '-plc')]"
+    },
+    "resources": [
+        {
+            "comments": "PLC ACIs",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(variables('aciPlc'), add(copyIndex(), 1))]",
+            "condition": "[not(equals(parameters('numberOfSimulations'), 0))]",
+            "copy": {
+                "name": "plcCopies",
+                "count": "[if(not(equals(0, parameters('numberOfSimulations'))), parameters('numberOfSimulations'), 1)]",
+                "mode": "Serial",
+                "batchSize": "[min(parameters('numberOfSimulations'), 10)]"
+            },
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "type": "Microsoft.ContainerInstance/containerGroups",
+                            "apiVersion": "2018-10-01",
+                            "name": "[concat(variables('aciPlc'), add(copyIndex(), 1))]",
+                            "location": "[resourceGroup().location]",
+                            "properties": {
+                                "containers": [
+                                    {
+                                        "name": "[concat(variables('aciPlc'), add(copyIndex(), 1))]",
+                                        "properties": {
+                                            "image": "[concat(parameters('containerServer'), '/', parameters('containerImage'))]",
+                                            "command": [
+                                                "/bin/sh",
+                                                "-c",
+                                                "[concat('./opcplc --pn=50000 --autoaccept --nospikes --nodips --nopostrend --nonegtrend --nodatavalues --sph --wp=80 --sn=', parameters('numberOfSlowNodes'), ' --sr=', parameters('slowNodeRate'), ' --st=', parameters('slowNodeType'), ' --fn=', parameters('numberOfFastNodes'), ' --fr=', parameters('fastNodeRate'), ' --ft=', parameters('fastNodeType'), ' --ph=', variables('aciPlc'), add(copyIndex(), 1), '.', resourceGroup().location, '.azurecontainer.io')]"
+                                            ],
+                                            "ports": [
+                                                {
+                                                    "protocol": "TCP",
+                                                    "port": 50000
+                                                },
+                                                {
+                                                    "protocol": "TCP",
+                                                    "port": 80
+                                                }
+                                            ],
+                                            "environmentVariables": [],
+                                            "resources": {
+                                                "requests": {
+                                                    "memoryInGB": "[parameters('memoryInGb')]",
+                                                    "cpu": "[parameters('numberOfCpus')]"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "restartPolicy": "Always",
+                                "ipAddress": {
+                                    "ports": [
+                                        {
+                                            "protocol": "TCP",
+                                            "port": 50000
+                                        },
+                                        {
+                                            "protocol": "TCP",
+                                            "port": 80
+                                        }
+                                    ],
+                                    "type": "Public",
+                                    "dnsNameLabel": "[concat(variables('aciPlc'), add(copyIndex(), 1))]"
+                                },
+                                "osType": "Linux",
+                                "imageRegistryCredentials": [
+                                    {
+                                        "server": "[parameters('containerServer')]",
+                                        "username": "[if(not(empty(parameters('containerUser'))), parameters('containerUser'), '.')]",
+                                        "password": "[if(not(empty(parameters('containerPassword'))), parameters('containerPassword'), '.')]"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
+}

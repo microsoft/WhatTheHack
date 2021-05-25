@@ -22,6 +22,7 @@ Before starting this hack you should have hands-on experience with the following
 - Kubernetes Ingress
 - Github (Repo, Cloning)
 - Docker Hub
+- If you are doing [Data Volumes](Coach/Solutions/07-data-volumes.md) challenges, make sure your cluster is in the [supported regions for Azure Files using NFS](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-compare-protocols#regional-availability) and [register the feature in your subscription](https://github.com/kubernetes-sigs/azurefile-csi-driver/tree/master/deploy/example/nfs).
 
 ## Challenges
 
@@ -49,6 +50,11 @@ Before starting this hack you should have hands-on experience with the following
    1. Apply a virtual service
    1. Apply weight-based routing
    1. Apply distributed tracing with Jaeger
+1. [Data Volumes](./Student/07-data-volumes.md)
+   1. Static provisioning with Azure Disks
+   1. Dynamic provisioning with Azure Disks
+   1. Scaling persistent applications with Azure Disks
+   1. Scaling persistent applications with Azure Files
 
 ## Prerequisites
 
@@ -60,3 +66,7 @@ Before starting this hack you should have hands-on experience with the following
 - Tommy Falgout
 - Kevin M. Gates
 - Michelle Yang
+
+## Quotes
+
+`The factory of the future will have only two employees, a man and a dog. The man will be there to feed the dog. The dog will be there to keep the man from touching the equipment. --Warren Bennis`

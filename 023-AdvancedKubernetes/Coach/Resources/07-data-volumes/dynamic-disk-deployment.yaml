@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: disk-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: disk-app
+  template:
+    metadata:
+      labels:
+        app: disk-app
+    spec:
+      containers:
+      - name: busybox-writer
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "while true; do sleep 1; echo $(date +%Y-%m-%d:%H:%M:%S) - $(hostname) >> /mnt/index.html; done"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        volumeMounts:
+          - mountPath: /mnt
+            name: managed-disk-volume
+      - name: busybox-web
+        image: busybox
+        command:
+        - sh
+        - -c
+        - "httpd -p 80 -f -v -h /mnt"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - mountPath: /mnt
+            name: managed-disk-volume
+      volumes:
+        - name: managed-disk-volume
+          persistentVolumeClaim:
+            claimName: managed-disk-claim
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: managed-disk-claim
+spec:
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: default
+  accessModes:
+    - ReadWriteOnce
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: disk-app
+spec:
+  selector:
+    app: disk-app
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer

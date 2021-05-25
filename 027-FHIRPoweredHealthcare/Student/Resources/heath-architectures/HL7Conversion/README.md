@@ -82,5 +82,5 @@ Features of the HL7toFHIR Conversion Platform:
 ![Sample Converter Run](samplerun.png)
 
 
-FHIR® is the registered trademark of HL7 and is used with the permission of HL7</br>
+FHIR is the registered trademark of HL7 and is used with the permission of HL7</br>
 HAPI is an open source tool set developed by [University Health Network](http://www.uhn.ca/)
