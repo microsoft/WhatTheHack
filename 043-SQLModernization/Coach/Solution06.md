@@ -45,7 +45,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 3. Provide the necessary inputs on the **Basics** tab.  
 
-    > Note: The table below provides example values for illustrative purposes only, ensure to specify values that make sense for your deployment.
+    **NOTE**: The table below provides example values for illustrative purposes only, ensure to specify values that make sense for your deployment.
 
     | Parameter  | Example Value |
     | --- | --- |
@@ -62,13 +62,13 @@ The challenge environment setup requires that participants have pre-provisioned 
     | --- | --- | --- |
     | Platform size | `4 capacity units` | Sufficient for non-production scenarios. |
 
-    > :bulb: **Did you know?**
-    >
-    > **Capacity Units** determine the size of the platform and is a **provisioned** (fixed) set of resources that is needed to keep the Azure Purview platform up and running. 1 Capacity Unit is able to support approximately 1 API call per second. Capacity Units are required regardless of whether you plan to invoke the Azure Purview API endpoints directly (i.e. ISV scenario) or indirectly via Purview Studio (GUI).
-    > 
-    > **vCore Hours** on the other hand is the unit used to measure **serverless** compute that is needed to run a scan. You only pay per vCore Hour of scanning that you consume (rounded up to the nearest minute).
-    >
-    > For more information, check out the [Azure Purview Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-purview/) page.
+    :bulb: **Did you know?**
+    
+    **Capacity Units** determine the size of the platform and is a **provisioned** (fixed) set of resources that is needed to keep the Azure Purview platform up and running. 1 Capacity Unit is able to support approximately 1 API call per second. Capacity Units are required regardless of whether you plan to invoke the Azure Purview API endpoints directly (i.e. ISV scenario) or indirectly via Purview Studio (GUI).
+    
+    **vCore Hours** on the other hand is the unit used to measure **serverless** compute that is needed to run a scan. You only pay per vCore Hour of scanning that you consume (rounded up to the nearest minute).
+    
+    For more information, check out the [Azure Purview Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-purview/) page.
 
     ![Configure Purview Account](./images/azpurview01.04-create-configuration.png)
 
@@ -102,9 +102,9 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![Purview Data Curator](./images/azpurview01.10-role-assignment.png)
 
-    > :bulb: **Did you know?**
-    >
-    > Azure Purview has a set of predefined Data Plane roles that can be used to control who can access what.
+    :bulb: **Did you know?**
+    
+    Azure Purview has a set of predefined Data Plane roles that can be used to control who can access what.
 
     | Role  | Catalog | Sources/Scans | Description | 
     | --- | --- | --- | --- |
@@ -152,7 +152,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 5. Provide the necessary inputs and click **OK**.
 
-    > Note: The table below provides example values for illustrative purposes only, ensure to specify values that make sense for your deployment.
+    **NOTE**: The table below provides example values for illustrative purposes only, ensure to specify values that make sense for your deployment.
 
     | Property  | Example Value |
     | --- | --- |
@@ -162,7 +162,7 @@ The challenge environment setup requires that participants have pre-provisioned 
     | Confirm password | `<your-sql-admin-password>` |
     | Location | `East US 2` |
 
-    > Note: The **admin login** and **password** will be required later in the module. Make note of these two values.
+    **NOTE**: The **admin login** and **password** will be required later in the module. Make note of these two values.
 
     ![](./images/azpurview02.34-sqlsvr-new.png)
 
@@ -336,7 +336,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
     ![](./images/azpurview02.70-sqlscan-details.png)
 
-8. Click **Refresh** to periodically update the status of the scan. Note: It will take approximately 5 minutes to complete.
+8. Click **Refresh** to periodically update the status of the scan. **NOTE**: It will take approximately 5 minutes to complete.
 
     ![](./images/azpurview02.71-sqlscan-refresh.png)
 
@@ -372,7 +372,7 @@ The challenge environment setup requires that participants have pre-provisioned 
 
 2. Update the **Description** by copying and pasting the sample text below.
 
-    > This dataset was curated from the Bing search logs (desktop users only) over the period of Jan 1st, 2020 – (Current Month - 1). Only searches that were issued many times by multiple users were included. The dataset includes queries from all over the world that had an intent related to the Coronavirus or Covid-19. In some cases this intent is explicit in the query itself (e.g., “Coronavirus updates Seattle”), in other cases it is implicit , e.g. “Shelter in place”.
+    This dataset was curated from the Bing search logs (desktop users only) over the period of Jan 1st, 2020 – (Current Month - 1). Only searches that were issued many times by multiple users were included. The dataset includes queries from all over the world that had an intent related to the Coronavirus or Covid-19. In some cases this intent is explicit in the query itself (e.g., “Coronavirus updates Seattle”), in other cases it is implicit , e.g. “Shelter in place”.
 
     ![Update Description](./images/azpurview03.04-asset-description.png)
 
@@ -391,17 +391,17 @@ The challenge environment setup requires that participants have pre-provisioned 
     | Country | `Country from where the query was issued.` |
     | PopularityScore | `Value between 1 and 100 inclusive. 1 indicates least popular query on the day/State/Country with Coronavirus intent, and 100 indicates the most popular query for the same geography on the same day.` |
 
-    > :bulb: **Did you know?**
-    >
-    > **Classifications** and **Glossary Terms** can be assigned at the asset level (e.g. a Table within a Database) as well as at the schema level (e.g. a Column within a Table Schema).
+    :bulb: **Did you know?**
+    
+    **Classifications** and **Glossary Terms** can be assigned at the asset level (e.g. a Table within a Database) as well as at the schema level (e.g. a Column within a Table Schema).
 
     ![Update Schema](./images/azpurview03.06-asset-schema.png)
 
 5. Navigate to the **Contacts** tab and set someone within your organization to be an **Expert** and an **Owner**. Click **Save**.
 
-    > :bulb: **Did you know?**
-    >
-    > Assets can be related to two different types of contacts. **Experts** are often business process or subject matter experts. Where as **Owners** are often senior executives or business area owners that define governance or business processes over certain data areas.
+    :bulb: **Did you know?**
+    
+    Assets can be related to two different types of contacts. **Experts** are often business process or subject matter experts. Where as **Owners** are often senior executives or business area owners that define governance or business processes over certain data areas.
 
     ![Update Contacts](./images/azpurview03.07-asset-contacts.png)
 
