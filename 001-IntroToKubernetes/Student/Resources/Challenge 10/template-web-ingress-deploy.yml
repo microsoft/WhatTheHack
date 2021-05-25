@@ -1,26 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: web
-spec:
-  selector:
-    matchLabels:
-      app: web  
-  template:
-    metadata:
-      labels:
-        app: web
-    spec:
-      containers:
-      - image: YOUR_ACR_NAME.azurecr.io/content-web
-        name: web
-        env:
-        - name: CONTENT_API_URL
-          value: http://api:3001
-        tty: true
-        ports:
-        - containerPort: 3000
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -31,7 +8,7 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    app: web
+    app: content-web
   type: ClusterIP
 ---
 apiVersion: extensions/v1beta1
@@ -42,10 +19,10 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: YOUR_AKS_CLUSTER_NAME.YOUR_AKS_DNS_ID.YOUR_AKS_REGION.aksapp.io
-    http:
+  - http:
       paths:
       - backend:
           serviceName: web
           servicePort: 80
         path: /
+#    host: <myserviceuniquelabel>.<location>.cloudapp.azure.com  # Leave this line commented out until Part 2b

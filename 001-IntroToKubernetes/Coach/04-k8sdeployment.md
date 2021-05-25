@@ -30,6 +30,9 @@
 	- `kubectl delete pod <pod-name>`
   	- `kubectl delete service <service-name>`
 	- `kubectl apply -f <yaml-file>`
+- Running a shell in a pod:  
+  - If students get stuck, point them to: https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
+  - Additionally, you may want to coach the students that a number of tools make this as easy as point and click.  Encourage your students to try out any of VS Code with the AKS Extension, [Lens](https://k8slens.dev/), or [K9S](https://k9scli.io/)
 - When the service is deployed it will take some time for an External IP to be assigned.
 	- Issue the following kubectl command and look in the **EXTERNAL-IP** column
 		- `kubectl get services`

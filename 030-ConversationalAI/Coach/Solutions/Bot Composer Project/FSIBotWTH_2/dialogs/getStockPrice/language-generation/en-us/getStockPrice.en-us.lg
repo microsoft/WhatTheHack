@@ -1,0 +1,13 @@
+[import](common.lg)
+
+# SendActivity_gurDsd()
+- Let's check the stock prices.
+# TextInput_Prompt_k84Kxf()
+- What is the company symbol
+# SendActivity_xK4UcA()
+[Herocard
+    title = Stock Price for ${user.companysymbol}
+    text = The Price is ${dialog.stock.c} and ${dialog.stock.h}
+]
+# SendActivity_YLhpMB()
+- I got an error: ${dialog.api_response.content.message}
