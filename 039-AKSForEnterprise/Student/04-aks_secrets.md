@@ -25,7 +25,7 @@ You need to fulfill these requirements to complete this challenge:
 
 - Enable SSL in the ingress controller, and have its SSL certificate supplied from a purpose-built store such as Azure Key Vault
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

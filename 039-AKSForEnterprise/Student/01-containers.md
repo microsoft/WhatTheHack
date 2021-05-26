@@ -47,7 +47,7 @@ Note the two links at the bottom of the page in the picture above will not work 
 - If you used your local Docker installation, complete the challenge using Azure Container Instances
 - If you used Azure Container Instances, complete the challenge using your local Docker installation
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

@@ -21,7 +21,7 @@ This challenge will cover monitoring in AKS, using open source components such a
 - The cluster autoscales when there are not enough CPU resources
 - Participants can explain the autoscaling event using AKS metrics
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

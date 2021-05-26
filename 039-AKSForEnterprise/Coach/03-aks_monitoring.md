@@ -1,4 +1,4 @@
-# 3. Monitoring - Coach's Guide
+# Challenge 3: AKS Monitoring - Coach's Guide
 
 [< Previous Challenge](./02-aks_private.md) - **[Home](./README.md)** - [Next Challenge >](./04-aks_secrets.md)
 
@@ -8,8 +8,6 @@
 * This is just an introductory level. Make participants understand the overall structure of each tool (Azure Monitor and Prometheus/Grafana), and some pros/cons of both of them.
 
 ## Solution Guide
-
-<details><summary>Code</summary>
 
 ```bash
 # Azure Monitor
@@ -35,9 +33,6 @@ az network firewall nat-rule create -f azfw -g $rg -n nginx \
     -c Grafana --action Dnat --priority 110
 echo "You can browse now to http://${azfw_ip}:8080 and use the password $grafana_admin_password"
 ```
-
-</details>
-<br>
 
 We will now connect Grafana with Prometheus, and add a dashboard (credits to Mel Cone, more info in her gist [here](https://gist.github.com/melmaliacone/c5d2ef9e390ec3f2d4e510c304fe7bb0)):
 
@@ -69,8 +64,6 @@ We will now connect Grafana with Prometheus, and add a dashboard (credits to Mel
 
 You can create CPU utilization with these commands, that leverage the `pi` endpoint of the API (calculate pi number with x digits).
 
-<details><summary>Code</summary>
-
 ```bash
 digits=20000
 namespace=test
@@ -95,17 +88,11 @@ function test_load {
 test_load 120 &
 ```
 
-</details>
-<br>
-
 You can check the increased CPU utilization in Container Insights, for example:
 
 ![](images/azmonitor_cpu.png)
 
-
 You can deploy an HPA.
-
-<details><summary>Code</summary>
 
 ```bash
 # Create HPA
@@ -148,12 +135,7 @@ remote "kubectl -n test top pod"
 remote "kubectl -n test get pod"
 ```
 
-</details>
-<br>
-
 If you are doing this after the service mesh lab, you might need to uninject the linkerd containers (see [https://github.com/linkerd/linkerd2/issues/2596](https://github.com/linkerd/linkerd2/issues/2596)).
-
-<details><summary>Code</summary>
 
 ```bash
 # Uninject linkerd, re-inject using --proxy-cpu-request/limit:
@@ -162,7 +144,4 @@ remote "kubectl get -n test deploy -o yaml | linkerd inject --proxy-cpu-request 
 remote "kubectl rollout restart deploy/api"
 remote "kubectl rollout restart deploy/web"
 ```
-
-</details>
-<br>
 

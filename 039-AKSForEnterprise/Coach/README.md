@@ -15,23 +15,23 @@ The main goal of this What The Hack is for participants who are already familiar
 * Leave participants try options even if you know it is not going to work, let them explore on themselves. Stop them only if they consume too much time
 * For each challenge, you can ask the least participative members to describe what has been done and why
 
-> :warning: Note that the code snippets provided here are just an orientation for you as a coach, and might not work 100% in your particular environment. They have been tested, but the rapid nature of Azure CLI versions, Kubernetes, AKS, helm, etc makes it very difficult constantly reviewing them on a regular basis. If you find errors in the code, please send a PR to this repo with the correction.
+**NOTE**: The code snippets provided here are just an orientation for you as a coach, and might not work 100% in your particular environment. They have been tested, but the rapid nature of Azure CLI versions, Kubernetes, AKS, helm, etc makes it very difficult constantly reviewing them on a regular basis. If you find errors in the code, please send a PR to this repo with the correction.
 
 ## Challenges
 
 - Challenge 1: **[Containers](./01-containers.md)**
    - Get familiar with the application for this hack, and roll it out locally or with Azure Container Instances
-- Challenge 2: **[Networking](./02-aks_private.md)**
+- Challenge 2: **[AKS Network Integration and Private Clusters](./02-aks_private.md)**
    - Deploy the application in an AKS cluster with strict network requirements
-- Challenge 3: **[Monitoring](./03-aks_monitoring.md)**
+- Challenge 3: **[AKS Monitoring](./03-aks_monitoring.md)**
    - Monitor the application, either using Prometheus or Azure Monitor
-- Challenge 4: **[Secrets](./04-aks_secrets.md)**
+- Challenge 4: **[Secrets and Configuration Management](./04-aks_secrets.md)**
    - Harden secret management with the help of Azure Key Vault
-- Challenge 5: **[Security](./05-aks_security.md)**
+- Challenge 5: **[AKS Security](./05-aks_security.md)**
    - Explore AKS security concepts such as Azure Policy for Kubernetes
-- Challenge 6: **[Storage](./06-aks_storage.md)**
+- Challenge 6: **[Persistent Storage in AKS](./06-aks_storage.md)**
    - Evaluate different storage classes by deploying the database in AKS
 - Challenge 7: **[Service Mesh](./07-aks_mesh.md)**
    - Explore the usage of a Service Mesh to further protect the application
-- Challenge 8: **[Arc for k8s/data](./08-arc.md)**
+- Challenge 8: **[Arc-Enabled Kubernetes and Arc-Enabled Data Services](./08-arc.md)**
    - Leverage Arc for Kubernetes to manage a non-AKS cluster, and Arc for data to deploy a managed database there

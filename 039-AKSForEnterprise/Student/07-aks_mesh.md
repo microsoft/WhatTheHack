@@ -17,7 +17,7 @@ You need to fulfill these requirements to complete this challenge:
 - The application is fully functional
 - Traffic between application components (ingress controller to web, and web to api) is encrypted with TLS
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

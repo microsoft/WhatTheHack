@@ -1,4 +1,4 @@
-# Challenge 1. Containers - Coach's Guide
+# Challenge 1: Containers - Coach's Guide
 
 **[Home](./README.md)** - [Next Challenge >](./02-aks_private.md)
 
@@ -6,11 +6,9 @@
 
 * Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR do the build for them (`az acr build`)
 
-## Local Docker (option 1)
+## Local Docker (Option 1)
 
 These commands have been tested on Powershell 7 on Windows 10, with Docker configured for Linux containers, and the utilities `jq` and `curl` installed
-
-<details><summary>Code</summary>
 
 ```bash
 # Running SQL Server locally
@@ -39,22 +37,17 @@ $web_ip=$(docker inspect web | jq -r '.[0].NetworkSettings.Networks.bridge.IPAdd
 Write-Host "You can point your browser to http://127.0.0.1:8081 to verify the app"
 ```
 
-</details>
-<br>
-
 The web GUI should look something like this:
 
 ![](images/docker_web.png)
 
 Note the `Healthcheck: OK` and the SQL version retrieved from the SQL database. The links at the bottom of the page (API health status and SQL Server Version are not working yet, they are intended to be used with an ingress controller)
 
-## ACR & ACI (option 2)
+## ACR & ACI (Option 2)
 
 These commands have been tested on a zsh shell:
 
-<details><summary>Code</summary>
-
-```azurecli
+```bash
 # Create RG and ACR
 rg=hack$RANDOM
 acr_name=$rg
@@ -63,7 +56,7 @@ az group create -n $rg -l $location
 az acr create -n $acr_name -g $rg --sku Standard
 ```
 
-```azurecli
+```bash
 # Build images
 cd api
 az acr build -r $acr_name -t hack/sqlapi:1.0 .
@@ -83,7 +76,7 @@ sql_server_fqdn=$(az sql server show -n $sql_server_name -g $rg -o tsv --query f
 az sql db create -n $sql_db_name -s $sql_server_name -g $rg -e Basic -c 5 --no-wait
 ```
 
-```azurecli
+```bash
 # Create ACIs
 aci_name=sqlapi
 az acr update -n $acr_name --admin-enabled true
@@ -100,15 +93,12 @@ curl "http://${sqlapi_ip}:8080/api/sqlsrcip"
 echo "The output of the previous command should have been $sqlapi_source_ip"
 ```
 
-```azurecli
+```bash
 az container create -n web -g $rg -e "API_URL=http://${sqlapi_ip}:8080" --image $acr_name.azurecr.io/hack/web:1.0 --ip-address public --ports 80 \
   --registry-username $acr_usr --registry-password $acr_pwd
 web_ip=$(az container show -n web -g $rg --query ipAddress.ip -o tsv)
 echo "Please connect your browser to http://${web_ip} to test the correct deployment"
 ```
-
-</details>
-<br>
 
 The web GUI should look something like this:
 

@@ -1,4 +1,4 @@
-# Challenge 4. Secrets - Coach's Guide
+# Challenge 4: Secrets and Configuration Management - Coach's Guide
 
 [< Previous Challenge](./03-aks_monitoring.md) - **[Home](./README.md)** - [Next Challenge >](./05-aks_security.md)
 
@@ -20,8 +20,6 @@ az aks update -n $aks_name -g $rg \
 ```
 
 See this link for more details on Pod Identity: [https://github.com/Azure/aad-pod-identity](https://github.com/Azure/aad-pod-identity).
-
-<details><summary>Code</summary>
 
 ```bash
 # Pod Identity
@@ -94,12 +92,7 @@ remote "kubectl get pod/demo --show-labels"
 remote "kubectl logs demo"
 ```
 
-</details>
-<br>
-
 See [https://github.com/Azure/secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure):
-
-<details><summary>Code</summary>
 
 ```bash
 # akv secret provider
@@ -107,7 +100,7 @@ remote "helm repo add csi-secrets-store-provider-azure https://raw.githubusercon
 remote "helm install csi-secrets-store-provider-azure/csi-secrets-store-provider-azure --generate-name"
 tmp_file=/tmp/secretproviderclass.yaml
 file=secretproviderclass.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 tenant_id=$(az account show --query 'tenantId' -o tsv)
 subscription_id=$(az account show --query 'id' -o tsv)
 sed -i "s|__subscription_id__|${subscription_id}|g" $tmp_file
@@ -119,12 +112,7 @@ scp $tmp_file $vm_pip_ip:$file
 remote "kubectl apply -f ./$file"
 ```
 
-</details>
-<br>
-
 After having our identity ready, we can create an Azure Key Vault and store the SQL password there:
-
-<details><summary>Code</summary>
 
 ```bash
 # AKV
@@ -139,18 +127,13 @@ az keyvault set-policy -n $akv_name --spn $identity_client_id \
     --certificate-permissions get
 ```
 
-</details>
-<br>
-
 Redeploy API pod:
-
-<details><summary>Code</summary>
 
 ```bash
 # Redeploy API
 tmp_file=/tmp/api_akv.yaml
 file=api_akv.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 sed -i "s|__sql_username__|${sql_username}|g" $tmp_file
 sed -i "s|__sql_server_name__|${db_server_name}|g" $tmp_file
 sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
@@ -163,5 +146,3 @@ api_svc_ip=$(remote "kubectl get svc/api -n default -o json | jq -rc '.status.lo
 remote "curl -s http://${api_svc_ip}:8080/api/healthcheck"
 ```
 
-</details>
-<br>

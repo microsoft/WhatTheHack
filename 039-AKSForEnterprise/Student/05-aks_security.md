@@ -28,7 +28,7 @@ You need to fulfill these requirements to complete this challenge:
 
 - Make sure that the flag `--admin` is never required when using the command `az aks get-credentials`
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

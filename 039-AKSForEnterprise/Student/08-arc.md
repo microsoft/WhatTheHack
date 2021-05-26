@@ -1,4 +1,4 @@
-# Challenge 8: Arc enabled Kubernetes and Arc enabled data Services
+# Challenge 8: Arc-Enabled Kubernetes and Arc-Enabled Data Services
 
 [< Previous Challenge](./07-aks_mesh.md) - **[Home](../README.md)**
 
@@ -27,7 +27,7 @@ You need to fulfill these requirements to complete this challenge:
 - Connect your AKS cluster from previous challenges to the same Gitops repo as the Arc enabled cluster, and make sure that changes to the application are propagated to both clusters
 - Explain how you would distribute application secrets via GitOps
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

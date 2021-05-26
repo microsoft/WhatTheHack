@@ -1,4 +1,4 @@
-# Challenge 6: AKS and Persistent Storage
+# Challenge 6: Persistent Storage in AKS
 
 [< Previous Challenge](./05-aks_security.md) - **[Home](../README.md)** - [Next Challenge >](./07-aks_mesh.md)
 
@@ -19,7 +19,7 @@ You need to fulfill these requirements to complete this challenge:
 - The database has been deployed in the cluster, and the API pod can connect to it (read its version)
 - Participants can demonstrate I/O performance of at least two storage classes
 
-## Related documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 
