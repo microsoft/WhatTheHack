@@ -1,4 +1,4 @@
-# Challenge 5. AKS Security - Coach's Guide
+# Challenge 5: AKS Security - Coach's Guide
 
 [< Previous Challenge](./04-aks_secrets.md) - **[Home](./README.md)** - [Next Challenge >](./06-aks_storage.md)
 
@@ -13,8 +13,6 @@
 ### AAD integration
 
 Note that you will not need AAD Global Admin privilege to be able to complete this section if using the new AAD managed experience.
-
-<details><summary>Code</summary>
 
 ```bash
 # AAD group
@@ -71,9 +69,6 @@ subjects:
 EOF"
 ```
 
-</details>
-<br>
-
 ```bash
 # Test
 remote "az aks get-credentials -n $aks_name -g $rg --overwrite"
@@ -93,17 +88,12 @@ remote "kubectl get node"
 
 Network policy to protect the web pod:
 
-<details><summary>Code</summary>
-
 ```bash
 # Network policy
 remote "kubectl label ns/nginx name=nginx"
-scp ./yaml/netpol.yaml $vm_pip_ip:netpol.yaml
+scp ./Solutions/netpol.yaml $vm_pip_ip:netpol.yaml
 remote "kubectl apply -f ./netpol.yaml"
 ```
-
-</details>
-<br>
 
 You can verify that there is no access from the test VM to the API any more:
 
@@ -113,8 +103,6 @@ remote "curl http://$api_svc_ip:8080/api/healthcheck"
 ```
 
 ### TLS
-
-<details><summary>Code</summary>
 
 ```bash
 # cert-manager
@@ -151,7 +139,7 @@ EOF"
 # Redeploy ingress
 tmp_file=/tmp/ingress_tls.yaml
 file=ingress_tls.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 sed -i "s|__ingress_class__|nginx|g" $tmp_file
 sed -i "s|__ingress_ip__|${azfw_ip}|g" $tmp_file
 scp $tmp_file $vm_pip_ip:$file
@@ -173,12 +161,8 @@ remote "kubectl describe certificate"
 remote "kubectl describe secret/tls-secret"
 ```
 
-</details>
-<br>
-
 And create a new DNAT rule in the firewall for port 443:
 
-<details><summary>Code</summary>
 ```bash
 # FW DNAT rule for 443
 az network firewall nat-rule create -f azfw -g $rg -n nginxTLS \
@@ -187,19 +171,14 @@ az network firewall nat-rule create -f azfw -g $rg -n nginxTLS \
     --destination-ports 443 --translated-port 443 \
     -c IngressController
 ```
-</details>
-<br>
 
 You can inspect the certificates in your browser. If required, you can install the root authority (see [LetsEncrypt Chain of Trust](https://letsencrypt.org/certificates/)).
 
 ![](images/cert.png)
 
-
 ### Nodepools
 
 We can add the second nodepool to the cluster:
-
-<details><summary>Code</summary>
 
 ```bash
 # Create user node pool
@@ -209,14 +188,10 @@ az aks nodepool add --cluster-name $aks_name -g $rg \
     -k $k8s_version --mode User --vnet-subnet-id $aks_subnet_id \
     --no-wait
 ```
-</details>
-<br>
 
 ### OPA
 
 If using the AKS add-on, you might have to join the preview. See [here](https://docs.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks) for more details.
-
-<details><summary>Code</summary>
 
 ```bash
 # Register feature
@@ -233,8 +208,6 @@ az provider register -n Microsoft.ContainerService
 az aks enable-addons --addons azure-policy -n $aks_name -g $rg
 az aks show -n $aks_name -g $rg --query 'addonProfiles.azurepolicy'
 ```
-</details>
-<br>
 
 You can see logs in the `azure-policy` container:
 
@@ -243,8 +216,6 @@ You can see logs in the `azure-policy` container:
 pod_name=$(remote "kubectl -n kube-system get pods -l app=azure-policy -o custom-columns=:metadata.name" | awk NF)
 remote "kubectl -n kube-system logs $pod_name"
 ```
-
-<details><summary>Code</summary>
 
 ```bash
 # Azure Policy
@@ -294,9 +265,6 @@ echo "The previous command should not have worked (the policy should have forbid
 remote "kubectl get svc"
 remote "kubectl delete svc/publicweb"
 ```
-
-</details>
-<br>
 
 The creation of the public Load Balancer should have given an error similar to this one:
 

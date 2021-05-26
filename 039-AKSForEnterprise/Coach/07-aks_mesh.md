@@ -1,4 +1,4 @@
-# Challenge 7. Service Mesh - Coach's Guide
+# Challenge 7: Service Mesh - Coach's Guide
 
 [< Previous Challenge](./06-aks_storage.md) - **[Home](./README.md)** - [Next Challenge >](./08-arc.md)
 
@@ -12,18 +12,11 @@
 
 Pre-flight check. The warnings on the PSPs (inserted by Grafana in previous labs) are OK and can be safely ignored, since we did not use Pod Security Policies in the lab so far.
 
-<details><summary>Code</summary>
-
 ```bash
 remote "linkerd check --pre"
 ```
 
-</details>
-<br>
-
 Install Linkerd (note that gcr.io needs to be in the list of your allowed prefixes):
-
-<details><summary>Code</summary>
 
 ```bash
 remote "linkerd install | kubectl apply -f -"
@@ -32,17 +25,12 @@ remote "kubectl get pod --namespace linkerd --output wide"
 remote "linkerd check"
 ```
 
-</details>
-<br>
-
 Linkerd uses their own version of Grafana, it could be patched and exposed over the Azure Firewall if required, but we are not going to do it here. Plumbing the existing Prometheus/Grafana setup with the linkerd-prometheus svc would be an extra here:
 
 * Adding a new data source in grafana pointing to `http://linkerd-prometheus.linkerd.svc.cluster.local:9090`
 * Adding a linkerd dashboard (for example `11868`)
 
 Exposing the linkerd dashboard:
-
-<details><summary>Code</summary>
 
 ```bash
 remote "kubectl -n linkerd patch svc linkerd-web -p '{\"spec\": {\"type\": \"LoadBalancer\"},\"metadata\": {\"annotations\": {\"service.beta.kubernetes.io/azure-load-balancer-internal\": \"true\"}}}'"
@@ -68,16 +56,11 @@ It appears that you are trying to reach this service with a host of '40.74.12.22
 Please see https://linkerd.io/dns-rebinding for an explanation of what is happening and how to fix it.
 ```
 
-</details>
-<br>
-
 You can check for [https://linkerd.io/dns-rebinding](https://linkerd.io/dns-rebinding), or you can just use a Chrome extension such as ModHeader to supply an allowed Host header, such as `localhost`. Note that this might not work everywhere in the portal, and you might get webSocket errors.
 
 ### Emojivoto
 
 In order to get familiar with Linkerd, you can play with Linkerd's demo app in this lab, emojivoto:
-
-<details><summary>Code</summary>
 
 ```bash
 # Demo app
@@ -110,14 +93,9 @@ remote "linkerd -n emojivoto stat deploy"
 # remote "linkerd -n emojivoto top deploy"  # You need to run this in a TTY
 ```
 
-</details>
-<br>
-
 ### Ingress controllers
 
 We can inject linkerd in the nginx ingress controller. Make sure to read [Linkerd - Using Ingress](https://linkerd.io/2/tasks/using-ingress/). TL;DR: you need to use the annotation `nginx.ingress.kubernetes.io/configuration-snippet` in your ingress definitions.
-
-<details><summary>Code</summary>
 
 ```bash
 # Inject linkerd in ingress controllers
@@ -127,12 +105,7 @@ remote "kubectl -n test patch ingress web -p '{\"metadata\": {\"annotations\": {
 remote "kubectl -n nginx rollout restart deploy/nginx-nginx-ingress-controller"
 ```
 
-</details>
-<br>
-
 ### Dedicated namespace
-
-<details><summary>Code</summary>
 
 ```bash
 # Redeploy app in a new namespace
@@ -143,7 +116,7 @@ identity_id=$(az identity show -g $node_rg -n $identity_name --query id -o tsv)
 identity_client_id=$(az identity show -g $node_rg -n $identity_name --query clientId -o tsv)
 tmp_file=/tmp/fullapp.yaml
 file=fullapp.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 sed -i "s|__ingress_class__|nginx|g" $tmp_file
 sed -i "s|__ingress_ip__|${azfw_ip}|g" $tmp_file
 sed -i "s|__akv_name__|${akv_name}|g" $tmp_file
@@ -164,9 +137,6 @@ echo "You can browse to https://${namespace}.${azfw_ip}.nip.io"
 # Test new app deployment
 remote "linkerd -n $namespace stat deploy"
 ```
-
-</details>
-<br>
 
 You should see something like this:
 
@@ -223,8 +193,6 @@ end id=2:4 proxy=in  src=10.13.76.95:51800 dst=10.13.76.100:8080 tls=true durati
 
 If participants have deployed their app in default, they might encounter some problems. Here follow some instructions for update an existing web/api deployement in the default namespace. First we need to convert our services in ClusterIP (this might not be required):
 
-<details><summary>Code</summary>
-
 ```bash
 # Change services to ClusterIP
 remote "kubectl delete svc/api"
@@ -263,12 +231,8 @@ remote "kubectl get deploy/api -o yaml | linkerd inject --enable-debug-sidecar -
 remote "kubectl rollout restart deploy/api"
 remote "kubectl rollout restart deploy/web"
 ```
-</details>
-<br>
 
 If you needed to uninject the containers you can do it with the linkerd CLI as well:
-
-<details><summary>Code</summary>
 
 ```bash
 # Uninject linkerd
@@ -277,9 +241,6 @@ remote "kubectl rollout restart deploy/api"
 remote "kubectl get deploy/web -o yaml | linkerd uninject - | kubectl apply -f -"
 remote "kubectl rollout restart deploy/web"
 ```
-
-</details>
-<br>
 
 **NOTE**: for HPA to keep working, you would need to use the `--proxy-cpu-request` and `--proxy-cpu-limit` flags, but we will ignore it for the moment. See the Monitoring challenge for more details.
 
@@ -296,8 +257,6 @@ remote "kubectl describe pod $web_pod_name"
 ```
 
 You can generate some traffic with a modified `test_load` bash function (see the Monitoring challenge):
-
-<details><summary>Code</summary>
 
 ```bash
 digits=10000
@@ -320,7 +279,5 @@ function test_load2 {
 }
 test_load2 300
 ```
-</details>
-<br>
 
 We can verify that Linkerd sees the traffic.

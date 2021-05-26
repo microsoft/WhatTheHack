@@ -1,4 +1,4 @@
-# Challenge 2. AKS Network Integration and Private Clusters - Coach's Guide
+# Challenge 2: AKS Network Integration and Private Clusters - Coach's Guide
 
 [< Previous Challenge](./01-containers.md) - **[Home](./README.md)** - [Next Challenge >](./03-aks_monitoring.md)
 
@@ -16,8 +16,6 @@
 ## Solution Guide
 
 This is a possible script for this challenge:
-
-<details><summary>Code</summary>
 
 ```bash
 # Get variables from previous labs and build images if required
@@ -165,13 +163,8 @@ az aks create -g $rg -n $aks_name -l $location \
     --no-wait
 ```
 
-</details>
-<br>
-
 You can query the FW logs and look for denied packets by the firewall, in case you have forgotten to add any URL:
 
-
-<details><summary>Code</summary>
 
 Application rules:
 
@@ -201,12 +194,7 @@ query_netrule='AzureDiagnostics
 az monitor log-analytics query -w $logws_customerid --analytics-query $query_netrule -o tsv
 ```
 
-</details>
-<br>
-
 You can install a VM in the same vnet and install kubectl to have access to the API.
-
-<details><summary>Code</summary>
 
 ```bash
 # Variables
@@ -265,12 +253,7 @@ remote "az aks get-credentials -n $aks_name -g $rg"
 remote "kubectl get node"
 ```
 
-</details>
-<br>
-
 Create now the Azure SQL database and the private link endpoint:
-
-<details><summary>Code</summary>
 
 ```bash
 # Variables
@@ -297,18 +280,13 @@ az network private-dns record-set a create --name $db_server_name --zone-name $p
 az network private-dns record-set a add-record --record-set-name $db_server_name --zone-name $private_zone_name -g $rg -a $endpoint_nic_ip
 ```
 
-</details>
-<br>
-
 After having the database, we can finally deploy our images.
-
-<details><summary>Code</summary>
 
 ```bash
 # API
 tmp_file=/tmp/api.yaml
 file=api.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 sed -i "s|__sql_username__|${sql_username}|g" $tmp_file
 sed -i "s|__sql_password__|${sql_password}|g" $tmp_file
 sed -i "s|__sql_server_name__|${db_server_name}|g" $tmp_file
@@ -329,7 +307,7 @@ remote "curl -s http://${api_svc_ip}:8080/api/healthcheck"
 # Web
 tmp_file=/tmp/web.yaml
 file=web.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
 scp $tmp_file $vm_pip_ip:$file
 remote "kubectl apply -f ./$file"
@@ -375,12 +353,7 @@ do
 done
 ```
 
-</details>
-<br>
-
 We need DNAT at the AzFW.
-
-<details><summary>Code</summary>
 
 ```bash
 # NAT rule
@@ -395,16 +368,13 @@ az network firewall nat-rule create -f azfw -g $rg -n nginx \
 # Ingress
 tmp_file=/tmp/ingress.yaml
 file=ingress.yaml
-cp ./yaml/$file $tmp_file
+cp ./Solutions/$file $tmp_file
 sed -i "s|__ingress_class__|nginx|g" $tmp_file
 sed -i "s|__ingress_ip__|${azfw_ip}|g" $tmp_file
 scp $tmp_file $vm_pip_ip:$file
 remote "kubectl apply -f ./$file"
 echo "You can browse to http://${azfw_ip}.nip.io"
 ```
-
-</details>
-<br>
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 

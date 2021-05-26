@@ -26,7 +26,7 @@ You need to fulfill these requirements to complete this challenge:
 - Configure the Azure SQL Database so that it is only reachable over a private IP address
 - Use an open source managed database, such as Azure SQL Database for MySQL or Azure Database for Postgres
 
-## Related Documentation
+## Learning Resources
 
 These docs might help you achieving these objectives:
 

@@ -262,7 +262,6 @@ def get_ip(d):
 
 app = Flask(__name__)
 
-
 # Get IP addresses of DNS servers
 def get_dns_ips():
     try:
@@ -414,7 +413,6 @@ def sqlsrcipinit():
         except Exception as e:
           return jsonify(str(e))
 
-
 @app.route("/api/sqlsrciplog", methods=['GET'])
 def sqlsrciplog():
     if request.method == 'GET':
@@ -464,7 +462,6 @@ def sqlsrciplog():
             return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
-
 
 # Flask route to return the number PI
 @app.route("/api/pi", methods=['GET'])

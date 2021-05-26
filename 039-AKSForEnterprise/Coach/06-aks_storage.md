@@ -1,4 +1,4 @@
-# Challenge 6. AKS Storage - Coach's Guide
+# Challenge 6: Persistent Storage in AKS - Coach's Guide
 
 [< Previous Challenge](./05-aks_security.md) - **[Home](./README.md)** - [Next Challenge >](./07-aks_mesh.md)
 
@@ -13,8 +13,6 @@
 ## Solution Guide
 
 Deploy SQL Server on AKS
-
-<details><summary>Code</summary>
 
 ```bash
 # SQL pwd in secret. AKV integration not required for this challenge
@@ -37,12 +35,8 @@ parameters:
   kind: Managed
 remote "kubectl get sc"
 ```
-</details>
-<br>
 
 We will deploy a StatefulSet with `replicas=1`. Configuring HA with AlwaysOn Availability Groups or any other SQL technology is not a goal of this challenge:
-
-<details><summary>Code</summary>
 
 ```bash
 # SQL Server as StatefulSet
@@ -125,8 +119,6 @@ EOF"
 remote "kubectl rollout restart deploy/api -n $namespace"
 remote "kubectl -n $namespace get pod"
 ```
-</details>
-<br>
 
 If everything goes as it should, you should see the version of the Linux-based SQL Server, instead of the Azure SQL.
 
@@ -138,8 +130,6 @@ curl "https://test.${azfw_ip}.nip.io/api/healthcheck"
 
 We can run performance tests in the SQL container to measure the performance of the disk:
 
-<details><summary>Code</summary>
-
 ```bash
 # Performance test example
 pod_name=mssql-statefulset-0
@@ -148,8 +138,6 @@ remote "kubectl -n sql exec -it $pod_name -- dd if=/dev/zero of=/var/opt/mssql/t
 #remote "kubectl -n sql exec -it $pod_name -- ls /var/opt/mssql"
 remote "kubectl -n sql exec -it $pod_name -- rm /var/opt/mssql/testfile"
 ```
-</details>
-<br>
 
 This is a example output of the `dd` command:
 
@@ -167,8 +155,6 @@ az disk list -g $node_rg -o table
 ```
 
 In case you want to redirect the app back to the Azure SQL server so that you can delete the SQL Server pods:
-
-<details><summary>Code</summary>
 
 ```bash
 # Redirect SQL API to the SQL Server service in AKS
@@ -193,14 +179,10 @@ EOF"
 remote "kubectl rollout restart deploy/api -n $namespace"
 remote "kubectl -n $namespace get pod"
 ```
-</details>
-<br>
 
 ### Optional: PV with Large File Shares
 
 You can create a storage account with an Azure Files Share, and then a container that mounts that share.
-
-<details><summary>Code</summary>
 
 ```bash
 # Create Storage Account with Large File Shares
@@ -276,12 +258,8 @@ spec:
   type: ClusterIP
 EOF"
 ```
-</details>
-<br>
 
 After verifying that the pod has ben created successfully, we can now run the same performance test in the new pod:
-
-<details><summary>Code</summary>
 
 ```bash
 # Verfiy pod is up
@@ -295,9 +273,6 @@ remote "kubectl -n sql exec -it $sql_pod_name -- ls /var/opt/mssql"
 remote "kubectl -n sql exec -it $sql_pod_name -- dd if=/dev/zero of=/var/opt/mssql/testfile bs=1G count=1 oflag=direct"
 remote "kubectl -n sql exec -it $sql_pod_name -- rm /var/opt/mssql/testfile"
 ```
-
-</details>
-<br>
 
 You should get a result like this:
 

@@ -1,4 +1,4 @@
-# Challenge 8. Arc enabled Kubernetes and Arc enabled data Services - Coach's Guide
+# Challenge 8: Arc-Enabled Kubernetes and Arc-Enabled Data Services - Coach's Guide
 
 [< Previous Challenge](./07-aks_mesh.md) - **[Home](./README.md)**
 
@@ -11,8 +11,6 @@
 ## Solution Guide
 
 Create an AKS engine cluster:
-
-<details><summary>Code</summary>
 
 ```bash
 # Variables
@@ -113,12 +111,8 @@ kubectl get node
 # The alias is a little dirty trick for lazy persons like me
 # alias ke="kubectl --kubeconfig ./_output/$domain/kubeconfig/kubeconfig.$location.json" 
 ```
-</details>
-<br>
 
 Now we have a kubernetes cluster and access to it, we can connect it to Arc
-
-<details><summary>Code</summary>
 
 ```shell
 # Now we can create the ARC resource
@@ -153,9 +147,6 @@ az k8sconfiguration update -n $cfg_name -c $arcname -g $arc_rg --cluster-type co
 az k8sconfiguration delete -n $cfg_name -c $arcname -g $arc_rg --cluster-type connectedClusters
 ```
 
-</details>
-<br>
-
 You will find sample apps in [this repo](https://github.com/erjosito/arc-k8s-test/), including a deployment with the web and api containers we have used in previous exercises ([this](https://github.com/erjosito/arc-k8s-test/blob/master/sqlapi/fullapp.yaml)). Note that in that repo there is a secret stored, and that is **very bad** practice. There are ways of using gitops with secrets, but those have been left out of scope for this challenge for simplicity reasons. If you would like including this aspect, you can look at two options:
 
 * Using integration with a secret store such as Azure Key Vault: configure AKV integration in your cluster and store the secret there instead of in the git repo
@@ -164,8 +155,6 @@ You will find sample apps in [this repo](https://github.com/erjosito/arc-k8s-tes
 If you are using a PaaS database to test, do not forget to add the IP address of your cluster.
 
 In the second part of this challenge, we will deploy a database into our cluster using Azure Arc for Data. The first thing participants should do is installing the `azdata` tool. Details can be found in [Install Azdata](https://docs.microsoft.com/sql/azdata/install/deploy-install-azdata). For example, for Ubuntu 20.04 this are the instructions:
-
-<details><summary>Code</summary>
 
 ```shell
 # Install azdata
@@ -176,12 +165,7 @@ dpkg -i azdata-cli_20.1.1-1~focal_all.deb
 apt-get -f install
 ```
 
-</details>
-<br>
-
 Now the Data Controller can be installed in the cluster (see [here](https://docs.microsoft.com/azure/azure-arc/data/create-data-controller-using-azdata) for more information):
-
-<details><summary>Code</summary>
 
 ```shell
 # Create ARC data controller in the cluster
@@ -201,12 +185,7 @@ azdata arc dc create --profile-name azure-arc-aks-premium-storage \
 azdata login --namespace arcdc
 ```
 
-</details>
-<br>
-
 There are some things you can look at now:
-
-<details><summary>Code</summary>
 
 ```shell
 # Verifying DC deployment
@@ -221,12 +200,7 @@ kubectl get sc
 kubectl get crd
 ```
 
-</details>
-<br>
-
 Now we can create a database. You can either use azdata, or yaml posted to your gitops repo. Here the azdata way:
-
-<details><summary>Code</summary>
 
 ```shell
 # Deploy Azure Database for Postgres (will take around 30-40 minutes)
@@ -247,9 +221,6 @@ kubectl -n arcdc get svc
 # azdata arc postgres server delete -n $arc_db_name
 ```
 
-</details>
-<br>
-
 Some gotchas:
 
 * If you are getting connection timeout errors when creating the database, you might want to login again (`azdata login --namespace arcdc`).
@@ -257,8 +228,6 @@ Some gotchas:
 
 You might want to change `SQL_SERVER_FQDN` variable in the API container to the Kubernetes service where the database is listening (`mypgdb-svc.arcdc` in the previous example), and the `SQL_ENGINE` variable to `postgres`. You can use the `sql` endpoint of the SQL API to test reachability to the database:
 
-
-<details><summary>Code</summary>
 
 ```shell
 # Get public IP of SQL API service
@@ -271,9 +240,6 @@ curl -s "http://$api_svc_ip:8080/api/dns?fqdn=$arc_db_name-svc.arcdc"
 # For example, for a SQL MI database overriding all parameters but the password
 curl http://$api_svc_ip:8080/api/sql\?SQL_SERVER_FQDN\=$arc_db_name-svc.arcdc\&SQL_ENGINE\=sqlserver\&SQL_SERVER_USERNAME\=sa
 ```
-
-</details>
-<br>
 
 If the environment variables are properly set in the API and Web containers, you should be able to access all the way through the database (notice the database version is SQL Server on Linux):
 
