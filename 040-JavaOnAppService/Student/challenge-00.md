@@ -20,6 +20,6 @@ Examine the code base which is a slightly modified version of the quintessential
 
 ## Learning Resources
 
-- [Spring Petclinic on Github](https://github.com/spring-projects/spring-petclinic)
+- [Spring Petclinic](./Resources/spring-petclinic/README.md)
 
 [Next Challenge - Head in the cloud, feet on the ground >](./challenge-01.md)
