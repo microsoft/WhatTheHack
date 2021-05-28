@@ -4,10 +4,10 @@
 
 ## Notes & Guidance
 
-- First the autoscale rules need to be created, you can do that manually from the portal or use the included [autoscale.bicep](./assets/autoscale.bicep) file.
+- First the autoscale rules need to be created, you can do that manually from the portal or use the included [autoscale.bicep](./Solutions/autoscale.bicep) file.
 
     ```shell
-    az deployment group create -g $RG -f assets/autoscale.bicep
+    az deployment group create -g $RG -f Solutions/autoscale.bicep
     ```
 
 - Now that's in place, you could either install and use JMeter with the JMX file from the repository, or explore the ACI option with `wrk`.

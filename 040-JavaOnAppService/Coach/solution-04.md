@@ -4,10 +4,10 @@
 
 ## Notes & Guidance
 
-- First, create an Application Insights instance, there's again many different ways to achieve that, but you can use the included [appinsights.bicep](./assets/appinsights.bicep) file for that.
+- First, create an Application Insights instance, there's again many different ways to achieve that, but you can use the included [appinsights.bicep](./Solutions/appinsights.bicep) file for that.
 
     ```shell
-    APPI_CONN_STR=`az deployment group create -g $RG -f assets/appinsights.bicep --query properties.outputs.appInsights.value -o tsv`
+    APPI_CONN_STR=`az deployment group create -g $RG -f Solutions/appinsights.bicep --query properties.outputs.appInsights.value -o tsv`
     ```
 
 - This template puts the Application Insights connection string into the Key Vault and displays the reference to be used by the web app. If you don't use the template, you'll have to do that yourself.
@@ -18,7 +18,7 @@
     wget https://github.com/microsoft/ApplicationInsights-Java/releases/download/$APPI_VERSION/applicationinsights-agent-$APPI_VERSION.jar
     ```
 
-- Now zip it together with app.jar and deploy that combination (from the `code/spring-petclinic` directory)
+- Now zip it together with app.jar and deploy that combination (from the `spring-petclinic` directory)
 
     ```shell
     zip -j deployment.zip applicationinsights-agent-$APPI_VERSION.jar target/app.jar

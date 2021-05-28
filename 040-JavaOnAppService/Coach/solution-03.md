@@ -4,10 +4,10 @@
 
 ## Notes & Guidance
 
-- There's a number of different methods to deploy a Key Vault instance, you can use the included [keyvault.bicep](./assets/keyvault.bicep) file for that. The bicep file creates the Key Vault, adds the passed database parameters as secrets, allows the web app to connect through its managed identity and also updates the app settings to use the Key Vault secrets.
+- There's a number of different methods to deploy a Key Vault instance, you can use the included [keyvault.bicep](./Solutions/keyvault.bicep) file for that. The bicep file creates the Key Vault, adds the passed database parameters as secrets, allows the web app to connect through its managed identity and also updates the app settings to use the Key Vault secrets.
 
     ```shell
-    KEYVAULT=`az deployment group create -g $RG -f assets/keyvault.bicep -p \
+    KEYVAULT=`az deployment group create -g $RG -f Solutions/keyvault.bicep -p \
         mysqlUser="$MYSQL_USER" \
         mysqlPassword="$MYSQL_PASS" \
         mysqlUrl="$MYSQL_URL" \
