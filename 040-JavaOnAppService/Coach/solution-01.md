@@ -1,6 +1,6 @@
 # Challenge 1: Head in the cloud, feet on the ground
 
-[< Previous Challenge](./solution-00.md) - **[Home](../README.md)** - [Next Challenge >](./solution-02.md)
+[< Previous Challenge](./solution-00.md) - **[Home](./README.md)** - [Next Challenge >](./solution-02.md)
 
 ## Notes & Guidance
 

@@ -1,4 +1,4 @@
-# Challenge 3 - Keep your secrets safe
+# Challenge 3: Keep your secrets safe
 
 [< Previous Challenge](./challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-04.md)
 
