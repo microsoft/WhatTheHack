@@ -5,11 +5,17 @@
 If availability zones are enabled, the disk will need to live in the same zone as the node that the pod is running on to attach.
 
 ```bash
+NRG=$(az aks show -n $AKS_NAME -g $RG -o json | jq '.nodeResourceGroup' -r)
+echo $NRG
+
 # if availability zones are NOT enabled
-az disk create -g MC_<resource group>_<cluster name>_<region> -n managed-disk-1 --size-gb 5
+az disk create -g $NRG -n managed-disk-1 --size-gb 5
 
 # if availability zones are enabled
-az disk create -g MC_<resource group>_<cluster name>_<region> -n managed-disk-1 --size-gb 5 --zone 1
+az disk create -g $NRG -n managed-disk-1 --size-gb 5 --zone 1
+
+# Get the Resource ID
+az disk show -n managed-disk-1 -g $NRG -o json | jq '.id' -r
 ```
 
 ### Use the disk in the deployment yaml
@@ -30,6 +36,8 @@ static-disk-app-5dbd479c7f-74kfj   2/2     Running   0          20m
 $ kubectl get svc
 NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
 static-disk-app    LoadBalancer   10.0.6.84     40.88.193.218   80:31591/TCP   20m
+
+$ export PUBLIC_IP=$(kubectl get svc -o json | jq  '.items[0].status.loadBalancer.ingress[0].ip' -r)
 ```
 
 ### Stream contents of persisted file
@@ -37,6 +45,7 @@ static-disk-app    LoadBalancer   10.0.6.84     40.88.193.218   80:31591/TCP   2
 You should see something like the below:
 
 ```
+$ watch -n 1 'curl -s $PUBLIC_IP | tail | head -20'
 2021-03-24:22:55:17 - static-disk-app-5dbd479c7f-74kfj
 2021-03-24:23:06:12 - static-disk-app-5dbd479c7f-74kfj
 2021-03-24:23:06:13 - static-disk-app-5dbd479c7f-74kfj
@@ -52,7 +61,7 @@ You should see something like the below:
 
 ### Check persistence
 
-Verify that the timestamps are continued. If it is unclear from the stream, run `curl <PUBLIC IP>` to check.
+Verify that the timestamps are continued. If it is unclear from the stream, run `curl $PUBLIC_IP` to check.
 
 ### Scaling
 
