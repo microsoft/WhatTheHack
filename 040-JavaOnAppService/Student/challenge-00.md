@@ -8,7 +8,8 @@ The objective of this WTH is to take a typical Spring Boot application and host 
 
 ## Description
 
-Examine the `spring-petclinic` project which is a slightly modified version of the quintessential Spring Boot petclinic application. Run things locally, browse the application.
+Unpack the `spring-petclinic.zip` that's provided to you by your coach into a folder on your machine.
+Examine the code base which is a slightly modified version of the quintessential Spring Boot petclinic application. Run things locally, browse the application.
 
 ## Success Criteria
 
