@@ -1,6 +1,6 @@
-# Challenge 4:  Do you know what’s going on in your application?
+# Challenge 4: Do you know what’s going on in your application?
 
-[< Previous Challenge](./solution-03.md) - **[Home](../README.md)** - [Next Challenge >](./solution-05.md)
+[< Previous Challenge](./solution-03.md) - **[Home](./README.md)** - [Next Challenge >](./solution-05.md)
 
 ## Notes & Guidance
 

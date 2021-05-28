@@ -1,6 +1,6 @@
 # Challenge 6: It's all about the scale
 
-[< Previous Challenge](./solution-05.md) - **[Home](../README.md)**
+[< Previous Challenge](./solution-05.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 

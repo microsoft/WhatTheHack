@@ -1,4 +1,4 @@
-# Challenge 5 - Operational dashboards
+# Challenge 5: Operational dashboards
 
 [< Previous Challenge](./challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-06.md)
 

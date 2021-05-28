@@ -1,4 +1,4 @@
-# Challenge 0 - Getting your feet wet
+# Challenge 0: Getting your feet wet
 
 **[Home](../README.md)** - [Next Challenge >](./challenge-01.md)
 

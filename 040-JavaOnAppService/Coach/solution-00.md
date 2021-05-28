@@ -1,6 +1,6 @@
 # Challenge 0: Getting your feet wet
 
-**[Home](../README.md)** - [Next Challenge >](./solution-01.md)
+**[Home](./README.md)** - [Next Challenge >](./solution-01.md)
 
 ## Notes & Guidance
 

@@ -1,4 +1,4 @@
-# Challenge 1 - Head in the cloud, feet on the ground
+# Challenge 1: Head in the cloud, feet on the ground
 
 [< Previous Challenge](./challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./challenge-02.md)
 
@@ -17,10 +17,6 @@ Create an Azure Database for MySQL and make sure that the application (which is 
 1. Verify that the tables include the newly created entities (owner/pet/visit)
 1. No files should be modified for this challenge
 
-## Learning Resources
-
-- [Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/)
-
 ## Tips
 
 In order to find resources in Azure (existing or to be created) you can use the _Search bar_ in the portal, look for the text bar at the top which you can activate by pressing the keys `G` and `/` at the same time.
@@ -28,5 +24,11 @@ In order to find resources in Azure (existing or to be created) you can use the 
 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) includes a bunch of various tools, including a `mysql` client.
 
 And note that you can also pass configuration information to Spring Boot through [environment variables](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config).
+
+## Learning Resources
+
+- [Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/)
+- [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+- [Spring Boot and environment variables](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config)
 
 [Next Challenge - Azure App Services :heart: Spring Boot >](./challenge-02.md)
