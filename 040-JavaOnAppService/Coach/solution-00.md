@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- If the pre-requisites are in place all you need to do is to run the following command from the `code/spring-petclinic` directory
+- If the pre-requisites are in place all you need to do is to run the following command from the `spring-petclinic` directory
 
     ```shell
     mvnw spring-boot:run

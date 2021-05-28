@@ -4,14 +4,14 @@
 
 ## Notes & Guidance
 
-The bicep file [allinone.bicep](./assets/allinone.bicep) contains all the required resources. You can run it with the following command (requires a recent az cli client).
+The bicep file [allinone.bicep](./Solutions/allinone.bicep) contains all the required resources. You can run it with the following command (requires a recent az cli client).
 
 ```shell
 CLIENT_IP=`curl -s https://ifconfig.me`
-WEBAPP=`az deployment group create -g $RG -f assets/allinone.bicep -p clientIp=$CLIENT_IP --query properties.outputs.webAppName -o tsv`
+WEBAPP=`az deployment group create -g $RG -f Solutions/allinone.bicep -p clientIp=$CLIENT_IP --query properties.outputs.webAppName -o tsv`
 ```
 
-Once the resources are created, you first need to build the app.jar file. Change directory to `Students/code/spring-petclinic` and run the following command.
+Once the resources are created, you first need to build the app.jar file. Change directory to `Students/Resources/spring-petclinic` and run the following command.
 
 ```shell
 mvnw package

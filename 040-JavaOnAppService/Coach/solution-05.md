@@ -4,10 +4,10 @@
 
 ## Notes & Guidance
 
-- It's possible to create a dashboard manually by building and pinning the correct charts, but the included [dashboard.bicep](./assets/dashboard.bicep) file does that automatically.
+- It's possible to create a dashboard manually by building and pinning the correct charts, but the included [dashboard.bicep](./Solutions/dashboard.bicep) file does that automatically.
 
     ```shell
-    az deployment group create -g $RG -f assets/dashboard.bicep
+    az deployment group create -g $RG -f Solutions/dashboard.bicep
     ```
 
 - Any layout is just fine, as long as the correct charts are there.

@@ -4,11 +4,11 @@
 
 ## Notes & Guidance
 
-- There's a number of different methods to deploy a MySQL database, you can use the included [mysql.bicep](./assets/mysql.bicep) file for that. The only required parameter is the `clientIp`, which you can retrieve and provide as shown below, a more or less random (but deterministic) password is created if none is passed (and captured as an env variable)
+- There's a number of different methods to deploy a MySQL database, you can use the included [mysql.bicep](./Solutions/mysql.bicep) file for that. The only required parameter is the `clientIp`, which you can retrieve and provide as shown below, a more or less random (but deterministic) password is created if none is passed (and captured as an env variable)
 
     ```shell
     CLIENT_IP=`curl -s https://ifconfig.me`
-    MYSQL=`az deployment group create -g $RG -f assets/mysql.bicep -p clientIp=$CLIENT_IP --query properties.outputs`
+    MYSQL=`az deployment group create -g $RG -f Solutions/mysql.bicep -p clientIp=$CLIENT_IP --query properties.outputs`
     MYSQL_URL=`echo "$MYSQL" | jq -r .jdbcUrl.value`
     MYSQL_USER=`echo "$MYSQL" | jq -r .userName.value`
     MYSQL_PASS=`echo "$MYSQL" | jq -r .password.value`
