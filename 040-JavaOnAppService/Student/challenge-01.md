@@ -31,4 +31,4 @@ And note that you can also pass configuration information to Spring Boot through
 - [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 - [Spring Boot and environment variables](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config)
 
-[Next Challenge - Azure App Services :heart: Spring Boot >](./challenge-02.md)
+[Next Challenge - Azure App Services &#10084;&#65039; Spring Boot >](./challenge-02.md)
