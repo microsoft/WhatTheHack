@@ -16,7 +16,7 @@ The purpose of this challenge is threefold:
 
 ### Explore new features
 
-To begin, download and open the [Intelligent Query Processing notebook](./Resources/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb?raw=true) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatibility mode 130 vs 150.
+To begin, download and open the [Intelligent Query Processing notebook](./Resources/SQLWTH_Challenge3_IntelligentQueryProcessing.ipynb?raw=true) (either "Save link as..." or save the JSON text as a file) using Azure Data Studio or another tool of your choice that can work with a standard Jupyter Notebook. The Notebook will walk you through the test, comparing performance of an analytical query using compatibility mode 130 vs 150.
 
 Follow the steps to create a Log Analytics workspace, a monitoring user, and an Azure Virtual Machine to [enable Azure Monitor SQL Insights ](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-enable) on your subscription, and start monitoring your databases.
 
