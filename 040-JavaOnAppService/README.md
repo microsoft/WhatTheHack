@@ -18,7 +18,7 @@ You'll get introduced to App Service for hosting applications, you'll learn abou
   - Get yourself ready to deploy a Spring Boot application on Azure
 - Challenge 1: **[Head in the cloud, feet on the ground](Student/challenge-01.md)**
   - Deploy a Azure Database for MySQL and configure the app to connect to it
-- Challenge 2: **[Azure App Services :heart: Spring Boot](Student/challenge-02.md)**
+- Challenge 2: **[Azure App Services &#10084;&#65039; Spring Boot](Student/challenge-02.md)**
   - Deploy the application on a new Azure App Service instance
 - Challenge 3: **[Keep your secrets safe](Student/challenge-03.md)**
   - Store credentials and other sensitive data in a Key Vault
