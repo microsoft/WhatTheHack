@@ -34,7 +34,7 @@ Wide World Importers has provided the following requirements and guidelines:
 ## Success Criteria
 
 * Successfully migrate AdventureWorks meeting the above criteria; if any objects cannot be fully migrated, be sure to note which objects and suggestions for remediation.
-* Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load); this assessment should provide enough information to make informed choices on deployment.
+* Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load).
 * Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration.
 
 ## Tips

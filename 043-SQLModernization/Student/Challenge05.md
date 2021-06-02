@@ -4,30 +4,30 @@
 
 ## Introduction
 
-Your company has databases running on Azure SQL database and Azure SQL Managed instance. AdventureWorks and Wide World Importers (OLTP). The Recovery Time Objective (RTO) for these two databases are 5 minutes. The Recovery Pont Objective (RPO) is 5 minutes. Your fledgling company disaster recovery site is on different region with the primary Azure region. 
+One of the big benefits of running in the cloud is the ability to deploy resources to many locations based on business need. With your company having performed several migrations, it's time to look at implementing some high availability and disaster recovery.
 
 ## Description
 
+AdventureWorks and WWI (OLTP) would like to implement a BCDR plan so the company can meet an RPO/RTO of 5 minutes (RPO is the Recovery Point Objective and RTO is the Recovery Time Objective).
+
 When disaster happens on the primary region, business requires the databases automatically failover to the disaster recovery region. Your company needs to use the readable secondary databases to offload read-only query workloads. After failover, your application can continue connect to the database by using the same connection string.
+
+AdventureWorks has asked about the possibility of recovering data accidentally deleted. If time permits, your team can investigate how Temporal Tables can be configured to help recover lost data.
 
 ## Success Criteria
 
-* Meet Your company RTO and RPO. You can connect to the secondary database after it fails over to Disaster recovery site by using the same users or logins. 
+* Meet your company's RPO/RTO goals on either AdventureWorks or WWI. 
 
 ## Tips
+
 * [Best practices for SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#best-practices-for-sql-managed-instance)
 * [Best practices for SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#best-practices-for-sql-database)
+* [Temporal tables](https://docs.microsoft.com/en-us/azure/azure-sql/temporal-tables)
+* [Recover using automated database backups - Azure SQL Database & SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#deleted-database-restore)
 
 ## Advanced Challenges (Optional)
 
-User accidentally deleted 50 rows in a table, you need recovery the rows. If this table is a Temporal table (system-versioned temporal table), how do you recovery the records quickly? 
-
-## Success Criteria
-* Recovery the 50 rows to this table. 
-
-## Tips
-* [Temporal tables](https://docs.microsoft.com/en-us/azure/azure-sql/temporal-tables)
-* [Recover using automated database backups - Azure SQL Database & SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups#deleted-database-restore)
+* Develop a POC demonstrating how Temporal Tables can recover data when a user accidentaly deletes rows.
 
 ## Learning Resources
 

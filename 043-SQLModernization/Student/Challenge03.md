@@ -37,15 +37,15 @@ ORDER BY ConfirmedDeliveryTime DESC
 
 ## Success Criteria
 
-* Explore new features: Evaluate the difference in performance using the Notebook referenced above, comparing the execution plan differences by using Query Store. What specifically accounts for the difference? Show the execution plans to your coach and explain why they are different.
-* Understand key blockers: Evaluate the execution plan using the query above. Where is the time spent in the query and why? How can it be improved? Once evaluated, explain the problem and show the data that illustrates the improvements.
-* Create a performance baseline: Investigate how the over 200 KPIs exposed by [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) to monitor health, diagnose problems, and tune performance can give you a deeper understanding of your databases usage patterns.
+* Evaluate the performance difference using the Notebook in the [Explore New Features](#explore-new-features) section.
+* Improve the performance of the query in the [Understand Key Blockers](#understand-key-blockers) section.
+* Configure SQL insights to create a performance baseline.
 
 ## Tips
 
 * If you are able to evaluate and see what how the plans are different but not sure why, read up on [Intelligent Query Processing](https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15); cross reference your observations with the details in the document.
 * Use the [Azure SQL Database tips script](https://github.com/microsoft/azure-sql-tips/wiki/Azure-SQL-Database-tips) to check for best practices.
-* Want more hands-on material? Check out the [Microsoft Ground-to-Cloud](https://github.com/microsoft/sqlworkshops-sqlg2c/blob/master/README.md) series.
+* Look at [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) for information on how to monitor health, diagnose problems, and tune performance.
 
 ## Advanced Challenges (Optional)
 
@@ -57,3 +57,4 @@ ORDER BY ConfirmedDeliveryTime DESC
 * [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
 * [SQL Server Compatibility Levels](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15)
 * [Administering Relational Databases Exam](https://docs.microsoft.com/en-us/learn/certifications/exams/dp-300)
+* [Microsoft Ground-to-Cloud](https://github.com/microsoft/sqlworkshops-sqlg2c/blob/master/README.md) series.

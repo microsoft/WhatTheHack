@@ -10,9 +10,9 @@ The purpose of this challenge is to introduce features of SQL Server that may he
 
 ## Description
 
-AdventureWorks would like to encrypt their database using transparent data encryption (TDE). TDE encrypts the data at rest which assists in mitigating offline malicious activity, preventing a backup from being restored, transaction logs being copied, etc. TDE is transparent to the application.
+AdventureWorks would like to encrypt their database using transparent data encryption (TDE). TDE encrypts the data at rest which assists in mitigating offline malicious activity, preventing a backup from being restored, transaction logs being copied, etc. TDE is transparent to the application. TDE should be configured with a custom 2048-bit key stored in Azure Key Vault, with a 1 year expiration date.
 
-AdventureWorks would also like to have a vulnerability assessment done on the database, both immediately and on an on-going basis with the results sent as emails  and have Advanced Threat Protection enabled to notify in the event of security events like SQL injection or data exfiltration.
+AdventureWorks would also like to have a vulnerability assessment done on the database, both immediately and on an on-going basis with the results sent as emails; Advanced Threat Protection should be enabled to notify in the event of security events like SQL injection or data exfiltration.
 
 An important step in monitoring and securing a database is classifying and labelling the database. Just like taking inventory of goods, this step servers as the baseline for auditing and additional security steps. Using the Data Discovery and Classification tools, classify the database with appropriate types and sensitivities. At a minimum, any personal information should be classified as Personal or Contact Info, any login or password related columns as Credentials, and so on.
 
@@ -22,18 +22,18 @@ As an early implementation to improve security, the team would like to implement
 
 ## Success Criteria
 
-* Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault with an expiration date of 1 year.
-* Enable vulnerability assessment scanning on the database, notifying the team (or a member of the team) when assessments are done. Perform the first assessment on-demand and review the findings.
-* Using Data Discovery and Classification, label all sensitive fields with the appropriate types and sensitivities; at a minimum, label all personal contact/PII fields, financial, and authentication related fields.
-* Configuring Auditing to write audit logs to both a storage account and to Log Analytics. Verify logs are writing to the storage account by executing a query on a table with sensitive information.
-* Configure Advanced Threat Protection to capture all event types and send an email in the event of a security alert. Test this by authoring an example script (such as a SQL injection attempt and verify your team receives an email notification).
-* Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. Demonstrate the functionality works as intended using a test script. What permissions determine whether a user sees masked vs unmasked data? In what ways 
+* Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault.
+* Enable vulnerability assessment scanning on the database.
+* Using Data Discovery and Classification, label all sensitive fields with the appropriate types and sensitivities.
+* Configuring Auditing to write audit logs to both a storage account and to Log Analytics.
+* Configure Advanced Threat Protection to capture all event types and send an email in the event of a security alert.
+* Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. 
 
 ## Advanced Challenges (Optional)
 
 * For the Data Discovery and Classification task, perform the steps using PowerShell cmdlets or the Rest API.
 * Create a Power BI dashboard to display audit log information.
-* (AdventureWorks database Only -- not LT) WWI is excited about using Dynamic Data Masking, but your team needs to demonstrate why it is considered "defense in depth," best used with other best practices. Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
+* (AdventureWorks database Only -- not LT) Add a Dynamic Data Mask to the HumanResources.EmployeePayHistory Rate column, and then write a query using a MASKED user that illustrates a potential leakage to a user using ad-hoc queries.
 
 ## Learning Resources
 * [Azure SQL Fundamentals](https://aka.ms/azuresqlfundamentals)
