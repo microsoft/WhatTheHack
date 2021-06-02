@@ -10,20 +10,20 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Challenges
 
-0. Challenge 0: [Setup](./Student/Challenge00.md)
-1. Challenge 1: [Migration](./Student/Challenge01.md)
-2. Challenge 2: [Advanced Migration at Scale](./Student/Challenge02.md)
-3. Challenge 3: [Performance & Tuning](./Student/Challenge03.md)
-4. Challenge 4: [Security & Auditing](./Student/Challenge04.md)
-5. Challenge 5: [High Availability & Disaster Recovery](./Student/Challenge05.md)
-6. Challenge 6: [Data Governance](./Student/Challenge06.md)
+* Challenge 0: [Setup](./Student/Challenge00.md)
+* Challenge 1: [Migration](./Student/Challenge01.md)
+* Challenge 2: [Advanced Migration at Scale](./Student/Challenge02.md)
+* Challenge 3: [Performance & Tuning](./Student/Challenge03.md)
+* Challenge 4: [Security & Auditing](./Student/Challenge04.md)
+* Challenge 5: [High Availability & Disaster Recovery](./Student/Challenge05.md)
+* Challenge 6: [Data Governance](./Student/Challenge06.md)
 
 ## Technologies
 
-1. Azure SQL Database / Managed Instance
-1. Azure Database Migration service
-1. Azure Data Studio
-1. Azure Purview
+* Azure SQL Database / Managed Instance
+* Azure Database Migration service
+* Azure Data Studio
+* Azure Purview
 
 ## Prerequisites
 
@@ -32,13 +32,11 @@ In this hack, database administrators, developers who work extensively with SQL 
 
 ## Repository Contents
 
-- `../Coach/Solutions`
+- `../Coach/`
   - Coach's Guide for challenges
   - Solution files for challenges
 - `../Student`
   - Student's Challenge Guide
-- `../images`
-  - Generic image files
 
 ## Related Hacks
 
