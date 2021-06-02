@@ -14,7 +14,7 @@ There's a number of Azure resources that need to be created during this hack. Yo
   - Get yourself ready to deploy a Spring Boot application on Azure
 - Challenge 1: **[Head in the cloud, feet on the ground](solution-01.md)**
   - Deploy a Azure Database for MySQL and configure the app to connect to it
-- Challenge 2: **[Azure App Services :heart: Spring Boot](solution-02.md)**
+- Challenge 2: **[Azure App Services &#10084;&#65039; Spring Boot](solution-02.md)**
   - Deploy the application on a new Azure App Service instance
 - Challenge 3: **[Keep your secrets safe](solution-03.md)**
   - Store credentials and other sensitive data in a Key Vault
