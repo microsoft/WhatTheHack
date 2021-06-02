@@ -2,9 +2,9 @@
 
 [< Previous Challenge](./Challenge00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge02.md)
 
-## Notes & Guidance 
+## Introduction
 
-Your fledgling company has two migration tasks at hand. In both cases, your clients would like to migrate their SQL Server instances into Azure.  Each solution has different requirements.  
+Your fledgling company has two migration tasks at hand. In both cases, your clients would like to migrate their SQL Server instances into Azure. Each solution has different requirements. 
 
 ## Description
 

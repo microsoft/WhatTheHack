@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge03.md)
 
-## Notes & Guidance
+## Introduction
 
 Your team is wondering what options are available to leverage automation for the migration of SQL Server infrastructure to the cloud. In doing so they would be able to accelerate the migration at scale and take advantage of intelligence learnings from the field. 
 

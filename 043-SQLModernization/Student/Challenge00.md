@@ -6,17 +6,15 @@
 
 An Azure subscription is required that can deploy Azure SQL resources (Azure SQL Database and Azure SQL Managed Instance), Virtual Machines.
 
-## Notes & Guidance
+## Introduction
 
-Nearly all challenges require resources in an Azure subscription to complete. A single subscription can be shared to the team, or team members can work in their own individual subscriptions.
+The objective of the setup is to ensure you have access to a subscription where resources may be deployed. You also need an environment to host the tools required and to host the databases -- for the purposes of this hack, we'll refer to this as the customer's on-premises environment, even if it is located the cloud.
+
+## Description
 
 The scenarios presented simulate on-premises environments; teams have flexibility to choose how to configure these environments based on preferences and environmental considerations.  For example, a team with limited bandwidth or networking constraints (such as difficulty in forwarding ports to connect to SQL Server from the cloud) may choose to set up the simulated "on-premises" environments in an Azure VM with SQL Server.  Another team may install the databases on a local machine or configure them in docker.  Choose what works best for the team and hints will be provided along the way.
 
 In this hack, some prerequisites will be challenge-specific: for example, a challenge might say, "This challenge requires the AdventureWorks database..." along with any necessary configuration.  As such, this setup is designed to provide general requirements while each challenge will list specific needs for that challenge only, as not all databases and tools are required for all challenges.
-
-## Description
-
-The objective of the setup is to ensure you have access to a subscription where resources may be deployed.  You also need an environment to host the tools required and to host the databases -- for the purposes of this hack, we'll refer to this as the customer's on-premises environment, even if it is located the cloud.
 
 ## Success Criteria
 

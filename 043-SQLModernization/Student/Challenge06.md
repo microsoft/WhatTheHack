@@ -2,9 +2,11 @@
 
 [< Previous Challenge](./Challenge05.md) - **[Home](../README.md)**
 
-## Notes & Guidance 
+## Introduction
 
 After successfully implementing some security best practices in Challenge 4, your team is wondering what options are available to automatically catalog and classify the data estate. In doing so, you will help empower information consumers to find data assets that matter to them and help lay the foundations for effective data governance. 
+
+## Description
 
 The objective of this challenge is to populate a data catalog with the assets that existing within your Azure data estate. Your company has been provided the following requirements and guidelines:
 
