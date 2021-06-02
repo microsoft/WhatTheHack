@@ -12,13 +12,15 @@ The objective of the setup is to ensure you have access to a subscription where 
 
 ## Description
 
-The scenarios presented simulate on-premises environments; teams have flexibility to choose how to configure these environments based on preferences and environmental considerations.  For example, a team with limited bandwidth or networking constraints (such as difficulty in forwarding ports to connect to SQL Server from the cloud) may choose to set up the simulated "on-premises" environments in an Azure VM with SQL Server.  Another team may install the databases on a local machine or configure them in docker.  Choose what works best for the team and hints will be provided along the way.
+The scenarios presented simulate on-premises environments; teams have flexibility to choose how to configure these environments based on preferences and environmental considerations.  For example, a team with limited bandwidth or networking constraints (such as difficulty in forwarding ports to connect to SQL Server from the cloud) may choose to set up the simulated "on-premises" environments in an Azure VM with SQL Server. Another team may install the databases on a local machine or configure them in docker. Choose what works best for the team and hints will be provided along the way.
 
-In this hack, some prerequisites will be challenge-specific: for example, a challenge might say, "This challenge requires the AdventureWorks database..." along with any necessary configuration.  As such, this setup is designed to provide general requirements while each challenge will list specific needs for that challenge only, as not all databases and tools are required for all challenges.
+In this hack, some prerequisites will be challenge-specific: for example, a challenge might say, "This challenge requires the AdventureWorks database..." along with any necessary configuration. As such, this setup is designed to provide general requirements while each challenge will list specific needs for that challenge only, as not all databases and tools are required for all challenges.
+
+Every company needs a name! You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions. Then, decide on a hosting environment for your on-premises simulation.
 
 ## Success Criteria
 
-* Pick a cool team name!  You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions.
+* Pick a cool team name!  
 * Decide on the on-premises environment and have the following databases loaded; note, this can be in a VM in Azure running SQL Server, on a local SQL instance, in containers/Docker, etc.:
     - AdventureWorks2017 *or* AdventureWorksLT2017
         - AdventureWorksLT2017 is a bit easier and faster, better for teams with no prior experience and extremely limited bandwidth.
