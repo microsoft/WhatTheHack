@@ -2,13 +2,14 @@
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge04.md)
 
-## Notes & Guidance
+## Introduction
 
 Although SQL Server is easier than ever to deploy with Azure SQL Database, containers, and VMs, knowing how to properly use the monitoring and evaluation tools, like Query Store, can make a difference between an application that simply "performs ok" to one that "flies."  While SQL Server has evolved with features over the years, it's a good idea to understand how these changes might impact an application.
 
 ## Description
 
 The purpose of this challenge is threefold:
+
 * Explore new features of SQL Server that may improve performance intrinsically.
 * Ensure would-be data engineers and DBAs are comfortable monitoring, evaluating performance. 
 * Leverage newer tools like Azure Data Studio Notebooks and [Azure Monitor SQL Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview).
