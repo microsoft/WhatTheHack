@@ -16,17 +16,19 @@ The scenarios presented simulate on-premises environments; teams have flexibilit
 
 In this hack, some prerequisites will be challenge-specific: for example, a challenge might say, "This challenge requires the AdventureWorks database..." along with any necessary configuration. As such, this setup is designed to provide general requirements while each challenge will list specific needs for that challenge only, as not all databases and tools are required for all challenges.
 
-Every company needs a name! You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions. Then, decide on a hosting environment for your on-premises simulation.
+Every company needs a name! You and your team are part of a new SI start-up that is developing a practice on migrating and modernizing data solutions. Then, decide on a hosting environment for your on-premises simulation: you have a lot of flexibility here! Your team may choose to deploy everything into Azure to mimic an on-premises environment, or you may choose to host on a desktop, Docker container, etc.! 
+
+The databases required include:
+* AdventureWorks2017 *or* AdventureWorksLT2017
+    * AdventureWorksLT2017 is a bit easier and faster, better for teams with no prior experience or extremely limited bandwidth.
+    * AdventureWorks2017 is the preferred database as it presents a few challenges but may require a bit of experience and higher bandwidth to migrate, if migrating for a local machine.
+* WideWorldImporters (OLTP)
+* WideWorldImporters (DW)
 
 ## Success Criteria
 
 * Pick a cool team name!  
-* Decide on the on-premises environment and have the following databases loaded; note, this can be in a VM in Azure running SQL Server, on a local SQL instance, in containers/Docker, etc.:
-    - AdventureWorks2017 *or* AdventureWorksLT2017
-        - AdventureWorksLT2017 is a bit easier and faster, better for teams with no prior experience and extremely limited bandwidth.
-        - AdventureWorks2017 is the preferred database as it presents a few challenges but may require a bit of experience and higher bandwidth to migrate, if migrating for a local machine.
-    - WideWorldImporters (OLTP)
-    - WideWorldImporters (DW)
+* Verify on-premises environment has been deployed with the required databases.
 * Install Azure Data Studio and, optionally, SQL Management Studio.
 
 ## Tips

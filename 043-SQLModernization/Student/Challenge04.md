@@ -22,12 +22,12 @@ As an early implementation to improve security, the team would like to implement
 
 ## Success Criteria
 
-* Secure the AdventureWorks database using a custom 2048-bit key stored in Azure Key Vault.
-* Enable vulnerability assessment scanning on the database.
-* Using Data Discovery and Classification, label all sensitive fields with the appropriate types and sensitivities.
-* Configuring Auditing to write audit logs to both a storage account and to Log Analytics.
-* Configure Advanced Threat Protection to capture all event types and send an email in the event of a security alert.
-* Configure Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively) that masks all but the last 4 digits on the phone number. 
+* Implement TDE on the Adventureworks database.
+* Verify a vulnerability assessment has been configured on the database.
+* Complete Data Discovery and Classification requirements.
+* Verify Auditing has been configured and is working.
+* Verify Advanced Threat Protection has been configured by attemping a SQL injection query.
+* Implement Dynamic Data Masking on the Person.PersonPhone or SalesLT.Phone column (for AdventureWorks or AdventureWorksLT, respectively).
 
 ## Advanced Challenges (Optional)
 

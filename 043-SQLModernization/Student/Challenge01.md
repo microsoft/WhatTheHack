@@ -19,6 +19,7 @@ AdventureWorks has provided the following requirements and guidelines:
 1. Requires database backups to be maintained for 1 year, with weekly granularity.
 1. Database can be migrated offline during one of the nightly maintenance windows.
 1. If there are any migration blockers/remediation steps, document them with any suggested fixes.
+    1. These fixes do not need to be implemented, but should be called out.
 
 ### Wide World Importers
 
@@ -33,9 +34,9 @@ Wide World Importers has provided the following requirements and guidelines:
 
 ## Success Criteria
 
-* Successfully migrate AdventureWorks meeting the above criteria; if any objects cannot be fully migrated, be sure to note which objects and suggestions for remediation.
-* Perform a database assessment of Wide World Importers OLTP (using the WWI Order Insert Solution to simulate load).
-* Successfully migrate Wide World Importers to the specifications above; solution must demonstrate online migration.
+* Ensure AdventureWorks database is migrated, noting any blockers with suggestions for remediation.
+* Complete a database assessment of the Wide World Importers OLTP database.
+* Complete online migration of the Wide World Importers database.
 
 ## Tips
 

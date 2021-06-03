@@ -24,7 +24,7 @@ While it's clear the SQL Server 2019 version performs better, the challenge is t
 
 ### Understand key blockers
 
-There's a saying, "If you can't measure it, you can't improve it." Perhaps for code optimizations, it's more accurate to say, "To effectively improve something, you begin by measuring it." Looking at the execution plan is a key way to understand how a query is parsed and executed so that changes can be intentional and evaluated. This part of the challenge involves understanding the indexing and reading the execution plan. While altering a table and its indexes to improve a query may harm another query, the goal is to find the appropriate tradeoffs.
+There's a saying, "If you can't measure it, you can't improve it." Perhaps for code optimizations, it's more accurate to say, "To effectively improve something, you begin by measuring it." Looking at the execution plan is a key way to understand how a query is parsed and executed so that changes can be intentional and evaluated. This part of the challenge involves understanding the indexing and reading the execution plan. While altering a table and its indexes to improve a query may impact other queries, the goal is to find the appropriate tradeoffs.
 
 The WWI team powers a dashboard that uses a query similar to the below to track current invoices for a given day. Execute and evaluate its execution plan. 
 
@@ -35,11 +35,13 @@ WHERE ConfirmedDeliveryTime BETWEEN '2016-01-07 00:00:00.000' AND '2016-01-07 23
 ORDER BY ConfirmedDeliveryTime DESC
 ```
 
+Working with your team, improve the performance of the query. Provide any scripts needed that implement the changes your team suggests, and provide before/after results as documentation.
+
 ## Success Criteria
 
-* Evaluate the performance difference using the Notebook in the [Explore New Features](#explore-new-features) section.
-* Improve the performance of the query in the [Understand Key Blockers](#understand-key-blockers) section.
-* Configure SQL insights to create a performance baseline.
+* Complete an evaluation using the Notebook in the [Explore New Features](#explore-new-features) section.
+* Verify SQL Insights has been configured.
+* Complete the documentation required in the [Understand Key Blockers](#understand-key-blockers) section.
 
 ## Tips
 
