@@ -29,6 +29,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
+- [AKS Enterprise-Grade](/039-AKSEnterpriseGrade/README.md)
 - [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
 - [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
@@ -45,6 +46,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [SAP On Azure](/042-SAPOnAzure/README.md)
 
 ## Application Development
+- [Java on Azure App Service](/040-JavaOnAppService/README.md)
 - [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
 - [App Modernization](/006-AppModernization/README.md)
 - [Microservices In Azure](/009-MicroservicesInAzure/README.md)
@@ -53,7 +55,6 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
-
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
@@ -64,6 +65,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Mastering Linux](/020-MasteringLinux/README.md)
 
 ## Data & AI
+- [SQL Modernization and Migration](/043-SQLModernization/README.md)
 - [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
 - [IoT Process Control at the Edge](/029-IoTEdge/README.md)
