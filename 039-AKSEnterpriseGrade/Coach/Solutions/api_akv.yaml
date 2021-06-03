@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: api
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: api
+        aadpodidbinding: "__identity_name__"
+    spec:
+      containers:
+      - image: __acr_name__.azurecr.io/hack/sqlapi:1.0
+        imagePullPolicy: Always
+        name: api
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+        - name: SQL_SERVER_FQDN
+          valueFrom:
+            configMapKeyRef:
+              name: sqlconfig
+              key: sql_fqdn
+        - name: SQL_SERVER_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: sqlconfig
+              key: sql_user
+        volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/secrets"
+          readOnly: true
+      restartPolicy: Always
+      volumes:
+      - name: secrets-store-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "__akv_name__"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    run: api
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sqlconfig
+data:
+  sql_fqdn: "__sql_server_name__.database.windows.net"
+  sql_user: "__sql_username__"
