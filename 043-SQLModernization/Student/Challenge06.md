@@ -16,8 +16,8 @@ The objective of this challenge is to populate a data catalog with the assets th
 
 ## Success Criteria
 
-* Data governance service provisioned.
-* Each team member has at least read-only access to the service.
+* Verfiy data governance service is provisioned.
+* Confirm each team member has at least read-only access to the service.
 * At least one data source has been registered and scanned.
 * At least one data asset has been enriched with additional metadata (e.g. Description).
 
