@@ -1,6 +1,6 @@
 # Challenge 8: Plan and Implement BCDR
 
-[< Previous Challenge](./07-Install-Configure-Apps.md) - **[Home](./README.md)** - [Next Challenge >](./09-Automate-WVD-Tasks.md)
+[< Previous Challenge](./07-Install-Configure-Apps.md) - **[Home](./README.md)** - [Next Challenge >](./09-Automate-AVD-Tasks.md)
 
 ## Notes & Guidance
 
