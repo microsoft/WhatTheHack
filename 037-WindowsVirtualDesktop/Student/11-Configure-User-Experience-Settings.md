@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge you will be setting up autoenrollment into MDM for your WVD devices. You will then enhance the security of the devices by enabling MFA via conditional access policy and setting up automatic updates via Windows Update for Business. Finally, you will enable Universal Print and deliver printer config to your WVD(s) via Intune.
+In this challenge you will be setting up autoenrollment into MDM for your AVD devices. You will then enhance the security of the devices by enabling MFA via conditional access policy and setting up automatic updates via Windows Update for Business. Finally, you will enable Universal Print and deliver printer config to your AVD(s) via Intune.
 
 **NOTE:** Intune doesn't currently support management of Windows 10 Enterprise multi-session.  The following should be performed on single session hosts only.
 
@@ -21,7 +21,7 @@ In this challenge you will be setting up autoenrollment into MDM for your WVD de
         - **TIP:** Enable Microsoft Authenticator passwordless sign-in as a method in AAD
     * Create and assign a Conditional Access policy to your users
         - Require MFA
-        - Target the appropriate WVD app for your scenario
+        - Target the appropriate AVD app for your scenario
         - Target both Browsers and "Mobile apps and desktop clients"
 
     - Create a Windows Update for Business policy in either [Intune](https://docs.microsoft.com/en-us/windows/deployment/update/deploy-updates-intune) or [Group Policy](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wufb-group-policy)
@@ -34,7 +34,7 @@ In this challenge you will be setting up autoenrollment into MDM for your WVD de
     - Register at least one printer with the print connector
     - Share the printer from Universal Print
     - Grant users in your tenant permissions for the printer
-    - *Optional:* Manually add the printer on a WVD to ensure everything is working
+    - *Optional:* Manually add the printer on a AVD to ensure everything is working
     - Deploy your printer to a group of devices in the MEM portal
         - **HINT:** Use the Universal Print printer provisioning tool and the included sample policy to get you started
         - **TIPS:** 
@@ -43,7 +43,7 @@ In this challenge you will be setting up autoenrollment into MDM for your WVD de
 
 ## Success Criteria
 
-1. WVD devices automatically enroll into Intune
+1. AVD devices automatically enroll into Intune
 1. MFA is required for access
 1. Windows updates are automatically installed
 1. Security requirements are enforced by device restrictions
