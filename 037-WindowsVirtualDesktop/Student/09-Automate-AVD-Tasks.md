@@ -10,7 +10,7 @@ In this challenge you will be automating common Azure Virtual Desktop management
 
 In this challenge you need to complete the following management tasks:
 
-1. Replace the WVD session hosts in the UK South host pool with a new image
+1. Replace the AVD session hosts in the UK South host pool with a new image
 
     - 1.1: Turn drain mode on for the session hosts using PowerShell
     - 1.2: Validate no sessions exist on the session hosts using PowerShell
