@@ -1,10 +1,10 @@
-# Challenge 9: Automate WVD Tasks
+# Challenge 9: Automate AVD Tasks
 
 [< Previous Challenge](./08-Plan-Implement-BCDR.md) - **[Home](../README.md)** - [Next Challenge>](./10-Monitor-Manage-Performance-Health.md)
 
 ## Introduction
 
-In this challenge you will be automating common Windows Virtual Desktop management tasks, deploying the scaling automation solution, and configuring the Start VM On Connect solution.
+In this challenge you will be automating common Azure Virtual Desktop management tasks, deploying the scaling automation solution, and configuring the Start VM On Connect solution.
 
 ## Description
 
@@ -43,12 +43,12 @@ In this challenge you need to complete the following management tasks:
     - Recurrence Interval should be 15 mins
     - Force logoff should be set to 0
 
-1. Group Policy for WVD: the idle session and disconnected session settings are enabled    
+1. Group Policy for AVD: the idle session and disconnected session settings are enabled    
 1. Configure the Start VM On Connect solution for the Japan West host pool using PowerShell
 
 ## Success Criteria
 
-1. The WVD session hosts in the UK South host pool have been replaced with a new image using Azure CLI, PowerShell, and an ARM Template.
+1. The AVD session hosts in the UK South host pool have been replaced with a new image using Azure CLI, PowerShell, and an ARM Template.
 2. The East US host pool has the correct RDP properties and load balancing algorithm using Azure CLI.
 3. The Monet application group has been added to the workspace in UK South, the Paint application has been added to the application group with the correct display name, "Monet", and the RBAC assignment on the application group only includes "hulk" using Azure CLI and PowerShell.
 4. The Scaling Automation solution is deployed and scaling the session hosts in the UK South and East US host pools based on the requirements defined in the description using PowerShell.
