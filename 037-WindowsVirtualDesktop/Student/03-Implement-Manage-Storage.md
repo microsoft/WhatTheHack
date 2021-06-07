@@ -38,7 +38,7 @@ In this challenge you will be creating three storage accounts one per region. Ea
         - `privuksaz140`
 
 1. Enable Storage Account Active Directory Authentication (Join Storage Account to AD DS Domain)
-    * WVD requires AD DS authentication to access a Azure file share (Shared folder) to host Windows Profiles (FSLogix profile containers) and MSIX app attach applications.
+    * AVD requires AD DS authentication to access a Azure file share (Shared folder) to host Windows Profiles (FSLogix profile containers) and MSIX app attach applications.
     * You must enable Storage Account AD DS authentication and assign least privilege RBAC roles.
     * You must apply the permission to the following groups:
         - `wvd_users_japan`
