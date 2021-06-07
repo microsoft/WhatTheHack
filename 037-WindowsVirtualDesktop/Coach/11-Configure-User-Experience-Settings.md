@@ -26,7 +26,7 @@
 
 * In the [admin portal](https://portal.azure.com/#blade/Universal_Print/MainMenuBlade/Printers), grant user permissions for the printer and share it with either a group or everyone
 
-* Add the printer manually on your WVD and print a test page
+* Add the printer manually on your AVD and print a test page
     * If everything looks good, but the print job just sits in a pending state try removing the printer registration from the portal and readding it on the connector system again (seems to clear up most issues), you should also verify drivers, and potentially can solve issues by enabling "Document conversion" in the admin portal
 
 ### Deploying to devices
