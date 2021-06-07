@@ -1,10 +1,10 @@
-# Challenge 1: Design the WVD Architecture
+# Challenge 1: Design the AVD Architecture
 
 [Previous Challenge](./00-Pre-Reqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
 ## Introduction
 
-This Challenge is to design the WVD architecture that will be deployed in later challenges.  By the end of this session you should have have a plan for the host pools, session hosts, profile storage and client deployment.  
+This Challenge is to design the AVD architecture that will be deployed in later challenges.  By the end of this session you should have have a plan for the host pools, session hosts, profile storage and client deployment.  
 
 You should also have considered all aspects of security in this design including GPO, identity, and RBAC.
 
@@ -41,7 +41,7 @@ Here are some links that may help inform design decisions:
 
 [Az-140 ep04 | Plan Your WVD Session Hosts](https://www.youtube.com/watch?v=HNCZ2pzr9mo&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=6)
 
-[WVD overview](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
+[AVD overview](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
 [Virtual Machine Sizing](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs)
 
