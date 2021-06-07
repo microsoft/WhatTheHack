@@ -4,7 +4,7 @@
 
 ## Introduction
 
-- FSLogix is the WVD user profile solution which allows yours to log onto any VM in the HostPool and maintain their user experience.  
+- FSLogix is the AVD user profile solution which allows yours to log onto any VM in the HostPool and maintain their user experience.  
 - User Profiles are also a critical part of Disaster Recover planning.  
 - Follow the FSLogix requirements & best practices.
 
