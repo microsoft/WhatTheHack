@@ -1,10 +1,10 @@
-# Challenge 2: Implement and Manage Networking for WVD
+# Challenge 2: Implement and Manage Networking for AVD
 
 [< Previous Challenge](./01-Plan-WVD-Architecture.md) - **[Home](../README.md)** - [Next Challenge >](./03-Implement-Manage-Storage.md)
 
 ## Introduction
 
-In this challenge you will be setting up networking resources in order to deploy Windows Virtual Desktop. Your spoke virtual networks will be connected to your HUB vnet. Connectivity would need to be established for each virtual network in its respected region.
+In this challenge you will be setting up networking resources in order to deploy Azure Virtual Desktop. Your spoke virtual networks will be connected to your HUB vnet. Connectivity would need to be established for each virtual network in its respected region.
 
 ## Description
 
@@ -49,6 +49,6 @@ az deployment sub create --location 'eastus' --template-uri 'https://raw.githubu
 
 ## Advanced Challenges (Optional)
 
-If you would like to dive deeper in WVD networking:
+If you would like to dive deeper in AVD networking:
 
 * Setup a site to site VPN to your HUB virtual network
