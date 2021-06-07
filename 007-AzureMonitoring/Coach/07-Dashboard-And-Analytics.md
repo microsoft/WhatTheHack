@@ -5,3 +5,5 @@
 ## Notes & Guidance
 
 ## Learning Resources
+* [Run Grafana Docker image](http://docs.grafana.org/installation/docker/)
+* [Monitor your Azure services in Grafana](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/grafana-plugin)
