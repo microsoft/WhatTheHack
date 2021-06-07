@@ -27,13 +27,13 @@ Students need too:
 
 ## Learning Resources
 
-- [Azure Academy - The AZ-140 WVD Exam series](https://www.youtube.com/watch?v=DZNc1DQxEEA&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT)
+- [Azure Academy - The AZ-140 AVD Exam series](https://www.youtube.com/watch?v=DZNc1DQxEEA&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT)
 
-- [WVD Storage Performance - Storage capacity planning](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements)
+- [AVD Storage Performance - Storage capacity planning](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#performance-requirements)
 
-- [WVD Storage Performance - Performance reference](https://docs.microsoft.com/en-us/azure/virtual-desktop/faq#whats-the-largest-profile-size-fslogix-can-handle)
+- [AVD Storage Performance - Performance reference](https://docs.microsoft.com/en-us/azure/virtual-desktop/faq#whats-the-largest-profile-size-fslogix-can-handle)
 
-- [WVD - Create File Share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share)
+- [AVD - Create File Share](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share)
 
 - [Detailed Steps - Create an Azure file share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share?tabs=azure-powershell)
 
@@ -45,8 +45,8 @@ Students need too:
 
 - [ADDS Groups](https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/active-directory-security-groups)
 
-- [WVD - Enable ADDS Storage Files authentication](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable)
+- [AVD - Enable ADDS Storage Files authentication](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-enable)
 
-- [WVD - Create File Share FSLogix container profile](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share)
+- [AVD - Create File Share FSLogix container profile](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share)
 
-- [WVD - MSIX app attach file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/app-attach-file-share)
+- [AVD - MSIX app attach file share](https://docs.microsoft.com/en-us/azure/virtual-desktop/app-attach-file-share)
