@@ -1,14 +1,14 @@
 # Challenge 0: Getting started
 
-**[Home](../README.md)** - [Next Challenge>](./01-Plan-WVD-Architecture.md)
+**[Home](../README.md)** - [Next Challenge>](./01-Plan-AVD-Architecture.md)
 
 ## Introduction
 
-This challenge is to ensure that all the pre-requisites and/or concepts to start the planning and deployment for Windows Virtual Desktop (WVD) are in place.
+This challenge is to ensure that all the pre-requisites and/or concepts to start the planning and deployment for Azure Virtual Desktop (AVD) are in place.
 
 ## Description
 
-Thinking about the pre-reqs needed for Windows Virtual Desktop. Be ready to explain the pre-reqs and/or concepts needed for a succesful deployment.
+Thinking about the pre-reqs needed for Azure Virtual Desktop. Be ready to explain the pre-reqs and/or concepts needed for a succesful deployment.
 
 1. At least one Student should have Global Admin rights to the Tenant and Owner rights to the subscription.
 1. Other students need a minimum of Contributor access on the subscription.
@@ -37,7 +37,7 @@ az deployment sub create --location 'eastus' --template-uri 'https://raw.githubu
 
 ## Learning Resources
 
-[What is Windows Virtual Desktop?](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
+[What is Azure Virtual Desktop?](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
 [Az-140 ep01 | Mgmt grp Subs Resource grp](https://www.youtube.com/watch?v=EG_Zqdm7OQ0&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=3)
 
