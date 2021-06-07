@@ -6,7 +6,7 @@
 
 To complete the tasks in this challenge, students should use Azure Cloud Shell to run the commands below:
 
-### 1. Replace the WVD session hosts in the UK South host pool with a new image
+### 1. Replace the AVD session hosts in the UK South host pool with a new image
 
 1.1: Turn drain mode on for the session hosts using PowerShell.
 
