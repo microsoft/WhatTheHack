@@ -1,4 +1,4 @@
-# Challenge 1: Design the WVD Architecture
+# Challenge 1: Design the AVD Architecture
 
 [< Previous Challenge](./00-Pre-Reqs.md) - **[Home](./README.md)** - [Next Challenge>](./02-Implement-Manage-Network.md)
 
@@ -6,7 +6,7 @@
 
 - Confirm students have followed the pre-req guide -> [Pre-reqs](./00-Pre-Reqs.md)  
 Not strictly required for this session as this is just planning but will be needed for further challenges
-- This challenge is to Plan the WVD deployment.  Students may need to be prompted to check the Scenario in the resources section.  Encourage them to consider all the requirements, both for the PoC but also for future deployment.  
+- This challenge is to Plan the AVD deployment.  Students may need to be prompted to check the Scenario in the resources section.  Encourage them to consider all the requirements, both for the PoC but also for future deployment.  
 Make sure they are designing with scale in mind.
 - Ensure the following topics are considered in the proposed design:
     - Host Pool
@@ -15,9 +15,9 @@ Make sure they are designing with scale in mind.
                 - Pooled  
                 - Remote App  
                 - Personal  
-            - Reconfigure location for the Windows Virtual Desktop metadata  
+            - Reconfigure location for the Azure Virtual Desktop metadata  
         - Session Host VMs:
-            - Recommend an operating system for Windows Virtual Desktop implementation.
+            - Recommend an operating system for Azure Virtual Desktop implementation.
             - Calculate and recommend a configuration for performance requirements.
             - Calculate and recommend a configuration for Azure Virtual Machine capacity requirements.
             - Anti-Virus Strategy
@@ -26,13 +26,13 @@ Make sure they are designing with scale in mind.
         - Recommend an appropriate storage solution (including Azure NetApp Files versus Azure Files).
         - Plan for user profiles.
     - Client Deployment
-        - plan for Windows Virtual Desktop client deployment
+        - plan for Azure Virtual Desktop client deployment
             - Which client to use
                 - Features and benefits  
                 - Email Discovery  
                 - How to Deploy
                 - How to update
-    - WVD Roles
+    - AVD Roles
         - **NOTE:** Premise of Least privilege user/group security model  
         - FSLogix local groups for include/exclude.
         - Local session host groups / GPO based group management.
@@ -41,7 +41,7 @@ Make sure they are designing with scale in mind.
             - Conditional Access  
             - Single-SignOn  
             - Smart Card Auth
-        - WVD RBAC Assignments  
+        - AVD RBAC Assignments  
             - HostPool Management  
             - User Session Operations  
             - VM Management  
