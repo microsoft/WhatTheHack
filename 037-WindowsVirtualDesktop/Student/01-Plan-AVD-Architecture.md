@@ -39,7 +39,7 @@ Here are some links that may help inform design decisions:
 
 [Az-140 ep03 | Plan Windows Virtual Desktop Host Pool](https://www.youtube.com/watch?v=FLbcayyodqk&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=4)
 
-[Az-140 ep04 | Plan Your WVD Session Hosts](https://www.youtube.com/watch?v=HNCZ2pzr9mo&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=6)
+[Az-140 ep04 | Plan Your AVD Session Hosts](https://www.youtube.com/watch?v=HNCZ2pzr9mo&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=6)
 
 [AVD overview](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
