@@ -1,6 +1,6 @@
 # Challenge 2: Implement and Manage Networking for AVD
 
-[< Previous Challenge](./01-Plan-WVD-Architecture.md) - **[Home](../README.md)** - [Next Challenge >](./03-Implement-Manage-Storage.md)
+[< Previous Challenge](./01-Plan-AVD-Architecture.md) - **[Home](../README.md)** - [Next Challenge >](./03-Implement-Manage-Storage.md)
 
 ## Introduction
 
@@ -44,7 +44,7 @@ az deployment sub create --location 'eastus' --template-uri 'https://raw.githubu
 ## Success Criteria
 
 1. Hub and spoke topology with one hub and three spokes
-1. Participants should be able to control inbound and outbound rules on WVD subnets
+1. Participants should be able to control inbound and outbound rules on AVD subnets
 1. Participants should be able to monitor, diagnose, view metrics, and enable or disable logs for networks
 
 ## Advanced Challenges (Optional)
