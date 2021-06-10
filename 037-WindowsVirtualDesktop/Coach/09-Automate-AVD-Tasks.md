@@ -1,4 +1,4 @@
-# Challenge 9: Automate WVD Tasks
+# Challenge 9: Automate AVD Tasks
 
 [< Previous Challenge](./08-Plan-Implement-BCDR.md) - **[Home](./README.md)** - [Next Challenge>](./10-Monitor-Manage-Performance-Health.md)
 
@@ -11,31 +11,31 @@ To complete the tasks in this challenge, students should use Azure Cloud Shell t
 1.1: Turn drain mode on for the session hosts using PowerShell.
 
 ```powershell
-Update-AzWvdSessionHost -ResourceGroupName 'rg-wth-wvd-d-uks' -HostPoolName <Host Pool Name> -Name <Session Host Name> -AllowNewSession:$false
+Update-AzWvdSessionHost -ResourceGroupName 'rg-wth-avd-d-uks' -HostPoolName <Host Pool Name> -Name <Session Host Name> -AllowNewSession:$false
 ```
 
 1.2: Validate no sessions exist on the session hosts using PowerShell.
 
 ```powershell
-Get-AzWvdUserSession -ResourceGroupName 'rg-wth-wvd-d-uks' -HostPoolName <Host Pool Name> -SessionHostName <Session Host Name>
+Get-AzWvdUserSession -ResourceGroupName 'rg-wth-avd-d-uks' -HostPoolName <Host Pool Name> -SessionHostName <Session Host Name>
 ```
 
 1.3: Remove all the session hosts from the host pool using PowerShell.
 
 ```powershell
-Remove-AzWvdSessionHost -ResourceGroupName 'rg-wth-wvd-d-uks' -HostPoolName <Host Pool Name> -SessionHostName <Session Host Name>
+Remove-AzWvdSessionHost -ResourceGroupName 'rg-wth-avd-d-uks' -HostPoolName <Host Pool Name> -SessionHostName <Session Host Name>
 ```
 
 1.4: Delete the session hosts using Azure CLI.
 
 ```shell
-az vm delete --resource-group "rg-wth-wvd-d-uks" --name <Virtual Machine Name> --yes
+az vm delete --resource-group "rg-wth-avd-d-uks" --name <Virtual Machine Name> --yes
 ```
 
 1.5: Get the registration key using Azure CLI.
 
 ```shell
-az desktopvirtualization hostpool update --resource-group "rg-wth-wvd-d-uks" --name <Host Pool Name> --registration-info expiration-time="<date time>" registration-token-operation="Update"
+az desktopvirtualization hostpool update --resource-group "rg-wth-avd-d-uks" --name <Host Pool Name> --registration-info expiration-time="<date time>" registration-token-operation="Update"
 ```
 
 1.6: Deploy new session hosts using Azure CLI and an ARM Template.
@@ -43,11 +43,11 @@ az desktopvirtualization hostpool update --resource-group "rg-wth-wvd-d-uks" --n
 [ARM template example](https://raw.githubusercontent.com/Azure/RDS-Templates/master/ARM-wvd-templates/AddVirtualMachinesToHostPool/AddVirtualMachinesTemplate.json)
 
 ```shell
-az group deployment create --resource-group "rg-wth-wvd-d-uks" --template-uri <URI>
+az group deployment create --resource-group "rg-wth-avd-d-uks" --template-uri <URI>
 
 # OR
 
-az group deployment create --resource-group "rg-wth-wvd-d-uks" --template-file <File Path>
+az group deployment create --resource-group "rg-wth-avd-d-uks" --template-file <File Path>
 ```
 
 ### 2. Update properties on the East US host pool
@@ -55,19 +55,19 @@ az group deployment create --resource-group "rg-wth-wvd-d-uks" --template-file <
 2.1: Reset all the custom RDP properties on the host pool using Azure CLI.
 
 ```shell
-az desktopvirtualization hostpool update --resource-group "rg-wth-wvd-d-eus" --name <Host Pool Name> --custom-rdp-property ""
+az desktopvirtualization hostpool update --resource-group "rg-wth-avd-d-eus" --name <Host Pool Name> --custom-rdp-property ""
 ```
 
 2.2: Add the following RDP properties using Azure CLI: enable camera redirection, enable microphone redirection, and disable multiple display support.
 
 ```shell
-az desktopvirtualization hostpool update --resource-group "rg-wth-wvd-d-eus" --name <Host Pool Name> --custom-rdp-property "audiocapturemode:i:1;camerastoredirect:s:*;use multimon:i:0;"
+az desktopvirtualization hostpool update --resource-group "rg-wth-avd-d-eus" --name <Host Pool Name> --custom-rdp-property "audiocapturemode:i:1;camerastoredirect:s:*;use multimon:i:0;"
 ```
 
 2.3: Change the load balancing algorithm to breadth-first using Azure CLI.
 
 ```shell
-az desktopvirtualization hostpool update --resource-group "rg-wth-wvd-d-eus" --name <Host Pool Name> --load-balancer-type DepthFirst
+az desktopvirtualization hostpool update --resource-group "rg-wth-avd-d-eus" --name <Host Pool Name> --load-balancer-type DepthFirst
 ```
 
 ### 3. Publish a Remote App on the UK South host pool
@@ -75,25 +75,25 @@ az desktopvirtualization hostpool update --resource-group "rg-wth-wvd-d-eus" --n
 3.1: Create an application group called "Monet" using Azure CLI.
 
 ```shell
-az desktopvirtualization applicationgroup create --resource-group "rg-wth-wvd-d-uks" --name <App Group Name> --application-group-type RemoteApp --host-pool-arm-path <Resource ID for Host Pool> --location <Azure region>
+az desktopvirtualization applicationgroup create --resource-group "rg-wth-avd-d-uks" --name <App Group Name> --application-group-type RemoteApp --host-pool-arm-path <Resource ID for Host Pool> --location <Azure region>
 ```
 
 3.2: Publish Paint as an application in the Monet application group using PowerShell.
 
 ```powershell
-New-AzWvdApplication -ResourceGroupName 'rg-wth-wvd-d-uks' -GroupName Monet -Name Paint -FilePath 'C:\windows\system32\mspaint.exe' -IconIndex 0 -IconPath 'C:\windows\system32\mspaint.exe' -CommandLineSetting 'Allow' -ShowInPortal:$true
+New-AzWvdApplication -ResourceGroupName 'rg-wth-avd-d-uks' -GroupName Monet -Name Paint -FilePath 'C:\windows\system32\mspaint.exe' -IconIndex 0 -IconPath 'C:\windows\system32\mspaint.exe' -CommandLineSetting 'Allow' -ShowInPortal:$true
 ```
 
 3.3: Change the display name for the Paint app to "Monet" using PowerShell.
 
 ```powershell
-Update-AzWvdApplication -ResourceGroupName 'rg-wth-wvd-d-uks' -GroupName Monet -Name Paint -FriendlyName 'Monet'
+Update-AzWvdApplication -ResourceGroupName 'rg-wth-avd-d-uks' -GroupName Monet -Name Paint -FriendlyName 'Monet'
 ```
 
 3.4: Assign the Monet application group to the workspace.
 
 ```shell
-az desktopvirtualization workspace update --resource-group "rg-wth-wvd-d-uks" --name <Workspace Name> --application-group-references <Resource IDs for all Application Groups>
+az desktopvirtualization workspace update --resource-group "rg-wth-avd-d-uks" --name <Workspace Name> --application-group-references <Resource IDs for all Application Groups>
 ```
 
 3.5: Create an RBAC assignment for the Monet application group adding only "hulk" using Azure CLI.
@@ -111,7 +111,7 @@ Add image of a properly configured logic app
 ### 5. Configure the Start VM On Connect solution for the Japan West host pool using PowerShell
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName 'rg-wth-wvd-d-jw' -HostPoolName <Host Pool Name> -StartVMOnConnect
+Update-AzWvdHostPool -ResourceGroupName 'rg-wth-avd-d-jw' -HostPoolName <Host Pool Name> -StartVMOnConnect
 ```
 
 ## Learning Resources
