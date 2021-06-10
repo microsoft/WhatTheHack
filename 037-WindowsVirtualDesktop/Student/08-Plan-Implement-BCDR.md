@@ -1,6 +1,6 @@
 # Challenge 8: Plan and Implement BCDR
 
-[< Previous Challenge](./07-Install-Configure-Apps.md) - **[Home](../README.md)** - [Next Challenge >](./09-Automate-WVD-Tasks.md)
+[< Previous Challenge](./07-Install-Configure-Apps.md) - **[Home](../README.md)** - [Next Challenge >](./09-Automate-AVD-Tasks.md)
 
 ## Introduction
 In this challenge you need to design and implement an Disaster Recovery and BackUp strategy for your HostPools and your FsLogix profiles. For this challenge you will only be focusing on Japan West HostPool for Disaster Recovery and you will use the spoke Vnet in East US and the same Subnet for those machines. This is just to get the understanding on how to replicate those machines.  
