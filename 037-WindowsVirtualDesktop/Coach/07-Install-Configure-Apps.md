@@ -64,5 +64,5 @@ VS Code (Dev)   | X                   |                       |                 
 
 - [Azure Academy WVD & TEAMS Guide](https://www.youtube.com/watch?v=RfbolIgPcBY)
 - [OneDrive per-Machine Mode](https://docs.microsoft.com/en-us/azure/virtual-desktop/install-office-on-wvd-master-image#install-onedrive-in-per-machine-mode)
-- [Use Microsoft Teams on WIndows Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/teams-on-wvd)
+- [Use Microsoft Teams on Azure Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/teams-on-wvd)
 - [Install Office on a master VHD image](https://docs.microsoft.com/en-us/azure/virtual-desktop/install-office-on-wvd-master-image)
