@@ -41,17 +41,17 @@ In this challenge you will be creating three storage accounts one per region. Ea
     * AVD requires AD DS authentication to access a Azure file share (Shared folder) to host Windows Profiles (FSLogix profile containers) and MSIX app attach applications.
     * You must enable Storage Account AD DS authentication and assign least privilege RBAC roles.
     * You must apply the permission to the following groups:
-        - `wvd_users_japan`
-        - `wvd_users_uk`
-        - `wvd_users_usa`
+        - `avd_users_japan`
+        - `avd_users_uk`
+        - `avd_users_usa`
 
 1. Create File Share and assign least privilege permission
     * Create a File Share for FSLogix Profile containers and assign least privilege permissions
     * Create a File Share for MSIX app attach and assign least privilege permissions
     * You must apply the permission to the following groups:
-        - `wvd_users_japan`
-        - `wvd_users_uk`
-        - `wvd_users_usa`  
+        - `avd_users_japan`
+        - `avd_users_uk`
+        - `avd_users_usa`  
     * The file shares must be named as follow:
         - `shareeusaz140`
         - `sharejwaz140`
@@ -60,9 +60,9 @@ In this challenge you will be creating three storage accounts one per region. Ea
 1. Allow Storage access from Network Security Group for each spoke VNet
     * Allow SMB (TCP 445) access to the storage account for each spoke VNet
     * List of NSG that must be updated:
-        - `nsg-wvd-d-eus`
-        - `nsg-wvd-d-jw`
-        - `nsg-wvd-d-uks`
+        - `nsg-avd-d-eus`
+        - `nsg-avd-d-jw`
+        - `nsg-avd-d-uks`
 
 ## Success Criteria
 
@@ -75,12 +75,12 @@ In this challenge you will be creating three storage accounts one per region. Ea
 1. Enable Storage Account ADDS authentication to control access to all shared folders (NTFS permission).
 
 1. Apply the least RBAC and NTFS permission to all Storage Accounts and Shared Folders to support FSLogix Container profile and MSIX app attach using the existing groups:
-    - `wvd_users_japan`
-    - `wvd_users_uk`
-    - `wvd_users_usa`
+    - `avd_users_japan`
+    - `avd_users_uk`
+    - `avd_users_usa`
 
 1. Allow Network Access to the Storage account for each spoke VNet.
 You must allow access to SMB using protocol TCP and port 445 for the following NSGs:
-    - `nsg-wvd-d-eus`
-    - `nsg-wvd-d-jw`
-    - `nsg-wvd-d-uks`
+    - `nsg-avd-d-eus`
+    - `nsg-avd-d-jw`
+    - `nsg-avd-d-uks`
