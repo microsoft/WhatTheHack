@@ -21,7 +21,7 @@ In this hack you will learn how to set up a Azure Virtual Desktop in a typical s
 - Challenge 6: **[Addressing User Profiles with FSLogix](Student/06-Implement-Manage-FsLogix.md)**
 - Challenge 7: **[Install and Configure your Applications](Student/07-Install-Configure-Apps.md)**
 - Challenge 8: **[Plan and Implement BCDR](Student/08-Plan-Implement-BCDR.md)**
-- Challenge 9: **[Automate AVD Tasks](Student/09-Automate-WVD-Tasks.md)**
+- Challenge 9: **[Automate AVD Tasks](Student/09-Automate-AVD-Tasks.md)**
 - Challenge 10: **[Monitor and Manage the Performance and Health of your AVD Environment](Student/10-Monitor-Manage-Performance-Health.md)**
 - Challenge 11: **[Configure Settings for User Experience](Student/11-Configure-User-Experience-Settings.md)**
 
