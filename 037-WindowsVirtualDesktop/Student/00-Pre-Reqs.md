@@ -19,13 +19,13 @@ Thinking about the pre-reqs needed for Azure Virtual Desktop. Be ready to explai
 #### POWERSHELL
 
 ```powershell
-New-AzSubscriptionDeployment -Location 'eastus' -TemplateUri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-00_Template.json' -Verbose
+New-AzSubscriptionDeployment -Location 'eastus' -TemplateUri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-AzureVirtualDesktop/Student/Resources/challenge-00_Template.json' -Verbose
 ```
 
 #### AZURE CLI
 
 ```shell
-az deployment sub create --location 'eastus' --template-uri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-00_Template.json' --verbose
+az deployment sub create --location 'eastus' --template-uri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-AzureVirtualDesktop/Student/Resources/challenge-00_Template.json' --verbose
 ```
 
 ## Success Criteria
@@ -43,6 +43,6 @@ az deployment sub create --location 'eastus' --template-uri 'https://raw.githubu
 
 [Az-140 ep02 | Configure Active Directory | Azure AD DNS](https://www.youtube.com/watch?v=kfOYWFpoglQ&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=4)
 
-[Az-140 ep05 | WVD Network Planning](https://www.youtube.com/watch?v=O3AaPTWzpi4&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=6)
+[Az-140 ep05 | AVD Network Planning](https://www.youtube.com/watch?v=O3AaPTWzpi4&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=6)
 
-[Az-140 ep06 | Plan WVD License](https://www.youtube.com/watch?v=oV3-w88lIu4&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=7)
+[Az-140 ep06 | Plan AVD License](https://www.youtube.com/watch?v=oV3-w88lIu4&list=PL-V4YVm6AmwW1DBM25pwWYd1Lxs84ILZT&index=7)
