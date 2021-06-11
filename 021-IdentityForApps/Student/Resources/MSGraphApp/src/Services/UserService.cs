@@ -35,15 +35,16 @@ namespace b2c_ms_graph
 
         public static async Task ListUsersWithCustomAttribute(GraphServiceClient graphClient, string b2cExtensionAppClientId)
         {
+            AppSettings config = AppSettingsFile.ReadFromJsonFile();
+
             if (string.IsNullOrWhiteSpace(b2cExtensionAppClientId))
             {
                 throw new ArgumentException("B2cExtensionAppClientId (its Application ID) is missing from appsettings.json. Find it in the App registrations pane in the Azure portal. The app registration has the name 'b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.'.", nameof(b2cExtensionAppClientId));
             }
 
             // Declare the names of the custom attributes
-            // TODO -- change the attribute names!!
-            const string customAttributeName1 = "<cmc-id-attribute-name>";
-            const string customAttributeName2 = "<territory-name-attribute-name>";
+            var customAttributeName1 =  config.ConsultantIdCustomAttributeName;
+            var customAttributeName2 = config.TerritoryNameCustomAttributeName;
 
             // Get the complete name of the custom attribute (Azure AD extension)
             Helpers.B2cCustomAttributeHelper helper = new Helpers.B2cCustomAttributeHelper(b2cExtensionAppClientId);

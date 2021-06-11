@@ -41,5 +41,11 @@ namespace b2c_ms_graph
         [JsonProperty(PropertyName = "UsersFileName")]
         public string UsersFileName { get; set; }
 
+        [JsonProperty(PropertyName = "ConsultantIdCustomAttributeName")]
+        public string ConsultantIdCustomAttributeName { get; set; }
+
+        [JsonProperty(PropertyName = "TerritoryNameCustomAttributeName")]
+        public string TerritoryNameCustomAttributeName { get; set; }
+
     }
 }
