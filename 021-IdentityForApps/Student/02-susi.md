@@ -24,7 +24,7 @@ They are asking that you collect the following attributes of each consultant:
 
 It should be noted that CMC only is licensed to do business in the following states: **New York (NY), Ohio (OH) and Pennsylvania (PA)** (values between parentheses represent the values that should be stored in the directory).
 
-CMC IT Management has also asked that First and Last Name are displayed BEFORE Display Name on the sign up form. There's also a rumor that IT Management has also expressed that they are partial to the Slate Gray User Flow template.
+CMC IT Management has also asked that First and Last Name are displayed BEFORE Display Name on the sign up form. There's also a rumor that IT Management really likes the Slate Gray User Flow template.
 
 CMC IT Management also wants the same attributes returned when the user successfully logs in, along with the Identity Provider name.
 ## Success Criteria
