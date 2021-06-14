@@ -23,4 +23,4 @@ If attendees will be using a shared Azure subscription, you should be aware of t
 <https://docs.microsoft.com/en-us/azure/availability-zones/az-region>
 
 ## Chose your path!
-Coaches, be sure to read the Coach Guidance for Challenge 1 and mutually agree on a path with your organization prior to delivering the path.
+Coaches, be sure to read the Coach Guidance for Challenge 1 and mutually agree on a path with the stakeholder from the organization requesting the hack prior to delivery.
