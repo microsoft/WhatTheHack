@@ -23,4 +23,4 @@ If attendees will be using a shared Azure subscription, you should be aware of t
 <https://docs.microsoft.com/en-us/azure/availability-zones/az-region>
 
 ## Pre-Select Your Path For Container Content
-Coaches, be sure to read the Coach Guidance for Challenge 1; you will need to select a proper path based on the learning objectives of the organization (to be decided PRIOR TO the hack!) 
+Coaches, be sure to read the Coach Guidance for Challenge 1; you will need to select a proper path based on the learning objectives of the organization (to be decided PRIOR TO the hack!).  Select the proper path after consulting with the organization's stakeholder(s) for the hack.

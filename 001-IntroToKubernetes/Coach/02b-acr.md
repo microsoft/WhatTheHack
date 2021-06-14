@@ -27,14 +27,12 @@ The coach should demonstrate running the application locally.  To run the Fab Me
 
 
 #### Dockerizing the Application
-- You will need to provide the sample Dockerfiles to the students  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  They will use this Dockerfile in conjunction with the source code for content-web and content-api.
+- You will need to provide the sample Dockerfiles to the students  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  They will use these Dockerfiles in conjunction with the source code for content-web and content-api.
 
 If the students get stuck, point them to the ACR documentation for building a container image in Azure:
 
 - https://docs.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli
 - https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task
-
-
 
 ### Other tips / tricks
 

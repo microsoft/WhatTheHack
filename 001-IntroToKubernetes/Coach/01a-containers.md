@@ -8,9 +8,9 @@ This is **PATH A**: Use this path if your students want to understand what's inv
 
 ### Coach Notes:
 #### Tooling:
-The students can either work with Docker locally on their workstation, or they can deploy a build machine VM in Azure using the provided template.  There is no need to do both.
+The students can either work with Docker locally on their workstation, or they can deploy a build machine VM in Azure using the provided template.  There is no need to do both.  We recommend using the build VM deployed in Azure as this provides a known-to-work common environment.
 
-  - If students chose to, or need to, deploy a build machine, the following bash & powershell scripts can be provided to them. Advise students to use one or the other depending on their platform.
+  - The following bash & powershell scripts can be provided to students to deploy the Build VM in Azure. Advise students to use one or the other depending on their platform.
 	```bash
 	# Bash Script
 	RG="akshack-RG"  #Change as appropriate
