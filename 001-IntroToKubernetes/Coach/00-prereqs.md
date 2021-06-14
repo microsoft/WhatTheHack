@@ -22,3 +22,5 @@ If attendees will be using a shared Azure subscription, you should be aware of t
 - **NOTE:** If the students will deploy AKS across Availability Zones, coaches should ensure they pick a region where Availability Zones are supported. 
 <https://docs.microsoft.com/en-us/azure/availability-zones/az-region>
 
+## Chose your path!
+Coaches, be sure to read the Coach Guidance for Challenge 1 and mutually agree on a path with your organization prior to delivering the path.
