@@ -27,13 +27,9 @@ The coach should demonstrate running the application locally.  To run the Fab Me
 
 
 #### Importing the Application
-- You will need to provide the sample Dockerfiles to the students  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  They will use this Dockerfile in conjunction with the source code for content-web and content-api.
-
 If the students get stuck, point them to the ACR documentation:
 
 - https://docs.microsoft.com/en-us/azure/container-registry/container-registry-import-images
-
-
 
 ### Other tips / tricks
 
