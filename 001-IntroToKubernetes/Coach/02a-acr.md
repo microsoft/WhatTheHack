@@ -1,4 +1,4 @@
-# Challenge 2: Coach's Guide
+# Challenge 2a: Coach's Guide
 
 [< Previous Challenge](./01-containers.md) - **[Home](README.md)** - [Next Challenge >](./03-k8sintro.md)
 
