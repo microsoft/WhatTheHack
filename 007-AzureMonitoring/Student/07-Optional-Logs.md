@@ -1,6 +1,6 @@
 # Challenge 6: Optional Logs
 
-[Previous Challenge](./05-Log-Analytics-Query.md) - **[Home](../README.md)** - [Next Challenge>](./07-Dashboard-And-Analytics.md)
+[Previous Challenge](./06-Log-Analytics-Query.md) - **[Home](../README.md)** - [Next Challenge>](./08-Dashboard-And-Analytics.md)
 
 ## Introduction
 Azure Monitor Logs is based on Azure Data Explorer, and log queries are written using the same Kusto query language (KQL). This is a rich language designed to be easy to read and author, so you should be able to start writing queries with some basic guidance.

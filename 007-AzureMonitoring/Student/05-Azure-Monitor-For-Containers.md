@@ -1,6 +1,6 @@
 # Challenge 4: Azure Monitor for Containers
 
-[Previous Challenge](./03-Application-Insights.md) - **[Home](../README.md)** - [Next Challenge>](./05-Log-Analytics-Query.md)
+[Previous Challenge](./04-Virtual-Machine-Insights.md) - **[Home](../README.md)** - [Next Challenge>](./06-Log-Analytics-Query.md)
 
 ## Introduction
 
