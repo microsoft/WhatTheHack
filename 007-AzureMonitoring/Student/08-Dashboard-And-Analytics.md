@@ -1,4 +1,4 @@
-# Challenge 7: Dashboard and Analytics
+# Challenge 8: Dashboard and Analytics
 
 [Previous Challenge](./07-Optional-Logs.md) - **[Home](../README.md)** - [Next Challenge>](./09-Workbooks.md)
 

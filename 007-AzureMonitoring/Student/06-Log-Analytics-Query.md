@@ -1,4 +1,4 @@
-# Challenge 5: Log Analytics Query
+# Challenge 6: Log Analytics Query
 
 [Previous Challenge](./05-Azure-Monitor-For-Containers.md) - **[Home](../README.md)** - [Next Challenge>](./07-Optional-Logs.md)
 
