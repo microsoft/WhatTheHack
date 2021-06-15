@@ -1,6 +1,6 @@
-# Challenge 6: Optional Logs
+# Challenge 7: Optional Logs
 
-[Previous Challenge](./05-Log-Analytics-Query.md) - **[Home](../README.md)** - [Next Challenge>](./07-Dashboard-And-Analytics.md)
+[Previous Challenge](./06-Log-Analytics-Query.md) - **[Home](../README.md)** - [Next Challenge>](./08-Dashboard-And-Analytics.md)
 
 ## Notes & Guidance
 
