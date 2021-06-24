@@ -17,15 +17,15 @@
                     "Location":"eastus"
                 },
                 {
-                    "Name":"rg-wth-wvd-d-eus",
+                    "Name":"rg-wth-avd-d-eus",
                     "Location":"eastus"
                 },
                 {
-                    "Name":"rg-wth-wvd-d-jw",
+                    "Name":"rg-wth-avd-d-jw",
                     "Location":"japanwest"
                 },
                 {
-                    "Name":"rg-wth-wvd-d-uks",
+                    "Name":"rg-wth-avd-d-uks",
                     "Location":"uksouth"
                 }
             ]
