@@ -417,7 +417,7 @@
     "apiVersion": {
       "type": "string",
       "metadata": {
-        "description": "WVD api version"
+        "description": "AVD api version"
       },
       "defaultValue": "2019-12-10-preview"
     },
