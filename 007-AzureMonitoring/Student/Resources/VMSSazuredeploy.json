@@ -11,6 +11,20 @@
             "minLength": 2,
             "maxLength": 5
         },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            },
+            "defaultValue": "https://raw.githubusercontent.com/kayodeprinceMS/AzureMonitorHackathon/master/Student/Resources/"
+        },
+        "retentionPolicy": {
+            "type": "int",
+            "defaultValue": 90,
+            "metadata": {
+                "description": ""
+            }
+        },
         "username": {
             "type": "string",
             "metadata": {
@@ -120,12 +134,12 @@
         "VisualStudioVMSize": {
             "type": "string",
             "allowedValues": [
-                "Standard_DS3_v2"
+                "Standard_D4s_v3"
             ],
             "metadata": {
                 "description": "The size of the Visual Studio VM Created"
             },
-            "defaultValue": "Standard_DS3_v2"
+            "defaultValue": "Standard_D4s_v3"
         },
         "diskType": {
             "type": "string",
@@ -190,6 +204,7 @@
         "addressPrefix": "10.0.0.0/16",
         "feSubnetPrefix": "10.0.0.0/24",
         "dbSubnetPrefix": "10.0.2.0/24",
+        "aksSubnetPrefix": "10.0.3.0/24",
         "feNSGName": "feNsg",
         "dbNSGName": "dbNsg",
         "sqlSrvDBName": "[concat(parameters('envPrefixName'), 'sqlSrv16')]",
@@ -208,8 +223,8 @@
         "VisualStudioPublicIP": "[concat(parameters('envPrefixName'), 'VSPip')]",
         "VisualStudioPublicIPRef": "[resourceId('Microsoft.Network/publicIPAddresses', variables('VisualStudioPublicIP'))]",
         "VisualStudioImagePublisher": "MicrosoftVisualStudio",
-        "VisualStudioImageOffer": "VisualStudio",
-        "VisualStudioImageSku": "VS-2017-Comm-Latest-WS2016",
+        "VisualStudioImageOffer": "VisualStudio2019latest",
+        "VisualStudioImageSku": "vs-2019-comm-latest-win10-n",
         "vmssName": "[concat(parameters('envPrefixName'), 'webScaleSet')]",
         "vmssId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmssName'))]",
         "vmssFirstServerIP": "[concat('Microsoft.Compute/virtualMachineScaleSets/', variables('vmssName'), '/virtualMachines/0/networkInterfaces/', variables('vmssName') ,'Nic')]",
@@ -222,11 +237,13 @@
         "webLbId": "[resourceId('Microsoft.Network/loadBalancers',variables('webLbName'))]",
         "namingInfix": "[toLower(substring(concat(variables('vmssName'), uniqueString(resourceGroup().id)), 0, 9))]",
         "networkApiVersion": "2018-01-01",
+        "storageApiVersion": "2018-02-01",
         "autoscaleApiVersion": "2015-04-01",
         "frontEndIPConfigID": "[concat(variables('webLbId'),'/frontendIPConfigurations/LoadBalancerFrontEnd')]",
         "lbPoolID": "[concat(variables('webLbId'),'/backendAddressPools/BackendPool1')]",
         "lbProbeID": "[concat(variables('webLbId'),'/probes/tcpProbe')]",
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'mondiagact')]",
+        "SecurityKeyVaultName": "[concat(parameters('envPrefixName'),'MonWorkshopVault')]",
         "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     },
     "resources": [
@@ -240,6 +257,56 @@
             },
             "kind": "Storage",
             "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "LogAnalyticsDeployment",
+            "dependsOn": [],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(parameters('_artifactsLocation'), 'LogAnalyticsDeploy.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "WorkspaceLocation": {
+                        "value": "[resourceGroup().location]"
+                    },
+                    "WorkspaceName": {
+                        "value": "[concat(parameters('envPrefixName'), 'hacklogworkspace')]"
+                    },
+                    "retentionPolicy": {
+                        "value": "[parameters('retentionPolicy')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "AppInsightsDeployment",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', variables('webSrvPublicIP'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(parameters('_artifactsLocation'), 'AppInsightsDeploy.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "appLocation": {
+                        "value": "[resourceGroup().location]"
+                    },
+                    "appName": {
+                        "value": "[concat(parameters('envPrefixName'), 'hackAppInsights')]"
+                    },
+                    "webSrvPublicIP": {
+                        "value": "[concat('http://', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('webSrvPublicIP')), '2015-06-15').dnsSettings.fqdn)]"
+                    }
+                }
+            }
         },
         {
             "apiVersion": "2015-06-15",
@@ -297,10 +364,43 @@
             }
         },
         {
+            "type": "Microsoft.Network/networkSecurityGroups/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(variables('feNSGName'), '/', 'Microsoft.Insights/setForSecurity')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('feNSGName'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "LogAnalyticsDeployment"
+            ],
+            "properties": {
+                "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAresourceID.value]",
+                "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "logs": [
+                    {
+                        "category": "NetworkSecurityGroupEvent",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": "[parameters('retentionPolicy')]",
+                            "enabled": true
+                        }
+                    },
+                    {
+                        "category": "NetworkSecurityGroupRuleCounter",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": "[parameters('retentionPolicy')]",
+                            "enabled": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2015-06-15",
             "name": "[variables('dbNSGName')]",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "tags": {
                 "displayName": "BackEndNSG"
             },
@@ -317,6 +417,20 @@
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
                             "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow_AKS",
+                        "properties": {
+                            "description": "Allow AKS Subnet",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "1433",
+                            "sourceAddressPrefix": "10.0.3.0/24",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 101,
                             "direction": "Inbound"
                         }
                     },
@@ -352,10 +466,74 @@
             }
         },
         {
+            "type": "Microsoft.Network/networkSecurityGroups/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(variables('dbNSGName'), '/', 'Microsoft.Insights/setForSecurity')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('dbNSGName'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "LogAnalyticsDeployment"
+            ],
+            "properties": {
+                "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAresourceID.value]",
+                "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "logs": [
+                    {
+                        "category": "NetworkSecurityGroupEvent",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": "[parameters('retentionPolicy')]",
+                            "enabled": true
+                        }
+                    },
+                    {
+                        "category": "NetworkSecurityGroupRuleCounter",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "days": "[parameters('retentionPolicy')]",
+                            "enabled": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(variables('SecurityKeyVaultName'),'/', 'Microsoft.Insights/setForSecurity')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "LogAnalyticsDeployment",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+            ],
+            "properties": {
+                "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAresourceID.value]",
+                "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "metrics": [
+                    {
+                        "category": "AllMetrics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": true,
+                            "days": "[parameters('retentionPolicy')]"
+                        }
+                    }
+                ],
+                "logs": [
+                    {
+                        "category": "AuditEvent",
+                        "enabled": true,
+                        "days": "[parameters('retentionPolicy')]"
+                    }
+                ]
+            }
+        },
+        {
             "apiVersion": "2015-06-15",
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[variables('virtualNetworkName')]",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkSecurityGroups/', variables('feNSGName'))]",
                 "[concat('Microsoft.Network/networkSecurityGroups/', variables('dbNSGName'))]"
@@ -387,6 +565,12 @@
                                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('dbNSGName'))]"
                             }
                         }
+                    },
+                    {
+                        "name": "aksSubnetName",
+                        "properties": {
+                            "addressPrefix": "[variables('aksSubnetPrefix')]"
+                        }
                     }
                 ]
             }
@@ -394,7 +578,7 @@
         {
             "name": "[variables('sqlPublicIP')]",
             "type": "Microsoft.Network/publicIPAddresses",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
             "tags": {
                 "displayName": "SqlPIP"
@@ -407,7 +591,7 @@
         {
             "name": "[variables('sqlSrvDBNicName')]",
             "type": "Microsoft.Network/networkInterfaces",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
@@ -437,9 +621,9 @@
             "type": "Microsoft.Compute/virtualMachines",
             "location": "[parameters('location')]",
             "apiVersion": "2017-03-30",
-            "identity": {  
-                "type": "SystemAssigned" 
-                },             
+            "identity": {
+                "type": "SystemAssigned"
+            },
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('sqlSrvDBNicName'))]",
                 "[concat('Microsoft.Network/publicIPAddresses/', variables('sqlPublicIP'))]"
@@ -623,9 +807,48 @@
             }
         },
         {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('envPrefixName'), 'sqlSrv16/DependencyAgent')]",
+            "apiVersion": "2017-03-30",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('envPrefixName'), 'sqlSrv16')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines/extensions',concat(parameters('envPrefixName'),'sqlSrv16'),'laPolicy')]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                "type": "DependencyAgentWindows",
+                "typeHandlerVersion": "9.4",
+                "autoUpgradeMinorVersion": true
+            }
+        },
+        {
+            "name": "[concat(parameters('envPrefixName'),'sqlSrv16/laPolicy')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "LogAnalyticsDeployment",
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('envPrefixName'), 'sqlSrv16')]"
+            ],
+            "apiVersion": "2017-12-01",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAworkSpaceID.value]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[reference('LogAnalyticsDeployment').outputs.LAworkSpaceKey.value]"
+                }
+            }
+        },
+        {
             "name": "[variables('VisualStudioPublicIP')]",
             "type": "Microsoft.Network/publicIPAddresses",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
             "tags": {
                 "displayName": "VSPIP"
@@ -638,7 +861,7 @@
         {
             "name": "[variables('VisualStudioNicName')]",
             "type": "Microsoft.Network/networkInterfaces",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
@@ -666,7 +889,7 @@
         {
             "name": "[concat(parameters('envPrefixName'), 'VSSrv17')]",
             "type": "Microsoft.Compute/virtualMachines",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2017-03-30",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('VisualStudioNicName'))]",
@@ -724,10 +947,9 @@
                         "type": "CustomScriptExtension",
                         "typeHandlerVersion": "1.9",
                         "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "1.0.0",
                         "settings": {
                             "fileUris": [
-                                "https://raw.githubusercontent.com/rkuehfus/AzureMonitoringHackathon/master/Student/Resources/SetupVSServer.ps1"
+                                "https://raw.githubusercontent.com/rkuehfus/pre-ready-2019-H1/master/Student/Resources/SetupVSServer.ps1"
                             ],
                             "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 ', ' ', variables('sqlSrvDBName'), ' ', parameters('password'))]"
                         }
@@ -738,7 +960,7 @@
         {
             "name": "[variables('webSrvPublicIP')]",
             "type": "Microsoft.Network/publicIPAddresses",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
             "tags": {
                 "displayName": "WebSrvPIP for LB"
@@ -749,6 +971,36 @@
                 "dnsSettings": {
                     "domainNameLabel": "[variables('webSrvDnsNameforLBIP')]"
                 }
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIpAddresses/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(variables('webSrvPublicIP'), '/', 'Microsoft.Insights/setByARM')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', variables('webSrvPublicIP'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "LogAnalyticsDeployment"
+            ],
+            "properties": {
+                "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAresourceID.value]",
+                "metrics": [
+                    {
+                        "timeGrain": "PT1M",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": "[parameters('retentionPolicy')]"
+                        }
+                    }
+                ],
+                "logs": [
+                    {
+                        "category": "DDoSProtectionNotifications",
+                        "enabled": true
+                    }
+                ]
             }
         },
         {
@@ -827,6 +1079,40 @@
             }
         },
         {
+            "type": "Microsoft.Network/loadBalancers/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(variables('webLbName'), '/', 'Microsoft.Insights/setByARM')]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', variables('webLbName'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "LogAnalyticsDeployment"
+            ],
+            "properties": {
+                "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAresourceID.value]",
+                "metrics": [
+                    {
+                        "category": "AllMetrics",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": "[parameters('retentionPolicy')]"
+                        }
+                    }
+                ],
+                "logs": [
+                    {
+                        "category": "LoadBalancerAlertEvent",
+                        "enabled": true
+                    },
+                    {
+                        "category": "LoadBalancerProbeHealthStatus",
+                        "enabled": true
+                    }
+                ]
+            }
+        },
+        {
             "name": "[variables('vmssName')]",
             "type": "Microsoft.Compute/virtualMachineScaleSets",
             "apiVersion": "2017-03-30",
@@ -837,7 +1123,9 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/loadBalancers/', variables('webLbName'))]",
                 "[concat('Microsoft.Compute/virtualMachines/', variables('VisualStudioSrvName'))]",
-                "[concat(parameters('envPrefixName'), 'VSSrv17CustomScriptExtension')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+                "[concat(parameters('envPrefixName'), 'VSSrv17CustomScriptExtension')]",
+                "LogAnalyticsDeployment"
             ],
             "sku": {
                 "name": "[parameters('webSrvVMSize')]",
@@ -910,9 +1198,24 @@
                                     "autoUpgradeMinorVersion": true,
                                     "settings": {
                                         "fileUris": [
-                                            "https://raw.githubusercontent.com/rkuehfus/AzureMonitoringHackathon/master/Student/Resources/SetupWebServers.ps1"
+                                            "https://raw.githubusercontent.com/rkuehfus/pre-ready-2019-H1/master/Student/Resources/SetupWebServers.ps1"
                                         ],
                                         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File SetupWebServers.ps1 ',variables('VisualStudioSrvName'), ' ', parameters('username'), ' ', parameters('password'))]"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "logAnalyticsPolicy",
+                                "properties": {
+                                    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                                    "type": "MicrosoftMonitoringAgent",
+                                    "typeHandlerVersion": "1.0",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "workspaceId": "[reference('LogAnalyticsDeployment').outputs.LAworkSpaceID.value]"
+                                    },
+                                    "protectedSettings": {
+                                        "workspaceKey": "[reference('LogAnalyticsDeployment').outputs.LAworkSpaceKey.value]"
                                     }
                                 }
                             },
@@ -927,6 +1230,15 @@
                                         "port": 50342
                                     },
                                     "protectedSettings": {}
+                                }
+                            },
+                            {
+                                "name": "DependencyAgent",
+                                "properties": {
+                                    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                                    "type": "DependencyAgentWindows",
+                                    "typeHandlerVersion": "9.4",
+                                    "autoUpgradeMinorVersion": true
                                 }
                             },
                             {

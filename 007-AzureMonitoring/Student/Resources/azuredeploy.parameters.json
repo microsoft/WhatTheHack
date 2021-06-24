@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "envPrefixName": {
-      "value": "enter a 5 charactor value here all lowercase"
+      "value": "enter a 5 character value here all lowercase"
     },
     "username": {
       "value": "vmadmin"
@@ -11,7 +11,7 @@
     "password": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          "id": "<paste your vault resourceId here>"
         },
         "secretName": "VMPassword"
       }
