@@ -36,3 +36,7 @@ Once you created the Host Pools you will need to add Session Hosts, assign users
 1. Host Pools are created and Session Hosts showing Available
 1. Users are assigned to the HostPool's appropriate app group
 1. Able to show the Host Pool settings configured.
+
+## Learning Resources
+
+- [Azure CLI Reference](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)
