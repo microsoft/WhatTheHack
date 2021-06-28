@@ -1,4 +1,4 @@
-# Challenge 7: CI/CD
+# Challenge 8: Database Integration
 [< Previous Solution](./Solution-7.md) - **[Home](./Readme.md)** 
 ## Notes & Guidance
 1. You need to first set a Azure SQL DB resource
