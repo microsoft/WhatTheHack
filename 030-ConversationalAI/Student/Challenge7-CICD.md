@@ -1,5 +1,5 @@
 # Challenge 7: Implement DevOps best practices into your Bot 
-[< Previous Challenge](./Challenge6-ACS.md) - **[Home](../README.md)** 
+[< Previous Challenge](./Challenge6-ACS.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge8-Data.md)
 ## Introduction
 We've now finished deploying our Bot into Azure. In order to make it a enterprise level repeatable solution, the team needs to automate a CI/CD pipeline
 	
