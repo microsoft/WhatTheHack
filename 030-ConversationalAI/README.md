@@ -35,7 +35,7 @@ Below is a diagram of the solution architecture you will build in this hack. Ple
  - [Challenge 5](./Student/Challenge5-FrontEnd.md) - Embed your Bot to the sample Front End Web Application and enable Direct Line Speech 
  - [Challenge 6](./Student/Challenge6-ACS.md) - Integrate your Bot with Azure Communication Services 
  - [Challenge 7](./Student/Challenge7-CICD.md) - Implement DevOps best practices into your Bot 
- - [Challenge 8](./Student/Challenge8.md) - Add Advanced intelligence to your Bot using Azure Data Services
+ - [Challenge 8](./Student/Challenge8-Data.md) - Add Advanced intelligence to your Bot using Azure Data Services
 
 ## Prerequisites
 - Your own Azure subscription with **owner** access. See considerations below for additional guidance.

@@ -23,7 +23,8 @@ Also, we have prepared a [presentation ppt](https://github.com/microsoft/WhatThe
     * Integrate your Bot with Azure Communication Services 
  - Challenge 7: [CI/CD for your Bot Solution](./Solution-7.md) 
     * Implement DevOps best practices into your Bot 
-
+ - Challenge 8: [Data integration for your Bot Solution](./Solution-8.md) 
+    * Implement Custom Action to extend your Bot solution with Advanced Analytics.
 
 
  Helpfully this is helpful to you. We welcome your contributions if there is something to improve or add. Please feel free to submit Issues/Pull requests to this repo. 
