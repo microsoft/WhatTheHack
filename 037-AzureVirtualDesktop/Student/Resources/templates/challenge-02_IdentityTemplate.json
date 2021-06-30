@@ -1,0 +1,203 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "Domain": {
+            "type": "string"
+        },
+        "Environment": {
+            "type": "string",
+            "defaultValue": "d"
+        },
+        "IpAddresses": {
+            "type": "array"
+        },
+        "Location": {
+            "type": "string",
+            "defaultValue": "eastus"
+        },
+        "LocationAbbr": {
+            "type": "string",
+            "defaultValue": "eus"
+        },
+        "Timestamp": {
+            "type": "string"
+        },
+        "VmPassword": {
+            "type": "securestring"
+        },
+        "VmUsername": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "comments": "---------- AVAILABILITY SET ----------",
+            "name": "[concat('as-dc-', parameters('Environment'), '-', parameters('LocationAbbr'))]",
+            "type": "Microsoft.Compute/availabilitySets",
+            "apiVersion": "2019-07-01",
+            "location": "[parameters('Location')]",
+            "properties": {
+                "platformFaultDomainCount": 2,
+                "platformUpdateDomainCount": 2
+            },
+            "sku": {
+                "name": "Aligned"
+            }
+        },
+        {
+            "comments": "---------- NETWORK INTERFACE ----------",
+            "name": "[concat('nic-dc-', parameters('Environment'),'-', parameters('LocationAbbr'), '-', copyIndex())]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2018-08-01",
+            "location": "[parameters('Location')]",
+            "dependsOn": [],
+            "tags": {},
+            "copy": {
+                "name": "nicLoop",
+                "count": 2
+            },
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipConfig0",
+                        "properties": {
+                            "privateIPAllocationMethod": "Static",
+                            "privateIPAddress": "[parameters('IpAddresses')[copyIndex()]]",
+                            "subnet": {
+                                "id": "[resourceId(subscription().subscriptionId, concat('rg-wth-network-', parameters('Environment'),'-', parameters('LocationAbbr')), 'Microsoft.Network/virtualNetworks/subnets', concat('HubVnet-', parameters('Environment'),'-', parameters('LocationAbbr')), concat('snet-identity-', parameters('Environment'),'-', parameters('LocationAbbr')))]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "comments": "---------- VIRTUAL MACHINE ----------",
+            "name": "[concat('vm-dc-', parameters('Environment'),'-', parameters('LocationAbbr'),'-', copyIndex())]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2019-07-01",
+            "location": "[parameters('Location')]",
+            "dependsOn": [
+                "nicLoop",
+                "[concat('as-dc-', parameters('Environment'), '-', parameters('LocationAbbr'))]"
+            ],
+            "copy": {
+                "name": "vmLoop",
+                "count": 2
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_B2s"
+                },
+                "osProfile": {
+                    "computerName": "[concat('vm-dc-', parameters('Environment'),'-', parameters('LocationAbbr'),'-', copyIndex())]",
+                    "adminUsername": "[parameters('VmUsername')]",
+                    "adminPassword": "[parameters('VmPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "[concat('disk-dc-p-', parameters('LocationAbbr'), '-', copyIndex(),'-0')]",
+                        "caching": "None",
+                        "createOption": "FromImage",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                        }
+
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', concat('nic-dc-', parameters('Environment'),'-', parameters('LocationAbbr'), '-', copyIndex()))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": false
+                    }
+                },
+                "availabilitySet": {
+                    "id": "[resourceId('Microsoft.Compute/availabilitySets', concat('as-dc-', parameters('Environment'), '-', parameters('LocationAbbr')))]"
+                }
+            },
+            "resources": []
+        },
+        {
+            "comments": "---------- DSC EXTENSION > DC 01 ----------",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat('vm-dc-', parameters('Environment'),'-', parameters('LocationAbbr'),'-0/DSC')]",
+            "apiVersion": "2019-07-01",
+            "location": "[parameters('Location')]",
+            "dependsOn": [
+                "vmLoop"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.77",
+                "autoUpgradeMinorVersion": true,
+                "forceUpdateTag": "[parameters('Timestamp')]",
+                "protectedSettings": {
+                    "Items": {
+                        "VmPassword": "[parameters('VmPassword')]"
+                    }
+                },
+                "settings": {
+                    "wmfVersion": "latest",
+                    "modulesUrl": "https://github.com/microsoft/WhatTheHack/blob/master/037-AzureVirtualDesktop/Student/Resources/dsc/ActiveDirectoryForest.zip?raw=true",
+                    "configurationFunction": "ActiveDirectoryForest.ps1\\ActiveDirectoryForest",
+                    "properties": {
+                        "Domain": "[parameters('Domain')]",
+                        "DomainCreds": {
+                            "UserName": "[parameters('VmUsername')]",
+                            "Password": "PrivateSettingsRef:VmPassword"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "comments": "---------- DSC EXTENSION > DC 02 ----------",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat('vm-dc-', parameters('Environment'),'-', parameters('LocationAbbr'),'-1/DSC')]",
+            "apiVersion": "2019-07-01",
+            "location": "[parameters('Location')]",
+            "dependsOn": [
+                "vmLoop",
+                "[resourceId('Microsoft.Compute/virtualMachines/extensions', concat('vm-dc-', parameters('Environment'),'-', parameters('LocationAbbr'),'-0'), 'DSC')]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.77",
+                "autoUpgradeMinorVersion": true,
+                "forceUpdateTag": "[parameters('Timestamp')]",
+                "protectedSettings": {
+                    "Items": {
+                        "VmPassword": "[parameters('VmPassword')]"
+                    }
+                },
+                "settings": {
+                    "wmfVersion": "latest",
+                    "modulesUrl": "https://github.com/microsoft/WhatTheHack/blob/master/037-AzureVirtualDesktop/Student/Resources/dsc/ActiveDirectoryReplica.zip?raw=true",
+                    "configurationFunction": "ActiveDirectoryReplica.ps1\\ActiveDirectoryReplica",
+                    "properties": {
+                        "Domain": "[parameters('Domain')]",
+                        "DomainCreds": {
+                            "UserName": "[parameters('VmUsername')]",
+                            "Password": "PrivateSettingsRef:VmPassword"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
