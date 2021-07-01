@@ -26,5 +26,5 @@ To simulate the onprem environment (represented as the "onprem vnet" in the diag
 * [Hub and Spoke topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 * [What is Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)
 * [What is VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Cisco CSR 1000v Lab Resources](Resources/csr)
+* [Cisco CSR 1000v Lab Resources](Resources/csr.md)
 * [Create a Site-to-Site connection in the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
