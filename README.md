@@ -42,7 +42,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
-- [Windows Virtual Desktop](/037-WindowsVirtualDesktop/README.md)
+- [Azure Virtual Desktop](/037-AzureVirtualDesktop/README.md)
 - [SAP On Azure](/042-SAPOnAzure/README.md)
 
 ## Application Development
