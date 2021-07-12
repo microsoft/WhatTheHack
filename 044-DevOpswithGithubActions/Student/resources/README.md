@@ -7,3 +7,13 @@ Contoso recently started a new web and mobile projects to allow policyholders, b
 
 
 ![Solution BluePrint](/044-DevOpswithGithubActions/Student/resources/images/solutionblueprint.png)
+
+# Prerequisite (Mandate)
+
+  ### 1. Ensure you have Github Personal Account
+  ### 2. Ensure you have Azure Subscription
+  
+# Coach Instructions to get Started
+
+### 1. Please create your teams first
+### 2. Wait for Coach to give you brief about Hackathon
