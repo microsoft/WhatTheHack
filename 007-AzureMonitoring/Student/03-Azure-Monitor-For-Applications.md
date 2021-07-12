@@ -1,6 +1,6 @@
-# Challenge 3: Application Insights
+# Challenge 3: Azure Monitor for Applications
 
-[Previous Challenge](./02-Monitoring-And-Alert-Rule-Automation.md) - **[Home](../README.md)** - [Next Challenge>](./04-Virtual-Machine-Insights.md)
+[Previous Challenge](./02-Monitoring-Basics-And-Dashboards.md) - **[Home](../README.md)** - [Next Challenge>](./04-Azure-Monitor-For-Virtual-Machines.md)
 
 ## Introduction
 

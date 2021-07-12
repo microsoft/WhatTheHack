@@ -10,16 +10,14 @@ Understand Azure Monitor capabilities, facilitate an Azure Monitor customer conv
 
 ## Challenges
 
-- Challenge 0: **[Getting Started](Student/00-Prerequisites.md)**
-- Challenge 1: **[Monitoring and Alert Rule](Student/01-Monitoring-And-Alert-Rule.md)**
-- Challenge 2: **[Monitoring and Alert Rule Automation](Student/02-Monitoring-And-Alert-Rule-Automation.md)**
-- Challenge 3: **[Application Insights](Student/03-Application-Insights.md)**
-- Challenge 4: **[Virtual Machine Insights](Student/04-Virtual-Machine-Insights.md)**
+- Challenge 0: **[Getting Started](Student/00-Getting-Started.md)**
+- Challenge 1: **[Alerts, Activity Logs and Service Health](Student/01-Alerts-Activity-Logs-And-Service-Health.md)**
+- Challenge 2: **[Monitoring Basics and Dashboards](Student/02-Monitoring-Basics-And-Dashboards.md)**
+- Challenge 3: **[Azure Monitor for Applications](Student/03-Azure-Monitor-For-Applications.md)**
+- Challenge 4: **[Azure Monitor for Virtual Machines](Student/04-Azure-Monitor-For-Virtual-Machines.md)**
 - Challenge 5: **[Azure Monitor for Containers](Student/05-Azure-Monitor-For-Containers.md)**
-- Challenge 6: **[Log Analytics Query](Student/06-Log-Analytics-Query.md)**
-- Challenge 7: **[Optional Logs](Student/07-Optional-Logs.md)**
-- Challenge 8: **[Dashboard and Analytics](Student/08-Dashboard-And-Analytics.md)**
-- Challenge 9: **[Workbooks](Student/09-Workbooks.md)**
+- Challenge 6: **[Log Queries with KQL and Grafana](Student/06-Log-Queries-With-KQL-And-Grafana.md)**
+- Challenge 7: **[Visualizations](Student/07-Visualizations.md)**
 
 ## Prerequisites
 

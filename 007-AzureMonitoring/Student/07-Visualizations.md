@@ -1,6 +1,6 @@
-# Challenge 9: Workbooks
+# Challenge 9: Visualizations
 
-[Previous Challenge](./08-Dashboard-And-Analytics.md) - **[Home](../README.md)**
+[Previous Challenge](./06-Log-Queries-With-KQL-And-Grafana.md) - **[Home](../README.md)**
 
 ## Introduction
 

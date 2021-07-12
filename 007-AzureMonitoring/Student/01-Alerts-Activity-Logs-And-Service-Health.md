@@ -1,6 +1,6 @@
-# Challenge 1: Monitoring and Alert Rule
+# Challenge 1: Alerts, Activity Logs and Service Health
 
-[Previous Challenge](./00-Prerequisites.md) - **[Home](../README.md)** - [Next Challenge>](./02-Monitoring-And-Alert-Rule-Automation.md)
+[Previous Challenge](./00-Getting-Started.md) - **[Home](../README.md)** - [Next Challenge>](./02-Monitoring-Basics-And-Dashboards.md)
 
 ## Introduction
 

@@ -1,9 +1,8 @@
-# Challenge 6: Log Analytics Query
+# Challenge 6: Log Queries with KQL and Grafana
 
-[Previous Challenge](./05-Azure-Monitor-For-Containers.md) - **[Home](../README.md)** - [Next Challenge>](./07-Optional-Logs.md)
+[Previous Challenge](./05-Azure-Monitor-For-Containers.md) - **[Home](../README.md)** - [Next Challenge>](./07-Visualizations.md)
 
 ## Introduction
-Azure Monitor Logs is based on Azure Data Explorer, and log queries are written using the same Kusto query language (KQL). This is a rich language designed to be easy to read and author, so you should be able to start writing queries with some basic guidance.
 
 ## Description
 
@@ -15,11 +14,19 @@ Write a performance query that renders a time chart for the last 4 hours for bot
 * Create a heartbeat query for Web Servers and SQL Server
 * Write a performance query that renders a time chart for the last hour of the max percentage CPU usage of the AKS Cluster nodes
 
+* Deploy Grafana using Web App for Container
+* Configure the Azure Monitor Data Source for Azure Monitor, Log Analytics and Application Insights
+* Create a CPU Chart with a Grafana variable used to select Computer Name
+* Add an Annotation to your chart overlaying Computer Heartbeat
+
 ## Success Criteria
-Queries return data to match challenge
+* Grafana dashboards deployed
 
 ## Learning Resources
+* [Run Grafana Docker image](http://docs.grafana.org/installation/docker/)
+* [Monitor your Azure services in Grafana](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/grafana-plugin)
 * [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
 * [Overview of queries](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/)
 * [Query best practises](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)
 * [Query operators](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries)
+* [Telemetry correlation in Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation)

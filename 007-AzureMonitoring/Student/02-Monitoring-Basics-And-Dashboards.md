@@ -1,6 +1,6 @@
-# Challenge 2: Monitoring and Alert Rule Automation
+# Challenge 2: Monitoring Basics and Dashboards
 
-[Previous Challenge](./01-Monitoring-And-Alert-Rule.md) - **[Home](../README.md)** - [Next Challenge>](./03-Application-Insights.md)
+[Previous Challenge](./01-Alerts-Activity-Logs-And-Service-Health.md) - **[Home](../README.md)** - [Next Challenge>](./03-Azure-Monitor-For-Applications.md)
 
 ## Introduction
 
