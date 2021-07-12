@@ -1,6 +1,6 @@
-# Challenge 1: Monitoring and Alert Rule
+# Challenge 1: Alerts, Activity Logs and Service Health
 
-[Previous Challenge](./00-Prerequisites.md) - **[Home](../README.md)** - [Next Challenge>](./02-Monitoring-And-Alert-Rule-Automation.md)
+[Previous Challenge](./00-Getting-Started.md) - **[Home](../README.md)** - [Next Challenge>](./02-Monitoring-Basics-And-Dashboards.md)
 
 ## Notes & Guidance
 
@@ -19,11 +19,10 @@ Note: Use SQL Auth with the username being sqladmin and password being whatever 
 2. From the ARM template, send the below guest OS metric to Azure Monitor for the SQL Server
 
     - Add a Performance Counter Metric for:
-    
-        - Object: SQLServer:Databases 
+        - Object: SQLServer:Databases
         - Counter: Active Transactions
         - Instance:tpcc
-        
+
     - [Hint](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm)
     - First, figure out the correct format for the counter use the run command on the SQL Server in the Azure portal and run:
     `(Get-Counter -ListSet SQLServer:Databases).Paths`

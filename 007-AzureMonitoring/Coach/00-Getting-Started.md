@@ -1,6 +1,6 @@
 # Challenge 0: Getting started
 
-**[Home](../README.md)** - [Next Challenge>](./01-Monitoring-And-Alert-Rule.md)
+**[Home](../README.md)** - [Next Challenge>](./01-Alerts-Activity-Logs-And-Service-Health.md)
 
 ## Notes & Guidance
 
