@@ -1,6 +1,6 @@
 # DevOps with Github Actions
 
-## Challenge 0 - Access environemnt and getting ready for prequisite
+## Challenge 1 - Access environemnt and getting ready for prequisite
 
 ### Introduction
 
