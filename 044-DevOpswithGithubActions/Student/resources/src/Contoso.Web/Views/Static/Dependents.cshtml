@@ -1,0 +1,46 @@
+﻿    @{
+        Layout = null;
+    }
+    <h2>Dependents</h2>
+    <p>
+        <a href="#/Dependent/Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Person
+            </th>
+            <th>
+                Policy Holder
+            </th>
+            <th>
+                Active
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in data">
+            <td>
+                    <a ng-href="#people/{{item.PersonId}}" >
+                    {{item.Person.DisplayName}}
+                    </a>
+            </td>
+            <td>
+                    <a ng-href="#policyHolder/{{item.PolicyHolderId}}" >
+                    {{item.PolicyHolderName}}
+                    </a>
+            </td>
+            <td>
+                <input type="checkbox" ng-model="item.Active" id="Active" ng-disabled="true" />
+            </td>
+            <td>
+                <a ng-href="#/Dependent/Edit/{{item.Id}}">Edit</a> |
+                <a ng-href="#/Dependent/{{item.Id}}">Details</a> |
+                <a ng-href="#/Dependent/Delete/{{item.Id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    
+    </table>
