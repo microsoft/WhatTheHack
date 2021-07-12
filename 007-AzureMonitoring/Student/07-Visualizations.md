@@ -1,4 +1,4 @@
-# Challenge 9: Visualizations
+# Challenge 7: Visualizations
 
 [Previous Challenge](./06-Log-Queries-With-KQL-And-Grafana.md) - **[Home](../README.md)**
 
