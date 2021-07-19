@@ -33,6 +33,8 @@ In this challenge you need to complete the following management tasks:
 	- Note: In the Student\Resources\Loadscripts folder you will find a CPU load script to use.
 
 ### Reconcile From Hack 2
+### Tasks to finish the Challenge
+- Create an empty DB "tpcc" in the SQL server
 - Enable the collection of the following counter:
 	- \SQLServer:Databases(*)\Active Transactions
 - Stress the "tpcc" DB using HammerDB. For detailed instructions, see section [HammerDB Configuration]() below.
@@ -42,9 +44,23 @@ In this challenge you need to complete the following management tasks:
 - Create an Alert to get notified if the average CPU load on the VMSS is above 75%
 - Suppress the Alerts over the weekends
 
-#### HammerDB Configuration
 
-##### Stress the Database using HammerDB 
+### Definition of Done:
+Show the dashboard with the metric in it, which should also show a spike representing before and after the DB stress
+
+![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/ch1_metric_spike.jpg)
+
+
+### Helpful links:
+- [HammerDB](https://www.hammerdb.com)
+- [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1)
+- [In case you will modify the code (keep in mind you need to convert to bicep and match the syntax)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm)
+- [Converting to bicep and bicep playground](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-decompile?tabs=azure-cli)
+
+
+### HammerDB Configuration
+
+#### Stress the Database using HammerDB 
 - From the Visual Studio Server, download and install the latest version of [HammerDB](http://www.hammerdb.com/)
   ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image13.png)    
 - Open HammerDB and double click on SQL Server to start configuring the transaction load. In the dialog that opens, click OK.
@@ -67,6 +83,7 @@ In this challenge you need to complete the following management tasks:
   
 - Double click on Build and Click Yes to kick of a load test.
   
+
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image20.png)
   
 When the test is running it should look like the screenshot below:
