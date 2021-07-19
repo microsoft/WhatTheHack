@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Azure Monitoring V2 What-the-Hack provides hands on experience on how to monitor Azure workloads using Azure Monitor, Log Analytics, Insights and Grafana. This hack is a modular hack that can be run in the order listed below or by focus area to help facilitate learning i.e. containers.
+The Azure Monitoring V2 What-the-Hack provides hands on experience on how to monitor Azure workloads using Azure Monitor, Log Analytics, Insights and Grafana. This hack was designed specifically for DevOps engineers, administrators and IT architects who want to build their knowledge on Azure Monitor. However, anyone with a passion around Monitoring is welcome!  
 
 ![Hack Intro](./Images/header.png) 
 
