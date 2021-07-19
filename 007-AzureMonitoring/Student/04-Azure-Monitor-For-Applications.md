@@ -10,19 +10,15 @@ To ensure performance requirements are met for eshoponweb, you will need to dete
 
 - Create a URL ping availability test for your eShopWeb webpage
 
-- Enable Application Insights server-side telemetry in teh eShoOnWeb Web project
+- Enable Application Insights server-side telemetry in the eShoOnWeb Web project
   - In Visual Studio, install the Application Insights SDK in the eShopOnWeb Web Project in the Solution
 	- Install the Application Insights SDK NuGet package for ASP .NET Core. 
 	- Add you Application Insights Key to your code
-	- Make sure if you use the web shop locally (try Firefox) that it write data to Application Insights in Azure
-	- Generate an exception (can you change your password?)
-	- Create an Alert to be triggered once this exception happened
 	
 - Enable client-side telemetry collection for your eShoponWeb application.
 	- Inject the App Insights .NET Core JavaScript snippet
 	
-- Run the eShopOnWeb  Web project locally and check out the App Insights tooling in VS and the Azure Portal
-  - Trip the exception that has been added and setup an alert for it.
+- Run the eShopOnWeb Web project locally (try Firefox), and check out the App Insights tooling in VS and the Azure Portal
   - Find the exception in App Insights (Hint: Try to change your password)
   - Create Alerts based on availability and exceptions
 
