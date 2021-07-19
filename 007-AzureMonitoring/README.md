@@ -4,6 +4,8 @@
 
 This challenge-based Azure Monitoring workshop is intended to teach you how to monitor Azure workloads. During this day you will be working Azure Monitor, Log Analytics and Application Insights.
 
+![Hack Intro](./Images/header.jpg) 
+
 ## Learning Objectives
 
 Understand Azure Monitor capabilities, facilitate an Azure Monitor customer conversation, and demo key features of Azure Monitor.
