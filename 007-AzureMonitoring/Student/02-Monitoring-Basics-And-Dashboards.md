@@ -12,7 +12,9 @@ Using HammerDB to stress the SQL database, you will collect the database and CPU
 In this challenge you need to complete the following management tasks:
 
 Create an empty database called “tpcc” on the SQL Server VM
+
 Note: Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
+
 Using AZ CLI, Powershell or ARM template, send the below guest OS metric to Azure Monitor for the SQL Server
 - Add a Performance Counter Metric:
 - Object: SQLServer:Databases
