@@ -26,7 +26,7 @@ To ensure performance requirements are met for eshoponweb, you will need to dete
   - Find the exception in App Insights (Hint: Try to change your password)
   - Create Alerts based on availability and exceptions
 
-*Bonus task:
+Bonus task:
 - Can you hit the VMSS to cause an Auto Scale?
 - Can you publish your code to your VMSS?
 
