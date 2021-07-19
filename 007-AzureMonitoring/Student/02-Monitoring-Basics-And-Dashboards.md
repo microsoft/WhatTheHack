@@ -20,9 +20,8 @@ In this challenge you need to complete the following management tasks:
 	- Counter: Active Transactions
 	- Instance:tpcc
 
-- Download and Install HammerDB tool on the Visual Studio VM (instructions are in your Student\Guides\Day-1 folder for setting up and using [HammerDB](www.hammerdb.com).
-
 - Use HammerDB to create transaction load
+	- Download and Install HammerDB tool on the Visual Studio VM (instructions are in your Student\Guides\Day-1 folder for setting up and using [HammerDB](www.hammerdb.com).
 
 - From Azure Monitor, create a graph for the SQL Server Active Transactions and Percent CPU and pin to your Azure Dashboard
 
