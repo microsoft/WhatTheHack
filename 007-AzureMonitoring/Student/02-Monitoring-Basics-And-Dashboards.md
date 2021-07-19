@@ -3,10 +3,7 @@
 [Previous Challenge](./01-Alerts-Activity-Logs-And-Service-Health.md) - **[Home](../README.md)** - [Next Challenge>](./03-Azure-Monitor-For-Virtual-Machines.md)
 
 ## Introduction
-After deploying your initial solution for eshoponweb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes.
-
-To accomplish this, you will have to understand the concept of counters, how to collect them, how to configure Alerts and display them in a Dashboard.    
-To do that you will have to stress the SQL using HammerDB and collect the DB counter as well as the CPU counters of the VMSS after loading the CPU and display them on a Dashboard.
+After deploying your initial solution for eshoponweb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. To accomplish this, you will have to understand the concept of counters, how to collect them, how to configure Alerts and display them in a Dashboard.    
 
 ## Description
 
@@ -76,7 +73,7 @@ When the test is running it should look like the screenshot below:
 
 ## Success Criteria
 
-Show the dashboard with the metric in it, which should also show a spike representing before and after the DB stress
+Stress the SQL using HammerDB, collect the DB and CPU counter of the VMSS after loading the CPU, and display them on a Dashboard. The dashboard should have the metric with a spike representing before and after the DB stress.
 
 ## Learning Resources
 
