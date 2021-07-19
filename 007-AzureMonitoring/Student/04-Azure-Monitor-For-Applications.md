@@ -27,8 +27,8 @@ In order to detect performance anomalies, diagnose issues, and understand what u
   - Create Alerts based on availability and exceptions
 
 *Bonus task:
-*- Can you hit the VMSS to cause an Auto Scale?
-*- Can you publish your code to your VMSS?
+- Can you hit the VMSS to cause an Auto Scale?
+- Can you publish your code to your VMSS?
 
 ## Success Criteria
 
