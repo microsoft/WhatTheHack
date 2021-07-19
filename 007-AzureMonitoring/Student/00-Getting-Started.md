@@ -6,7 +6,7 @@
 
 You have been contracted to deploy, monitor and manage an online shoping website in Azure for a start-up company "eshoponweb".  After evaluating the requirements, you develop and test deployment templates before presenting the below diagram for approval. The company's management is excited about how quickly you are able to deploy the solution, and give you the green light to proceed with deployment.
 
-![Hack Diagram](../Images/monitoringhackdiagram.png)
+![Hack Diagram](../Images/monitoringhackdiagram1.png)
 
 ## Description
 
