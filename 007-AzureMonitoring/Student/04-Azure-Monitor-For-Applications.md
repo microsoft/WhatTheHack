@@ -4,7 +4,7 @@
 
 ## Introduction
 
-To ensure performance requirements are met with the eshoponweb, you will need to detect performance anomalies, diagnose issues, and understand what users are actually doing on the website. You deside to Application Insights is needed to continuously improve performance and usability.
+To ensure performance requirements are met for eshoponweb, you will need to detect performance anomalies, diagnose issues, and understand what users are actually doing on the website. You deside to Application Insights is needed to continuously improve performance and usability.
 
 ## Description
 
