@@ -6,26 +6,14 @@
 
 ## Description
 
-In this challenge you need to complete the following management tasks:
-
-Create an empty database called “tpcc” on the SQL Server VM
-Note: Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
-Using AZ CLI, Powershell or ARM template, send the below guest OS metric to Azure Monitor for the SQL Server
-Add a Performance Counter Metric:
-Object: SQLServer:Databases
-Counter: Active Transactions
-Instance:tpcc
-
-Download and Install HammerDB tool on the Visual Studio VM (instructions are in your Student\Guides\Day-1 folder for setting up and using [HammerDB](www.hammerdb.com).
-
-Use HammerDB to create transaction load
-From Azure Monitor, create a graph for the SQL Server Active Transactions and Percent CPU and pin to your Azure Dashboard
-From Azure Monitor, create an Action group, to send email to your address
-Create an Alert if Active Transactions goes over 40 on the SQL Server tpcc database.
-Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails me when you go over the threshold.Note: In the Student\Resources\Loadscripts folder you will find a CPU load script to use.
+1. Update the parameters file and deployment script for the GenerateAlertRules.json template located in the AlertTemplates folder
+    - Add the names of your VMs and ResouceId for your Action Group
+2. Deploy the GenerateAlertRules.json template using the sample PowerShell script (deployAlertRulesTemplate.ps1) or create a Bash script (look at the example from the initial deployment)
+3. Verify you have new Monitor Alert Rules in the Portal or from the command line (sample command is in the PowerShell deployment script using new Az Monitor cmdlets)
+4. Modify the GenerateAlertsRules.json to include “Disk Write Operations/Sec” and set a threshold of 20
+5. Rerun your template and verify your new Alert Rules are created for each of your VMs
+6. Create a new Action Rule that suppress alerts from the scale set and virtual machines
 
 ## Success Criteria
 
 ## Learning Resources
-
-[Install and configure Windows Azure diagnostics extension (WAD) using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-windows-install#azure-cli-deployment)
