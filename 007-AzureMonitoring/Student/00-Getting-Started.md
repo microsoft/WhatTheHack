@@ -10,6 +10,8 @@ You have been contracted to deploy, monitor and manage an online shoping website
 
 ## Description
 
+For Challege 0, you will deploy an environment in Azure that consists of two Azure Resource Groups with different set of resources. These include the VNet, subnets, NSG(s), LB(s), NAT rules, scale set and a fully functional .NET Core Application (eShopOnWeb) to monitor.
+
 ### Required Tools
 
 The following tools are required to deploy Azure infrastructure using Azure CLI with an ARM Template.
