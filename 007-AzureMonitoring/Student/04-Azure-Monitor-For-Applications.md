@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In order to detect performance anomalies, diagnose issues, and understand what users are actually doing on the we for eshoponweb site w will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+To ensure performance requirements are met with the eshoponweb, you will need to detect performance anomalies, diagnose issues, and understand what users are actually doing on the website. You deside to Application Insights is needed to continuously improve performance and usability.
 
 ## Description
 
