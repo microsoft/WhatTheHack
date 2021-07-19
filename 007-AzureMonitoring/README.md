@@ -13,8 +13,8 @@ Understand Azure Monitor capabilities, facilitate an Azure Monitor customer conv
 - Challenge 0: **[Getting Started](Student/00-Getting-Started.md)**
 - Challenge 1: **[Alerts, Activity Logs and Service Health](Student/01-Alerts-Activity-Logs-And-Service-Health.md)**
 - Challenge 2: **[Monitoring Basics and Dashboards](Student/02-Monitoring-Basics-And-Dashboards.md)**
-- Challenge 3: **[Azure Monitor for Applications](Student/03-Azure-Monitor-For-Applications.md)**
-- Challenge 4: **[Azure Monitor for Virtual Machines](Student/04-Azure-Monitor-For-Virtual-Machines.md)**
+- Challenge 3: **[Azure Monitor for Virtual Machines](Student/03-Azure-Monitor-For-Virtual-Machines.md)**
+- Challenge 4: **[Azure Monitor for Applications](Student/04-Azure-Monitor-For-Applications.md)**
 - Challenge 5: **[Azure Monitor for Containers](Student/05-Azure-Monitor-For-Containers.md)**
 - Challenge 6: **[Log Queries with KQL and Grafana](Student/06-Log-Queries-With-KQL-And-Grafana.md)**
 - Challenge 7: **[Visualizations](Student/07-Visualizations.md)**
