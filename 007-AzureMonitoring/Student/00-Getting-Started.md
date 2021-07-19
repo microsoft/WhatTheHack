@@ -4,7 +4,7 @@
 
 ## Introduction
 
-You have been contracted to deploy, monitor and manage an online shoping website in Azure for a start-up company "eshoponweb".  Luckily, you already have deployment scripts that will deploy just what they need! You present the below diagram for approval to the management as a solution, and have been given approval to deploy.
+You have been contracted to deploy, monitor and manage an online shoping website in Azure for a start-up company "eshoponweb".  After evaluating the requirements, you develop and test deployment templates before presenting the below diagram for approval. The company's management is excited about how quickly you are able to deploy the solution, and give you the green light to proceed with deployment.
 
 ![Hack Diagram](../Images/monitoringhackdiagram.png)
 
