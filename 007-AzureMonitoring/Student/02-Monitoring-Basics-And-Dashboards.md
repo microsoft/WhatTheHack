@@ -7,7 +7,7 @@ After deploying your initial solution for eshoponweb, you want to make sure that
 
 ## Description
 
-Using HammerDB to stress the SQL database, you will collect the database and CPU counters of the VMSS after loading the CPU and displaying the results on the dashboard.
+Using HammerDB to stress the SQL database, you will collect the database and CPU counters of the VMSS after loading the CPU and display the results on the dashboard.
  
 In this challenge you need to complete the following management tasks:
 
