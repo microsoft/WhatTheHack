@@ -6,7 +6,7 @@
 
 You have been contracted to deploy, monitor and manage an online shoping website in Azure for a start-up company "eshoponweb".  Luckily, you already have deployment scripts that will deploy just what they need! You present the below diagram for approval to the management as a solution, and have been given approval to deploy.
 
-![eshoponweb diagram](../Images/mointoringhackdiagram.png) 
+![Hack Diagram](./Images/monitoringhackdiagram.png)
 
 ## Description
 
