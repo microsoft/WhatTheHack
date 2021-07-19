@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This challenge-based Azure Monitoring workshop is intended to teach you how to monitor Azure workloads. During this day you will be working Azure Monitor, Log Analytics and Application Insights.
+The Azure Monitoring V2 What-the-Hack provides hands on experience on how to monitor Azure workloads using Azure Monitor, Log Analytics, Insights and Grafana. This hack is a modular hack that can be run in the order listed below or by focus area to help facilitate learning i.e. containers.
 
 ![Hack Intro](./Images/header.png) 
 
