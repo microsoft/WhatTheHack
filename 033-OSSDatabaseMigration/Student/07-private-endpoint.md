@@ -16,17 +16,40 @@ appConfig:
 ```
 Once you make your changes, you will need to run a helm upgrade command to see the changes reflected:
 
+* For MySQL:
+
 ```bash
 
 helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
+kubectl -n contosoappmysql rollout restart deployment contosopizza
+```
+
+Wait for a minute or two until the status field for the kubectl command below is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
+
+```bash
+
+ kubectl -n contosoappmysql get pods
 
 ```
 
-To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
+* PostgreSQL:
 
 ```bash
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
+kubectl -n contosoapppostgres rollout restart deployment contosopizza
+```
+
+
+Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
+
+```bash
+
+ kubectl -n contosoapppostgres get pods
 
 ```
 

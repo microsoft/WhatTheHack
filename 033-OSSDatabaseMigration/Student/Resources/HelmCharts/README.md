@@ -2,6 +2,8 @@
 
 ## Setting up Kubernetes
 
+NOTE: YOU DO NOT NEED TO RUN THROUGH THE STEPS IN THIS FILE IF YOU ALREADY PROVISIONED AKS. 
+
 The steps to deploy the AKS cluster, scale it up and scale it down are available in the README file for that section: [README](../ARM-Templates/README.md).
 
 You should have not have to do provisioning again since you have already provisioned AKS using the create-cluster.sh script in [Prerequisites >](../../../00-prereqs.md)
