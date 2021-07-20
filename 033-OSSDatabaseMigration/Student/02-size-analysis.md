@@ -49,8 +49,8 @@ mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --nu
 * Postgres - create benchmark objects in the database and run a synthetic workload for 5 minutes
 
 ```bash
-    pgbench -i  -h localhost -U postgres -d samples
-    pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
+    pgbench -i samples
+    pgbench -c 500 -j 40 -T 300 samples
 ```
 
 ## References
