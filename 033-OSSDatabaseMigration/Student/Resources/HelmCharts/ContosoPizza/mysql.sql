@@ -9,8 +9,8 @@ GRANT SUPER on *.* to contosoapp identified by 'OCPHack8'; -- may not be needed
 
 GRANT ALL PRIVILEGES ON wth.* to contosoapp ;
 
--- Show tables in wth database - should be empty now
+GRANT PROCESS, SELECT ON *.*  to contosoapp ;
 
-USE wth ;
-
-SHOW TABLES;
+SET GLOBAL gtid_mode=ON_PERMISSIVE;
+SET GLOBAL gtid_mode=OFF_PERMISSIVE;
+SET GLOBAL gtid_mode=OFF;
