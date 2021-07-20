@@ -63,8 +63,8 @@ resources:
      cpu: 1000m
      memory: 4096Mi
   requests:
-     cpu: 750m
-     memory: 2048Mi
+     cpu: 256m
+     memory: 512Mi
   volume:
     size: 1Gi
     storageClass: managed-premium
