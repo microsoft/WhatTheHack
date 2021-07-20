@@ -13,9 +13,7 @@ There are a lot of opportunities for things to go wrong in this step especially 
 
     The location may also potentially need to be made unique if you are getting errors related to quota.
 
-*  Even though it's commented out, the AKS CLI tools may need to be installed if the attendee is not using Azure Cloud Shell
-
-* Both the Azure CLI and Helm will need to be installed. These are included with Azure Cloud Shell but will need to be downloaded separately otherwise
+* Azure CLI, AKS CLI and Helm will need to be installed. These are included with Azure Cloud Shell but will need to be downloaded separately if not using Cloud Shell.
 
 * Attendees should not be using the public IP address of the PostgreSQL/MySQL containers when configuring the application.
 
@@ -23,17 +21,20 @@ There are a lot of opportunities for things to go wrong in this step especially 
 
 ```bash
     kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
+    OR
+    kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza
 ```
 
-* Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria
+* [Optional] Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria. The IP address for each web application will need to be registered as a domain in Google reCaptcha. 
 
-* The approximate cost for this hack is about $15/day:
-    AKS: $90/month
-    Azure DB for MySQL: $153/month
-    Azure DB for PostgreSQL: $139/month
+* The approximate cost for this hack is about $15/day (using Azure Pay as You Go pricing):
+    * AKS: $163/month
+    * Azure DB for MySQL: $150/month
+    * Azure DB for PostgreSQL: $150/month
 
-    Total: $382/month (or $13 + any incidental charges for storage, private endpoints, etc.)
-
+    * Total: $464/month (plus any incidental charges for storage, private endpoints, etc.)
+    
+    
 * This hack can be done in an Azure trial account (one attendee per Azure trial). However, Microsoft anti-fraud detection may prevent multiple Azure trial subscriptions from being created in the same network location. Also, each attendee will need a working credit card to setup an Azure trial subscription (even though the card will not be charged).
 
 

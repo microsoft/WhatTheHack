@@ -16,24 +16,49 @@ appConfig:
   dataSourceUser: "user name goes here" # your database username goes here
   dataSourcePassword: "Password goes here!" # your database password goes here
 ```
-Once you make your changes, you will need to run a helm upgrade command to see the changes reflected:
+Once you make your changes, you will need to run helm upgrade command again to see them in the Pizzeria web application:
+
+* For MySQL:
 
 ```bash
 
 helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
+kubectl -n contosoappmysql rollout restart deployment contosopizza
+```
+
+Wait for a minute or two until the status field for the kubectl command below is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
+
+```bash
+
+ kubectl -n contosoappmysql get pods
 
 ```
 
-To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type
+* PostgreSQL:
 
 ```bash
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
+kubectl -n contosoapppostgres rollout restart deployment contosopizza
+```
+
+
+Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
+
+```bash
+
+ kubectl -n contosoapppostgres get pods
 
 ```
+
 
 ## Success Criteria
 
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change
-* You can update the value of column  "name" in table "ingredients" for any row with your favorite pizza flavor and it shows up on the Pizzeria web page
+* You can update the value of column  "name" in table "ingredient" for any row. Change the name from "Onion" to "Shallot" and on the app, click on 
+start building any pizza, and on the next page, click "Veggies" and at the lower left corner, see that "Shallot" appears with the picture of the onion.
 
