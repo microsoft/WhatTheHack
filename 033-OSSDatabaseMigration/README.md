@@ -3,7 +3,7 @@
 This intro level hackathon will help you get hands-on experience migrating databases from on-premises PostgreSQL and MySQL to Azure DB for PostgreSQL and MySQL.
 
 ## Learning Objectives
-In this hack you will solve a common challenge for companies migrating to the cloud: migrating open source databases to Azure. The application using the database is a sample e-commerce application written in Java (https://github.com/pzinsta/pizzeria). It will be configured to use both PostgreSQL and MySQL databases.
+In this hack you will solve a common challenge for companies migrating to the cloud: migrating open source databases to Azure. The application using the database is a sample e-commerce [application](https://github.com/pzinsta/pizzeria) written in Java. It will be configured to use both PostgreSQL and MySQL databases.
 
 The participants will learn how to:
 
@@ -39,6 +39,7 @@ The participants will learn how to:
 
 - Access to an Azure subscription with Owner access
    - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+   - Familiarity with Azure Cloud Shell
 - [**Visual Studio Code**](https://code.visualstudio.com/) (optional)
 
 ## Repository Contents
@@ -49,7 +50,6 @@ The participants will learn how to:
    - Pizzeria application environment setup
 
 ## Contributors
-- Brian Hitney
 - Daniel Kondrasevich
 - Israel Ekpo
 - Pete Rodriguez
