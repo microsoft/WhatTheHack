@@ -48,11 +48,16 @@ CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPL
 create database wth ;
 ```
 
-* PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands:
+alternatively, from bash use pg_dumpall binary:
+
+```sh
+pg_dumpall -r | psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget postgres
+```
+
+* PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use this command:
 
 ```bash
- pg_dump -C -Fd  wth -j 4 -f exportdir -U contosoapp
- pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -Fd exportdir
+ pg_dump wth | psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget wth
 ```
 
 * For MySQL the database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
