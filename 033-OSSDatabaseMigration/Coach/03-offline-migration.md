@@ -73,10 +73,14 @@ PostgreSQL Command -->
 CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
 ```
 
-alternatively, from bash use pg_dumpall binary:
+alternatively, from bash use pg_dumpall binary: Logon as the postgres unix user on the source container first.
 
 ```sh
+
+su - postgres
+
 pg_dumpall -r | psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget postgres
+
 ```
 
 MySQL command --->
