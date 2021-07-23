@@ -4,24 +4,27 @@
 
 ## Introduction
 
-Create an appropriate PaaS database service based on previous challenge in Azure and copy the Pizzeria application data to Azure. 
+Deploy an appropriate Azure DB service based on what you determined and observed in previous challenges and then copy the Pizzeria database(s) to Azure. 
 You are not required to reconfigure the application to Azure DB for PostgreSQL/MySQL in this challenge as you will do that in the next one. 
 
 ## Description
 
-In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. Once you create your "target" Azure PaaS database service, keep in mind that being a PaaS it may not be fully customizable - and that is ok, as long as you can point the application to Azure database later and it performs. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. **Do not use the Basic tier. It does not support features that are required in later challenges like replication and private endpoints.**
+In the offline migration approach, your application can tolerate some downtime to move to Azure. You can assume that the application is down and no changes are being made to the database. You will need to take into account the size analysis you performed in Challenge 2 and choose the appropriate database server tier and deployment option. **Do not use the Basic tier. It does not support features that are required in later challenges like replication and private endpoints.**
 
 ## Success Criteria
 
-* You have chosen the proper PaaS database service at an appropriate service tier based on sizing analysis
+* You have chosen the proper Azure DB database service at an appropriate service tier based on the sizing analysis you performed in an earlier challenge
+* You have created a MySQL and/or PostgreSQL database for the application in Azure DB
+* You have created a separate "wth" database in MySQL and/or PostgreSQL
+* You have a user called "contosoapp" with the same privileges that it has on the source database
 * Demonstrate to your coach that the "on-premises" Pizzeria application data has migrated successfully to Azure
 
 ## Hints
 
 * You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternatively, if the database copy tools are installed on your machine, you can connect to the database from your computer as well. 
-* You can install the editor of your choice in the container (e.g.`apt update` and `apt install vim`) in case you need to make changes to the MySQL dump file
-* For both MySQL and PostgreSQL, you can use Azure Data Factory to copy the data.
-* You are free to choose other 3rd party tools like MySQLWorkbench, dbeaver for this challenge
+* You can install the editor of your choice in the database container(s) (e.g.`apt update` and `apt install vim`) in case you need to make changes to the MySQL dump file
+* For both MySQL and PostgreSQL, you can use Azure Data Factory to copy the data as an alternative approach. 
+* You are free to choose other 3rd party tools like MySQLWorkbench, dbeaver, etc. for this challenge
 
 ## References
 * [Migrate your PostgreSQL database using export and import](https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import)
