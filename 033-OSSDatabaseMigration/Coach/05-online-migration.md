@@ -4,7 +4,7 @@
 
 ## Coach Tips
 
-The intent of this WTH is not to focus on networking so if the attendee has trouble configuring VPN/VNET peering, feel free to help them through it. 
+The intent of this WTH is not to focus on networking so if the attendee has trouble configuring VPN/VNet peering, feel free to help them through it. 
 
 ## Introduction
 
@@ -12,7 +12,7 @@ Perform an online migration using the Azure Database Migration Service
 
 ## Steps -- PostgreSQL
 
-Connect to the database container and run the export:
+Connect to the *source* database container and run the export on the source database :
 
 ```bash
 kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -20,28 +20,39 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 pg_dump -o -h localhost -U contosoapp -d wth -s >dump_wth.sql
 ```
 
-This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration. Alternatively, you can drop and re-create the wth database.
+This creates a psql dump text file. We need to import it to the *target*. We import the schema only. It is suggested to create a separate database for online migration - wth2. 
 
-To drop all the tables with indexes
+Alternatively, you can drop all the tables and indices and re-create just the tables.
+
+To drop all the tables with indexes, the following SQL script creates a file called drop_tables.sql which you can run in the next step to execute in SQL to drop the tables and indices. Then execute the drop_tables.sql script.
 
 ```bash
+
+psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth 
+
+\t
 \out drop_tables.sql
 
 select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
+
+\i drop_tables.sql
+
 ```
 
-To import the schema only to target using psql
+Another option to dropping and recreating all the tables is simply drop the database and re-create the database
 
-```bash
-$ psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  -d wth <dump_wth.sql
+```sql
 
-postgres=> create database wth
+drop database wth ;
+
+create database wth ;
+
 ```
 
-Import the schema to target
+Next, import the schema to target
 
 ```bash
-psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth2 < dump_wth.sql
+psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth < dump_wth.sql
 ```
 
 Verify count of tables and indexes created on the target database from psql. 26 tables, 39 indices.
@@ -56,6 +67,7 @@ Verify count of tables and indexes created on the target database from psql. 26 
 [Disabling Foreign Keys in Azure DMS](https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) shows more results than needed. It can be simplified by saving the output of a SQL command that just drops the constraints. From psql, do this:
 
 ```bash
+\t
 \out drop_fk.sql
 ```
 
@@ -101,6 +113,7 @@ Run the file:
 There is no trigger in the application schema. It is still a best practice to check for it:
 
 ```sql
+\t
 \out drop_trigger.sql
 SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
 FROM information_schema.triggers
@@ -117,6 +130,7 @@ postgres=# alter role contosoapp with replication ;
 * In DMS, if the attendee gets a connection error when trying to connect to the target service, check "Allow access to Azure Services" in the Azure Portal for the database. After migration, do a cutover and re-enable the foreign keys. Run the following on the source and run it on the target after cleaning the header:
 
 ```sql
+\t
 \out enable_fk.sql
 
 SELECT CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
@@ -151,72 +165,18 @@ WHERE constraint_type = 'FOREIGN KEY'
 
 ## Steps -- MySQL
 
-Run the export:
+The MySQL data-in replication is initiated from Azure DB for MySQL and pulls data from on-premises. As such the source database's public IP address needs to be whitelisted. 
 
-```bash
+The database tier has to be standard or memory optimized for the replication to work.
 
- mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --databases wth --no-data  --skip-column-statistics >dump_nodata.sql
+The attendees have to login to MySQL with the user they created when they set up Azure DB for MySQL to setup the replication using the mysql.az_replication_change_master stored procedure. 
 
-```
+The values for master_log_file and master_log_pos need to be retrieved using `show master status` on the source server not on Azure DB for MySQL. 
 
-Import with no data. Create the wth database:
+The default gtid_mode in the source database is ON and in Azure DB for MySQL it is Off. Both sides have to match before starting replication.
+Since the wth database used for the challenges is not seeing a lot of transactions, the attendees can follow the MySQL [documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-disable-gtids.html) to change the parameter without stopping replication.
 
-```bash
 
-mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -p wth <dump_nodata.sql
 
-```
 
-Run script on the target to drop all the foreign keys:
-
-```bash
-drop_fk_query.sql
-```
-
-```sql
- SET group_concat_max_len = 8192;
- SELECT GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery
-    FROM
-    (SELECT
-            KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-            KCU.TABLE_NAME,
-            KCU.COLUMN_NAME,
-            CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery
-            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-            WHERE
-              KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-              AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-          AND KCU.REFERENCED_TABLE_SCHEMA = 'wth') Queries
-  GROUP BY SchemaName
-
-```
-
-  Run the script and store the output to a file. Running this the following way requires to format the file again:
-
-```bash
-
- mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -pOCPHack8 wth <drop_fk_query.sql >drop_fk.sql
- cat drop_fk.sql | sed 's/\\n/\n/g' | sed '/DropQuery/d' >drop.sql
-
- ```
- Run the sql script to drop all the FKs:
-
- ```sql
-
- source drop.sql
-
- ```
-
- Grant replication client and save to contosoapp user for DMS online migration:
-
- ```sql
-
-  grant replication slave on *.* to 'contosoapp' ;
-  grant replication client on *.* to 'contosoapp' ;
-
- ```
-
- If the copy fails during the DMS online copy with an error message like "Migrating data to a mysql other than Azure DB for MySQL is not supported", it is because the user connecting to the target database does not have enough privileges on MySQL. The exact minimum set of privileges is TBD but this works as a workaround. This screenshot from MySQL Workbench shows the privileges that are required:
- 
- ![MySQL Workbench Privileges](./workbench.png)
 

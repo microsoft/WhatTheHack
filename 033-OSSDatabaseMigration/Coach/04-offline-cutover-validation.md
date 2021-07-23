@@ -4,5 +4,23 @@
 
 ## Coach Tips
 
-* It's a good idea to have the attendee register themselves as a new user so they can then use psql, mysql, Azure Data Studio, and MySQL WorkBench and check the users table to see that the data has indeed changed. Keep in mind that registering users will not work unless Google reCAPTCHA has been reconfigured. This is mentioned in the [Prerequisites](./00-prereqs.md) 
+* If using MySQL Workbench tool to migrate mysql database, make sure to use the "MySQL Workbench Migration Wizard". This is available under the "home icon" as shown [here](./mysql_workbench_migration_wizard.jpg) 
 
+* This is the SQL command to change the ingredient table value for MySQL
+
+```sql
+
+use wth ;
+update ingredient set name = 'Shallot' where name = 'Onion' ;
+
+```
+
+* This is the SQL command to change the ingredient table value for PostgreSQL
+
+```sql
+
+\c wth 
+update ingredient set name = 'Shallot' where name = 'Onion' ;
+
+
+```

@@ -8,18 +8,14 @@ Determine the CPU/memory configuration, database I/O and file size, and map to a
 
 ## Description
 
-In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required, and map it to an equivalent size in Azure. You will run a synthetic benchmark to simulate I/O for the database. In order to watch the system load, you can install tools like htop `(apt update ; apt install htop)`
+In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required, and map it to an equivalent size in Azure. Since our pizza website is not being used for real transactions, you will run a synthetic benchmark to simulate I/O for the database. The commands to run the synthetic workload are given below. While the workload is running, you will watch the utilization of the CPU, memory and based on what you observe, determine the size of the Azure database to be created.
 
 To run the synthetic benchmark for PostgreSQL:
-
 * Create a database in your on-premises database called samples
-
-* Create benchmark objects in the database 
-
 * Run a synthetic workload for 5 minutes and watch the system load while it is running. 
 
-* Run the synthetic benchmark for MySQL
-
+To run the synthetic benchmark for MySQL:
+* Run a synthetic workload for 5 minutes and watch the system load while it is running.
 
 ## Success Criteria
 
@@ -27,11 +23,11 @@ To run the synthetic benchmark for PostgreSQL:
 * You have determined the peak workload - CPU, memory, disk I/O on the server during the synthetic workload test
 * You have discovered the database file size of the application database wth
 * You have selected the appropriate database service tier (e.g. General Purpose or Memory Optimized) and server size to meet the peak workload
-* You can explain to your coach why you would go with a specific database deployment option (Single Server, Flexible Server or HyperScale (PostgreSQL only))
+* You can explain to your coach the different database deployment option (Single Server/Flexible Server and HyperScale (PostgreSQL only)). In this hackathon you will use single server only
 
 ## Hint
 
-* For both MySQL and PostgreSQL, install htop. You will need it to watch the system load while the synthetic workload is running against the databases.
+* For both MySQL and PostgreSQL, install htop on the database container. You will need it to watch the system load while the synthetic workload is running against the databases.
 
 ```bash
 
@@ -46,11 +42,11 @@ mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --nu
 
 ```
 
-* Postgres - create benchmark objects in the database and run a synthetic workload for 5 minutes
+* Stress test for PostgreSQL - create benchmark objects in the database and run a synthetic workload for 5 minutes
 
 ```bash
-    pgbench -i  -h localhost -U postgres -d samples
-    pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
+    pgbench -i samples
+    pgbench -c 500 -j 40 -T 300 samples
 ```
 
 ## References
