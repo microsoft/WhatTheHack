@@ -51,8 +51,6 @@ In this hack you will be solving the common problem that websites have with the 
 
 ## Contributors
 - Andy Wahrenberger
-- Gino Filicetti
-- Peter Laudati
 
 
 
