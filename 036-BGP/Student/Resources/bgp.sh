@@ -207,7 +207,7 @@ function connect_gws () {
     # Using local gws
     # Create Local Gateways for vpngw1
     vpngw1_name=vng${gw1_id}
-    vpngw1_bgp_json=$(az network vnet-gateway show -n "$vpngw1_name" -g "$rg" --query 'bgpSettings'  2>/dev/null)
+    vpngw1_bgp_json=$(az network vnet-gateway show -n "$vpngw1_name" -g "$rg" --query 'bgpSettings' -o json 2>/dev/null)
     vpngw1_asn=$(echo "$vpngw1_bgp_json" | jq -r '.asn')
     vpngw1_gw0_pip=$(echo "$vpngw1_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw1_gw0_bgp_ip=$(echo "$vpngw1_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
@@ -246,7 +246,7 @@ function connect_gws () {
     fi
     # Create Local Gateways for vpngw2
     vpngw2_name=vng${gw2_id}
-    vpngw2_bgp_json=$(az network vnet-gateway show -n "$vpngw2_name" -g "$rg" --query 'bgpSettings')
+    vpngw2_bgp_json=$(az network vnet-gateway show -n "$vpngw2_name" -g "$rg" -o json --query 'bgpSettings')
     vpngw2_asn=$(echo "$vpngw2_bgp_json" | jq -r '.asn')
     vpngw2_gw0_pip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw2_gw0_bgp_ip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
@@ -418,7 +418,7 @@ function connect_csr () {
     # csr_asn=$(get_router_asn_from_id $csr_id)  # Not used
 
     vpngw_name=vng${gw_id}
-    vpngw_bgp_json=$(az network vnet-gateway show -n "$vpngw_name" -g "$rg" --query 'bgpSettings'  2>/dev/null)
+    vpngw_bgp_json=$(az network vnet-gateway show -n "$vpngw_name" -g "$rg" --query 'bgpSettings' -o json 2>/dev/null)
     vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn')
     vpngw_gw0_pip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
@@ -526,6 +526,7 @@ function config_csr_base () {
         set transform-set csr-ts
       router bgp $asn
         bgp router-id interface GigabitEthernet1
+        network 10.${csr_id}.0.0 mask 255.255.0.0
         bgp log-neighbor-changes
         maximum-paths eibgp 4
       ip route ${myip} 255.255.255.255 ${default_gateway}
