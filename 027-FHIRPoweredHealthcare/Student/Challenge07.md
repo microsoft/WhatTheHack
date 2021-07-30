@@ -18,7 +18,7 @@ You will deploy using the [Microsoft Health Architectures](https://github.com/mi
 
 - **Setup**
     - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
-    - Navigate to `health-architectures/FHIR/FHIRExportwithAnonymization` and open the `./Assets/arm_template_parameters.json` file in your preferred JSON editor. Replace FHIR URL, client id, client secret, tenant id and export storage account with yours.
+    - Navigate to `health-architectures/Research-and-Analytics/FHIRExportwithAnonymization` and open the `./Assets/arm_template_parameters.json` file in your preferred JSON editor. Replace FHIR URL, client id, client secret, tenant id and export storage account with yours.
     - Save & close the parameters file.
 
 - **Deploy**
