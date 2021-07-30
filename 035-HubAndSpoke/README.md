@@ -38,7 +38,7 @@ These are your challenges, it is recommended to start with the first one and pro
     - Configure a basic hub and spoke design with hybrid connectivity
 - Challenge 2: **[Azure Firewall](Student/02-AzFW.md)**
     - Fine tune your routing to send additional traffic flows through the firewall
-- Challenge 3: **[Routing Troubleshooting](Student/03-Asymmetric)**
+- Challenge 3: **[Routing Troubleshooting](Student/03-Asymmetric.md)**
     - Troubleshoot a routing problem introduced by a different admin
 - Challenge 4: **[Application Gateway](Student/04-AppGW.MD)**
     - Add an Application Gateway to the mix
