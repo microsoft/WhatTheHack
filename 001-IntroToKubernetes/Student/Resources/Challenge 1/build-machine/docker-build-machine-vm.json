@@ -23,16 +23,12 @@
     },
     "ubuntuOSVersion": {
       "type": "string",
-      "defaultValue": "18.04-LTS",
+      "defaultValue": "20_04-lts",
       "allowedValues": [
-        "12.04.5-LTS",
-        "14.04.2-LTS",
-        "15.10",
-        "16.04-LTS",
-        "18.04-LTS"
+        "20_04-lts"
       ],
       "metadata": {
-        "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10."
+        "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 20.04-LTS"
       }
     },
     "vnetPrefix": {
@@ -80,7 +76,7 @@
     "subnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks',variables('vnetName')),'/subnets/',parameters('subnetName'))]",
     "vmSize": "Standard_DS2_v2",
     "imagePublisher": "Canonical",
-    "imageOffer": "UbuntuServer",
+    "imageOffer": "0001-com-ubuntu-server-focal",
     "extensionName": "vmSetupScript",
     "sshPort": "2266"
   },

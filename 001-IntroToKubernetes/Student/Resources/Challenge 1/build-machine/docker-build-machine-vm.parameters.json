@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "ubuntuOSVersion": {
-      "value": "18.04-LTS"
+      "value": "20_04-lts"
     },
     "resourcePrefix": {
       "value": "wth"
