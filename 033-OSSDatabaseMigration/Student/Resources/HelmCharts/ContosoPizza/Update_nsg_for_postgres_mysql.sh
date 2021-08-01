@@ -1,21 +1,20 @@
 
 
-# Change NSG firewall rule to restrict Postgres and MySQL database from client machine only
+# Change NSG firewall rule to restrict Postgres and MySQL database from client machine only. The first step - to find out your local client ip address. 
 
-# Find out your local client ip address. 
+echo -e "\n This script restricts the access to your Postgres and MySQL database from your computer only.
 
-echo " 
+ The variable myip will get the ip address of the shell environment where this script is running from - be it a cloud shell or your own computer.
+ You can get  your computer's IP adress by browsing to  https://ifconfig.me. So if the browser says it is 102.194.87.201, your myip=102.194.87.201/32. 
+\n"
 
-If you are running this script from Azure Cloud Shell, then you need to also run this on your local machine. Alternatively, you can point your browser to https://ifconfig.me
-
- "
-myip=`curl ifconfig.me`/32
+myip=`curl -s ifconfig.me`/32
 
 
 # In this resource group, there is only one NSG. Change the value of the resource group, if required
 
 export rg_nsg="MC_OSSDBMigration_ossdbmigration_westus"
-export nsg_name=`az network nsg list  -g $rg_nsg -o table | tail -1 | awk '{print $2}'`
+export nsg_name=`az network nsg list  -g $rg_nsg --query "[].name" -o tsv`
 
 # For this NSG, there are two rules for connecting to Postgres and MySQL.
 

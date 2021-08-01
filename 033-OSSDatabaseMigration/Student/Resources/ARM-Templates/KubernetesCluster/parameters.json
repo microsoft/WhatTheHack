@@ -21,13 +21,13 @@
         "value": 1
       },
       "systemPoolNodeType": {
-        "value": "Standard_D4s_v4"
+        "value": "Standard_D2s_v4"
       },
       "agentPoolNodeCount": {
         "value": 1
       },
       "agentPoolNodeType": {
-        "value": "Standard_D4s_v4"
+        "value": "Standard_D2s_v4"
       },
       "location": {
         "value": "westus"
@@ -36,7 +36,7 @@
         "value": "ossdbmigration-dns"
       },
       "kubernetesVersion": {
-        "value": "1.19.6"
+        "value": "1.19.11"
       },
       "networkPlugin": {
         "value": "azure"
