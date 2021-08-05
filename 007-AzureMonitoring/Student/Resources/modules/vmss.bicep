@@ -93,7 +93,7 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2020-06-01' = {
               autoUpgradeMinorVersion: true
               settings: {
                 fileUris: [
-                  'https://raw.githubusercontent.com/msghaleb/AzureMonitorHackathon/master/sources/SetupWebServers.ps1'
+                  'https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/scripts/SetupWebServers.ps1'
                 ]
                 commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupWebServers.ps1 ${SqlServer} ${AdminUsername} ${AdminPassword}'
               }
