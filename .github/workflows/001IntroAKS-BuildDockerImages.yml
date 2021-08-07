@@ -15,6 +15,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -30,11 +32,11 @@ jobs:
         uses: docker/build-push-action@v2
         id: contentwebv1
         with:
-          push: false
+          push: true
           # Build's context is the set of files located in the specified PATH or URL
           context: '001-IntroToKubernetes/Student/Resources/Challenge 1/content-web'
           # Path to the Dockerfile
           file: '001-IntroToKubernetes/Coach/Solutions/Challenge 1/content-web/Dockerfile-solution'
           # List of tags
-          tags: ${REGISTRY}/${CONTENTWEBTAG}:v1, ${REGISTRY}/${CONTENTWEBTAG}:latest
+          tags: ${{ env.REGISTRY }}/${{env.CONTENTWEBTAG}}:v1, ${{ env.REGISTRY }}/${{env.CONTENTWEBTAG}}:latest
           #github-token: # optional, default is ${{ github.token }}
