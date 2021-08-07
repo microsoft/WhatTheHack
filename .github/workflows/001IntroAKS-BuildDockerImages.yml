@@ -32,7 +32,7 @@ jobs:
         uses: docker/build-push-action@v2
         id: contentwebv1
         with:
-          push: false
+          push: true
           # Build's context is the set of files located in the specified PATH or URL
           context: '001-IntroToKubernetes/Student/Resources/Challenge 1/content-web'
           # Path to the Dockerfile
