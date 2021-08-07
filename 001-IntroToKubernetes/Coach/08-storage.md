@@ -9,6 +9,9 @@
 - As of the most recent edit to this lab (March 2021), the default storage class uses `volumeBindingMode: WaitForFirstConsumer`.  This forces kubernetes to wait until a workload is deployed before provisioning the disks. See [here](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode).
   - In earlier days, this was not the case; the default was `volumeBindingMode: Immediate`.  Thus, in earlier days, to force the two PVs to be deployed to the same zone, a new custom storage class needed to be created with `volumeBindingMode: WaitForFirstConsumer`.  **Using a custom storage class is no longer necessary for this hack**
 - Kubernetes is smart enough to not schedule pods with PVs in a specific zone on a node in a different zone, see [here](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones).
+- One of the key reasons for using a **Stateful Set** rather than a **Deployment** can be easily demonstrated in this challenge if you desire:  
+  - Assume you had a deployment which used a PVC.  If you were to perform a `kubectl rollout restart`, the new pod would never become ready, as the old pod would be holding onto the PVC.  
+  - Using a Stateful Set solves this problem: when executing a `kubectl rollout restart`, Kubernetes will gracefully handle the moving of the PVC from the old pod to the new pod
 
 
 ### Troubleshooting
@@ -26,7 +29,8 @@
 		use <databasename>
 		db.<table/collection>.find()
 		```
-- **NOTE**: If mongodb is not working with the new disk, a potential fix is to restart the API.
+- **NOTE**: If mongodb is appears working, but the API app is causing problems, a potential fix is to restart the API deployment (`kubectl rollout restart deployment content-api`).  This is because the content-api app will hold open a connection to mongodb, even when the mongodb server has been restarted.  (It's basically a poor design of the content-api app)
+  - (Alternatively, and a bit beyond the current scope of the hack, if you were to add a readiness probe to the content-api deployment checking the uri `/sessions`, kubernetes would eventually restart the app for you, eliminating the need to manually restart it.)
 
 ## Extra Credit Discussion
 Q: What would happen if the node running MongoDB were to crash?  Would Kubernetes be able to redeploy the pod?
