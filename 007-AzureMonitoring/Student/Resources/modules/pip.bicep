@@ -8,7 +8,7 @@ resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
   properties: {
     publicIPAllocationMethod: 'Dynamic'
     dnsSettings: {
-      domainNameLabel: toLower(substring(uniqueString(resourceGroup().id), 0, 15))
+      domainNameLabel: toLower(uniqueString(resourceGroup().id))
     }
   }
 }
