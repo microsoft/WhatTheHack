@@ -322,7 +322,7 @@ var LogAnalyticsSolutions = [
     marketplaceName: 'KeyVaultAnalytics'
   }
 ]
-var LogAnalyticsWorkspaceName = 'la-wth-monitor-d-eus'
+var LogAnalyticsWorkspaceName = 'law-wth-monitor-d-eus'
 var PublicIpAddressName = 'pip-wth-monitor-web-d-eus'
 var StorageAccountName = 'storwthmondeus${toLower(substring(uniqueString(subscription().id), 0, 10))}'
 var StorageEndpoint = environment().suffixes.storage
@@ -472,7 +472,7 @@ var VirtualMachines = [
 var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-eus'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: 'rg-wth-monitoring-d-eus'
+  name: 'rg-wth-monitor-d-eus'
   location: 'eastus'
 }
 
@@ -630,7 +630,7 @@ module aksdeployment 'modules/aks.bicep' = {
   scope: rg
   params: {
     Location: Location
-    NodeResourceGroup: 'rg-wth-monitoring-aks-d-eus'
+    NodeResourceGroup: 'rg-wth-monitor-aks-d-eus'
     OmsWorkspaceId: law.outputs.ResourceId
     SubnetId: vnet.outputs.SubnetIds[2]
   }
