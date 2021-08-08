@@ -473,7 +473,7 @@ var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-eus'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: 'rg-wth-monitor-d-eus'
-  location: 'eastus'
+  location: Location
 }
 
 module law 'modules/loganalytics.bicep' = {
