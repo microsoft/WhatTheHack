@@ -1,7 +1,7 @@
 param (
     [string]$SQLServerName, 
     [string]$SQLPassword,
-    [string]$SQLUsername
+    [string]$SQLUsername = "sqladmin"
 )
 
 function Write-Log
@@ -67,13 +67,12 @@ try
     Write-Log -Message 'Modified the Startup.cs file' -Type 'INFO'
 
     #modify appsettings.json
-    $SQLusername = "sqladmin"
     $appsettingsfile = 'C:\eshoponweb\eShopOnWeb-master\src\Web\appsettings.json'
     $find = '    "CatalogConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
-    $replace = '    "CatalogConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
+    $replace = '    "CatalogConnection": "Server=' + $SQLServerName + ';Integrated Security=false;User ID=' + $SQLUsername + ';Password=' + $SQLPassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
     (Get-Content $appsettingsfile -ErrorAction 'Stop').replace($find, $replace) | Set-Content $appsettingsfile -Force -ErrorAction 'Stop'
     $find1 = '    "IdentityConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
-    $replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
+    $replace1 = '    "IdentityConnection": "Server=' + $SQLServerName + ';Integrated Security=false;User ID=' + $SQLUsername + ';Password=' + $SQLPassword + ';Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
     (Get-Content $appsettingsfile -ErrorAction 'Stop').replace($find1, $replace1) | Set-Content $appsettingsfile -Force -ErrorAction 'Stop'
     Write-Log -Message 'Modified the appsettings.json file' -Type 'INFO'
 
@@ -124,7 +123,7 @@ try
     New-Item -ItemType directory -Path C:\eShopPub -ErrorAction 'Stop'
     New-Item -ItemType directory -Path C:\eShopPub\wwwroot -ErrorAction 'Stop'
     Write-Log -Message 'Created the website directory' -Type 'INFO'
-    New-SmbShare -Name "eShopPub" -Path "C:\eShopPub" -FullAccess $($env:computername + "\" + $SQLusername) -ErrorAction 'Stop'
+    New-SmbShare -Name "eShopPub" -Path "C:\eShopPub" -FullAccess $($env:computername + "\" + $SQLUsername) -ErrorAction 'Stop'
     Write-Log -Message 'Created the file share on the website directory' -Type 'INFO'
     Grant-SmbShareAccess -Name "eShopPub" -AccountName SYSTEM -AccessRight Full -Force -ErrorAction 'Stop'
     Grant-SmbShareAccess -Name "eShopPub" -AccountName Everyone -AccessRight Full -Force -ErrorAction 'Stop'
