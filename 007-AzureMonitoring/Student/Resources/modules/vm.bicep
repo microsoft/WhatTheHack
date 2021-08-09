@@ -7,11 +7,13 @@ param Location string
 param StorageAccountName string
 param StorageEndpoint string
 param StorageKey string
-param SubnetId string
+param SubnetIds array
 param VirtualMachines array
 
-resource nic 'Microsoft.Network/networkInterfaces@2020-06-01' = [for VirtualMachine in VirtualMachines: {
-  name: VirtualMachine.NIC
+var SQLServerName = VirtualMachines[0].Name
+
+resource nic 'Microsoft.Network/networkInterfaces@2020-06-01' = [for i in range(0, length(VirtualMachines)): {
+  name: VirtualMachines[i].NIC
   location: Location
   properties: {
     ipConfigurations: [
@@ -19,7 +21,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2020-06-01' = [for VirtualMach
         name: 'ipconfig1'
         properties: {
           subnet: {
-            id: SubnetId
+            id: SubnetIds[i]
           }
           privateIPAllocationMethod: 'Dynamic'
         }
@@ -90,7 +92,7 @@ resource VsCseExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01
       ]
     }
     protectedSettings: {
-      commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 vmwthmdbdeus ${AdminPassword} ${AdminUsername}'
+      commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 ${SQLServerName} ${AdminPassword}'
     }
   }
   dependsOn: [
