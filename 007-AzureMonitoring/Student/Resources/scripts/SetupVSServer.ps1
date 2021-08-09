@@ -3,6 +3,7 @@ param (
     [string]$SQLPassword,
     [string]$SQLUsername
 )
+
 function Write-Log
 {
     param(
