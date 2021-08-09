@@ -7,17 +7,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for Subnet 
   properties: {
     securityRules: [for SecurityRule in Subnet.SecurityRules: {
       name: SecurityRule.name
-      properties: {
-        priority: SecurityRule.properties.priority
-        sourceAddressPrefix: SecurityRule.properties.sourceAddressPrefix
-        sourcePortRange: SecurityRule.properties.sourcePortRange
-        access: SecurityRule.properties.access
-        protocol: SecurityRule.properties.protocol
-        destinationPortRange: any(SecurityRule.properties.destinationPortRange == '' ? null : SecurityRule.properties.destinationPortRange)
-        direction: SecurityRule.properties.direction
-        destinationAddressPrefix: SecurityRule.properties.destinationAddressPrefix
-        destinationPortRanges: any(SecurityRule.properties.destinationPortRanges == '' ? null : SecurityRule.properties.destinationPortRanges)
-      }
+      properties: SecurityRule.properties
     }]
   }
 }]
