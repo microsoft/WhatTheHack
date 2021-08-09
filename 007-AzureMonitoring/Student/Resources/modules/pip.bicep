@@ -1,8 +1,8 @@
 param LawId string
 param Location string
-param Name string
+param Names array
 
-resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
+resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for Name in Names: {
   name: Name
   location: Location
   properties: {
@@ -11,11 +11,11 @@ resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
       domainNameLabel: toLower(uniqueString(resourceGroup().id))
     }
   }
-}
+}]
 
-resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = {
-  name: 'diag-${pip.name}'
-  scope: pip
+resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = [for i in range(0, length(Names)): {
+  name: 'diag-${pip[i].name}'
+  scope: pip[i]
   location: Location
   properties: {
     workspaceId: LawId
@@ -36,7 +36,7 @@ resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = {
       }
     ]
   }
-}
+}]
 
-output fqdn string = pip.properties.dnsSettings.fqdn
-output id string = pip.id
+output FQDNs array = [for i in range(0, length(Names)): '${pip[i].properties.dnsSettings.fqdn}']
+output Ids array = [for i in range(0, length(Names)): '${pip[i].id}']
