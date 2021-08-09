@@ -1,0 +1,96 @@
+name: Build and Push IntrotoAKS Docker Images
+on:
+  # push:
+  #   branches: [ master ]
+  # pull_request:
+  #   branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # These four variables MUST be modified to reflect the WTH repo requirements!
+      REGISTRY: ghcr.io
+      CONTENTWEBTAG: larryclaman/content-web
+      CONTENTAPITAG: larryclaman/content-api
+      CONTENTINITTAG: larryclaman/content-init
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push content-web v1
+        uses: docker/build-push-action@v2
+        id: contentwebv1
+        with:
+          push: true
+          # Build's context is the set of files located in the specified PATH or URL
+          context: '001-IntroToKubernetes/Student/Resources/Challenge 1/content-web'
+          # Path to the Dockerfile
+          file: '001-IntroToKubernetes/Coach/Solutions/Challenge 1/content-web/Dockerfile-solution'
+          # List of tags
+          tags: ${{ env.REGISTRY }}/${{env.CONTENTWEBTAG}}:v1, ${{ env.REGISTRY }}/${{env.CONTENTWEBTAG}}:latest
+          #github-token: # optional, default is ${{ github.token }}
+
+      - name: Build and push content-api v1
+        uses: docker/build-push-action@v2
+        id: contentapiv1
+        with:
+          push: true
+          # Build's context is the set of files located in the specified PATH or URL
+          context: '001-IntroToKubernetes/Student/Resources/Challenge 1/content-api'
+          # Path to the Dockerfile
+          file: '001-IntroToKubernetes/Coach/Solutions/Challenge 1/content-api/Dockerfile-solution'
+          # List of tags
+          tags: ${{ env.REGISTRY }}/${{env.CONTENTAPITAG}}:v1, ${{ env.REGISTRY }}/${{env.CONTENTAPITAG}}:latest
+          #github-token: # optional, default is ${{ github.token }}
+
+      - name: Build and push content-web v2
+        uses: docker/build-push-action@v2
+        id: contentwebv2
+        with:
+          push: true
+          # Build's context is the set of files located in the specified PATH or URL
+          context: '001-IntroToKubernetes/Student/Resources/Challenge 7/content-web-v2'
+          # Path to the Dockerfile
+          file: '001-IntroToKubernetes/Student/Resources/Challenge 7/content-web-v2/Dockerfile'
+          # List of tags
+          tags: ${{ env.REGISTRY }}/${{env.CONTENTWEBTAG}}:v2
+          #github-token: # optional, default is ${{ github.token }}
+
+      - name: Build and push content-api v2
+        uses: docker/build-push-action@v2
+        id: contentapiv2
+        with:
+          push: true
+          # Build's context is the set of files located in the specified PATH or URL
+          context: '001-IntroToKubernetes/Student/Resources/Challenge 7/content-api-v2'
+          # Path to the Dockerfile
+          file: '001-IntroToKubernetes/Student/Resources/Challenge 7/content-api-v2/Dockerfile'
+          # List of tags
+          tags: ${{ env.REGISTRY }}/${{env.CONTENTAPITAG}}:v2
+          #github-token: # optional, default is ${{ github.token }}
+
+      - name: Build and push content-init
+        uses: docker/build-push-action@v2
+        id: contentinit
+        with:
+          push: true
+          # Build's context is the set of files located in the specified PATH or URL
+          context: '001-IntroToKubernetes/Student/Resources/Challenge 7/content-init'
+          # Path to the Dockerfile
+          file: '001-IntroToKubernetes/Student/Resources/Challenge 7/content-init/Dockerfile'
+          # List of tags
+          tags: ${{ env.REGISTRY }}/${{env.CONTENTINITTAG}}:latest
+          #github-token: # optional, default is ${{ github.token }}
