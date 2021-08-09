@@ -323,7 +323,10 @@ var LogAnalyticsSolutions = [
   }
 ]
 var LogAnalyticsWorkspaceName = 'law-wth-monitor-d-eus'
-var PublicIpAddressName = 'pip-wth-monitor-web-d-eus'
+var PublicIpAddressNames = [
+  'pip-wth-monitor-web-d-eus'
+  'pip-wth-monitor-bastion-d-eus'
+]
 var StorageAccountName = 'storwthmondeus${toLower(substring(uniqueString(subscription().id), 0, 10))}'
 var StorageEndpoint = environment().suffixes.storage
 var Subnets = [
@@ -452,6 +455,152 @@ var Subnets = [
       }
     ]
   }
+  {
+    Name: 'AzureBastionSubnet'
+    Prefix: '10.0.3.0/26'
+    NSG: 'nsg-wth-monitor-bastion-d-eus'
+    SecurityRules: [
+      {
+        name: 'AllowBastionClients'
+        properties: {
+          protocol: 'TCP'
+          sourcePortRange: '*'
+          destinationPortRange: '443'
+          sourceAddressPrefix: 'Internet'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: '100'
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowGatewayManager'
+        properties: {
+          protocol: 'TCP'
+          sourcePortRange: '*'
+          destinationPortRange: '443'
+          sourceAddressPrefix: 'GatewayManager'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: '200'
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowAzureLoadBalancer'
+        properties: {
+          protocol: 'TCP'
+          sourcePortRange: '*'
+          destinationPortRange: '443'
+          sourceAddressPrefix: 'AzureLoadBalancer'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: '300'
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowBastionHostCommunication'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          sourceAddressPrefix: 'VirtualNetwork'
+          destinationAddressPrefix: 'VirtualNetwork'
+          access: 'Allow'
+          priority: '400'
+          direction: 'Inbound'
+          destinationPortRanges: [
+            '8080'
+            '5701'
+          ]
+        }
+      }
+      {
+        name: 'AllowSshRdp'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: 'VirtualNetwork'
+          access: 'Allow'
+          priority: '100'
+          direction: 'Outbound'
+          destinationPortRanges: [
+            '22'
+            '3389'
+          ]
+        }
+      }
+      {
+        name: 'AllowAzureCloud'
+        properties: {
+          protocol: 'TCP'
+          sourcePortRange: '*'
+          destinationPortRange: '443'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: 'AzureCloud'
+          access: 'Allow'
+          priority: '200'
+          direction: 'Outbound'
+        }
+      }
+      {
+        name: 'AllowBastionCommunication'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          sourceAddressPrefix: 'VirtualNetwork'
+          destinationAddressPrefix: 'VirtualNetwork'
+          access: 'Allow'
+          priority: '300'
+          direction: 'Outbound'
+          destinationPortRanges: [
+            '8080'
+            '5701'
+          ]
+        }
+      }
+      {
+        name: 'AllowGetSessionInformation'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '80'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: 'Internet'
+          access: 'Allow'
+          priority: '400'
+          direction: 'Outbound'
+        }
+      }
+      {
+        name: 'DenyAllInbound'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '*'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          access: 'Deny'
+          priority: '4096'
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'DenyAllOutbound'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '*'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          access: 'Deny'
+          priority: '4096'
+          direction: 'Outbound'
+        }
+      }
+    ]
+  }
 ]
 var VirtualNetworkName = 'vnet-wth-monitor-d-eus'
 var VirtualMachines = [
@@ -543,18 +692,23 @@ module vnet 'modules/vnet.bicep' = {
         prefix: Subnets[2].Prefix
         networkSecurityGroupId: nsg.outputs.Ids[2]
       }
+      {
+        name: Subnets[3].Name
+        prefix: Subnets[3].Prefix
+        networkSecurityGroupId: nsg.outputs.Ids[3]
+      }
     ]
     VirtualNetworkName: VirtualNetworkName
   }
 }
 
 module pip 'modules/pip.bicep' = {
-  name: 'PublicIpAddress_${TimeStamp}'
+  name: 'PublicIpAddresses_${TimeStamp}'
   scope: rg
   params: {
     LawId: law.outputs.ResourceId
     Location: Location
-    Name: PublicIpAddressName
+    Names: PublicIpAddressNames
   }
 }
 
@@ -601,7 +755,17 @@ module lb 'modules/loadbalancer.bicep' = {
     LawId: law.outputs.ResourceId
     Location: Location
     Name: LoadBalancerName
-    PipId: pip.outputs.id
+    PipId: pip.outputs.Ids[0]
+  }
+}
+
+module bastion 'modules/bastion.bicep' = {
+  name: 'Bastion_${TimeStamp}'
+  scope: rg
+  params: {
+    Location: Location
+    PipId: pip.outputs.Ids[1]
+    SubnetId: vnet.outputs.SubnetIds[3]
   }
 }
 
@@ -638,4 +802,3 @@ module aksdeployment 'modules/aks.bicep' = {
     SubnetId: vnet.outputs.SubnetIds[2]
   }
 }
-
