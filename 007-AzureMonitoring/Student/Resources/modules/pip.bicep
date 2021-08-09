@@ -5,6 +5,9 @@ param Names array
 resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for Name in Names: {
   name: Name
   location: Location
+  sku: {
+    name: 'Standard'
+  }
   properties: {
     publicIPAllocationMethod: 'Dynamic'
     dnsSettings: {
