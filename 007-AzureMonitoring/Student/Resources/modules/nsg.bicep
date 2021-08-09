@@ -13,9 +13,10 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for Subnet 
         sourcePortRange: SecurityRule.properties.sourcePortRange
         access: SecurityRule.properties.access
         protocol: SecurityRule.properties.protocol
-        destinationPortRange: SecurityRule.properties.destinationPortRange
+        destinationPortRange: any(SecurityRule.properties.destinationPortRange == '' ? null : SecurityRule.properties.destinationPortRange)
         direction: SecurityRule.properties.direction
         destinationAddressPrefix: SecurityRule.properties.destinationAddressPrefix
+        destinationPortRanges: any(SecurityRule.properties.destinationPortRanges == '' ? null : SecurityRule.properties.destinationPortRanges)
       }
     }]
   }
