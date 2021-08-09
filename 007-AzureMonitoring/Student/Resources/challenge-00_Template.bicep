@@ -329,6 +329,7 @@ var StorageEndpoint = environment().suffixes.storage
 var Subnets = [
   {
     Name: 'snet-db-d-eus'
+    Prefix: '10.0.0.0/24'
     NSG: 'nsg-wth-monitor-db-d-eus'
     SecurityRules: [
       {
@@ -348,7 +349,7 @@ var Subnets = [
         name: 'Allow_AKS'
         properties: {
           priority: 101
-          sourceAddressPrefix: '10.0.3.0/24'
+          sourceAddressPrefix: '10.0.2.0/24'
           sourcePortRange: '*'
           destinationAddressPrefix: '*'
           destinationPortRange: '1433'
@@ -387,6 +388,7 @@ var Subnets = [
   }
   {
     Name: 'snet-web-d-eus'
+    Prefix: '10.0.1.0/24'
     NSG: 'nsg-wth-monitor-web-d-eus'
     SecurityRules: [
       {
@@ -432,6 +434,7 @@ var Subnets = [
   }
   {
     Name: 'snet-aks-d-eus'
+    Prefix: '10.0.2.0/24'
     NSG: 'nsg-wth-monitor-aks-d-eus'
     SecurityRules: [
       {
@@ -453,20 +456,20 @@ var Subnets = [
 var VirtualNetworkName = 'vnet-wth-monitor-d-eus'
 var VirtualMachines = [
   {
-    Name: 'vmwthmvsdeus'
-    NIC: 'nic-wth-monitor-vs-d-eus'
-    Size: 'Standard_D4s_v3'
-    ImageVersion: 'vs-2019-comm-latest-win10-n'
-    ImagePublisher: 'MicrosoftVisualStudio'
-    ImageOffer: 'VisualStudio2019latest'
-  }
-  {
     Name: 'vmwthmdbdeus'
     NIC: 'nic-wth-monitor-db-d-eus'
     Size: 'Standard_DS3_v2'
     ImageVersion: 'Standard'
     ImagePublisher: 'MicrosoftSQLServer'
     ImageOffer: 'SQL2016SP1-WS2016'
+  }
+  {
+    Name: 'vmwthmvsdeus'
+    NIC: 'nic-wth-monitor-vs-d-eus'
+    Size: 'Standard_D4s_v3'
+    ImageVersion: 'vs-2019-comm-latest-win10-n'
+    ImagePublisher: 'MicrosoftVisualStudio'
+    ImageOffer: 'VisualStudio2019latest'
   }
 ]
 var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-eus'
@@ -527,17 +530,17 @@ module vnet 'modules/vnet.bicep' = {
     Subnets: [
       {
         name: Subnets[0].Name
-        prefix: '10.0.0.0/24'
+        prefix: Subnets[0].Prefix
         networkSecurityGroupId: nsg.outputs.Ids[0]
       }
       {
         name: Subnets[1].Name
-        prefix: '10.0.1.0/24'
+        prefix: Subnets[1].Prefix
         networkSecurityGroupId: nsg.outputs.Ids[1]
       }
       {
         name: Subnets[2].Name
-        prefix: '10.0.2.0/24'
+        prefix: Subnets[2].Prefix
         networkSecurityGroupId: nsg.outputs.Ids[2]
       }
     ]
@@ -567,7 +570,7 @@ module vm 'modules/vm.bicep' = {
     StorageAccountName: StorageAccountName
     StorageEndpoint: StorageEndpoint
     StorageKey: sa.outputs.Key
-    SubnetId: vnet.outputs.SubnetIds[0]
+    SubnetIds: vnet.outputs.SubnetIds
     VirtualMachines: VirtualMachines
   }
 }
@@ -618,7 +621,7 @@ module vmss 'modules/vmss.bicep' = {
     StorageAccount: StorageAccountName
     StorageAccountKey: sa.outputs.Key
     StorageEndpoint: StorageEndpoint
-    Subnet: vnet.outputs.SubnetIds[0]
+    Subnet: vnet.outputs.SubnetIds[1]
   }
   dependsOn: [
     vm
