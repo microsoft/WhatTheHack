@@ -14,9 +14,9 @@ For Challenge 0, you will deploy an environment in Azure that consists of two Az
 
 ### Requirements
 
-- Install [Visual Studio Code (VSCode)]() on your workstation.
+- Install [Visual Studio Code (VSCode)](https://code.visualstudio.com/) on your workstation.
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) on your workstation.
-- Download the [code repository]().
+- Download the [code repository](https://github.com/jamasten/WhatTheHack/archive/refs/heads/master.zip).
 
 ### Deploy
 
