@@ -78,7 +78,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = [for VirtualMachine
 }]
 
 resource VsCseExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: 'vmwthmvsdeus/CustomScriptExtension'
+  name: '${vm[1].name}/CustomScriptExtension'
   location: Location
   properties: {
     publisher: 'Microsoft.Compute'
@@ -95,13 +95,10 @@ resource VsCseExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01
       commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 ${SQLServerName} ${AdminPassword} ${AdminUsername}'
     }
   }
-  dependsOn: [
-    vm
-  ]
 }
 
 resource DbIdExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: 'vmwthmdbdeus/ManagedIdentityExtensionForWindows'
+  name: '${vm[0].name}/ManagedIdentityExtensionForWindows'
   location: Location
   properties: {
     publisher: 'Microsoft.ManagedIdentity'
@@ -113,13 +110,10 @@ resource DbIdExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01'
       port: 50342
     }
   }
-  dependsOn: [
-    vm
-  ]
 }
 
 resource DbIaasDiagExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: 'vmwthmdbdeus/IaaSDiagnostics'
+  name: '${vm[0].name}/IaaSDiagnostics'
   location: Location
   properties: {
     publisher: 'Microsoft.Azure.Diagnostics'
@@ -191,13 +185,10 @@ resource DbIaasDiagExtension 'Microsoft.Compute/virtualMachines/extensions@2020-
       storageAccountEndPoint: 'https://${StorageEndpoint}/'
     }
   }
-  dependsOn: [
-    vm
-  ]
 }
 
 resource SqlExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: 'vmwthmdbdeus/SqlIaaSAgent'
+  name: '${vm[0].name}/SqlIaaSAgent'
   location: Location
   properties: {
     publisher: 'Microsoft.SqlServer.Management'
@@ -232,13 +223,10 @@ resource SqlExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' 
       SQLAuthUpdatePassword: AdminPassword
     }
   }
-  dependsOn: [
-    vm
-  ]
 }
 
 resource DbDependencyExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: 'vmwthmdbdeus/DependencyAgentWindows'
+  name: '${vm[0].name}/DependencyAgentWindows'
   location: Location
   properties: {
     publisher: 'Microsoft.Azure.Monitoring.DependencyAgent'
@@ -247,13 +235,10 @@ resource DbDependencyExtension 'Microsoft.Compute/virtualMachines/extensions@202
     autoUpgradeMinorVersion: false
     enableAutomaticUpgrade: false
   }
-  dependsOn: [
-    vm
-  ]
 }
 
 resource DbMma 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: 'vmwthmdbdeus/MicrosoftMonitoringAgent'
+  name: '${vm[0].name}/MicrosoftMonitoringAgent'
   location: Location
   properties: {
     publisher: 'Microsoft.EnterpriseCloud.Monitoring'
@@ -269,7 +254,6 @@ resource DbMma 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
     }
   }
   dependsOn: [
-    vm
     DbIdExtension
     DbIaasDiagExtension
     SqlExtension
