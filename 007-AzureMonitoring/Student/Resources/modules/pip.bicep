@@ -9,7 +9,9 @@ resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for Name in Nam
     name: 'Standard'
   }
   properties: {
-    publicIPAllocationMethod: 'Dynamic'
+    publicIPAddressVersion: 'IPv4'
+    publicIPAllocationMethod: 'Static'
+    idleTimeoutInMinutes: 4
     dnsSettings: {
       domainNameLabel: 'wth${toLower(uniqueString(resourceGroup().id, Name))}'
     }
@@ -19,7 +21,6 @@ resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for Name in Nam
 resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = [for i in range(0, length(Names)): {
   name: 'diag-${pip[i].name}'
   scope: pip[i]
-  location: Location
   properties: {
     workspaceId: LawId
     metrics: [
