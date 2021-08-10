@@ -1,24 +1,24 @@
 param LawId string
 param Location string
-param Names array
+param PIPs array
 
-resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for Name in Names: {
-  name: Name
+resource pip 'Microsoft.Network/publicIPAddresses@2020-06-01' = [for PIP in PIPs: {
+  name: PIP.Name
   location: Location
   sku: {
-    name: 'Standard'
+    name: PIP.Sku
   }
   properties: {
     publicIPAddressVersion: 'IPv4'
     publicIPAllocationMethod: 'Static'
     idleTimeoutInMinutes: 4
     dnsSettings: {
-      domainNameLabel: 'wth${toLower(uniqueString(resourceGroup().id, Name))}'
+      domainNameLabel: 'wth${toLower(uniqueString(resourceGroup().id, PIP.Name))}'
     }
   }
 }]
 
-resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = [for i in range(0, length(Names)): {
+resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = [for i in range(0, length(PIPs)): {
   name: 'diag-${pip[i].name}'
   scope: pip[i]
   properties: {
@@ -42,5 +42,5 @@ resource pipDiags 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = [
   }
 }]
 
-output FQDNs array = [for i in range(0, length(Names)): '${pip[i].properties.dnsSettings.fqdn}']
-output Ids array = [for i in range(0, length(Names)): '${pip[i].id}']
+output FQDNs array = [for i in range(0, length(PIPs)): '${pip[i].properties.dnsSettings.fqdn}']
+output Ids array = [for i in range(0, length(PIPs)): '${pip[i].id}']

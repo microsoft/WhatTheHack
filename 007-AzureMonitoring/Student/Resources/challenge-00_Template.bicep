@@ -323,9 +323,15 @@ var LogAnalyticsSolutions = [
   }
 ]
 var LogAnalyticsWorkspaceName = 'law-wth-monitor-d-eus'
-var PublicIpAddressNames = [
-  'pip-wth-monitor-web-d-eus'
-  'pip-wth-monitor-bastion-d-eus'
+var PublicIpAddresses = [
+  {
+    Name: 'pip-wth-monitor-web-d-eus'
+    Sku: 'Basic'
+  }
+  {
+    Name: 'pip-wth-monitor-bastion-d-eus'
+    Sku: 'Standard'
+  } 
 ]
 var StorageAccountName = 'storwthmondeus${toLower(substring(uniqueString(subscription().id), 0, 10))}'
 var StorageEndpoint = environment().suffixes.storage
@@ -699,7 +705,7 @@ module pip 'modules/pip.bicep' = {
   params: {
     LawId: law.outputs.ResourceId
     Location: Location
-    Names: PublicIpAddressNames
+    PIPs: PublicIpAddresses
   }
 }
 
