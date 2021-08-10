@@ -654,17 +654,8 @@ module nsg 'modules/nsg.bicep' = {
   params: {
     Location: Location
     Subnets: Subnets
-  }
-}
-
-module nsgDiags 'modules/nsgdiags.bicep' = {
-  name: 'NetworkSecurityGroups_DiagnosticSettings_${TimeStamp}'
-  scope: rg
-  params: {
-    Location: Location
     LogAnalyticsWorkspaceName: law.outputs.Name
     StorageAccountName: sa.outputs.Name
-    NetworkSecurityGroupNames: nsg.outputs.Names
   }
 }
 
