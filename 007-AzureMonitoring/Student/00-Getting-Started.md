@@ -14,27 +14,57 @@ For Challenge 0, you will deploy an environment in Azure that consists of two Az
 
 ### Requirements
 
-- Install [Visual Studio Code (VSCode)](https://code.visualstudio.com/) on your workstation.
-- Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) on your workstation.
-- Download the [code repository](https://github.com/jamasten/WhatTheHack/archive/refs/heads/master.zip).
+You will need ONE of the following tools to deploy the prerequisites for this hack:
+- [AZ Module for PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-6.3.0) installed on your workstation.
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) installed on your workstation.
+- [Azure Cloud Shell]() deployed in your Azure subscription.
 
 ### Deploy
 
-- Open VSCode
-- Change the working directory to the "Resources" directory within the Monitoring hack directory.
-- Run the following Azure CLI command to deploy the template:
+#### Azure CLI
+
+1. Copy the code below and paste it in your desired tool: PowerShell, Terminal, VSCode, or CloudShell.
 
 ```azurecli
-az deployment sub create --location eastus --template-file challenge-00_Template.bicep
+az login --tenant "<Tenant ID>"
+```
+
+2. Replace `<Tenant ID>` with your Azure Tenant ID.  This can be found on the Overview blade of Azure AD in the Azure Portal.
+3. Press the ENTER key and login to Azure using the prompt.
+4. Copy the code below and paste it in your desired tool:
+
+```azurecli
+az account set --subscription "<Subscription ID>"
+```
+
+5. Replace `<Subscription ID>` with your Azure Subscription ID.  This can be round on the Overview blade of your Subscription in the Azure Portal.
+6. Press the ENTER key to set your default Azure subscription.
+7. Copy the PowerShell code below in your desired tool and press ENTER to start the deployment:
+
+```azurecli
+az deployment create --location "eastus" --template-uri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json"
+```
+
+#### PowerShell with the AZ Module
+
+1. Copy the PowerShell code below and paste it in your desired tool: PowerShell, Terminal, VSCode, or CloudShell.
+
+```powershell
+Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>' 
+```
+
+2. Replace `<Tenant ID>` with your Azure Tenant ID.  This can be found on the Overview blade of Azure AD in the Azure Portal.  
+3. Replace `<Subscription ID>` with your Azure Subscription ID.  This can be round on the Overview blade of your Subscription in the Azure Portal.
+4. Press the ENTER key and login to Azure using the prompt.
+5. Copy the PowerShell code below in your desired tool and press ENTER to start the deployment.
+
+```powershell
+New-AzDeployment -Location "eastus" -TemplateUri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json"
 ```
 
 ### Validation
 
-Once the deployment has completed, navigate to the Public IP Address resource in the Azure Portal.  Copy the DNS name to your clipboard.  Open a web browser, paste your clipboard contents in the address bar, and press ENTER.
-
-![Copy DNS Name from Public IP Address](../Images/00-22-Azure-Portal-Copy-Pip-Dns-Name.png)
-
-You should render the eShopOnWeb site
+Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-eus** , in the Azure Portal.  In the Overview blade, copy the DNS name to your clipboard.  Open a web browser, paste your DNS name in the address bar and press ENTER.  Your browser should render the eShopOnWeb site:
 
 ![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
@@ -43,7 +73,7 @@ You should render the eShopOnWeb site
 - Make sure the Admin password adheres to the Azure password policy
 - Make sure you are logged into the correct subscription and you have the at least contributors role access.  
 - Make sure you have the compute capacity in the region you are deploying to and request an increase to the limit if needed.
-- Make sure you are using a region that supports the public preview for Azure Monitor for VMs - link
+- Make sure you are using a region that supports the public preview for Azure Monitor for VMs
 
 ## Success Criteria
 
