@@ -1,7 +1,7 @@
 param (
     [string]$SQLServerName, 
     [string]$SQLPassword,
-    [string]$SQLUsername = "sqladmin"
+    [string]$AdminUsername
 )
 
 function Write-Log
@@ -123,7 +123,7 @@ try
     New-Item -ItemType directory -Path C:\eShopPub -ErrorAction 'Stop'
     New-Item -ItemType directory -Path C:\eShopPub\wwwroot -ErrorAction 'Stop'
     Write-Log -Message 'Created the website directory' -Type 'INFO'
-    New-SmbShare -Name "eShopPub" -Path "C:\eShopPub" -FullAccess $($env:computername + "\" + $SQLUsername) -ErrorAction 'Stop'
+    New-SmbShare -Name "eShopPub" -Path "C:\eShopPub" -FullAccess $($env:COMPUTERNAME + "\" + $AdminUsername) -ErrorAction 'Stop'
     Write-Log -Message 'Created the file share on the website directory' -Type 'INFO'
     Grant-SmbShareAccess -Name "eShopPub" -AccountName SYSTEM -AccessRight Full -Force -ErrorAction 'Stop'
     Grant-SmbShareAccess -Name "eShopPub" -AccountName Everyone -AccessRight Full -Force -ErrorAction 'Stop'

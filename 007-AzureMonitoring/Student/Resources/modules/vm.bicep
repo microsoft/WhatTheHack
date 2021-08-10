@@ -92,7 +92,7 @@ resource VsCseExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01
       ]
     }
     protectedSettings: {
-      commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 ${SQLServerName} ${AdminPassword}'
+      commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 ${SQLServerName} ${AdminPassword} ${AdminUsername}'
     }
   }
   dependsOn: [
