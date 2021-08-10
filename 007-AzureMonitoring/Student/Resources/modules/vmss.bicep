@@ -95,6 +95,8 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2020-06-01' = {
                 fileUris: [
                   'https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/scripts/SetupWebServers.ps1'
                 ]
+              }
+              protectedSettings:{
                 commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupWebServers.ps1 ${SqlServer} ${AdminUsername} ${AdminPassword}'
               }
             }
