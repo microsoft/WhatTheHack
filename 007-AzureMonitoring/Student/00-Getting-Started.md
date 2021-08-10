@@ -42,7 +42,7 @@ az account set --subscription "<Subscription ID>"
 7. Copy the PowerShell code below in your desired tool and press ENTER to start the deployment:
 
 ```azurecli
-az deployment create --location "eastus" --template-uri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json"
+az deployment sub create --location "eastus" --template-uri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json"
 ```
 
 #### PowerShell with the AZ Module
