@@ -77,9 +77,9 @@ resource lb 'Microsoft.Network/loadBalancers@2020-07-01' = {
   }
 }
 
-resource diagnostics 'Microsoft.Network/loadBalancers/providers/diagnosticSettings@2017-05-01-preview' = {
-  name: '${lb.name}/Microsoft.Insights/diag-${lb.name}'
-  location: Location
+resource diagnostics 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = {
+  name: 'diag-${lb.name}'
+  scope: lb
   properties: {
     workspaceId: LawId
     metrics: [
@@ -93,9 +93,6 @@ resource diagnostics 'Microsoft.Network/loadBalancers/providers/diagnosticSettin
       }
     ]
   }
-  dependsOn: [
-    lb
-  ]
 }
 
 output BackendAddressPools array = lb.properties.backendAddressPools
