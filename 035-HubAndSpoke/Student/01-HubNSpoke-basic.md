@@ -28,3 +28,6 @@ To simulate the onprem environment (represented as the "onprem vnet" in the diag
 * [What is VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 * [Cisco CSR 1000v Lab Resources](Resources/csr.md)
 * [Create a Site-to-Site connection in the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+* [Configure BGP for VPN Gateways](https://docs.microsoft.com/en-us/azure/vpn-gateway/bgp-howto)
+* [View BGP status and metrics](https://docs.microsoft.com/en-us/azure/vpn-gateway/bgp-diagnostics)
+* [Subnet calculator](https://www.davidc.net/sites/default/subnets/subnets.html)
