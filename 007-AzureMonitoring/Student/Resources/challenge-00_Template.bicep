@@ -3,11 +3,28 @@ targetScope = 'subscription'
 @secure()
 param AdminPassword string
 param AdminUsername string
-param TimeStamp string = utcNow('yyyyMMddhhmmss')
+@allowed([
+  'eastasia'
+  'eastus'
+  'northeurope'
+  'westeurope'
+])
+param Location string = 'eastus'
+param TimeStamp string = utcNow('yyyyMMddhhmmssff')
 
-var AppInsightsName = 'ai-wth-monitor-d-eus'
-var LoadBalancerName = 'lb-wth-monitor-web-d-eus'
-var Location = 'eastus'
+var UniqueValue = substring(TimeStamp, 12, 4)
+var LocationShort = {
+  eastasia: 'ea'
+  eastus: 'eus'
+  northeurope: 'ne'
+  westeurope: 'we'
+}
+var NameSuffix = '${LocationShort[Location]}-${UniqueValue}'
+var AksName ='aks-wth-monitor-d-${NameSuffix}'
+var AppInsightsName = 'ai-wth-monitor-d-${NameSuffix}'
+var BastionName = 'bastion-wth-monitor-d-${NameSuffix}'
+var ComputerNamePrefix  = 'vmwthd${NameSuffix}'
+var LoadBalancerName = 'lb-wth-monitor-web-d-${NameSuffix}'
 var LogAnalyticsDataSources = [
   {
     name: '${LogAnalyticsWorkspaceName}/LogicalDisk1'
@@ -322,24 +339,24 @@ var LogAnalyticsSolutions = [
     marketplaceName: 'KeyVaultAnalytics'
   }
 ]
-var LogAnalyticsWorkspaceName = 'law-wth-monitor-d-eus'
+var LogAnalyticsWorkspaceName = 'law-wth-monitor-d-${NameSuffix}'
 var PublicIpAddresses = [
   {
-    Name: 'pip-wth-monitor-web-d-eus'
+    Name: 'pip-wth-monitor-web-d-${NameSuffix}'
     Sku: 'Basic'
   }
   {
-    Name: 'pip-wth-monitor-bastion-d-eus'
+    Name: 'pip-wth-monitor-bastion-d-${NameSuffix}'
     Sku: 'Standard'
   } 
 ]
-var StorageAccountName = 'storwthmondeus${toLower(substring(uniqueString(subscription().id), 0, 10))}'
+var StorageAccountName = 'storwthmd${LocationShort[Location]}${UniqueValue}${toLower(substring(uniqueString(subscription().id), 0, 8))}'
 var StorageEndpoint = environment().suffixes.storage
 var Subnets = [
   {
-    Name: 'snet-db-d-eus'
+    Name: 'snet-db-d-${NameSuffix}'
     Prefix: '10.0.0.0/24'
-    NSG: 'nsg-wth-monitor-db-d-eus'
+    NSG: 'nsg-wth-monitor-db-d-${NameSuffix}'
     SecurityRules: [
       {
         name: 'Allow_SQL_Mgmt'
@@ -396,9 +413,9 @@ var Subnets = [
     ]
   }
   {
-    Name: 'snet-web-d-eus'
+    Name: 'snet-web-d-${NameSuffix}'
     Prefix: '10.0.1.0/24'
-    NSG: 'nsg-wth-monitor-web-d-eus'
+    NSG: 'nsg-wth-monitor-web-d-${NameSuffix}'
     SecurityRules: [
       {
         name: 'Allow_HTTP'
@@ -442,9 +459,9 @@ var Subnets = [
     ]
   }
   {
-    Name: 'snet-aks-d-eus'
+    Name: 'snet-aks-d-${NameSuffix}'
     Prefix: '10.0.2.0/24'
-    NSG: 'nsg-wth-monitor-aks-d-eus'
+    NSG: 'nsg-wth-monitor-aks-d-${NameSuffix}'
     SecurityRules: [
       {
         name: 'Allow_RDP'
@@ -464,7 +481,7 @@ var Subnets = [
   {
     Name: 'AzureBastionSubnet'
     Prefix: '10.0.3.0/26'
-    NSG: 'nsg-wth-monitor-bastion-d-eus'
+    NSG: 'nsg-wth-monitor-bastion-d-${NameSuffix}'
     SecurityRules: [
       {
         name: 'AllowBastionClients'
@@ -608,29 +625,30 @@ var Subnets = [
     ]
   }
 ]
-var VirtualNetworkName = 'vnet-wth-monitor-d-eus'
+var VirtualNetworkName = 'vnet-wth-monitor-d-${NameSuffix}'
 var VirtualMachines = [
   {
-    Name: 'vmwthmdbdeus'
-    NIC: 'nic-wth-monitor-db-d-eus'
+    Name: 'vmwthdbd${LocationShort[Location]}${UniqueValue}'
+    NIC: 'nic-wth-monitor-db-d-${NameSuffix}'
     Size: 'Standard_DS3_v2'
     ImageVersion: 'Standard'
     ImagePublisher: 'MicrosoftSQLServer'
     ImageOffer: 'SQL2016SP1-WS2016'
   }
   {
-    Name: 'vmwthmvsdeus'
-    NIC: 'nic-wth-monitor-vs-d-eus'
+    Name: 'vmwthvsd${LocationShort[Location]}${UniqueValue}'
+    NIC: 'nic-wth-monitor-vs-d-${NameSuffix}'
     Size: 'Standard_D4s_v3'
     ImageVersion: 'vs-2019-comm-latest-win10-n'
     ImagePublisher: 'MicrosoftVisualStudio'
     ImageOffer: 'VisualStudio2019latest'
   }
 ]
-var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-eus'
+var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-${NameSuffix}'
+var VmssNicName = 'nic-wth-monitor-vmss-d-${NameSuffix}'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: 'rg-wth-monitor-d-eus'
+  name: 'rg-wth-monitor-d-${NameSuffix}'
   location: Location
 }
 
@@ -761,6 +779,7 @@ module bastion 'modules/bastion.bicep' = {
   scope: rg
   params: {
     Location: Location
+    Name: BastionName
     PipId: pip.outputs.Ids[1]
     SubnetId: vnet.outputs.SubnetIds[3]
   }
@@ -772,12 +791,14 @@ module vmss 'modules/vmss.bicep' = {
   params: {
     AdminPassword: AdminPassword
     AdminUsername: AdminUsername
+    ComputerNamePrefix: ComputerNamePrefix
     LAWId: law.outputs.CustomerId
     LAWKey: law.outputs.Key
     LBBackendAddressPools: lb.outputs.BackendAddressPools[0].id
     LBInboundNatPools: lb.outputs.InboundNatPools[0].id
     Location: Location
     Name: VirtualMachineScaleSetName
+    NicName: VmssNicName
     SqlServer: VirtualMachines[1].Name
     StorageAccount: StorageAccountName
     StorageAccountKey: sa.outputs.Key
@@ -794,7 +815,8 @@ module aksdeployment 'modules/aks.bicep' = {
   scope: rg
   params: {
     Location: Location
-    NodeResourceGroup: 'rg-wth-monitor-aks-d-eus'
+    Name: AksName
+    NodeResourceGroup: 'rg-wth-monitor-aks-d-${NameSuffix}'
     OmsWorkspaceId: law.outputs.ResourceId
     SubnetId: vnet.outputs.SubnetIds[2]
   }

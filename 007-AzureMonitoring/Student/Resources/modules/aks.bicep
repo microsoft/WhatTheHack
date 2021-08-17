@@ -1,10 +1,11 @@
-param Location string 
+param Location string
+param Name string
 param NodeResourceGroup string
 param OmsWorkspaceId string
 param SubnetId string
 
 resource aks 'Microsoft.ContainerService/managedClusters@2021-02-01' = {
-  name: 'aks-wth-monitor-d-eus'
+  name: Name
   location: Location
   identity: {
     type: 'SystemAssigned'

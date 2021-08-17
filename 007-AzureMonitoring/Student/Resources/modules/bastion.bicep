@@ -1,9 +1,10 @@
 param Location string
+param Name string
 param PipId string
 param SubnetId string
 
 resource bastion 'Microsoft.Network/bastionHosts@2020-07-01' = {
-  name: 'bastion-wth-monitor-d-eus'
+  name: Name
   location: Location
   properties: {
     ipConfigurations: [

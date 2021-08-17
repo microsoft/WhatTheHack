@@ -1,6 +1,7 @@
 @secure()
 param AdminPassword string
 param AdminUsername string
+param ComputerNamePrefix string
 param LAWId string
 @secure()
 param LAWKey string
@@ -8,14 +9,13 @@ param LBBackendAddressPools string
 param LBInboundNatPools string
 param Location string
 param Name string
+param NicName string
 param SqlServer string
 param StorageAccount string
 @secure()
 param StorageAccountKey string
 param StorageEndpoint string
 param Subnet string
-
-var ComputerNamePrefix = 'vmwthdeus'
 
 resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2020-06-01' = {
   name: Name
@@ -55,7 +55,7 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2020-06-01' = {
       networkProfile: {
         networkInterfaceConfigurations: [
           {
-            name: 'nic-wth-monitor-vmss-d-eus'
+            name: NicName
             properties: {
               primary: true
               ipConfigurations: [
