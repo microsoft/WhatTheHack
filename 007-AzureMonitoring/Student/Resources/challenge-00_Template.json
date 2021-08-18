@@ -13,12 +13,11 @@
             "type": "String"
         },
         "TimeStamp": {
-            "defaultValue": "[utcNow('yyyyMMddhhmmssff')]",
+            "defaultValue": "[utcNow('yyyyMMddhhmmss')]",
             "type": "String"
         }
     },
     "variables": {
-        "UniqueValue": "[substring(parameters('TimeStamp'), 12, 4)]",
         "LocationShort": {
             "australiacentral": "ac",
             "australiacentral2": "ac2",
@@ -74,11 +73,11 @@
             "westus2": "wu2",
             "westus3": "wu3"
         },
-        "NameSuffix": "[format('{0}-{1}', variables('LocationShort')[parameters('Location')], variables('UniqueValue'))]",
+        "NameSuffix": "[variables('LocationShort')[parameters('Location')]]",
         "AksName": "[format('aks-wth-monitor-d-{0}', variables('NameSuffix'))]",
         "AppInsightsName": "[format('ai-wth-monitor-d-{0}', variables('NameSuffix'))]",
         "BastionName": "[format('bastion-wth-monitor-d-{0}', variables('NameSuffix'))]",
-        "ComputerNamePrefix": "[format('vd{0}{1}', variables('LocationShort')[parameters('Location')], variables('UniqueValue'))]",
+        "ComputerNamePrefix": "[format('vmwthd{0}', variables('NameSuffix'))]",
         "LoadBalancerName": "[format('lb-wth-monitor-web-d-{0}', variables('NameSuffix'))]",
         "LogAnalyticsDataSources": [
             {
@@ -405,7 +404,7 @@
                 "Sku": "Standard"
             }
         ],
-        "StorageAccountName": "[format('storwthmd{0}{1}{2}', variables('LocationShort')[parameters('Location')], variables('UniqueValue'), toLower(substring(uniqueString(subscription().id), 0, 8)))]",
+        "StorageAccountName": "[format('storwthmond{0}{1}', variables('NameSuffix'), toLower(substring(uniqueString(deployment().name), 0, 10)))]",
         "StorageEndpoint": "[environment().suffixes.storage]",
         "Subnets": [
             {
@@ -683,7 +682,7 @@
         "VirtualNetworkName": "[format('vnet-wth-monitor-d-{0}', variables('NameSuffix'))]",
         "VirtualMachines": [
             {
-                "Name": "[format('vmwthdbd{0}{1}', variables('LocationShort')[parameters('Location')], variables('UniqueValue'))]",
+                "Name": "[format('vmwthdbd{0}', variables('NameSuffix'))]",
                 "NIC": "[format('nic-wth-monitor-db-d-{0}', variables('NameSuffix'))]",
                 "Size": "Standard_DS3_v2",
                 "ImageVersion": "Standard",
@@ -691,7 +690,7 @@
                 "ImageOffer": "SQL2016SP1-WS2016"
             },
             {
-                "Name": "[format('vmwthvsd{0}{1}', variables('LocationShort')[parameters('Location')], variables('UniqueValue'))]",
+                "Name": "[format('vmwthvsd{0}', variables('NameSuffix'))]",
                 "NIC": "[format('nic-wth-monitor-vs-d-{0}', variables('NameSuffix'))]",
                 "Size": "Standard_D4s_v3",
                 "ImageVersion": "vs-2019-comm-latest-win10-n",
@@ -707,7 +706,7 @@
         {
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2020-10-01",
-            "name": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]",
+            "name": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]",
             "location": "[parameters('Location')]"
         },
         {
@@ -715,7 +714,7 @@
             "apiVersion": "2019-10-01",
             "name": "[format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -830,14 +829,14 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('StorageAccount_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -904,16 +903,16 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -928,10 +927,10 @@
                         "value": "[variables('Subnets')]"
                     },
                     "LogAnalyticsWorkspaceName": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
                     },
                     "StorageAccountName": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
                     }
                 },
                 "template": {
@@ -1029,15 +1028,15 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('VirtualNetwork_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1058,22 +1057,22 @@
                             {
                                 "name": "[variables('Subnets')[0].Name]",
                                 "prefix": "[variables('Subnets')[0].Prefix]",
-                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[0]]"
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[0]]"
                             },
                             {
                                 "name": "[variables('Subnets')[1].Name]",
                                 "prefix": "[variables('Subnets')[1].Prefix]",
-                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[1]]"
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[1]]"
                             },
                             {
                                 "name": "[variables('Subnets')[2].Name]",
                                 "prefix": "[variables('Subnets')[2].Prefix]",
-                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[2]]"
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[2]]"
                             },
                             {
                                 "name": "[variables('Subnets')[3].Name]",
                                 "prefix": "[variables('Subnets')[3].Prefix]",
-                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[3]]"
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[3]]"
                             }
                         ]
                     },
@@ -1149,15 +1148,15 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('PublicIpAddresses_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1166,7 +1165,7 @@
                 "mode": "Incremental",
                 "parameters": {
                     "LawId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
                     },
                     "Location": {
                         "value": "[parameters('Location')]"
@@ -1271,17 +1270,17 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('VirtualMachines_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1296,10 +1295,10 @@
                         "value": "[parameters('AdminUsername')]"
                     },
                     "LawId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.CustomerId.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.CustomerId.value]"
                     },
                     "LawKey": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
                     },
                     "Location": {
                         "value": "[parameters('Location')]"
@@ -1311,10 +1310,10 @@
                         "value": "[variables('StorageEndpoint')]"
                     },
                     "StorageKey": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
                     },
                     "SubnetIds": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value]"
                     },
                     "VirtualMachines": {
                         "value": "[variables('VirtualMachines')]"
@@ -1651,15 +1650,15 @@
                     ]
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('AppInsights_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1671,7 +1670,7 @@
                         "value": "[variables('AppInsightsName')]"
                     },
                     "laWsId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
                     },
                     "Location": {
                         "value": "[parameters('Location')]"
@@ -1728,15 +1727,15 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('CurrentBillingFeatures_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('AppInsights_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('AppInsights_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1745,7 +1744,7 @@
                 "mode": "Incremental",
                 "parameters": {
                     "AppInsightsName": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('AppInsights_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('AppInsights_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
                     },
                     "Location": {
                         "value": "[parameters('Location')]"
@@ -1788,16 +1787,16 @@
                     ]
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('LoadBalancer_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1806,7 +1805,7 @@
                 "mode": "Incremental",
                 "parameters": {
                     "LawId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
                     },
                     "Location": {
                         "value": "[parameters('Location')]"
@@ -1815,7 +1814,7 @@
                         "value": "[variables('LoadBalancerName')]"
                     },
                     "PipId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[0]]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[0]]"
                     }
                 },
                 "template": {
@@ -1955,16 +1954,16 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('Bastion_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -1979,10 +1978,10 @@
                         "value": "[variables('BastionName')]"
                     },
                     "PipId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[1]]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[1]]"
                     },
                     "SubnetId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[3]]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[3]]"
                     }
                 },
                 "template": {
@@ -2036,19 +2035,19 @@
                     ]
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('VirtualMachineScaleSet_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualMachines_{0}', parameters('TimeStamp')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualMachines_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -2066,16 +2065,16 @@
                         "value": "[variables('ComputerNamePrefix')]"
                     },
                     "LAWId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.CustomerId.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.CustomerId.value]"
                     },
                     "LAWKey": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
                     },
                     "LBBackendAddressPools": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.BackendAddressPools.value[0].id]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.BackendAddressPools.value[0].id]"
                     },
                     "LBInboundNatPools": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.InboundNatPools.value[0].id]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.InboundNatPools.value[0].id]"
                     },
                     "Location": {
                         "value": "[parameters('Location')]"
@@ -2093,13 +2092,13 @@
                         "value": "[variables('StorageAccountName')]"
                     },
                     "StorageAccountKey": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
                     },
                     "StorageEndpoint": {
                         "value": "[variables('StorageEndpoint')]"
                     },
                     "Subnet": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[1]]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[1]]"
                     }
                 },
                 "template": {
@@ -2605,16 +2604,16 @@
                     ]
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
             "name": "[format('AKS_{0}', parameters('TimeStamp'))]",
             "dependsOn": [
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
-                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-wth-monitor-d-{0}', variables('NameSuffix')))]",
-                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
             ],
             "properties": {
                 "expressionEvaluationOptions": {
@@ -2629,13 +2628,13 @@
                         "value": "[variables('AksName')]"
                     },
                     "NodeResourceGroup": {
-                        "value": "[format('rg-wth-monitor-aks-d-{0}', variables('NameSuffix'))]"
+                        "value": "[format('{0}-rg-wth-monitor-aks-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
                     },
                     "OmsWorkspaceId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
                     },
                     "SubnetId": {
-                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-wth-monitor-d-{0}', variables('NameSuffix'))), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[2]]"
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[2]]"
                     }
                 },
                 "template": {
@@ -2737,7 +2736,7 @@
                     }
                 }
             },
-            "resourceGroup": "[format('rg-wth-monitor-d-{0}', variables('NameSuffix'))]"
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
         }
     ]
 }
