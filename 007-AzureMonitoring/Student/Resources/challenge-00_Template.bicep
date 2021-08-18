@@ -4,9 +4,8 @@ targetScope = 'subscription'
 param AdminPassword string
 param AdminUsername string
 param Location string = deployment().location
-param TimeStamp string = utcNow('yyyyMMddhhmmssff')
+param TimeStamp string = utcNow('yyyyMMddhhmmss')
 
-var UniqueValue = substring(TimeStamp, 12, 4)
 var LocationShort = {
   australiacentral: 'ac'
   australiacentral2: 'ac2'
@@ -62,11 +61,11 @@ var LocationShort = {
   westus2: 'wu2'
   westus3: 'wu3'
 }
-var NameSuffix = '${LocationShort[Location]}-${UniqueValue}'
+var NameSuffix = '${LocationShort[Location]}'
 var AksName ='aks-wth-monitor-d-${NameSuffix}'
 var AppInsightsName = 'ai-wth-monitor-d-${NameSuffix}'
 var BastionName = 'bastion-wth-monitor-d-${NameSuffix}'
-var ComputerNamePrefix  = 'vd${LocationShort[Location]}${UniqueValue}'
+var ComputerNamePrefix  = 'vmwthd${NameSuffix}'
 var LoadBalancerName = 'lb-wth-monitor-web-d-${NameSuffix}'
 var LogAnalyticsDataSources = [
   {
@@ -393,7 +392,7 @@ var PublicIpAddresses = [
     Sku: 'Standard'
   } 
 ]
-var StorageAccountName = 'storwthmd${LocationShort[Location]}${UniqueValue}${toLower(substring(uniqueString(subscription().id), 0, 8))}'
+var StorageAccountName = 'storwthmond${NameSuffix}${toLower(substring(uniqueString(deployment().name), 0, 10))}'
 var StorageEndpoint = environment().suffixes.storage
 var Subnets = [
   {
@@ -671,7 +670,7 @@ var Subnets = [
 var VirtualNetworkName = 'vnet-wth-monitor-d-${NameSuffix}'
 var VirtualMachines = [
   {
-    Name: 'vmwthdbd${LocationShort[Location]}${UniqueValue}'
+    Name: 'vmwthdbd${NameSuffix}'
     NIC: 'nic-wth-monitor-db-d-${NameSuffix}'
     Size: 'Standard_DS3_v2'
     ImageVersion: 'Standard'
@@ -679,7 +678,7 @@ var VirtualMachines = [
     ImageOffer: 'SQL2016SP1-WS2016'
   }
   {
-    Name: 'vmwthvsd${LocationShort[Location]}${UniqueValue}'
+    Name: 'vmwthvsd${NameSuffix}'
     NIC: 'nic-wth-monitor-vs-d-${NameSuffix}'
     Size: 'Standard_D4s_v3'
     ImageVersion: 'vs-2019-comm-latest-win10-n'
@@ -691,7 +690,7 @@ var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-${NameSuffix}'
 var VmssNicName = 'nic-wth-monitor-vmss-d-${NameSuffix}'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
-  name: 'rg-wth-monitor-d-${NameSuffix}'
+  name: '${deployment().name}-rg-wth-monitor-d-${LocationShort[Location]}'
   location: Location
 }
 
@@ -859,7 +858,7 @@ module aksdeployment 'modules/aks.bicep' = {
   params: {
     Location: Location
     Name: AksName
-    NodeResourceGroup: 'rg-wth-monitor-aks-d-${NameSuffix}'
+    NodeResourceGroup: '${deployment().name}-rg-wth-monitor-aks-d-${LocationShort[Location]}'
     OmsWorkspaceId: law.outputs.ResourceId
     SubnetId: vnet.outputs.SubnetIds[2]
   }
