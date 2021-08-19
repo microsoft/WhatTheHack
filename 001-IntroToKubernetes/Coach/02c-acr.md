@@ -1,6 +1,6 @@
 # Challenge 1c & 2c: Coach's Guide
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](03-k8sintro.md)
+[< Previous Challenge](01-containers.md) - **[Home](README.md)** - [Next Challenge >](03-k8sintro.md)
 
 ## Challenge 1 & 2 Path C
 

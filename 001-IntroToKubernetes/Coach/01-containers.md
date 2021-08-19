@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](#coaches--read-this-carefully)
+[< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](02-acr.md)
 
 ## COACHES:  READ THIS CAREFULLY!
 There are four different options/paths for delivering Challenge 1.  You, the coach, need to select an appropriate path prior to delivering the hack.  When delivering the Hack, advise your students of the proper path to select based on the learning ojectives of the organization (to be decided PRIOR TO the hack!)  The four paths are:
