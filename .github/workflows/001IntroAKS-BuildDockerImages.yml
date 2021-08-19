@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # These four variables MUST be modified to reflect the WTH repo requirements!
-      REGISTRY: ghcr.io
-      CONTENTWEBTAG: larryclaman/content-web
-      CONTENTAPITAG: larryclaman/content-api
-      CONTENTINITTAG: larryclaman/content-init
+      REGISTRY: ghcr.io  # Replace this with 'docker.io' if you are going to push to dockerhub
+      REPOSITORY: larryms  # Replace with 'whatthehackmsft' for use by the whatthehack project
+      CONTENTWEBTAG: ${{ env.REPOSITORY }}/content-web
+      CONTENTAPITAG: ${{ env.REPOSITORY }}/content-api
+      CONTENTINITTAG: ${{ env.REPOSITORY }}/content-init
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -27,8 +28,13 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ${{ env.REGISTRY }}
+          # To use DockerHub, you'll need to do the following:
+          # 1. Replace the username parameter below with the name of your dockerhub username, eg, whatthehackmsft
+          # 2. Create an access token at https://hub.docker.com/settings/security
+          # 3. Store that token as a github secret (via https://github.com/microsoft/WhatTheHack/settings/secrets/actions), eg call the secret 'DOCKERHUB_TOKEN'
+          # 4. Replace the password parameter below with your dockerhub secret, eg secrets.DOCKERHUB_TOKEN 
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}  
 
       - name: Build and push content-web v1
         uses: docker/build-push-action@v2
