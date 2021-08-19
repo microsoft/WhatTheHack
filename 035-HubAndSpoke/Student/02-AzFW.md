@@ -20,6 +20,7 @@ Additionally, you should install a web server on each Azure VM (`hub-vm`, `spoke
 
 1. The spoke VMs can reach each other.
 1. The Azure Firewall should inspect traffic from any VM in the hub or the spoke going to the public Internet or to onprem.
+1. The Azure Firewall should inspect traffic from any on-premise client going to the hub or any spokes. 
 1. The solution should be independent of network administrators adding, changing or removing prefixes in the on-premises network in the future.
 1. A web server should be installed on each VM, and it should be reachable from the public Internet.
 1. The participants should be able to show Azure Firewall logs, to demonstrate that traffic traverses the firewall.
@@ -32,6 +33,7 @@ Additionally, you should install a web server on each Azure VM (`hub-vm`, `spoke
   * [Inspector Gadget](https://github.com/jelledruyts/InspectorGadget) (.netcore)
   * [whoami](https://github.com/erjosito/whoami/tree/master/api-vm) (python/flask)
   * [KUARD](https://github.com/kubernetes-up-and-running/kuard) (container)
+* [Azure Routing Cheat Sheet](Resources/routing-cheat-sheet.md)
 
 ## Advanced Challenges (Optional)
 
