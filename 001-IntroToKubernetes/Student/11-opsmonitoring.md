@@ -39,6 +39,6 @@ In this challenge you will learn how to view application logs and trouble-shoot 
     - <https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-overview>
 - ELK stack:
     - <https://logz.io/learn/complete-guide-elk-stack>
-	- <https://kubernetes.io/docs/tasks/debug-application-cluster/logging-elasticsearch-kibana>
+	- <https://v1-19.docs.kubernetes.io/docs/tasks/debug-application-cluster/logging-elasticsearch-kibana/>
 - Fluentd:
     - <https://docs.fluentd.org>
