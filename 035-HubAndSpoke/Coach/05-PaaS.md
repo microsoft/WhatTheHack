@@ -12,4 +12,5 @@
 ## Advanced Challenges (Optional)
 
 * SNAT might be required in some circumstances. The overall recommendation is using SNAT "to prevent unexpected behavior"
+* If Azure Firewall is used to inspect traffic destined to private endpoints, ensure DNS Proxy is enabled. 
 * At the time of this writing the /32 behavior of private endpoints is being changed, watch out for that
