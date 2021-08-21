@@ -1,27 +1,30 @@
-# DevOps with Github Actions
+## Challenge 1 - Access environemnt and getting ready for prequisite
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge02.md)
 
-## Challenge 1 - Access environemnt and getting ready for prequisite
 
-### Introduction
+## Introduction
 
 Before Starting with Github Actions /Workflow first let us understand our environment and proceed task by task. 
 
-### Challenge
+## Challenge
 
-1. Assess Solution
-2. Navigate through code
-3. Select appropriate IDE which suits your deployment
-4. Create your Github Repository
-5. Create Azure subscription
-6. Plan with your team steps to start with
-7. Demonstrate your understanding of  Solution to Coach 
-8. Unlock Task 2 to proceed with Hack
+- Assess your Student zip file and Solution Blueprint
+- Navigate through code
+- Select appropriate IDE which suits your deployment
+- Select where you will host your reposistory
+- Ensure you have Azure subscription
+- Collobarate with your team to define approach to start with
+- Demonstrate your understanding to Coach keep in mind Success Criteria 
    
 
-### Success Criteria
+## Success Criteria
 
-1. You should have code in your Github Reposistory
+1. You should have code in your Reposistory
 2. You should be able to show your Azure subscription 
-3. Able to demonstrate your understanding of solution to coach
+3. Able to demonstrate your understanding of solution Blueprint to coach
+
+## Learning Resources
+
+- <https://docs.github.com/en/get-started/quickstart/create-a-repo>
+- <https://azure.microsoft.com/en-us/free/>
