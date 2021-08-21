@@ -1,18 +1,25 @@
-# DevOps with Github Actions
+# Challenge 4 - Power of Serverless
 
-## Challenge 4 - Link Policy Documents with Website
+[< Previous Challenge](./Challenge03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge05.md)
+
+## Challenges
+
+- Review code to understand how are we are going to integrate policy document with Frontend Website
+- Create necessary Azure resources as required before starting with CI/CD Pipeline.
+- Create Github Action workflow to deploy to serverless function
+- If Builds succeed , Deploy code to Serverless Function
+- If Builds fails, raise issue to investigate
 
 
-### Challenges
+## Success Criteria
 
-1. Review code to understand how are we are going to integrate policy document with Frontend Website
-2. Create necessary Azure resources as required before starting with CI/CD Pipeline.
-3. Build code , If Builds succeed , Deploy code to Serverless Function
-4. Promote code to Production and merge into master branch
-5. Unlock Task 5
+1. Demonstrate role of Serverless in this challenge.
+2. Ensure your are able to retrieve policy documents for Insured users.
+3. Demonstrate your solution Completeness with respect to solution blueprint.
 
-### Success Criteria
 
-1. Show Code Build is successful with Github Action workflow
-2. Ensure your are able to retrieve policy document for Insured user
-3. Demonstrate your solution functioning to coach
+## Learning Resources
+
+- <https://docs.microsoft.com/en-in/azure/azure-functions/functions-scale>
+- <https://docs.microsoft.com/en-in/azure/azure-functions/functions-deployment-technologies>
+- <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions>
