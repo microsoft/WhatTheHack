@@ -1,4 +1,4 @@
-## Challenge 1 - Access environemnt and getting ready for prequisite
+## Challenge 1 - Assessment and getting ready for prequisite
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge02.md)
 
