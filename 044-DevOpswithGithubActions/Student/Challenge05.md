@@ -1,17 +1,22 @@
-# DevOps with Github Actions
+# Challenge 5 - Secure your solution
 
-## Challenge 5 - Secure your APIs
+[< Previous Challenge](./Challenge04.md) - **[Home](../README.md)**
+
+## Challenges
+
+- Collaborate with your team to list down security issues in our implementation from previous challenges.
+- Propose solution to secure APIs
+- What changes will be required to existing implementations for security implementations.
+- Ensure your keys , connectionstrings and overall Azure Solution is secure.
 
 
-### Challenges
+## Success Criteria
 
-1. Assess all APIs exposed
-2. Propose solution to secure both Swagger APIs and Serverless APIs
-3. Integrate Solution with Frontend Website
-4. Test end to end solution and Present your solution to your Coach
+1. Demonstrate Technology used to secure your APIs.
+2. Demonstrate What changes you have made to existing implementations.
+3. Demonstrate End to End functionaiity in alignment with Soltuion Blueprint.
 
+## Learning Resources
 
-### Success Criteria
-
-1. Explain How you have secured your APIs
-2. Demonstrate end to end functionality to Coach
+- <https://docs.microsoft.com/en-us/azure/api-management/import-and-publish>
+- <https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api>
