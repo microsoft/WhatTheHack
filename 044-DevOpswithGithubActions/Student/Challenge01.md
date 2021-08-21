@@ -1,5 +1,7 @@
 # DevOps with Github Actions
 
+**[Home](../README.md)** - [Next Challenge >](./Challenge02.md)
+
 ## Challenge 1 - Access environemnt and getting ready for prequisite
 
 ### Introduction
