@@ -8,7 +8,25 @@ Contoso recently started a new web and mobile projects to allow policyholders, b
 
 ![Solution BluePrint](/044-DevOpswithGithubActions/Student/resources/images/solutionblueprint.png)
 
-# Prerequisite (Mandate)
+## Coach Guidance for Challenges
+- Challenge 1: **[Assessment](./Challenge01.md)**
+   - Navigate through Source code and services required
+   - Create service principal with contributer role on Azure Subscription
+ - Challenge 2: **[Service creation](./Challenge02.md)**
+   - Create Azure services for SQL Databases and API Website .
+   - Build and Deploy API website.
+- Challenge 3: **[Deploy Front end Website](./Challenge03.md)**
+   - Create Azure Services for Front Website.
+   - Build and Deploy Frontend Website
+- Challenge 4: **[Power of Serverless](./Challenge04.md)**
+   - Create Azure Function Website.
+   - Build and Deploy Azure Function Wesbite.
+- Challenge 5: **[Secure your Solution](./Challenge05.md)**
+   - Create API Management service.
+   - Import Open API and Azure Function API.
 
-  ### 1. Ensure you have Github Personal Account
-  ### 2. Ensure you have Azure Subscription
+   
+## Prerequisites
+
+- Ensure you have Github Personal Account ,[Sign Up for Personal Github Account](https://github.com)
+- Ensure you have Azure Subscription ,[Sign Up for Azure free if you don't have any subscription](https://azure.microsoft.com/en-us/free/)
