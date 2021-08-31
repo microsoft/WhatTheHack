@@ -1,6 +1,6 @@
 # Challenge 3: Introduction To Kubernetes
 
-[< Previous Challenge](./02-acr.md) - **[Home](../README.md)** - [Next Challenge >](./04-k8sdeployment.md)
+[< Previous Challenge](01-containers.md) - **[Home](../README.md)** - [Next Challenge >](./04-k8sdeployment.md)
 
 ## Introduction
 
