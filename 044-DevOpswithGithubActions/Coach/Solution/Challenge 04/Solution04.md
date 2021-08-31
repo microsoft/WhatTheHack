@@ -1,220 +1,133 @@
-### Task 1: Add application settings to your Function App
+### Task 1: Import API App
 
-In this task, you prepare your Azure Function App to work with your new Function by adding your storage account policies container URL and SAS token values to the Application Settings of your Function App, using the Azure Cloud Shell and Azure CLI.
+In this task, you import your API App into APIM, using the OpenAPI specification, which leverages the Swagger definition associated with your API app.
 
-1. In the [Azure portal](https://portal.azure.com), select the Azure Cloud Shell icon from the menu at the top right of the screen.
+1. In the Azure portal, navigate to your **API Management Service** by selecting it from the list of resources under your hands-on-lab-SUFFIX resource group.
 
-   ![The Azure Cloud Shell icon is highlighted in the Azure portal's top menu.](media/cloud-shell-icon.png "Azure Cloud Shell")
+   ![The API Management service is highlighted in the resources list.](media/azure-resources-api-management.png "API Management service")
 
-2. In the Cloud Shell window that opens at the bottom of your browser window, select **PowerShell**.
+2. On the API Management service select the **APIs** blade, and then select **+ Add API** and select **OpenAPI**.
 
-   ![In the Welcome to Azure Cloud Shell window, PowerShell is highlighted.](media/cloud-shell-select-powershell.png "Azure Cloud Shell")
+   ![API Management Service with APIs blade selected. A button to add a new OpenAPI is highlighted](media/apim-add-api.png "API Management Service Add OpenAPI")
 
-3. After a moment, you should receive a message that you have successfully requested a Cloud Shell, and be presented with a PS Azure prompt.
+3. A dialog to Create from OpenAPI specification is displayed. Select **Full** to expand the options that need to be entered.
 
-   ![In the Azure Cloud Shell dialog, a message is displayed that requesting a Cloud Shell succeeded, and the PS Azure prompt is displayed.](media/cloud-shell-ps-azure-prompt.png "Azure Cloud Shell")
+   ![The Create from OpenAPI specification dialog is displayed and Full is highlighted](media/e8-t1-create-api-dialog.png "Create from OpenAPI specification")
 
-4. At the prompt, retrieve your Function App name by running the following command at the Cloud Shell prompt, replacing `<your-resource-group-name>` with your resource group name:
+4. Retrieve the value for the OpenAPI specification field from the `swagger` page of your API APP. (This is the URL of your API app, which you can retrieve from its overview blade in the Azure portal) plus "/swagger". (e.g., <https://contoso-api-jt7yc3zphxfda.azurewebsites.net/swagger>).
 
-   ```powershell
-   $resourceGroup = "<your-resource-group-name>"
-   az functionapp list -g $resourceGroup --output table
+5. On the Swagger page for your API App, right-click on the `swagger/v1/swagger.json` file link just below the PolicyConnect API title, and select **Copy link address**.
+
+   ![A context menu is displayed next to the swagger/v1/swagger.json link, and Copy link address is highlighted.](media/swagger-copy-json-link-address.png "Swagger")
+
+6. Return to the API Management Create from OpenAPI specification dialog, and enter the following:
+
+   - **OpenAPI specification**: Paste the copied link address from your Swagger page.
+   - **Display name**: This is automatically populated from the Swagger definition.
+   - **Name**: This is automatically populated from the Swagger definition.
+   - **URL scheme**: Choose **HTTPS**.
+   - **Products**: Select the **Unlimited** tag by clicking the field and selecting it from the dropdown list.
+
+   ![Create from OpenAPI specification dialog is filled and the create button is highlighted.](media/open-api-dialog-complete.png "Create OpenAPI specification")
+
+7. After creating the API, select the **PolicyConnect API** from the list of APIs on the left, and on the Design tab, with All operations selected, select the **Policies** icon in the Inbound process tile.
+
+   ![On the All operations section, the Inbound processing policies icon is highlighted.](media/apim-inbound-processing.png "API Management")
+
+8. On the Policies screen, insert the code below between the `<inbound></inbound>` tags, and below the `<base />` tag. You need to **replace** `<your-web-app-url>` between the `<origin></origin>` tags with the URL for your Web App.
+
+   ```xml
+   <cors allow-credentials="true">
+       <allowed-origins>
+           <origin><your-web-app-url></origin>
+       </allowed-origins>
+       <allowed-methods>
+           <method>*</method>
+       </allowed-methods>
+       <allowed-headers>
+           <header>*</header>
+       </allowed-headers>
+       <expose-headers>
+           <header>*</header>
+       </expose-headers>
+   </cors>
    ```
 
-   > **Note**: If you have multiple Azure subscriptions, and the account you are using for this hands-on lab is not your default account, you may need to run `az account list --output table` at the Azure Cloud Shell prompt to output a list of your subscriptions, then copy the Subscription Id of the account you are using for this lab, and then run `az account set --subscription <your-subscription-id>` to set the appropriate account for the Azure CLI commands.
+   Your updated policies value should look similar to the following:
 
-5. In the output, copy the **Name** value for use in the next step.
+   ![The XML code above has been inserted into the Policies XML document.](media/apim-policies.png "API Management")
 
-   ![The Function App Name value is highlighted in the output of the command above.](media/azure-cloud-shell-az-functionapp-list.png "Azure Cloud Shell")
+   > **Note**: The policy added above is for handling cross-origin resource sharing (CORS). If you are testing the web app locally, you need to add another `<origin></origin>` tag within `<allowed-origins></allowed-origins>` that contains `https://localhost:<port-number>`, where `<port-number>` is the port assigned by your debugger (as is shown in the screenshot above).
 
-6. For the next command, you need the URL of your `policies` container and the `SAS token` values you added to your text editor previously. Replace the tokenized values in the following command, and then run it from the Azure Cloud Shell command prompt.
+9. Select **Save**.
 
-   - `<your-function-app-name>`: Replace with your Function App name, which you copied in the previous step.
-   - `<your-policies-container-url>`: Replace with the `policies` container URL you copied into a text editor previously.
-   - `<your-storage-account-sas-token>`: Replace with the `SAS Token` of your Storage account, which you copied into a text editor previously.
+10. Next, select the **Settings** tab. On the Settings tab, enter the URL of your API App, starting with `https://`. **Note**: You can copy this value from the text editor you have been using to store values throughout this lab.
 
-   ```powershell
-   $functionAppName = "<your-function-app-name>"
-   $storageUrl = "<your-policies-container-url>"
-   $storageSas = "<your-storage-account-sas-token>"
-   az functionapp config appsettings set -n $functionAppName -g $resourceGroup --settings "PolicyStorageUrl=$storageUrl" "PolicyStorageSas=$storageSas"
-   ```
+    ![The settings tab for the PolicyConnect API is displayed, with the API App url entered into the Web Service URL field.](media/apim-policyconnect-api-settings.png "API Settings")
 
-### Task 2: Add project environment variables
+11. Select **Save** on the Settings tab.
 
-Functions can use environment variables to retrieve configuration settings. To test your functions locally using environment variables, you must add these settings as user environment variables on your development machine or to the project settings.
+### Task 2: Import Function App
 
-In this task, you create some environment variables on your LabVM, which allows for debugging your Function App locally on the LabVM.
+In this task, you import your Function App into APIM.
 
-1. In Solution Explorer, right-click the **Contoso-FunctionApp** project, then select **Properties**
+1. Select **+ Add API** again, and this time select **Function App** as the source of the API.
 
-2. Select the **Debug** tab.
+   ![Add API is highlighted in the left-hand menu, and the Function App tile is highlighted.](media/api-management-add-function-app.png "API Management")
 
-3. In the **Environment Variables** section, choose **Add**, then enter the following:
+2. On the Create from Function App dialog, select the **Browse** button next to the Function App field.
 
-   - **Name**: Enter **PolicyStorageSas**
-   - **Value**: Paste in the **SAS token** you created and copied into a text editor in the previous exercise.
+3. In the Import Azure Functions blade, select **Function App Configure required settings** and then select your Function App from the list, and choose **Select**.
 
-4. Select **OK**.
+   ![The Select Function App dialog is displayed, and hands-on-lab-SUFFIX is entered into the filter box.](media/select-function-app.png "Select Function App")
 
-5. Select **Add** again, and in the New User Variable dialog, enter the following:
+   > **Note**: You can filter using your resource group name, if needed.
 
-   - **Name**: Enter **PolicyStorageUrl**
-   - **Value**: Paste in the **URL** of the policies container you copied into a text editor in the previous exercise.
+4. Back on the Import Azure Functions blade, ensure the PolicyDocs function is checked, and choose **Select**.
 
-   ![Adding environment variables via visual studio project settings.](media/vs-env-variables.png "Add environment variables")
+   ![The Import Azure Functions blade is displayed, with the configuration specified above set.](media/import-azure-functions.png "Import Azure Functions")
 
-6. Save the project.
+5. Back on the Create from Function App dialog in APIM, all of the properties for the API are set from your Azure Function. Set the Products to Unlimited, as you did previously. Note, you may need to select **Full** at the top to see the Products box.
 
-### Task 3: Create an Azure Function in Visual Studio
+   ![On the Create from Function App dialog, the values specified above are entered into the form.](media/apim-create-from-function-app.png "API Management")
 
-In this task, you use Visual Studio to create an Azure Function. This Function serves as a serverless API for retrieving policy documents from Blob storage.
+6. Select **Create**.
 
-1. On your LabVM, return to Visual Studio and in the Solution explorer expand the `Contoso.FunctionApp` and then double-click `PolicyDocsFunction.cs` to open it.
+7. After the Function App API is created, select it from the left-hand menu, select the **Settings** tab, and under **Products** select **Unlimited**.
 
-   ![The Contoso.FunctionApp project is expanded and the PolicyDocsFunction.cs file is highlighted and selected.](media/vs-function-app-function.png "Solution Explorer")
+   ![On the Settings tab for the newly created Function App managed API, Unlimited is highlighted in the Products field.](media/apim-create-from-function-app-settings.png "API settings for Function App")
 
-2. In the `PolicyDocsFunction.cs` file, locate the `TODO #3` block (begins on line 14).
+8. Select **Save**.
 
-   ![The TODO #3 block is highlighted within the PolicyDocsFunction.cs code.](media/vs-policydocsfunction-cs-todo-3.png "PolicyDocsFunction.cs")
+### Task 3: Open Developer Portal and retrieve you API key
 
-3. Update the code within the block to allow passing in the policy holder last and policy number. Also, update it to only allow "get" requests. The updated code should look like the below when completed.
+In this task, you quickly look at the APIs in the Developer Portal, and retrieve your key. The Developer Portal allows you to check the list of APIs and endpoints as well as find useful information about them.
 
-   ```csharp
-   [FunctionName("PolicyDocs")]
-       public static async Task<IActionResult> Run(
-               [HttpTrigger(AuthorizationLevel.Function, "get", Route = "policies/{policyHolder}/{policyNumber}")] HttpRequest req, string policyHolder, string policyNumber, ILogger log)
-   ```
+1. Open the APIM Developer Portal by selecting **Developer portal (legacy)** from the Overview blade of your API Management service in the Azure portal.
 
-   > **Note**: Notice that in the code you removed `"post"` from the list of acceptable verbs, and then updated the Route of the HttpTrigger from `null` to `policies/{policyHolder}/{policyNumber}`. This allows for the function to be parameterized. You then added `string` parameters to the Run method to allow those parameters to be received and used within the function.
+   ![On the APIM Service Overview blade the link for the developer portal is highlighted.](media/apim-developer-portal.png "Developer Portal")
 
-4. Next, locate `TODO #4` within the `GetDocumentsFromStorage` method in the `PolicyDocsFunction.cs` file.
+2. In the Azure API Management portal, select **APIs** from the top menu, and then select the API associated with your Function App.
 
-   ![The TODO #4 block is highlighted within the PolicyDocsFunction.cs code.](media/vs-policydocsfunction-cs-todo-4.png "PolicyDocsFunction.cs")
+   ![In the Developer portal, the APIs menu item is selected and highlighted, and the Function App API is highlighted.](media/dev-portal-apis-function-app.png "Developer portal")
 
-5. Update the code in the block to retrieve the `PolicyStorageUrl` and `PolicyStorageSas` values from the environment variables you added above. The completed code should look like the following:
+3. The API page allows you to view and test your API endpoints directly in the Developer portal.
 
-   ```csharp
-   var containerUri = Environment.GetEnvironmentVariable("PolicyStorageUrl");
-   var sasToken = Environment.GetEnvironmentVariable("PolicyStorageSas");
-   ```
+   ![The Profile link is highlighted on the API page for the Function App API.](media/apim-endpoint-details.png "API Management")
 
-   > **Note**: When the API is deployed to an Azure API App, `Environment.GetEnvironmentVariables()` looks for the specified values in the configured application settings.
+4. Copy the highlighted request URL. This is the new value you use for the `PolicyDocumentsPath` setting in the next task.
 
-6. Save `PolicyDocsFunction.cs`.
+   > **Note**: We don't need to do this for the PolicyConnect API because the path is defined by the Swagger definition. The only thing that needs to change for that is the base URL, which points to APIM and not your API App.
 
-7. Take a moment to review the code in the Function, and understand how it functions. It uses an `HttpTrigger`, which means the function executes whenever it receives an Http request. You added configuration to restrict the Http requests to only `GET` requests, and the requests must be in format `https://<function-name>.azurewebsites.net/policies/{policyHolder}/{policyName}` for the Function App to route the request to the `PolicyDocs` function. Within the function, an Http request is being made to your Storage account `policy` container URL to retrieve the PDF document for the specified policy holder and policy number. That is then returned to the browser as a PDF attachment.
+5. Next, select the **Administrator** drop down located near the top right of the API page, and then select **Profile** from the fly-out menu. The **Profile** page allows you to retrieve your `Ocp-Apim-Subscription-Key` value, which you need to retrieve so the PolicyConnect web application can access the APIs through APIM.
 
-8. Your Function App is now fully configured to retrieve parameterized values and then retrieve documents from the `policies` container in your Storage account.
+6. On the Profile page, select **Show** next to the Primary Key for the **Unlimited** Product, copy the key value and paste it into a text editor for use below.
 
-### Task 4: Test the function locally
+   ![The Primary Key field is highlighted under the Unlimited subscription.](media/apim-dev-portal-subscription-keys.png "API Management Developer Portal")
 
-In this task, you run your Function locally through the Visual Studio debugger, to verify that it is properly configured and able to retrieve documents from the `policy` container in your Storage account.
+### Task 4: Update Web App to use API Management Endpoints
 
-> **IMPORTANT**: Internet Explorer on Windows Server 2019 does not include functionality to open PDF documents. To view the downloaded policy documents in this task, you need to [download and install the Microsoft Edge browser](https://www.microsoft.com/edge) for Windows 10 on your LabVM.
-
-1. In the Visual Studio Solution Explorer, right-click the `Contoso.FunctionApp` project, and then select **Debug** and **Start new instance**.
-
-   ![In the Visual Studio Solution Explorer, the context menu for the Contoso.FunctionApp project is displayed, with Debug selected and Start new instance highlighted.](media/vs-function-app-debug.png "Solution Explorer")
-
-2. If prompted, allow the function app to access your local machine resources.
-
-3. A new console dialog appears, and the function app is loaded. At the of the console, note the output, which provides the local URL of the Function.
-
-   ![The Function console window is displayed with the `PolicyDocs` local URL highlighted.](media/vs-function-app-debug-console.png "Debug")
-
-4. Copy the URL that appears after `PolicyDocs`, and paste it into a text editor. The copied value should look like:
-
-   ```http
-   http://localhost:7071/api/policies/{policyHolder}/{policyNumber}
-   ```
-
-5. In the text editor, you need to replace the tokenized values as follows:
-
-   - `{policyHolder}`: Acevedo
-   - `{policyNumber}`: ACE5605VZZ2ACQ
-
-   The updated URL should now look like:
-
-   ```http
-   http://localhost:7071/api/policies/Acevedo/ACE5605VZZ2ACQ
-   ```
-
-   > **Note**: Paths for documents in Azure Blob Storage are case sensitive, so the policyholder Name and Policy number casing need to match the values specified above.
-
-6. Paste the updated into the address bar of a new Chrome web browser window and press Enter.
-
-7. In the browser, the policy document opens in a new window.
-
-   ![The downloaded PDF document is displayed in the web browser.](media/vs-function-app-debug-browser.png "Policy document download")
-
-8. You've confirmed the function is working properly. Stop your Visual Studio debugging session by closing the console window or selecting the stop button on the Visual Studio toolbar. In the next task, you deploy the function to Azure.
-
-### Task 5: Deploy the function to your Azure Function App
-
-In this task, you deploy your function into an Azure Function App, where the web application uses it to retrieve policy documents.
-
-1. In Visual Studio on your LabVM, right-click on the `Contoso.FunctionApp` project in the Solution Explorer, and then select **Publish** from the context menu.
-
-   ![Publish in highlighted in the context menu for the Contoso.FunctionApp project.](media/vs-function-app-publish.png "Publish")
-
-2. On the **Publish** dialog, select **Azure** in the Target box and select **Next**.
-
-   ![In the Publish dialog, Azure is selected and highlighted in the Target box.](media/vs-publish-function-to-azure.png "Publish Function App to Azure")
-
-3. Next, in the **Function instance** box, select your subscription, expand the hands-on-lab-SUFFIX resource group, and select the API App.
-
-   ![In the Publish dialog, The Contoso Function App is selected and highlighted under the hands-on-lab-SUFFIX resource group.](media/vs-publish-function-app-service.png "Publish Function App to Azure")
-
-4. Ensure **Run from package file** is checked and then select **Finish**.
-
-5. Back on the Visual Studio Publish page for the `Contoso.FunctionApp` project, select **Publish** to start the process of publishing your Web API to your Azure API App.
-
-   ![The Publish button is highlighted next to the newly created publish profile on the Publish page.](media/visual-studio-publish-function.png "Publish")
-
-6. Ensure you see a publish succeeded message in the Visual Studio Output panel.
-
-7. The Azure Function App is now ready for use within the PolicyConnect web application.
-
-### Task 6: Enable Application Insights on the Function App
-
-In this task, you add Application Insights to your Function App in the Azure Portal, to be able to collect insights into requests against the Function.
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your **Function App** by selecting **Resource groups** from Azure services list, selecting the **hands-on-lab-SUFFIX** resource group, and selecting the **contoso-func-UniqueId** App service from the list of resources.
-
-   ![The Function App resource is highlighted in the list of resources.](media/azure-resources-function-app.png "Function App")
-
-2. On the Function App blade, select **Application Insights** under Settings from the left-hand menu.
-
-   ![The Application Insights menu is highlighted under Settings for the Function App.](media/function-app-application-insights-menu.png "Application Insights menu")
-
-3. On the Application Insights blade, select **Turn on Application Insights**.
-
-   ![The Turn on Application Insights button is highlighted.](media/function-app-add-app-insights.png "Turn on Application Insights for Function App")
-
-4. On the Application Insights blade, select **Create new resource**, accept the default name provided, and then select **Apply**.
-
-   ![The Create New Application Insights blade is displayed with a unique name set under Create new resource.](media/function-app-app-insights.png "Add Application Insights")
-
-5. Select **Yes** when prompted about restarting the Function App to apply monitoring settings.
-
-   ![The Yes button is highlighted on the Apply monitoring settings dialog.](media/function-app-apply-monitoring-settings.png "Apply monitoring settings")
-
-6. After the Function App restarts, select **View Application Insights data**.
-
-   ![The View Application Insights data link is highlighted.](media/function-app-view-application-insights-data.png "View Application Insights data")
-
-7. On the Application Insights blade, select **Live Metrics Stream** from the left-hand menu.
-
-   ![Live Metrics Stream is highlighted in the left-hand menu on the Application Insights blade.](media/app-insights-live-metrics-stream.png "Application Insights")
-
-   > **Note**: You may see a message that your app is offline. You handle this below.
-
-8. Leave the Live Metrics Stream window open for reference in the next task.
-
-### Task 7: Add Function App URL to your Web App Application settings
-
-In this task, you add the URL of your Azure Function App to the Application settings configuration of your Web App.
+In this task, you use the Azure Cloud Shell and Azure CLI to update the `ApiUrl` and `PolicyDocumentsPath` settings for the PolicyConnect Web App. You also add a new setting for the APIM access key.
 
 1. In the [Azure portal](https://portal.azure.com), select the Azure Cloud Shell icon from the menu at the top right of the screen.
 
@@ -228,77 +141,32 @@ In this task, you add the URL of your Azure Function App to the Application sett
 
    ![In the Azure Cloud Shell dialog, a message is displayed that requesting a Cloud Shell succeeded, and the PS Azure prompt is displayed.](media/cloud-shell-ps-azure-prompt.png "Azure Cloud Shell")
 
-4. At the prompt, retrieve your Function App URL by running the following command at the Cloud Shell prompt, replacing `<your-resource-group-name>` with your resource group name:
+4. At the Cloud Shell prompt, run the following command to retrieve your Web App name, making sure to replace `<your-resource-group-name>` with your resource group name:
 
    ```powershell
    $resourceGroup = "<your-resource-group-name>"
-   az functionapp list -g $resourceGroup --output table
-   ```
-
-   > **Note**: If you have multiple Azure subscriptions, and the account you are using for this hands-on lab is not your default account, you may need to run `az account list --output table` at the Azure Cloud Shell prompt to output a list of your subscriptions, then copy the Subscription Id of the account you are using for this lab, and then run `az account set --subscription <your-subscription-id>` to set the appropriate account for the Azure CLI commands.
-
-5. In the output, copy the **DefaultHostName** value into a text editor for use below.
-
-   ![The Function App DefaultHostName value is highlighted in the output of the command above.](media/azure-cloud-shell-az-functionapp-list-host-name.png "Azure Cloud Shell")
-
-6. At the Cloud Shell prompt, run the following command to retrieve both your Web App name:
-
-   ```powershell
    az webapp list -g $resourceGroup --output table
    ```
 
-7. In the output, copy the name of Web App (the resource name starts with contoso-**web**) into a text editor for use below.
+5. In the output, copy the name of Web App (the resource name starts with contoso-**web**) into a text editor for use below.
 
    ![The Web App Name value is highlighted in the output of the command above.](media/azure-cloud-shell-az-webapp-list-web-app-name.png "Azure Cloud Shell")
 
-8. The last setting you need is the Default Host Key for your Function App. To get this, navigate to your Function App resource in the Azure portal, select **App keys** under Functions from the left-hand menu, then select **default** under Host Keys, and copy the **Value**.
-
-   ![The Copy button for the default host key is highlighted.](media/function-app-settings-default-host-key.png "Function App")
-
-9. Next replace the tokenized values in the following command as specified below, and then run it from the Azure Cloud Shell command prompt.
+6. Next replace the tokenized values in the following command as specified below, and then run it from the Azure Cloud Shell command prompt.
 
    - `<your-web-app-name>`: Replace with your Web App name, which you copied in above.
-   - `<your-function-app-default-host-name>`: Replace with the `DefaultHostName` of your Function App, which you copied into a text editor above.
-   - `<your-function-app-default-host-key>`: Replace with the default host key of your Function App, which you copied into a text editor above.
+   - `<your-apim-gateway-url>`: Replace with the Gateway URL of your API Management instance, which you can find on the Overview blade of the API Management Service in the Azure portal.
+   - `<your-apim-subscription-key>`: Replace with the APIM `Ocp-Apim-Subscription-Key` value that you copied into a text editor above.
+   - `<your-apim-function-app-path>`: Replace with path you copied for your Function App within API Management, that is to be used for the `PolicyDocumentsPath` setting.
 
    ```powershell
    $webAppName = "<your-web-app-name>"
-   $defaultHostName = "<your-function-app-default-host-name>"
-   $defaultHostKey = "<your-function-app-default-host-key>"
-   az webapp config appsettings set -n $webAppName -g $resourceGroup --settings "PolicyDocumentsPath=https://$defaultHostName/api/policies/{policyHolder}/{policyNumber}?code=$defaultHostKey"
+   $apimUrl = "<your-apim-gateway-url>"
+   $apimKey = "<your-apim-subscription-key>"
+   $policyDocsPath = "<your-apim-function-app-path>"
+   az webapp config appsettings set -n $webAppName -g $resourceGroup --settings "PolicyDocumentsPath=$policyDocsPath" "ApiUrl=$apimUrl" "ApimSubscriptionKey=$apimKey"
    ```
 
-10. In the output, the newly added `PolicyDocumentsPath` setting in your Web App's application settings is visible.
+7. In the output, note the newly added and updated settings in your Web App's application settings. The settings were updated by the script above and triggered a restart of your web app.
 
-    ![The ApiUrl app setting in highlighted in the output of the previous command.](media/azure-cloud-shell-az-webapp-config-output-policy-documents-path.png "Azure Cloud Shell")
-
-### Task 8: Test document retrieval from web app
-
-In this task, you open the PolicyConnect web app and download a policy document. Recall from above that this resulted in a page not found error when you tried it previously.
-
-1. Open a web browser and navigate to the URL for your published Web App.
-
-   > **Note**: You can retrieve the URL from the Overview blade of your Web App resource in the Azure portal if you aren't sure what it is.
-
-   ![The URL field in highlighted on the Web App overview blade.](media/web-app-url.png "Web App")
-
-2. In the PolicyConnect web page, enter the following credentials to log in, and then select **Log in**:
-
-   - **Username**: demouser
-   - **Password**: Password.1!!
-
-   ![The credentials above are entered into the login screen for the PolicyConnect web site.](media/web-app-login.png "PolicyConnect")
-
-3. Once logged in, select **Managed Policy Holders** from the top menu.
-
-   ![Manage Policy Holders is highlighted in the PolicyConnect web site's menu.](media/web-app-managed-policy-holders.png "PolicyConnect")
-
-4. On the Policy Holders page, you see a list of policy holders, and information about their policies. This information was pulled from your Azure SQL Database using the connection string stored in Azure Key Vault. Select the **Details** link next to one of the records.
-
-   ![Policy holder data is displayed on the page.](media/web-app-policy-holders-data.png "PolicyConnect")
-
-5. Now, select the link under **File Path**, and download the policy document.
-
-   ![The link to the policy document under File Path is highlighted.](media/policy-document-link.png "PolicyConnect download policy document")
-
-   ![The download policy document is displayed.](media/policy-document-download.png "PolicyConnect")
+8. In a web browser, navigate to the Web app URL, and verify you still see data when you select one of the tabs.
