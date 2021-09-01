@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge05.md)
 
-## Challenges
+## Description
 
 - Review code to understand how are we are going to integrate policy document with Frontend Website
 - Create necessary Azure resources as required before starting with CI/CD Pipeline.
@@ -20,6 +20,6 @@
 
 ## Learning Resources
 
-- <https://docs.microsoft.com/en-in/azure/azure-functions/functions-scale>
-- <https://docs.microsoft.com/en-in/azure/azure-functions/functions-deployment-technologies>
-- <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions>
+- [Azure Function Hosting Options](https://docs.microsoft.com/en-in/azure/azure-functions/functions-scale)
+- [Azure Function Deployments](https://docs.microsoft.com/en-in/azure/azure-functions/functions-deployment-technologies)
+- [Github Action Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
