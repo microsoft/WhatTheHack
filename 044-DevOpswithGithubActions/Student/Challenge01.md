@@ -7,9 +7,9 @@
 
 Before Starting with Github Actions /Workflow first let us understand our environment and proceed task by task. 
 
-## Challenge
+## Description
 
-- Assess your Student zip file and Solution Blueprint
+- Coach will provide you with Resource zip file with code
 - Navigate through code
 - Select appropriate IDE which suits your deployment
 - Select where you will host your reposistory
@@ -26,5 +26,5 @@ Before Starting with Github Actions /Workflow first let us understand our enviro
 
 ## Learning Resources
 
-- <https://docs.github.com/en/get-started/quickstart/create-a-repo>
-- <https://azure.microsoft.com/en-us/free/>
+- [Steps to Create Repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+- [Create Azure Free subscription](https://azure.microsoft.com/en-us/free/)
