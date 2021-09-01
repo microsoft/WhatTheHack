@@ -10,3 +10,6 @@
   - [Github Functions Workflow](https://github.com/Azure/functions-action) 
 - If you are looking for a GitHub Action to deploy your customized container image into an Azure Functions container, please consider using functions-container-action.
   - [Github Functions for Containers workflow](https://github.com/Azure/functions-container-action) 
+
+## Solution 
+- [Navigate to Solution for Challenge 04](./Solution/Challenge%2004/Solution04.yml)
