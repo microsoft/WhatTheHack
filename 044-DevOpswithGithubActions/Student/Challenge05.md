@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../README.md)**
 
-## Challenges
+## Description
 
 - Collaborate with your team to list down security issues in our implementation from previous challenges.
 - Propose solution to secure APIs
@@ -18,5 +18,5 @@
 
 ## Learning Resources
 
-- <https://docs.microsoft.com/en-us/azure/api-management/import-and-publish>
-- <https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api>
+- [API Import and Publish](https://docs.microsoft.com/en-us/azure/api-management/import-and-publish)
+- [Import Function App as API](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api)
