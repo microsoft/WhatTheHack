@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge04.md)
 
-## Challenges
+## Description
 
 - Integrate Frontend Website with API website created in previous challenge.
 - How will be your Github Action Workflow for Frontend website
@@ -20,5 +20,5 @@
 
 ## Learning Resources
 
-- <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions>
-- <https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs>
+- [Workflow Syntax for Github Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [Dotnet Core Environment build](https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs)
