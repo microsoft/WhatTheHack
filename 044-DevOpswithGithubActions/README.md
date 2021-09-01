@@ -33,7 +33,7 @@ Contoso recently started a new web and mobile projects to allow policyholders, b
 - Ensure you have Azure Subscription ,[Sign Up for Azure free if you don't have any subscription](https://azure.microsoft.com/en-us/free/)
 
 ## Repository Contents
-- `../Coach
+- `../Coach`
   - Guidance for Coach to implement each challenges.
 - `../Student/Resources`
    -  Hackathon code and challenges for students to work through.
