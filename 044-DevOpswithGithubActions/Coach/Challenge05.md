@@ -12,3 +12,6 @@
 - Import and publish your APIs 
   - [OpenAPI step by step](https://docs.microsoft.com/en-us/azure/api-management/import-and-publish)
 
+## Solution 
+- [Navigate to Solution for Challenge 05](./Solution/Challenge%2005/Solution05.md)
+
