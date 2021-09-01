@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge03.md)
 
-## Challenges
+## Description
 
 - As per your Assessment get your subscription ready for Deployment
 - To create Azure resources programmatically you will need service principal for your deployments.
