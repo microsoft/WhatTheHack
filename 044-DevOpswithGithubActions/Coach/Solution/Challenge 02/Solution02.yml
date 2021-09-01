@@ -9,7 +9,7 @@ on:
       - '*'
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
-#
+# 
 # 1. Set up the following secrets in your repository:
 #   AZURE_WEBAPP_PUBLISH_PROFILE
 #
