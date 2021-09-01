@@ -27,4 +27,4 @@ Before Starting with Github Actions /Workflow first let us understand our enviro
 ## Learning Resources
 
 - [Steps to Create Repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
-- [Create Azure Free subscription](https://azure.microsoft.com/en-us/free/)
+- [Create Azure Free Subscription](https://azure.microsoft.com/en-us/free/)
