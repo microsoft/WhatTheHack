@@ -21,6 +21,6 @@
 
 ## Learning Resources
 
-- <https://docs.microsoft.com/en-us/azure/azure-sql/database/database-import?tabs=azure-powershell>
-- <https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs>
-- <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions>
+- [Azure SQL Database Import ](https://docs.microsoft.com/en-us/azure/azure-sql/database/database-import?tabs=azure-powershell)
+- [Dotnet environment Build](https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs)
+- [Github Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
