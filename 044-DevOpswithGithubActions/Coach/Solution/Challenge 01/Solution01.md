@@ -6,7 +6,7 @@
 **Reference 2 : Connecting to Azure**
 
 Service Principal is used to Authenticate and perform task on Azure subscription.
-Here is command line reference to create one service principal for you
+Here is command line reference to create one service principal for you.
 
 **Giving access to Complete Subscription**
 
