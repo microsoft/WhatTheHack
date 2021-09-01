@@ -21,4 +21,4 @@
 ## Learning Resources
 
 - [Workflow Syntax for Github Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
-- [Dotnet Core Environment build](https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs)
+- [Dotnet Core Environment Build](https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs)
