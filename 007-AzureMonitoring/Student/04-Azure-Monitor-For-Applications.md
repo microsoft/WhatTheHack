@@ -46,3 +46,5 @@ To ensure performance requirements are met for eshoponweb, you will need to dete
 ## Advanced Challenges
 - Publish your code to your Virtual Machine Scale set and run the eShoponWeb from the internet.
 - Create a Dashboard showing the Application availability, failed requests and response time.
+- Can you hit the VMSS to cause an Auto Scale?
+     - You may need to have a look on the sources\LoadScripts folder for that.
