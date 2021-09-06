@@ -4,10 +4,6 @@
 
 ## Notes & Guidance
 
-# Challenge 7: The Solution
-This page will take you step by step through solving challenge 7.
-
-## Solution Steps:
 Let's create a URL Ping for the public URL of our shop
 - Open your Azure Portal
 - Go to the Public IP for your Loadbalancer
