@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: mongodb
   labels:
@@ -9,6 +9,7 @@ spec:
   selector:
     matchLabels:
       app: mongodb
+  serviceName: mongodb
   template:
     metadata:
       labels:

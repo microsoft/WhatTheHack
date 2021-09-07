@@ -10,5 +10,6 @@ spec:
   - port: 27017
     targetPort: 27017
     protocol: TCP
+  clusterIP: None  # Needs to be 'headless' for use with a stateful set
   selector:
     app: mongodb

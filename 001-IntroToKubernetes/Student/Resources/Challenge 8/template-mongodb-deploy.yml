@@ -7,22 +7,24 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: http
+  - name: tcp
     port: 27017
     targetPort: 27017
+  clusterIP: none
   selector:
     name: mongo-db
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet 
 metadata:
-  name:  mongo-db-deploy
+  name:  mongo-db-sts
   labels:
     name:  mongo-db
 spec:
   selector:
     matchLabels:
       name: mongo-db
+  serviceName: mongodb
   template:
     metadata:
       labels:
