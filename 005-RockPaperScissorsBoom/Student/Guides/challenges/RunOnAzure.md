@@ -8,7 +8,7 @@
 
 In a previous challenge we deployed the app on Azure but into an Azure Docker-machine playing the role of your local machine. Now with this challenge you will be able to provision an Azure Web App Service for Containers to host your "Rock Paper Scissors Boom" app.
 
-![Run on Azure](../docs/RunOnAzure.png)
+![Run on Azure](images/04-RunOnAzure-arch.png)
 
 ## Challenges
 

@@ -8,7 +8,7 @@
 
 This is a simple challenge to get your Rock Papers Scissors Boom Server app to play the game continuously. This will help you generate telemetry for your application. As you develop your own bots to play the game, you can use this feature to have the bots automatically play each other and see how your bot compares to the others.
 
-![Run the game continuously](../docs/RunTheGameContinuously.png)
+![Run the game continuously](images/05-RunContinuously-arch.png)
 
 ## Challenges
 

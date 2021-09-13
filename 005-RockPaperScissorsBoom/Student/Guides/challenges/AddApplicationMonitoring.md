@@ -8,7 +8,7 @@
 
 We've got our app running, but how do we know how well it's performing? Let's instrument `Application Insights` so you can see what's happening inside the app.
 
-![Add Application Monitoring](../docs/AddApplicationMonitoring.png)
+![Add Application Monitoring](images/06-AddAppInsights-arch.png)
 
 ## Challenges
 
@@ -34,6 +34,6 @@ Too comfortable? Eager to do more? Try this:
 
 ## Learning resources
 
-1. [What is Application Insights?](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)
+1. [What is Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
-[Next challenge (Build a CI/CD pipeline with Azure DevOps) >](./BuildCICDPipelineWithAzureDevOps.md)
+[Next challenge (Build a CI/CD pipeline with Azure DevOps) >](./BuildCICDPipelineWithGithubActions.md)

@@ -1,0 +1,41 @@
+# This is a basic workflow that is manually triggered
+
+name: WTH Releaser
+
+on:
+  workflow_dispatch:
+
+    inputs:
+      wth_name:
+        description: 'WTH Name - Ex: 005-RockPaperScissorsBoom'
+        required: true
+
+jobs:
+  publish_artifact:
+    runs-on: ubuntu-latest
+    env:
+      resourcesPath: ${{ github.event.inputs.wth_name }}/Student/Resources
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Zip
+      run: |
+        zip -r ${{ github.event.inputs.wth_name }}.zip ${{ env.resourcesPath }}
+
+    - name: Release Name
+      id: release-name
+      run: |
+        echo "::set-output name=release-name::$(date +%Y%m)"
+
+    - name: Create Release
+      uses: ncipollo/release-action@v1.7.3
+      with:
+        allowUpdates: true
+        artifacts: '${{ github.event.inputs.wth_name }}.zip'
+        artifactContentType: zip
+        body: 'Release is mapped to year/month, and assets represent student resources for specified challenges'
+        name: ${{ github.repository }}-${{ steps.release-name.outputs.release-name }}
+        tag: ${{ steps.release-name.outputs.release-name }}
+        token: ${{ secrets.WTH_CR_PAT}}

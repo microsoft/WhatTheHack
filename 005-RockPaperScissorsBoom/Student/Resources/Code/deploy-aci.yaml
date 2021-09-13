@@ -1,0 +1,46 @@
+apiVersion: 2019-12-01
+location: eastus
+name: rockpaperscissors
+properties:
+  containers:
+  - name: rockpaperscissors-sql
+    properties:
+      image: microsoft/mssql-server-linux
+      ports:
+      - port: 1433
+      resources:
+        requests:
+          cpu: 2
+          memoryInGb: 2
+      environmentVariables:
+        - name: 'SA_PASSWORD'
+          value: 'M1cr0s0ft2018'
+        - name: 'ACCEPT_EULA'
+          value: 'Y'
+  - name: rockpaperscissors-server
+    properties:
+      image: <YOUR-ACR-LOGIN-SERVER>/<YOUR-REPO>/<YOUR-IMAGE>:<IMAGE-TAG>
+      ports:
+      - port: 80
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      environmentVariables:
+        - name: 'ConnectionStrings__DefaultConnection'
+          value: 'Server=localhost,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=M1cr0s0ft2018;'
+  imageRegistryCredentials:
+  - server: <YOUR-ACR-LOGIN-SERVER>
+    username: <ACR-USERNAME>
+    password: <ACR-PASSWORD>
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: 1433
+    - protocol: tcp
+      port: 80
+    dnsNameLabel: <UNIQUE-DNS-LABEL>
+tags: {exampleTag: tutorial}
+type: Microsoft.ContainerInstance/containerGroups
