@@ -1,4 +1,4 @@
-# Fast Hack: Infrastructure As Code with Bicep & PowerShell 
+# What The Hack: Infrastructure As Code with Bicep
 
 ## Introduction
 
@@ -62,3 +62,13 @@ For more details, see: [IaC Bicep Hack - Prerequisites](./Student/Prerequisites.
   - Bicep challenges
 - `../Student/Resources`
   - Shell scripts needed to complete the challenges
+
+## Contributors
+
+- Victor Viriya-ampanond
+- William Salazar 
+- Peter Laudati
+- Pete Rodriguez
+- Tim Sullivan
+- Mark Garner
+- Jesse Mrasek
