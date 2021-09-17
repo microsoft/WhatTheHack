@@ -1,24 +1,35 @@
-# Challenge 8 - Deploy resources to different scopes
+# Challenge 8 - Deploy a Virtual Machine Scale Set
 
-[< Previous Challenge](./Bicep-Challenge-07.md) - [Home](../README.md)
+[< Previous Challenge](./Bicep-Challenge-07.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-09.md)
 
 ## Introduction
 
-The goals of this challenge include understanding:
-- How to deploy resources to different scopes (management groups , subscriptions and resource groups)
+The goal for this challenge includes understanding:
+- Create a more complex deployment using Bicep modules
+
+Use your learning from the previous challenges you will use Bicep modules to deploy Linux Virtual Machine Scale Sets (VMSS).
 
 ## Description
 
-Your challenge is to:
+In this challenge you will write Bicep files that make use of modules to achieve the following:
 
-- Create a bicep file to deploy a resource group into your subscription
-- Deploy a virtual network into the newly created resource group
+- Separate networking resources (Virtual Network & Network Security Groups) into their own Bicep file.
+- Separate the load balancer, VMSS, and its dependencies into their own Bicep files.
+- Create a new Bicep template that deploys each of the modules you created.
 
 ## Success Criteria
 
-- Verify you can view the resource group in your subscription and it has the virtual network deployed.
+1. Verify that the Bicep CLI does not show any errors and correctly emits an ARM template.
+1. Verify in the Azure portal that all resources has been deployed.
+
+## Learning Resources
+
+- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
+- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
+- [VMSS - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachinescalesets?tabs=json)
 
 ## Tips
 
-- [Using Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules)
--  [Understanding Bicep scopes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli)
+- Install the Bicep tooling - [follow these instructions to install the Bicep CLI and VS Code extension](https://github.com/Azure/bicep/blob/main/docs/installing.md#bicep-vs-code-extension).
+- Validate your Bicep files regularly by executing `bicep build mybicepfile.bicep`.
+- Remember Bicep is still in preview so there may be bugs or missing features.
