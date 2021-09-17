@@ -1,6 +1,6 @@
 # Challenge 8: Deploy Resources to Different Scopes - Coach's Guide
 
-[< Previous Challenge](./Solution-07.md) - **[Home](./readme.md)**
+[< Previous Challenge](./Solution-07.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 This is the only section you need to include.
