@@ -24,21 +24,25 @@ This hack will help you learn:
 
 The challenges build upon each other incrementally. You will start by creating a basic Bicep file to get you familiar with the tools & syntax.  Then you extend your template incrementally to deploy multiple infrastructure resources to Azure.
 
-### Bicep Challenges
+### Challenges
 
-1. [Basic Bicep](./Student/Bicep-Challenge-01.md)
+- Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Bicep-Challenge-00)**
+   - Prepare your workstation to work with Azure
+- Challenge 1: **[Basic Bicep](./Student/Bicep-Challenge-01.md)**
    - Develop a simple Bicep file that takes inputs to create an Azure Storage Account, and returns outputs
-1. [Bicep expressions and referencing resources](./Student/Bicep-Challenge-02.md)
+- Challenge 2: **[Bicep expressions and referencing resources](./Student/Bicep-Challenge-02.md)**
    - Learn Bicep expressions and referencing resources
-1. [Advanced resource declarations](./Student/Bicep-Challenge-03.md)
+- Challenge 3: **[Advanced resource declarations](./Student/Bicep-Challenge-03.md)**
    - Advanced resource declarations
-1. [Deploy a Virtual Machine Scale Set](./Student/Bicep-Challenge-04.md)
+- Challenge 4: **[Secret Values with Azure Key Vault](./Student/Bicep-Challenge-04.md)**
+   - Learn how NOT to lose your job!
+- Challenge 5: **[Deploy a Virtual Machine Scale Set](./Student/Bicep-Challenge-05.md)**
    - Create complex deployment with Bicep using modules
-1. [Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-05.md)
+- Challenge 6: **[Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-06.md)*
    - Learn about custom script extensions
-1. [Configure VM Scale Set to run a Web Server using cloud-init](./Student/Bicep-Challenge-06.md)
+- Challenge 7: **[Configure VM Scale Set to run a Web Server using cloud-init](./Student/Bicep-Challenge-07.md)**
    - How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
-1. [Deploy resources to different scopes](./Student/Bicep-Challenge-07.md)
+- Challenge 8: **[Deploy resources to different scopes](./Student/Bicep-Challenge-08.md)**
    - Learn how to deploy resources to different scopes
 
 
