@@ -32,13 +32,13 @@ In this challenge you will create the topology described in this diagram:
 #### POWERSHELL
 
 ```powershell
-New-AzSubscriptionDeployment -Location 'eastus' -TemplateUri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-02_Template.json' -Verbose
+New-AzSubscriptionDeployment -Location 'eastus' -TemplateUri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-AzureVirtualDesktop/Student/Resources/challenge-02_Template.json' -Verbose
 ```
 
 #### AZURE CLI
 
 ```shell
-az deployment sub create --location 'eastus' --template-uri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-WindowsVirtualDesktop/Student/Resources/challenge-02_Template.json' --verbose
+az deployment sub create --location 'eastus' --template-uri 'https://raw.githubusercontent.com/microsoft/WhatTheHack/master/037-AzureVirtualDesktop/Student/Resources/challenge-02_Template.json' --verbose
 ```
 
 ## Success Criteria
