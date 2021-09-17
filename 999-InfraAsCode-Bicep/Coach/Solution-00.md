@@ -1,15 +1,10 @@
-# Fast Hack: IaC Bicep Prerequisites
+# Challenge 0: Prepare Your Workstation - Coach's Guide
 
-This section lays out all the tools that are required for this hackathon.
+**[Home](../README.md)** - [Next Challenge>](./Solution-00.md)
 
-* **Azure Subscription**
-* [Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-* [PowerShell Cmdlets for Azure](https://docs.microsoft.com/en-us/powershell/azure/?view=azps-5.6.0)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Bicep plugins for VS Code
-	* [Bicep VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
-	* [Bicep CLI](https://github.com/Azure/bicep/blob/main/docs/installing.md)
+## Notes & Guidance
+
+Below are more details on the pre-requisites which you may wish to share with students if they have questions about the details of any one of these.
 
 ## Azure Subscription
 
