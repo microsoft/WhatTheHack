@@ -1,17 +1,13 @@
-# Challenge 5: Deploy a Virtual Machine Scale Set - Coach's Guide
+# Challenge 5: Deploy a Virtual Machine - Coach's Guide
 
 [< Previous Challenge](./Solution-04.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-06.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
+Add some notes here...
 
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+## Learning Resources
+
+- [Virtual Machine - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines?tabs=bicep)
+- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
+- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
