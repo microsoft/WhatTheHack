@@ -60,8 +60,6 @@ You will want to prepare your machine with the following to help complete the Ch
 	* [Bicep VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 	* [Bicep CLI](https://github.com/Azure/bicep/blob/main/docs/installing.md)
 
-For more details, see: [IaC Bicep Hack - Prerequisites](./Student/Prerequisites.md)
-
 ## Repository Contents 
 - `../Student`
   - Bicep challenges
