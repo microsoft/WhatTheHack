@@ -1,35 +1,35 @@
-# Challenge 5 - Deploy a Virtual Machine Scale Set
+# Challenge 5 - Deploy a Virtual Machine
 
 [< Previous Challenge](./Bicep-Challenge-04.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-06.md)
 
-## Introduction
+## Introduction 
 
-The goal for this challenge includes understanding:
-- Create a more complex deployment using Bicep modules
+In this challenge, you will put all the pieces together and extend your Bicep template to deploy a Virtual Machine in Azure.
 
-Use your learning from the previous challenges you will use Bicep modules to deploy Linux Virtual Machine Scale Sets (VMSS).
+The goals for this challenge include understanding:
+   + Globally unique naming context and complex dependencies
+   + Clean code with neat parameter and variable values
+   + Figuring out what Azure resources it takes to build a VM
 
 ## Description
 
-In this challenge you will write Bicep files that make use of modules to achieve the following:
-
-- Separate networking resources (Virtual Network & Network Security Groups) into their own Bicep file.
-- Separate the load balancer, VMSS, and its dependencies into their own Bicep files.
-- Create a new Bicep template that deploys each of the modules you created.
++	Extend your Bicep template to deploy a virtual machine
+    +   VM requirements -
+        +   Linux OS
+        +   Use a secure secret value for the admin password from Azure Key Vault
+    + Use a resource prefix and template variables to have consistent naming of resources
 
 ## Success Criteria
 
-1. Verify that the Bicep CLI does not show any errors and correctly emits an ARM template.
-1. Verify in the Azure portal that all resources has been deployed.
-
-## Learning Resources
-
-- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
-- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
-- [VMSS - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachinescalesets?tabs=json)
+1. Verify that your virtual machine has been deployed via the Azure Portal or Azure CLI.
+1. Connect to your virtual machine and verify you can login (Linux with SSH)
 
 ## Tips
 
-- Install the Bicep tooling - [follow these instructions to install the Bicep CLI and VS Code extension](https://github.com/Azure/bicep/blob/main/docs/installing.md#bicep-vs-code-extension).
-- Validate your Bicep files regularly by executing `bicep build mybicepfile.bicep`.
-- Remember Bicep is still in preview so there may be bugs or missing features.
+- **TIP:** For a Linux VM, you can use an admin password or an SSH key to control access to the VM. It is common (and a recommended practice) to use an SSH key with Linux instead of an admin password. If you are not familiar with Linux, we recommend using an admin password for this hack to keep things simple and focus on learning ARM Bicep templates.
+- **TIP:** You may need to open additional ports to connect to your VM depending on which OS you deployed.
+- **TIP:** You will need to supply your VM with a Public IP address or use the Azure Bastion service to connect to it.
+
+## Learning Resources
+
+- [Virtual Machine - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines?tabs=bicep)
