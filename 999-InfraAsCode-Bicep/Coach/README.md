@@ -8,8 +8,8 @@ Also remember that this hack includes a optional [lecture presentation](WTH-IaC-
 **NOTE:** If you are a Hackathon participant, this is the answer guide.  Don't cheat yourself by looking at these during the hack!  Go learn something. :)
 
 ## Coach's Guides
-- Challenge 0: **[Prepare Your Workstation](Solution-00.md)**
-   - Get yourself ready to develop your IoT solution
+- Challenge 0: **[Pre-requisites - Ready, Set, Go!](Solution-00.md)**
+   - Get your workstation ready to work with Azure
 - Challenge 1: **[Basic Bicep](./Student/Bicep-Challenge-01.md)**
    - Develop a simple Bicep file that takes inputs to create an Azure Storage Account, and returns outputs
 - Challenge 2: **[Bicep expressions and referencing resources](./Student/Bicep-Challenge-02.md)**
