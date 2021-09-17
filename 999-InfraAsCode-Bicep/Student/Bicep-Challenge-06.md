@@ -1,4 +1,4 @@
-# Challenge 5 - Configure VM Scale Set to run a Web Server
+# Challenge 6 - Configure VM Scale Set to run a Web Server
 
 [< Previous Challenge](./Bicep-Challenge-05.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-07.md)
 

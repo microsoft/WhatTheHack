@@ -1,4 +1,4 @@
-# Challenge 4 - Deploy a Virtual Machine Scale Set
+# Challenge 5 - Deploy a Virtual Machine Scale Set
 
 [< Previous Challenge](./Bicep-Challenge-04.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-06.md)
 
