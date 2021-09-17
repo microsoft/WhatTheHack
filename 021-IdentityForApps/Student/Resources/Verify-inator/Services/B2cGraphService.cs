@@ -1,19 +1,18 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Graph;
-using Microsoft.Graph.Auth;
-using Microsoft.Identity.Client;
 
 namespace Verify_inator.Services
 {
     public class B2cGraphService
     {
         private readonly string b2cExtensionPrefix;
+        public string ConsultantIDUserAttribute { get; private set; }
+        public string TerritoryNameUserAttribute { get; private set; }
 
-        public B2cGraphService(string b2cExtensionsAppClientId)
+        public B2cGraphService(string b2cExtensionsAppClientId, string consultantIDUserAttribute, string territoryNameUserAttribute)
         {
             this.b2cExtensionPrefix = b2cExtensionsAppClientId.Replace("-", "");
+            this.ConsultantIDUserAttribute = consultantIDUserAttribute;
+            this.TerritoryNameUserAttribute = territoryNameUserAttribute;
         }
 
         public string GetUserAttributeClaimName(string userAttributeName)
@@ -26,7 +25,7 @@ namespace Verify_inator.Services
             return $"extension_{this.b2cExtensionPrefix}_{userAttributeName}";
         }
 
-        private string GetUserAttribute(Microsoft.Graph.User user, string extensionName)
+        private string GetUserAttribute(User user, string extensionName)
         {
             if (user.AdditionalData == null || !user.AdditionalData.ContainsKey(extensionName))
             {

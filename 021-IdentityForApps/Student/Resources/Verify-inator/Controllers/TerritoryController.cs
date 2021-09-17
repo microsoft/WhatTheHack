@@ -37,9 +37,9 @@ namespace Verify_inator.Controllers
                 this._logger.LogInformation("Request properties:");
                 foreach (var element in body.EnumerateObject())
                 {
-                    this._logger.LogInformation($"- {element.Name}: {element.Value.GetRawText()}");
-                    // The element name should be the full extension name as seen by the Graph API (e.g. "extension_appid_InvitationCode").
-                    if (element.Name.Equals(this._b2cGraphService.GetUserAttributeExtensionName(Constants.UserAttributes.ConsultantID), StringComparison.InvariantCultureIgnoreCase))
+                    this._logger.LogInformation($"- {element.Name}: {element.Value.ToString()}");
+                    // The element name should be the full extension name as seen by the Graph API (e.g. "extension_appid_ConsultantID").
+                    if (element.Name.Equals(this._b2cGraphService.GetUserAttributeExtensionName(this._b2cGraphService.ConsultantIDUserAttribute), StringComparison.InvariantCultureIgnoreCase))
                     {
                         cmcId = element.Value.GetString();
                     }
@@ -86,8 +86,8 @@ namespace Verify_inator.Controllers
                 { "version", "1.0.0" },
                 { "action", action },
                 { "userMessage", userMessage },
-                { this._b2cGraphService.GetUserAttributeExtensionName(Constants.UserAttributes.ConsultantID), cmcId }, // Note: returning just "extension_<AttributeName>" (without the App ID) would work as well!
-                { this._b2cGraphService.GetUserAttributeExtensionName(Constants.UserAttributes.TerritoryName), territoryName } // Note: returning just "extension_<AttributeName>" (without the App ID) would work as well!
+                { this._b2cGraphService.GetUserAttributeExtensionName(this._b2cGraphService.ConsultantIDUserAttribute), cmcId }, // Note: returning just "extension_<AttributeName>" (without the App ID) would work as well!
+                { this._b2cGraphService.GetUserAttributeExtensionName(this._b2cGraphService.TerritoryNameUserAttribute), territoryName } // Note: returning just "extension_<AttributeName>" (without the App ID) would work as well!
             };
             if (statusCode != 200)
             {

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-You are a cloud engineer at Contoso Manaufacturing (CMC). Recently, CMC IT Leadership has become interested in offering a fully feature white-label identity solution to individuals outside of the company. They do not wish to see these identities inside of your primary Azure AD tenant, nor do they want these identities to be used for collaborating in your Microsoft 365 environment.
+You are a cloud engineer at Contoso Manufacturing (CMC). Recently, CMC IT Leadership has become interested in offering a fully feature white-label identity solution to individuals outside of the company. They do not wish to see these identities inside of your primary Azure AD tenant, nor do they want these identities to be used for collaborating in your Microsoft 365 environment.
 
 ## Description
 
