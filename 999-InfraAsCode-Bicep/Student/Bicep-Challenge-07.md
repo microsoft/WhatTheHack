@@ -1,6 +1,6 @@
 # Challenge 7 - Configure VM Scale Set to run a Web Server using cloud-init
 
-[< Previous Challenge](./Bicep-Challenge-06.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-08.md)
+[< Previous Challenge](./Bicep-Challenge-06.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-08.md)
 
 ## Introduction
 

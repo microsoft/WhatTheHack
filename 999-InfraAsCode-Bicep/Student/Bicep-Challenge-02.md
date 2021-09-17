@@ -1,6 +1,6 @@
 # Challenge 2 - Bicep expressions and Referencing resources
 
-[< Previous Challenge](./Bicep-Challenge-01.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-03.md)
+[< Previous Challenge](./Bicep-Challenge-01.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-03.md)
 
 ## Introduction
 
