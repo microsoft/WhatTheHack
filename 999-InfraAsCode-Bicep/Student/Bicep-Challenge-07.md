@@ -1,24 +1,32 @@
-# Challenge 7 - Deploy resources to different scopes
+# Challenge 6 - Configure VM Scale Set to run a Web Server using cloud-init
 
-[< Previous Challenge](./Bicep-Challenge-06.md) - [Home](../readme.md)
+[< Previous Challenge](./Bicep-Challenge-06.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-08.md)
 
 ## Introduction
 
 The goals of this challenge include understanding:
-- How to deploy resources to different scopes (management groups , subscriptions and resource groups)
+- How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
 
 ## Description
 
+We have provided a script (`cloud-init.txt`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
+
+You can find the script in the [Resources folder](./Resources).
+
 Your challenge is to:
 
-- Create a bicep file to deploy a resource group into your subscription
-- Deploy a virtual network into the newly created resource group
+- Extend the VMSS Bicep template to configure a webserver on instances of the VM Scale Set deployed earlier
+    - Deploy a new VMSS instance with a different name to the previously deployed VMSS
+    - Read the script body into a string and pass it as an input parameter
+    - Pass the script body to the `customData` property of the VM Scale Set definition
 
 ## Success Criteria
 
-- Verify you can view the resource group in your subscription and it has the virtual network deployed.
+1. Verify you can view the web page configured by the script
 
 ## Tips
 
-- [Using Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules)
--  [Understanding Bicep scopes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli)
+- [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init)
+- [Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boo](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
+- Read a text file using [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.1)
+- Read a text file using a [Linux shell](https://askubuntu.com/questions/261900/how-do-i-open-a-text-file-in-my-terminal)

@@ -1,31 +1,35 @@
-# Challenge 5 - Configure VM Scale Set to run a Web Server
+# Challenge 4 - Deploy a Virtual Machine Scale Set
 
 [< Previous Challenge](./Bicep-Challenge-04.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-06.md)
 
 ## Introduction
 
-The goals of this challenge include understanding:
-- How extensions are configured in a Virtual Machine Scale Set (VMSS)
-- How the custom script extension works in the context of a VMSS
+The goal for this challenge includes understanding:
+- Create a more complex deployment using Bicep modules
+
+Use your learning from the previous challenges you will use Bicep modules to deploy Linux Virtual Machine Scale Sets (VMSS).
 
 ## Description
 
-We have provided a script (`install-apache.sh`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
+In this challenge you will write Bicep files that make use of modules to achieve the following:
 
-You can find the script in the [Resources folder](./Resources).
-
-Your challenge is to:
-
-- Extend the VMSS Bicep template to configure a webserver on instances of the VM Scale Set deployed earlier
-    - Add the Azure VM Custom Script Extension to the VM Scale Set definition
-    - Read the script body into a string and pass it as an input parameter
+- Separate networking resources (Virtual Network & Network Security Groups) into their own Bicep file.
+- Separate the load balancer, VMSS, and its dependencies into their own Bicep files.
+- Create a new Bicep template that deploys each of the modules you created.
 
 ## Success Criteria
 
-1. Verify you can view the web page configured by the script
+1. Verify that the Bicep CLI does not show any errors and correctly emits an ARM template.
+1. Verify in the Azure portal that all resources has been deployed.
+
+## Learning Resources
+
+- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
+- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
+- [VMSS - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachinescalesets?tabs=json)
 
 ## Tips
 
-- VM Custom Script Extension with [Bicep](https://github.com/Azure/bicep/blob/dbd360c5c971a79480f23bc7276ea3382a89aa63/docs/examples/201/vm-windows-with-custom-script-extension/README.md)
-- Read a text file using [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.1)
-- Read a text file using a [Linux shell](https://askubuntu.com/questions/261900/how-do-i-open-a-text-file-in-my-terminal)
+- Install the Bicep tooling - [follow these instructions to install the Bicep CLI and VS Code extension](https://github.com/Azure/bicep/blob/main/docs/installing.md#bicep-vs-code-extension).
+- Validate your Bicep files regularly by executing `bicep build mybicepfile.bicep`.
+- Remember Bicep is still in preview so there may be bugs or missing features.

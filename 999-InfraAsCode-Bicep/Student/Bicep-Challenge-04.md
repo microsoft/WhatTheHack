@@ -1,35 +1,32 @@
-# Challenge 4 - Deploy a Virtual Machine Scale Set
+# Challenge 4 - Secret Values with Azure Key Vault
 
 [< Previous Challenge](./Bicep-Challenge-03.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-05.md)
 
 ## Introduction
 
-The goal for this challenge includes understanding:
-- Create a more complex deployment using Bicep modules
+The goals for this challenge are to understand:
+- Handling secret values
+- Not getting fired!
 
-Use your learning from the previous challenges you will use Bicep modules to deploy Linux Virtual Machine Scale Sets (VMSS).
+So far, the only parameters you have passed into your template have been related to the Virtual Network. In the next challenge you will deploy a VM which will require you to pass in a password for the VM's admin account.  It is an **ANTI-pattern** to put a secret value such as a password in plain text in a parameter file! NEVER do this!
+
+#### **Seriously, this is something that could cost you your job!**
+
+It is a BEST practice to store secret values (such as passwords) in the Azure Key Vault service. We have provided you with a script that can create a Key Vault for you, and prompt you to enter the secret value (password) you want to store in the vault.
 
 ## Description
 
-In this challenge you will write Bicep files that make use of modules to achieve the following:
+Your challenge, should you accept it, is to:
++ Create an Azure Key Vault and store a secret value in it by running one of the provided KeyVault scripts of your choice. You can find the scripts in the Resources folder for **Bicep-Challenge-04**:
+    - create-key-vault-CLI.sh - Azure CLI
+    - create-key-vault-PS.ps1 - PowerShell
++ Retrieve the secret value from Azure Key Vault and pass it into your template as a parameter without having the value exposed as plain text at any point in time!
 
-- Separate networking resources (Virtual Network & Network Security Groups) into their own Bicep file.
-- Separate the load balancer, VMSS, and its dependencies into their own Bicep files.
-- Create a new Bicep template that deploys each of the modules you created.
 
 ## Success Criteria
 
-1. Verify that the Bicep CLI does not show any errors and correctly emits an ARM template.
-1. Verify in the Azure portal that all resources has been deployed.
+1. Verify the value of the parameter in the portal after deployment
 
-## Learning Resources
+## Advanced Challenge (Optional)
 
-- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
-- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
-- [VMSS - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachinescalesets?tabs=json)
-
-## Tips
-
-- Install the Bicep tooling - [follow these instructions to install the Bicep CLI and VS Code extension](https://github.com/Azure/bicep/blob/main/docs/installing.md#bicep-vs-code-extension).
-- Validate your Bicep files regularly by executing `bicep build mybicepfile.bicep`.
-- Remember Bicep is still in preview so there may be bugs or missing features.
+The goal of this challenge was focused on how to _retrieve_ secret values from Key Vault for use in an ARM Template with Bicep. You can create an Azure Key Vault using an ARM Template too.  Feel free to try this as a bonus challenge.
