@@ -10,19 +10,20 @@ When implementing an application environment in the cloud, it is important to ha
 - Configuration Management (installing & configuring software on VMs)
 
 The best way to make deployments repeatable is to define them with code, hence the term "Infrastructure as Code" (aka IAC).  There are multiple technologies that enable you to achieve this. Some of these include:
-- Bicep
+- ARM Templates with JSON
+- ARM Templates with Bicep
 - PowerShell Desired State Configuration (DSC)
 - HashiCorp's Terraform & Packer
 - Ansible, Chef, Puppet, Salt Stack, and others
 
-This hack is focused on using Bicep to implement your IaC. It does not mean this is the only way to implement IaC, it's just one of many ways. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [Terraform](../03-Terraform/).
+This hack is focused on using Bicep to implement your IaC. It does not mean this is the only way to implement IaC, it's just one of many ways. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [ARM Templates & PowerShell DSC](../011-InfraAsCode-ARM-DSC), [Terraform](../012-InfraAsCode-Terraform/) or [Ansible](../013-InfraAsCode-Ansible).
 
 ## Learning Objectives
 
 This hack will help you learn:
-- How Bicep can be used to deploy Azure infrastructure
+- How ARM Templates with Bicep can be used to deploy Azure infrastructure
 
-The challenges build upon each other incrementally. You will start by creating a basic Bicep file to get you familiar with the tools & syntax.  Then you extend your template incrementally to deploy multiple infrastructure resources to Azure.
+The challenges build upon each other incrementally. You will start by creating a basic Bicep template to get you familiar with the tools & syntax.  Then you extend your template incrementally to deploy multiple infrastructure resources to Azure.
 
 ### Challenges
 
@@ -38,7 +39,7 @@ The challenges build upon each other incrementally. You will start by creating a
    - Learn how NOT to lose your job!
 - Challenge 5: **[Deploy a Virtual Machine Scale Set](./Student/Bicep-Challenge-05.md)**
    - Create complex deployment with Bicep using modules
-- Challenge 6: **[Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-06.md)*
+- Challenge 6: **[Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-06.md)**
    - Learn about custom script extensions
 - Challenge 7: **[Configure VM Scale Set to run a Web Server using cloud-init](./Student/Bicep-Challenge-07.md)**
    - How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
