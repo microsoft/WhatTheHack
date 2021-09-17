@@ -1,4 +1,4 @@
-# Challenge 7 - Deploy resources to different scopes
+# Challenge 8 - Deploy resources to different scopes
 
 [< Previous Challenge](./Bicep-Challenge-07.md) - [Home](../readme.md)
 
