@@ -1,24 +1,24 @@
-# Challenge 6 - Configure VM Scale Set to run a Web Server using cloud-init
+# Challenge 5 - Configure VM Scale Set to run a Web Server
 
 [< Previous Challenge](./Bicep-Challenge-05.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-07.md)
 
 ## Introduction
 
 The goals of this challenge include understanding:
-- How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
+- How extensions are configured in a Virtual Machine Scale Set (VMSS)
+- How the custom script extension works in the context of a VMSS
 
 ## Description
 
-We have provided a script (`cloud-init.txt`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
+We have provided a script (`install-apache.sh`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
 
 You can find the script in the [Resources folder](./Resources).
 
 Your challenge is to:
 
 - Extend the VMSS Bicep template to configure a webserver on instances of the VM Scale Set deployed earlier
-    - Deploy a new VMSS instance with a different name to the previously deployed VMSS
+    - Add the Azure VM Custom Script Extension to the VM Scale Set definition
     - Read the script body into a string and pass it as an input parameter
-    - Pass the script body to the `customData` property of the VM Scale Set definition
 
 ## Success Criteria
 
@@ -26,7 +26,6 @@ Your challenge is to:
 
 ## Tips
 
-- [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init)
-- [Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boo](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
+- VM Custom Script Extension with [Bicep](https://github.com/Azure/bicep/blob/dbd360c5c971a79480f23bc7276ea3382a89aa63/docs/examples/201/vm-windows-with-custom-script-extension/README.md)
 - Read a text file using [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.1)
 - Read a text file using a [Linux shell](https://askubuntu.com/questions/261900/how-do-i-open-a-text-file-in-my-terminal)
