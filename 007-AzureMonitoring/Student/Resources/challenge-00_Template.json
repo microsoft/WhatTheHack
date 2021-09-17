@@ -1,0 +1,2742 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "AdminPassword": {
+            "type": "SecureString"
+        },
+        "AdminUsername": {
+            "type": "String"
+        },
+        "Location": {
+            "defaultValue": "[deployment().location]",
+            "type": "String"
+        },
+        "TimeStamp": {
+            "defaultValue": "[utcNow('yyyyMMddhhmmss')]",
+            "type": "String"
+        }
+    },
+    "variables": {
+        "LocationShort": {
+            "australiacentral": "ac",
+            "australiacentral2": "ac2",
+            "australiaeast": "ae",
+            "australiasoutheast": "as",
+            "brazilsouth": "bs2",
+            "brazilsoutheast": "bs",
+            "canadacentral": "cc",
+            "canadaeast": "ce",
+            "centralindia": "ci",
+            "centralus": "cu",
+            "chinaeast": "ce",
+            "chinaeast2": "ce2",
+            "chinanorth": "cn",
+            "chinanorth2": "cn2",
+            "eastasia": "ea",
+            "eastus": "eu",
+            "eastus2": "eu2",
+            "francecentral": "fc",
+            "francesouth": "fs",
+            "germanynorth": "gn",
+            "germanywestcentral": "gwc",
+            "japaneast": "je",
+            "japanwest": "jw",
+            "jioindiawest": "jiw",
+            "koreacentral": "kc",
+            "koreasouth": "ks",
+            "northcentralus": "ncu",
+            "northeurope": "ne2",
+            "norwayeast": "ne",
+            "norwaywest": "nw",
+            "southafricanorth": "san",
+            "southafricawest": "saw",
+            "southcentralus": "scu",
+            "southindia": "si",
+            "southeastasia": "sa",
+            "switzerlandnorth": "sn",
+            "switzerlandwest": "sw",
+            "uaecentral": "uc",
+            "uaenorth": "un",
+            "uksouth": "us",
+            "ukwest": "uw",
+            "usdodcentral": "uc",
+            "usdodeast": "ue",
+            "usgovarizona": "ua",
+            "usgoviowa": "ui",
+            "usgovtexas": "ut",
+            "usgovvirginia": "uv",
+            "westcentralus": "wcu",
+            "westeurope": "we",
+            "westindia": "wi",
+            "westus": "wu",
+            "westus2": "wu2",
+            "westus3": "wu3"
+        },
+        "NameSuffix": "[variables('LocationShort')[parameters('Location')]]",
+        "AksName": "[format('aks-wth-monitor-d-{0}', variables('NameSuffix'))]",
+        "AppInsightsName": "[format('ai-wth-monitor-d-{0}', variables('NameSuffix'))]",
+        "BastionName": "[format('bastion-wth-monitor-d-{0}', variables('NameSuffix'))]",
+        "ComputerNamePrefix": "[format('vmwthd{0}', variables('NameSuffix'))]",
+        "LoadBalancerName": "[format('lb-wth-monitor-web-d-{0}', variables('NameSuffix'))]",
+        "LogAnalyticsDataSources": [
+            {
+                "name": "[format('{0}/LogicalDisk1', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Avg Disk sec/Read"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk2', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Avg Disk sec/Write"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk3', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Current Disk Queue Length"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk4', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Disk Reads/sec"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk5', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Disk Transfers/sec"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk6', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Disk Writes/sec"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk7', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Free Megabytes"
+                }
+            },
+            {
+                "name": "[format('{0}/LogicalDisk8', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "LogicalDisk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "% Free Space"
+                }
+            },
+            {
+                "name": "[format('{0}/Memory1', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Memory",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Available MBytes"
+                }
+            },
+            {
+                "name": "[format('{0}/Memory2', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Memory",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "% Committed Bytes In Use"
+                }
+            },
+            {
+                "name": "[format('{0}/Network1', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Network Adapter",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Bytes Received/sec"
+                }
+            },
+            {
+                "name": "[format('{0}/Network2', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Network Adapter",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Bytes Sent/sec"
+                }
+            },
+            {
+                "name": "[format('{0}/Network3', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Network Adapter",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Bytes Total/sec"
+                }
+            },
+            {
+                "name": "[format('{0}/CPU1', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Processor",
+                    "instanceName": "_Total",
+                    "intervalSeconds": 10,
+                    "counterName": "% Processor Time"
+                }
+            },
+            {
+                "name": "[format('{0}/CPU2', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "System",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Processor Queue Lenght"
+                }
+            },
+            {
+                "name": "[format('{0}/System', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsEvent",
+                "properties": {
+                    "eventLogName": "System",
+                    "eventTypes": [
+                        {
+                            "eventType": "Error"
+                        },
+                        {
+                            "eventType": "Warning"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "[format('{0}/Application', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "WindowsEvent",
+                "properties": {
+                    "eventLogName": "Application",
+                    "eventTypes": [
+                        {
+                            "eventType": "Error"
+                        },
+                        {
+                            "eventType": "Warning"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "[format('{0}/Linux', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "LinuxPerformanceObject",
+                "properties": {
+                    "performanceCounters": [
+                        {
+                            "counterName": "% Used Inodes"
+                        },
+                        {
+                            "counterName": "Free Megabytes"
+                        },
+                        {
+                            "counterName": "% Used Space"
+                        },
+                        {
+                            "counterName": "Disk Transfers/sec"
+                        },
+                        {
+                            "counterName": "Disk Reads/sec"
+                        },
+                        {
+                            "counterName": "Disk Writes/sec"
+                        }
+                    ],
+                    "objectName": "Logical Disk",
+                    "instanceName": "*",
+                    "intervalSeconds": 10
+                }
+            },
+            {
+                "name": "[format('{0}/LinuxPerfCollection', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "LinuxPerformanceCollection",
+                "properties": {
+                    "state": "Enabled"
+                }
+            },
+            {
+                "name": "[format('{0}/IISLog', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "IISLogs",
+                "properties": {
+                    "state": "OnPremiseEnabled"
+                }
+            },
+            {
+                "name": "[format('{0}/Syslog', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "LinuxSyslog",
+                "properties": {
+                    "syslogName": "kern",
+                    "syslogSeverities": [
+                        {
+                            "severity": "emerg"
+                        },
+                        {
+                            "severity": "alert"
+                        },
+                        {
+                            "severity": "crit"
+                        },
+                        {
+                            "severity": "err"
+                        },
+                        {
+                            "severity": "warning"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "[format('{0}/SyslogCollection', variables('LogAnalyticsWorkspaceName'))]",
+                "kind": "LinuxSyslogCollection",
+                "properties": {
+                    "state": "Enabled"
+                }
+            }
+        ],
+        "LogAnalyticsSolutions": [
+            {
+                "name": "[format('Security({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "Security"
+            },
+            {
+                "name": "[format('AgentHealthAssessment({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "AgentHealthAssessment"
+            },
+            {
+                "name": "[format('ContainerInsights({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "ContainerInsights"
+            },
+            {
+                "name": "[format('AzureSQLAnalytics({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "AzureSQLAnalytics"
+            },
+            {
+                "name": "[format('ChangeTracking({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "ChangeTracking"
+            },
+            {
+                "name": "[format('Updates({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "Updates"
+            },
+            {
+                "name": "[format('AzureActivity({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "AzureActivity"
+            },
+            {
+                "name": "[format('AzureAutomation({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "AzureAutomation"
+            },
+            {
+                "name": "[format('ADAssessment({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "ADAssessment"
+            },
+            {
+                "name": "[format('SQLAssessment({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "SQLAssessment"
+            },
+            {
+                "name": "[format('ServiceMap({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "ServiceMap"
+            },
+            {
+                "name": "[format('InfrastructureInsights({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "InfrastructureInsights"
+            },
+            {
+                "name": "[format('AzureNSGAnalytics({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "AzureNSGAnalytics"
+            },
+            {
+                "name": "[format('KeyVaultAnalytics({0})', variables('LogAnalyticsWorkspaceName'))]",
+                "marketplaceName": "KeyVaultAnalytics"
+            }
+        ],
+        "LogAnalyticsWorkspaceName": "[format('law-wth-monitor-d-{0}', variables('NameSuffix'))]",
+        "PublicIpAddresses": [
+            {
+                "Name": "[format('pip-wth-monitor-web-d-{0}', variables('NameSuffix'))]",
+                "Sku": "Basic"
+            },
+            {
+                "Name": "[format('pip-wth-monitor-bastion-d-{0}', variables('NameSuffix'))]",
+                "Sku": "Standard"
+            }
+        ],
+        "StorageAccountName": "[format('storwthmond{0}{1}', variables('NameSuffix'), toLower(substring(uniqueString(deployment().name), 0, 10)))]",
+        "StorageEndpoint": "[environment().suffixes.storage]",
+        "Subnets": [
+            {
+                "Name": "[format('snet-db-d-{0}', variables('NameSuffix'))]",
+                "Prefix": "10.0.0.0/24",
+                "NSG": "[format('nsg-wth-monitor-db-d-{0}', variables('NameSuffix'))]",
+                "SecurityRules": [
+                    {
+                        "name": "Allow_SQL_Mgmt",
+                        "properties": {
+                            "priority": 100,
+                            "sourceAddressPrefix": "10.0.0.0/24",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "1433",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow_AKS",
+                        "properties": {
+                            "priority": 101,
+                            "sourceAddressPrefix": "10.0.2.0/24",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "1433",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow_RDP",
+                        "properties": {
+                            "priority": 110,
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "3389",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Deny_Web",
+                        "properties": {
+                            "priority": 121,
+                            "sourceAddressPrefix": "10.0.0.0/24",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "*",
+                            "protocol": "*",
+                            "access": "Deny",
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            {
+                "Name": "[format('snet-web-d-{0}', variables('NameSuffix'))]",
+                "Prefix": "10.0.1.0/24",
+                "NSG": "[format('nsg-wth-monitor-web-d-{0}', variables('NameSuffix'))]",
+                "SecurityRules": [
+                    {
+                        "name": "Allow_HTTP",
+                        "properties": {
+                            "priority": 100,
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "80",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow_IIS_Mgmt_Svc",
+                        "properties": {
+                            "priority": 101,
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "8172",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "Allow_RDP",
+                        "properties": {
+                            "priority": 110,
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "3389",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            {
+                "Name": "[format('snet-aks-d-{0}', variables('NameSuffix'))]",
+                "Prefix": "10.0.2.0/24",
+                "NSG": "[format('nsg-wth-monitor-aks-d-{0}', variables('NameSuffix'))]",
+                "SecurityRules": [
+                    {
+                        "name": "Allow_RDP",
+                        "properties": {
+                            "priority": 110,
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "3389",
+                            "protocol": "Tcp",
+                            "access": "Allow",
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            },
+            {
+                "Name": "AzureBastionSubnet",
+                "Prefix": "10.0.3.0/26",
+                "NSG": "[format('nsg-wth-monitor-bastion-d-{0}', variables('NameSuffix'))]",
+                "SecurityRules": [
+                    {
+                        "name": "AllowBastionClients",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": "100",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "AllowGatewayManager",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "GatewayManager",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": "200",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancer",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": "300",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "AllowBastionHostCommunication",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": "400",
+                            "direction": "Inbound",
+                            "destinationPortRanges": [
+                                "8080",
+                                "5701"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "AllowSshRdp",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": "100",
+                            "direction": "Outbound",
+                            "destinationPortRanges": [
+                                "22",
+                                "3389"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "AllowAzureCloud",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "AzureCloud",
+                            "access": "Allow",
+                            "priority": "200",
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "AllowBastionCommunication",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": "300",
+                            "direction": "Outbound",
+                            "destinationPortRanges": [
+                                "8080",
+                                "5701"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "AllowGetSessionInformation",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": "400",
+                            "direction": "Outbound"
+                        }
+                    },
+                    {
+                        "name": "DenyAllInbound",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": "4096",
+                            "direction": "Inbound"
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutbound",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": "4096",
+                            "direction": "Outbound"
+                        }
+                    }
+                ]
+            }
+        ],
+        "VirtualNetworkName": "[format('vnet-wth-monitor-d-{0}', variables('NameSuffix'))]",
+        "VirtualMachines": [
+            {
+                "Name": "[format('vmwthdbd{0}', variables('NameSuffix'))]",
+                "NIC": "[format('nic-wth-monitor-db-d-{0}', variables('NameSuffix'))]",
+                "Size": "Standard_DS3_v2",
+                "ImageVersion": "Standard",
+                "ImagePublisher": "MicrosoftSQLServer",
+                "ImageOffer": "SQL2016SP1-WS2016"
+            },
+            {
+                "Name": "[format('vmwthvsd{0}', variables('NameSuffix'))]",
+                "NIC": "[format('nic-wth-monitor-vs-d-{0}', variables('NameSuffix'))]",
+                "Size": "Standard_D4s_v3",
+                "ImageVersion": "vs-2019-comm-latest-win10-n",
+                "ImagePublisher": "MicrosoftVisualStudio",
+                "ImageOffer": "VisualStudio2019latest"
+            }
+        ],
+        "VirtualMachineScaleSetName": "[format('vmss-wth-monitor-d-{0}', variables('NameSuffix'))]",
+        "VmssNicName": "[format('nic-wth-monitor-vmss-d-{0}', variables('NameSuffix'))]"
+    },
+    "functions": [],
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2020-10-01",
+            "name": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]",
+            "location": "[parameters('Location')]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Datasources": {
+                        "value": "[variables('LogAnalyticsDataSources')]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Name": {
+                        "value": "[variables('LogAnalyticsWorkspaceName')]"
+                    },
+                    "Solutions": {
+                        "value": "[variables('LogAnalyticsSolutions')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "13897180746722500656"
+                        }
+                    },
+                    "parameters": {
+                        "Datasources": {
+                            "type": "array"
+                        },
+                        "Location": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "Solutions": {
+                            "type": "array"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.OperationalInsights/workspaces",
+                            "apiVersion": "2020-08-01",
+                            "name": "[parameters('Name')]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publicNetworkAccessForIngestion": "Enabled",
+                                "publicNetworkAccessForQuery": "Enabled"
+                            }
+                        },
+                        {
+                            "copy": {
+                                "name": "datasources",
+                                "count": "[length(parameters('Datasources'))]"
+                            },
+                            "type": "Microsoft.OperationalInsights/workspaces/dataSources",
+                            "apiVersion": "2015-11-01-preview",
+                            "name": "[parameters('Datasources')[copyIndex()].name]",
+                            "kind": "[parameters('Datasources')[copyIndex()].kind]",
+                            "properties": "[parameters('Datasources')[copyIndex()].properties]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('Name'))]"
+                            ]
+                        },
+                        {
+                            "copy": {
+                                "name": "solutions",
+                                "count": "[length(parameters('Solutions'))]"
+                            },
+                            "type": "Microsoft.OperationsManagement/solutions",
+                            "apiVersion": "2015-11-01-preview",
+                            "name": "[parameters('Solutions')[copyIndex()].name]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('Name'))]"
+                            },
+                            "plan": {
+                                "name": "[parameters('Solutions')[copyIndex()].name]",
+                                "product": "[format('OMSGallery/{0}', parameters('Solutions')[copyIndex()].marketplaceName)]",
+                                "promotionCode": "",
+                                "publisher": "Microsoft"
+                            },
+                            "dependsOn": [
+                                "datasources",
+                                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('Name'))]"
+                            ]
+                        }
+                    ],
+                    "outputs": {
+                        "Name": {
+                            "type": "string",
+                            "value": "[parameters('Name')]"
+                        },
+                        "ResourceId": {
+                            "type": "string",
+                            "value": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('Name'))]"
+                        },
+                        "CustomerId": {
+                            "type": "string",
+                            "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('Name'))).customerId]"
+                        },
+                        "Key": {
+                            "type": "string",
+                            "value": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces', parameters('Name')), '2020-08-01').primarySharedKey]"
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('StorageAccount_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "StorageAccountName": {
+                        "value": "[variables('StorageAccountName')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "5068391126171874766"
+                        }
+                    },
+                    "parameters": {
+                        "Location": {
+                            "type": "string"
+                        },
+                        "StorageAccountName": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2021-01-01",
+                            "name": "[parameters('StorageAccountName')]",
+                            "location": "[parameters('Location')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            },
+                            "properties": {
+                                "minimumTlsVersion": "TLS1_2",
+                                "isHnsEnabled": false,
+                                "supportsHttpsTrafficOnly": true,
+                                "isNfsV3Enabled": false,
+                                "networkAcls": {
+                                    "defaultAction": "Allow"
+                                }
+                            }
+                        }
+                    ],
+                    "outputs": {
+                        "Name": {
+                            "type": "string",
+                            "value": "[parameters('StorageAccountName')]"
+                        },
+                        "Key": {
+                            "type": "string",
+                            "value": "[listKeys(parameters('StorageAccountName'), '2021-01-01').keys[0].value]"
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Subnets": {
+                        "value": "[variables('Subnets')]"
+                    },
+                    "LogAnalyticsWorkspaceName": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
+                    },
+                    "StorageAccountName": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "10496936665498281281"
+                        }
+                    },
+                    "parameters": {
+                        "Location": {
+                            "type": "string"
+                        },
+                        "LogAnalyticsWorkspaceName": {
+                            "type": "string"
+                        },
+                        "StorageAccountName": {
+                            "type": "string"
+                        },
+                        "Subnets": {
+                            "type": "array"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "copy": {
+                                "name": "nsg",
+                                "count": "[length(parameters('Subnets'))]"
+                            },
+                            "type": "Microsoft.Network/networkSecurityGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('Subnets')[copyIndex()].NSG]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "copy": [
+                                    {
+                                        "name": "securityRules",
+                                        "count": "[length(parameters('Subnets')[copyIndex()].SecurityRules)]",
+                                        "input": {
+                                            "name": "[parameters('Subnets')[copyIndex()].SecurityRules[copyIndex('securityRules')].name]",
+                                            "properties": "[parameters('Subnets')[copyIndex()].SecurityRules[copyIndex('securityRules')].properties]"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "copy": {
+                                "name": "nsgDiags",
+                                "count": "[length(range(0, length(parameters('Subnets'))))]"
+                            },
+                            "type": "microsoft.insights/diagnosticSettings",
+                            "apiVersion": "2017-05-01-preview",
+                            "scope": "[format('Microsoft.Network/networkSecurityGroups/{0}', parameters('Subnets')[range(0, length(parameters('Subnets')))[copyIndex()]].NSG)]",
+                            "name": "[format('diag-{0}', parameters('Subnets')[range(0, length(parameters('Subnets')))[copyIndex()]].NSG)]",
+                            "properties": {
+                                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('LogAnalyticsWorkspaceName'))]",
+                                "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccountName'))]",
+                                "logs": [
+                                    {
+                                        "category": "NetworkSecurityGroupEvent",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 31,
+                                            "enabled": true
+                                        }
+                                    },
+                                    {
+                                        "category": "NetworkSecurityGroupRuleCounter",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "days": 31,
+                                            "enabled": true
+                                        }
+                                    }
+                                ]
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnets')[range(0, length(parameters('Subnets')))[copyIndex()]].NSG)]"
+                            ]
+                        }
+                    ],
+                    "outputs": {
+                        "Ids": {
+                            "type": "array",
+                            "copy": {
+                                "count": "[length(parameters('Subnets'))]",
+                                "input": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnets')[copyIndex()].NSG)]"
+                            }
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('VirtualNetwork_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "AddressPrefixes": {
+                        "value": [
+                            "10.0.0.0/16"
+                        ]
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Subnets": {
+                        "value": [
+                            {
+                                "name": "[variables('Subnets')[0].Name]",
+                                "prefix": "[variables('Subnets')[0].Prefix]",
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[0]]"
+                            },
+                            {
+                                "name": "[variables('Subnets')[1].Name]",
+                                "prefix": "[variables('Subnets')[1].Prefix]",
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[1]]"
+                            },
+                            {
+                                "name": "[variables('Subnets')[2].Name]",
+                                "prefix": "[variables('Subnets')[2].Prefix]",
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[2]]"
+                            },
+                            {
+                                "name": "[variables('Subnets')[3].Name]",
+                                "prefix": "[variables('Subnets')[3].Prefix]",
+                                "networkSecurityGroupId": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('NetworkSecurityGroups_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[3]]"
+                            }
+                        ]
+                    },
+                    "VirtualNetworkName": {
+                        "value": "[variables('VirtualNetworkName')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "708495078409410826"
+                        }
+                    },
+                    "parameters": {
+                        "AddressPrefixes": {
+                            "type": "array"
+                        },
+                        "Location": {
+                            "type": "string"
+                        },
+                        "Subnets": {
+                            "type": "array"
+                        },
+                        "VirtualNetworkName": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.Network/virtualNetworks",
+                            "apiVersion": "2020-07-01",
+                            "name": "[parameters('VirtualNetworkName')]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "copy": [
+                                    {
+                                        "name": "subnets",
+                                        "count": "[length(parameters('Subnets'))]",
+                                        "input": {
+                                            "name": "[parameters('Subnets')[copyIndex('subnets')].name]",
+                                            "properties": {
+                                                "addressPrefix": "[parameters('Subnets')[copyIndex('subnets')].prefix]",
+                                                "networkSecurityGroup": {
+                                                    "id": "[parameters('Subnets')[copyIndex('subnets')].networkSecurityGroupId]"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "addressSpace": {
+                                    "addressPrefixes": "[parameters('AddressPrefixes')]"
+                                }
+                            }
+                        }
+                    ],
+                    "outputs": {
+                        "Id": {
+                            "type": "string",
+                            "value": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetworkName'))]"
+                        },
+                        "SubnetIds": {
+                            "type": "array",
+                            "copy": {
+                                "count": "[length(parameters('Subnets'))]",
+                                "input": "[format('{0}/subnets/{1}', resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetworkName')), parameters('Subnets')[copyIndex()].name)]"
+                            }
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('PublicIpAddresses_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "LawId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "PIPs": {
+                        "value": "[variables('PublicIpAddresses')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "8729619291922262158"
+                        }
+                    },
+                    "parameters": {
+                        "LawId": {
+                            "type": "string"
+                        },
+                        "Location": {
+                            "type": "string"
+                        },
+                        "PIPs": {
+                            "type": "array"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "copy": {
+                                "name": "pip",
+                                "count": "[length(parameters('PIPs'))]"
+                            },
+                            "type": "Microsoft.Network/publicIPAddresses",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('PIPs')[copyIndex()].Name]",
+                            "location": "[parameters('Location')]",
+                            "sku": {
+                                "name": "[parameters('PIPs')[copyIndex()].Sku]"
+                            },
+                            "properties": {
+                                "publicIPAddressVersion": "IPv4",
+                                "publicIPAllocationMethod": "Static",
+                                "idleTimeoutInMinutes": 4,
+                                "dnsSettings": {
+                                    "domainNameLabel": "[format('wth{0}', toLower(uniqueString(resourceGroup().id, parameters('PIPs')[copyIndex()].Name)))]"
+                                }
+                            }
+                        },
+                        {
+                            "copy": {
+                                "name": "pipDiags",
+                                "count": "[length(range(0, length(parameters('PIPs'))))]"
+                            },
+                            "type": "microsoft.insights/diagnosticSettings",
+                            "apiVersion": "2017-05-01-preview",
+                            "scope": "[format('Microsoft.Network/publicIPAddresses/{0}', parameters('PIPs')[range(0, length(parameters('PIPs')))[copyIndex()]].Name)]",
+                            "name": "[format('diag-{0}', parameters('PIPs')[range(0, length(parameters('PIPs')))[copyIndex()]].Name)]",
+                            "properties": {
+                                "workspaceId": "[parameters('LawId')]",
+                                "metrics": [
+                                    {
+                                        "timeGrain": "PT1M",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "enabled": false,
+                                            "days": 31
+                                        }
+                                    }
+                                ],
+                                "logs": [
+                                    {
+                                        "category": "DDoSProtectionNotifications",
+                                        "enabled": true
+                                    }
+                                ]
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('PIPs')[range(0, length(parameters('PIPs')))[copyIndex()]].Name)]",
+                                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('PIPs')[range(0, length(parameters('PIPs')))[copyIndex()]].Name)]"
+                            ]
+                        }
+                    ],
+                    "outputs": {
+                        "FQDNs": {
+                            "type": "array",
+                            "copy": {
+                                "count": "[length(range(0, length(parameters('PIPs'))))]",
+                                "input": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('PIPs')[range(0, length(parameters('PIPs')))[copyIndex()]].Name)).dnsSettings.fqdn]"
+                            }
+                        },
+                        "Ids": {
+                            "type": "array",
+                            "copy": {
+                                "count": "[length(range(0, length(parameters('PIPs'))))]",
+                                "input": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('PIPs')[range(0, length(parameters('PIPs')))[copyIndex()]].Name)]"
+                            }
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('VirtualMachines_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "AdminPassword": {
+                        "value": "[parameters('AdminPassword')]"
+                    },
+                    "AdminUsername": {
+                        "value": "[parameters('AdminUsername')]"
+                    },
+                    "LawId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.CustomerId.value]"
+                    },
+                    "LawKey": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "StorageAccountName": {
+                        "value": "[variables('StorageAccountName')]"
+                    },
+                    "StorageEndpoint": {
+                        "value": "[variables('StorageEndpoint')]"
+                    },
+                    "StorageKey": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                    },
+                    "SubnetIds": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value]"
+                    },
+                    "VirtualMachines": {
+                        "value": "[variables('VirtualMachines')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "3344298134391556690"
+                        }
+                    },
+                    "parameters": {
+                        "AdminPassword": {
+                            "type": "secureString"
+                        },
+                        "AdminUsername": {
+                            "type": "string"
+                        },
+                        "LawId": {
+                            "type": "string"
+                        },
+                        "LawKey": {
+                            "type": "string"
+                        },
+                        "Location": {
+                            "type": "string"
+                        },
+                        "StorageAccountName": {
+                            "type": "string"
+                        },
+                        "StorageEndpoint": {
+                            "type": "string"
+                        },
+                        "StorageKey": {
+                            "type": "string"
+                        },
+                        "SubnetIds": {
+                            "type": "array"
+                        },
+                        "VirtualMachines": {
+                            "type": "array"
+                        }
+                    },
+                    "functions": [],
+                    "variables": {
+                        "SQLServerName": "[parameters('VirtualMachines')[0].Name]"
+                    },
+                    "resources": [
+                        {
+                            "copy": {
+                                "name": "nic",
+                                "count": "[length(range(0, length(parameters('VirtualMachines'))))]"
+                            },
+                            "type": "Microsoft.Network/networkInterfaces",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('VirtualMachines')[range(0, length(parameters('VirtualMachines')))[copyIndex()]].NIC]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "ipConfigurations": [
+                                    {
+                                        "name": "ipconfig1",
+                                        "properties": {
+                                            "subnet": {
+                                                "id": "[parameters('SubnetIds')[range(0, length(parameters('VirtualMachines')))[copyIndex()]]]"
+                                            },
+                                            "privateIPAllocationMethod": "Dynamic"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "copy": {
+                                "name": "vm",
+                                "count": "[length(parameters('VirtualMachines'))]"
+                            },
+                            "type": "Microsoft.Compute/virtualMachines",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('VirtualMachines')[copyIndex()].Name]",
+                            "location": "[parameters('Location')]",
+                            "identity": {
+                                "type": "SystemAssigned"
+                            },
+                            "properties": {
+                                "hardwareProfile": {
+                                    "vmSize": "[parameters('VirtualMachines')[copyIndex()].Size]"
+                                },
+                                "storageProfile": {
+                                    "osDisk": {
+                                        "createOption": "FromImage",
+                                        "managedDisk": {
+                                            "storageAccountType": "Standard_LRS"
+                                        }
+                                    },
+                                    "imageReference": {
+                                        "publisher": "[parameters('VirtualMachines')[copyIndex()].ImagePublisher]",
+                                        "offer": "[parameters('VirtualMachines')[copyIndex()].ImageOffer]",
+                                        "sku": "[parameters('VirtualMachines')[copyIndex()].ImageVersion]",
+                                        "version": "latest"
+                                    }
+                                },
+                                "networkProfile": {
+                                    "networkInterfaces": [
+                                        {
+                                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('VirtualMachines')[copyIndex()].NIC)]"
+                                        }
+                                    ]
+                                },
+                                "osProfile": {
+                                    "computerName": "[parameters('VirtualMachines')[copyIndex()].Name]",
+                                    "adminUsername": "[parameters('AdminUsername')]",
+                                    "adminPassword": "[parameters('AdminPassword')]"
+                                },
+                                "diagnosticsProfile": {
+                                    "bootDiagnostics": {
+                                        "enabled": false
+                                    }
+                                }
+                            },
+                            "dependsOn": [
+                                "nic"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Compute/virtualMachines/extensions",
+                            "apiVersion": "2020-12-01",
+                            "name": "[format('{0}/CustomScriptExtension', parameters('VirtualMachines')[1].Name)]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publisher": "Microsoft.Compute",
+                                "type": "CustomScriptExtension",
+                                "typeHandlerVersion": "1.9",
+                                "autoUpgradeMinorVersion": false,
+                                "enableAutomaticUpgrade": false,
+                                "settings": {
+                                    "fileUris": [
+                                        "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/scripts/SetupVSServer.ps1"
+                                    ]
+                                },
+                                "protectedSettings": {
+                                    "commandToExecute": "[format('powershell.exe -ExecutionPolicy Unrestricted -File SetupVSServer.ps1 {0} {1} {2}', variables('SQLServerName'), parameters('AdminPassword'), parameters('AdminUsername'))]"
+                                }
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachines')[1].Name)]"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Compute/virtualMachines/extensions",
+                            "apiVersion": "2020-12-01",
+                            "name": "[format('{0}/ManagedIdentityExtensionForWindows', parameters('VirtualMachines')[0].Name)]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publisher": "Microsoft.ManagedIdentity",
+                                "type": "ManagedIdentityExtensionForWindows",
+                                "typeHandlerVersion": "1.0",
+                                "autoUpgradeMinorVersion": false,
+                                "enableAutomaticUpgrade": false,
+                                "settings": {
+                                    "port": 50342
+                                }
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachines')[0].Name)]"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Compute/virtualMachines/extensions",
+                            "apiVersion": "2020-12-01",
+                            "name": "[format('{0}/IaaSDiagnostics', parameters('VirtualMachines')[0].Name)]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publisher": "Microsoft.Azure.Diagnostics",
+                                "type": "IaaSDiagnostics",
+                                "typeHandlerVersion": "1.5",
+                                "autoUpgradeMinorVersion": false,
+                                "enableAutomaticUpgrade": false,
+                                "settings": {
+                                    "WadCfg": {
+                                        "DiagnosticMonitorConfiguration": {
+                                            "overallQuotaInMB": 4096,
+                                            "DiagnosticInfrastructureLogs": {
+                                                "scheduledTransferLogLevelFilter": "Error"
+                                            },
+                                            "Directories": {
+                                                "scheduledTransferPeriod": "PT1M",
+                                                "IISLogs": {
+                                                    "containerName": "wad-iis-logfiles"
+                                                },
+                                                "FailedRequestLogs": {
+                                                    "containerName": "wad-failedrequestlogs"
+                                                }
+                                            },
+                                            "PerformanceCounters": {
+                                                "scheduledTransferPeriod": "PT1M",
+                                                "sinks": "AzMonSink",
+                                                "PerformanceCounterConfiguration": [
+                                                    {
+                                                        "counterSpecifier": "\\Memory\\Available Bytes",
+                                                        "sampleRate": "PT15S"
+                                                    },
+                                                    {
+                                                        "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+                                                        "sampleRate": "PT15S"
+                                                    },
+                                                    {
+                                                        "counterSpecifier": "\\Memory\\Committed Bytes",
+                                                        "sampleRate": "PT15S"
+                                                    }
+                                                ]
+                                            },
+                                            "WindowsEventLog": {
+                                                "scheduledTransferPeriod": "PT1M",
+                                                "DataSource": [
+                                                    {
+                                                        "name": "Application!*"
+                                                    }
+                                                ]
+                                            },
+                                            "Logs": {
+                                                "scheduledTransferPeriod": "PT1M",
+                                                "scheduledTransferLogLevelFilter": "Error"
+                                            }
+                                        },
+                                        "SinksConfig": {
+                                            "Sink": [
+                                                {
+                                                    "name": "AzMonSink",
+                                                    "AzureMonitor": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "StorageAccount": "[parameters('StorageAccountName')]"
+                                },
+                                "protectedSettings": {
+                                    "storageAccountName": "[parameters('StorageAccountName')]",
+                                    "storageAccountKey": "[parameters('StorageKey')]",
+                                    "storageAccountEndPoint": "[format('https://{0}/', parameters('StorageEndpoint'))]"
+                                }
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachines')[0].Name)]"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Compute/virtualMachines/extensions",
+                            "apiVersion": "2020-12-01",
+                            "name": "[format('{0}/SqlIaaSAgent', parameters('VirtualMachines')[0].Name)]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publisher": "Microsoft.SqlServer.Management",
+                                "type": "SqlIaaSAgent",
+                                "typeHandlerVersion": "1.2",
+                                "autoUpgradeMinorVersion": false,
+                                "enableAutomaticUpgrade": false,
+                                "settings": {
+                                    "AutoTelemetrySettings": {
+                                        "Region": "[parameters('Location')]"
+                                    },
+                                    "AutoPatchingSettings": {
+                                        "PatchCategory": "WindowsMandatoryUpdates",
+                                        "Enable": false
+                                    },
+                                    "KeyVaultCredentialSettings": {
+                                        "Enable": false,
+                                        "CredentialName": ""
+                                    },
+                                    "ServerConfigurationsManagementSettings": {
+                                        "SQLConnectivityUpdateSettings": {
+                                            "ConnectivityType": "Private",
+                                            "Port": 1433
+                                        },
+                                        "AdditionalFeaturesServerConfigurations": {
+                                            "IsRServicesEnabled": false
+                                        }
+                                    }
+                                },
+                                "protectedSettings": {
+                                    "SQLAuthUpdateUserName": "sqladmin",
+                                    "SQLAuthUpdatePassword": "[parameters('AdminPassword')]"
+                                }
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachines')[0].Name)]"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Compute/virtualMachines/extensions",
+                            "apiVersion": "2020-12-01",
+                            "name": "[format('{0}/DependencyAgentWindows', parameters('VirtualMachines')[0].Name)]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                                "type": "DependencyAgentWindows",
+                                "typeHandlerVersion": "9.4",
+                                "autoUpgradeMinorVersion": false,
+                                "enableAutomaticUpgrade": false
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachines')[0].Name)]"
+                            ]
+                        },
+                        {
+                            "type": "Microsoft.Compute/virtualMachines/extensions",
+                            "apiVersion": "2020-12-01",
+                            "name": "[format('{0}/MicrosoftMonitoringAgent', parameters('VirtualMachines')[0].Name)]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                                "type": "MicrosoftMonitoringAgent",
+                                "typeHandlerVersion": "1.0",
+                                "autoUpgradeMinorVersion": false,
+                                "enableAutomaticUpgrade": false,
+                                "settings": {
+                                    "workspaceId": "[parameters('LawId')]"
+                                },
+                                "protectedSettings": {
+                                    "workspaceKey": "[parameters('LawKey')]"
+                                }
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachines/extensions', split(format('{0}/DependencyAgentWindows', parameters('VirtualMachines')[0].Name), '/')[0], split(format('{0}/DependencyAgentWindows', parameters('VirtualMachines')[0].Name), '/')[1])]",
+                                "[resourceId('Microsoft.Compute/virtualMachines/extensions', split(format('{0}/IaaSDiagnostics', parameters('VirtualMachines')[0].Name), '/')[0], split(format('{0}/IaaSDiagnostics', parameters('VirtualMachines')[0].Name), '/')[1])]",
+                                "[resourceId('Microsoft.Compute/virtualMachines/extensions', split(format('{0}/ManagedIdentityExtensionForWindows', parameters('VirtualMachines')[0].Name), '/')[0], split(format('{0}/ManagedIdentityExtensionForWindows', parameters('VirtualMachines')[0].Name), '/')[1])]",
+                                "[resourceId('Microsoft.Compute/virtualMachines/extensions', split(format('{0}/SqlIaaSAgent', parameters('VirtualMachines')[0].Name), '/')[0], split(format('{0}/SqlIaaSAgent', parameters('VirtualMachines')[0].Name), '/')[1])]",
+                                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachines')[0].Name)]"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('AppInsights_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "AppInsightsName": {
+                        "value": "[variables('AppInsightsName')]"
+                    },
+                    "laWsId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "13319962366629487763"
+                        }
+                    },
+                    "parameters": {
+                        "Location": {
+                            "type": "string"
+                        },
+                        "AppInsightsName": {
+                            "type": "string"
+                        },
+                        "laWsId": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.Insights/components",
+                            "apiVersion": "2020-02-02-preview",
+                            "name": "[parameters('AppInsightsName')]",
+                            "location": "[parameters('Location')]",
+                            "kind": "web",
+                            "properties": {
+                                "Application_Type": "web",
+                                "Flow_Type": "Bluefield",
+                                "Request_Source": "rest",
+                                "WorkspaceResourceId": "[parameters('laWsId')]",
+                                "publicNetworkAccessForIngestion": "Enabled",
+                                "publicNetworkAccessForQuery": "Enabled"
+                            }
+                        }
+                    ],
+                    "outputs": {
+                        "Name": {
+                            "type": "string",
+                            "value": "[parameters('AppInsightsName')]"
+                        },
+                        "ResourceId": {
+                            "type": "string",
+                            "value": "[resourceId('Microsoft.Insights/components', parameters('AppInsightsName'))]"
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('CurrentBillingFeatures_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('AppInsights_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "AppInsightsName": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('AppInsights_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Name.value]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "12069937276959310094"
+                        }
+                    },
+                    "parameters": {
+                        "AppInsightsName": {
+                            "type": "string"
+                        },
+                        "Location": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "microsoft.insights/components/CurrentBillingFeatures",
+                            "apiVersion": "2015-05-01",
+                            "name": "[format('{0}/Basic', parameters('AppInsightsName'))]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "CurrentBillingFeatures": "Basic",
+                                "DataVolumeCap": {
+                                    "Cap": 100,
+                                    "WarningThreshold": 90,
+                                    "ResetTime": 24
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('LoadBalancer_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "LawId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Name": {
+                        "value": "[variables('LoadBalancerName')]"
+                    },
+                    "PipId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[0]]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "11411112855498596381"
+                        }
+                    },
+                    "parameters": {
+                        "LawId": {
+                            "type": "string"
+                        },
+                        "Location": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "PipId": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "variables": {
+                        "Id": "[resourceId('Microsoft.Network/loadBalancers', parameters('Name'))]"
+                    },
+                    "resources": [
+                        {
+                            "type": "Microsoft.Network/loadBalancers",
+                            "apiVersion": "2020-07-01",
+                            "name": "[parameters('Name')]",
+                            "location": "[parameters('Location')]",
+                            "sku": {
+                                "name": "Basic",
+                                "tier": "Regional"
+                            },
+                            "properties": {
+                                "frontendIPConfigurations": [
+                                    {
+                                        "name": "LoadBalancerFrontEnd",
+                                        "properties": {
+                                            "publicIPAddress": {
+                                                "id": "[parameters('PipId')]"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "backendAddressPools": [
+                                    {
+                                        "name": "BackendPool1"
+                                    }
+                                ],
+                                "inboundNatPools": [
+                                    {
+                                        "name": "natpool",
+                                        "properties": {
+                                            "frontendIPConfiguration": {
+                                                "id": "[format('{0}/frontendIPConfigurations/loadBalancerFrontEnd', variables('Id'))]"
+                                            },
+                                            "protocol": "Tcp",
+                                            "frontendPortRangeStart": 50000,
+                                            "frontendPortRangeEnd": 50119,
+                                            "backendPort": 3389
+                                        }
+                                    }
+                                ],
+                                "probes": [
+                                    {
+                                        "name": "tcpProbe",
+                                        "properties": {
+                                            "protocol": "Tcp",
+                                            "port": 80,
+                                            "intervalInSeconds": 5,
+                                            "numberOfProbes": 2
+                                        }
+                                    }
+                                ],
+                                "loadBalancingRules": [
+                                    {
+                                        "name": "LBRule",
+                                        "properties": {
+                                            "frontendIPConfiguration": {
+                                                "id": "[format('{0}/frontendIPConfigurations/LoadBalancerFrontEnd', variables('Id'))]"
+                                            },
+                                            "backendAddressPool": {
+                                                "id": "[format('{0}/backendAddressPools/BackendPool1', variables('Id'))]"
+                                            },
+                                            "protocol": "Tcp",
+                                            "frontendPort": 80,
+                                            "backendPort": 80,
+                                            "enableFloatingIP": false,
+                                            "idleTimeoutInMinutes": 5,
+                                            "probe": {
+                                                "id": "[format('{0}/probes/tcpProbe', variables('Id'))]"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "microsoft.insights/diagnosticSettings",
+                            "apiVersion": "2017-05-01-preview",
+                            "scope": "[format('Microsoft.Network/loadBalancers/{0}', parameters('Name'))]",
+                            "name": "[format('diag-{0}', parameters('Name'))]",
+                            "properties": {
+                                "workspaceId": "[parameters('LawId')]",
+                                "metrics": [
+                                    {
+                                        "category": "AllMetrics",
+                                        "enabled": true,
+                                        "retentionPolicy": {
+                                            "enabled": false,
+                                            "days": 31
+                                        }
+                                    }
+                                ]
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Network/loadBalancers', parameters('Name'))]"
+                            ]
+                        }
+                    ],
+                    "outputs": {
+                        "BackendAddressPools": {
+                            "type": "array",
+                            "value": "[reference(resourceId('Microsoft.Network/loadBalancers', parameters('Name'))).backendAddressPools]"
+                        },
+                        "InboundNatPools": {
+                            "type": "array",
+                            "value": "[reference(resourceId('Microsoft.Network/loadBalancers', parameters('Name'))).inboundNatPools]"
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('Bastion_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Name": {
+                        "value": "[variables('BastionName')]"
+                    },
+                    "PipId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('PublicIpAddresses_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Ids.value[1]]"
+                    },
+                    "SubnetId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[3]]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "8004849962299792780"
+                        }
+                    },
+                    "parameters": {
+                        "Location": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "PipId": {
+                            "type": "string"
+                        },
+                        "SubnetId": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.Network/bastionHosts",
+                            "apiVersion": "2020-07-01",
+                            "name": "[parameters('Name')]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "ipConfigurations": [
+                                    {
+                                        "properties": {
+                                            "subnet": {
+                                                "id": "[parameters('SubnetId')]"
+                                            },
+                                            "publicIPAddress": {
+                                                "id": "[parameters('PipId')]"
+                                            },
+                                            "privateIPAllocationMethod": "Dynamic"
+                                        },
+                                        "name": "IpConfig"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('VirtualMachineScaleSet_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualMachines_{0}', parameters('TimeStamp')))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "AdminPassword": {
+                        "value": "[parameters('AdminPassword')]"
+                    },
+                    "AdminUsername": {
+                        "value": "[parameters('AdminUsername')]"
+                    },
+                    "ComputerNamePrefix": {
+                        "value": "[variables('ComputerNamePrefix')]"
+                    },
+                    "LAWId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.CustomerId.value]"
+                    },
+                    "LAWKey": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                    },
+                    "LBBackendAddressPools": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.BackendAddressPools.value[0].id]"
+                    },
+                    "LBInboundNatPools": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LoadBalancer_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.InboundNatPools.value[0].id]"
+                    },
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Name": {
+                        "value": "[variables('VirtualMachineScaleSetName')]"
+                    },
+                    "NicName": {
+                        "value": "[variables('VmssNicName')]"
+                    },
+                    "SqlServer": {
+                        "value": "[variables('VirtualMachines')[1].Name]"
+                    },
+                    "StorageAccount": {
+                        "value": "[variables('StorageAccountName')]"
+                    },
+                    "StorageAccountKey": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('StorageAccount_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.Key.value]"
+                    },
+                    "StorageEndpoint": {
+                        "value": "[variables('StorageEndpoint')]"
+                    },
+                    "Subnet": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[1]]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "18214483431403931168"
+                        }
+                    },
+                    "parameters": {
+                        "AdminPassword": {
+                            "type": "secureString"
+                        },
+                        "AdminUsername": {
+                            "type": "string"
+                        },
+                        "ComputerNamePrefix": {
+                            "type": "string"
+                        },
+                        "LAWId": {
+                            "type": "string"
+                        },
+                        "LAWKey": {
+                            "type": "secureString"
+                        },
+                        "LBBackendAddressPools": {
+                            "type": "string"
+                        },
+                        "LBInboundNatPools": {
+                            "type": "string"
+                        },
+                        "Location": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "NicName": {
+                            "type": "string"
+                        },
+                        "SqlServer": {
+                            "type": "string"
+                        },
+                        "StorageAccount": {
+                            "type": "string"
+                        },
+                        "StorageAccountKey": {
+                            "type": "secureString"
+                        },
+                        "StorageEndpoint": {
+                            "type": "string"
+                        },
+                        "Subnet": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.Compute/virtualMachineScaleSets",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('Name')]",
+                            "location": "[parameters('Location')]",
+                            "identity": {
+                                "type": "SystemAssigned"
+                            },
+                            "sku": {
+                                "name": "Standard_DS3_v2",
+                                "tier": "Standard",
+                                "capacity": 2
+                            },
+                            "properties": {
+                                "overprovision": true,
+                                "upgradePolicy": {
+                                    "mode": "Manual"
+                                },
+                                "singlePlacementGroup": true,
+                                "virtualMachineProfile": {
+                                    "storageProfile": {
+                                        "osDisk": {
+                                            "createOption": "FromImage",
+                                            "caching": "ReadWrite"
+                                        },
+                                        "imageReference": {
+                                            "publisher": "MicrosoftWindowsServer",
+                                            "offer": "WindowsServer",
+                                            "sku": "2016-Datacenter",
+                                            "version": "latest"
+                                        }
+                                    },
+                                    "osProfile": {
+                                        "computerNamePrefix": "[parameters('ComputerNamePrefix')]",
+                                        "adminUsername": "[parameters('AdminUsername')]",
+                                        "adminPassword": "[parameters('AdminPassword')]"
+                                    },
+                                    "networkProfile": {
+                                        "networkInterfaceConfigurations": [
+                                            {
+                                                "name": "[parameters('NicName')]",
+                                                "properties": {
+                                                    "primary": true,
+                                                    "ipConfigurations": [
+                                                        {
+                                                            "name": "IpConfig",
+                                                            "properties": {
+                                                                "subnet": {
+                                                                    "id": "[parameters('Subnet')]"
+                                                                },
+                                                                "loadBalancerBackendAddressPools": [
+                                                                    {
+                                                                        "id": "[parameters('LBBackendAddressPools')]"
+                                                                    }
+                                                                ],
+                                                                "loadBalancerInboundNatPools": [
+                                                                    {
+                                                                        "id": "[parameters('LBInboundNatPools')]"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "extensionProfile": {
+                                        "extensions": [
+                                            {
+                                                "name": "CustomScriptExtension",
+                                                "properties": {
+                                                    "publisher": "Microsoft.Compute",
+                                                    "type": "CustomScriptExtension",
+                                                    "typeHandlerVersion": "1.9",
+                                                    "autoUpgradeMinorVersion": true,
+                                                    "settings": {
+                                                        "fileUris": [
+                                                            "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/scripts/SetupWebServers.ps1"
+                                                        ]
+                                                    },
+                                                    "protectedSettings": {
+                                                        "commandToExecute": "[format('powershell.exe -ExecutionPolicy Unrestricted -File SetupWebServers.ps1 {0} {1} {2}', parameters('SqlServer'), parameters('AdminUsername'), parameters('AdminPassword'))]"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "name": "logAnalyticsPolicy",
+                                                "properties": {
+                                                    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                                                    "type": "MicrosoftMonitoringAgent",
+                                                    "typeHandlerVersion": "1.0",
+                                                    "autoUpgradeMinorVersion": true,
+                                                    "settings": {
+                                                        "workspaceId": "[parameters('LAWId')]"
+                                                    },
+                                                    "protectedSettings": {
+                                                        "workspaceKey": "[parameters('LAWKey')]"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "name": "VMSSWADextension",
+                                                "properties": {
+                                                    "publisher": "Microsoft.ManagedIdentity",
+                                                    "type": "ManagedIdentityExtensionForWindows",
+                                                    "typeHandlerVersion": "1.0",
+                                                    "autoUpgradeMinorVersion": true,
+                                                    "settings": {
+                                                        "port": 50342
+                                                    },
+                                                    "protectedSettings": {}
+                                                }
+                                            },
+                                            {
+                                                "name": "DependencyAgent",
+                                                "properties": {
+                                                    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                                                    "type": "DependencyAgentWindows",
+                                                    "typeHandlerVersion": "9.4",
+                                                    "autoUpgradeMinorVersion": true
+                                                }
+                                            },
+                                            {
+                                                "name": "IaaSDiagnostics",
+                                                "properties": {
+                                                    "publisher": "Microsoft.Azure.Diagnostics",
+                                                    "type": "IaaSDiagnostics",
+                                                    "typeHandlerVersion": "1.5",
+                                                    "autoUpgradeMinorVersion": true,
+                                                    "enableAutomaticUpgrade": false,
+                                                    "settings": {
+                                                        "StorageAccount": "[parameters('StorageAccount')]",
+                                                        "WadCfg": {
+                                                            "DiagnosticMonitorConfiguration": {
+                                                                "overallQuotaInMB": 50000,
+                                                                "Metrics": {
+                                                                    "resourceId": "[format('{0}/providers/Microsoft.Compute/virtualMachineScaleSets/{1}', resourceGroup().id, parameters('ComputerNamePrefix'))]",
+                                                                    "MetricAggregation": [
+                                                                        {
+                                                                            "scheduledTransferPeriod": "PT1H"
+                                                                        },
+                                                                        {
+                                                                            "scheduledTransferPeriod": "PT1M"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "DiagnosticInfrastructureLogs": {
+                                                                    "scheduledTransferLogLevelFilter": "Error"
+                                                                },
+                                                                "PerformanceCounters": {
+                                                                    "scheduledTransferPeriod": "PT1M",
+                                                                    "sinks": "AzMonSink",
+                                                                    "PerformanceCounterConfiguration": [
+                                                                        {
+                                                                            "counterSpecifier": "\\Processor Information(_Total)\\% Processor Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Processor Information(_Total)\\% Privileged Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Processor Information(_Total)\\% User Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Processor Information(_Total)\\Processor Frequency",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\System\\Processes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Process(_Total)\\Thread Count",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Process(_Total)\\Handle Count",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\System\\System Up Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\System\\Context Switches/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\System\\Processor Queue Length",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Available Bytes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Committed Bytes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Cache Bytes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Pool Paged Bytes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Pool Nonpaged Bytes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Pages/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Memory\\Page Faults/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Process(_Total)\\Working Set",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Process(_Total)\\Working Set - Private",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\% Disk Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\% Disk Read Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\% Disk Write Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\% Idle Time",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Disk Bytes/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Disk Read Bytes/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Disk Write Bytes/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Disk Transfers/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Disk Reads/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Disk Writes/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Avg. Disk sec/Transfer",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Avg. Disk sec/Read",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Avg. Disk sec/Write",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Avg. Disk Queue Length",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Avg. Disk Read Queue Length",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Avg. Disk Write Queue Length",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\% Free Space",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\LogicalDisk(_Total)\\Free Megabytes",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Bytes Total/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Bytes Sent/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Bytes Received/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Packets/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Packets Sent/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Packets Received/sec",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Packets Outbound Errors",
+                                                                            "sampleRate": "PT1M"
+                                                                        },
+                                                                        {
+                                                                            "counterSpecifier": "\\Network Interface(*)\\Packets Received Errors",
+                                                                            "sampleRate": "PT1M"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "WindowsEventLog": {
+                                                                    "scheduledTransferPeriod": "PT1M",
+                                                                    "DataSource": [
+                                                                        {
+                                                                            "name": "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]"
+                                                                        },
+                                                                        {
+                                                                            "name": "Security!*[System[band(Keywords,4503599627370496)]]"
+                                                                        },
+                                                                        {
+                                                                            "name": "System!*[System[(Level = 1 or Level = 2 or Level = 3)]]"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "SinksConfig": {
+                                                                "Sink": [
+                                                                    {
+                                                                        "name": "AzMonSink",
+                                                                        "AzureMonitor": {}
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    "protectedSettings": {
+                                                        "storageAccountName": "[parameters('StorageAccount')]",
+                                                        "storageAccountKey": "[parameters('StorageAccountKey')]",
+                                                        "storageAccountEndPoint": "[format('https://{0}/', parameters('StorageEndpoint'))]"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "microsoft.insights/autoscalesettings",
+                            "apiVersion": "2015-04-01",
+                            "name": "[format('cpuautoscale{0}', parameters('ComputerNamePrefix'))]",
+                            "location": "[parameters('Location')]",
+                            "properties": {
+                                "name": "[format('cpuautoscale{0}', parameters('ComputerNamePrefix'))]",
+                                "targetResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('Name'))]",
+                                "enabled": true,
+                                "profiles": [
+                                    {
+                                        "name": "Profile1",
+                                        "capacity": {
+                                            "minimum": "2",
+                                            "maximum": "4",
+                                            "default": "2"
+                                        },
+                                        "rules": [
+                                            {
+                                                "metricTrigger": {
+                                                    "metricName": "Percentage CPU",
+                                                    "metricNamespace": "",
+                                                    "metricResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('Name'))]",
+                                                    "timeGrain": "PT1M",
+                                                    "statistic": "Average",
+                                                    "timeWindow": "PT5M",
+                                                    "timeAggregation": "Average",
+                                                    "operator": "GreaterThan",
+                                                    "threshold": 75
+                                                },
+                                                "scaleAction": {
+                                                    "direction": "Increase",
+                                                    "type": "ChangeCount",
+                                                    "value": "1",
+                                                    "cooldown": "PT1M"
+                                                }
+                                            },
+                                            {
+                                                "metricTrigger": {
+                                                    "metricName": "Percentage CPU",
+                                                    "metricNamespace": "",
+                                                    "metricResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('Name'))]",
+                                                    "timeGrain": "PT1M",
+                                                    "statistic": "Average",
+                                                    "timeWindow": "PT5M",
+                                                    "timeAggregation": "Average",
+                                                    "operator": "LessThan",
+                                                    "threshold": 25
+                                                },
+                                                "scaleAction": {
+                                                    "direction": "Decrease",
+                                                    "type": "ChangeCount",
+                                                    "value": "1",
+                                                    "cooldown": "PT1M"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('Name'))]"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "[format('AKS_{0}', parameters('TimeStamp'))]",
+            "dependsOn": [
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp')))]",
+                "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')]))]",
+                "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp')))]"
+            ],
+            "properties": {
+                "expressionEvaluationOptions": {
+                    "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                    "Location": {
+                        "value": "[parameters('Location')]"
+                    },
+                    "Name": {
+                        "value": "[variables('AksName')]"
+                    },
+                    "NodeResourceGroup": {
+                        "value": "[format('{0}-rg-wth-monitor-aks-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+                    },
+                    "OmsWorkspaceId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('LogAnalyticsWorkspace_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.ResourceId.value]"
+                    },
+                    "SubnetId": {
+                        "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])), 'Microsoft.Resources/deployments', format('VirtualNetwork_{0}', parameters('TimeStamp'))), '2019-10-01').outputs.SubnetIds.value[2]]"
+                    }
+                },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "metadata": {
+                        "_generator": {
+                            "name": "bicep",
+                            "version": "0.3.255.40792",
+                            "templateHash": "17033694973545010543"
+                        }
+                    },
+                    "parameters": {
+                        "Location": {
+                            "type": "string"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "NodeResourceGroup": {
+                            "type": "string"
+                        },
+                        "OmsWorkspaceId": {
+                            "type": "string"
+                        },
+                        "SubnetId": {
+                            "type": "string"
+                        }
+                    },
+                    "functions": [],
+                    "resources": [
+                        {
+                            "type": "Microsoft.ContainerService/managedClusters",
+                            "apiVersion": "2021-02-01",
+                            "name": "[parameters('Name')]",
+                            "location": "[parameters('Location')]",
+                            "identity": {
+                                "type": "SystemAssigned"
+                            },
+                            "properties": {
+                                "enableRBAC": true,
+                                "dnsPrefix": "aks",
+                                "addonProfiles": {
+                                    "httpApplicationRouting": {
+                                        "enabled": true
+                                    },
+                                    "omsagent": {
+                                        "enabled": true,
+                                        "config": {
+                                            "logAnalyticsWorkspaceResourceID": "[parameters('OmsWorkspaceId')]"
+                                        }
+                                    }
+                                },
+                                "agentPoolProfiles": [
+                                    {
+                                        "name": "agentpool01",
+                                        "count": 1,
+                                        "mode": "System",
+                                        "vmSize": "Standard_D2_v3",
+                                        "type": "VirtualMachineScaleSets",
+                                        "osType": "Linux",
+                                        "osDiskSizeGB": 0,
+                                        "enableAutoScaling": false,
+                                        "vnetSubnetID": "[parameters('SubnetId')]",
+                                        "maxPods": 30
+                                    }
+                                ],
+                                "servicePrincipalProfile": {
+                                    "clientId": "msi"
+                                },
+                                "nodeResourceGroup": "[parameters('NodeResourceGroup')]",
+                                "networkProfile": {
+                                    "networkPlugin": "kubenet",
+                                    "loadBalancerSku": "standard",
+                                    "serviceCidr": "10.240.0.0/16",
+                                    "dnsServiceIP": "10.240.0.10",
+                                    "dockerBridgeCidr": "172.17.0.1/16"
+                                }
+                            },
+                            "sku": {
+                                "name": "Basic",
+                                "tier": "Free"
+                            }
+                        }
+                    ],
+                    "outputs": {
+                        "id": {
+                            "type": "string",
+                            "value": "[resourceId('Microsoft.ContainerService/managedClusters', parameters('Name'))]"
+                        },
+                        "apiServerAddress": {
+                            "type": "string",
+                            "value": "[reference(resourceId('Microsoft.ContainerService/managedClusters', parameters('Name'))).fqdn]"
+                        },
+                        "aksName": {
+                            "type": "string",
+                            "value": "[parameters('Name')]"
+                        }
+                    }
+                }
+            },
+            "resourceGroup": "[format('{0}-rg-wth-monitor-d-{1}', deployment().name, variables('LocationShort')[parameters('Location')])]"
+        }
+    ]
+}
