@@ -1,4 +1,4 @@
-# Challenge 0: Prepare Your Workstation - Coach's Guide
+# Challenge 0: Pre-requisites - Ready, Set, Go! - Coach's Guide
 
 **[Home](../README.md)** - [Next Challenge>](./Solution-00.md)
 
