@@ -1,6 +1,6 @@
 # Challenge 3 - Advanced resource declarations
 
-[< Previous Challenge](./Bicep-Challenge-02.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-04.md)
+[< Previous Challenge](./Bicep-Challenge-02.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-04.md)
 
 ## Introduction
 

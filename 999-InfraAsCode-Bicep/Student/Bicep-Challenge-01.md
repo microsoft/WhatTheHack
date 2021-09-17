@@ -1,6 +1,6 @@
 # Challenge 1 - Basic Bicep
 
- [< Previous Challenge](./Bicep-Challenge-00.md) - [Home](../readme.md) - [Next Challenge>](./Bicep-Challenge-02.md)
+ [< Previous Challenge](./Bicep-Challenge-00.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-02.md)
 
 ## Pre-requisites
 
