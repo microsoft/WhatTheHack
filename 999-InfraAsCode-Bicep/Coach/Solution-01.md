@@ -1,6 +1,6 @@
 # Challenge 1: Basic Bicep - Coach's Guide
 
-[< Previous Challenge](./Solution-00.md) - **[Home](../README.md)** - [Next Challenge>](./Solution-02.md)
+[< Previous Challenge](./Solution-00.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-02.md)
 
 ## Notes & Guidance
 

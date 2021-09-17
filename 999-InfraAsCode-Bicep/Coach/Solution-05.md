@@ -1,6 +1,6 @@
 # Challenge 5: Deploy a Virtual Machine Scale Set - Coach's Guide
 
-[< Previous Challenge](./Solution-04.md) - **[Home](../README.md)** - [Next Challenge>](./Solution-06.md)
+[< Previous Challenge](./Solution-04.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-06.md)
 
 ## Notes & Guidance
 This is the only section you need to include.
