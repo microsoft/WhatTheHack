@@ -1,24 +1,27 @@
-# Challenge 7 - Configure VM Scale Set to run a Web Server using cloud-init
+# Challenge 7 - Configure a Linux Server
 
 [< Previous Challenge](./Bicep-Challenge-06.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-08.md)
 
 ## Introduction
 
-The goals of this challenge include understanding:
-- How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
+If you are continuing with the remaining ARM Template challenges, we assume you have deployed Linux VM in the last challenge.  The remaining challenges focus on extending the ARM template with more complex infrastructure around Linux VMs.
+
+The goals for this challenge include understanding:
+- Custom script extensions
+- Globally unique naming context and complex dependencies
+- Staging artifacts in a location accessible to the Azure Resource Manager
 
 ## Description
 
-We have provided a script (`cloud-init.txt`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
+We have provided a script (`install_apache.sh`) that configures a web server on a Linux VM. When run on the VM, the script deploys a static web page that should be available at `http://<PublicIPofTheVM>/wth.html`
 
-You can find the script in the [Resources folder](./Resources).
+You can find the script in the Resources folder for **ARM-Challenge-06**.
 
 Your challenge is to:
 
-- Extend the VMSS Bicep template to configure a webserver on instances of the VM Scale Set deployed earlier
-    - Deploy a new VMSS instance with a different name to the previously deployed VMSS
-    - Read the script body into a string and pass it as an input parameter
-    - Pass the script body to the `customData` property of the VM Scale Set definition
+- Extend the ARM Template to configure a webserver on the Linux VM you deployed
+    - Host the script file in a secure artifact (staging) location that is only accessible to the Azure Resource Manager.
+    - Pull the website configuration script from the artifact location.
 
 ## Success Criteria
 
@@ -26,7 +29,6 @@ Your challenge is to:
 
 ## Tips
 
-- [cloud-init support for virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init)
-- [Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boo](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
-- Read a text file using [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.1)
-- Read a text file using a [Linux shell](https://askubuntu.com/questions/261900/how-do-i-open-a-text-file-in-my-terminal)
+- Use an Azure Blob Storage account as the artifact location
+- Secure access to the artifact location with a SAS token
+- Pass these values to the ARM Template as parameters
