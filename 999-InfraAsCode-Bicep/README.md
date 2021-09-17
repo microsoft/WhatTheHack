@@ -37,14 +37,20 @@ The challenges build upon each other incrementally. You will start by creating a
    - Advanced resource declarations
 - Challenge 4: **[Secret Values with Azure Key Vault](./Student/Bicep-Challenge-04.md)**
    - Learn how NOT to lose your job!
-- Challenge 5: **[Deploy a Virtual Machine Scale Set](./Student/Bicep-Challenge-05.md)**
-   - Create complex deployment with Bicep using modules
-- Challenge 6: **[Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-06.md)**
+- Challenge 5: **[Deploy a Virtual Machine](./Student/Bicep-Challenge-05.md)**
+   - Create complex deployment with multiple dependencies
+- Challenge 6: **[Bicep Modules](./Student/Bicep-Challenge-06.md)**
+   - Learn how create resusable modules for granular resource management
+- Challenge 7: **[Configure VM to run a Web Server](./Student/Bicep-Challenge-07.md)**
    - Learn about custom script extensions
-- Challenge 7: **[Configure VM Scale Set to run a Web Server using cloud-init](./Student/Bicep-Challenge-07.md)**
+- Challenge 8: **[Deploy a Virtual Machine Scale Set](./Student/Bicep-Challenge-08.md)**
+   - Create complex deployment with Bicep using modules
+- Challenge 9: **[Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-09.md)**
+   - Learn about custom script extensions with VM Scale Sets
+- Challenge 10: **[Configure VM Scale Set to run a Web Server using cloud-init](./Student/Bicep-Challenge-10.md)**
    - How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
-- Challenge 8: **[Deploy resources to different scopes](./Student/Bicep-Challenge-08.md)**
-   - Learn how to deploy resources to different scopes
+- Challenge 11: **[Deploy resources to different scopes](./Student/Bicep-Challenge-11.md)**
+   - Learn how to deploy resources to different scopes   
 
 
 ## Prerequisites
