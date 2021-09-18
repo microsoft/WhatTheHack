@@ -1,7 +1,7 @@
 param containerName string
 param globalRedundancy bool = false
 
-var storageAccountName = 'stor${uniqueString(resourceGroup().id)}'
+var storageAccountName = 'bicepwth${uniqueString(resourceGroup().id)}'
 
 resource storage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   location: resourceGroup().location
