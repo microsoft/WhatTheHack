@@ -16,11 +16,7 @@ ARM templates are very powerful and provide a lot of functionality. However, man
 
 Bicep is a new language for ARM templates. Unlike JSON, it's not a general-purpose file format - it's designed specifically for deploying resources into Azure. Its goal is to be a much cleaner, more readable language.
 
-> Note: As of March 2nd 2021 [Bicep release v0.3.1](https://github.com/Azure/bicep/releases/tag/v0.3.1) is still in preview, but encouraged for use in production.
-
 Bicep templates are transpiled into standard JSON ARM templates in a similar way to how TypeScript is transpiled into JavaScript. This conversion is currently achieved using the Bicep CLI, although in future the transpilation step may be embedded into the Azure CLI and other tooling as well.
-
-Bicep introduces the concept of *modules*. These are similar to linked templates but are much simpler to work with. When you write a Bicep file you can embed another Bicep file as a module. When your template is transpiled a single ARM template is produced with your module included within it. This is often a much simpler approach than dealing with linked templates.
 
 Your first challenge is to create a simple Bicep file that takes an input storage account name to create an Azure Storage Account, and returns an output storage account id. The goals here are to understand:
 
