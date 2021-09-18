@@ -6,15 +6,8 @@
 
 Challenge 1 notes coming soon...
 
-This is the only section you need to include.
+## Learning Resources
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
-
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+Learn how to "fish" for Bicep:
+- [Basic Bicep](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md)
+- [Deploy Bicep file](https://github.com/Azure/bicep/blob/main/docs/tutorial/02-deploying-a-bicep-file.md)

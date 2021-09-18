@@ -3,15 +3,5 @@
 [< Previous Challenge](./Solution-08.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-10.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
-
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+- VM Custom Script Extension with [Bicep](https://github.com/Azure/bicep/blob/dbd360c5c971a79480f23bc7276ea3382a89aa63/docs/examples/201/vm-windows-with-custom-script-extension/README.md)

@@ -18,7 +18,7 @@ Your challenge is to:
 
 - Verify you can view the resource group in your subscription and it has the virtual network deployed.
 
-## Tips
+## Learning Resources
 
 - [Using Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules)
 -  [Understanding Bicep scopes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli)

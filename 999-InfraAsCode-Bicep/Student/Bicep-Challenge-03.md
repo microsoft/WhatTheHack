@@ -19,6 +19,3 @@ Create a new Bicep file that add additional blob containers to an already existi
 
 1. Use the Azure portal to verify new containers were added to the storage account.
 
-## Learning Resources
-
-- [Advanced resource declarations](https://github.com/Azure/bicep/blob/main/docs/tutorial/05-loops-conditions-existing.md)

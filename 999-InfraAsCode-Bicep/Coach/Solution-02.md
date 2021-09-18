@@ -3,15 +3,10 @@
 [< Previous Challenge](./Solution-01.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-03.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
+## Learning Resources
 
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+Learn how to "fish" for ARM template resource syntax:
+
+- [Bicep expressions](https://github.com/Azure/bicep/blob/main/docs/tutorial/03-using-expressions.md)
+- [Referencing resources](https://github.com/Azure/bicep/blob/main/docs/tutorial/04-using-symbolic-resource-name.md)- 

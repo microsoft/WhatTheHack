@@ -26,9 +26,3 @@ In this challenge you will edit the bicep file created in Challenge 1. The goals
 1. Create a container within the storage account
 1. Output the storage account name and blob primary endpoint url
 
-## Learning Resources
-
-Learn how to "fish" for ARM template resource syntax:
-
-- [Bicep expressions](https://github.com/Azure/bicep/blob/main/docs/tutorial/03-using-expressions.md)
-- [Referencing resources](https://github.com/Azure/bicep/blob/main/docs/tutorial/04-using-symbolic-resource-name.md)- 

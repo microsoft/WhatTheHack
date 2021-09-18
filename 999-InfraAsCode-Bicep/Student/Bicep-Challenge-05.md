@@ -26,9 +26,9 @@ The goals for this challenge include understanding:
 
 ## Tips
 
-- **TIP:** For a Linux VM, you can use an admin password or an SSH key to control access to the VM. It is common (and a recommended practice) to use an SSH key with Linux instead of an admin password. If you are not familiar with Linux, we recommend using an admin password for this hack to keep things simple and focus on learning ARM Bicep templates.
-- **TIP:** You may need to open additional ports to connect to your VM depending on which OS you deployed.
-- **TIP:** You will need to supply your VM with a Public IP address or use the Azure Bastion service to connect to it.
+- For a Linux VM, you can use an admin password or an SSH key to control access to the VM. It is common (and a recommended practice) to use an SSH key with Linux instead of an admin password. If you are not familiar with Linux, we recommend using an admin password for this hack to keep things simple and focus on learning ARM Bicep templates.
+- You may need to open additional ports to connect to your VM depending on which OS you deployed.
+- You will need to supply your VM with a Public IP address or use the Azure Bastion service to connect to it.
 
 ## Learning Resources
 
