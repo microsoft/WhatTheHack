@@ -209,7 +209,7 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2020-06-01' = {
               type: 'CustomScript'
               forceUpdateTag: forceUpdateTag
               settings: {
-                skipDos2Unix: true
+                skipDos2Unix: false
                 script: customScript != '' ? base64(customScript) : ''
               }
             }

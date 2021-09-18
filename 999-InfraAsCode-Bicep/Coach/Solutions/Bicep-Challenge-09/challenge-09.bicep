@@ -1,5 +1,5 @@
 @description('resource prefix')
-param prefix string = 'ch05'
+param prefix string = 'ch09'
 
 @description('Number of VM instances (100 or less).')
 @maxValue(100)
@@ -10,7 +10,7 @@ param adminUsername string
 
 @description('Password for the Virtual Machine.')
 @secure()
-param adminPassword string
+param adminPassword string 
 
 @description('The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10.')
 @allowed([
@@ -23,9 +23,9 @@ param adminPassword string
 param ubuntuOSVersion string = '18.04-LTS'
 
 param vnetPrefix string = '10.0.0.0/16'
-param subnetName string = 'ch05-subnet'
+param subnetName string = 'ch09-subnet'
 param subnetPrefix string = '10.0.0.0/24'
-param cloudInitScript string =''
+param customScript string = ''
 
 // For Bicep modules, we don't need to provide an artifacts location - the modules get injected into our main ARM template as a nested deployment instead of a linked template.
 
@@ -41,15 +41,15 @@ module vnet '../modules/deploy-vnet.bicep' = {
 }
 
 // Deploy the VMSS.
-module vmss '../modules/deploy-vmss-cloud-init.bicep' = {
+module vmss '../modules/deploy-vmss-vm-extension.bicep' = {
   name: 'vmss-deployment'
   params: {
     resourcePrefix: prefix
-    cloudInitScript: cloudInitScript
     vmssInstanceCount: vmssInstanceCount
     subnetRef: vnet.outputs.subnetResourceId // This implicitly adds a dependency so that the VNet will be deployed before the VMSS.
     adminUsername: adminUsername
     adminPassword: adminPassword
     ubuntuOSVersion: ubuntuOSVersion
+    customScript: customScript
   }
 }

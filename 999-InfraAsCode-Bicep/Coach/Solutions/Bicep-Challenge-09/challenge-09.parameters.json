@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"prefix": {
-			"value": "ch06"
+			"value": "ch09"
 		},
 		"vmssInstanceCount": {
 			"value": 2
@@ -21,13 +21,13 @@
 			"value": "10.0.0.0/16"
 		},
 		"subnetName": {
-			"value": "ch06-subnet"
+			"value": "ch09-subnet"
 		},
 		"subnetPrefix": {
 			"value": "10.0.0.0/24"
 		},
-		"cloudInitScript": {
-			"value": ""
+		"customScript": {
+			"value": null
 		}
 	}
 }
