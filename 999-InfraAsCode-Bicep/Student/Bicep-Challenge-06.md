@@ -10,6 +10,8 @@ The goals for this challenge include understanding:
 
 An application may require the composition of many underlying infrastructure resources in Azure. As you have now seen with just a single VM and its dependencies, an ARM template can grow large rather quickly.
 
+Bicep introduces the concept of *modules*. These are similar to linked templates but are much simpler to work with. When you write a Bicep file you can embed another Bicep file as a module. When your template is transpiled a single ARM template is produced with your module included within it. This is often a much simpler approach than dealing with linked templates.
+
 When templates get big, they become monoliths. They are hard to manage.  By breaking your templates up into smaller modules, you can achieve more flexibility in how you manage your deployments.
 
 In many companies, deployment of cloud infrastructure may be managed by different teams. For example, a common network architecture and its security settings may be maintained by an operations team and shared across multiple application development teams.
