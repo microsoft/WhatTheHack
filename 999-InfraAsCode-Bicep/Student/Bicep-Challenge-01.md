@@ -42,8 +42,3 @@ Develop a simple Bicep file that takes inputs to create an Azure Storage Account
 1. You can deploy Bicep file using both the CLI and PowerShell
 1. You can view the deployment in the Azure Portal and view the inputs & outputs
 
-## Learning Resources
-
-Learn how to "fish" for Bicep:
-- [Basic Bicep](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md)
-- [Deploy Bicep file](https://github.com/Azure/bicep/blob/main/docs/tutorial/02-deploying-a-bicep-file.md)

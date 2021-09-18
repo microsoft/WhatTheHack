@@ -24,12 +24,9 @@ In this challenge you will write Bicep files that make use of modules to achieve
 
 ## Learning Resources
 
-- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
-- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
 - [VMSS - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachinescalesets?tabs=json)
 
 ## Tips
 
-- Install the Bicep tooling - [follow these instructions to install the Bicep CLI and VS Code extension](https://github.com/Azure/bicep/blob/main/docs/installing.md#bicep-vs-code-extension).
 - Validate your Bicep files regularly by executing `bicep build mybicepfile.bicep`.
-- Remember Bicep is still in preview so there may be bugs or missing features.
+

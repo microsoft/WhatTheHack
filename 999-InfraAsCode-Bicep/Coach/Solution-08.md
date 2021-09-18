@@ -3,15 +3,6 @@
 [< Previous Challenge](./Solution-07.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-09.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
-
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+- [Creating and consuming modules](https://github.com/Azure/bicep/blob/main/docs/tutorial/06-creating-modules.md)
+- [Example Bicep templates covering many different scenarios and resources](https://github.com/Azure/bicep/tree/main/docs/examples)
