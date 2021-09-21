@@ -8,7 +8,7 @@ param adminUsername string
 //Resource Prefix for all VM Resources
 param resourcePrefix string = 'bicepwth'
 
-//The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10.
+@description('The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10.')
 @allowed([
   '12.04.5-LTS'
   '14.04.2-LTS'
