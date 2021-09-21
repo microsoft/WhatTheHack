@@ -32,4 +32,5 @@ The goals for this challenge include understanding:
 
 ## Learning Resources
 
+- [Define resources with Bicep and ARM templates](https://docs.microsoft.com/en-us/azure/templates/)
 - [Virtual Machine - Azure Resource Manager reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines?tabs=bicep)
