@@ -33,7 +33,7 @@ In this challenge you need to complete the following management tasks:
 
 - Show your dashboard with VM Insights performance graphics, Update Management report, and shortcut to Guest Config policy compliance report.
 
-![Example of Final Dashboard](../Images/03-01-Final-Dashboard-Example.png)
+![Example of Final Dashboard](../Images/03-01-Final-Dashboard.png)
 
 ## Resources
 
