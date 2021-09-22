@@ -35,6 +35,7 @@ The following diagram summarizes these requirements:
 - [Inspector Gadget](https://github.com/jelledruyts/InspectorGadget) (.netcore)
 - [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 - [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Azure Private Endpoint DNS Configuration](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-dns)
 
 ## Advanced Challenges (Optional)
 
