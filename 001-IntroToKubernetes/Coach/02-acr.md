@@ -1,24 +1,12 @@
-# Challenge 2: Coach's Guide
+# Challenge 2: Coach's Guide - The Azure Container Registry
 
-[< Previous Challenge](./01-containers.md) - **[Home](README.md)** - [Next Challenge >](./03-k8sintro.md)
+[< Previous Challenge](./01-containers.md) - **[Home](../README.md)** - [Next Challenge >](./03-k8sintro.md)
 
-## Notes & Guidance
+## Choose Your Path!
+**Attention Coach:**  You will need to choose your path:
 
-- To create the registry from the CLI, use: 
-    - `az acr create -n <name of registry> -g <resource group> --sku Standard`
-- To login to the ACR, use: 
-    - `az acr login --name <name of ACR>`
-- To tag images, use: 
-    - `docker tag <name of image> <name of ACR>/<namespace>/<name of image>`
-    - For example: 
-        - `docker tag content-web peteacr01.azurecr.io/wthaks/content-web`
-        - `docker tag content-api peteacr01.azurecr.io/wthaks/content-api`
-- To push the docker image, use: 
-    - `docker push <name of ACR>/<namespace>/<name of image> `
-    - For example: 
-        - `docker push peteacr01.azurecr.io/wthaks/content-web `
-        - `docker push peteacr01.azurecr.io/wthaks/content-api`
-- To list images in the repository, use:
-    - `az acr repository list --name <name of ACR>`
+### [ACR Path A](02a-acr.md)
 
+### [ACR Path B](02b-acr.md)
 
+### [ACR Path C](02c-acr.md)
