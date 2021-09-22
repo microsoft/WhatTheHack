@@ -28,11 +28,13 @@ In this challenge you need to complete the following management tasks:
   - Pin policy compliance summary to dashboard
 
 >**Note:** Automatic VM guest patching for Azure VMs available in Public Preview.
+
 ## Success Criteria
 
 - Show your dashboard with VM Insights performance graphics, Update Management report, and shortcut to Guest Config policy compliance report.
 
 ![Example of Final Dashboard](../Images/03-01-Final-Dashboard-Example.png)
+
 ## Resources
 
 - [Cloud Adoption Framework - Management and Monitoring](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
