@@ -8,7 +8,7 @@
 * When configuring reaching multiple backends, participants have two options:
     * Advanced listeners, separating per Host. They can use different [nip.io](https://nip.io) FQDNs
     * Advanced rules, doing URL path matching. More complex, and it can break when each app has multiple paths
-* For enabling SSL they can use self-signed certificates. Here an example of creating a self-signed certificate in Linux. This example creates a full-chain cert, so that you can use the intermediate CA cert for TLS inspection in the Azure Firewall, even if that is not a requirement:
+* For enabling SSL they can use self-signed certificates. Here an example of creating a self-signed certificate in Linux and PowerShell. This example creates a full-chain cert, so that you can use the intermediate CA cert for TLS inspection in the Azure Firewall, even if that is not a requirement:
 
 ```bash
 # Create private root CA
@@ -29,6 +29,49 @@ az network application-gateway root-cert create -g $rg --gateway-name $appgw_nam
 az network application-gateway ssl-cert create -g $rg --gateway-name $appgw_name -n contoso \
   --cert-file /tmp/contoso.com.bundle.pfx --cert-password $cert_passphrase
 ```
+
+````PowerShell
+#Create root cert
+$params = @{
+  DnsName = "root.contoso.com"
+  KeyLength = 2048
+  KeyAlgorithm = 'RSA'
+  HashAlgorithm = 'SHA256'
+  KeyExportPolicy = 'Exportable'
+  NotAfter = (Get-Date).AddYears(5)
+  CertStoreLocation = 'Cert:\LocalMachine\My'
+  KeyUsage = 'CertSign','CRLSign' #fixes invalid cert error
+}
+$rootCA = New-SelfSignedCertificate @params
+
+#Create wildcard self-signed cert
+$params = @{
+  DnsName = "*.contoso.com"
+  Signer = $rootCA
+  KeyLength = 2048
+  KeyAlgorithm = 'RSA'
+  HashAlgorithm = 'SHA256'
+  KeyExportPolicy = 'Exportable'
+  NotAfter = (Get-date).AddYears(2)
+  CertStoreLocation = 'Cert:\LocalMachine\My'
+}
+$wildcardCert = New-SelfSignedCertificate @params
+
+#Add self-signed root to trusted root cert store
+Export-Certificate -Cert $rootCA -FilePath "C:\certs\rootCA.crt"
+Import-Certificate -CertStoreLocation 'Cert:\LocalMachine\Root' -FilePath "C:\certs\rootCA.crt"
+
+#Export the certificate to PFX
+$cert_passphrase = (ConvertTo-SecureString -String 'password' -AsPlainText -Force)
+Export-PfxCertificate -Cert $wildcardCert -FilePath 'C:\certs\wirldcardCert.pfx' -Password $cert_passphrase
+
+# Add certs to App Gateway
+az network application-gateway root-cert create -g $rg --gateway-name $appgw_name \
+  --name contosoroot --cert-file "C:\certs\rootCA.crt"
+az network application-gateway ssl-cert create -g $rg --gateway-name $appgw_name -n contoso \
+  --cert-file 'C:\certs\wirldcardCert.pfx' --cert-password $cert_passphrase
+
+````
 
 ## Advanced Challenges
 

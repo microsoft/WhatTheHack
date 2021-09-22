@@ -18,13 +18,11 @@ To ensure performance requirements are met for eshoponweb, you will need to dete
 - Enable client-side telemetry collection for your eShoponWeb application.
 	- Inject the App Insights .NET Core JavaScript snippet
 	
-- Run the eShopOnWeb Web project locally (try Firefox), and check out the App Insights tooling in VS and the Azure Portal
-  - Find the exception in App Insights (Hint: Try to change your password)
-  - Create Alerts based on availability and exceptions
-
-Bonus task:
-- Can you hit the VMSS to cause an Auto Scale?
-- Can you publish your code to your VMSS?
+- Create an Alert to get triggered once an execption happen.
+  - Run the eShopOnWeb Web project locally (use Firefox) and check out the App Insights tooling in VS and the Azure Portal
+  - To create an exception, try to change the user login password on the eShoponWeb web page. (use Firefox) 
+  - Find the exception in App Insights
+  - Create Alerts based on the URL availability and exceptions
 
 ## Success Criteria
 
@@ -39,4 +37,14 @@ Bonus task:
 - [Debug your applications with Azure Application Insights in Visual Studio](https://docs.microsoft.com/en-us/azure/azure-monitor/app/visual-studio)
 - [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)
 - [Disable SSL while debugging](https://codetolive.in/ide/how-to-disable-https-or-ssl-in-visual-studio-2019-for-web-project/)
-- [Enable client-side telemetry for web applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)  
+- [Enable client-side telemetry for web applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)
+
+## Tips
+
+- Use Firefox whenever possible. The eShoponWeb may not work on all browsers, we tested it on Firfox and it works fine. On other browsers it may work, but **you may not be able to login**. 
+
+## Advanced Challenges
+- Publish your code to your Virtual Machine Scale set and run the eShoponWeb from the internet.
+- Create a Dashboard showing the Application availability, failed requests and response time.
+- Can you hit the VMSS to cause an Auto Scale?
+     - You may need to have a look on the sources\LoadScripts folder for that.
