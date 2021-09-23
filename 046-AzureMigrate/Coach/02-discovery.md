@@ -1,4 +1,4 @@
-# Challenge 1: Discovery and Assessment - Coach's Guide
+# Challenge 2: Discovery and Assessment - Coach's Guide
 
 [< Previous Challenge](./01-design.md) - **[Home](./README.md)** - [Next Challenge >](./03-prepare.md)
 

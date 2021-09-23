@@ -1,6 +1,6 @@
 # Challenge 4: Execute the Migration
 
-[< Previous Challenge](./03-discovery.md) - **[Home](../README.md)** - [Next Challenge >](./05-modernise.md)
+[< Previous Challenge](./03-prepare.md) - **[Home](../README.md)** - [Next Challenge >](./05-modernise.md)
 
 ## Description
 

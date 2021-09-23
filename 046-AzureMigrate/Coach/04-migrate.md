@@ -1,4 +1,4 @@
-# Challenge 1: Execute the Migration - Coach's Guide
+# Challenge 4: Execute the Migration - Coach's Guide
 
 [< Previous Challenge](./03-prepare.md) - **[Home](./README.md)** - [Next Challenge >](./05-modernise.md)
 
