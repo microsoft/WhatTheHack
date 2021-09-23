@@ -20,17 +20,17 @@ As stretch goals, you can undertake assessment of the database tier using Micros
 
 ## Challenges
 
-- Challenge 0: **[Environment Setup](00-lab_setup.md)**
+- Challenge 0: **[Environment Setup](./Student/00-lab_setup.md)**
     - Deploy the required infrastructure for the exercises
-- Challenge 1: **[Design and Planning](01-design.md)**
+- Challenge 1: **[Design and Planning](./Student/01-design.md)**
     - Plan your migration
-- Challenge 2: **[Discovery and Assessment](02-discovery.md)**
+- Challenge 2: **[Discovery and Assessment](./Student/02-discovery.md)**
     - Discover your digital estate
-- Challenge 3: **[Prepare the Migration](03-prepare.md)**
+- Challenge 3: **[Prepare the Migration](./Student/03-prepare.md)**
     - Replicate workloads to Azure and test migration
-- Challenge 4: **[Execute the Migration](04-migrate.md)**
+- Challenge 4: **[Execute the Migration](./Student/04-migrate.md)**
     - Move workloads from on-premises to Azure
-- Challenge 5: **[Modernization](05-modernise.md)**
+- Challenge 5: **[Modernization](./Student/05-modernise.md)**
     - Modernise your workloads with Azure PaaS services
 
 ## Prerequisites
