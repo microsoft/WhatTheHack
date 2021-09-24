@@ -42,7 +42,7 @@ az account set --subscription "<Subscription ID>"
 7. Copy the Azure CLI code below:
 
 ```azurecli
-az deployment sub create --name "<Username>" --location "eastus" --template-uri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json"
+az deployment sub create --name "<Username>" --location "eastus" --template-uri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json" --verbose
 ```
 
 8. Paste the code in your desired tool.
@@ -63,7 +63,7 @@ Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription 
 5. Copy the PowerShell code below:
 
 ```powershell
-New-AzDeployment -Name "<Username>" -Location "eastus" -TemplateUri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json"
+New-AzDeployment -Name "<Username>" -Location "eastus" -TemplateUri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json" -Verbose
 ```
 
 6. Paste the code in your desired tool.
@@ -87,3 +87,8 @@ Once the deployment has completed, navigate to the Public IP Address resource, *
 ## Success Criteria
 
 ## Learning Resources
+
+- [Get Started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-6.4.0)
+- [Get Started with Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)
+- [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Azure Monitoring V2 What-the-Hack provides hands on experience on how to monitor Azure workloads using Azure Monitor, Log Analytics, Insights and Grafana. This hack was designed specifically for DevOps engineers, administrators and IT architects who want to build their knowledge on Azure Monitor. However, anyone with a passion around Monitoring is welcome!  
+The Azure Monitoring V2 What-the-Hack provides hands on experience on how to monitor Azure workloads using Azure Monitor, Log Analytics, Insights, Workbooks and Grafana. This hack was designed specifically for Infrastructure engineers, DevOps engineers, administrators and IT architects who want to build their knowledge on Azure Monitor. However, anyone with a passion around Monitoring is welcome!  
 
 ![Hack Intro](./Images/header.png) 
 
@@ -24,13 +24,14 @@ Understand Azure Monitor capabilities, facilitate an Azure Monitor customer conv
 ## Prerequisites
 
 1. Please review the following docs before or during the event when necessary
+
+    - [View and Manage Alerts in Azure Portal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal)
+    
+    - [Create metric alerts with ARM templates](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-create-templates)
+    
     - [Send Guest OS metrics to the Azure Monitor metric store](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)
 
     - [Get Started with Metrics Explorer](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-getting-started)
-
-    - [View and Manage Alerts in Azure Portal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal)
-
-    - [Create metric alerts with ARM templates](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-create-templates)
 
     - [Create Action Rules](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-action-rules)
 
