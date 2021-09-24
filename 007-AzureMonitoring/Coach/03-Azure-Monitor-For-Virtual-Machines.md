@@ -4,58 +4,64 @@
 
 ## Notes & Guidance
 
-Understand how to configure Azure Update Management and how to keep your VMs up-to-date.
-- [How to use Azure Update Management to install a specific patch version](https://www.linkedin.com/pulse/how-use-azure-update-management-install-specific-patch-mohamed-ghaleb/)
-- [Azure Update Management overview](https://docs.microsoft.com/en-us/azure/automation/update-management/overview)
-- [Create a new Automation Account](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account)
+Use these instructions to assist students in completing the following VM management tasks:
 
-### Now let's keep our VMs up-to-date
-First we will make sure they are all reporting to our demo Log Analytics Workspace.
-- To do that go to our Resource group, open the Log Analytics Workspace
-- Go to Virtual Machines and put your 5 unique characters, and see if all reporting to this one
-  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/otherws.png)
-  
-- If not, click the VM, disconnected it and re-connected to this LA WS.
-- Now create a new Automation Account ([here is how](https://docs.microsoft.com/en-us/azure/automation/automation-quickstart-create-account))
-- Link the Automation Account to your Log Analytics Workspace, go to the newly created Azure Automation Account, go to update management and link the LA WS as shown below
-  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/azautoaccount.png)  
-- Enable the Azure Update Management on your VMs, on the same page (you may need to refresh it) go to "Add Azure VMs"
-- Make sure you are on the correct region
-- Check your VMs and click enable (see below)
-  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/enableazautoaccount.png)  
->**Tip:** If you want to enable all VMs connected to the LA WS automatically (current or current and future, to to Azure Automation Account, then click on "Update Management" on the left, click on "Manage machines" 
->![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/managevms.png)> Pick the option suitable for your environment
-  
->**Note:** You may need to wait sometime for the VMs to show up
-  
-- The next step is to schedule an update deployment. Open the automation account. In the left menu, select **Update Management**.
+- Configure VM Insights for all virtual machines
+  - Add VM Insights solution to workspace
+    - To configure a single workspace, go the **Virtual Machines** option in the **Azure Monitor** menu, select the **Other onboarding options**, and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
+  ![Menu of VM Insights onboarding options from Azure Monitor with configure a workspace highlighted](../Images/03-02-Add-VM-Insights-To-Workspace.png)
 
-- Under the **Machines** tab. Under the **Update Deployments** tab, you can see the status of past scheduled deployments. Under the **Deployment schedules** tab, you can see a list of upcoming and completed deployments.
-  
-- Select **Schedule update deployment**. The **New update deployment** window will open, and you can specify the needed information.
+  - Use Azure Policy to Enable VM Insights for all VMs
+    - To access **VM insights Policy Coverage**, go the **Virtual machines** in the **Azure Monitor** menu in the Azure portal. Select **Other onboarding options** and then **Enable** under **Enable using policy**.
+  ![Menu of VM Insights onboarding options from Azure Monitor with Enable using policy highlighted](../Images/03-03-Enable-VM-Insights-using-Azure-Policy.png)
+    - Create a new policy assignment by clicking **Assign Policy**.
+  ![Create a new policy assignment from policy menu](..\Images\03-04-Create-Policy-Assignment.png)
+    - Change the **Assignment name** and add a **Description**. Select **Exclusions** if you want to provide an exclusion to the scope.
+  ![Policy assignment details menu](..\Images\03-05-Azure-Policy-Assignment-Details.png)
+    - Select the **Log Analytics workspace** to be used by all virtual machines in the assignment.
+  ![Policy assignment parameters menu](..\Images\03-06-Azure-Policy-Assignment-Parameters.png)
+    - Click **Review + Create** to review the details of the assignment before clicking **Create** to create it.
 
-Here is more information about the different options ([click here](https://docs.microsoft.com/en-us/azure/automation/update-management/deploy-updates))
+  - Pin Performace graphs from the VM Insights workbook to the dashboard
+    - Text, query, and metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode. To access pin mode, select **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's Edit box on the right-hand side of your screen.
+    ![Azure Monitor Workbook in Edit mode with pin options visible](..\Images\03-07-Pin-Workbook-Visualizations.png)
 
-Once you specify all settings, select **Create**.
+- Configure Update Management for all virtual machines
+  - Create Azure Automation Account and link it to Log Analytics workspace
+    - Update Management is an Azure Automation feature, and therefore requires an Automation account. You can use an existing Automation account in your subscription, or create a new account dedicated only for Update Management.
+    ![Create wizard for Azure Automation Account](..\Images\03-08-Create-Automation-Account.png)
+  - Enable VM Update Management solution
+    - In your Automation account, select **Update management** under Update management. Choose the **Log Analytics workspace** and Automation account and select **Enable** to enable Update Management. The setup takes up to 15 minutes to complete.
+    ![Update Management menu in Azure Automation Account](..\Images\03-09-Enable-Update-Management.png)
+  - Enable Automatic OS image upgrades for VM Scaleset
+    - Automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set. Use the Update-AzVmss cmdlet to configure automatic OS image upgrades for your scale set. The following example configures automatic upgrades for the scale set named myScaleSet in the resource group named myResourceGroup:
 
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/updateschdule.png)
-Fill it up, click create - you are all set ;-)
+        ```powershell
+        Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
+        ```
 
-To see the status of an update deployment, select the **Update deployments** tab under **Update management**. **In progress** indicates that deployment is currently running. When the deployment is completed, the status will show either “Succeeded” if each update was deployed successfully or “Partially failed” if there were errors for one or more of the updates.
+  - Pin Update Management summary to dashboard
+    - Navigate to **Workspace Summary** in Log Analytics workspace and pin the **System Update Management** tile to dashboard.
+  ![Log Analytics workspace summary with Update Management tile](..\Images\03-10-Pin-Update-Management-Solution-Tile.PNG)
 
-To see all the details of the update deployment, click on the update deployment from available list.
+- Monitor in-guest VM configuration drift
+  - Enable guest configuration audit through Azure policy
+    - To manage settings inside a machine, a virtual machine extension is enabled and the machine must have a system-managed identity. The extension downloads applicable guest configuration assignment and the corresponding dependencies. To deploy the extension at scale across many machines, assign the policy initiative **Deploy prerequisites to enable guest configuration policies on virtual machines**.
+    ![Azure Policy definition menu for the initiative Deploy prerequisites to enable guest configuration policies on virtual machines](..\Images\03-11-Guest-Config-Policy-Definition.png)
+  - Pin policy compliance summary to dashboard
 
-- Can you use Azure Update Management to install just one specific patch?
-
-**How to install just a single specific update**
-If you checked the link in the challenge you should be all set, however the link it for Linux.
-For Windows (very similar) also create a schedule as described above and deselect all update classifications.
-In the include type your KB ID you would like to install (you can get it from the missing updates tab)
-
-
-
+- Review the dashboards and compare to the following image:
+![Example of final dashboard](..\Images\03-01-Final-Dashboard.png)
 
 ## Learning Resources
+
+- [Cloud Adoption Framework - Management and Monitoring](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Configure Log Analytics workspace for VM Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-configure-workspace?tabs=CLI#add-vminsights-solution-to-workspace)
+- [Enable VM insights by using Azure Policy](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-policy)
+- [Azure Monitor Workbooks - Pinning Visualizations](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview#pinning-visualizations)
+- [Update Management overview](https://docs.microsoft.com/en-us/azure/automation/update-management/overview)
+- [Operating systems supported by Update Management](https://docs.microsoft.com/en-Us/azure/automation/update-management/operating-system-requirements#:~:text=Update%20Management%20does%20not%20support%20safely%20automating%20update,managing%20OS%20image%20upgrades%20on%20your%20scale%20set)
+- [Enable Update Management from the Azure portal](https://docs.microsoft.com/en-us/azure/automation/update-management/enable-from-portal#enable-update-management)
+- [Configure automatic OS image upgrade for VMSS](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+- [Understand the guest configuration feature of Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration)
+- [Preview: Automatic VM guest patching for Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching)
