@@ -15,7 +15,7 @@
     - Plan your migration
 - Challenge 2: **[Discovery and Assessment](02-discovery.md)**
     - Discover your digital estate
-- Challenge 2: **[Prepare the Migration](03-prepare.md)**
+- Challenge 3: **[Prepare the Migration](03-prepare.md)**
     - Replicate workloads to Azure and test migration
 - Challenge 4: **[Execute the Migration](04-migrate.md)**
     - Move workloads from on-premises to Azure
