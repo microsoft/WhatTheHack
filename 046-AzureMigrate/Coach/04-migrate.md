@@ -4,6 +4,7 @@
 
 ## Notes and Guidance
 
+- Participants should remember to install the Azure VM Agent ([https://go.microsoft.com/fwlink/?LinkID=394789](https://go.microsoft.com/fwlink/?LinkID=394789))
 
 ## Solution Guide
 

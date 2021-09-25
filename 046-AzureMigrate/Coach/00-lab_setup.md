@@ -77,7 +77,8 @@ for ((i=1;i<=user_no;i++)); do
 EOF
     az role definition create --role-definition "$custom_role_file"
     # Assign role to user
-    az role assignment create --scope $subscription_scope --role "Migration Administrator" --assignee $user_object_id -o none
+    role_id=$(az role definition list -n "Migration Admin" --query '[].id' -o tsv)
+    az role assignment create --scope $subscription_scope --role $role_id --assignee $user_object_id -o none
 done
 ```
 

@@ -4,6 +4,11 @@
 
 ## Notes and Guidance
 
+- The users should have enough privileges at the subscription level to generate an Azure Migrate key, if the users are provisioned with the script in [Challenge 0](./00-lab_setup.md)
+- Internet Explorer does not need to be uninstalled, it is enough if participants open up the migration appliance web page with Chrome, which is preinstalled in the Azure VM host. The link is [https://SmartHotelHost:44368](https://SmartHotelHost:44368)
+- When adding a Hyper-V host, you can use `192.168.0.1` with credentials `demouser`/`demo!pass123`
+- You can generate application traffic by accessing the application at `http://smarthotelhost-RANDOM.REGION.cloudapp.azure.com` (where RANDOM will be a random string specific to your environment, and REGION your Azure region of deployment)
+- Note port 1433 is also exposed in the Host VM, but in order to access it from the Internet, it needs to be allowed by the NSG. If you do that, you can try to connect to the database from outside, for example with `sqlcmd -S smarthotelhost-RANDOM.REGION.cloudapp.azure.com -U sa -P demo!pass123 -Q "SELECT @@VERSION"` (where RANDOM will be a random string specific to your environment, and REGION your Azure region of deployment)
 
 ## Solution Guide
 

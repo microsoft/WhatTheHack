@@ -4,7 +4,13 @@
 
 ## Description
 
-Prepare the migration.
+Prepare the migration and do a migration test.
+
+After migrating to Azure, you need to "teach" each VM how to reach the next application tier:
+
+- UbuntuWAF has the IP address of webserver1 hard coded in `/etc/nginx/nginx.conf`
+- smarthotelweb1 has the IP address of the application server hard coded in `C:\inetpub\SmartHotel.Registration\Web.config`
+- smarthotelweb2 has the database connection string in `C:\inetpub\SmartHotel.Registration.Wcf\Web.config`
 
 ## Success Criteria
 

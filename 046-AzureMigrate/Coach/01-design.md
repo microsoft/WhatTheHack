@@ -9,6 +9,8 @@
 - Use this opportunity to talk a bit about landing zones
 - Ensure they're doing an IaaS lift & shift not something whacky involving App Service, AKS, Azure Functions, etc
 - Verify they're planning on using Azure Migrate not ASR
-- They should discuss the agent-based vs the agent-less approach
-- They should evaluate whether multi-region is required
-- In the identity discussion, AAD Connect might play a role
+- Some points to discuss:
+    - Agent-based vs the agent-less approach
+    - Replication using the private or public endpoint
+    - Network sizing for replication
+    - Identity migration (Domain Controllers, AAD Connect, etc)

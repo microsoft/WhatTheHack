@@ -9,3 +9,4 @@
 
 ## Solution Guide
 
+- The Data Migration Assistant is pre-installed in the SQL Server nested VM (smarthotelsql1), but it is an old version. When you start it up, it will try to auto-aupgrade, but it will fail because the .NET 4.8 runtime is not installed. Download this prerequisite, and try to run (and autoupgrade) the Data Migration Assistant tool again

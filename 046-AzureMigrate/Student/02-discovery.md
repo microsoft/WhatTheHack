@@ -4,7 +4,14 @@
 
 ## Description
 
-Assess the on-premises digital estate.
+Assess the on-premises digital estate. Here some information about the nested VMs you will find in the simulated environment:
+
+- smarthotelweb1 (192.168.0.4): web tier (IIS)
+- smarthotelweb2 (192.168.0.5): application tier (IIS)
+- smarthotelsql1 (192.168.6): database tier (SQL Server). Inbound traffic on port 1433 on the host VM is forwarded to this VM
+- UbuntuWAF (192.168.8): nginx reverse proxy. Inbound traffic on port 80 on host VM is forwarded to this VM. It then forwards traffic to the web tier (smarthotelweb1)
+
+Credentials to all Windows machines are `Administrator`/`demo!pass123`. For the Ubuntu VM, it is `demouser`/`demo!pass123`.
 
 ## Success Criteria
 
@@ -17,4 +24,5 @@ Assess the on-premises digital estate.
 ## Learning Resources
 
 - [Asses Hyper-V VMs for migration to Azure](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v)
+- [Setup agent-based dependency visualization](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)
 - [Create Virtual Network in Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
