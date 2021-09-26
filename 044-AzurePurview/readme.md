@@ -30,9 +30,9 @@ In this hack you will:
 -  Challenge 6: Lineage
    -  Learn to produce lineage using ADF and Synapse pipelines
 -  Challenge 7: Insights
-     Produce insights on the work done so far
+   -  Produce insights on the work done so far
 -  Challenge 8: Atlas API usage
-     Meet the requirements that are not available out of the box
+   -  Meet the requirements that are not available out of the box
 
 ## Technologies
 -  Azure Purview
