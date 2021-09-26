@@ -18,7 +18,7 @@
 
 ## Solution Guide
 
-You can use this script to create the required resources for replication
+You can use this script to create the required resources for replication and testing:
 
 ```bash
 # Create resources required for migration
@@ -40,4 +40,17 @@ az network vnet create -g $rg_azure_test -n $vnet_name --address-prefix 172.16.0
 az network vnet subnet create -g $rg_azure_test --vnet-name $vnet_name --name WAF --address-prefix 172.16.1.0/24
 az network vnet subnet create -g $rg_azure_test --vnet-name $vnet_name --name web --address-prefix 172.16.2.0/24
 az network vnet subnet create -g $rg_azure_test --vnet-name $vnet_name --name db --address-prefix 172.16.3.0/24
+# Public IP addresses
+az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n WAF-pip
+az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n web1-pip
+az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n web2-pip
+az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n sql-pip
 ```
+
+- UbuntuWAF will not have connectivity when migrated, the  reason is that the VM is configured with a static IP address. You can modify the `/etc/network/interfaces` file as the following picture shows, by accessing the VM's console over the Azure portal (you might have to reboot the VM):
+
+![ubuntuwaf console](./Images/ubuntu_dhcp.png)
+
+- smarthotelsql1 has RDP disabled. You might have to enable it in the source nested VM, and run Windows updates so that you can connect to it
+
+![smarthotelsql1 rdp config](./Images/sql1_rdp.png)

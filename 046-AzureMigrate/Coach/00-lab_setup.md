@@ -113,3 +113,9 @@ done
 - Connectivity to Azure host VM:
     - RDP vs Bastion? <- start with RDP, only if necessary consider Bastion (i.e. if outbound RDP blocked)
     - Accept RDP open to internet is a security risk
+
+- The SmartHotel application should look something like this:
+
+![smarthotel app](./Images/smarthotel_app_portal.png)
+
+- You might want to take checkpoints of the nested VMs with Hyper-V manager, just in case (especially for the SQL1 one)
