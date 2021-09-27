@@ -11,17 +11,16 @@
 - Provision the onprem environment before the lab:
 
 ```bash
-# Onprem
-rg_onprem=migratefasthack-onprem
+# Variables
 location=westeurope
+rg_onprem=migratefasthack-onprem
+rg_azure_prod=migratefasthack-azure-prod
+rg_azure_test=migratefasthack-azure-test
 template_uri="https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020/SmartHotelHost.json"
+# Create RGs
 az group create -n "$rg_onprem" -l "$location"
 az deployment group create -n "${rg_onprem}-${RANDOM}" -g $rg --template-uri $template_uri # The default credentials are demouser/demo!pass123
-# Azure Prod
-rg_azure_prod=migratefasthack-azure-prod
 az group create -n "$rg_azure_prod" -l "$location"
-# Azure Test
-rg_azure_test=migratefasthack-azure-test
 az group create -n "$rg_azure_test" -l "$location"
 ```
 
@@ -57,6 +56,7 @@ for ((i=1;i<=user_no;i++)); do
     subscription_id=$(az account show --query id -o tsv)
     subscription_scope="/subscriptions/${subscription_id}"
     custom_role_file=/tmp/customrole.json
+    # Note: the action on "services" is not available in the API, only "sqlMigrationServices", however it is required by the portal, hence using star wildcard
     cat <<EOF > $custom_role_file
 {
   "Name": "Migration Admin",
@@ -65,7 +65,20 @@ for ((i=1;i<=user_no;i++)); do
   "Actions": [
     "Microsoft.KeyVault/register/action",
     "Microsoft.Migrate/register/action",
-    "Microsoft.OffAzure/register/action"
+    "Microsoft.OffAzure/register/action",
+    "Microsoft.Resources/deployments/*/read",
+    "Microsoft.Resources/deployments/*/write",
+    "Microsoft.Network/networkInterfaces/ipConfigurations/read",
+    "Microsoft.Network/virtualNetworks/subnets/join/action",
+    "Microsoft.DataMigration/sqlMigrationServices/*/action",
+    "Microsoft.DataMigration/sqlMigrationServices/*/delete",
+    "Microsoft.DataMigration/sqlMigrationServices/*/read",
+    "Microsoft.DataMigration/sqlMigrationServices/*/write",
+    "Microsoft.DataMigration/locations/*/read",
+    "Microsoft.DataMigration/*/action",
+    "Microsoft.DataMigration/*/delete",
+    "Microsoft.DataMigration/*/read",
+    "Microsoft.DataMigration/*/write"
    ],
   "NotActions": [],
   "DataActions": [],
@@ -75,14 +88,20 @@ for ((i=1;i<=user_no;i++)); do
   ]
 }
 EOF
-    az role definition create --role-definition "$custom_role_file"
-    # Assign role to user
     role_id=$(az role definition list -n "Migration Admin" --query '[].id' -o tsv)
+    if [[ -z "$role_id" ]]
+    then
+        echo "Role Migration Admin could not be found, creating new..."
+        az role definition create --role-definition "$custom_role_file"
+        role_id=$(az role definition list -n "Migration Admin" --query '[].id' -o tsv)
+    else
+        echo "Role Migration Admin already exists, updating..."
+        az role definition update --role-definition "$custom_role_file"
+    fi
+    # Assign role to user
     az role assignment create --scope $subscription_scope --role $role_id --assignee $user_object_id -o none
 done
 ```
-
-**Note**: you need to grant some permission in the subscription level, otherwise you would get the error `{"error":{"code":"AuthorizationFailed","message":"The client 'hacker01@cloudtrooper.net' with object id '907c07ad-4bb3-4c91-b360-10bae02de678' does not have authorization to perform action 'Microsoft.KeyVault/register/action' over scope '/subscriptions/e7da9914-9b05-4891-893c-546cb7b0422e' or the scope is invalid. If access was recently granted, please refresh your credentials."}} {"error":{"code":"AuthorizationFailed","message":"The client 'hacker01@cloudtrooper.net' with object id '907c07ad-4bb3-4c91-b360-10bae02de678' does not have authorization to perform action 'Microsoft.Migrate/register/action' over scope '/subscriptions/e7da9914-9b05-4891-893c-546cb7b0422e' or the scope is invalid. If access was recently granted, please refresh your credentials."}} {"error":{"code":"AuthorizationFailed","message":"The client 'hacker01@cloudtrooper.net' with object id '907c07ad-4bb3-4c91-b360-10bae02de678' does not have authorization to perform action 'Microsoft.OffAzure/register/action' over scope '/subscriptions/e7da9914-9b05-4891-893c-546cb7b0422e' or the scope is invalid. If access was recently granted, please refresh your credentials."}}`
 
 If you need to delete the users, you can use this script:
 
@@ -100,6 +119,14 @@ for ((i=1;i<=user_no;i++)); do
         rg_id=$(az group show -n $rg --query id -o tsv)
         az role assignment delete --scope $rg_id --role Contributor --assignee $user_object_id -o none
     done
+    role_id=$(az role definition list -n "Migration Admin" --query '[].id' -o tsv)
+    if [[ -n "$role_id" ]]
+    then
+        echo "Deleting assignment to role ID $role_id for $user_principal at the subscription level..."
+        subscription_id=$(az account show --query id -o tsv)
+        subscription_scope="/subscriptions/${subscription_id}"
+        az role assignment delete --scope $subscription_scope --role $role_id --assignee $user_object_id -o none
+    fi
     echo "Deleting user ${user_principal}..."
     az ad user delete --id $user_principal -o none
 done
@@ -118,4 +145,15 @@ done
 
 ![smarthotel app](./Images/smarthotel_app_portal.png)
 
+- If there are no records shown in the UI, it could be because the database was deployed too long ago (a couple of days would be enough to make no records appear). To fix this, you can change the underlying database, so that records are shown:
+    1. RDP into the SQL VM
+    1. Open SQL Server Management Studio
+    1. Locate the database `SmartHotel.Registration`
+    1. In that database, locate the table `dbo.Bookings`
+    1. Right click, and select the command `Edit Top 200 Rows`
+    1. Change some checkin or checkout dates to today's date
+
+![smss](./Images/ssms.png)
+
 - You might want to take checkpoints of the nested VMs with Hyper-V manager, just in case (especially for the SQL1 one)
+- Note that the SQL1 nested VM seems to reboot every hour due to an expired evaluation license. You can re-arm the evaluation with the command `Slmgr.vbs -rearm`. This should prevent reboots for some days.

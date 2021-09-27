@@ -45,6 +45,13 @@ az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku 
 az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n web1-pip
 az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n web2-pip
 az network public-ip create -g $rg_azure_prod --allocation-method Dynamic --sku Basic -n sql-pip
+# Database (for a database modernization)
+sql_server_name=sqlserver$RANDOM
+sql_db_name=SmartHotelRegistration
+sql_username=demouser
+sql_password='demo!pass123'
+az sql server create -n $sql_server_name -g $rg -l $location --admin-user "$sql_username" --admin-password "$sql_password"
+az sql db create -n $sql_db_name -s $sql_server_name -g $rg -e Basic -c 5 --no-wait
 ```
 
 - UbuntuWAF will not have connectivity when migrated, the  reason is that the VM is configured with a static IP address. You can modify the `/etc/network/interfaces` file as the following picture shows, by accessing the VM's console over the Azure portal (you might have to reboot the VM):
