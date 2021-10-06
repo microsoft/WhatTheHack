@@ -1,4 +1,4 @@
-# Challenge 1: Exploration
+# Challenge 1: Planning the Migration
 
 [< Previous Challenge](./00-lab_setup.md) - **[Home](../README.md)** - [Next Challenge >](./02-discovery.md)
 
