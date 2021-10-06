@@ -8,14 +8,9 @@ Explore the topology deployed.
 
 ## Success Criteria
 
-In this hack we are going to use Azure Migrate. Discuss other Azure tools to migrate:
-
-- Virtual machines
-- Web applications
-- Databases
-
 Decide these aspects of the migration:
 
+- Other tools that could be used to migrate specific workloads
 - IP addresses are going to be maintained, or they are going to be changed
 - Domain Controllers are going to be replicated, or created from scratch
 - Which factors are going to influence migration waves
