@@ -15,9 +15,9 @@ For simplicity, there is no redundancy in any of the tiers.
 
 Credentials:
 
-- For the host VM: `demouser`/`demo!pass123`
-- For the Windows VMs: `Administrator`/`demo!pass123`
-- For the Linux VM: `demouser`/`demo!pass123`
+- For the host Azure VM: `demouser`/`demo!pass123`
+- For the Windows nested Hyper-V VMs: `Administrator`/`demo!pass123`
+- For the Linux nested Hyper-V VM: `demouser`/`demo!pass123`
 
 **Note:** For convenience, the Hyper-V host itself is deployed as an Azure VM. For the purposes of the lab, you should think of it as an on-premises machine.
 
