@@ -14,4 +14,3 @@
     - Replication using the private or public endpoint
     - Network sizing for replication
     - Identity migration (Domain Controllers, AAD Connect, etc)
-
