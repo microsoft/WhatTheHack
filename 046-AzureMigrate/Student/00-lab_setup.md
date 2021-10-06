@@ -23,7 +23,7 @@ Credentials:
 
 ## Success Criteria
 
-- Verify that you have access to the Azure subscription and understand the source environment (three resource groups, Azure VMs, nested Hyper-V VMs)
+- Verify that you have access to the Azure subscription and understand the source environment (resource groups, Azure VMs, nested Hyper-V VMs)
 - Make sure you can connect to the web application from your browser
 
 ## Learning Resources
