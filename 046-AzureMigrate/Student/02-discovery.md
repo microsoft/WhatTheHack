@@ -15,11 +15,11 @@ Credentials to all Windows machines are `Administrator`/`demo!pass123`. For the 
 
 ## Success Criteria
 
-- An assessment with the digital estate has been performed:
+- An assessment of the on-premises digital estate has been performed:
     - Migration readiness to Azure IaaS has been evaluated
     - A cost estimation has been performed
     - Application dependencies have been discovered
-- An Azure landing zone has been created
+- An Azure landing zone has been created (it might have been pre-created for you before the exercise)
 
 ## Learning Resources
 
