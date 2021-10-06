@@ -16,13 +16,15 @@ location=westeurope
 rg_onprem=migratefasthack-onprem
 rg_azure_prod=migratefasthack-azure-prod
 rg_azure_test=migratefasthack-azure-test
-#template_uri="https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020/SmartHotelHost.json"
-template_uri="https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/SmartHotelFull.json"
 # Create RGs
 az group create -n "$rg_onprem" -l "$location"
 az group create -n "$rg_azure_prod" -l "$location"
 az group create -n "$rg_azure_test" -l "$location"
-az deployment group create -n "${rg_onprem}-${RANDOM}" -g $rg_onprem --template-uri $template_uri # The default credentials are demouser/demo!pass123
+# Deploy template  (the default credentials are demouser/demo!pass123)
+# template_uri="https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020/SmartHotelHost.json"
+# az deployment group create -n "${rg_onprem}-${RANDOM}" -g $rg_onprem --template-uri $template_uri
+template_uri="https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/SmartHotelFull.json"
+az deployment sub create -n "${rg_onprem}-${RANDOM}" --template-uri $template_uri -l $location
 ```
 
 - Create users with permissions to the lab:
