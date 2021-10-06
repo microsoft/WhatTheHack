@@ -12,7 +12,7 @@ Decide these aspects of the migration:
 
 - Other tools that could be used to migrate specific workloads?
 - Has the landing zone been already design and implemented?
-    - For example, IP addresses are going to be maintained, or they are going to be changed in the Azure Landing Zone?
+    - For example, IP addresses are going to be maintained, or they are going to be changed when moving to Azure?
 - Domain Controllers are going to be replicated, or created from scratch?
 - Which factors are going to influence migration waves?
 

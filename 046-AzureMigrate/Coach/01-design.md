@@ -13,4 +13,7 @@
     - Agent-based vs the agent-less approach
     - Replication using the private or public endpoint
     - Network sizing for replication
+    - Reserved IP addresses in Azure (the first 3 IP addresses of each subnet)
     - Identity migration (Domain Controllers, AAD Connect, etc)
+- You can share these links as further reading:
+    - [Cloud Adoption Plan and Azure DevOps](https://docs.microsoft.com/azure/cloud-adoption-framework/plan/template)
