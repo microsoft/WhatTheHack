@@ -4,7 +4,7 @@
 
 ## Description
 
-Explore the topology deployed.
+Plan how to perform the migration
 
 ## Success Criteria
 
