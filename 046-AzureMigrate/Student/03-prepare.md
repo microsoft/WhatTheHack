@@ -12,6 +12,8 @@ If you changed the IP addresses when migrating to Azure, you would need to "teac
 - smarthotelweb1 has the IP address of the application server hard coded in `C:\inetpub\SmartHotel.Registration\Web.config`
 - smarthotelweb2 has the database connection string in `C:\inetpub\SmartHotel.Registration.Wcf\Web.config`
 
+Make sure to download the registration key for the Recovery Services vault from a browser inside the Azure VM, instead of downloading it to your local machine and then moving it to the Azure VM (time zone differences might make the registration process fail).
+
 ## Success Criteria
 
 - On-premises Virtual Machines have been replicated to Azure
