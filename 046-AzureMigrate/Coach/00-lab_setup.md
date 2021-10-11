@@ -13,19 +13,14 @@
 ```bash
 # Variables
 location=westeurope
-rg_onprem=migratefasthack-onprem
-rg_azure_prod=migratefasthack-azure-prod
-rg_azure_test=migratefasthack-azure-test
-# Create RGs
-az group create -n "$rg_onprem" -l "$location"
-az group create -n "$rg_azure_prod" -l "$location"
-az group create -n "$rg_azure_test" -l "$location"
 # Deploy template  (the default credentials are demouser/demo!pass123)
-# template_uri="https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020/SmartHotelHost.json"
-# az deployment group create -n "${rg_onprem}-${RANDOM}" -g $rg_onprem --template-uri $template_uri
 # Parameters: resourceGroupBaseName, includeLandingZone
 template_uri="https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/SmartHotelFull.json"
-az deployment sub create -n "${rg_onprem}-${RANDOM}" --template-uri $template_uri -l $location --parameters resourceGroupBaseName=FastHack includeLandingZone=true
+base_name=FastHack
+az deployment sub create -n "${rg_onprem}-${RANDOM}" --template-uri $template_uri -l $location --parameters resourceGroupBaseName=$base_name includeLandingZone=true
+# The template will create two resource groups
+rg_onprem="${base_name}HostRG"
+rg_azure_prod="${base_name}RG"
 ```
 
 - Create users with permissions to the lab:
@@ -48,7 +43,7 @@ for ((i=1;i<=user_no;i++)); do
         echo "User ${user_principal} already exists"
     fi
     echo "Creating role assignments for user $user_principal..."
-    rg_array=( "$rg_onprem" "$rg_azure_prod" "$rg_azure_test" )
+    rg_array=( "$rg_onprem" "$rg_azure_prod" )
     for rg in "${rg_array[@]}"
     do
         echo "Adding contributor role for $user_principal on RG $rg..."
@@ -116,7 +111,7 @@ for ((i=1;i<=user_no;i++)); do
     user_id=hacker$(printf "%02d" $i)
     user_principal="${user_id}@${domain}"
     user_object_id=$(az ad user show --id "$user_principal" --query objectId -o tsv)
-    rg_array=( "$rg_onprem" "$rg_azure_prod" "$rg_azure_test" )
+    rg_array=( "$rg_onprem" "$rg_azure_prod" )
     for rg in "${rg_array[@]}"
     do
         echo "Deleting contributor role for $user_principal (object ID $user_object_id) on RG $rg..."

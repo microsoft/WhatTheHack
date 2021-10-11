@@ -9,15 +9,13 @@
 - When adding a Hyper-V host, you can use `192.168.0.1` with credentials `demouser`/`demo!pass123`
 - You can generate application traffic by accessing the application at `http://smarthotelhost-RANDOM.REGION.cloudapp.azure.com` (where RANDOM will be a random string specific to your environment, and REGION your Azure region of deployment)
 - Note port 1433 is also exposed in the Host VM, but in order to access it from the Internet, it needs to be allowed by the NSG. If you do that, you can try to connect to the database from outside, for example with `sqlcmd -S smarthotelhost-RANDOM.REGION.cloudapp.azure.com -U sa -P demo!pass123 -Q "SELECT @@VERSION"` (where RANDOM will be a random string specific to your environment, and REGION your Azure region of deployment)
+- The template will already have created a RG with the Landing Zone, where the same IP addresses as in onprem are used. This can be interpreted as a "gentle push" to reuse IPs, but still the discussion of whether reusing IPs or not is valid
+- In this context, certain customers have deployed solutions to stretch subnets between onprem and Azure, such as [Azure Extended Network](https://docs.microsoft.com/azure/virtual-network/subnet-extension) or LISP (see for example Cisco's [Configure L2 extension for public cloud](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/azu/b_csr1000config-azure/configure-lisp-layer-2-extension.html))
+- Note that when creating the Azure Migrate project, some permissions are going to be required at the subscription level. The script to create users provided in [Challenge 0: Environment Setup - Coach's Guide](00-lab_setup.md) creates a custom role to cover those permissions.
+- For the cost calculation, make sure participants don't forget about other costs like bandwidth, load balancers, etc (even if they just do a rough estimation)
 
 ## Solution Guide
 
-- For the cost calculation, make sure participants don't forget about other costs like bandwidth, load balancers, etc (even if they just do a rough estimation)
-- Create "LZ" in Azure
-    - There's merit in making them think about IP addressing in the context of a migration; for example do we retain IPs vs use new
-    - Potentially you can provide instructions for deploying the VNet & subnets - but make them complete some of the blanks (e.g. a subset of IP addresses)
-- Create Azure Migrate project
-    - Q: any issues with permissions required to do this - does it still need a service account etc?
 - Deploy & configure the Azure Migrate appliance in on-premises environment
     - Q: is the VHD already on the Hyper-V server or do we make them download it
 		- Think it's on there, but is probably not up-to-date

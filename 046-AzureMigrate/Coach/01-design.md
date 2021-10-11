@@ -4,11 +4,12 @@
 
 ## Notes and Guidance
 
-- Approximate duration: 1 hour
+- Approximate duration: 30-60 minutes (depends on how deep you go with the participants)
 - Make participants develop a design for your target architecture in Azure and a plan for migrating the on-premises workload
 - Use this opportunity to talk a bit about landing zones
 - Ensure they're doing an IaaS lift & shift not something whacky involving App Service, AKS, Azure Functions, etc
 - Verify they're planning on using Azure Migrate not ASR
+- Potentially discuss other Lift & Shift alternatives (5 Rs)
 - Some points to discuss:
     - Agent-based vs the agent-less approach
     - Replication using the private or public endpoint

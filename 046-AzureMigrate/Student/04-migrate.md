@@ -9,7 +9,7 @@ Perform the migration.
 ## Success Criteria
 
 - Complete the migration to Azure
-- Verify that the web application is working in Azure
+- Verify that the web application is working in Azure and accessible publicly
 
 ## Learning Resources
 
