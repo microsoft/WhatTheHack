@@ -17,7 +17,7 @@ Make sure to download the registration key for the Recovery Services vault from 
 ## Success Criteria
 
 - On-premises Virtual Machines have been replicated to Azure
-- A migration test has been performed: as a minimum, make sure the VMs boot up correcly, and that you can connect to them remotely
+- A migration test has been performed: as a minimum, make sure the VMs boot up correctly
 
 ## Learning Resources
 
