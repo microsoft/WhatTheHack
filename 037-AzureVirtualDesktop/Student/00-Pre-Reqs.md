@@ -33,7 +33,7 @@ az deployment sub create --location 'eastus' --template-uri 'https://raw.githubu
 1. Users are assigned to the correct roles
 1. Licenses are assigned to the users.
 
-**NOTE:** Identity will be used for many aspects - permissions and assignments for example, remember to think about this.**
+**NOTE:** Identity will be used for many aspects - permissions and assignments for example, remember to think about this.
 
 ## Learning Resources
 
