@@ -2,9 +2,13 @@
 
 [< Previous Challenge](./04-migrate.md) - **[Home](../README.md)**
 
+## Introduction
+
+This is an optional challenge if there is time left over at the end of the hack, or if you would like to complete this in your own time after the hack completes. 
+
 ## Description
 
-Modernise your workloads.
+If you chose to take the rehost approach during challenges 1-4 then this challenge will help you to understand options to migrate from VMs to PAAS services.  This can either be done directly from on-premises VMs or from VMs running in Azure. 
 
 ## Success Criteria
 

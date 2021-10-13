@@ -2,6 +2,9 @@
 
 **[Home](../README.md)** - [Next Challenge >](./01-design.md)
 
+## Introduction
+In this challenge we confirm that we all have access to the lab environment to ensure that the next challenges can be completed succesfully. 
+
 ## Description
 
 The SmartHotel application comprises 4 VMs, hosted inside of a Windows Azure VM with Hyper-V and nested virtualization:

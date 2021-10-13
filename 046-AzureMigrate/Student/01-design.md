@@ -2,20 +2,35 @@
 
 [< Previous Challenge](./00-lab_setup.md) - **[Home](../README.md)** - [Next Challenge >](./02-discovery.md)
 
+## Introduction
+
+In this challenge you will create a plan for migrating the on-premises workload to Azure. 
+
+
 ## Description
 
-Plan how to perform the migration
+This challenge is about learning to plan a migration for a real-world production environment.  As such the following factors should be considered:
+
+- Migration approach
+    - choice of rehost, refacto, replatform, rearchitect or rebuild
+    - Awareness of time constraints to complete migration and how that might impact your choices
+    - Single or multiple waves
+- Target Azure environment
+    - Existing infrastructure in Azure 
+    - New infrastructure that needs to be created/configured before migration
+    - Best practices for Azure deployments
+    - Configuration of resources post migration
+    - What decisions require more information and how can this be gathered?
+- Stages of the migration
+    - Tools to be used at each stage
+    - Dependencies to move to next stage
+
 
 ## Success Criteria
 
-Decide these aspects of the migration, taking into account that at this point some are just theoretical questions, since they might not be relevant or applicable in this hack:
+- High level migration plan has been discussed amongst the team and a consensus reached
+- Outline plan has been created and shared with coaches covering considerations above
 
-- Which workloads to be rehosted, refactored, replatformed, rearchitected or rebuilt?
-- Other tools that could be used to migrate specific workloads?
-- Has the landing zone been already design and implemented?
-    - For example, IP addresses are going to be maintained, or they are going to be changed when moving to Azure?
-- Domain Controllers are going to be replicated, or created from scratch?)
-- Which factors are going to influence migration waves?
 
 ## Learning Resources
 
