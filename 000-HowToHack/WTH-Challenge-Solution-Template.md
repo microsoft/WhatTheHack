@@ -4,7 +4,7 @@
 
 *This file should be named according to this pattern: `Solution-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc*
 
-# Challenge \#: Coach's Guide
+# Challenge \#: \<Challenge Name> - Coach's Guide
 
 [< Previous Challenge](./Solution-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution-X+1.md)
 
