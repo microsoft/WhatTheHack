@@ -1,0 +1,25 @@
+#!/bin/bash
+# Delete created users
+user_no=2
+for ((i=1;i<=user_no;i++)); do
+    user_id=hacker$(printf "%02d" $i)
+    user_principal="${user_id}@${domain}"
+    user_object_id=$(az ad user show --id "$user_principal" --query objectId -o tsv)
+    rg_array=( "$rg_onprem" "$rg_azure_prod" )
+    for rg in "${rg_array[@]}"
+    do
+        echo "Deleting contributor role for $user_principal (object ID $user_object_id) on RG $rg..."
+        rg_id=$(az group show -n $rg --query id -o tsv)
+        az role assignment delete --scope $rg_id --role Contributor --assignee $user_object_id -o none
+    done
+    role_id=$(az role definition list -n "Migration Admin" --query '[].id' -o tsv)
+    if [[ -n "$role_id" ]]
+    then
+        echo "Deleting assignment to role ID $role_id for $user_principal at the subscription level..."
+        subscription_id=$(az account show --query id -o tsv)
+        subscription_scope="/subscriptions/${subscription_id}"
+        az role assignment delete --scope $subscription_scope --role $role_id --assignee $user_object_id -o none
+    fi
+    echo "Deleting user ${user_principal}..."
+    az ad user delete --id $user_principal -o none
+done

@@ -1,11 +1,16 @@
 # What The Hack - Azure Migrate - Coach's Guides
 
+## Introduction
+
+This Hack is dependent on a pre-built lab environment acting as our on-premises workload. The Lab build is automated, but takes some time to run and needs some post-deployment configuration. Allow time to deploy and ensure the lab is working as expected before the Hack begins (steps are in Challenge 0). 
+
 ## Notes and Guidance
 
 - **Make sure no one is left behind**
 - If during the hack there is any concept not clear for everybody in a group, try to make participants explain to each other. Intervene only when no participant has the knowledge
 - For each challenge, you can ask the least participative members to describe what has been done and why
 - Feel free to customize scenarios to match your participants' level: if they are too new to Azure, feel free to remove objectives. If they are too advanced, give them additional ones
+
 
 ## Coach's Guides
 
