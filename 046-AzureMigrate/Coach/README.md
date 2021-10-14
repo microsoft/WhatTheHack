@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This Hack is dependent on a pre-built lab environment acting as our on-premises workload. The Lab build is automated, but takes some time to run and needs some post-deployment configuration. Allow time to deploy and ensure the lab is working as expected before the Hack begins (steps are in Challenge 0). 
+This Hack is dependent on a pre-built lab environment acting as our on-premises workload. The Lab build is automated, but takes some time to run and needs some post-deployment configuration. Allow time to deploy and ensure the lab is working as expected before the Hack begins see [Lab Deployment](./LabDeployment/readme.md). 
 
 ## Notes and Guidance
 
