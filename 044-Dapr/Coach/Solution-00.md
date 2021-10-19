@@ -3,3 +3,5 @@
 **[Home](README.md)** - [Next Challenge>](./Solution-01.md)
 
 ## Notes & Guidance
+
+The most common errors are not installing all the prerequisites or credential problems due to having to connect to several different services (Azure, Azure Container Registy, Azure Kubernetes Service, kubectl, etc)
