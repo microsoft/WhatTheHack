@@ -66,6 +66,9 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
       }
     }
   }
+  identity:{
+    type:'SystemAssigned'
+  }
 }
 
 output aksName string = aks.name
