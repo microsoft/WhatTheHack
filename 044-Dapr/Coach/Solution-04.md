@@ -8,7 +8,7 @@
 
 First, you need to update the existing state management configuration file:
 
- 1. Open the file `src/dapr/components/statestore.yaml` in VS Code.
+ 1. Open the file `Resources/dapr/components/statestore.yaml` in VS Code.
 
  1. Add a `scopes` section to the configuration file that specifies that only the TrafficControlService can use the state management building block:
 
@@ -34,7 +34,7 @@ Now you will add code to the TrafficControlService so that it uses the Dapr stat
 
  1. Open the `src` folder in this repo in VS Code.
 
- 1. Open the file `src/TrafficControlService/Controllers/TrafficController.cs` in VS Code.
+ 1. Open the file `Resources/TrafficControlService/Controllers/TrafficController.cs` in VS Code.
 
  1. Inspect the code in the `VehicleEntry` method of this controller. It uses `_vehicleStateRepository` (an injected implementation of the `IVehicleStateRepository` interface) to store vehicle state:
 
@@ -48,11 +48,11 @@ Now you will add code to the TrafficControlService so that it uses the Dapr stat
    await _vehicleStateRepository.SaveVehicleStateAsync(vehicleState);
    ```
 
- 1. Open the file `src/TrafficControlService/Repositories/InMemoryVehicleStateRepository.cs` in VS Code.
+ 1. Open the file `Resources/TrafficControlService/Repositories/InMemoryVehicleStateRepository.cs` in VS Code.
 
  1. This is the repository used by the TrafficControlService. Inspect the code. As you can see, it uses a simple in-memory dictionary to store the state. The license number of the vehicle is used as the key. You are going to replace this implementation with one that uses Dapr state management.
 
- 1. Create a new file `src/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
+ 1. Create a new file `Resources/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
 
  1. Create a new `DaprVehicleStateRepository` class in this file that implements the `IVehicleStateRepository` interface. Use this snippet to get started:
 
@@ -166,7 +166,7 @@ Now you will add code to the TrafficControlService so that it uses the Dapr stat
 
 Now you need to register the new repository with the .NET Core dependency-injection container.
 
-1. Open the file `src/TrafficControlService/Startup.cs`.
+1. Open the file `Resources/TrafficControlService/Startup.cs`.
 
 1. In the `ConfigureServices` method, the old `IVehicleStateRepository` implementation is registered with dependency injection:
 
@@ -180,7 +180,7 @@ Now you need to register the new repository with the .NET Core dependency-inject
    services.AddSingleton<IVehicleStateRepository, DaprVehicleStateRepository>();
    ```
 
-1. Open the terminal window in VS Code and make sure the current folder is `src/TrafficControlService`.
+1. Open the terminal window in VS Code and make sure the current folder is `Resources/TrafficControlService`.
 
 1. Check that your code-changes are correct by building the code. Execute the following command in the terminal window:
 
@@ -198,9 +198,9 @@ Now, you'll test the update by running the application from end-to-end.
 
 1. Make sure no services from previous tests are running (close the terminal windows)
 
-1. Make sure all the Docker containers introduced in the previous assignments are running (you can use the `src/Infrastructure/start-all.ps1` script to start them).
+1. Make sure all the Docker containers introduced in the previous assignments are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
 
-1. Open a **new** terminal window in VS Code and make sure the current folder is `src/VehicleRegistrationService`.
+1. Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
 1. Enter the following command to run the VehicleRegistrationService with a Dapr sidecar:
 
@@ -208,7 +208,7 @@ Now, you'll test the update by running the application from end-to-end.
    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
    ```
 
-1. Open a **second** new terminal window in VS Code and change the current folder to `src/FineCollectionService`.
+1. Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
 
 1. Enter the following command to run the FineCollectionService with a Dapr sidecar:
 
@@ -216,7 +216,7 @@ Now, you'll test the update by running the application from end-to-end.
    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
    ```
 
-1. Open a **third** new terminal window in VS Code and change the current folder to `src/TrafficControlService`.
+1. Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
 
 1. Enter the following command to run the TrafficControlService with a Dapr sidecar:
 
@@ -224,7 +224,7 @@ Now, you'll test the update by running the application from end-to-end.
    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
    ```
 
-1. Open a **fourth** new terminal window in VS Code and change the current folder to `src/Simulation`.
+1. Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
 
 1. Start the simulation:
 
@@ -270,13 +270,13 @@ As you can see, the data is actually stored in the redis cache. As you may have 
 
 1. Stop the running services (ctrl/c) and close the terminal windows.
 
-   > If you're up for it, try to swap-out Redis with another state provider. See the [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `src/dapr/components/statestore.yaml`.
+   > If you're up for it, try to swap-out Redis with another state provider. See the [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `Resources/dapr/components/statestore.yaml`.
 
 ## Step 3: Use Dapr state management with the Dapr SDK for .NET
 
 In this step, you'll simplify state management with the Dapr SDK for .NET. You'll change the `DaprVehicleStateRepository`. Instead of calling the Dapr state management API directly over HTTP, you'll streamline the app using the `DaprClient` from the Dapr SDK for .NET.
 
-1. Open the file `src/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
+1. Open the file `Resources/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
 
 1. Add a using statement for `Dapr.Client`.
 
@@ -334,7 +334,7 @@ In this step, you'll simplify state management with the Dapr SDK for .NET. You'l
    }
    ```
 
-1. Open the terminal window in VS Code and make sure the current folder is `src/TrafficControlService`.
+1. Open the terminal window in VS Code and make sure the current folder is `Resources/TrafficControlService`.
 
 1. Check all your code-changes are correct by building the code. Execute the following command in the terminal window:
 
@@ -350,7 +350,7 @@ Now you're ready to test the application. Just repeat steps 2a and 2b.
 
 Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to replacing *RabbitMq* with Azure Service Bus in Assignment 3 required no code changes either. 
 
-1. Update the `src/dapr/components/statestore.yaml` file with the key/value pairs for your Azure Redis Cache instance. You can find these on the Overview blade
+1. Update the `Resources/dapr/components/statestore.yaml` file with the key/value pairs for your Azure Redis Cache instance. You can find these on the Overview blade
    of your Azure Redis Cache instance. Make sure you add the **6380** port number after the host URI.
 
     **Example:**
