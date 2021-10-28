@@ -72,7 +72,7 @@ Next, you'll create the Azure resources for the subsequent assignments using [Az
    
     Once complete, you'll find two SSH key files in the following directory: `%USERPROFILE%\.ssh`. Right-click on the `id_rsa` file and open with Notepad. Copy the entire contents of the file which is the public key. You'll need it to configure the parameter file in an upcoming step.
 
-1.  In the accompanying source code, modify the `src/Infrastructure/bicep/main.parameters.json` file so it contains the proper data for the deployment:
+1.  In the accompanying source code, modify the `Resources/Infrastructure/bicep/main.parameters.json` file so it contains the proper data for the deployment:
 
     ```json
     {
@@ -94,10 +94,10 @@ Next, you'll create the Azure resources for the subsequent assignments using [Az
     }
     ```
 
-1.  Create a new resource group for your lab project using the `src/Infrastructure/bicep/rg.bicep` script file. When invoking the command, replace the location parameter with the Azure region you want to use:
+1.  Create a new resource group for your lab project using the `Resources/Infrastructure/bicep/rg.bicep` script file. When invoking the command, replace the location parameter with the Azure region you want to use:
 
     ```shell
-    cd ./src/Infrastructure/bicep/
+    cd ./Resources/Infrastructure/bicep/
     az deployment sub create --location "<resource-group-location>" --template-file rg.bicep --parameters ./main.parameters.json --query "properties.outputs" --output yamlc
     ```
 
