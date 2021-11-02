@@ -4,4 +4,6 @@
 
 ## Notes & Guidance
 
+Challenge 9 notes coming soon...
+
 - VM Custom Script Extension with [Bicep](https://github.com/Azure/bicep/blob/dbd360c5c971a79480f23bc7276ea3382a89aa63/docs/examples/201/vm-windows-with-custom-script-extension/README.md)

@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+Challenge 6 notes coming soon...
+
 ## Tips
 
 - Validate your Bicep files regularly by executing `bicep build mybicepfile.bicep`.

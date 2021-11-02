@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+Challenge 2 notes coming soon...
+
 ## Learning Resources
 
 Learn how to "fish" for ARM template resource syntax:
