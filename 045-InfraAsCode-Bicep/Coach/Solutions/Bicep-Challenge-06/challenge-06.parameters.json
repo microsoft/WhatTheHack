@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "bicepwthadmin"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.KeyVault/vaults/<YOUR KEYVAULT>"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "ubuntuOSVersion": {
+      "value": "16.04-LTS"
+    },
+    "vnetPrefix": {
+      "value": "10.0.0.0/16"
+    },
+    "subnetName": {
+      "value": "Default"
+    },
+    "subnetPrefix": {
+      "value": "10.0.0.0/24"
+    }
+  }
+}

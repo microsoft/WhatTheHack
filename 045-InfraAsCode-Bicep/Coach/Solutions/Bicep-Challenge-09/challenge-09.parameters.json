@@ -1,0 +1,33 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"prefix": {
+			"value": "ch09"
+		},
+		"vmssInstanceCount": {
+			"value": 2
+		},
+		"adminUsername": {
+			"value": "localadmin"
+		},
+		"adminPassword": {
+			"value": "C0mpl3xPassword!!"
+		},
+		"ubuntuOSVersion": {
+			"value": "18.04-LTS"
+		},
+		"vnetPrefix": {
+			"value": "10.0.0.0/16"
+		},
+		"subnetName": {
+			"value": "ch09-subnet"
+		},
+		"subnetPrefix": {
+			"value": "10.0.0.0/24"
+		},
+		"customScript": {
+			"value": null
+		}
+	}
+}
