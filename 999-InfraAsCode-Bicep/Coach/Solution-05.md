@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Add some notes here...
+Challenge 5 notes coming soon...
 
 ## Learning Resources
 
