@@ -39,6 +39,45 @@ Before you file an issue, make sure you've checked the following:
 
 This section describes the guidelines for contributing to What The Hack.
 
+### On-Boarding Process
+
+1.	Submit the proposal for your new WTH for consideration: http://aka.ms/wthproposal
+1.	WTH Leads will get in touch to start the on-boarding process. If they are aware of other teams with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
+1.	WTH Leads will update the What The Hack teams site and:
+    - Add everyone in your team to the What The Hack teams site.
+    - Create a new channel for you named the same as your new WTH.
+    - Add a copy of the WTH Outline Template:
+        - WTH Leads will create a copy of the “WTH-ProposalAndAbstract.docx” and copy this file to the Files tab of your new channel and draw everyone’s attention to it.
+1.	The WTH Leads will schedule a 1-hour kick off call your entire team when everyone is available to:
+    - Explain if/why there are extra teammates you are being combined with.
+    - Walk through the What The Hack team, your channel and the Outline document they can optionally use.
+    - They’ll be setting up a 30 minute cadence call every two weeks to address any questions or requests you have during development.
+    - Walk through the How to Author document. 
+        - Everyone on your team still needs to read and internalize this document to save you trouble and heartache down the line.
+    - Discuss your plan for the hack and how it fits the format of What The Hack.
+1.	During the cadence call, your team will dictate the pace of the call and report what they have worked on. It is essentially your call to discuss things. Even if there is a stint that nothing was worked on, that’s totally fine.
+
+### Release Process
+
+When you feel your hack and finished and ready for release, this is the process we will follow.
+
+1.	The WTH Leads will assign you a new hack number.	
+1.	You should immediately rename your root folder to use that number.
+1.	The WTH Leads will schedule a 60-minute call with your team for the final review.
+    - This review is the first pass through the hack, the WTH reviewers will be going through the text with a fine-toothed comb checking for:
+        - Adherence with the How To Author style-guide.
+        - All links work, especially the navigation links
+        - All images show properly.
+        - This is NOT a content review, as the authors YOU are the SMEs so the reviewers are trusting that you’ve taken care of the technical bits.
+        - Any syntax, grammar or punction problems that the reviewers see and want you to address.
+    - NOTE: It is important that you take notes through-out the meeting so you can go away and make these changes and not miss anything.
+1.	Once you have completed the changes, you’ll need to submit a pull request.
+1.	WTH reviewers will now look at your PR and leave comments about problems that still remain. When you see these comments submitted leave further comments if you have clarifying questions to ask or arguments against the change (that’s ok).
+1.	Once you have addressed all the issues from all the reviewers, the WTH maintainers will accept and merge the PR.
+
+
+
+
 ### Pull Requests
 
 All contributions come through pull requests. To submit a proposed change, we recommend following this workflow:
@@ -50,7 +89,7 @@ All contributions come through pull requests. To submit a proposed change, we re
     - Modify an existing hack.
     - Or, scaffold out your new hack with the markdown templates provided in the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md), then author your new hack. 
 1. Re-Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
-1. Let the What The Hack team 
+1. Let the What The Hack team schedule a review.
 1. Commit and open a PR
 1. Wait for the CI process to finish and make sure all checks are green
 1. A maintainer of the project will be assigned, and you can expect a review within a few days
