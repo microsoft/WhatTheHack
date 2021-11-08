@@ -41,8 +41,11 @@ This section describes the guidelines for contributing to What The Hack.
 
 ### On-Boarding Process
 
-1.	Submit the proposal for your new WTH for consideration: http://aka.ms/wthproposal
-1.	WTH Leads will get in touch to start the on-boarding process. If they are aware of other teams with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
+Once you have submitted an [Issue/Proposal](https://aka.ms/wthproposal) via Github, you can expect the following:
+
+TODO: Add a note about how we encourage authors to collaborate via Microsoft Teams. This part of the process is optional, but recommended.
+
+1.	WTH Leads will get in touch to start the on-boarding process. If they are aware of other authors with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
 1.	WTH Leads will update the What The Hack teams site and:
     - Add everyone in your team to the What The Hack teams site.
     - Create a new channel for you named the same as your new WTH.
@@ -56,6 +59,30 @@ This section describes the guidelines for contributing to What The Hack.
         - Everyone on your team still needs to read and internalize this document to save you trouble and heartache down the line.
     - Discuss your plan for the hack and how it fits the format of What The Hack.
 1.	During the cadence call, your team will dictate the pace of the call and report what they have worked on. It is essentially your call to discuss things. Even if there is a stint that nothing was worked on, that’s totally fine.
+
+### Development Process / Pull Requests
+
+TODO: To start work, you fork and do your work there.  Share in Teams. Re-iterate the Author's guide!
+
+All contributions come through pull requests. To submit a proposed change, we recommend following this workflow:
+
+1. Make sure there's an issue (bug or proposal) raised, which sets the expectations for the contribution you are about to make.
+1. Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
+1. Fork the **WhatTheHack** repo into your own Github account and create a new branch
+1. Create your change
+    - Modify an existing hack.
+    - Or, scaffold out your new hack with the markdown templates provided in the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md), then author your new hack. 
+1. Re-Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
+1. Let the What The Hack team schedule a review.
+1. Commit and open a PR
+1. Wait for the CI process to finish and make sure all checks are green
+1. A maintainer of the project will be assigned, and you can expect a review within a few days
+
+### Use work-in-progress PRs for early feedback
+
+TODO: If you choose to not work via teams, alternatively you can use a WIP PR....
+
+A good way to communicate before investing too much time is to create a "Work-in-progress" PR and share it with your reviewers. The standard way of doing this is to add a "[WIP]" prefix in your PR's title and assign the **do-not-merge** label. This will let people looking at your PR know that it is not well baked yet.
 
 ### Release Process
 
@@ -76,33 +103,8 @@ When you feel your hack and finished and ready for release, this is the process 
 1.	Once you have addressed all the issues from all the reviewers, the WTH maintainers will accept and merge the PR.
 
 
-
-
-### Pull Requests
-
-All contributions come through pull requests. To submit a proposed change, we recommend following this workflow:
-
-1. Make sure there's an issue (bug or proposal) raised, which sets the expectations for the contribution you are about to make.
-1. Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
-1. Fork the **WhatTheHack** repo into your own Github account and create a new branch
-1. Create your change
-    - Modify an existing hack.
-    - Or, scaffold out your new hack with the markdown templates provided in the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md), then author your new hack. 
-1. Re-Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
-1. Let the What The Hack team schedule a review.
-1. Commit and open a PR
-1. Wait for the CI process to finish and make sure all checks are green
-1. A maintainer of the project will be assigned, and you can expect a review within a few days
-
-### Use work-in-progress PRs for early feedback
-
-A good way to communicate before investing too much time is to create a "Work-in-progress" PR and share it with your reviewers. The standard way of doing this is to add a "[WIP]" prefix in your PR's title and assign the **do-not-merge** label. This will let people looking at your PR know that it is not well baked yet.
-
-### Use of Third-party code
-
-- Third-party code must include licenses.
-
-**Thank You!** - Your contributions to open source, large or small, make projects like this possible. Thank you for taking the time to contribute.
+## Thank You!
+ Your contributions to open source, large or small, make projects like this possible. Thank you for taking the time to contribute.
 
 ## And now the fine print...
 
@@ -115,6 +117,10 @@ For details, visit https://cla.microsoft.com.
 When you submit a pull request, a CLA-bot will automatically determine whether you need
 to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the
 instructions provided by the bot. You will only need to do this once across all repositories using our CLA.
+
+### Use of Third-party code
+
+- Third-party code must include licenses.
 
 ## Code of Conduct
 
