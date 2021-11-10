@@ -1,4 +1,4 @@
-# Challenge 01 : Coach's Guide
+# Challenge 01: Assessment and Getting Ready for Prerequisites - Coach's Guide
 
 **[Home](README.md)** - [Next Challenge >](./Challenge02.md)
 
