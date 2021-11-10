@@ -5,17 +5,17 @@
 ## Description
 
 - As per your Assessment get your subscription ready for Deployment
-- To create Azure resources programmatically you will need service principal for your deployments.
-- Create Azure SQL database from bacpac provided as part of source code
-- Create Github Actions Workflow to Build API Code given as part of source code
-- If Builds fails Issue should be created automatically
-- If Builds succeed , Deploy artifact to API Website
+- To create Azure resources programmatically you will need a service principle for your deployments.
+- Create an Azure SQL database from the bacpac file provided as part of the source code
+- Create a Github Workflow to build API code given as part of the source code
+- If the build fails, an Issue should be created automatically
+- If the build succeeds, deploy the artifact to the API website
 
 
 ## Success Criteria
 
-1. Show Code Build failure and Success criteria is taken care of with Github Action workflow
-2. Show Which Azure services you are creating and deploying code as part of this challenge
+1. Show that both build failure and success are taken care of with a Github Action Workflow
+2. Show which Azure services you are creating and deploying code as part of this challenge
 3. Demonstrate your readiness in alignment with Solution Blueprint
 
 
