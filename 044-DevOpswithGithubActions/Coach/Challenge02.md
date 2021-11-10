@@ -1,4 +1,4 @@
-# Challenge 2: Coach's Guide
+# Challenge 2 - Build and Deploy API Website - Coach's Guide
 
 [< Previous Challenge](./Challenge01.md) - **[Home](README.md)** - [Next Challenge >](./Challenge03.md)
 
