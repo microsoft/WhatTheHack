@@ -20,5 +20,5 @@
    
 ## Prerequisites
 
-- Ensure you have Github Personal Account ,[Sign Up for Personal Github Account](https://github.com)
-- Ensure you have Azure Subscription ,[Sign Up for Azure free if you don't have any subscription](https://azure.microsoft.com/en-us/free/)
+- Ensure you have Github Personal Account: [Sign Up for Personal Github Account](https://github.com)
+- Ensure you have Azure Subscription: [Sign Up for Azure free if you don't have any subscription](https://azure.microsoft.com/en-us/free/)
