@@ -4,19 +4,19 @@
 
 ## Description
 
-- Integrate Frontend Website with API website created in previous challenge.
-- How will be your Github Action Workflow for Frontend website
-- If Builds fails Issue should be created automatically
-- If Builds succeed , Deploy Aritifact to Frontend Website
-- Make sure your solution aligns to Solution blueprint for every challenge
+- Integrate the Frontend website with the API website created in the previous challenge
+- Demonstrate changes in your Workflow to integrate API website with Frontend website
+- If the build fails, an Issue should be created automatically
+- If the build succeeds, deploy the artifact to the Frontend website
+- Make sure your solution aligns to solution blueprint for every challenge
 
 
 ## Success Criteria
 
-1. Show Code Build is successful with Github Action workflow
-2. Create and Deploy code to Frontend Website
-3. Steps undertaken to Integrate Frontend website with APIs
-4. Demonstrate functional working of solution to coach
+1. Show code build is successful with Github Action workflow
+2. Verify the artifact is created and code is deployed to the Frontend website
+3. Verfiy changes in your workflow are reflected in Frontend website
+4. Demonstrate functional working of the solution to your coach
 
 ## Learning Resources
 
