@@ -1,28 +1,28 @@
-## Challenge 1 - Assessment and getting ready for prequisite
+## Challenge 1 - Assessment and Getting Ready for Prerequisites
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge02.md)
 
 
 ## Introduction
 
-Before Starting with Github Actions /Workflow first let us understand our environment and proceed task by task. 
+Before Starting with Github Actions Workflow first let us understand our environment and proceed task by task. 
 
 ## Description
 
-- Coach will provide you with Resource zip file with code
-- Navigate through code
-- Select appropriate IDE which suits your deployment
+- Your coach will provide you with a Resource zip file with the code
+- Navigate through the code
+- Select the appropriate IDE which suits your deployment
 - Select where you will host your reposistory
-- Ensure you have Azure subscription
-- Collobarate with your team to define approach to start with
-- Demonstrate your understanding to Coach keep in mind Success Criteria 
+- Ensure you have an Azure subscription
+- Collobarate with your team to define an approach to start with
+- Demonstrate your understanding to your Coach and keep in mind the Success Criteria below
    
 
 ## Success Criteria
 
 1. You should have code in your Reposistory
 2. You should be able to show your Azure subscription 
-3. Able to demonstrate your understanding of solution Blueprint to coach
+3. You should be able to demonstrate your understanding of the solution blueprint to your coach
 
 ## Learning Resources
 
