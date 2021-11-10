@@ -1,4 +1,4 @@
-# Challenge 3: Coach's Guide
+# Challenge 3 - Build and Deploy Frontend Website - Coach's Guide
 
 [< Previous Challenge](./Challenge02.md) - **[Home](README.md)** - [Next Challenge >](./Challenge04.md)
 
