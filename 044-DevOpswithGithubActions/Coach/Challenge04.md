@@ -1,4 +1,4 @@
-# Challenge 4: Coach's Guide
+# Challenge 4 - Power Of Serverless - Coach's Guide
 
 [< Previous Challenge](./Challenge03.md) - **[Home](README.md)** - [Next Challenge >](./Challenge05.md)
 
