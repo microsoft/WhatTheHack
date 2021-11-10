@@ -1,4 +1,4 @@
-# Challenge 05: Coach's Guide
+# Challenge 05: Secure Your Solution - Coach's Guide
 
 [< Previous Challenge](./Challenge04.md) - **[Home](README.md)**
 
@@ -14,4 +14,3 @@
 
 ## Solution 
 - [Navigate to Solution for Challenge 05](./Solution/Challenge%2005/Solution05.md)
-
