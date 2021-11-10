@@ -1,6 +1,6 @@
 # Challenge 2 - Add Dapr service invocation
 
-[< Previous Challenge](./Challenge01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge03.md)
+[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
 

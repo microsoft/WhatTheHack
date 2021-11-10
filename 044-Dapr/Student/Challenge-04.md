@@ -1,6 +1,6 @@
 # Challenge 4 - Add Dapr state management
 
-[< Previous Challenge](./Challenge03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge05.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
 

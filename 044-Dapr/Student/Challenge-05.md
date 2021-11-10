@@ -1,6 +1,6 @@
 # Challenge 5 - Add a Dapr output binding
 
-[< Previous Challenge](./Challenge04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 
