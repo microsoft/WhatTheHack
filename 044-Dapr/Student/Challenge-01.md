@@ -1,6 +1,6 @@
 # Challenge 1 - Run the application
 
-[< Previous Challenge](./Challenge00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge02.md)
+[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Introduction
 

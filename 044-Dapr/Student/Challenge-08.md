@@ -1,6 +1,6 @@
 # Challenge 8 - Deploy to Azure Kubernetes Service (AKS)
 
-[< Previous Challenge](./Challenge07.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)**
 
 ## Introduction
 
