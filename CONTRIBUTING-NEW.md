@@ -41,9 +41,9 @@ This section describes the guidelines for contributing to What The Hack.
 
 In general, the WTH team prefers to collaborate with and assist contributors as they author new hacks. This makes the review process smoother when a new hack is ready to be published via a Pull Request. We offer the option of collaborating via Microsoft Teams in a "What The Hack" team that we maintain at Microsoft. 
 
-You may still choose to develop a new hack independently and submit it for review via the PR process below.
+You may still choose to develop a new hack independently and submit it for review via the [PR process below](#use-work-in-progress-prs-for-early-feedback).
 
-### On-Boarding Process (Optional, but HIGHLY recommended)
+### On-Boarding Process (Optional, but STRONGLY recommended)
 
 Once you have submitted an [Issue/Proposal](https://aka.ms/wthproposal) via Github, you can expect the following:
 
@@ -60,23 +60,46 @@ Once you have submitted an [Issue/Proposal](https://aka.ms/wthproposal) via Gith
     - Set up a bi-weekly cadence meeting to check-in and address any questions or requests you have during development.
 1.	During the cadence meetings, the authors will dictate the pace of the call and report what they have worked on. It is essentially your time to discuss things with the WTH team and/or collaborate with your co-authors. If there is a stint that nothing was worked on, that’s totally fine. We understand and appreciate that most folks are contributing to What The Hack in their spare time!
 
-### Development Process / Pull Requests
+**NOTE:** If you are not familiar with Git, Github, or markdown files, you are not alone! Since What The Hack is a collection of mostly course content and documentation, many of our contributors are not developers. It's out of scope to explain these tools here. However, there are plenty of great [resources on the Internet](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) that can help get you up to speed. Also, don't be shy to ask the WTH team for help navigating Git & Github. 
 
-TODO: More than one author? Decide where you want to work. To start work, you fork and do your work there. Share fork in Teams. Re-iterate the Author's guide!
+### Development Process
 
-All contributions come through pull requests. To submit a proposed change, we recommend following this workflow:
+All contributions to the What The Hack repo come through pull requests. This means that development of a hack starts by forking the What The Hack repo into your own Github account. This is where you will do your work. Eventually, you will create a pull request to submit your work back to the What The Hack repo for review.
 
-1. Make sure there's an issue (bug or proposal) raised, which sets the expectations for the contribution you are about to make.
-1. Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
-1. Fork the **WhatTheHack** repo into your own Github account and create a new branch
-1. Create your change
-    - Modify an existing hack.
-    - Or, scaffold out your new hack with the markdown templates provided in the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md), then author your new hack. 
+**NOTE:** If you are working with a team of co-authors, the team should pick one person to create a fork into their Github account. The other authors should collaborate and contribute to that person's fork during the development process.
+
+Okay, ready to get started creating your own What The Hack?
+
+The instructions below assume you have the git command line tool on your machine. If you're more comfortable in a GUI git client, you can use that too (we recommend [Atlassian's SourceTree](https://www.sourcetreeapp.com/)).
+
+1. Create a fork of the WTH repo
+   - Navigate to the WTH repo at: <https://aka.ms/wthrepo>
+   - Click the "Fork" button at the top right of the page and then choose the account you want to create the fork in. 
+1. Clone your new fork to your local machine
+   - `git clone https://github.com/<myname>/WhatTheHack.git`
+   - `cd WhatTheHack`
+1. Create a new branch for your work. It is a best practice to never work directly on the master branch
+   - `git branch MyWork`
+   - `git checkout MyWork`
+1. Add a new top level folder to the WTH repo using "`XXX`" as a placeholder for the number prefix
+   - `mkdir XXX-MyAwesomeHack`
+1. Within your new folder, create the following directory structure:
+	- `../Coach`
+		- `/Solutions`
+	- `../Student`
+		- `/Resources`
+1. Follow the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) and scaffold out your hack's content as shown here:
+    - `../`
+        - Hack Description
+    - `../Coach`
+        - The Coach's Guide, Lecture presentations, and any supporting files.
+        - `/Solutions`
+            - Solution code for the coach only. These are the answers and should not be shared with students.
+    - `../Student`
+        - The Student guide's Challenge markdown files
+        - `/Resources` 
+            - The code and supporting files the students will need throughout the hack.
 1. Re-Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
-1. Let the What The Hack team schedule a review.
-1. Commit and open a PR
-1. Wait for the CI process to finish and make sure all checks are green
-1. A maintainer of the project will be assigned, and you can expect a review within a few days
 
 ### Release Process
 
@@ -99,7 +122,7 @@ When you feel your hack is finished and ready for release, this is the process w
     - **NOTE:** Make any requested changes by continuing to commit to your fork. The PR will automatically update with your changes.  You do NOT need to create a new pull request!
 1.	Once you have addressed any requested changes from the WTH team, the WTH team will accept and merge the PR.
 
-### Use work-in-progress PRs for early feedback
+### Use work in progress PRs for early feedback
 
 If you choose not to collaborate with the WTH team via Microsoft Teams, alternatively you can use a work-in-progress Pull Request.
 
