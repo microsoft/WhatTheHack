@@ -39,30 +39,30 @@ Before you file an issue, make sure you've checked the following:
 
 This section describes the guidelines for contributing to What The Hack.
 
-### On-Boarding Process
+In general, the WTH team prefers to collaborate with and assist contributors as they author new hacks. This makes the review process smoother when a new hack is ready to be published via a Pull Request. We offer the option of collaborating via Microsoft Teams in a "What The Hack" team that we maintain at Microsoft. 
+
+You may still choose to develop a new hack independently and submit it for review via the PR process below.
+
+### On-Boarding Process (Optional, but HIGHLY recommended)
 
 Once you have submitted an [Issue/Proposal](https://aka.ms/wthproposal) via Github, you can expect the following:
 
-TODO: Add a note about how we encourage authors to collaborate via Microsoft Teams. This part of the process is optional, but recommended.
-
-1.	WTH Leads will get in touch to start the on-boarding process. If they are aware of other authors with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
-1.	WTH Leads will update the What The Hack teams site and:
-    - Add everyone in your team to the What The Hack teams site.
-    - Create a new channel for you named the same as your new WTH.
-    - Add a copy of the WTH Outline Template:
-        - WTH Leads will create a copy of the “WTH-ProposalAndAbstract.docx” and copy this file to the Files tab of your new channel and draw everyone’s attention to it.
-1.	The WTH Leads will schedule a 1-hour kick off call your entire team when everyone is available to:
-    - Explain if/why there are extra teammates you are being combined with.
-    - Walk through the What The Hack team, your channel and the Outline document they can optionally use.
-    - They’ll be setting up a 30 minute cadence call every two weeks to address any questions or requests you have during development.
-    - Walk through the How to Author document. 
-        - Everyone on your team still needs to read and internalize this document to save you trouble and heartache down the line.
-    - Discuss your plan for the hack and how it fits the format of What The Hack.
-1.	During the cadence call, your team will dictate the pace of the call and report what they have worked on. It is essentially your call to discuss things. Even if there is a stint that nothing was worked on, that’s totally fine.
+1.	The WTH team will get in touch to start the on-boarding process. If they are aware of other authors with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
+1.	The WTH team will add you and any co-authors to the "What The Hack" team in Microsoft Teams and:
+    - Create a new channel for you with the name of your proposed hack. 
+        - You can use this channel to communicate with the WTH team and collaborate with any co-authors.
+    - Add a copy of the "[WTH Outline Template](https://github.com/microsoft/WhatTheHack/blob/master/000-HowToHack/WTH-ProposalAndAbstract.docx?raw=true)" to the Files tab of your new channel. 
+        - You can use this Word template to brainstorm and draft an outline of your hack.
+1.	The WTH team will schedule a kick off call with you and any co-authors to:
+    - Review the WTH contribution process and set expectations for collaboration between the WTH team and the author(s).
+    - Walk through the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md). 
+        - All authors need to read and internalize this document to save you trouble and heartache down the line.
+    - Set up a bi-weekly cadence meeting to check-in and address any questions or requests you have during development.
+1.	During the cadence meetings, the authors will dictate the pace of the call and report what they have worked on. It is essentially your time to discuss things with the WTH team and/or collaborate with your co-authors. If there is a stint that nothing was worked on, that’s totally fine. We understand and appreciate that most folks are contributing to What The Hack in their spare time!
 
 ### Development Process / Pull Requests
 
-TODO: To start work, you fork and do your work there.  Share in Teams. Re-iterate the Author's guide!
+TODO: More than one author? Decide where you want to work. To start work, you fork and do your work there. Share fork in Teams. Re-iterate the Author's guide!
 
 All contributions come through pull requests. To submit a proposed change, we recommend following this workflow:
 
@@ -78,30 +78,34 @@ All contributions come through pull requests. To submit a proposed change, we re
 1. Wait for the CI process to finish and make sure all checks are green
 1. A maintainer of the project will be assigned, and you can expect a review within a few days
 
-### Use work-in-progress PRs for early feedback
-
-TODO: If you choose to not work via teams, alternatively you can use a WIP PR....
-
-A good way to communicate before investing too much time is to create a "Work-in-progress" PR and share it with your reviewers. The standard way of doing this is to add a "[WIP]" prefix in your PR's title and assign the **do-not-merge** label. This will let people looking at your PR know that it is not well baked yet.
-
 ### Release Process
 
-When you feel your hack and finished and ready for release, this is the process we will follow.
+When you feel your hack is finished and ready for release, this is the process we will follow:
 
-1.	The WTH Leads will assign you a new hack number.	
-1.	You should immediately rename your root folder to use that number.
-1.	The WTH Leads will schedule a 60-minute call with your team for the final review.
-    - This review is the first pass through the hack, the WTH reviewers will be going through the text with a fine-toothed comb checking for:
-        - Adherence with the How To Author style-guide.
+1.	The WTH team will assign your new hack a number.	
+1.	You should immediately rename your root folder to use that number. (i.e. "`XXX-MyAwesomeHack`" to "`067-MyAwesomeHack`")
+1.	The WTH team will schedule a 60-minute "pre-PR review" meeting with you and any co-authors. 
+    - The purpose of this meeting is to go through the content together and reduce the amount of back and forth review cycles on Github once your Pull Request is submitted.
+    - During this review, the WTH team will go through the text with a fine-toothed comb checking for:
+        - Adherence to the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md)
         - All links work, especially the navigation links
+        - There are no links to the WTH repo or Coach's guide from the Student guide! (See the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md))
         - All images show properly.
-        - This is NOT a content review, as the authors YOU are the SMEs so the reviewers are trusting that you’ve taken care of the technical bits.
-        - Any syntax, grammar or punction problems that the reviewers see and want you to address.
-    - NOTE: It is important that you take notes through-out the meeting so you can go away and make these changes and not miss anything.
-1.	Once you have completed the changes, you’ll need to submit a pull request.
-1.	WTH reviewers will now look at your PR and leave comments about problems that still remain. When you see these comments submitted leave further comments if you have clarifying questions to ask or arguments against the change (that’s ok).
-1.	Once you have addressed all the issues from all the reviewers, the WTH maintainers will accept and merge the PR.
+        - Any syntax, grammar or punctuation problems that the reviewers see and want you to address.
+        - This is NOT a technical content review. As the author(s), YOU are the subject matter experts. The WTH team will trust that you have taken care of the technical bits.
+    - **NOTE:** It is important that you take notes through-out the meeting so that you can go away, make any changes requested, and not miss anything.
+1.	Once you have completed any requested changes from the "pre-PR review", you can submit a pull request to the WTH repo.
+1.	The WTH team will review your PR and leave comments if there are any requested changes that still remain. If there are requested changes, please add further comments if you have clarifying questions to ask, or arguments against, the requested changes (that’s ok).
+    - **NOTE:** Make any requested changes by continuing to commit to your fork. The PR will automatically update with your changes.  You do NOT need to create a new pull request!
+1.	Once you have addressed any requested changes from the WTH team, the WTH team will accept and merge the PR.
 
+### Use work-in-progress PRs for early feedback
+
+If you choose not to collaborate with the WTH team via Microsoft Teams, alternatively you can use a work-in-progress Pull Request.
+
+A good way to communicate before investing too much time is to create a "Work-in-progress" PR and share it with the WTH team. The standard way of doing this is to add a "[WIP]" prefix in your PR's title and assign the **do-not-merge** label. This will let people looking at your PR know that it is not well baked yet.
+
+The WTH team will review your new hack following the same guidelines as above. However, the process will take longer if we need to spend additional cycles going back and forth within Github's PR process.
 
 ## Thank You!
  Your contributions to open source, large or small, make projects like this possible. Thank you for taking the time to contribute.
