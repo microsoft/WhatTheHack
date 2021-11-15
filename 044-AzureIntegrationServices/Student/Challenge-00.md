@@ -1,6 +1,6 @@
 # Challenge 00 - Preparing your Development Environment
 
-[< Previous Challenge](./Challenge-00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-01.md)
+**[Home](../readme.md)** - [Next Challenge>](./Challenge-01.md)
 
 ## Introduction
 
