@@ -24,3 +24,4 @@ Do you see any problem with this configuration? Has any of the flows that were i
 ## Related documentation
 
 * [What is Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)
+* [Azure Routing Cheat Sheet](Resources/routing-cheat-sheet.md)
