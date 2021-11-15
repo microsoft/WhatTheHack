@@ -1,4 +1,4 @@
-# Challenge \1 - \Provision your Integration Environment
+# Challenge 01 - Provision your Integration Environment
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-02.md)
 
