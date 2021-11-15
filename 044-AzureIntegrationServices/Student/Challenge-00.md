@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A solution architect should be have the right set of tools in order to be successful in deploying an integration solution in Azure.
+A cloud engineer should be have the right set of tools in order to be successful in deploying an integration solution in Azure.
 
 ## Description
 
@@ -15,7 +15,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - [Visual Studio Code](#visual-studio-code)
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
-
+    - [DownGit](#downgit)
 
 ## Azure Subscription
 
@@ -54,3 +54,11 @@ Build, manage, and monitor everything from simple web apps to complex cloud appl
 Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.com/](https://portal.azure.com/)
 
 The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal.
+
+## DownGit
+
+One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
+
+You can view the DownGit project on GitHub here: <https://github.com/MinhasKamal/DownGit>
+
+And you can use DownGit from its website here: <https://minhaskamal.github.io/DownGit/#/home>
