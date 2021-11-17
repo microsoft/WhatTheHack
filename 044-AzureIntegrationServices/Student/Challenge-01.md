@@ -44,7 +44,7 @@ You should be able to create a set of Bicep templates that:
 
 ## Tips 
 
-- Create one several bicep modules for deploying resources. - [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules]
+- Create one several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources.
 - Create a main bicep file.  Define parameters and pass those as input to the modules - 
 - Make sure to create an output parameter in the Application Insight module, you need to pass the AI instrumentation key to be plugged into the Function App and APIM modules. - [Outputs in Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell)
 
