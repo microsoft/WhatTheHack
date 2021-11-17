@@ -9,19 +9,19 @@ Welcome to the coach's guide for the # Azure Integration Services What The Hack.
 
 
 ## Coach's Guides
-1. Challenge 0: **[Prepare your development environment](Coach/Solution-00.md)**
+1. Challenge 0: **[Prepare your development environment](Solution-00.md)**
    - Get yourself ready to build your integration solution
-2. Challenge 1: **[Provision an integration environment](Coach/Solution-01.md)**
+2. Challenge 1: **[Provision an integration environment](Solution-01.md)**
    - Create a bicep template that will provision a baseline integration environment.
-3. Challenge 2: **[Deploy your integration environment](Coach/Solution-02.md)**
+3. Challenge 2: **[Deploy your integration environment](Solution-02.md)**
    - Create a CI/CD pipeline to do automated deployment of your integration environment.
-4. Challenge 3: **[Create backend APIs](Coach/Solution-03.md)**
+4. Challenge 3: **[Create backend APIs](Solution-03.md)**
    - Create backend APIs
-5. Challenge 4: **[Secure backend API via OAuth](Coach/Solution-04.md)**
+5. Challenge 4: **[Secure backend API via OAuth](Solution-04.md)**
    - Securing backend API via OAuth
-6. Challenge 5: **[Secure backend API using client certificate](Coach/Solution-05.md)**
+6. Challenge 5: **[Secure backend API using client certificate](Solution-05.md)**
    - Securing backend API using client certificate
-7. Challenge 6: **[Secure backend API over the VNET](Coach/Solution-06.md)**
+7. Challenge 6: **[Secure backend API over the VNET](Solution-06.md)**
    - Securing backend API services over the VNET
-8. Challenge 7: **[Configure external and internal API access](Coach/Solution-07.md)**
+8. Challenge 7: **[Configure external and internal API access](Solution-07.md)**
    - Configure external and internal API access
