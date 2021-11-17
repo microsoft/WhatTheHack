@@ -40,8 +40,6 @@ In this hack you will be solving common business scenario our customers face whe
 ## Repository Contents (Optional)
 - `../Coach/Guides`
   - Coach's Guide and related files
-- `../SteamShovel`
-  - Image files and code for steam shovel microservice
 - `../images`
   - Generic image files needed
 - `../Student/Guides`
