@@ -26,18 +26,24 @@ You should be able to create a set of Bicep templates that:
 
 ## Learning Resources
 
+- [What is Bicep?](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
+
 - [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
 - [Azure Quickstart Templates - Create API Management Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/azure-api-management-create)
+- [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
+
 - [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
 - [Deploy Function App on Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#deploy-on-premium-plan)
-- [What is Bicep?](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
+- [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep)
+ 
 - [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep)
+
 - [Architect API integration in Azure](https://docs.microsoft.com/en-us/learn/paths/architect-api-integration/)
 
 
-## Tips (Optional)
+## Tips 
 
-- Create one several bicep modules for deploying resources. - [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules
+- Create one several bicep modules for deploying resources. - [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules]
 - Create a main bicep file.  Define parameters and pass those as input to the modules - 
 - Make sure to create an output parameter in the Application Insight module, you need to pass the AI instrumentation key to be plugged into the Function App and APIM modules. - [Outputs in Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell)
 
