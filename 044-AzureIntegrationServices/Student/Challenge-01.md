@@ -29,8 +29,8 @@ You should be able to create a set of Bicep templates that:
 - [What is Bicep?](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
 
 - [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
-- [Azure Quickstart Templates - Create API Management Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/azure-api-management-create)
-- [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
+  - [Azure Quickstart Templates - Create API Management Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/azure-api-management-create)
+  - [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
 
 - [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
 - [Deploy Function App on Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#deploy-on-premium-plan)
