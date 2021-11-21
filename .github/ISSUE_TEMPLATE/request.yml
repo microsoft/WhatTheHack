@@ -1,0 +1,98 @@
+name: Request
+description: Request a What the Hack Event
+title: "[Request]: "
+labels: ["request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to request a What the Hack event to be hosted.
+  - type: dropdown
+    id: hack
+    attributes:
+      label: Which Hack are you requesting?
+      multiple: false
+      options:
+        - 001-IntroToKubernetes
+        - 002-IntroToAzureAI
+        - 003-DrivingMissData
+        - 004-HotelCaliVegasDevHack
+        - 005-RockPaperScissorsBoom
+        - 006-AppModernization
+        - 007-AzureMonitoring
+        - 008-DatabricksIntroML
+        - 009-MicroservicesInAzure
+        - 010-AzureDevOps
+        - 011-InfraAsCode-ARM-DSC
+        - 012-InfraAsCode-Terraform
+        - 013-InfraAsCode-Ansible
+        - 014-OSSDevOps
+        - 015-Serverless
+        - 016-AppMigration
+        - 017-FrontDoor
+        - 018-BI2AI
+        - 019-ThisOldDataWarehouse
+        - 020-MasteringLinux
+        - 021-IdentityForApps
+        - 022-AzureGovernance
+        - 023-AdvancedKubernetes
+        - 024-DoYouEvenSynapse
+        - 025-ArcEnabledServers
+        - 026-ArcEnabledKubernetes
+        - 027-FHIRPoweredHealthcare
+        - 028-AdvancedNetworking
+        - 029-IoTEdge
+        - 030-ConversationalAI
+        - 031-DevOpsWithGitHub
+        - 032-MLOpsFromScratch
+        - 033-OSSDatabaseMigration
+        - 034-MicrosoftTeams-MakeItReal
+        - 035-HubAndSpoke
+        - 036-BGP
+        - 037-AzureVirtualDesktop
+        - 038-MDWCovid19
+        - 039-AKSEnterpriseGrade
+        - 040-JavaOnAppService
+        - 041-VirtualWAN
+        - 042-SAPOnAzure
+        - 043-SQLModernization
+        - 044-DevOpswithGithubActions
+        - 045-InfraAsCode-Bicep
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Event Date
+      description: On what date does the Hack event need to be held?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Organization, Audience and Location
+      description: Please tell us about the organization, audience and location for the Hack event. (Note this is a public repo and your issue will be public. Please only provide information which is appropriate to display publicly.)
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Other
+      description: |
+        Any other notes or comments or anything the WTH team should know.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Please note: WTH is self-serve: we don't offer logistic support or Azure environments. The WTH team will connect you with Hack authors or others who can deliver the Hack you selected.
+
+        Please consult [How to Host a What the Hack](../000-HowToHack/WTH-HowToHostAHack.md) for details on how hosting a What the Hack works.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: >
+        This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
+        For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or 
+        contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
