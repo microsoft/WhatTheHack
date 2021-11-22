@@ -14,12 +14,12 @@ Tommy Falgout - US OCP CSA
 
 # Agenda
 
-- Introductions
-- WTH is WTH?
-- Data Volumes Walkthrought
+* Introductions
+* WTH is WTH?
+* Data Volumes Walkthrought
   - Key Concepts
   - Demo
-- Q&A
+* Q&A
 
 ---
 
@@ -188,7 +188,7 @@ Access Modes – The permission for the volumes
 
 ---
 
-![](img/data-volume-1.png)
+![bg fit](../Student/img/aks-volumes.png)
 
 ---
 
@@ -244,11 +244,22 @@ Service Level Objectives (SLO)
 
 ---
 
+<style scoped>
+table {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+}
+th {
+    color: blue;
+}
+</style>
+
 # Challenge #8 – BC/DR (Key Concepts)
 
 | Availability % | Downtime per year | Downtime per quarter | Downtime per month | Downtime per week | Downtime per day |
 | --- | --- | --- | --- | --- | --- |
-| 99% ("two nines") | 3.65 days | 21.9 hours | 7.31 hours | 1.68 hours | 14.40 minutes |
+| 99% ("two nines") | 3.65 days | 21.9 hours | 7.31 hours | 1.68 hours | 14.40 minutes 
 | 99.5% ("two and a half nines") | 1.83 days | 10.98 hours | 3.65 hours | 50.40 minutes | 7.20 minutes |
 | 99.9% ("three nines")  | 8.77 hours | 2.19 hours | 43.83 minutes | 10.08 minutes | 1.44 minutes | 
 | 99.95% ("three and a half nines") | 4.38 hours | 65.7 minutes | 21.92 minutes | 5.04 minutes | 43.20 seconds | 
@@ -257,7 +268,15 @@ Service Level Objectives (SLO)
 
 ---
 
+| foo | foo2 | 
+| --- | --- |
+| bar |
+| | bar2 |
+
+---
+
 # Challenge #8 – BC/DR (Key Concepts)
+
 
 High Availability (HA)
 - Maintain acceptable performance despite service, hardware or DC failure
