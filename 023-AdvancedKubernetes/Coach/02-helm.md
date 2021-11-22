@@ -1,6 +1,6 @@
 # Challenge 2: Coach's Guide - Helm
 
-[< Previous Challenge](01-setup.md) - **[Home](README.md)** - [03-resiliency.md)
+[< Previous Challenge](01-setup.md) - **[Home](README.md)** - [Next Challenge >](03-resiliency.md)
 
 ## Introduction
 

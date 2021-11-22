@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to the coach's guide for the Advanced Kubernetes What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-Also remember that this hack includes a optional [presentation](https://microsoft-my.sharepoint.com/:p:/p/thfalgou/Efm6fpzOi9ZMltHo2HteXUgBg6T-qc5Yyd8rgC9NOM7aHQ?e=pgc3oM) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+Also remember that this hack includes a optional [presentation](slides.html) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 Other optional presentations imported into this repo, but not specifically designed for this WTH, include:
 * [Container Probes](Lectures/Container%20Probes.pptx)
