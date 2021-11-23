@@ -77,6 +77,6 @@ To complete this assignment, you must achieve the following goals:
 
 ## Learning Resources
 
-- https://code.visualstudio.com/
-- https://code.visualstudio.com/docs/editor/integrated-terminal
-- https://docs.microsoft.com/dotnet/core/tools/dotnet-run
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [VS Code Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
+- [Dotnet Command Line - Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run)

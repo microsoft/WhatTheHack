@@ -47,5 +47,5 @@ Look in the `044-Dapr/Student/Resources` directory for the source code to get st
 
 ## Learning Resources
 
-- https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
-- https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/service-invocation
+- [Dapr Service Invocation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/)
+- [Dapr for .NET developers - Service Invocation](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/service-invocation)

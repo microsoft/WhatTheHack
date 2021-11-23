@@ -8,7 +8,6 @@ In this assignment, you're going to deploy the Dapr-enabled services you have wr
 
 ![architecture](../images/Challenge-08/architecture.png)
 
-
 ## Success Criteria
 
 To complete this assignment, you must reach the following goals:
@@ -20,11 +19,9 @@ To complete this assignment, you must reach the following goals:
 
 1. 	Navigate to each service under the `Resources` directory, create images based upon the services and deploy these images to your Azure Container Registry. Hint: use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
 
-2. 	Navigate to each service under the `Resources` directory and use the `deploy/deploy.yaml` spec files to deploy to AKS. You will need to customize them with the
-   	names of your specific Azure container registries, etc.
+2. 	Navigate to each service under the `Resources` directory and use the `deploy/deploy.yaml` spec files to deploy to AKS. You will need to customize them with the names of your specific Azure container registries, etc.
 
 3.	Run the `Simulation` app and verify your services are running.
-
 
 ## Learning Resources
 

@@ -36,6 +36,6 @@ This assignment targets the operation labeled as **number 4** in the end-state s
 First open the `Resources` folder in this repo in VS Code. Then open the [Bindings documentation](https://docs.dapr.io/developing-applications/building-blocks/bindings/) and start hacking away. You can use [MailDev](https://github.com/maildev/maildev) for the development SMTP server. Then, you will bind to an Azure Logic App to send out emails.
 
 ## Learning Resources
-- https://docs.dapr.io/developing-applications/building-blocks/bindings/
-- https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings
-- https://github.com/maildev/maildev
+- [Dapr Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
+- [Dapr for .NET developers - bindings](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
+- [Maildev](https://github.com/maildev/maildev)

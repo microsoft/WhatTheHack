@@ -55,6 +55,6 @@ This assignment targets the operation labeled as **number 6** in the end-state s
 First open the `Resources` folder in this repo in VS Code. Then open the [Secrets management documentation](https://docs.dapr.io/developing-applications/building-blocks/secrets/) and start hacking away.
 
 ## Learning Resources
-- https://docs.dapr.io/developing-applications/building-blocks/secrets/
-- https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/secrets
-- https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/
+- [Dapr Building Blocks - Secrets](https://docs.dapr.io/developing-applications/building-blocks/secrets/)
+- [Dapr for .NET developers - Secrets](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/secrets)
+- [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/)
