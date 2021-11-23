@@ -18,7 +18,7 @@ Furthermore, the Dapr state management building block provides several other fea
 
 The following diagram shows the high level architecture:
 
-![](../.img/Challenge-04/state_management.png)
+![](../images/Challenge-04/state_management.png)
 
 Right now, this is all you need to know about this building block. If you want to get more detailed information, read [introduction to the state management building block](https://docs.dapr.io/developing-applications/building-blocks/state-management/).
 
@@ -33,7 +33,7 @@ To complete this assignment, you must reach the following goals:
 
 This assignment targets the operation labeled as **number 3** in the end-state setup:
 
-![](../.img/Challenge-04/dapr-setup-assignment4.png)
+![](../images/Challenge-04/dapr-setup-assignment4.png)
 
 ## Learning Resources
 

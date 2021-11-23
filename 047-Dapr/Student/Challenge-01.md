@@ -10,7 +10,7 @@ In this assignment, you'll run the reference application to ensure that everythi
 
 As mentioned in the introduction, the hackathon assignments are built upon an existing microservice reference app, entitled the ***Traffic Control Application***. To start, you'll test the Traffic Control app to ensure that the application runs and your environment is configured correctly. You'll use Visual Studio Code to start each of the 4 microservices shown below:
 
-<img src="../.img/Challenge-01/services.png" style="zoom: 75%;padding-top: 50px;" />
+<img src="../images/Challenge-01/services.png" style="zoom: 75%;padding-top: 50px;" />
 
 Keep in mind that you'll be running the application ***without*** Dapr technology. As you work through the challenges, you'll add *Dapr-enable* the application by adding Dapr  Building Blocks and Components to it. Figure depicts the microservices in the reference application.
 
@@ -47,7 +47,7 @@ To complete this assignment, you must achieve the following goals:
     - Open the file `Resources/VehicleRegistrationService/test.http` using the (file) Explorer feature in VS Code. The request in this file simulates retrieving the vehicle and owner information for a certain license-number.
   
     - Click on Send request link, located immediately above the GET request, highlighted below with a red box, to send a request to the API:
-        <img src="../.img/Challenge-01/rest-client.png" />
+        <img src="../images/Challenge-01/rest-client.png" />
 
     - The response from the request will be shown in a separate window on the right. It should have an HTTP status code 200 OK and the body should contain some random vehicle and owner-information:
 
@@ -71,7 +71,7 @@ To complete this assignment, you must achieve the following goals:
       ```
  
     - Finally, check the logging in the terminal window. It should look like this:
-      <img src="../.img/Challenge-01/logging-vehicleregistrationservice.png" />
+      <img src="../images/Challenge-01/logging-vehicleregistrationservice.png" />
  
 1. For the remaining service, start and check the logging in the corresponding terminal window.
 

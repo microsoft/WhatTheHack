@@ -15,7 +15,7 @@ As Dapr can run on a variety of hosts, you'll start by running Dapr in self-host
 
 The assignments implement a traffic-control camera system that are commonly found on Dutch highways. Here's how the simulation works:
 
-![Speeding cameras](.img/speed-trap-overview.png)
+![Speeding cameras](images/speed-trap-overview.png)
 
 There's 1 entry-camera and 1 exit-camera per lane. When a car passes an entry-camera, a photo of the license plate is taken and the car and the timestamp is registered.
 
@@ -25,7 +25,7 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 
 The traffic-control application architecture consists of four microservices:
 
-![Services](.img/services.png)
+![Services](images/services.png)
 
 - The **Camera Simulation** is a .NET Core console application that will simulate passing cars.
 - The **Traffic Control Service** is an ASP.NET Core WebAPI application that offers entry and exit endpoints: `/entrycam` and `/exitcam`.
@@ -36,7 +36,7 @@ These services compose together to simulate a traffic control scenario.
 
 The following sequence diagram describes how the application works:
 
-<img src=".img/sequence.png" alt="Sequence diagram" style="zoom:67%;" />
+<img src="images/sequence.png" alt="Sequence diagram" style="zoom:67%;" />
 
 1. The Camera Simulation generates a random license plate number and sends a *VehicleRegistered* message (containing this license plate number, a random entry-lane (1-3) and the timestamp) to the `/entrycam` endpoint of the TrafficControlService.
 1. The TrafficControlService stores the *VehicleState* (license plate number and entry-timestamp).
@@ -67,7 +67,7 @@ As you complete the lab assignments, you'll evolve the application architecture 
 
 The following diagram shows the end-state of the application:
 
-<img src=".img/dapr-setup.png" alt="Dapr setup" style="zoom:67%;" />
+<img src="images/dapr-setup.png" alt="Dapr setup" style="zoom:67%;" />
 
 1. To retrieve driver information using synchronous request/response communication between the FineCollectionService and VehicleRegistrationService, you'll implement the Dapr **service invocation** building block.
 1. To send speeding violations to the FineCollectionService, you'll implement the Dapr **publish and subscribe** building block (asynchronous communication) with the Dapr Azure Service Bus component.
@@ -78,7 +78,7 @@ The following diagram shows the end-state of the application:
 
 The following sequence diagram shows how the solution will work after implementing Dapr:
 
-<img src=".img/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
+<img src="images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
 
 > [!NOTE]
 > It's helpful to refer back to the preceding sequence diagram as you progress through the workshop assignments.

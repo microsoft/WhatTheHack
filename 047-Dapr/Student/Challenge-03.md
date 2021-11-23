@@ -14,7 +14,7 @@ The publish/subscribe pattern allows your microservices to communicate asynchron
 
 Similarly, a subscriber, or consumer, will receive messages from a topic without knowledge of what producer sent it. This pattern is especially useful when you need to decouple microservices from one another. See the diagram below for an overview of how this pattern works with Dapr:
 
-<img src="../.img/Challenge-03/pub-sub.png" style="zoom: 66%;padding-top: 50px;" />
+<img src="../images/Challenge-03/pub-sub.png" style="zoom: 66%;padding-top: 50px;" />
 
 ## Success Criteria
 
@@ -27,7 +27,7 @@ To complete this assignment, you must reach the following goals:
 
 This assignment targets the operations labeled as **number 2** in the end-state setup:
 
-<img src="../.img/Challenge-03/dapr-setup-assignment03.png" style="zoom: 67%;" />
+<img src="../images/Challenge-03/dapr-setup-assignment03.png" style="zoom: 67%;" />
 
 ## Tips
 

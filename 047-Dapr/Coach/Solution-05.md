@@ -6,7 +6,7 @@
 
 In this assignment, you will use the open-source [MailDev](https://github.com/maildev/maildev) component, running inside in a container, as your SMTP server. This is a development SMTP server that doesn't actually send out emails (by default), but collects them and shows them in a built-in inbox. The tool extremely handy for test or demo scenarios. You will run this server as a Docker container.
 
-![output-binding-operation](../.img/Challenge-05/output-binding-operation.png)
+![output-binding-operation](../images/Challenge-05/output-binding-operation.png)
 
 Then you will repoint the output bindings to an Azure Logic App that will send out the emails.
 
@@ -26,7 +26,7 @@ This will pull the docker image `maildev/maildev:latest` from Docker Hub and sta
 
 If everything goes well, you should see some output like this:
 
-![](../.img/Challenge-05/docker-maildev-output.png)
+![](../images/Challenge-05/docker-maildev-output.png)
 
 > If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info.
 
@@ -58,7 +58,7 @@ Keep in mind that once you remove, it's gone. You'll need to start it again with
 
 You will enhance the FineCollectionService so that it uses the Dapr SMTP output binding to send fine notice emails to those driving at excessive speeds:
 
-<img src="../.img/Challenge-05/output-binding-operation.png" style="padding-top: 25px;" />
+<img src="../images/Challenge-05/output-binding-operation.png" style="padding-top: 25px;" />
 
 1.  Open the file `Resources/FineCollectionService/Controllers/CollectionController.cs` in VS Code.
 
@@ -214,11 +214,11 @@ You should see the same logs as before. You can also view the fine notification 
 1.  Wait for the first emails to come in.
 1.  Click on an email in the inbox to see its content:
 
-    <img src="../.img/Challenge-05/inbox.png" style="zoom:67%;padding-top: 25px;" />
+    <img src="../images/Challenge-05/inbox.png" style="zoom:67%;padding-top: 25px;" />
 
 ## Step 5: Use an Azure Logic App to send email
 
-![output-binding-operation-azure](../.img/Challenge-05/output-binding-operation-azure.png)
+![output-binding-operation-azure](../images/Challenge-05/output-binding-operation-azure.png)
 
 1. Open the Logic App that is deployed to your Azure Resource Group. You will need to initialize the Office 365 connector and copy the HTTP trigger endpoint.
    1. Click on the **Logic app designer** blade

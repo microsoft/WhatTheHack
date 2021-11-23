@@ -21,7 +21,7 @@ The command will pull the docker image `rabbitmq:3-alpine` from Docker Hub, copy
 If all goes well, you should see some output like this:
 
 
-<img src="../.img/Challenge-03/docker-rmq-output.png" style="zoom: 66%;padding-top: 50px;" />
+<img src="../images/Challenge-03/docker-rmq-output.png" style="zoom: 66%;padding-top: 50px;" />
 
 > If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info.
 
@@ -211,7 +211,7 @@ You're going to start the application, service-by-service. While doing so, you'l
 
 1. First, you'll start the VehicleRegistrationService shown below:
  
-   <img src="../.img/Challenge-03/dapr-setup-assignment03-vehichleregistration-highlight.png" style="padding-top: 25px;" />
+   <img src="../images/Challenge-03/dapr-setup-assignment03-vehichleregistration-highlight.png" style="padding-top: 25px;" />
 
 1. Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
@@ -228,7 +228,7 @@ You're going to start the application, service-by-service. While doing so, you'l
 
 1. Next, you'll start the FineCollectionService: 
 
-   <img src="../.img/Challenge-03/dapr-setup-assignment03-finecollection-highlight.png" style="padding-top: 25px;" />
+   <img src="../images/Challenge-03/dapr-setup-assignment03-finecollection-highlight.png" style="padding-top: 25px;" />
 
 1. Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
 
@@ -243,7 +243,7 @@ You're going to start the application, service-by-service. While doing so, you'l
 
 1. Next, you'll start the TrafficControlService:
 
-   <img src="../.img/Challenge-03/dapr-setup-assignment03-trafficcontrol-highlight.png" style="padding-top: 25px;" />
+   <img src="../images/Challenge-03/dapr-setup-assignment03-trafficcontrol-highlight.png" style="padding-top: 25px;" />
 
 1. Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
 
@@ -258,7 +258,7 @@ You're going to start the application, service-by-service. While doing so, you'l
 
 1. Finally, you'll start the Traffic Simulator:
 
-   <img src="../.img/Challenge-03/dapr-setup-assignment03-simulation-highlight.png" style="padding-top: 25px;" />
+   <img src="../images/Challenge-03/dapr-setup-assignment03-simulation-highlight.png" style="padding-top: 25px;" />
 
 1. Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
 
@@ -278,7 +278,7 @@ This log entry shows that Dapr queried the topic specified by the service `colle
 
 RabbitMQ provides a built-in dashboard that presents messaging activity, logging, and performance metrics. Open a browser and navigate to [http://localhost:15672/](http://localhost:15672/). Both the login name is `guest` and the password is `guest`. Shown below, the dashboard is helpful for troubleshooting RabbitMQ anomalies:
 
-   <img src="../.img/Challenge-03/rabbitmq-dashboard.png" style="padding-top: 25px;" />
+   <img src="../images/Challenge-03/rabbitmq-dashboard.png" style="padding-top: 25px;" />
 
 ### Step 6: Receive messages in the FineCollectionService (*Programmatically*)
 
@@ -528,7 +528,7 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
 
 1. Navigate to the Service Bus blade in the Azure Portal. After a few minutes, you'll see the message traffic between services in the dashboard.
 
-<img src="../.img/Challenge-03/service-bus-blade.png" style="zoom: 67%;padding-top: 30px;" />
+<img src="../images/Challenge-03/service-bus-blade.png" style="zoom: 67%;padding-top: 30px;" />
 
 https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-servicebus/
 
