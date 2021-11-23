@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+    <h2>Policy Details</h2>
+        <div class="form-horizontal">
+            <ul id="validationSummary"></ul>
+    
+            <div class="form-group">
+                <label for="Name" class = "control-label col-md-2">
+                Name
+                </label>
+                <div class="col-md-10">
+                    {{data.name}}
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="Description" class = "control-label col-md-2">
+                Description
+                </label>
+                <div class="col-md-10">
+                    {{data.description}}
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DefaultDeductible" class = "control-label col-md-2">
+                Default Deductible
+                </label>
+                <div class="col-md-10">
+                    {{data.defaultDeductible | currency}}
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DefaultOutOfPocketMax" class = "control-label col-md-2">
+                Default Out of Pocket Max
+                </label>
+                <div class="col-md-10">
+                    {{data.defaultOutOfPocketMax | currency}}
+                </div>
+            </div>
+    
+           
+        </div>
+    
+    <div>
+        <a href="#/policies">Back to List</a>
+    </div>
