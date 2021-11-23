@@ -20,7 +20,7 @@ In this assignment, you'll run the Traffic Control application to make sure ever
 
 1. Start the service by typing in the `dotnet run` command in the terminal window.
 
-   > If you receive an error here, please double-check whether or not you have installed all the [prerequisites](README.md#Prerequisites) for the workshop!  
+   > If you receive an error here, please double-check whether or not you have installed all the [prerequisites](../README.md#Prerequisites) for the workshop!  
 
 Now you can test whether you can call the VehicleRegistrationService. You can do this using a browser, CURL or some other HTTP client. But there is a convenient way of testing RESTful APIs directly from VS Code (using the REST Client extension VS Code):
 

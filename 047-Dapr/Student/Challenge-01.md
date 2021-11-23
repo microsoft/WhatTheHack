@@ -32,7 +32,7 @@ To complete this assignment, you must achieve the following goals:
 
 1. Observe activity flow from the top-level simulation service all the way through the Fine Collection service.
 
-  > If you encounter an error, double-check to ensure that you have correctly installed all the [prerequisites](README.md#Prerequisites) for the workshop!
+  > If you encounter an error, double-check to ensure that you have correctly installed all the [prerequisites](../README.md#Prerequisites) for the workshop!
 
 ## Tips
 

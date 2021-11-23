@@ -477,7 +477,7 @@ Test the application again by executing the activities in step 5 again.
 
 ### Step 8: Dapr publish/subscribe with Azure Service Bus
 
- > This step assumes you have created an Azure Service Bus namespace in [Assignment 0](../Assignment0/Readme.md). 
+ > This step assumes you have created an Azure Service Bus namespace in [Challenge 00](../Student/Challenge-00.md#Step%202.%20Create%20Azure%20Resources). 
 
 So far, in this assignment, you've used *RabbitMQ* to publish and subscribe to messages. Interestingly, you didn't require an extensive understanding of this message broker. Using RabbitMQ required two steps:
 
