@@ -129,7 +129,7 @@ You'll specify the ports from the command-line when starting a service with the 
   - REST Client ([download](https://marketplace.visualstudio.com/items?itemName=humao.rest-client))
 - Docker for Desktop ([download](https://www.docker.com/products/docker-desktop))
 - Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-- Install Azure CLI ([instructions]())
+- Install Azure CLI
   - Linux ([instructions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#linux))
   - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
   - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
