@@ -268,13 +268,6 @@ th {
 
 ---
 
-| foo | foo2 | 
-| --- | --- |
-| bar |
-| | bar2 |
-
----
-
 # Challenge #8 – BC/DR (Key Concepts)
 
 
