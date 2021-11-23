@@ -15,4 +15,4 @@ jobs:
       - name: Template Format Check
         uses: jordanbean-msft/github-action-wth-template-check@v0.0.1
         with:
-          inputPath: ${{ env.GITHUB_WORKSPACE }}/047-Dapr
+          inputPath: ${{ github.workspace }}/047-Dapr
