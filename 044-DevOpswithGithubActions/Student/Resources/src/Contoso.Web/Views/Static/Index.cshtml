@@ -1,0 +1,98 @@
+﻿@model Contoso.Web.Configuration.WebAppConfiguration
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html ng-app="policyConnect">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoso Insurance PolicyConnect</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script type="text/javascript">
+        if (!contoso) var contoso = {};
+        if (!contoso.policyconnect) contoso.policyconnect = {};
+        contoso.policyconnect.vars = {
+            rootPath: '@Model.ApiUrl',
+            azureFunctionsProxyUrl: '@Model.PolicyDocumentsPath',
+            apimKey: '@Model.ApimSubscriptionKey'
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/CI-Icon-badge.png" alt="PolicyConnect" title="Contoso PolicyConnect" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/static#/policyHolders">Manage Policy Holders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="static#/people">People</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="static#/policies">Policies</a>
+                        </li>
+                    </ul>
+                </div>
+                @await Html.PartialAsync("_LoginHeader")
+            </div>
+        </nav>
+    </header>
+    <div class="container body-content">
+        <ng-view />
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Contoso Ltd. PolicyConnect&reg;</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.js"></script>
+
+    <script src="~/js/app/app.js"></script>
+    <script src="~/js/app/DependentControllers.js"></script>
+    <script src="~/js/app/PersonControllers.js"></script>
+    <script src="~/js/app/PolicyControllers.js"></script>
+    <script src="~/js/app/PolicyHolderControllers.js"></script>
+
+
+    <script type="text/javascript">
+        var modules = modules || [];
+        angular.module('policyConnect').directive("formatDate",
+            function () {
+                return {
+                    require: 'ngModel',
+                    link: function (scope, elem, attr, modelCtrl) {
+                        modelCtrl.$formatters.push(function (modelValue) {
+                            return new Date(modelValue);
+                        });
+                    }
+                }
+            });
+    </script>
+</body>
+</html>
