@@ -32,6 +32,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [AKS Enterprise-Grade](/039-AKSEnterpriseGrade/README.md)
 - [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
 - [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
+- [Infrastructure As Code: Bicep](/045-InfraAsCode-Bicep/README.md)
 - [Infrastructure As Code: ARM & DSC](/011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](/012-InfraAsCode-Terraform/Student/readme.md)
 - [Infrastructure As Code: Ansible](/013-InfraAsCode-Ansible/Student/readme.md)
@@ -60,6 +61,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
+- [DevOps with GitHub Actions](/044-DevOpswithGitHubActions/README.md)
 - [Azure DevOps](/010-AzureDevOps/readme.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)

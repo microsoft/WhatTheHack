@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.KeyVault/vaults/<YOUR KEYVAULT>"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "containerNames":{
+      "value": [
+        "bicepwthcontainer1",
+        "bicepwthcontainer2",
+        "bicepwthcontainer3",
+        "bicepwthcontainer4",
+        "bicepwthcontainer5"
+      ]
+    }
+  }
+}
