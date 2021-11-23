@@ -35,11 +35,7 @@ You might want to create the Azure resources first as sometimes it takes some ti
 
 ## Learning Resources
 
-[Dapr documentation for publish / subscribe](https://github.com/dapr/docs)
-
-[Azure Service Bus Messaging - Overview](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
-
-[Dapr and Azure Service Bus](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-servicebus/)
-
-[Dapr and RabbitMQ](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-rabbitmq/)
-
+- [Dapr documentation for publish / subscribe](https://github.com/dapr/docs)
+- [Azure Service Bus Messaging - Overview](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
+- [Dapr and Azure Service Bus](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-servicebus/)
+- [Dapr and RabbitMQ](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-rabbitmq/)
