@@ -1,0 +1,18 @@
+name: Check Template Format
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/checkTemplate.yml'
+      - '047-Dapr/**'
+  
+jobs:
+  checklinks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Template Format Check
+        uses: jordanbean-msft/github-action-wth-template-check@v0.0.1
+        with:
+          inputPath: $GITHUB_WORKSPACE/047-Dapr
