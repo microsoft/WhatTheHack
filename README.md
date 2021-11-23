@@ -55,6 +55,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+- [Dapr](/047-Dapr/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
