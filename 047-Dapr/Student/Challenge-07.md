@@ -21,7 +21,7 @@ Popular secret stores include `Kubernetes`, `Hashicorp Vault`, and `Azure KeyVau
 
 The following diagram depicts an application requesting the secret called "mysecret" from a secret store called "vault" from a configured cloud secret store:
 
-<img src="../.img/Challenge-07/secrets_cloud_stores.png" style="zoom:67%;" />
+<img src="../images/Challenge-07/secrets_cloud_stores.png" style="zoom:67%;" />
 
 Note the blue-colored Dapr secrets building block that sits between the application and secret stores.
 
@@ -44,11 +44,11 @@ This assignment targets the operation labeled as **number 6** in the end-state s
 
 **Local**
 
-<img src="../.img/Challenge-07/secrets-management-operation.png" style="zoom: 67%;" />
+<img src="../images/Challenge-07/secrets-management-operation.png" style="zoom: 67%;" />
 
 **Azure**
 
-<img src="../.img/Challenge-07/secrets-management-operation-azure.png" style="zoom: 67%;" />
+<img src="../images/Challenge-07/secrets-management-operation-azure.png" style="zoom: 67%;" />
 
 ## Tips
 

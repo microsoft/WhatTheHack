@@ -6,7 +6,7 @@
 
 This assignment will add the Dapr secrets building block to the TrafficControl application. The following figure depicts the enhancement:
 
-<img src="../.img/Challenge-07/secrets-management-operation.png" style="padding-top: 25px;" />
+<img src="../images/Challenge-07/secrets-management-operation.png" style="padding-top: 25px;" />
 
 ### Step 1: Add a secret store component
 
@@ -206,7 +206,7 @@ Don't forget to change the license key in the secrets file back to the correct o
 
 ### Step 6: Update to use Azure KeyVault for secrets management
 
-![secrets-management-operation-azure](../.img/Challenge-07/secrets-management-operation-azure.png)
+![secrets-management-operation-azure](../images/Challenge-07/secrets-management-operation-azure.png)
 
 1.  Create 3 Azure KeyVault secrets.
 

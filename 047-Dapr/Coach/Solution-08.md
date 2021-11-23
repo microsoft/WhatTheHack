@@ -6,7 +6,7 @@
 
 In this assignment, you're going to deploy the Dapr-enabled services you have written locally to an [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/) cluster.
 
-![architecture](../.img/Challenge-08/architecture.png)
+![architecture](../images/Challenge-08/architecture.png)
 
 ### Assignment goals
 

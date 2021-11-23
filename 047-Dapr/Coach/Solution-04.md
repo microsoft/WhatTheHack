@@ -264,7 +264,7 @@ The *behavior* of the application hasn't changed. But are the VehicleState entri
 
 1. You should see something similar to this:
 
-    ![](../.img/Challenge-04/redis-cli.png)
+    ![](../images/Challenge-04/redis-cli.png)
 
 As you can see, the data is actually stored in the redis cache. As you may have guessed, the Dapr state management building block supports a variety of state-stores through its component model. By specifying a different Dapr component configuration, you could use an entirely different storage mechanism. No code changes are required.
 
@@ -395,11 +395,11 @@ Now, you can also use Azure Cache for Redis instead of the default state store. 
 
     On the portal, select the Redis Cache resource and click on "Console"
 
-    ![](../.img/Challenge-04/redis-cache-console-link.png)
+    ![](../images/Challenge-04/redis-cache-console-link.png)
 
     You should see the keys stored in Azure Redis Cache:
 
-    ![](../.img/Challenge-04/redis-cache-console-results.png)
+    ![](../images/Challenge-04/redis-cache-console-results.png)
     
 
 

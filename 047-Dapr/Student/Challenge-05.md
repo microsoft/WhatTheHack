@@ -10,7 +10,7 @@ In this assignment, you're going to use a Dapr **output binding** in the FineCol
 
 Dapr offers a *bindings* building block to easily interface with external systems. Bindings are divided into input bindings and output bindings. Input bindings trigger your services by picking up events from external systems. Output bindings are an easy way to invoke functionality of an external system. Both input and output bindings work without the developer having to learn the API or SDK of the external system. You only need to know the Dapr bindings API. See below for a diagram of how output bindings work:
 
-<img src="../.img/Challenge-05/output-binding.png" style="zoom: 50%;" />
+<img src="../images/Challenge-05/output-binding.png" style="zoom: 50%;" />
 
 For this hands-on assignment, you will add a output binding leveraging the Dapr binding building block. In the next assignment, you will implement a Dapr input binding. For detailed information, read the [introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/bindings/) in the Dapr documentation and the [bindings chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings) in the [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/) guidance eBook.
 
@@ -25,11 +25,11 @@ This assignment targets the operation labeled as **number 4** in the end-state s
 
 **Local**
 
-<img src="../.img/Challenge-05/output-binding-operation.png" style="zoom: 67%;" />
+<img src="../images/Challenge-05/output-binding-operation.png" style="zoom: 67%;" />
 
 **Azure**
 
-<img src="../.img/Challenge-05/output-binding-operation-azure.png" style="zoom: 67%;" />
+<img src="../images/Challenge-05/output-binding-operation-azure.png" style="zoom: 67%;" />
 
 ## Tips
 

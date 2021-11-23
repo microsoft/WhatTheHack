@@ -6,7 +6,7 @@
 
 You will add code to the TrafficControlService to leverage a Dapr input binding to send entry-cam and exit-cam messages. The following diagram depicts the scenario:
 
-<img src="../.img/Challenge-06/input-binding-operation.png" style="padding-top: 25px;" />
+<img src="../images/Challenge-06/input-binding-operation.png" style="padding-top: 25px;" />
 
 ### Step 1: Use the Dapr input binding in the TrafficControlService
 
@@ -45,7 +45,7 @@ The `-v` flag specifies a Docker volume mount. It mounts the current folder (con
 
 If everything goes well, you should see some output like this:
 
-![](../.img/Challenge-06/docker-mosquitto-output.png)
+![](../images/Challenge-06/docker-mosquitto-output.png)
 
 > If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info.
 
@@ -278,13 +278,13 @@ docker logs dtc-mosquitto
 
 You will connect to the server and see its logs:
 
-![](../.img/Challenge-06/mosquitto-logging.png)
+![](../images/Challenge-06/mosquitto-logging.png)
 
 1. Stop all the services.
 
 ## Use Azure IoT Hub & EventHub
 
-![input-binding-operation-azure](../.img/Challenge-06/input-binding-operation-azure.png)
+![input-binding-operation-azure](../images/Challenge-06/input-binding-operation-azure.png)
 
 Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support). However, to set up the input bindings, you will need to also stand up an Azure Event Hub to proxy the messages to your `TrafficControlService`.
 
