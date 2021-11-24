@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Print Directory Structure
+        run: |
+           ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Template Format Check
         uses: jordanbean-msft/github-action-wth-template-check@v0.0.1
         with:
