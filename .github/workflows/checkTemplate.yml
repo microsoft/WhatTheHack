@@ -18,7 +18,7 @@ jobs:
       - name: Generate matrix with all modules of WhatTheHack repository.
         id: set-matrix
         run: |
-          echo "::set-output name=matrix::$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | grep -Po '\d{3}.*' | jq -R -s -c 'split("\n") | map(select(length > 0)))'"
+          echo "::set-output name=matrix::$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | grep -Po '\d{3}.*' | jq -R -s -c 'split("\n") | map(select(length > 0))')"
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
   checklinks:
