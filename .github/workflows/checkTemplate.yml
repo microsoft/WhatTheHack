@@ -12,19 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Print output
-        run: |
-          ls -l | grep '^d' | awk -F ' ' '{print $9}' | grep -Po '\d{3}.*' | jq -R -s -c 'split("\n") | map(select(length > 0))'
-      - name: Generate matrix with all modules of WhatTheHack repository.
+      - name: Generate matrix with all modules of WhatTheHack repository
         id: set-matrix
         run: |
           echo "::set-output name=matrix::$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | grep -Po '\d{3}.*' | jq -R -s -c 'split("\n") | map(select(length > 0))')"
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
+      cache: ${{ steps.set-cache.outputs.cache-hit }}
   checklinks:
     needs: generateInputPaths
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         inputPath: ${{ fromJson(needs.generateInputPaths.outputs.matrix) }}
     steps:
