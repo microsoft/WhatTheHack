@@ -1,7 +1,7 @@
 # What The Hack - Contribution Guide
 
 What The Hack is all about being "for the people, by the people". This repo was originally created to share real-world hackathons that Microsoft employees have hosted with their customers. Here are our core principles:
-- Anyone can [contribute a new hack](#-contributing-a-new-hack-to-what-the-hack).
+- Anyone can [contribute a new hack](#contributing-a-new-hack-to-what-the-hack).
 - Anyone can use the content to [host their own WTH event](./000-HowToHack/WTH-HowToHostAHack.md).
 - Anyone can modify or update a hack as needed.
   - Submitting a [pull request for updated content](#contributing-an-update-to-an-existing-hack) is encouraged.
