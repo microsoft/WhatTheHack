@@ -1,17 +1,20 @@
-# Challenge 0 - Setup
+# Challenge 0 - Pre-requisites - Setup
 
 **[Home](../readme.md)** - [Next Challenge >](./Challenge1.md)
 
-## Pre-requisites
+## Introduction
 
-Requirements: Fabrikam has multi region presence (In US and Europe) and would like to implement best practices of deploying Azure Purview
-Data Engineers should have access to all the zones of ADLS
-Data Analysts should have access only the curated zone of ADLS
+A well planned and executed deployment will provide a strong foundation for a successful data governance platform. In this challenge you would review the best approaches of deploying Azure Purview and setting up collections based on the requirements below
 
-ADLS is centralized in the US region
-DW is project being run in Europe region
-OLTP applications mainly run in the US region
+## Requirements
+- Fabrikam has multi region presence (In US and Europe) and would like to have their governance tool to be able to scan all the data sources from all the regions
+- They would like to have organize their assets and data sources by their region and then by their business's flow (Finance, Marketing and Sales)
+- Finance assets should only be accessbile by selected users that belong to Finance group
+- The AllUsers group should only have permissions to read all the assets except Finance
 
-Next step: Deploy Azure Purview and create the collection structure based on the above requirements keeping in view how the permissions can be granted at these collections
+Deploy Azure Purview and create the collection structure based on the above requirements
 
-Successful deployment of Azure Purview with a proper collections structure and setup the permission model![image](https://user-images.githubusercontent.com/19194442/139022045-7c458f19-b110-4e2e-a9a9-18d492ec64dc.png)
+## Success Criteria
+- Deploy Azure Purview using the portal and be able to access the Purview portal
+- Create the collection hierarchy built based on the above requirements
+- Setup permissions by adding the relevant groups (Finance and AllUsers) and demonstrate the collections and permissions to the coach
