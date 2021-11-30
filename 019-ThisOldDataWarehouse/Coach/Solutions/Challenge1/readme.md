@@ -44,6 +44,13 @@ az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/s
     * Add your client IP address to the firewall for Synapse
     * Ensure you are leveraging SQL Server Management STudio 18.x or higher
 
+8. The follow information is needed for the students:
+      Host Name: is the IP address of the container instance created.
+      User: sa
+      Password: OcP2020123
+     
+[Container Host Location](https://hub.docker.com/repository/docker/alexk002/sqlserver2019_demo)
+
 ## Tools
 
 1. [SQL Server Management Studion (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
