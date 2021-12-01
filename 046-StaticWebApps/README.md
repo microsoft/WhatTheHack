@@ -3,24 +3,28 @@
 Web apps have evolved from the days of server-generated HTML to a new world of single page applications (SPAs) backed by APIs. Azure Static web apps offer a convenient way to create SPAs combined with a great developer experience. In this hack we'll explore the core capabilities of static web apps.  
 
 ## Learning Objectives
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will be learning about key features of Azure Static Web Apps, designed to accelerate your app development with a global platform for hosting static content and APIs that supports native integration with CI/CD workflows to build and deploy.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency 
+The challenges are best tackled in order until at least Challenge 4. Challenges 5-7 can be tackled in any order. Challenge 5 requires access to your own domain and can be skipped for those that do not have one.
 
 ## Challenges
-1. Challenge 0: **[Prepare your workstation for IoT development](Student/Challenge-00.md)**
-   - Get yourself ready to develop your IoT solution
-2. Challenge 1: **[Provision an IoT environment](Student/Challenge-01.md)**
-   - Create an IoT Hub and run tests to ensure it can ingest telemetry
-3. Challenge 2: **[Your First Device](Student/Challenge-02.md)**
-   - Make the connection to your Edge device and see that it is properly provisioned.
-4. Challenge 3: **[Connecting the World](Student/Challenge-03.md)**
-   - Connect your device and make sure it can see all other devices in your team.
-5. Challenge 4: **[Scalable Monitoring of Telemetry](Student/Challenge-04.md)**
-   - Figure out the scale problem in the world of IoT. How do you hand trillions of data points of telemetry?
-
+- Challenge 0: **[Pre-requisites](Student/Challenge-00.md)**
+   - Get yourseld set up for success
+- Challenge 1: **[Basic SPA](Student/Challenge-01.md)**
+   - Deploy a basic single page application (SPA)
+- Challenge 2: **[Staging Changes](Student/Challenge-02.md)**
+   - Create a staging site to review pull requests
+- Challenge 3: **[APIs](Student/Challenge-03.md)**
+   - Add an API and call if from your application
+- Challenge 4: **[Auth](Student/Challenge-04.md)**
+   - Add user authentication to your application
+- Challenge 5: **[Name It](Student/Challenge-05.md)**
+   - Add a custom domain name to your application (requires you to have your own custom domain)
+- Challenge 6: **[Monitoring](Student/Challenge-06.md)**
+   - Create an application dashboard and alert for monitoring
+- Challenge 7: **[Call Me](Student/Challenge-07.md)**
+   - Add real-time communications with a Web Socket
+ 
 ## Prerequisites
 - Your own Azure subscription with Owner access
 - GitHub Account
@@ -29,10 +33,6 @@ In this hack you will be solving the common business problem that companies in t
 ## Repository Contents (Optional)
 - `../Coach/Guides`
   - Coach's Guide and related files
-- `../SteamShovel`
-  - Image files and code for steam shovel microservice
-- `../images`
-  - Generic image files needed
 - `../Student/Guides`
   - Student's Challenge Guide
 
