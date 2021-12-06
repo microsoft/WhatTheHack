@@ -4,7 +4,7 @@
 
 ## Introduction
 
-With multiple data sources being scanned, it is time to see the lifecycle of these datasets. In this challenge you will create data movement pipeline within Azure Data Factory and see this flow in Azure Purview in the Linage tab. 
+With multiple data sources being scanned, it is time to see the lifecycle of these data sets. In this challenge you will create data movement pipeline within Azure Data Factory and see this flow in Azure Purview in the Linage tab. 
 
 
 ## Success Criteria
