@@ -1,8 +1,8 @@
 # What The Hack - Azure Purview
 ## Introduction
-Most companies struggle to deal with humungous amount of data that is being generated across their business and across thier IT estate (read on-prem, multiple clouds). The more a company understands their data, the more effective they are to use it.
+Most companies struggle to deal with humungous amount of data that is being generated across their business and across thier IT estate (on-prem, multiple clouds). The more a company understands their data, the more effective they are to use it.
 
-In this hack, you will learn how to use Azure Purview so your organization can find, understand, govern, and consume data sources. You will hack your way through to plan, configure Azure Purview to discover the data in your fictious organization.
+You will hack your way through to implement Azure Purview in your fictious organization - Fabrikam. You will implement Azure Purview so that Fabrikam can find, understand, govern, and consume data sources
 
 ## Learning Objectives
 In this hack you will:
