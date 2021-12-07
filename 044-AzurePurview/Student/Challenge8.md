@@ -1,4 +1,4 @@
-# Challenge 8: Atlas API usage for unsupported features
+# Challenge 8: Enhancing Azure Purview with Atlas API
 
 [< Previous Challenge](./Challenge7.md) - [Home](../readme.md)
 
