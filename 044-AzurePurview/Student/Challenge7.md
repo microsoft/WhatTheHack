@@ -4,11 +4,12 @@
 
 ## Introduction
 
-In your Azure Purview environment you have already few scanned sources, multiple assets and glossary terms. With Data Insights you can have a single pane of glass view into the catalog. This will give you better understanding of exisiting assets and will provide reporting on actions which happend in your Azure Purview instance.
+With your current Azure Purview environemnt, you are able to see individual metadata about your assets, buisness vocabulary in a glossary and lifecycle of the data. There may be areas which require you to revisit and put some additional work. Things like monitoring the scans, checking which glossary terms are being used or maybe get better understanding of the sources you have scanned before. With Data Insights you can have a single pane of glass view into the catalog. This will give you better understanding of exisiting assets and will provide reports on each section. These information may be valid for you to understand actions which happend in your Azure Purview and also understand where there is more work required.
 
 ## Success Criteria
 - Explore each tab of Data Insights.
 - Check which areas of Purview requires your attention.
+- 
 
 ## Extended challenge
 - Thoughts?
