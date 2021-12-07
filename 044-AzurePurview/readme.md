@@ -27,11 +27,11 @@ In this hack you will:
    -  Setup custom classficiations and review the scan results with incremental scans
 -  Challenge 5: Business glossary
    -  Setup business glossary and associate assets to glossary items
--  Challenge 6: Lineage
+-  Challenge 6: Data lineage
    -  Learn to produce lineage using ADF and Synapse pipelines
--  Challenge 7: Insights
+-  Challenge 7: Data insights
    -  Produce insights on the work done so far
--  Challenge 8: Atlas API usage
+-  Challenge 8: Enhancing Azure Purview with Atlas API
    -  Meet the requirements that are not available out of the box
 
 ## Technologies
