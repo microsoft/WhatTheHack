@@ -4,7 +4,7 @@
 
 ## Introduction
 
-With multiple data sources in your environment, it may become challenging to understand lifecycle of the data sets. As these sources may be dependend on each other, changing one data set can impact whole process of data transformation. So far you have scanned your data sources and you can see individual metadata about these datasets. Time to see dependency and flow of data in your environemnt. It can be extremly helpful for "what if" analysis, tracing root cause or just to understand the lifecycle of the data. 
+With multiple data sources in your environment, it may become challenging to understand lifecycle of the data sets. As these sources may be dependend on each other, changing one data set can impact whole process of data transformation. So far you have scanned your data sources and you can see individual metadata about these datasets. Time to see dependency and flow of data in your environement. It can be extremly helpful for "what if" analysis, tracing root cause or just to understand the lifecycle of the data. 
 
 In this challenge you will create data movement pipeline within Azure Data Factory and see data flow in Azure Purview Linage. 
 
