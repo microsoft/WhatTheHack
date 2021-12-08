@@ -14,7 +14,7 @@ The technical learning objectives:
 3. Land data in the Data Lake from On-Premise resources (an Azure VM is used to simulate an on-prem store).
 4. Create Data Pipelines to merge the datasets into usuable format.
 5. Define Star Schemas and create a Data Warehouse.
-6. Enact version control and administrive approval for all pull requests within Github.
+6. Enact version control and administrive approval for all pull requests within GitHub.
 7. Perform calculations on Fact tables.
 8. Enable Unit Tests
 
@@ -38,7 +38,7 @@ The technical learning objectives:
 - Azure CLI
 - Azure Data Explorer
 - Azure Storage Explorer
-- Public Github Repository
+- Public GitHub Repository
 
 ## Repository Contents
 - `../Coach`

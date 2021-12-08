@@ -25,7 +25,7 @@ All challenges will be run using Bash.
     - Verified with 2.7.0
 1. Install Docker
 1. Install Helm 3
-1. Create a Github Account
+1. Create a GitHub Account
 1. Create an ACR
 1. Create an AKS cluster with the following:
     - System pool with 1 Standard_DS2_v2
@@ -41,7 +41,7 @@ All challenges will be run using Bash.
 
 1. Running `docker version` shows your Docker client and server version
 1. Running `helm version` shows the Helm version
-1. You have logged into Github
+1. You have logged into GitHub
 1. You have your own Docker Hub account
 1. Running `kubectl get nodes` shows your AKS System and User pools
 1. Running `az acr import  -n $ACR_NAME --source docker.io/library/nginx:latest --image nginx:v1` copies an image to your ACR instance

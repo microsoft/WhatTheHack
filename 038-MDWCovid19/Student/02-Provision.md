@@ -30,11 +30,11 @@ for controlling access to sensitive data.
 
 ## Success Criteria
 
-- The team has created a repository in Github and all participants have access to the repo
+- The team has created a repository in GitHub and all participants have access to the repo
 - The team has selected and provisioned a storage technology for use as an enterprise data lake
 - The selected storage technology must support storing both structured and unstructured data
 from both relational and non-relational source systems
-- The team has stored the business process document and architecture document in the selected storage and within Github
+- The team has stored the business process document and architecture document in the selected storage and within GitHub
 - The team must explain to a coach how the selected storage technology would support restricting access
 to these files, such that only designated users or groups could access it
 

@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Before Starting with Github Actions Workflow first let us understand our environment and proceed task by task. 
+Before Starting with GitHub Actions Workflow first let us understand our environment and proceed task by task. 
 
 ## Description
 

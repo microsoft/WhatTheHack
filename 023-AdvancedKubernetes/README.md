@@ -20,7 +20,7 @@ Before starting this hack you should have hands-on experience with the following
 
 - AKS
 - Kubernetes Ingress
-- Github (Repo, Cloning)
+- GitHub (Repo, Cloning)
 - Docker Hub
 - If you are doing [Data Volumes](Coach/Solutions/07-data-volumes.md) challenges, make sure your cluster is in the [supported regions for Azure Files using NFS](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-compare-protocols#regional-availability) and [register the feature in your subscription](https://github.com/kubernetes-sigs/azurefile-csi-driver/tree/master/deploy/example/nfs).
 
@@ -44,7 +44,7 @@ Before starting this hack you should have hands-on experience with the following
    1. Install flux
    1. Setup Flux Pipeline
    1. Simulate CI to verify changes pushed to AKS cluster 
-   1. Update Github to deploy Ingress Controller via Flux
+   1. Update GitHub to deploy Ingress Controller via Flux
 1. [Service Mesh](./Student/06-service-mesh.md)
    1. Install a Service Mesh
    1. Apply a virtual service

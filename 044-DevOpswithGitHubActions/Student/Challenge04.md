@@ -6,7 +6,7 @@
 
 - Review code to understand how we are going to integrate policy document with Frontend website
 - Create necessary Azure resources as required before starting with CI/CD Pipeline
-- Create Github Action workflow to deploy to serverless function
+- Create GitHub Action workflow to deploy to serverless function
 - If the build succeeds, deploy the code to a Serverless Function
 - If the build fails, raise an issue to investigate
 
@@ -22,4 +22,4 @@
 
 - [Azure Function Hosting Options](https://docs.microsoft.com/en-in/azure/azure-functions/functions-scale)
 - [Azure Function Deployments](https://docs.microsoft.com/en-in/azure/azure-functions/functions-deployment-technologies)
-- [Github Action Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [GitHub Action Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)

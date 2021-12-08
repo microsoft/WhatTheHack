@@ -131,7 +131,7 @@ fi
 az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
     --protocols Https=443 --target-fqdns grafana.net grafana.com stats.grafana.org --source-addresses $aks_subnet_prefix -n Grafana
 az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
-    --protocols Https=443 --target-fqdns github.com raw.githubusercontent.com --source-addresses $aks_subnet_prefix -n Github
+    --protocols Https=443 --target-fqdns github.com raw.githubusercontent.com --source-addresses $aks_subnet_prefix -n GitHub
 az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
     --protocols Http=80 Https=443 --target-fqdns security.ubuntu.com security.ubuntu.com packages.microsoft.com azure.archive.ubuntu.com --source-addresses $aks_subnet_prefix -n Packages
 az network firewall application-rule create -f azfw -g $rg -c AKS-egress \

@@ -12,8 +12,8 @@ Links to install the tooling for this hack:
 - [Visual Studio](https://visualstudio.microsoft.com/vs/)
 
 
-Create Github Reposistory following steps in this link 
-- [Github Reposistory Creation steps](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)
+Create GitHub Reposistory following steps in this link 
+- [GitHub Reposistory Creation steps](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)
 
 ## Solution 
 - [Navigate to Solution for Challenge 01](./Solution/Challenge%2001/Solution01.md)

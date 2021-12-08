@@ -14,8 +14,8 @@ Credit: <https://www.weave.works/blog/why-is-a-pull-vs-a-push-pipeline-important
 - Install Flux on your Cluster
     - HINT: [Getting Started with Flux](https://docs.fluxcd.io/en/latest/tutorials/get-started/)
     - Use the yaml approach, do NOT use the "Getting started with Helm" guide
-- Fork [https://github.com/fluxcd/flux-get-started](https://github.com/fluxcd/flux-get-started) in your Github Repo
-- Give write access to your Github repo
+- Fork [https://github.com/fluxcd/flux-get-started](https://github.com/fluxcd/flux-get-started) in your GitHub Repo
+- Give write access to your GitHub repo
 - Make a small change to the deployment
     - Example: Add `--ui-message='Welcome to Flux'` to the container command
     - HINT: You can use `fluxctl sync` if you're impatient

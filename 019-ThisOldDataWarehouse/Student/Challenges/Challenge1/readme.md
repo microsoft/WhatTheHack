@@ -79,7 +79,7 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 	WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
 	OR  y.[is_user_defined] = 1;
 ```
-1. Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse.
+1. Review the SSIS jobs that are at this [GitHub repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse.
 1. For you to work in the SSIS Catalog on your server after setup follow these instructions.  Open SQL Server Management Studio. Connect to the SSISDB database. Select Options to expand the Connect to Server dialog box. In the expanded Connect to Server dialog box, select the Connection Properties tab. In the Connect to database field, select or enter SSISDB.
 1. ADF SSIS Runtime is not supported in Azure Synapse Analytics Pipelines.
 

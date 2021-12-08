@@ -9,10 +9,10 @@
   - [Steps for SQL Database import ](https://docs.microsoft.com/en-us/azure/azure-sql/database/database-import)
 
 
-### Github Action for Azure Webapp
+### GitHub Action for Azure Webapp
 
 
-- Setup Dotnet build using Github Action [Dotnet build steps ](https://github.com/actions/setup-dotnet) 
+- Setup Dotnet build using GitHub Action [Dotnet build steps ](https://github.com/actions/setup-dotnet) 
 - With the Azure App Service Actions for GitHub, you can automate your workflow to deploy [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/)
 - [Azure Web Apps for Containers](https://azure.microsoft.com/services/app-service/containers/) using GitHub Actions.
 - GitHub Action for Azure WebApp to deploy to an Azure WebApp (Windows or Linux). The action supports deploying *\*.jar*, *\*.war*, and \**.zip* files, or a folder. You can also use this GitHub Action to deploy your customized image into an Azure WebApps container.
