@@ -35,7 +35,7 @@ jobs:
         run: |
            ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Template Format Check
-        uses: jordanbean-msft/github-action-wth-template-check@v0.2.0
+        uses: jordanbean-msft/github-action-wth-template-check@v0.2.2
         with:
           #inputPath: ${{ github.workspace }}/${{ matrix.inputPath }}
           inputPath: ${{ github.workspace }}/047-Dapr
