@@ -38,5 +38,5 @@ jobs:
         uses: jordanbean-msft/github-action-wth-template-check@v0.2.2
         with:
           #inputPath: ${{ github.workspace }}/${{ matrix.inputPath }}
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }} 
           shouldScanSubdirectories: true
