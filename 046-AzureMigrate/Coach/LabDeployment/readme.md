@@ -27,6 +27,11 @@ Credentials:
 - For the Windows nested Hyper-V VMs: `Administrator`/`demo!pass123`
 - For the Linux nested Hyper-V VM: `demouser`/`demo!pass123`
 
+Check the SmartHotel appliction is running.  
+
+To do this, open a browser tab and navigate to http://<SmartHotelHostIP-Address> (this is the IP for the HyperV host). You should see the SmartHotel application, which is running on nested VMs within Hyper-V on the SmartHotelHost. (The application doesn't do much: you can refresh the page to see the list of guests or select 'CheckIn' or 'CheckOut' to toggle their status.)
+
+
 The SmartHotel application should look like this:
 
 ![smarthotel app](../Images/smarthotel_app_portal.png)
