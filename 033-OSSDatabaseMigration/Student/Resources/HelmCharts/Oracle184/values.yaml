@@ -1,0 +1,34 @@
+
+replicaCount: 1
+
+application:
+  labelValue: oracle
+
+infrastructure:
+  namespace: oracle
+  appName: oracle
+  sid: izzy
+  pdb: "OCPHack8"
+  password: "OCPHack8"  
+  dataVolume: "/opt/oracle/oradata"
+  volumeName: "wthoracle"  
+image:
+  name: oracle/database
+  pullPolicy: IfNotPresent
+  tag: "18.4.0-xe"
+
+service:
+  type: LoadBalancer
+  port: 1521
+  protocol: TCP
+
+resources:
+  limits:
+     cpu: 1000m
+     memory: 4096Mi
+  requests:
+     cpu: 750m
+     memory: 2048Mi
+  volume:
+    size: 5Gi
+    storageClass: managed-premium
