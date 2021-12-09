@@ -16,7 +16,11 @@ image:
   name: oracle/database
   pullPolicy: IfNotPresent
   tag: "18.4.0-xe"
-
+imageCredentials:
+  name: peteacr01_credentials
+  registry: peteacr01.azurecr.io
+  username: PeteOracleToken
+  password: 2IG1Ek5TbE+GytxFw761UXnaF9Qlgf=G
 service:
   type: LoadBalancer
   port: 1521
