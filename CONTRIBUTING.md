@@ -19,8 +19,8 @@ There are multiple ways to contribute:
 - [Propose New Hack Topic or Improvement to Existing Hack](#propose-new-hack-topic-or-improvement-to-existing-hack)
 - [Contribute a New Hack to What The Hack](#contribute-a-new-hack-to-what-the-hack)
 - [Contribute an Update to an Existing Hack](#contribute-an-update-to-an-existing-hack)
-- [Ask for Help Hosting a What The Hack]()
-- [Let us know where you have used What The Hack]()
+- [Ask for Help Hosting a What The Hack](#ask-for-help-hosting-a-what-the-hack)
+- [Let us know where you have used What The Hack](#let-us-know-where-you-have-used-what-the-hack)
 
 ### Before You Start
 
