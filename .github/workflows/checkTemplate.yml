@@ -40,4 +40,4 @@ jobs:
           #inputPath: ${{ github.workspace }}/${{ matrix.inputPath }}
           path: ${{ github.workspace }}
           shouldScanSubdirectories: true
-          pathToExcludePathsToNotFailOnConfigFile: .github/workflows/.excludePathsToNotFailOnConfigFile.txt
+          pathToExcludePathsToNotFailOnConfigFile: ${{ github.workspace }}/.github/workflows/.excludePathsToNotFailOnConfigFile.txt
