@@ -61,9 +61,11 @@ OR
 
 ## Contribute a New Hack to What The Hack
 
-You want to author a new hack yourself or with a team of others and contribute it to What The Hack. 
+You want to author a new hack topic yourself or with a team of others and contribute it to What The Hack. 
 
-Please start by going to the Issues page for the WTH repo and submit an [Issue/Proposal](https://aka.ms/wthproposal).
+Please check if there is an existing "Proposal" Issue on the WTH repo to track your new hack. Add a comment to the existing issue to let the WTH team know you are working on this contribution.
+
+If there is no existing Issue for the new hack you plan to contribute, please start by going to the Issues page for the WTH repo and create an ["Issue/Proposal"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=proposal&template=proposal.yml&title=%5BProposal%5D%3A+).
 
 In general, the WTH team prefers to collaborate with and assist contributors as they author new hacks. This makes the review process smoother when a new hack is ready to be published via a Pull Request. We offer the option of collaborating via Microsoft Teams in a "What The Hack" team that we maintain at Microsoft. 
 
