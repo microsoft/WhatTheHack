@@ -20,7 +20,7 @@ What The Hack is community driven. Here are our core principles:
 - Anyone can [contribute a new hack](./CONTRIBUTING.md).
 - Anyone can use the content to [host their own WTH event](./000-HowToHack/WTH-HowToHostAHack.md).
 - Anyone can modify or update a hack as needed.
-  - Contributing updates back via a [pull request](./CONTRIBUTING) is encouraged.
+  - Contributing updates back via a [pull request](./CONTRIBUTING.md) is encouraged.
 - The content can always be shared with hack attendees **(Only do this after the event is over!)**
 
 Would you like to contribute to What The Hack?  We welcome new hacks and updates to existing hacks!  We have developed a process for doing this.  
