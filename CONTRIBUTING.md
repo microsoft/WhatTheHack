@@ -9,21 +9,20 @@ What The Hack is all about being "for the people, by the people". This repo was 
 
 This document provides the guidelines for how to contribute to the What The Hack project.
 
-## Issues
+## How Can I Contribute?
 
-The primary way to engage and get in touch with the What The Hack team is to [submit an issue via Github](https://github.com/microsoft/WhatTheHack/issues/new/choose). This section describes the guidelines for submitting issues.
+The best way to contribute is to engage and get in touch with the What The Hack team by [submitting an issue via Github](https://github.com/microsoft/WhatTheHack/issues/new/choose). 
 
-### Issue Types
+There are multiple ways to contribute:
 
-There are 5 types of issues:
+- [Propose New Hack Topic or Improvement to Existing Hack](#-propose-new-hack-topic-or-improvement-to-existing-hack) (I'm just giving feedback, I may or may not be interested in authoring or updating content myself)
+- [Report a Bug in an Existing Hack](#-update-or-report-a-bug-in-an-existing-hack)
+- [Contribute a New Hack to What The Hack](#-contribute-a-new-hack-to-what-the-hack) (I want to author a new hack myself)
+- [Contribute an Update to an Existing Hack](#-contribute-an-update-to-an-existing-hack) (I want to author an update or bug fix myself)
+- [Ask for Help Hosting a What The Hack]()
+- [Let us know where you have used What The Hack]()
 
-- Issue/Bug: You've found a bug in a hack and want to report it, create an issue to track the bug.
-- Issue/Proposal: Used to propose a new hack. This will get the What The Hack team to engage with you and plug you into our contribution process.
-- Issue/Report: Want to share with us that you hosted a WTH event? We'd love to know how and where WTH content is being used. Give us your feedback, and let us know!
-- Issue/Request: Want help hosting a WTH event? WTH content is self-serve, but we're happy to meet with you and walk you through how to do it.
-- Issue/Suggestion: You have a suggestion on how to improve an existing hack.
-
-### Before You File
+### Before You Start
 
 Before you file an issue, make sure you've checked the following:
 
@@ -38,7 +37,28 @@ Before you file an issue, make sure you've checked the following:
     - Is this a net new hack topic, or should your contribution extend or modify and existing hack?
     - It is okay to have more than one hack on the same technology, but the new hack should be an independent set of challenges that stand on their own.
 
-## Contributing a New Hack to What The Hack
+- Issue/Bug: You've found a bug in a hack and want to report it, create an issue to track the bug.
+- Issue/Proposal: Used to propose a new hack. This will get the What The Hack team to engage with you and plug you into our contribution process.
+- Issue/Suggestion: You have a suggestion on how to improve an existing hack.
+- Issue/Report: Want to share with us that you hosted a WTH event? We'd love to know how and where WTH content is being used. Give us your feedback, and let us know!
+- Issue/Request: Want help hosting a WTH event? WTH content is self-serve, but we're happy to meet with you and walk you through how to do it.
+
+
+## Propose New Hack Topic or Improvement to Existing Hack
+
+You have a suggestion on how to improve an existing hack, or you want to suggest a new hack topic.  You're just giving feedback, you may or may not be interested in authoring or updating content yourself. Thanks in advance for your feedback, we can't wait to read it!
+
+Please go to the Issues page for the WTH repo and create an ["Issue/Suggestion"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=suggestion&template=suggestion.yml&title=%5BSuggestion%5D%3A+). The form will guide you what information you should submit.
+
+The WTH team will follow up on your submission.
+
+## Update or report a bug in an existing hack
+
+You've found a bug in a hack and want to report it.  Great! Please go to the Issues page for the WTH repo and create an ["Issue/Bug"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=bug&template=bug.yml&title=%5BBug%5D%3A+).  The form will guide you what information you should submit.
+
+The WTH team will follow up on your submission.
+
+## Contribute a New Hack to What The Hack
 
 This section describes the guidelines for contributing a new hack to What The Hack. For contributors making an update to an existing hack, see the section below on [updating an existing hack](#contributing-an-update-to-an-existing-hack).
 
@@ -133,7 +153,9 @@ A good way to communicate before investing too much time is to create a "Work-in
 
 The WTH team will review your new hack following the same guidelines as above. However, the process will take longer if we need to spend additional cycles going back and forth within Github's PR process.
 
-## Contributing an Update to an Existing Hack
+## Contribute an Update to an Existing Hack
+
+add the line her3e about filling out the Issue/Bug form.
 
 To contribute an update to an existing hack, you should fork the What The Hack repo into your own Github account. This is where you will do your work. When you have completed the update in your fork, create a pull request to submit your work back to the What The Hack repo for review.
 
