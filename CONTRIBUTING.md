@@ -187,7 +187,7 @@ If you have further questions, or want to get in touch with the What The Hack te
 
 Please note, What The Hack is self-serve content. The WTH team doesn't offer logistical support or Azure environments. The WTH team will make its best effort to connect you with hack authors for details on the technical content, or answer any other questions you have about hosting an event.
 
-## Let us know where you have used What The Hack
+## Let Us Know Where You Have Used What The Hack
 
 The BEST feedback you could share is to let us know how and where you have used What The Hack content! Our hacks' authors are always excited to learn if their content is being used. We would love to know delivery dates, # of attendees, locations (if in-person), and how it impacted your attendees' technical readiness.
 
