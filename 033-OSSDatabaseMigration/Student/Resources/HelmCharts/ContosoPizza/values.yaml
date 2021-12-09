@@ -76,3 +76,6 @@ appSettings:
   postgres:
     dialect: "org.hibernate.dialect.PostgreSQL95Dialect"
     driverClass: "org.postgresql.Driver"
+  oracle:
+    dialect: "org.hibernate.dialect.OracleDialect"
+    driverClass: "org.oracle.Driver"
