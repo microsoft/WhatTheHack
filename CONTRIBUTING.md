@@ -61,7 +61,7 @@ OR
 
 ## Contribute a New Hack to What The Hack
 
-You want to author a new hack topic yourself or with a team of others and contribute it to What The Hack. 
+You want to author a new hack topic yourself, or with a team of others, and contribute it to What The Hack. 
 
 Please check if there is an existing "Proposal" Issue on the WTH repo to track your new hack. Add a comment to the existing issue to let the WTH team know you are working on this contribution.
 
