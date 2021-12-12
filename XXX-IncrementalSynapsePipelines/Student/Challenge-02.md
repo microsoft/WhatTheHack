@@ -1,4 +1,4 @@
-# Challenge #02 - Create Incremental Load Pipelines
+# Challenge #2 - Create Incremental Load Pipelines
 
 [< Previous Challenge](Challenge-01.md) - **[Home](../README.md)** - [Next Challenge>](Challenge-03.md)
 

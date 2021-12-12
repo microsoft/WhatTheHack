@@ -1,21 +1,15 @@
-# What The Hack - Hack Coach Guide Template
-
-*The following is a quick example of what the root of Coach folder should look like for a fictional hack*
-
-# IoT Hack of the Century
+# Automating Incremental Pipelines <br> (Azure SQL -> Synapse Dedicated Pool) <br> Coach's Guide 
 ## Introduction
 Welcome to the coach's guide for the IoT Hack of the Century What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 Also remember that this hack includes a optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 ## Coach's Guides
-- Challenge 0: **[Prepare Your Workstation](Solution-00.md)**
-   - Get yourself ready to develop your IoT solution
-- Challenge 1: **[Hub To Start](Solution-01.md)**
-   - Create an IoT Hub and run tests to ensure it can ingest telemetry
-- Challenge 2: **[Get To That Edge](Solution-02.md)**
-   - Make the connection to your Edge device and see that it is properly provisioned.
-- Challenge 3: **[Konnection is Key](Solution-03.md)**
-   - Connect your device and make sure it can see all other devices in your team.
-- Challenge 4: **[Scale FTW!](Solution-04.md)**
-   - Figure out the scale problem in the world of IoT. How do you hand trillions of data points of telemetry?
+- Challenge 0: **[Setup the source and target environments](Solution-00.md)**
+   - Standup and configure the Azure SQL and Synapse Environments
+- Challenge 1: **[Initial Data Load into the Dedicated Pool](Solution-01.md)**
+   - Use Synapse Pipelines to perform the initial data load
+- Challenge 2: **[Create Incremental Load Pipelines](Solution-02.md)**
+   - Implement Change Data Capture, create the synapse pipelines and the proper Dedicated Pool architecture to be used as a target for the pipelines and a source for reporting.
+- Challenge 3: **[Setup the trigger to automate the incremental load](Solution-03.md)**
+   - Create the trigger within Synapse to automate the pipeline and add data to SQL and watch it flow through the staging and production tables in the dedicated pool and viewable in your Power BI Report.
