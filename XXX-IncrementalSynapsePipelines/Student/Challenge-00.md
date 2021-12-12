@@ -1,6 +1,6 @@
-# Challenge #00 - \Setup the source and target environments\
+# Challenge #00 - Setup the source and target environments
 
-**[Home](../readme.md)** - [Next Challenge>](Challenge-01.md)
+**[Home](../README.md)** - [Next Challenge>](Challenge-01.md)
 
 ## Pre-requisites (Optional)
 
