@@ -23,6 +23,8 @@ Four words…  <B>Trigger an Incremental Copy</B>.
 - Fri Jan 28 – Challenge 2
 - Fri Feb 4 – Challenge 3
 
+To register for this event, click **[here](https://teams.microsoft.com/registration/v4j5cvGGr0GRqy180BHbRw,MvGvz8ieukqzOMToy2xPxQ,xXLpX8pPu0264Si6QfXk-Q,Y_EYn1V04UOccj8bblpv8g,T9X1CggkQEy8c2zLic56vw,jKFtVZW4UES1EZn2s5sUqQ?mode=read&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)**
+
 ## Prerequisites
 - One Azure Subscription per group.  One person must be the owner and the others the contributors.
 - A tool to interact with Azure SQL and a Synapse Dedicated Pool.  Plenty of options here.
