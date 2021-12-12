@@ -8,13 +8,13 @@ But wait there’s more!  As you add data to your transactional database, it nee
 Four words…  <B>Trigger an Incremental Copy</B>.
 
 ## Challenges
-- Challenge 0: **[Setup the source and target environments](Solution-00.md)**
+- Challenge 0: **[Setup the source and target environments](Student/Solution-00.md)**
    - Standup and configure the Azure SQL and Synapse Environments
-- Challenge 1: **[Initial Data Load into the Dedicated Pool](Solution-01.md)**
+- Challenge 1: **[Initial Data Load into the Dedicated Pool](Student/Solution-01.md)**
    - Use Synapse Pipelines to perform the initial data load
-- Challenge 2: **[Create Incremental Load Pipelines](Solution-02.md)**
+- Challenge 2: **[Create Incremental Load Pipelines](Student/Solution-02.md)**
    - Implement Change Data Capture, create the synapse pipelines and the proper Dedicated Pool architecture to be used as a target for the pipelines and a source for reporting.
-- Challenge 3: **[Setup the trigger to automate the incremental load](Solution-03.md)**
+- Challenge 3: **[Setup the trigger to automate the incremental load](Student/Solution-03.md)**
    - Create the trigger within Synapse to automate the pipeline and add data to SQL and watch it flow through the staging and production tables in the dedicated pool and viewable in your Power BI Report.
 
 
