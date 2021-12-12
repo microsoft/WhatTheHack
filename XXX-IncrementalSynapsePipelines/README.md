@@ -1,45 +1,37 @@
-# IoT Hack of the Century
+# Automating Incremental Pipelines 
+# (Azure SQL -> Synapse Dedicated Pool)
+
 ## Introduction
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+If you accept the challenge to attend, you and your teammates will work together to help take data from a transactional Azure SQL database and copy it into a Synapse Dedicated Pool to be used as a reporting warehouse.  
 
-## Learning Objectives
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+But wait there’s more!  As you add data to your transactional database, it needs to automatically make it to the proper tables in the reporting warehouse so we can see the changes in near real time in a report.  
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency 
+Four words…  <B>Trigger an Incremental Copy</B>.
 
 ## Challenges
-1. Challenge 0: **[Prepare your workstation for IoT development](Student/Challenge-00.md)**
-   - Get yourself ready to develop your IoT solution
-2. Challenge 1: **[Provision an IoT environment](Student/Challenge-01.md)**
-   - Create an IoT Hub and run tests to ensure it can ingest telemetry
-3. Challenge 2: **[Your First Device](Student/Challenge-02.md)**
-   - Make the connection to your Edge device and see that it is properly provisioned.
-4. Challenge 3: **[Connecting the World](Student/Challenge-03.md)**
-   - Connect your device and make sure it can see all other devices in your team.
-5. Challenge 4: **[Scalable Monitoring of Telemetry](Student/Challenge-04.md)**
-   - Figure out the scale problem in the world of IoT. How do you hand trillions of data points of telemetry?
+- Challenge 0: **[Setup the source and target environments](Solution-00.md)**
+   - Standup and configure the Azure SQL and Synapse Environments
+- Challenge 1: **[Initial Data Load into the Dedicated Pool](Solution-01.md)**
+   - Use Synapse Pipelines to perform the initial data load
+- Challenge 2: **[Create Incremental Load Pipelines](Solution-02.md)**
+   - Implement Change Data Capture, create the synapse pipelines and the proper Dedicated Pool architecture to be used as a target for the pipelines and a source for reporting.
+- Challenge 3: **[Setup the trigger to automate the incremental load](Solution-03.md)**
+   - Create the trigger within Synapse to automate the pipeline and add data to SQL and watch it flow through the staging and production tables in the dedicated pool and viewable in your Power BI Report.
+
+
+## Dates
+- Fri Jan 21 – Challenges 0 & 1
+- Fri Jan 28 – Challenge 2
+- Fri Feb 4 – Challenge 3
 
 ## Prerequisites
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- One Azure Subscription per group.  One person must be the owner and the others the contributors.
+- A tool to interact with Azure SQL and a Synapse Dedicated Pool.  Plenty of options here.
+- Power BI Desktop
 
 ## Repository Contents (Optional)
-- `../Coach/Guides`
-  - Coach's Guide and related files
-- `../SteamShovel`
-  - Image files and code for steam shovel microservice
-- `../images`
-  - Generic image files needed
-- `../Student/Guides`
-  - Student's Challenge Guide
+- TBD
 
 ## Contributors
-- Peter Laudati
-- Gino Filicetti
-- Jane Q. Public
-- Joe T. Muppet
-
+•	**[Jack Bender](https://www.linkedin.com/in/jack-bender/)**
+•	**[Chris Fleming](https://www.linkedin.com/in/chris-fleming/)**
