@@ -1,5 +1,4 @@
-# Automating Incremental Pipelines 
-# (Azure SQL -> Synapse Dedicated Pool)
+# Automating Incremental Pipelines <br> (Azure SQL -> Synapse Dedicated Pool)
 
 ## Introduction
 If you accept the challenge to attend, you and your teammates will work together to help take data from a transactional Azure SQL database and copy it into a Synapse Dedicated Pool to be used as a reporting warehouse.  
@@ -33,5 +32,5 @@ Four words…  <B>Trigger an Incremental Copy</B>.
 - TBD
 
 ## Contributors
-•	**[Jack Bender](https://www.linkedin.com/in/jack-bender/)**
+•	**[Jack Bender](https://www.linkedin.com/in/jack-bender/)**  <BR>
 •	**[Chris Fleming](https://www.linkedin.com/in/chris-fleming/)**
