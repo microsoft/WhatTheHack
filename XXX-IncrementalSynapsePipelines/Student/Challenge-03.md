@@ -1,6 +1,6 @@
-# Challenge #03 - \Setup the trigger to automate the incremental load\
+# Challenge #03 - Setup the trigger to automate the incremental load
 
-[< Previous Challenge](Challenge-02.md) - **[Home](../readme.md)** 
+[< Previous Challenge](Challenge-02.md) - **[Home](../README.md)** 
 
 ## Pre-requisites (Optional)
 
