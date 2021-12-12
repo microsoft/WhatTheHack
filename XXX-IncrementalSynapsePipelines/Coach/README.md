@@ -2,11 +2,26 @@
 
 *The following is a quick example of what the root of Coach folder should look like for a fictional hack*
 
-# IoT Hack of the Century
-## Introduction
-Welcome to the coach's guide for the IoT Hack of the Century What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+# Automating Incremental Pipelines 
+# (Azure SQL -> Synapse Dedicated Pool)
 
-Also remember that this hack includes a optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+## Introduction
+If you accept the challenge to attend, you and your teammates will work together to help take data from a transactional Azure SQL database and copy it into a Synapse Dedicated Pool to be used as a reporting warehouse.  
+
+But wait there’s more!  As you add data to your transactional database, it needs to automatically make it to the proper tables in the reporting warehouse so we can see the changes in near real time in a report.  
+
+Four words…  <B>Trigger an Incremental Copy</B>.
+
+## Challenges
+- Challenge 0: **[Setup the source and target environments](Solution-00.md)**
+   - Standup and configure the Azure SQL and Synapse Environments
+- Challenge 1: **[Initial Data Load into the Dedicated Pool](Solution-01.md)**
+   - Use Synapse Pipelines to perform the initial data load
+- Challenge 2: **[Create Incremental Load Pipelines](Solution-02.md)**
+   - Implement Change Data Capture, create the synapse pipelines and the proper Dedicated Pool architecture to be used as a target for the pipelines and a source for reporting.
+- Challenge 3: **[Setup the trigger to automate the incremental load](Solution-03.md)**
+   - Create the trigger within Synapse to automate the pipeline and add data to SQL and watch it flow through the staging and production tables in the dedicated pool and viewable in your Power BI Report.
+
 
 ## Coach's Guides
 - Challenge 0: **[Prepare Your Workstation](Solution-00.md)**
@@ -19,3 +34,20 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
    - Connect your device and make sure it can see all other devices in your team.
 - Challenge 4: **[Scale FTW!](Solution-04.md)**
    - Figure out the scale problem in the world of IoT. How do you hand trillions of data points of telemetry?
+
+## Dates
+- Fri Jan 21 – Challenges 0 & 1
+- Fri Jan 28 – Challenge 2
+- Fri Feb 4 – Challenge 3
+
+## Prerequisites
+- One Azure Subscription per group.  One person must be the owner and the others the contributors.
+- A tool to interact with Azure SQL and a Synapse Dedicated Pool.  Plenty of options here.
+- Power BI Desktop
+
+## Repository Contents (Optional)
+- TBD
+
+## Contributors
+•	**[Jack Bender](https://www.linkedin.com/in/jack-bender/)**
+•	**[Chris Fleming](https://www.linkedin.com/in/chris-fleming/)**
