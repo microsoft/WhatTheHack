@@ -1,6 +1,6 @@
-# Challenge #01 - \Initial Data Load into the Dedicated Pool\
+# Challenge #01 - Initial Data Load into the Dedicated Pool
 
-[< Previous Challenge](Challenge-00.md) - **[Home](../readme.md)** - [Next Challenge>](Challenge-02.md)
+[< Previous Challenge](Challenge-00.md) - **[Home](../README.md)** - [Next Challenge>](Challenge-02.md)
 
 ## Pre-requisites (Optional)
 
