@@ -30,5 +30,5 @@ resources:
      cpu: 750m
      memory: 2048Mi
   volume:
-    size: 5Gi
+    size: 128Gi
     storageClass: managed-premium
