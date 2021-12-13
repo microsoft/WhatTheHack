@@ -7,20 +7,16 @@ application:
 infrastructure:
   namespace: oracle
   appName: oracle
-  sid: izzy
-  pdb: "OCPHack8"
+  sid: "wth"
+  pdb: "wth"
   password: "OCPHack8"  
   dataVolume: "/opt/oracle/oradata"
   volumeName: "wthoracle"  
 image:
-  name: oracle/database
+  name: container-registry.oracle.com/database/express
   pullPolicy: IfNotPresent
-  tag: "18.4.0-xe"
-imageCredentials:
-  name: peteacr01_credentials
-  registry: peteacr01.azurecr.io
-  username: PeteOracleToken
-  password: 2IG1Ek5TbE+GytxFw761UXnaF9Qlgf=G
+  tag: "latest"
+  
 service:
   type: LoadBalancer
   port: 1521
