@@ -10,7 +10,7 @@
 
 ## Description
 
-Now we are getting to the fun part.  This will be the hardest challenge of the Hackathon, but don't worry we have the utmost confidence in you.  
+Now we are getting to the fun part.  This will be the hardest challenge of the Hackathon, but don't worry we have the utmost confidence in you.
 <br>&nbsp;<br>
 For this section we need to add Change Data Catpure functionality to our source database and then create an incremental synapse pipeline to look for those changes and push them to the dedicated pool.  We also need to employ a proper design in the dedicated pools so that it does not impact performance.  Finally let's visualize this data in Power BI.
 <br>&nbsp;<br>
@@ -45,5 +45,5 @@ For this section we need to add Change Data Catpure functionality to our source 
 
 *The following document was used in a Customer PoC and may be helpful with this challenge.  Just keep in mind that the scenario in the PoC was a bit different so some sections of the document may not be relevant to this challenge.*
 
-- [SQLMI to Dedicated Pool Proof of Concept](/Resources/SQLMI to Dedicated Pool Proof of Concept.docx)
+- [SQLMI to Dedicated Pool Proof of Concept](./Resources/SQLMI to Dedicated Pool Proof of Concept.docx)
 
