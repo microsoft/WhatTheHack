@@ -18,7 +18,7 @@ Now that our environment is setup, we need to populate the Dedicated Pool with a
 
 ## Learning Resources
 
-*The follow links may be useful to achieving the success crieria listed above.*
+*The following links may be useful to achieving the success crieria listed above.*
 
 - [Copy Data tool in Azure Data Factory and Synapse Analytics](https://docs.microsoft.com/en-us/azure/data-factory/copy-data-tool?tabs=data-factory)
 
