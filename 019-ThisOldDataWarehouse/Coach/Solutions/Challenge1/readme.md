@@ -36,6 +36,8 @@ az group create --location eastus2 --name {"Resource Group Name"}
 az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7
 --ports 1433 --ip-address Public
 ```
+**Note: In order to connect to this database server, the public IP address of the deployed container should be used as the hostname, and the default login credentials can be found in the [source repo for this container found on Docker Hub](https://hub.docker.com/repository/docker/alexk002/sqlserver2019_demo) 
+
 5. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
 
 6. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
