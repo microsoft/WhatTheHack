@@ -39,4 +39,4 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
-- Create an automated shutdown script/process that will pause the dedicated pool during the non-traditional business hours.
+- Create an automated shutdown script/pipeline that will pause the dedicated pool during the non-traditional business hours.
