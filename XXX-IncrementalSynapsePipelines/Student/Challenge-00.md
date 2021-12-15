@@ -27,17 +27,16 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 *The follow links may be useful to achieving the success crieria listed above.*
 
-**- [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview).** 
+- [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview). 
 
-**- [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities).**
+- [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities).
 
 
-**- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms).**
+- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms).
 
 
 ## Advanced Challenges (Optional)
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
-**- Create an automated shutdown script/process that will pause the dedicated pool during the non-traditional business hours.**
-
+- Create an automated shutdown script/process that will pause the dedicated pool during the non-traditional business hours.
