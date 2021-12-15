@@ -21,18 +21,18 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 6. All resources exist in one RG and that all team members have the proper access to all the assets, including the ability to perform SQL queries in both the Azure SQL and Dedicated Pool environments.
 
-7. All resources are tagged appropriately 
+7. All resources are tagged appropriately. 
 
 
 ## Learning Resources
 
 *The follow links may be useful to achieving the success crieria listed above.*
 
-- [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview). 
+- [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
 
-- [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities).
+- [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 
-- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms).
+- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
 
 
 ## Advanced Challenges (Optional)
