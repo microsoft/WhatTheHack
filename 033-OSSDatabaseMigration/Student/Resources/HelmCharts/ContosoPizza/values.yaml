@@ -1,4 +1,3 @@
-
 replicaCount: 1
 
 # Change the application settings here
@@ -49,9 +48,9 @@ infrastructure:
   volumeName: "contosopizza"
 
 image:
-  name: izzymsft/ubuntu-pizza
+  name: peteacr01.azurecr.io/ubuntu-pizza
   pullPolicy: IfNotPresent
-  tag: "1.0"
+  tag: "3.0"
 
 service:
   type: LoadBalancer
@@ -77,5 +76,5 @@ appSettings:
     dialect: "org.hibernate.dialect.PostgreSQL95Dialect"
     driverClass: "org.postgresql.Driver"
   oracle:
-    dialect: "org.hibernate.dialect.OracleDialect"
-    driverClass: "org.oracle.Driver"
+    dialect: "org.hibernate.dialect.Oracle12cDialect"
+    driverClass: "oracle.jdbc.OracleDriver"
