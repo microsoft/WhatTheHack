@@ -11,7 +11,7 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 1. An Azure SQL database is created and configured with the AdventureWorks database
 
-2. A Synapse Environment is created and a SQL Dedicated Pool is created and configured
+2. A Synapse Environment including a SQL Dedicated Pool is created and configured
 
 3. Key Vault is setup
 
@@ -19,32 +19,25 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 5. Establish a Linked Service in Azure Synapse Analytics that can connect to the Azure SQL Databases using Key Vault secret based credentials
 
+6. Setup firewall rules so that only IP Ranges of the team members can access both the Azure SQL and Synapse Analytics envrionments.
+
+
 
 ## Learning Resources
 
 *The follow links may be useful to achieving the success crieria listed above.*
 
+**- [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview).** 
+
 **- [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities).**
 
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
 
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
+**- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms).**
 
 
 ## Advanced Challenges (Optional)
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+**- Create an automated shutdown script/process that will pause the dedicated pool during the non-traditional business hours.**
 
