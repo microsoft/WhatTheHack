@@ -2,41 +2,31 @@ name: Check Template Format
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**'
+      - '!README.md'
+      - '!assets/**'
+      - '!.github/**'
+      - '.github/workflows/checkTemplate.yml'
   push:
     paths:
+      - '**'
+      - '!README.md'
+      - '!assets/**'
+      - '!.github/**'
       - '.github/workflows/checkTemplate.yml'
-      - '047-Dapr/**'
   
-# jobs:
-#   generateInputPaths:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Generate matrix with all modules of WhatTheHack repository
-#         id: set-matrix
-#         run: |
-#           echo "::set-output name=matrix::$(ls -l | grep '^d' | awk -F ' ' '{print $9}' | grep -Po '\d{3}.*' | jq -R -s -c 'split("\n") | map(select(length > 0))')"
-#     outputs:
-#       matrix: ${{ steps.set-matrix.outputs.matrix }}
-#       cache: ${{ steps.set-cache.outputs.cache-hit }}
-#   checklinks:
-#     needs: generateInputPaths
-#     runs-on: ubuntu-latest
-#     strategy:
-#       fail-fast: false
-#       matrix:
-#         inputPath: ${{ fromJson(needs.generateInputPaths.outputs.matrix) }}
 jobs:
   checklinks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Print Directory Structure
-        run: |
-           ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: Template Format Check
-        uses: jordanbean-msft/github-action-wth-template-check@v0.3.1
+        uses: jordanbean-msft/github-action-wth-template-check@v0.4.0
         with:
           path: ${{ github.workspace }}
           shouldScanSubdirectories: true
-          pathToExcludePathsToNotFailOnConfigFile: ${{ github.workspace }}/.github/workflows/.excludePathsToNotFailOnConfigFile.txt
+          pathToIgnoreFile: ${{ github.workspace }}/.github/workflows/.checkTemplateIgnore

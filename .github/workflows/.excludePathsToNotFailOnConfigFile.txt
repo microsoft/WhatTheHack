@@ -1,2 +1,0 @@
-038-MDWCovid19
-044-DevOpswithGithubActions
