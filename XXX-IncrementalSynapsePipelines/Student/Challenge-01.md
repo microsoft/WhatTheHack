@@ -14,7 +14,7 @@ Now that our environment is setup, we need to populate the Dedicated Pool with a
 
 1. All <b>SalesLT</b> tables reside in the Dedicated Pool
 
-2. The proper table design for a star schema has been implemented in the Dedicated Pool.  Be able to discuss which tables are Distributed Hash, Round Robin, Replicated. 
+2. The proper table design for a star schema has been implemented in the Dedicated Pool.  Be able to discuss which tables are Distributed Hash, Round Robin, Replicated and why.
 
 ## Learning Resources
 
