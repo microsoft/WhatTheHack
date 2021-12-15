@@ -40,16 +40,14 @@ curl --location --request POST 'https://localhost:5001/Territory' \
 ## Tips
 
 1. Ensure that the User Flow collects both the Consultant ID **_and_** the Territory Name (even though Territory Name is populated by the API Connector). You can modify the custom HTML template to select the label and text box for Territory Name and set it to `display:none` for a style.
-2. To hide the custom attribute "Territory Name" from the SignUp page, you will need to add some JavaScript to your custom template. You may want your students to create a second custom template, one for signup/signin and one for profile edit. The template for signup/signin will hide the TerritoryName, but edit profile will still display it.
-3. You can hide the TerritoryName attribute by using this snippet of JavaScript:
+2. To hide the custom attribute "Territory Name" from the SignUp page, you will need to add some CSS to your custom template. You may want your students to create a second custom template, one for signup/signin and one for profile edit. The template for signup/signin will hide the TerritoryName, but edit profile will still display it.
+3. You can hide the TerritoryName attribute by using this snippet of CSS:
 
-```Javascript
-  <script type="text/javascript">
-    $(document).ready(function () {
-      // Hide the elements that contain user attributes which the user should not see, as
-      // they will be populated afterwards with information anyway.
-      $("#extension_TerritoryName").parents("li").hide();
-    });
-  </script>
+```CSS
+<style>
+    /* You may want to uncomment this to prevent displaying the Territory Name attribute! */
+    /* .extension_TerritoryName_li {
+      display: none;
+    } */
+</style>
 ```
-4. You also want to make sure your students go to the signup/signin User Flow, select Properties, and then enable the "Enable JavaScript enforcing page layout (preview)" toggle switch.
