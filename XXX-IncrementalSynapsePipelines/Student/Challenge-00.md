@@ -26,7 +26,7 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 ## Learning Resources
 
-*The follow links may be useful to achieving the success crieria listed above.*
+*The following links may be useful to achieving the success crieria listed above.*
 
 - [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
 
