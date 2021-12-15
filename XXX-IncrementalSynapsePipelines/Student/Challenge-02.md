@@ -2,18 +2,11 @@
 
 [< Previous Challenge](Challenge-01.md) - **[Home](../README.md)** - [Next Challenge>](Challenge-03.md)
 
-## Pre-requisites (Optional)
+## UNDER CONSTRUCTION
 
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
+## Pre-requisites
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
+*Complete the [Previous Challenge](Challenge-01.md).*
 
 ## Introduction (Optional)
 
