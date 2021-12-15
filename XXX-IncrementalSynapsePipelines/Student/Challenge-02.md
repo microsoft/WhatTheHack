@@ -45,5 +45,5 @@ For this section we need to add Change Data Catpure functionality to our source 
 
 *The following document was used in a Customer PoC and may be helpful with this challenge.  Just keep in mind that the scenario in the PoC was a bit different so some sections of the document may not be relevant to this challenge.*
 
-- [SQLMI to Dedicated Pool Proof of Concept](./Resources/SQLMI to Dedicated Pool Proof of Concept.docx)
+- [SQLMI to Dedicated Pool Proof of Concept](/Resources/SQLMItoDedicatedPoolProofofConcept.docx)
 
