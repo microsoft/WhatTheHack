@@ -40,3 +40,4 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
 - Create an automated shutdown script/pipeline that will pause the dedicated pool during the non-traditional business hours.
+   -  Here is one example of how to accomplish this... [How to pause and resume dedicated SQL pools with Synapse Pipelines](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/how-to-pause-resume-pipelines)
