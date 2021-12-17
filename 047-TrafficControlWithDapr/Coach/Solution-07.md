@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-This challenge will add the Dapr secrets building block to the TrafficControl application. The following figure depicts the enhancement:
+This challenge will add the Dapr secrets building block to the `TrafficControlService`. The following figure depicts the enhancement:
 
 <img src="../images/Challenge-07/secrets-management-operation.png" style="padding-top: 25px;" />
 
@@ -108,7 +108,7 @@ Now the output binding for the SendMail component will use the `smtp.user` and `
 
 ### Step 3: Get the license key for the FineCalculator component
 
-The `CollectionController` of the FineCollectionService uses an `IFineCalculator` implementation to calculate the fine for a certain speeding violation (check out the code). The calculator used is the `Resources/FineCollectionService/DomainServices/HardCodedFineCalculator.cs`. To demonstrate retrieving secrets, this calculator component expects a license key (also hard-coded, remember this is a sample application!).
+The `CollectionController` of the `FineCollectionService` uses an `IFineCalculator` implementation to calculate the fine for a certain speeding violation (check out the code). The calculator used is the `Resources/FineCollectionService/DomainServices/HardCodedFineCalculator.cs`. To demonstrate retrieving secrets, this calculator component expects a license key (also hard-coded, remember this is a sample application!).
 
 You will now change the controller so it retrieves the license key from the Dapr secrets management building block:
 
@@ -148,7 +148,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
-1.  Enter the following command to run the VehicleRegistrationService with a Dapr sidecar:
+1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
@@ -156,7 +156,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
 
-1.  Enter the following command to run the FineCollectionService with a Dapr sidecar:
+1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
@@ -164,7 +164,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
 
-1.  Enter the following command to run the TrafficControlService with a Dapr sidecar:
+1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
@@ -190,11 +190,11 @@ time="2021-02-28T18:16:50.2936204+01:00" level=info msg="component loaded. name:
 
 To validate that the secrets management building block is actually used:
 
-1.  Stop the Camera Simulation and the FineCollectionService.
+1.  Stop the Camera `Simulation` and the `FineCollectionService`.
 1.  Change the `finecalculator.licensekey` secret in the file `Resources/dapr/components/secrets.json` to something different.
-1.  Start the Camera Simulation and the FineCollectionService again as described in step 4.
+1.  Start the Camera `Simulation` and the `FineCollectionService` again as described in step 4.
 
-Now you should see some errors in the logging because the FineCollectionService service is no longer passing the correct license key in the call to the `FineCalculator` component:
+Now you should see some errors in the logging because the `FineCollectionService` service is no longer passing the correct license key in the call to the `FineCalculator` component:
 
     ```shell
     == APP ==       System.InvalidOperationException: Invalid or no license key specified.

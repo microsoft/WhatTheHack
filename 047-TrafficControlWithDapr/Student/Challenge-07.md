@@ -38,7 +38,7 @@ To learn more about the secrets building block, read the [introduction to this b
 To complete this challenge, you must reach the following goals:
 
 - The credentials used by the SMTP output binding to connect to the SMTP server are retrieved using the Dapr secrets management building block.
-- The FineCollectionService retrieves the license key for the `FineCalculator` component it uses from the Dapr secrets management building block.
+- The `FineCollectionService` retrieves the license key for the `FineCalculator` component it uses from the Dapr secrets management building block.
 
 This challenge targets the operation labeled as **number 6** in the end-state setup:
 

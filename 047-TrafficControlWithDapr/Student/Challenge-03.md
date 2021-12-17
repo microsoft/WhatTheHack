@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you're going to add Dapr **publish/subscribe** messaging to send messages from the TrafficControlService to the FineCollectionService.
+In this challenge, you're going to add Dapr **publish/subscribe** messaging to send messages from the `TrafficControlService` to the `FineCollectionService`.
 
 ## Description
 
@@ -20,8 +20,8 @@ Similarly, a subscriber, or consumer, will receive messages from a topic without
 
 To complete this challenge, you must reach the following goals:
 
-1. The TrafficControlService sends `SpeedingViolation` messages using the Dapr pub/sub building block.
-1. The FineCollectionService receives `SpeedingViolation` messages using the Dapr pub/sub building block.
+1. The `TrafficControlService` sends `SpeedingViolation` messages using the Dapr pub/sub building block.
+1. The `FineCollectionService` receives `SpeedingViolation` messages using the Dapr pub/sub building block.
 1. Use RabbitMQ as pub/sub message broker that runs as part of the solution in a Docker container.
 1. Replace it with Azure Service Bus as a message broker without code changes.
 

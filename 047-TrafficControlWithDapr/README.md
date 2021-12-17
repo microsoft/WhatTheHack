@@ -29,13 +29,13 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 - Challenge 2: **[Add Dapr service invocation](Student/Challenge-02.md)**
    - Add Dapr into the mix, using the Dapr service invocation building block.
 - Challenge 3: **[Add pub/sub messaging](Student/Challenge-03.md)**
-   - Add Dapr publish/subscribe messaging to send messages from the TrafficControlService to the FineCollectionService.
+   - Add Dapr publish/subscribe messaging to send messages from the `TrafficControlService` to the `FineCollectionService`.
 - Challenge 4: **[Add Dapr state management](Student/Challenge-04.md)**
-   - Add Dapr state management in the TrafficControl service to store vehicle information.
+   - Add Dapr state management in the `TrafficControlService` to store vehicle information.
 - Challenge 5: **[Add a Dapr output binding](Student/Challenge-05.md)**
-   - Use a Dapr output binding in the FineCollectionService to send an email.
+   - Use a Dapr output binding in the `FineCollectionService` to send an email.
 - Challenge 6: **[Add a Dapr input binding](Student/Challenge-06.md)**
-   - Add a Dapr input binding in the TrafficControlService. It'll receive entry- and exit-cam messages over the MQTT protocol.
+   - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry- and exit-cam messages over the MQTT protocol.
 - Challenge 7: **[Add secrets management](Student/Challenge-07.md)**
    - Add the Dapr secrets management building block.
 - Challenge 8: **[Deploy to Azure Kubernetes Service (AKS)](Student/Challenge-08.md)**

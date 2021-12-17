@@ -10,7 +10,7 @@ First, you need to update the existing state management configuration file:
 
  1. Open the file `Resources/dapr/components/statestore.yaml` in VS Code.
 
- 1. Add a `scopes` section to the configuration file that specifies that only the TrafficControlService can use the state management building block:
+ 1. Add a `scopes` section to the configuration file that specifies that only the `TrafficControlService` can use the state management building block:
 
     ```yaml
     apiVersion: dapr.io/v1alpha1
@@ -30,7 +30,7 @@ First, you need to update the existing state management configuration file:
     - trafficcontrolservice
     ```
 
-Now you will add code to the TrafficControlService so that it uses the Dapr state management building block to store vehicle state:
+Now you will add code to the `TrafficControlService` so that it uses the Dapr state management building block to store vehicle state:
 
   1. Open the `src` folder in this repo in VS Code.
 
@@ -50,7 +50,7 @@ Now you will add code to the TrafficControlService so that it uses the Dapr stat
 
   1. Open the file `Resources/TrafficControlService/Repositories/InMemoryVehicleStateRepository.cs` in VS Code.
 
-  1. This is the repository used by the TrafficControlService. Inspect the code. As you can see, it uses a simple in-memory dictionary to store the state. The license number of the vehicle is used as the key. You are going to replace this implementation with one that uses Dapr state management.
+  1. This is the repository used by the `TrafficControlService`. Inspect the code. As you can see, it uses a simple in-memory dictionary to store the state. The license number of the vehicle is used as the key. You are going to replace this implementation with one that uses Dapr state management.
 
   1. Create a new file `Resources/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
 
@@ -202,7 +202,7 @@ Now, you'll test the update by running the application from end-to-end.
 
 1. Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
-1. Enter the following command to run the VehicleRegistrationService with a Dapr sidecar:
+1. Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
@@ -210,7 +210,7 @@ Now, you'll test the update by running the application from end-to-end.
 
 1. Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
 
-1. Enter the following command to run the FineCollectionService with a Dapr sidecar:
+1. Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
@@ -218,7 +218,7 @@ Now, you'll test the update by running the application from end-to-end.
 
 1. Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
 
-1. Enter the following command to run the TrafficControlService with a Dapr sidecar:
+1. Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run

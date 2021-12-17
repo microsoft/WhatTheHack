@@ -54,9 +54,9 @@ Keep in mind that once you remove, it's gone. You'll need to start it again with
 
 *You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
-## Step 2: Use the Dapr output binding in the FineCollectionService
+## Step 2: Use the Dapr output binding in the `FineCollectionService`
 
-You will enhance the FineCollectionService so that it uses the Dapr SMTP output binding to send fine notice emails to those driving at excessive speeds:
+You will enhance the `FineCollectionService` so that it uses the Dapr SMTP output binding to send fine notice emails to those driving at excessive speeds:
 
 <img src="../images/Challenge-05/output-binding-operation.png" style="padding-top: 25px;" />
 
@@ -178,7 +178,7 @@ You're going to start all the services now. Like before, you'll specify the cust
 
 1.  Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
-1.  Enter the following command to run the VehicleRegistrationService with a Dapr sidecar:
+1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
@@ -186,7 +186,7 @@ You're going to start all the services now. Like before, you'll specify the cust
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
 
-1.  Enter the following command to run the FineCollectionService with a Dapr sidecar:
+1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
@@ -208,7 +208,7 @@ You're going to start all the services now. Like before, you'll specify the cust
     dotnet run
     ```
 
-You should see the same logs as before. You can also view the fine notification emails sent by the FineCollectionService:
+You should see the same logs as before. You can also view the fine notification emails sent by the `FineCollectionService`:
 
 1.  Open a browser and browse to [http://localhost:4000](http://localhost:4000).
 1.  Wait for the first emails to come in.
@@ -272,7 +272,7 @@ You should see the same logs as before. You can also view the fine notification 
     dotnet add package Newtonsoft.Json
     ```
 
-1.  Rebuild your FineCollectionService.
+1.  Rebuild your `FineCollectionService`.
 
     ```shell
     dotnet build

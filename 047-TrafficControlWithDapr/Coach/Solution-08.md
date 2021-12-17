@@ -12,12 +12,12 @@ In this challenge, you're going to deploy the Dapr-enabled services you have wri
 
 To complete this challenge, you must reach the following goals:
 
-- Successfully deploy all 3 services (VehicleRegistrationService, TrafficControlService & FineCollectionService) to an AKS cluster.
+- Successfully deploy all 3 services (`VehicleRegistrationService`, `TrafficControlService` & `FineCollectionService`) to an AKS cluster.
 - Successfully run the Simulation service locally that connects to your AKS-hosted services
 
 ### Step 1: Update all port numbers
 
-By default, Dapr sidecars run on port 3500 when deployed to AKS. This means you will need to change the port numbers in the FineCollectionService & TrafficControlService to port 3500 for the calls to Dapr.
+By default, Dapr sidecars run on port 3500 when deployed to AKS. This means you will need to change the port numbers in the `FineCollectionService` & `TrafficControlService` to port 3500 for the calls to Dapr.
 
 - ```Resources/FineCollectionService/Proxies/VehicleRegistrationService.cs```
 - ```Resources/TrafficControlService/Controllers/TrafficController.cs```

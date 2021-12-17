@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you're going to use a Dapr **output binding** in the FineCollectionService to send an email.
+In this challenge, you're going to use a Dapr **output binding** in the `FineCollectionService` to send an email.
 
 ## Description
 
@@ -18,7 +18,7 @@ For this hands-on challenge, you will add a output binding leveraging the Dapr b
 
 To complete this challenge, you must reach the following goals:
 
-- The FineCollectionService uses the Dapr SMTP output binding to send an email.
+- The `FineCollectionService` uses the Dapr SMTP output binding to send an email.
 - The SMTP binding calls a development SMTP server that runs as part of the solution in a Docker container.
 
 This challenge targets the operation labeled as **number 4** in the end-state setup:
