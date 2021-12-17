@@ -69,9 +69,9 @@ docker rm dtc-mosquitto -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
 
-*You can also start all the infrastructural containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
+*You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
 ### Step 3: Configure the input binding
 

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you'll install the pre-requisites tools and software as well as create the Azure resources required for the workshop.
+In this challenge, you'll install the pre-requisites tools and software as well as create the Azure resources required.
 
 *Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, you can move on to challenge 1 while the resources are provisioned.*
 
@@ -108,7 +108,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     }
     ```
 
-1.  Create a new resource group for your lab project using the `Resources/Infrastructure/bicep/rg.bicep` script file. When invoking the command, replace the location parameter with the Azure region you want to use:
+1.  Create a new resource group for your WhatTheHack using the `Resources/Infrastructure/bicep/rg.bicep` script file. When invoking the command, replace the location parameter with the Azure region you want to use:
 
     ```shell
     cd ./Resources/Infrastructure/bicep/
