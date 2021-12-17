@@ -27,8 +27,8 @@ Right now, this is all you need to know about this building block. If you want t
 
 To complete this challenge, you must reach the following goals:
 
-- The TrafficControl service saves the state of a vehicle (`VehicleState` class) using the state management building block after vehicle entry.
-- The TrafficControl service reads and updates the state of a vehicle using the state management building block after vehicle exit.
+- The `TrafficControlService` saves the state of a vehicle (`VehicleState` class) using the state management building block after vehicle entry.
+- The `TrafficControlService` reads and updates the state of a vehicle using the state management building block after vehicle exit.
 - The final solution uses Azure Cache for Redis as state store
 
 This challenge targets the operation labeled as **number 3** in the end-state setup:

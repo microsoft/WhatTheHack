@@ -36,44 +36,9 @@ To complete this challenge, you must achieve the following goals:
 
 ## Tips
 
-1. Run the services in VS Code.
+1.  Run the services in VS Code using a ***dotnet run*** command.
 
-1. Using a single VS Code instance, open a [Terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) for each service.
-
-1. Start each service using a ***dotnet run*** command.
-
-1. Once running, test the VehcileRegistration service with the `REST Client extension tool` for VS Code.
-
-    - Open the file `Resources/VehicleRegistrationService/test.http` using the (file) Explorer feature in VS Code. The request in this file simulates retrieving the vehicle and owner information for a certain license-number.
-  
-    - Click on Send request link, located immediately above the GET request, highlighted below with a red box, to send a request to the API:
-        <img src="../images/Challenge-01/rest-client.png" />
-
-    - The response from the request will be shown in a separate window on the right. It should have an HTTP status code 200 OK and the body should contain some random vehicle and owner-information:
-
-    - The response from the request will be shown in a separate window on the right. It should have an HTTP status code 200 OK and the body should contain some random vehicle and owner-information:
-  
-      ```json
-      HTTP/1.1 200 OK
-      Connection: close
-      Date: Mon, 01 Mar 2021 07:15:55 GMT
-      Content-Type: application/json; charset=utf-8
-      Server: Kestrel
-      Transfer-Encoding: chunked
-       
-      {
-           "vehicleId": "KZ-49-VX",
-           "brand": "Toyota",
-           "model": "Rav 4",
-           "ownerName": "Angelena Fairbairn",
-           "ownerEmail": "angelena.fairbairn@outlook.com"
-      }
-      ```
- 
-    - Finally, check the logging in the terminal window. It should look like this:
-      <img src="../images/Challenge-01/logging-vehicleregistrationservice.png" />
- 
-1. For the remaining service, start and check the logging in the corresponding terminal window.
+    *Using a single VS Code instance, open a [Terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) for each service.*
 
 ## Learning Resources
 

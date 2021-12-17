@@ -35,10 +35,12 @@ This challenge targets the operation labeled as **number 5** in the end-state se
 
 ### DIY instructions
 
-First open the `src` folder in this repo in VS Code. Then open the [Bindings documentation](https://docs.dapr.io/developing-applications/building-blocks/bindings/) and start hacking away. As MQTT broker, you can use the lightweight MQTT broker [Mosquitto](https://mosquitto.org/). You can also use Azure IoT Hub & Event Hub.
+- Use MQTT broker [Mosquitto](https://mosquitto.org/) for local development.
+- Use [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) & EventHub for deployments to Azure.
 
 ## Learning Resources
 
 - [Introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
 - [Bindings chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
 - [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/)
+- [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
