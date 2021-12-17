@@ -12,14 +12,15 @@ In this challenge, you're going to deploy the Dapr-enabled services you have wri
 
 To complete this challenge, you must reach the following goals:
 
+- Successfully create images of all 3 services in an Azure Container Registry
 - Successfully deploy all 3 services (VehicleRegistrationService, TrafficControlService & FineCollectionService) to an AKS cluster.
 - Successfully run the Simulation service locally that connects to your AKS-hosted services
 
 ## Tips
 
-- Navigate to each service under the `Resources` directory, create images based upon the services and deploy these images to your Azure Container Registry. Hint: use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
+- Use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
 
-- Navigate to each service under the `Resources` directory and use the `deploy/deploy.yaml` spec files to deploy to AKS. You will need to customize them with the names of your specific Azure container registries, etc.
+- Use the `deploy/deploy.yaml` spec files to deploy each service to AKS. You will need to customize them with the names of your specific Azure container registries, etc.
 
 ## Learning Resources
 
