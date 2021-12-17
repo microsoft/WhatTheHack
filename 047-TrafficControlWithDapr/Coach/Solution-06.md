@@ -4,11 +4,11 @@
 
 ## Notes & Guidance
 
-You will add code to the TrafficControlService to leverage a Dapr input binding to send entry-cam and exit-cam messages. The following diagram depicts the scenario:
+You will add code to the `TrafficControlService` to leverage a Dapr input binding to send entry-cam and exit-cam messages. The following diagram depicts the scenario:
 
 <img src="../images/Challenge-06/input-binding-operation.png" style="padding-top: 25px;" />
 
-### Step 1: Use the Dapr input binding in the TrafficControlService
+### Step 1: Use the Dapr input binding in the `TrafficControlService`
 
 Start by inspecting vehicle entry and exit methods:
 
@@ -16,11 +16,11 @@ Start by inspecting vehicle entry and exit methods:
 
 1.  Inspect the `VehicleEntry` and `VehicleExit` methods.
 
-And you're done! That's right, you don't need to change anything in order to use an input binding. The binding will invoke the web API operations across the TrafficControlService based on the binding name specified in the component configuration. The TrafficControlService will have no knowledge of Dapr binding. It's just another HTTP call.
+And you're done! That's right, you don't need to change anything in order to use an input binding. The binding will invoke the web API operations across the `TrafficControlService` based on the binding name specified in the component configuration. The `TrafficControlService` will have no knowledge of Dapr binding. It's just another HTTP call.
 
 ### Step 2: Run the Mosquitto MQTT broker
 
-You'll use [Mosquitto](https://mosquitto.org/), a lightweight MQTT broker, as the MQTT broker between the Simulation and TrafficControlService. You'll run Mosquitto from a Docker container.
+You'll use [Mosquitto](https://mosquitto.org/), a lightweight MQTT broker, as the MQTT broker between the `Simulation` and `TrafficControlService`. You'll run Mosquitto from a Docker container.
 
 In order to connect to Mosquitto, you need to pass in a custom configuration file when starting it. With Docker, you can pass a configuration file when starting a container using a *Volume mount*. The folder `Resources/Infrastructure/mosquitto` already contains a config file you can use.
 
@@ -41,7 +41,7 @@ In order to connect to Mosquitto, you need to pass in a custom configuration fil
 
 This will pull the docker image `eclipse-mosquitto` from Docker Hub and start it. The name of the container will be `dtc-mosquitto`. The server will be listening for connections on port `1883` for MQTT traffic.
 
-The `-v` flag specifies a Docker volume mount. It mounts the current folder (containing the config file) as the ``/mosquitto/config/` folder in the container. Mosquitto reads its config file from that folder.  
+The `-v` flag specifies a Docker volume mount. It mounts the current folder (containing the config file) as the `/mosquitto/config/` folder in the container. Mosquitto reads its config file from that folder.  
 
 If everything goes well, you should see some output like this:
 
@@ -103,7 +103,7 @@ First, create an input binding for the `/entrycam` operation:
       - trafficcontrolservice
     ```
 
-    In this configuration file, you specify the binding type MQTT (`bindings.mqtt`). In the `metadata` section, you describe how to connect to Mosquitto server container running on `localhost` on port `1883` . Note also how the `topic` is configured in metadata: `trafficcontrol/entrycam`. In the `scopes` section, you specify that only the TrafficControlService should subscribe to the MQTT topic.
+    In this configuration file, you specify the binding type MQTT (`bindings.mqtt`). In the `metadata` section, you describe how to connect to Mosquitto server container running on `localhost` on port `1883` . Note also how the `topic` is configured in metadata: `trafficcontrol/entrycam`. In the `scopes` section, you specify that only the `TrafficControlService` should subscribe to the MQTT topic.
 
 It's important to note the `name` of the binding. This name must be the same as that in the web API URL that'll be invoked on your service. In this example, it's `/entrycam`.
 
@@ -151,11 +151,11 @@ In this step, you'll change the Camera Simulation so it sends MQTT messages inst
 
 1.  Inspect the code in this file.
 
-As you can see, the simulation receives an `ITrafficControlService` instance injected into its constructor. The simulation uses this proxy (i.e., helper class) to send entry- and exit-cam messages to the TrafficControlService.
+As you can see, the simulation receives an `ITrafficControlService` instance injected into its constructor. The simulation uses this proxy (i.e., helper class) to send entry- and exit-cam messages to the `TrafficControlService`.
 
 1.  Open the file `Resources/Simulation/Proxies/HttpTrafficControlService.cs` in VS Code and inspect the code.
 
-The proxy uses HTTP to send the message to the TrafficControlService. You will replace this now with an implementation that uses MQTT:
+The proxy uses HTTP to send the message to the `TrafficControlService`. You will replace this now with an implementation that uses MQTT:
 
 1.  Add a new file in the `Resources/Simulation/Proxies` folder named `MqttTrafficControlService.cs`.
 
@@ -238,7 +238,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Open the a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
-1.  Enter the following command to run the VehicleRegistrationService with a Dapr sidecar:
+1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
@@ -246,7 +246,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
 
-1.  Enter the following command to run the FineCollectionService with a Dapr sidecar:
+1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
@@ -254,7 +254,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
 
-1.  Enter the following command to run the TrafficControlService with a Dapr sidecar:
+1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
     dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
