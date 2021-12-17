@@ -102,23 +102,23 @@ You'll specify the ports from the command-line when starting a service with the 
 - `--dapr-grpc-port`
 
 ## Challenges
-1. Challenge 0: **[Install tools and Azure pre-requisites](Student/Challenge-00.md)**
+- Challenge 0: **[Install tools and Azure pre-requisites](Student/Challenge-00.md)**
    - Install the pre-requisites tools and software as well as create the Azure resources required for the workshop.
-2. Challenge 1: **[Run the application](Student/Challenge-01.md)**
+- Challenge 1: **[Run the application](Student/Challenge-01.md)**
    - Run the Traffic Control application to make sure everything works correctly
-3. Challenge 2: **[Add Dapr service invocation](Student/Challenge-02.md)**
+- Challenge 2: **[Add Dapr service invocation](Student/Challenge-02.md)**
    - Add Dapr into the mix, using the Dapr service invocation building block.
-4. Challenge 3: **[Add pub/sub messaging](Student/Challenge-03.md)**
+- Challenge 3: **[Add pub/sub messaging](Student/Challenge-03.md)**
    - Add Dapr publish/subscribe messaging to send messages from the TrafficControlService to the FineCollectionService.
-5. Challenge 4: **[Add Dapr state management](Student/Challenge-04.md)**
+- Challenge 4: **[Add Dapr state management](Student/Challenge-04.md)**
    - Add Dapr state management in the TrafficControl service to store vehicle information.
-5. Challenge 5: **[Add a Dapr output binding](Student/Challenge-05.md)**
+- Challenge 5: **[Add a Dapr output binding](Student/Challenge-05.md)**
    - Use a Dapr output binding in the FineCollectionService to send an email.
-5. Challenge 6: **[Add a Dapr input binding](Student/Challenge-06.md)**
+- Challenge 6: **[Add a Dapr input binding](Student/Challenge-06.md)**
    - Add a Dapr input binding in the TrafficControlService. It'll receive entry- and exit-cam messages over the MQTT protocol.
-5. Challenge 7: **[Add secrets management](Student/Challenge-07.md)**
+- Challenge 7: **[Add secrets management](Student/Challenge-07.md)**
    - Add the Dapr secrets management building block.
-5. Challenge 8: **[Deploy to Azure Kubernetes Service (AKS)](Student/Challenge-08.md)**
+- Challenge 8: **[Deploy to Azure Kubernetes Service (AKS)](Student/Challenge-08.md)**
    - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
