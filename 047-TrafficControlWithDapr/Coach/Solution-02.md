@@ -69,7 +69,7 @@ First you're going to change the code so it calls the Dapr sidecar:
     http://localhost:<daprPort>/v1.0/invoke/<appId>/method/<method-name>
     ```
 
-    > Note that the Dapr API calls are platform agnostic. Any development language that supports HTTP calls can invoke a Dapr sidecar using with this HTTP call template structure.
+    *Note that the Dapr API calls are platform agnostic. Any development language that supports HTTP calls can invoke a Dapr sidecar using with this HTTP call template structure.*
 
     You can substitute the placeholders in the template URL with values for the FineCollectionService. Here's how the specific URL will look:
 
@@ -89,7 +89,7 @@ First you're going to change the code so it calls the Dapr sidecar:
     }
     ```
 
-    > It's important to grasp the [sidecar pattern](https://docs.dapr.io/concepts/overview/#sidecar-architecture) used by Dapr. The FineCollectionService calls the VehicleRegistrationService not directly, but **through its dapr sidecar**! The FineCollectionService no longer needs to know the endpoint of the VehicleRegistrationService. Its Dapr sidecar will locate the endpoint for VehicleRegistration based on the `app-id` specified in the URL. Once found, the sidecar for FineCollection will call the sidecar for VehicleRegistration. The VehicleRegistration sidecar will then invoke the vehicleInfo method on the VehicleRegistration service, passing in the license plate number.
+    *It's important to grasp the [sidecar pattern](https://docs.dapr.io/concepts/overview/#sidecar-architecture) used by Dapr. The FineCollectionService calls the VehicleRegistrationService not directly, but **through its dapr sidecar**! The FineCollectionService no longer needs to know the endpoint of the VehicleRegistrationService. Its Dapr sidecar will locate the endpoint for VehicleRegistration based on the `app-id` specified in the URL. Once found, the sidecar for FineCollection will call the sidecar for VehicleRegistration. The VehicleRegistration sidecar will then invoke the vehicleInfo method on the VehicleRegistration service, passing in the license plate number.*
 
 1.  With the VehicleRegistrationService up and running, you'll now start the FineCollectionService:
 
@@ -194,7 +194,7 @@ Now you'll change the code in the FineCollectionService to use the Dapr SDK `Htt
 
    With this snippet, you use the `DaprClient` to create an `HttpClient` instance to implement service invocation. You specify the `app-id` of the service you want to communicate with. You also need to specify the address of the Dapr sidecar for the FineCollectionService as its not using the default Dapr HTTP port (3500). The `HttpClient` instance created by Dapr is explicitly passed into the constructor of the `VehicleRegistrationService` proxy.
 
-   > This is an example of the deep integration of Dapr with ASP.NET Core when using the `Dapr.AspNetCore` library. You can still use the `HttpClient` (and its rich feature-set) in your code, but under the hood it uses the Dapr service invocation building block to communicate.
+   *This is an example of the deep integration of Dapr with ASP.NET Core when using the `Dapr.AspNetCore` library. You can still use the `HttpClient` (and its rich feature-set) in your code, but under the hood it uses the Dapr service invocation building block to communicate.*
 
 1.  Open the file `Resources/FineCollectionService/Proxies/VehicleRegistrationService.cs` in VS Code.
 
@@ -210,7 +210,7 @@ Now you'll change the code in the FineCollectionService to use the Dapr SDK `Htt
 
 Now the FineCollectionService is changed to use the Dapr SDK for service invocation. Let's test this.
 
-1.  If you followed the instructions in this assignment, the VehicleRegistration and  TrafficControl services are still running.
+1.  If you followed the instructions in this assignment, the VehicleRegistration and TrafficControl services are still running.
 
 1.  Open the terminal window in VS Code in which the FineCollectionService was running.
 

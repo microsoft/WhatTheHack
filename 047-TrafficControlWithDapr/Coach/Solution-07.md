@@ -55,9 +55,9 @@ First, you'll add a secrets management JSON configuration file to the solution:
       - finecollectionservice   
     ```
 
- > Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is *only* for development or testing purposes. It's not suitable for production!
+    *Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is **only** for development or testing purposes. It's not suitable for production!*
 
- > Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`.
+    *Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`.*
 
 The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using the period (`.`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
 
@@ -124,7 +124,7 @@ You will now change the controller so it retrieves the license key from the Dapr
     _fineCalculatorLicenseKey = secrets["finecalculator.licensekey"];
     ```
 
-    > Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app.
+    *Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app.*
 
 1.  Go back to the terminal window in VS Code and make sure the current folder is `Resources/FineCollectionService`.
 
@@ -134,7 +134,7 @@ You will now change the controller so it retrieves the license key from the Dapr
     dotnet build
     ```
 
-    If you see any warnings or errors, review the previous steps to make sure the code is correct.
+    *If you see any warnings or errors, review the previous steps to make sure the code is correct.*
 
 Now you're ready to test the application.
 

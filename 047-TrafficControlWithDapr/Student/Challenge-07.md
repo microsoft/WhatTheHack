@@ -25,9 +25,9 @@ The following diagram depicts an application requesting the secret called "mysec
 
 Note the blue-colored Dapr secrets building block that sits between the application and secret stores.
 
-> For this assignment you'll use a file-based local secret store component. Local stores are meant for development or testing purposes. Never use them in production!
+*For this assignment you'll use a file-based local secret store component. Local stores are meant for development or testing purposes. Never use them in production!*
 
-> Alternatively, you can implement Azure KeyVault as your secret store in this assignment.
+*Alternatively, you can implement Azure KeyVault as your secret store in this assignment.*
 
 Another way of using secrets, is to reference them from Dapr configuration files. You will use both approaches in this assignment.
 
