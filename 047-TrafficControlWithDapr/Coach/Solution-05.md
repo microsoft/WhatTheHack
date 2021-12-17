@@ -50,9 +50,9 @@ docker rm dtc-maildev -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-> For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.
->
-> You can also start all the infrastructural containers at once (also for assignments to come) with the `Resources/Infrastructure/start-all.ps1` script.
+*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+
+*You can also start all the infrastructural containers at once (also for assignments to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
 ## Step 2: Use the Dapr output binding in the FineCollectionService
 
@@ -99,7 +99,7 @@ You will enhance the FineCollectionService so that it uses the Dapr SMTP output 
     await daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
     ```
 
-    > The first two parameters passed into `InvokeBindingAsync` are the name of the binding to use and the operation (in this case 'create' the email).
+    *The first two parameters passed into `InvokeBindingAsync` are the name of the binding to use and the operation (in this case 'create' the email).*
 
 1.  This method uses the `[FromServices]` attribute to inject the `DaprClient` class. You'll need to register `DaprClient` with the dependency injection container. Open the file `Resources/FineCollectionService/Startup.cs`. Add the following using statement to the file:
 
@@ -221,28 +221,28 @@ You should see the same logs as before. You can also view the fine notification 
 ![output-binding-operation-azure](../images/Challenge-05/output-binding-operation-azure.png)
 
 1. Open the Logic App that is deployed to your Azure Resource Group. You will need to initialize the Office 365 connector and copy the HTTP trigger endpoint.
-   1. Click on the **Logic app designer** blade
-   2. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
-   3. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
 
-1. Update the `Resources/dapr/components/email.yaml` file to use the Azure Logic App to send email. You will change the bindings from SMTP to HTTP and fill in the HTTP endpoint
-   for the Logic App in Azure.
+    1. Click on the **Logic app designer** blade
+    1. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
+    1. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
 
-   **Example:**
-   ```yaml
-   apiVersion: dapr.io/v1alpha1
-   kind: Component
-   metadata:
-   name: sendmail
-   spec:
-   type: bindings.http
-   version: v1
-   metadata:
-      - name: url
-        value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
-   scopes:
-   - finecollectionservice
-   ```
+1. Update the `Resources/dapr/components/email.yaml` file to use the Azure Logic App to send email. You will change the bindings from SMTP to HTTP and fill in the HTTP endpoint for the Logic App in Azure.
+
+    **Example:**
+    ```yaml
+    apiVersion: dapr.io/v1alpha1
+    kind: Component
+    metadata:
+    name: sendmail
+    spec:
+    type: bindings.http
+    version: v1
+    metadata:
+        - name: url
+          value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
+    scopes:
+    - finecollectionservice
+    ```
 
 1.  Navigate to the `Resources/FineCollectionService` directory. Open the `Resources\FineCollectionService\Controllers\CollectionController.cs` file. Modify the **CollectFine** method to pass in a JSON object to the Logic App's HTTP endpoint. 
 
@@ -271,7 +271,6 @@ You should see the same logs as before. You can also view the fine notification 
     ```shell
     dotnet add package Newtonsoft.Json
     ```
-
 
 1.  Rebuild your FineCollectionService.
 

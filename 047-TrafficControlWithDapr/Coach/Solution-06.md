@@ -47,7 +47,7 @@ If everything goes well, you should see some output like this:
 
 ![](../images/Challenge-06/docker-mosquitto-output.png)
 
-> If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info.
+*If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info.*
 
 The container will keep running in the background. If you want to stop it, enter the following command:
 
@@ -69,9 +69,9 @@ docker rm dtc-mosquitto -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-> For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.
->
-> You can also start all the infrastructural containers at once (also for assignments to come) with the `Resources/Infrastructure/start-all.ps1` script.
+*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+
+*You can also start all the infrastructural containers at once (also for assignments to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
 ### Step 3: Configure the input binding
 
@@ -288,8 +288,7 @@ You will connect to the server and see its logs:
 
 Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support). However, to set up the input bindings, you will need to also stand up an Azure Event Hub to proxy the messages to your `TrafficControlService`.
 
-1.  Run the following code to provision an IoT device identity to represent your simulation application as it writes to the IoT Hub.
-    Change the "hub-name" to your IoT hub name
+1.  Run the following code to provision an IoT device identity to represent your simulation application as it writes to the IoT Hub. Change the "hub-name" to your IoT hub name
 
     ```shell
     az iot hub device-identity create --device-id simulation --hub-name <iot-hub-name>

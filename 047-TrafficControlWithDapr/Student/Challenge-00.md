@@ -6,8 +6,23 @@
 
 In this assignment, you'll install the pre-requisites tools and software as well as create the Azure resources required for the workshop.
 
-> [!NOTE]
-> Resource provisioning can take up to 25 minutes, depending on the region used. Once you launch the script to create the Azure resources, you can move on to Assignment 1 while the resources are provisioned.
+*Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, you can move on to Assignment 1 while the resources are provisioned.*
+
+## Azure resources
+
+This WhatTheHack will create the following Azure resources in your Azure resource group. Make sure you can create the following:
+
+- Application Insights
+- Azure Kubernetes Service
+- Azure Container Registry
+- Event Hub Namespace
+- IoT Hub
+- KeyVault
+- Log Analytics Workspace
+- Logic App
+- Azure Cache for Redis
+- Storage Account
+- Service Bus Namespace
 
 ## Description
 
@@ -18,8 +33,7 @@ In this assignment, you'll install the pre-requisites tools and software as well
     - If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
     - If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
         
-    > [!IMPORTANT]
-    > Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above.
+    *Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above.*
   
 1.  Install all the pre-requisites listed below and make sure they're working correctly:
 
@@ -117,8 +131,7 @@ Next, you'll create the Azure resources for the subsequent assignments using [Az
     az deployment group create --resource-group "rg-dapr-youruniqueid123" --template-file main.bicep --parameters ./main.parameters.json --query "properties.outputs" --output yaml
     ```
 
-    > [!NOTE]
-    > Creating the resources can take some time. You're encouraged to jump to the **Assignment 01** while the command executes.
+    *Creating the resources can take some time. You're encouraged to jump to the **Assignment 01** while the command executes.*
 
     Upon completion, the command will output information about the newly-created Azure resources:
 
@@ -190,8 +203,7 @@ Next, you'll create the Azure resources for the subsequent assignments using [Az
     az aks get-credentials --name "<aks-name>" --resource-group "<resource-group-name>"
     ```
    
-    > [!NOTE]
-    > The `az aks get-credentials` command retrieves credentials for an AKS cluster. It merges the credentials into your local kubeconfig file.
+    *The `az aks get-credentials` command retrieves credentials for an AKS cluster. It merges the credentials into your local kubeconfig file.*
 
 1.  Verify your "target" cluster is set correctly.
 

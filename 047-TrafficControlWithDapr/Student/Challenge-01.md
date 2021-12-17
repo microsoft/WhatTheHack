@@ -22,7 +22,7 @@ Keep in mind that you'll be running the application ***without*** Dapr technolog
 
 - Finally, run the **Simulation** service. It simulates vehicle traffic at varying speeds. It exposes entry and exit cameras that photograph the license plate of each vehicle. Vehicle telemetry is sent to the Traffic Control service.
 
-> The Camera Simulation service is implemented as a Console application, the other services as as API applications.
+*The Camera Simulation service is implemented as a Console application, the other services as as API applications.*
 
 ## Success Criteria
 
@@ -32,7 +32,7 @@ To complete this assignment, you must achieve the following goals:
 
 1. Observe activity flow from the top-level simulation service all the way through the Fine Collection service.
 
-  > If you encounter an error, double-check to ensure that you have correctly installed all the [prerequisites](../README.md#Prerequisites) for the workshop!
+  *If you encounter an error, double-check to ensure that you have correctly installed all the [prerequisites](../README.md#Prerequisites) for the workshop!*
 
 ## Tips
 

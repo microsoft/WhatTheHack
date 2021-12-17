@@ -10,17 +10,17 @@ In this assignment, you'll run the Traffic Control application to make sure ever
 
 1. From the file explorer in VS Code, open the `Resources` folder.
 
-   > Throughout the assignment you'll execute *all steps* in the **same instance** of VS Code.
+   *Throughout the assignment you'll execute *all steps* in the **same instance** of VS Code.*
 
 1. Open the terminal window in VS Code.
 
-   > You can open it from the **Terminal** menu item on the top nav menu bar or by using the hotkey ``Ctrl-Shift-` `` (Windows) or ``Shift-Ctrl-` `` (macOS).
+   *You can open it from the **Terminal** menu item on the top nav menu bar or by using the hotkey ``Ctrl-Shift-` `` (Windows) or ``Shift-Ctrl-` `` (macOS).*
 
 1. In the terminal window, set your current folder to `Resources/VehicleRegistrationService`.
 
 1. Start the service by typing in the `dotnet run` command in the terminal window.
 
-   > If you receive an error here, please double-check whether or not you have installed all the [prerequisites](../README.md#Prerequisites) for the workshop!  
+   *If you receive an error here, please double-check whether or not you have installed all the [prerequisites](../README.md#Prerequisites) for the workshop!*
 
 Now you can test whether you can call the VehicleRegistrationService. You can do this using a browser, CURL or some other HTTP client. But there is a convenient way of testing RESTful APIs directly from VS Code (using the REST Client extension VS Code):
 
@@ -61,9 +61,9 @@ At this point, the Vehicle Registration microservice is up and running correctly
 
 1. Open a **new** terminal window in VS Code.
 
-   > You can do this by using the hotkey (``Ctrl-` `` on Windows, ``Shift-Ctrl-` `` on macOS) or clicking on the `+` button in the terminal window title bar (shown in a red box):
+    *You can do this by using the hotkey (``Ctrl-` `` on Windows, ``Shift-Ctrl-` `` on macOS) or clicking on the `+` button in the terminal window title bar (shown in a red box):*
 
-   > ![](../images/Challenge-01/terminal-new.png)
+    ![](../images/Challenge-01/terminal-new.png)
 
 1. In the terminal window, make sure the current folder is set to `Resources/FineCollectionService`.
 
@@ -77,7 +77,7 @@ At this point, the Vehicle Registration microservice is up and running correctly
 
 1. Check the logging in the terminal window. It should look like this:
 
-   ![FineCollectionService logging](../images/Challenge-01/logging-finecollectionservice.png)
+    ![FineCollectionService logging](../images/Challenge-01/logging-finecollectionservice.png)
 
 At this point, both the Vehicle Registration and Fine Collection microservices are up and running.
 
@@ -97,16 +97,16 @@ At this point, both the Vehicle Registration and Fine Collection microservices a
 
 1. Check the logging in the terminal window. It should look like this:
 
-   ![TrafficControlService logging](../images/Challenge-01/logging-trafficcontrolservice.png)
+    ![TrafficControlService logging](../images/Challenge-01/logging-trafficcontrolservice.png)
 
 1. Also inspect the logging of the FineCollectionService.
 
-   > You can do this by selecting the prior terminal window using the dropdown in the title-bar of the terminal window:
-   ![](../images/Challenge-01/terminal-dropdown.png)
+    *You can do this by selecting the prior terminal window using the dropdown in the title-bar of the terminal window:*
+    ![](../images/Challenge-01/terminal-dropdown.png)
 
-   You should see the speeding-violation being issued by the FineCollectionService:
+    You should see the speeding-violation being issued by the FineCollectionService:
 
-   ![FineCollectionService logging](../images/Challenge-01/logging-finecollectionservice.png)
+    ![FineCollectionService logging](../images/Challenge-01/logging-finecollectionservice.png)
 
 At this point, the three core microservices, Vehicle Registration, Fine Collection, and Traffic Control are up and running.
 
@@ -120,7 +120,7 @@ You've tested the APIs directly by using a REST client. Now you're going to run 
 
 1. In the terminal window you should see something like this:
 
-   ![](../images/Challenge-01/logging-simulation.png)
+    ![](../images/Challenge-01/logging-simulation.png)
 
 1. Also check the logging in the other Terminal windows. You should see all entry- and exit events and any speeding-violations that were detected in the logging.
 
@@ -130,6 +130,6 @@ Now we know the application runs correctly. It's time to start adding Dapr to th
 
 Make sure you stop all running processes and close all the terminal windows in VS Code before proceeding to the next assignment. Stopping a service or the simulation is done by pressing `Ctrl-C` in the terminal window. To close the terminal window, enter the `exit` command.
 
-> You can also close a terminal window by clicking on the trashcan icon in its title bar:
+*You can also close a terminal window by clicking on the trashcan icon in its title bar:*
 
-> ![](../images/Challenge-01/terminal-trashcan.png)
+![](../images/Challenge-01/terminal-trashcan.png)

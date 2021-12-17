@@ -24,9 +24,9 @@ In Dapr, every service is started with a unique Id (the *app-id*) which can be u
 1. Service B's Dapr sidecar forwards the response to Service A's Dapr sidecar.
 1. Service A's Dapr sidecar forwards the response to Service A.
 
-> The service invocation building block offers many other features, such as security and load-balancing. Check out the [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/) later to learn more.
+*The service invocation building block offers many other features, such as security and load-balancing. Check out the [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/) later to learn more.*
 
-> Service Invocation is also covered in detail in the [Dapr for .NET Developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/service-invocation) guidance eBook.
+*Service Invocation is also covered in detail in the [Dapr for .NET Developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/service-invocation) guidance eBook.*
 
 For this hands-on assignment, you will decouple communication between two services.
 
@@ -43,7 +43,7 @@ This assignment targets the operations labeled as **number 1** in the end-state 
 
 ## Tips
 
-Look in the `044-Dapr/Student/Resources` directory for the source code to get started.
+Look in the `047-TrafficControlWithDapr/Student/Resources` directory for the source code to get started.
 
 ## Learning Resources
 
