@@ -4,13 +4,13 @@
 
 ## Notes & Guidance
 
-In this assignment, you'll run the Traffic Control application to make sure everything works correctly. At this point, you'll be running the microservice application **without** any Dapr technology. As you work through the lab assignments, you'll add Dapr technology step-by-step.
+In this challenge, you'll run the Traffic Control application to make sure everything works correctly. At this point, you'll be running the microservice application **without** any Dapr technology. As you work through the lab challenges, you'll add Dapr technology step-by-step.
 
 ## Step 1. Run the VehicleRegistration service
 
 1. From the file explorer in VS Code, open the `Resources` folder.
 
-   *Throughout the assignment you'll execute *all steps* in the **same instance** of VS Code.*
+   *Throughout the challenge you'll execute *all steps* in the **same instance** of VS Code.*
 
 1. Open the terminal window in VS Code.
 
@@ -126,9 +126,9 @@ You've tested the APIs directly by using a REST client. Now you're going to run 
 
 Now we know the application runs correctly. It's time to start adding Dapr to the application.
 
-## Next assignment
+## Next challenge
 
-Make sure you stop all running processes and close all the terminal windows in VS Code before proceeding to the next assignment. Stopping a service or the simulation is done by pressing `Ctrl-C` in the terminal window. To close the terminal window, enter the `exit` command.
+Make sure you stop all running processes and close all the terminal windows in VS Code before proceeding to the next challenge. Stopping a service or the simulation is done by pressing `Ctrl-C` in the terminal window. To close the terminal window, enter the `exit` command.
 
 *You can also close a terminal window by clicking on the trashcan icon in its title bar:*
 

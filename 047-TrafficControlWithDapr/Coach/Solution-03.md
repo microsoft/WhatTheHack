@@ -46,7 +46,7 @@ Warning: Once you remove container, it's gone. To use it, again, you'll need to 
 
 *For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. invoke the `Resources/Infrastructure/rabbitmq/start-rabbitmq.ps1` script to start the RabbitMQ container.*
 
-*If you want to start all the infrastructural containers at once (for this and the assignments to come), invoke the `Resources/Infrastructure/start-all.ps1` script.*
+*If you want to start all the infrastructural containers at once (for this and the challenges to come), invoke the `Resources/Infrastructure/start-all.ps1` script.*
 
 *If you're using Bash, just copy/paste the docker command to the shell and run it.*
 
@@ -487,7 +487,7 @@ Test the application again by executing the activities in step 5 again.
 
 *This step assumes you have created an Azure Service Bus namespace in [Challenge 00](../Student/Challenge-00.md#Step%202.%20Create%20Azure%20Resources).*
 
-So far, in this assignment, you've used *RabbitMQ* to publish and subscribe to messages. Interestingly, you didn't require an extensive understanding of this message broker. Using RabbitMQ required two steps:
+So far, in this challenge, you've used *RabbitMQ* to publish and subscribe to messages. Interestingly, you didn't require an extensive understanding of this message broker. Using RabbitMQ required two steps:
 
 - Adding Dapr pub/sub building block code
 - A YAML configuration component
@@ -525,7 +525,7 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
 
 1. You need to provide a connection string for Azure Service Bus. Normally, you'd create a [Shared Access Secret or enable authentication/authorization with AAD](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization). For now, however, keep your focus on Dapr. In the Service Bus portal blade, click on `Shared access policies` and then the `RootManagerSharedAccessKey` Copy the connection string value from `Primary Connection String`' Close the SAS dialog box and paste the connection string into the `pubsub' YAML file.
 
-    *Warnings: (1) Never use the RootManageSharedAccessKey in real-world application. (2) Never expose the connection string in plain text. In a real world application you'd create a custom shared access key and access it from a secure secret store. You'll do that in a later assignment.*
+    *Warnings: (1) Never use the RootManageSharedAccessKey in real-world application. (2) Never expose the connection string in plain text. In a real world application you'd create a custom shared access key and access it from a secure secret store. You'll do that in a later challenge.*
 
     You can also use AZ CLI tool to get the connection string:
 
@@ -541,4 +541,4 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
 
 https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-servicebus/
 
-As you complete this assignment, hopefully you see  The *value proposition* of Dapr. By providing infrastructure plumbing, it dramatically simplifies your application. Equally important, you can plug in any pre-defined component without having to change your application code.
+As you complete this challenge, hopefully you see  The *value proposition* of Dapr. By providing infrastructure plumbing, it dramatically simplifies your application. Equally important, you can plug in any pre-defined component without having to change your application code.

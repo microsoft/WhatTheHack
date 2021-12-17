@@ -6,13 +6,13 @@
 
 ### Step 1: Start the VehicleRegistrationService with Dapr
 
-In assignment 1, you started all the services using `dotnet run` without using Dapr. The services then communicated among each other using direct HTTP calls. To evolve your application and use Dapr for service-to-service communication, you'll need the Dapr CLI to start Dapr sidecars for each service. The sidecars will then be responsible for cross-service communication. To do so, you'll need to provide values for a number of parameters:
+In challenge 1, you started all the services using `dotnet run` without using Dapr. The services then communicated among each other using direct HTTP calls. To evolve your application and use Dapr for service-to-service communication, you'll need the Dapr CLI to start Dapr sidecars for each service. The sidecars will then be responsible for cross-service communication. To do so, you'll need to provide values for a number of parameters:
 
 - The service needs a unique id so that Dapr can find it. This is called the *app-id* (or application Id). You specify this with the `--app-id` flag on the command-line.
 
 - Each service listens for requests on a different HTTP port to prevent port collisions on localhost. You'll run the VehicleRegistrationService on port `6002`. You'll inform Dapr using the `--app-port` flag on the command-line. Doing so enables the Dapr sidecar to communicate with the service.
 
-- The service can communicate with the Dapr sidecar using  HTTP or gRPC. By default, Dapr sidecars listen on port `3500` and `50001`, respectively. But to prevent confusion, you'll use different port numbers in the lab assignments. To avoid port collisions on the local machine when running multiple services, you'll specify a unique HTTP and gRPC port per service. You specify this with the `--dapr-http-port` and `--dapr-grpc-port` flags on the command-line. Throughout the workshop, you will use the following ports:
+- The service can communicate with the Dapr sidecar using  HTTP or gRPC. By default, Dapr sidecars listen on port `3500` and `50001`, respectively. But to prevent confusion, you'll use different port numbers in the lab challenges. To avoid port collisions on the local machine when running multiple services, you'll specify a unique HTTP and gRPC port per service. You specify this with the `--dapr-http-port` and `--dapr-grpc-port` flags on the command-line. Throughout the workshop, you will use the following ports:
 
   | Service                    | Application Port | Dapr sidecar HTTP port | Dapr sidecar gRPC port |
   | -------------------------- | ---------------- | ---------------------- | ---------------------- |
@@ -127,7 +127,7 @@ First, start the TrafficControlService:
     dotnet run
     ```
 
-    > The TrafficControlService does not need to run with a Dapr sidecar in this assignment. This is because it will still call the FineCollectionService over HTTP as before.
+    > The TrafficControlService does not need to run with a Dapr sidecar in this challenge. This is because it will still call the FineCollectionService over HTTP as before.
 
 Finally, you're going start the traffic simulation service:
 
@@ -210,7 +210,7 @@ Now you'll change the code in the FineCollectionService to use the Dapr SDK `Htt
 
 Now the FineCollectionService is changed to use the Dapr SDK for service invocation. Let's test this.
 
-1.  If you followed the instructions in this assignment, the VehicleRegistration and TrafficControl services are still running.
+1.  If you followed the instructions in this challenge, the VehicleRegistration and TrafficControl services are still running.
 
 1.  Open the terminal window in VS Code in which the FineCollectionService was running.
 

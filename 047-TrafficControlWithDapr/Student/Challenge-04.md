@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this assignment, you're going to add Dapr **state management** in the TrafficControl service to store vehicle information.
+In this challenge, you're going to add Dapr **state management** in the TrafficControl service to store vehicle information.
 
 ## Description
 
@@ -25,13 +25,13 @@ Right now, this is all you need to know about this building block. If you want t
 
 ## Success Criteria
 
-To complete this assignment, you must reach the following goals:
+To complete this challenge, you must reach the following goals:
 
 - The TrafficControl service saves the state of a vehicle (`VehicleState` class) using the state management building block after vehicle entry.
 - The TrafficControl service reads and updates the state of a vehicle using the state management building block after vehicle exit.
 - The final solution uses Azure Cache for Redis as state store
 
-This assignment targets the operation labeled as **number 3** in the end-state setup:
+This challenge targets the operation labeled as **number 3** in the end-state setup:
 
 ![](../images/Challenge-04/dapr-setup-assignment4.png)
 

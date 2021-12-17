@@ -4,9 +4,9 @@
 
 ## Introduction
 
-In this assignment, you'll install the pre-requisites tools and software as well as create the Azure resources required for the workshop.
+In this challenge, you'll install the pre-requisites tools and software as well as create the Azure resources required for the workshop.
 
-*Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, you can move on to Assignment 1 while the resources are provisioned.*
+*Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, you can move on to challenge 1 while the resources are provisioned.*
 
 ## Azure resources
 
@@ -62,7 +62,7 @@ This WhatTheHack will create the following Azure resources in your Azure resourc
 
 ### Step 2. Create Azure Resources
 
-Next, you'll create the Azure resources for the subsequent assignments using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
+Next, you'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
 
 1.  If you're using [Azure Cloud Shell](https://shell.azure.com), skip this step and proceed to step 2. Open the [terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code and make sure you're logged in to Azure
 
@@ -131,7 +131,7 @@ Next, you'll create the Azure resources for the subsequent assignments using [Az
     az deployment group create --resource-group "rg-dapr-youruniqueid123" --template-file main.bicep --parameters ./main.parameters.json --query "properties.outputs" --output yaml
     ```
 
-    *Creating the resources can take some time. You're encouraged to jump to the **Assignment 01** while the command executes.*
+    *Creating the resources can take some time. You're encouraged to jump to the **challenge 01** while the command executes.*
 
     Upon completion, the command will output information about the newly-created Azure resources:
 

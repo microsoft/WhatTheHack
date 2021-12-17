@@ -71,11 +71,11 @@ Keep in mind that once you remove, it's gone. You'll need to start it again with
 
 *For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
 
-*You can also start all the infrastructural containers at once (also for assignments to come) with the `Resources/Infrastructure/start-all.ps1` script.*
+*You can also start all the infrastructural containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
 ### Step 3: Configure the input binding
 
-In this step you will add two Dapr binding component configuration files to the custom components folder you created in Assignment 3.
+In this step you will add two Dapr binding component configuration files to the custom components folder you created in challenge 3.
 
 First, create an input binding for the `/entrycam` operation:
 
@@ -234,7 +234,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Make sure no services from previous tests are running (close the terminal windows).
 
-1.  Make sure all the Docker containers introduced in the previous assignments are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
+1.  Make sure all the Docker containers introduced in the previous challenges are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
 
 1.  Open the a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
