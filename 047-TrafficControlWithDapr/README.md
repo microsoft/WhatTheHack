@@ -1,7 +1,7 @@
 # What The Hack - Dapr
 
 ## Introduction
-This repository contains several hands-on assignments that will introduce you to [Dapr](https://dapr.io/). You will start with a simple ASP.NET Core application that is composed of several microservices. In each assignment, you'll enhance the the application by adding Dapr building blocks and components. At the same time, you'll configure the application to consume Azure-based backing services. When complete, you'll have implemented the following Dapr building blocks:
+This repository contains several hands-on challenges that will introduce you to [Dapr](https://dapr.io/). You will start with a simple ASP.NET Core application that is composed of several microservices. In each challenge, you'll enhance the the application by adding Dapr building blocks and components. At the same time, you'll configure the application to consume Azure-based backing services. When complete, you'll have implemented the following Dapr building blocks:
 
 - Service invocation
 - State-management
@@ -13,7 +13,7 @@ As Dapr can run on a variety of hosts, you'll start by running Dapr in self-host
 
 ## Learning Objectives
 
-The assignments implement a traffic-control camera system that are commonly found on Dutch highways. Here's how the simulation works:
+The challenges implement a traffic-control camera system that are commonly found on Dutch highways. Here's how the simulation works:
 
 ![Speeding cameras](images/speed-trap-overview.png)
 
@@ -50,14 +50,14 @@ The following sequence diagram describes how the application works:
 
 All actions described in the previous sequence are logged to the console during execution so you can follow the flow.
 
-The `./Student/Resources` folder in the repo contains the starting project for the workshop. It contains a version of the services that use plain HTTP communication and store state in memory. With each workshop assignment, you'll add a Dapr building block to enhance this application architecture.
+The `./Student/Resources` folder in the repo contains the starting project for the workshop. It contains a version of the services that use plain HTTP communication and store state in memory. With each workshop challenge, you'll add a Dapr building block to enhance this application architecture.
 
 > [!IMPORTANT]
 > It's important to understand that all calls between services are direct, synchronous HTTP calls using the HttpClient library in .NET Core. While sometimes necessary, this type of synchronous communication [isn't considered a best practice](https://docs.microsoft.com/dotnet/architecture/cloud-native/service-to-service-communication#requestresponse-messaging) for distributed microservice applications. When possible, you should consider decoupling microservices using asynchronous messaging. However, decoupling communication can dramatically increase the architectural and operational complexity of an application. You'll soon see how Dapr reduces the inherent complexity of distributed microservice applications.
 
 ### End-state with Dapr applied
 
-As you complete the lab assignments, you'll evolve the application architecture to work with Dapr and consume Azure-based backing services:
+As you complete the challenges, you'll evolve the application architecture to work with Dapr and consume Azure-based backing services:
 
 - Azure IoT Hub
 - Azure Redis Cache
@@ -81,11 +81,11 @@ The following sequence diagram shows how the solution will work after implementi
 <img src="images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
 
 > [!NOTE]
-> It's helpful to refer back to the preceding sequence diagram as you progress through the workshop assignments.
+> It's helpful to refer back to the preceding sequence diagram as you progress through the workshop challenges.
 
 ### Prevent port collisions
 
-For most of the assignments, you'll run the microservices in the solution on your local machine. To prevent port collisions, all services will listen on a different HTTP port. When running with Dapr, you need additional ports for HTTP and gRPC communication between the sidecar services. By default, these ports are `3500` and `50001`. However, you'll use different port numbers for each service to prevent collisions. Please closely follow the instructions so that your microservices use the following ports for their Dapr sidecars:
+For most of the challenges, you'll run the microservices in the solution on your local machine. To prevent port collisions, all services will listen on a different HTTP port. When running with Dapr, you need additional ports for HTTP and gRPC communication between the sidecar services. By default, these ports are `3500` and `50001`. However, you'll use different port numbers for each service to prevent collisions. Please closely follow the instructions so that your microservices use the following ports for their Dapr sidecars:
 
 | Service                    | Application Port | Dapr sidecar HTTP port | Dapr sidecar gRPC port |
 | -------------------------- | ---------------- | ---------------------- | ---------------------- |

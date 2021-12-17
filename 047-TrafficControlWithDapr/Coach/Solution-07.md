@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-This assignment will add the Dapr secrets building block to the TrafficControl application. The following figure depicts the enhancement:
+This challenge will add the Dapr secrets building block to the TrafficControl application. The following figure depicts the enhancement:
 
 <img src="../images/Challenge-07/secrets-management-operation.png" style="padding-top: 25px;" />
 
@@ -144,7 +144,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Make sure no services from previous tests are running (close the terminal windows).
 
-1.  Make sure all the Docker containers introduced in the previous assignments are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
+1.  Make sure all the Docker containers introduced in the previous challenges are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
 
 1.  Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 

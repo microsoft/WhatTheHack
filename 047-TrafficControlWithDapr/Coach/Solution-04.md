@@ -198,7 +198,7 @@ Now, you'll test the update by running the application from end-to-end.
 
 1. Make sure no services from previous tests are running (close the terminal windows)
 
-1. Make sure all the Docker containers introduced in the previous assignments are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
+1. Make sure all the Docker containers introduced in the previous challenges are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
 
 1. Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
@@ -348,7 +348,7 @@ Now you're ready to test the application. Just repeat steps 2a and 2b.
 
 ### Step 4: Use Azure Cache for Redis as state store
 
-Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to replacing *RabbitMq* with Azure Service Bus in Assignment 3 required no code changes either. 
+Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to replacing *RabbitMq* with Azure Service Bus in challenge 3 required no code changes either. 
 
 1. Update the `Resources/dapr/components/statestore.yaml` file with the key/value pairs for your Azure Redis Cache instance. You can find these on the Overview blade of your Azure Redis Cache instance. Make sure you add the **6380** port number after the host URI.
 

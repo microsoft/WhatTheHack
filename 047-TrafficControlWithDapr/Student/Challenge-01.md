@@ -4,11 +4,11 @@
 
 ## Introduction
 
-In this assignment, you'll run the reference application to ensure that everything works correctly.
+In this challenge, you'll run the reference application to ensure that everything works correctly.
 
 ## Description
 
-As mentioned in the introduction, the hackathon assignments are built upon an existing microservice reference app, entitled the ***Traffic Control Application***. To start, you'll test the Traffic Control app to ensure that the application runs and your environment is configured correctly. You'll use Visual Studio Code to start each of the 4 microservices shown below:
+As mentioned in the introduction, the hackathon challenges are built upon an existing microservice reference app, entitled the ***Traffic Control Application***. To start, you'll test the Traffic Control app to ensure that the application runs and your environment is configured correctly. You'll use Visual Studio Code to start each of the 4 microservices shown below:
 
 <img src="../images/Challenge-01/services.png" style="zoom: 75%;padding-top: 50px;" />
 
@@ -26,7 +26,7 @@ Keep in mind that you'll be running the application ***without*** Dapr technolog
 
 ## Success Criteria
 
-To complete this assignment, you must achieve the following goals:
+To complete this challenge, you must achieve the following goals:
 
 1. Successfully start each of the four microservices with no errors.
 

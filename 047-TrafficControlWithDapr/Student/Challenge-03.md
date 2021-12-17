@@ -4,11 +4,11 @@
 
 ## Introduction
 
-In this assignment, you're going to add Dapr **publish/subscribe** messaging to send messages from the TrafficControlService to the FineCollectionService.
+In this challenge, you're going to add Dapr **publish/subscribe** messaging to send messages from the TrafficControlService to the FineCollectionService.
 
 ## Description
 
-In assignment 2, you implemented direct, synchronous communication between two microservices. This pattern is common when an immediate response is required. Communication between service doesn't always require an immediate response.
+In challenge 2, you implemented direct, synchronous communication between two microservices. This pattern is common when an immediate response is required. Communication between service doesn't always require an immediate response.
 
 The publish/subscribe pattern allows your microservices to communicate asynchronously with each other purely by sending messages. In this system, the producer of a message sends it to a topic, with no knowledge of what service(s) will consume the message. A message can even be sent if there's no consumer for it.
 
@@ -18,14 +18,14 @@ Similarly, a subscriber, or consumer, will receive messages from a topic without
 
 ## Success Criteria
 
-To complete this assignment, you must reach the following goals:
+To complete this challenge, you must reach the following goals:
 
 1. The TrafficControlService sends `SpeedingViolation` messages using the Dapr pub/sub building block.
 1. The FineCollectionService receives `SpeedingViolation` messages using the Dapr pub/sub building block.
 1. Use RabbitMQ as pub/sub message broker that runs as part of the solution in a Docker container.
 1. Replace it with Azure Service Bus as a message broker without code changes.
 
-This assignment targets the operations labeled as **number 2** in the end-state setup:
+This challenge targets the operations labeled as **number 2** in the end-state setup:
 
 <img src="../images/Challenge-03/dapr-setup-assignment03.png" style="zoom: 67%;" />
 

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this assignment, you're going to add Dapr into the mix, using the Dapr **service invocation** building block.
+In this challenge, you're going to add Dapr into the mix, using the Dapr **service invocation** building block.
 
 ## Description
 
@@ -28,16 +28,16 @@ In Dapr, every service is started with a unique Id (the *app-id*) which can be u
 
 *Service Invocation is also covered in detail in the [Dapr for .NET Developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/service-invocation) guidance eBook.*
 
-For this hands-on assignment, you will decouple communication between two services.
+For this hands-on challenge, you will decouple communication between two services.
 
 ## Success Criteria
 
-To complete this assignment, you must achieve the following goals:
+To complete this challenge, you must achieve the following goals:
 
 - The VehicleRegistrationService and FineCollectionService must each run with a Dapr sidecar.
 - The FineCollectionService must use the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the VehicleRegistrationService.
 
-This assignment targets the operations labeled as **number 1** in the end-state setup:
+This challenge targets the operations labeled as **number 1** in the end-state setup:
 
 <img src="../images/Challenge-02/dapr-setup-assignment02.png" style="zoom: 67%;" />
 

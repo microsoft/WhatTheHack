@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this assignment, you will use the open-source [MailDev](https://github.com/maildev/maildev) component, running inside in a container, as your SMTP server. This is a development SMTP server that doesn't actually send out emails (by default), but collects them and shows them in a built-in inbox. The tool extremely handy for test or demo scenarios. You will run this server as a Docker container.
+In this challenge, you will use the open-source [MailDev](https://github.com/maildev/maildev) component, running inside in a container, as your SMTP server. This is a development SMTP server that doesn't actually send out emails (by default), but collects them and shows them in a built-in inbox. The tool extremely handy for test or demo scenarios. You will run this server as a Docker container.
 
 ![output-binding-operation](../images/Challenge-05/output-binding-operation.png)
 
@@ -52,7 +52,7 @@ Keep in mind that once you remove, it's gone. You'll need to start it again with
 
 *For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
 
-*You can also start all the infrastructural containers at once (also for assignments to come) with the `Resources/Infrastructure/start-all.ps1` script.*
+*You can also start all the infrastructural containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
 ## Step 2: Use the Dapr output binding in the FineCollectionService
 
@@ -129,7 +129,7 @@ That's it! That's all the code you need to send an email over SMTP.
 
 ## Step 3: Configure the output binding
 
-In this step you will add a Dapr binding component configuration file to connect to the SMTP server container you created in step 1. You'll add the file to the custom components folder you created in Assignment 3.
+In this step you will add a Dapr binding component configuration file to connect to the SMTP server container you created in step 1. You'll add the file to the custom components folder you created in challenge 3.
 
 1.  Add a new file in the `Resources/dapr/components` folder named `email.yaml`.
 
@@ -174,7 +174,7 @@ You're going to start all the services now. Like before, you'll specify the cust
 
 1.  Make sure no services from previous tests are running (close the terminal windows)
 
-1.  Make sure all the Docker containers introduced in the previous assignments are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
+1.  Make sure all the Docker containers introduced in the previous challenges are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
 
 1.  Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
