@@ -44,9 +44,9 @@ docker rm dtc-rabbitmq -f
 
 Warning: Once you remove container, it's gone. To use it, again, you'll need to start over with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the workshop. invoke the `Resources/Infrastructure/rabbitmq/start-rabbitmq.ps1` script to start the RabbitMQ container.*
+*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. Invoke the `Resources/Infrastructure/rabbitmq/start-rabbitmq.ps1` script to start the RabbitMQ container.*
 
-*If you want to start all the infrastructural containers at once (for this and the challenges to come), invoke the `Resources/Infrastructure/start-all.ps1` script.*
+*If you want to start all the infrastructure containers at once (for this and the challenges to come), invoke the `Resources/Infrastructure/start-all.ps1` script.*
 
 *If you're using Bash, just copy/paste the docker command to the shell and run it.*
 

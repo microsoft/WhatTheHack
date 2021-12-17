@@ -50,10 +50,9 @@ The following sequence diagram describes how the application works:
 
 All actions described in the previous sequence are logged to the console during execution so you can follow the flow.
 
-The `./Student/Resources` folder in the repo contains the starting project for the workshop. It contains a version of the services that use plain HTTP communication and store state in memory. With each workshop challenge, you'll add a Dapr building block to enhance this application architecture.
+The `Resources` folder contains the starting projects for the WhatTheHack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance this application architecture.
 
-> [!IMPORTANT]
-> It's important to understand that all calls between services are direct, synchronous HTTP calls using the HttpClient library in .NET Core. While sometimes necessary, this type of synchronous communication [isn't considered a best practice](https://docs.microsoft.com/dotnet/architecture/cloud-native/service-to-service-communication#requestresponse-messaging) for distributed microservice applications. When possible, you should consider decoupling microservices using asynchronous messaging. However, decoupling communication can dramatically increase the architectural and operational complexity of an application. You'll soon see how Dapr reduces the inherent complexity of distributed microservice applications.
+*It's important to understand that all calls between services are direct, synchronous HTTP calls using the HttpClient library in .NET Core. While sometimes necessary, this type of synchronous communication [isn't considered a best practice](https://docs.microsoft.com/dotnet/architecture/cloud-native/service-to-service-communication#requestresponse-messaging) for distributed microservice applications. When possible, you should consider decoupling microservices using asynchronous messaging. However, decoupling communication can dramatically increase the architectural and operational complexity of an application. You'll soon see how Dapr reduces the inherent complexity of distributed microservice applications.*
 
 ### End-state with Dapr applied
 
@@ -80,8 +79,7 @@ The following sequence diagram shows how the solution will work after implementi
 
 <img src="images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
 
-> [!NOTE]
-> It's helpful to refer back to the preceding sequence diagram as you progress through the workshop challenges.
+*It's helpful to refer back to the preceding sequence diagram as you progress through the challenges.*
 
 ### Prevent port collisions
 
@@ -103,7 +101,7 @@ You'll specify the ports from the command-line when starting a service with the 
 
 ## Challenges
 - Challenge 0: **[Install tools and Azure pre-requisites](Student/Challenge-00.md)**
-   - Install the pre-requisites tools and software as well as create the Azure resources required for the workshop.
+   - Install the pre-requisites tools and software as well as create the Azure resources required.
 - Challenge 1: **[Run the application](Student/Challenge-01.md)**
    - Run the Traffic Control application to make sure everything works correctly
 - Challenge 2: **[Add Dapr service invocation](Student/Challenge-02.md)**

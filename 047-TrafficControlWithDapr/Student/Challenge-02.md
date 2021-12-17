@@ -43,7 +43,7 @@ This challenge targets the operations labeled as **number 1** in the end-state s
 
 ## Tips
 
-Look in the `047-TrafficControlWithDapr/Student/Resources` directory for the source code to get started.
+Look in the `Resources` directory for the source code to get started.
 
 ## Learning Resources
 
