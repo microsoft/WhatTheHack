@@ -52,7 +52,8 @@ This challenge targets the operation labeled as **number 6** in the end-state se
 
 ## Tips
 
-First open the `Resources` folder in this repo in VS Code. Then open the [Secrets management documentation](https://docs.dapr.io/developing-applications/building-blocks/secrets/) and start hacking away.
+- Use a flat file to store secrets when working locally.
+- Use [Azure KeyVault](https://docs.microsoft.com/en-us/azure/key-vault/general/) when deploying to Azure.
 
 ## Learning Resources
 - [Dapr Building Blocks - Secrets](https://docs.dapr.io/developing-applications/building-blocks/secrets/)
