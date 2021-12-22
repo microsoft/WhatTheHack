@@ -1,37 +1,33 @@
-# What The Hack - SAP on Azure 
+# What The Hack - SAP on Azure Application Modernization
 
 ## Introduction 
 
-SAP S/4HANA is SAP's ERP for large enterprises. It is the successor of SAP R/3 and SAP ERP and is optimized for SAP's in-memory database SAP HANA.
-Azure is SAP certified to run your mission-critical SAP applications. Azure is the industry's most performant and scalable SAP cloud infrastructure, offering 192-gigabyte to 12-terabyte SAP HANA–certified virtual machines in more regions than any other public cloud provider. 
-
-![MicrosoftTeams-image](https://user-images.githubusercontent.com/48741882/117181155-edbfa880-ada2-11eb-8368-70e386667aa4.png)
-![MicrosoftTeams-image (1)](https://user-images.githubusercontent.com/48741882/117181160-ee583f00-ada2-11eb-9300-6c77a0f9d156.png)
-
+Following on from 042-SAPOnAzure, many SAP S/4 HANA or ECC customers wish to use Azure to build applications that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. 
 
 ## Learning Objectives
 
-The SAP on Azure WTH challenges will help you learn common Azure surround services for SAP and is aimed at providing the pariticipants foundational knowledge to begin a successful SAP on Azure Journey.
+The SAP on Azure Application Modernization WTH challenges will help you build on your prior knowledge of SAP and build applications that can connect SAP to Azure Services and dotnet applications using industry standard protocols such as OData, OpenApi, OAuth2, OpenID Connect. You will learn how to front SAP systems with Azure Gateways such as Azure API Management and how to authenticate, authorize and cache data from these services for use in modern distributed web architectures. Once you have completed these challenges you will be ready to move away from legacy ABAP-based code integrations and towards modern, open protocols.
 
 
 ## Challenges
 
-- Challenge 0: [Pre-requisites - Ready, Set, GO!](Student/00-prereqs.md)
+- Challenge 0: [Pre-requisites - Get Set for Success](Student/00-prereqs.md)
 
-- Challenge 1: [Rapid SAP Deployment.](Student/01-SAP-Auto-Deployment.md)
+- Challenge 1: [Rapid SAP Deployment.](Student/01-Deployment.md)
 
-- Challenge 2: [End-to-End Technical monitoring for SAP](Student/02-Azure-Monitor.md)
+- Challenge 2: [.net web frontend with OpenAPI and OData](Student/02-OpenAPIAndOdata.md)
 
-- Challenge 3: [Securing SAP on Azure.](Student/03-SAP-Security.md)
+- Challenge 3: [Azure API Management Facade for Odata](Student/03-APIMOdata.md)
 
-- Challenge 4: [Business continuity and Disaster recovery](Student/04-BusinessContinuity-and-DR.md)
+- Challenge 4: [Geode Pattern: Global Caching and Replication of SAP Source Data](Student/04-GeodesSAP.md)
+- 
+- Challenge 5: [Azure AD Identity - Azure AD and SAP Principal Propagation](Student/05-Principal-Prop.md)
 
-- Challenge 5: [Mobile Application surrounding SAP.](Student/05-PowerApps.md)
+- Challenge 6: [Messaging, Async Communication and Integration - SAPIO / Logic Apps](Student/06-MessagingAsyncComms.md)
 
-- Challenge 6: [Application aware maintenance (Start/Stop/Scale)](Student/06-Start-Stop-Automation.md)
+- Challenge 7: [Private Link and Private Endpoint Communications for SAP](Student/07-PrivateLink.md)
 
-- Challenge 7: [Self-service analytical dashboard using data from SAP S/4 Hana system.](Student/07-PowerQuery.md) 
-
+- Challenge 8: [Self-service chatbot using data from SAP S/4 Hana system.](Student/08-Chatbot.md)
 
 ## Repository Contents
 - `../Student`
@@ -40,17 +36,8 @@ The SAP on Azure WTH challenges will help you learn common Azure surround servic
   - Student's resource files, code, and templates to aid with challenges
 
 ## Contributors
-- Anbu Govindasamy
-- Douglas Helm
-- Jason Hobson
-- Jitendra Singh
-- Moaz Mirza
-- Rajesh Elisetty
-- Satish Gurjar
-- Syed Hussain
-- Uday Punati
-- Dwiref Sharma
-- Kiran Kumar Vejendla
-- Young Yi
-- Jed Wu
-- Ravi Kashyap
+- Will Eastbury
+- Martin Pankraz
+- Vinod 
+- Christof Claessens
+- Jelle Druyts
