@@ -20,7 +20,7 @@ The SAP on Azure Application Modernization WTH challenges will help you build on
 - Challenge 3: [Azure API Management Facade for Odata](Student/03-APIMOdata.md)
 
 - Challenge 4: [Geode Pattern: Global Caching and Replication of SAP Source Data](Student/04-GeodesSAP.md)
-- 
+
 - Challenge 5: [Azure AD Identity - Azure AD and SAP Principal Propagation](Student/05-Principal-Prop.md)
 
 - Challenge 6: [Messaging, Async Communication and Integration - SAPIO / Logic Apps](Student/06-MessagingAsyncComms.md)
@@ -38,6 +38,6 @@ The SAP on Azure Application Modernization WTH challenges will help you build on
 ## Contributors
 - Will Eastbury
 - Martin Pankraz
-- Vinod 
+- Vinod Desmuth
 - Christof Claessens
 - Jelle Druyts
