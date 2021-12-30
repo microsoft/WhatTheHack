@@ -15,9 +15,9 @@ During the exercise, the Participants will be able to provision a landscape into
 - Install SAP GUI 
 - Install SAP HANA Studio
 
-Note: More detailed instructions will appear here once I have an S-account again and can deploy this.
+[Note: More detailed instructions will appear here once I have an S-account again and can deploy this.]
 
-- fLogin to SAP system through SAP GUI to test the, connection SAP Application and continue other challenges.
+- Login to SAP system through SAP GUI to test the, connection SAP Application and continue other challenges.
 
 ## Success Criteria
 
