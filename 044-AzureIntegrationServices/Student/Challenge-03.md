@@ -1,4 +1,4 @@
-# Challenge 03 - <title>
+# Challenge 03 - Create bakcend APIs
 
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-04.md)
@@ -9,18 +9,19 @@
 
 ## Introduction
 
-You would like to create a CI/CD pipeline to deploy your environment using your IaC templates. <more notes here>
+You would like to create backend APIs. <more notes here>
 
 
 ## Description
-As a cloud engineer, you would like to be able create a CI/CD pipeline to perform automated deployment of integration environment.
+You should be able to create APIs running as Function App and API App and configure them as backend APIs.
 
 
 ## Success Criteria
 
 You should be able to:
-1. Create a CI/CD pipeline
-1. Deploy your environment using the Bicep templates from Challenge 01
+1. Create Function App
+1. Create API app
+1. Configure API and Function App in API Management
 
 ## Learning Resources
 
