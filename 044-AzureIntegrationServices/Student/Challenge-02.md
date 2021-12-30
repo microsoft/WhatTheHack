@@ -1,4 +1,5 @@
-# Challenge 02 - <Title>
+# Challenge 02 - Deploy your integration environment
+
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-03.md)
 
@@ -8,21 +9,18 @@
 
 ## Introduction
 
-You are a cloud engineer for Runva - a global health and wellness company that provides solutions for individuals who takes running as sport, providing them a platform to track running activities, analyze performance and recommend plans to help them train smarter and safer.  They are going to embark on a six-month project to modernize their integration solution hosted on-premises and migrate them to Azure integration services.  Since this is their first foray in Azure, you are tasked to create a proof-of-concept (POC) that captures several integration patterns.
+You would like to create a CI/CD pipeline to deploy your environment using your IaC templates. <more notes here>
 
 
 ## Description
-As a cloud engineer, you would like to be able to deploy this POC environment using Infrastructure-as-Code.  You have learned that you can efficiently do this in Azure using the new language called Bicep. As a baseline, you are going to deploy API Management service as gateway for your APIs, as well as an 3 Function Apps where you would host your APIs
+As a cloud engineer, you would like to be able create a CI/CD pipeline to perform automated deployment of integration environment.
 
 
 ## Success Criteria
 
-You should be able to create a set of Bicep templates that:
-1. Creates a resource group in your region of choice
-1. Deploy an API Management service in Developer tier
-1. Deploy three Function Apps in the Elastic Premium Plan - E1 SKU
-1. Deploy Application Insights resource
-1. Configure APIM and Function app to use Application Insights resource
+You should be able to:
+1. Create a CI/CD pipeline
+1. Deploy your environment using the Bicep templates from Challenge 01
 
 ## Learning Resources
 
