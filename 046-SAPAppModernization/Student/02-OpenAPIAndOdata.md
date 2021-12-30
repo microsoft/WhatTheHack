@@ -1,6 +1,6 @@
-# Challenge 2: Monitoring for SAP in Azure 
+# Challenge 2: Connecting to SAP Using Odata and OAuth2
 
-[< Previous Challenge](./01-SAP-Auto-Deployment.md) - **[Home](../README.md)** - [Next Challenge >](./03-SAP-Security.md)
+[< Previous Challenge](./01-SAP-Auto-Deployment.md) - **[Home](../README.md)** - [Next Challenge >](./03-GeodePattern.md)
 
 ## Introduction
 
