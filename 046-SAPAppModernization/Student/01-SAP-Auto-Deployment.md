@@ -1,6 +1,6 @@
 # Challenge 1: SAP Demo System Deployment
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](../README.md)** - [Next Challenge >](./02-OpenAPIAndOdata.md)
 
 ## Introduction
 
