@@ -13,21 +13,17 @@ The SAP on Azure Application Modernization WTH challenges will help you build on
 
 - Challenge 0: [Pre-requisites - Get Set for Success](Student/00-prereqs.md)
 
-- Challenge 1: [Rapid SAP Deployment.](Student/01-Deployment.md)
+- Challenge 1: [Rapid SAP Deployment.](Student/01-SAP-Auto-Deployment.md)
 
-- Challenge 2: [.net web frontend with OpenAPI and OData](Student/02-OpenAPIAndOdata.md)
+- Challenge 2: [.net web frontend with OpenAPI and OData via APIM](Student/02-OpenAPIAndOdata.md)
 
-- Challenge 3: [Azure API Management Facade for Odata](Student/03-APIMOdata.md)
+- Challenge 3: [Geode Pattern: Global Caching and Replication of SAP Source Data](Student/03-GeodePattern.md)
 
-- Challenge 4: [Geode Pattern: Global Caching and Replication of SAP Source Data](Student/04-GeodesSAP.md)
+- Challenge 4: [Azure AD Identity - Azure AD and SAP Principal Propagation](Student/04-AzureADPrincipalPropagation.md)
 
-- Challenge 5: [Azure AD Identity - Azure AD and SAP Principal Propagation](Student/05-Principal-Prop.md)
+- Challenge 5: [Private Link and Private Endpoint Communications for SAP](Student/05-PrivateLink.md)
 
-- Challenge 6: [Messaging, Async Communication and Integration - SAPIO / Logic Apps](Student/06-MessagingAsyncComms.md)
-
-- Challenge 7: [Private Link and Private Endpoint Communications for SAP](Student/07-PrivateLink.md)
-
-- Challenge 8: [Self-service chatbot using data from SAP S/4 Hana system.](Student/08-Chatbot.md)
+- Challenge 6: [Self-service chatbot using data from SAP S/4 HANA system.](Student/06-Chatbot.md)
 
 ## Repository Contents
 - `../Student`
@@ -37,6 +33,7 @@ The SAP on Azure Application Modernization WTH challenges will help you build on
 
 ## Contributors
 - Will Eastbury
+- Martin Raepple
 - Martin Pankraz
 - Vinod Desmuth
 - Christof Claessens
