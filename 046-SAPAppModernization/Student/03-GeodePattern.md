@@ -1,6 +1,6 @@
-# Challenge 4: Let's put Azure in the middle of this global service - introducing the Geodes Pattern.
+# Challenge 3: Let's put Azure in the middle of this global service - introducing the Geodes Pattern.
 
-[< Previous Challenge](./03-GeodePattern.md) - **[Home](../README.md)** - [Next Challenge >](./04-AzureADPrincipalPropagation.md)
+[< Previous Challenge](./02-OpenAPIAndOdata.md) - **[Home](../README.md)** - [Next Challenge >](./04-AzureADPrincipalPropagation.md)
 
 ## Introduction
 
