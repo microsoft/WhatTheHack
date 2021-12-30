@@ -1,6 +1,6 @@
 # Challenge 4: Let's put Azure in the middle of this global service - introducing the Geodes Pattern.
 
-[< Previous Challenge](./03-SAP-Security.md) - **[Home](../README.md)** - [Next Challenge >](./05-PowerApps.md)
+[< Previous Challenge](./03-GeodePattern.md) - **[Home](../README.md)** - [Next Challenge >](./04-AzureADPrincipalPropagation.md)
 
 ## Introduction
 
