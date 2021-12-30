@@ -1,6 +1,6 @@
 # Challenge 4: SAP Principal Propagation and Caching via OIDC and APIM
 
-[< Previous Challenge](./01-SAP-Auto-Deployment.md) - **[Home](../README.md)** - [Next Challenge >](./05-Private-Link.md)
+[< Previous Challenge](./03-GeodePattern.md) - **[Home](../README.md)** - [Next Challenge >](./05-Private-Link.md)
 
 ## Introduction
 
