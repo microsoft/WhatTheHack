@@ -1,6 +1,6 @@
 # Challenge 1: Coach's Guide - SAP Auto Deployment
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-Azure-Monitor.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](README.md)** - [Next Challenge >](./02-OpenAPIAndOdata.md)
 
 # Notes & Guidance
 
