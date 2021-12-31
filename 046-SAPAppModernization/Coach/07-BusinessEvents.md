@@ -4,11 +4,11 @@
 
 # Notes & Guidance 
 
-### Activity 1:  
+### Activity 1: Event Grid
 
-### Activity 2:   
-
-
+### Activity 2: Service Bus
  
-### Activity 3:  
+### Activity 3: SAPIO
+
+### Activity 4: Azure Notification Servicese
 
