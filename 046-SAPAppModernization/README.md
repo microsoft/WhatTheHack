@@ -25,6 +25,8 @@ The SAP on Azure Application Modernization WTH challenges will help you build on
 
 - Challenge 6: [Self-service chatbot using data from SAP S/4 HANA system.](Student/06-Chatbot.md)
 
+- Challenge 7: [Event Driven Application reacting to SAP Business Events](Student/07-EventDriven.md)
+
 ## Repository Contents
 - `../Student`
   - Student Challenge Guides
@@ -33,8 +35,8 @@ The SAP on Azure Application Modernization WTH challenges will help you build on
 
 ## Contributors
 - Will Eastbury
-- Martin Raepple
 - Martin Pankraz
 - Vinod Desmuth
 - Christof Claessens
 - Jelle Druyts
+- Martin Raepple
