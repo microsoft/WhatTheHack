@@ -21,4 +21,6 @@ Welcome to the coach's guide for the SAP on Azure App Modernization What The Hac
 
 - Challenge 6: [Self-service chatbot using data from SAP S/4 HANA system](./06-SAPChatbot.md)
 
+- Challenge 7: [Event Driven Notifications from SAP Business Events](./07-EventDriven.md)
+
 Repository Contents
