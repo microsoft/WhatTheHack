@@ -10,7 +10,7 @@ We do have some things to check and setup before we begin.
 
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
-- Every team should have an Azure subscription with $650 credit. Any team member can share his/her subscription with other members by providing contributor access to other team members.
+- Every team should have an Azure subscription with $650 credit. Any team member can share a subscription with other members by providing contributor access to other team members.
 - Each team also requires access to power platform. Atleast one team member should have [M365 E5 subscription](https://go.microsoft.com/fwlink/p/?LinkID=698279)  and add other team members temporarily during the hack. Each team member should have licenses Microsoft Power Apps plan 2 Trail, Microsoft power automate free and Microsoft 365 E5 developer.
 - [Challenge 1](./01-SAP-Auto-Deployment.md), the Participant will need an authorization to create or have a Service Principal with the Contributor Role, provided. 
 - Challenge 1, one of the participants will require access to the [SAP Cloud Appliance Library](https://cal.sap.com) with an appropriate S-User linked to their subscription.
