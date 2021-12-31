@@ -10,5 +10,5 @@
  
 ### Activity 3: SAPIO
 
-### Activity 4: Azure Notification Servicese
+### Activity 4: Azure Notification Services
 
