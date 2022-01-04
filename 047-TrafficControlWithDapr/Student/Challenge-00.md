@@ -30,7 +30,7 @@ This WhatTheHack will create the following Azure resources in your Azure resourc
 
 The traffic-control application architecture consists of four microservices:
 
-![Services](images/services.png)
+![Services](../images/services.png)
 
 - The **Camera Simulation** is a .NET Core console application that will simulate passing cars.
 - The **Traffic Control Service** is an ASP.NET Core WebAPI application that offers entry and exit endpoints: `/entrycam` and `/exitcam`.
@@ -41,7 +41,7 @@ These services compose together to simulate a traffic control scenario.
 
 The following sequence diagram describes how the application works:
 
-<img src="images/sequence.png" alt="Sequence diagram" style="zoom:67%;" />
+<img src="../images/sequence.png" alt="Sequence diagram" style="zoom:67%;" />
 
 1. The Camera `Simulation` generates a random license plate number and sends a *VehicleRegistered* message (containing this license plate number, a random entry-lane (1-3) and the timestamp) to the `/entrycam` endpoint of the `TrafficControlService`.
 1. The `TrafficControlService` stores the *VehicleState* (license plate number and entry-timestamp).
@@ -71,18 +71,18 @@ As you complete the challenges, you'll evolve the application architecture to wo
 
 The following diagram shows the end-state of the application:
 
-<img src="images/dapr-setup.png" alt="Dapr setup" style="zoom:67%;" />
+<img src="../images/dapr-setup.png" alt="Dapr setup" style="zoom:67%;" />
 
 1. To retrieve driver information using synchronous request/response communication between the `FineCollectionService` and `VehicleRegistrationService`, you'll implement the Dapr **service invocation** building block.
 1. To send speeding violations to the `FineCollectionService`, you'll implement the Dapr **publish and subscribe** building block (asynchronous communication) with the Dapr Azure Service Bus component.
 1. To store vehicle state, you'll implement the Dapr **state management** building block with the Dapr Azure Redis Cache component.
 1. To send fine notices to the owner of a speeding vehicle by email, you'll implement the HTTP **output binding** building block with the Dapr Azure Logic App component.
 1. To send vehicle info to the `TrafficControlService`, you'll use the Dapr **input binding** for MQTT using Dapr Azure IoT Hub component as the MQTT broker.
-1. To retrieve a license key for the fine calculator component and credentials for connecting to the smtp server, you'll implement the Dapr **secrets management** building block with Dapr Azure Key Vault component.
+1. To retrieve a license key for the fine calculator component and credentials for connecting to the SMTP server, you'll implement the Dapr **secrets management** building block with Dapr Azure Key Vault component.
 
 The following sequence diagram shows how the solution will work after implementing Dapr:
 
-<img src="images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
+<img src="../images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
 
 *It's helpful to refer back to the preceding sequence diagram as you progress through the challenges.*
 
@@ -122,7 +122,7 @@ You'll specify the ports from the command-line when starting a service with the 
       - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
     - Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
     - Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-    - Install Azure CLI ([instructions]())
+    - Install Azure CLI
       - Linux ([instructions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#linux))
       - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
       - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))

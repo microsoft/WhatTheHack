@@ -8,11 +8,11 @@ In this challenge, you're going to add Dapr **publish/subscribe** messaging to s
 
 ## Description
 
-In challenge 2, you implemented direct, synchronous communication between two microservices. This pattern is common when an immediate response is required. Communication between service doesn't always require an immediate response.
+In challenge 2, you implemented direct, synchronous communication between two microservices. This pattern is common when an immediate response is required. Communication between services doesn't always require an immediate response.
 
 The publish/subscribe pattern allows your microservices to communicate asynchronously with each other purely by sending messages. In this system, the producer of a message sends it to a topic, with no knowledge of what service(s) will consume the message. A message can even be sent if there's no consumer for it.
 
-Similarly, a subscriber, or consumer, will receive messages from a topic without knowledge of what producer sent it. This pattern is especially useful when you need to decouple microservices from one another. See the diagram below for an overview of how this pattern works with Dapr:
+Similarly, a subscriber or consumer will receive messages from a topic without knowledge of what producer sent it. This pattern is especially useful when you need to decouple microservices from one another. See the diagram below for an overview of how this pattern works with Dapr:
 
 <img src="../images/Challenge-03/pub-sub.png" style="zoom: 66%;padding-top: 50px;" />
 

@@ -24,7 +24,7 @@ In this challenge, you'll run the Traffic Control application to make sure every
 
 Now you can test whether you can call the `VehicleRegistrationService`. You can do this using a browser, CURL or some other HTTP client. But there is a convenient way of testing RESTful APIs directly from VS Code (using the REST Client extension VS Code):
 
-1. Open the file `Resources/VehicleRegistrationService/test.http` in VS Code using the (file) Explorer feature. The request in this file simulates retrieving the vehicle and owner information for a certain license-number.
+1. Open the file `Resources/VehicleRegistrationService/test.http` in VS Code. The request in this file simulates retrieving the vehicle and owner information for a certain license-number.
 
 1. Click on `Send request` link, located immediately above the GET request in the file and highlighted below in a *red box*, to send a request to the API:
 
@@ -69,7 +69,7 @@ At this point, the Vehicle Registration microservice is up and running correctly
 
 1. Start the service using `dotnet run` in the terminal window.
 
-1. Open the file `Resources/FineCollectionService/test.http` in the VS Code (file) Explorer. The request in this file simulates sending a detected speeding-violation to the `FineCollectionService`.
+1. Open the file `Resources/FineCollectionService/test.http` in VS Code. The request in this file simulates sending a detected speeding-violation to the `FineCollectionService`.
 
 1. Click on `Send request` in the file to send a request to the API.
 
@@ -85,7 +85,7 @@ At this point, both the Vehicle Registration and Fine Collection microservices a
 
 1. Make sure the `VehicleRegistrationService` and `FineCollectionService` are running (results of step 1 and 2).
 
-1. Open another **new** terminal window in VS Code and set the current folder to `Resources/TrafficControlService`.
+1. Open a **new** terminal window in VS Code and set the current folder to `Resources/TrafficControlService`.
 
 1. Start the service using `dotnet run`.
 
@@ -108,7 +108,7 @@ At this point, both the Vehicle Registration and Fine Collection microservices a
 
     ![FineCollectionService logging](../images/Challenge-01/logging-finecollectionservice.png)
 
-At this point the three core microservices (VehicleRegistrationService, Fine CollectionService, TrafficControlService) are up and running.
+At this point the three core microservices (`VehicleRegistrationService`, `FineCollectionService`, `TrafficControlService`) are up and running.
 
 ## Step 3. Run the simulation
 

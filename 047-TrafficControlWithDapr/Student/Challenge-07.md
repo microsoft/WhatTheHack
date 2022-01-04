@@ -8,7 +8,7 @@ In this challenge, you're going to add the Dapr **secrets management** building 
 
 ## Description
 
-Almost all non-trivial applications need to _securely_ store secret data like API keys, database passwords, and more. As a best practice, secrets should never be checked into the version control system. But, as the same time,they need to be accessible to code running in production. This is generally a challenging requirement, but critical to get right.
+Almost all non-trivial applications need to _securely_ store secret data like API keys, database passwords, and more. As a best practice, secrets should never be checked into the version control system. But at the same time, they need to be accessible to code running in production. This is generally a challenging requirement, but critical to get right.
 
 Dapr provides a solution to this problem: The Dapr secrets building block. It includes an API and a secrets store.
 

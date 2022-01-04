@@ -50,7 +50,7 @@ docker rm dtc-maildev -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+*For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
 
 *You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
@@ -64,7 +64,7 @@ You will enhance the `FineCollectionService` so that it uses the Dapr SMTP outpu
 
 1.  Inspect the code of the `CollectFine` method. There's a TODO comment at the end of the class. You'll add code to complete this TODO.
 
-1.  Add a using statement in the `CollectionController` file so you can use the Dapr client:
+1.  Add a `using` statement in the `CollectionController` file so you can use the Dapr client:
 
     ```csharp
     using Dapr.Client;
@@ -101,7 +101,7 @@ You will enhance the `FineCollectionService` so that it uses the Dapr SMTP outpu
 
     *The first two parameters passed into `InvokeBindingAsync` are the name of the binding to use and the operation (in this case 'create' the email).*
 
-1.  This method uses the `[FromServices]` attribute to inject the `DaprClient` class. You'll need to register `DaprClient` with the dependency injection container. Open the file `Resources/FineCollectionService/Startup.cs`. Add the following using statement to the file:
+1.  This method uses the `[FromServices]` attribute to inject the `DaprClient` class. You'll need to register `DaprClient` with the dependency injection container. Open the file `Resources/FineCollectionService/Startup.cs`. Add the following `using` statement to the file:
 
     ```csharp
     using System;

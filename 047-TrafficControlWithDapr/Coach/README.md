@@ -9,7 +9,7 @@ Welcome to the coach's guide for the Traffic Control with Dapr What The Hack. He
 - Challenge 0: **[Install tools and Azure pre-requisites](Solution-00.md)**
    - Install the pre-requisites tools and software as well as create the Azure resources required.
 - Challenge 1: **[Run the application](Solution-01.md)**
-   - Run the Traffic Control application to make sure everything works correctly
+   - Run the Traffic Control application to make sure everything works correctly.
 - Challenge 2: **[Add Dapr service invocation](Solution-02.md)**
    - Add Dapr into the mix, using the Dapr service invocation building block.
 - Challenge 3: **[Add pub/sub messaging](Solution-03.md)**

@@ -29,7 +29,7 @@ To complete this challenge, you must reach the following goals:
 
 - The `TrafficControlService` saves the state of a vehicle (`VehicleState` class) using the state management building block after vehicle entry.
 - The `TrafficControlService` reads and updates the state of a vehicle using the state management building block after vehicle exit.
-- The final solution uses Azure Cache for Redis as state store
+- The final solution uses Azure Cache for Redis as a state store
 
 This challenge targets the operation labeled as **number 3** in the end-state setup:
 

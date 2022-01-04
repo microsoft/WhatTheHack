@@ -12,7 +12,7 @@ Dapr offers a *bindings* building block to easily interface with external system
 
 <img src="../images/Challenge-05/output-binding.png" style="zoom: 50%;" />
 
-For this hands-on challenge, you will add a output binding leveraging the Dapr binding building block. In the next challenge, you will implement a Dapr input binding. For detailed information, read the [introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/bindings/) in the Dapr documentation and the [bindings chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings) in the [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/) guidance eBook.
+For this hands-on challenge, you will add an output binding leveraging the Dapr binding building block. In the next challenge, you will implement a Dapr input binding. For detailed information, read the [introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/bindings/) in the Dapr documentation and the [bindings chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings) in the [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/) guidance eBook.
 
 ## Success Criteria
 
