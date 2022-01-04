@@ -44,7 +44,7 @@ docker rm dtc-rabbitmq -f
 
 Warning: Once you remove container, it's gone. To use it, again, you'll need to start over with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. Invoke the `Resources/Infrastructure/rabbitmq/start-rabbitmq.ps1` script to start the RabbitMQ container.*
+*For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. Invoke the `Resources/Infrastructure/rabbitmq/start-rabbitmq.ps1` script to start the RabbitMQ container.*
 
 *If you want to start all the infrastructure containers at once (for this and the challenges to come), invoke the `Resources/Infrastructure/start-all.ps1` script.*
 
@@ -96,13 +96,13 @@ To change the message broker component from Redis to RabbitMQ, you'll create a l
      - finecollectionservice
    ```
 
-You've now specified a the Dapr **RabbitMQ** pub/sub component: (`pubsub.rabbitmq`). In the `metadata` section, you instruct Dapr how to connect to the RabbitMQ container running on port `5672`). Ignore the other metadata for now. In the `scopes` section, you limit the usage of this component. to the `TrafficControlService` and `FineCollectionService`.
+You've now specified the Dapr **RabbitMQ** pub/sub component (`pubsub.rabbitmq`). In the `metadata` section, you instruct Dapr how to connect to the RabbitMQ container running on port `5672`. Ignore the other metadata for now. In the `scopes` section, you limit the usage of this component to the `TrafficControlService` and `FineCollectionService`.
 
 ### Step 3: Send messages from the `TrafficControlService`
 
-With the Dapr pub/sub building block, you use a [topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions) to send and receive messages. The producer sends (or *publishes*) messages to the topic while one-to-many consumers subscribe to this topic to receive messages. First. you'll prepare the `TrafficControlService` to send, or publish, messages using Dapr pub/sub.
+With the Dapr pub/sub building block, you use a [topic](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions) to send and receive messages. The producer sends (or *publishes*) messages to the topic while one-to-many consumers subscribe to this topic to receive messages. First, you'll prepare the `TrafficControlService` to send or publish messages using Dapr pub/sub.
 
-1. Open the file `Resources/TrafficControlService/Controllers/TrafficController.cs` in the VS Code.
+1. Open the file `Resources/TrafficControlService/Controllers/TrafficController.cs` in VS Code.
 
 1. Near the end of the `VehicleExit` method, you find the code that sends a `SpeedingViolation` message to the `FineCollectionService` over HTTP:
 
@@ -349,7 +349,7 @@ In this step, you'll simplify pub/sub messaging with the Dapr SDK for .NET. Firs
 
 1. Open the file `Resources/TrafficControlService/Controllers/TrafficController.cs` in VS Code.
 
-1. In this file, add a using statement for the Dapr client:
+1. In this file, add a `using` statement for the Dapr client:
 
     ```csharp
     using Dapr.Client;
@@ -425,7 +425,7 @@ Next, you'll change the `FineCollectionService` that receives messages. The Dapr
     };
     ```
 
-1. Add a using statement in this file so you can use DaprClient:
+1. Add a `using` statement in this file so you can use DaprClient:
 
     ```csharp
     using Dapr;
@@ -494,7 +494,7 @@ So far, in this challenge, you've used *RabbitMQ* to publish and subscribe to me
 
 In a traditional microservice application, a large amount of development effort would be invested building plumbing code to consume the RabbitMQ libraries and SDKs.
 
-Hopefully, you can easily see how Dapr building blocks and components abstracts the complexity of building complex distributed applications.
+Hopefully, you can easily see how Dapr building blocks and components abstract the complexity of building complex distributed applications.
 
 With Dapr, how much work would be involved to switch message brokers, say, from RabbitMQ to Azure Service Bus?
 
@@ -525,7 +525,7 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
 
 1. You need to provide a connection string for Azure Service Bus. Normally, you'd create a [Shared Access Secret or enable authentication/authorization with AAD](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization). For now, however, keep your focus on Dapr. In the Service Bus portal blade, click on `Shared access policies` and then the `RootManagerSharedAccessKey` Copy the connection string value from `Primary Connection String`' Close the SAS dialog box and paste the connection string into the `pubsub' YAML file.
 
-    *Warnings: (1) Never use the RootManageSharedAccessKey in real-world application. (2) Never expose the connection string in plain text. In a real world application you'd create a custom shared access key and access it from a secure secret store. You'll do that in a later challenge.*
+    *Warnings: (1) Never use the RootManageSharedAccessKey in a real-world application. (2) Never expose the connection string in plain text. In a real-world application you'd create a custom shared access key and access it from a secure secret store. You'll do that in a later challenge.*
 
     You can also use AZ CLI tool to get the connection string:
 
@@ -541,4 +541,4 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
 
 https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-servicebus/
 
-As you complete this challenge, hopefully you see  The *value proposition* of Dapr. By providing infrastructure plumbing, it dramatically simplifies your application. Equally important, you can plug in any pre-defined component without having to change your application code.
+As you complete this challenge, hopefully you will see the value proposition of Dapr. By providing infrastructure plumbing, it dramatically simplifies your application. Equally important, you can plug in any pre-defined component without having to change your application code.

@@ -196,11 +196,11 @@ To validate that the secrets management building block is actually used:
 
 Now you should see some errors in the logging because the `FineCollectionService` service is no longer passing the correct license key in the call to the `FineCalculator` component:
 
-    ```shell
-    == APP ==       System.InvalidOperationException: Invalid or no license key specified.
-    == APP ==          at FineCollectionService.DomainServices.HardCodedFineCalculator.CalculateFine(String licenseKey, Int32 violationInKmh) in D:\dev\Dapr\dapr-workshop\src\FineCollectionService\DomainServices\HardCodedFineCalculator.cs:line 13
-    == APP ==          at FineCollectionService.Controllers.CollectionController.CollectFine(SpeedingViolation speedingViolation, DaprClient daprClient) in D:\dev\Dapr\dapr-workshop\src\FineCollectionService\Controllers\CollectionController.cs:line 45
-    ```
+```shell
+== APP ==       System.InvalidOperationException: Invalid or no license key specified.
+== APP ==          at FineCollectionService.DomainServices.HardCodedFineCalculator.CalculateFine(String licenseKey, Int32 violationInKmh) in D:\dev\Dapr\dapr-workshop\src\FineCollectionService\DomainServices\HardCodedFineCalculator.cs:line 13
+== APP ==          at FineCollectionService.Controllers.CollectionController.CollectFine(SpeedingViolation speedingViolation, DaprClient daprClient) in D:\dev\Dapr\dapr-workshop\src\FineCollectionService\Controllers\CollectionController.cs:line 45
+```
 
 Don't forget to change the license key in the secrets file back to the correct one!
 

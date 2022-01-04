@@ -69,7 +69,7 @@ docker rm dtc-mosquitto -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains Powershell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+*For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
 
 *You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
 
@@ -236,7 +236,7 @@ You're going to start all the services now. You specify the custom components fo
 
 1.  Make sure all the Docker containers introduced in the previous challenges are running (you can use the `Resources/Infrastructure/start-all.ps1` script to start them).
 
-1.  Open the a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
+1.  Open a **new** terminal window in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.
 
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
@@ -280,7 +280,7 @@ You will connect to the server and see its logs:
 
 ![](../images/Challenge-06/mosquitto-logging.png)
 
-1. Stop all the services.
+**Stop all services before continuing.**
 
 ## Use Azure IoT Hub & EventHub
 

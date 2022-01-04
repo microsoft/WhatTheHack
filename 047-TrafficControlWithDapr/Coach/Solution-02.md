@@ -169,7 +169,7 @@ Now you'll change the code in the `FineCollectionService` to use the Dapr SDK `H
 
 1.  Open the file `Resources/FineCollectionService/Startup.cs` in VS Code.
 
-1.  Add a using statement in this file to make sure you can use the Dapr client:
+1.  Add a `using` statement in this file to make sure you can use the Dapr client:
 
     ```csharp
     using Dapr.Client;
@@ -192,7 +192,7 @@ Now you'll change the code in the `FineCollectionService` to use the Dapr SDK `H
             "vehicleregistrationservice", "http://localhost:3601")));
     ```
 
-   With this snippet, you use the `DaprClient` to create an `HttpClient` instance to implement service invocation. You specify the `app-id` of the service you want to communicate with. You also need to specify the address of the Dapr sidecar for the `FineCollectionService` as its not using the default Dapr HTTP port (3500). The `HttpClient` instance created by Dapr is explicitly passed into the constructor of the `VehicleRegistrationService` proxy.
+   With this snippet, you use the `DaprClient` to create an `HttpClient` instance to implement service invocation. You specify the `app-id` of the service you want to communicate with. You also need to specify the address of the Dapr sidecar for the `FineCollectionService` as it's not using the default Dapr HTTP port (3500). The `HttpClient` instance created by Dapr is explicitly passed into the constructor of the `VehicleRegistrationService` proxy.
 
    *This is an example of the deep integration of Dapr with ASP.NET Core when using the `Dapr.AspNetCore` library. You can still use the `HttpClient` (and its rich feature-set) in your code, but under the hood it uses the Dapr service invocation building block to communicate.*
 

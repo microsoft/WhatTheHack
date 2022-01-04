@@ -1,7 +1,7 @@
 # What The Hack - TrafficControlWithDapr
 
 ## Introduction
-This repository contains several hands-on challenges that will introduce you to [Dapr](https://dapr.io/). You will start with a simple ASP.NET Core application that is composed of several microservices. In each challenge, you'll enhance the the application by adding Dapr building blocks and components. At the same time, you'll configure the application to consume Azure-based backing services. When complete, you'll have implemented the following Dapr building blocks:
+This repository contains several hands-on challenges that will introduce you to [Dapr](https://dapr.io/). You will start with a simple ASP.NET Core application that is composed of several microservices. In each challenge, you'll enhance the application by adding Dapr building blocks and components. At the same time, you'll configure the application to consume Azure-based backing services. When complete, you'll have implemented the following Dapr building blocks:
 
 - Service invocation
 - State-management
@@ -25,7 +25,7 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 - Challenge 0: **[Install tools and Azure pre-requisites](Student/Challenge-00.md)**
    - Install the pre-requisites tools and software as well as create the Azure resources required.
 - Challenge 1: **[Run the application](Student/Challenge-01.md)**
-   - Run the Traffic Control application to make sure everything works correctly
+   - Run the Traffic Control application to make sure everything works correctly.
 - Challenge 2: **[Add Dapr service invocation](Student/Challenge-02.md)**
    - Add Dapr into the mix, using the Dapr service invocation building block.
 - Challenge 3: **[Add pub/sub messaging](Student/Challenge-03.md)**
@@ -49,7 +49,7 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
   - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 - Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
 - Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-- Install Azure CLI ([instructions]())
+- Install Azure CLI
   - Linux ([instructions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#linux))
   - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
   - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))

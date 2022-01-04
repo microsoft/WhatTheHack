@@ -17,7 +17,9 @@ To complete this challenge, you must reach the following goals:
 
 ### Step 1: Update all port numbers
 
-By default, Dapr sidecars run on port 3500 when deployed to AKS. This means you will need to change the port numbers in the `FineCollectionService` & `TrafficControlService` to port 3500 for the calls to Dapr.
+By default, Dapr sidecars run on port 3500 when deployed to AKS. This means you will need to change the port numbers in the `FineCollectionService` & `TrafficControlService` class files to port 3500 for the calls to Dapr when deploying to the AKS cluster.
+
+Look in the following files and make changes as appropriate.
 
 - ```Resources/FineCollectionService/Proxies/VehicleRegistrationService.cs```
 - ```Resources/TrafficControlService/Controllers/TrafficController.cs```
@@ -127,7 +129,7 @@ Now that your container images have been uploaded to the Azure Container Registr
 
 1.  Grant your AKS instance access to pull images from your Azure Container Registry.
 
-    Create a Kubernetes **secret** to store the credentials in. Update the **<container-registry-name>** and **<container-registry-password>**. You can find this in the output from the Azure Bicep deployment `containerRegistryAdminPassword` or by running the following code.
+    Create a Kubernetes **secret** to store the credentials in. Update the `<container-registry-name>` and `<container-registry-password>`. You can find this in the output from the Azure Bicep deployment `containerRegistryAdminPassword` or by running the following code.
 
     ```shell
     az acr credential show -n <container-registry-name>
@@ -141,7 +143,7 @@ Now that your container images have been uploaded to the Azure Container Registr
       --docker-password=<service-principal-password>
     ```
 
-    *IMPORTANT: The Azure Container Registry has the **admin** account enabled to make this demo easier to deploy (doesn't require the deployer to have Owner access to the subscription or resource group the Azure resources are deployed to). **This is not best practice!** In a production deployment, use a managed identity or service principal to authenticate between the AKS cluster & the ACR. See the [documentation](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli) for more about the options and how to set up.*
+    *IMPORTANT: The Azure Container Registry has the **admin** account enabled to make this demo easier to deploy (doesn't require the deployer to have Owner access to the subscription or resource group the Azure resources are deployed to). **This is not a best practice!** In a production deployment, use a managed identity or service principal to authenticate between the AKS cluster & the ACR. See the [documentation](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli) for more about the options and how to set up.*
 
 1. 	Deploy your new services to AKS. Navigate to the `Resources/dapr/components` directory and run the following:
 
@@ -183,7 +185,3 @@ Run the Simluation service, which writes to your IoT Hub's MQTT queue. You will 
 ## Security note
 
 To make this example as accesible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure (for instance, allowing Azure Kubernetes Service to pull from Azure Container Registry) & [AKS security baseline](https://github.com/mspnp/aks-fabrikam-dronedelivery).
-
-## Final solution
-
-Thanks for participating in these hands-on challenges! Hopefully you've learned about Dapr and how to use it. Obviously, these challenges barely scratch the surface of what is possible with Dapr. We have not touched upon subjects like: hardening production environments, actors, integration with Azure Functions, Azure API Management and Azure Logic Apps just to name a few. So if you're interested in learning more, I suggest you read the [Dapr documentation](https://docs.dapr.io).
