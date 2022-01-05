@@ -4,7 +4,7 @@
 
 ## Introduction
 
-We're going to use the SAP Cloud appliance library to deploy you an instant, fully functional SAP S/4 HANA environment to develop your new applications against. 
+We're going to use the SAP Cloud appliance library to deploy you a fully functional SAP S/4 HANA trial / demo environment to develop your new applications against. 
 
 ## Description
 
