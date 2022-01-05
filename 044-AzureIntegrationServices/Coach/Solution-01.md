@@ -34,7 +34,8 @@ The students should be doing the following:
     }
     ```
 
-    See [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
+    See [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep) for reference
+
   - function.bicep - This contains the definition for creating the Function App resource.  At a minimum, the module should have the following properties:
 
     ```
@@ -120,7 +121,8 @@ The students should be doing the following:
     }
     ```
 
-    See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep)    
+    See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep) for reference
+
   - appInsights.bicep - defines the Application Insights resource. Make sure to define an [output parameter](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for the instrumentation key, which will then need to be passed as input into the Function App and APIM modules. 
 
     ```
@@ -137,7 +139,7 @@ The students should be doing the following:
     }
     ```
 
-    See [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep)
+    See [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep) for reference
 
 - You can recommend the students to follow this [MS Learn Bicep tutorial](https://docs.microsoft.com/en-us/learn/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=cli) to guide them on how to author the files above.
 
