@@ -1,14 +1,10 @@
-# Challenge 01 - Provision your Integration Environment
+# Solution 01 - Provision your Integration Environment
 
-[< Previous Challenge](./Challenge-00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-02.md)
-
-## Pre-requisites
-
-- You should have completed Challenge 00
+[< Previous Solution](./Solution-00.md) - **[Home](../readme.md)** - [Next Solution>](./Solution-02.md)
 
 ## Introduction
 
-In this challenge, the students should be able to create a set of Bicep files that will be used to deploy the AIS environment.  This prepares them for the second challenge where they will be asked to create a CI/CD pipeline that will call these IaC for automated deployment.
+The students should be able to create a set of Bicep files that will be used to deploy the AIS environment.  This prepares them for the second challenge where they will be asked to create a CI/CD pipeline that will call these IaC for automated deployment.
 
 
 ## Description
@@ -144,4 +140,10 @@ The students should be doing the following:
 - You can recommend the students to follow this [MS Learn Bicep tutorial](https://docs.microsoft.com/en-us/learn/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=cli) to guide them on how to author the files above.
 
 - Otherwise, you can give them snippets from the completed templates which can be found at [/Solutions/Challenge-01/bicep](./Solutions/Challenge-01/bicep)
+
+- You should run the following Azure CLI command to deploy the Bicep templates as follows:
+
+```
+az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
+```
 
