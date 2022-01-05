@@ -1,4 +1,4 @@
-# Challenge 03 - Create backend APIs
+# Challenge 03 - Create backend API
 
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-04.md)
@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Now that you have deployed your AIS in Dev environment, you would now like to be able create APIs and be able to call them thru your APIM endpoint.  Your developers would like to be able to develop APIs using Azure Functions, at a a minimum performing GET and POST operations on the API. 
+Now that you have deployed your AIS in Dev environment, you would now like to be able create simple Hello World API and be able to call them thru your APIM endpoint.  Your developers would like to be able to develop APIs using Azure Functions, at a a minimum performing GET and POST operations on the API. 
 
 
 ## Description
