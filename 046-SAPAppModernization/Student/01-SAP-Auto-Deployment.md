@@ -21,7 +21,7 @@ During the exercise, the Participants will be able to provision a landscape into
 
 - Complete build of SAP S4H and SAP HANA database on Azure Cloud.
 - Successful Installation of SAP GUI and test logon to SAP Application Server
-- Deploy SAP S/4 hana system using the available automation script in resourses folder.
+- Deploy SAP S/4HANA system using the available image libraries in the SAP CAL.
 - Verify all the resources deployed and be familiarize yourself.
 
 ## Learning Resources
