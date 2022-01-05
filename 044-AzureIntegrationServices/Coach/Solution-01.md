@@ -18,6 +18,22 @@ The students should be doing the following:
 - Then, create a folder entitled "module", then add several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) as follows:
   - apim.bicep  - This contains the definition for creating the API management resource.  At a minimum, the module should have the following properties:
 
+    ```
+    resource apiManagementService 'Microsoft.ApiManagement/service@2020-12-01' = {
+      name: apiManagementServiceName
+      location: location
+      sku: {
+        name: sku
+        capacity: skuCount
+      }
+      properties: {
+        publisherEmail: publisherEmail
+        publisherName: publisherName
+      }
+      tags: resourceTags
+    }
+    ```
+
     See [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
   - function.bicep - This contains the definition for creating the Function App resource.  At a minimum, the module should have the following properties:
 
