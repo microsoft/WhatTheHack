@@ -16,6 +16,8 @@ At this point your SAP data will no longer be an island! There are a number of s
 - Review the following repository and familiarise yourself with it's concepts.
 	- [Azure SAP OData Reader](https://github.com/MartinPankraz/AzureSAPODataReader)
 
+- Deploy a new Resource Group in your Azure Subscription 'SAP-WTH046'
+
 - Deploy an empty Developer Tier Azure API Management Instance into your subscription, for this setup you can leave it as not network integrated, but production environments should be located inside a VNet. 
 	- Hint: Look in the Azure Portal for "API Management" as a service in the Marketplace.  	
 
