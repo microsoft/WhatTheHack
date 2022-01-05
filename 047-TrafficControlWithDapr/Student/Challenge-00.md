@@ -123,7 +123,7 @@ You'll specify the ports from the command-line when starting a service with the 
     - Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
     - Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
     - Install Azure CLI
-      - Linux ([instructions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#linux))
+      - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
       - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
       - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
     - Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))   
