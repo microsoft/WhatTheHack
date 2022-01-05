@@ -26,6 +26,7 @@ You should be able to:
 
 ## Learning Resources
 - [Create your first Function App](https://docs.microsoft.com/en-us/azure/azure-functions/functions-get-started?pivots=programming-language-csharp)
+- [Customize an HTTP endpoint in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-serverless-api)
 - [Import an Azure Function App as an API in Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api)
 - [Automate resource deployment for your function app in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code)
  
