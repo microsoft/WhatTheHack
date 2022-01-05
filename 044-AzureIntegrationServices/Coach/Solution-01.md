@@ -37,8 +37,105 @@ The students should be doing the following:
     See [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
   - function.bicep - This contains the definition for creating the Function App resource.  At a minimum, the module should have the following properties:
 
+    ```
+    resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+      name: storageAccountName
+      location: location
+      tags: resourceTags
+      sku: {
+        name: 'Standard_LRS'
+      }
+      kind: 'StorageV2'
+      properties: {
+        supportsHttpsTrafficOnly: true
+        encryption: {
+          services: {
+            file: {
+              keyType: 'Account'
+              enabled: true
+            }
+            blob: {
+              keyType: 'Account'
+              enabled: true
+            }
+          }
+          keySource: 'Microsoft.Storage'
+        }
+        accessTier: 'Hot'
+      }
+    }
+
+    resource plan 'Microsoft.Web/serverFarms@2020-06-01' = {
+      name: appServicePlanName
+      location: location
+      kind: functionKind
+      tags: resourceTags
+      sku: {
+        name: functionSku
+        tier: functionTier
+      }
+      properties: {}
+    }
+
+    resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
+      name: functionAppName
+      location: location
+      kind: 'functionapp'
+      tags: resourceTags
+      properties: {
+        serverFarmId: plan.id
+        siteConfig: {
+          appSettings: [
+            {
+              name: 'AzureWebJobsStorage'
+              value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, storageAccount.apiVersion).keys[0].value}'
+            }
+            {
+              name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
+              value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, storageAccount.apiVersion).keys[0].value}'
+            }
+            {
+              name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+              value: appInsightsInstrumentationKey
+            }
+            {
+              name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+              value: 'InstrumentationKey=${appInsightsInstrumentationKey}'
+            }
+            {
+              name: 'FUNCTIONS_WORKER_RUNTIME'
+              value: functionRuntime
+            }
+            {
+              name: 'FUNCTIONS_EXTENSION_VERSION'
+              value: '~3'
+            }
+          ]
+        }
+        httpsOnly: true
+      }
+      identity: {
+        type: 'SystemAssigned'
+      }  
+    }
+    ```
+
     See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep)    
   - appInsights.bicep - defines the Application Insights resource. Make sure to define an [output parameter](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for the instrumentation key, which will then need to be passed as input into the Function App and APIM modules. 
+
+    ```
+    resource appInsights 'Microsoft.Insights/components@2018-05-01-preview' = {
+      name: appInsightsName
+      location: location
+      kind: 'web'
+      properties: {
+        Application_Type: 'web'
+        publicNetworkAccessForIngestion: 'Enabled'
+        publicNetworkAccessForQuery: 'Enabled'
+      }
+      tags: resourceTags
+    }
+    ```
 
     See [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep)
 
