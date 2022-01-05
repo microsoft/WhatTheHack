@@ -19,13 +19,13 @@ At this point your SAP data will no longer be an island! There are a number of s
 - Deploy an empty Developer Tier Azure API Management Instance into your subscription, for this setup you can leave it as not network integrated, but production environments should be located inside a VNet. 
 	- Hint: Look in the Azure Portal for "API Management" as a service in the Marketplace.  	
 
-- Configure the API Management instance to connect to your S4 HANA or SAP ECC services as detailed here. 
+- Configure the API Management instance to connect to your S/4HANA or SAP ECC services as detailed here. 
 	- [SAP Configuration] (https://github.com/MartinPankraz/AzureSAPODataReader#azure-api-management-config)
 	- Hint, for now use the client side Principal Propagation option, we will enable this in the APIM policy later in another challenge. But let's connect to the data first! 
 	
 ## Success Criteria
 
-- Run an ASP.NET MVC Core app that can view and edit data in SAP HANA via RESTful OData calls, that have been secured and routed via an Azure API Management gateway.
+- Run an ASP.NET MVC Core app that can view and edit data in the SAP Application Layer (SAP S/4HANA or SAP ECC) via RESTful OData calls, that have been secured and routed via an Azure API Management gateway.
 
 ## Learning Resources
 
