@@ -10,7 +10,7 @@ Welcome to the coach's guide for the SAP on Azure App Modernization What The Hac
 
 - Challenge 1: [Rapid SAP Deployment](./01-SAP-Auto-Deployment.md)
 
-- Challenge 2: [.net web frontend with OpenAPI and OData via APIM](./02-OpenAPIAndOdata.mdd)
+- Challenge 2: [.net web frontend with OpenAPI and OData via APIM](./02-OpenAPIAndOdata.md)
 
 - Challenge 3: [Geode Pattern: Global Caching and Replication of SAP Source Data](./03-GeodePattern.md)
 
