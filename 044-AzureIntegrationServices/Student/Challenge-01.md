@@ -20,7 +20,7 @@ As a cloud engineer, you would like to be able to deploy this POC environment us
 You should be able to create a set of Bicep templates that:
 1. Creates a resource group in your region of choice
 1. Deploy an API Management service in Developer tier
-1. Deploy three Function Apps in the Elastic Premium Plan - E1 SKU
+1. Deploy a Function App in the Elastic Premium Plan - E1 SKU
 1. Deploy Application Insights resource
 1. Configure APIM and Function app to use Application Insights resource
 
