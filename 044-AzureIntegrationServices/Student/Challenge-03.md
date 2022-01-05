@@ -1,4 +1,4 @@
-# Challenge 03 - Create bakcend APIs
+# Challenge 03 - Create backend APIs
 
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-04.md)
@@ -9,46 +9,33 @@
 
 ## Introduction
 
-You would like to create backend APIs. <more notes here>
+Now that you have deployed your AIS in Dev environment, you would now like to be able create APIs and be able to call them thru your APIM endpoint.  Your developers would like to be able to develop APIs using Azure Functions, at a a minimum performing GET and POST operations on the API. 
 
 
 ## Description
-You should be able to create APIs running as Function App and API App and configure them as backend APIs.
+You should be able to create a REST API with GET and POST operations and be able to configure and call this thru APIM.
 
 
 ## Success Criteria
 
 You should be able to:
-1. Create Function App
-1. Create API app
-1. Configure API and Function App in API Management
+1. Add a Function with HTTP Trigger that returns a simple message (e.g. "Hello World!")
+1. Import the Function App in API Management and name it Hello API
+1. Do GET and POST calls from the APIM endpoint
+1. Update your Function App and APIM Bicep modules with the changes above
 
 ## Learning Resources
-
-- [What is Bicep?](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
-
-- [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
-  - [Azure Quickstart Templates - Create API Management Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/azure-api-management-create)
-  - [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
-
-- [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
-  - [Deploy Function App on Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#deploy-on-premium-plan)
-  - [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep)
+- [Create your first Function App](https://docs.microsoft.com/en-us/azure/azure-functions/functions-get-started?pivots=programming-language-csharp)
+- [Import an Azure Function App as an API in Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api)
+- [Automate resource deployment for your function app in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code)
  
-- [What is Application Insights?](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
-  - [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep)
-
-- [Architect API integration in Azure](https://docs.microsoft.com/en-us/learn/paths/architect-api-integration/)
 
 
 ## Tips 
 
-- Create one several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources.
-- Define parameter values in the main bicep file, then pass those as input to the modules.
-- In the module that deploys an Application Insight resource, define an [output parameter](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for the instrumentation key, which will then need to be passed as input into the Function App and APIM modules. 
+- [TODO]
 
 
 ## Advanced Challenges
 
-- You can look into adopting the guidance for managing the APIM lifecyle by using the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) boilerplate ARM templates (or you can convert those templates to Bicep as well!) 
-- [For customers starting out or have simple integration scenario, use the boilerplate ARM template here](https://github.com/Azure/azure-api-management-devops-resource-kit#alternatives#:~:text=For%20customers%20who%20are%20just%20starting%20out%20or%20have%20simple%20scenarios%2C%20they%20may%20not%20necessarily%20need%20to%20use%20the%20tools%20we%20provided%20and%20may%20find%20it%20easier%20to%20begin%20with%20the%20boilerplate%20templates%20we%20provided%20in%20the%20example%20folder.)
+- [TODO]
