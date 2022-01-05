@@ -12,8 +12,6 @@ During the exercise, the Participants will be able to provision a landscape into
 
 - Ensure your s-account is linked to your Azure Subscription in the SAP Cloud Appliance Library
 - Deploy the Appliance to your subscription with a PUBLIC IP Address. Note that this is not the normal configuration (See hack 042 for a more-enterprise focused configuration), but will allow us to get started quickly.
-- Install SAP GUI 
-- Install SAP HANA Studio
 
 [Note: More detailed instructions will appear here once I have an S-account again and can deploy this.]
 
