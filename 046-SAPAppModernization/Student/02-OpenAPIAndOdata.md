@@ -19,11 +19,13 @@ At this point your SAP data will no longer be an island! There are a number of s
 - Deploy a new Resource Group in your Azure Subscription 'SAP-WTH046'
 
 - Deploy an empty Developer Tier Azure API Management Instance into your subscription, for this setup you can leave it as not network integrated, but production environments should be located inside a VNet. 
-	- Hint: Look in the Azure Portal for "API Management" as a service in the Marketplace.  	
+	- Hint: Look in the Azure Portal for "API Management" as a service in the Marketplace.  
+		
+- Deploy an empty Azure Web Application into your subscription, again here you do not need to be concerned about network / vnet integration, but you would consider this model in a production-ready environment.
 
 - Configure the API Management instance to connect to your S/4HANA or SAP ECC services as detailed here. 
 	- [SAP Configuration] (https://github.com/MartinPankraz/AzureSAPODataReader#azure-api-management-config)
-	- Hint, for now use the client side Principal Propagation option, we will enable this in the APIM policy later in another challenge. But let's connect to the data first! 
+	- Hint, for now do not enable principal Propagation, - simply configure SAP Basic Auth for now - we will enable this in the APIM policy later in another challenge. But let's connect to the data first! 
 	
 ## Success Criteria
 
@@ -32,7 +34,7 @@ At this point your SAP data will no longer be an island! There are a number of s
 ## Learning Resources
 
 - [.net speaks OData too!](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway)
-- 
+
 - [Azure SAP OData Reader](https://github.com/MartinPankraz/AzureSAPODataReader)
 
 
