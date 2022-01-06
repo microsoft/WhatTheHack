@@ -166,7 +166,7 @@ The students should be doing the following:
       See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep) for reference
 
  
-- Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [./Student/Resources/Challenge-01](./Student/Resources/Challenge-01).  
+- Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [Student/Resources/Challenge-01](../Student/Resources/Challenge-01).  
 
 - They can also refer to the [MS Learn Bicep tutorial](https://docs.microsoft.com/en-us/learn/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=cli) to guide them on how to author the files above.
 
