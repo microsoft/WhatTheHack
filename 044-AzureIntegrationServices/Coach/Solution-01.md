@@ -166,9 +166,11 @@ The students should be doing the following:
       See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep) for reference
 
  
-- You can recommend the students to follow this [MS Learn Bicep tutorial](https://docs.microsoft.com/en-us/learn/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=cli) to guide them on how to author the files above.
+- Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [./Student/Resources/Challenge-01](./Student/Resources/Challenge-01).  
 
-- Otherwise, you can give them snippets from the completed templates which can be found at [/Solutions/Challenge-01/bicep](./Solutions/Challenge-01/bicep)
+- They can also refer to the [MS Learn Bicep tutorial](https://docs.microsoft.com/en-us/learn/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=cli) to guide them on how to author the files above.
+
+- Moreover, if they really challenged then you can give them snippets from the completed templates which can be found at [/Solutions/Challenge-01/bicep](./Solutions/Challenge-01/bicep)
 
 - You should run the following Azure CLI command to deploy the Bicep templates as follows:
 
