@@ -14,6 +14,8 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - [Azure Subscription](#azure-subscription)
     - [Visual Studio Code](#visual-studio-code)
       - [Bicep CLI Extension](#bicep-cli-extension)
+      - [Azure CLI](#azure-cli)
+      - [Set default Azure subscription and resource group](#set-default-azure-subscription-and-resource-group)
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
     - [DownGit](#downgit)
@@ -38,13 +40,31 @@ Visual Studio Code is a lightweight but powerful source code editor which runs o
 
 [Install Visual Studio Code](https://code.visualstudio.com/)
 
-VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows. **Ensure that you install version 1.63 or later.**
+VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows. 
+
+As of writing, the version used is **1.63**.
+
+### Azure CLI
+
+You also need to make sure that you have [installed the latest version of Azure CLI](https://docs.microsoft.com/en-us/cli/azure/update-azure-cli). To do so, open [Visual Studio Code Terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) and run ```az upgrade```.
+
+As of writing, the Azure CLI version used is **2.32.0**.
 
 ### Bicep CLI Extension
 
 Visual Studio Code with the Bicep extension provides language support and resource autocompletion. The extension helps you create and validate Bicep files.
 
-To install the extension, search for bicep in the Extensions tab or in the [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).  **Ensure that you install version 0.4.1124 or later.**
+To install the extension, search for bicep in the Extensions tab or in the [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).  Alternatively, you can open the VS Code Terminal window and run ```az bicep install && az bicep upgrade``` to get the latest version.
+
+As of writing, the version used is **0.4.1124**.
+
+### Set default Azure subscription and resource group
+
+You can set your default Azure subscription and resource group by: 
+
+- Sign-in by running ```az login``` in the VS Code Terminal
+- Set default subscription by running ```az account set --subscription "<subscription name or subscription id>"```
+- Set default resource group by running ```az configure --defaults group=<resource group name>```
 
 ## Managing Cloud Resources
 
@@ -68,3 +88,4 @@ One recommended way to enable attendees to easily download hack resources is usi
 You can view the DownGit project on GitHub here: <https://github.com/MinhasKamal/DownGit>
 
 And you can use DownGit from its website here: <https://minhaskamal.github.io/DownGit/#/home>
+
