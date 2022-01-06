@@ -1,4 +1,4 @@
-# Challenge 3 - Add pub/sub messaging
+# Challenge 3 - Dapr Pub/Sub Messaging
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
@@ -16,22 +16,44 @@ Similarly, a subscriber or consumer will receive messages from a topic without k
 
 <img src="../images/Challenge-03/pub-sub.png" style="zoom: 66%;padding-top: 50px;" />
 
+You will need to modify the services to use the Dapr pub/sub building block.
+
+- Start up a RabbitMQ pub/sub message broker in a Docker container.
+- Modify the `TrafficControlService` so it sends `SpeedingViolation` messages using the Dapr pub/sub building block.
+- Modify the `FineCollectionService` so it receives `SpeedingViolation` messages using the Dapr pub/sub building block.
+- Create a Dapr configuration file for specifying the pub/sub Dapr component.
+- Restart all services & run the **Simulation** application.
+- Once you have the above working, replace the RabbitMQ message broker with Azure Service Bus without code changes.
+
 ## Success Criteria
-
-To complete this challenge, you must reach the following goals:
-
-1. The `TrafficControlService` sends `SpeedingViolation` messages using the Dapr pub/sub building block.
-1. The `FineCollectionService` receives `SpeedingViolation` messages using the Dapr pub/sub building block.
-1. Use RabbitMQ as pub/sub message broker that runs as part of the solution in a Docker container.
-1. Replace it with Azure Service Bus as a message broker without code changes.
 
 This challenge targets the operations labeled as **number 2** in the end-state setup:
 
 <img src="../images/Challenge-03/dapr-setup-assignment03.png" style="zoom: 67%;" />
 
+- Validate that the RabbitMQ message broker is running.
+- Validate that messages are being sent from the `TrafficControlService`. to the `FineCollectionService` using Dapr, not direct service invocation.
+- Validate that messages are being received & consumed from the Azure Service Bus.
+
 ## Tips
 
-You might want to create the Azure resources first as sometimes it takes some times for the resources to be ready.
+- Start a container instance of a RabbitMQ message broker by entering the following command:
+   ```shell
+   docker run -d -p 5672:5672 -p 15672:15672 --name dtc-rabbitmq rabbitmq:3-management
+   ```
+- RabbitMQ provides a built-in dashboard that presents messaging activity, logging, and performance metrics. Open a browser and navigate to [http://localhost:15672/](http://localhost:15672/). Both the login name is `guest` and the password is `guest`. Shown below, the dashboard is helpful for troubleshooting RabbitMQ anomalies:
+  <img src="../images/Challenge-03/rabbitmq-dashboard.png" style="padding-top: 25px;" />
+- Put your Dapr configuration files in the `Resources/dapr/components` directory (you will see some existing files related to the Azure Kubernetes Service deployment in [Challenge-08](./Challenge-08.md), you can ignore these for now and put your files here as well)
+- Default Dapr configuration files can be found in the following locations:
+  - `%USERPROFILE%\.dapr\components\` on Windows
+  - `$HOME/.dapr/components` on Linux or Mac
+- Copy all the .yaml files from the default Dapr configuration file directory to the `Resources/dapr/components` folder to get started.
+- You will need to specify the directory where you provide the custom Dapr configuration files when running the Dapr sidecars.
+  ```shell
+  dapr run ... --components-path ../dapr/components dotnet run
+  ```
+- Use Zipkin to observe the messages flow as specified in [Challenge-02](./Challenge-02#use-dapr-observability).
+- You might want to create the Azure resources first as it takes some time for the resources to be ready.
 
 ## Learning Resources
 
@@ -39,3 +61,4 @@ You might want to create the Azure resources first as sometimes it takes some ti
 - [Azure Service Bus Messaging - Overview](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
 - [Dapr and Azure Service Bus](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-servicebus/)
 - [Dapr and RabbitMQ](https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-rabbitmq/)
+- [Cloud Events](https://cloudevents.io/)

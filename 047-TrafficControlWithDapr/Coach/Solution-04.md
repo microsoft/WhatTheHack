@@ -1,4 +1,4 @@
-# Challenge 4 - Add Dapr state management - Coach's Guide
+# Challenge 4 - Dapr Redis State Management - Coach's Guide
 
 [< Previous Challenge](./Solution-03.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-05.md)
 
@@ -31,8 +31,6 @@ First, you need to update the existing state management configuration file:
     ```
 
 Now you will add code to the `TrafficControlService` so that it uses the Dapr state management building block to store vehicle state:
-
-1.  Open the `src` folder in this repo in VS Code.
 
 1.  Open the file `Resources/TrafficControlService/Controllers/TrafficController.cs` in VS Code.
 

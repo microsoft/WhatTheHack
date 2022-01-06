@@ -1,119 +1,21 @@
-# Challenge 0: Install tools and Azure pre-requisites
+# Challenge 0: Install local tools and Azure prerequisites
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-## Introduction
-
-In this challenge, you'll install the pre-requisites tools and software as well as create the Azure resources required.
-
-*Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, you can move on to challenge 1 while the resources are provisioned.*
-
-## Azure resources
-
-This WhatTheHack will create the following Azure resources in your Azure resource group. Make sure you can create the following:
-
-- Application Insights
-- Azure Kubernetes Service
-- Azure Container Registry
-- Event Hub Namespace
-- IoT Hub
-- KeyVault
-- Log Analytics Workspace
-- Logic App
-- Azure Cache for Redis
-- Storage Account
-- Service Bus Namespace
-
 ## Description
 
-### Architecture
+In this challenge, you'll do the following:
 
-The traffic-control application architecture consists of four microservices:
+- Install the prerequisite tools and software locally.
+- Create Azure resources required.
+  - Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, review the application architecture & description with your coach.
+- Review sample application architecture.
 
-![Services](../images/services.png)
+Your coach will provide you with a `Resources.zip` package file that contains the starting projects for this hack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance the application architecture.
 
-- The **Camera Simulation** is a .NET Core console application that will simulate passing cars.
-- The **Traffic Control Service** is an ASP.NET Core WebAPI application that offers entry and exit endpoints: `/entrycam` and `/exitcam`.
-- The **Fine Collection Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/collectfine` for collecting fines.
-- The **Vehicle Registration Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/getvehicleinfo/{license-number}` for retrieving vehicle and owner information of a vehicle.
-
-These services compose together to simulate a traffic control scenario.
-
-The following sequence diagram describes how the application works:
-
-<img src="../images/sequence.png" alt="Sequence diagram" style="zoom:67%;" />
-
-1. The Camera `Simulation` generates a random license plate number and sends a *VehicleRegistered* message (containing this license plate number, a random entry-lane (1-3) and the timestamp) to the `/entrycam` endpoint of the `TrafficControlService`.
-1. The `TrafficControlService` stores the *VehicleState* (license plate number and entry-timestamp).
-1. After a random interval, the Camera `Simulation` sends a follow-up *VehicleRegistered* message to the `/exitcam` endpoint of the `TrafficControlService`. It contains the license plate number generated in step 1, a random exit-lane (1-3), and the exit timestamp.
-1. The `TrafficControlService` retrieves the previously-stored *VehicleState*.
-1. The `TrafficControlService` calculates the average speed of the vehicle using the entry and exit timestamp. It also stores the *VehicleState* with the exit timestamp for audit purposes, which is left out of the sequence diagram for clarity.
-1. If the average speed is above the speed-limit, the `TrafficControlService` calls the `/collectfine` endpoint of the `FineCollectionService`. The request payload will be a *SpeedingViolation* containing the license plate number of the vehicle, the identifier of the road, the speeding-violation in KMh, and the timestamp of the violation.
-1. The `FineCollectionService` calculates the fine for the speeding-violation.
-1. The `FineCollectionService` calls the `/vehicleinfo/{license-number}` endpoint of the `VehicleRegistrationService` with the license plate number of the speeding vehicle to retrieve vehicle and owner information.
-1. The `FineCollectionService` sends a fine notice to the owner of the vehicle by email.
-
-All actions described in the previous sequence are logged to the console during execution so you can follow the flow.
-
-The `Resources` folder contains the starting projects for the WhatTheHack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance this application architecture.
-
-*It's important to understand that all calls between services are direct, synchronous HTTP calls using the HttpClient library in .NET Core. While sometimes necessary, this type of synchronous communication [isn't considered a best practice](https://docs.microsoft.com/dotnet/architecture/cloud-native/service-to-service-communication#requestresponse-messaging) for distributed microservice applications. When possible, you should consider decoupling microservices using asynchronous messaging. However, decoupling communication can dramatically increase the architectural and operational complexity of an application. You'll soon see how Dapr reduces the inherent complexity of distributed microservice applications.*
-
-### End-state with Dapr applied
-
-As you complete the challenges, you'll evolve the application architecture to work with Dapr and consume Azure-based backing services:
-
-- Azure IoT Hub
-- Azure Redis Cache
-- Azure Service Bus
-- Azure Logic Apps
-- Azure Key Vault
-
-The following diagram shows the end-state of the application:
-
-<img src="../images/dapr-setup.png" alt="Dapr setup" style="zoom:67%;" />
-
-1. To retrieve driver information using synchronous request/response communication between the `FineCollectionService` and `VehicleRegistrationService`, you'll implement the Dapr **service invocation** building block.
-1. To send speeding violations to the `FineCollectionService`, you'll implement the Dapr **publish and subscribe** building block (asynchronous communication) with the Dapr Azure Service Bus component.
-1. To store vehicle state, you'll implement the Dapr **state management** building block with the Dapr Azure Redis Cache component.
-1. To send fine notices to the owner of a speeding vehicle by email, you'll implement the HTTP **output binding** building block with the Dapr Azure Logic App component.
-1. To send vehicle info to the `TrafficControlService`, you'll use the Dapr **input binding** for MQTT using Dapr Azure IoT Hub component as the MQTT broker.
-1. To retrieve a license key for the fine calculator component and credentials for connecting to the SMTP server, you'll implement the Dapr **secrets management** building block with Dapr Azure Key Vault component.
-
-The following sequence diagram shows how the solution will work after implementing Dapr:
-
-<img src="../images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
-
-*It's helpful to refer back to the preceding sequence diagram as you progress through the challenges.*
-
-### Prevent port collisions
-
-For most of the challenges, you'll run the microservices in the solution on your local machine. To prevent port collisions, all services will listen on a different HTTP port. When running with Dapr, you need additional ports for HTTP and gRPC communication between the sidecar services. By default, these ports are `3500` and `50001`. However, you'll use different port numbers for each service to prevent collisions. Please closely follow the instructions so that your microservices use the following ports for their Dapr sidecars:
-
-| Service                    | Application Port | Dapr sidecar HTTP port | Dapr sidecar gRPC port |
-| -------------------------- | ---------------- | ---------------------- | ---------------------- |
-| TrafficControlService      | 6000             | 3600                   | 60000                  |
-| FineCollectionService      | 6001             | 3601                   | 60001                  |
-| VehicleRegistrationService | 6002             | 3602                   | 60002                  |
-
-Use the ports specified in the preceding table *whether* using the DIY or step-by-step approach.
-
-You'll specify the ports from the command-line when starting a service with the Dapr CLI using the following command-line arguments:
-
-- `--app-port`
-- `--dapr-http-port`
-- `--dapr-grpc-port`
-
-### Step 1. Install pre-requisites
-
-1.  To start, you'll need access to an Azure Subscription:
-
-    - If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
-    - If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
-        
-    *Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above.*
+### Install local prerequisites
   
-1.  Install all the pre-requisites listed below and make sure they're working correctly:
+1.  Install all the prerequisites listed below and make sure they're working correctly:
 
     - Git ([download](https://git-scm.com/))
     - .NET 5 SDK ([download](https://dotnet.microsoft.com/download/dotnet/5.0))
@@ -138,7 +40,39 @@ You'll specify the ports from the command-line when starting a service with the 
     | DotNet version       | 5.0.302 | ```dotnet --version``` |
     | azure-cli            | 2.24.0  | ```az --version```     |
 
-### Step 2. Create Azure Resources
+### Create Azure Resources
+
+This WhatTheHack will create the following Azure resources in your Azure resource group. Make sure you can create the following:
+
+- Application Insights
+- Azure Kubernetes Service
+- Azure Container Registry
+- Event Hub Namespace
+- IoT Hub
+- KeyVault
+- Log Analytics Workspace
+- Logic App (with the Office 365 activity for sending email)
+- Azure Cache for Redis
+- Storage Account
+- Service Bus Namespace
+
+*If you can't instantiate some of these resources, you won't be able to complete the part of the challenge that uses them, but you may still be able to complete the other challenges*
+
+#### Special Considerations for Azure Kubernetes Service (AKS)
+
+- AKS requires the ability to create a public IP address. This is blocked by many organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
+- The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
+  - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
+  - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
+  - 1 Zipkin service running to monitor communciation between the services.
+- For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry. **This is not best practice**. In a production example, you should use a managed identity & RBAC.
+
+To start, you'll need access to an Azure Subscription:
+
+- If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
+- If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
+    
+*Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above.*
 
 Next, you'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
 
@@ -354,3 +288,26 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     ```shell
     az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
     ```
+
+### Review sample application architecture
+
+Spend some time with your teammates reviewing the sample application architecture & services.
+
+The traffic-control application architecture consists of four microservices:
+
+![Services](../images/services.png)
+
+- The **Camera Simulation** is a .NET Core console application that will simulate passing cars.
+- The **Traffic Control Service** is an ASP.NET Core WebAPI application that offers entry and exit endpoints: `/entrycam` and `/exitcam`.
+- The **Fine Collection Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/collectfine` for collecting fines.
+- The **Vehicle Registration Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/getvehicleinfo/{license-number}` for retrieving vehicle and owner information of a vehicle.
+
+These services compose together to simulate a traffic control scenario.
+
+[Sample Application & Services Description](./Resources/README.md)
+
+## Success Criteria
+
+- Verify all local prerequisite tools are installed locally.
+- Verify all Azure resources have been successfully created.
+- Verify your understanding of the TrafficControl application architecture with your coach.

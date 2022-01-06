@@ -1,4 +1,4 @@
-# Challenge 2 - Add Dapr service invocation
+# Challenge 2 - Dapr Service Invocation
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
@@ -30,20 +30,35 @@ In Dapr, every service is started with a unique Id (the *app-id*) which can be u
 
 For this hands-on challenge, you will decouple communication between two services.
 
+- Start up a Dapr sidecar for both the `VehicleRegistrationService` and the `FineCollectionService`.
+- Modify the `FineCollectionService` so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
+- Restart all services & run the **Simulation** application.
+
 ## Success Criteria
-
-To complete this challenge, you must achieve the following goals:
-
-- The `VehicleRegistrationService` and `FineCollectionService` must each run with a Dapr sidecar.
-- The `FineCollectionService` must use the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
 
 This challenge targets the operations labeled as **number 1** in the end-state setup:
 
 <img src="../images/Challenge-02/dapr-setup-assignment02.png" style="zoom: 67%;" />
 
+- Validate that the `VehicleRegistrationService` and `FineCollectionService` each run with a Dapr sidecar. You'll see both Dapr and application logging in the output.
+- Validate that the `FineCollectionService` uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`. The HTTP call should be to the *Dapr* port number, not the *API* port number.
+
+### Use Dapr observability
+
+So how can you check whether or not the call to the `VehicleRegistrationService` is handled by Dapr? Well, Dapr has some observability built in. You can look at Dapr traffic using Zipkin:
+
+- Open a browser and go the this URL: [http://localhost:9411/zipkin](http://localhost:9411/zipkin).
+- Click the `RUN QUERY` button in the top right of the screen to search for traces.
+- You should see the calls between the `FineCollectionService` and the `VehicleRegistrationService`. You can expand and collapse each trace and click the `SHOW` button to get more details:
+  ![](../images/Challenge-02/zipkin-traces.png)
+- If you click the dependencies button and search, you will see the services and the traffic flowing between them:
+  ![](../images/Challenge-02/zipkin-dependencies.gif)
+
 ## Tips
 
-- Look in the `Resources` directory for the source code to get started.
+- Look in the `Resources.zip` package provided by your coach for the source code to get started.
+- Use the `dapr run` command to start up a Dapr sidecar & make sure and specify the `dotnet run` command at the end of the command to ensure that both services are started at the same time.
+- Refer to the [Prevent port collisions](./Resources/README.md#prevent-port-collisions) section to see what ports to use.
 
 ## Learning Resources
 

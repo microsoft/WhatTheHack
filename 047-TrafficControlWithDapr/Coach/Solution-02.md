@@ -1,4 +1,4 @@
-# Challenge 2 - Add Dapr service invocation - Coach's Guide
+# Challenge 2 - Dapr Service Invocation - Coach's Guide
 
 [< Previous Challenge](./Solution-01.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-03.md)
 
@@ -233,20 +233,3 @@ The services are up & running. Now you're going to test this using the simulatio
     ```
 
 You should see similar logging as before when you ran the application.
-
-### Step 4: Use Dapr observability
-
-So how can you check whether or not the call to the `VehicleRegistrationService` is handled by Dapr? Well, Dapr has some observability built in. You can look at Dapr traffic using Zipkin:
-
-1.  Open a browser and go the this URL: [http://localhost:9411/zipkin](http://localhost:9411/zipkin).
-
-2.  Click the `RUN QUERY` button in the top right of the screen to search for traces.
-
-3.  You should see the calls between the `FineCollectionService` and the `VehicleRegistrationService`. You can expand and collapse each trace and click the `SHOW` button to get more details:
-
-    ![](../images/Challenge-02/zipkin-traces.png)
-
-4.  If you click the dependencies button and search, you will see the services and the traffic flowing between them:
-
-    ![](../images/Challenge-02/zipkin-dependencies.gif)
-    

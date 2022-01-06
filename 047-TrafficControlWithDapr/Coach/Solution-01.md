@@ -1,4 +1,4 @@
-# Challenge 1 - Run the application - Coach's Guide
+# Challenge 1 - Run the sample application - Coach's Guide
 
 [< Previous Challenge](./Solution-00.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-02.md)
 
