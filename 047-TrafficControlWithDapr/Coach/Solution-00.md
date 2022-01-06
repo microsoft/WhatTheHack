@@ -1,4 +1,4 @@
-# Challenge 0 - Install tools and Azure pre-requisites - Coach's Guide
+# Challenge 0 - Install local tools and Azure prerequisites - Coach's Guide
 
 **[Home](./README.md)** - [Next Challenge>](./Solution-01.md)
 

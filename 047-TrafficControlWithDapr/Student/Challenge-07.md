@@ -1,4 +1,4 @@
-# Challenge 7 - Add secrets management
+# Challenge 7 - Dapr Secrets Management
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
@@ -33,12 +33,18 @@ Another way of using secrets, is to reference them from Dapr configuration files
 
 To learn more about the secrets building block, read the [introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/secrets/) in the Dapr documentation. Also, checkout the [secrets chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/secrets) in the [Dapr for .NET Developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/) guidance eBook.
 
+Update the services to use a Dapr secrets buildling block.
+
+- Create a local JSON file & add the following credentials:
+  - SMTP credentials (from the *email** Dapr component configured in [Challenge-05](./Challenge-05.md)).
+  - License key (from the `Resources\FineCollectionService\Controllers\CollectionController.cs` code file).
+- Create a Dapr configuration file for the **local** secret store JSON file.
+- Modify the **email** Dapr component configured in [Challenge-05](./Challenge-05.md) to use this new secret store instead of having the SMTP credentials hard-coded in the configuration file.
+- Modify the `Resources/FineCollectionService/Controllers/CollectionController` service to pull the license key secret from the Dapr secret component instead of being hard-coded.
+- Restart all services & run the **Simulation** application.
+- Once you have the solution running locally, modify the Dapr configuration files to use an Azure KeyVault instead.
+
 ## Success Criteria
-
-To complete this challenge, you must reach the following goals:
-
-- The credentials used by the SMTP output binding to connect to the SMTP server are retrieved using the Dapr secrets management building block.
-- The `FineCollectionService` retrieves the license key for the `FineCalculator` component it uses from the Dapr secrets management building block.
 
 This challenge targets the operation labeled as **number 6** in the end-state setup:
 
@@ -49,6 +55,9 @@ This challenge targets the operation labeled as **number 6** in the end-state se
 **Azure**
 
 <img src="../images/Challenge-07/secrets-management-operation-azure.png" style="zoom: 67%;" />
+
+- Validate that the credentials used by the SMTP output binding to connect to the SMTP server are retrieved using the Dapr secrets management building block.
+- Validate the `FineCollectionService` retrieves the license key for the `FineCalculator` component it uses from the Dapr secrets management building block.
 
 ## Tips
 
