@@ -44,10 +44,25 @@ You should be able to create a set of Bicep templates that:
 
 ## Tips 
 
-- Create several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources.
-- Define parameter values in the main bicep file, then pass those as input to the modules.
-- In the module that deploys an Application Insight resource, define an [output parameter](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for the instrumentation key, which will then need to be passed as input into the Function App and APIM modules. 
+- Create several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
+  - main.bicep
+    - modules
+      - functions.bicep
+      - apim.bicep
+      - appinsights.bicep
 
+  You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)
+
+
+- The resources should have the following properties at a minimum:
+  - name
+  - location
+  - sku/kind
+  - resource-specific properties
+
+
+- Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
+     
 
 ## Advanced Challenges
 
