@@ -11,7 +11,7 @@ param resourceTags object
 var functionTier = functionSku == 'Y1' ? 'Dynamic' : 'ElasticPremium'
 var functionKind = functionSku == 'Y1' ? 'functionapp' : 'elastic'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: storageAccountName
   location: location
   tags: resourceTags
@@ -38,7 +38,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 
-resource plan 'Microsoft.Web/serverFarms@2020-06-01' = {
+resource plan 'Microsoft.Web/serverFarms@2021-02-01' = {
   name: appServicePlanName
   location: location
   kind: functionKind
@@ -50,7 +50,7 @@ resource plan 'Microsoft.Web/serverFarms@2020-06-01' = {
   properties: {}
 }
 
-resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
+resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp'
