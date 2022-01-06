@@ -16,17 +16,24 @@ The students should be doing the following:
   - appInsights.bicep - Defines the Application Insights resource and should be the very first resource that need to be created. Make sure to define an [output parameter](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for the instrumentation key, which will then need to be passed as input into the Function App and APIM modules. 
 
       ```
-      resource appInsights 'Microsoft.Insights/components@2018-05-01-preview' = {
+      resource laWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
+        name: '${appInsightsName}ws'
+        location: location
+      }
+
+      resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
         name: appInsightsName
         location: location
         kind: 'web'
         properties: {
           Application_Type: 'web'
-          publicNetworkAccessForIngestion: 'Enabled'
-          publicNetworkAccessForQuery: 'Enabled'
+          WorkspaceResourceId: laWorkspace.id
         }
         tags: resourceTags
       }
+
+      output appInsightsInstrumentationKey string = appInsights.properties.InstrumentationKey
+      output appInsightsResourceId string = appInsights.id
       ```
 
       See [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep) for reference
@@ -35,7 +42,7 @@ The students should be doing the following:
     - apim.bicep  - This contains the definition for creating the API management resource.  At a minimum, the module should have the following properties:
 
       ```
-      resource apiManagementService 'Microsoft.ApiManagement/service@2020-12-01' = {
+      resource apiManagementService 'Microsoft.ApiManagement/service@2021-08-01' = {
         name: apiManagementServiceName
         location: location
         sku: {
@@ -48,6 +55,23 @@ The students should be doing the following:
         }
         tags: resourceTags
       }
+
+      resource apiManagementServiceLoggers 'Microsoft.ApiManagement/service/loggers@2021-08-01' = {
+        parent: apiManagementService
+        name: 'apimlogger' 
+        properties: {
+          resourceId: appInsightsResourceId 
+          loggerType: 'applicationInsights'
+          credentials: {
+            instrumentationKey: appInsightsInstrumentationKey
+          }
+          isBuffered: true 
+          
+        }
+      }
+
+
+
       ```
 
       See [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep) for reference
@@ -55,7 +79,7 @@ The students should be doing the following:
     - function.bicep - This contains the definition for creating the Function App resource.  At a minimum, the module should have the following properties:
 
       ```
-      resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+      resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
         name: storageAccountName
         location: location
         tags: resourceTags
@@ -82,7 +106,7 @@ The students should be doing the following:
         }
       }
 
-      resource plan 'Microsoft.Web/serverFarms@2020-06-01' = {
+      resource plan 'Microsoft.Web/serverFarms@2021-02-01' = {
         name: appServicePlanName
         location: location
         kind: functionKind
@@ -94,7 +118,7 @@ The students should be doing the following:
         properties: {}
       }
 
-      resource functionApp 'Microsoft.Web/sites@2020-06-01' = {
+      resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         name: functionAppName
         location: location
         kind: 'functionapp'
@@ -135,6 +159,8 @@ The students should be doing the following:
           type: 'SystemAssigned'
         }  
       }
+
+      output functionAppName string = functionApp.name
       ```
 
       See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep) for reference
