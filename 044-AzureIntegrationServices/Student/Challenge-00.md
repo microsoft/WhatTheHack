@@ -38,13 +38,13 @@ Visual Studio Code is a lightweight but powerful source code editor which runs o
 
 [Install Visual Studio Code](https://code.visualstudio.com/)
 
-VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows. Ensure that you install version 1.63 or later.
+VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows. **Ensure that you install version 1.63 or later.**
 
 ### Bicep CLI Extension
 
 Visual Studio Code with the Bicep extension provides language support and resource autocompletion. The extension helps you create and validate Bicep files.
 
-To install the extension, search for bicep in the Extensions tab or in the [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).  Ensure that you install version 0.4.1124 or later.
+To install the extension, search for bicep in the Extensions tab or in the [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).  **Ensure that you install version 0.4.1124 or later.**
 
 ## Managing Cloud Resources
 
