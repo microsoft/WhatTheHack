@@ -29,7 +29,11 @@ param location string
 
 param resourceTags object
 
-resource apiManagementService 'Microsoft.ApiManagement/service@2020-12-01' = {
+param appInsightsInstrumentationKey string
+param appInsightsResourceId string
+
+
+resource apiManagementService 'Microsoft.ApiManagement/service@2021-08-01' = {
   name: apiManagementServiceName
   location: location
   sku: {
@@ -41,4 +45,33 @@ resource apiManagementService 'Microsoft.ApiManagement/service@2020-12-01' = {
     publisherName: publisherName
   }
   tags: resourceTags
+}
+
+// resource apiManagementServiceDiagnostics 'Microsoft.ApiManagement/service/diagnostics@2021-08-01' = {
+//   name: '${apiManagementService.name}/applicationinsights'  
+//   properties: {
+//     alwaysLog: 'allErrors'    
+//     httpCorrelationProtocol: 'Legacy'
+//     logClientIp: true
+//     loggerId: apiManagementServiceLoggers.id
+//     sampling: {
+//       percentage: 100
+//       samplingType: 'fixed'
+//     }
+    
+//   }
+// }
+
+resource apiManagementServiceLoggers 'Microsoft.ApiManagement/service/loggers@2021-08-01' = {
+  parent: apiManagementService
+  name: 'apimlogger' 
+  properties: {
+    resourceId: appInsightsResourceId 
+    loggerType: 'applicationInsights'
+    credentials: {
+      instrumentationKey: appInsightsInstrumentationKey
+    }
+    isBuffered: true 
+    
+  }
 }
