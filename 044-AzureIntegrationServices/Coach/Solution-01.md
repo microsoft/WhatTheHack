@@ -146,7 +146,7 @@ The students should be doing the following:
 
 - You should run the following Azure CLI command to deploy the Bicep templates as follows:
 
-```
-az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
-```
+  ```
+  az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
+  ```
 
