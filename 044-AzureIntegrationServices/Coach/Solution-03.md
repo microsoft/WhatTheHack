@@ -15,11 +15,14 @@ The students should be able to create upload the Bicep files to a repo and creat
     - The second function should also have a HTTP Trigger that sends name as a JSON payload and returns a simple message via a POST call. 
         ![Function with HTTP Trigger - POST](./images/Solution03_Hello_POST_Function.jpg)
 
-- Then, import the Functions in API Management and name it Hello API, as per the steps [here](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api)
-  The settings would be similar to the one below:
+- Then, import the Functions in API Management and name it Hello API, as per the steps [here](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api).  The settings would be similar to the one below:
   ![Import Hello API to APIM](./images/Solution03_Import_Hello_API_APIM.jpg)
-  
-- To test API calls, students are free to use whatever tool they prefer, e.g. Powershell ```Invoke-WebRequest``` or Postman
+
+- To test API calls, students are free to use whatever tool they prefer, e.g. Powershell ```Invoke-WebRequest```, Azure Portal, or Postman.
+    - If testing the API in the Azure Portal, you just need to go to the Test tab and click Send.
+        ![Test Hello API in the Azure Portal](./images/Solution03_Test_HelloAPI_Azure_Portal.jpg)
     - If using Postman, here's the GET and POST calls to the APIM endpoint:
-        ![HTTP GET and POST calls in Postman 1](./images/Solution03_Hello_POST_Function.jpg)
+        ![Test Hello API in Postman 1](./images/Solution03_Test_HelloAPI_Postman.jpg)
+      Make sure that you add the APIM subscription key (```Ocp-Apim-Subscription-Key```) in the request header if using subsription key to call the API. (which is enabled by default)
+
 - Update your Function App and APIM Bicep modules with the changes above.
