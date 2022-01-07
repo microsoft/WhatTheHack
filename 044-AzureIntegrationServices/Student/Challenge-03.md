@@ -19,10 +19,11 @@ You should be able to create a REST API with GET and POST operations and be able
 ## Success Criteria
 
 You should be able to:
-1. Add a Function with HTTP Trigger that returns a simple message (e.g. "Hello World!")
-1. Import the Function App in API Management and name it Hello API
-1. Do GET and POST calls from the APIM endpoint
-1. Update your Function App and APIM Bicep modules with the changes above
+1. Add a Function with HTTP Trigger that takes a name parameter and returns a simple message via a GET call. (e.g. "Hello [name]!")
+1. Add a Function with HTTP Trigger  that sends name as a JSON payload and returns a simple message via a POST call. (e.g. "Hello [name]!")
+1. Import the Functions in API Management and name it Hello API.
+1. Do GET and POST calls from the APIM endpoint.
+1. Update your Function App and APIM Bicep modules with the changes above.
 
 ## Learning Resources
 - [Create your first Function App](https://docs.microsoft.com/en-us/azure/azure-functions/functions-get-started?pivots=programming-language-csharp)
