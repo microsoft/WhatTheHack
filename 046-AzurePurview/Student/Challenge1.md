@@ -15,9 +15,10 @@ Now that we have successfully setup Azure Purview we need to start scanning the 
 - Ensure the search results are accessible for the users that belong to the AllUsers group.
 
 ## Extended challenge
-- Thoughts?
+- Review the Policy Authoring support (link in the Learning Resources below) for enabling access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2. This is a Preview feature available only in storage accounts deployed in France Central and Canda Central regions and hence cannot be covered in the scope of this hack. But it is highly recommended to review and get a good understanding of this feature along with the coaches.
 
 ## Learning Resources
 - https://docs.microsoft.com/en-us/azure/purview/manage-data-sources
 - https://docs.microsoft.com/en-us/azure/purview/register-scan-adls-gen2
 - https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-scanning
+- https://docs.microsoft.com/en-us/azure/purview/how-to-access-policies-storage
