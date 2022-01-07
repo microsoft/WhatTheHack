@@ -120,7 +120,9 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     }
     ```
 
-1.  Create a new resource group for your WhatTheHack using the `Resources/Infrastructure/bicep/rg.bicep` script file. When invoking the command, replace the location parameter with the Azure region you want to use:
+1.  Create a new resource group for your WhatTheHack using the `Resources/Infrastructure/bicep/rg.bicep` script file. 
+
+    **When invoking the command, replace the `location` argument with the Azure region you want to use.**
 
     ```shell
     cd ./Resources/Infrastructure/bicep/
@@ -263,6 +265,14 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     dapr-operator          dapr-system  True     Running  1         1.2.2    1m   2021-07-02 08:45.44
     dapr-dashboard         dapr-system  True     Running  1         0.6.0    1m   2021-07-02 08:45.44
     dapr-placement-server  dapr-system  True     Running  1         1.2.2    1m   2021-07-02 08:45.45
+    ```
+
+1.  Create the `dapr-trafficcontrol` Kubernetes namespace
+
+    You will need to create a namespace to own all of the TrafficControl Kubernetes objects.
+
+    ```shell
+    kubectl create namespace dapr-trafficcontrol
     ```
 
 1.  Create Kubernetes secret to allow AKS to pull images from ACR
