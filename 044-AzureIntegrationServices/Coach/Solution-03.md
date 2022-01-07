@@ -18,7 +18,7 @@ The students should be able to create upload the Bicep files to a repo and creat
 - Then, import the Functions in API Management and name it Hello API, as per the steps [here](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api).  The settings would be similar to the one below:
   ![Import Hello API to APIM](./images/Solution03_Import_Hello_API_APIM.jpg)
 
-- To test API calls, students are free to use whatever tool they prefer. e.g. Powershell [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.2), Azure Portal ([APIM Test tab](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api#test-in-azure-portal)), or [Postman](https://www.postman.com/)
+- To test API calls, students are free to use whatever tool they prefer, e.g. Powershell [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.2), Azure Portal ([APIM Test tab](https://docs.microsoft.com/en-us/azure/.api-management/import-function-app-as-api#test-in-azure-portal)), or [Postman](https://www.postman.com/)
     - If testing the API in the Azure Portal, you just need to go to the Test tab and click Send.
         ![Test Hello API in the Azure Portal](./images/Solution03_Test_HelloAPI_Azure_Portal.jpg)
     - If using Postman, here's the GET and POST calls to the APIM endpoint:
