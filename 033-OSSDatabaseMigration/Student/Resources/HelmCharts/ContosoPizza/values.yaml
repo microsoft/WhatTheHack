@@ -50,7 +50,7 @@ infrastructure:
 image:
   name: peteacr01.azurecr.io/ubuntu-pizza
   pullPolicy: IfNotPresent
-  tag: "3.0"
+  tag: "11.0"
 
 service:
   type: LoadBalancer
