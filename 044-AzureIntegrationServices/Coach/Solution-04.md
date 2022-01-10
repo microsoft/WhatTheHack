@@ -17,5 +17,7 @@ The students should be able configure OAuth2 authorization when calling Hello AP
         ![Edit HelloAPI AD Auth settings](./images/Solution04_Enable_ADAuth_HelloAPI_3.jpg)
     - You will now be redirected to the AD Application page.  Under the Manage section of the side menu, select Expose an API and find the Application ID URI. Record this value for later.
         ![Edit HelloAPI AD Auth settings](./images/Solution04_Enable_ADAuth_HelloAPI_4.jpg)
-    - Click the scope link.  Students do not have to do anything here since the settings have already been pre-filled.  Though, they have the liberty to change any of these (e.g. Consent to Admins only), as long as the scope has been enabled.  
+    - Click the scope link.  Student does not have to do anything here since the settings have already been pre-filled.  Though, they have the liberty to change any of these (e.g. Consent to Admins only), as long as the scope has been enabled.  
         ![Edit HelloAPI AD Auth Scope settings](./images/Solution04_Enable_ADAuth_HelloAPI_5.jpg)
+
+- Second, the
