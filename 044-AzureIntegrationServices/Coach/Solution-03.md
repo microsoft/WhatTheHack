@@ -25,4 +25,5 @@ The students should be able to create upload the Bicep files to a repo and creat
         ![Test Hello API in Postman 1](./images/Solution03_Test_HelloAPI_Postman.jpg)
       Make sure that you add the APIM subscription key (```Ocp-Apim-Subscription-Key```) in the request header if using subsription key to call the API. (which is enabled by default)
 
-- Update your Function App and APIM Bicep modules with the changes above.
+- Enable Application Insights for Hello API, keep the default values (e.g. sampling to the default value of 100%)
+    ![Enable AppInsights in APIM](./images/Solution03_Enable_AppInsights_APIM.jpg)

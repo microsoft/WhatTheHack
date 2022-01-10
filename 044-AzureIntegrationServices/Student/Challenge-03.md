@@ -24,7 +24,6 @@ You should be able to:
 1. Import the Functions in API Management and name it Hello API.
 1. Do GET and POST calls from the APIM endpoint.
 1. Enable Application Insights for Hello API, keep the default values (e.g. sampling to the default value of 100%)
-1. Update your Function App and APIM Bicep modules with the changes above.
 
 ## Learning Resources
 - [Customize an HTTP endpoint in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-serverless-api)
