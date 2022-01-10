@@ -29,4 +29,4 @@ The students should be able configure OAuth2 authorization when calling Hello AP
 
 - Third, follow the steps in [3. Grant permissions in Azure AD] (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#3-grant-permissions-in-azure-ad) to grant permissions to allow the client app (Postman) to call the backend app (Hello API)
         ![Grant client app permission to access Hello API](./images/Solution04_Grant_ClientApp_API_Perm_1.jpg)
-        ![Grant client app permissions list](./images/(Solution04_ClientApp_API_Perms_2.jpg)
+        ![Grant client app permissions list](./images/Solution04_ClientApp_API_Perms_2.jpg)
