@@ -19,9 +19,10 @@ You should be able configure OAuth2 authorization when calling Hello API.
 ## Success Criteria
 
 You should be able to:
-1. Register Hello API Function app as an AD application.
-1. Register a client application (e.g. APIM Developer Portal or [Postman](https://www.postman.com/)) in Azure AD.  This will be used to make calls to Hello API via APIM.
-1. Configure JWT validation policy to pre-authorize requests to Hello API. 
+1. Configure OAuth 2.0 authorization in APIM 
+    1. Register a client application (e.g. APIM Developer Portal or [Postman](https://www.postman.com/)) in Azure AD.  This will be used to make calls to Hello API via APIM.
+    1. Configure JWT validation policy to pre-authorize requests to Hello API. 
+    1. Register Hello API Function app as an AD application.
 1. Call Hello API from your client application successfully.
 
 
