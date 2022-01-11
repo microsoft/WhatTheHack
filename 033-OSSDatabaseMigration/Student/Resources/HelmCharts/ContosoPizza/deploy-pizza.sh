@@ -26,20 +26,16 @@ kubectl -n postgresql cp ./pg.sql $pgPodName:/tmp/pg.sql
 # Use this to connect to the database server
 kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres -f /tmp/pg.sql
 
-
-for ((i = 0 ; i < 30 ; i++)); do
-    mysqlStatus=$(kubectl -n mysql get pods --no-headers -o custom-columns=":status.phase")   
-
-    if [ "$mysqlStatus" != "$status" ]; then
-        sleep 30
-    else
-        break
-    fi
+while ! kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysqladmin --user=root --password=OCPHack8 ping --silent &> /dev/null ; do
+    echo "Waiting for MySQL to be ready"
+    sleep 2
 done
 
 # Use this to connect to the database server
-
-kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u root -pOCPHack8 <./mysql.sql
+while ! kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u root -pOCPHack8 <./mysql.sql &> /dev/null ; do
+    echo "Waiting to be able to login to MySQL"
+    sleep 2
+done 
 
 postgresClusterIP=$(kubectl -n postgresql get svc -o jsonpath="{.items[0].spec.clusterIP}")
 mysqlClusterIP=$(kubectl -n mysql get svc -o jsonpath="{.items[0].spec.clusterIP}")
