@@ -2,10 +2,10 @@
 param appName string = uniqueString(resourceGroup().id)
 
 @description('Publisher name')
-param publisherName string = 'Noemi Veneracion'
+param publisherName string = '<set your APIM admin name here>'
 
 @description('Publisher email')
-param publisherEmail string = 'novenera@microsoft.com'
+param publisherEmail string = '<set your APIM admin email here>'
 
 
 param resourceTags object = {
