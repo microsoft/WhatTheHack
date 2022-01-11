@@ -14,7 +14,12 @@ The students should be able configure OAuth2 authorization when calling Hello AP
         ![Enable backend-app AAD app reg settings 2](./images/Solution04_Enable_ADAuth_BackendApp_2.jpg)
         ![Enable backend-app AAD app reg settings 3](./images/Solution04_Enable_ADAuth_BackendApp_3.jpg)
         ![Enable backend-app AAD app reg settings 4](./images/Solution04_Enable_ADAuth_BackendApp_4.jpg)
-    - Next, in the "Add an identity provider" blade, configure the settings per below.  Click Add when done.
+    - Step [2. Register another application in Azure AD to represent a client application] (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#2-register-another-application-in-azure-ad-to-represent-a-client-application), the client app registration would look like below:
+        ![Enable client-app AAD app reg settings 1](./images/Solution04_Enable_ADAuth_ClientApp_1.jpg)
+        ![Enable client-app AAD app reg settings 2](./images/Solution04_Enable_ADAuth_ClientApp_2.jpg)
+        ![Enable client-app AAD app reg settings 3](./images/Solution04_Enable_ADAuth_ClientApp_3.jpg)
+        ![Enable client-app AAD app reg settings 4](./images/Solution04_Enable_ADAuth_ClientApp_4.jpg)
+
         ![Configure AD Authentication settings for HelloAPI](./images/Solution04_Enable_ADAuth_HelloAPI_2.jpg)
     - You will be redirected back to the Authentication page, now showing the authentication settings for your Function app.  Click AD application link (highlighted) to proceed to the next step.  Record the Application (client) ID of the API app for later.
         ![Edit HelloAPI AD Auth settings](./images/Solution04_Enable_ADAuth_HelloAPI_3.jpg)
