@@ -1,7 +1,7 @@
 @description('Application/Solution name')
 param appName string = uniqueString(resourceGroup().id)
 
-@description('Publisher name')
+@description('Publisher name (Must be an AAD Global Admin/Subscriptoin Admin)')
 param publisherName string = '<set your APIM admin name here>'
 
 @description('Publisher email')
