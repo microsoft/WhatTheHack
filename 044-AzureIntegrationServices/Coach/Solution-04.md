@@ -8,11 +8,14 @@ The students should be able configure OAuth2 authorization when calling Hello AP
 
 
 ## Description
-- First, the student should register Hello API Function app as an AD application.  The students can just follow the steps for registering the API as an AAD application from the doc [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).  However, just for kicks, the following steps merges instructions from configuring an Azure App Service/Function App using EasyAuth and the steps from the section in the same doc "[1. Register an application in Azure AD to represent the API](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#1-register-an-application-in-azure-ad-to-represent-the-api)".    
-    - In the Azure portal, open Function App.  Under the Settings section, select Authentication and then click "Add Identity Provider".
-        ![Enable AD Authentication for HelloAPI](./images/Solution04_Enable_ADAuth_HelloAPI_1.jpg)
+- First, the student should follow the steps [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).    
+    - In Step [1. Register an application in Azure AD to represent the API](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#1-register-an-application-in-azure-ad-to-represent-the-api), the backend-app AAD registration should look like below:
+        ![Enable backend-app AAD app reg settings 1](./images/Solution04_Enable_ADAuth_BackendApp_1.jpg)
+        ![Enable backend-app AAD app reg settings 2](./images/Solution04_Enable_ADAuth_BackendApp_2.jpg)
+        ![Enable backend-app AAD app reg settings 3](./images/Solution04_Enable_ADAuth_BackendApp_3.jpg)
+        ![Enable backend-app AAD app reg settings 4](./images/Solution04_Enable_ADAuth_BackendApp_4.jpg)
     - Next, in the "Add an identity provider" blade, configure the settings per below.  Click Add when done.
-        ![Confiure AD Authentication settings for HelloAPI](./images/Solution04_Enable_ADAuth_HelloAPI_2.jpg)
+        ![Configure AD Authentication settings for HelloAPI](./images/Solution04_Enable_ADAuth_HelloAPI_2.jpg)
     - You will be redirected back to the Authentication page, now showing the authentication settings for your Function app.  Click AD application link (highlighted) to proceed to the next step.  Record the Application (client) ID of the API app for later.
         ![Edit HelloAPI AD Auth settings](./images/Solution04_Enable_ADAuth_HelloAPI_3.jpg)
     - You will now be redirected to the AD Application page.  Under the Manage section of the side menu, select Expose an API and find the Application ID URI. Record this value for later.
@@ -30,3 +33,10 @@ The students should be able configure OAuth2 authorization when calling Hello AP
 - Third, follow the steps in [3. Grant permissions in Azure AD] (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#3-grant-permissions-in-azure-ad) to grant permissions to allow the client app (Postman) to call the backend app (Hello API)
         ![Grant client app permission to access Hello API](./images/Solution04_Grant_ClientApp_API_Perm_1.jpg)
         ![Grant client app permissions list](./images/Solution04_ClientApp_API_Perms_2.jpg)
+
+- [TODO: Will need to figure out if we get the token using client credentials or auth code flow] 
+    In the fourth step [4. Enable OAuth 2.0 user authorization in the Developer Console](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#4-enable-oauth-20-user-authorization-in-the-developer-console), you will slightly digress from the step in the sense that you will need to request for the client's AAD bearer token using Postman.
+    
+    (you will need to configure your client app to authenticate and get the AAD bearer token (which will be needed when you make calls to the secured Hello API) using [OAuth 2.0 authorization code grant](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow).)
+
+    - If using Postman, just follow the steps in this [tip](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#:~:text=Try%20executing%20this%20request%20and%20more%20in%20Postman%20--%20don't%20forget%20to%20replace%20tokens%20and%20IDs!).
