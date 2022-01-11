@@ -61,5 +61,11 @@ The students should be able configure OAuth2 authorization when calling Hello AP
     ![Postman Auth Request 4](./images/Solution04_Postman_Auth_Request_4.jpg)
 
  
-- [TODO: Will need to figure out if we get the token using client credentials or auth code flow] 
- 
+- Lastly, configure your Function App to use AAD login. Use the [existing backend app AAD registration](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?toc=/azure/azure-functions/toc.json#-option-2-use-an-existing-registration-created-separately) created earlier.
+    ![Function App AAD Auth 1](./images/Solution04_FunctionApp_AADAuth_1.jpg)
+
+  For the issuer URL, usually this would be the AAD Tenant where you created the backend app registration.  However, to be sure, I suggest that you check the user of the Access Token by decoding it using [jwt.io](https://jwt.io/).
+    ![Function App AAD Auth 2](./images/Solution04_FunctionApp_AADAuth_2.jpg)
+    ![Function App AAD Auth 2](./images/Solution04_FunctionApp_AADAuth_3.jpg)
+
+- Test API call again.
