@@ -30,3 +30,4 @@ The students should be able to create upload the Bicep files to a repo and creat
 
 - Ensure that the students [added Hello API to the Unlimited product](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-add-products?tabs=azure-portal#add-apis-to-a-product).
     ![Add Hello API to Unlimited Product](./images/Solution03_Add_HelloAPI_to_Unlimited.jpg)
+  Browse to the Dev portal in a separate incognito/private broswer and test Hello API GET operation.  
