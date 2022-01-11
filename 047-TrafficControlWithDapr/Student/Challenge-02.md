@@ -31,7 +31,7 @@ In Dapr, every service is started with a unique Id (the *app-id*) which can be u
 For this hands-on challenge, you will decouple communication between two services.
 
 - Start up a Dapr sidecar for both the `VehicleRegistrationService` and the `FineCollectionService`.
-- Modify the `FineCollectionService` so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
+- Modify the `FineCollectionService` (`VehicleRegistrationService` class) so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
 - Restart all services & run the **Simulation** application.
 
 ## Success Criteria
@@ -57,7 +57,7 @@ So how can you check whether or not the call to the `VehicleRegistrationService`
 ## Tips
 
 - Look in the `Resources.zip` package provided by your coach for the source code to get started.
-- Use the `dapr run` command to start up a Dapr sidecar & make sure and specify the `dotnet run` command at the end of the command to ensure that both services are started at the same time.
+- Use the `dapr run` command to start up a Dapr sidecar & make sure and append the `dotnet run` command at the end of the command to ensure that both services are started at the same time.
 - Refer to the [Prevent port collisions](./Resources/README.md#prevent-port-collisions) section to see what ports to use.
 
 ## Learning Resources

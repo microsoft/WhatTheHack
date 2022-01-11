@@ -19,9 +19,9 @@ Similarly, a subscriber or consumer will receive messages from a topic without k
 You will need to modify the services to use the Dapr pub/sub building block.
 
 - Start up a RabbitMQ pub/sub message broker in a Docker container.
-- Modify the `TrafficControlService` so it sends `SpeedingViolation` messages using the Dapr pub/sub building block.
-- Modify the `FineCollectionService` so it receives `SpeedingViolation` messages using the Dapr pub/sub building block.
-- Create a Dapr configuration file for specifying the pub/sub Dapr component.
+- Modify the `TrafficControlService` (`TrafficController` class) so it sends `SpeedingViolation` messages using the Dapr pub/sub building block.
+- Modify the `FineCollectionService` (`CollectionController` class) so it receives `SpeedingViolation` messages using the Dapr pub/sub building block.
+- Create a Dapr configuration file for specifying the pub/sub Dapr components.
 - Restart all services & run the **Simulation** application.
 - Once you have the above working, replace the RabbitMQ message broker with Azure Service Bus without code changes.
 

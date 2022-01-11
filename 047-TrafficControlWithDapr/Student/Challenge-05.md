@@ -17,7 +17,7 @@ For this hands-on challenge, you will add an output binding leveraging the Dapr 
 You will need to modify the services to use the Dapr SMTP output bindings.
 
 - Start up a development SMTP server that runs in a Docker container.
-- Modify the `FineCollectionService` so that it uses the Dapr SMTP output binding to send an email.
+- Modify the `FineCollectionService` (`CollectionController` class) so that it uses the Dapr SMTP output binding to send an email.
 - Create a Dapr configuration file for specifying the Dapr SMTP output binding component.
 - Restart all services & run the **Simulation** application.
 - After you get the application running locally, modify it to use an Azure Logic App to send the same email instead of the local development SMTP server.
