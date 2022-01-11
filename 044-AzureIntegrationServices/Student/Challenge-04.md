@@ -48,6 +48,12 @@ You should be able to:
     - State: An opaque value to prevent cross-site request forgery. 
     - Client Authentication: A dropdown list: send a Basic Auth request in the header, or client credentials in the request body. After upgrading to a new  version, change the value in this dropdown menu to avoid problems with client authentication.
 
+- Configure your Function App to use AAD login. Use the [existing backend app AAD registration](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?toc=/azure/azure-functions/toc.json#-option-2-use-an-existing-registration-created-separately) created earlier.
+    ![Function App AAD Auth 1](./images/Solution04_FunctionApp_AADAuth_1.jpg)
+
+  For the issuer URL, usually this would be the AAD Tenant where you created the backend app registration.  However, to be sure, I suggest that you check the issuer claim of the Access Token by decoding it using [jwt.io](https://jwt.io/).
+
+
 ## Advanced Challenges
 
 - [TODO]
