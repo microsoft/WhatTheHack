@@ -24,15 +24,17 @@ The students should be able configure OAuth2 authorization when calling Hello AP
         ![APIM Dev Portal OAuth2 Settings 2](./images/Solution04_APIM_DevPortal_OAuth_Settings_2.jpg)
     - In Step [5. Successfully call the API from the developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#5-successfully-call-the-api-from-the-developer-portal), you should be able to successfully call Hello API from the APIM Developer Portal. 
         ![Call Hello API in APIM Dev Portal 1](./images/Solution04_Call_HelloAPI_APIM_DevPortal_1.jpg)       
-        - You may get the following CORS error after clicking Send.
-          ![Call Hello API in APIM Dev Portal 2](./images/Solution04_Call_HelloAPI_APIM_DevPortal_2.jpg)
-          To fix this, just add the APIM CORS policy scoped for all APIs, as follows:
-          ![Call Hello API in APIM Dev Portal 3](./images/Solution04_Call_HelloAPI_APIM_DevPortal_3.jpg)
-          After saving the policy, re-try calling the API again and it should succeed this time.
-          ![Call Hello API in APIM Dev Portal 4](./images/Solution04_Call_HelloAPI_APIM_DevPortal_4.jpg)
+      You may get the following CORS error after clicking Send.
+        ![Call Hello API in APIM Dev Portal 2](./images/Solution04_Call_HelloAPI_APIM_DevPortal_2.jpg)
+      To fix this, just add the APIM CORS policy scoped for all APIs, as follows:
+        ![Call Hello API in APIM Dev Portal 3](./images/Solution04_Call_HelloAPI_APIM_DevPortal_3.jpg)
+      After saving the policy, re-try calling the API again and it should succeed this time.
+        ![Call Hello API in APIM Dev Portal 4](./images/Solution04_Call_HelloAPI_APIM_DevPortal_4.jpg)
+    - In Step [6. Configure a JWT validation policy to pre-authorize requests](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#6-configure-a-jwt-validation-policy-to-pre-authorize-requests), configure the validate-jwt policy scoped to Hello API.
+        ![Configure validate-jwt policy 1](./images/Solution04_Configure_validatejwt_policy_1.jpg)
+      To test, call Hello API from the Dev Portal again.  Try returning a failure by modifying the Authorization header value.
+        ![Configure validate-jwt policy 2](./images/Solution04_Configure_validatejwt_policy_2.jpg)
 
-    - You will now be redirected to the AD Application page.  Under the Manage section of the side menu, select Expose an API and find the Application ID URI. Record this value for later.
-        ![Edit HelloAPI AD Auth settings](./images/Solution04_Enable_ADAuth_HelloAPI_4.jpg)
     - Click the scope link.  Student does not have to do anything here since the settings have already been pre-filled.  Though, they have the liberty to change any of these (e.g. Consent to Admins only), as long as the scope has been enabled.  
         ![Edit HelloAPI AD Auth Scope settings](./images/Solution04_Enable_ADAuth_HelloAPI_5.jpg)
 
