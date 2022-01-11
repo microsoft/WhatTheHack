@@ -24,6 +24,7 @@ You should be able to:
 1. Import the Functions in API Management and name it Hello API.
 1. Do GET and POST calls from the APIM endpoint.
 1. Enable Application Insights for Hello API, keep the default values (e.g. sampling to the default value of 100%)
+1. Add Hello API to Unlimited Product.
 
 ## Learning Resources
 - [Customize an HTTP endpoint in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-serverless-api)
@@ -34,7 +35,7 @@ You should be able to:
 
 ## Tips 
 - To test API calls, students are free to use whatever tool they prefer, e.g. Powershell [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.2), Azure Portal ([APIM Test tab](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api#test-in-azure-portal)), or [Postman](https://www.postman.com/).
-
+- Ensure that you [added Hello API to the Unlimited product](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-add-products?tabs=azure-portal#add-apis-to-a-product).
 
 ## Advanced Challenges
 
