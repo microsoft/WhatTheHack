@@ -64,8 +64,8 @@ You should be able to create a set of Bicep templates that:
 
 
 - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
-
-- Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you will need to use this in the succeeding challenges.     
+- Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you will need to use this in the succeeding challenges.  Don't forget to enable CORS afterwards.
+- After publishing, browse to the Dev portal in a separate incognito/private broswer and test Echo API GET operation.  
 
 ## Advanced Challenges
 
