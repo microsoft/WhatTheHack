@@ -14,7 +14,7 @@ The students should be able configure OAuth2 authorization when calling Hello AP
         ![Enable backend-app AAD app reg settings 2](./images/Solution04_Enable_ADAuth_BackendApp_2.jpg)
         ![Enable backend-app AAD app reg settings 3](./images/Solution04_Enable_ADAuth_BackendApp_3.jpg)
         ![Enable backend-app AAD app reg settings 4](./images/Solution04_Enable_ADAuth_BackendApp_4.jpg)
-    - Step [2. Register another application in Azure AD to represent a client application] (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#2-register-another-application-in-azure-ad-to-represent-a-client-application), the client app registration would look like below:
+    - Step [2. Register another application in Azure AD to represent a client application](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#2-register-another-application-in-azure-ad-to-represent-a-client-application), the client app registration would look like below:
         ![Enable client-app AAD app reg settings 1](./images/Solution04_Enable_ADAuth_ClientApp_1.jpg)
         ![Enable client-app AAD app reg settings 2](./images/Solution04_Enable_ADAuth_ClientApp_2.jpg)
         ![Enable client-app AAD app reg settings 3](./images/Solution04_Enable_ADAuth_ClientApp_3.jpg)
