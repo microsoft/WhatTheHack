@@ -15,7 +15,10 @@ In this challenge you'll focus on Dapr input bindings. The following diagram dep
 For this hands-on challenge, you will add an input binding leveraging the Dapr binding building block. In the previous challenge, you implemented a Dapr input binding. 
 
 - Stand up a Mosquitto MQTT message broker in a Docker container.
-- Modify the `TrafficControlService` to use the Dapr MQTT input binding to receive entry-cam and exit-cam messages over the MQTT protocol.
+- Modify the `TrafficControlService` (`TrafficController` class) to use the Dapr MQTT input binding to receive entry-cam and exit-cam messages over the MQTT protocol.
+- Modify the `Simulation` app to put `trafficcontrol/entrycam` & `trafficcontrol/exitcam` messages on the MQTT queue. 
+    - Create a new class called `MqttTrafficControlService` to do this (look at the `HttpTrafficControlService` as an example).
+    - Modify the `Program` class to use this new service.
 - Create a Dapr configuration file for specifying the Dapr SMTP input binding components.
 - Restart all services & run the **Simulation** application.
 - Once you have the solution running locally, modify the code to use Azure IoTHub & EventHub as the MQTT message broker.

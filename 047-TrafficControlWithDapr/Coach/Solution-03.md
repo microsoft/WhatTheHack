@@ -163,7 +163,7 @@ You are going to prepare the `FineCollectionService` so that it can receive mess
 
     *The `route` field tells Dapr to forward messages published to the `collectfine` topic to the `/collectfine` endpoint. From there, the subscriber can handle each message. The `pubsubname` links the subscription.yaml file to the `pubsub` component. The `scopes` field restricts this subscription to only the service with the `finecollectionservice` app-id.*
 
-Now the `FineCollectionService` is ready to receive published messages through Dapr. But there is a catch! Dapr warps pub/sub messages inside the open-source [CloudEvents](https://cloudevents.io/) message format. Upon receipt, the subscriber must transform the message to a `CloudEvent`. You'll start by manually parsing the incoming JSON. Later, you'll evolve the implementation to use the ASP.NET Core model binding via the Dapr SDK for .NET.
+Now the `FineCollectionService` is ready to receive published messages through Dapr. But there is a catch! Dapr wraps pub/sub messages inside the open-source [CloudEvents](https://cloudevents.io/) message format. Upon receipt, the subscriber must transform the message to a `CloudEvent`. You'll start by manually parsing the incoming JSON. Later, you'll evolve the implementation to use the ASP.NET Core model binding via the Dapr SDK for .NET.
 
   *CloudEvents is a standardized messaging format, providing a common way to describe event information across platforms. Dapr embraces CloudEvents. For more information about CloudEvents, see the cloudevents specification*
 

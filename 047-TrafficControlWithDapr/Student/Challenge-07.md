@@ -40,7 +40,7 @@ Update the services to use a Dapr secrets buildling block.
   - License key (from the `Resources\FineCollectionService\Controllers\CollectionController.cs` code file).
 - Create a Dapr configuration file for the **local** secret store JSON file.
 - Modify the **email** Dapr component configured in [Challenge-05](./Challenge-05.md) to use this new secret store instead of having the SMTP credentials hard-coded in the configuration file.
-- Modify the `Resources/FineCollectionService/Controllers/CollectionController` service to pull the license key secret from the Dapr secret component instead of being hard-coded.
+- Modify the `FineCollectionService` (`CollectionController` class) to pull the license key secret from the Dapr secret component instead of being hard-coded.
 - Restart all services & run the **Simulation** application.
 - Once you have the solution running locally, modify the Dapr configuration files to use an Azure KeyVault instead.
 
