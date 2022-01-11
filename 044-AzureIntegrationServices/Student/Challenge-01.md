@@ -23,6 +23,7 @@ You should be able to create a set of Bicep templates that:
 1. Deploy a Function App in the Elastic Premium Plan - E1 SKU
 1. Deploy Application Insights resource
 1. Configure APIM and Function app to use Application Insights resource
+1. Configure APIM Developer Portal
 
 ## Learning Resources
 
@@ -31,7 +32,8 @@ You should be able to create a set of Bicep templates that:
 - [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
   - [Azure Quickstart Templates - Create API Management Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/azure-api-management-create)
   - [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
-
+  - [Tutorial: Access and customize the developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize)
+  
 - [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
   - [Deploy Function App on Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#deploy-on-premium-plan)
   - [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep)
@@ -62,7 +64,8 @@ You should be able to create a set of Bicep templates that:
 
 
 - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
-     
+
+- Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you will need to use this in the succeeding challenges.     
 
 ## Advanced Challenges
 

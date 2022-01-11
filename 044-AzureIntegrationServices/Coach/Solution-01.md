@@ -177,4 +177,4 @@ The students should be doing the following:
   ```
   az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
   ```
-
+- Ensure that the students have [published the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) and are able to [view the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#visit-the-published-portal) in a separate browser (in incognito/private browsing mode) because they will need to use this in Challenge 04.
