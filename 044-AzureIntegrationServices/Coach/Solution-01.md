@@ -177,4 +177,16 @@ The students should be doing the following:
   ```
   az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
   ```
-- Ensure that the students have [published the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) and are able to [view the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#visit-the-published-portal) in a separate browser (in incognito/private browsing mode) because they will need to use this in Challenge 04.
+- Ensure that the students have [published the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because they will need to use this in Challenge 04.
+  ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_1.jpg)
+
+  Once done, enable CORS.
+  ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_2.jpg)
+
+  Open a new browser window (in incognito/private browsing mode) and then [view the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#visit-the-published-portal) 
+  ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_3.jpg)
+
+  Click API and test call Echo API GET operation (don't forget toa add the subscription key!)
+  ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
+
+
