@@ -1,6 +1,6 @@
 # Challenge 1 – Start Project and Import Repo into Azure DevOps
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-BuildPipeline.md)
+[< Previous Challenge](./Solution-00.md) - **[Home](./README.md)** - [Next Challenge >](./Solution-02.md)
 
 ## Notes & Guidance
 

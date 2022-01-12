@@ -1,12 +1,12 @@
 # Challenge 4 – Create a Release Pipeline In Azure DevOps
 
-[< Previous Challenge](./03-UnitTesting.md) - **[Home](./README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
+[< Previous Challenge](./Solution-03.md) - **[Home](./README.md)** - [Next Challenge >](./Solution-05.md)
 
 
 ## Solution
 
 1.  Create a Release pipeline with an empty Job
-1.  Add Build Artifact that you created in the [previous challenge](03-BuildPipeline.md)
+1.  Add Build Artifact that you created in the [previous challenge](Solution-03.md)
 1.  Setup Agent Job
     1.  Set Agent Pool to Azure Pipelines
     1.  Set Agent Specification to ubuntu-18.04

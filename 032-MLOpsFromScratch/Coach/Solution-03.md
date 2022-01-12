@@ -1,6 +1,6 @@
 # Challenge 3 – Create a Unit Test Locally and in Azure DevOps
 
-[< Previous Challenge](./02-BuildPipeline.md) - **[Home](./README.md)** - [Next Challenge >](./04-ReleasePipeline.md)
+[< Previous Challenge](./Solution-02.md) - **[Home](./README.md)** - [Next Challenge >](./Solution-04.md)
 
 ## Solution
 
