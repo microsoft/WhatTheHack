@@ -10,39 +10,47 @@ Similar to DevOps, MLOps is a very broad topic and you have lots of choices when
 
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
-1.  Azure subscription. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).  
+1.  Azure subscription. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/). Ensure you can create the following Azure resources:
+    - Application Insights
+    - Azure Container Registry
+    - Azure Container Instance
+    - Azure Machine Learning
+    - Storage Account
+    - KeyVault
 
-2.  [Azure Machine Learning service workspace](https://ml.azure.com/) - It is a foundational resource in
-    the cloud that you use to experiment, train, and deploy machine learning
-    models.
+1.  [Azure Machine Learning service workspace](https://ml.azure.com/) - It is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning  models.
 
-3.  Azure DevOps subscription. If you do not have one, you can sign up for a
-    [free account](https://azure.microsoft.com/en-us/services/devops/).
-
-    - Install [Azure DevOps Machine Learning
-      extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
-
-    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, create a new project and [create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure Subscription and Azure ML service using Azure Resource Manager service principal.
-    
-    **Note:** Azure ML Workspace must be created first before creating Service Connections. 
+1.  Azure DevOps organization. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/).
+    - Install [Azure DevOps Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml)
+    - Request Admin access to [create Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) within Azure DevOps to connect with Azure ML Workspace. If the access is not granted, have admin create those service connections ahead of time. To do that, create a new project and [create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure Subscription and Azure ML service using a Azure Resource Manager service principal.
+      
+      **Note:** Azure ML Workspace must be created first before creating Service Connections.
   
-4.  Python Installation, version at least \>= 3.6.5. Anaconda is more preferred
-    for Data Science tasks.
-
+1.  Python Installation, version at least \>= 3.6.5. Anaconda is more preferred for Data Science tasks.
     - Anaconda - <https://docs.anaconda.com/anaconda/install/windows/>
-
     - Miniconda - <https://docs.conda.io/en/latest/miniconda.html>
-
     - Python - <https://www.python.org/downloads/>
 
-5.  Visual Studio Code or any Python IDE
+1.  Ensure Python modules are available to download via pip (from [Pypi](https://pypi.org) or from an internal package manager).
+    - azure-cli==2.22.1
+    - azureml-sdk[cli]
+    - azureml-sdk[notebooks]
+    - azureml-defaults
+    - azureml-model-management-sdk
+    - joblib
+    - matplotlib
+    - numpy
+    - pandas
+    - pynacl
+    - scipy
+    - scikit-learn
+    - seaborn
+    - statsmodels
 
+1.  Visual Studio Code or any Python IDE
       - Python extensions
 
-**NOTE**: You will need privileges to create projects on the DevOps account.
-    Also, you need privileges to create Service Principal in the tenet. This
-    translates to **Ensure that the user has 'Owner' or 'User Access
-    Administrator' permissions on the Subscription**.
+**NOTE**: You will need privileges to create projects in the Azure DevOps organization. Also, you need privileges to create Service Principal in the tenant that has **Contributor** RBAC access to your subscription/resource group. This translates to **Ensure that the user has 'Owner' or 'User Access Administrator' permissions on the Subscription**.
 
 ## Success Criteria
 
