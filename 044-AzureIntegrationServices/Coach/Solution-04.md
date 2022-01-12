@@ -69,3 +69,11 @@ The students should be able configure OAuth2 authorization when calling Hello AP
     ![Function App AAD Auth 2](./images/Solution04_FunctionApp_AADAuth_3.jpg)
 
 - Test API call again.
+
+- Enable [Managed Identities in APIM](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-managed-service-identity) and then authenticate to backend using that identity using [authentication-managed-identity](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-managed-service-identity#authenticate-to-the-back-end-by-using-a-user-assigned-identity) policy.
+    - Create a new API by importing the same function app
+      ![Enable Managed Identity in APIM 1](./images/Solution04_Enable_ManagedIdentity_APIM_1.jpg)
+    - Add the [authentication-managed-identity](https://docs.microsoft.com/en-us/azure/api-management/api-management-authentication-policies#ManagedIdentity)   policy which uses the managed identity to obtain an access token from AAD, then will set the token in the Authorization header using the Bearer scheme.  In the resource property, specify the client id of the backend app.
+      ![Enable Managed Identity in APIM 2](./images/Solution04_Enable_ManagedIdentity_APIM_2.jpg)
+    - Test API call.
+    
