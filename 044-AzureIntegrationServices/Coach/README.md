@@ -19,9 +19,11 @@ Welcome to the coach's guide for the # Azure Integration Services What The Hack.
    - Create backend APIs
 5. Challenge 4: **[Secure backend API via OAuth](Solution-04.md)**
    - Securing backend API via OAuth
-<!-- 6. Challenge 5: **[Secure backend API using client certificate](Solution-05.md)**
-   - Securing backend API using client certificate -->
 6. Challenge 6: **[Secure backend API over the VNET](Solution-05.md)**
    - Securing backend API services over the VNET
 7. Challenge 7: **[Configure external and internal API access](Solution-06.md)**
    - Configure external and internal API access
+
+
+<!-- 6. Challenge 5: **[Secure backend API using client certificate](Solution-05.md)**
+   - Securing backend API using client certificate -->
