@@ -24,7 +24,7 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 ## Challenges
 - Challenge 0: **[Install local tools and Azure prerequisites](Student/Challenge-00.md)**
    - Install the prerequisites tools and software as well as create the Azure resources required.
-- Challenge 1: **[Run the sample application](Student/Challenge-01.md)**
+- Challenge 1: **[Run the TrafficControl application](Student/Challenge-01.md)**
    - Run the Traffic Control application to make sure everything works correctly.
 - Challenge 2: **[Dapr Service Invocation](Student/Challenge-02.md)**
    - Add Dapr into the mix, using the Dapr service invocation building block.
@@ -57,9 +57,9 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 ## Repository Contents
-- `./Coach/Guides`
-  - Coach's Guide and related files
-- `./Student/Guides`
+- `./Coach/Solutions`
+  - Coach's Solutions and related files
+- `./Student/Resources`
   - Student's Challenge Guide
 
 ## Contributors

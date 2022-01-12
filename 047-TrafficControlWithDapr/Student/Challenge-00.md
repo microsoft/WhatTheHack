@@ -9,50 +9,50 @@ In this challenge, you'll do the following:
 - Install the prerequisite tools and software locally.
 - Create Azure resources required.
   - Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, review the application architecture & description with your coach.
-- Review sample application architecture.
+- Review TrafficControl application architecture.
 
 Your coach will provide you with a `Resources.zip` package file that contains the starting projects for this hack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance the application architecture.
 
 ### Install local prerequisites
   
-1.  Install all the prerequisites listed below and make sure they're working correctly:
+Install all the prerequisites listed below and make sure they're working correctly:
 
-    - Git ([download](https://git-scm.com/))
-    - .NET 5 SDK ([download](https://dotnet.microsoft.com/download/dotnet/5.0))
-    - Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
-      - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-      - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-    - Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
-    - Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-    - Install Azure CLI
-      - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-      - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
-      - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
-    - Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))   
-    - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+  - Git ([download](https://git-scm.com/))
+  - .NET 5 SDK ([download](https://dotnet.microsoft.com/download/dotnet/5.0))
+  - Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
+    - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+    - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+  - Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
+  - Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
+  - Install Azure CLI
+    - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
+    - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
+    - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
+  - Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))   
+  - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-    Make sure the following minimum software versions are installed by executing the commands in the following table:
+Make sure the following minimum software versions are installed by executing the commands in the following table:
 
-    | Software             | Version | Command Line       |
-    | -------------------- | ------- | ------------------ |
-    | Dapr runtime version | v1.2.2  | ```dapr --version```   |
-    | Dapr CLI version     | v1.2.0  | ```dapr --version```   |
-    | DotNet version       | 5.0.302 | ```dotnet --version``` |
-    | azure-cli            | 2.24.0  | ```az --version```     |
+| Software             | Version | Command Line       |
+| -------------------- | ------- | ------------------ |
+| Dapr runtime version | v1.2.2  | ```dapr --version```   |
+| Dapr CLI version     | v1.2.0  | ```dapr --version```   |
+| DotNet version       | 5.0.302 | ```dotnet --version``` |
+| azure-cli            | 2.24.0  | ```az --version```     |
 
 ### Create Azure Resources
 
-This WhatTheHack will create the following Azure resources in your Azure resource group. Make sure you can create the following:
+This hack's setup files will create the following resources in your Azure Resource Group. Make sure you can create the following:
 
 - Application Insights
-- Azure Kubernetes Service
+- Azure Cache for Redis
 - Azure Container Registry
+- Azure Kubernetes Service
 - Event Hub Namespace
 - IoT Hub
 - KeyVault
 - Log Analytics Workspace
 - Logic App (with the Office 365 activity for sending email)
-- Azure Cache for Redis
 - Storage Account
 - Service Bus Namespace
 
@@ -60,12 +60,12 @@ This WhatTheHack will create the following Azure resources in your Azure resourc
 
 #### Special Considerations for Azure Kubernetes Service (AKS)
 
-- AKS requires the ability to create a public IP address. This is blocked by many organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
+- AKS requires the ability to create a public IP address. This may be blocked by some organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
   - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
   - 1 Zipkin service running to monitor communciation between the services.
-- For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry. **This is not best practice**. In a production example, you should use a managed identity & RBAC.
+- **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not best practice**. In a production example, you should use a managed identity & RBAC.
 
 To start, you'll need access to an Azure Subscription:
 
@@ -145,7 +145,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     az deployment group create --resource-group "rg-dapr-youruniqueid123" --template-file main.bicep --parameters ./main.parameters.json --query "properties.outputs" --output yaml
     ```
 
-    *Creating the resources can take some time. You're encouraged to jump to the **challenge 01** while the command executes.*
+    *Creating the resources can take some time. You're encouraged to jump to review the [TrafficControl app architecture](./Resources/README.md) while the command executes.*
 
     Upon completion, the command will output information about the newly-created Azure resources:
 
@@ -275,7 +275,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     kubectl create namespace dapr-trafficcontrol
     ```
 
-1.  Create Kubernetes secret to allow AKS to pull images from ACR
+1.  Create a Kubernetes secret to allow AKS to pull images from ACR
 
     You need to grant the AKS cluster access to your Azure Container Registry so that it can pull Docker images. 
     
@@ -299,9 +299,9 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
     ```
 
-### Review sample application architecture
+### Review TrafficControl application architecture
 
-Spend some time with your teammates reviewing the sample application architecture & services.
+Spend some time with your teammates reviewing the TrafficControl application architecture & services.
 
 The traffic-control application architecture consists of four microservices:
 
@@ -314,7 +314,7 @@ The traffic-control application architecture consists of four microservices:
 
 These services compose together to simulate a traffic control scenario.
 
-[Sample Application & Services Description](./Resources/README.md)
+[TrafficControl Application & Services Description](./Resources/README.md)
 
 ## Success Criteria
 

@@ -1,4 +1,4 @@
-# Challenge 1 - Run the sample application
+# Challenge 1 - Run the TrafficControl application
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
@@ -14,7 +14,7 @@ As mentioned in the introduction, the hackathon challenges are built upon an exi
 
 Keep in mind that you'll be running the application ***without*** Dapr technology. As you work through the challenges, you'll add *Dapr-enable* the application by adding Dapr  Building Blocks and Components to it. Figure depicts the microservices in the reference application.
 
-Run the sample application & services locally.
+Run the TrafficControl application & services locally.
 
 - Run the **Vehicle Registration** microservice. It exposes a single endpoint that listens for requests for vehicle and owner information.
 - Run the **Fine Collection** service. It exposes an endpoint that assigns a fine to a speeding vehicles. To generate a fine, the Fine Collection service must make a call to the Vehicle Registration to obtain driver information.

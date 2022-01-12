@@ -1,4 +1,4 @@
-# Sample Application & Services Description
+# TrafficControl Application & Services Description
 
 ## Architecture
 
