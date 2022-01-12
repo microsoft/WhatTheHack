@@ -39,5 +39,4 @@ You should be able to:
 - Browse to the Dev portal in a separate incognito/private broswer and test Hello API GET operation.  
 
 ## Advanced Challenges
-
 - [TODO]

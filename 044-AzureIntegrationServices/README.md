@@ -24,11 +24,11 @@ In this hack you will be solving common business scenario our customers face whe
    - Create backend APIs
 5. Challenge 4: **[Secure backend API via OAuth](Student/Challenge-04.md)**
    - Securing backend API via OAuth
-6. Challenge 5: **[Secure backend API using client certificate](Student/Challenge-05.md)**
-   - Securing backend API using client certificate
-7. Challenge 6: **[Secure backend API over the VNET](Student/Challenge-06.md)**
+<!-- 6. Challenge 5: **[Secure backend API using client certificate](Student/Challenge-05.md)**
+   - Securing backend API using client certificate -->
+6. Challenge 5: **[Secure backend API over the VNET](Student/Challenge-05.md)**
    - Securing backend API services over the VNET
-8. Challenge 7: **[Configure external and internal API access](Student/Challenge-07.md)**
+7. Challenge 6: **[Configure external and internal API access](Student/Challenge-07.md)**
    - Configure external and internal API access
 
 ## Prerequisites
