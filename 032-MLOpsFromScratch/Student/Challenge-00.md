@@ -31,7 +31,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - Miniconda - <https://docs.conda.io/en/latest/miniconda.html>
     - Python - <https://www.python.org/downloads/>
 
-1.  Ensure Python modules are available to download via pip (from [Pypi](https://pypi.org) or from an internal package manager).
+1.  Ensure Python modules are available to download via pip (from [PyPI](https://pypi.org) or from an internal package manager).
     - azure-cli==2.22.1
     - azureml-sdk[cli]
     - azureml-sdk[notebooks]
