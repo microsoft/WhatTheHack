@@ -1,6 +1,6 @@
 # Challenge 4 – Create a Release Pipeline In Azure DevOps
 
-[< Previous Challenge](./03-UnitTesting.md) - **[Home](../README.md)** - [Next Challenge >](./05-RetrainingAndEvaluation.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 
 ## Introduction

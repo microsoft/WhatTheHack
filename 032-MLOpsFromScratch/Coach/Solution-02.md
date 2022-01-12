@@ -1,6 +1,6 @@
 # Challenge 2 – Create a Build Pipeline in Azure DevOps
 
-[< Previous Challenge](./01-TimeSeriesForecasting.md) - **[Home](./README.md)** - [Next Challenge >](./03-UnitTesting.md)
+[< Previous Challenge](./Solution-01.md) - **[Home](./README.md)** - [Next Challenge >](./Solution-03.md)
 
 ## Solution
 
