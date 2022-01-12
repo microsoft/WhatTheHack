@@ -2,11 +2,15 @@
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-BuildPipeline.md)
 
+## Notes & Guidance
+
+The Coach should zip up the following GitHub [repo](https://github.com/microsoft-us-ocp-ai/DemandForecasting) as a `Data_and_Code.zip` file and give it to the students via the Teams channel. It contains all the source code files.
+
 ## Solution
 
 1.  Create and setup a new project in Azure DevOps
     1.  Download and extract `Data_and_Code.zip` from Teams Channel.
-    1.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using Azure Resource Manager service principal. This will enable you to connect to external and remote services to execute tasks in a pipeline.        
+    1.  [Create new service connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) in Project Settings for your Azure ML service and Azure Subscription using Azure Resource Manager service principal. This will enable you to connect to external and remote services to execute tasks in a pipeline.     
 1.  Clone into VS Code and run the projects files locally to understand the forecasting project and explore the different files available.
 1.  Install library requirements to setup your environment inside VS Code Terminal or equivalent Shell application:  
     `pip install -r ./environment_setup/requirements.txt`
