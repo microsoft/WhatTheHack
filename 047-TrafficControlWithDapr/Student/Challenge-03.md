@@ -32,7 +32,7 @@ This challenge targets the operations labeled as **number 2** in the end-state s
 <img src="../images/Challenge-03/dapr-setup-assignment03.png" style="zoom: 67%;" />
 
 - Validate that the RabbitMQ message broker is running.
-- Validate that messages are being sent from the `TrafficControlService`. to the `FineCollectionService` using Dapr, not direct service invocation.
+- Validate that messages are being sent from the `TrafficControlService` to the `FineCollectionService` using Dapr, not direct service invocation.
 - Validate that messages are being received & consumed from the Azure Service Bus.
 
 ## Tips
