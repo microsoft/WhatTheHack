@@ -1,11 +1,11 @@
 @description('Application/Solution name')
 param appName string = uniqueString(resourceGroup().id)
 
-@description('Publisher name')
-param publisherName string = '<name>'
+@description('Publisher name (Must be an AAD Global Admin/Subscriptoin Admin)')
+param publisherName string = 'Noemi Veneracion'
 
 @description('Publisher email')
-param publisherEmail string = '<email>'
+param publisherEmail string = 'novenera@microsoft.com'
 
 
 param resourceTags object = {
@@ -20,7 +20,7 @@ param appInsightsName string = toLower('ai-${appName}')
 param functionRuntime string = 'dotnet'
 
 @description('Function app SKU')
-param functionSku string = 'EP1'
+param functionSku string = 'Y1'
 
 @description('Storage account name')
 param storageAccountName string = toLower('stor${appName}')
@@ -28,9 +28,8 @@ param storageAccountName string = toLower('stor${appName}')
 @description('Function App name')
 param functionAppName string = toLower('func-${appName}-1')
 
-@description('App Service plan naame')
+@description('App Service plan name')
 param appServicePlanName string = toLower('asp-${appName}')
-
 
 @description('API Management service name')
 param apiManagementServiceName string = toLower('apim-${appName}')
