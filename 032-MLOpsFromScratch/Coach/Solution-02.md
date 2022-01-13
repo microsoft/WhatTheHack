@@ -55,7 +55,18 @@
 
 ### YAML pipeline
 
-
+1.  Create a `build.yml` file.
+1.  Add code similar to the [example build file](./Solutions/build.yml).
+1.  Create a `variables.yml` file.
+1.  Add code similar to the [example variables file](./Solutions/variables.yml).
+1.  Import these files into the repo.
+1.  Create a new `pipeline` (not a Release pipeline).
+    1.  Under the `Pipelines` page in Azure DevOps, click `New pipeline`.
+    1.  Select `Azure Repos Git`.
+    1.  Select your repo.
+    1.  Select `Existing Azure Pipelines YAML file`.
+    1.  Specify the `path` to the `release.yml` file.
+1.  Rename the pipeline something like `MLOps - Build`. This same value is used in the `Release` pipeline that is defined in [Challenge-04](./Solution-04.md).
 
 ### Run & Review Results
 

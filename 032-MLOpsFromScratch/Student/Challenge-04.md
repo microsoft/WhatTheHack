@@ -33,6 +33,14 @@ We can setup Continuous Deployment (CID) trigger for every `Release` pipeline. T
 ## Tips
 
 - Finding the path to where Azure DevOps will copy your build artifact is often the hardest part.
+  - You can use the following command in a `Bash` task to print all environment variables (which is how predefined variables are passed to your pipeline).
+    ```shell
+    env | sort
+    ```
+  - You can use the following command in a `Bash` task to print a `tree` of the filesystem of your build agent.
+    ```shell
+    find $(Pipeline.Workspace) -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"
+    ```
 - Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
 - Make sure you specify the version of Python you want the tasks to use (`Python 3.6`, there is a task for this)
 - Use the `Azure CLI` task to run the Python scripts since they need to interact with the `Azure Machine Learning` resource.
