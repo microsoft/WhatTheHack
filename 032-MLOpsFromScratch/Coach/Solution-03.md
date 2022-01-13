@@ -5,5 +5,20 @@
 ## Solution
 
 1.  Make sure you have created a new project in Azure DevOps, created new service connections and have Azure ML workspace configured for the project using config.json file.
-1.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into `Data/` folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
-    - **HINT:** For Azure DevOps, it is encouraged to leverage the Python Script task using the pipeline task manager in Azure DevOps
+1.  Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into `Data/` folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data. Save this as a script in the repo so the pipeline can run it.
+    - Example code:
+      ```python
+      import glob
+
+      file_count = 0
+      # count number of files in data directory
+      for filepath in glob.iglob(r'./data/*.csv', recursive=False):
+          file_count = file_count + 1
+
+      print("# of CSV files is " + str(file_count))
+
+      if(file_count != 3):
+          raise Exception("Number of CSV files does not match. Expected: 3. Actual: " + str(file_count))
+      ```
+1.  Add a Python script task in the Build pipeline to run the unit test script created earlier.
+    ![unitTest](../images/Challenge-03/unitTest.png)
