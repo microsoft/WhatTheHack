@@ -40,3 +40,6 @@
     ![runBuildPipeline](../images/Challenge-02/runBuildPipeline.png)
 1.  Review Build Outputs - confirm that the model and Azure Container Image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
     ![buildOutputs](../images/Challenge-02/buildOutputs.png)
+1.  Verify that a Build artifact was created. Note the name of the artifact as it will be used in the release pipeline.
+    ![findBuildArtifact](../images/Challenge-02/findBuildArtifact.png)
+    ![nameOfBuildArtifact](../images/Challenge-02/nameOfBuildArtifact.png)
