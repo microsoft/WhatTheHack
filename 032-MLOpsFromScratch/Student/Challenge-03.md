@@ -3,9 +3,11 @@
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ## Introduction
+
 Use this challenge to perform tasks to confirm data has been extracted from source and saved in the working directory.
 
 ## Description
+
 - Make sure you have created a new project in Azure DevOps, created new service connections and have Azure ML workspace configured for the project using config.json file.
 - Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into `Data/` folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
   - **HINT:** For Azure DevOps, it is encouraged to leverage the `Python Script` task using the pipeline task manager in Azure DevOps.

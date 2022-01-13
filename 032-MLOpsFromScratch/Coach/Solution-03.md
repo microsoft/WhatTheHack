@@ -22,4 +22,5 @@
       ```
 1.  Save this as a script in the repo so the pipeline can run it.
 1.  Add a Python script task in the `Build` pipeline to run the unit test script created earlier.
+
     ![unitTest](../images/Challenge-03/unitTest.png)
