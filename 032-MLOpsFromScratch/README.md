@@ -38,8 +38,8 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 
 ## Challenges
 
--  Challenge 0: **[Pre-requisities](Student/Challenge-00.md)**
--  Challenge 1: **[Incorporate your locally trained machine learning code into Azure DevOps](Student/Challenge-01.md)**
+-  Challenge 0: **[Prerequisities](Student/Challenge-00.md)**
+-  Challenge 1: **[Run model locally & and import repo into Azure DevOps](Student/Challenge-01.md)**
 -  Challenge 2: **[Create a Build pipeline in Azure DevOps](Student/Challenge-02.md)**
 -  Challenge 3: **[Create a Unit Test in Azure DevOps](Student/Challenge-03.md)**
 -  Challenge 4: **[Create a Release pipeline in Azure DevOps](Student/Challenge-04.md)**
@@ -51,3 +51,4 @@ Your team will have individuals of varying skill sets, so it is imperative to de
 - Ahmed Sherif
 - Phil Coachman
 - Jason Virtue
+- Jordan Bean

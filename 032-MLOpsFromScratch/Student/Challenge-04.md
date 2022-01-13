@@ -8,21 +8,17 @@ The `Release` pipeline demonstrates the automation of various stages/tasks invol
 
 There are several ways to create a `Release` pipeline. The two most common and popular ways are: 
 -   Using a YAML file that represents the entire pipeline.
--   Using an empty job and adding tasks sequentially.
+-   Using a classic GUI pipeline & adding tasks sequentially.
 
-As we had mentioned in the previous challenge, we believe that the latter approach is more comprehensive and intuitive, especially to get started on MLOps, so we recommend that route.
-
-We can setup Continuous Deployment (CID) trigger for every Release pipeline. The pipeline shows how to operationalize the scoring image and promote it safely across different environments.
+We can setup Continuous Deployment (CID) trigger for every `Release` pipeline. The pipeline shows how to operationalize the scoring image and promote it safely across different environments.
 
 ## Description
 
-- Create a `Release` pipeline with an **Empty Job**.
+- Create a `Release` pipeline.
 - Add `Build Artifact` that you created in the [previous challenge](03-BuildPipeline.md).
-- Setup `Agent Job 1`.
   - Set Agent Pool to `Azure Pipelines`.
   - Set Agent Specification to `ubuntu-18.04`.
-- Setup `Release` pipeline – Add the following tasks:
-  - Python version – `3.6`
+- Add `Release` pipeline tasks:
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required to deploy the forecasting model.
   - Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code/` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
     - **NOTE:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
@@ -31,13 +27,15 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
  
 ## Success Criteria
 
-- An end-to-end Release pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps.
+- An end-to-end `Release` pipeline in Azure DevOps.
 - A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
 
 ## Tips
 
 - Finding the path to where Azure DevOps will copy your build artifact is often the hardest part.
 - Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
+- Make sure you specify the version of Python you want the tasks to use (`Python 3.6`, there is a task for this)
+- Use the `Azure CLI` task to run the Python scripts since they need to interact with the `Azure Machine Learning` resource.
 
 ## Learning resources
 

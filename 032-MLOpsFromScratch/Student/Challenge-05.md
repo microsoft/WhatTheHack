@@ -14,8 +14,8 @@ In Azure DevOps, you can retrain the model on a schedule or when new data become
     - Pull up the training code in `transactions_arima.py` in `scripts/training/` folder. The initial model was trained on 2013 transactions data.
     - Along with 2013 data, also read 2014 transactions data that was created in `service/code/AcquireData.py`.
     - Concatenate these two datasets/dataframes and build an ARIMA trained model on this bigger dataset.
-- Rerun the `Build` pipeline to reflect the changes in training.
-- Rerun the `Release` pipeline. If the new model has better evaluation metrics than the previous model, then a new web service is created for your retrained model.
+- Re-run the `Build` pipeline to reflect the changes in training.
+- Re-run the `Release` pipeline. If the new model has better evaluation metrics than the previous model, then a new web service is created for your retrained model.
 - Review artifacts and outputs from `Build` and `Release` pipelines.
 
 ## Success criteria

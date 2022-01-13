@@ -17,7 +17,7 @@
 
 1.  Create a variable to hold the `artifact name` that was set in the `Build` job.
 
-![createArtifactNameVariable](../images/Challenge-04/createArtifactNameVariable.png)
+    ![createArtifactNameVariable](../images/Challenge-04/createArtifactNameVariable.png)
 
 1.  Setup `Release` pipeline – Create a new pipeline, edit the pipeline and add the following tasks (similar to what you have in the Build pipeline)
     1.  Python version – `3.6`.

@@ -1,4 +1,4 @@
-# Challenge 1 – Start Project and Import Repo into Azure DevOps
+# Challenge 1 – Run model locally & and import repo into Azure DevOps
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 

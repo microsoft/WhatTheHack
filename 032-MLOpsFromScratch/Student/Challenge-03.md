@@ -8,14 +8,16 @@ Use this challenge to perform tasks to confirm data has been extracted from sour
 
 ## Description
 
-- Make sure you have created a new project in Azure DevOps, created new service connections and have Azure ML workspace configured for the project using config.json file.
 - Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into `Data/` folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
-  - **HINT:** For Azure DevOps, it is encouraged to leverage the `Python Script` task using the pipeline task manager in Azure DevOps.
 
 ## Success criteria
 
 - Count the number of CSV files extracted into `Data/` folder using a `Python script` in Azure DevOps pipeline. (This can be the same script used in [Challenge-01](./Challenge-01)).    
 - Visualizing and exploring the data (using a python visualization library like `matplotlib` or `seaborn` or `plotly`).
+
+## Tips
+  
+- Use the `Python Script` task in your `Build` pipeline to run the unit test.
 
 ## Learning resources
 

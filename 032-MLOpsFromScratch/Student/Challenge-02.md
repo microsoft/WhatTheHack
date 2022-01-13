@@ -8,29 +8,22 @@ The Build pipeline demonstrates the automation of various stages/tasks involved 
 
 There are several ways to create a Build pipeline. The two most common and popular ways are:
 - Using a YAML file that represents the entire pipeline.
-- Using an empty job and adding tasks sequentially.
+- Using the classic GUI pipeline and adding tasks sequentially.
 
-We believe that the latter approach is more comprehensive and intuitive, especially to get started on MLOps, so we recommend that route.  This will be the focus of this hack.
+Use whichever approach your team is most comfortable with.
 
-We can setup Continuous Integration (CI) trigger for every Build pipeline. The CI pipeline gets triggered every time code is checked in. It publishes an updated Azure Machine Learning pipeline after building the code.
+We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The CI pipeline gets triggered every time code is checked in. It publishes an updated Azure Machine Learning pipeline after building the code.
 
 ## Description
 
 - Make sure you have setup a new project, imported the code, created service connections, and configured Azure ML Workspace for the project.
 - Create a Build pipeline.
-  - Use the classic editor to create a pipeline without YAML.
   - Select the repo that was imported in the previous challenge.
-  - Create an **Empty Job**.
-- Setup `Agent Job 1`.
   - Set Agent Pool to `Azure Pipelines`.
   - Set Agent Specification to `ubuntu-18.04`.
-- Setup Build pipeline – Add the following tasks by clicking "+".
-  - Python version – `3.6`.
+- Add Build pipeline tasks
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required for the project.
-    - **HINT:** Use a command line task that allows you to run the shell script.
   - Add a task to get Azure ML Workspace connection using `Workspace.py` in `service/code/` folder. This will establish connection to Azure ML workspace by using your workspace details in `configuration/config.json` file.         
-    - **HINT:** Use a command line task that allows you to run the python script.        
-    - **NOTE:** In case you see issues with the latest versions of any task, try a previous version and see if that resolves the issue.
   - Add a task to acquire time series transactions data using `AcquireData.py` in `service/code/` folder. This will download and extract the data required to train a forecasting model in the next steps.
   - Add a task to train ARIMA forecasting model using `TrainOnLocal.py` in `service/code/` folder. This will build a model to forecast demand of items from AdventureWorks database.
   - Add a task to evaluate the model performance using `EvaluateModel.py` in `service/code/` folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
@@ -39,19 +32,20 @@ We can setup Continuous Integration (CI) trigger for every Build pipeline. The C
   - Now you are at a point of creating an artifact for your `Release` pipeline. An artifact is the deployable component of your model or application. `Build Artifact` is one of the many artifact types. The following two tasks are required to create `Build artifact` in your `Build` pipeline. 
     - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`.
     - Use Publish Artifact task with `$(Build.ArtifactStagingDirectory)` as path to publish. 
-    **NOTE:** Alternatively, you have more Artifact options such as Model Artifact that you could use if you want to go that route.
 - Run the `Build` pipeline.
 - Review `Build` Outputs - confirm that the model and Azure Container Image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
 
 ## Success criteria
 
-- An end-to-end Build pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps.
+- An end-to-end `Build` pipeline in Azure DevOps.
 - Forecasting model registered with the Azure ML Model Registry.
 
 ## Tips
 
 - Finding the path to where Azure DevOps will copy your repo code is often the hardest part.
 - Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=classic) in Azure DevOps to make your tasks simpler & more robust.
+- Make sure you specify the version of Python you want the tasks to use (`Python 3.6`, there is a task for this)
+- Use the `Azure CLI` task to run the Python scripts since they need to interact with the `Azure Machine Learning` resource.
 
 ## Learning resources
 

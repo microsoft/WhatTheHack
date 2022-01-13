@@ -1,4 +1,4 @@
-# Challenge 0: Pre-requisites
+# Challenge 0: Prerequisites
 
 **[Home](./README.md)** - [Next Challenge >](./Solution-01.md)
 
