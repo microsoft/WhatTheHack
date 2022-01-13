@@ -35,9 +35,24 @@
 
 ### YAML pipeline
 
+1.  Create a `release.yml` file.
+1.  Add code similar to the [example release file](./Solutions/release.yml).
+1.  Use the same `variables.yml` file from the `Build` pipeline.
+1.  Import this file into the repo.
+1.  Create a new `pipeline` (not a Release pipeline).
+    1.  Under the `Pipelines` page in Azure DevOps, click `New pipeline`.
+    1.  Select `Azure Repos Git`.
+    1.  Select your repo.
+    1.  Select `Existing Azure Pipelines YAML file`.
+    1.  Specify the `path` to the `release.yml` file.
+
 ### Run & review results
 
-1.  Run the `Release` pipeline
+1.  Run the `Release` pipeline.
+
+    **NOTE:** The first time you run the `Release` pipeline, you may have to authorize it to create an environment. You will see this on the `Summary` page of the execution.
+
+    ![firstTimeRelease](../images/Challenge-04/firstTimeRelease.png)
 
 1.  Verify via the `Release` pipeline logs that deployment & testing were successful.
 
