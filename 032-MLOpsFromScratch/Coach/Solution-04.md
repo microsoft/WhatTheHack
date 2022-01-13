@@ -5,8 +5,8 @@
 
 ## Solution
 
-1.  Create a Release pipeline with an empty Job
-1.  Add Build Artifact that you created in the [previous challenge](Solution-03.md)
+1.  Create a `Release` pipeline with an empty Job
+1.  Add `Build` Artifact that you created in the [previous challenge](Solution-03.md)
     ![addBuildArtifact](../images/Challenge-04/addBuildArtifact.png)
 1.  Setup Agent Job
     1.  Set Agent Pool to `Azure Pipelines`
@@ -14,7 +14,7 @@
     ![setupAgentJob](../images/Challenge-04/setupAgentJob.png)
 1.  Create a variable to hold the `artifact name` that was set in the `Build` job.
 ![createArtifactNameVariable](../images/Challenge-04/createArtifactNameVariable.png)
-1.  Setup Release pipeline – Create a new pipeline, edit the pipeline and add the following tasks (similar to what you have in the Build pipeline)
+1.  Setup `Release` pipeline – Create a new pipeline, edit the pipeline and add the following tasks (similar to what you have in the Build pipeline)
     1.  Python version – `3.6`.
     1.  `Bash` task to setup environment using `install_environment.sh` file. Make special note of the script path. Artifacts get downloaded to a directory specified by default pipeline variables. You have to specify the path (including the name of the build artifact).
         ![setupEnvironment](../images/Challenge-04/setupEnvironment.png)

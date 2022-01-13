@@ -2,12 +2,10 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-
 ## Introduction
+The `Release` pipeline demonstrates the automation of various stages/tasks involved in deploying an ML model and operationalizing the model in production. The stages generally constitute collecting the Build Artifacts, creating a web service and testing the web service. This web service that gets created in the `Release` Pipeline is a REST endpoint (a Scoring URI) used to predict/forecast on a new dataset. Additionally, it can be plugged into business applications to leverage the intelligence of the model.
 
-The Release pipeline demonstrates the automation of various stages/tasks involved in deploying an ML model and operationalizing the model in production. The stages generally constitute collecting the Build Artifacts, creating a web service and testing the web service. This web service that gets created in the Release Pipeline is a REST endpoint (a Scoring URI) used to predict/forecast on a new dataset. Additionally, it can be plugged into business applications to leverage the intelligence of the model.
-
-There are several ways to create a Release pipeline. The two most common and popular ways are: 
+There are several ways to create a `Release` pipeline. The two most common and popular ways are: 
 -   Using a YAML file that represents the entire pipeline
 -   Using an empty job and adding tasks sequentially
 
@@ -17,31 +15,31 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
 
 ## Description
 
-1.  Create a Release pipeline with an **Empty Job**
-1.  Add Build Artifact that you created in the [previous challenge](03-BuildPipeline.md)
-1.  Setup Agent Job
-    1.  Set Agent Pool to `Azure Pipelines`
-    1.  Set Agent Specification to `ubuntu-18.04`
-1.  Setup Release pipeline – Add the following tasks:
-    1.  Python version – `3.6`
-    1.  Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required to deploy the forecasting model.
-    1.  Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code/` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
-        -   **NOTE:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
-    1.  Add a task to test the ACI web service using `AciWebserviceTest.py` in `service/code/` folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
-        -   **NOTE:** If the deployment fails or the web service is "unhealthy", check logs in Azure DevOps or Azure ML Studio for issues and additional information.
+- Create a `Release` pipeline with an **Empty Job**
+- Add `Build Artifact` that you created in the [previous challenge](03-BuildPipeline.md)
+- Setup `Agent Job 1`
+  - Set Agent Pool to `Azure Pipelines`
+  - Set Agent Specification to `ubuntu-18.04`
+- Setup `Release` pipeline – Add the following tasks:
+  - Python version – `3.6`
+  - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required to deploy the forecasting model.
+  - Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code/` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
+    - **NOTE:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
+  - Add a task to test the ACI web service using `AciWebserviceTest.py` in `service/code/` folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
+    - **NOTE:** If the deployment fails or the web service is "unhealthy", check logs in Azure DevOps or Azure ML Studio for issues and additional information.
  
 ## Success Criteria
 
--   An end-to-end Release pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps.
--   A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
+- An end-to-end Release pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps.
+- A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
 
 ## Tips
--   Finding the path to where Azure DevOps will copy your build artifact is often the hardest part.
--   Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
+- Finding the path to where Azure DevOps will copy your build artifact is often the hardest part.
+- Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
 
 ## Learning resources
 
--   [Key concepts for new Azure Pipelines users](<https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops>)
--   [Release Pipelines general resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
--   [MLOps documentation: Model management, deployment, and monitoring with Azure Machine Learning](<https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment>)
--   [MLOps Reference Architecture](<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>)
+- [Key concepts for new Azure Pipelines users](<https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops>)
+- [Release Pipelines general resources](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops)
+- [MLOps documentation: Model management, deployment, and monitoring with Azure Machine Learning](<https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment>)
+- [MLOps Reference Architecture](<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/mlops-python>)
