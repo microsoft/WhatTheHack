@@ -23,7 +23,7 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
     1.  Set Agent Pool to `Azure Pipelines`
     1.  Set Agent Specification to `ubuntu-18.04`
 1.  Setup Release pipeline – Add the following tasks:
-    1.  Python version – 3.6
+    1.  Python version – `3.6`
     1.  Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required to deploy the forecasting model.
     1.  Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code/` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
         -   **NOTE:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
@@ -32,8 +32,12 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
  
 ## Success Criteria
 
-1.  An end-to-end Release pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps.
-1.  A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
+-   An end-to-end Release pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps.
+-   A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
+
+## Tips
+-   Finding the path to where Azure DevOps will copy your build artifact is often the hardest part.
+-   Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
 
 ## Learning resources
 
