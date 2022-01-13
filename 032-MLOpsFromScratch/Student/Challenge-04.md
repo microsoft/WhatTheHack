@@ -44,6 +44,7 @@ We can setup Continuous Deployment (CID) trigger for every `Release` pipeline. T
 - Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
 - Make sure you specify the version of Python you want the tasks to use (`Python 3.6`, there is a task for this)
 - Use the `Azure CLI` task to run the Python scripts since they need to interact with the `Azure Machine Learning` resource.
+- If using YAML pipelines, make sure you use the same name that you used for the `Build` pipeline in the `Release` pipeline `pipeline.source`.
 
 ## Learning resources
 

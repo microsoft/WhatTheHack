@@ -46,6 +46,15 @@
     1.  Select `Existing Azure Pipelines YAML file`.
     1.  Specify the `path` to the `release.yml` file.
 
+**NOTE:** The name used in the `release.yml` file for the `pipeline.source` (around line 9), must be **exactly** the same as the name of the `Build` pipeline created earlier (in this example, `MLOps - Build`).
+
+```yaml
+resources:
+  pipelines:
+    - pipeline: mlops_build
+      source: 'MLOps - Build'
+```
+
 ### Run & review results
 
 1.  Run the `Release` pipeline.
