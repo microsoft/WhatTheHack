@@ -3,11 +3,12 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
+
 The `Release` pipeline demonstrates the automation of various stages/tasks involved in deploying an ML model and operationalizing the model in production. The stages generally constitute collecting the Build Artifacts, creating a web service and testing the web service. This web service that gets created in the `Release` Pipeline is a REST endpoint (a Scoring URI) used to predict/forecast on a new dataset. Additionally, it can be plugged into business applications to leverage the intelligence of the model.
 
 There are several ways to create a `Release` pipeline. The two most common and popular ways are: 
--   Using a YAML file that represents the entire pipeline
--   Using an empty job and adding tasks sequentially
+-   Using a YAML file that represents the entire pipeline.
+-   Using an empty job and adding tasks sequentially.
 
 As we had mentioned in the previous challenge, we believe that the latter approach is more comprehensive and intuitive, especially to get started on MLOps, so we recommend that route.
 
@@ -15,11 +16,11 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
 
 ## Description
 
-- Create a `Release` pipeline with an **Empty Job**
-- Add `Build Artifact` that you created in the [previous challenge](03-BuildPipeline.md)
-- Setup `Agent Job 1`
-  - Set Agent Pool to `Azure Pipelines`
-  - Set Agent Specification to `ubuntu-18.04`
+- Create a `Release` pipeline with an **Empty Job**.
+- Add `Build Artifact` that you created in the [previous challenge](03-BuildPipeline.md).
+- Setup `Agent Job 1`.
+  - Set Agent Pool to `Azure Pipelines`.
+  - Set Agent Specification to `ubuntu-18.04`.
 - Setup `Release` pipeline – Add the following tasks:
   - Python version – `3.6`
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required to deploy the forecasting model.
@@ -34,6 +35,7 @@ We can setup Continuous Deployment (CID) trigger for every Release pipeline. The
 - A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
 
 ## Tips
+
 - Finding the path to where Azure DevOps will copy your build artifact is often the hardest part.
 - Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/variables?view=azure-devops&tabs=batch) in Azure DevOps to make your tasks simpler & more robust.
 
