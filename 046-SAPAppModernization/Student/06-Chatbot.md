@@ -15,3 +15,4 @@ Your existing app service front end poses a nice interface into the SAP world. O
 ## Learning Resources
 - [Hands-On Lab: Implementing a Node.JS client as Azure Bot and leveraging principal propagation between Azure and SAP Netweaver OData services](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation)
 - [Hands-On Lab: Combining the Microsoft-Graph and SAP-Graph in a Microsoft Teams and Azure Bot scenario](https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph)
+- [Alternative using Power Virtual Agent and on-prem components](https://blogs.sap.com/2021/04/13/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-business-technology-platform-btp-part-iv-sso-with-a-power-virtual-agent-chatbot-and-on-premises-data-gateway/)
