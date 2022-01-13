@@ -21,6 +21,9 @@
     1.  `Azure CLI` task to deploy the scoring image on ACI using `deployOnAci.py` file. Make special note of the `Working Directory`. The script expects to be run from the directory where all the other files are located. By default, the task does not run at this location.
         ![deployOnAci](../images/Challenge-04/deployOnAci.png)
     1.  `Azure CLI` task to test the ACI web service using `AciWebserviceTest.py` file.
+1.  Verify via the Release pipeline logs that deployment & testing were successful.
+    ![successfulAciDeployment](../images/Challenge-04/successfulAciDeployment.png)
+    ![successfulTest](../images/Challenge-04/successfulTest.png)
 1.  A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a Scoring URI/Endpoint. Navigate to the `Machine Learning Studio` resource in the [Azure portal](https://portal.azure.com).
     ![aciEndpoint](../images/Challenge-04/aciEndpoint.png)
     ![healthyEndpoint](../images/Challenge-04/healthyEndpoint.png)

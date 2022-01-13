@@ -44,8 +44,12 @@ We can setup Continuous Integration (CI) trigger for every Build pipeline. The C
 
 ## Success criteria
 
-1.  An end-to-end Build pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps
-1.  Forecasting model registered with the Azure ML Model Registry
+-   An end-to-end Build pipeline created from an empty job (from scratch) using the classic editor (without YAML) in Azure DevOps
+-   Forecasting model registered with the Azure ML Model Registry
+
+## Tips
+-   Finding the path to where Azure DevOps will copy your repo code is often the hardest part.
+-   Use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=classic) in Azure DevOps to make your tasks simpler & more robust.
 
 ## Learning resources
 
