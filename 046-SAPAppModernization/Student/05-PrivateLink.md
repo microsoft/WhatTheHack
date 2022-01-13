@@ -18,3 +18,4 @@ Quite some progess! You have created a nice cloud native setup surrounding your 
 ## Learning Resources
 - [Private VNet section of APIM blog post](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/)
 - [Azure Docs on private endpoints](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
+- [SAP BTP connectivity with Azure Private Link service](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/)
