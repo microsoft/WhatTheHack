@@ -10,18 +10,19 @@ A smart cloud solution architect always has the right tools in their toolbox.
 
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
-  - Make sure that you have joined the Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
-  - Install the recommended toolset:
-    - [Azure Subscription](#azure-subscription)
-    - [Visual Studio Code](#visual-studio-code)
-      - [Visual Studio Code plugins for B2C](#visual-studio-code-plugins-for-arm-templates)
-    - [Managing Cloud Resources](#managing-cloud-resources)
-      - [Azure Portal](#azure-portal)
-  - Locate and download the resources found in the "Files" tab of the Team's General channel. There are four folders each containing a different resource that you will use in various challenges:
-    - `/HarnessApp` contains an ASPNETCORE MVC application that will be used to test our various User Flows and Custom Policies. You will need this starting in Challenge 4.
-    - `/MSGraphApp` contains a DOTNETCORE Console application that will be used to query your B2C tenant. You will need this in Challenge 7.
-    - `/PageTemplates` contains various HTML/CSS/JS files that you will use to customize your Sign Up, Sign In, and Edit Profile User Flows. You will use these in Challenge 4.
-    - `/Verify-inator` contains an ASPNETCORE Web Api application that will be used to validate user attributes from your Sign Up User Flow. You will need this in Challenge 5.
+- If applicable, make sure that you have joined the Teams group for this track. The first person on your team at your table should create a new channel in this Team with your team name.
+- Install the recommended toolset:
+  - [Azure Subscription](#azure-subscription)
+  - [Visual Studio Code](#visual-studio-code)
+    - [Visual Studio Code plugins for B2C](#visual-studio-code-plugins-for-arm-templates)
+  - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1)
+  - [Managing Cloud Resources](#managing-cloud-resources)
+    - [Azure Portal](#azure-portal)
+- Locate and download the `Resources.zip` file found in the Files tab of your Teams channel. There are four folders in the zip file, each containing different resources that you will use in various challenges:
+  - `/HarnessApp` contains an ASPNETCORE MVC application that will be used to test our various User Flows and Custom Policies. You will need this starting in Challenge 4.
+  - `/MSGraphApp` contains a DOTNETCORE Console application that will be used to query your B2C tenant. You will need this in Challenge 7.
+  - `/PageTemplates` contains various HTML/CSS/JS files that you will use to customize your Sign Up, Sign In, and Edit Profile User Flows. You will use these in Challenge 4.
+  - `/Verify-inator` contains an ASPNETCORE Web Api application that will be used to validate user attributes from your Sign Up User Flow. You will need this in Challenge 5.
 
 ## Azure Subscription
 
