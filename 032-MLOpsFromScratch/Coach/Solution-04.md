@@ -4,6 +4,8 @@
 
 ## Solution
 
+### Classic GUI pipeline
+
 1.  Create a `Release` pipeline with an empty Job
 1.  Add `Build` Artifact that you created in the [previous challenge](Solution-03.md)
 
@@ -30,7 +32,14 @@
         ![deployOnAci](../images/Challenge-04/deployOnAci.png)
 
     1.  `Azure CLI` task to test the ACI web service using `AciWebserviceTest.py` file.
-1.  Verify via the Release pipeline logs that deployment & testing were successful.
+
+### YAML pipeline
+
+### Run & review results
+
+1.  Run the `Release` pipeline
+
+1.  Verify via the `Release` pipeline logs that deployment & testing were successful.
 
     ![successfulAciDeployment](../images/Challenge-04/successfulAciDeployment.png)
     ![successfulTest](../images/Challenge-04/successfulTest.png)
