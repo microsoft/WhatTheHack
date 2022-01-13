@@ -5,6 +5,9 @@
 ## Solution
 
 1.  Make sure you have setup a new project, imported the code, created service connections, and configured Azure ML Workspace for the project.
+
+### Classic GUI pipeline
+
 1.  Create a `Build` pipeline
     1.  Use the classic editor to create a pipeline without YAML
     1.  Select the repo that was imported in the previous challenge
@@ -50,15 +53,21 @@
 
 ![ciPipeline](../images/Challenge-02/ciPipeline.png)
 
-1.  Run the Build pipeline. This will either be by clicking on the `Save & queue` button or the `Queue` button (depending on if the students have already saved the pipeline).
+### YAML pipeline
+
+
+
+### Run & Review Results
+
+1.  Run the `Build` pipeline. This will either be by clicking on the `Save & queue` button or the `Queue` button (depending on if the students have already saved the pipeline).
 
     ![runBuildPipeline](../images/Challenge-02/runBuildPipeline.png)
 
-1.  Review Build Outputs - confirm that the model and Azure Container Image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
+1.  Review `Build` Outputs - confirm that the model and Azure Container Image have been registered in the [Azure ML workspace](https://ml.azure.com/) in respective registries.
 
     ![buildOutputs](../images/Challenge-02/buildOutputs.png)
 
-1.  Verify that a Build artifact was created. Note the name of the artifact as it will be used in the release pipeline.
+1.  Verify that a `Build` artifact was created. Note the name of the artifact as it will be used in the release pipeline.
 
     ![findBuildArtifact](../images/Challenge-02/findBuildArtifact.png)
     ![nameOfBuildArtifact](../images/Challenge-02/nameOfBuildArtifact.png)

@@ -21,6 +21,12 @@
           raise Exception("Number of CSV files does not match. Expected: 3. Actual: " + str(file_count))
       ```
 1.  Save this as a script in the repo so the pipeline can run it.
+
+### Classic GUI pipeline
+
 1.  Add a Python script task in the `Build` pipeline to run the unit test script created earlier.
 
     ![unitTest](../images/Challenge-03/unitTest.png)
+
+### YAML pipeline
+
