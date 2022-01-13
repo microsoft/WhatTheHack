@@ -65,7 +65,7 @@ This hack's setup files will create the following resources in your Azure Resour
   - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
   - 1 Zipkin service running to monitor communciation between the services.
-- **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not best practice**. In a production example, you should use a managed identity & RBAC.
+- **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
 To start, you'll need access to an Azure Subscription:
 
@@ -96,7 +96,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     - If prompted for a file name, leave the entry blank, and press enter.
     - If prompted for a passphrase, leave the entry blank, and press enter.
    
-    Once complete, you'll find two SSH key files in the following directory: `%USERPROFILE%\.ssh`. Right-click on the `id_rsa` file and open with Notepad. Copy the entire contents of the file which is the public key. You'll need it to configure the parameter file in an upcoming step.
+    Once complete, you'll find two SSH key files in the following directory: `%USERPROFILE%\.ssh`. Right-click on the `id_rsa` file and open with a text editor. Copy the entire contents of the file which is the public key. You'll need it to configure the parameter file in an upcoming step.
 
 1.  In the accompanying source code, modify the `Resources/Infrastructure/bicep/main.parameters.json` file so it contains the proper data for the deployment:
 
@@ -142,7 +142,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
 1.  You'll now create the required Azure resources inside the new resource group with the following Azure CLI command.
 
     ```shell
-    az deployment group create --resource-group "rg-dapr-youruniqueid123" --template-file main.bicep --parameters ./main.parameters.json --query "properties.outputs" --output yaml
+    az deployment group create --resource-group "rg-dapr-youruniqueid123" --template-file main.bicep --parameters ./main.parameters.json --query "properties.outputs" --output yamlc
     ```
 
     *Creating the resources can take some time. You're encouraged to jump to review the [TrafficControl app architecture](./Resources/README.md) while the command executes.*
@@ -209,7 +209,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
       value: sadaprmce123
     ```
 
-    Copy these values into Notepad. You'll need them to configure your Dapr services.
+    Copy these values into a text editor. You'll need them to configure your Dapr services.
 
 1.  Run the following command to fetch the AKS credentials for your cluster.
 
