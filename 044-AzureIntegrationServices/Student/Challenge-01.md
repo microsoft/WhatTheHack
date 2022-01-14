@@ -12,18 +12,36 @@ You are a cloud engineer for Runva - a global health and wellness company that p
 
 
 ## Description
-As a cloud engineer, you would like to be able to deploy this POC environment using Infrastructure-as-Code.  You have learned that you can efficiently do this in Azure using the new language called Bicep. As a baseline, you are going to deploy API Management service as gateway for your APIs, as well as an 3 Function Apps where you would host your APIs
+As a cloud engineer, you would like to be able to deploy this POC environment using Infrastructure-as-Code.  You have learned that you can efficiently do this in Azure using the new language called Bicep. As a baseline, you are going to deploy API Management service as gateway for your APIs, as well as a Function App where you would host your APIs.
+
+There are two scenarios you would like to prove:
+
+Scenario 1: Deploy a VNET-secured AIS environment - should you need to services deployed over a private network (e.g. APIs hosted on-premises)
+Scenario 2: Deploy an identity-secured AIS environment - preferred for integrating with services hosted in the cloud or publicly-accessible
 
 
 ## Success Criteria
 
-You should be able to create a set of Bicep templates that:
-1. Creates a resource group in your region of choice
-1. Deploy an API Management service in Developer tier
-1. Deploy a Function App in the Elastic Premium Plan - E1 SKU
-1. Deploy Application Insights resource
-1. Configure APIM and Function app to use Application Insights resource
-1. Configure APIM Developer Portal
+As mentioned earlier, you can choose which scenario to go for you POC environment:
+
+- If you choose Scenario 1: Deploy a VNET-secured AIS environment, you should be able to create a set of Bicep templates that:
+  1. Creates a resource group in your region of choice
+  1. Deploy a Virtual Network
+  1. Deploy an API Management service in Developer tier, single-instance, in Internal mode. 
+  1. Deploy an Application Gateway, single-instance, in Standard WAF2.
+  1. Configure both APIM and Application Gateway in their respective VNET subnets.
+  1. Deploy a Function App in the Elastic Premium Plan - E1 SKU
+  1. Deploy Application Insights resource
+  1. Configure APIM and Function app to use Application Insights resource
+  1. Configure APIM Developer Portal
+
+- If you choose Scenario 2: Deploy an identity-secured AIS environment, you should be able to create a set of Bicep templates that:
+  1. Creates a resource group in your region of choice
+  1. Deploy an API Management service in Developer tier
+  1. Deploy a Function App in the Consumption Plan - Y1 SKU
+  1. Deploy Application Insights resource
+  1. Configure APIM and Function app to use Application Insights resource
+  1. Configure APIM Developer Portal
 
 ## Learning Resources
 
@@ -54,15 +72,11 @@ You should be able to create a set of Bicep templates that:
       - appinsights.bicep
 
   You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)
-
-
 - The resources should have the following properties at a minimum:
   - name
   - location
   - sku/kind
   - resource-specific properties
-
-
 - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
 - Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you will need to use this in the succeeding challenges.  Don't forget to enable CORS afterwards.
 - After publishing, browse to the Dev portal in a separate incognito/private broswer and test Echo API GET operation.  
