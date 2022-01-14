@@ -8,7 +8,14 @@ The students should be able to create a set of Bicep files that will be used to 
 
 
 ## Description
-The students should be doing the following:
+Students have two options:
+
+- If the students choose to go with Scenario 01, they can deploy the Bicep templates of the VNET-integrated AIS which can be found at [Student/Resources/Challenge-01/Scenario-01](../Student/Resources/Challenge-01/Scenario 01).  
+
+- If the students choose to go with Scenario 02, they can deploy the Bicep templates of the publicly-exposed AIS which can be found at [Student/Resources/Challenge-01/Scenario-02](../Student/Resources/Challenge-01/Scenario 02).  
+
+
+- The students should be doing the following:
 - Create main.bicep - The main Bicep file.  In there, you will reference the modules, define parameter values, and then pass those values as input to the modules.
 
 - Then, create a folder entitled "module", then add several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) as follows:
@@ -166,11 +173,10 @@ The students should be doing the following:
       See [Microsoft.Web sites/functions](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/sites/functions?tabs=bicep) for reference
 
  
-- Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [Student/Resources/Challenge-01](../Student/Resources/Challenge-01).  
+
 
 - They can also refer to the [MS Learn Bicep tutorial](https://docs.microsoft.com/en-us/learn/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=cli) to guide them on how to author the files above.
 
-- Moreover, if they really challenged then you can give them snippets from the completed templates which can be found at [Coach/Solutions/Challenge-01/bicep](../Coach/Solutions/Challenge-01/bicep)
 
 - You should run the following Azure CLI command to deploy the Bicep templates as follows:
 
@@ -190,3 +196,6 @@ The students should be doing the following:
   ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
 
 
+<!-- - Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [Student/Resources/Challenge-01](../Student/Resources/Challenge-01).  
+
+- Moreover, if they really challenged then you can give them snippets from the completed templates which can be found at [Coach/Solutions/Challenge-01/bicep](../Coach/Solutions/Challenge-01/bicep) -->
