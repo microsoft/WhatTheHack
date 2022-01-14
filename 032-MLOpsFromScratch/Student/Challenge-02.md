@@ -6,7 +6,7 @@
 
 The Build pipeline demonstrates the automation of various stages/tasks involved in building an ML model and creating a container image on top of that model. The stages generally constitute creating a project environment, preparing the data, training the model, evaluating the model, registering/versioning the model, and scoring the model generally by containerizing the model.
 
-There are several ways to create a Build pipeline. The two most common and popular ways are:
+There are several ways to create a `Build` pipeline. The two most common and popular ways are:
 - Using a YAML file that represents the entire pipeline.
 - Using the classic GUI pipeline and adding tasks sequentially.
 
@@ -17,11 +17,11 @@ We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The
 ## Description
 
 - Make sure you have setup a new project, imported the code, created service connections, and configured Azure ML Workspace for the project.
-- Create a Build pipeline.
+- Create a `Build` pipeline.
   - Select the repo that was imported in the previous challenge.
   - Set Agent Pool to `Azure Pipelines`.
   - Set Agent Specification to `ubuntu-18.04`.
-- Add Build pipeline tasks
+- Add `Build` pipeline tasks
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required for the project.
   - Add a task to get Azure ML Workspace connection using `Workspace.py` in `service/code/` folder. This will establish connection to Azure ML workspace by using your workspace details in `configuration/config.json` file.         
   - Add a task to acquire time series transactions data using `AcquireData.py` in `service/code/` folder. This will download and extract the data required to train a forecasting model in the next steps.

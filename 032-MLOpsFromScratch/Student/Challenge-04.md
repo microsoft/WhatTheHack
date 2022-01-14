@@ -10,6 +10,8 @@ There are several ways to create a `Release` pipeline. The two most common and p
 -   Using a YAML file that represents the entire pipeline.
 -   Using a classic GUI pipeline & adding tasks sequentially.
 
+Use whichever approach your team is most comfortable with.
+
 We can setup Continuous Deployment (CID) trigger for every `Release` pipeline. The pipeline shows how to operationalize the scoring image and promote it safely across different environments.
 
 ## Description

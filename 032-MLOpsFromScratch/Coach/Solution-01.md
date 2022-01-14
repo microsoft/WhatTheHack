@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-The Coach should zip up the following GitHub [repo](https://github.com/microsoft-us-ocp-ai/DemandForecasting) as a `Data_and_Code.zip` file and give it to the students via the Teams channel. It contains all the source code files.
+The Coach should zip up the following GitHub [https://github.com/microsoft-us-ocp-ai/DemandForecasting](https://github.com/microsoft-us-ocp-ai/DemandForecasting) as a `Data_and_Code.zip` file and give it to the students via the Teams channel. It contains all the source code files.
 
 ## Solution
 

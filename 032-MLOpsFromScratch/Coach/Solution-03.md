@@ -29,4 +29,9 @@
     ![unitTest](../images/Challenge-03/unitTest.png)
 
 ### YAML pipeline
-
+```yaml
+- task: PythonScript@0
+  displayName: 'Unit Test'
+  inputs:
+    scriptPath: ./service/code/UnitTest.py
+```
