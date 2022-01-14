@@ -37,6 +37,19 @@ resource privateDnsZoneARecordResource 'Microsoft.Network/privateDnsZones/A@2020
   }
 }
 
+resource privateDnsZoneARecord2Resource 'Microsoft.Network/privateDnsZones/A@2020-06-01' = if (true) {
+  parent: privateDnsZoneResource
+  name: '${apim_name}.developer'
+  properties: {
+    ttl: 36000
+    aRecords: [
+      {
+        ipv4Address: apimIpv4Address //apim_name.properties.privateIPAddresses[0]
+      }
+    ]
+  }
+}
+
 resource privateDnsLinkNameResource 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
   parent: privateDnsZoneResource
   name: vnet_dns_link_name

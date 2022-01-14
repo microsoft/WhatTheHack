@@ -11,6 +11,9 @@ param apim_name string
 @description('The reference to the Public IP resource')
 param publicIpId string
 
+@description('The reference to the Public IP resource')
+param pip_name string
+
 @description('The reference to the Log Analytics workspace resource')
 param log_analytics_workspace_id string
 
@@ -69,6 +72,16 @@ resource appGatewayResource 'Microsoft.Network/applicationGateways@2021-05-01' =
           ]
         }
       }
+      {
+        name: 'devPortalBackend'
+        properties: {
+          backendAddresses: [
+            {
+              fqdn: '${apim_name}.developer.azure-api.net'
+            }
+          ]
+        }
+      }
     ]
     backendHttpSettingsCollection: [
       {
@@ -85,6 +98,20 @@ resource appGatewayResource 'Microsoft.Network/applicationGateways@2021-05-01' =
           }
         }
       }
+      {
+        name: 'apim-devPortal-https-setting'
+        properties: {
+          port: 443
+          protocol: 'Https'
+          cookieBasedAffinity: 'Disabled'
+          hostName: '${apim_name}.developer.azure-api.net'
+          pickHostNameFromBackendAddress: false
+          requestTimeout: 20
+          probe: {
+            id: resourceId('Microsoft.Network/applicationGateways/probes', app_gateway_name, 'apim-devPortal-probe')
+          }
+        }
+      }
     ]
     httpListeners: [
       {
@@ -98,6 +125,20 @@ resource appGatewayResource 'Microsoft.Network/applicationGateways@2021-05-01' =
           }
           protocol: 'Http'
           requireServerNameIndication: false
+        }
+      }
+      {
+        name: 'apim-devPortal-listener'
+        properties: {
+          frontendIPConfiguration: {
+            id: resourceId('Microsoft.Network/applicationGateways/frontEndIPConfigurations', app_gateway_name, 'appGwPublicFrontendIp')
+          }
+          frontendPort: {
+            id: resourceId('Microsoft.Network/applicationGateways/frontEndPorts', app_gateway_name, 'port_80')
+          }
+          protocol: 'Http'
+          requireServerNameIndication: false
+          hostName: 'dev.${pip_name}.australiaeast.cloudapp.azure.com'
         }
       }
     ]
@@ -117,6 +158,21 @@ resource appGatewayResource 'Microsoft.Network/applicationGateways@2021-05-01' =
           }
         }
       }
+      {
+        name: 'apim-devPortal-routing-rule'
+        properties: {
+          ruleType: 'Basic'
+          httpListener: {
+            id: resourceId('Microsoft.Network/applicationGateways/httpListeners', app_gateway_name, 'apim-devPortal-listener')
+          }
+          backendAddressPool: {
+            id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', app_gateway_name, 'devPortalBackend')
+          }
+          backendHttpSettings: {
+            id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', app_gateway_name, 'apim-devPortal-https-setting')
+          }
+        }
+      }
     ]
     probes: [
       {
@@ -126,6 +182,20 @@ resource appGatewayResource 'Microsoft.Network/applicationGateways@2021-05-01' =
           host: '${apim_name}.azure-api.net'
           port: 443
           path: '/status-0123456789abcdef'
+          interval: 30
+          timeout: 120
+          unhealthyThreshold: 8
+          pickHostNameFromBackendHttpSettings: false
+          minServers: 0
+        }
+      }
+      {
+        name: 'apim-devPortal-probe'
+        properties: {
+          protocol: 'Https'
+          host: '${apim_name}.developer.azure-api.net'
+          port: 443
+          path: '/signin'
           interval: 30
           timeout: 120
           unhealthyThreshold: 8

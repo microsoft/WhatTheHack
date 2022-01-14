@@ -10,6 +10,10 @@ param app_gateway_subnet_prefix string = '10.0.0.0/24'
 @description('The address space (in CIDR notation) to use for the subnet to be used by Azure API Management. Must be contained in the VNET address space.')
 param apim_subnet_prefix string = '10.0.1.0/24'
 
+@description('The address space (in CIDR notation) to use for the subnet to be used by Virtual Machines. Must be contained in the VNET address space.')
+param vm_subnet_prefix string = '10.0.2.0/24'
+
+
 @description('Location in which resources will be created')
 param location string 
 
@@ -64,6 +68,15 @@ resource vnetResource 'Microsoft.Network/virtualNetworks@2021-05-01' = {
           privateLinkServiceNetworkPolicies: 'Enabled'
         }
       }
+      {
+        type: 'subnets'
+        name: 'vmSubnet'
+        properties: {
+          addressPrefix: vm_subnet_prefix           
+          privateEndpointNetworkPolicies: 'Enabled'
+          privateLinkServiceNetworkPolicies: 'Enabled'
+        }
+      }
     ]
   }
 }
@@ -72,4 +85,5 @@ resource vnetResource 'Microsoft.Network/virtualNetworks@2021-05-01' = {
 
 output apimSubnetResourceId string = resourceId('Microsoft.Network/virtualNetworks/subnets', vnet_name, 'apimSubnet')
 output appGatewaySubnetResourceId string = resourceId('Microsoft.Network/virtualNetworks/subnets', vnet_name, 'appGatewaySubnet')
+output vmSubnetResourceId string = resourceId('Microsoft.Network/virtualNetworks/subnets', vnet_name, 'vmSubnet')
 output vnetId string = vnetResource.id

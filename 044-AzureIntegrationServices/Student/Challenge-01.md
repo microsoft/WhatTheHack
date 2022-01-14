@@ -61,6 +61,8 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
 
 - [Architect API integration in Azure](https://docs.microsoft.com/en-us/learn/paths/architect-api-integration/)
 
+- [Connect to a virtual network in internal mode using Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2)
+- [Deploying Azure API Management in an Internal mode (inside VNet)](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/deploying-azure-api-management-in-an-internal-mode-inside-vnet/ba-p/3033493)
 
 ## Tips 
 

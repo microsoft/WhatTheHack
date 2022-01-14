@@ -125,6 +125,7 @@ module agwModule 'modules/agw.bicep' = {
   name: app_gateway_name_var
   params: {
     location: location
+    pip_name: public_ip_name_var
     apim_name: apimModule.outputs.apimName
     app_gateway_capacity: app_gateway_capacity
     app_gateway_name: app_gateway_name_var
