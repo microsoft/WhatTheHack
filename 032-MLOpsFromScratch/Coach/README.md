@@ -7,7 +7,7 @@ Also remember that this hack includes a optional [lecture presentation](MLOpsLec
 
 ## Solutions 
 
--  [Challenge 0: Pre-requisities](Solution-00.md)
+-  [Challenge 0: Prerequisities](Solution-00.md)
 -  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Solution-01.md)
 -  [Challenge 2: Create a Build pipeline in Azure DevOps](Solution-02.md)
 -  [Challenge 3: Create a Unit Test Locally and in Azure DevOps](Solution-03.md)
