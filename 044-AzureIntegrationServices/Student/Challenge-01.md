@@ -71,7 +71,7 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
       - apim.bicep
       - appinsights.bicep
 
-  You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)
+  You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)  
 - The resources should have the following properties at a minimum:
   - name
   - location
