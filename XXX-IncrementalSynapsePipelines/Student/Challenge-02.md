@@ -47,4 +47,4 @@ For this section we need to add Change Data Catpure functionality to our source 
 
 - [SQLMI to Dedicated Pool Proof of Concept](./Resources/SQLMItoDedicatedPoolProofofConcept.docx)
 
-*There are also some SQL scripts to help you get started with inserting, updating and deleting records in the Azure SQL database to evaluate the Change Data Capture functionality.  They are located in the [Resources Folder](./Resources/).*
+*There are also some SQL scripts to help you get started with inserting, updating and deleting records in the Azure SQL database to evaluate the Change Data Capture functionality and for the stored procedures needed for the SQL Dedicated Pool.  They are located in the [Resources Folder](./Resources/).*
