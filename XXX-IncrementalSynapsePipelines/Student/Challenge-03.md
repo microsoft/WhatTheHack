@@ -18,7 +18,9 @@ How would we look to automate them?  What factors do we need to account for?
 
 ## Success Criteria
 
-Be able to discuss the options of automating these pipelines and what factors do we need to account for not only with regards to the (1) Change Data Capture on the Azure SQL side, but (2) how would we factor in timing and account for changes in the Dedicated SQL Pool production tables. 
+Be able to discuss the options of automating these pipelines and what factors do we need to account for not only with regards to:
+1. Change Data Capture on the Azure SQL side. 
+2. How would we factor in timing and account for changes in the Dedicated SQL Pool production tables. 
 
 What is the impact to this for downstream services such as Power BI?
 
