@@ -2,8 +2,6 @@
 
 [< Previous Challenge](Challenge-02.md) - **[Home](../README.md)** 
 
-## UNDER CONSTRUCTION
-
 ## Pre-requisites
 
 *Complete the [Previous Challenge](Challenge-02.md).*
