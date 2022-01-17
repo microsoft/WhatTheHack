@@ -7,7 +7,7 @@ Here are some sample scripts to Enable Change Data Capture on the AdventureWorks
 
 1. Enable Database for CDC template
 
-```javascript
+```sql
 USE AdventureWorks  
 GO  
 EXEC sys.sp_cdc_enable_db  
