@@ -21,7 +21,7 @@ For this section we need to add Change Data Catpure functionality to our source 
 
 1. Implement Change Data Capture on the Azure SQL Database and be able to articulate on the cdc tables and functions and their purpose.
 
-2. Have created an incremental synapse pipeline that will update the SQL Dedicated Pool with row inserts, updates and deletions.  You only need to do 2-3 tables, but choose related tables in the AdventureWorks DB so modifications can easily be viewed in the target Dedicated Pool. 
+2. Create an incremental synapse pipeline that utilizes a watermark table to update the SQL Dedicated Pool with row inserts, updates and deletions.  You only need to do 2-3 tables, but choose related tables in the AdventureWorks DB so modifications can easily be viewed in the target Dedicated Pool. 
 
 3. Implement Staging and Production Tables in the Dedicated Pool and an automated methodology to copy data from staging to production.
 
@@ -47,4 +47,4 @@ For this section we need to add Change Data Catpure functionality to our source 
 
 - [SQLMI to Dedicated Pool Proof of Concept](./Resources/SQLMItoDedicatedPoolProofofConcept.docx)
 
-*There are also some SQL scripts to help you get started with inserting, updating and deleting records in the Azure SQL database.  They are located in the [Resources Folder](./Resources/).*
+*There are also some SQL scripts to help you get started with inserting, updating and deleting records in the Azure SQL database to evaluate the Change Data Capture functionality.  They are located in the [Resources Folder](./Resources/).*
