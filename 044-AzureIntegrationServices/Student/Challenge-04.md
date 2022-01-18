@@ -18,7 +18,13 @@ You should be able configure OAuth2 authorization when calling Hello API.
 
 ## Success Criteria
 
-You should be able to:
+For Scenario 01: 
+1. Create another Function App which will host publicly-accessible APIs. (e.g. you can name it as Hello-External API)
+1. Import this external API into APIM.
+1. Add a policy in external API that would only accept request coming from the Application Gateway only. 
+1. Enable a feature in the Function Apps that it would only accept traffic coming from APIM.
+
+For Scenario 02 - you should be able to:
 1. Configure OAuth 2.0 authorization in APIM 
     1. Register a client application (e.g. APIM Developer Portal or [Postman](https://www.postman.com/)) in Azure AD.  This will be used to make calls to Hello API via APIM.
     1. Configure JWT validation policy to pre-authorize requests to Hello API. 
