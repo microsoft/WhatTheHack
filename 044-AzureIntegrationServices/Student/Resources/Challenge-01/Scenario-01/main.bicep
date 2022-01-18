@@ -61,7 +61,8 @@ var apim_dns_name_var = 'azure-api.net'
 var apim_nsg_name_var = 'nsg-${apim_name_var}'
 var agw_nsg_name_var = 'nsg-${app_gateway_name_var}'
 var funcapp_name_var = 'func-${base_name}'
-
+var vm_name_var = 'vm-${base_name}'
+var vm_nsg_name_var = 'nsg-${vm_name_var}'
 
 module logAnalyticsModule 'modules/laws.bicep' = {
   name: laws_name_var
@@ -93,6 +94,7 @@ module vnetModule 'modules/vnet.bicep' = {
     app_gateway_subnet_prefix: app_gateway_subnet_prefix
     agw_nsg_id: nsgModule.outputs.agwNSGId
     apim_nsg_id: nsgModule.outputs.apimNSGId
+    vm_nsg_id: nsgModule.outputs.vmNSGId
   }
 }
 
@@ -101,6 +103,7 @@ module nsgModule 'modules/nsg.bicep' = {
   params: {
     agw_nsg_name: agw_nsg_name_var
     apim_nsg_name: apim_nsg_name_var
+    vm_nsg_name: vm_nsg_name_var
     location: location
   }
 }
@@ -147,7 +150,7 @@ module privateDnsZoneResource 'modules/privateDnsZones.bicep' = {
 }
 
 module functionModule 'modules/functionapp.bicep' = {
-  name: 'functionDeploy'
+  name: funcapp_name_var
   params: {
     location:location
     functionRuntime:functionRuntime
@@ -156,5 +159,14 @@ module functionModule 'modules/functionapp.bicep' = {
     functionAppName:funcapp_name_var
     appServicePlanName:appServicePlanName
     appInsightsInstrumentationKey: logAnalyticsModule.outputs.appInsightsInstrumentationKey    
+  }
+}
+
+module vmModule 'modules/vm.bicep' = {
+  name: vm_name_var
+  params: {
+    adminPassword: 'P@ssw-rd!1234'
+    adminUsername: 'svradmin'
+    subnetId: vnetModule.outputs.vmSubnetResourceId
   }
 }
