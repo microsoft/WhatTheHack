@@ -24,7 +24,7 @@ Scenario 2: Deploy an identity-secured AIS environment - preferred for integrati
 
 As mentioned earlier, you can choose which scenario to go for you POC environment:
 
-- If you choose Scenario 1: Deploy a VNET-secured AIS environment, you should be able to create a set of Bicep templates that:
+- Scenario 1: Deploy a VNET-secured AIS environment, you should be able to create a set of Bicep templates that:
   1. Creates a resource group in your region of choice
   1. Deploy a Virtual Network
   1. Deploy an API Management service in Developer tier, single-instance, in Internal mode. 
@@ -35,7 +35,7 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
   1. Configure APIM and Function app to use Application Insights resource
   1. Configure APIM Developer Portal
 
-- If you choose Scenario 2: Deploy an identity-secured AIS environment, you should be able to create a set of Bicep templates that:
+- Scenario 2: Deploy an identity-secured AIS environment, you should be able to create a set of Bicep templates that:
   1. Creates a resource group in your region of choice
   1. Deploy an API Management service in Developer tier
   1. Deploy a Function App in the Consumption Plan - Y1 SKU
@@ -66,22 +66,26 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
 
 ## Tips 
 
-- Create several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
-  - main.bicep
-    - modules
-      - functions.bicep
-      - apim.bicep
-      - appinsights.bicep
+- Talk among yourselves which Scenario you would go for.  
+  - If going with Scenario 01 - deploy the Bicep templates of the VNET-integrated AIS which can be found at [Student/Resources/Challenge-01/Scenario-01](../Student/Resources/Challenge-01/Scenario-01).  This is the shortcut method - the templates are ready to deployed and all they need to do is plug-in the parameter values.  
+  - If going with Scenario 02 - you can deploy the Bicep templates of the publicly-exposed AIS which can be found at [Student/Resources/Challenge-01/Scenario-02](../Student/Resources/Challenge-01/Scenario-02).  Some parameter or variable values in the templates are blank, so the students need to fill these out.
+    - Create several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
+      - main.bicep
+        - modules
+          - functions.bicep
+          - apim.bicep
+          - appinsights.bicep
 
-  You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)  
-- The resources should have the following properties at a minimum:
-  - name
-  - location
-  - sku/kind
-  - resource-specific properties
-- Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
-- Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you will need to use this in the succeeding challenges.  Don't forget to enable CORS afterwards.
-- After publishing, browse to the Dev portal in a separate incognito/private broswer and test Echo API GET operation.  
+      You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)  
+    - The resources should have the following properties at a minimum:
+      - name
+      - location
+      - sku/kind
+      - resource-specific properties
+    - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
+
+  - Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
+  - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Advanced Challenges
 [TODO]
