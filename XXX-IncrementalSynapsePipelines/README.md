@@ -19,7 +19,7 @@ Four words…  <B>Trigger an Incremental Copy</B>.
 
 ## Prerequisites
 - One Azure Subscription per group.  One person must be the owner and the others the contributors.
-- A tool to interact with Azure SQL and a Synapse Dedicated Pool.  Plenty of options here.
+- Tool(s) to interact with Azure SQL and a Synapse Dedicated Pool.  Plenty of options here.
 - Power BI Desktop
 
 ## Repository Contents (Optional)
