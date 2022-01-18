@@ -65,7 +65,7 @@
     1.  Select `Azure Repos Git`.
     1.  Select your repo.
     1.  Select `Existing Azure Pipelines YAML file`.
-    1.  Specify the `path` to the `release.yml` file.
+    1.  Specify the `path` to the `build.yml` file.
 1.  Rename the pipeline something like `MLOps - Build`. This same value is used in the `Release` pipeline that is defined in [Challenge-04](./Solution-04.md).
 
 ### Run & Review Results
