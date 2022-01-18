@@ -30,7 +30,7 @@ Students have two options:
     - First, they need to [set the DNS entries for the APIM service endpoints in the hosts file](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2#dns-configuration#:~:text=To%20access%20these%20API%20Management%20,%20(Windows)%20or%20%2Fetc%2Fhosts%20(Linux%2C%20macOS)).  Map the endpoints to the assigned private virtual IP address (usually 10.1.0.5), as follows:
     ![Set DNS Entries APIM 1](./images/Solution01_Set_DNS_Entries_APIM_1.jpg)
     - Then, open a browser and go the Azure portal (still in the jumpbox VM).  In the menu list, go to Developer portal - Portal overview and click the Developer Portal button which will open a browser to create the Developer portal instance in Edit mode. 
-    ![Set DNS Entries APIM 2](./images/Solution01_Set_DNS_Entries_APIM_1.jpg)
+    ![Set DNS Entries APIM 2](./images/Solution01_Set_DNS_Entries_APIM_2.jpg)
     - Go back to browser tab where the APIM Portal overview is opened, then click publish.
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_1.jpg)
     - Once done, enable CORS.
@@ -217,15 +217,16 @@ Students have two options:
     az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
     ```
   - Ensure that the students have [published the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because they will need to use this in Challenge 04.
+
+    - In the Azure portal, find the menu list, then go to Developer portal - Portal overview and click the Developer Portal button which will open a browser to create the Developer portal instance in Edit mode. 
+    ![Set DNS Entries APIM 2](./images/Solution01_Set_DNS_Entries_APIM_2.jpg)
+    - Go back to browser tab where the APIM Portal overview is opened, then click publish.
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_1.jpg)
-
-    Once done, enable CORS.
+    - Once done, enable CORS.
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_2.jpg)
-
-    Open a new browser window (in incognito/private browsing mode) and then [view the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#visit-the-published-portal) 
+    - Open a new browser window (in incognito/private browsing mode) and then [view the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#visit-the-published-portal) 
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_3.jpg)
-
-    Click API and test call Echo API GET operation (don't forget toa add the subscription key!)
+    - Click API and test call Echo API GET operation (don't forget toa add the subscription key!)
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
 
 
