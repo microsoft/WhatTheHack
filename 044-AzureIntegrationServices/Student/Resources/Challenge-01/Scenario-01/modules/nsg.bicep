@@ -4,6 +4,9 @@ param apim_nsg_name string
 @description('The name of the NSG for Application Gateway')
 param agw_nsg_name string
 
+@description('The name of the NSG for VM')
+param vm_nsg_name string 
+
 @description('The location where the resource would be created')
 param location string
 
@@ -242,7 +245,7 @@ resource apimNSGResource 'Microsoft.Network/networkSecurityGroups@2020-06-01' = 
   }
 }
 
-resource agwSGResource 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
+resource agwNSGResource 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
   name: agw_nsg_name
   location: location
   properties: {
@@ -302,5 +305,28 @@ resource agwSGResource 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
   }
 }
 
+resource vmNSGResource 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
+  name: vm_nsg_name
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'default-allow-3389'
+        properties: {
+          priority: 1000
+          access: 'Allow'
+          direction: 'Inbound'
+          destinationPortRange: '3389'
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+        }
+      }
+    ]
+  }
+}
+
 output apimNSGId string = apimNSGResource.id
-output agwNSGId string = apimNSGResource.id
+output agwNSGId string = agwNSGResource.id
+output vmNSGId string = vmNSGResource.id

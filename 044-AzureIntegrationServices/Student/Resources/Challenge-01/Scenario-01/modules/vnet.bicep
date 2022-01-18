@@ -24,6 +24,9 @@ param apim_nsg_id string
 @description('The reference to the NSG for Application Gateway')
 param agw_nsg_id string
 
+@description('The reference to the NSG for Application Gateway')
+param vm_nsg_id string
+
 resource vnetResource 'Microsoft.Network/virtualNetworks@2021-05-01' = {
   name: vnet_name
   location: location
@@ -70,11 +73,14 @@ resource vnetResource 'Microsoft.Network/virtualNetworks@2021-05-01' = {
       }
       {
         type: 'subnets'
-        name: 'vmSubnet'
+        name: 'vmSubnet'        
         properties: {
           addressPrefix: vm_subnet_prefix           
           privateEndpointNetworkPolicies: 'Enabled'
           privateLinkServiceNetworkPolicies: 'Enabled'
+          networkSecurityGroup: {
+            id: vm_nsg_id
+          }
         }
       }
     ]
