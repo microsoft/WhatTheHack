@@ -26,3 +26,7 @@ Now that our environment is setup, we need to populate the Dedicated Pool with a
 
 - [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas)
 
+
+## Tips
+
+*There are also some SQL scripts to use as a reference for CTAS and select statements with regards to the SQL Dedicated Pool.  They are located in the [Resources Folder](https://github.com/jcbendernh/WhatTheHack/tree/IncrementalSynapsePipelines/XXX-IncrementalSynapsePipelines/Student/Resources).*
