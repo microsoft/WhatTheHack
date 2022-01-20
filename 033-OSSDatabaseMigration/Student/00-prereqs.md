@@ -77,24 +77,46 @@ chmod +x ./create-cluster.sh
 
 ### Deploy the Sample Applications
 
-Deploy the Pizzeria applications - it will create two web applications - one using PostgreSQL and another using MySQL database.
+Deploy the Pizzeria applications. Each database will have its own web application. You can choose to deploy MySQL, Postgres and/or Oracle databases, depending on which ones you are interested in. 
 
 ```bash
 cd ~/Resources/HelmCharts/ContosoPizza
 chmod +x ./*.sh
-./deploy-pizza.sh
-
 ```
 
-**NOTE:** Deploying the Pizzeria application will take around 5 minutes
+MySQL:
+```bash
+./deploy-mysql-pizza.sh
+```
+
+PostgreSQL:
+```bash
+./deploy-postgres-pizza.sh
+```
+
+Oracle:
+```bash
+./deploy-oracle-pizza.sh
+```
+
+**NOTE:** Deploying each Pizzeria application will take several minutes
 
 ### View the Sample Application
 
-Once the applications are deployed, you will see links to two web sites with different IP addresses running on ports 8081 and 8082, respectively. In Azure Cloud Shell, these are clickable links. Otherwise, you can cut and paste each URL in your web browser to ensure that it is running.
+Once the applications are deployed, you will see links to the web site with different IP addresses running on ports 8081, 8082, and/or 8083, respectively. In Azure Cloud Shell, these are clickable links. Otherwise, you can cut and paste each URL in your web browser to ensure that it is running.
    
+MySQL:
 ```bash
-      Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria      
+      Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria            
+```
+
+PostgreSQL:
+```bash      
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
+```
+Oracle:
+```bash
+      Pizzeria app on Oracle is ready at http://some_ip_address:8083/pizzeria            
 ```
 
 ### Secure Access to "On-Prem" Databases
@@ -126,6 +148,7 @@ This script will block public access to the "on-premises" MySQL or PostgreSQL da
 
  kubectl -n mysql get svc
  kubectl -n postgresql get svc
+ kubectl -n oracle get svc
 
 ```
 
