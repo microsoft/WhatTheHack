@@ -2,11 +2,11 @@
 
 ## Introduction 
 
-Following on from 042-SAPOnAzure, many SAP S/4 HANA or ECC customers wish to use Azure to build applications that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. 
+Following on from 042-SAPOnAzure, many SAP S/4 HANA or ECC customers wish to use Azure to build build applications and integrations that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. 
 
 ## Learning Objectives
 
-The SAP on Azure Application Modernization WTH challenges will help you build on your prior knowledge of SAP and build applications that can connect SAP to Azure Services and dotnet applications using industry standard protocols such as OData, OpenApi, OAuth2, OpenID Connect. 
+The SAP on Azure Application Modernization WTH challenges will help you build on your prior knowledge of SAP and build applications and integrations that can connect SAP to Azure Services and dotnet applications using industry standard protocols such as OData, OpenApi, OAuth2, OpenID Connect. 
 
 You will learn how to front SAP systems with Azure Gateways such as Azure API Management and how to authenticate, authorize and cache data from these services for use in modern distributed web architectures. Once you have completed these challenges you will be ready to move away from legacy ABAP-based code integrations and towards modern, open protocols.
 
