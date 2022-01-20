@@ -38,6 +38,10 @@ You will then move on to building interactive applications and intelligent agent
 
 - Challenge 7: [Event Driven Application reacting to SAP Business Events](Student/07-EventDriven.md)
 
+### Flow data between SAP and third party systems over Azure Integration Services
+
+- Challenge 8: [Azure Integration, Logic Apps and EAI](Student/08-IntegrationWithAIS.md)
+
 ## Repository Contents
 - `../Student`
   - Student Challenge Guides
