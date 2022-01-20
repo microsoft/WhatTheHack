@@ -9,10 +9,10 @@ Your existing app service front end poses a nice interface into the SAP world. O
 - Familiarize yourself with this [repo](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation).
 - Setup your Azure Bot development environment (Note, you can use the Azure Bot Framework SDK, Azure Bot Composer, or even Power Virtual Agents if you prefer and it's available to you.)
 - You should think carefully about how your bot will connect to the SAP environment, since in the last challenge we made it private you have a couple of options.
-> Consider moving your APIM instance from early challenges to "External" mode (this will present an External IP, but leave the APIM instance VNet integrated). 
-> You could also front the Azure APIM instance with Azure Application Gateway (or even an NVA) and keep APIM "internal".
-> Our recommendation for this challenge would be to deploy an SDK or Bot Composer bot to a VNet integrated App Service instance, that will allow you to call your private APIM instance. 
-> For a Power Virtual Agents bot, you will have to either expose your APIM instance to the outside world, or deploy a Power Automation Flow that can connect to a Connector with a Data Gateway installed on your environment. We believe this is outside the scope of this article, but it is a completely valid approach.
+> - Consider moving your APIM instance from early challenges to "External" mode (this will present an External IP, but leave the APIM instance VNet integrated). 
+> - You could also front the Azure APIM instance with Azure Application Gateway (or even an NVA) and keep APIM "internal".
+> - Our recommendation for this challenge would be to deploy an SDK or Bot Composer bot to a VNet integrated App Service instance, that will allow you to call your private APIM instance. 
+> - For a Power Virtual Agents bot, you will have to either expose your APIM instance to the outside world, or deploy a Power Automation Flow that can connect to a Connector with a Data Gateway installed on your environment. We believe this is outside the scope of this article, but it is a completely valid approach.
 
 ## Success Criteria
 - Functional message flow using the Bot simulator (actual deployment to Azure and Teams client cherry on the cake).
