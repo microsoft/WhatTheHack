@@ -22,6 +22,6 @@ Welcome to the coach's guide for the SAP on Azure App Modernization What The Hac
 
 - Challenge 7: [Event Driven Notifications from SAP Business Events](./07-EventDriven.md)
 
-- Challenge 8: [Azure Integration, Logic Apps and EAI](./08-IntegrationWithAIS.md)
+- Challenge 8: [Azure Integration, Logic Apps and EAI](./08-Integration.md)
 
 Repository Contents
