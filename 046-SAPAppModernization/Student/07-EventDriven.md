@@ -1,6 +1,6 @@
 # Challenge 7: Event Driven Application Reacting to SAP Business Events
 
-[< Previous Challenge](./06-Chatbot.md) - **[Home](../README.md)** 
+[< Previous Challenge](./06-Chatbot.md) - **[Home](../README.md)** - [Next Challenge >](./08-Integration.md)
 
 ## Introduction
 Until this point we have always been pulling data from the SAP backend or writing back to it from our application. But nowadays immediate feedback on important changes on the backend is desired.
