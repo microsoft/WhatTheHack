@@ -134,14 +134,14 @@ This script will block public access to the "on-premises" MySQL or PostgreSQL da
 ## Success Criteria
 
 * You have a Unix/Linux Shell for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
-* You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
-* [Optional] You have database management GUI tools for PostgreSQL and MySQL installed on your computer and are able to connect to the PostgreSQL and MySQL databases.
+* You have validated that the Pizzeria application(s) (PostgreSQL, MySQL and/or Oracle) are working
+* [Optional] You have database management GUI tools for PostgreSQL, MySQL and/or Oracle are installed on your computer and are able to connect to the PostgreSQL, MySQL and/or Oracle databases.
 * Once connected to the database, explore the "wth" database used for the application by running SELECT statements on some tables to ensure data is present 
 
 
 ## Hints
 
-* The on-prem MySQL and PostgreSQL databases have a public IP address that you can connect to. 
+* The on-prem MySQL, PostgreSQL and Oracle databases have a public IP address that you can connect to. 
 * In order to get those public IP addresses, run these commands and look for the "external-IP"s.
 
 ```bash
