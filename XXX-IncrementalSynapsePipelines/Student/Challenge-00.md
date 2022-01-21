@@ -9,7 +9,7 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 ## Success Criteria
 
-1. An Azure SQL database is created and configured with the AdventureWorks database.
+1. An Azure SQL database is created and configured with either the AdventureWorks or World-Wide-Importers database.
 
 2. A Synapse Environment including a SQL Dedicated Pool is created and configured.
 
@@ -33,6 +33,8 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 
 - [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
+
+- [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers)
 
 
 ## Advanced Challenges (Optional)
