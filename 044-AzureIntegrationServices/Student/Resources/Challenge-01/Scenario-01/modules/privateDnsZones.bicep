@@ -31,7 +31,7 @@ resource privateDnsZoneARecordResource 'Microsoft.Network/privateDnsZones/A@2020
     ttl: 36000
     aRecords: [
       {
-        ipv4Address: apimIpv4Address //apim_name.properties.privateIPAddresses[0]
+        ipv4Address: apimIpv4Address 
       }
     ]
   }
@@ -44,7 +44,7 @@ resource privateDnsZoneARecord2Resource 'Microsoft.Network/privateDnsZones/A@202
     ttl: 36000
     aRecords: [
       {
-        ipv4Address: apimIpv4Address //apim_name.properties.privateIPAddresses[0]
+        ipv4Address: apimIpv4Address 
       }
     ]
   }

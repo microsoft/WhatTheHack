@@ -9,7 +9,7 @@ param location string
 
 @description('The resource group where the Log Analytics resource would be deployed to')
 param log_analytics_resource_group string 
-// var log_analytics_resource_group = resourceGroup().name
+
 
 resource log_analytics_workspace_name_resource 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
   name: log_analytics_workspace_name
@@ -34,6 +34,6 @@ resource appInsightsResource 'Microsoft.Insights/components@2020-02-02' = {
 
 
 
-output logAnalyticsWorkspaceId string = log_analytics_workspace_name_resource.id //resourceId(log_analytics_resource_group, 'Microsoft.OperationalInsights/workspaces', log_analytics_workspace_name)
+output logAnalyticsWorkspaceId string = log_analytics_workspace_name_resource.id 
 output appInsightsResourceId string = appInsightsResource.id
 output appInsightsInstrumentationKey string = appInsightsResource.properties.InstrumentationKey
