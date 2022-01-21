@@ -18,11 +18,13 @@ You should be able to create a REST API with GET and POST operations and be able
 
 ## Success Criteria
 
-You should be able to:
+For both scenarios, you should be able to: 
 1. Add a Function with HTTP Trigger that takes a name parameter and returns a simple message via a GET call. (e.g. "Hello [name]!")
 1. Add a Function with HTTP Trigger  that sends name as a JSON payload and returns a simple message via a POST call. (e.g. "Hello [name]!")
 1. Import the Functions in API Management and name it Hello API.
-1. Do GET and POST calls from the APIM endpoint.
+1. Test API GET and POST calls
+    - For Scenario 1 - send call to the public AGW endpoint
+    - For Scenario 2 - send calls to the public APIM endpoint
 1. Enable Application Insights for Hello API, keep the default values (e.g. sampling to the default value of 100%)
 1. Add Hello API to Unlimited Product.
 
