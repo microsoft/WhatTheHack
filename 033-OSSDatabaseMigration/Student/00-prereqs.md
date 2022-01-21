@@ -120,7 +120,7 @@ Oracle:
 
 ### Secure Access to "On-Prem" Databases
 
-   - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh` 
+   - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_db_from_client.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/modify_nsg_for_db_from_client.sh` 
     
 This script will block public access to the "on-premises" MySQL, PostgreSQL, and Oracle databases used by the Pizzeria app and allow access only from your computer or Azure Cloud Shell. The script is written to obtain your public IP address automatically depending on where you run it (either locally on your own computer or within Azure Cloud Shell).
 
