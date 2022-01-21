@@ -3,15 +3,6 @@
 [< Previous Challenge](Solution-00.md) - **[Home](README.md)** - [Next Challenge>](./Solution-02.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
+For this challenge it is up to the student of how they want to initially copy the data over.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
-
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+We do not want them to overengineer this component.  The key is to get the data over and if the distribution of the table is not correct in the Dedicated Pool, they can use CTAS to copy tables / create the correct distribution.  
