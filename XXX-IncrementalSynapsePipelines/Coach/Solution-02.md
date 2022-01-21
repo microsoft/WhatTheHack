@@ -4,8 +4,6 @@
 
 ## Notes & Guidance
 
-# Enabling Change Data Capture on the SQL Database
-
 There are sample SQL scripts to in the Student/Resources folder to help with enabling and querying the Change Data Capture functionality within the Azure SQL database.
 
 There are also sample SQL scripts to use to create the Insert, Update and Delete SPs in the Dedicated Pool.  
