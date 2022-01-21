@@ -49,9 +49,8 @@ This hack is designed to help you learn how to migrate open source databases to 
 as the source from which you will migrate data to Azure.
 
 The "on-premises" environment runs entirely in an AKS cluster in Azure. It consists of:
- - Two instances of the "Pizzeria" sample app (one for MySQL and one for PostgreSQL)
- - A MySQL database
- - A PostgesSQL database
+ - Up to three instances of the "Pizzeria" sample app (one for MySQL, one for PostgreSQL and/or one for Oracle)
+ - One to three databases: MySQL, PostgreSQL and/or Oracle
 
 ## Description
 
@@ -73,7 +72,7 @@ chmod +x ./create-cluster.sh
 
    **NOTE:** Creating the cluster will take around 10 minutes
 
-   **NOTE:** The Kubernetes cluster will consist of two containers "mysql" and "postgresql". For each container it is possible to use either the database tools within the container itself or to connect remotely using a database client tool such as psql/mysql. 
+   **NOTE:** The Kubernetes cluster will consist of up to three containers "mysql", "postgresql" and/or "oracle". For each container it is possible to use either the database tools within the container itself or to connect remotely using a database client tool such as psql/mysql/sqlplus. 
 
 ### Deploy the Sample Applications
 
@@ -123,7 +122,7 @@ Oracle:
 
    - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh` 
     
-This script will block public access to the "on-premises" MySQL or PostgreSQL databases used by the Pizza app and allow access only from your computer or Azure Cloud Shell. The script is written to obtain your public IP address automatically depending on where you run it (either locally on your own computer or within Azure Cloud Shell).
+This script will block public access to the "on-premises" MySQL, PostgreSQL, and Oracle databases used by the Pizzeria app and allow access only from your computer or Azure Cloud Shell. The script is written to obtain your public IP address automatically depending on where you run it (either locally on your own computer or within Azure Cloud Shell).
 
 **NOTE:** If you are running in Azure Cloud Shell, keep in mind that Azure Cloud Shell times out after 20 minutes of inactivity. If you start a new Azure Cloud Shell session, it will have a different public IP address and you will need to run the NSG script again to allow the new public IP address to access your databases. 
 
