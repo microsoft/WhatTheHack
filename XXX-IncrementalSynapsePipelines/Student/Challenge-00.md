@@ -13,7 +13,7 @@ We need to setup the proper environment for the Hackathon.  Thus, we need everyo
 
 2. A Synapse Environment including a SQL Dedicated Pool is created and configured.
 
-3. Key Vault is setup and configured.
+3. Key Vault is setup and configured and all users can see the secrets in the Key Vault.
 
 4. Establish a Linked Service in Azure Synapse Analytics that can connect to the Azure SQL Databases using Key Vault based secrets.
 
