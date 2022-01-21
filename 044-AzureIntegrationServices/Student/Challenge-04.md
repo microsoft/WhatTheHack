@@ -19,12 +19,14 @@ You should be able configure OAuth2 authorization when calling Hello API.
 ## Success Criteria
 
 For Scenario 01: 
-1. Create another Function App which will host publicly-accessible APIs. (e.g. you can name it as Hello-External API)
-1. Import this external API into APIM.
-1. Add a policy in external API that would only accept request coming from the Application Gateway only. 
-1. Enable a feature in the Function Apps that it would only accept traffic coming from APIM.
+1. You should have two new APIs:
+    - Hello API - public API
+    - Hello-Internal API - private API, create a new Function app in Elastic Premium plan
+1. Import Hello-Internal API to APIM.
+1. Secure Hello API so that it would only accept requests routed from Application Gateway.
+1. Secure Function Apps (both public an private) by enabling networking feature to only accept traffic coming from APIM.
 
-For Scenario 02 - you should be able to:
+For Scenario 02:
 1. Configure OAuth 2.0 authorization in APIM 
     1. Register a client application (e.g. APIM Developer Portal or [Postman](https://www.postman.com/)) in Azure AD.  This will be used to make calls to Hello API via APIM.
     1. Configure JWT validation policy to pre-authorize requests to Hello API. 
@@ -38,9 +40,15 @@ For Scenario 02 - you should be able to:
 - [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?toc=/azure/azure-functions/toc.json)
 - [Calling an Azure AD secured API with Postman](https://dev.to/425show/calling-an-azure-ad-secured-api-with-postman-22co)
 - [Postman - Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)
-
+- [Azure Functions networking options](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options)
+- [API Management access restriction policies](https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies)
 
 ## Tips 
+For Scenario 01:
+- To secure APIM to only accept requests routed from Application Gateway, you may need to set-up a policy to filter traffic. 
+- Look into networking options for securing function apps.
+  
+For Scenario 02:
 - Follow the steps in [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad), and use the APIM Developer portal as your client app.
 - If using Postman as your client application, you need to [specifiying the Authorization details using OAuth2](https://learning.postman.com/docs/sending-requests/authorization/#oauth-20) which will ask you to log in and consent before sending the generated Access Token.  Ensure that you specify Authorization Code as the grant type.
     - Token Name: The name you want to use for the token.
