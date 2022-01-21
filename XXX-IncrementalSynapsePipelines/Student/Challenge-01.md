@@ -8,11 +8,11 @@
 
 ## Description
 
-Now that our environment is setup, we need to populate the Dedicated Pool with all of the <b>SalesLT</b> tables from our Azure SQL Database.  
+Now that our environment is setup, we need to populate the Dedicated Pool with all of the <b>Sales / SalesLT</b> tables from our Azure SQL Database.  
 
 ## Success Criteria
 
-1. All <b>SalesLT</b> tables reside in the Dedicated Pool
+1. All <b>Sales / SalesLT</b> tables reside in the Dedicated Pool
 
 2. The proper table design for a star schema has been implemented in the Dedicated Pool.  Be able to discuss which tables are Distributed Hash, Round Robin, Replicated and why.
 
