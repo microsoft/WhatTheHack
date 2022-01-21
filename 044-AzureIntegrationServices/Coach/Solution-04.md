@@ -8,6 +8,15 @@ The students should be able configure OAuth2 authorization when calling Hello AP
 
 
 ## Description
+For Scenario 02:
+- To secure APIM to only accept requests routed from Application Gateway, you need to add [```ip-filter``` policy](https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs).
+
+- To secure function apps, few ways to do this:
+  - [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
+  - [Private endpoint](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet)
+
+
+For Scenario 01:
 - First, the student should follow the steps [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).    
     - In Step [1. Register an application in Azure AD to represent the API](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#1-register-an-application-in-azure-ad-to-represent-the-api), the backend-app AAD registration should look like below:
         ![Enable backend-app AAD app reg settings 1](./images/Solution04_Enable_ADAuth_BackendApp_1.jpg)
