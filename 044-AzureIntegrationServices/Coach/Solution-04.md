@@ -15,6 +15,9 @@ For Scenario 02:
   - [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
   - [Private endpoint](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet)
 
+- To test the public and private API calls:
+  - Test the public API by calling the AGW endpoint from Postman
+  - Test the private API by calling the APIM endpoint from Postman installed in your jumpbox VM. 
 
 For Scenario 01:
 - First, the student should follow the steps [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).    
