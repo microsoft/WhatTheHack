@@ -21,3 +21,4 @@ In this challenge you'll be connecting to your "on-prem" environment using the d
 * [Limitations in Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/concepts-limits)
 * [Migrating MySQL On-Premises to Azure Database for MySQL](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)
 * [Limitations in Azure Database for Postgres](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits)
+* [Migrate Oracle to Azure Database for Postgres](https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-from-oracle)
