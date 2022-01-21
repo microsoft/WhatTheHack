@@ -5,7 +5,12 @@
 ## Coach Tips
 
  Make sure the attendees can explain both the business and technical motivations for choosing a particular service tier. The goal here is to simulate a workload for the
- database, watch the system load and then pick the right service tier in Azure DB for PostgreSQL/MySQL. To monitor system load using tools like htop, you need to upgrade the OS and install the tool first. The following is an example in PostgreSQL:
+ database, watch the system load and then pick the right service tier in Azure DB for PostgreSQL/MySQL. To monitor system load using tools like htop, you need to upgrade the OS and install the tool first.
+ 
+ ## The following is an example in PostgreSQL:
+
+
+
  
  * To check the CPU count and memory on the server you can use for instance:
 ```bash
@@ -51,6 +56,12 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 
 
 
+
+ ## The following is an example in MySQL: 
+ 
+  
+
+
 * To run the synthetic benchmark for MySQL:
 
 * To check the CPU count and memory on the server you can use for instance:
@@ -63,6 +74,8 @@ kubectl -n mysql exec deploy/mysql -it -- bash
  
  ```
  
+
+
  To run a synthetic workload, connect to the on-premises MySQL database container and use mysqlslap tool:
  
 ```bash
@@ -81,3 +94,14 @@ Then run the htop command from another bash shell
     htop
 ```
 
+
+## The following is an example in Oracle:
+
+*Install htop for monitoring, and vim for file editing needed later
+
+```bash
+
+kubectl -n oracle exec -it deploy/oracle -- /bin/bash
+yum install htop vim
+
+```
