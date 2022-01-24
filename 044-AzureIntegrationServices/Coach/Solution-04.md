@@ -19,6 +19,25 @@ For Scenario 02:
   - Test the public API by calling the AGW endpoint from Postman
   - Test the private API by calling the APIM endpoint from Postman installed in your jumpbox VM. 
 
+- To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway.  Follow the instructions on how to do this in the portal [here](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-url-portal).
+    - First, let us modify the path to external Hello API by going to APIM -> APIs then select Settings.  Add external to  the API URL suffix so that the new backend route would now be https://api.{{unique_id}}.azure-api.net/external/hello.  Click Save to apply changes.
+      ![Create URL Rewrite Set 0](./images/Solution04_Create_URLRewrite_Set_0.jpg)
+    - In the portal, go the Application Gateway and under Settings, select Rewrites, then click Rewrite set.
+      ![Create URL Rewrite Set 1](./images/Solution04_Create_URLRewrite_Set_1.jpg)
+    - Name your new rewrite set then select the default routing rule created earlier.  Click Next.
+      ![Create URL Rewrite Set 2](./images/Solution04_Create_URLRewrite_Set_2.jpg)      
+    - Click Add rewrite rule and name it: First, add condition as follows, then click Ok when done.
+      ![Create URL Rewrite Set 3](./images/Solution04_Create_URLRewrite_Set_3.jpg)    
+    - Then, add action and configure like below.  Click OK then Create when done.
+      ![Create URL Rewrite Set 4](./images/Solution04_Create_URLRewrite_Set_4.jpg) 
+    - Open Postman and test your changes. Try calling http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/external, it should now return HTTP 200.
+      ![Create URL Rewrite Set 5](./images/Solution04_Create_URLRewrite_Set_5.jpg) 
+      ![Create URL Rewrite Set 6](./images/Solution04_Create_URLRewrite_Set_6.jpg) 
+      ![Create URL Rewrite Set 7](./images/Solution04_Create_URLRewrite_Set_7.jpg) 
+    - Try calling http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/, it should now return HTTP 404.
+      ![Create URL Rewrite Set 8](./images/Solution04_Create_URLRewrite_Set_8.jpg) 
+
+
 For Scenario 01:
 - First, the student should follow the steps [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).    
     - In Step [1. Register an application in Azure AD to represent the API](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#1-register-an-application-in-azure-ad-to-represent-the-api), the backend-app AAD registration should look like below:
