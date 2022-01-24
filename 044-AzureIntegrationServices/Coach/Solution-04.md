@@ -4,20 +4,16 @@
 
 ## Introduction
 
-The students should be able configure OAuth2 authorization when calling Hello API.
+The students should be able to either:
+- Scenario 01: Configure secured backend APIs in a private network
+- Scenario 02: Configure OAuth2 authorization when calling Hello API
 
 
 ## Description
 For Scenario 02:
-- To secure APIM to only accept requests routed from Application Gateway, you need to add [```ip-filter``` policy](https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs).
-
 - To secure function apps, few ways to do this:
   - [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
   - [Private endpoint](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet)
-
-- To test the public and private API calls:
-  - Test the public API by calling the AGW endpoint from Postman
-  - Test the private API by calling the APIM endpoint from Postman installed in your jumpbox VM. 
 
 - To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway.  Follow the instructions on how to do this in the portal [here](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-url-portal).
     - First, let us modify the path to external Hello API by going to APIM -> APIs then select Settings.  Add external to  the API URL suffix so that the new backend route would now be https://api.{{unique_id}}.azure-api.net/external/hello.  Click Save to apply changes.
@@ -37,6 +33,18 @@ For Scenario 02:
     - Try calling http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/, it should now return HTTP 404.
       ![Create URL Rewrite Set 8](./images/Solution04_Create_URLRewrite_Set_8.jpg) 
 
+- To secure external Hello API to only accept requests routed from Application Gateway, you need to add [```ip-filter``` policy](https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs).
+  - Add the policy to Hello API, configuring the AGW subnet range.  Click Save to apply changes.
+    ![Add IP range policy in APIM 1](./images/Solution04_Add_IP_Range_Policy_APIM_1.jpg)
+  - Log-in to the jumpbox VM.  Open Postman (highly recommended to install if the students have not done yet), then call external Hello API using th APIM endpoint, you should get HTTP 403 like below.
+    ![Add IP range policy in APIM 2](./images/Solution04_Add_IP_Range_Policy_APIM_2.jpg)
+  - Try calling external Hello API using the AGW endpoint, it should still succeed.
+    ![Add IP range policy in APIM 2](./images/Solution04_Add_IP_Range_Policy_APIM_2.jpg)
+
+
+- To test the public and private API calls:
+  - Test the public API by calling the AGW endpoint from Postman
+  - Test the private API by calling the APIM endpoint from Postman installed in your jumpbox VM. 
 
 For Scenario 01:
 - First, the student should follow the steps [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).    

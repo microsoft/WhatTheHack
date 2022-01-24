@@ -8,23 +8,26 @@
 - You should have completed Challenge 03
 
 ## Introduction
-
-You would like to be able to test authorization to Hello API via OAuth.  
-
+You would like to be able to secure your backend APIs in one of the two ways:
+- Secure Hello API in a private network
+- Test end-to-end authorization to Hello API via OAuth.  
 
 ## Description
-You should be able configure OAuth2 authorization when calling Hello API.
+You should be able to either:
+- Scenario 01: Configure secured backend APIs in a private network
+- Scenario 02: Configure OAuth2 authorization when calling Hello API
 
 
 ## Success Criteria
+For Scenario 01:
+1. Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
+1. The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: https://api.{{unique_id}}.azure-api.net/external/hello
+1. Secure internal Hello Function App by enabling networking feature by either:
+    - Only accepts traffic coming from the APIM subnet
+    - Assigning a private endpoint to the Function App
+1. Import the new Function App as Hello Internal API to APIM.  The new path should be: https://api.{{unique_id}}.azure-api.net/internal/hello
+1. Secure external Hello API so that it would only accept requests routed from Application Gateway.
 
-For Scenario 01: 
-1. You should have two new APIs:
-    - Hello API - public API, new APIM endoint should be: https://api.{{unique_id}}.azure-api.net/external/hello
-    - Hello-Internal API - private API, create a new Function app in Elastic Premium plan, new APIM endoint should be: https://api.{{unique_id}}.azure-api.net/internal/hello
-1. Import Hello-Internal API to APIM.
-1. Secure Hello API so that it would only accept requests routed from Application Gateway.
-1. Secure Function Apps (both public an private) by enabling networking feature to only accept traffic coming from APIM.
 
 For Scenario 02:
 1. Configure OAuth 2.0 authorization in APIM 
@@ -53,12 +56,12 @@ Scenario 02:
 
 ## Tips 
 For Scenario 01:
-- To secure APIM to only accept requests routed from Application Gateway, you may need to set-up a policy to filter traffic. 
-- Look into networking options for securing function apps.
+- Look into networking options for securing function apps, just use one or the other.
 - To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway so that:
     - All calls to the AGW endpoint with the path /external/* (http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/external)  would go to https://api.{{unique_id}}.azure-api.net/external/hello
     - While calls to the default path http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/ returns HTTP 404.
-  
+- To secure APIM to only accept requests routed from Application Gateway, you may need to set-up a policy to filter traffic. 
+
 For Scenario 02:
 - Follow the steps in [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad), and use the APIM Developer portal as your client app.
 - If using Postman as your client application, you need to [specifiying the Authorization details using OAuth2](https://learning.postman.com/docs/sending-requests/authorization/#oauth-20) which will ask you to log in and consent before sending the generated Access Token.  Ensure that you specify Authorization Code as the grant type.

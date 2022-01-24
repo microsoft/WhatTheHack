@@ -65,7 +65,6 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
 - [Deploying Azure API Management in an Internal mode (inside VNet)](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/deploying-azure-api-management-in-an-internal-mode-inside-vnet/ba-p/3033493)
 
 ## Tips 
-
 - Talk among yourselves which Scenario you would go for.  
   - If going with Scenario 01 - deploy the Bicep templates of the VNET-integrated AIS which can be found at [Student/Resources/Challenge-01/Scenario-01](../Student/Resources/Challenge-01/Scenario-01).  This is the shortcut method - the templates are ready to deployed and all they need to do is plug-in the parameter values.  
   - If going with Scenario 02 - you can deploy the Bicep templates of the publicly-exposed AIS which can be found at [Student/Resources/Challenge-01/Scenario-02](../Student/Resources/Challenge-01/Scenario-02).  Some parameter or variable values in the templates are blank, so the students need to fill these out.
