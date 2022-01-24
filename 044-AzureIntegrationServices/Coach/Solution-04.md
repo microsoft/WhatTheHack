@@ -12,8 +12,28 @@ The students should be able to either:
 ## Description
 For Scenario 01:
 - After creating a new Function App that will be imported to the APIM as Hello Internal API, secure the function app in one of the following ways:
-  - Define APIM IP in the function apps [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
+  - Define APIM IP subnet range in the function apps [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
+    ![Function App Access Restriction 1](./images/Solution04_FuncApp_Access_Restriction_1.jpg)
+    It enables the service endpoint for Microsoft.Web on the APIM subnet, make sure its has been provisioned and enabled.
+    ![Function App Access Restriction 1a](./images/Solution04_FuncApp_Access_Restriction_1a.jpg)
+    ![Function App Access Restriction 1b](./images/Solution04_FuncApp_Access_Restriction_1b.jpg)
+    Try calling the function from Postman, you should get HTTP 403
+    ![Function App Access Restriction 2](./images/Solution04_FuncApp_Access_Restriction_2.jpg)
+    Import to APIM
+    ![Function App Access Restriction 3a](./images/Solution04_FuncApp_Access_Restriction_3a.jpg)
+    Then call from Postman in your jumpbox VM, pointing to the APIM endpoint (e.g.).  You should get HTTP 200.
+    ![Function App Access Restriction 3](./images/Solution04_FuncApp_Access_Restriction_3.jpg)
+
   - Configure a [Private endpoint](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet)
+    ![Function App Private Endpoint 1](./images/Solution04_FuncApp_Private_Endpoint_1.jpg)
+    This creates a virtual NIC with a private IP assigned to it, as well as private DNS record to be mapped to that IP. 
+    ![Function App Private Endpoint 2](./images/Solution04_FuncApp_Private_Endpoint_2.jpg)
+    Try calling the function endpoint from Postman in your jumpbox VM, you should get HTTP 200
+    ![Function App Access Restriction 3](./images/Solution04_FuncApp_Private_Endpoint_3.jpg)
+    Import to APIM
+    ![Function App Access Restriction 4](./images/Solution04_FuncApp_Private_Endpoint_4.jpg)
+    Then call from Postman in your jumpbox VM, pointing to the APIM endpoint (e.g.).  You should get HTTP 200.
+    ![Function App Access Restriction 5](./images/Solution04_FuncApp_Private_Endpoint_5.jpg)
 
 - To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway.  Follow the instructions on how to do this in the portal [here](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-url-portal).
     - First, let us modify the path to external Hello API by going to APIM -> APIs then select Settings.  Add external to  the API URL suffix so that the new backend route would now be https://api.{{unique_id}}.azure-api.net/external/hello.  Click Save to apply changes.
@@ -40,7 +60,6 @@ For Scenario 01:
     ![Add IP range policy in APIM 2](./images/Solution04_Add_IP_Range_Policy_APIM_2.jpg)
   - Try calling external Hello API using the AGW endpoint, it should still succeed.
     ![Add IP range policy in APIM 2](./images/Solution04_Add_IP_Range_Policy_APIM_2.jpg)
-
 
 - To test the public and private API calls:
   - Test the public API by calling the AGW endpoint from Postman
