@@ -10,10 +10,10 @@ The students should be able to either:
 
 
 ## Description
-For Scenario 02:
-- To secure function apps, few ways to do this:
-  - [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
-  - [Private endpoint](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet)
+For Scenario 01:
+- After creating a new Function App that will be imported to the APIM as Hello Internal API, secure the function app in one of the following ways:
+  - Define APIM IP in the function apps [IP restriction list](https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#inbound-access-restrictions)
+  - Configure a [Private endpoint](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-vnet)
 
 - To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway.  Follow the instructions on how to do this in the portal [here](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-url-portal).
     - First, let us modify the path to external Hello API by going to APIM -> APIs then select Settings.  Add external to  the API URL suffix so that the new backend route would now be https://api.{{unique_id}}.azure-api.net/external/hello.  Click Save to apply changes.
@@ -46,7 +46,7 @@ For Scenario 02:
   - Test the public API by calling the AGW endpoint from Postman
   - Test the private API by calling the APIM endpoint from Postman installed in your jumpbox VM. 
 
-For Scenario 01:
+For Scenario 02:
 - First, the student should follow the steps [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad).    
     - In Step [1. Register an application in Azure AD to represent the API](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#1-register-an-application-in-azure-ad-to-represent-the-api), the backend-app AAD registration should look like below:
         ![Enable backend-app AAD app reg settings 1](./images/Solution04_Enable_ADAuth_BackendApp_1.jpg)
