@@ -78,6 +78,7 @@ For Scenario 02:
     - Client Authentication: A dropdown list: send a Basic Auth request in the header, or client credentials in the request body. After upgrading to a new  version, change the value in this dropdown menu to avoid problems with client authentication.
 
 ## Advanced Challenges
+Scenario 02:
 - You can try to do end-to-end AAD authentication by either:
     - Configuring your Function App to use AAD login. Use the [existing backend app AAD registration](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?toc=/azure/azure-functions/toc.json#-option-2-use-an-existing-registration-created-separately) created earlier.
     ![Function App AAD Auth 1](../Coach/images/Solution04_FunctionApp_AADAuth_1.jpg)
