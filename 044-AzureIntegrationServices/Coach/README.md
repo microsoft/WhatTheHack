@@ -7,6 +7,13 @@
 ## Introduction
 Welcome to the coach's guide for the # Azure Integration Services What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
+## Learning Objectives
+In this hack you will be solving common business scenario our customers face when building integration solution in Azure from ground-up.  The goal of this hack is to adopt what are the best practices for deploying, configuring and securing integration services, which include:
+
+1. Authoring Bicep templates to build an APIM + backend services
+2. Creating CI/CD pipeline to deploy environment
+3. Securing backend API services via OAuth
+4. Securing backend API services over the VNET
 
 ## Coach's Guides
 1. Challenge 0: **[Prepare your development environment](Solution-00.md)**
@@ -17,13 +24,5 @@ Welcome to the coach's guide for the # Azure Integration Services What The Hack.
    - Create a CI/CD pipeline to do automated deployment of your integration environment.
 4. Challenge 3: **[Create backend APIs](Solution-03.md)**
    - Create backend APIs
-5. Challenge 4: **[Secure backend API via OAuth](Solution-04.md)**
-   - Securing backend API via OAuth
-6. Challenge 6: **[Secure backend API over the VNET](Solution-05.md)**
-   - Securing backend API services over the VNET
-7. Challenge 7: **[Configure external and internal API access](Solution-06.md)**
-   - Configure external and internal API access
-
-
-<!-- 6. Challenge 5: **[Secure backend API using client certificate](Solution-05.md)**
-   - Securing backend API using client certificate -->
+5. Challenge 4: **[Secure backend APIs](Solution-04.md)**
+   - Securing backend APIs by configuring them in the VNET or by using OAuth 2.0 authorization

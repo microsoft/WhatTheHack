@@ -9,8 +9,7 @@ In this hack you will be solving common business scenario our customers face whe
 1. Authoring Bicep templates to build an APIM + backend services
 2. Creating CI/CD pipeline to deploy environment
 3. Securing backend API services via OAuth
-4. Securing backend API services using client certificate
-5. Securing backend API services over the VNET
+4. Securing backend API services over the VNET
 
 
 ## Challenges
@@ -20,14 +19,11 @@ In this hack you will be solving common business scenario our customers face whe
    - Create a bicep template that will provision a baseline integration environment.
 3. Challenge 2: **[Deploy your integration environment](Student/Challenge-02.md)**
    - Create a CI/CD pipeline to do automated deployment of your integration environment.
-4. Challenge 3: **[Create backend APIs](Student/Challenge-03.md)**
+4. Challenge 3: **[Create backend API](Student/Challenge-03.md)**
    - Create backend APIs
-5. Challenge 4: **[Secure backend API via OAuth](Student/Challenge-04.md)**
-   - Securing backend API via OAuth
-6. Challenge 5: **[Secure backend API over the VNET](Student/Challenge-05.md)**
-   - Securing backend API services over the VNET
-7. Challenge 6: **[Configure external and internal API access](Student/Challenge-07.md)**
-   - Configure external and internal API access
+5. Challenge 4: **[Secure backend APIs](Student/Challenge-04.md)**
+   - Securing backend APIs by configuring them in the VNET or by using OAuth 2.0 authorization
+
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
