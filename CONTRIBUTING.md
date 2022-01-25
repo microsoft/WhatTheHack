@@ -1,11 +1,12 @@
 # What The Hack - Contribution Guide
 
 What The Hack is all about being "for the people, by the people". This repo was originally created to share real-world hackathons that Microsoft employees have hosted with their customers. Here are our core principles:
-- Anyone can [contribute a new hack](#-contribute-a-new-hack-to-what-the-hack).
+
 - Anyone can use the content to [host their own WTH event](./000-HowToHack/WTH-HowToHostAHack.md).
+- Anyone can [contribute a new hack](#-contribute-a-new-hack-to-what-the-hack).
 - Anyone can modify or update a hack as needed.
   - Submitting a [pull request for updated content](#-contribute-an-update-to-an-existing-hack) is encouraged.
-- The content can always be shared with hack attendees **(Only do this after the event is over!)**
+- The content can always be shared with hack attendees **(AFTER your event)**
 
 This document provides the guidelines for how to contribute to the What The Hack project.
 
@@ -15,18 +16,18 @@ The best way to contribute is to engage and get in touch with the What The Hack 
 
 There are multiple ways to contribute:
 
-- [Report a Bug in an Existing Hack](#report-a-bug-in-an-existing-hack)
-- [Propose New Hack Topic or Improvement to Existing Hack](#propose-new-hack-topic-or-improvement-to-existing-hack)
-- [Contribute a New Hack to What The Hack](#contribute-a-new-hack-to-what-the-hack)
-- [Contribute an Update to an Existing Hack](#contribute-an-update-to-an-existing-hack)
-- [Ask for Help Hosting a What The Hack](#ask-for-help-hosting-a-what-the-hack)
+- [Report a bug in an existing hack](#report-a-bug-in-an-existing-hack)
+- [Propose new hack topic or improvement to existing hack](#propose-new-hack-topic-or-improvement-to-existing-hack)
+- [Contribute a new hack to What The Hack](#contribute-a-new-hack-to-what-the-hack)
+- [Contribute an update to an existing hack](#contribute-an-update-to-an-existing-hack)
+- [Ask for help hosting a What The Hack](#ask-for-help-hosting-a-what-the-hack)
 - [Let us know where you have used What The Hack](#let-us-know-where-you-have-used-what-the-hack)
 
 ### Before You Start
 
 Before you start contributing and file an issue, make sure you've checked for existing issues:
    - Before you create a new issue, please do a search in [open issues](https://github.com/microsoft/WhatTheHack/issues) to see if the issue or feature request has already been filed.
-   - If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reaction-to-pull-requests-issues-and-comments). Use a reaction:
+   - If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reaction-to-pull-requests-issues-and-comments){:target="_blank"}. Use a reaction:
         - 👍 up-vote
         - 👎 down-vote
 
