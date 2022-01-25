@@ -15,12 +15,16 @@ Students have two options:
   1. APIM 
   1. Application Gateway
   1. Application Insights (workspace-based)
+  1. Log Analytics workspace
   1. Function App in Elastic Premium plan
   1. 2 Public IPs
   1. 3 Network Security Groups
   1. Private DNS zone (azure-api.net)
   1. Jumpbox VM
-  1. Virtual Network with 3 subnets
+  1. Virtual Network with 3-4 subnets
+
+  Eventually, the environment would look like the one below:
+  ![VNET-integration AIS](./images/Solution01_VNET_integrated_AIS.jpg)
 
   - Create a resource group and run the following Azure CLI command to deploy the Bicep templates as follows:
     ```
