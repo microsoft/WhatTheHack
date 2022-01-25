@@ -39,11 +39,11 @@ Please go to the Issues page for the WTH repo and create an ["Issue/Bug"](https:
 
 Let us know which hack has the bug. Is it in the Student guide? Coach guide? Is it a documentation issue? Or an issue with a provided resource file or solution file? The form will guide you on what information you should submit. The WTH team will follow up on your submission. 
 
-We welcome bug fixes!  If you wish fix the bug yourself, please see the section on how to [Contribute an Update to an Existing Hack](#-contribute-an-update-to-an-existing-hack)
+We welcome bug fixes!  If you wish fix the bug yourself, please see the section on how to [Contribute an update to an existing hack](#-contribute-an-update-to-an-existing-hack)
 
 ## Propose New Hack Topic or Improvement to Existing Hack
 
-You have a proposal on how to improve an existing hack, or you want to suggest a new hack topic. For improving an existing hack, your proposal should go beyond a "bug fix" and imply a greater improvement or addition of content.
+You have a proposal on how to improve an existing hack, or you want to suggest a new hack topic. For improving an existing hack, your proposal should go beyond a "bug fix" and be a fair sized improvement or addition of content.
 
 For new hack proposals, consider:
    - Is this a net new hack topic? Or should your contribution extend or modify an existing hack?
@@ -56,13 +56,13 @@ Please go to the Issues page for the WTH repo and create an ["Issue/Proposal"](h
 The form will guide you on what information you should submit. The WTH team will follow up on your proposal. 
 
 We welcome new hacks and improvements to existing hacks. If you intend to 'do the work' you are proposing, read on for how to:
-- [Contribute a New Hack to What The Hack](#-contribute-a-new-hack-to-what-the-hack)
+- [Contribute a new hack to What The Hack](#-contribute-a-new-hack-to-what-the-hack)
 OR
-- [Contribute an Update to an Existing Hack](#-contribute-an-update-to-an-existing-hack)
+- [Contribute an update to an existing hack](#-contribute-an-update-to-an-existing-hack)
 
 ## Contribute a New Hack to What The Hack
 
-You want to author a new hack topic yourself, or with a team of others, and contribute it to What The Hack. 
+You want to author a new hack yourself, or with a team of others, and contribute it to What The Hack. 
 
 Please check if there is an existing "Proposal" Issue on the WTH repo to track your new hack. Add a comment to the existing issue to let the WTH team know you are working on this contribution.
 
@@ -87,9 +87,9 @@ Once you have submitted an [Issue/Proposal](https://aka.ms/wthproposal) via Gith
     - Walk through the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md). 
         - All authors need to read and internalize this document to save you trouble and heartache down the line.
     - Set up a bi-weekly cadence meeting to check-in and address any questions or requests you have during development.
-1.	During the cadence meetings, the authors will dictate the pace of the call and report what they have worked on. It is essentially your time to discuss things with the WTH team and/or collaborate with your co-authors. If there is a stint that nothing was worked on, that’s totally fine. We understand and appreciate that most folks are contributing to What The Hack in their spare time!
+1.	During the cadence meetings, the authors will dictate the pace of the call and report what they have worked on. It is essentially your time to discuss things with the WTH team and/or collaborate with your co-authors. If there is a stint that nothing was worked on, that’s totally fine. We understand and appreciate that most folks are contributing to What The Hack in their spare time.
 
-**NOTE:** If you are not familiar with Git, Github, or markdown files, you are not alone! Since What The Hack is a collection of mostly course content and documentation, many of our contributors are not developers. It's out of scope to explain these tools here. However, there are plenty of great [resources on the Internet](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) that can help get you up to speed. Also, don't be shy to ask the WTH team for help navigating Git & Github. 
+**NOTE:** If you are not familiar with Git, Github, or markdown files, you are not alone! Since What The Hack is a collection of mostly course content and documentation, many of our contributors are not developers. It's out of scope to explain these tools here. However, there are plenty of great [resources on the Internet](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) that can help get you up to speed. Also, don't be shy to ask the WTH team for help navigating Git and Github. 
 
 ### Development Process
 
@@ -105,18 +105,24 @@ The instructions below assume you have the git command line tool on your machine
    - Navigate to the WTH repo at: <https://aka.ms/wthrepo>
    - Click the "Fork" button at the top right of the page and then choose the account you want to create the fork in. 
 1. Clone your new fork to your local machine
-   - `git clone https://github.com/<myname>/WhatTheHack.git`
-   - `cd WhatTheHack`
+   ```
+   git clone https://github.com/<myname>/WhatTheHack.git
+   cd WhatTheHack
+   ```
 1. Create a new branch for your work in your fork. It is a best practice to never work directly on the main/master branch
-   - `git branch MyWork`
-   - `git checkout MyWork`
+   ```
+   git branch MyWork
+   git checkout MyWork
+   ```
 1. Add a new top level folder to the WTH repo using "`XXX`" as a placeholder for the number prefix
-   - `mkdir XXX-MyAwesomeHack`
+   ```mkdir XXX-MyAwesomeHack```
 1. Within your new folder, create the following directory structure:
-	- `../Coach`
-		- `/Solutions`
-	- `../Student`
-		- `/Resources`
+	```
+    ../Coach
+	    /Solutions
+	../Student
+	    /Resources
+    ```
 1. Follow the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) and scaffold out your hack's content as shown here:
     - `../`
         - Hack Description
@@ -141,7 +147,7 @@ When you feel your hack is finished and ready for release, this is the process w
     - During this review, the WTH team will go through the text with a fine-toothed comb checking for:
         - Adherence to the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md)
         - All links work, especially the navigation links
-        - There are no links to the WTH repo or Coach's guide from the Student guide! (See the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md))
+        - There are no links to the WTH repo or Coach's guide from the Student guide (See the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md))
         - All images show properly.
         - Any syntax, grammar or punctuation problems that the reviewers see and want you to address.
         - This is NOT a technical content review. As the author(s), YOU are the subject matter experts. The WTH team will trust that you have taken care of the technical bits.
@@ -171,14 +177,14 @@ If there is no existing Issue for the update you plan to contribute, please star
 
 To contribute an update to an existing hack, you should:
 1. Fork the What The Hack repo into your own Github account. 
-1. Create a new branch in your fork. It is a best practice to never work directly on the main/master branch. This is where you will do your work.
+1. Create a new branch in your fork. This is where you will do your work. (**NOTE:** It is a best practice to never work directly on the main/master branch so that it always reflects the state of the upstream main WTH repo.) 
 1. When you have completed the update in your fork:
     1. [Fetch the latest updates from the upstream repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) (to merge any changes others have made to WTH while you were working on your update) and ensure there are no conflicts with your updates. 
     2. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) to submit your work back to the What The Hack repo for review.
 
-The WTH team will review the Pull Request with an eye towards compliance with the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md), as well as any spelling or grammar issues. These reviews are generally shorter and approved quickly if the update is by one of the hack's original authors.  
+The WTH team will review the Pull Request with an eye towards compliance with the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md), as well as any spelling or grammar issues. These reviews are generally shorter if the update is by one of the hack's original authors.  
 
-If the update is from a new contributor, the WTH team will request one of the original author's of the hack to review the update for technical accuracy. This may add additional time for the review to be approved.
+If the update is from a new contributor, the WTH team will request one of the original author's of the hack to review the update for technical accuracy.
 
 ## Ask for Help Hosting a What The Hack
 
@@ -186,11 +192,11 @@ We've put together a lot of guidance on how to host a What The Hack event in our
 
 If you have further questions, or want to get in touch with the What The Hack team to learn more about hosting a WTH event, please go to the Issues page for the WTH repo and create an ["Issue/Request"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=request&template=request.yml&title=%5BRequest%5D%3A+).
 
-Please note, What The Hack is self-serve content. The WTH team doesn't offer logistical support or Azure environments. The WTH team will make its best effort to connect you with hack authors for details on the technical content, or answer any other questions you have about hosting an event.
+**NOTE:** What The Hack is self-serve content. The WTH team does not offer logistical support or Azure environments. The WTH team will make its best effort to connect you with hack authors for details on the technical content, or answer any other questions you have about hosting an event.
 
 ## Let Us Know Where You Have Used What The Hack
 
-The BEST feedback you could share is to let us know how and where you have used What The Hack content! Our hacks' authors are always excited to learn if their content is being used. We would love to know delivery dates, # of attendees, locations (if in-person), and how it impacted your attendees' technical readiness.
+The BEST feedback you could share is to let us know how and where you have used What The Hack content. Our hacks' authors are always excited to learn if their content is being used. We would love to know delivery dates, # of attendees, locations (if in-person), and how it impacted your attendees' technical readiness.
 
 If you have found this content useful, or hosted a WTH event, please go to the Issues page for the WTH repo and create an ["Issue/Report"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=report&template=report.yml&title=%5BReport%5D%3A+).
 
