@@ -31,8 +31,6 @@ Before you start contributing and file an issue, make sure you've checked for ex
         - 👍 up-vote
         - 👎 down-vote
 
-<a href="http://stackoverflow.com" target="_blank">Go</a>
-
 ## Report a Bug in an Existing Hack
 
 You have found a bug in a hack and want to report it. Great! Something is not right, and it needs to be fixed. 
