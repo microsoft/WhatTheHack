@@ -27,9 +27,11 @@ There are multiple ways to contribute:
 
 Before you start contributing and file an issue, make sure you've checked for existing issues:
    - Before you create a new issue, please do a search in [open issues](https://github.com/microsoft/WhatTheHack/issues) to see if the issue or feature request has already been filed.
-   - If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reaction-to-pull-requests-issues-and-comments){:target="_blank"}. Use a reaction:
+   - If you find your issue already exists, make relevant comments and add your [reaction](https://github.com/blog/2119-add-reaction-to-pull-requests-issues-and-comments). Use a reaction:
         - 👍 up-vote
         - 👎 down-vote
+
+<a href="http://stackoverflow.com" target="_blank">Go</a>
 
 ## Report a Bug in an Existing Hack
 
