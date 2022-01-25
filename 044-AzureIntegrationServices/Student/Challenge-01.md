@@ -16,7 +16,8 @@ As a cloud engineer, you would like to be able to deploy this POC environment us
 
 There are two scenarios you would like to prove:
 
-Scenario 1: Deploy a VNET-secured AIS environment - should you need to services deployed over a private network (e.g. APIs hosted on-premises)
+Scenario 1: Deploy a VNET-secured AIS environment - should you need to access services deployed over a private network (e.g. APIs hosted on-premises)
+
 Scenario 2: Deploy an identity-secured AIS environment - preferred for integrating with services hosted in the cloud or publicly-accessible
 
 
