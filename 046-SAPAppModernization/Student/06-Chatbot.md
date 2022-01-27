@@ -14,6 +14,13 @@ Your existing app service front end poses a nice interface into the SAP world. O
 > - Our recommendation for this challenge would be to deploy an SDK or Bot Composer bot to a VNet integrated App Service instance, that will allow you to call your private APIM instance. 
 > - For a Power Virtual Agents bot, you will have to either expose your APIM instance to the outside world, or deploy a Power Automation Flow that can connect to a Connector with a Data Gateway installed on your environment. We believe this is outside the scope of this article, but it is a completely valid approach.
 
+|| [Bot Framework SDK](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&tabs=csharp%2Cvs) | [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction?tabs=v2x) | [Power Virtual Agent (PVA)](https://docs.microsoft.com/en-us/power-virtual-agents/teams/fundamentals-what-is-power-virtual-agents-teams) |
+|----------|-------------|------|---|
+| coding style |  full-code | low-code | low-code |
+| programming language | C#, Java, NodeJS and Python | built-in designer with PowerFX scripting language | built-in designer with PowerFX scripting language |
+| complexity | high, but fully flexible | medium, more freedom than PVA but less than SDK | low |
+| required dev environment setup | IDE of choice, build-environment (e.g. NPM), simulator, etc. | shipped with Composer studio | built into Microsoft Teams |
+
 ## Success Criteria
 - Functional message flow using the Bot simulator (actual deployment to Azure and Teams client cherry on the cake).
 - Parameterized SAP OData request and Response using a [Microsoft Adaptive Card](https://adaptivecards.io/).
