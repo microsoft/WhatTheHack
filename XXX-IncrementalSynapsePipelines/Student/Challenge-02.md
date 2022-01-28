@@ -19,11 +19,13 @@ For this section we need to add Change Data Catpure functionality to our source 
 
 1. Implement Change Data Capture on the Azure SQL Database and be able to articulate on the cdc tables and functions and their purpose.
 
-2. Create an incremental synapse pipeline that utilizes a watermark table to update the SQL Dedicated Pool with row inserts, updates and deletions.  You only need to do 2-3 tables, but choose related tables in the AdventureWorks DB so modifications can easily be viewed in the target Dedicated Pool. 
+2. Create an incremental synapse pipeline that accounts for the following...
+    a. For each time a pipeline is executed, it will only update the SQL Dedicated Pool with new row inserts, updates and deletions since the last time it was executed.  
+    b. You only need to do 2-3 tables so make sure your pipeline has a lookup to determine which tables to copy and where to land them in the Dedicated Pool.  Please choose related tables so modifications can easily be viewed in the target Dedicated Pool and Power BI.
 
-3. Implement Staging and Production Tables in the Dedicated Pool and an automated methodology to copy data from staging to production.
+3. Implement Staging and Production Tables in the Dedicated Pool and an automated methodology to update data from staging to production.
 
-4. Create a Power BI report that reads off of the production tables in the Dedicated Pool.
+4. Create a Power BI report that queries the production tables in the Dedicated Pool.
 
 5. Be able to show the data pipleine, meaning you can demonstrate executing the change in the SQL Database and see it flow through the dedicated pool to Power BI.
 
@@ -33,6 +35,8 @@ For this section we need to add Change Data Catpure functionality to our source 
 *The following links may be useful to achieving the success crieria listed above.*
 
 - [What is change data capture (CDC)?](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-ver15)
+
+- [Incrementally load data from a source data store to a destination data store](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-overview)
 
 - [Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-change-data-capture-feature-portal)
 
