@@ -22,9 +22,6 @@ Ensure that these terms can be used for searching these tagged assets and can al
 - Assign terms to assets scanned in previous challenges.
 - Confirm that the newly applied tags can be used to filter the search results.
 
-## Extended challenge
-- Thoughts?
-
 ## Learning Resources
 - https://docs.microsoft.com/en-us/azure/purview/concept-business-glossary
 - https://docs.microsoft.com/en-us/azure/purview/how-to-create-import-export-glossary
