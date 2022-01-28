@@ -11,7 +11,7 @@ In this challenge you will setup a custom classficiation that will ensure that f
 
 ## Success Criteria
 - Create a custom classification rule.
-- Ensure that you use the customer classification rules to perform a full scan.
+- Ensure that you use the custom classification rules to perform a full scan.
 - Confirm that the newly defined classification is applied on the assets.
 - Confirm that the new classficiation can be used to filter the search results.
 
