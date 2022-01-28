@@ -18,7 +18,7 @@ Ensure that these terms can be used for searching these tagged assets and can al
 - Create new term 'Team Unit' and assign yourself as an Term Expert.
 - Create new terms 'Account Team Unit', 'Specialist Team Unit' with additional custom field "Microsoft Terminology"
 - Create realtionships between previously created terms.
-- Bulk load terms provided in .CSV file.
+- Bulk load terms provided in .CSV file. [Download here](./GlossaryTerms.csv)
 - Assign terms to assets scanned in previous challenges.
 - Confirm that the newly applied tags can be used to filter the search results.
 
