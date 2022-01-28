@@ -13,6 +13,7 @@ With your current Azure Purview environemnt, you are able to see individual meta
 - Explore each tab of Data Insights.
 - Check which areas of Purview requires your attention.
 - Fix issues you have discovered.
+- ADD QUESTIONS TO ANSWER
 
 ## Extended challenge
 - Thoughts?
