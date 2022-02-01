@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Now that you've created your Bicep templates, you would like to create a CI/CD pipeline to deploy these tempaltes to your Azure environment. 
+Now that you've created your Bicep templates, you would like to create a CI/CD pipeline to deploy these templates to your Azure environment. 
 
 ## Description
 As a cloud engineer, you would like to be able create a CI/CD pipeline to perform automated deployment of integration environment.
@@ -38,7 +38,7 @@ You should be able to:
 
 ## Advanced Challenges
 
-- In either GitHub Actions or Azure DevOps, rather than having a single task that deploys your Bicep template straight to Azure, extend it to include some or all of the suggested tasks:
+- In your GitHub Actions workflow or Azure DevOps pipeline, rather than having a single task that deploys your Bicep template straight to Azure, extend it to include some or all of the suggested tasks:
     - Linting and validating your Bicep code.
     - Adding a preview job to see what will be deployed to Azure and an approval step before deploying your template.
     - Adding a test job to verify that your template deployed correctly.
