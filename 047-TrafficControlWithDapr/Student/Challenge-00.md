@@ -96,7 +96,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     - If prompted for a file name, leave the entry blank, and press enter.
     - If prompted for a passphrase, leave the entry blank, and press enter.
    
-    Once complete, you'll find two SSH key files in the following directory: `%USERPROFILE%\.ssh`. Right-click on the `id_rsa` file and open with a text editor. Copy the entire contents of the file which is the public key. You'll need it to configure the parameter file in an upcoming step.
+    Once complete, you'll find two SSH key files in the following directory: `%USERPROFILE%\.ssh`. Right-click on the `id_rsa.pub` file and open with a text editor. Copy the entire contents of the file which is the public key. You'll need it to configure the parameter file in an upcoming step.
 
 1.  In the accompanying source code, modify the `Resources/Infrastructure/bicep/main.parameters.json` file so it contains the proper data for the deployment:
 
