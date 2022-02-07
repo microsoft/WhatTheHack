@@ -2,6 +2,8 @@
 
 ## Introduction 
 
+This hack is designed to help build skills in connecting other Azure services to SAP instances hosted on the Microsoft Azure platform. Connecting services to SAP systems hosted either on-premises or in the cloud should not be overly difficult, yet often the correct tools and processes are poorly understood and / or documented.
+
 Following on from 042-SAPOnAzure, many SAP S/4 HANA or ECC customers wish to use Azure to build build applications and integrations that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. 
 
 ## Learning Objectives
@@ -54,4 +56,4 @@ You will then move on to building interactive applications and intelligent agent
 - Vinod Desmuth
 - Christof Claessens
 - Jelle Druyts
-- Martin Raepple
+- Martin Raepple 
