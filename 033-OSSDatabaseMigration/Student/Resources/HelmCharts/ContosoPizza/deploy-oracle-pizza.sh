@@ -2,6 +2,7 @@ status="Running"
 
 #Deploy Oracle DB
 helm upgrade --install wth-oracle ../Oracle184 --set infrastructure.password=OCPHack8
+helm upgrade --install ora2pg ../ora2pg
 
 for ((i = 0 ; i < 30 ; i++)); do
     oraStatus=$(kubectl -n oracle get pods --no-headers -o custom-columns=":status.phase")
