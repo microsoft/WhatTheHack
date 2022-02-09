@@ -48,5 +48,9 @@ for ((i = 0 ; i < 30 ; i++)); do
     fi
 done
 
+ora2pgIP=$(kubectl -n ora2pg get svc -o jsonpath="{.items[0].status.loadBalancer.ingress[0].ip}")
+ora2pgPort=$(kubectl -n ora2pg get svc -o jsonpath="{.items[0].spec.ports[0].port}")     
+echo "ora2pg is at http://$ora2pgIP:$ora2pgPort/"
+
 oracleAppIP=$(kubectl -n contosoapporacle get svc -o jsonpath="{.items[0].status.loadBalancer.ingress[0].ip}")
 echo "Pizzeria app on Oracle is ready at http://$oracleAppIP:8083/pizzeria"
