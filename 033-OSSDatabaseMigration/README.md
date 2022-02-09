@@ -1,6 +1,6 @@
 # What The Hack - Intro To OSS DB Migration to Azure OSS DB
 ## Introduction
-This intro level hackathon will help you get hands-on experience migrating databases from on-premises PostgreSQL, Oracle and/or MySQL to Azure DB for PostgreSQL and MySQL.
+This intro level hackathon will help you get hands-on experience migrating databases from on-premises PostgreSQL, Oracle and/or MySQL to Azure DB for PostgreSQL and/or Azure DB for MySQL.
 
 ## Learning Objectives
 In this hack you will solve a common challenge for companies migrating to the cloud: migrating databases such as PostgreSQL, Oracle and MySQL to Azure. The application using the database is a sample e-commerce [application](https://github.com/pzinsta/pizzeria) written in Java. It will be configured to use PostgreSQL, MySQL and/or Oracle. 
