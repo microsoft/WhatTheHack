@@ -48,9 +48,9 @@ infrastructure:
   volumeName: "contosopizza"
 
 image:
-  name: izzyacademy/ubuntu-pizza
+  name: perktime/ubuntu-pizza
   pullPolicy: IfNotPresent
-  tag: "3.0"
+  tag: "1.0"
 
 service:
   type: LoadBalancer
