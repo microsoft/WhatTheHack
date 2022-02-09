@@ -50,7 +50,8 @@ The participants will learn how to:
    - Pizzeria application environment setup
 
 ## Contributors
-- Daniel Kondrasevich
-- Israel Ekpo
 - Pete Rodriguez
+- Israel Ekpo
+- Mike Shelton
+- Daniel Kondrasevich 
 - Sumit Sengupta
