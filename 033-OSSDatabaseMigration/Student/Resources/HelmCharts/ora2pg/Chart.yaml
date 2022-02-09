@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: ora2pg
+
+description: A Helm chart for Visualate ora2pg
+
+type: application
+
+version: 1.0
+
+appVersion: 1.0

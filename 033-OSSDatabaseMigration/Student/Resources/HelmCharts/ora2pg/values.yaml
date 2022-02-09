@@ -1,0 +1,23 @@
+
+replicaCount: 1
+
+application:
+  labelValue: ora2pg
+
+infrastructure:
+  namespace: ora2pg
+  appName: ora2pg
+image:
+  name: visulate/visulate-ora2pg
+  pullPolicy: IfNotPresent
+  tag: "latest"
+  
+service:
+  type: LoadBalancer
+  port: 3000
+  protocol: TCP
+
+resources:
+  limits:
+     cpu: 100m
+     memory: 1096Mi

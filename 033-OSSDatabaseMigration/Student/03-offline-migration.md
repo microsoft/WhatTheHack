@@ -15,16 +15,31 @@ In the offline migration approach, your application can tolerate some downtime t
 
 * You have chosen the proper Azure DB database service at an appropriate service tier based on the sizing analysis you performed in an earlier challenge
 * You have created a MySQL and/or PostgreSQL database for the application in Azure DB
-* You have created a separate "wth" database in MySQL and/or PostgreSQL
-* You have a user called "contosoapp" with the same privileges that it has on the source database
 * Demonstrate to your coach that the "on-premises" Pizzeria application data has migrated successfully to Azure
 
 ## Hints
 
-* You can do the import/export from within the containers for PostgreSQL and MySQL that you created in the prereqs. Alternatively, if the database copy tools are installed on your machine, you can connect to the database from your computer as well. 
+* You can do the import/export from within the containers for PostgreSQL, Oracle and/or MySQL that you created in the prereqs. Alternatively, if the database copy tools are installed on your machine, you can connect to the database from your computer as well. 
 * You can install the editor of your choice in the database container(s) (e.g.`apt update` and `apt install vim`) in case you need to make changes to the MySQL dump file
-* For both MySQL and PostgreSQL, you can use Azure Data Factory to copy the data as an alternative approach. 
+* For MySQL, Oracle and PostgreSQL, you can use Azure Data Factory to copy the data as an alternative approach. 
 * You are free to choose other 3rd party tools like MySQLWorkbench, dbeaver, etc. for this challenge
+* For Oracle, a container with the tool ora2pg has been deployed into your AKS cluster. You can either use the CLI version of ora2pg or use the web UI. 
+
+To get to the CLI, you will need to do this: 
+```bash
+    podName=$(kubectl get pods -n ora2pg --no-headers -o custom-columns=":metadata.name")
+    kubectl exec -n ora2pg -it $podName -- /bin/bash
+    cd /usr/local/bin
+    ora2pg
+```
+
+For the web UI, you will need to do this:
+```bash
+    ora2pgIP=$(kubectl -n ora2pg get svc -o jsonpath="{.items[0].status.loadBalancer.ingress[0].ip}")
+    ora2pgPort=$(kubectl -n ora2pg get svc -o jsonpath="{.items[0].spec.ports[0].port}")     
+    echo "ora2pg is at http://$ora2pgIP:$ora2pgPort/"
+ ```
+
 
 ## References
 * [Migrate your PostgreSQL database using export and import](https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import)
@@ -35,4 +50,10 @@ In the offline migration approach, your application can tolerate some downtime t
 * [Firewall rules in Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/concepts-firewall-rules)
 * [Copy using Azure Data Factory for PostgreSQL](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-postgresql)
 * [Copy using Azure Data Factory for MySQL](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-database-for-mysql)
+* [Copy activity in Azure Data Factory and Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
+* [Move Oracle and MySQL databases to PostgreSQL](https://ora2pg.darold.net/)
+* [Visualate Ora2Pg](https://github.com/visulate/visulate-ora2pg)
+* [Data migration Team Whitepapers](https://github.com/microsoft/DataMigrationTeam/tree/master/Whitepapers)
+
+
  
