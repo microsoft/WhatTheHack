@@ -18,7 +18,7 @@ The participants will learn how to:
 - Challenge 0: **[Pre-requisites - Setup Environment and Prerequisites!](Student/00-prereqs.md)**
    - Prepare your environment to run the sample application
 - Challenge 1: **[Assessment (features differences and compatibility)](Student/01-assessment.md)**
-   - Assess the application's PostgreSQL/MySQL databases
+   - Assess the application's PostgreSQL/MySQL/Oracle databases
 - Challenge 2: **[Size analysis](Student/02-size-analysis.md)**
    - Determine the CPU/memory configuration and database file size and map to an equivalent size in Azure
 - Challenge 3: **[Offline migration](Student/03-offline-migration.md)**
