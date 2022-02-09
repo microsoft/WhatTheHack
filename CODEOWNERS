@@ -10,4 +10,5 @@
 # subdirectories.
 /000-HowToHack/ @jrzyshr
 /007-AzureMonitoring/ @shbabylo
+/039-AKSEnterpriseGrade/ @erjosito 
 /047-TrafficControlWithDapr/ @jordanbean-msft
