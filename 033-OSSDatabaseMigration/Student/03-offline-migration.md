@@ -39,7 +39,7 @@ For the web UI, you will need to do this:
     ora2pgPort=$(kubectl -n ora2pg get svc -o jsonpath="{.items[0].spec.ports[0].port}")     
     echo "ora2pg is at http://$ora2pgIP:$ora2pgPort/"
  ```
-
+* For Oracle, you may want to wait to add contstraints (or temporarily disable them) until after you have added the data into the tables
 
 ## References
 * [Migrate your PostgreSQL database using export and import](https://docs.microsoft.com/en-us/azure/postgresql/howto-migrate-using-export-and-import)
