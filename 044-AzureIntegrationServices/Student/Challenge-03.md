@@ -42,4 +42,9 @@ For both scenarios, you should be able to:
 - Browse to the Dev portal in a separate incognito/private broswer and test Hello API GET operation.  
 
 ## Advanced Challenges
-- [TODO]
+
+- Use your newly acquired GitHub Action or DevOps Pipeline superpowers to deploy your Functions code to your Function app in a pipeline!
+    - [Deploy Azure Functions using GitHub Actions](https://github.com/Azure/functions-action).
+    - [Deploy Azure Functions using Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-function-app?view=azure-devops).
+- Why not set up the Hello API and add it to the Unlimited API using Bicep?
+    - [Microsoft.ApiManagement service/apis Bicep reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service/apis?tabs=bicep).
