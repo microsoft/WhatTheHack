@@ -4,7 +4,7 @@
 
 # Find out your local client ip address. 
 
-echo -e "\n This script restricts the access to your ""on-prem"" Postgres and MySQL database from the shell where it is run from.
+echo -e "\n This script restricts the access to your ""on-prem"" Postgres, Oracle and MySQL database from the shell where it is run from.
  It removes public access to the databases and adds your shell IP address as an source IP to connect from.
  If you are running this script from Azure Cloud Shell and want to add your computer's IP address as a source for Gui tools to connect to, 
  then you have to edit the variable my_ip below - put  your computer's IP address. 
