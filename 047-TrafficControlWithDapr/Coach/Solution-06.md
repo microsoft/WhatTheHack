@@ -177,8 +177,12 @@ The proxy uses HTTP to send the message to the `TrafficControlService`. You will
             public MqttTrafficControlService(int camNumber)
             {
                 // connect to mqtt broker
+                var config = new MqttConfiguration() {
+                  KeepAliveSecs = 1,
+                  Port = 1883
+                };
                 var mqttHost = Environment.GetEnvironmentVariable("MQTT_HOST") ?? "localhost";
-                _client = MqttClient.CreateAsync(mqttHost, 1883).Result;
+                _client = MqttClient.CreateAsync(mqttHost, config).Result;
                 var sessionState = _client.ConnectAsync(
                     new MqttClientCredentials(clientId: $"camerasim{camNumber}")).Result;
             }
