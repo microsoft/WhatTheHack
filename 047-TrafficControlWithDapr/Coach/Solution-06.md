@@ -99,6 +99,8 @@ First, create an input binding for the `/entrycam` operation:
         value: mqtt://localhost:1883
       - name: topic
         value: trafficcontrol/entrycam
+      - name: consumerID
+        value: trafficcontrolservice
     scopes:
       - trafficcontrolservice
     ```
@@ -129,6 +131,8 @@ Next, create an input binding for the `/exitcam` operation:
         value: mqtt://localhost:1883
       - name: topic
         value: trafficcontrol/exitcam
+      - name: consumerID
+        value: trafficcontrolservice
     scopes:
       - trafficcontrolservice    
     ```
