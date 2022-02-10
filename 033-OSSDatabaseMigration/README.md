@@ -1,15 +1,15 @@
 # What The Hack - Intro To OSS DB Migration to Azure OSS DB
 ## Introduction
-This intro level hackathon will help you get hands-on experience migrating databases from on-premises PostgreSQL and MySQL to Azure DB for PostgreSQL and MySQL.
+This intro level hackathon will help you get hands-on experience migrating databases from on-premises PostgreSQL, Oracle and/or MySQL to Azure DB for PostgreSQL and/or Azure DB for MySQL.
 
 ## Learning Objectives
-In this hack you will solve a common challenge for companies migrating to the cloud: migrating open source databases to Azure. The application using the database is a sample e-commerce [application](https://github.com/pzinsta/pizzeria) written in Java. It will be configured to use both PostgreSQL and MySQL databases.
+In this hack you will solve a common challenge for companies migrating to the cloud: migrating databases such as PostgreSQL, Oracle and MySQL to Azure. The application using the database is a sample e-commerce [application](https://github.com/pzinsta/pizzeria) written in Java. It will be configured to use PostgreSQL, MySQL and/or Oracle. 
 
 The participants will learn how to:
 
 1. Perform a pre-migration assessment of the databases looking at size, database engine type, database version, etc.
 1. Use offline tools to copy the databases to Azure OSS databases
-1. Use the Azure Database Migration Service to perform an online migration
+1. Use the Azure Database Migration Service to perform an online migration (if applicable)
 1. Do cutover and validation to ensure the application is working properly with the new configuration
 1. Use a private endpoint for Azure OSS databases instead of a public IP address for the database
 1. Configure a read replica for the Azure OSS databases
@@ -18,11 +18,11 @@ The participants will learn how to:
 - Challenge 0: **[Pre-requisites - Setup Environment and Prerequisites!](Student/00-prereqs.md)**
    - Prepare your environment to run the sample application
 - Challenge 1: **[Assessment (features differences and compatibility)](Student/01-assessment.md)**
-   - Assess the application's PostgreSQL/MySQL databases
+   - Assess the application's PostgreSQL/MySQL/Oracle databases
 - Challenge 2: **[Size analysis](Student/02-size-analysis.md)**
    - Determine the CPU/memory configuration and database file size and map to an equivalent size in Azure
 - Challenge 3: **[Offline migration](Student/03-offline-migration.md)**
-   - Dump the "on-prem" databases, create databases for Azure DB for PostgreSQL/MySQL and restore them
+   - Dump the "on-prem" databases (or use a tool like ora2pg), create databases for Azure DB for PostgreSQL/MySQL and restore them
 - Challenge 4: **[Offline Cutover and Validation](Student/04-offline-cutover-validation.md)**
    - Reconfigure the application to use the appropriate connection string and validate that the application is working
 - Challenge 5: **[Online Migration](Student/05-online-migration.md)**
@@ -50,7 +50,8 @@ The participants will learn how to:
    - Pizzeria application environment setup
 
 ## Contributors
-- Daniel Kondrasevich
-- Israel Ekpo
 - Pete Rodriguez
+- Israel Ekpo
+- Mike Shelton
+- Daniel Kondrasevich 
 - Sumit Sengupta
