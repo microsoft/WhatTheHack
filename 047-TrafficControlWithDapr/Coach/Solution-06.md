@@ -99,6 +99,8 @@ First, create an input binding for the `/entrycam` operation:
         value: mqtt://localhost:1883
       - name: topic
         value: trafficcontrol/entrycam
+      - name: consumerID
+        value: trafficcontrolservice
     scopes:
       - trafficcontrolservice
     ```
@@ -129,6 +131,8 @@ Next, create an input binding for the `/exitcam` operation:
         value: mqtt://localhost:1883
       - name: topic
         value: trafficcontrol/exitcam
+      - name: consumerID
+        value: trafficcontrolservice
     scopes:
       - trafficcontrolservice    
     ```
@@ -177,10 +181,14 @@ The proxy uses HTTP to send the message to the `TrafficControlService`. You will
             public MqttTrafficControlService(int camNumber)
             {
                 // connect to mqtt broker
+                var config = new MqttConfiguration() {
+                  KeepAliveSecs = 60,
+                  Port = 1883
+                };
                 var mqttHost = Environment.GetEnvironmentVariable("MQTT_HOST") ?? "localhost";
-                _client = MqttClient.CreateAsync(mqttHost, 1883).Result;
+                _client = MqttClient.CreateAsync(mqttHost, config).Result;
                 var sessionState = _client.ConnectAsync(
-                    new MqttClientCredentials(clientId: $"camerasim{camNumber}")).Result;
+                  new MqttClientCredentials(clientId: $"camerasim{camNumber}")).Result;
             }
    
             public void SendVehicleEntry(VehicleRegistered vehicleRegistered)
