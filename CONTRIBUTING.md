@@ -12,7 +12,7 @@ This document provides the guidelines for how to contribute to the What The Hack
 
 ## How Can I Contribute?
 
-The best way to contribute is to engage and get in touch with the What The Hack team by [submitting an issue via Github](https://github.com/microsoft/WhatTheHack/issues/new/choose). 
+The best way to contribute is to engage and get in touch with the What The Hack team by [submitting an issue via GitHub](https://github.com/microsoft/WhatTheHack/issues/new/choose). 
 
 There are multiple ways to contribute:
 
@@ -74,7 +74,7 @@ You may still choose to develop a new hack independently and submit it for revie
 
 ### On-Boarding Process (Optional, but STRONGLY recommended)
 
-Once you have submitted an [Issue/Proposal](https://github.com/microsoft/WhatTheHack/issues/new?labels=proposal&template=proposal.yml&title=%5BProposal%5D%3A+) via Github, you can expect the following:
+Once you have submitted an [Issue/Proposal](https://github.com/microsoft/WhatTheHack/issues/new?labels=proposal&template=proposal.yml&title=%5BProposal%5D%3A+) via GitHub, you can expect the following:
 
 1.	The WTH team will get in touch to start the on-boarding process. If they are aware of other authors with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
 1.	The WTH team will add you and any co-authors to the "What The Hack" team in Microsoft Teams and:
@@ -97,9 +97,9 @@ Also, don't be shy to ask the WTH team for help navigating Git and GitHub.
 
 ### Development Process
 
-All contributions to the What The Hack repo come through pull requests. This means that development of a hack starts by forking the What The Hack repo into your own Github account. This is where you will do your work. Eventually, you will create a pull request to submit your work back to the What The Hack repo for review.
+All contributions to the What The Hack repo come through pull requests. This means that development of a hack starts by forking the What The Hack repo into your own GitHub account. This is where you will do your work. Eventually, you will create a pull request to submit your work back to the What The Hack repo for review.
 
-**NOTE:** If you are working with a team of co-authors, the team should pick one person to create a fork into their Github account. The other authors should collaborate and contribute to that person's fork during the development process.
+**NOTE:** If you are working with a team of co-authors, the team should pick one person to create a fork into their GitHub account. The other authors should collaborate and contribute to that person's fork during the development process.
 
 Okay, ready to get started creating your own What The Hack?
 
@@ -147,7 +147,7 @@ When you feel your hack is finished and ready for release, this is the process w
 1.	The WTH team will assign your new hack a number.	
 1.	You should immediately rename your root folder to use that number. (i.e. "`XXX-MyAwesomeHack`" to "`067-MyAwesomeHack`")
 1.	The WTH team will schedule a 60-minute "pre-PR review" meeting with you and any co-authors. 
-    - The purpose of this meeting is to go through the content together and reduce the amount of back and forth review cycles on Github once your Pull Request is submitted.
+    - The purpose of this meeting is to go through the content together and reduce the amount of back and forth review cycles on GitHub once your Pull Request is submitted.
     - During this review, the WTH team will go through the text with a fine-toothed comb checking for:
         - Adherence to the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md)
         - All links work, especially the navigation links
@@ -169,7 +169,7 @@ If you choose not to collaborate with the WTH team via Microsoft Teams, alternat
 
 A good way to communicate before investing too much time is to create a "draft" pull request and share it with the WTH team. You can do this by selecting "Create Draft Pull Request" when [opening a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). This will let people looking at your PR know that it is not well baked yet.
 
-The WTH team will review your new hack following the same guidelines as above. However, the process will take longer if we need to spend additional cycles going back and forth within Github's PR process.
+The WTH team will review your new hack following the same guidelines as above. However, the process will take longer if we need to spend additional cycles going back and forth within GitHub's PR process.
 
 ## Contribute an Update to an Existing Hack
 
@@ -180,7 +180,7 @@ If there is no existing Issue for the update you plan to contribute, please star
 - For general improvements: ["Issue/Proposal"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=proposal&template=proposal.yml&title=%5BProposal%5D%3A+).
 
 To contribute an update to an existing hack, you should:
-1. Fork the What The Hack repo into your own Github account. 
+1. Fork the What The Hack repo into your own GitHub account. 
 1. Create a new branch in your fork. This is where you will do your work. (**NOTE:** It is a best practice to never work directly on the main/master branch so that it always reflects the state of the upstream main WTH repo.) 
 1. When you have completed the update in your fork:
     1. [Fetch the latest updates from the upstream repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) (to merge any changes others have made to WTH while you were working on your update) and ensure there are no conflicts with your updates. 
