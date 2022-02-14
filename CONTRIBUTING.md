@@ -74,7 +74,7 @@ You may still choose to develop a new hack independently and submit it for revie
 
 ### On-Boarding Process (Optional, but STRONGLY recommended)
 
-Once you have submitted an [Issue/Proposal](https://aka.ms/wthproposal) via Github, you can expect the following:
+Once you have submitted an [Issue/Proposal](https://github.com/microsoft/WhatTheHack/issues/new?labels=proposal&template=proposal.yml&title=%5BProposal%5D%3A+) via Github, you can expect the following:
 
 1.	The WTH team will get in touch to start the on-boarding process. If they are aware of other authors with similar proposals, they will schedule a meeting with everyone to see if it makes sense to combine efforts.
 1.	The WTH team will add you and any co-authors to the "What The Hack" team in Microsoft Teams and:
