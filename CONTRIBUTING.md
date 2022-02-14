@@ -103,7 +103,7 @@ All contributions to the What The Hack repo come through pull requests. This mea
 
 Okay, ready to get started creating your own What The Hack?
 
-The instructions below assume you have the git command line tool on your machine. If you're more comfortable in a GUI git client, you can use that too (we recommend [Atlassian's SourceTree](https://www.sourcetreeapp.com/)).
+The instructions below assume you have the [Git command line tool](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your machine. If you're more comfortable in a GUI Git client, you can use that too (we recommend [Atlassian's SourceTree](https://www.sourcetreeapp.com/)).
 
 1. Create a fork of the WTH repo
    - Navigate to the WTH repo at: <https://aka.ms/wthrepo>
@@ -119,7 +119,7 @@ The instructions below assume you have the git command line tool on your machine
    git checkout MyWork
    ```
 1. Add a new top level folder to the WTH repo using "`XXX`" as a placeholder for the number prefix
-   ```mkdir XXX-MyAwesomeHack```
+   `mkdir XXX-MyAwesomeHack`
 1. Within your new folder, create the following directory structure:
 	```
     ../Coach
@@ -138,7 +138,7 @@ The instructions below assume you have the git command line tool on your machine
         - The Student guide's Challenge markdown files
         - `/Resources` 
             - The code and supporting files the students will need throughout the hack.
-1. Re-Read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
+1. Re-read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
 
 ### Release Process
 
