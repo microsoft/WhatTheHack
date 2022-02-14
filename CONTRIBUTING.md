@@ -39,7 +39,7 @@ Please go to the Issues page for the WTH repo and create an ["Issue/Bug"](https:
 
 Let us know which hack has the bug. Is it in the Student guide? Coach guide? Is it a documentation issue? Or an issue with a provided resource file or solution file? The form will guide you on what information you should submit. The WTH team will follow up on your submission. 
 
-We welcome bug fixes!  If you wish fix the bug yourself, please see the section on how to [Contribute an update to an existing hack](#-contribute-an-update-to-an-existing-hack)
+We welcome bug fixes!  If you wish fix the bug yourself, please see the section on how to [Contribute an update to an existing hack](#contribute-an-update-to-an-existing-hack)
 
 ## Propose New Hack Topic or Improvement to Existing Hack
 
@@ -56,9 +56,9 @@ Please go to the Issues page for the WTH repo and create an ["Issue/Proposal"](h
 The form will guide you on what information you should submit. The WTH team will follow up on your proposal. 
 
 We welcome new hacks and improvements to existing hacks. If you intend to 'do the work' you are proposing, read on for how to:
-- [Contribute a new hack to What The Hack](#-contribute-a-new-hack-to-what-the-hack)
+- [Contribute a new hack to What The Hack](#contribute-a-new-hack-to-what-the-hack)
 OR
-- [Contribute an update to an existing hack](#-contribute-an-update-to-an-existing-hack)
+- [Contribute an update to an existing hack](#contribute-an-update-to-an-existing-hack)
 
 ## Contribute a New Hack to What The Hack
 
