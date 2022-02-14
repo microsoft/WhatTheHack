@@ -89,7 +89,11 @@ Once you have submitted an [Issue/Proposal](https://github.com/microsoft/WhatThe
     - Set up a bi-weekly cadence meeting to check-in and address any questions or requests you have during development.
 1.	During the cadence meetings, the authors will dictate the pace of the call and report what they have worked on. It is essentially your time to discuss things with the WTH team and/or collaborate with your co-authors. If there is a stint that nothing was worked on, that’s totally fine. We understand and appreciate that most folks are contributing to What The Hack in their spare time.
 
-**NOTE:** If you are not familiar with Git, Github, or markdown files, you are not alone! Since What The Hack is a collection of mostly course content and documentation, many of our contributors are not developers. It's out of scope to explain these tools here. However, there are plenty of great [resources on the Internet](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) that can help get you up to speed. Also, don't be shy to ask the WTH team for help navigating Git and Github. 
+**NOTE:** If you are not familiar with Git, GitHub, or Markdown files, you are not alone! Since What The Hack is a collection of mostly course content and documentation, many of our contributors are not developers. It's out of scope to explain these tools here. However, there are plenty of great resources on the Internet that can help get you up to speed. Here are two to consider as starters:
+- [Contributing to projects on GitHub](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+- [Basic writing and formatting syntax (for GitHub Flavored Markdown)](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+Also, don't be shy to ask the WTH team for help navigating Git and GitHub. 
 
 ### Development Process
 
