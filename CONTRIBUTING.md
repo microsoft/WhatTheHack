@@ -68,7 +68,14 @@ Please check if there is an existing "Proposal" Issue on the WTH repo to track y
 
 If there is no existing Issue for the new hack you plan to contribute, please start by going to the Issues page for the WTH repo and create an ["Issue/Proposal"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=proposal&template=proposal.yml&title=%5BProposal%5D%3A+).
 
-In general, the WTH team prefers to collaborate with and assist contributors as they author new hacks. This makes the review process smoother when a new hack is ready to be published via a Pull Request. We offer the option of collaborating via Microsoft Teams in a "What The Hack" team that we maintain at Microsoft. 
+In general, the WTH team prefers to collaborate with and assist contributors as they author new hacks. This makes the review process smoother when a new hack is ready to be published via a Pull Request. 
+
+By collaborating with the WTH team from the start, it sets your hack up for success by reducing:
+- Any conflicts with other hacks under development
+- Potential re-work from not following our process and required template formats
+- The time to publish your hack to the public
+
+We offer the option of collaborating via Microsoft Teams in a "What The Hack" team that we maintain at Microsoft. 
 
 You may still choose to develop a new hack independently and submit it for review via the [PR process below](#use-draft-pull-requests-for-early-feedback).
 
