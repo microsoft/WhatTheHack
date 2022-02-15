@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # What The Hack - Contribution Guide
 
 What The Hack is all about being "for the people, by the people". This repo was originally created to share real-world hackathons that Microsoft employees have hosted with their customers. It has since grown to be a learning tool for anyone, anywhere, and follows these core principles:
