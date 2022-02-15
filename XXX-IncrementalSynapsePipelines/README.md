@@ -22,9 +22,6 @@ Four words…  <B>Trigger an Incremental Copy</B>.
 - Tool(s) to interact with Azure SQL and a Synapse Dedicated Pool.  Plenty of options here.
 - Power BI Desktop
 
-## Repository Contents (Optional)
-- TBD
-
 ## Contributors
 •	**[Jack Bender](https://www.linkedin.com/in/jack-bender/)**  <BR>
 •	**[Chris Fleming](https://www.linkedin.com/in/chris-fleming/)**
