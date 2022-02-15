@@ -5,23 +5,20 @@
 
 ## Description
 
-We need to setup the proper environment for the Hackathon.  Thus, we need everyone on the team to have access to the Azure SQL, Synapse Environments and also any ancilliaries resources such as the Azure Storage Account and Key Vault.
+We need to setup the proper environment for the Hackathon.  Thus, we need everyone on the team to have access to the Azure SQL, Synapse Environments and also any ancilliaries resources such as the Azure Storage Account and Key Vault.  Thus the following resources will need to be setup.
+
+- An Azure SQL database is created and configured with either the AdventureWorks or World-Wide-Importers database.
+- A Synapse Environment including a SQL Dedicated Pool is created and configured.
+- Key Vault is setup and configured and all users can see the secrets in the Key Vault.
+- Establish a Linked Service in Azure Synapse Analytics that can connect to the Azure SQL Databases using Key Vault based secrets.
+- Setup firewall rules so that only IP Ranges of the team members can access both the Azure SQL and Synapse Analytics envrionments.
+- All resources are tagged appropriately. 
 
 ## Success Criteria
 
-1. An Azure SQL database is created and configured with either the AdventureWorks or World-Wide-Importers database.
+1. Validate that all resources exist in one Resource Group and are tagged appropriately.  
 
-2. A Synapse Environment including a SQL Dedicated Pool is created and configured.
-
-3. Key Vault is setup and configured and all users can see the secrets in the Key Vault.
-
-4. Establish a Linked Service in Azure Synapse Analytics that can connect to the Azure SQL Databases using Key Vault based secrets.
-
-5. Setup firewall rules so that only IP Ranges of the team members can access both the Azure SQL and Synapse Analytics envrionments.
-
-6. All resources exist in one RG and that all team members have the proper access to all the assets, including the ability to perform SQL queries in both the Azure SQL and Dedicated Pool environments.
-
-7. All resources are tagged appropriately. 
+2. Validate that all team members have the proper access to all the assets, including the ability to perform SQL queries in both the Azure SQL and Dedicated Pool environments.
 
 
 ## Learning Resources

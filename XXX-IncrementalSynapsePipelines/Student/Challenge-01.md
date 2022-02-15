@@ -8,13 +8,13 @@
 
 ## Description
 
-Now that our environment is setup, we need to populate the Dedicated Pool with all of the <b>Sales / SalesLT</b> tables from our Azure SQL Database.  
+Now that our environment is setup, we need to populate the Dedicated Pool with all of the <b>Sales / SalesLT</b> tables from our Azure SQL Database.
+
 
 ## Success Criteria
 
-1. All <b>Sales / SalesLT</b> tables reside in the Dedicated Pool
-
-2. The proper table design for a star schema has been implemented in the Dedicated Pool.  Be able to discuss which tables are Distributed Hash, Round Robin, Replicated and why.
+1. The proper table design for a star schema has been implemented in the Dedicated Pool. 
+2. Be able to discuss which tables are Distributed Hash, Round Robin, Replicated and why.
 
 ## Learning Resources
 
@@ -27,6 +27,3 @@ Now that our environment is setup, we need to populate the Dedicated Pool with a
 - [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas)
 
 
-## Tips
-
-*There are also some SQL scripts to use as a reference for CTAS and select statements with regards to the SQL Dedicated Pool.  They are located in the [Resources Folder](https://github.com/jcbendernh/WhatTheHack/tree/IncrementalSynapsePipelines/XXX-IncrementalSynapsePipelines/Student/Resources).*
