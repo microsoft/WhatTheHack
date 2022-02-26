@@ -13,12 +13,12 @@
 
 ## Success Criteria
 
-1. Show code build is successful with Github Action workflow
+1. Show code build is successful with GitHub Action workflow
 2. Verify the artifact is created and code is deployed to the Frontend website
 3. Verfiy changes in your workflow are reflected in Frontend website
 4. Demonstrate functional working of the solution to your coach
 
 ## Learning Resources
 
-- [Workflow Syntax for Github Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [Workflow Syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 - [Dotnet Core Environment Build](https://docs.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs)

@@ -28,7 +28,7 @@ We recommend 6 datasets which line up with facts and dimensions:
 ### Version Control Rules:
 
 - Developers cannot push changes directly to the main branch.  
-    - In Github the repository will need to be public to accomplish this.
+    - In GitHub the repository will need to be public to accomplish this.
 - Changes are reviewed with at least one explicit approval from another developer before being incorporated into the main branch.
 
 Branch Protection steps:

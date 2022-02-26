@@ -149,9 +149,9 @@ for the training key in step 2.
 Create a method named `LoadImagesFromDisk()` that creates two variables named
 `MbikesImages` and `RbikesImages`. Each of thes variables should use the `GetFiles()`
 method to retrieve the images located in the Images\Mountain and Images\Racing
-folder of your Github location respectively. A third variable named `testImage` 
+folder of your GitHub location respectively. A third variable named `testImage` 
 should be created that defines a new MemoryStream which loads the image bike1.jpg 
-from the Images\test folder of your Github location. Create code underneath the 
+from the Images\test folder of your GitHub location. Create code underneath the 
 code created in step 2
 
 

@@ -1,7 +1,7 @@
 # Welcome to Devops With GitHub Hackathon
 
 ## Introduction
-This hack contain is designed to put the student in the role of a DevOps Engineer's day to day life. The hack tests the ability of students to create and manage Azure Cloud services using Github Actions.
+This hack contain is designed to put the student in the role of a DevOps Engineer's day to day life. The hack tests the ability of students to create and manage Azure Cloud services using GitHub Actions.
 
 Using a challenge-based approach, students will start by assessing and discovering existing customer requirements. The students will continue to solve additional challenges that build upon each other to implement the complete end-to-end solution as described in the blueprint image below. As students proceed, there are success criteria for each challenge against which they will be measured before proceeding to the next challenge.
 
@@ -18,13 +18,13 @@ The Contoso Architecture team has already created blueprint of their deployments
 
 • Create a plan, as directed in the hack's challenges, to deploy solution components.
 
-• The code repository is hosted on Github. The Contoso team needs your help to create Github Workflows to automate CI/CD and deploy application on Azure.
+• The code repository is hosted on GitHub. The Contoso team needs your help to create GitHub Workflows to automate CI/CD and deploy application on Azure.
 
 • Security is prime concern for Contoso, hence ensure secrets are stored in secured vaults.
 
 Policy Documents for Policy Holders are stored in Cloud Storage and retrieved using the Web and Mobile apps using APIs.
 
-![Solution BluePrint](/044-DevOpswithGithubActions/Student/Resources/images/solutionblueprint.png)
+![Solution BluePrint](/044-DevOpswithGitHubActions/Student/Resources/images/solutionblueprint.png)
 
 ## Challenges
 - Challenge 1: **[Assessment and Getting Ready for Prerequisite](Student/Challenge01.md)**
@@ -46,7 +46,7 @@ Policy Documents for Policy Holders are stored in Cloud Storage and retrieved us
    
 ## Prerequisites
 
-- Ensure you have a Github Personal Account: [Sign Up for Personal Github Account](https://github.com)
+- Ensure you have a GitHub Personal Account: [Sign Up for Personal GitHub Account](https://github.com)
 - Ensure you have Azure Subscription: [Sign Up for Azure free if you don't have any subscription](https://azure.microsoft.com/en-us/free/)
 
 ## Repository Contents

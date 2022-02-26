@@ -1,6 +1,6 @@
 # Create Service Principal with contributor role
 
-**[Reference 1 : Workflow Syntax for Github Actions ](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)**
+**[Reference 1 : Workflow Syntax for GitHub Actions ](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)**
 
 
 **Reference 2 : Connecting to Azure**
@@ -33,4 +33,4 @@ Output of this will be similar
     
   }
 
-Copy Complete Parenthesis and create Github Secret , This will be our First Github Secret !
+Copy Complete Parenthesis and create GitHub Secret , This will be our First GitHub Secret !

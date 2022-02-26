@@ -42,7 +42,7 @@ to one of the provided WhatTheHack accounts.
 has been extracted and stored in the enterprise data lake.
 - All data from the `covidpolicy` collection in Cosmos DB
 has been extracted and stored in the enterprise data lake.
-- All scripts/code used to move the data to the Data Lake is persisted in Github.
+- All scripts/code used to move the data to the Data Lake is persisted in GitHub.
 
 ## Tips
 

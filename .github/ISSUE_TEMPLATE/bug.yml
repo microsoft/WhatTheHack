@@ -57,7 +57,7 @@ body:
         - 041-VirtualWAN
         - 042-SAPOnAzure
         - 043-SQLModernization
-        - 044-DevOpswithGithubActions
+        - 044-DevOpswithGitHubActions
         - 045-InfraAsCode-Bicep
         - Other
     validations:
