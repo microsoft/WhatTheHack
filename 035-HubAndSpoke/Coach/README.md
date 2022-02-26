@@ -20,9 +20,9 @@ These topics are not covered, and you might want to introduce them along the way
     - Configure a basic hub and spoke design with hybrid connectivity
 - Challenge 2: **[Azure Firewall](02-AzFW.md)**
     - Fine tune your routing to send additional traffic flows through the firewall
-- Challenge 3: **[Routing Troubleshooting](03-Asymmetric)**
+- Challenge 3: **[Routing Troubleshooting](03-Asymmetric.md)**
     - Troubleshoot a routing problem introduced by a different admin
-- Challenge 4: **[Application Gateway](04-AppGW.MD)**
+- Challenge 4: **[Application Gateway](04-AppGW.md)**
     - Add an Application Gateway to the mix
-- Challenge 5: **[PaaS Networking](05-Paas.md)**
+- Challenge 5: **[PaaS Networking](05-PaaS.md)**
     - Integrate Azure Web Apps and Azure SQL Databases with your hub and spoke design
