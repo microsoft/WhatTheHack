@@ -39,6 +39,9 @@ For the web UI, you will need to do this:
     ora2pgPort=$(kubectl -n ora2pg get svc -o jsonpath="{.items[0].spec.ports[0].port}")     
     echo "ora2pg is at http://$ora2pgIP:$ora2pgPort/"
  ```
+
+* If you choose to use the ora2pg CLI, you will need to modify the ora2pg.conf file located in /config with your settings for ORACLE_DSN, ORACLE_USER and ORACLE_PWD. The only installed editor in the container is vi. 
+
 * For Oracle, you may want to wait to add contstraints (or temporarily disable them) until after you have added the data into the tables
 
 ## References
