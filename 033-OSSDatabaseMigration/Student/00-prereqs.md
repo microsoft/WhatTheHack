@@ -161,7 +161,9 @@ kubectl exec -n <namespace> -it <name_of_pod> -- /bin/bash
 Once you connect, you will use sqlplus (Oracle), psql(PostgreSQL), and mysql (MySQL). The usernames for each database are:
 
 MySQL: contosoapp
+
 PostgreSQL: contosoapp
+
 Oracle: C##WTH@XE
 
 Your instructor will provide the password. 
