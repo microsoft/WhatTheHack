@@ -40,7 +40,7 @@ Some GUI tools which run on Windows/Mac include:
 - [DBeaver](https://dbeaver.io/download/) - can connect to MySQL, Oracle and PostgreSQL (and other databases)
 - [pgAdmin](https://www.pgadmin.org/download/) - PostgreSQL only
 - [MySQL Workbench](https://www.mysql.com/products/workbench/) - MySQL only
-- [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - PostgreSQL and Oracle only (with PostgreSQL and Oracle extension, besides SQL server)
+- [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - PostgreSQL and Oracle only (with PostgreSQL and Oracle extension, besides SQL server). Note: Azure Data Studio does not currently support query execution for Oracle databases. 
 
 ## Introduction
 
@@ -151,6 +151,20 @@ This script will block public access to the "on-premises" MySQL, PostgreSQL, and
  kubectl -n oracle get svc
 
 ```
+* To connect to the database instances, use these commands. The Kubernetes namespaces for the database containers are oracle, postgresql, and mysql. Once you get the name of the pod, use kubectl exec to get a Bash session to the database container.
+
+```bash
+kubectl get pods -n <namespace>
+kubectl exec -n <namespace> -it <name_of_pod> -- /bin/bash
+```
+
+Once you connect, you will use sqlplus (Oracle), psql(PostgreSQL), and mysql (MySQL). The usernames for each database are:
+
+MySQL: contosoapp
+PostgreSQL: contosoapp
+Oracle: C##WTH@XE
+
+Your instructor will provide the password. 
 
 There are more useful kubernetes commands in the reference section below.
 
