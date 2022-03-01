@@ -27,6 +27,7 @@ If you choose to run it from your local workstation, you need to install the fol
 - [Helm3](https://helm.sh/docs/intro/install/) 
 - MySQL command line client tool (or optional GUI tool mentioned below)
 - PostgreSQL command line client tool (or GUI optional tool mentioned below)
+- [SQL *Plus for Oracle](https://docs.oracle.com/cd/E11882_01/server.112/e16604/apd.htm#SQPUG157)
 
 You should carefully consider how much time you will need to install these tools on your own computer. Depending on your Internet and computer's speed, this additional local setup will probably take around 30-60 minutes. You will also need a text editor of your choice if it is not already installed. 
 
