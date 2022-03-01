@@ -116,7 +116,7 @@ PostgreSQL:
 ```
 Oracle:
 ```bash
-      Pizzeria app on Oracle is ready at http://some_ip_address:8083/pizzeria            
+      Pizzeria app on Oracle is ready at http://some_other_ip_address:8083/pizzeria            
 ```
 
 ### Secure Access to "On-Prem" Databases
