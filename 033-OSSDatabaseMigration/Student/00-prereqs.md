@@ -45,7 +45,7 @@ Some GUI tools which run on Windows/Mac include:
 
 Now that you have your pre-requisites set up, it is time to get the hack's environment set up.  
 
-This hack is designed to help you learn how to migrate open source databases to Azure. But where will you migrate databases FROM? The hack has a pre-canned "on-premises" environment that you will deploy into your Azure subscription. This "on-prem" environment will act 
+This hack is designed to help you learn how to migrate to open source databases to Azure. But where will you migrate databases FROM? The hack has a pre-canned "on-premises" environment that you will deploy into your Azure subscription. This "on-prem" environment will act 
 as the source from which you will migrate data to Azure.
 
 The "on-premises" environment runs entirely in an AKS cluster in Azure. It consists of:
@@ -54,7 +54,7 @@ The "on-premises" environment runs entirely in an AKS cluster in Azure. It consi
 
 ## Description
 
-The "on-premises" environment is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, databases, and sample application.  Your coach will provide you with a Resources.zip file that contains the files needed to deploy the "on-premises" environment.
+The "on-premises" environment is deployed in two steps by scripts that invoke ARM Templates and Helm charts to create the AKS cluster, databases, and sample application. These environments will be created in your Azure subscription and in the OSSDBMigration resource group (by default). Your coach will provide you with a Resources.zip file that contains the files needed to deploy the "on-premises" environment.
 
    - Download the required Resources.zip file for this hack. You should do this in Azure Cloud Shell or in a Mac/Linux/WSL environment which has the Azure CLI installed. 
    - Unzip the Resources.zip file to your home diretory
