@@ -107,7 +107,7 @@ Oracle:
 ./deploy-oracle-pizza.sh
 ```
 
-**NOTE:** Deploying each Pizzeria application will take several minutes
+**NOTE:** Deploying each Pizzeria application will take several minutes. Oracle takes a long time to complete setup (around 12 minutes). 
 
 ### View the Sample Application
 
@@ -127,6 +127,14 @@ Oracle:
       Pizzeria app on Oracle is ready at http://some_other_ip_address:8083/pizzeria            
 ```
 
+Note: it may take several minutes for the web application(s) to be available in the web browser (connection timeouts maybe appear if you try it before the application is ready). 
+
+## Make sure you have data in your WTH database
+
+Once you have validated that the web application works, verify that you have data in your "on-prem" database(s). You can use either the GUI or CLI tools for Oracle, PostgreSQL and/or MySQL. Once you connect to your database, you can run a query such as `SELECT * from Pizza`. The database schema can be viewed [here](https://camo.githubusercontent.com/0f0cd3e28bd97b0924a4aa79ca70709f1fc4880afa7b6651eb43165e0188ef05/68747470733a2f2f7261776769742e636f6d2f707a696e7374612f70697a7a657269612f6d61737465722f646f63756d656e746174696f6e2f64617461626173655f736368656d612e737667)
+
+Note: For SQLPlus* for Oracle, you will need to append the SID to the username (e.g. C##WTH@XE). 
+
 ### Secure Access to "On-Prem" Databases
 
    - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_db_from_client.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/modify_nsg_for_db_from_client.sh` 
@@ -144,7 +152,7 @@ This script will block public access to the "on-premises" MySQL, PostgreSQL, and
 * You have a Unix/Linux Shell for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
 * You have validated that the Pizzeria application(s) (PostgreSQL, MySQL and/or Oracle) are working
 * [Optional] You have database management GUI tools for PostgreSQL, MySQL and/or Oracle are installed on your computer and are able to connect to the PostgreSQL, MySQL and/or Oracle databases.
-* Once connected to the database, explore the "wth" database used for the application by running SELECT statements on some tables to ensure data is present 
+* Once connected to the database, you have explored the "wth" database used for the application by running SELECT statements on some tables to ensure data is present 
 
 
 ## Hints
@@ -172,7 +180,7 @@ MySQL: contosoapp
 
 PostgreSQL: contosoapp
 
-Oracle: C##WTH@XE
+Oracle: C##WTH
 
 Your instructor will provide the password. 
 
