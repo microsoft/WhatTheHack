@@ -49,7 +49,9 @@ Now that you have your pre-requisites set up, it is time to get the hack's envir
 This hack is designed to help you learn how to migrate to open source databases to Azure. The following migration scenarios are included with this hack:
 
 MySQL -> Azure DB for MySQL
+
 PostgreSQL -> Azure DB for PostgreSQL
+
 Oracle -> Azure DB for Oracle
 
 You can choose to perform a migration for one or more of these scenarios. It's up to you. If you choose more than one, you will be expected to perform the migration steps for each database in Challenges 1 through 6. 
