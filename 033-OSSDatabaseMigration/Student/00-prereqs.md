@@ -68,7 +68,7 @@ The "on-premises" environment runs entirely in an AKS cluster in Azure. It consi
 The "on-premises" environment is deployed in two steps by scripts that invoke ARM Templates and Helm charts to create the AKS cluster, databases, and sample application. These environments will be created in your Azure subscription and in the OSSDBMigration resource group (by default). Your coach will provide you with a Resources.zip file that contains the files needed to deploy the "on-premises" environment.
 
    - Download the required Resources.zip file for this hack. You should do this in Azure Cloud Shell or in a Mac/Linux/WSL environment which has the Azure CLI installed. 
-   - Unzip the Resources.zip file to your home diretory 
+   - Unzip the Resources.zip file to your home diretory with `unzip Resources.zip`. Note: do not unzip the Resources.zip in Windows and copy to WSL. 
 
 ### Deploy "on-prem" AKS Environment
 
