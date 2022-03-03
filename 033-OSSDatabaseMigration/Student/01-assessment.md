@@ -8,7 +8,7 @@ Make sure your database is ready to move
 
 ## Description
 
-In this challenge you'll be connecting to your "on-prem" environment using the database tools you installed in the prerequisites. You will take an inventory of the databases that need to be migrated, check the database versions, check the database engine and determine if they are ready to migrate to Azure. 
+In this challenge you'll be connecting to your "on-prem" environment using the database tools you installed in the prerequisites. You will take an inventory of the databases that need to be migrated, check the database versions, check the database engine and determine if they are ready to migrate to Azure. You can use either the GUI or CLI tools mentioned in the [Prerequisites](./00-prereqs.md) to get this information.
 
 ## Success Criteria
 
