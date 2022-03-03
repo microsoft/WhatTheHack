@@ -55,3 +55,4 @@ The participants will learn how to:
 - Mike Shelton
 - Daniel Kondrasevich 
 - Sumit Sengupta
+- Peter Laudati
