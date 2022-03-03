@@ -18,7 +18,7 @@
 
     1.  Set Agent Pool to Azure Pipelines
 
-    2.  Set Agent Specification to ubuntu-16.04
+    2.  Set Agent Specification to ubuntu-18.04
 
 4.  Setup Build pipeline – Add the following tasks
 
