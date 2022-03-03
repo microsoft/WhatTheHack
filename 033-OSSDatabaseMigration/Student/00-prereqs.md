@@ -62,7 +62,7 @@ The "on-premises" environment is deployed in two steps by scripts that invoke AR
 
 ### Deploy "on-prem" AKS Environment
 
-Run the following command to setup the on-prem AKS environment:
+Run the following command to setup the on-prem AKS environment. Note: if you are running on your local machine, you may have to do an `az login` first. 
 
 ```bash
 cd ~/Resources/ARM-Templates/KubernetesCluster
