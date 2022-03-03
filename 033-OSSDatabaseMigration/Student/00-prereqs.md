@@ -154,7 +154,7 @@ This script will block public access to the "on-premises" MySQL, PostgreSQL, and
 * You have a Unix/Linux Shell for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
 * You have validated that the Pizzeria application(s) (PostgreSQL, MySQL and/or Oracle) are working
 * [Optional] You have database management GUI tools for PostgreSQL, MySQL and/or Oracle are installed on your computer and are able to connect to the PostgreSQL, MySQL and/or Oracle databases.
-* Once connected to the database, you have explored the "wth" database used for the application by running SELECT statements on some tables to ensure data is present 
+* You have explored the "wth" database used for the application by running SELECT statements on some tables to ensure data is present 
 
 
 ## Hints
