@@ -3,7 +3,9 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 IFS=$'\n\t'
 
-templateDirectoryName="000-HowToHack/template-files"
+declare -r templateDirectoryName="000-HowToHack/template-files"
+declare -r replaceMeRegex="<!-- REPLACE_ME \(\${.*}\) .* REPLACE_ME -->"
+declare -r removeMeRegex="<!-- REMOVE_ME .* -->\n\(?:.*\n\)*<!-- REMOVE_ME .* -->"
 
 Help() {
    echo "Syntax: createWthTemplate [-c|d|h|n|p|v]"
@@ -44,6 +46,18 @@ CreateDirectoryStructure() {
 
   # create the Student & Student/Resources directories
   mkdir -p $rootPath/Student/Resources
+}
+
+PreprocessTemplateFile() {
+  local -r pathToFile=$1
+
+  local text=""
+
+  text=$(cat $pathToFile)
+
+
+
+  echo ""
 }
 
 WriteMarkdownFile() {

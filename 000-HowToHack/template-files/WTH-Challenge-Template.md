@@ -1,6 +1,12 @@
 # Challenge ${suffixNumber}
 
-${navigationLine}
+<!-- REPLACE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REPLACE_ME -->
+
+<!-- REMOVE_ME (this section will be removed by the automation script) -->
+[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+<!-- REMOVE_ME (this section will be removed by the automation script) -->
+
+**[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Pre-requisites (Optional)
 
