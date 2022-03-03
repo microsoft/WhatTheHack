@@ -85,9 +85,9 @@ fi
 
 if [ "$existing_or_source_ip_allowed_prefix" = "0.0.0.0" ]  
 then  
-  new_my_source_ip_allowed="$my_ip"
+  new_or_source_ip_allowed="$my_ip"
 else  
-  new_my_source_ip_allowed="$existing_or_source_ip_allowed $my_ip"
+  new_or_source_ip_allowed="$existing_or_source_ip_allowed $my_ip"
 fi
 
 
@@ -95,7 +95,7 @@ fi
 # simply twice back to back - it gives an error message - does not do any harm though .
    
 
-
+#echo -e "Using Resource Group $rg_nsg, NSG Name $nsg_name, Names $pg_nsg_rule_name, $my_nsg_rule_name, $or_nsg_rule_name, Source Address Prefixes $new_pg_source_ip_allowed"
 az network nsg rule update -g $rg_nsg --nsg-name $nsg_name --name $pg_nsg_rule_name --source-address-prefixes $new_pg_source_ip_allowed 2>/dev/zero
 
 if [ $? -ne 0 ]
