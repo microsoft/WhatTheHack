@@ -3,8 +3,10 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 IFS=$'\n\t'
 
+templateDirectoryName="000-HowToHack/template-files"
+
 Help() {
-   echo "Syntax: createWthTemplate [-c|d|h|n|v]"
+   echo "Syntax: createWthTemplate [-c|d|h|n|p|v]"
    echo "options:"
    echo "c     How many challenges to stub out."
    echo "d     Delete existing directory with same name."
@@ -16,64 +18,74 @@ Help() {
 }
 
 CreateDirectoryStructure() {
-  local -r fullPath=$1
-  local -r deleteExistingDirectory=$2
+  local -r deleteExistingDirectory=$1
 
   if $deleteExistingDirectory; then
-    rm -rf $fullPath
+    rm -rf $rootPath
   fi
 
   if $verbosityArg; then
-    echo "Creating $fullPath directory..."
+    echo "Creating $rootPath directory..."
   fi
 
   # create the xxx-YetAnotherWth directory
-  mkdir $fullPath
+  mkdir $rootPath
 
   if $verbosityArg; then
-    echo "Creating $fullPath/Coach/Solutions directories..."
+    echo "Creating $rootPath/Coach/Solutions directories..."
   fi
 
   # create the Coach & Coach/Solutions directories
-  mkdir -p $fullPath/Coach/Solutions
+  mkdir -p $rootPath/Coach/Solutions
 
   if $verbosityArg; then
-    echo "Creating $fullPath/Student/Resources directories..."
+    echo "Creating $rootPath/Student/Resources directories..."
   fi
 
   # create the Student & Student/Resources directories
-  mkdir -p $fullPath/Student/Resources
+  mkdir -p $rootPath/Student/Resources
 }
 
-CreateReadmeFile() {
-  local -r fullPath=$1
-  local -r numberOfChallenges=$2
-  local -r wthName=$3
+WriteMarkdownFile() {
+  local -r pathToWriteTo=$1
+  local -r markdownTemplateFileName=$2
 
-  if $verbosityArg; then
-    echo "Creating $fullPath/README.md..."
-  fi
+  local -r pathToTemplate="$pathToTemplateDirectory/$markdownTemplateFileName"
+
+  #read in the template file & replace predefined variables 
+  #(defined in the file as ${varName})
+  local template=$(eval "cat <<EOF
+$(<$pathToTemplate)
+EOF
+" 2> /dev/null)
+
+  cat > "$pathToWriteTo" <<<$template
+}
+
+GenerateChallengesSection() {
+  local -r numberOfChallenges=$1
+  local -r directoryName=$2
+  local -r typeName=$3
 
   local challengesSection=""
 
   for challengeNumber in $(seq -f "%02g" 1 $numberOfChallenges); do
-    eval challengesSection+=\$\'1. Challenge $challengeNumber: **[Description of challenge]\(Student/Challenge-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
+    eval challengesSection+=\$\'1. Challenge $challengeNumber: **[Description of challenge]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
   done
 
-  cat > "$fullPath/README.md" <<EOL
-# What The Hack - ${wthName}
-## Introduction
-## Learning Objectives
-## Challenges
-${challengesSection}
-## Prerequisites
-## Repository Contents
-- \`./Coach/Guides\`
-  - Coach's Guide and related files
-- \`./Student/Guides\`
-  - Student's Challenge Guide
-## Contributors
-EOL
+  echo "$challengesSection"
+}
+
+CreateHackDescription() {
+  local -r numberOfChallenges=$1
+
+  if $verbosityArg; then
+    echo "Creating $rootPath/README.md..."
+  fi
+
+  local -r challengesSection=$(GenerateChallengesSection $numberOfChallenges "Student" "Challenge")
+
+  WriteMarkdownFile "$rootPath/README.md" "WTH-HackDescription-Template.md"
 }
 
 GenerateNavitationLink() {
@@ -112,18 +124,9 @@ CreateChallengeMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge")  
+  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge")
 
-  cat > "$fullPath/$prefix-$suffixNumber.md" <<EOL
-# Challenge ${suffixNumber}:
-${navigationLine}
-## Introduction
-## Description
-## Success Criteria
-## Tips
-## Learning Resources
-EOL
-
+  WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
 }
 
 CreateSolutionMarkdownFile() {
@@ -137,12 +140,7 @@ CreateSolutionMarkdownFile() {
 
   local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Solution")
 
-  cat > "$fullPath/$prefix-$suffixNumber.md" <<EOL
-# Solution ${suffixNumber}: Coach's Guide
-${navigationLine}
-## Notes & Guidance
-EOL
-
+  WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Solution-Template.md"
 }
 
 CreateChallenges() {
@@ -158,9 +156,24 @@ CreateChallenges() {
   done
 }
 
+CreateCoachGuideMarkdownFile() {
+  local -r fullPath=$1
+  local -r numberOfSolutions=$2
+
+  if $verbosityArg; then
+    echo "Creating $fullPath/README.md..."
+  fi
+
+  local -r challengesSection=$(GenerateChallengesSection $numberOfChallenges "Coach" "Solution")
+
+  WriteMarkdownFile "$fullPath/README.md" "WTH-CoachGuide-Template.md"
+}
+
 CreateSolutions() {
   local -r fullPath=$1
   local -r numberOfSolutions=$2
+
+  CreateCoachGuideMarkdownFile "$fullPath" $numberOfChallenges
 
   if $verbosityArg; then
     echo "Creating $numberOfSolutions solution Markdown files in $fullPath..."
@@ -172,16 +185,15 @@ CreateSolutions() {
 }
 
 CreateChallengesAndSolutions() {
-  local -r fullPath=$1
-  local -r numberOfChallenges=$2
+  local -r numberOfChallenges=$1
 
   if $verbosityArg; then
-    echo "Creating $numberOfChallenges solution & challenge Markdown files in $fullPath..."
+    echo "Creating $numberOfChallenges solution & challenge Markdown files in $rootPath..."
   fi
 
-  CreateSolutions "$fullPath/Coach" $numberOfChallenges
+  CreateSolutions "$rootPath/Coach" $numberOfChallenges
 
-  CreateChallenges "$fullPath/Student" $numberOfChallenges
+  CreateChallenges "$rootPath/Student" $numberOfChallenges
 }
 
 # Main program
@@ -207,12 +219,14 @@ if $verbosityArg; then
   echo "Delete existing directory: $deleteExistingDirectoryArg"
 fi
 
-declare -r whatTheHackName="xxx-$nameOfChallengeArg"
+declare -r wthDirectoryName="xxx-$nameOfChallengeArg"
 
-declare -r rootPath="$pathArg/$whatTheHackName"
+declare -r rootPath="$pathArg/$wthDirectoryName"
 
-CreateDirectoryStructure "$rootPath" $deleteExistingDirectoryArg
+declare -r pathToTemplateDirectory="$pathArg/$templateDirectoryName"
 
-CreateReadmeFile "$rootPath" $numberOfChallengesArg $whatTheHackName
+CreateDirectoryStructure $deleteExistingDirectoryArg
 
-CreateChallengesAndSolutions "$rootPath" $numberOfChallengesArg
+CreateHackDescription $numberOfChallengesArg
+
+CreateChallengesAndSolutions $numberOfChallengesArg
