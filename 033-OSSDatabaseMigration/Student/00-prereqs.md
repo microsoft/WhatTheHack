@@ -22,7 +22,7 @@ As an alternative to Azure Cloud Shell, this hackathon can also be run from a Ba
 
 If you choose to run it from your local workstation, you need to install the following tools into your Bash environment (on Windows, install these into the WSL environment, **NOT** the Windows command prompt!):
 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/). Note: if you are on Windows and using WSL, only install the Azure CLI for Linux. 
 - Kubectl (using `az aks install-cli`)
 - [Helm3](https://helm.sh/docs/intro/install/) 
 - MySQL command line client tool (or optional GUI tool mentioned below)
