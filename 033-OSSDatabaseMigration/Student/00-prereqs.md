@@ -46,8 +46,16 @@ Some GUI tools which run on Windows/Mac include:
 
 Now that you have your pre-requisites set up, it is time to get the hack's environment set up.  
 
-This hack is designed to help you learn how to migrate to open source databases to Azure. But where will you migrate databases FROM? The hack has a pre-canned "on-premises" environment that you will deploy into your Azure subscription. This "on-prem" environment will act 
-as the source from which you will migrate data to Azure.
+This hack is designed to help you learn how to migrate to open source databases to Azure. The following migration scenarios are included with this hack:
+
+MySQL -> Azure DB for MySQL
+PostgreSQL -> Azure DB for PostgreSQL
+Oracle -> Azure DB for Oracle
+
+You can choose to perform a migration for one or more of these scenarios. It's up to you. If you choose more than one, you will be expected to perform the migration steps for each database in Challenges 1 through 6. 
+
+But where will you migrate databases FROM? The hack has a pre-canned "on-premises" environment that you will deploy into your Azure subscription. This "on-prem" environment will act 
+as the source from which you will migrate data to Azure. 
 
 The "on-premises" environment runs entirely in an AKS cluster in Azure. It consists of:
  - Up to three instances of the "Pizzeria" sample app (one for MySQL, one for PostgreSQL and/or one for Oracle)
