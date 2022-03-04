@@ -4,8 +4,6 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 IFS=$'\n\t'
 
 declare -r templateDirectoryName="000-HowToHack"
-declare -r replaceMeRegex="<!-- REPLACE_ME \(\${.*}\) .* REPLACE_ME -->"
-declare -r removeMeRegex="<!-- REMOVE_ME .* -->(?:.*)*<!-- REMOVE_ME .* -->"
 
 Help() {
    echo "Syntax: createWthTemplate [-c|d|h|n|p|v]"
@@ -51,9 +49,7 @@ CreateDirectoryStructure() {
 PreprocessTemplateFile() {
   local -r pathToFile=$1
 
-  local initialText=""
-
-  initialText=$(cat $pathToFile)
+  local initialText=$(cat $pathToFile)
 
   #replaces the REPLACE_ME placeholder (singleline) & the REMOVE_ME placeholder (multiline)
   local -r returnText=$(echo "$initialText" | sed -e 's/<!-- REPLACE_ME \(\${.*}\) .* REPLACE_ME -->/\1/gm' | perl -0777 -pe "s/<!-- REMOVE_ME .* -->(?:.*)*<!-- REMOVE_ME .* -->//gms")
@@ -76,7 +72,7 @@ $templateText
 EOF
 " 2> /dev/null)
 
-  cat > "$pathToWriteTo" <<<$template
+  cat > "$pathToWriteTo" <<< $template
 }
 
 GenerateChallengesSection() {
