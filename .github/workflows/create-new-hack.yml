@@ -27,7 +27,7 @@ jobs:
           git config user.email "<>"
           git checkout -b ${{ env.BRANCH_NAME }}
       - name: Generate WhatTheHack template stubs
-        run: ${{ github.workspace }}/.github/workflows/createWthTemplate.sh -p ${{ github.workspace }} -c ${{ github.event.inputs.numberOfChallenges}} -n ${{ github.event.inputs.hackName }} -v -d
+        run: ${{ github.workspace }}/.github/workflows/create-wth-template.sh -p ${{ github.workspace }} -c ${{ github.event.inputs.numberOfChallenges}} -n ${{ github.event.inputs.hackName }} -v -d
       - name: Push branch
         run: |
           git add *
