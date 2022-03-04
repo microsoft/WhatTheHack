@@ -13,7 +13,7 @@ In this hack you will be solving the common business problem that companies in t
 ## Challenges
 <!-- REPLACE_ME ${challengesSection} (remove this from your MD files if you are writing them manually, this is for the automation script) REPLACE_ME -->
 
-<!-- REMOVE_ME (this section will be removed by the automation script) -->
+<!-- REMOVE_ME (replace this section with your text, this section will be removed by the automation script) -->
 1. Challenge 01: **[Description of challenge](Student/Challenge-01.md)**
 	 - Description of challenge
 1. Challenge 02: **[Description of challenge](Student/Challenge-02.md)**

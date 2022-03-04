@@ -6,8 +6,6 @@
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 <!-- REMOVE_ME (this section will be removed by the automation script) -->
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
-
 ## Pre-requisites (Optional)
 
 *Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*

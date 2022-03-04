@@ -110,15 +110,19 @@ GenerateNavitationLink() {
 
   local previousNavigationLink=""
 
-  if [[ $suffixNumber -gt 1 ]]; then
-    local -r previousChallengeNumber=$(printf %02d $((suffixNumber - 1)))
+  #have to account for the fact that there is 0 at the beginning of the challenge number, a 08 is interpreted as octal
+  #therefore, the $((10#$suffixNumber)) syntax
+  if [[ $((10#$suffixNumber)) -gt 1 ]]; then
+    local -r previousChallengeNumber=$(printf %02d $((10#$suffixNumber - 1)))
     previousNavigationLink="[< Previous $linkName](./$linkName-$previousChallengeNumber.md) - "
   fi
 
   local nextNavigationLink=""
 
-  if [[ $suffixNumber -lt $numberOfChallenges ]]; then
-    local -r nextChallengeNumber=$(printf %02d $((suffixNumber + 1)))
+  #have to account for the fact that there is 0 at the beginning of the challenge number, a 08 is interpreted as octal
+  #therefore, the $((10#$suffixNumber)) syntax
+  if [[ $((10#$suffixNumber)) -lt $((10#$numberOfChallenges)) ]]; then
+    local -r nextChallengeNumber=$(printf %02d $((10#$suffixNumber + 1)))
     nextNavigationLink=" - [Next $linkName >](./$linkName-$nextChallengeNumber.md)"
   fi
 
