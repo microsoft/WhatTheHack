@@ -1,1 +1,4 @@
+name: Create new hack
 
+on:
+  workflow_dispatch:
