@@ -51,8 +51,8 @@ PreprocessTemplateFile() {
 
   local initialText=$(cat $pathToFile)
 
-  #replaces the REPLACE_ME placeholder (singleline) & the REMOVE_ME placeholder (multiline)
-  local -r returnText=$(echo "$initialText" | sed -e 's/<!-- REPLACE_ME \(\${.*}\) .* REPLACE_ME -->/\1/gm' | perl -0777 -pe "s/<!-- REMOVE_ME .* -->(?:.*)*<!-- REMOVE_ME .* -->//gms")
+  #replaces the REMOVE_ME placeholder (singleline) & the REPLACE_ME placeholder (multiline)
+  local -r returnText=$(echo "$initialText" | sed -e 's/<!-- REMOVE_ME \(\${.*}\) .* REMOVE_ME -->/\1/gm' | perl -0777 -pe "s/<!-- REPLACE_ME .* -->(?:.*)*<!-- REPLACE_ME .* -->//gms")
 
   echo "$returnText"
 }

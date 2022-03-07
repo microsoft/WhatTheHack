@@ -1,10 +1,10 @@
 # Challenge ${suffixNumber} - Coach's Guide
 
-<!-- REPLACE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REPLACE_ME -->
+<!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
-<!-- REMOVE_ME (this section will be removed by the automation script) -->
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 [< Previous Solution](./Solution-01.md) - **[Home](../README.md)** - [Next Solution >](./Solution-03.md)
-<!-- REMOVE_ME (this section will be removed by the automation script) -->
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ## Notes & Guidance
 This is the only section you need to include.
