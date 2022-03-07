@@ -181,7 +181,7 @@ CreateCoachGuideMarkdownFile() {
     echo "Creating $fullPath/README.md..."
   fi
 
-  local -r challengesSection=$(GenerateChallengesSection $numberOfChallenges "Coach" "Solution")
+  local -r challengesSection=$(GenerateChallengesSection $numberOfChallenges "." "Solution")
 
   WriteMarkdownFile "$fullPath/README.md" "WTH-CoachGuide-Template.md"
 }
