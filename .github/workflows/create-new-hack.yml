@@ -33,3 +33,4 @@ jobs:
           git add *
           git commit -m 'Created WhatTheHack template stub'
           git push -u origin ${{ env.BRANCH_NAME }}
+
