@@ -1,4 +1,9 @@
-# What The Hack - ${nameOfChallengeArg} Coach Guide 
+<!-- REMOVE_ME # What The Hack - ${nameOfChallengeArg} Coach Guide REMOVE_ME -->
+
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
+# What The Hack - IoT Hack of the Century Coach Guide
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
+
 ## Introduction
 Welcome to the coach's guide for the ${nameOfChallengeArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 

@@ -1,4 +1,8 @@
-# What The Hack - ${wthDirectoryName}
+<!-- REMOVE_ME # What The Hack - ${wthDirectoryName} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
+
+<!-- REPLACE_ME (replace this section with your text, this section will be removed by the automation script) -->
+# What The Hack - IoT Hack of the Century
+<!-- REPLACE_ME (replace this section with your text, this section will be removed by the automation script) -->
 
 ## Introduction
 The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
