@@ -18,9 +18,6 @@ jobs:
       BRANCH_NAME: xxx-${{ github.event.inputs.hackName }}
     steps:
       - uses: actions/checkout@v2
-      - name: Make script executable
-        run: |
-          chmod +x ${{ github.workspace }}/.github/workflows/create-wth-template.sh
       - name: Create new branch
         run: |
           git config user.name "GitHub Actions Bot"
