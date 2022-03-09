@@ -1,0 +1,35 @@
+name: Check Markdown Links
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/checklinks.yml'
+      - '001-IntroToKubernetes/**'
+  
+jobs:
+
+  checklinks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+#      - name: Link Checker
+#        uses: lycheeverse/lychee-action@v1.0.8
+#        with:
+#          args: --no-progress **/*.md
+
+        # https://github.com/gaurav-nelson/github-action-markdown-link-check
+      - name: Markdown Links Check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          max-depth: 3
+          # By default the github-action-markdown-link-check action checks for all markdown files in your repository. 
+          # Use the 'folder-path' option to limit checks to only specific folders. 
+          # Use comma separated values for checking multiple folders.
+          folder-path: 001-IntroToKubernetes
+          # The config-file will need to be modified as additional challenges are added
+          config-file: .github/workflows/checklinks_config.json
+
+               
