@@ -1,0 +1,66 @@
+name: MLOps - Build
+
+variables:
+  - template: variables.yml
+
+pool:
+  vmImage: 'ubuntu-18.04'
+steps:
+  - task: UsePythonVersion@0
+    displayName: 'Use Python 3.6'
+    inputs:
+      versionSpec: 3.6
+  - bash: 'pip install -r ./environment_setup/requirements.txt'
+    displayName: 'Bash Script - Install Requirements'
+  - task: AzureCLI@2
+    displayName: 'Azure CLI - WorkSpace.py'
+    inputs:
+      azureSubscription: $(serviceConnectionName)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: 'python ./service/code/WorkSpace.py'
+  - task: AzureCLI@2
+    displayName: 'Azure CLI - AcquireData.py'
+    inputs:
+      azureSubscription: $(serviceConnectionName)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: 'python ./service/code/AcquireData.py'
+  - task: AzureCLI@2
+    displayName: 'Azure CLI - TrainOnLocal.py'
+    inputs:
+      azureSubscription: $(serviceConnectionName)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: 'python ./service/code/TrainOnLocal.py'
+  - task: AzureCLI@2
+    displayName: 'Azure CLI - EvaluateModel.py'
+    inputs:
+      azureSubscription: $(serviceConnectionName)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: 'python ./service/code/EvaluateModel.py'
+  - task: AzureCLI@2
+    displayName: 'Azure CLI - RegisterModel.py'
+    inputs:
+      azureSubscription: $(serviceConnectionName)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: 'python ./service/code/RegisterModel.py'
+  - task: AzureCLI@2
+    displayName: 'Azure CLI - CreateScoringImage.py'
+    inputs:
+      azureSubscription: $(serviceConnectionName)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: 'python ./service/code/CreateScoringImage.py'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - task: PublishPipelineArtifact@1
+    displayName: 'Publish Pipeline Artifact'
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)'
+      artifact: $(artifactName)
