@@ -1,6 +1,6 @@
 # Challenge 0: Prerequisites - Ready, Set, GO!
 
-**[Home](../README.md)** - [Next Challenge >](./01-assessment.md)
+**[Home](../README.md)** - [Next Challenge >](./01-discovery.md)
 
 ## Pre-requisites
 
