@@ -138,7 +138,7 @@ resource appGatewayResource 'Microsoft.Network/applicationGateways@2021-05-01' =
           }
           protocol: 'Http'
           requireServerNameIndication: false
-          hostName: 'dev.${pip_name}.australiaeast.cloudapp.azure.com'
+          hostName: 'dev.${pip_name}.${location}.cloudapp.azure.com'
         }
       }
     ]
