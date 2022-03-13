@@ -88,6 +88,7 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
   - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Advanced Challenges
-[TODO]
+
+  - For either Scenario, move the parameters needed for your Bicep files into a seperate ```parameters.json``` file. Review your bicep templates and determine which of these parameters you could move out into a seperate file. You can learn how to format your ```parameters.json``` file [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameter-files).
 <!-- - You can look into adopting the guidance for managing the APIM lifecyle by using the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) boilerplate ARM templates (or you can convert those templates to Bicep as well!) 
 - [For customers starting out or have simple integration scenario, use the boilerplate ARM template here](https://github.com/Azure/azure-api-management-devops-resource-kit#alternatives#:~:text=For%20customers%20who%20are%20just%20starting%20out%20or%20have%20simple%20scenarios%2C%20they%20may%20not%20necessarily%20need%20to%20use%20the%20tools%20we%20provided%20and%20may%20find%20it%20easier%20to%20begin%20with%20the%20boilerplate%20templates%20we%20provided%20in%20the%20example%20folder.) -->
