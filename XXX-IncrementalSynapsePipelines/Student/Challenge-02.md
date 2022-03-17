@@ -8,7 +8,7 @@ Review the [SQL MI to Dedicated Pool Proof of Concept](./Resources/SQLMItoDedica
 
 ## Introduction
 
-For this section we need to add Change Data Catpure functionality to our source database and then create an incremental synapse pipeline to look for those changes and push them to the dedicated pool.  We also need to employ a proper design in the dedicated pools so that it does not impact performance.  Finally let's visualize this data in Power BI.
+For this section we need to add *Change Data Catpure* functionality to our source database and then create an incremental synapse pipeline to look for those changes and push them to the dedicated pool.  We also need to employ a proper design in the dedicated pools so that it does not impact performance.  Finally let's visualize this data in Power BI.
 
 ## Description
 
@@ -21,9 +21,7 @@ For this challenge we need to implement the following:
 - Implement Staging and Production Tables in the Dedicated Pool and an automated methodology to update data from staging to production.
 - Create a Power BI report that queries the production tables in the Dedicated Pool.
 
-<br>&nbsp;<br>
-<B>Do not setup a trigger in this challenge</B>
-
+<B>Do not setup a trigger in this challenge</B>  That will be addressed in the next challenge.
 
 ## Success Criteria
 
