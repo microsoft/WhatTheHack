@@ -11,6 +11,6 @@ Many of these concepts are listed in the Learning Resources of the Student Guide
 
 ## Tips
 
-*There are also some SQL scripts to use as a reference for [CTAS](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) and select statements with regards to the SQL Dedicated Pool.  
+*There are also some SQL scripts to use as a reference for [CTAS](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas) and select statements with regards to the SQL Dedicated Pool.*
 
-They are located in the [Resources Folder](../Student/Resources).*
+*They are located in the [Resources Folder](../Student/Resources).*
