@@ -4,7 +4,7 @@
 
 ## Introduction
 
-We need to setup the proper environment for the Hackathon.  Thus, we need everyone on the team to have access to the Azure SQL, Synapse Environments and also any ancilliaries resources such as the Azure Storage Account and Key Vault.  
+We need to setup the proper environment for the Hackathon.  Thus, we need everyone on the team to have access to the Azure SQL and Synapse Environments.  Also, any ancilliaries resources such as the Azure Storage Account and Key Vault.  
 
 ## Description
 

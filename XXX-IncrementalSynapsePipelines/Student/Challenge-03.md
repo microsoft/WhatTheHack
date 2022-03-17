@@ -1,10 +1,6 @@
-# Challenge 3 - Setup the trigger to automate the incremental load
+# Challenge 3 - Setup the Trigger to Automate the Incremental Load
 
 [< Previous Challenge](Challenge-02.md) - **[Home](../README.md)** 
-
-## Pre-requisites
-
-*Complete the [Previous Challenge](Challenge-02.md).*
 
 ## Introduction
 

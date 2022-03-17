@@ -22,7 +22,11 @@ We initially conducted this hackathon in three - 3 hour sessions for a total of 
 
 Moving forward, I would highly recommend that you dedicate atleast 12 hours overall to this hackathon.  This excludes breaks.  Thus, you may want to break this into 3 sessions that are a total of 5-6 hours long, including breaks. 
 
-We also had the attendees fill out a survey during registration to guage their epxertise and we made sure that each team was balanced with experts and beginners using the following questions:
+Also, the feedback that we received from attendees is that they prefer that these sessions were held on consecutive days.  Since we did it every Friday, attendees felt that they spent too much time refershing their memory on what was accomplished the week(s) before.
+
+Challenge 2 will take the longest.  it will probably equal the length of challenge 0 and 1 put together.  Thus, please plan accordingly.
+
+Finally, we also had the attendees fill out a survey during registration to guage their expertise and we made sure that each team was balanced with experts and beginners using the following questions:
 - Experience Level with Azure SQL  (100=Newbie -> 400=SME)
 - Experience Level with SQL Dedicated Pools / SQL DW
 - Experience Level with ADF/Synapse Pipelines

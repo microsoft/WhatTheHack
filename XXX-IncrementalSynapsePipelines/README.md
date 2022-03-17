@@ -8,21 +8,21 @@ But wait there’s more!  As you add data to your transactional database, it nee
 Four words…  <B>Trigger an Incremental Copy</B>.
 
 ## Learning Objectives
-Upon completion of this Hack, you will be able to setup an Azure environment to incrementally copy data from an Azure SQL Database to a Synapse Dedicated Pool utilizing the Change Data Capture functionality of Azure SQL. 
+Upon completion of this Hack, you will be able to setup an Azure environment to incrementally copy data from an Azure SQL Database to a Synapse Dedicated Pool utilizing the Change Data Capture functionality within Azure SQL. 
 
-You will also have a good understanding of how to utilize a watermark table to validate the last copied execution in case of a trigger failure.
+You will also have utilizized how to implement a watermark table to validate the last copied execution in case of a trigger failure.
 
-From a SQL Dedicated Pool perspective, you will also gain hands on experience with regards to the use of Staging Tables and how to copy those to production tables and use the proper distribution model.
+From a SQL Dedicated Pool perspective, you will gain hands-on experience with regards to the use of Staging Tables and how to copy those to production tables and use the proper distribution model.
 
 
 ## Challenges
-- Challenge 0: **[Setup the source and target environments](Student/Challenge-00.md)**
+- Challenge 0: **[Setup the Source and Target Environments](Student/Challenge-00.md)**
    - Standup and configure the Azure SQL and Synapse Environments
 - Challenge 1: **[Initial Data Load into the Dedicated Pool](Student/Challenge-01.md)**
    - Use Synapse Pipelines to perform the initial data load
 - Challenge 2: **[Create Incremental Load Pipelines](Student/Challenge-02.md)**
    - Implement Change Data Capture, create the synapse pipelines and the proper Dedicated Pool architecture to be used as a target for the pipelines and a source for reporting.
-- Challenge 3: **[Setup the trigger to automate the incremental load](Student/Challenge-03.md)**
+- Challenge 3: **[Setup the Trigger to Automate the Incremental Load](Student/Challenge-03.md)**
    - Create the trigger within Synapse to automate the pipeline and add data to SQL and watch it flow through the staging and production tables in the dedicated pool and viewable in your Power BI Report.
 
 ## Prerequisites

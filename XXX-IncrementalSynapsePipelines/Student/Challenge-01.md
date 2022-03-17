@@ -4,7 +4,7 @@
 
 ## Introduction
 
-We are now ready to begin the development of our incremental pipeline.  Our first step will be to create the metadata structure of our dedicated pool.  For this challenge we are concerned only with the initial data copy and the design structure of our SQL Dedicated Pool.
+We are now ready to begin the development of our incremental pipeline.  Our first step will be to create the metadata structure for our dedicated pool.  For this challenge, we are concerned only with the initial data copy and the design structure.
 
 We are not looking to create any resources specific to watermark tables, etc.  That will be in the next challenge.
 
