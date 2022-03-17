@@ -2,10 +2,13 @@
 
 **[Home](../README.md)** - [Next Challenge>](Challenge-01.md)
 
+## Introduction
+
+We need to setup the proper environment for the Hackathon.  Thus, we need everyone on the team to have access to the Azure SQL, Synapse Environments and also any ancilliaries resources such as the Azure Storage Account and Key Vault.  
 
 ## Description
 
-We need to setup the proper environment for the Hackathon.  Thus, we need everyone on the team to have access to the Azure SQL, Synapse Environments and also any ancilliaries resources such as the Azure Storage Account and Key Vault.  Thus the following resources will need to be setup.
+For this challenge the following resources will need to be setup within your group environment.
 
 - An Azure SQL database is created and configured with either the AdventureWorks or World-Wide-Importers database.
 - A Synapse Environment including a SQL Dedicated Pool is created and configured.
