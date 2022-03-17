@@ -1,4 +1,4 @@
-# Challenge #2: Create Incremental Load Pipelines - Coach's Guide
+# Challenge 2: Create Incremental Load Pipelines - Coach's Guide
 
 [< Previous Challenge](Solution-01.md) - **[Home](README.md)** - [Next Challenge>](Solution-03.md)
 

@@ -1,4 +1,4 @@
-# Challenge #1: Initial Data Load into the Dedicated Pool - Coach's Guide
+# Challenge 1: Initial Data Load into the Dedicated Pool - Coach's Guide
 
 [< Previous Challenge](Solution-00.md) - **[Home](README.md)** - [Next Challenge>](./Solution-02.md)
 
