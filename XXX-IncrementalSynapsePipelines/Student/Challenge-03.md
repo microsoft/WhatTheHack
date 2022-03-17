@@ -6,13 +6,17 @@
 
 *Complete the [Previous Challenge](Challenge-02.md).*
 
-## Description
+## Introduction
 
 Now that we have created 2 pipelines:
 - GetTableList-Trigger-Incremental-Copy
 - GetTableList-Trigger-sp
 
 How would we look to automate them?  What factors do we need to account for?
+
+## Description
+
+In this challenge your team will discuss / whiteboard various automating techniques and also factors that need to be accounted for when productionalizing an Incremental Pipeline. 
 
 ## Success Criteria
 

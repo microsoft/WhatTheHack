@@ -2,15 +2,17 @@
 
 [< Previous Challenge](Challenge-01.md) - **[Home](../README.md)** - [Next Challenge>](Challenge-03.md)
 
-## Pre-requisites
+## Prerequisite
 
-*Complete the [Previous Challenge](Challenge-01.md).*
+Review the [SQL MI to Dedicated Pool Proof of Concept](./Resources/SQLMItoDedicatedPoolProofofConcept.docx?raw=true) document.
+
+## Introduction
+
+For this section we need to add Change Data Catpure functionality to our source database and then create an incremental synapse pipeline to look for those changes and push them to the dedicated pool.  We also need to employ a proper design in the dedicated pools so that it does not impact performance.  Finally let's visualize this data in Power BI.
 
 ## Description
 
-For this section we need to add Change Data Catpure functionality to our source database and then create an incremental synapse pipeline to look for those changes and push them to the dedicated pool.  We also need to employ a proper design in the dedicated pools so that it does not impact performance.  Finally let's visualize this data in Power BI.
-<br>&nbsp;<br>
-Thus for this challenage we need to implement the following:
+For this challenge we need to implement the following:
 
 - Implement Change Data Capture on the Azure SQL Database and be able to articulate on the cdc tables and functions and their purpose.
 - Create an incremental synapse pipeline that accounts for the following...
@@ -25,7 +27,7 @@ Thus for this challenage we need to implement the following:
 
 ## Success Criteria
 
-Be able to show the data pipleine, meaning you can demonstrate executing the change in the SQL Database, validate the CDC functionality, and validate the data flow through the dedicated pool to the report.
+Be able to show the data pipleine, meaning you can demonstrate executing the change in the SQL Database, validate the CDC functionality, and showcase the data flow through the dedicated pool to the report.
 
 ## Learning Resources
 
