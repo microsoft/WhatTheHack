@@ -1,0 +1,17 @@
+{
+    "appName": {
+        "value": "dapr"
+    },
+    "region": {
+        "value": "eastus"
+    },
+    "environment": {
+        "value": "robvet"
+    },
+    "adminUsername": {
+        "value": "robvet"
+    },
+    "publicSSHKey": {
+        "value" : "ssh-rsa <input your key>"
+    }
+}
