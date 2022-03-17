@@ -1,8 +1,8 @@
-# What The Hack - Automating Incremental Pipelines <br> Utilizing Change Data Capture in Azure SQL <br> Coach's Guide 
+# What The Hack - Incremental Synapse Pipelines <br> <i>Utilizing Change Data Capture in Azure SQL</i> <br> Coach's Guide 
 ## Introduction
 Welcome to the coach's guide for the Automating Incremental Pipelines What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-Also remember that this hack includes a optional [lecture presentation](Lectures.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+Also remember that this hack includes a optional [lecture presentation](Automating-Incremental-Pipelines.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 ## Coach's Guides
 - Challenge 0: **[Setup the Source and Target Environments](Solution-00.md)**
