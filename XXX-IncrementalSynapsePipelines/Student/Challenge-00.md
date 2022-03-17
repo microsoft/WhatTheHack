@@ -1,4 +1,4 @@
-# Challenge #0 - Setup the source and target environments
+# Challenge 0 - Setup the source and target environments
 
 **[Home](../README.md)** - [Next Challenge>](Challenge-01.md)
 

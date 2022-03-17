@@ -1,4 +1,4 @@
-# Challenge #0: Setup the Source and Target Environments - Coach's Guide
+# Challenge 0: Setup the Source and Target Environments - Coach's Guide
 
 **[Home](README.md)** - [Next Challenge>](Solution-01.md)
 

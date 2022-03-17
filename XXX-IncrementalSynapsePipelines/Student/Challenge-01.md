@@ -1,4 +1,4 @@
-# Challenge #1 - Initial Data Load into the Dedicated Pool
+# Challenge 1 - Initial Data Load into the Dedicated Pool
 
 [< Previous Challenge](Challenge-00.md) - **[Home](../README.md)** - [Next Challenge>](Challenge-02.md)
 
