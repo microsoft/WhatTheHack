@@ -1,4 +1,4 @@
-# What The Hack - Automating Incremental Pipelines <br> Utilizing Change Data Capture in Azure SQL 
+# What The Hack - Incremental Synapse Pipelines <br> <i>Utilizing Change Data Capture in Azure SQL</i> 
 
 ## Introduction
 If you accept the challenge to attend, you and your teammates will work together to help take data from a transactional Azure SQL database and copy it into a Synapse Dedicated Pool to be used as a reporting warehouse.  

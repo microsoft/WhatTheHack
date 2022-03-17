@@ -1,4 +1,4 @@
-# Challenge #3: Setup the trigger to automate the incremental load - Coach's Guide
+# Challenge #3: Setup the Trigger to Automate the Incremental Load - Coach's Guide
 
 [< Previous Challenge](Solution-02.md) - **[Home](README.md)** 
 
