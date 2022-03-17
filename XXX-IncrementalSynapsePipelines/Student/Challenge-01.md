@@ -2,14 +2,15 @@
 
 [< Previous Challenge](Challenge-00.md) - **[Home](../README.md)** - [Next Challenge>](Challenge-02.md)
 
-## Pre-requisite
+## Introduction
 
-*Complete the [Previous Challenge](Challenge-00.md).*
+We are now ready to begin the development of our incremental pipeline.  Our first step will be to create the metadata structure of our dedicated pool.  For this challenge we are concerned only with the initial data copy and the design structure of our SQL Dedicated Pool.
+
+We are not looking to create any resources specific to watermark tables, etc.  That will be in the next challenge.
 
 ## Description
 
 Now that our environment is setup, we need to populate the Dedicated Pool with all of the <b>Sales / SalesLT</b> tables from our Azure SQL Database.
-
 
 ## Success Criteria
 
