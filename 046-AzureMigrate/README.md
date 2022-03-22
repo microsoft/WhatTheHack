@@ -6,7 +6,7 @@ In this hack, you will learn how to assess and migrate a multi-tier application 
 
 ## Learning Objectives
 
-After this hack you will know the role of Azure Migrate and related migration tools and how to use them to successfully migrate an on-premises multi-tier application to Azure.
+After this hack, you will know the role of Azure Migrate and related migration tools and how to use them to successfully migrate an on-premises multi-tier application to Azure.
 
 The estimated time required to complete the core objectives of this hack is 1 day however there are some additional "stretch" goals available, should you wish to undertake them.
 
