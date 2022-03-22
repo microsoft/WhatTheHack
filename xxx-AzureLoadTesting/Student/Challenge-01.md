@@ -1,4 +1,4 @@
-# Challenge 01 - AzureLoadTesting
+# Challenge 01 - Develop a Load Testing Strategy
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
