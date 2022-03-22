@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge you will create a plan for migrating the on-premises workload to Azure. 
+In this challenge you will create a plan for migrating the on-premises workload to Azure.
 
 
 ## Description
@@ -12,18 +12,18 @@ In this challenge you will create a plan for migrating the on-premises workload 
 This challenge is about learning to plan a migration for a real-world production environment.  As such the following factors should be considered:
 
 - Migration approach
-    - choice of rehost, refacto, replatform, rearchitect or rebuild
-    - Awareness of time constraints to complete migration and how that might impact your choices
-    - Single or multiple waves
+  - Choice of rehost, refactor, replatform, rearchitect or rebuild
+  - Awareness of time constraints to complete migration and how that might impact your choices
+  - Single or multiple waves
 - Target Azure environment
-    - Existing infrastructure in Azure 
-    - New infrastructure that needs to be created/configured before migration
-    - Best practices for Azure deployments
-    - Configuration of resources post migration
-    - What decisions require more information and how can this be gathered?
+  - Existing infrastructure in Azure
+  - New infrastructure that needs to be created/configured before migration
+  - Best practices for Azure deployments
+  - Configuration of resources post migration
+  - What decisions require more information and how can this be gathered?
 - Stages of the migration
-    - Tools to be used at each stage
-    - Dependencies to move to next stage
+  - Tools to be used at each stage
+  - Dependencies to move to next stage
 
 
 ## Success Criteria
