@@ -20,11 +20,11 @@ This What the Hack was created during the pandemic and was designed and executed
 
 We initially conducted this hackathon in three - 3 hour sessions for a total of 9 hours.  It was done over a three week period with each session being conducted on a Friday.
 
-Moving forward, I would highly recommend that you dedicate atleast 12 hours overall to this hackathon.  This excludes breaks.  Thus, you may want to break this into 3 sessions that are a total of 5-6 hours long, including breaks. 
+Moving forward, I would highly recommend that you dedicate at least 12 hours overall to this hackathon.  This excludes breaks.  Thus, you may want to break this into 3 sessions that are a total of 5-6 hours long, including breaks. 
 
-Also, the feedback that we received from attendees is that they prefer that these sessions were held on consecutive days.  Since we did it every Friday, attendees felt that they spent too much time refershing their memory on what was accomplished the week(s) before.
+Also, the feedback that we received from attendees is that they prefer that these sessions were held on consecutive days.  Since we did it every Friday, attendees felt that they spent too much time refreshing their memory on what was accomplished the week(s) before.
 
-Challenge 2 will take the longest.  it will probably equal the length of challenge 0 and 1 put together.  Thus, please plan accordingly.
+Challenge 2 will take the longest.  It will probably equal the length of challenge 0 and 1 put together.  Thus, please plan accordingly.
 
 Finally, we also had the attendees fill out a survey during registration to guage their expertise and we made sure that each team was balanced with experts and beginners using the following questions:
 - Experience Level with Azure SQL  (100=Newbie -> 400=SME)
