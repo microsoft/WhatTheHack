@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to the coach's guide for the Automating Incremental Pipelines What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-Also remember that this hack includes a optional [lecture presentation](Automating-Incremental-Pipelines.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+Also remember that this hack includes a optional [lecture presentation](Automating-Incremental-Pipelines.pptx?raw=true) that features key topics for this What the Hack. 
 
 ## Solutions
 - Challenge 0: **[Setup the Source and Target Environments](Solution-00.md)**
@@ -16,7 +16,7 @@ Also remember that this hack includes a optional [lecture presentation](Automati
    - Create the trigger within Synapse to automate the pipeline and add data to SQL and watch it flow through the staging and production tables in the dedicated pool and viewable in your Power BI Report.
 
 ## Session Guidance
-This What-the-Hack was created during the pandemic and was designed and executed for a remote/virtual audience.
+This What the Hack was created during the pandemic and was designed and executed for a remote/virtual audience.
 
 We initially conducted this hackathon in three - 3 hour sessions for a total of 9 hours.  It was done over a three week period with each session being conducted on a Friday.
 
