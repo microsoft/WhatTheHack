@@ -7,4 +7,4 @@ For this challenge it is up to the student to determine how they want to initial
 
 We do not want them to over-engineer this component.  The key is to get the data over and if the distribution of the table is not correct in the Dedicated Pool, they can use CTAS to copy tables / create the correct distribution.  
 
-Many of these concepts are listed in the Learning Resources of the Student Guide.
+Many of these concepts are listed in the [Learning Resources](../Student/Resources) of the Student Guide.
