@@ -18,11 +18,11 @@ In this hack you will be solving the common business problem that companies in t
 <!-- REMOVE_ME ${challengesSection} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (replace this section with your text, this section will be removed by the automation script) -->
-1. Challenge 01: **[Title of challenge](Student/Challenge-01.md)**
+1. Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
 	 - Description of challenge
-1. Challenge 02: **[Title of challenge](Student/Challenge-02.md)**
+1. Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
 	 - Description of challenge
-1. Challenge 03: **[Title of challenge](Student/Challenge-03.md)**
+1. Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
 	 - Description of challenge
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
