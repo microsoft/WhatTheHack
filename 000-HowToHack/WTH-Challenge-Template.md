@@ -1,7 +1,7 @@
 <!-- REMOVE_ME # Challenge ${suffixNumber} - <Title of Challenge> (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
-# Challenge 01 - <Insert Title of Challenge Here>
+# Challenge 01 - < Insert Title of Challenge Here >
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 <!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
