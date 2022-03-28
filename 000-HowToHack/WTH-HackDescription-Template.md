@@ -1,4 +1,4 @@
-<!-- REMOVE_ME # What The Hack - ${wthDirectoryName} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
+<!-- REMOVE_ME # What The Hack - ${nameOfChallengeArg} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (replace this section with your text, this section will be removed by the automation script) -->
 # What The Hack - IoT Hack of the Century
