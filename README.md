@@ -112,4 +112,3 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 # [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
-
