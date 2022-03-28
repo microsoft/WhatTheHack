@@ -22,7 +22,7 @@ https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sq
 
 
 /****************************************************************************************
-STEP 1 of 4 - Create destination schema
+STEP 1 of 5 - Create destination schema
 ****************************************************************************************/
 
 CREATE SCHEMA Sales
@@ -30,7 +30,7 @@ GO
 
 
 /****************************************************************************************
-STEP 1 of 4 - Dimension tables should be defined as Replicated since in this dataset they do not exceed 2GB.
+STEP 2 of 5 - Dimension tables should be defined as Replicated since in this dataset they do not exceed 2GB.
 They can improve performance avoiding un-necessary data-movement
 Yet, they do not contain enought record to benefit from CCI, in this case HEAP is a valid option
 --https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview#replicated-tables
@@ -150,7 +150,7 @@ GO
 
 
 /****************************************************************************************
-STEP 2 of 4 - How to check if a column is good enough 
+STEP 3 of 5 - How to check if a column is good enough 
 https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice
 Choosing a distribution column is an important design decision since the values in this column determine how the rows 
 are distributed. The best choice depends on several factors, and usually involves tradeoffs. 
@@ -168,7 +168,7 @@ GO
 
 
 /****************************************************************************************
-STEP 3 of 4 - Fact tables should be defined as Hash-distributed.
+STEP 4 of 5 - Fact tables should be defined as Hash-distributed.
 --https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?context=/azure/synapse-analytics/context/context
 
 ****************************************************************************************/
@@ -210,7 +210,7 @@ GO
 
 
 /****************************************************************************************
-STEP 4 of 4 - Run this code with no explanation, this is needed for further investigation in the next challenges
+STEP 5 of 5 - Run this code with no explanation, this is needed for further investigation in the next challenges
 ****************************************************************************************/
 
 
