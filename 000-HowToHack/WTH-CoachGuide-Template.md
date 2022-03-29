@@ -18,7 +18,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 **NOTE:** The student guide does NOT have any links to the Coach's guide or the What The Hack repo on GitHub. Students should not be given a link to the What The Hack repo before or during a hack. 
 
