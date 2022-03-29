@@ -1,11 +1,16 @@
 <!-- REMOVE_ME # What The Hack - ${nameOfChallengeArg} - Coach Guide (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
-# What The Hack - IoT Hack of the Century Coach Guide
+# What The Hack - IoT Hack of the Century - Coach Guide
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ## Introduction
-Welcome to the coach's guide for the ${nameOfChallengeArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+
+<!-- REMOVE_ME Welcome to the coach's guide for the ${nameOfChallengeArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges. (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
+
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
+Welcome to the coach's guide for the IoT Hack of the Century What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 *If your hack does NOT contain any lecture presentations, remove this next paragraph.*
 
@@ -13,24 +18,11 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
-## Coach Prerequisites 
-
-**NOTE:** The student guide does NOT have any links to the Coach's guide or the What The Hack repo on GitHub. Students should not be given a link to the What The Hack repo before or during a hack. 
+## Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
-*If your hack has any additional pre-reqs that a coach needs to know before hosting an event, cover them in this section.  This includes both technical pre-reqs, and Azure Subscription pre-reqs.*
-
-<i>
-For example, list out:
-	- Azure resources that will be consumed by a student implementing the hack's challenges (and how/if to deal with any quota limits that need to be adjusted in the student's subscription).
-	- Azure permissions required by a student to complete the hack's challenges.
-	- Any pre-event setup steps a coach would be required to set up such as:
-		- Creating or hosting a shared dataset
-		- Deploying a lab environment
-	- If the hack requires a demo Dynamics 365 or Microsoft 365 tenant to be provisioned
-	- If the hack requires Global Admin access to an Azure AD tenant
-</i>
+**NOTE:** The student guide does NOT have any links to the Coach's guide or the What The Hack repo on GitHub. Students should not be given a link to the What The Hack repo before or during a hack. 
 
 ## Coach's Guides
 <!-- REMOVE_ME ${challengesSection} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
@@ -44,15 +36,29 @@ For example, list out:
 	 - Description of challenge
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
+## Coach Prerequisites 
+
+This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event.
+
+These pre-reqs should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+
+*Please list both technical pre-reqs and Azure subscription pre-reqs.* 
+
+*For example:*
+
+*- Azure resources that will be consumed by a student implementing the hack's challenges*
+*- Azure permissions required by a student to complete the hack's challenges.*
+*- Any pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment*
+
 ## Suggested Hack Agenda (Optional)
 
 *This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each day for a multi-day hack event.  For example:*
 
-*- Day 1*
+- Sample Day 1
  *- Challenge 1 (1 hour)*
  *- Challenge 2 (30 mins)*
  *- Challenge 3 (2 hours)*
-*- Day 2*
+- Sample Day 2
  *- Challenge 4 (45 mins)*
  *- Challenge 5 (1 hour)*
  *- Challenge 6 (45 mins)*
