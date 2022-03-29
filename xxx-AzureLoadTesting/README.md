@@ -14,7 +14,7 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 ## Challenges
 1. Challenge 01: **[Develop a Load Testing Strategy](Student/Challenge-01.md)**
 	 - How to develop a load testing strategy for your application
-1. Challenge 02: **[Create Loading Testing Script(s)](Student/Challenge-02.md)**
+1. Challenge 02: **[Create Loading Testing Service & Script(s)](Student/Challenge-02.md)**
 	 - Creating JMeter scripts to support your load testing strategy
 1. Challenge 03: **[Establish Baselines](Student/Challenge-03.md)**
 	 - Learn techniques on how to establish baselines for your application
@@ -26,8 +26,10 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 	 - How to perform stress tests and the difference between your load tests
 1. Challenge 07: **[ Load Testing During Chaos Experiment](Student/Challenge-07.md)**
 	 - Incorporating load testing and chaos experiments together
+
 ## Prerequisites
 - GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
+- Azure subscription for creating the Load Testing service and running the sample application.
 - We assume you are familiar with the fundamentals of load testing.
 - You will need a public application endpoint to test against for the WTH - whether it is running in Azure, on-prem or another cloud. You have two options:
     - Deploy your own, existing application
@@ -36,10 +38,6 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
         - The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database. Follow the steps [here](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal#deploy-the-sample-app) to deploy the sample application.
 - If you want to load test the application across regions, you will need to deploy it to multiple regions. This is especially critical since this will factor into the overall resiliency of the application.
 - You may choose to create JMeter scripts in the native JMeter GUI to take advantage of the templates and other features it offers. That is out of the scope of this WTH, but you can find instructions for doing so [here](https://jmeter.apache.org/usermanual/get-started.html#install).
-
-## Other Considerations
-- Measure typical loads on your existing application. Knowing the typical and maximum loads on your system helps you understand when something is operating outside of its designed limits. Monitor traffic to understand application behavior and have that data handy so you can design realistic load testing scripts.
-- Review the [Azure Load Testing region availability and load limits](https://azure.microsoft.com/en-us/services/load-testing/#faq).
 
 ## Repository Contents (Optional)
 - `./Coach/Guides`
