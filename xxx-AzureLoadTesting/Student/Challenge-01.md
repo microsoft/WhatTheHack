@@ -4,11 +4,11 @@
 
 ## Introduction
 
-Before we jump into load testing, it’s critical to take a step back and develop a load testing strategy that is tailored to the application. This means breaking down the architecture, internal/external dependencies, high availability design, scaling and the data tier.  You may use your own application design or the sample application design located [here](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck).
+When some people think of load testing, the first thought that comes to mind is pointing a tool at your site and cranking the load to the max and see what happens.  While that might be exciting in the moment, it’s critical to take a step back and develop a load testing strategy that is tailored to the application. This means breaking down the architecture, internal/external dependencies, high availability design, scaling and the data tier.  Having a plan not only helps you prepare while you are testing the application but also provides context as to why and how you are testing the application for anyone in the future.  You may use your own application design or the sample application design located [here](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck).
 
 ## Description
 
-Create a load testing strategy to describe your plan and goals.
+Create a load testing strategy to describe your plan and goals.  Below are some examples of topics to think of.  Are there any additional you can think of adding?
 
 - Define what services and the scope of your testing
 - Identify the load characteristics and scenario
@@ -27,3 +27,4 @@ Create a load testing strategy to describe your plan and goals.
 ## Learning Resources
 
 [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits)
+[How to write a test plan for load testing](https://www.flood.io/blog/how-to-write-a-test-plan-for-load-testing)

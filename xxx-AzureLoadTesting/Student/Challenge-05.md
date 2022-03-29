@@ -2,16 +2,13 @@
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-## Introduction (Optional)
+## Introduction
 
-- Review the load test results and App insights and figure out the bottlenecks
-- Prioritize which bottlenecks you address first
-- Remediate the bottlenecks if possible
+From our last challenge we should now have load tests running against your environment!  While our load tests are automated now, we need to make sure we review the tests to see if we can identify any bottlenecks or changes in behavior.  From there we can share our findings and work towards remediating the issues.  If your application is hosted in Azure, you can leverage some of the synergy Azure Load Testing has with the other cloud services. 
 
 ## Description
 
-- It is important to get familiar with the test results so you can gain insights and decide what tweaks to make. This includes the load testing dashboard and app insights/APM dashboard.
-- Identify specific improvements to make and create work items to track the process #devops
+Review your load test results to see where there are potential bottlenecks in your application.  If needed, perform additional tests with different settings to help identiy any bottlenecks.  Once you have identified one or more bottlnecks, see how you could resolve the bottleneck and show that the fix resolved the issue.
 
 ## Success Criteria
 

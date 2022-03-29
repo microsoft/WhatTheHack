@@ -1,10 +1,10 @@
-# Challenge 07 - AzureLoadTesting
+# Challenge 07 - Load Testing With Chaos Experiment (Resilliance Testing)
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
-## Introduction (Optional)
+## Introduction
 
-The resiliency of an application isn’t solely decided by how quickly it can scale up or out - but also how it handles failures. This means planning for a failure of every application component: a single container, cluster, VM, database and region.
+We have gone over load testing for the majority of this hack.  While the information you gather from load testing can help determine how you scale your application.  The resiliency of an application isn’t solely decided by how quickly it can scale up or out - but also how it handles failures. This means planning for a failure of every application component: a single container, cluster, VM, database and region.  Testing while having certain components fail is called Resilliance testing and we will be going over that here.
 
 ## Description
 
@@ -15,8 +15,8 @@ The resiliency of an application isn’t solely decided by how quickly it can sc
 
 ## Success Criteria
 
-- Identify failure points
-- Remediation plan
+- Identify failure points from your resilliance test
+- Create a remediation plan to show how your application can withstand these failures in the future.
 
 ## Learning Resources
 
