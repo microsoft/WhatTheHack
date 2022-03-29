@@ -4,7 +4,8 @@
 
 ## Pre-requisites
 
-Before creating or using your load testing scripts, ensure you have outlined your load testing strategy as described in the previous challenge.
+- Before creating or using your load testing scripts, ensure you have outlined your load testing strategy as described in the previous challenge.
+- You will need an Azure subscription to create the Load Testing service and host the sample application.
 
 ## Introduction
 
