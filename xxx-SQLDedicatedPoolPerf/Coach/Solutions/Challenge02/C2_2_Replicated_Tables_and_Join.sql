@@ -14,7 +14,9 @@ https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-managem
 ****************************************************************************************/
 
 /****************************************************************************************
-STEP1 - Run this batch and let it complete.
+STEP 1 of 7 - Invalidating the replicated table cache
+https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table
+
 ****************************************************************************************/
 
 IF EXISTS
@@ -38,12 +40,8 @@ GO
 
 
 /****************************************************************************************
-STEP2 - Run this query and observe its MPP plan
+STEP 2 of 7 - Run this query 
 ****************************************************************************************/
-
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
 
 SELECT
 	Dc.CustomerKey
@@ -70,22 +68,19 @@ OPTION(LABEL = 'FactInternetSales - No Replicate Table Cache')
 GO
 
 /****************************************************************************************
-STEP2 - Identify the request_id for the query and its MPP execution plan
-		Could you identify which steps are consuming resources executing BroadcastMoveOperation?
-		Could you explain why ?
+STEP 3 of 7 - Identify the request_id for the query and its MPP execution plan
+Multiple Broadcastmove operations are affecting performances due to Replicate table cache not available yet
 *****************************************************************************************/
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'FactInternetSales - No Replicate Table Cache'
 SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'request_id'
 
---collecting information about moved bytes and rows.
+--collecting information about moved bytes and rows. Change step_id with the Broadcastmove step_id
 SELECT * FROM sys.dm_pdw_dms_workers WHERE request_id = 'request_id' and step_index = step_id
 GO
 
 
 /****************************************************************************************
-STEP3 - Compare this execution and its MPP plan wih the previous one
-		Why is the MPP plan different ?
-		Is there a way to test the replicate table cache and "train" it in case of need ?
+STEP 4 of 7 - Compare this execution and its MPP plan wih the previous one
 *****************************************************************************************/
 
 DBCC DROPCLEANBUFFERS()
@@ -117,20 +112,37 @@ OPTION(LABEL = 'FactInternetSales - With Replicate Table Cache')
 GO
 
 
+/****************************************************************************************
+STEP 5 of 7 - this execution doesn't need BroadcastMove, replicate table is in place
+*****************************************************************************************/
+
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'FactInternetSales - With Replicate Table Cache'
 SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'request_id'
-SELECT * FROM sys.dm_pdw_dms_workers WHERE request_id = 'request_id' and step_index = step_id
-GO
 
 
 
 /****************************************************************************************
-STEP4 - Is there a way to test the replicate table cache and "train" it in case of need ?
+STEP 6 of 7 - How to check if the cache is available or not
+https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?view=azure-sqldw-latest
 *****************************************************************************************/
 
 SELECT OBJECT_NAME(object_id) table_name, [state] FROM sys.pdw_replicated_table_cache_state
 WHERE OBJECT_NAME(object_id) IN('DimProduct','DimCustomer','DimSalesTerritory') 
 GO
 
+/****************************************************************************************
+STEP 7 of 7 - How to train replicate table cache
+*****************************************************************************************/
+
+SELECT OBJECT_NAME(object_id) table_name, [state] FROM sys.pdw_replicated_table_cache_state
+WHERE OBJECT_NAME(object_id) = 'DimEmployee'
+GO
+
 --this trains the cache
-SELECT TOP 50 * FROM Sales.DimProduct
+SELECT TOP 50 * FROM Sales.DimEmployee
+GO
+
+--Wait few seconds
+SELECT OBJECT_NAME(object_id) table_name, [state] FROM sys.pdw_replicated_table_cache_state
+WHERE OBJECT_NAME(object_id) = 'DimEmployee'
+GO

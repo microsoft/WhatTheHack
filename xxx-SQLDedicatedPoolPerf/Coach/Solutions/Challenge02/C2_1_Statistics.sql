@@ -12,10 +12,15 @@ https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/best-practices-dedi
 ****************************************************************************************/
 
 
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
+/***************************************************************************************
+STEP 1 of 8 - First time you execute this query will take a while to complete.
+Statistics are not in place and since AUTO_CREATE_STATISTICS is ON by default first execution triggers stats creation
+before run the query
 
+Ensure you're using DW500
+
+--https://docs.microsoft.com/en-us/sql/analytics-platform-system/configure-auto-statistics?view=aps-pdw-2016-au7&viewFallbackFrom=azure-sqldw-latest
+****************************************************************************************/
 SELECT 
 	Fis.SalesTerritoryKey
 	,Fis.OrderDateKey
@@ -29,20 +34,32 @@ FROM Sales.FactInternetSales Fis
 			AND Fisr.SalesOrderLineNumber = Fis.SalesOrderLineNumber
 	INNER JOIN Sales.DimSalesReason Dsr
 		ON Fisr.SalesReasonKey = Dsr.SalesReasonKey
-WHERE Fis.OrderDateKey >= 20120101 and Fis.OrderDateKey < 20211231
+WHERE Fis.OrderDateKey >= '20120101' and Fis.OrderDateKey < '20211231'
 		AND Fis.SalesTerritoryKey BETWEEN 5 and 10
 		AND Dsr.SalesReasonName = 'Demo Event'
 	GROUP BY Fis.SalesTerritoryKey, Fis.OrderDateKey, Dsr.SalesReasonName
 OPTION(LABEL = 'First Execution - Slowest one')
 GO
 
+
+/***************************************************************************************
+STEP 2 of 8 - How to check if Auto create stats has been triggered by the user query
+Multiple statistics have been created before user query started.
+****************************************************************************************/
+
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'First Execution - Slowest one'
-SELECT * FROM sys.dm_pdw_exec_requests WHERE request_id > 'QID1408' and Command like '%CREATE STAT%'
+
+--There will be 9 CREATE STATS T-SQL command triggered by the query
+SELECT * FROM sys.dm_pdw_exec_requests WHERE request_id > 'request_id' and Command like '%CREATE STAT%'
 GO
+
+/***************************************************************************************
+STEP 3 of 8 - If you run the query again it will run faster than previous execution 
+even cleaning buffers and procedure cache
+****************************************************************************************/
 
 DBCC DROPCLEANBUFFERS()
 DBCC FREEPROCCACHE()
-GO
 
 SELECT 
 	Fis.SalesTerritoryKey
@@ -57,19 +74,26 @@ FROM Sales.FactInternetSales Fis
 			AND Fisr.SalesOrderLineNumber = Fis.SalesOrderLineNumber
 	INNER JOIN Sales.DimSalesReason Dsr
 		ON Fisr.SalesReasonKey = Dsr.SalesReasonKey
-WHERE Fis.OrderDateKey >= '20120101' and Fis.OrderDateKey < '20211231' 
+WHERE Fis.OrderDateKey >= '20120101' and Fis.OrderDateKey < '20211231'
 		AND Fis.SalesTerritoryKey BETWEEN 5 and 10
 		AND Dsr.SalesReasonName = 'Demo Event'
-	GROUP BY Fis.SalesTerritoryKey, Fis.OrderDateKey, Dsr.SalesReasonName
+	GROUP BY Fis.SalesTerritoryKey, Fis.OrderDateKey, Dsr.SalesReasonName 
 OPTION(LABEL = 'Second Execution - Stats available')
 GO
 
+/***************************************************************************************
+STEP 4 of 8 - 0 CREATE STATS T-SQL command
+****************************************************************************************/
+
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Second Execution - Stats available'
-SELECT * FROM sys.dm_pdw_exec_requests WHERE request_id > 'QID1447' and Command like '%CREATE STAT%'
+SELECT * FROM sys.dm_pdw_exec_requests WHERE request_id > 'request_id' and Command like '%CREATE STAT%'
 GO
 
---Manual Statistics can help 
 
+/***************************************************************************************
+STEP 4 of 8 - Manually investigate statistics create/Last update date for Sales.FactInternetSales
+and columns with statistics
+****************************************************************************************/
 SELECT
     sm.[name] AS [schema_name],
     tb.[name] AS [table_name],
@@ -93,32 +117,39 @@ FROM
         ON  co.[object_id] = tb.[object_id]
     JOIN sys.schemas sm
         ON  tb.[schema_id] = sm.[schema_id]
-WHERE
-    sm.[name] = 'Sales' and tb.[name] = 'FactInternetSales';
+WHERE st.[name] not like 'ClusteredIndex_%'
+   AND sm.[name] = 'Sales' and tb.[name] = 'FactInternetSales';
 GO
 
 
 
 
-
+/***************************************************************************************
+STEP 5 of 8 - Manually drop statistics from FactInternetSales
+Change "_WA_Sys_xxxxxxx_xxxxxxx" with the proper names from the previous query
+****************************************************************************************/
 
 DROP STATISTICS [Sales].[FactInternetSales]._WA_Sys_00000002_0D44F85C
 DROP STATISTICS [Sales].[FactInternetSales]._WA_Sys_00000008_0D44F85C
 DROP STATISTICS [Sales].[FactInternetSales]._WA_Sys_00000009_0D44F85C
 DROP STATISTICS [Sales].[FactInternetSales]._WA_Sys_0000000A_0D44F85C
 
+/***************************************************************************************
+STEP 6 of 8 - Manually drop statistics from FactInternetSales
+Change "_WA_Sys_xxxxxxx_xxxxxxx" with the proper names from the previous query
+--https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15
 
+****************************************************************************************/
 
 CREATE STATISTICS [OrderDateKey] ON [Sales].[FactInternetSales]([OrderDateKey]);
 CREATE STATISTICS [SalesTerritoryKey] ON [Sales].[FactInternetSales]([SalesTerritoryKey]);
 CREATE STATISTICS [SalesOrderNumber] ON [Sales].[FactInternetSales]([SalesOrderNumber]);
 CREATE STATISTICS [SalesOrderLineNumber] ON [Sales].[FactInternetSales]([SalesOrderLineNumber]);
 
+/***************************************************************************************
+STEP 7 of 8 - Query is fast, Stats have been manually created
+****************************************************************************************/
 
-
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
 
 SELECT 
 	Fis.SalesTerritoryKey
@@ -140,6 +171,9 @@ WHERE Fis.OrderDateKey >= '20120101' and Fis.OrderDateKey < '20211231'
 OPTION(LABEL = 'Third Execution - Manually created Stats available')
 GO
 
+/***************************************************************************************
+STEP 8 of 8 - Query is fast, Stats have been manually created
+****************************************************************************************/
 
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Third Execution - Manually created Stats available'
-SELECT * FROM sys.dm_pdw_exec_requests WHERE request_id > 'QID1507' and Command like '%CREATE STAT%'
+SELECT * FROM sys.dm_pdw_exec_requests WHERE request_id > 'request_id' and Command like '%CREATE STAT%'
