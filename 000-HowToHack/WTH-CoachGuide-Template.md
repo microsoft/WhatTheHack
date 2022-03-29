@@ -7,7 +7,7 @@
 ## Introduction
 Welcome to the coach's guide for the ${nameOfChallengeArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-*If you're hack does NOT contain any lecture presentations, remove this next paragraph.*
+*If your hack does NOT contain any lecture presentations, remove this next paragraph.*
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -21,14 +21,16 @@ Before the hack, it is the Coach's responsibility to download and package up the
 
 *If your hack has any additional pre-reqs that a coach needs to know before hosting an event, cover them in this section.  This includes both technical pre-reqs, and Azure Subscription pre-reqs.*
 
-*For example, list out:*
-	*- Azure resources that will be consumed by a student implementing the hack's challenges (and how/if to deal with any quota limits that need to be adjusted in the student's subscription).*
-*- Azure permissions required by a student to complete the hack's challenges.*
-*- Any pre-event setup steps a coach would be required to set up such as:*
-	*- Creating or hosting a shared dataset*
-	*- Deploying a lab environment*
-*- If the hack requires a demo Dynamics 365 or Microsoft 365 tenant to be provisioned*
-*- If the hack requires Global Admin access to an Azure AD tenant*
+<i>
+For example, list out:
+	- Azure resources that will be consumed by a student implementing the hack's challenges (and how/if to deal with any quota limits that need to be adjusted in the student's subscription).
+	- Azure permissions required by a student to complete the hack's challenges.
+	- Any pre-event setup steps a coach would be required to set up such as:
+		- Creating or hosting a shared dataset
+		- Deploying a lab environment
+	- If the hack requires a demo Dynamics 365 or Microsoft 365 tenant to be provisioned
+	- If the hack requires Global Admin access to an Azure AD tenant
+</i>
 
 ## Coach's Guides
 <!-- REMOVE_ME ${challengesSection} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
