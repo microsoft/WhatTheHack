@@ -31,7 +31,7 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 - GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
 - Azure subscription for creating the Load Testing service and running the sample application.
 - We assume you are familiar with the fundamentals of load testing.
-- You will need a public application endpoint to test against for the WTH - whether it is running in Azure, on-prem or another cloud. You have two options:
+- You will need an application deployed to Azure with a public endpoint to test against for the hack. You have two options:
     - Deploy your own, existing application
         - If you want to load test your own application, be sure you are load testing against a non-production, isolated environment. Ensure that every component you are testing against is not shared with production in any way - otherwise you risk impacting the availability of your production environment.
     - Deploy a sample application

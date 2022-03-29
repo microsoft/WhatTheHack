@@ -11,7 +11,7 @@
 
 In this challenge, you will create the Load Testing service in Azure, deploy an application to load test against and create one or more load testing scripts. Your load testing scripts should be designed to implement the load testing *strategy* you created in the previous challenge. 
 
-You will need a public application endpoint to test against for the hack - whether it is running in Azure, on-prem or another cloud. You have two options:
+You will need an application deployed to Azure with a public endpoint to test against for the hack. You have two options:
 
 - Deploy a sample application:
     - The [sample application](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal#deploy-the-sample-app) consists of a Node.js web API, which interacts with a NoSQL database. 
