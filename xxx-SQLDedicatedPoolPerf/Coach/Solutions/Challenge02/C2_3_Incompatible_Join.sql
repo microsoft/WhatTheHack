@@ -15,7 +15,10 @@ https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-
 
 ****************************************************************************************/
 
---Training Replicated Table Cache for DimSalesReason
+
+/****************************************************************************************
+STEP 1 of 6 - Training Replicated Table Cache for DimSalesReason to avoid Broadcastmove
+****************************************************************************************/
 IF EXISTS
 (
 	SELECT * FROM sys.pdw_replicated_table_cache_state 
@@ -33,10 +36,9 @@ WHERE OBJECT_NAME(object_id) = 'DimSalesReason'
 GO
 
 
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
-
+/****************************************************************************************
+STEP 2 of 6 - Execute this query
+****************************************************************************************/
 SELECT 
 	Fis.SalesTerritoryKey
 	,Fis.OrderDateKey
@@ -57,9 +59,25 @@ WHERE Fis.OrderDateKey >= 20120101 and Fis.OrderDateKey < 20211231
 OPTION(LABEL = 'Incompatible Join')
 GO
 
+/****************************************************************************************
+STEP 3 of 6 - Check generated MPP plan
+most expensive step is ShuffleMoveOperation (step_index = 2) which moves approx 73.569.026
+****************************************************************************************/
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Incompatible Join'
-SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'QID1624'
+SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'request_id'
 GO
+
+
+/****************************************************************************************
+STEP 4 of 6 - fixing the issue changing the distribution column
+Original Sales.FactInternetSales has been created using HASH(ProductKey) which is not good for this query
+Sales.FactInternetSales and Sales.FactInternetSalesReason use SalesOrderNumber and this caused the biggest Shufflemove 
+Which move all the rows that meet Where clauses from Sales.FactInternetSales to perform subsequent joins and aggregation
+
+Redistribute Sales.FactInternetSales using SalesOrderNumber remove the first Shufflemove and improve performance.
+
+
+****************************************************************************************/
 
 RENAME OBJECT Sales.FactInternetSales TO FactInternetSales_ByProduct
 GO
@@ -82,9 +100,9 @@ CREATE STATISTICS [SalesOrderLineNumber] ON [Sales].[FactInternetSales]([SalesOr
 GO
 
 
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
+/****************************************************************************************
+STEP 5 of 6 - Run the query again and Check generated MPP plan
+****************************************************************************************/
 
 SELECT 
 	Fis.SalesTerritoryKey
@@ -99,17 +117,21 @@ FROM Sales.FactInternetSales Fis
 			AND Fisr.SalesOrderLineNumber = Fis.SalesOrderLineNumber
 	INNER JOIN Sales.DimSalesReason Dsr
 		ON Fisr.SalesReasonKey = Dsr.SalesReasonKey
-WHERE Fis.OrderDateKey >= '20120101' and Fis.OrderDateKey < '20211231'
+WHERE Fis.OrderDateKey >= 20120101 and Fis.OrderDateKey < 20211231
 		AND Fis.SalesTerritoryKey BETWEEN 5 and 10
 		AND Dsr.SalesReasonName = 'Demo Event'
 	GROUP BY Fis.SalesTerritoryKey, Fis.OrderDateKey, Dsr.SalesReasonName
 OPTION(LABEL = 'Compatible Join')
 GO
 
-
+/****************************************************************************************
+STEP 6 of 6 - Check generated MPP plan
+ShuffleMoveOperation which moved approx 73.569.026 disappeared.
+Still there is 1 shufflemove but it doesn't affect performance and it's related to aggregations
+****************************************************************************************/
 
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Incompatible Join'
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] =  'Compatible Join'
-SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'QID7325'
-SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'QID7318'
+SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'request_id'
+SELECT * FROM Sys.dm_pdw_request_steps WHERE request_id = 'request_id'
 GO

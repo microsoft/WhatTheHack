@@ -211,6 +211,13 @@ GO
 
 /****************************************************************************************
 STEP 5 of 5 - Run this code with no explanation, this is needed for further investigation in the next challenges
+
+- Sales.FactSales will be created using SalesOrderNumber as distribution column
+Very bad choice since it contains only 1 distinct value, all data will land into the same distribution
+Table is heavilly affected by skewness
+
+Sales.FactInternetSales_Partitioned will be created with more than 80 partitions 
+but it doesn'-'t have enough record  to benefit from it
 ****************************************************************************************/
 
 
