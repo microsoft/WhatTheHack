@@ -46,19 +46,19 @@ These pre-reqs should be shared with a stakeholder in the organization that will
 
 *For example:*
 
-*- Azure resources that will be consumed by a student implementing the hack's challenges*
-*- Azure permissions required by a student to complete the hack's challenges.*
-*- Any pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment*
+- Azure resources that will be consumed by a student implementing the hack's challenges
+- Azure permissions required by a student to complete the hack's challenges.
+- Any pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment
 
 ## Suggested Hack Agenda (Optional)
 
 *This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each day for a multi-day hack event.  For example:*
 
 - Sample Day 1
- *- Challenge 1 (1 hour)*
- *- Challenge 2 (30 mins)*
- *- Challenge 3 (2 hours)*
+	- Challenge 1 (1 hour)
+	- Challenge 2 (30 mins)
+	- Challenge 3 (2 hours)
 - Sample Day 2
- *- Challenge 4 (45 mins)*
- *- Challenge 5 (1 hour)*
- *- Challenge 6 (45 mins)*
+	- Challenge 4 (45 mins)
+ 	- Challenge 5 (1 hour)
+ 	- Challenge 6 (45 mins)
