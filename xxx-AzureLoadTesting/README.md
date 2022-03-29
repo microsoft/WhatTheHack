@@ -1,14 +1,15 @@
 # What The Hack - xxx-AzureLoadTesting
 
 ## Introduction
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+Azure Load Testing Service (Preview) enables developers and testers to generate high-scale load that reveal actionable insights into app performance, scalability, capacity - and ultimately resiliency - with a fully managed service.
 
 ## Learning Objectives
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+This hack is designed to introduce you to Azure Load Testing and guide you through a series of hands-on challenges to accomplish the following:
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency 
+- Leverage a cloud-based load testing service with high fidelity support for JMeter and new/existing JMeter scripts
+- Build a comprehensive view of curated client and server metrics with actionable insights into app performance
+- Integrate with CI/CD workflows for automated, collaborative load-testing
+- Perform load testing in conjunction with Azure Chaos Studio to ensure resiliency during an application/service/region degradation or failure
 
 ## Challenges
 1. Challenge 01: **[Develop a Load Testing Strategy](Student/Challenge-01.md)**
@@ -26,21 +27,28 @@ In this hack you will be solving the common business problem that companies in t
 1. Challenge 07: **[ Load Testing During Chaos Experiment](Student/Challenge-07.md)**
 	 - Incorporating load testing and chaos experiments together
 ## Prerequisites
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
+- We assume you are familiar with the fundamentals of load testing.
+- You will need a public application endpoint to test against for the WTH - whether it is running in Azure, on-prem or another cloud. You have two options:
+    - Deploy your own, existing application
+        - If you want to load test your own application, be sure you are load testing against a non-production, isolated environment. Ensure that every component you are testing against is not shared with production in any way - otherwise you risk impacting the availability of your production environment.
+    - Deploy a sample application
+        - The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database. Follow the steps [here](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal#deploy-the-sample-app) to deploy the sample application.
+- If you want to load test the application across regions, you will need to deploy it to multiple regions. This is especially critical since this will factor into the overall resiliency of the application.
+- You may choose to create JMeter scripts in the native JMeter GUI to take advantage of the templates and other features it offers. That is out of the scope of this WTH, but you can find instructions for doing so [here](https://jmeter.apache.org/usermanual/get-started.html#install).
+
+## Other Considerations
+- Measure typical loads on your existing application. Knowing the typical and maximum loads on your system helps you understand when something is operating outside of its designed limits. Monitor traffic to understand application behavior and have that data handy so you can design realistic load testing scripts.
+- Review the [Azure Load Testing region availability and load limits](https://azure.microsoft.com/en-us/services/load-testing/#faq).
 
 ## Repository Contents (Optional)
 - `./Coach/Guides`
   - Coach's Guide and related files
-- `./SteamShovel`
-  - Image files and code for steam shovel microservice
 - `./images`
   - Generic image files needed
 - `./Student/Guides`
   - Student's Challenge Guide
 
 ## Contributors
-- Jane Q. Public
-- Joe T. Muppet
+- Kevin M. Gates
+- Andy Huang
