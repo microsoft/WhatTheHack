@@ -17,7 +17,7 @@ The participants will learn how to:
 ## Challenges
 - Challenge 0: **[Pre-requisites - Setup Environment and Prerequisites!](Student/00-prereqs.md)**
    - Prepare your environment to run the sample application
-- Challenge 1: **[Discovery and assessment)](Student/01-discovery.md)**
+- Challenge 1: **[Discovery and assessment](Student/01-discovery.md)**
    - Discover and assess the application's PostgreSQL/MySQL/Oracle databases
 - Challenge 2: **[Offline migration](Student/03-offline-migration.md)**
    - Dump the "on-prem" databases (or use a tool like ora2pg), create databases for Azure DB for PostgreSQL/MySQL and restore them
