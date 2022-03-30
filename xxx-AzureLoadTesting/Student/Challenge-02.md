@@ -14,7 +14,7 @@ In this challenge, you will create the Load Testing service in Azure, deploy an 
 You will need an application deployed to Azure with a public endpoint to test against for the hack. You have two options:
 
 - Deploy a sample application:
-    - The [sample application](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal#deploy-the-sample-app) consists of a Node.js web API, which interacts with a NoSQL database. 
+    - The [sample application](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck) consists of a Node.js web API, which interacts with a NoSQL database. 
 - Deploy your own application:
     - If you want to load test your own application, be sure you are load testing against a non-production, isolated environment. Ensure that every component you are testing against is not shared with production in any way - otherwise you risk impacting the availability of your production environment.
 
