@@ -139,6 +139,8 @@ STEP 6 of 8 - Manually drop statistics from FactInternetSales
 Change "_WA_Sys_xxxxxxx_xxxxxxx" with the proper names from the previous query
 --https://docs.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver15
 
+Highlight Auto create stats only creates single columns statistics
+
 ****************************************************************************************/
 
 CREATE STATISTICS [OrderDateKey] ON [Sales].[FactInternetSales]([OrderDateKey]);

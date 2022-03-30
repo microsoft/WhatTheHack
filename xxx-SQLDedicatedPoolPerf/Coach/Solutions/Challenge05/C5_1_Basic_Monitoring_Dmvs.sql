@@ -15,10 +15,20 @@ https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-
 
 ****************************************************************************************/
 
+/****************************************************************************************
+STEP 1 of 2 - Explain how sys.dm_pdw_* Dmvs work and how many records they can store
+
+https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7#:~:text=An%20attacker%20can%20use%20sys.dm_pdw_exec_requests%20to%20retrieve%20information,STATE%20permission%20and%20by%20not%20having%20database-specific%20permission.
+
+
+https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits
+
+****************************************************************************************/
+
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC
 GO
 
-SELECT * FROM sys.dm_pdw_request_steps WHERE request_id = 'QID28234' 
+SELECT TOP 100 * FROM sys.dm_pdw_request_steps
 ORDER BY request_id, step_index
 GO
 
@@ -26,7 +36,10 @@ SELECT * FROM sys.dm_pdw_errors ORDER BY create_time DESC
 GO
 
 
---There's a bug in our documentation, vTableSizes should take care only about "COMPUTE" and not about "CONTROL"
+/****************************************************************************************
+STEP 2 of 2 - Using Dmv you can monitor table size and identify skewed tables
+Create this View and show how to query it
+****************************************************************************************/
 CREATE VIEW dbo.vTableSizes
 AS
 WITH base
@@ -138,7 +151,10 @@ SELECT * FROM size;
 GO
 
 SELECT 
-	[two_part_name],max(row_count * 1.000), min(row_count * 1.000) ,sum(row_count * 1.000) , (max(row_count * 1.000) - min(row_count * 1.000))/sum(row_count * 1.000)*100.00
+	[two_part_name],max(row_count * 1.000) Max_row_count
+    , min(row_count * 1.000) Min_row_count 
+    , sum(row_count * 1.000) Total_rows
+    , (max(row_count * 1.000) - min(row_count * 1.000))/sum(row_count * 1.000)*100.00 [Skew%]
 FROM vTableSizes 
 	WHERE distribution_policy_name = 'HASH'
 GROUP BY [two_part_name]

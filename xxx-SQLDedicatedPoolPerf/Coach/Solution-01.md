@@ -1,10 +1,25 @@
-# Challenge 01 - SQLDedicatedPoolPerf - Coach's Guide 
+# Challenge 01 - Ingest data from blob storage - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 # Notes & Guidance
 
+In this challenge you will import several parquet files from Blob Storage into your Datawarehouse and then you will move data from staging area to the production one. 
+
 Here the proposed DB [database diagram](./Solutions/DedicatedSqlPool-TablesRelationships.pdf).
+
+**Learning objectives:**
+    - Get understanding about tables architecture in Dedicated Sql Pool 
+    - Distributed
+    - Round Robin
+    - Replicated
+    - How to identify Data Skew and how to fix it	
+
+**Condition of success**
+- Identify the best design for Staging tables to improve performance during load
+- Identify all the methods you can use to load data from Blob storage 
+- Identify the best design distribution method for production tables 
+- Identify Data Skew and fix it
 
 ## Ingest Data from Azure Data Lake Gen2 – Blob container
 
