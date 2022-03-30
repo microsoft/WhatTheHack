@@ -14,9 +14,14 @@ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/kill-transact-sql?v
 
 ****************************************************************************************/
 
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
+/****************************************************************************************
+STEP 1 of 5 - BEFORE RUN THIS SCALE YOUR DEDICATED SQL POOL TO DW100c
+
+This command should never complete
+Run this select after you run C3_B_Simulate_Queries.ps1 powershell script.
+While PS1 script is still running (it should take hours to complete) run below query
+
+****************************************************************************************/
 
 SELECT 
 	Fis.SalesTerritoryKey
@@ -38,16 +43,36 @@ WHERE Fis.OrderDateKey >= 20120101 and Fis.OrderDateKey < 20211231
 OPTION(LABEL = 'Test Concurrency DW100')
 GO
 
+/****************************************************************************************
+STEP 2 of 5 - Checking what is going on
+You should find 4 session with status = 'running' and one with status = 'suspended' 
+DW1000 allows max 4 running concurrent query. New submitted queries will be queued and their status will be 'Suspended'
+
+https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits
+
+****************************************************************************************/
+
 SELECT * FROM sys.dm_pdw_exec_requests WHERE STATUS NOT IN ('Completed','Failed','Cancelled')
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [label] = 'Test Concurrency DW100'
-SELECT * FROM sys.dm_pdw_waits WHERE session_id = 'SID19244'
+SELECT * FROM sys.dm_pdw_waits WHERE session_id = 'sessions_id'
 GO
+
+/****************************************************************************************
+STEP 3 of 5 - to increase the number of available concurrent queries you have to chose an higher SLO
+Customer's workload can do it programmatically via Powershell, T-SQL, REST API
+
+In this example we will leverage T-SQL code to scale to DW500c.
+
+YOU CAN NOW STOP C3_B_Simulate_Queries.ps1 SCRIPT USING C3_C_Force_Stop_Queries.ps1
+
+****************************************************************************************/
 
 --Point MASTER db, your app can invoke this T/SQL and auto/scale the Dedicated Sql pool
 ALTER DATABASE fasthack_performance
 MODIFY (SERVICE_OBJECTIVE = 'DW500c');
 GO
 
+--It returns the current status for the scale request
 SELECT TOP 1 state_desc
 FROM sys.dm_operation_status
 WHERE
@@ -58,6 +83,8 @@ ORDER BY
     start_time DESC
 GO
 
+
+--How to check the scale status
 DECLARE @db sysname = 'fasthack_performance'
 WHILE
 (
@@ -79,10 +106,12 @@ PRINT 'Complete';
 GO
 
 
---Poin the DWH
-DBCC DROPCLEANBUFFERS()
-DBCC FREEPROCCACHE()
-GO
+
+/****************************************************************************************
+STEP 4 of 5 - Run this select after you triggered again the C3_B_Simulate_Queries.ps1 powershell script.
+While PS1 script is still running (it should take hours to complete) run below query
+It should complete in few seconds
+****************************************************************************************/
 
 SELECT 
 	Fis.SalesTerritoryKey
@@ -102,7 +131,4 @@ WHERE Fis.OrderDateKey >= 20120101 and Fis.OrderDateKey < 20211231
 		AND Dsr.SalesReasonName = 'Demo Event'
 	GROUP BY Fis.SalesTerritoryKey, Fis.OrderDateKey, Dsr.SalesReasonName
 OPTION(LABEL = 'Test Concurrency DW500')
-GO
-
-SELECT * FROM sys.dm_pdw_exec_requests WHERE [label] = 'Test Concurrency DW500'
 GO
