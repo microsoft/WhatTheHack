@@ -17,21 +17,19 @@ The participants will learn how to:
 ## Challenges
 - Challenge 0: **[Pre-requisites - Setup Environment and Prerequisites!](Student/00-prereqs.md)**
    - Prepare your environment to run the sample application
-- Challenge 1: **[Assessment (features differences and compatibility)](Student/01-assessment.md)**
-   - Assess the application's PostgreSQL/MySQL/Oracle databases
-- Challenge 2: **[Size analysis](Student/02-size-analysis.md)**
-   - Determine the CPU/memory configuration and database file size and map to an equivalent size in Azure
-- Challenge 3: **[Offline migration](Student/03-offline-migration.md)**
+- Challenge 1: **[Discovery and assessment)](Student/01-discovery.md)**
+   - Discover and assess the application's PostgreSQL/MySQL/Oracle databases
+- Challenge 2: **[Offline migration](Student/03-offline-migration.md)**
    - Dump the "on-prem" databases (or use a tool like ora2pg), create databases for Azure DB for PostgreSQL/MySQL and restore them
-- Challenge 4: **[Offline Cutover and Validation](Student/04-offline-cutover-validation.md)**
+- Challenge 3: **[Offline Cutover and Validation](Student/04-offline-cutover-validation.md)**
    - Reconfigure the application to use the appropriate connection string and validate that the application is working
-- Challenge 5: **[Online Migration](Student/05-online-migration.md)**
+- Challenge 4: **[Online Migration](Student/05-online-migration.md)**
    - Create new databases in Azure DB for PostgreSQL/MySQL and use the Azure Database Migration Service to replicate the data from the on-prem databases
-- Challenge 6: **[Online Cutover and Validation](Student/06-online-cutover-validation.md)**
+- Challenge 5: **[Online Cutover and Validation](Student/06-online-cutover-validation.md)**
    - Reconfigure the application to use the appropriate connection string for Azure DB for PostgreSQL/MySQL
-- Challenge 7: **[Private Endpoints](Student/07-private-endpoint.md)**
+- Challenge 6: **[Private Endpoints](Student/07-private-endpoint.md)**
    - Reconfigure the application to use configure Azure DB for PostgreSQL/MySQL with a private endpoint so it can be used with a private IP address
-- Challenge 8: **[Replication](Student/08-replication.md)**
+- Challenge 7: **[Replication](Student/08-replication.md)**
    - Add an additional replica to the Azure DB for PostgreSQL/MySQL
 
 
