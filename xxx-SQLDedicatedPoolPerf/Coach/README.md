@@ -22,6 +22,7 @@ Here the steps:
 3. Create a valid [Data Lake Gen2 Storage Account(https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account)]
 4. Create a new container and make it public, it will be used by attendees to ingest parquet files
 5. Run [12_Export all - External Tables.sql](./Dataset%20-%20Scripts/../Dataset%20-%20Scripts/12_Export%20all%20-%20External%20Tables.sql) and follow provided steps and instructions
+6. Provide the path to your public container to attendees, they will use it to ingest parquet files.
 
 
 
