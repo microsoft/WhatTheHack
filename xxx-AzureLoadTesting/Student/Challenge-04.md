@@ -10,7 +10,7 @@
 
 You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build. In the test configuration, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, when the average response time exceeds a threshold, the test should fail. To get the maximum value from this approach, it is critical to integrate this in your CI/CD workflow as soon as possible.
 
-You can trigger Azure Load Testing from [Azure Pipelines](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-cicd-azure-pipelines) or [GitHub Actions](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-cicd-github-actions) workflows.
+You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
 
 ## Description
 
@@ -25,7 +25,6 @@ You can trigger Azure Load Testing from [Azure Pipelines](https://docs.microsoft
 
 ## Learning Resources
 
-- Configure Load Testing from [Azure Pipelines](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-cicd-azure-pipelines) or [GitHub Actions](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-cicd-github-actions)
-- [Configure a load test in YAML](https://docs.microsoft.com/en-us/azure/load-testing/reference-test-config-yaml)
+- [Load Testing documentation](https://docs.microsoft.com/en-us/azure/load-testing/)
 
 

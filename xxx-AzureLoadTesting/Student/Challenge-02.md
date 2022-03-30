@@ -35,7 +35,7 @@ Azure Load Testing is based on JMeter - a popular open source load testing tool.
 
 ## Learning Resources
 
-- [Create and run a load test with Azure Load Testing](https://docs.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test)
+- [Load Testing documentation](https://docs.microsoft.com/en-us/azure/load-testing/)
 - [Node.js sample application](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal#deploy-the-sample-app)
 - [Apache JMeter Docs](https://jmeter.apache.org/index.html)
 - [Create Test Plan from Template](https://jmeter.apache.org/usermanual/get-started.html#template)

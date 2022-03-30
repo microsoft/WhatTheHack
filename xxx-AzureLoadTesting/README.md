@@ -28,16 +28,15 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 	 - Incorporating load testing and chaos experiments together
 
 ## Prerequisites
-- GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
+- Familiarality with the fundamentals of load testing.
 - Azure subscription for creating the Load Testing service and running the sample application.
-- We assume you are familiar with the fundamentals of load testing.
-- You will need an application deployed to Azure with a public endpoint to test against for the hack. You have two options:
+- GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
+- You will need an application deployed to Azure with a public endpoint to test against for the hack. If you want to load test the application across regions (and use a global load balancer like Azure Front Door), you will need to deploy it to multiple regions. This is especially critical since this will factor into the overall resiliency of the application. For the application, you have two options:
     - Deploy your own, existing application
         - If you want to load test your own application, be sure you are load testing against a non-production, isolated environment. Ensure that every component you are testing against is not shared with production in any way - otherwise you risk impacting the availability of your production environment.
     - Deploy a sample application
         - The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database. Follow the steps [here](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal#deploy-the-sample-app) to deploy the sample application.
-- If you want to load test the application across regions, you will need to deploy it to multiple regions. This is especially critical since this will factor into the overall resiliency of the application.
-- You may choose to create JMeter scripts in the native JMeter GUI to take advantage of the templates and other features it offers. That is out of the scope of this WTH, but you can find instructions for doing so [here](https://jmeter.apache.org/usermanual/get-started.html#install).
+- 
 
 ## Repository Contents (Optional)
 - `./Coach/Guides`
