@@ -1,11 +1,28 @@
 # What The Hack - Dedicated SQL Pool performance best practices - Coach Guide
 
 ## Introduction
-Welcome to the coach's guide for the "Dedicated SQL Pool performance best practices - What The Hack". Here you will find links to specific guidance for coaches for each of the challenges.
+This OpenHack enables attendees to understand best practices developing, maintaining, and optimizing performance for their Synapse Dedicated SQL Pool. This OpenHack simulates a real-world scenario where a cycle manufacturer company develops its new Datawarehouse leveraging Synapse Dedicated Sql pool. The goal is to apply all best practices to avoid performance bottlenecks during daily activities once in production. During the hack, attendees will focus on:
 
-Also remember that this hack includes a optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+Database Design – Best Practices
+- Query Design – Best practices and optimization
+- Performance Troubleshooting
+- Performance Monitoring
 
-## How to prepare the Data set
+## How to prepare the Data-set
+
+Before start the fasthack you need to create the dataset and make it available to all attendees.
+It's a very time consuming steps so it's recommended to run it a couple of days before the fasthack.
+Here the steps:
+1. [Create a new Dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
+   1. Choose **DW500c** as performance level
+   2. Check the **"Additional settings"** tab and make sure you selected **"Sample"**
+2. Once the Dedicated SQL pool is online, open your preferred query editor ([Sql Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) or [Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)) and connect to your Dedicated SQL pool, then run all the T-SQL scripts available [here](./Dataset%20-%20Scripts/) from 1 to 11. **Do not change the order**
+   1. Scripts [8_FactInternetSales.sql](./Dataset%20-%20Scripts/../Dataset%20-%20Scripts/8_FactInternetSales.sql) and [9_FactResellersSales.sql](./Dataset%20-%20Scripts/../Dataset%20-%20Scripts/9_FactResellersSales.sql) can run at the same time
+   2. This step can take up 8 hour to complete since we're generating consistend data and thousands of query will run against your Dedicated SQL pool
+3. Create a valid [Data Lake Gen2 Storage Account(https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account)]
+4. Create a new container and make it public, it will be used by attendees to ingest parquet files
+5. Run [12_Export all - External Tables.sql](./Dataset%20-%20Scripts/../Dataset%20-%20Scripts/12_Export%20all%20-%20External%20Tables.sql) and follow provided steps and instructions
+
 
 
 
@@ -16,7 +33,7 @@ Also remember that this hack includes a optional [lecture presentation](Lectures
     	 - Get understanding about table architecture in Dedicated Sql Pool 
     	 - Distributed
     	 - Round Robin
-    	 - Replicated
+    	 - Replicated 123
   	 - How to identify Data Skew and how to fix it
 1. Challenge 02: **[Queries best practice](./Solution-02.md)**
 	 - In this challenge, attendees will dig into best practices to consider writing a query for your Datawarehouse.
