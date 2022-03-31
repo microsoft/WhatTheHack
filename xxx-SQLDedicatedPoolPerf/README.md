@@ -56,20 +56,11 @@ By the end of the OpenHack, attendees will have a good understanding of:
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
+- An already in-place [Dedicated SQL pool](file:///C:/Users/lferrari/OneDrive%20-%20Microsoft/Desktop/FastHack%20Dedicated%20Pool%20-%20Performance/WhatTheHack/Setup.md). **Configure it using SLO = DW500c**
 - Your choice of database management tool:
-  - SQL Server Management Studio (SSMS) (Windows)
-  - Azure Data Studio (Windows, Mac OS, and Linux
+  - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+  - [Azure Data Studio (Windows, Mac OS, and Linux](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 
-
-## Repository Contents (Optional)
-- `./Coach/Guides`
-  - Coach's Guide and related files
-- `./SteamShovel`
-  - Image files and code for steam shovel microservice
-- `./images`
-  - Generic image files needed
-- `./Student/Guides`
-  - Student's Challenge Guide
 
 ## Contributors
 - Luca Ferrari

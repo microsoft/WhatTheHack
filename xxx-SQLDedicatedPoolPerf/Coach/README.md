@@ -62,3 +62,10 @@ Here the steps:
 	 - Description of challenge
 1. Challenge 07: **[Description of challenge](./Solution-07.md)**
 	 - Description of challenge
+
+
+## Prerequisites
+- Your own Azure subscription with Owner access
+- Your choice of database management tool:
+  - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+  - [Azure Data Studio (Windows, Mac OS, and Linux](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)

@@ -16,6 +16,7 @@ In this challenge you will dig into best practices you have to consider writing 
 - Understand how to identify columns to use with statistics
 - Recognize if a given query is using unnecessary data movement due to incompatible joins and how to fix it 
 
+
 ## Auto Create Statistics
 
 Users are complaining that after importing data into a production table using CTAS the first reporting query involving it is always slow. Subsequent queries are usually faster and with good performance.
