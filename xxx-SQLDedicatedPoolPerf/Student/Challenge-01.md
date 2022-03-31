@@ -7,7 +7,7 @@
 - An already in-place [Dedicated SQL pool](file:///C:/Users/lferrari/OneDrive%20-%20Microsoft/Desktop/FastHack%20Dedicated%20Pool%20-%20Performance/WhatTheHack/Setup.md). **Configure it using SLO = DW500c**
 - Your choice of database management tool:
   - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
-  - [Azure Data Studio (Windows, Mac OS, and Linux](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
+  - [Azure Data Studio (Windows, Mac OS, and Linux)](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 
 ## Introduction (Optional)
 

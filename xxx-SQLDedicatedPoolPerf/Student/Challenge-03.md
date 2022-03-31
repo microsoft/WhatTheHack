@@ -26,7 +26,8 @@ Investigate why the transaction is not completing in the expected timeframe and 
 
 **Concurrency limits**
 
-Before run this excercise please scale your DWH to DW100c using the Azure Portal. 
+_Before run this excercise please scale your DWH to DW100c using the Azure Portal._ 
+
 Many users are complaining their reporting queries (very simple SELECT T-SQL command) are not completing in the expected period. 
 Investigate why their SELECT commands are taking so long and fix it.
   - Execute [C3_B_Simulate_ Queries.ps1](./Resources/Challenge-03/C3_B_Simulate_Queries.ps1?raw=true) powershell script available at this path _./Resources/Challenge-03/C3_B_Simulate_ Queries.ps1_"_ and provide required parameters. **Do not close the powershell session until you complete the excercise**
