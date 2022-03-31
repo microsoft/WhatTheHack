@@ -20,7 +20,7 @@ In this challenge you will troubleshoot queries in stuck, not running queries an
 
 An user is complaining his workload (an UPDATE  T-SQL command) is running forever, never completes. It usually takes few minutes to get completed.
 Investigate why the transaction is not completing in the expected timeframe and fix it
-- Execute [C3_A_Simulate_Writings.ps1](./Resources/Challenge-03/C3_A_Simulate_Writings.ps1?raw=true) powershell script available at this path: _./Resources/Challenge-03/C3_A_Simulate_Writings.ps1_, provide required parameters and wait for completion. **Do not close the powershell session until you complete the excercise**
+- Execute [C3_A_Simulate_Writings.ps1](./Resources/Challenge-03/C3_A_Simulate_Writings.ps1?raw=true) powershell script available at this path **/Resources/Challenge-03/C3_A_Simulate_Writings.ps1** provide required parameters and wait for completion. **Do not close the powershell session until you complete the excercise**
 - Open [C3_1_Blocking.sql](./Resources/Challenge-03/C3_1_Blocking.sql?raw=true) using your preferred editor, run the batch and explain why it never completes.
   - Can you identify why your query never completes ?
 
@@ -30,10 +30,10 @@ _Before run this excercise please scale your DWH to DW100c using the Azure Porta
 
 Many users are complaining their reporting queries (very simple SELECT T-SQL command) are not completing in the expected period. 
 Investigate why their SELECT commands are taking so long and fix it.
-  - Execute [C3_B_Simulate_ Queries.ps1](./Resources/Challenge-03/C3_B_Simulate_Queries.ps1?raw=true) powershell script available at this path _./Resources/Challenge-03/C3_B_Simulate_ Queries.ps1_"_ and provide required parameters. **Do not close the powershell session until you complete the excercise**
+  - Execute [C3_B_Simulate_ Queries.ps1](./Resources/Challenge-03/C3_B_Simulate_Queries.ps1?raw=true) powershell script available at this path **/Resources/Challenge-03/C3_B_Simulate_ Queries.ps1**"_ and provide required parameters. **Do not close the powershell session until you complete the excercise**
   - Open and execute [C3_2_Concurrency.sql](./Resources/Challenge-03/C3_2_Concurrency.sql?raw=true) using your preferred editor and identify why it is taking so long to complete.
     - Can you explain why the query is in stuck and fix it ?
-  - Once you completed this exercise, in case of need, execute [C3_C_Force_Stop_Queries.ps1](./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1) available at this path _./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1_ to kill all executions.
+  - Once you completed this exercise, in case of need, execute [C3_C_Force_Stop_Queries.ps1](./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1) available at this path **/Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1** to kill all executions.
 
 **Result set cache and Materialized Views**
 
