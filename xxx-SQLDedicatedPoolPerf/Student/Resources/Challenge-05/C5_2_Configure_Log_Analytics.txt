@@ -1,0 +1,21 @@
+Tips:
+https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=CMD
+https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period
+https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage
+
+
+
+Configure Diagnostics from portal for Dedicated pool and run this query:
+
+AzureDiagnostics 
+| where Category == "ExecRequests"
+| project
+    ResourceGroup,
+    LogicalServerName_s,
+    DatabaseId_d,
+    StartTime_t,
+    EndCompileTime_t,
+    Category,
+    Status_s,
+    RequestId_s,
+    Command_s

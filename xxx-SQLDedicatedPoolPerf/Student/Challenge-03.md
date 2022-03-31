@@ -1,67 +1,58 @@
-# Challenge 03 - SQLDedicatedPoolPerf
+# Challenge 03 - Queries behavior
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
+- You have to complete **Challenge 02 - Queries best practice**
 
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
+## Introduction
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+In this challenge you will troubleshoot queries in stuck, not running queries and will optimize query executions.
 
 ## Description
 
-*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
+**Learning objectives:**
+- Understand locking behavior 
+- Understand concurrency behavior
+- Optimize query with result set caching and materialized views
 
-*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
+**Concurrent writings**
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+An user is complaining his workload (an UPDATE  T-SQL command) is running forever, never completes. It usually takes few minutes to get completed.
+Investigate why the transaction is not completing in the expected timeframe and fix it
+- Execute [C3_A_Simulate_Writings.ps1](./Resources/Challenge-03/C3_A_Simulate_Writings.ps1?raw=true) powershell script available at this path: "./Resources/Challenge-03/C3_A_Simulate_Writings.ps1", provide required parameters and wait for completion. **Do not close the powershell session until you complete the excercise**
+- Open [C3_1_Blocking.sql](./Resources/Challenge-03/C3_1_Blocking.sql?raw=true) using your preferred editor, run the batch and explain why it never completes.
+  - Can you identify why your query never completes ?
+
+**Concurrency limits**
+
+Before run this excercise please scale your DWH to DW100c using the Azure Portal. 
+Many users are complaining their reporting queries (very simple SELECT T-SQL command) are not completing in the expected period. 
+Investigate why their SELECT commands are taking so long and fix it.
+  - Execute [C3_B_Simulate_ Queries.ps1](./Resources/Challenge-03/C3_B_Simulate_Queries.ps1?raw=true) powershell script available at this path "./Resources/Challenge-03/C3_B_Simulate_ Queries.ps1" and provide required parameters. **Do not close the powershell session until you complete the excercise**
+  - Open and execute [C3_2_Concurrency.sql](./Resources/Challenge-03/C3_2_Concurrency.sql?raw=true) using your preferred editor and identify why it is taking so long to complete.
+    - Can you explain why the query is in stuck and fix it ?
+  - Once you completed this exercise, in case of need, execute [C3_C_Force_Stop_Queries.ps1](./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1) available at this path "./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1" to kill all executions.
+
+**Result set cache and Materialized Views**
+
+Users are running the same reporting query multiple time per day and each execution take a while.
+Tables are well distributed, query is using compatible join and is not wasting resources.
+Is there a way to speed-up the execution ?
+  - Open [C3_3_Result_Set_Cache_Materialized_View.sql](./Resources/Challenge-03/C3_3_Result_Set_Cache_Materialized_View.sql?raw=true) and try to optimize further the proposed query.
+    - Is there a feature you could leverage on to make the query faster ?
+    - And what if the resultset is bigger than 10 GB ? Is there something you can leverage on further ?
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- Understanding locking behavior and transactions in Dedicated Sql Pool 
+- Recognize if a query is blocked by other transaction or due to a lack in system resources
+- Manage Result Set Cache and Materialized view to improve performance
 
 ## Learning Resources
 
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-## Advanced Challenges (Optional)
-
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- [Transactions (Azure Synapse Analytics)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transactions-sql-data-warehouse?view=aps-pdw-2016-au7)
+- [Who is blocking me ?](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/who-is-blocking-me/ba-p/1431932)
+- [Memory and concurrency limits](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits)
+- [Performance tuning with result set caching](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching) 
+- [Performance tune with materialized views](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views)

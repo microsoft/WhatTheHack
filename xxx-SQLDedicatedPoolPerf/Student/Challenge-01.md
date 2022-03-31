@@ -1,67 +1,71 @@
-# Challenge 01 - SQLDedicatedPoolPerf
+# Challenge 01 - Ingest data from blob storage
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Pre-requisites (Optional)
-
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
+## Pre-requisites
+- Your own Azure subscription with Owner access
+- An already in-place [Dedicated SQL pool](file:///C:/Users/lferrari/OneDrive%20-%20Microsoft/Desktop/FastHack%20Dedicated%20Pool%20-%20Performance/WhatTheHack/Setup.md). **Configure it using SLO = DW500c**
+- Your choice of database management tool:
+  - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+  - [Azure Data Studio (Windows, Mac OS, and Linux](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 
 ## Introduction (Optional)
 
-*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+In this challenge you will import several parquet files from Blob Storage into your Datawarehouse and then you will move data from staging area to the production one. 
 
 ## Description
-[My Link to SQL](./Resources/Challenge-01/C1_1_Import_into_staging_tables.sql?raw=true)
-*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
 
-*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
+**Learning objectives:**
+- Get understanding about tables architecture in Dedicated Sql Pool
+- Distributed
+- Round Robin
+- Replicated
+- How to identify Data Skew and how to fix it
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+**Ingest Data from Azure Data Lake Gen2 – Blob container**
+
+Define staging tables architecture, then import all parquet files available at the link provided by your coach.
+Data should land in a staging area (schema “Staging”) optimized to ingest data at maximum speed using the “COPY INTO” T-SQL command.
+
+- Open [C1_1_Import_into_staging_tables.sql](./Resources/Challenge-01/C1_1_Import_into_staging_tables.sql?raw=true) 
+  - Complete the provided T-SQL code to create the staging tables by choosing the proper structure and storage. 
+  - Import data from Parquet files into Staging tables using the suggested COPY INTO T-SQL command
+  
+**Move data from staging area to production tables**
+
+Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the provided [Database diagram](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true) to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
+
+- Open [C1_2_Create_Actual_Tables.sql](./Resources/Challenge-01/C1_2_Create_Actual_Tables.sql?raw=true) and complete T-SQL code to move data from staging to production tables, distributing data using the most efficient method considering tables relations as described [here](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true).
+  - Are Dimension tables (DimAccount, DimCustomer etc...) good candidates to be replicated ?
+  - Most of your queries will join tables using CustomerKey, ProductKey, CurrencyKey and FinanceKey fields. Choose the most selective column
+  - Example: Check FactInternetSales table: Is it better to distribute it using CustomerKey or ProductKey column ?
+  
+**Investigate slowness due to data skew**
+
+Users are complaining that a query is taking too much to complete and need your assistance to fix the issue. Investigate why the query is so slow and make it faster.
+- Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./Resources/Challenge-01/C1_3_Check_and_Fix_Table_Skew.sql) and investigate the issue using the suggested set of T-SQL commands, then fix the issue.
+  - Check for table skew
+  - Is the distribution column for the FactSales table good enough ?
+  - [Distributed tables design guidance - Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
+ 
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- Identify the best design for Staging tables to improve performance during load
+- Identify all the methods you can use to load data from Blob storage 
+- Identify the best design distribution method for production tables 
+- Identify Data Skew and fix it
 
 ## Learning Resources
 
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
+- [Distributed tables design guidance](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute)
+  - [Design guidance for replicated tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)
+  - [COPY INTO (Transact-SQL) - (Azure Synapse Analytics)](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)
+  - [Authentication mechanisms with the COPY statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
+  - [Quickstart: Bulk load data using a single T-SQL statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+  - [Design a PolyBase data loading strategy for dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/load-data-overview#4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase)
+  - [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas)
+  - [Distributed tables design guidance](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute)
+  - [Design guidance for replicated tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)
+  - [Distributed tables design guidance - Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-## Advanced Challenges (Optional)
-
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
