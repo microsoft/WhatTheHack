@@ -24,7 +24,7 @@ In this challenge you will import several parquet files from Blob Storage into y
 
 **Ingest Data from Azure Data Lake Gen2 – Blob container**
 
-Define staging tables architecture, then import all parquet files available at the link provided by your coach.
+Define staging tables architecture, then import all parquet files using the link provided by your coach.
 Data should land in a staging area (schema “Staging”) optimized to ingest data at maximum speed using the “COPY INTO” T-SQL command.
 
 - Open [C1_1_Import_into_staging_tables.sql](./Resources/Challenge-01/C1_1_Import_into_staging_tables.sql?raw=true) 
@@ -33,7 +33,7 @@ Data should land in a staging area (schema “Staging”) optimized to ingest da
   
 **Move data from staging area to production tables**
 
-Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the provided [Database diagram](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true) to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
+Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the provided [Database diagram](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true) available at this path: _./Resources/Challenge-01/DedicatedSqlPool-TablesRelationships.pdf_ to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
 
 - Open [C1_2_Create_Actual_Tables.sql](./Resources/Challenge-01/C1_2_Create_Actual_Tables.sql?raw=true) and complete T-SQL code to move data from staging to production tables, distributing data using the most efficient method considering tables relations as described [here](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true).
   - Are Dimension tables (DimAccount, DimCustomer etc...) good candidates to be replicated ?
@@ -46,7 +46,6 @@ Users are complaining that a query is taking too much to complete and need your 
 - Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./Resources/Challenge-01/C1_3_Check_and_Fix_Table_Skew.sql) and investigate the issue using the suggested set of T-SQL commands, then fix the issue.
   - Check for table skew
   - Is the distribution column for the FactSales table good enough ?
-  - [Distributed tables design guidance - Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
  
 
 ## Success Criteria
@@ -59,13 +58,13 @@ Users are complaining that a query is taking too much to complete and need your 
 ## Learning Resources
 
 - [Distributed tables design guidance](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute)
-  - [Design guidance for replicated tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)
-  - [COPY INTO (Transact-SQL) - (Azure Synapse Analytics)](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)
-  - [Authentication mechanisms with the COPY statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-  - [Quickstart: Bulk load data using a single T-SQL statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
-  - [Design a PolyBase data loading strategy for dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/load-data-overview#4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase)
-  - [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas)
-  - [Distributed tables design guidance](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute)
-  - [Design guidance for replicated tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)
-  - [Distributed tables design guidance - Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
+- [Design guidance for replicated tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)
+- [COPY INTO (Transact-SQL) - (Azure Synapse Analytics)](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)
+- [Authentication mechanisms with the COPY statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
+- [Quickstart: Bulk load data using a single T-SQL statement](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [Design a PolyBase data loading strategy for dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/load-data-overview#4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase)
+- [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas)
+- [Distributed tables design guidance](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute)
+- [Design guidance for replicated tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)
+- [Distributed tables design guidance - Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
 
