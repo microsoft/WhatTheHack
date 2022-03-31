@@ -20,7 +20,7 @@ In this challenge you will dig into best practices you have to consider writing 
 
 Users are complaining that after importing data into a production table using CTAS the first reporting query involving it is always slow. Subsequent queries are usually faster and with good performance. Investigate why the first execution is taking longer than usual.
 
-Open [C2_1_Statistics.sql](./resources/Challenge-02/C2_1_Statistics.sql?raw=true) and try to understand why first execution for the proposed SELECT is much more slower than the second one. Use the suggested T-SQL commands to investigate the issue.
+Open [C2_1_Statistics.sql](./Resources/Challenge-02/C2_1_Statistics.sql?raw=true) and try to understand why first execution for the proposed SELECT is much more slower than the second one. Use the suggested T-SQL commands to investigate the issue.
 Were all statistics in place when you ran the first attempt ?
 
 **Replicated Tables**
