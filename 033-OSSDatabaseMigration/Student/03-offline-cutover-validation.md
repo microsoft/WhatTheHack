@@ -68,7 +68,7 @@ Status field changes from "Terminating" to "ContainerCreating" and then to "Runn
 
 ```bash
 
- kubectl -n contosoappporacle get pods
+ kubectl -n contosoapporacle get pods
 
 ```
 ## Success Criteria
@@ -76,6 +76,32 @@ Status field changes from "Terminating" to "ContainerCreating" and then to "Runn
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change
 * You can update the value of column  "name" in table "ingredient" for any row. Change the name from "Onion" to "Shallot" and on the app, click on 
 start building any pizza, and on the next page, click "Veggies" and at the lower left corner, see that "Shallot" appears with the picture of the onion.
+
+## Hints
+* If your application is not working, you may need to check the pod deployment and logs to see what is happening:
+
+```bash
+
+ kubectl -n contosoapporacle get pods
+
+```
+
+If you see a CrashLoopBackoff, you can then do this to get more information:
+
+```bash
+
+ kubectl -n contosoapporacle describe pod <name of the pod>
+
+```
+
+and also
+
+```bash
+
+ kubectl -n contosoapporacle logs <name of the pod>
+
+```
+You may find it helpful to send the output of the above logs command to a file so you can grep it or use an editor to search it. Your problem may be identified by "Error" or "Exception".
 
 
 ## References
