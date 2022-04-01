@@ -58,7 +58,7 @@ Status field changes from "Terminating" to "ContainerCreating" and then to "Runn
 ```bash
 
 helm upgrade --install oracle-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-oracle.yaml
-kubectl -n contosoappporacle rollout restart deployment contosopizza
+kubectl -n contosoapporacle rollout restart deployment contosopizza
 ```
 
 
