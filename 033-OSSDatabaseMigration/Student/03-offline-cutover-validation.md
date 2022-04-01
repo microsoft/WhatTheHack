@@ -6,7 +6,7 @@
  Reconfigure the application to use the appropriate connection string that uses Azure DB and validate that the application is working
 
 ## Description
-You will reconfigure the application to use a connection string that points to the Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values-mysql.yaml or ContosoPizza/values-postgresql.yaml values file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
+You will reconfigure the application to use a connection string that points to the Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values-mysql.yaml, ContosoPizza/values-postgresql.yaml and/or ContosoPizza/values-oracle.yaml values file(s) with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate values for Azure DB for PostgreSQL/MySQL:
 
 ```yaml
 appConfig:
@@ -53,6 +53,24 @@ Status field changes from "Terminating" to "ContainerCreating" and then to "Runn
 
 ```
 
+* Oracle:
+
+```bash
+
+helm upgrade --install oracle-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-oracle.yaml
+kubectl -n contosoappporacle rollout restart deployment contosopizza
+```
+
+
+Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
+
+```bash
+
+ kubectl -n contosoappporacle get pods
+
+```
 ## Success Criteria
 
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change
