@@ -4,14 +4,14 @@
 
 
 ## Introduction
-In this challenge you will learn how to create read replicas for Azure DB for PostgreSQL/MySQL. 
+In this challenge you will learn how to create read replicas for Azure DB for PostgreSQL/MySQL Single Server. 
 
 ## Description
-Read replicas can improve the performance scale of read-intensive workloads. They can also be deployed into a different region than the primary and be promoted to a read/write server in the event of a disaster. 
+Read replicas can improve the performance scale of read-intensive workloads. They can also be deployed into a different region than the primary and be promoted to a read/write server in the event of a disaster. Azure DB for PostgreSQL/MySQL Flexible Server does not currently support read replicas. 
 
 ## Success Criteria
 
-* You have added a read replica for Azure DB for PostgreSQL/MySQL
+* You have added a read replica for Azure DB for PostgreSQL/MySQL Single Server
 * You are able to run a sample read query connecting to the replica 
 * You get an error trying to write to the read replica. 
 * You are able to stop the replication and convert the read replica to read-write and test it
