@@ -50,6 +50,7 @@ For the web UI, you will need to do this:
 * [Move Oracle and MySQL databases to PostgreSQL](https://ora2pg.darold.net/)
 * [Visualate Ora2Pg](https://github.com/visulate/visulate-ora2pg)
 * [Data migration Team Whitepapers](https://github.com/microsoft/DataMigrationTeam/tree/master/Whitepapers)
+* [Ora2pg documentation](https://ora2pg.darold.net/)
 
 
  
