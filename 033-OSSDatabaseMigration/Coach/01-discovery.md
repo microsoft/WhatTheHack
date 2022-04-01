@@ -1,6 +1,6 @@
 # Challenge 1: Assessment 
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-size-analysis.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-offline-migration.md)
 
 ## Coach Tips
 

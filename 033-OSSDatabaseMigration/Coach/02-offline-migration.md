@@ -1,6 +1,6 @@
-# Challenge 3: Offline migration
+# Challenge 2: Offline migration
 
-[< Previous Challenge](./02-size-analysis.md) - **[Home](./README.md)** - [Next Challenge >](./04-offline-cutover-validation.md)
+[< Previous Challenge](./01-discovery.md) - **[Home](./README.md)** - [Next Challenge >](./03-offline-cutover-validation.md)
 
 ## Coach Tips
 
