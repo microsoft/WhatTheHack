@@ -55,12 +55,13 @@ Status field changes from "Terminating" to "ContainerCreating" and then to "Runn
 
 * Oracle:
 
+You will need to change the database type in the values-oracle.yaml file from "oracle" to "postgres" before you run these steps. 
+
 ```bash
 
 helm upgrade --install oracle-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-oracle.yaml
 kubectl -n contosoapporacle rollout restart deployment contosopizza
 ```
-
 
 Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1".
 
@@ -103,6 +104,7 @@ and also
 ```
 You may find it helpful to send the output of the above logs command to a file so you can grep it or use an editor to search it. Your problem may be identified by "Error" or "Exception".
 
+* If you find an error in the JDBC connection string, you will have to repeat the steps to do a helm upgrade/kubectl rollout restart steps above for the application. 
 
 ## References
 
