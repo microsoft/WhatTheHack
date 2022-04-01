@@ -4,7 +4,7 @@
 
 
 ## Introduction
-Up to this point you have been using a public IP address for Azure DB for PostgreSQL/MySQL for your Pizzeria application. From a security perspective a preferred approach would be to use a private endpoint which will expose Azure DB for PostgreSQL/MySQL using a private IP address from within the application's virtual network. This is available for Azure DB for PostgreSQL/MySQL Single Server only. Azure DB for PostgreSQL/MySQL supports VNET integration instead; you can only specify VNET integration for Flexible Server at deployment time. 
+Up to this point you have been using a public IP address for Azure DB for PostgreSQL/MySQL for your Pizzeria application. From a security perspective a preferred approach would be to use a private endpoint which will expose Azure DB for PostgreSQL/MySQL using a private IP address from within the application's virtual network. This is available for Azure DB for PostgreSQL/MySQL Single Server only. Azure DB for PostgreSQL/MySQL Flexible Server supports VNET integration instead; you can only specify VNET integration for Flexible Server at deployment time. 
 
 ## Description
 You will add a private endpoint for Azure DB for PostgreSQL/MySQL Single Server
