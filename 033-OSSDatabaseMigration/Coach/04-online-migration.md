@@ -1,6 +1,6 @@
-# Challenge 5: Online migration
+# Challenge 4: Online migration
 
-[< Previous Challenge](./04-offline-cutover-validation.md) - **[Home](./README.md)** - [Next Challenge >](./06-online-cutover-validation.md)
+[< Previous Challenge](./03-offline-cutover-validation.md) - **[Home](./README.md)** - [Next Challenge >](./05-online-cutover-validation.md)
 
 ## Coach Tips
 

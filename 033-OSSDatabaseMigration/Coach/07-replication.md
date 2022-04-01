@@ -1,6 +1,6 @@
-# Challenge 8: Replication
+# Challenge 7: Replication
 
-[< Previous Challenge](./07-private-endpoint.md) - **[Home](./README.md)** 
+[< Previous Challenge](./06-private-endpoint.md) - **[Home](./README.md)** 
 
 ## Coach Tips
 
