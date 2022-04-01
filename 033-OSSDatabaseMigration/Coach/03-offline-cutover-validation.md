@@ -8,6 +8,8 @@
 
 * This is the SQL command to change the ingredient table value for MySQL
 
+* The attendees can get example JDBC connection strings from the Azure portal for the Azure DB database under Settings. 
+
 ```sql
 
 use wth ;
