@@ -1,10 +1,10 @@
-# Challenge 02 - Queries best practice - Coach's Guide 
+# Challenge 02 - Queries Best Practice - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
 
-In this challenge you will dig into best practices you have to consider writing query for your Datawarehouse.
+In this challenge you will dig into best practices you have to consider writing query for your data warehouse.
 
 **Learning objectives:**
 - The importance of Statistics
@@ -39,7 +39,6 @@ Replicate table cache is not ready
 
 - Open [C2_2_Replicated_Tables_and_Join.sql](./Solutions/Challenge02/C2_2_Replicated_Tables_and_Join.sql) and follow provided steps and instructions to demonstrate how replicate table works. 
  
-
 
 ## Incompatible vs Compatible joins
 

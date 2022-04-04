@@ -1,4 +1,4 @@
-# Challenge 03 - Queries behavior - Coach's Guide 
+# Challenge 03 - Queries Behavior - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 

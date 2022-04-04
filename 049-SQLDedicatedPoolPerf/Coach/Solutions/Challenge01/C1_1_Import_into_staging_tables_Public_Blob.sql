@@ -559,112 +559,112 @@ STEP 2 of 2 - How to ingest data using COPY INTO
 
 
 COPY INTO Staging.DimAccount 
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimAccount/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimAccount/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 
 COPY INTO Staging.DimCurrency
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimCurrency/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimCurrency/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimCustomer
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimCustomer/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimCustomer/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimDate
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimDate/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimDate/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimDepartmentGroup
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimDepartmentGroup/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimDepartmentGroup/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimEmployee
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimEmployee/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimEmployee/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimGeography
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimGeography/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimGeography/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimOrganization
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimOrganization/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimOrganization/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimProduct
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimProduct/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimProduct/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimProductCategory
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimProductCategory/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimProductCategory/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimProductSubcategory
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimProductSubcategory/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimProductSubcategory/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimPromotion
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimPromotion/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimPromotion/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimReseller
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimReseller/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimReseller/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimSalesReason
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimSalesReason/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimSalesReason/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimSalesTerritory
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimSalesTerritory/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimSalesTerritory/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.DimScenario
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/DimScenario/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/DimScenario/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.FactCurrencyRate
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/FactCurrencyRate/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/FactCurrencyRate/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.FactFinance
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/FactFinance/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/FactFinance/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.FactInternetSales
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/FactInternetSales/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/FactInternetSales/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.FactInternetSalesReason
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/FactInternetSalesReason/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/FactInternetSalesReason/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.FactResellerSales
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/FactResellerSales/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/FactResellerSales/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
 
 COPY INTO Staging.FactSales
-FROM 'https://synapsedsqlpoolperf.blob.core.windows.net/fasthackdataset/FactSales/'
+FROM 'https://YourStorageAccountName.blob.core.windows.net/ContainerName/SubFolder/FactSales/'
 WITH(FILE_TYPE = 'PARQUET')
 GO
