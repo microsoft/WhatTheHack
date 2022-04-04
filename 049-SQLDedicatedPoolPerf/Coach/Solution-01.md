@@ -1,4 +1,4 @@
-# Challenge 01 - Ingest data from blob storage - Coach's Guide 
+# Challenge 01 - Ingest Data From Blob Storage - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 

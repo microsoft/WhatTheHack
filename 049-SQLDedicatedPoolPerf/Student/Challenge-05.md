@@ -1,13 +1,15 @@
-# Challenge 05 - Monitoring workload
+# Challenge 05 - Monitoring Workload
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
 
 ## Pre-requisites
 - You have to complete **Challenge 04 - Partitioned table and Clustered Columnstore Indexes**
 
-## Introduction (Optional)
+## Introduction
 
 In this challenge you will understand how to monitor your workload to identify poor performing and failed queries using T-SQL DMVs and Azure Monitor
+
+You can find all the files for this challnge into the Zip file provided by your coach at this path: _./Resources/Challenge-05/_ 
 
 ## Description
 
@@ -15,13 +17,13 @@ In this challenge you will understand how to monitor your workload to identify p
 - How to monitor workload with T-SQL DMVs
 - Store and query historical data using Azure Monitor
 
-**Monitor Dedicated SQL pool using T-SQL**
+### Monitor Dedicated SQL pool using T-SQL
 
 Create a set of T-SQL commands to get information about:
 - Top 10 Slowest queries and their steps
 
 
-**Monitor Dedicated SQL pool using Log Analytic - Diagnostics**
+### Monitor Dedicated SQL pool using Log Analytic - Diagnostics
 
 - Configure Log Analytics and activate Diagnostic logs for [queries], [steps] and [waits] for your Dedicated SQL pool
 - Configure Diagnostic settings and configure data retention to ensure at least 2 months for delayed troubleshooting. 

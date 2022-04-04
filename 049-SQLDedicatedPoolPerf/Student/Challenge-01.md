@@ -1,4 +1,4 @@
-# Challenge 01 - Ingest data from blob storage
+# Challenge 01 - Ingest Data From Blob Storage
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
@@ -9,9 +9,11 @@
   - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
   - [Azure Data Studio (Windows, Mac OS, and Linux)](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 
-## Introduction (Optional)
+## Introduction
 
-In this challenge you will import several parquet files from Blob Storage into your Datawarehouse and then you will move data from staging area to the production one. 
+In this challenge you will import several parquet files from Blob Storage into your data warehouse and then you will move data from staging area to the production one. 
+
+You can find all the files for this challnge into the Zip file provided by your coach at this path: _./Resources/Challenge-01/_ 
 
 ## Description
 
@@ -22,7 +24,7 @@ In this challenge you will import several parquet files from Blob Storage into y
 - Replicated
 - How to identify Data Skew and how to fix it
 
-**Ingest Data from Azure Data Lake Gen2 – Blob container**
+### Ingest Data from Azure Data Lake Gen2 – Blob container
 
 Define staging tables architecture, then import all parquet files using the link provided by your coach.
 Data should land in a staging area (schema “Staging”) optimized to ingest data at maximum speed using the “COPY INTO” T-SQL command.
@@ -31,16 +33,16 @@ Data should land in a staging area (schema “Staging”) optimized to ingest da
   - Complete the provided T-SQL code to create the staging tables by choosing the proper structure and storage. 
   - Import data from Parquet files into Staging tables using the suggested COPY INTO T-SQL command
   
-**Move data from staging area to production tables**
+### Move data from staging area to production tables
 
-Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the provided [Database diagram](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true) available at this path: _./Resources/Challenge-01/DedicatedSqlPool-TablesRelationships.pdf_ to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
+Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the provided [Database diagram](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true) to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
 
 - Open [C1_2_Create_Actual_Tables.sql](./Resources/Challenge-01/C1_2_Create_Actual_Tables.sql?raw=true) and complete T-SQL code to move data from staging to production tables, distributing data using the most efficient method considering tables relations as described [here](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true).
   - Are Dimension tables (DimAccount, DimCustomer etc...) good candidates to be replicated ?
   - Most of your queries will join tables using CustomerKey, ProductKey, CurrencyKey and FinanceKey fields. Choose the most selective column
   - Example: Check FactInternetSales table: Is it better to distribute it using CustomerKey or ProductKey column ?
   
-**Investigate slowness due to data skew**
+### Investigate slowness due to data skew
 
 Users are complaining that a query is taking too much to complete and need your assistance to fix the issue. Investigate why the query is so slow and make it faster.
 - Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./Resources/Challenge-01/C1_3_Check_and_Fix_Table_Skew.sql?raw=true) and investigate the issue using the suggested set of T-SQL commands, then fix the issue.
@@ -51,9 +53,9 @@ Users are complaining that a query is taking too much to complete and need your 
 ## Success Criteria
 
 - Identify the best design for Staging tables to improve performance during load
-- Identify all the methods you can use to load data from Blob storage 
-- Identify the best design distribution method for production tables 
-- Identify Data Skew and fix it
+- Verify all the methods you can use to load data from Blob storage 
+- Choose the best design (distribution method) for production tables 
+- Check Data Skew and fix it
 
 ## Learning Resources
 

@@ -1,13 +1,15 @@
-# Challenge 02 - Queries best practice
+# Challenge 02 - Queries Best Practice
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Pre-requisites
 - You have to complete **Challenge-01: Ingest data from blob storage**
 
-## Introduction (Optional)
+## Introduction
 
-In this challenge you will dig into best practices you have to consider writing query for your Datawarehouse.
+In this challenge you will dig into best practices you have to consider writing query for your data warehouse.
+
+You can find all the files for this challnge into the Zip file provided by your coach at this path: _./Resources/Challenge-02/_ 
 
 ## Description
 
@@ -16,14 +18,14 @@ In this challenge you will dig into best practices you have to consider writing 
 - How to Join distributed/replicated tables
 - Incompatible and compatible Join
 
-**Auto Create Statistics**
+### Auto Create Statistics
 
 Users are complaining that after importing data into a production table using CTAS the first reporting query involving it is always slow. Subsequent queries are usually faster and with good performance. Investigate why the first execution is taking longer than usual.
 
 Open [C2_1_Statistics.sql](./Resources/Challenge-02/C2_1_Statistics.sql?raw=true) and try to understand why first execution for the proposed SELECT is much more slower than the second one. Use the suggested T-SQL commands to investigate the issue.
 Were all statistics in place when you ran the first attempt ?
 
-**Replicated Tables**
+### Replicated Tables
 
 Despite the query is leveraging multiple Replicated Table users are complaining about poor performance and they noticed some potentially un-necessary data movement. 
 Could you help fixing it and improving the performance ? 
@@ -31,7 +33,7 @@ Could you help fixing it and improving the performance ?
     - Is the replicated table cache ready ?
     - Which factors can affect the cache ?
 
-**Incompatible vs Compatible joins**
+### Incompatible vs Compatible joins
 
 Users are complaining an important query is taking much more than expected to complete and ask for your help. Investigate why the query is so slow and make it faster.
 
@@ -44,7 +46,7 @@ Use the suggested T-SQL command to investigate this issue.
 
 - Deep understanding about Table Statistics
 - Understand how to identify columns to use with statistics
-- Recognize if a given query is using unnecessary data movement due to incompatible joins and how to fi
+- Recognize if a given query is using unnecessary data movement due to incompatible joins and how to fix it.
 
 ## Learning Resources
 

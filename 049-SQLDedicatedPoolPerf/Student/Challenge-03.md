@@ -1,4 +1,4 @@
-# Challenge 03 - Queries behavior
+# Challenge 03 - Queries Behavior
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
@@ -9,6 +9,8 @@
 
 In this challenge you will troubleshoot queries in stuck, not running queries and will optimize query executions.
 
+You can find all the files for this challnge into the Zip file provided by your coach at this path: _./Resources/Challenge-03/_ 
+
 ## Description
 
 **Learning objectives:**
@@ -16,7 +18,7 @@ In this challenge you will troubleshoot queries in stuck, not running queries an
 - Understand concurrency behavior
 - Optimize query with result set caching and materialized views
 
-**Concurrent writings**
+### Concurrent writings
 
 An user is complaining his workload (an UPDATE  T-SQL command) is running forever, never completes. It usually takes few minutes to get completed.
 Investigate why the transaction is not completing in the expected timeframe and fix it
@@ -24,7 +26,7 @@ Investigate why the transaction is not completing in the expected timeframe and 
 - Open [C3_1_Blocking.sql](./Resources/Challenge-03/C3_1_Blocking.sql?raw=true) using your preferred editor, run the batch and explain why it never completes.
   - Can you identify why your query never completes ?
 
-**Concurrency limits**
+### Concurrency limits
 
 _Before run this excercise please scale your DWH to DW100c using the Azure Portal._ 
 
@@ -35,7 +37,7 @@ Investigate why their SELECT commands are taking so long and fix it.
     - Can you explain why the query is in stuck and fix it ?
   - Once you completed this exercise, in case of need, execute [C3_C_Force_Stop_Queries.ps1](./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1) available at this path **./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1** to kill all executions.
 
-**Result set cache and Materialized Views**
+### Result set cache and Materialized Views
 
 Users are running the same reporting query multiple time per day and each execution take a while.
 Tables are well distributed, query is using compatible join and is not wasting resources.

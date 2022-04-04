@@ -16,7 +16,7 @@ https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-
 ****************************************************************************************/
 
 /****************************************************************************************
-STEP 1 of 2 - Explain how sys.dm_pdw_* Dmvs work and how many records they can store
+STEP 1 of 3 - Explain how sys.dm_pdw_* Dmvs work and how many records they can store
 
 https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7#:~:text=An%20attacker%20can%20use%20sys.dm_pdw_exec_requests%20to%20retrieve%20information,STATE%20permission%20and%20by%20not%20having%20database-specific%20permission.
 
@@ -37,7 +37,7 @@ GO
 
 
 /****************************************************************************************
-STEP 2 of 2 - Using Dmv you can monitor table size and identify skewed tables
+STEP 2 of 3 - Using Dmv you can monitor table size and identify skewed tables
 Create this View and show how to query it
 ****************************************************************************************/
 CREATE VIEW dbo.vTableSizes
@@ -150,6 +150,11 @@ FROM base
 SELECT * FROM size;
 GO
 
+
+
+/****************************************************************************************
+STEP 3 of 3 - With this you can retrieve precious infop about Size and Skew for all your Distributed = hash tables
+****************************************************************************************/
 SELECT 
 	[two_part_name],max(row_count * 1.000) Max_row_count
     , min(row_count * 1.000) Min_row_count 

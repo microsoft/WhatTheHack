@@ -1,4 +1,4 @@
-# Challenge 04 - Partitioned table and Clustered Columnstore Indexes - Coach's Guide 
+# Challenge 04 - Partitioned Table And Clustered Columnstore Indexes - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
