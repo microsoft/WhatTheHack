@@ -43,7 +43,7 @@ Optimize each table structure considering whether it is a “dimension” or a �
 **Investigate slowness due to data skew**
 
 Users are complaining that a query is taking too much to complete and need your assistance to fix the issue. Investigate why the query is so slow and make it faster.
-- Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./Resources/Challenge-01/C1_3_Check_and_Fix_Table_Skew.sql) and investigate the issue using the suggested set of T-SQL commands, then fix the issue.
+- Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./Resources/Challenge-01/C1_3_Check_and_Fix_Table_Skew.sql?raw=true) and investigate the issue using the suggested set of T-SQL commands, then fix the issue.
   - Check for table skew
   - Is the distribution column for the FactSales table good enough ?
  
