@@ -1,7 +1,7 @@
 # What The Hack - Dedicated SQL Pool performance best practices - Coach Guide
 
 ## Introduction
-This OpenHack enables attendees to understand best practices developing, maintaining, and optimizing performance for their Synapse Dedicated SQL Pool. This OpenHack simulates a real-world scenario where a cycle manufacturer company develops its new Datawarehouse leveraging Synapse Dedicated Sql pool. The goal is to apply all best practices to avoid performance bottlenecks during daily activities once in production. During the hack, attendees will focus on:
+This "What the Hack" enables attendees to understand best practices developing, maintaining, and optimizing performance for their Synapse Dedicated SQL Pool. This OpenHack simulates a real-world scenario where a cycle manufacturer company develops its new Datawarehouse leveraging Synapse Dedicated Sql pool. The goal is to apply all best practices to avoid performance bottlenecks during daily activities once in production. During the hack, attendees will focus on:
 
 Database Design – Best Practices
 - Query Design – Best practices and optimization
