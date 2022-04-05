@@ -28,14 +28,14 @@ Put another way,
 
 Another resource on this topic is [A closer look at Azure Data Lake Storage Gen2](https://azure.microsoft.com/en-us/blog/a-closer-look-at-azure-data-lake-storage-gen2/).
 
-#### Creating ADSL Gen2 is actually creating a Storage Account
+#### Creating ADLS Gen2 is actually creating a Storage Account
 
-Specially for newcomers to ADSL and/or Azure, it may not be trivial for
+Specially for newcomers to ADLS and/or Azure, it may not be trivial for
 attendees to create an ADLS Gen2 through Azure Portal. This is because the
 natual path is to use the *New Resource* button on the portal and try typing
 `Azure Data Lake Storage` or `Azure Data Lake Storage Gen2`:
 
-![Azure - Search for ADSL Gen2](./images/adls-creation-search.png)
+![Azure - Search for ADLS Gen2](./images/adls-creation-search.png)
 
 If the team does that, they will end up not finding an option to create an ADLS
 Gen2. This is because ADLS Gen2 is actually a [set of capabilities](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
