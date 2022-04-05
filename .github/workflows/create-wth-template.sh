@@ -105,6 +105,7 @@ GenerateNavitationLink() {
   local -r suffixNumber=$1
   local -r numberOfChallenges=$2
   local -r linkName=$3
+  local -r isCoachGuide=$4
 
   local navigationLine=""
 
@@ -126,7 +127,17 @@ GenerateNavitationLink() {
     nextNavigationLink=" - [Next $linkName >](./$linkName-$nextChallengeNumber.md)"
   fi
 
-  local -r navigationLine="$previousNavigationLink**[Home](../README.md)**$nextNavigationLink"
+  local homeLinkPath=""
+  
+  #if the navigation link is for Coach guides, it should point to the Coach/README, not the root README file
+  if $isCoachGuide
+  then
+    homeLinkPath="."
+  else  
+    homeLinkPath=".."
+  fi
+
+  local -r navigationLine="$previousNavigationLink**[Home]($homeLinkPath/README.md)**$nextNavigationLink"
 
   echo $navigationLine
 }
@@ -141,7 +152,7 @@ CreateChallengeMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge")
+  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge" false)
 
   WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
 }
@@ -155,7 +166,7 @@ CreateSolutionMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Solution")
+  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Solution" true)
 
   WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Solution-Template.md"
 }
