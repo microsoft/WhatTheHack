@@ -4,7 +4,7 @@
 
 ## Coach Tips
 
-1. When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier since the Basic tier does not support Private Link which is required in a future challenge.
+1. When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier since the Basic tier does not support Private Link which is required in a future challenge. Note that Flexible Server does not currently support Private Link.
 
 2. If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL database containers, they have two options.
 
