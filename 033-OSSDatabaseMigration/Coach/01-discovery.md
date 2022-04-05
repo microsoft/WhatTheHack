@@ -4,7 +4,7 @@
 
 ## Coach Tips
 
-* The attendees should check the links given in Reference section about Limitations to figure out if the source database can be moved to Azure. Note: we only need to check the wth database that hosts the application data
+* The attendees should check the links given in Reference section about limitations to figure out if the source database can be moved to Azure. Note: we only need to check the wth database that hosts the application data
 
 
 
