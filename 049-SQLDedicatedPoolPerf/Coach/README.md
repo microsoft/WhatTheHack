@@ -29,15 +29,15 @@ Before the hack, it is the Coach's responsibility to download and package up the
 ## Coach Prerequisites 
 
 - Azure subscription with Owner access
-- An already in-place [Dedicated SQL pool](file:///C:/Users/lferrari/OneDrive%20-%20Microsoft/Desktop/FastHack%20Dedicated%20Pool%20-%20Performance/WhatTheHack/Setup.md). **Configure it using SLO = DW500c**
+- An already in-place [Dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#:~:text=Create%20a%20SQL%20pool%201%20Select%20Create%20a,Notifications%20to%20monitor%20the%20deployment%20process.%20See%20More.). **Configure it using SLO = DW500c**
 - Your choice of database management tool:
   - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
   - [Azure Data Studio (Windows, Mac OS, and Linux](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 
 ### How to prepare the Data-set
 
-Before start the fasthack you need to create the dataset and make it available to all attendees.
-It's a very time consuming steps so it's recommended to run it a couple of days before the fasthack.
+Before start the hack you need to create the dataset and make it available to all attendees.
+It's a very time consuming steps so it's recommended to run it a couple of days before the hack.
 Here the steps:
 1. [Create a new Dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
    1. Choose **DW500c** as performance level

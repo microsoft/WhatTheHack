@@ -43,7 +43,7 @@ DW100c allows up to 4 concurrent queries. The powershell script will run 4 concu
 
 
 - Execute [C3_B_Simulate_ Queries.ps1](./Solutions/Challenge03/C3_A_Simulate_Writings.ps1) powershell script and provide required parameters. **Do not close the powershell session until you complete the excercise**
-- Open and execute [C3_2_Concurrency.sql](./Challenges/Challenge_3/C3_2_Concurrency.sql) and follow provided steps and instructions to demonstrate how concurrency works. 
+- Open and execute [C3_2_Concurrency.sql](./Solutions/Challenge03/C3_2_Concurrency.sql) and follow provided steps and instructions to demonstrate how concurrency works. 
   
 
 
@@ -58,5 +58,5 @@ To speed it up you can use Result_Set_Caching or Materialized views
 - [Performance tune with materialized views](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views)
 
 
-- Open [C3_3_Result_Set_Cache_Materialized_View.sql](./Challenges/Challenge_3/C3_3_Result_Set_Cache_Materialized_View.sql) and follow provided steps and instructions to demonstrate how Cache and Materialized Views work. 
+- Open [C3_3_Result_Set_Cache_Materialized_View.sql](./Solutions/Challenge03/C3_3_Result_Set_Cache_Materialized_View.sql) and follow provided steps and instructions to demonstrate how Cache and Materialized Views work. 
     

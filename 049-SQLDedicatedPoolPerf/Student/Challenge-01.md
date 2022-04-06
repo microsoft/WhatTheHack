@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 - Your own Azure subscription with Owner access
-- An already in-place [Dedicated SQL pool](file:///C:/Users/lferrari/OneDrive%20-%20Microsoft/Desktop/FastHack%20Dedicated%20Pool%20-%20Performance/WhatTheHack/Setup.md). **Configure it using SLO = DW500c**
+- An already in-place [Dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#:~:text=Create%20a%20SQL%20pool%201%20Select%20Create%20a,Notifications%20to%20monitor%20the%20deployment%20process.%20See%20More.). **Configure it using SLO = DW500c**
 - Your choice of database management tool:
   - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
   - [Azure Data Studio (Windows, Mac OS, and Linux)](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
@@ -26,7 +26,7 @@ You can find all the files for this challnge into the Zip file provided by your 
 
 ### Ingest Data from Azure Data Lake Gen2 – Blob container
 
-Define staging tables architecture, then import all parquet files using the link provided by your coach.
+Define staging tables architecture, then import all parquet files using the link your coach will provide you.
 Data should land in a staging area (schema “Staging”) optimized to ingest data at maximum speed using the “COPY INTO” T-SQL command.
 
 - Open [C1_1_Import_into_staging_tables.sql](./Resources/Challenge-01/C1_1_Import_into_staging_tables.sql?raw=true) 
@@ -35,9 +35,9 @@ Data should land in a staging area (schema “Staging”) optimized to ingest da
   
 ### Move data from staging area to production tables
 
-Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the provided [Database diagram](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true) to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
+Optimize each table structure considering whether it is a “dimension” or a “fact” table. Production tables should belong to “Sales” schema. Check the Database diagram [(Download available here)](./Resources/DedicatedSqlPool-TablesRelationships.pdf) to identify relationships between tables and decide which is the proper distribution method. Consider also tables will be queried by filtering using the CustomerKey, ProductionKey, DataKey columns. Choose the proper one to guarantee an even distribution of data across all distributions. Use the suggested “CREATE TABLE AS” T-SQL command.
 
-- Open [C1_2_Create_Actual_Tables.sql](./Resources/Challenge-01/C1_2_Create_Actual_Tables.sql?raw=true) and complete T-SQL code to move data from staging to production tables, distributing data using the most efficient method considering tables relations as described [here](./Resources/DedicatedSqlPool-TablesRelationships.pdf?raw=true).
+- Open [C1_2_Create_Actual_Tables.sql](./Resources/Challenge-01/C1_2_Create_Actual_Tables.sql?raw=true) and complete T-SQL code to move data from staging to production tables, distributing data using the most efficient method considering tables relations as described in the database diagram [(Download available here)](./Resources/DedicatedSqlPool-TablesRelationships.pdf).
   - Are Dimension tables (DimAccount, DimCustomer etc...) good candidates to be replicated ?
   - Most of your queries will join tables using CustomerKey, ProductKey, CurrencyKey and FinanceKey fields. Choose the most selective column
   - Example: Check FactInternetSales table: Is it better to distribute it using CustomerKey or ProductKey column ?

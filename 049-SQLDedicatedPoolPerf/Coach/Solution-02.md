@@ -48,5 +48,5 @@ Incompatible join, Sales.FactInternetSales has been distibuited using a column w
 
 - [How to minimize data movements (Compatible and Incompatible Joins)](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-minimize-data-movements-compatible-and-incompatible-joins/ba-p/1807104)
 
-- Open [C2_2_Incompatible_Join.sql](./Challenges/Challenge_2/C2_2_Incompatible_Join.sql) and follow provided steps and instructions to fix the slowness due to incompatible join. 
+- Open [C2_2_Incompatible_Join.sql](./Solutions/Challenge02/C2_3_Incompatible_Join.sql) and follow provided steps and instructions to fix the slowness due to incompatible join. 
  
