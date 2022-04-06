@@ -4,7 +4,7 @@
 
 --Tips:
 https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview
-https://docs.microsoft.com/it-it/azure/synapse-analytics/sql/load-data-overview#4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase
+https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/load-data-overview
 https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true
 https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table
 https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute

@@ -35,7 +35,7 @@ Investigate why their SELECT commands are taking so long and fix it.
   - Execute [C3_B_Simulate_ Queries.ps1](./Resources/Challenge-03/C3_B_Simulate_Queries.ps1?raw=true) powershell script available at this path **./Resources/Challenge-03/C3_B_Simulate_ Queries.ps1**"_ and provide required parameters. **Do not close the powershell session until you complete the excercise**
   - Open and execute [C3_2_Concurrency.sql](./Resources/Challenge-03/C3_2_Concurrency.sql?raw=true) using your preferred editor and identify why it is taking so long to complete.
     - Can you explain why the query is in stuck and fix it ?
-  - Once you completed this exercise, in case of need, execute [C3_C_Force_Stop_Queries.ps1](./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1) available at this path **./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1** to kill all executions.
+  - Once you completed this exercise, in case of need, execute [C3_C_Force_Stop_Queries.ps1](./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1?raw=true) available at this path **./Resources/Challenge-03/C3_C_Force_Stop_Queries.ps1** to kill all executions.
 
 ### Result set cache and Materialized Views
 
