@@ -21,11 +21,11 @@ You should be able to either:
 ## Success Criteria
 For Scenario 01:
 1. Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
-1. The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: https://api.{{unique_id}}.azure-api.net/external/hello
+1. The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: https://apim-{{unique_id}}.azure-api.net/external/hello
 1. Secure internal Hello Function App by enabling networking feature by either:
     - Only accepts traffic coming from the APIM subnet
     - Assigning a private endpoint to the Function App
-1. Import the new Function App as Hello Internal API to APIM.  The new path should be: https://api.{{unique_id}}.azure-api.net/internal/hello
+1. Import the new Function App as Hello Internal API to APIM.  The new path should be: https://apim-{{unique_id}}.azure-api.net/internal/hello
 1. Secure external Hello API so that it would only accept requests routed from Application Gateway.
 
 
