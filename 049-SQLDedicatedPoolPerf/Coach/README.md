@@ -44,7 +44,7 @@ Here the steps:
    2. Check the **"Additional settings"** tab and make sure you selected **"Sample"**
 2. Once the Dedicated SQL pool is online, open your preferred query editor ([Sql Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) or [Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)) and connect to your Dedicated SQL pool, then run all the T-SQL scripts available [here](./Solutions/Dataset%20-%20Scripts/) from 1 to 11. **Do not change the order**
    1. This step can take up to 9 hours to complete since we're generating consistend data and thousands of query will run against your Dedicated SQL pool
-3. Create a valid [Data Lake Gen2 Storage Account(https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account)]
+3. Create a valid [Data Lake Gen2 Storage Account](https://docs.microsoft.com/en-us/azure/storage/blobs/create-data-lake-storage-account)]
 4. Create a new container and make it public, it will be used by attendees to ingest parquet files
 5. Run [12_Export all - External Tables.sql](./Dataset%20-%20Scripts/../Dataset%20-%20Scripts/12_Export%20all%20-%20External%20Tables.sql) and follow provided steps and instructions
 6. Provide the path to your public container to attendees, they will use it to ingest parquet files.
