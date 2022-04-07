@@ -70,6 +70,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
+- [Azure Integration Services - API Management with Function Apps](/044-AzureIntegrationServices-APIMwithFunctions/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
