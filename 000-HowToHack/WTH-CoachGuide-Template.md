@@ -65,3 +65,16 @@ This hack requires students to have access to an Azure subscription where they c
 	- Challenge 4 (45 mins)
  	- Challenge 5 (1 hour)
  	- Challenge 6 (45 mins)
+
+## Repository Contents
+
+*The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add.*
+
+- \`./Coach\`
+  - Coach's Guide and related files
+- \`./Coach/Solutions\`
+  - Solution files with completed example answers to a challenge
+- \`./Student\`
+  - Student's Challenge Guide
+- \`./Student/Resources\`
+  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)

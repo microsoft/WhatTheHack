@@ -32,16 +32,6 @@ In this hack you will be solving the common business problem that companies in t
 - Azure CLI
 - An AVNET X231 device
 
-## Repository Contents (Optional)
-- \`./Coach/Guides\`
-  - Coach's Guide and related files
-- \`./SteamShovel\`
-  - Image files and code for steam shovel microservice
-- \`./images\`
-  - Generic image files needed
-- \`./Student/Guides\`
-  - Student's Challenge Guide
-
 ## Contributors
 - Jane Q. Public
 - Joe T. Muppet
