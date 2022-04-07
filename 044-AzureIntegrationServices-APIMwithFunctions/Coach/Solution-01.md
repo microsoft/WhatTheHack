@@ -4,12 +4,15 @@
 
 ## Introduction
 
-The students should be able to create a set of Bicep files that will be used to deploy the AIS environment.  This prepares them for the second challenge where they will be asked to create a CI/CD pipeline that will call these IaC for automated deployment.
+The students should be able to create an AIS environment consisting of APIM and Function Apps.  This prepares them for the second challenge where they will be asked to create a CI/CD pipeline that will call these IaC for automated deployment.
 
 
 ## Description
-Students have two options:
+Students has to do one of the following AIS environments: 
+- Scenario 01: Deploy a VNET-secured AIS environment
+- Scenario 02: Deploy an identity-secured AIS environment 
 
+### Scenario 01: Deploy a VNET-secured AIS environment
 - Scenario 01: Students can deploy the Bicep templates of the VNET-integrated AIS which can be found at [Student/Resources/Challenge-01/Scenario-01](../Student/Resources/Challenge-01/Scenario-01).  This is the shortcut method - the templates are ready to deployed and all they need to do is plug-in the parameter values.  
   This would create the following:
   1. APIM 
@@ -44,7 +47,7 @@ Students have two options:
     - Click API and test call Echo API GET operation (don't forget to add the subscription key!)
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
 
-
+### Scenario 02: Deploy an identity-secured AIS environment 
 - Scenario 02: Students they can deploy the Bicep templates of the publicly-exposed AIS which can be found at [Student/Resources/Challenge-01/Scenario-02](../Student/Resources/Challenge-01/Scenario-02).  Some parameter or variable values in the templates are blank, so the students need to fill these out.
   This would create the following:
   1. APIM 
