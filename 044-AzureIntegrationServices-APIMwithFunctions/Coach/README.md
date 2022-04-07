@@ -1,7 +1,7 @@
 # Azure Integration Services - API Management with Function Apps
 
 ## Introduction
-Welcome to the coach's guide for the # Azure Integration Services What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Azure Integration Services - API Management with Function Apps Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 ## Learning Objectives
 In this hack, the participants will learn how to build an integration solutin using API Management and Function Apps.  This involves the following:
