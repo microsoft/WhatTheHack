@@ -1,7 +1,7 @@
 # Challenge 03 - Create backend API
 
 
-[<Previous Challenge](./Challenge-02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-04.md)
+[<Previous Challenge](./Challenge-02.md) - **[Home](./README.md)** - [Next Challenge>](./Challenge-04.md)
 
 ## Pre-requisites
 
