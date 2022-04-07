@@ -1,4 +1,4 @@
-# Solution 04 - ecuring backends APIs
+# Solution 04 - Securing backends APIs
 
 [<Previous Solution](./Solution-03.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-05.md)
 
