@@ -8,9 +8,9 @@
 Welcome to the coach's guide for the # Azure Integration Services What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 ## Learning Objectives
-In this hack you will be solving common business scenario our customers face when building integration solution in Azure from ground-up.  The goal of this hack is to adopt what are the best practices for deploying, configuring and securing integration services, which include:
+In this hack, the participants will learn how to build an integration solutin using API Management and Function Apps.  This involves the following:
 
-1. Authoring Bicep templates to build an APIM + backend services
+1. Authoring Bicep templates to build API Management Service and backend APIs hosted in Function Apps
 2. Creating CI/CD pipeline to deploy environment
 3. Securing backend API services via OAuth
 4. Securing backend API services over the VNET
