@@ -42,3 +42,5 @@ You should be able to:
     - Linting and validating your Bicep code.
     - Adding a preview job to see what will be deployed to Azure and an approval step before deploying your template.
     - Adding a test job to verify that your template deployed correctly.
+
+[Back to Top](#challenge-02---deploy-your-integration-environment)
