@@ -1,6 +1,6 @@
 # Solution 04 - ecuring backends APIs
 
-[<Previous Solution](./Solution-03.md) - **[Home](../readme.md)** - [Next Solution>](./Solution-05.md)
+[<Previous Solution](./Solution-03.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-05.md)
 
 ## Introduction
 
@@ -135,3 +135,4 @@ For Scenario 02:
       ![Enable Managed Identity in APIM 2](./images/Solution04_Enable_ManagedIdentity_APIM_2.jpg)
     - Test API call.
     
+[Back to Top](#solution-04---ecuring-backends-apis)

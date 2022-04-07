@@ -1,6 +1,6 @@
 # Solution 01 - Provision your Integration Environment
 
-[<Previous Solution](./Solution-00.md) - **[Home](../readme.md)** - [Next Solution>](./Solution-02.md)
+[<Previous Solution](./Solution-00.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-02.md)
 
 ## Introduction
 

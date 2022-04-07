@@ -1,6 +1,6 @@
 # Solution 00 - Preparing your Development Environment
 
-**[Home](../readme.md)** - [Next Solution>](./Solution-01.md)
+**[Home](./readme.md)** - [Next Solution>](./Solution-01.md)
 
 ## Description
 
@@ -16,3 +16,5 @@ You need to ensure that the students have prepared all the required tools such a
         - Sign-in by running ```az login``` 
         - Set default subscription by running ```az account set --subscription "<subscription name or subscription id>"```
         - Set default resource group by running ```az configure --defaults group=<resource group name>```
+
+[Back to Top](#solution-00---preparing-your-development-environment)
