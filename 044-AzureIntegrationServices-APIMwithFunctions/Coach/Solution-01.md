@@ -8,9 +8,9 @@ The students should be able to create an AIS environment consisting of APIM and 
 
 
 ## Description
-Students has to do one of the following AIS environments: 
-- Scenario 01: Deploy a VNET-secured AIS environment
-- Scenario 02: Deploy an identity-secured AIS environment 
+Students has to do one of the following AIS environments, click on the link below to jump straight to relevant scenario: 
+- [Scenario 01: Deploy a VNET-secured AIS environment](#scenario-01-deploy-a-vnet-secured-ais-environment)
+- [Scenario 02: Deploy an identity-secured AIS environment](#scenario-02-deploy-an-identity-secured-ais-environment)
 
 ### Scenario 01: Deploy a VNET-secured AIS environment
 - Scenario 01: Students can deploy the Bicep templates of the VNET-integrated AIS which can be found at [Student/Resources/Challenge-01/Scenario-01](../Student/Resources/Challenge-01/Scenario-01).  This is the shortcut method - the templates are ready to deployed and all they need to do is plug-in the parameter values.  
