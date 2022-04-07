@@ -2,7 +2,7 @@
 
 *The following is a quick example of what the root of Coach folder should look like for a fictional hack*
 
-# Azure Integration Services
+# Azure Integration Services - API Management with Function Apps
 
 ## Introduction
 Welcome to the coach's guide for the # Azure Integration Services What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.

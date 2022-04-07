@@ -1,12 +1,12 @@
-# Azure Integration Services
+# Azure Integration Services - API Management with Function Apps
 
 ## Introduction
-The Azure Integration Services will take you on lap around the world of enterprise integration in the cloud.  
+The Azure Integration Services will take you on lap around the world of enterprise integration in Azure.  
 
 ## Learning Objectives
-In this hack you will be solving common business scenario our customers face when building integration solution in Azure from ground-up.  The goal of this hack is to adopt what are the best practices for deploying, configuring and securing integration services, which include:
+In this hack you will be solving common business scenario our customers face when building integration solution in Azure from ground-up.  The goal of this hack is to adopt what are the best practices for deploying, configuring and securing integration services, which includes:
 
-1. Authoring Bicep templates to build an APIM + backend services
+1. Authoring Bicep templates to build an APIM + backend services hosted in Function Apps
 2. Creating CI/CD pipeline to deploy environment
 3. Securing backend API services via OAuth
 4. Securing backend API services over the VNET
