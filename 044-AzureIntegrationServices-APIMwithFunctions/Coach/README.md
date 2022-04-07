@@ -1,7 +1,3 @@
-# What The Hack - Hack Coach Guide Template
-
-*The following is a quick example of what the root of Coach folder should look like for a fictional hack*
-
 # Azure Integration Services - API Management with Function Apps
 
 ## Introduction
