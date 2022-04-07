@@ -1,6 +1,6 @@
 # Solution 02 - Deploy your integration environment
 
-[<Previous Solution](./Solution-01.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-03.md)
+[<Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution>](./Solution-03.md)
 
 ## Introduction
 
