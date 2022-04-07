@@ -33,11 +33,11 @@ In this hack, the participants will learn how to build an integration solutin us
 - Azure DevOps project 
 
 ## Repository Contents (Optional)
-- `../Coach/Guides`
+- `../Coach/`
   - Coach's Guide and related files
 - `../images`
   - Generic image files needed
-- `../Student/Guides`
+- `../Student/`
   - Student's Challenge Guide
 
 ## Contributors
