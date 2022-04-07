@@ -1,7 +1,7 @@
 # Azure Integration Services - API Management with Function Apps
 
 ## Introduction
-The Azure Integration Services (AIS) Hack will provide you a deep dive experience in building a solution to seamlessly connect apps to services whether hosted on premises or in the cloud.  This hack - the first of many series - will enable participants to solve common business scenarios our customers face when building AIS from ground-up, from deploying, configuring and securing API management and its backend services. 
+The Azure Integration Services (AIS) Hack will provide you a deep dive experience in building a solution that seamlessly connect apps to services whether hosted on premises or in the cloud.  This hack - the first of many series - will enable participants to solve common business scenarios our customers face when building AIS from ground-up, from deploying, configuring and securing API management and its backend services. 
 
 
 ## Learning Objectives
