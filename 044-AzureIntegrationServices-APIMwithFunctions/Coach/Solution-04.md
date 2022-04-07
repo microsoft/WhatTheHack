@@ -1,6 +1,6 @@
 # Solution 04 - Securing backends APIs
 
-[<Previous Solution](./Solution-03.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-05.md)
+[<Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution>](./Solution-05.md)
 
 ## Introduction
 

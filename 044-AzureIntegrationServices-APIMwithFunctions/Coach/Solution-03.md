@@ -1,6 +1,6 @@
 # Solution 03 - Create backend API
 
-[<Previous Solution](./Solution-02.md) - **[Home](./readme.md)** - [Next Solution>](./Solution-04.md)
+[<Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution>](./Solution-04.md)
 
 ## Introduction
 
