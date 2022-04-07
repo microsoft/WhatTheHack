@@ -40,7 +40,7 @@ Before start the hack you need to create the dataset and make it available to al
 It's a very time consuming steps so it's recommended to run it a couple of days before the hack.
 Here the steps:
 1. [Create a new Dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal)
-   1. Choose **DW500c** as performance level
+   1. Choose **DW500c** as performance level [(SLO)](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits)
    2. Check the **"Additional settings"** tab and make sure you selected **"Sample"**
 2. Once the Dedicated SQL pool is online, open your preferred query editor ([Sql Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) or [Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)) and connect to your Dedicated SQL pool, then run all the T-SQL scripts available [here](./Solutions/Dataset%20-%20Scripts/) from 1 to 11. **Do not change the order**
    1. This step can take up to 9 hours to complete since we're generating consistend data and thousands of query will run against your Dedicated SQL pool
