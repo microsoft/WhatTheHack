@@ -1,7 +1,7 @@
 # Challenge 04 - Securing backends APIs
 
 
-[<Previous Challenge](./Challenge-03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-05.md)
+[<Previous Challenge](./Challenge-03.md) - **[Home](./README.md)** - [Next Challenge>](./Challenge-05.md)
 
 ## Pre-requisites
 
