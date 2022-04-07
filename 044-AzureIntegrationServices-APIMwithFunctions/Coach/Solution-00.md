@@ -1,6 +1,6 @@
 # Solution 00 - Preparing your Development Environment
 
-**[Home](./readme.md)** - [Next Solution>](./Solution-01.md)
+**[Home](./README.md)** - [Next Solution>](./Solution-01.md)
 
 ## Description
 
