@@ -16,12 +16,6 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
-## Student Resources
-
-Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
-
-**NOTE:** Students should not be given a link to the What The Hack repo before or during a hack. The student guide does NOT have any links to the Coach's guide or the What The Hack repo on GitHub.  
-
 ## Coach's Guides
 <!-- REMOVE_ME ${challengesSection} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
@@ -38,19 +32,30 @@ Before the hack, it is the Coach's responsibility to download and package up the
 
 This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event.
 
-These pre-reqs should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+### Student Resources
 
-*Please list both technical pre-reqs and Azure subscription pre-reqs.* 
+Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+
+**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.  
+
+### Additional Coach Prerequisites (Optional)
+
+*Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment.*
+
+## Azure Requirements
+
+This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+
+*Please list Azure subscription requirements.* 
 
 *For example:*
 
 - Azure resources that will be consumed by a student implementing the hack's challenges
 - Azure permissions required by a student to complete the hack's challenges.
-- Any pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment
 
 ## Suggested Hack Agenda (Optional)
 
-*This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each day for a multi-day hack event.  For example:*
+*This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event.  For example:*
 
 - Sample Day 1
 	- Challenge 1 (1 hour)
