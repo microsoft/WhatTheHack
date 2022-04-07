@@ -1,12 +1,13 @@
 # Azure Integration Services - API Management with Function Apps
 
 ## Introduction
-The Azure Integration Services will take you on lap around the world of enterprise integration in Azure.  
+The Azure Integration Services (AIS) Hack will provide you a deep dive experience in building a solution to seamlessly connect apps to services whether hosted on premises or in the cloud.  This hack - the first of many series - will enable participants to solve common business scenarios our customers face when building AIS from ground-up, from deploying, configuring and securing API management and its backend services. 
+
 
 ## Learning Objectives
-In this hack you will be solving common business scenario our customers face when building integration solution in Azure from ground-up.  The goal of this hack is to adopt what are the best practices for deploying, configuring and securing integration services, which includes:
+In this hack, the participants will learn how to build an integration solutin using API Management and Function Apps.  This involves the following:
 
-1. Authoring Bicep templates to build an APIM + backend services hosted in Function Apps
+1. Authoring Bicep templates to build API Management Service and backend APIs hosted in Function Apps
 2. Creating CI/CD pipeline to deploy environment
 3. Securing backend API services via OAuth
 4. Securing backend API services over the VNET
@@ -41,6 +42,9 @@ In this hack you will be solving common business scenario our customers face whe
 
 ## Contributors
 - Noemi Veneracion (novenera@microsoft.com)
+- Will Velida (willvelida@microsoft.com)
+- Sateeshkumar Mohan (samanoh@microsoft.com)
+- Chun Liu (chunliu@microsoft.com)
 
 
 <!-- 6. Challenge 5: **[Secure backend API using client certificate](Student/Challenge-05.md)**
