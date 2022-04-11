@@ -89,6 +89,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [This Old Data Warehouse](/019-ThisOldDataWarehouse/README.md)
 - [Modern Data Warehouse - Covid 19](/038-MDWCovid19/README.md)
 - [Do You Even Synapse](/024-DoYouEvenSynapse/README.md)
+- [Incremental Synapse Pipelines](/048-IncrementalSynapsePipelines/README.md)
+- [Synapse Dedicated SQL Pool - Performance Best Practices](/049-SQLDedicatedPoolPerf/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
