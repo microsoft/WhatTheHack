@@ -1,13 +1,9 @@
-# What The Hack - Dedicated SQL Pool performance best practices - Coach Guide
+# What The Hack - Synapse Dedicated SQL Pool - Performance Best Practices - Coach Guide
 
 ## Introduction
-This "What the Hack" enables attendees to understand best practices developing, maintaining, and optimizing performance for their Synapse Dedicated SQL Pool. This hack simulates a real-world scenario where a cycle manufacturer company develops its new data warehouse leveraging Synapse Dedicated Sql pool. The goal is to apply all best practices to avoid performance bottlenecks during day by day activities. 
+Welcome to the coach's guide for the SQL Dedicated Pool Performance What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-During the hack, attendees will focus on:
-- Database Design – Best Practices
-- Query Design – Best practices and optimization
-- Performance Troubleshooting
-- Performance Monitoring
+NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Student Resources
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
@@ -27,6 +23,9 @@ Before the hack, it is the Coach's responsibility to download and package up the
 	 - In this challenge, attendees will understand how to monitor your workload to identify poor performing and failed queries
 
 ## Coach Prerequisites 
+This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event.
+
+These pre-reqs should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
 - Azure subscription with Owner access
 - An already in-place [Dedicated SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#:~:text=Create%20a%20SQL%20pool%201%20Select%20Create%20a,Notifications%20to%20monitor%20the%20deployment%20process.%20See%20More.). **Configure it using SLO = DW500c**

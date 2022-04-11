@@ -6,7 +6,7 @@
 
 In this challenge you will import several parquet files from Blob Storage into your Datawarehouse and then you will move data from staging area to the production one. 
 
-Here the proposed DB [database diagram](./Solutions/DedicatedSqlPool-TablesRelationships.pdf?raw=true).
+Here the proposed DB [database diagram](./Solutions/DedicatedSqlPool-TablesRelationships.pdf).
 
 **Learning objectives:**
     - Get understanding about tables architecture in Dedicated Sql Pool 
