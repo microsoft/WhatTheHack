@@ -59,5 +59,5 @@ This is due to data skew.
 
 Sales.FactSales has been distributed using RevisionNumber column which contains only 1 distinct value instead of the CustomerKey column with more than 2500 distinct values and used in the group by clause.
 
-- Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./solutions/Challenge01/C1_3_Check_and_Fix_Table_Skew.sql) and follow provided steps and instructions. 
+- Open folder [C1_3_Check_and_Fix_Table_Skew.sql](./Solutions/Challenge01/C1_3_Check_and_Fix_Table_Skew.sql) and follow provided steps and instructions. 
 
