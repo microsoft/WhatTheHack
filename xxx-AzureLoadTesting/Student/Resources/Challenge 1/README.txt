@@ -1,3 +1,0 @@
-Here is a sample application to use for the first challenge.  You will find the architecture diagram in the same folder labeled "ServerlessStockMarketApplication.png"
-
-This is a single page web application that displays historical stock market prce information along with allowing a user to simulate historical trades and ROI. One function is used to manage and pull the data from cosmos db.  This sits behind API management in the event we have 3rd parties that want to integrate with us.  There is a separate webapp in front of API management to handle the UI.  Lastly, there is a separate function that pulls data from the 3rd party stock market exchange and stores the data after massaging it into the cosmos db database.
