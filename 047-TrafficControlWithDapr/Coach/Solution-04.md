@@ -360,15 +360,15 @@ Now, you can also use Azure Cache for Redis instead of the default state store. 
     spec:
       type: state.redis
       version: v1
-    metadata:
-    - name: redisHost
-      value: redis-dapr-ussc-demo.redis.cache.windows.net:6380
-    - name: redisPassword
-      value: qu4qw8bFakeKey7KVrBYFFakeKey+v3raFBNA3M=
-    - name: actorStateStore
-      value: true
-    - name: enableTLS
-      value: true
+      metadata:
+      - name: redisHost
+        value: redis-dapr-ussc-demo.redis.cache.windows.net:6380
+      - name: redisPassword
+        value: qu4qw8bFakeKey7KVrBYFFakeKey+v3raFBNA3M=
+      - name: actorStateStore
+        value: true
+      - name: enableTLS
+        value: true
     scopes:
     - trafficcontrolservice
     ```

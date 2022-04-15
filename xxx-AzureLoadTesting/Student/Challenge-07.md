@@ -1,4 +1,4 @@
-# Challenge 07 - Load Testing With Chaos Experiment (Resilliance Testing)
+# Challenge 07 - Load Testing With Chaos Experiment (Resilience Testing)
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
@@ -15,7 +15,7 @@ We have gone over load testing for the majority of this hack.  While the informa
 
 ## Success Criteria
 
-- Identify failure points from your resilliance test
+- Identify failure points from your resilience test
 - Create a remediation plan to show how your application can withstand these failures in the future.
 
 ## Learning Resources
@@ -23,3 +23,6 @@ We have gone over load testing for the majority of this hack.  While the informa
 [What is Azure Chaos Studio](https://docs.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview)
 
 
+## Advanced Challenges
+
+- Add your Chaos Experiment to your CI/CD workflow and configure it to run during your load test.
