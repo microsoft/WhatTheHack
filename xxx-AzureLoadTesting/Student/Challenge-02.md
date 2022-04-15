@@ -10,7 +10,6 @@
 
 In this challenge, deploy an application to load test against and create one or more load testing scripts. Your load testing scripts should be designed to implement the load testing *strategy* you created in the previous challenge. 
 
-
 Azure Load Testing is based on JMeter - a popular open source load testing tool. This means you can reuse existing JMeter scripts or create new scripts by referencing existing JMeter documentation.
 
 ## Description
