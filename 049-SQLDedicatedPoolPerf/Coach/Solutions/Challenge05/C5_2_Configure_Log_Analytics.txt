@@ -1,0 +1,48 @@
+Tips:
+https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=CMD
+https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period
+https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage
+https://docs.microsoft.com/en-us/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor#:~:text=Configure%20diagnostic%20settings%201%20In%20the%20portal%2C%20go,prompted%20to%20create%20a%20setting.%20...%20See%20More.
+
+Configure Diagnostics from portal for Dedicated pool and run this query:
+
+
+--This is only for Dedicated SQL Pool with NO workspace
+
+//Getting all queries using the same table
+AzureDiagnostics 
+| where Category == "ExecRequests" and Label_s != "health_checker"
+| where Command_s contains "FactInternetSales" 
+| order by StartTime_t desc 
+
+//getting queries with specific Label
+AzureDiagnostics 
+| where Category == "ExecRequests" and Label_s != "health_checker"
+| where Label_s == "Not Partitioned Table"
+| order by StartTime_t desc 
+
+//getting overlapping queries
+AzureDiagnostics 
+| where Category == "ExecRequests" and Label_s != "health_checker"
+| where Status_s in("Running","Suspended")
+| order by StartTime_t desc 
+
+
+
+--This is only for Dedicated SQL Pool with workspace
+//Getting all queries using the same table
+SynapseSqlPoolExecRequests
+| where Label != "health_checker"
+| where Command contains "FactInternetSales"
+| order by TimeGenerated desc
+
+//getting queries with specific Label
+SynapseSqlPoolExecRequests
+| where Label == "Not Partitioned Table"
+| order by TimeGenerated desc
+
+
+//getting overlapping queries
+SynapseSqlPoolExecRequests
+| where Status in("Running","Suspended")
+| order by StartTime desc 
