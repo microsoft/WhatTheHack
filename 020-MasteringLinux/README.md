@@ -1,6 +1,6 @@
 # Welcome to the Mastering Linux Hack!
 
-This FastHack will serves as an introduction to important command line concepts and skills to learn more about Linux.
+This hachathon will serves as an introduction to important command line concepts and skills to learn more about Linux.
 <img align="right" src="images/linuxpenguin.png" width="250"/>
 
 ## Linux History 
