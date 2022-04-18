@@ -12,7 +12,7 @@ Because the FHS is the default filesystem layout on Linux machines, and each dir
 
 ## FHS Structure
 
-<img align="center" src="images/fhs.png"/>
+<img align="center" src="../images/fhs.png"/>
 
 ### :white_check_mark: **/ (root)**
 
