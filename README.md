@@ -5,7 +5,7 @@ Welcome to the What The Hack repo on GitHub. This repo contains Coach content de
 
 If you are an organization that is interested in attending or hosting a What The Hack event, please visit the [What The Hack website](https://aka.ms/wth) at: **https://aka.ms/wth**
 
-**If you are a student attending a What The Hack event, please go to the [What The Hack website](https://aka.ms/wth)**
+**If you are a student attending a What The Hack event, please go to the [What The Hack website](https://aka.ms/wth).**
 
 ![What The Hack Website](/assets/images/wth-logo.png)
 <!-- {% endcomment %} -->
