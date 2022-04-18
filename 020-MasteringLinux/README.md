@@ -72,7 +72,10 @@ For our activites, is recommended to use the [Azure Cloud Shell](http://shell.az
 * [Linux Commands Notes for Professionals](https://goalkicker.com/LinuxBook/LinuxNotesForProfessionals.pdf)
 * [Introduction to Linux - Free course on Linux Foundation](https://training.linuxfoundation.org/training/introduction-to-linux/)
 
-## Contributions
+## Contributors
+
+* [Ricardo Martins](https://www.linkedin.com/in/ricmmartins)
+
 Contributions in the form of errors, feature requests and PRs are always welcome.
 
 Please follow these steps before submitting a PR:
