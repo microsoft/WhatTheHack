@@ -1,3 +1,13 @@
+{% comment %} 
+# What The Hack - Repo
+
+Welcome to the What The Hack repo on GitHub. This repo contains Coach content designed for people planning to host a What The Hack event with students in an organization. 
+
+If you are attending a What The Hack event, or interested in sharing with an organization that wants to attend a What The Hack event, please visit our [What The Hack website](https://aka.ms/wth) at: https://aka.ms/wth 
+
+![What The Hack Website](/assets/images/wth-logo.png)
+{% endcomment %}
+
 # What is What The Hack?
 
 "What the Hack" is a set of challenge based hackathons that can be hosted in-person or virtually via Microsoft Teams.
@@ -112,5 +122,5 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
 
-# [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
+# License
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
