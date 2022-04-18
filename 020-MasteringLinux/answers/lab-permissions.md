@@ -64,5 +64,5 @@ chmod: changing permissions of '/home/student/permissions/rootfile': Operation n
 Note you cannot change permissions of the file that belongs to root.
 
 ---
-[Back](https://github.com/ricmmartins/fasthack-linux/blob/main/README.md)| 
+[Back](../README.md)| 
 :----- |
