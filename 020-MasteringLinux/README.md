@@ -9,7 +9,7 @@ Linux is a family of free and open-source operating systems based on the Linux k
 
 The Linux kernel has been under active development since 1991, and has proven to be extremely versatile and adaptable. You can find computers that run Linux in a wide variety of contexts all over the world, from web servers to cell phones. Today, 90% of all cloud infrastructure and 74% of the world’s smartphones are powered by Linux.
 
-To read more about Linux History, Linux Distributions and Linux Kernel, [click here](/resources/linux-history.md).
+To read more about Linux History, Linux Distributions and Linux Kernel, [click here](/020-MasteringLinux/resources/linux-history.md).
 
 
 ## Prerequisites
@@ -38,9 +38,9 @@ For our activites, is recommended to use the [Azure Cloud Shell](http://shell.az
 
 ### :white_check_mark: Linux basic concepts
 
-* There are some basic concepts that will be nice if you have them. If you would like to take a look they are [listed here](/resources/concepts.md).
-* Concepts around the Linux Filesystem Hierarchy Standard (FHS) are recommended, so you can get more details about it [here](/resources/fhs.md).
-* Regarding Linux commands, just for reference, [here is](/resources/commands.md) a good cheat sheet.
+* There are some basic concepts that will be nice if you have them. If you would like to take a look they are [listed here](/020-MasteringLinux/resources/concepts.md).
+* Concepts around the Linux Filesystem Hierarchy Standard (FHS) are recommended, so you can get more details about it [here](/020-MasteringLinux/resources/fhs.md).
+* Regarding Linux commands, just for reference, [here is](/020-MasteringLinux/resources/commands.md) a good cheat sheet.
 
 ## Challenges
 
