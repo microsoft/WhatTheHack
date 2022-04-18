@@ -76,7 +76,7 @@ For our activites, is recommended to use the [Azure Cloud Shell](http://shell.az
 
 * [Ricardo Martins](https://www.linkedin.com/in/ricmmartins)
 
-Contributions in the form of errors, feature requests and PRs are always welcome. Please follow these steps before submitting a PR:
+## Contributions in the form of errors, feature requests and PRs are always welcome. Please follow these steps before submitting a PR:
 
 * Create an issue describing the error or feature request.
 * Clone the repository and create a topic branch.
