@@ -1,12 +1,14 @@
-{% comment %} 
+<!-- {% comment %} -->
 # What The Hack - Repo
 
 Welcome to the What The Hack repo on GitHub. This repo contains Coach content designed for people planning to host a What The Hack event with students in an organization. 
 
-If you are attending a What The Hack event, or interested in sharing with an organization that wants to attend a What The Hack event, please visit our [What The Hack website](https://aka.ms/wth) at: https://aka.ms/wth 
+If you are an organization that is interested in attending or hosting a What The Hack event, please visit the [What The Hack website](https://aka.ms/wth) at: **https://aka.ms/wth**
+
+**If you are a student attending a What The Hack event, please go to the [What The Hack website](https://aka.ms/wth)**
 
 ![What The Hack Website](/assets/images/wth-logo.png)
-{% endcomment %}
+<!-- {% endcomment %} -->
 
 # What is What The Hack?
 
