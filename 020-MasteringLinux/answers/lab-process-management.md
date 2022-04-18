@@ -96,5 +96,5 @@ omsagent    1027     818  0 Apr07 ?        00:00:08 /opt/omi/bin/omiagent 9 10 -
 941
 ```
 ---
-[Back](https://github.com/ricmmartins/fasthack-linux/blob/main/README.md)| 
+[Back](../README.md)| 
 :----- |
