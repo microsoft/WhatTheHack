@@ -12,15 +12,15 @@ In this hack, the participants will learn how to build an integration solutin us
 4. Securing backend API services over the VNET
 
 ## Coach's Guides
--  Solution 0: **[Prepare your development environment](Solution-00.md)**
+-  Solution 0: **[Prepare your Development Environment](Solution-00.md)**
    - Get yourself ready to build your integration solution
--  Solution 1: **[Provision an integration environment](Solution-01.md)**
+-  Solution 1: **[Provision an Integration Environment](Solution-01.md)**
    - Create a bicep template that will provision a baseline integration environment.
--  Solution 2: **[Deploy your integration environment](Solution-02.md)**
+-  Solution 2: **[Deploy your Integration Environment](Solution-02.md)**
    - Create a CI/CD pipeline to do automated deployment of your integration environment.
--  Solution 3: **[Create backend APIs](Solution-03.md)**
+-  Solution 3: **[Create Backend APIs](Solution-03.md)**
    - Create backend APIs
--  Solution 4: **[Secure backend APIs](Solution-04.md)**
+-  Solution 4: **[Secure Backend APIs](Solution-04.md)**
    - Securing backend APIs by configuring them in the VNET or by using OAuth 2.0 authorization
 
 ## Prerequisites
