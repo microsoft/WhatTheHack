@@ -41,9 +41,9 @@ In this hack, the participants will learn how to build an integration solutin us
   - Student's Challenge Guide
 
 ## Contributors
-- Noemi Veneracion (novenera@microsoft.com)
-- Will Velida (willvelida@microsoft.com)
-- Sateeshkumar Mohan (samanoh@microsoft.com)
+- Noemi Veneracion (@noemi616)
+- Will Velida (@willvelida)
+- Sateeshkumar Mohan (@infosatheesh2020)
 
 
 
