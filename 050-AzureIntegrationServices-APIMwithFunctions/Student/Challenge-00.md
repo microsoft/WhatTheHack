@@ -18,7 +18,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
       - [Set default Azure subscription and resource group](#set-default-azure-subscription-and-resource-group)
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
-    - [DownGit](#downgit)
+    <!-- - [DownGit](#downgit) -->
 
 ## Azure Subscription
 
@@ -81,12 +81,12 @@ Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.co
 
 The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal.
 
-## DownGit
+<!-- ## DownGit
 
 One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
 
 You can view the DownGit project on GitHub here: <https://github.com/MinhasKamal/DownGit>
 
-And you can use DownGit from its website here: <https://minhaskamal.github.io/DownGit/#/home>
+And you can use DownGit from its website here: <https://minhaskamal.github.io/DownGit/#/home> -->
 
 [Back to Top](#challenge-00---preparing-your-development-environment)
