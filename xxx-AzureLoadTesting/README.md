@@ -15,7 +15,7 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 1. Challenge 01: **[Develop a Load Testing Strategy](Student/Challenge-01.md)**
 	 - How to develop a load testing strategy for your application
 1. Challenge 02: **[Deploy Sample App & Create Load Testing Script](Student/Challenge-02.md)**
-	 - Creating JMeter scripts to support your load testing strategy
+	 - Deploy a sample application and create JMeter scripts to support your load testing strategy
 1. Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](Student/Challenge-03.md)**
 	 - Create Azure Load Testing Service and learn techniques on how to establish baselines for your application
 1. Challenge 04: **[Enable Automated Load Testing (CI/CD)](Student/Challenge-04.md)**
