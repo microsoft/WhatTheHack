@@ -33,8 +33,8 @@ You should be able to:
 
 ## Tips
 - You can choose to use either GitHub Actions or Azure DevOps Pipelines for this exercise.
-- If using GitHub actions, a sample workflow (deploy.yml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams' channel.
-- If using Azure Pipelines, a sample YAML pipeline (azure-pipelines.yaml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams' channel.
+- If using GitHub actions, a sample workflow (deploy.yml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams channel.
+- If using Azure Pipelines, a sample YAML pipeline (azure-pipelines.yaml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams channel.
 
 ## Advanced Challenges
 
