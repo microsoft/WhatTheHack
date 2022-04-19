@@ -67,16 +67,14 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
 
 ## Tips 
 - Talk among yourselves which Scenario you would go for.  
-  - If going with Scenario 01 - deploy the Bicep templates of the VNET-integrated AIS which can be found at [Student/Resources/Challenge-01/Scenario-01](../Student/Resources/Challenge-01/Scenario-01).  This is the shortcut method - the templates are ready to deployed and all they need to do is plug-in the parameter values.  
-  - If going with Scenario 02 - you can deploy the Bicep templates of the publicly-exposed AIS which can be found at [Student/Resources/Challenge-01/Scenario-02](../Student/Resources/Challenge-01/Scenario-02).  Some parameter or variable values in the templates are blank, so the students need to fill these out.
-    - Create several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
+  - If going with Scenario 01 - deploy the Bicep templates of the VNET-integrated AIS which can be found at Student/Resources/Challenge-01/Scenario-01 in the Files tab of WhatTheHack - AIS Teams' channel.  This is the shortcut method - the templates are ready to deployed and all they need to do is plug-in the parameter values.  
+  - If going with Scenario 02 - you can deploy the Bicep templates of the publicly-exposed AIS which can be found at Student/Resources/Challenge-01/Scenario-02 in the Files tab of WhatTheHack - AIS Teams' channel.  Some parameter or variable values in the templates are blank, so the students need to fill these out.
+     - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
       - main.bicep
         - modules
           - functions.bicep
           - apim.bicep
           - appinsights.bicep
-
-      You can use the starter Bicep files at at [/Resources/Challenge-01](./Resources/Challenge-01)  
     - The resources should have the following properties at a minimum:
       - name
       - location
