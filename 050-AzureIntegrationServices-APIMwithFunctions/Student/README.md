@@ -1,4 +1,4 @@
-# WhatTheHack -Azure Integration Services - API Management with Function Apps
+# WhatTheHack - Azure Integration Services - API Management with Function Apps
 
 ## Introduction
 Welcome to the student's guide for the Azure Integration Services - API Management with Function Apps Hack. 
