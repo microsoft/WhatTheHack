@@ -1,4 +1,4 @@
-# Azure Integration Services - API Management with Function Apps
+# WhatTheHack - Azure Integration Services - API Management with Function Apps
 
 ## Introduction
 Welcome to the coach's guide for the Azure Integration Services - API Management with Function Apps Hack. Here you will find links to specific guidance for coaches for each of the challenges.
@@ -12,13 +12,27 @@ In this hack, the participants will learn how to build an integration solutin us
 4. Securing backend API services over the VNET
 
 ## Coach's Guides
-1. Solution 0: **[Prepare your development environment](Solution-00.md)**
+-  Solution 0: **[Prepare your development environment](Solution-00.md)**
    - Get yourself ready to build your integration solution
-2. Solution 1: **[Provision an integration environment](Solution-01.md)**
+-  Solution 1: **[Provision an integration environment](Solution-01.md)**
    - Create a bicep template that will provision a baseline integration environment.
-3. Solution 2: **[Deploy your integration environment](Solution-02.md)**
+-  Solution 2: **[Deploy your integration environment](Solution-02.md)**
    - Create a CI/CD pipeline to do automated deployment of your integration environment.
-4. Solution 3: **[Create backend APIs](Solution-03.md)**
+-  Solution 3: **[Create backend APIs](Solution-03.md)**
    - Create backend APIs
-5. Solution 4: **[Secure backend APIs](Solution-04.md)**
+-  Solution 4: **[Secure backend APIs](Solution-04.md)**
    - Securing backend APIs by configuring them in the VNET or by using OAuth 2.0 authorization
+
+## Prerequisites
+- Your own Azure subscription with Owner access
+- Visual Studio Code
+- Azure CLI
+- Azure DevOps project 
+
+## Repository Contents 
+- `../Coach/`
+  - Coach's Guide and related files
+- `../images`
+  - Generic image files needed
+- `../Student/`
+  - Student's Challenge Guide
