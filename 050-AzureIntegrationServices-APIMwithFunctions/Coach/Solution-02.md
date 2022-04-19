@@ -1,4 +1,4 @@
-# Solution 02 - Deploy your integration environment
+# Solution 02 - Deploy your Integration Environment
 
 [<Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution>](./Solution-03.md)
 
