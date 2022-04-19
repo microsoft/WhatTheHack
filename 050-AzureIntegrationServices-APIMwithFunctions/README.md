@@ -32,14 +32,6 @@ In this hack, the participants will learn how to build an integration solutin us
 - Azure CLI
 - Azure DevOps project 
 
-## Repository Contents (Optional)
-- `../Coach/`
-  - Coach's Guide and related files
-- `../images`
-  - Generic image files needed
-- `../Student/`
-  - Student's Challenge Guide
-
 ## Contributors
 - Noemi Veneracion ([@noemi616](https://github.com/noemi616))
 - Will Velida ([@willvelida](https://github.com/willvelida))
