@@ -16,13 +16,13 @@ In this hack, the participants will learn how to build an integration solutin us
 
 
 ## Challenges
--  Challenge 0: **[Prepare your development environment](Challenge-00.md)**
+-  Challenge 0: **[Prepare your Development Environment](Challenge-00.md)**
    - Get yourself ready to build your integration solution
--  Challenge 1: **[Provision an integration environment](Challenge-01.md)**
+-  Challenge 1: **[Provision an Integration Environment](Challenge-01.md)**
    - Create a bicep template that will provision a baseline integration environment.
--  Challenge 2: **[Deploy your integration environment](Challenge-02.md)**
+-  Challenge 2: **[Deploy your Integration Environment](Challenge-02.md)**
    - Create a CI/CD pipeline to do automated deployment of your integration environment.
--  Challenge 3: **[Create backend API](Challenge-03.md)**
+-  Challenge 3: **[Create Backend API](Challenge-03.md)**
    - Create backend APIs
--  Challenge 4: **[Secure backend APIs](Challenge-04.md)**
+-  Challenge 4: **[Secure Backend APIs](Challenge-04.md)**
    - Securing backend APIs by configuring them in the VNET or by using OAuth 2.0 authorization
