@@ -41,9 +41,9 @@ In this hack, the participants will learn how to build an integration solutin us
   - Student's Challenge Guide
 
 ## Contributors
-- Noemi Veneracion (@noemi616)
-- Will Velida (@willvelida)
-- Sateeshkumar Mohan (@infosatheesh2020)
+- Noemi Veneracion ([@noemi616](https://github.com/noemi616))
+- Will Velida ([@willvelida](https://github.com/willvelida))
+- Sateeshkumar Mohan ([@infosatheesh2020](https://github.com/infosatheesh2020))
 
 
 
