@@ -1,10 +1,10 @@
 # What The Hack - xxx-MasteringLinux
 
 ## Introduction
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+This hachathon will serve as an introduction to important command line concepts and skills on Linux environments.
 
 ## Learning Objectives
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will be challenged with some common tasks from a real world scenario in Linux administration duties.
 
 1. Provision an IoT Hub
 2. Set up an IoT Edge device
