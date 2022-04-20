@@ -3,7 +3,7 @@
 ## Introduction
 This hachathon will serve as an introduction to important command line concepts and skills on Linux environments.
 
-<img align="right" src="images/linuxpenguin.png" width="250"/>
+<img align="right" src="./Student/resources/images/linuxpenguin.png" width="250"/>
 
 ## Linux History
 
