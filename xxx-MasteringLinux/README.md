@@ -67,7 +67,7 @@ When someone refers to one of these three terms in the context of Linux, they ge
 
 - There are some basic concepts that will be nice if you have them. If you would like to take a look they are [listed here](./Student/resources/concepts.md).
 -  Concepts around the Linux Filesystem Hierarchy Standard (FHS) are recommended, so you can get more details about it [here](./Student/resources/fhs.md).
-- Regarding Linux commands, just for reference, [here is](./Student/resources/resources/commands.md) a good cheat sheet.
+- Regarding Linux commands, just for reference, [here is](./Student/resources/commands.md) a good cheat sheet.
 
 
 ## Repository Contents (Optional)
