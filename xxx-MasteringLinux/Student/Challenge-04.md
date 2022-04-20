@@ -24,13 +24,14 @@ In this challenge let's learn about file content manipulation and discover how t
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+1. Show the content of the first 10 lines of `/etc/resolv.conf`
+2. Show the last 5 lines of `/etc/crontab`
+3. Validate if the content of the file `count.log` was created as expected
+4. Check if the file `count.bkp` was created 
+5. Chec if the file `cat-count.log` was created
+6. Confirm if you can see the content of the file `cat-count.log` in reverse order
+7. Validate if you was able to see the content of the file `/etc/selinux/semanage.conf` paged
+8. Check if you can see the biggest file in `/var/log` at the top of the list
 
 ## Learning Resources
 
