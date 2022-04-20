@@ -1,4 +1,4 @@
-# Disks, partitions and file Systems
+# 8 - Disks, partitions and file Systems
 
 ## Requirements
 
@@ -25,7 +25,7 @@
 
 ---
 
-[Back](../README.md)| 
-:----- |
+[Back to main](../README.md)| [9 - Logical Volume Manager](../challenges/lab-lvm.md)|
+:----- |:---- |
 
 
