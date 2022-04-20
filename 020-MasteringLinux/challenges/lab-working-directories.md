@@ -19,7 +19,7 @@ In this challenge you will learn how to perform common directory operations such
 
 ## Learning resoures
 
-* [Linux COmmands Cheat Sheet](../resources/commands.md)
+* [Linux Commands Cheat Sheet](../resources/commands.md)
 ---
 
 [Back to main page](../README.md)| [2 - Handling Files](../challenges/lab-working-files.md)
