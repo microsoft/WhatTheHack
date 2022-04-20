@@ -55,17 +55,17 @@ In this hack you will be challenged with some common tasks from a real world sce
 - Your own Azure subscription with contributor access 
 - Access to a terminal
 
-> The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there >are subtle differences between them:
-
-> * A terminal is an input and output environment that presents a text-only window running a shell.
-> * A shell is a program that exposes the computer’s operating system to a user or program. In Linux systems, the shell presented in a terminal is a command line interpreter.
-> * A command line interface is a user interface (managed by a command line interpreter program) which processes commands to a computer program and outputs the results.
+_The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there are subtle differences between them:
+_
+_* A terminal is an input and output environment that presents a text-only window running a shell.
+_* A shell is a program that exposes the computer’s operating system to a user or program. In Linux systems, the shell presented in a terminal is a command line interpreter.
+_* A command line interface is a user interface (managed by a command line interpreter program) which processes commands to a computer program and outputs the results.
 When someone refers to one of these three terms in the context of Linux, they generally mean a terminal environment where you can run commands and see the results printed out to the terminal. 
+_
+_Becoming a Linux expert requires you to be comfortable with using a terminal. Any administrative task, including file manipulation, package installation, and user management, can be accomplished through the terminal. The terminal is interactive: you specify commands to run and the terminal outputs the results of those commands. To execute any command, you type it into the prompt and press ENTER.
 
-> Becoming a Linux expert requires you to be comfortable with using a terminal. Any administrative task, including file manipulation, package installation, and user management, can be accomplished through the terminal. The terminal is interactive: you specify commands to run and the terminal outputs the results of those commands. To execute any command, you type it into the prompt and press ENTER.
-
-> For our activites, it is recommended to use the [Azure Cloud Shell](http://shell.azure.com/).
-
+_For our activites, it is recommended to use the [Azure Cloud Shell](http://shell.azure.com/).
+_
 
 ## Repository Contents (Optional)
 - `./Coach/Guides`
