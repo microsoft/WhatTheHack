@@ -53,7 +53,7 @@ With the exception of the **challenge 01** which the outcome of a Linux Virtual 
 1. Challenge 10: **[Logical Volume Mananager](Student/Challenge-10.md)**
 	 - Discover about the Logical Volume Manager on Linux, and how to use commands such as pvcreate, vgcreate, lvrcreate, and more.
 1. Challenge 11: **[Package management](Student/Challenge-11.md)**
-	 - Learn about package management and common activites related such as update package distribution lists, install and uninstall packages.
+	 - Learn about package management and common activites such as update package distribution lists, install and uninstall packages.
 1. Challenge 12: **[Setting up a webserver](Student/Challenge-12.md)**
 	 - In this challenge we will setting up a webserver and deploy a simple php application into it. The usage of SSL could be a plus. 
 	 
