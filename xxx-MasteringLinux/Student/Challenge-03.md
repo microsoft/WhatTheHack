@@ -6,6 +6,25 @@
 
 In this challenge you will learn basic commands about file manipulation such as create, rename, find and remove files.
 
+- Find in the `/var` directory all the files that have been modified in the last 60 minutes
+- Show the type of file of `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
+- Download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
+- Display the type of file of `azure-linux.svg` and `azure-ops-guide.pdf`
+- Rename `azure-linux.svg` to `azure-linux.pdf` 
+- Display the type of file of `azure-linux.pdf` and `azure-ops-guide.pdf`
+- Create a directory `~/lab` and enter it.
+- Create the file `today.log` and the file `yesterday.log` in lab.
+- Check the creation date and time
+- Change the date on `yesterday.log` to match yesterday's date
+- Check the creation date and time again
+- Create a directory `~/mybackup` and copy all files from `~/lab` into it
+- Use one command to remove the directory `~/mybackup` and all files into it
+- Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
+- Count the number of linux from the file `/etc/wgetrc`
+- Count the number of words from the file `/etc/hdparm.conf`
+
+## Success Criteria
+
 1. Find in the `/var` directory all the files that have been modified in the last 60 minutes
 2. Show the type of file of `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
 3. Download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
@@ -22,16 +41,6 @@ In this challenge you will learn basic commands about file manipulation such as 
 14. Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
 15. Count the number of linux from the file `/etc/wgetrc`
 16. Count the number of words from the file `/etc/hdparm.conf`
-
-## Success Criteria
-
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
 
 ## Learning Resources
 
