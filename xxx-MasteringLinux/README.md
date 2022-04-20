@@ -65,7 +65,7 @@ When someone refers to one of these three terms in the context of Linux, they ge
 		For our activites, it is recommended to use the [Azure Cloud Shell](http://shell.azure.com/).
 
 
-- There are some basic concepts that will be nice if you have them. If you would like to take a look they are [listed here](/Student/resources/concepts.md).
+- There are some basic concepts that will be nice if you have them. If you would like to take a look they are [listed here](./Student/resources/concepts.md).
 -  Concepts around the Linux Filesystem Hierarchy Standard (FHS) are recommended, so you can get more details about it [here](/Student/resources/fhs.md).
 - Regarding Linux commands, just for reference, [here is](/Student//resources/commands.md) a good cheat sheet.
 
