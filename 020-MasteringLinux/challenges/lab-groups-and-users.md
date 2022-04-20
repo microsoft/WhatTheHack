@@ -12,5 +12,5 @@
 
 ---
 
-[Back](../README.md)| [Answers](../answers/lab-groups-and-users.md) | 
-:----- |:-----
+[Back](../README.md)| 
+:----- |
