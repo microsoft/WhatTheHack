@@ -19,5 +19,5 @@
 #### 15. Count the number of linux from the file `/etc/wgetrc`
 #### 16. Count the number of words from the file `/etc/hdparm.conf`
 
-[Back to main](../README.md)| [03 - File contents](../challenges/lab-file-content.md)
+[Back to main](../README.md)| [03 - File contents](../challenges/lab-file-contents.md)
 :----- |:----|
