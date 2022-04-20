@@ -2,7 +2,7 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites 
 
 *Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
 
