@@ -1,4 +1,4 @@
-# Challenge 01 - Mastering Linux - Coach's Guide 
+# Challenge 01 - Create a Linux Virtual Machine - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
