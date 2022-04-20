@@ -19,5 +19,5 @@
 #### 8. Use `ls` to find the biggest file in `/var/log`
 
 ---
-[Back](../README.md)| [Answers](../answers/lab-file-contents.md) | 
-:----- |:-----
+[Back](../README.md)|  
+:----- |
