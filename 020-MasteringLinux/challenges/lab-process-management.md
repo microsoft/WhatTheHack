@@ -9,5 +9,5 @@
 #### 5. Identify the process id of the omsagent
 
 ---
-[Back](../README.md)| [Answers](../answers/lab-process-management.md) | 
-:----- |:-----
+[Back](../README.md)|
+:----- |
