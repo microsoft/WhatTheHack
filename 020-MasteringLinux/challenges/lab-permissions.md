@@ -1,4 +1,4 @@
-# Standard file permissions
+# 4 - Standard file permissions
 
 ## Objectives
 
@@ -11,5 +11,5 @@
 #### 7. Make sure you (student) have all rights to files within `~`, and others can only read
 
 ---
-[Back](../README.md)| 
-:----- |
+[Back to main](../README.md)| [5 - Process Management](lab-process-management.md)
+:----- |:---- |
