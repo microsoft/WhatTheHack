@@ -46,32 +46,32 @@ Disk model: Virtual Disk
 
 `student@vm01:~$ sudo fdisk /dev/sdc`
 
-1. Add a new partition
+  1. Add a new partition
     
-```bash
-Welcome to fdisk (util-linux 2.34).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+  ```bash
+  Welcome to fdisk (util-linux 2.34).
+  Changes will remain in memory only, until you decide to write them.
+  Be careful before using the write command.
 
-Device does not contain a recognized partition table.
-Created a new DOS disklabel with disk identifier 0x29026b65.
+  Device does not contain a recognized partition table.
+  Created a new DOS disklabel with disk identifier 0x29026b65.
 
-Command (m for help): n
-Partition type
-  p   primary (0 primary, 0 extended, 4 free)
-  e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
+  Command (m for help): n
+  Partition type
+    p   primary (0 primary, 0 extended, 4 free)
+    e   extended (container for logical partitions)
+  Select (default p): p
+  Partition number (1-4, default 1): 1
+  First sector (2048-10485759, default 2048):
+  Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
 
-Created a new partition 1 of type 'Linux' and of size 500 MiB.
+  Created a new partition 1 of type 'Linux' and of size 500 MiB.
 
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
+  Command (m for help): w
+  The partition table has been altered.
+  Calling ioctl() to re-read partition table.
+  Syncing disks.
+  ```
     
 2. List and identify in the S.O. the partition created
 
