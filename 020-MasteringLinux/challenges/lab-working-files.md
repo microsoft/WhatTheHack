@@ -1,4 +1,4 @@
-#  Handling files
+#  02 - Handling files
 
 ## Objectives
 
@@ -19,5 +19,5 @@
 #### 15. Count the number of linux from the file `/etc/wgetrc`
 #### 16. Count the number of words from the file `/etc/hdparm.conf`
 
-[Back](../README.md)| 
-:----- |
+[Back to main](../README.md)| [03 - File contents](../challenges/lab-working-files.md)
+:----- |:----|
