@@ -15,7 +15,7 @@ During the process of creation of the VM, ensure the usage of student for the us
 ## Success Criteria
 
 * Validate you was able to successfully create your Ubuntu Linux Virtual Machine
-* COnfirm you can access through SSH
+* Confirm you can access through SSH
 
 ## Learning Resources
 
