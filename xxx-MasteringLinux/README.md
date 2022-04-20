@@ -76,15 +76,5 @@ When someone refers to one of these three terms in the context of Linux, they ge
 - Regarding Linux commands, just for reference, [here is](./Student/resources/commands.md) a good cheat sheet.
 - The Linux man pages are your best friend. Make sure to use as best you can.
 
-## Repository Contents (Optional)
-- `./Coach/Guides`
-  - Coach's Guide and related files
-- `./SteamShovel`
-  - Image files and code for steam shovel microservice
-- `./images`
-  - Generic image files needed
-- `./Student/Guides`
-  - Student's Challenge Guide
-
 ## Contributors
 - Ricardo Martins
