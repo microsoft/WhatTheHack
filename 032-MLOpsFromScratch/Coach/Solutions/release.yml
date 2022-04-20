@@ -1,0 +1,44 @@
+name: MLOps - Release
+
+variables:
+  - template: variables.yml
+
+resources:
+  pipelines:
+    - pipeline: mlops_build
+      source: 'MLOps - Build'
+
+stages:
+  - stage: Deploy
+    jobs:
+    - deployment: Deploy
+      pool:
+        vmImage: 'ubuntu-18.04'
+      environment: Development
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - task: UsePythonVersion@0
+                displayName: 'Use Python 3.6'
+                inputs:
+                  versionSpec: 3.6
+              - bash: 'pip install -r ./environment_setup/requirements.txt'
+                workingDirectory: '$(Pipeline.Workspace)/mlops_build/$(artifactName)'
+                displayName: 'Bash Script - Install Requirements'
+              - task: AzureCLI@2
+                displayName: 'Azure CLI - deployOnAci.py'
+                inputs:
+                  azureSubscription: $(serviceConnectionName)
+                  scriptType: bash
+                  scriptLocation: inlineScript
+                  inlineScript: 'python ./service/code/deployOnAci.py'
+                  workingDirectory: '$(Pipeline.Workspace)/mlops_build/$(artifactName)'
+              - task: AzureCLI@2
+                displayName: 'Azure CLI - AciWebserviceTest.py'
+                inputs:
+                  azureSubscription: $(serviceConnectionName)
+                  scriptType: bash
+                  scriptLocation: inlineScript
+                  inlineScript: 'python ./service/code/AciWebserviceTest.py'
+                  workingDirectory: '$(Pipeline.Workspace)/mlops_build/$(artifactName)'

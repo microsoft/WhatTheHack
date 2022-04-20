@@ -12,7 +12,7 @@ $dataFolder = "data/"
 $covidFileName = "covid_policy_tracker.csv"
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest -Uri https://aka.ms/csdmtool -OutFile dt1.8.3.zip
+Invoke-WebRequest -Uri https://github.com/Azure/azure-documentdb-datamigrationtool/releases/download/1.8.3/azure-documentdb-datamigrationtool-1.8.3.zip -OutFile dt1.8.3.zip
 Expand-Archive -Path dt1.8.3.zip -DestinationPath .
 $dtutil = Get-ChildItem -Recurse | Where-Object { $_.Name -ieq "Dt.exe" }
 $env:path += ";$($dtutil.DirectoryName)"

@@ -1,12 +1,14 @@
-# What The Hack - Challenge Template
+<!-- REMOVE_ME # Challenge ${suffixNumber} - ${nameOfChallengeArg} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
-*This is a markdown template for how a WTH Challenge should be organized and formatted. If a section is marked as "(Optional)", you do not need to include it.*
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
+# Challenge 01
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-*This file should be named according to this pattern: `Challenge-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc*
+<!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
-# Challenge \# - \<Challenge Name>
-
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
+[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ## Pre-requisites (Optional)
 

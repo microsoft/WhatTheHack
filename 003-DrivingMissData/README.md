@@ -1,4 +1,11 @@
-# What The Hack - Driving Miss Data
+# What The Hack - Driving Miss Data (ARCHIVED)
+
+**NOTE: This hack has been marked as "archived" since one of the data sources used by students is no longer available.**
+
+If you would like to update this hack so we can "un-archive" it, please submit a proposal to the What The Hack team as per our [WTH Contribution Guide](https://aka.ms/wthcontribute). We welcome contributions and can provide you more details on what would be needed to update it.
+
+We recommend you consider our [This Old Data Warehouse](/019-ThisOldDataWarehouse/README.md) hack as superseding this one.
+
 ## Introduction
 You are working with the New York City Taxi and Limousine Commission. They have several years of data about taxi trips in New York City, but have no way to analyze it.
 

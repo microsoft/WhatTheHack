@@ -1,4 +1,9 @@
-# What The Hack - Intro to Artificial Intelligence
+# What The Hack - Intro to Artificial Intelligence (ARCHIVED)
+
+**NOTE: This hack has been marked as "archived" since one of the data sources used by students is no longer available.**
+
+If you would like to update this hack so we can "un-archive" it, please submit a proposal to the What The Hack team as per our [WTH Contribution Guide](https://aka.ms/wthcontribute). We welcome contributions and can provide you more details on what would be needed to update it.
+
 ## Introduction
 AI-oriented services such as Azure Bot Services, Azure Search, and Cognitive Services
 Welcome to the What The Hack Intro to AI Challenge! We will focus on hands-on activities that develop proficiency in AI-oriented services such as Azure Bot Services, Azure Search, and Cognitive Services. These challenges assume an introductory to intermediate knowledge of these services, and if this is not the case, please spend time working through related resources.
