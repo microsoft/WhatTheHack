@@ -20,5 +20,5 @@
 
 ---
 
-[Back](../README.md)|  
-:----- |
+[Back](../README.md)|  [4 - Standard file permissions](../challenges/lab-permissions.md)
+:----- |:---- |
