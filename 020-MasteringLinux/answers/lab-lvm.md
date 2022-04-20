@@ -225,25 +225,25 @@ Size of logical volume vg_data/lv_part2 changed from 500.00 MiB (125 extents) to
 ```
 
 11. Check:
-  1. That the ```LV``` has been resized
+    1. That the ```LV``` has been resized
 
-  `student@vm01:~$ sudo lvs vg_data` 
+    `student@vm01:~$ sudo lvs vg_data` 
 
-  ```bash
-  LV       VG      Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
-  lv_part1 vg_data -wi-ao----  2.50g
-  lv_part2 vg_data -wi-ao---- <1.49g
-  ```   
+    ```bash
+    LV       VG      Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+    lv_part1 vg_data -wi-ao----  2.50g
+    lv_part2 vg_data -wi-ao---- <1.49g
+    ```   
 
-  2. If there was reflection in the file system
+    2. If there was reflection in the file system
 
-  `student@vm01:~$ df -h /mnt/dir1 /mnt/dir2` 
+    `student@vm01:~$ df -h /mnt/dir1 /mnt/dir2` 
 
-  ```bash
-  Filesystem                    Size  Used Avail Use% Mounted on
-  /dev/mapper/vg_data-lv_part1  2.4G  7.5M  2.3G   1% /mnt/dir1
-  /dev/mapper/vg_data-lv_part2  469M  768K  433M   1% /mnt/dir2
-  ```
+    ```bash
+    Filesystem                    Size  Used Avail Use% Mounted on
+    /dev/mapper/vg_data-lv_part1  2.4G  7.5M  2.3G   1% /mnt/dir1
+    /dev/mapper/vg_data-lv_part2  469M  768K  433M   1% /mnt/dir2
+    ```
 
 12. Resize the file system
 
