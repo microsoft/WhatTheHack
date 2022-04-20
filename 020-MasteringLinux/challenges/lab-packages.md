@@ -14,5 +14,5 @@
 
 ---
 
-[Back](../README.md)| [Answers](../answers/lab-packages.md) | 
-:----- |:-----
+[Back](../README.md)| 
+:----- |
