@@ -6,9 +6,18 @@ This hachathon will serve as an introduction to important command line concepts 
 ## Learning Objectives
 In this hack you will be challenged with some common tasks from a real world scenario in Linux administration duties.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency 
+1. Create a Linux Virtual Machine on Azure
+2. Handle files and directories
+3. Maninpulate file contents
+4. Work with standard linux permissions
+5. Collect information about Linux process in your environment
+6. Management of users and groups
+7. Basic shell scripting 
+8. Work with disks and partitions
+9. Implement a Logical VOlume Manager
+10. Work with package management 
+11. Implement a basic webserver and deploy an application into it
+
 
 ## Challenges
 1. Challenge 01: **[Description of challenge](Student/Challenge-01.md)**
