@@ -8,11 +8,11 @@
 2. Display the last 5 lines of `/etc/crontab`
 3. Create a file named `count.log` with this content:
 
-  One<br>
-  Two<br>
-  Three<br>
-  Four<br>
-  Five
+    One<br>
+    Two<br>
+    Three<br>
+    Four<br>
+    Five
 
 4. Use `cp` to make a backup of this file to `count.bkp`
 5. Use `cat` to make a backup of this file saving as `cat-count.log`
