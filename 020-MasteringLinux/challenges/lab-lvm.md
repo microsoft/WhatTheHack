@@ -24,7 +24,7 @@
 
 ---
 
-[Back to main](../README.md)| [10 - Pachake management](../challenges/lab-packages.md) |
+[Back to main](../README.md)| [10 - Package management](../challenges/lab-packages.md) |
 :----- |:---- |
 
 
