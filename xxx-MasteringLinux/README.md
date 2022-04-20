@@ -1,4 +1,4 @@
-# What The Hack - xxx-MasteringLinux
+# What The Hack - xxx-Mastering Linux
 
 ## Introduction
 This hachathon will serve as an introduction to important command line concepts and skills on Linux environments.
