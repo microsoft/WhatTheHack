@@ -20,6 +20,7 @@ In this challenge you will learn how to perform common directory operations such
 ## Learning resoures
 
 * [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
 ---
 
 [Back to main page](../README.md)| [2 - Handling Files](../challenges/lab-working-files.md)
