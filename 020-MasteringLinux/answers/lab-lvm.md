@@ -1,13 +1,17 @@
-# Logical Volume Manager
+# 9 - Logical Volume Manager
+
+## Description
+
+This challenge will give to you understanding over the Logical Volume Manager on Linux, and knowledge using the commands `pvcreate`, `pvs`, `pvdisplay`, `vgcreate`, `vgs`, `lvrcreate`, `lvs`, `lvdisplay`, `mkfs`, `lvresize` and `resize2fs`
 
 ## Requirements
 
 * Create a data disk
 * Add to the Virtual Machine
 
-## Objectives
+## Success Criteria
 
-#### 1. Create a Physical Volume (```PV```) with the disk added
+1. Create a Physical Volume (```PV```) with the disk added
 
 `student@vm01:~$ sudo pvcreate /dev/sdc`
 
@@ -17,7 +21,7 @@ WARNING: dos signature detected on /dev/sdc at offset 510. Wipe it? [y/n]: y
   Physical volume "/dev/sdc" successfully created.
 ```
 
-#### 2. Check that the ```PV``` is created
+2. Check that the ```PV``` is created
 
 `student@vm01:~$ sudo pvs`
 
@@ -42,7 +46,7 @@ WARNING: dos signature detected on /dev/sdc at offset 510. Wipe it? [y/n]: y
   PV UUID               iofx4y-hjbo-vQda-mjZI-9mgn-Bw9B-SVAiYM
 ```
 
-#### 3. Create a Volume Group (```VG```) using the created PV
+3. Create a Volume Group (```VG```) using the created PV
 
 `student@vm01:~$ sudo vgcreate vg_data /dev/sdc`
 
@@ -51,7 +55,7 @@ WARNING: dos signature detected on /dev/sdc at offset 510. Wipe it? [y/n]: y
 Volume group "vg_data" successfully created
 ```
 
-#### 4. Verify that the VG is created
+4. Verify that the VG is created
 
 `student@vm01:~$ sudo vgs`
 
@@ -85,7 +89,7 @@ VG      #PV #LV #SN Attr   VSize  VFree
   VG UUID               2c7S20-cH8a-tRkt-ebKq-ym9X-rk1X-yiyOo1
 ```
 
-#### 5. Create a Logical Volume (```LV```) using half the disk
+5. Create a Logical Volume (```LV```) using half the disk
 
 `student@vm01:~$ sudo lvcreate -L 2.5G -n lv_part1 vg_data`
 
@@ -95,7 +99,7 @@ WARNING: ext4 signature detected on /dev/vg_data/lv_part1 at offset 1080. Wipe i
   Logical volume "lv_part1" created.
 ```
 
-#### 6. Create an ```LV``` using 10% of the disk
+6. Create an ```LV``` using 10% of the disk
 
 `student@vm01:~$ sudo lvcreate -L 500M -n lv_part2 vg_data`
 
@@ -106,7 +110,7 @@ WARNING: ext4 signature detected on /dev/vg_data/lv_part2 at offset 1080. Wipe i
   Logical volume "lv_part2" created.
 ```
 
-#### 7. Verify that ```LV```s are created
+7. Verify that ```LV```s are created
 
 `student@vm01:~$ sudo lvs vg_data`
 
@@ -154,7 +158,7 @@ LV       VG      Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync 
   Block device           253:1
 ```
 
-#### 8. Format both ```LV```s as ```ext4```
+8. Format both ```LV```s as ```ext4```
 
 `student@vm01:~$ sudo mkfs.ext4 /dev/vg_data/lv_part1`
 
@@ -190,7 +194,7 @@ Creating journal (4096 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-#### 9. Mount the ```LV```s in the directories created earlier in ```/mnt```
+9. Mount the ```LV```s in the directories created earlier in ```/mnt```
 
 `student@vm01:~$ sudo mount /dev/vg_data/lv_part1 /mnt/dir1`
 
@@ -211,7 +215,7 @@ Filesystem                    Size  Used Avail Use% Mounted on
 /dev/mapper/vg_data-lv_part2  469M  768K  433M   1% /mnt/dir2
 ```
 
-#### 10. Resize the smallest ```LV``` to take up another 20% of the disk
+10. Resize the smallest ```LV``` to take up another 20% of the disk
 
 `student@vm01:~$ sudo lvresize -L +1G /dev/vg_data/lv_part2`
 
@@ -220,28 +224,28 @@ Size of logical volume vg_data/lv_part2 changed from 500.00 MiB (125 extents) to
   Logical volume vg_data/lv_part2 successfully resized.
 ```
 
-#### 11. Check:
-1. That the ```LV``` has been resized
+11. Check:
+  1. That the ```LV``` has been resized
 
-`student@vm01:~$ sudo lvs vg_data` 
+  `student@vm01:~$ sudo lvs vg_data` 
 
-```bash
-LV       VG      Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
-lv_part1 vg_data -wi-ao----  2.50g
-lv_part2 vg_data -wi-ao---- <1.49g
-```   
+  ```bash
+  LV       VG      Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv_part1 vg_data -wi-ao----  2.50g
+  lv_part2 vg_data -wi-ao---- <1.49g
+  ```   
 
-2. If there was reflection in the file system
+  2. If there was reflection in the file system
 
-`student@vm01:~$ df -h /mnt/dir1 /mnt/dir2` 
+  `student@vm01:~$ df -h /mnt/dir1 /mnt/dir2` 
 
-```bash
-Filesystem                    Size  Used Avail Use% Mounted on
-/dev/mapper/vg_data-lv_part1  2.4G  7.5M  2.3G   1% /mnt/dir1
-/dev/mapper/vg_data-lv_part2  469M  768K  433M   1% /mnt/dir2
-```
+  ```bash
+  Filesystem                    Size  Used Avail Use% Mounted on
+  /dev/mapper/vg_data-lv_part1  2.4G  7.5M  2.3G   1% /mnt/dir1
+  /dev/mapper/vg_data-lv_part2  469M  768K  433M   1% /mnt/dir2
+  ```
 
-#### 12. Resize the file system
+12. Resize the file system
 
 `student@vm01:~$ sudo resize2fs /dev/vg_data/lv_part2` 
 
@@ -261,5 +265,6 @@ Filesystem                    Size  Used Avail Use% Mounted on
 ```
 
 ---
-[Back](https://github.com/ricmmartins/fasthack-linux/blob/main/README.md)| 
-:----- |
+
+[Back to main](../README.md)| [10 - Package management](../answers/lab-packages.md) |
+:----- |:---- |
