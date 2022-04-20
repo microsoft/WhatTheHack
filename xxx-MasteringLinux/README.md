@@ -34,34 +34,28 @@ With the exception of the **challenge 01** which the outcome of a Linux Virtual 
 
 1. Challenge 01: **[Create a Linux Virtual Machine](Student/Challenge-01.md)**
 	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
-1. Challenge 02: **[Description of challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-1. Challenge 03: **[Description of challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-1. Challenge 04: **[Description of challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-1. Challenge 05: **[Description of challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-1. Challenge 06: **[Description of challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-1. Challenge 07: **[Description of challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-1. Challenge 08: **[Description of challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-1. Challenge 09: **[Description of challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-1. Challenge 10: **[Description of challenge](Student/Challenge-10.md)**
-	 - Description of challenge
-1. Challenge 11: **[Description of challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-1. Challenge 12: **[Description of challenge](Student/Challenge-12.md)**
-	 - Description of challenge
-1. Challenge 13: **[Description of challenge](Student/Challenge-13.md)**
-	 - Description of challenge
-1. Challenge 14: **[Description of challenge](Student/Challenge-14.md)**
-	 - Description of challenge
-1. Challenge 15: **[Description of challenge](Student/Challenge-15.md)**
-	 - Description of challenge
+1. Challenge 02: **[Handling directories](Student/Challenge-02.md)**
+	 - In this challenge you will learn how to perform common directory operations such as displaying your current directory and list directory contents.
+1. Challenge 03: **[Handling files](Student/Challenge-03.md)**
+	 - In this challenge you will learn basic commands about file manipulation such as create, rename, find and remove files.
+1. Challenge 04: **[File contents](Student/Challenge-04.md)**
+	 - In this challenge let's learn about file content manipulation and discover how to count file lines, display specific lines from a file, and more.
+1. Challenge 05: **[Standard file permissions](Student/Challenge-05.md)**
+	 - In this challenge you will learn about the Linux standard file permissions and understand how to work with file permissioning on a Linux environment.
+1. Challenge 06: **[Process management](Student/Challenge-06.md)**
+	 - In this challenge your objectives will involve basic process management, giving you real-world activities such as checking a list of processes running, identifying process ids' and discovering process execution in y our environment.
+1. Challenge 07: **[Group and user management](Student/Challenge-07.md)**
+	 - In this challenge you will learn about the creation of user and groups in a Linux environment.
+1. Challenge 08: **[Scripting](Student/Challenge-08.md)**
+	 - In this challenge you will learn some basic stuff on shell scripting and the usage of some commands such as echo, cut, read and grep.
+1. Challenge 09: **[Disks, partitions and file systems](Student/Challenge-09.md)**
+	 - This challenge you will be working with disks and partitions. Will be an opportunity to learn about linx filesystems and commands such as fdisk, mkfs and mount.
+1. Challenge 10: **[Logical Volume Mananager](Student/Challenge-10.md)**
+	 - This challenge will give to you understanding over the Logical Volume Manager on Linux, and knowledge using the commands pvcreate, pvs, pvdisplay, vgcreate, vgs, lvrcreate, lvs, lvdisplay, mkfs, lvresize and resize2fs
+1. Challenge 11: **[Package management](Student/Challenge-11.md)**
+	 - During this challenge, you will learn about package management and the most common activites such as update package distribution lists, install and uninstall packages on a Debian based Linux distribution.
+1. Challenge 12: **[Setting up a webserver](Student/Challenge-12.md)**
+	 - In this challenge we will setting up a webserver and deploy a simple php application into it. As a plus, you can add SSL to ensure security requirements.
 
 ## Prerequisites
 - Your own Azure subscription with contributor access 
