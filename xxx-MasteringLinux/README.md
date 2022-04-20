@@ -51,12 +51,12 @@ With the exception of the **challenge 01** which the outcome of a Linux Virtual 
 1. Challenge 09: **[Disks, partitions and file systems](Student/Challenge-09.md)**
 	 - You will be working with disks and partitions and learn about linx filesystems and commands such as fdisk, mkfs and mount.
 1. Challenge 10: **[Logical Volume Mananager](Student/Challenge-10.md)**
-	 - Discover about the Logical Volume Manager on Linux, and get knowledge using the commands such as pvcreate, vgcreate, lvrcreate, and more.
+	 - Discover about the Logical Volume Manager on Linux, and how to use commands such as pvcreate, vgcreate, lvrcreate, and more.
 1. Challenge 11: **[Package management](Student/Challenge-11.md)**
-	 - Learn about package management and the most common activites related such as update package distribution lists, install and uninstall packages.
+	 - Learn about package management and common activites related such as update package distribution lists, install and uninstall packages.
 1. Challenge 12: **[Setting up a webserver](Student/Challenge-12.md)**
-	 - In this challenge we will setting up a webserver and deploy a simple php application into it. As a plus, you can add SSL to ensure security requirements.
-
+	 - In this challenge we will setting up a webserver and deploy a simple php application into it. 
+	 
 ## Prerequisites
 - Your own Azure subscription with contributor access 
 - Access to a terminal. The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there are subtle differences between them:
