@@ -1,4 +1,4 @@
-# Setting up a webserver 
+# 11 - Setting up a webserver 
 
 In this lab we will setting up a webserver and deploy a simple php application into it
 
@@ -13,5 +13,5 @@ In this lab we will setting up a webserver and deploy a simple php application i
 
 
 ---
-[Back](../README.md)|
+[Back to main](../README.md)|
 :----- |
