@@ -1,4 +1,4 @@
-# Group and user management
+# 6 - Group and user management
 
 ## Objectives
 
@@ -12,5 +12,5 @@
 
 ---
 
-[Back](../README.md)| 
-:----- |
+[Back to main](../README.md)| [7 - Scripting](../challenges/lab-scripting.md)
+:----- |:---- |
