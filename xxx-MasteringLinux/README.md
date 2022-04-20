@@ -11,7 +11,7 @@ Linux is a family of free and open-source operating systems based on the Linux k
 
 The Linux kernel has been under active development since 1991, and has proven to be extremely versatile and adaptable. You can find computers that run Linux in a wide variety of contexts all over the world, from web servers to cell phones. Today, 90% of all cloud infrastructure and 74% of the world’s smartphones are powered by Linux.
 
-To read more about Linux History, Linux Distributions and Linux Kernel, [click here](/020-MasteringLinux/resources/linux-history.md).
+To read more about Linux History, Linux Distributions and Linux Kernel, [click here](./Student/resources/linux-history.md).
 
 
 ## Learning Objectives
