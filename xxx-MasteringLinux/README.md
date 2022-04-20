@@ -55,7 +55,7 @@ With the exception of the **challenge 01** which the outcome of a Linux Virtual 
 1. Challenge 11: **[Package management](Student/Challenge-11.md)**
 	 - Learn about package management and common activites related such as update package distribution lists, install and uninstall packages.
 1. Challenge 12: **[Setting up a webserver](Student/Challenge-12.md)**
-	 - In this challenge we will setting up a webserver and deploy a simple php application into it. 
+	 - In this challenge we will setting up a webserver and deploy a simple php application into it. The usage of SSL could be a plus. 
 	 
 ## Prerequisites
 - Your own Azure subscription with contributor access 
