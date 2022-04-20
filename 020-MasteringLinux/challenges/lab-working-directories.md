@@ -1,4 +1,4 @@
-# 01 - Handling directories
+# 1 - Handling directories
 
 ## Objectives
 
