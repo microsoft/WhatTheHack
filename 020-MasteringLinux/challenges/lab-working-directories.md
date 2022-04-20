@@ -1,6 +1,10 @@
 # 1 - Handling directories
 
-## Objectives
+## Description
+
+In this challenge you will learn how to perform common directory operations such as displaying your current directory and list directory contents.
+
+## Success Criteria
 
 #### 1. Display your current directory
 #### 2. Go to the parent directory of the current directory
@@ -13,6 +17,9 @@
 #### 9. List recursively the content of your `~` 
 #### 10. Find the directories within your home folder
 
+## Learning resoures
+
+* [Linux COmmands Cheat Sheet](../resources/commands.md)
 ---
 
 [Back to main page](../README.md)| [2 - Handling Files](../challenges/lab-working-files.md)
