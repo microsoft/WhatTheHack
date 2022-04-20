@@ -20,8 +20,8 @@ In this hack you will be challenged with some common tasks from a real world sce
 10. Implement a basic webserver 
 
 ## Challenges
-1. Challenge 01: **[Description of challenge](Student/Challenge-01.md)**
-	 - Description of challenge
+1. Challenge 01: **[Create a Linux Virtual Machine](Student/Challenge-01.md)**
+	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
 1. Challenge 02: **[Description of challenge](Student/Challenge-02.md)**
 	 - Description of challenge
 1. Challenge 03: **[Description of challenge](Student/Challenge-03.md)**
