@@ -15,5 +15,5 @@
 
 ---
 
-[Back to main page](../README.md)| [02 - Handling Files](../challenges/lab-working-files.md)
+[Back to main page](../README.md)| [2 - Handling Files](../challenges/lab-working-files.md)
 :----- |:----|
