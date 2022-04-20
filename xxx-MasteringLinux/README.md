@@ -55,7 +55,6 @@ In this hack you will be challenged with some common tasks from a real world sce
 - Your own Azure subscription with contributor access 
 - Access to a terminal
 
-> [!IMPORTANT]
 > The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there >are subtle differences between them:
 
 > * A terminal is an input and output environment that presents a text-only window running a shell.
