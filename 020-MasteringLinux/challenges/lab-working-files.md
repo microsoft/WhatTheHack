@@ -2,7 +2,7 @@
 
 ## Description
 
-In this challenge you will learn basic commands about file manipulation such as create, rename, find, remove and displaying file contents.
+In this challenge you will learn basic commands about file manipulation such as create, rename, find and remove files.
 
 ## Success Criteria
 
