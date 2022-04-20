@@ -13,5 +13,5 @@ In this lab we will setting up a webserver and deploy a simple php application i
 
 
 ---
-[Back](../README.md)| [Answers](../answers/lab-webserver.md) | 
-:----- |:-----
+[Back](../README.md)|
+:----- |
