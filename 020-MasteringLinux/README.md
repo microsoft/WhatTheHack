@@ -47,8 +47,9 @@ For our activites, it is recommended to use the [Azure Cloud Shell](http://shell
 The challenges were organized as below. Please note:
 
 * Each challenge can be done separately and they are not interdependent.
-* You don't need to make all of them, chose to pick as many you want. 
+* You don't need to make all of them, chose as many you want. 
 * The level of complexity increases accordingly with the respective number of each one.
+* The Linux man pages are your best friend. Make sure to use as best you can.
 
 
 | Challenges |
