@@ -19,16 +19,16 @@ In this challenge you will learn how to perform common directory operations such
 
 ## Success Criteria
 
-- Confirm you can see your username under the home folder
-- Confirm you are in the home directory 
-- validate you are in the `/root` directory
-- Confirm you can list the files under the `/root`
-- Confirm you can see the long list with details from `/root` directory
-- Confirm you are listing the content of `~` and not from `/root`
-- Confirm you can see the hidden files from your home directory
-- Validate if you was able the create the directory tree using a single command
-- Confirm if you are seeing a recursive list of the content from your `~` 
-- Validate if only directories are being listed within your home folder
+1. Confirm you can see your username under the home folder
+2. Confirm you are in the home directory 
+3. Validate you are in the `/root` directory
+4. Confirm you can list the files under the `/root`
+5. Confirm you can see the long list with details from `/root` directory
+6. Confirm you are listing the content of `~` and not from `/root`
+7. Confirm you can see the hidden files from your home directory
+8. Validate if you was able the create the directory tree using a single command
+9. Confirm if you are seeing a recursive list of the content from your `~` 
+10. Validate if only directories are being listed within your home folder
 
 ## Learning Resources
 
