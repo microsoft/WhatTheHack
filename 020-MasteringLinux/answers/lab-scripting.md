@@ -1,8 +1,12 @@
-# Scripting
+# 7 - Scripting
 
-## Objectives
+## Description
 
-#### 1. Create a script that looks up the name of the current distribution in the `/etc/os-release` file and prints it to the screen
+In this challenge you will learn some basic stuff on shell scripting and the usage of some commands such as `echo`, `cut`, `read` and `grep`.
+
+## Success Criteria
+
+1. Create a script that looks up the name of the current distribution in the `/etc/os-release` file and prints it to the screen
 
 `student@vm01:~$ vim distribution.sh`
 
@@ -19,7 +23,7 @@ echo "The current distribution is: $distribution"
 The current distribution is: "Ubuntu"
 ```
 
-#### 2. Create a script that reads the usernames from `/etc/passwd` and prints the ones with shell ending in sh
+2. Create a script that reads the usernames from `/etc/passwd` and prints the ones with shell ending in sh
 
 `student@vm01:~$ vim users.sh`
 
@@ -38,7 +42,7 @@ Users with login shell:
 root student omsagent nxautomation anna mary peter rick"
 ```
 
-#### 3. Create a script that adds two integers requested from the user
+3. Create a script that adds two integers requested from the user
 
 `student@vm01:~$ vim sum.sh`
 
@@ -59,7 +63,11 @@ Enter two numbers:
 The sum of 2 and 3 is 5
 ```
   
------------
+## Learning resoures
 
-[Back](../README.md)| 
-:----- |
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
+-----------
+[Back to main](../README.md)| [8 - Disks, partitions and file systems](../answers/lab-disks.md) |
+:----- |:---- |
