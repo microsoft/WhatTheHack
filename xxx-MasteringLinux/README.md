@@ -30,13 +30,7 @@ In this hack you will be challenged with some common tasks from a real world sce
 
 ## Challenges
 
-The challenges were organized as below. Please note that each challenge can be done separately and they are not interdependent. The only exception is the challenge #1, which is a base for all other challenges since they require a Linux Virtual Machine.
-
-_The level of complexity increases accordingly with the respective number of each one.
-_
-
-_The Linux man pages are your best friend. Make sure to use as best you can.
-_
+With the exception of the 01, base for all other challenges since they require a Linux Virtual Machine, each challenge can be done separately and they are not interdependent. The level of complexity increases accordingly with the respective number of each one.
 
 1. Challenge 01: **[Create a Linux Virtual Machine](Student/Challenge-01.md)**
 	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
@@ -84,9 +78,9 @@ When someone refers to one of these three terms in the context of Linux, they ge
 
 
 - There are some basic concepts that will be nice if you have them. If you would like to take a look they are [listed here](./Student/resources/concepts.md).
--  Concepts around the Linux Filesystem Hierarchy Standard (FHS) are recommended, so you can get more details about it [here](./Student/resources/fhs.md).
+- Concepts around the Linux Filesystem Hierarchy Standard (FHS) are recommended, so you can get more details about it [here](./Student/resources/fhs.md).
 - Regarding Linux commands, just for reference, [here is](./Student/resources/commands.md) a good cheat sheet.
-
+- The Linux man pages are your best friend. Make sure to use as best you can.
 
 ## Repository Contents (Optional)
 - `./Coach/Guides`
