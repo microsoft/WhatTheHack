@@ -1,4 +1,4 @@
-# Scripting
+# 7 - Scripting
 
 ## Objectives
 
@@ -7,5 +7,5 @@
 #### 3. Create a script that adds two integers requested from the user
 
 -----------
-[Back](../README.md)|
+[Back to main](../README.md)| [8 - Disks, partitions and file systems](../challenges/lab-disks.md)
 :----- |
