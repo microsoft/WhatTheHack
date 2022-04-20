@@ -1,14 +1,18 @@
-# Standard file permissions
+# 4 - Standard file permissions
 
-## Objectives
+## Description
 
-#### 1. As regular user (student), create a directory ~/permissions. 
+In this challenge you will learn about the Linux standard file permissions and understand how to work with file permissioning on a Linux environment.
+
+## Success Criteria
+
+1. As regular user (student), create a directory ~/permissions. 
 
 `student@vm01:~$ mkdir ~/permissions ; touch ~/permissions/myfile.txt`
 
-#### 2. Create a file called `myfile.txt` under `~permissions`.
+2. Create a file called `myfile.txt` under `~permissions`.
 
-#### 3. List the properties of the file `/var/log/waagent.log`. Then copy this file to your permissions directory. Who is the new owner of this file now?
+3. List the properties of the file `/var/log/waagent.log`. Then copy this file to your permissions directory. Who is the new owner of this file now?
 
 `student@vm01:~$ ls -l /var/log/waagent.log`
 
@@ -25,12 +29,12 @@
 -rw-r--r-- 1 student student 195022 Apr 11 19:51 waagent.log
 ```
 
-#### 4. As root, create a file called `testfile.txt` in the `/home/student/permissions` directory.
+4. As root, create a file called `testfile.txt` in the `/home/student/permissions` directory.
 
 `student@vm01:~$ sudo su`
 `root@vm01:/# touch /home/student/permissions/rootfile`
 
-#### 5. As regular user (student), look at who owns this file created by root.
+5. As regular user (student), look at who owns this file created by root.
 
 `root@vm01:/# exit`
 
@@ -43,7 +47,7 @@ total 4
 -rw-r--r-- 1 student student 195022 Apr 11 19:51 waagent.log
 ```
 
-#### 6. Change the ownership of all files in `/home/student/permissions` to yourself (student).
+6. Change the ownership of all files in `/home/student/permissions` to yourself (student).
 
 `student@vm01:~$ chown student ~/permissions/*`
 
@@ -52,7 +56,7 @@ chown: changing ownership of '/home/student/permissions/rootfile': Operation not
 ```
 Note you cannot become owner of the file that belongs to root.
 
-#### 7. Make sure you (student) have all rights to these files, and others can only read
+7. Make sure you (student) have all rights to these files, and others can only read
 
 `student@vm01:~$ find ~ -type d -exec chmod 755 {} \; `
 
@@ -63,6 +67,11 @@ chmod: changing permissions of '/home/student/permissions/rootfile': Operation n
 ```
 Note you cannot change permissions of the file that belongs to root.
 
+## Learning Resources
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
 ---
-[Back](../README.md)| 
-:----- |
+[Back to main](../README.md)| [5 - Process Management](../answers/lab-process-management.md)
+:----- |:---- |
