@@ -64,8 +64,7 @@ When someone refers to one of these three terms in the context of Linux, they ge
 
 Becoming a Linux expert requires you to be comfortable with using a terminal. Any administrative task, including file manipulation, package installation, and user management, can be accomplished through the terminal. The terminal is interactive: you specify commands to run and the terminal outputs the results of those commands. To execute any command, you type it into the prompt and press ENTER.
 
-For our activites, it is recommended to use the [Azure Cloud Shell](http://shell.azure.com/).
-_
+For our activites, it is recommended to use the [Azure Cloud Shell](http://shell.azure.com/)._
 
 
 ## Repository Contents (Optional)
