@@ -32,7 +32,7 @@ In this hack you will be challenged with some common tasks from a real world sce
 
 The challenges were organized as below. Please note:
 
-- Each challenge can be done separately and they are not interdependent.
+- Each challenge can be done separately and they are not interdependent. The only exception is the challenge #1, which is a base for all other challenges since they require a Linux Virtual Machine.
 - You don't need to make all of them, chose as many you want.
 - The level of complexity increases accordingly with the respective number of each one.
 - The Linux man pages are your best friend. Make sure to use as best you can.
