@@ -7,5 +7,5 @@
 #### 3. Create a script that adds two integers requested from the user
 
 -----------
-[Back](../README.md)| [Answers](../answers/lab-scripting.md) | 
-:----- |:-----
+[Back](../README.md)|
+:----- |
