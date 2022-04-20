@@ -2,6 +2,8 @@
 
 ## Description
 
+In this challenge let's learn about file content manipulation and discover how to count file lines, display specific lines from a file, and more.
+
 ## Success Criteria
 
 1. Display the first 10 lines of `/etc/resolv.conf`
@@ -19,6 +21,11 @@
 6. Display the content of `cat-count.log`, with all lines in reverse order
 7. Use `more` to display `/etc/selinux/semanage.conf`
 8. Use `ls` to find the biggest file in `/var/log`
+
+## Learning resources
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
 
 ---
 
