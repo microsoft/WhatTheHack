@@ -9,5 +9,5 @@
 #### 5. Identify the process id of the omsagent
 
 ---
-[Back to main](../README.md)| [Group and user management](../challenges/lab-groups-and-users.md)
+[Back to main](../README.md)| [6 - Group and user management](../challenges/lab-groups-and-users.md)
 :----- |:---- |
