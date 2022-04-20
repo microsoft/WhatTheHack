@@ -2,7 +2,7 @@
 
 ## Description
 
-In this challenge you will learn about the creation of user and groups on a Linux environment.
+In this challenge you will learn about the creation of user and groups in a Linux environment.
 
 ## Success criteria
 
