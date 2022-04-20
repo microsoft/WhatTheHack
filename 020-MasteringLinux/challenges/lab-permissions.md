@@ -20,5 +20,5 @@ In this challenge you will learn about the Linux standard file permissions and u
 * Linx manual pages `man <command>`
 
 ---
-[Back to main](../README.md)| [5 - Process Management](lab-process-management.md)
+[Back to main](../README.md)| [5 - Process Management](../challenges/lab-process-management.md)
 :----- |:---- |
