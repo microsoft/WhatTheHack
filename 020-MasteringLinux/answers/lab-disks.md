@@ -44,7 +44,7 @@ Disk model: Virtual Disk
 
 2. Edit the disk partition table:
 
-`student@vm01:~$ sudo fdisk /dev/sdc`
+        `student@vm01:~$ sudo fdisk /dev/sdc`
 
     1. Add a new partition
     
