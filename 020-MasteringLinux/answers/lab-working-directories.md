@@ -123,5 +123,5 @@ dir3
 * Linx manual pages `man <command>`
 ---
 
-[Back to main page](../README.md)| [2 - Handling Files](../challenges/lab-working-files.md)
+[Back to main page](../README.md)| [2 - Handling Files](../answers/lab-working-files.md)
 :----- |:----|
