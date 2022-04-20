@@ -3,6 +3,8 @@
 ## Introduction
 This hachathon will serve as an introduction to important command line concepts and skills on Linux environments.
 
+<img align="right" src="images/linuxpenguin.png" width="250"/>
+
 ## Learning Objectives
 In this hack you will be challenged with some common tasks from a real world scenario in Linux administration duties, such as:
 
