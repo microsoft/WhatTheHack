@@ -13,7 +13,7 @@ echo "The current distribution is: $distribution"
 ```
 `student@vm01:~$ chmod a+x distribution.sh`
 
-`student@vm01:~$ ./distrubition.sh`
+`student@vm01:~$ ./distribution.sh`
 
 ```bash
 The current distribution is: "Ubuntu"
