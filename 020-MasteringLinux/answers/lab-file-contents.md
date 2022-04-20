@@ -1,8 +1,12 @@
-# File contents
+#  3 - File contents
 
-## Objectives
+## Description
 
-#### 1. Display the first 10 lines of `/etc/resolv.conf`
+In this challenge let's learn about file content manipulation and discover how to count file lines, display specific lines from a file, and more.
+
+## Success Criteria
+
+1. Display the first 10 lines of `/etc/resolv.conf`
 
 `student@vm01:~$ head -10 /etc/resolv.conf`
 
@@ -19,7 +23,7 @@
 # Third party programs must not access this file directly, but only through the
 ```
 
-#### 2. Display the last 5 lines of `/etc/crontab`
+2. Display the last 5 lines of `/etc/crontab`
 
 `student@vm01:~$ tail -5 /etc/crontab`
 
@@ -31,13 +35,13 @@
 #
 ```
 
-#### 3. Use cat to create a file named `count.log` that looks like this
+3. Use cat to create a file named `count.log` that looks like this
 
-One<br>
-Two<br>
-Three<br>
-Four<br>
-Five
+    One<br>
+    Two<br>
+    Three<br>
+    Four<br>
+    Five
 
 ```bash
 cat > count.log
@@ -47,15 +51,16 @@ Three
 Four
 Five (followed by Ctrl-d)
 ```
-#### 4. Use cp to make a backup of this file to `count.bkp`
+
+4. Use cp to make a backup of this file to `count.bkp`
 
 `student@vm01:~$ cp count.log count.bkp`
 
-#### 5. Use cat to make a backup of this file to catcnt.txt
+5. Use cat to make a backup of this file to catcnt.txt
 
 `student@vm01:~$ cat count.log > cat-count.log`
 
-#### 6. Display cat-count.log, but with all lines in reverse order 
+6. Display cat-count.log, but with all lines in reverse order 
 
 `student@vm01:~$ tac cat-count.log`
 
@@ -67,11 +72,11 @@ Two
 One
 ```
 
-#### 7. Use `more` to display `/etc/selinux/semanage.conf`
+7. Use `more` to display `/etc/selinux/semanage.conf`
 
 `student@vm01:~$ more /etc/selinux/semanage.conf`
 
-#### 8. Use ls to find the biggest file in /var/log
+8. Use ls to find the biggest file in /var/log
 
 `student@vm01:~$ ls -lS /var/log`
 
@@ -109,6 +114,12 @@ drwxr-x---  2 root      adm                4096 Apr  7 05:13 unattended-upgrades
 
 The -S sort by file size, largest first
 
+## Learning resources
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
 ---
-[Back](../README.md)| 
-:----- |
+
+[Back to main](../README.md)|  [4 - Standard file permissions](../answers/lab-permissions.md)
+:----- |:---- |
