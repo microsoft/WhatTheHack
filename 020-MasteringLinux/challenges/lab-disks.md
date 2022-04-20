@@ -25,7 +25,7 @@
 
 ---
 
-[Back](../README.md)| [Answers](../answers/lab-disks.md) | 
-:----- |:-----
+[Back](../README.md)| 
+:----- |
 
 
