@@ -6,7 +6,7 @@
  Reconfigure the application to use the appropriate connection string that uses Azure DB and validate that the application is working. You have to do this by redeploying the Pizzeria container application(s). 
 
 ## Description
-You will reconfigure the application to use a connection string that points to the Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values-mysql.yaml, ContosoPizza/values-postgresql.yaml and/or ContosoPizza/values-oracle.yaml values file(s) with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate values for Azure DB for PostgreSQL/MySQL:
+You will reconfigure the application to use a connection string that points to the Azure DB for PostgreSQL/MySQL. You will need to update the `ContosoPizza/values-mysql.yaml`, `ContosoPizza/values-postgresql.yaml` and/or `ContosoPizza/values-oracle.yaml` values file(s) with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate values for Azure DB for PostgreSQL/MySQL:
 
 ```yaml
 appConfig:
@@ -55,7 +55,7 @@ Status field changes from "Terminating" to "ContainerCreating" and then to "Runn
 
 * Oracle:
 
-You will need to change the database type in the values-oracle.yaml file from "oracle" to "postgres" before you run these steps. 
+You will need to change the database type in the `values-oracle.yaml` file from "oracle" to "postgres" before you run these steps. 
 
 ```bash
 

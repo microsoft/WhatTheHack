@@ -1,4 +1,4 @@
-# Challenge 1: Assessment 
+# Challenge 1: Discovery and Assessment 
 
 [< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-offline-migration.md)
 
