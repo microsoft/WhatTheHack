@@ -55,7 +55,8 @@ In this hack you will be challenged with some common tasks from a real world sce
 - Your own Azure subscription with contributor access 
 - Access to a terminal
 
-The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there are subtle differences between them:
+_The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there are subtle differences between them:
+_
 
 * A terminal is an input and output environment that presents a text-only window running a shell.
 * A shell is a program that exposes the computer’s operating system to a user or program. In Linux systems, the shell presented in a terminal is a command line interpreter.
