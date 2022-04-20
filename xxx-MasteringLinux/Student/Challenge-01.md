@@ -4,7 +4,7 @@
 
 ## Pre-requisites 
 
-- An Azure Subscription.
+- An active Azure Subscription.
 
 ## Description
 
