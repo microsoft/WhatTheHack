@@ -8,7 +8,7 @@ Up to this point you have been using a public IP address for Azure DB for Postgr
 
 ## Description
 You will add a private endpoint for Azure DB for PostgreSQL/MySQL Single Server
-You will reconfigure the application to use a connection string that points to the private IP address for Azure DB for PostgreSQL/MySQL Single Server. You will need to update the ContosoPizza/values-mysql.yaml or ContosoPizza/values-postgresql.yaml values file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
+You will reconfigure the application to use a connection string that points to the private IP address for Azure DB for PostgreSQL/MySQL Single Server. You will need to update the `ContosoPizza/values-mysql.yaml` or `ContosoPizza/values-postgresql.yaml` values file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
 
 ```yaml
 appConfig:
