@@ -1,8 +1,12 @@
-# Process management
+# 5 - Process management
 
-## Objectives
+## Description
 
-#### 1. View the list of your server processes
+In this challenge your objectives will involve basic process management, giving you real-world activities such as checking a list of processes running, identifying process ids' and discovering process execution in y our environment.
+
+## Success criteria
+
+1. View the list of your server processes
 
 `student@vm01:~$ ps -ef`
 
@@ -36,7 +40,7 @@ root          72       2  0 Apr07 ?        00:00:00 [kblockd]
 ...
 ```
 
-#### 2. How many processes are running on your server
+2. How many processes are running on your server
 
 `student@vm01:~$ ps -ef | wc -l`
 
@@ -44,7 +48,7 @@ root          72       2  0 Apr07 ?        00:00:00 [kblockd]
 121
 ```
 
-#### 3. View the list of processes in tree format
+3. View the list of processes in tree format
 
 `student@vm01:~$ pstree`
 
@@ -79,7 +83,7 @@ systemd─┬─ModemManager───2*[{ModemManager}]
         └─unattended-upgr───{unattended-upgr}
 ```
 
-#### 4. Identify if the omsagent process is running
+4. Identify if the omsagent process is running
 
 `student@vm01:~$ ps -ef | grep omsagent`
 
@@ -88,13 +92,20 @@ omsagent     941       1  0 Apr07 ?        00:04:40 /opt/microsoft/omsagent/ruby
 omsagent    1027     818  0 Apr07 ?        00:00:08 /opt/omi/bin/omiagent 9 10 --destdir / --providerdir /opt/omi/lib --loglevel WARNING
 ```
 
-#### 5. Identify the process id (pid) of the omsagent
+5. Identify the process id (pid) of the omsagent
 
 `student@vm01:~$ pgrep omsagent`
 
 ```bash
 941
 ```
+## Learning Resources
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
+
 ---
-[Back](../README.md)| 
-:----- |
+[Back to main](../README.md)| [6 - Group and user management](../answers/lab-groups-and-users.md)
+:----- |:---- |
+
