@@ -1,15 +1,17 @@
-# Disks, partitions and file systems
+# 8 - Disks, partitions and file Systems
+
+## Description
+
+This challenge you will be working with disks and partitions. Will be an opportunity to learn about linx filesystems and commands such as `fdisk`, `mkfs` and `mount`.
 
 ## Requirements
 
 * Create a data disk
-* Add the data disk to the virtual machine
+* Add to the Virtual Machine
 
-## Objectives
+## Success Criteria
 
-### Partitions
-
-#### 1. Identify the new disk added to the machine
+1. Identify the new disk added to the machine
 
 `student@vm01:~$ sudo fdisk -l | grep "^Disk"`
 
@@ -40,123 +42,123 @@ Disk model: Virtual Disk
 [  150.694433] sd 1:0:0:0: [sdc] Attached SCSI disk
 ```
 
-#### 2. Edit the disk partition table:
+2. Edit the disk partition table:
 
 `student@vm01:~$ sudo fdisk /dev/sdc`
 
-1. Add a new partition
+        1. Add a new partition
     
-```bash
-Welcome to fdisk (util-linux 2.34).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+        ```bash
+        Welcome to fdisk (util-linux 2.34).
+        Changes will remain in memory only, until you decide to write them.
+        Be careful before using the write command.
 
-Device does not contain a recognized partition table.
-Created a new DOS disklabel with disk identifier 0x29026b65.
+        Device does not contain a recognized partition table.
+        Created a new DOS disklabel with disk identifier 0x29026b65.
 
-Command (m for help): n
-Partition type
-    p   primary (0 primary, 0 extended, 4 free)
-    e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
+        Command (m for help): n
+        Partition type
+            p   primary (0 primary, 0 extended, 4 free)
+            e   extended (container for logical partitions)
+        Select (default p): p
+        Partition number (1-4, default 1): 1
+        First sector (2048-10485759, default 2048):
+        Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
 
-Created a new partition 1 of type 'Linux' and of size 500 MiB.
+        Created a new partition 1 of type 'Linux' and of size 500 MiB.
 
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
+        Command (m for help): w
+        The partition table has been altered.
+        Calling ioctl() to re-read partition table.
+        Syncing disks.
+        ```
     
-2. List and identify in the S.O. the partition created
+        2. List and identify in the S.O. the partition created
 
-`student@vm01:~$ ls -l /dev/sdc*`
+        `student@vm01:~$ ls -l /dev/sdc*`
     
-```bash
-brw-rw---- 1 root disk 8, 32 Apr  6 15:09 /dev/sdc
-brw-rw---- 1 root disk 8, 33 Apr  6 15:09 /dev/sdc1
-```
+        ```bash
+        brw-rw---- 1 root disk 8, 32 Apr  6 15:09 /dev/sdc
+        brw-rw---- 1 root disk 8, 33 Apr  6 15:09 /dev/sdc1
+        ```
     
-3. Erase partition
+        3. Erase partition
 
-`student@vm01:~$ sudo fdisk /dev/sdc`
+        `student@vm01:~$ sudo fdisk /dev/sdc`
 
-```bash
-Welcome to fdisk (util-linux 2.34).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+        ```bash
+        Welcome to fdisk (util-linux 2.34).
+        Changes will remain in memory only, until you decide to write them.
+        Be careful before using the write command.
 
 
-Command (m for help): d
-Selected partition 1
-Partition 1 has been deleted.
+        Command (m for help): d
+        Selected partition 1
+        Partition 1 has been deleted.
 
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
+        Command (m for help): w
+        The partition table has been altered.
+        Calling ioctl() to re-read partition table.
+        Syncing disks.
+        ```
 
-4. Check in S.O. that the partition has been removed
+        4. Check in S.O. that the partition has been removed
 
-`student@vm01:~$ ls -l /dev/sdc*`
+        `student@vm01:~$ ls -l /dev/sdc*`
 
-```bash
-brw-rw---- 1 root disk 8, 32 Apr  6 15:12 /dev/sdc
-```
+        ```bash
+        brw-rw---- 1 root disk 8, 32 Apr  6 15:12 /dev/sdc
+        ```
 
-5. Add two new partitions with type 83
+        5. Add two new partitions with type 83
 
-`student@vm01:~$ sudo fdisk /dev/sdc`
+        `student@vm01:~$ sudo fdisk /dev/sdc`
     
-```bash
-Welcome to fdisk (util-linux 2.34).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+        ```bash
+        Welcome to fdisk (util-linux 2.34).
+        Changes will remain in memory only, until you decide to write them.
+        Be careful before using the write command.
 
 
-Command (m for help): n
-Partition type
-    p   primary (0 primary, 0 extended, 4 free)
-    e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
+        Command (m for help): n
+        Partition type
+            p   primary (0 primary, 0 extended, 4 free)
+            e   extended (container for logical partitions)
+        Select (default p): p
+        Partition number (1-4, default 1): 1
+        First sector (2048-10485759, default 2048):
+        Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
 
-Created a new partition 1 of type 'Linux' and of size 500 MiB.
+        Created a new partition 1 of type 'Linux' and of size 500 MiB.
 
-Command (m for help): n
-Partition type
-    p   primary (1 primary, 0 extended, 3 free)
-    e   extended (container for logical partitions)
- Select (default p): p
-Partition number (2-4, default 2):
-First sector (1026048-10485759, default 1026048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (1026048-10485759, default 10485759): +100M
+        Command (m for help): n
+        Partition type
+            p   primary (1 primary, 0 extended, 3 free)
+            e   extended (container for logical partitions)
+        Select (default p): p
+        Partition number (2-4, default 2):
+        First sector (1026048-10485759, default 1026048):
+        Last sector, +/-sectors or +/-size{K,M,G,T,P} (1026048-10485759, default 10485759): +100M
     
-Created a new partition 2 of type 'Linux' and of size 100 MiB.
+        Created a new partition 2 of type 'Linux' and of size 100 MiB.
 
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
+        Command (m for help): w
+        The partition table has been altered.
+        Calling ioctl() to re-read partition table.
+        Syncing disks.
+        ```
 
-6. Check in S.O. that the partitions were created
+        6. Check in S.O. that the partitions were created
 
-`student@vm01:~$ ls -l /dev/sdc*`
+        `student@vm01:~$ ls -l /dev/sdc*`
     
-```bash
-brw-rw---- 1 root disk 8, 32 Apr  6 15:53 /dev/sdc
-brw-rw---- 1 root disk 8, 33 Apr  6 15:53 /dev/sdc1
-brw-rw---- 1 root disk 8, 34 Apr  6 15:53 /dev/sdc2
-```
+        ```bash
+        brw-rw---- 1 root disk 8, 32 Apr  6 15:53 /dev/sdc
+        brw-rw---- 1 root disk 8, 33 Apr  6 15:53 /dev/sdc1
+        brw-rw---- 1 root disk 8, 34 Apr  6 15:53 /dev/sdc2
+        ```
     
-#### 3. Create a file system on each of the partitions created
+3. Create a file system on each of the partitions created
 
 `student@vm01:~$ sudo mkfs.ext4 /dev/sdc1`
 
@@ -187,21 +189,21 @@ Creating journal (1024 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-#### 4. Create a directory for each of the partitions inside the `/mnt` directory
+4. Create a directory for each of the partitions inside the `/mnt` directory
 
 `student@vm01:~$ sudo mkdir /mnt/dir1`
 
 `student@vm01:~$ sudo mkdir /mnt/dir2`
 
 
-#### 5. Mount each of the partitions in the respective directory
+5. Mount each of the partitions in the respective directory
 
 `student@vm01:~$ sudo mount /dev/sdc1 /mnt/dir1`
 
 `student@vm01:~$ sudo mount /dev/sdc2 /mnt/di2`
 
 
-#### 6. Verify that the partitions are mounted correctly in OS.
+6. Verify that the partitions are mounted correctly in OS.
 
 `student@vm01:~$ sudo ls -l /mnt/dir*`
 
@@ -215,7 +217,7 @@ total 16
 drwx------ 2 root root 16384 Apr  6 15:59 lost+found
 ```
 
-#### 7. Write files inside one of the partitions
+7. Write files inside one of the partitions
 
 `student@vm01:~$ sudo touch /mnt/dir1/file1`
 
@@ -235,13 +237,13 @@ total 16
 drwx------ 2 root root 16384 Apr  6 15:59 lost+found
 ```
 
-#### 8. Unmount the partitions
+8. Unmount the partitions
 
 `student@vm01:~$ sudo umount /mnt/dir1`
 
 `student@vm01:~$ sudo umount /mnt/dir2`
 
-#### 9. Remove existing partitions
+9. Remove existing partitions
 
 `student@vm01:~$ sudo fdisk /dev/sdc`
 
@@ -266,6 +268,12 @@ The kernel still uses the old partitions. The new table will be used at the next
 Syncing disks.
 ```
 
+## Learning resoures
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
 ---
-[Back](../README.md)| 
-:----- |
+
+[Back to main](../README.md)| [9 - Logical Volume Manager](../answers/lab-lvm.md)|
+:----- |:---- |
