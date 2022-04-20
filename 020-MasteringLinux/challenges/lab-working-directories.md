@@ -15,5 +15,5 @@
 
 ---
 
-[Back](../README.md)| [Answers](../answers/lab-working-directories.md) | 
-:----- |:-----
+[Back](../README.md)|  
+:----- |
