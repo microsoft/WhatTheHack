@@ -32,10 +32,10 @@ In this hack you will be challenged with some common tasks from a real world sce
 
 The challenges were organized as below. Please note:
 
-- Each challenge can be done separately and they are not interdependent. The only exception is the challenge #1, which is a base for all other challenges since they require a Linux Virtual Machine.
-- You don't need to make all of them, chose as many you want.
-- The level of complexity increases accordingly with the respective number of each one.
-- The Linux man pages are your best friend. Make sure to use as best you can.
+> Each challenge can be done separately and they are not interdependent. The only exception is the challenge #1, which is a base for all other challenges since they require a Linux Virtual Machine.
+> You don't need to make all of them, chose as many you want.
+> The level of complexity increases accordingly with the respective number of each one.
+> The Linux man pages are your best friend. Make sure to use as best you can.
 
 1. Challenge 01: **[Create a Linux Virtual Machine](Student/Challenge-01.md)**
 	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
