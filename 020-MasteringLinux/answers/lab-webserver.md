@@ -1,14 +1,16 @@
-# Setting up a webserver 
+# 11 - Setting up a webserver 
 
-In this lab we will setting up a webserver and deploy a simple php application into it
+## Description
 
-## Objectives
+In this challenge we will setting up a webserver and deploy a simple php application into it. As a plus, you can add SSL to ensure security requirements.
 
-#### 1. Download the sample application [from here](/resources/simple-php-app.tar.gz) to your home directory
+## Success Criteria
+
+1. Download the sample application [from here](/resources/simple-php-app.tar.gz) to your home directory
 
 `student@vm01:~$ cd ~ ; wget https://github.com/ricmmartins/fasthack-linux/raw/main/resources/simple-php-app.tar.gz`
 
-#### 2. Extract the content of simple-php-app.tar.gz on our home directory
+2. Extract the content of simple-php-app.tar.gz on our home directory
 
 `student@vm01:~$ tar xzvf simple-php-app.tar.gz`
 
@@ -24,7 +26,7 @@ simple-php-app/assets/js/bootstrap.min.js
 simple-php-app/index.php
 ```
 
-#### 3. Install nginx
+3. Install nginx
 
 `student@vm01:~$ sudo apt install nginx-core`
 
@@ -49,7 +51,7 @@ Setting up nginx-core (1.18.0-0ubuntu1.2) ...
 Processing triggers for man-db (2.9.1-1) ...
 ```
 
-#### 4. Install php-fpm
+4. Install php-fpm
 
 `student@vm01:~$ sudo apt install php-fpm`
 
@@ -121,7 +123,7 @@ Processing triggers for php7.4-cli (7.4.3-4ubuntu2.10) ...
 Processing triggers for php7.4-fpm (7.4.3-4ubuntu2.10) ...
 ```
 
-#### 5. Configure Nginx
+5. Configure Nginx
 
 `student@vm01:~$ cat <<'EOT' > ~/default`
 ```bash
@@ -152,7 +154,7 @@ server {
 
 Remember to open port 80 on NSG
 
-#### 6. Add SSL
+6. Add SSL
   
 To add SSL we will use [Certbot](https://certbot.eff.org/) to get a certificate from [Let's Encrypt](https://letsencrypt.org/). Here are the steps you need to follow:
 
@@ -186,7 +188,12 @@ Restart Nginx:
 
 Remember to open the port 443 on the NSG
 
------------
+## Learning resoures
 
-[Back](../README.md)| 
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
+---
+[Back to main](../README.md)|
 :----- |
+
