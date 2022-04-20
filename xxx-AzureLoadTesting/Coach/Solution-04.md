@@ -3,15 +3,10 @@
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
+Sample solution files can be found in the coaches resources folder.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
+High level
 
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+- There is a sample action which will run a load test.  The default action will either create or run the existing load test.  It is case sensitive and the github action looks like it lowercases all the tests.
+- GitHub will require anothe action to create issues while ADO has a built in functionality to do this.
+- Students can use the baseline from their first run in challenge 3 to determine what their pass/fail criteria is.
