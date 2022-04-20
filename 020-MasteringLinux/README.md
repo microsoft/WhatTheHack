@@ -44,6 +44,9 @@ For our activites, it is recommended to use the [Azure Cloud Shell](http://shell
 
 ## Challenges
 
+The challenges were organized as below. Each challenge can be done separately and they are not interdependent. You can pick as many you want. Please note that the level of complexity increases along with the respective number of each one.
+
+
 | Challenges |
 |--------------|
 | 1. [Handling directories](challenges/lab-working-directories.md)|
