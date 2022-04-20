@@ -1,6 +1,10 @@
 #  2 - Handling files
 
-## Objectives
+## Description
+
+In this challenge you will learn basic commands about file manipulation such as create, rename, find, remove and displaying file contents.
+
+## Success Criteria
 
 #### 1. Find in the `/var` directory all the files that have been modified in the last 60 minutes
 #### 2. Show the type of file of `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
@@ -18,6 +22,11 @@
 #### 14. Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
 #### 15. Count the number of linux from the file `/etc/wgetrc`
 #### 16. Count the number of words from the file `/etc/hdparm.conf`
+
+## Learning Resources
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
 
 ---
 
