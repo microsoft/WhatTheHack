@@ -11,5 +11,5 @@
 #### 7. Make sure you (student) have all rights to files within `~`, and others can only read
 
 ---
-[Back](../README.md)| [Answers](../answers/lab-permissions.md) | 
-:----- |:-----
+[Back](../README.md)| 
+:----- |
