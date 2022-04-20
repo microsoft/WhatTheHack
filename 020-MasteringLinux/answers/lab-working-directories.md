@@ -1,23 +1,28 @@
-# Handling directories 
+# 1 - Handling directories
 
-## Objectives
+## Description
 
-#### 1. Display your current directory
+In this challenge you will learn how to perform common directory operations such as displaying your current directory and list directory contents.
+
+## Success Criteria
+
+1. Display your current directory
 
 `student@vm01:~$ pwd`
 
 ```bash
 /home/student
 ```
-#### 2. Go to the parent directory of the current directory
+
+2. Go to the parent directory of the current directory
 
 `student@vm01:~$ cd ..`
 
-#### 3. Go to the root directory
+3. Go to the root directory
 
 `student@vm01:~$ cd /`
 
-#### 4. List the contents of the root directory
+4. List the contents of the root directory
 
 `student@vm01:~$ ls`
 
@@ -25,7 +30,7 @@
 bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
 ```
 
-#### 5. Display a long listing of the root directory
+5. Display a long listing of the root directory
 
 `student@vm01:~$ ls -l`
 
@@ -56,11 +61,11 @@ drwxr-xr-x  14 root root  4096 Apr  4 21:40 usr
 drwxr-xr-x  13 root root  4096 Apr  4 21:41 var
 ```
 
-#### 6. Stay where you are, and list the contents of ~
+6. Stay where you are, and list the contents of ~
 
 `student@vm01:~$ ls ~`
 
-#### 7.  List all the files (including hidden files) in your home directory
+7.  List all the files (including hidden files) in your home directory
 
 `student@vm01:~$ ls -al ~`
 
@@ -79,11 +84,11 @@ drwx------ 2 student student 4096 Apr  6 15:02 .ssh
 -rw-rw-r-- 1 student student  252 Apr  8 00:01 .wget-hsts
 ```
 
-#### 8. Use a single command to create the following directory tree `~/folder1/folder2/folder3` (folder3 is a subdirectory from folder2, and folder2 is a subdirectory from folder1)
+8. Use a single command to create the following directory tree `~/folder1/folder2/folder3` (folder3 is a subdirectory from folder2, and folder2 is a subdirectory from folder1)
 
 `student@vm01:~$ mkdir -p ~/folder1/folder2/folder3`
 
-#### 9. List recursively the content of your ~ 
+9. List recursively the content of your ~ 
 
 `student@vm01:~$ ls -R`
 
@@ -100,7 +105,7 @@ dir3
 /home/student/dir1/dir2/dir3:
 ```
 
-#### 10. Find the directories within your home folder
+10. Find the directories within your home folder
 
 `student@vm01:~$ find ~ -type d`
 
@@ -112,7 +117,11 @@ dir3
 /home/student/dir1/dir2
 /home/student/dir1/dir2/dir3
 ```
------------
+## Learning resoures
 
-[Back](../README.md)| 
-:----- |
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+---
+
+[Back to main page](../README.md)| [2 - Handling Files](../challenges/lab-working-files.md)
+:----- |:----|
