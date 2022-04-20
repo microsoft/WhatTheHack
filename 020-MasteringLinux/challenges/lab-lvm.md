@@ -1,4 +1,4 @@
-# Logical Volume Manager
+# 9 - Logical Volume Manager
 
 ## Requirements
 
@@ -24,7 +24,7 @@
 
 ---
 
-[Back](../README.md)|  
-:----- |
+[Back to main](../README.md)| [10 - Pachake management](../challenges/lab-packages.md) |
+:----- |:---- |
 
 
