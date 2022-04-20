@@ -44,119 +44,118 @@ Disk model: Virtual Disk
 
 2. Edit the disk partition table:
 
-        `student@vm01:~$ sudo fdisk /dev/sdc`
+    `student@vm01:~$ sudo fdisk /dev/sdc`
 
-        1. Add a new partition
+    1. Add a new partition
     
-        ```bash
-        Welcome to fdisk (util-linux 2.34).
-        Changes will remain in memory only, until you decide to write them.
-        Be careful before using the write command.
+    ```bash
+    Welcome to fdisk (util-linux 2.34).
+    Changes will remain in memory only, until you decide to write them.
+    Be careful before using the write command.
+    Device does not contain a recognized partition table.
+    Created a new DOS disklabel with disk identifier 0x29026b65.
 
-        Device does not contain a recognized partition table.
-        Created a new DOS disklabel with disk identifier 0x29026b65.
+    Command (m for help): n
+    Partition type
+        p   primary (0 primary, 0 extended, 4 free)
+        e   extended (container for logical partitions)
+    Select (default p): p
+    Partition number (1-4, default 1): 1
+    First sector (2048-10485759, default 2048):
+    Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
 
-        Command (m for help): n
-        Partition type
-                p   primary (0 primary, 0 extended, 4 free)
-                e   extended (container for logical partitions)
-        Select (default p): p
-        Partition number (1-4, default 1): 1
-        First sector (2048-10485759, default 2048):
-        Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
+    Created a new partition 1 of type 'Linux' and of size 500 MiB.
 
-        Created a new partition 1 of type 'Linux' and of size 500 MiB.
-
-        Command (m for help): w
-        The partition table has been altered.
-        Calling ioctl() to re-read partition table.
-        Syncing disks.
-        ```
+    Command (m for help): w
+    The partition table has been altered.
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
     
-        2. List and identify in the S.O. the partition created
+    2. List and identify in the S.O. the partition created
 
-        `student@vm01:~$ ls -l /dev/sdc*`
+    `student@vm01:~$ ls -l /dev/sdc*`
     
-        ```bash
-        brw-rw---- 1 root disk 8, 32 Apr  6 15:09 /dev/sdc
-        brw-rw---- 1 root disk 8, 33 Apr  6 15:09 /dev/sdc1
-        ```
+    ```bash
+    brw-rw---- 1 root disk 8, 32 Apr  6 15:09 /dev/sdc
+    brw-rw---- 1 root disk 8, 33 Apr  6 15:09 /dev/sdc1
+    ```
     
-        3. Erase partition
+    3. Erase partition
 
-        `student@vm01:~$ sudo fdisk /dev/sdc`
+    `student@vm01:~$ sudo fdisk /dev/sdc`
 
-        ```bash
-        Welcome to fdisk (util-linux 2.34).
-        Changes will remain in memory only, until you decide to write them.
-        Be careful before using the write command.
+    ```bash
+    Welcome to fdisk (util-linux 2.34).
+    Changes will remain in memory only, until you decide to write them.
+    Be careful before using the write command.
 
 
-        Command (m for help): d
-        Selected partition 1
-        Partition 1 has been deleted.
+    Command (m for help): d
+    Selected partition 1
+    Partition 1 has been deleted.
 
-        Command (m for help): w
-        The partition table has been altered.
-        Calling ioctl() to re-read partition table.
-        Syncing disks.
-        ```
+    Command (m for help): w
+    The partition table has been altered.
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
 
-        4. Check in S.O. that the partition has been removed
+    4. Check in S.O. that the partition has been removed
 
-        `student@vm01:~$ ls -l /dev/sdc*`
+    `student@vm01:~$ ls -l /dev/sdc*`
 
-        ```bash
-        brw-rw---- 1 root disk 8, 32 Apr  6 15:12 /dev/sdc
-        ```
+    ```bash
+    brw-rw---- 1 root disk 8, 32 Apr  6 15:12 /dev/sdc
+    ```
 
-        5. Add two new partitions with type 83
+    5. Add two new partitions with type 83
 
-        `student@vm01:~$ sudo fdisk /dev/sdc`
+    `student@vm01:~$ sudo fdisk /dev/sdc`
     
-        ```bash
-        Welcome to fdisk (util-linux 2.34).
-        Changes will remain in memory only, until you decide to write them.
-        Be careful before using the write command.
+    ```bash
+    Welcome to fdisk (util-linux 2.34).
+    Changes will remain in memory only, until you decide to write them.
+    Be careful before using the write command.
 
 
-        Command (m for help): n
-        Partition type
-                p   primary (0 primary, 0 extended, 4 free)
-                e   extended (container for logical partitions)
-        Select (default p): p
-        Partition number (1-4, default 1): 1
-        First sector (2048-10485759, default 2048):
-        Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
+    Command (m for help): n
+    Partition type
+        p   primary (0 primary, 0 extended, 4 free)
+        e   extended (container for logical partitions)
+    Select (default p): p
+    Partition number (1-4, default 1): 1
+    First sector (2048-10485759, default 2048):
+    Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-10485759, default 10485759): +500M
 
-        Created a new partition 1 of type 'Linux' and of size 500 MiB.
+    Created a new partition 1 of type 'Linux' and of size 500 MiB.
 
-        Command (m for help): n
-        Partition type
-                p   primary (1 primary, 0 extended, 3 free)
-                e   extended (container for logical partitions)
-        Select (default p): p
-        Partition number (2-4, default 2):
-        First sector (1026048-10485759, default 1026048):
-        Last sector, +/-sectors or +/-size{K,M,G,T,P} (1026048-10485759, default 10485759): +100M
+    Command (m for help): n
+    Partition type
+        p   primary (1 primary, 0 extended, 3 free)
+        e   extended (container for logical partitions)
+    Select (default p): p
+    Partition number (2-4, default 2):
+    First sector (1026048-10485759, default 1026048):
+    Last sector, +/-sectors or +/-size{K,M,G,T,P} (1026048-10485759, default 10485759): +100M
     
-        Created a new partition 2 of type 'Linux' and of size 100 MiB.
+    Created a new partition 2 of type 'Linux' and of size 100 MiB.
 
-        Command (m for help): w
-        The partition table has been altered.
-        Calling ioctl() to re-read partition table.
-        Syncing disks.
-        ```
+    Command (m for help): w
+    The partition table has been altered.
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
 
-        6. Check in S.O. that the partitions were created
+    6. Check in S.O. that the partitions were created
 
-        `student@vm01:~$ ls -l /dev/sdc*`
+    `student@vm01:~$ ls -l /dev/sdc*`
     
-        ```bash
-        brw-rw---- 1 root disk 8, 32 Apr  6 15:53 /dev/sdc
-        brw-rw---- 1 root disk 8, 33 Apr  6 15:53 /dev/sdc1
-        brw-rw---- 1 root disk 8, 34 Apr  6 15:53 /dev/sdc2
-        ```
+    ```bash
+    brw-rw---- 1 root disk 8, 32 Apr  6 15:53 /dev/sdc
+    brw-rw---- 1 root disk 8, 33 Apr  6 15:53 /dev/sdc1
+    brw-rw---- 1 root disk 8, 34 Apr  6 15:53 /dev/sdc2
+    ```
     
 3. Create a file system on each of the partitions created
 
