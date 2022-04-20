@@ -35,7 +35,7 @@ With the exception of the **challenge 01** which the outcome of a Linux Virtual 
 1. Challenge 01: **[Create a Linux Virtual Machine](Student/Challenge-01.md)**
 	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
 1. Challenge 02: **[Handling directories](Student/Challenge-02.md)**
-	 - Learnearn how to perform common directory operations such as displaying your current directory and list directory contents.
+	 - Learn how to perform common directory operations such as displaying your current directory and list directory contents.
 1. Challenge 03: **[Handling files](Student/Challenge-03.md)**
 	 - Learn basic commands about file manipulation such as create, rename, find and remove files.
 1. Challenge 04: **[File contents](Student/Challenge-04.md)**
