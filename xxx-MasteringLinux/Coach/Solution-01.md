@@ -1,17 +1,32 @@
-# Challenge 01 - MasteringLinux - Coach's Guide 
+# Challenge 01 - Mastering Linux - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
+ 
+To accomplish the creation of the Ubuntu Linux Virtual Machine, you can follow the below steps using the Azure CLI from cloud shell:
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
+- Create the resource group:
 
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+```bash
+az group create --name rg-mastering-linux --location eastus
+```
+
+- Create the Virtual Machine
+
+```bash
+az vm create \
+  --resource-group rg-mastering-linux \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username student \
+  --generate-ssh-keys
+```
+
+- Connect to virtual machine
+
+```bash
+ssh student@[public-ip]
+```
+
+
