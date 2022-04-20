@@ -4,7 +4,7 @@
 This hachathon will serve as an introduction to important command line concepts and skills on Linux environments.
 
 ## Learning Objectives
-In this hack you will be challenged with some common tasks from a real world scenario in Linux administration duties.
+In this hack you will be challenged with some common tasks from a real world scenario in Linux administration duties, such as:
 
 1. Create a Linux Virtual Machine on Azure
 2. Handle files and directories
@@ -13,11 +13,9 @@ In this hack you will be challenged with some common tasks from a real world sce
 5. Collect information about Linux process in your environment
 6. Management of users and groups
 7. Basic shell scripting 
-8. Work with disks and partitions
-9. Implement a Logical VOlume Manager
-10. Work with package management 
-11. Implement a basic webserver and deploy an application into it
-
+8. Work with disks,  partitions and logical volume manager
+9. Linux package management 
+10. Implement a basic webserver 
 
 ## Challenges
 1. Challenge 01: **[Description of challenge](Student/Challenge-01.md)**
