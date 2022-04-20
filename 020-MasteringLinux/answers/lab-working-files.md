@@ -1,8 +1,12 @@
-# Handling files
+#  2 - Handling files
 
-## Objectives
+## Description
 
-#### 1. Find in the `/var` directory all the files that have been modified in the last 60 minutes
+In this challenge you will learn basic commands about file manipulation such as create, rename, find and remove files.
+
+## Success Criteria
+
+1. Find in the `/var` directory all the files that have been modified in the last 60 minutes
 
 `student@vm01:~$ sudo find /var -type f -mmin -60`
 
@@ -37,7 +41,7 @@
 /var/opt/microsoft/omsagent/bd86f0a1-de9e-4b93-ac76-ad6c417b11ef/state/omsconfig.log.auditd_dsc_log.pos
 /var/opt/microsoft/auoms/auomscollect.lock
 ```
-#### 2. Display the type of file of `/bin/cat`, `/etc/passwd` and `/usr/bin/passwd`
+2. Display the type of file of `/bin/cat`, `/etc/passwd` and `/usr/bin/passwd`
 
 `student@vm01:~$ file /bin/cat /etc/passwd /usr/bin/passwd`
 
@@ -47,7 +51,7 @@
 /usr/bin/passwd: setuid ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6af93256cb810d90b2f96fc052b05b43b954f5b2, for GNU/Linux 3.2.0, stripped
 ```
 
-#### 3. Download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
+3. Download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
 
 `student@vm01:~$ wget https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg`
 
@@ -79,7 +83,7 @@ azure-ops-guide.pdf                                                   100%[=====
 2022-04-08 00:01:56 (621 KB/s) - ‘azure-ops-guide.pdf’ saved [1093349/1093349]
 ```
 
-#### 4. Display the type of file of azure-linux.svg and azure-ops-guide.pdf
+4. Display the type of file of azure-linux.svg and azure-ops-guide.pdf
 
 `student@vm01:~$ file azure-linux.svg azure-ops-guide.pdf`
 
@@ -88,11 +92,11 @@ azure-linux.svg:     SVG Scalable Vector Graphics image
 azure-ops-guide.pdf: PDF document, version 1.5
 ```
 
-#### 5. Rename azure-linux.svg to azure-linux.pdf 
+5. Rename azure-linux.svg to azure-linux.pdf 
 
 `student@vm01:~$ mv azure-linux.svg azure-linux.pdf`
 
-#### 6. Display the type of file of azure-linux.pdf and azure-ops-guide.pdf
+6. Display the type of file of azure-linux.pdf and azure-ops-guide.pdf
 
 `student@vm01:~$ file azure-linux.pdf azure-ops-guide.pdf`
 
@@ -101,15 +105,15 @@ azure-linux.pdf:     SVG Scalable Vector Graphics image
 azure-ops-guide.pdf: PDF document, version 1.5
 ```
 
-#### 7. Create a directory `~/lab` and enter it.
+7. Create a directory `~/lab` and enter it.
 
 `student@vm01:~$ mkdir ~/lab ; cd ~/lab`
 
-#### 8. Create the file today.log and the file yesterday.log in lab.
+8. Create the file today.log and the file yesterday.log in lab.
 
 `student@vm01:~$ touch today.log yesterday.log`
 
-#### 9. Check the creation date and time
+9. Check the creation date and time
 
 `student@vm01:~$ ls -l`
 
@@ -119,11 +123,11 @@ total 0
 -rw-rw-r-- 1 student student 0 Apr  7 23:50 yesterday.log
 ```
 
-#### 10. Change the date on yesterday.log to match yesterday's date
+10. Change the date on yesterday.log to match yesterday's date
 
 `student@vm01:~$ touch -t 202204061200 yesterday.log (substitute 20220407 with yesterday date - 20220406 as e.g. )`
 
-#### 11. Check the creation date and time again
+11. Check the creation date and time again
 
 `student@vm01:~$ ls -l`
 
@@ -133,15 +137,15 @@ total 0
 -rw-rw-r-- 1 student student 0 Apr  6 12:00 yesterday.log
 ```
 
-#### 12. Create a directory called `~/testbackup` and copy all files from `~/lab` into it.
+12. Create a directory called `~/testbackup` and copy all files from `~/lab` into it.
 
 `student@vm01:~$ mkdir ~/testbackup ; cp -r ~/touched ~/testbackup/ `
 
-#### 13. Use one command to remove the directory `~/testbackup` and all files into it.
+13. Use one command to remove the directory `~/testbackup` and all files into it.
 
 `student@vm01:~$ rm -rf ~/testbackup `
 
-#### 14. Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
+14. Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
 
 `student@vm01:~$ mkdir ~/logbackup ; cp -r /var/log/*.log ~/logbackup ; ls -l ~/logbackup`
 
@@ -156,7 +160,7 @@ total 1796
 -rw-r--r-- 1 rmmartins rmmartins   2290 Apr 11 15:39 ubuntu-advantage-timer.log
 -rw-r--r-- 1 rmmartins rmmartins 190238 Apr 11 15:39 waagent.log
 ```
-#### 15. Count the number of lines from the file `/etc/wgetrc`
+15. Count the number of lines from the file `/etc/wgetrc`
 
 `student@vm01:~$ wc -l /etc/wgetrc`
 
@@ -164,15 +168,20 @@ total 1796
 138 /etc/wgetrc
 ```
 
-#### 16. Count the number of words from the file `/etc/hdparm.conf`
+16. Count the number of words from the file `/etc/hdparm.conf`
 
 `student@vm01:~$ wc -w /etc/hdparm.conf`
 
 ```bash
 854 /etc/hdparm.conf
 ```
+
+## Learning Resources
+
+* [Linux Commands Cheat Sheet](../resources/commands.md)
+* Linx manual pages `man <command>`
+
 ---
 
-[Back](../README.md)| 
-:----- |
-
+[Back to main](../README.md)| [3 - File contents](../answers/lab-file-contents.md)
+:----- |:----|
