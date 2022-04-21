@@ -26,7 +26,7 @@
 -rw-r--r-- 1 student student 195022 Apr 11 19:51 waagent.log
 ```
 
-4. As root, create a file called `testfile.txt` in the `/home/student/permissions` directory.
+4. As root, create a file called `rootfile.txt` in the `/home/student/permissions` directory.
 
 `student@vm01:~$ sudo su`
 `root@vm01:/# touch /home/student/permissions/rootfile`
