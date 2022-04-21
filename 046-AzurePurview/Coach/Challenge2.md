@@ -1,24 +1,25 @@
-# Challenge 0: Pre-requisites - Setup 
+# Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated) 
 
-[< Previous Challenge](./Challenge0.md) - [Home](../readme.md) - [Next Challenge >](./Challenge2.md)
+[< Previous Challenge](./Challenge1.md) - [Home](../readme.md) - [Next Challenge >](./Challenge3.md)
 
 
 ## Introduction
 
-Duration: 30 minutes. 
+Duration: 30 – 45 minutes. 
 
-Pre-requisites: There are no specific files/links to be shared for completing this challenge. 
+Pre-requisites: This challenge needs an Azure SQL DB, Azure Synapse Analytics workspace. 
 
-We would recommend 30 minutes or less to accomplish this challenge where usually most attendees are able to complete it within this time quite comfortably. 
+Optionally use the ARM script provided to deploy the Azure SQL DB and the Azure Synapse Analytics workspace. 
 
-User groups creation: This challenge requires creation of two user groups AllUsers and Finance. If MSFT internal subscription is being used to host the hack, attendees can create new Microsoft 365 groups to simulate AllUsers and Finance group (using a specific prefix or suffix to uniquely identify the groups each attendee creates). Attendees can then add the coaches or co-attendees to the groups they created to test the permission access. This is because we are unable to create new users. This approach can then be used to test access permissions in the next challenges. If other subscriptions like MSDN are being used, then new groups and new users can also be tested. 
+Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level possible and restore the existing sample database – AdventureWorksLT. 
 
-At the end of this challenge, the attendees should have a good idea on the deployment options that are available in Purview. While you summarize the discussion at the end of the challenge try to also talk about the networking aspects on Purview deployment (as it is not touched during the challenge itself). 
+This challenge could be a bit demanding if the attendees are new to Azure Synapse. It is recommended to check with the attendees they know the differences between serverless and dedicated pools. Use the below links for creating the databases for the serverless and dedicated pools: 
+Synapse Serverless: https://github.com/Azure-Samples/Synapse/blob/main/SQL/Samples/LdwSample/ContosoDW.sql 
+Synapse Dedicated SQL Pool: https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-analyze-sql-pool 
 
-It would also be good to talk to the attendees about the managed resources that get deployed. Also briefly talk on the platform capacity, how Purview costing works (both for the CU and scan). Touch upon what can be monitored and challenge them with questions about how many Purview accounts should an enterprise have and why. 
+Note that the script in the above link for the dedicated SQL pool currently is pointing a non-existent parquet file. Until the doc is fixed you may want to point the script to the parquet file below: 
 
-By now ensure that the attendees have a good overview of how the collections feature work and how to use it for having security controls in place and how permissions inheritance works. 
+https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 
-##  Resources
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-network
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-collections
+Azure SQL DB now allows us to turn on lineage collection which although will be discussed in another challenge. Discuss the output of the scans. 
+Similar to the previous challenge, it is useful to discuss various tabs of a given asset (table) 
