@@ -17,7 +17,7 @@ In this challenge your objectives will involve basic process management, giving 
 1. Ensure you can view all process running in your server
 2. Check the number of processes are running on your server
 3. Validate if you can see the process tree 
-4. Show the init process is running
+4. Show the init process running
 5. Show the PID of the init process
 
 ## Learning Resources
