@@ -165,7 +165,7 @@ Processing triggers for install-info (6.5.0.dfsg.1-2) ...
 
 4. Uninstall the package named nano
 
-`student@vm1:~$ sudo apt uninstall nano` 
+`student@vm1:~$ sudo apt remove nano` 
     
 ```bash
 Reading package lists... Done
