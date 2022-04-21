@@ -20,7 +20,7 @@ In this challenge, you will create data movement pipeline within Azure Data Fact
 - Confirm that you can see data lineage between assets.
 
 Expected lineage view: 
-
+![screenshot](./screenshotChallenge6.png)
 
 ## Learning Resources
 - https://docs.microsoft.com/en-us/azure/purview/catalog-lineage-user-guide
