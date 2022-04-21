@@ -38,9 +38,9 @@
 /var/opt/microsoft/omsagent/bd86f0a1-de9e-4b93-ac76-ad6c417b11ef/state/omsconfig.log.auditd_dsc_log.pos
 /var/opt/microsoft/auoms/auomscollect.lock
 ```
-2. Show the type of file of `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd
+2. Show the type of file of `/usr/bin/htop`, `/etc/passwd` and `/usr/bin/passwd
 
-`student@vm01:~$ file /bin/htop /etc/passwd /usr/bin/passwd`
+`student@vm01:~$ file /usr/bin/htop /etc/passwd /usr/bin/passwd`
 
 ```bash
 /bin/htop: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=732986edd7d25415061c74c17cb3db139bee2775, for GNU/Linux 3.2.0, stripped
