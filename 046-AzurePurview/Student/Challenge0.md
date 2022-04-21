@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A well planned and executed deployment will provide a strong foundation for a successful data governance platform. In this challenge you would review the best approaches of deploying Azure Purview and setting up collections based on the requirements below.
+A well planned and executed deployment will provide a strong foundation for a successful data governance platform. In this challenge you would review the best approaches of deploying Microsoft Purview and setting up collections based on the requirements below.
 
 ## Requirements
 - Fabrikam has multi region presence (In US and Europe) and would like to have their governance tool to be able to scan all the data sources from all the regions.
@@ -12,10 +12,10 @@ A well planned and executed deployment will provide a strong foundation for a su
 - Finance assets should only be accessbile for read by selected users that belong to Finance group.
 - The AllUsers group should only have permissions to read all the assets except Finance.
 
-Deploy Azure Purview and create the collection structure based on the above requirements.
+Deploy Microsoft Purview and create the collection structure based on the above requirements.
 
 ## Success Criteria
-- Deploy Azure Purview using the portal and be able to access the Purview Studio.
+- Deploy Microsoft Purview using the portal and be able to access the Purview Studio.
 - Create the collection hierarchy built based on the above requirements.
 - Setup permissions by adding the relevant groups (Finance and AllUsers) and demonstrate the collections and permissions to the coach.
 
