@@ -101,7 +101,7 @@ Disk model: Virtual Disk
     brw-rw---- 1 root disk 8, 32 Apr  6 15:12 /dev/sdc
     ```
 
-    5. Add two new partitions with type 83
+    5. Add two new partitions with a native Linux partition (83)
 
     `student@vm01:~$ sudo fdisk /dev/sdc`
     
