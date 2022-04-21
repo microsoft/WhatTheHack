@@ -1,4 +1,4 @@
-# Challenge 0: Pre-requisites - Setup 
+# Challenge 7: Data insights
 
 [< Previous Challenge](./Challenge6.md) - [Home](../readme.md) - [Next Challenge >](./Challenge8.md)
 
