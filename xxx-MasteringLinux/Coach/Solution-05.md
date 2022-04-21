@@ -5,9 +5,11 @@
 ## Notes & Guidance
 1. As regular user (student), create a directory ~/permissions. 
 
-`student@vm01:~$ mkdir ~/permissions ; touch ~/permissions/myfile.txt`
+`student@vm01:~$ mkdir ~/permissions`
 
 2. Create a file called `myfile.txt` under `~permissions`.
+
+`student@vm01:~$ touch ~/permissions/myfile.txt`
 
 3. List the properties of the file `/var/log/waagent.log`. Then copy this file to your permissions directory. Who is the new owner of this file now?
 
