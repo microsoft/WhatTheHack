@@ -21,7 +21,7 @@ During this challenge, you will learn about package management and the most comm
 
 1. Ensure the distribution lists are updated
 2. Have the installed packages updated
-3. Ensure the installation of git, net-tools and nginx packages
+3. Ensure the installation of git, php-fpm and nginx packages
 4. Mare sure the package nano is removed from the system
 5. Validate you have the details from the pachage vim
 6. Ensure the Docker container runtime is installed
