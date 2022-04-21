@@ -31,6 +31,7 @@
 4. As root, create a file called `rootfile.txt` in the `/home/student/permissions` directory.
 
 `student@vm01:~$ sudo su`
+
 `root@vm01:/# touch /home/student/permissions/rootfile`
 
 5. As regular user (student), look at who owns this file created by root.
