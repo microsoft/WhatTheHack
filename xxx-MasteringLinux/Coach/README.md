@@ -4,7 +4,7 @@
 Welcome to the coach's guide for the Mastering Linux What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 ## Coach's Guides
-1. Challenge 01: **[Create a Linux Virtual Machine](./Coach/Challenge-01.md)**
+1. Challenge 01: **[Create a Linux Virtual Machine](../Coach/Challenge-01.md)**
 	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
 1. Challenge 02: **[Handling directories](Student/Challenge-02.md)**
 	 - Learn how to perform common directory operations such as displaying your current directory and list directory contents.
