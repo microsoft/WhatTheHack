@@ -76,5 +76,18 @@ When someone refers to one of these three terms in the context of Linux, they ge
 - Regarding Linux commands, just for reference, [here is](./Student/resources/commands.md) a good cheat sheet.
 - The Linux man pages are your best friend. Make sure to use as best you can.
 
+## Learning Resources
+
+* [Linux Journey](https://linuxjourney.com/)
+* [Linux Upskill Challenge](https://linuxupskillchallenge.org/)
+* [Beginner's Guide for Linux - Tecmint](https://www.tecmint.com/free-online-linux-learning-guide-for-beginners/)
+* [Preparation for Linux Foundation Certified System Adminsitrator](https://github.com/Bes0n/LFCS)
+* [Linux Foundation Certified System Administrator (LFCS) Notes](https://github.com/simonesavi/lfcs)
+* [The Linux Documentation Project](https://tldp.org/)
+* [Intrduction to Linux - from TLPD](https://tldp.org/LDP/intro-linux/intro-linux.pdf)
+* [Linux Commands Notes for Professionals](https://goalkicker.com/LinuxBook/LinuxNotesForProfessionals.pdf)
+* [Introduction to Linux - Free course on Linux Foundation](https://training.linuxfoundation.org/training/introduction-to-linux/)
+
+
 ## Contributors
 - Ricardo Martins
