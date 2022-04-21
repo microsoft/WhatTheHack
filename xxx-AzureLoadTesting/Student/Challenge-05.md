@@ -18,5 +18,5 @@ Review your load test results to see where there are potential bottlenecks in yo
 
 ## Learning Resources
 
-[Identify Bottlenecks](https://docs.microsoft.com/en-us/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
+[Adding Monitoring to Load Testing](https://docs.microsoft.com/en-us/azure/load-testing/how-to-appservice-insights)
 
