@@ -21,7 +21,7 @@
 
 `student@vm01:~$ cp /var/log/waagent.log ~/permissions/`
 
-`student@vm01:~$ cp ls -ls ~/permissions/`
+`student@vm01:~$ ls -ls ~/permissions/`
 
 ```bash
 -rw-r--r-- 1 student student      0 Apr  8 14:55 myfile.txt
