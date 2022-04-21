@@ -34,7 +34,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 7. Make sure the directory was successfully created and that you are inside of the directory 
 8. Check if the files were created correctly inside the `~/lab` directory 
 9. Confirm the creation date and time for each file
-10. Make sure you have changed the date properly to yeasteday's date
+10. Make sure you have changed the date properly to yesterday's date
 11. Confirm if the creation date and time were defined as expected
 12. Validate if the all files from `~/lab` were sucessfully placed into `~/mybackup`
 13. Make sure if you was able to remove everything using just one command 
