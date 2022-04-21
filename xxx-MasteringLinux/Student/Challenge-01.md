@@ -14,7 +14,7 @@ During the process of creation of the VM, ensure the usage of **student** for th
 
 ## Success Criteria
 
-* Validate you was able to successfully create your Ubuntu Linux Virtual Machine
+* Validate you was able to successfully create your **Ubuntu 20.04** Linux Virtual Machine
 * Confirm you can access through SSH
 
 ## Learning Resources
