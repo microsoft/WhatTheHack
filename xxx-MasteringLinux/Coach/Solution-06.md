@@ -80,19 +80,20 @@ systemd─┬─ModemManager───2*[{ModemManager}]
         └─unattended-upgr───{unattended-upgr}
 ```
 
-4. Identify if the omsagent process is running
+4. Identify if the syslog process is running
 
-`student@vm01:~$ ps -ef | grep omsagent`
+`student@vm01:~$ ps -ef | grep syslog`
 
 ```bash
-omsagent     941       1  0 Apr07 ?        00:04:40 /opt/microsoft/omsagent/ruby/bin/ruby /opt/microsoft/omsagent/bin/omsagent -d /var/opt/microsoft/omsagent/bd86f0a1-de9e-4b93-ac76-ad6c417b11ef/run/omsagent.pid -o /var/opt/microsoft/omsagent/bd86f0a1-de9e-4b93-ac76-ad6c417b11ef/log/omsagent.log -c /etc/opt/microsoft/omsagent/bd86f0a1-de9e-4b93-ac76-ad6c417b11ef/conf/omsagent.conf --no-supervisor
-omsagent    1027     818  0 Apr07 ?        00:00:08 /opt/omi/bin/omiagent 9 10 --destdir / --providerdir /opt/omi/lib --loglevel WARNING
+message+  1045     1  0 02:17 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+syslog    1072     1  0 02:17 ?        00:00:00 /usr/sbin/rsyslogd -n
+student   2300  1829  0 02:49 pts/0    00:00:00 grep --color=auto syslog
 ```
 
-5. Identify the process id (pid) of the omsagent
+5. Identify the process id (pid) of the syslog
 
-`student@vm01:~$ pgrep omsagent`
+`student@vm01:~$ pgrep syslog`
 
 ```bash
-941
+1072
 ```
