@@ -17,8 +17,8 @@ Ensure that these terms can be used for searching these tagged assets and can al
 ## Success Criteria
 - Create new term 'Team Unit' and assign yourself as an Term Expert.
 - Create new terms 'Account Team Unit', 'Specialist Team Unit' with additional custom field "Microsoft Terminology"
-- Create realtionships between previously created terms.
-- Bulk load terms provided in .CSV file ([download here](./GlossaryTerms.csv)).
+- Create parent-child relationship with ‘Team Unit’ as parent term and 'Account Team Unit’, ‘Specialist Team Unit’ as child terms. 
+- Bulk load terms provided in .CSV file (https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/StarterKitTerms.csv)
 - Assign terms to assets scanned in previous challenges.
 - Confirm that the newly applied tags can be used to filter the search results.
 
