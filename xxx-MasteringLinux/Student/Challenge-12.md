@@ -8,15 +8,15 @@ In this challenge we will setting up a webserver and deploy a simple php applica
 
 - Download the sample application [from here](./resources/simple-php-app.tar.gz) to your home directory
 - Extract the content of simple-php-app.tar.gz on our home directory
-- Install nginx
-- Install php-fpm
+- Install nginx-core
+- Install php7.4-fpm
 - Configure Nginx
 
 ## Success Criteria
 
 1. Make sure you have the file simple-php-app-tar.gz within your `~`
 2. Show the content of the .tar.gz file extracted into your `~`
-3. Make sure you have the packages nginx, php-fpm installed
+3. Make sure you have the packages nginx-core and php7.4-fpm installed
 4. Show your Nginx running properly
 
 ## Learning Resources
