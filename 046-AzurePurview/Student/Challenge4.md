@@ -11,7 +11,9 @@ In this challenge you will setup a custom classficiation that will ensure that f
 
 ## Success Criteria
 - Create a custom classification rule to classify the following columns in the Sales.Customers table in the WideWorldImporters database that was scanned in the previous challenge (WebsiteURL, PostalAddressLine)
+
 ![screenshot](./screenshotChallenge4.png)
+
 
 - Ensure that you use the custom classification rules to perform a full scan.
 - Confirm that the newly defined classification is applied on the assets.
