@@ -10,7 +10,7 @@ During this challenge, you will learn about package management and the most comm
 - Update the packages installed at your virtual machine
 - Install the following packages
     - git
-    - net-tools
+    - php-fpm
     - nginx
 - Uninstall the package named nano
 - Show packate details for vim
