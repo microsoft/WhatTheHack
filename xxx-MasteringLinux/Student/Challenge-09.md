@@ -13,7 +13,7 @@ This challenge you will be working with disks and partitions. Will be an opportu
 
 - Identify the new disk added to the machine
 - Edit the disk partition table:
-    - Add a new partition
+    - Add a new partition with 500MB
     - List and identify in the operating system the partition created
     - Erase partition
     - Check in operating system that the partition has been removed
