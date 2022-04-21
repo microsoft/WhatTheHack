@@ -24,7 +24,7 @@ In this challenge we will setting up a webserver and deploy a simple php applica
 - [https://www.rosehosting.com/blog/how-to-install-php-7-4-with-nginx-on-ubuntu-20-04/](https://www.rosehosting.com/blog/how-to-install-php-7-4-with-nginx-on-ubuntu-20-04/)
 - [https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04)
 
-## Advanced Challenges (Optional)
+## Advanced Challenge
 *Too comfortable?  Eager to do more?  Try this additional challenge!*
 
 - Add SSL
