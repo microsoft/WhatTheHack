@@ -4,7 +4,7 @@
 
 ## Introduction
 
-We will continue scanning more data sources. In this challenge we will scan in the Azure SQLDB, serverless and dedicated pools of Fabrikam's Azure Synapse Analytics and continue to populate the Data Catalog. As before, after performing a successfully full scan, review the scan results, and like before setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the Data Lake.
+We will continue scanning more data sources. In this challenge we will scan in the Azure SQLDB, serverless and dedicated pools of Fabrikam's Azure Synapse Analytics and continue to populate the Data Catalog. As before, after performing a successfully full scan, review the scan results, and like before setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the databases.
 
 ## Success Criteria
 - Register the Azure SQL DB, Azure Synapse Analytics workspace under a collection that is accessible to all users.
