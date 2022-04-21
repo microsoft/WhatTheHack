@@ -8,7 +8,7 @@ We will continue scanning more data sources. In this challenge we will scan in t
 
 ## Success Criteria
 - Register the Azure SQL DB, Azure Synapse Analytics workspace under a collection that is accessible to all users.
-- Run a successful scan of the serverless and dedicated pools using the Azure Purview Managed Identity.
+- Run a successful scan of the Azure SQL DB, serverless and dedicated pools using the Azure Purview Managed Identity.
 - Review the successful scan results.
 - Setup a weekly incremental scan.
 - Ensure the search results are accessible for the users that belong to the AllUsers group.
