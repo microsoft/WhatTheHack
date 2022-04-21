@@ -1,24 +1,21 @@
-# Challenge 0: Pre-requisites - Setup 
+# Challenge 8: Enhancing Microsoft Purview with Atlas API
 
-[< Previous Challenge](./Challenge0.md) - [Home](../readme.md) - [Next Challenge >](./Challenge2.md)
+[< Previous Challenge](./Challenge7.md) - [Home](../readme.md)
 
 
 ## Introduction
 
-Duration: 30 minutes. 
+Duration: 45 – 60 minutes. 
 
-Pre-requisites: There are no specific files/links to be shared for completing this challenge. 
+Pre-requisites: Pre-create a Service Principal which can be provided to the attendees. The attendees will need to provide Data Curator Data Source Admin, and Collection Admin permissions on their respective Microsoft Purview deployments. 
+Install Postman locally on the laptop (https://www.postman.com/downloads/ )
 
-We would recommend 30 minutes or less to accomplish this challenge where usually most attendees are able to complete it within this time quite comfortably. 
+Attendees, can follow steps from document linked below in order to provide permissions and get the token by sending a POST:
+https://docs.microsoft.com/en-us/azure/purview/tutorial-using-rest-apis#set-up-authentication-using-service-principal
 
-User groups creation: This challenge requires creation of two user groups AllUsers and Finance. If MSFT internal subscription is being used to host the hack, attendees can create new Microsoft 365 groups to simulate AllUsers and Finance group (using a specific prefix or suffix to uniquely identify the groups each attendee creates). Attendees can then add the coaches or co-attendees to the groups they created to test the permission access. This is because we are unable to create new users. This approach can then be used to test access permissions in the next challenges. If other subscriptions like MSDN are being used, then new groups and new users can also be tested. 
+We recommend using Postman to demonstrate the use of APIs. Use the attached postman workspace for demonstration of the solution: 
 
-At the end of this challenge, the attendees should have a good idea on the deployment options that are available in Purview. While you summarize the discussion at the end of the challenge try to also talk about the networking aspects on Purview deployment (as it is not touched during the challenge itself). 
+https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/PurviewHackCollection-APIChallenge  
 
-It would also be good to talk to the attendees about the managed resources that get deployed. Also briefly talk on the platform capacity, how Purview costing works (both for the CU and scan). Touch upon what can be monitored and challenge them with questions about how many Purview accounts should an enterprise have and why. 
-
-By now ensure that the attendees have a good overview of how the collections feature work and how to use it for having security controls in place and how permissions inheritance works. 
-
-##  Resources
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-network
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-collections
+The solution package demonstrates how to connect to Microsoft Purvie and get a token. The rest of the API requests create a type definition for CustomDB and then create there entities (Customer, Orders and Reporting). The last request then creates the lineage showing data from Customer, Orders being transformed into the Reporting table.
+Before submitting the requests, you will need to modify the collection variables to suit your environment. You can update the bearer token once you submit the first GetToken request.
