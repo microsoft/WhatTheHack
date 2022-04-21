@@ -25,7 +25,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 
 ## Success Criteria
 
-1. Show all the files that have been modified in the last 60 minutes within /var
+1. Show all the files that have been modified in the last 60 minutes within `/var`
 2. Make sure you checked the different file types of the files `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
 3. Ensure you were able to download the files [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) successfully into your home diretory
 4. Confirm the different file types 
