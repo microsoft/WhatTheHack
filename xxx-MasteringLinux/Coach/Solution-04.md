@@ -53,7 +53,7 @@ Five (followed by Ctrl-d)
 
 `student@vm01:~$ cp count.log count.bkp`
 
-5. Use cat to make a backup of this file to catcnt.txt
+5. Use cat to make a backup of this file saving as cat-count.log
 
 `student@vm01:~$ cat count.log > cat-count.log`
 
