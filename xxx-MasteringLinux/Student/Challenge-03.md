@@ -8,7 +8,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 
 - Find in the `/var` directory all the files that have been modified in the last 60 minutes
 - Show the type of file of `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
-- Download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
+- Go to your home directory and download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
 - Display the type of file of `azure-linux.svg` and `azure-ops-guide.pdf`
 - Rename `azure-linux.svg` to `azure-linux.pdf` 
 - Display the type of file of `azure-linux.pdf` and `azure-ops-guide.pdf`
@@ -27,7 +27,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 
 1. Show all the files that have been modified in the last 60 minutes within /var
 2. Make sure you checked the different file types of the files `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
-3. Ensure you were able to download the files [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) successfully 
+3. Ensure you were able to download the files [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) successfully into your home diretory
 4. Confirm the different file types 
 5. Validate the renaming of `azure-linux.svg` to `azure-linux.pdf` 
 6. After the renaming of the extension, check if the file type was changed
