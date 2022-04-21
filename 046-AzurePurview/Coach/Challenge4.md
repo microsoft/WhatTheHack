@@ -18,4 +18,4 @@ If for some reason, some attendees do not have the WideWorldImporters database, 
 
 https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/Sales.Customers.csv  
 
-You may want to discuss approaches of how manual classifications can be done if it has not been covered already 
+You may want to discuss approaches of how manual classifications can be done if it has not been covered already .
