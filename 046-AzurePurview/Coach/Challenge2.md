@@ -16,6 +16,7 @@ Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level
 This challenge could be a bit demanding if the attendees are new to Azure Synapse. It is recommended to check with the attendees they know the differences between serverless and dedicated pools. Use the below links for creating the databases for the serverless and dedicated pools: 
 
 Synapse Serverless: https://github.com/Azure-Samples/Synapse/blob/main/SQL/Samples/LdwSample/ContosoDW.sql 
+
 Synapse Dedicated SQL Pool: https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-analyze-sql-pool 
 
 Note that the script in the above link for the dedicated SQL pool currently is pointing a non-existent parquet file. Until the doc is fixed you may want to point the script to the parquet file below: 
