@@ -3,15 +3,7 @@
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
-
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+- The students should be seeing a large number of errors and that cosmos db RU are maxed out.  If they are not, have them increase the amount of load in  their tests.
+- Cosmos DB can either be scaled up manually or set to auto scale.
+- Post scale tests should show a drastic decrease in errors and Cosmos DB RU no where near the max.  You may still see some errors which was normal.
