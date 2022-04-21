@@ -56,7 +56,7 @@ chown: changing ownership of '/home/student/permissions/rootfile': Operation not
 ```
 Note you cannot become owner of the file that belongs to root.
 
-7. Make sure you (student) have all rights to these files, and others can only read
+7. Make sure you (student) have all rights to files within `~`, and others can only read
 
 `student@vm01:~$ find ~ -type d -exec chmod 755 {} \; `
 
