@@ -14,6 +14,7 @@ Optionally use the ARM script provided to deploy the Azure SQL DB and the Azure 
 Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level possible and restore the existing sample database – AdventureWorksLT. 
 
 This challenge could be a bit demanding if the attendees are new to Azure Synapse. It is recommended to check with the attendees they know the differences between serverless and dedicated pools. Use the below links for creating the databases for the serverless and dedicated pools: 
+
 Synapse Serverless: https://github.com/Azure-Samples/Synapse/blob/main/SQL/Samples/LdwSample/ContosoDW.sql 
 Synapse Dedicated SQL Pool: https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-analyze-sql-pool 
 
