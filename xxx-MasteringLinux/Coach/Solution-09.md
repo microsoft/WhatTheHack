@@ -38,7 +38,7 @@ Disk model: Virtual Disk
 
     `student@vm01:~$ sudo fdisk /dev/sdc`
 
-    1. Add a new partition
+    1. Add a new partition with 500MB
     
     ```bash
     Welcome to fdisk (util-linux 2.34).
