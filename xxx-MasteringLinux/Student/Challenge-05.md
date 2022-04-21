@@ -9,7 +9,7 @@ In this challenge you will learn about the Linux standard file permissions and u
 - As regular user (student), create a directory `~/permissions`.
 - Create a file called `myfile.txt` under `~permissions`.
 - List the properties of the file `/var/log/waagent.log`. Then copy this file to your permissions directory. 
-- As root, create a file called testfile.txt in the `/home/student/permissions` directory.
+- As root, create a file called rootfile.txt in the `/home/student/permissions` directory.
 - As regular user (student), look at who owns this file created by root.
 - Change the ownership of all files in `/home/student/permissions` to yourself (student).
 - Make sure you (student) have all rights to files within `~`, and others can only read
