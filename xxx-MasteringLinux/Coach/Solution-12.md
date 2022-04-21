@@ -1,6 +1,6 @@
 # Challenge 12 - MasteringLinux - Coach's Guide 
 
-[< Previous Solution](./Solution-11.md) - **[Home](./README.md)** - [Next Solution >](./Solution-13.md)
+[< Previous Solution](./Solution-11.md) - **[Home](./README.md)** 
 
 ## Notes & Guidance
 1. Download the sample application [from here](/resources/simple-php-app.tar.gz) to your home directory
