@@ -4,17 +4,16 @@
 
 ## Description
 
-Fabrikam team is very happy with current Azure Purview deployment. Although, with enhancing data platform environment, there are parts of solution which are not reflected in the Data Catalog. Recently data team added stored procedures to transform data within Azure SQL Database and this breaks Purview linage. This feature is not available out of the box, but your team really needs this to be working. There are also requests for custom reporting on top of existing Azure Purview Insights. It would be perfect to be able to analyze metadata in Power BI report. Last but not least, there is an ask about loading glossary terms based on definition which your team has already in HR database.
+Fabrikam team is very happy with current Azure Purview deployment. Yet, there are parts of their overall solution which are not reflected in the Data Catalog. Particularly, Fabrikam has a custom developed database solution called CustomDB. They would like to create entities pertaining to their CustomDB within Azure Purview and would like to show the lineage between these custom entities created in Purview. As part of a POC, you are requested to create a type definition for CustomDB, create 2 source entities (Customers, Orders), create a destination entity (reporting). Once the entities have been created, create a lineage which shows data from Customers and Orders table transform into Reporting table (similar to the below):
 
 ## Introduction
 
-With rich functionality of Azure Purview, there are still some features which are not available yet in the product and may be revelant in the production deployment. Also, there are some tasks you may have in the environemnt, which are not feasible with the typical UX experience. Atlas API can help you enhance your solution with custom features like custom linage. This will allow you to create linage between assets, even if data procesor you are using is not supported out of the box. Atlas API can be also helpful with automation of repetitive tasks like bulk load glossary terms.
+With rich functionality of Azure Purview, there are still some features which are not available yet in the product and may be relevant in the production deployments. Also, there are some tasks you may have in the environment, which cannot be performed with the typical UX experience. Atlas API can help you enhance your solution with custom features like custom lineage. This will allow you to create lineage between assets, even if data processor you are using is not supported out of the box. Atlas API can be also helpful with automation of repetitive tasks like bulk load glossary terms. 
 
 
 ## Success Criteria
-- Create a custom linage between assets (WWInvoices and Invoice Rank tables) which use Azure SQL DB Stored Procedure (STORED PROCEDURE NAME) as a data processor.
-- Bulk load multiple glossary terms based on Azure SQL DB table.
-- Export metadata from Azure Purview to .CSV file and create sample Power BI report using this data.
+- Create type definitions and entities for CustomDB 
+- Create a custom linage between assets (Orders, Customers and Reporting tables) using Atlas APIs. 
 
 ## Learning Resources
 - https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-automation
