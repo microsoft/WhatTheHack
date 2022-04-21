@@ -151,6 +151,8 @@ server {
 
 Remember to open port 80 on NSG
 
+### Advanced challenge
+
 To add SSL we will use [Certbot](https://certbot.eff.org/) to get a certificate from [Let's Encrypt](https://letsencrypt.org/). Here are the steps you need to follow:
 
 * Ensure you have a valid domain with an A record pointing to the Virtual Machine Public IP. A valid domain with an A register defined is a pre-requisite for Certbot. You can use Azure App Service Domains to get a domain.  
