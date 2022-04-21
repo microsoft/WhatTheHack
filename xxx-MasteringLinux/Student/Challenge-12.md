@@ -19,6 +19,10 @@ In this challenge we will setting up a webserver and deploy a simple php applica
 3. Make sure you have the packages nginx-core and php7.4-fpm installed
 4. Show your Nginx running properly
 
+## Hint
+
+If you install Ubuntu 18.04 instead of the Ubuntu 20.04, the version of the php-fpm which will be installed will be the 7.2 instead of 7.4. Then make sure to configure the nginx config file properly.
+
 ## Learning Resources
 
 - [https://www.rosehosting.com/blog/how-to-install-php-7-4-with-nginx-on-ubuntu-20-04/](https://www.rosehosting.com/blog/how-to-install-php-7-4-with-nginx-on-ubuntu-20-04/)
