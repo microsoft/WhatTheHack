@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
  
-To accomplish the creation of the Ubuntu Linux Virtual Machine, you can follow the below steps using the Azure CLI from cloud shell:
+To accomplish the creation of the Ubuntu 20.04 Linux Virtual Machine, you can follow the below steps using the Azure CLI from cloud shell:
 
 - Create the resource group:
 
