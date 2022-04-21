@@ -18,7 +18,7 @@ az group create --name rg-mastering-linux --location eastus
 az vm create \
   --resource-group rg-mastering-linux \
   --name myVM \
-  --image UbuntuLTS \
+  --image Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest \
   --admin-username student \
   --generate-ssh-keys
 ```
