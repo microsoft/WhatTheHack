@@ -136,7 +136,7 @@ total 0
 
 12. Create a directory called `~/testbackup` and copy all files from `~/lab` into it.
 
-`student@vm01:~$ mkdir ~/testbackup ; cp -r ~/lab ~/testbackup/ `
+`student@vm01:~$ mkdir ~/testbackup ; cp -r ~/lab ~/testbackup/ ; ls -R  ~/testbackup`
 
 13. Use one command to remove the directory `~/testbackup` and all files into it.
 
