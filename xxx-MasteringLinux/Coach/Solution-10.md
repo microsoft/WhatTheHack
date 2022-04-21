@@ -81,7 +81,7 @@ VG      #PV #LV #SN Attr   VSize  VFree
   VG UUID               2c7S20-cH8a-tRkt-ebKq-ym9X-rk1X-yiyOo1
 ```
 
-5. Create a Logical Volume (```LV```) using half the disk
+5. Create a Logical Volume (```LV```) using half the disk (2.5GB)
 
 `student@vm01:~$ sudo lvcreate -L 2.5G -n lv_part1 vg_data`
 
@@ -91,7 +91,7 @@ WARNING: ext4 signature detected on /dev/vg_data/lv_part1 at offset 1080. Wipe i
   Logical volume "lv_part1" created.
 ```
 
-6. Create an ```LV``` using 10% of the disk
+6. Create an ```LV``` using 10% of the disk (500MB)
 
 `student@vm01:~$ sudo lvcreate -L 500M -n lv_part2 vg_data`
 
@@ -207,7 +207,7 @@ Filesystem                    Size  Used Avail Use% Mounted on
 /dev/mapper/vg_data-lv_part2  469M  768K  433M   1% /mnt/dir2
 ```
 
-10. Resize the smallest ```LV``` to take up another 20% of the disk
+10. Resize the smallest ```LV``` to take up another 20% of the disk (1GB)
 
 `student@vm01:~$ sudo lvresize -L +1G /dev/vg_data/lv_part2`
 
