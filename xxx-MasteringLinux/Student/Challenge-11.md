@@ -1,67 +1,33 @@
-# Challenge 11 - MasteringLinux
+# Challenge 11 - Package Management
 
 [< Previous Challenge](./Challenge-10.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-12.md)
 
-## Pre-requisites (Optional)
-
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
 ## Description
 
-*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
+During this challenge, you will learn about package management and the most common activites such as update package distribution lists, install and uninstall packages on a Debian based Linux distribution.
 
-*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
+- Update the package distribution lists
+- Update the packages installed at your virtual machine
+- Install the following packages
+    - git
+    - net-tools
+    - nginx
+- Uninstall the package named nano
+- Show packate details for vim
+- Find the package for the Docker container runtime and install
 
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
+1. Ensure the distribution lists are updated
+2. Have the installed packages updated
+3. Ensure the installation of git, net-tools and nginx packages
+4. Mare sure the package nano is removed from the system
+5. Validate you have the details from the pachage vim
+6. Ensure the Docker container runtime is installed
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
+## Learning resoures
 
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
-
-## Learning Resources
-
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-## Advanced Challenges (Optional)
-
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- [https://linuxjourney.com/lesson/software-distribution](https://linuxjourney.com/lesson/software-distribution)
+- [https://www.tecmint.com/linux-package-management/](https://www.tecmint.com/linux-package-management/)
+- [https://www.linode.com/docs/guides/linux-package-management-overview/](https://www.linode.com/docs/guides/linux-package-management-overview/)
