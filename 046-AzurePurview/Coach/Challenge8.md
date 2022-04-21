@@ -17,5 +17,10 @@ We recommend using Postman to demonstrate the use of APIs. Use the attached post
 
 https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/PurviewHackCollection-APIChallenge  
 
+![screenshot](./screenshotChallenge81.png)
+
 The solution package demonstrates how to connect to Microsoft Purvie and get a token. The rest of the API requests create a type definition for CustomDB and then create there entities (Customer, Orders and Reporting). The last request then creates the lineage showing data from Customer, Orders being transformed into the Reporting table.
 Before submitting the requests, you will need to modify the collection variables to suit your environment. You can update the bearer token once you submit the first GetToken request.
+
+
+![screenshot](./screenshotChallenge82.png)
