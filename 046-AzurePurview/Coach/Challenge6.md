@@ -1,24 +1,14 @@
-# Challenge 0: Pre-requisites - Setup 
+# Challenge 6: Data lineage
 
 [< Previous Challenge](./Challenge0.md) - [Home](../readme.md) - [Next Challenge >](./Challenge2.md)
 
 
 ## Introduction
 
-Duration: 30 minutes. 
+Duration: 45 minutes. 
 
-Pre-requisites: There are no specific files/links to be shared for completing this challenge. 
+Pre-requisites: Another windows virtual machine which will serve as SHIR for Purview will be needed as a pre-requisite to this challenge. This can be used to reinforce the fact that SHIR’s are not sharable now. Don’t forget to spin up these VMs in the same virtual network. You may also use the ARM script provided to deploy the VM. This challenge also needs an Azure VM running SQL Server with the WideWorldImporters database restored (see previous challenge).  
 
-We would recommend 30 minutes or less to accomplish this challenge where usually most attendees are able to complete it within this time quite comfortably. 
+Optionally, to avoid running the above scenario, you may choose couple of related tables from AdventureWorksLT database from the Azure SQL DB used in challenge 2 
 
-User groups creation: This challenge requires creation of two user groups AllUsers and Finance. If MSFT internal subscription is being used to host the hack, attendees can create new Microsoft 365 groups to simulate AllUsers and Finance group (using a specific prefix or suffix to uniquely identify the groups each attendee creates). Attendees can then add the coaches or co-attendees to the groups they created to test the permission access. This is because we are unable to create new users. This approach can then be used to test access permissions in the next challenges. If other subscriptions like MSDN are being used, then new groups and new users can also be tested. 
-
-At the end of this challenge, the attendees should have a good idea on the deployment options that are available in Purview. While you summarize the discussion at the end of the challenge try to also talk about the networking aspects on Purview deployment (as it is not touched during the challenge itself). 
-
-It would also be good to talk to the attendees about the managed resources that get deployed. Also briefly talk on the platform capacity, how Purview costing works (both for the CU and scan). Touch upon what can be monitored and challenge them with questions about how many Purview accounts should an enterprise have and why. 
-
-By now ensure that the attendees have a good overview of how the collections feature work and how to use it for having security controls in place and how permissions inheritance works. 
-
-##  Resources
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-network
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-collections
+As detailed in the challenge (refer to the snip), the attendees will need to demonstrate the end-to-end lineage. The first copy in ADF can be setup using a copy activity, the second step will involve a dataflow as some join/unions are required. If the lineages are not shown as in the snip provided, it could be that the data sources for the dataflows are not correctly pointing to the actual files
