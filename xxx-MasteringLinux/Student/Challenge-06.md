@@ -9,16 +9,16 @@ In this challenge your objectives will involve basic process management, giving 
 - View the list of your server processes
 - How many processes are running on your server
 - View the list of processes in tree format
-- Identify if the omsagent process is running
-- Identify the process id of the omsagent
+- Identify if the init process is running
+- Identify the process id of the init process
 
 ## Success Criteria
 
 1. Ensure you can view all process running in your server
 2. Check the number of processes are running on your server
 3. Validate if you can see the process tree 
-4. Show the omsagent process running
-5. Show the PID of the omsagent
+4. Show the init process is running
+5. Show the PID of the init process
 
 ## Learning Resources
 
