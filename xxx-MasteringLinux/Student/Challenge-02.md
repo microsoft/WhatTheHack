@@ -20,7 +20,7 @@ In this challenge you will learn how to perform common directory operations such
 ## Success Criteria
 
 1. Confirm you can see your username under the home folder
-2. Confirm you are in the /home directory 
+2. Confirm you are in the `/home` directory 
 3. Validate you are in the `/` directory
 4. Confirm you can list the files under the `/`
 5. Confirm you can see the long list with details from `/` directory
