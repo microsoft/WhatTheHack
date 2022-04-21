@@ -20,7 +20,7 @@ Reading state information... Done
 
 2. Update the packages installed at your virtual machine
 
-`student@vm1:~$ sudo apt update`
+`student@vm1:~$ sudo apt upgrade`
 
 ```bash
 Reading package lists... Done
