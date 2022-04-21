@@ -6,7 +6,7 @@
 
 In this challenge we will setting up a webserver and deploy a simple php application into it. As a plus, you can add SSL to ensure security requirements.
 
-- Download the sample application [from here](./Student/resources/simple-php-app.tar.gz) to your home directory
+- Download the sample application [from here](./resources/simple-php-app.tar.gz) to your home directory
 - Extract the content of simple-php-app.tar.gz on our home directory
 - Install nginx
 - Install php-fpm
