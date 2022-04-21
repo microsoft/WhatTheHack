@@ -17,7 +17,7 @@ This challenge you will be working with disks and partitions. Will be an opportu
     - List and identify in the operating system the partition created
     - Erase partition
     - Check in operating system that the partition has been removed
-    - Add two new partitions with a native Linux partition
+    - Add two new partitions with a native Linux partition (83)
     - Check in operating system that the partitions were created
 - Create a file system on each of the partitions created
 - Create a directory for each of the partitions inside the `/mnt` directory
