@@ -6,6 +6,7 @@
 ## Introduction
 
 Duration: 30 minutes. 
+
 Pre-requisites: There are no specific files/links to be shared for completing this challenge. 
 
 We would recommend 30 minutes or less to accomplish this challenge where usually most attendees are able to complete it within this time quite comfortably. 
