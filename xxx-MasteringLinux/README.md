@@ -88,6 +88,8 @@ When someone refers to one of these three terms in the context of Linux, they ge
 * [Linux Commands Notes for Professionals](https://goalkicker.com/LinuxBook/LinuxNotesForProfessionals.pdf)
 * [Introduction to Linux - Free course on Linux Foundation](https://training.linuxfoundation.org/training/introduction-to-linux/)
 
+## Feedback
+Please [share](https://forms.office.com/r/1W73Y1rrxu) your experience during this Linux Hackathon and help us to improve.
 
 ## Contributors
 - Ricardo Martins
