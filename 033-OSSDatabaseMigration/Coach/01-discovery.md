@@ -66,5 +66,5 @@
       SELECT table_schema "DB Name",         ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB"
        FROM information_schema.tables GROUP BY table_schema; 
     ```
-    Here is a link with helpful configuration recommednations for data loading during a migration
+    Here is a link with helpful MySQL configuration recommendations for data loading during a migration
     https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-offline-portal#sizing-the-target-azure-database-for-mysql-instance
