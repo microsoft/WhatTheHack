@@ -30,3 +30,6 @@ In this challenge you will learn about the Linux standard file permissions and u
 - [https://linuxjourney.com/lesson/file-permissions](https://linuxjourney.com/lesson/file-permissions)
 - [https://www.linuxfoundation.org/blog/classic-sysadmin-understanding-linux-file-permissions/](https://www.linuxfoundation.org/blog/classic-sysadmin-understanding-linux-file-permissions/)
 - [https://chmod-calculator.com/](https://chmod-calculator.com/)
+- [https://linuxhandbook.com/linux-file-permissions/](https://linuxhandbook.com/linux-file-permissions/)
+- [https://linuxhandbook.com/suid-sgid-sticky-bit/](https://linuxhandbook.com/suid-sgid-sticky-bit/)
+
