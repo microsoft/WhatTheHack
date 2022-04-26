@@ -28,7 +28,9 @@ namespace Verify_inator
         {
             var b2cConfigurationSection = Configuration.GetSection("AzureAdB2C");
             var b2cGraphService = new B2cGraphService(
-                b2cExtensionsAppClientId: b2cConfigurationSection.GetValue<string>("B2cExtensionsAppClientId"));
+                b2cExtensionsAppClientId: b2cConfigurationSection.GetValue<string>("B2cExtensionsAppClientId"),
+                consultantIDUserAttribute: b2cConfigurationSection.GetValue<string>("ConsultantIDUserAttribute"),
+                territoryNameUserAttribute: b2cConfigurationSection.GetValue<string>("TerritoryNameUserAttribute"));
             services.AddSingleton<B2cGraphService>(b2cGraphService);
 
             services.AddControllers();

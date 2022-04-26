@@ -8,7 +8,7 @@ Worldwide importers wanted to build out their data warehouse to include clickstr
 
 ## Description
 
-Build a streaming pipeline to ingest simulated click stream data into enterprise Delta Lake via Azure Databricks.
+Build a streaming pipeline to ingest simulated click stream data into enterprise Delta Lake.
 
 ### Data Source: 
 In order to generate the source data stream for this exercise, you will need to execute sample .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
@@ -36,10 +36,11 @@ Azure Databricks will be used to consume data from Event Hub and write the strea
 1. [Event Hub Quickstart](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
 1. [Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)
 1. [Azure Databricks & Kafka Enabled Event Hubs](https://techblog.fexcofts.com/2019/01/17/azure-databricks-kafka-enabled-event-hubs/)
+1. [Ingest and process real-time data streams with Azure Synapse Analytics](https://www.mssqltips.com/sqlservertip/6748/real-time-data-streams-azure-synapse-analytics/)
 
 ## Tips 
 
-1. In order to publish data to and consume data from Event Hubs, you will need to generate a shared access policy, and use this key and the host name of the namespace in your connection string.  These values will need to be configured in both the click stream generator application, and the Azure Databricks notebook.
+1. In order to publish data to and consume data from Event Hubs, you will need to generate a shared access policy, and use this key and the host name of the namespace in your connection string.  These values will be needed on the consumer side of your Event hub.
 
 
 ## Additional Challenges

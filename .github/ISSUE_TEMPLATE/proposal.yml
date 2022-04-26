@@ -1,0 +1,52 @@
+name: Proposal
+description: Propose a new Hack
+title: "[Proposal]: "
+labels: ["proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to propose a new Hack! Please review the existing Hacks to validate that there isn't already a similar Hack.
+  - type: textarea
+    attributes:
+      label: Topic
+      description: What is the Topic of your proposed Hack?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Abstract/Learning Objectives
+      description: A concise list of objectives for the Hack.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Delivery Date
+      description: What is your expected delivery date of the completed Hack?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Authors
+      description: Any other Hack authors than you. Please provide a Github handle for each. (Please remember that these issues are publicly visible before providing email addresses or other personal information.)
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Other
+      description: |
+        Any other notes or comments or anything the WTH team should know.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: >
+        This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
+        For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or 
+        contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
