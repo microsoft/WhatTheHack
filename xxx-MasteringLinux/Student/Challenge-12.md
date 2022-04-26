@@ -33,8 +33,7 @@ If you install Ubuntu 18.04 instead of the Ubuntu 20.04, the version of the php-
 
 - Add SSL
 
-_Please note that for this advanced challenge, you will need to be able to access the virtual machine using a Public IP due the usage of an SSL certificate. 
-_
+_Please note that for this advanced challenge, you will need to be able to access the virtual machine using a Public IP due the usage of an SSL certificate._
 
 
 
