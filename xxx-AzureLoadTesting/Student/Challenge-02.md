@@ -16,7 +16,7 @@ Azure Load Testing is based on Apache JMeter - a popular open source load testin
 
 ## Description
 
-- Deploy this [sample application](https://github.com/Whowong/nodejs-appsvc-loadtest) in your Azure subscription. You can use the ]Azure Cloud Shell](http://shell.azure.com) or the Azure CLI if you have it installed.
+- Deploy this [sample application](https://github.com/Whowong/nodejs-appsvc-loadtest) in your Azure subscription. You can use the [Azure Cloud Shell](http://shell.azure.com) or the Azure CLI if you have it installed.
 - Using the JMeter GUI, create a load testing script that targets the 3 application endpoints:
     - (Get) Get - carries a get operation from the database to retrieve the current count
     - (Post) Add - Updates the database with the number of visitors.  You will need to pass the number of visits to increment.
