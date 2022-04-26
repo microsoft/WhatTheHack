@@ -1,7 +1,8 @@
-# What The Hack - Hack Coach Guide Challenge #3
+# Challenge-03 - Automated Response - Coach's Guide
+
+[< Previous Challenge](./Solution-02.md) - **[Home](./README.md)** 
 
 
-# Automated Response & Workbooks
 ## Introduction
 In this section of the Coach's guide, you fill find guidance, code, and examples that will help you guide the teams over the course of the WTH. 
 In the spirit of continuous improvement, update this repository with any suggestions, altertnatives, or additional challenges.

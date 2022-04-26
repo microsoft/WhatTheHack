@@ -1,7 +1,7 @@
 
 # Challenge \#2 - Custom Queries & Watchlists
 
-[< Previous Challenge](./Challenge-01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-03.md)
+[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge-03.md)
 
 ## Pre-requisites 
 

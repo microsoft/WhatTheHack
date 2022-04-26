@@ -1,6 +1,6 @@
 # Challenge #1:  Architecture, Agents, Data Connectors and Workbooks </br>
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[ **[Home](../README.md)** - [Next Challenge>](./Challenge-02.md)
 
 ## Pre-requisites 
 

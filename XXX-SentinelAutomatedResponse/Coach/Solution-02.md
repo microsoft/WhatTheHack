@@ -1,5 +1,6 @@
-# What The Hack - Hack Coach Guide Challenge #2
+# Challenge-02 - Custom Queries & Watchlists - Coach's Guide
 
+[< Previous Challenge](./Solution-01.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-03.md)
 
 # Custom Queries & Watchlists
 ## Introduction

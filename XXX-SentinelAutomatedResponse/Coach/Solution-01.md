@@ -1,7 +1,7 @@
-# What The Hack - Hack Coach Guide Challenge #1
+# Challenge 01 - Architecture, Agents, Data Connectors and Workbooks - Coach's Guide
 
+**[Home](./README.md)** - [Next Challenge>](./Solution-02.md)
 
-# Sentinel 
 ## Introduction
 In this Coach's guide, you fill find guidance, code, and examples that will help you guide the teams over the course of the WTH. In the spirit of continuous improvement, update this repository with any suggestions, altertnatives, or additional challenges.
 

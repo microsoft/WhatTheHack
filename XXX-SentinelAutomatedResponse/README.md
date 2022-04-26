@@ -1,8 +1,5 @@
-# What The Hack - Sentinel Description
+# What The Hack - Sentinel Automated Response
 
-*The following is a description of the components and tasks required for the Sentinel WTH*
-
-# Microsoft Sentinel 101 
 ## Introduction
 This Hack will introduce you to Microsoft Sentinel by helping you implement and explore the core functionality of Microsoft's SIEM/SOAR platform.
 
@@ -17,21 +14,12 @@ learn how to add some automation to manage that incident.
 5. Implement a logic app to automatically close the alert
 
 ## Challenges
-1. Challenge 1: **[Decide on an architecture & deploy agents](Student/Challenge-00.md)**
-   - Understand the various architecture and decide on the appropriate design based on the requirements.
-2. Challenge 2: **[Install a data connector](Student/Challenge-01.md)**
-   - Install the appropriate data connector to import Windows security events and validate Log Analytics data ingestion.
-3. Challenge 3: **[Create an analytics rule](Student/Challenge-02.md)**
-   - Build a custom analytics rule to show data ingested through the connector.
-4. Challenge 4: **[Create a Watchlist and modify retention time](Student/Challenge-03.md)**
-   - Create a Watchlist and add data, verify the data is available in Log Analytics.  Change the table retention time to 7 days.
-5. Challenge 5: **[Create an alert rule & incident based on you user login](Student/Challenge-04.md)**
-   - Bulid a custom rule that alerts when your user ID logs into a server.
-6. Challenge 6: **[Close an incident automatically using the Watchlist and a Playbook](Student/Challenge-04.md)**
-   - Use a playbook to automatically close the incident only if login occurred from a known IP address?
-7. Challenge 7: **[Install a threat intelligence feed](Student/Challenge-04.md)**
-   - Install a threat intelligence feed
-8. Challenge 8:  **[Create a runbook to verify your Watchlist doesn't contain TI addresses](Student/Challenge-08.md)** 
+1. Challenge 1: **[Architecture, Agents, Data Connectors and Workbooks](Student/Challenge-01.md)**
+   - Understand the various architecture and decide on the appropriate design based on the requirements. Install the appropriate data connector to import Windows security events and validate Log Analytics data ingestion.
+2. Challenge 2: **[Custom Queries & Watchlists](Student/Challenge-02.md)**
+   -  Build a custom analytics rule to show data ingested through the connector. Create a Watchlist and add data, verify the data is available in Log Analytics.  Change the table retention time to 7 days
+3. Challenge 3: **[Automated Response](Student/Challenge-03.md)**
+   -  Bulid a custom rule that alerts when your user ID logs into a server. Use a playbook to automatically close the incident only if login occurred from a known IP address
 
 ## Prerequisites
 - An Azure subscription with Owner access
@@ -39,13 +27,6 @@ learn how to add some automation to manage that incident.
 - Kusto code knowledge/reference material available
 - Patience
 
-## Repository Contents (Optional)
-- `../Student/Guides`
-  - Student's Challenge Guide
-- `../Coach/Guides`
-  - Coach's Guide and related files
-
 ## Contributors
 - Mark Godfrey
 - Bruno Terkaly
-

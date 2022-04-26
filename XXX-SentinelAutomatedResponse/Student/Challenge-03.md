@@ -2,7 +2,7 @@
 
 # Challenge #3:  Automated Response </br>
 
-[< Previous Challenge](./Challenge-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge-X+1.md)
+[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** 
 
 ## Pre-requisites (Optional)
 
