@@ -1,16 +1,10 @@
-# Challenge 06 - Stress & Multi-region Testing
+# Challenge 06 - Stress Testing
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
-
-## Pre-requisites
-
-- If you want to load test the application across regions, you will need to deploy it to multiple regions. This is especially critical since this will factor into the overall resiliency of the application.
 
 ## Introduction
 
 Unlike load testing, which ensures that a system can handle what it's designed to handle, stress testing focuses on overloading the system until it breaks. A stress test determines how stable a system is and its ability to withstand extreme increases in load. It does this by testing the maximum number requests from another service (for example) that a system can handle at a given time before performance is compromised and fails. Find this maximum to understand what kind of load the current environment can adequately support.
-
-A multiregion architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use something like [Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) to route traffic to the secondary region. This architecture can also help if an individual subsystem of the application fails…assuming you are replicating any relevant data stores across regions. 
 
 
 ## Description

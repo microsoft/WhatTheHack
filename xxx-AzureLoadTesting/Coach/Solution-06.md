@@ -3,15 +3,4 @@
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
-
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+I start noticing failures when we reach 6 users.  It seems like 4 users will hit 60% of Cosmos DB consumption assuming a 1k limit.  There is then a sharp jump when you hit 10 users in terms of the number of failures.  Cosmos DB is still the bottle neck as our app service is still running on one instance and does not appear to be constrained at all.
