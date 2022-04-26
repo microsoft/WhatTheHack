@@ -49,10 +49,6 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-*Please list Azure subscription requirements.* 
-
-*For example:*
-
 - Azure resources that will be consumed by a student implementing the hack's challenges
 - Azure permissions required by a student to complete the hack's challenges.
 
