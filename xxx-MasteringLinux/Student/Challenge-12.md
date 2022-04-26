@@ -31,11 +31,13 @@ If you install Ubuntu 18.04 instead of the Ubuntu 20.04, the version of the php-
 ## Advanced Challenge
 *Too comfortable?  Eager to do more?  Try this additional challenge!*
 
+- Add SSL
+
 ### Pre-requisites
 
 - For this advanced challenge, you will need to be able to access the virtual machine using a Public IP due the usage of an SSL certificate. 
 
-- Add SSL
+
 
 
 
