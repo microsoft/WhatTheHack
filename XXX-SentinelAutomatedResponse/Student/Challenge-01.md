@@ -2,18 +2,6 @@
 
 **[Home](../README.md)** - [Next Challenge>](./Challenge-02.md)
 
-## Pre-requisites 
-
-
-**Access to the Internet - Azure Docs**
-
-**Access to the Azure Portal** 
-
-**A Windows servers running in the subscription where you will run Sentinel**
-
-**90 to 120 minutes**
-
-
 
 ## Introduction 
 
