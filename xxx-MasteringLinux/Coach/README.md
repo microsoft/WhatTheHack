@@ -49,21 +49,12 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-*This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event.  For example:*
-
-- Sample Day 1
-	- Challenge 1 (1 hour)
-	- Challenge 2 (30 mins)
-	- Challenge 3 (2 hours)
-- Sample Day 2
-	- Challenge 4 (45 mins)
- 	- Challenge 5 (1 hour)
- 	- Challenge 6 (45 mins)
+- For the Challenge 01 an Azure subscription with contributor access will be required.
+- For all other challenges, at least a contributor access to a pre-created Ubuntu Linux 20.04 virtual machine will be required.
+- For the optional advanced challenge from the Challenge 12, these are the requirements:
+	- A public ip attached to the virtual machine
+	- Access to the public ip of the virtual machine
+	- Access to the Azure App Service Domain to get a domain or a acess to the DNS management of an existent domain
 
 ## Repository Contents
 
