@@ -5,7 +5,6 @@
 
 ## Introduction 
 
-
 **In this challenge you will will decide on a architecture for your Sentinel workspace(s) and what information will be stored in that workspace.  Then you will add Sentinel to that workspace confirm you can now access Sentinel.  Next you will deploy agents to get data into the workspace, ** 
 
 
