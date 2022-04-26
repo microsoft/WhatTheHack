@@ -3,6 +3,8 @@
 ## Introduction
 Welcome to the coach's guide for the Mastering Linux What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
+**NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
+
 ## Coach's Guides
 1. Challenge 01: **[Create a Linux Virtual Machine](../Coach/Solution-01.md)**
 	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
