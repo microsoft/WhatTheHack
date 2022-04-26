@@ -24,11 +24,12 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
    -  Bulid a custom rule that alerts when your user ID logs into a server. Use a playbook to automatically close the incident only if login occurred from a known IP address
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-## Coach Prerequisites 
 
-This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
-
-The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
+## Prerequisites
+- An Azure subscription with Owner access
+- Two virtual machines running in the subscription
+- Kusto code knowledge/reference material available
+- Patience
 
 ### Student Resources
 
