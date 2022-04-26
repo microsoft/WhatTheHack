@@ -26,12 +26,14 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 
 ## Prerequisites
-- An Azure subscription with Owner access
-- Two virtual machines running in the subscription
-- Kusto code knowledge/reference material available
-- Patience
 
-### Student Resources
+- Access to the Internet - Azure Docs
+- Access to the Azure Portal 
+- A Windows servers running in the subscription where you will run Sentinel
+
+</br>
+
+## Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
@@ -45,36 +47,28 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Azure Requirements
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
-
-*Please list Azure subscription requirements.* 
-
-*For example:*
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+- An Azure subscription with Owner access
+- Two virtual machines running in the subscription
+- Kusto code knowledge/reference material available
+- Patience
 
 ## Suggested Hack Agenda (Optional)
 
 *This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event.  For example:*
 
-- Sample Day 1
-	- Challenge 1 (1 hour)
-	- Challenge 2 (30 mins)
+
+	- Challenge 1 (2 hours)
+	- Challenge 2 (2 hours)
 	- Challenge 3 (2 hours)
-- Sample Day 2
-	- Challenge 4 (45 mins)
- 	- Challenge 5 (1 hour)
- 	- Challenge 6 (45 mins)
+
 
 ## Repository Contents
 
 
 - `./Coach`
   - Coach's Guide and related files
-- `./Coach/Solutions`
-  - Solution files with completed example answers to a challenge
-- `./Student`
+  - Powerpoint files
+- `./Coach`
   - Student's Challenge Guide
-- `./Student/Resources`
+- `./Student`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
