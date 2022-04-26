@@ -58,7 +58,7 @@ With the exception of challenge 01 which has as an outcome a Linux Virtual Machi
 	 - In this challenge we will setting up a webserver and deploy a simple php application into it. The usage of SSL could be a plus. 
 	 
 ## Prerequisites
-- Your own Azure subscription with contributor access 
+- Your own Azure subscription with contributor access for the Challenge 01 or contributor access to a pre-created Azure Virtual Machine for all other challenges.
 - Access to a terminal. The terms “terminal,” “shell,” and “command line interface” are often used interchangeably, but there are subtle differences between them:
 
 	* A terminal is an input and output environment that presents a text-only window running a shell.
