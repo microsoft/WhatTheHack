@@ -6,7 +6,7 @@
 
 - Ensure you have outlined your load testing strategy as described in the previous challenge.
 - You will need an Azure subscription to host the sample application.
-- You will need [Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html) installed to create your load testing script.
+- You will need [Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html) installed in a VM (or on your local machine) to create your load testing script (please note that JMeter requires Java 8+ to be installed).
 
 ## Introduction
 
