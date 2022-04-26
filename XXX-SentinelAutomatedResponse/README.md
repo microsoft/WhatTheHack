@@ -21,11 +21,7 @@ learn how to add some automation to manage that incident.
 - Challenge 3: **[Automated Response](Student/Challenge-03.md)**
    -  Bulid a custom rule that alerts when your user ID logs into a server. Use a playbook to automatically close the incident only if login occurred from a known IP address
 
-## Prerequisites
-- An Azure subscription with Owner access
-- Two virtual machines running in the subscription
-- Kusto code knowledge/reference material available
-- Patience
+
 
 ## Contributors
 - Mark Godfrey
