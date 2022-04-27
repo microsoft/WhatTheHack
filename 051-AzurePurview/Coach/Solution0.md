@@ -1,6 +1,6 @@
 # Solution 0: Pre-requisites - Setup 
 
-[Home](./readme.md) - [Next Solution >](./Solution1.md)
+[Home](./README.md) - [Next Solution >](./Solution1.md)
 
 
 ## Introduction

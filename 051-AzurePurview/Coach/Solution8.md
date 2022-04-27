@@ -1,6 +1,6 @@
 # Solution 8: Enhancing Microsoft Purview with Atlas API
 
-[< Previous Solution](./Solution7.md) - [Home](./readme.md)
+[< Previous Solution](./Solution7.md) - [Home](./README.md)
 
 
 ## Introduction

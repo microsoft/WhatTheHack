@@ -8,33 +8,33 @@ The hack builds loosely on top of each other in a modular way but obviously some
 
 This document provides guidance on the solution and links to files/scripts that will be used during the course of the hack. 
 
-## Challenges 
+## Solutions 
 
-- Challenge 0: Setting up Microsoft Purview from the Portal and other required services 
+- Solution 0: Setting up Microsoft Purview from the Portal and other required services 
 
     Review the general deployment, create collections under the root collection (TBD: What type of collections (ADLS, Azure Synapse, Azure SQL or Sales, Mktg, Finance..) and review options on setting permissions using collections 
-- Challenge 1: Scanning Azure Data Lake Storage 
+- Solution 1: Scanning Azure Data Lake Storage 
 
     Begin the first scanning by scanning the Data Lake Storage and review the scan results 
-- Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated) 
+- Solution 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated) 
 
     Continue with scanning databases 
-- Challenge 3: Scan an on-prem SQL Server 
+- Solution 3: Scan an on-prem SQL Server 
 
     Continue with scanning on-prem SQL Server 
-- Challenge 4: Create custom classifications 
+- Solution 4: Create custom classifications 
 
     Setup custom classifications and review the scan results with incremental scans 
-- Challenge 5: Business glossary 
+- Solution 5: Business glossary 
 
     Setup business glossary and associate assets to glossary items 
-- Challenge 6: Data lineage 
+- Solution 6: Data lineage 
 
     Learn to produce lineage using ADF and Synapse pipelines 
-- Challenge 7: Data insights 
+- Solution 7: Data insights 
 
     Produce insights on the work done so far 
-- Challenge 8: Enhancing Microsoft Purview with Atlas API 
+- Solution 8: Enhancing Microsoft Purview with Atlas API 
 
     Meet the requirements that are not available out of the box 
   
