@@ -1,4 +1,4 @@
-# Challenge 6: Data lineage
+# Solution 6: Data lineage
 
 [< Previous Solution](./Solution5.md) - [Home](./readme.md) - [Next Solution >](./Solution7.md)
 

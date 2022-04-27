@@ -1,4 +1,4 @@
-# Challenge 8: Enhancing Microsoft Purview with Atlas API
+# Solution 8: Enhancing Microsoft Purview with Atlas API
 
 [< Previous Solution](./Solution7.md) - [Home](./readme.md)
 

@@ -1,4 +1,4 @@
-# Challenge 7: Data insights
+# Solution 7: Data insights
 
 [< Previous Solution](./Solution6.md) - [Home](./readme.md) - [Next Solution >](./Solution8.md)
 

@@ -1,4 +1,4 @@
-# Challenge 3: Scan an on-premise SQL Server 
+# Solution 3: Scan an on-premise SQL Server 
 
 [< Previous Solution](./Solution2.md) - [Home](./readme.md) - [Next Solution >](./Solution4.md)
 

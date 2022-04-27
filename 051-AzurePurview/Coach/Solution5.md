@@ -1,4 +1,4 @@
-# Challenge 5: Business glossary 
+# Solution 5: Business glossary 
 
 [< Previous Solution](./Solution4.md) - [Home](./readme.md) - [Next Solution >](./Solution6.md)
 

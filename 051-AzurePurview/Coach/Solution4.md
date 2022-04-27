@@ -1,4 +1,4 @@
-# Challenge 4: Create custom classifications 
+# Solution 4: Create custom classifications 
 
 [< Previous Solution](./Solution3.md) - [Home](./readme.md) - [Next Solution >](./Solution5.md)
 

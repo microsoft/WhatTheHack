@@ -1,4 +1,4 @@
-# Challenge 1: Scanning Azure Datalake Storage  
+# Solution 1: Scanning Azure Datalake Storage  
 
 [< Previous Solution](./Solution0.md) - [Home](./readme.md) - [Next Solution >](./Solution2.md)
 
