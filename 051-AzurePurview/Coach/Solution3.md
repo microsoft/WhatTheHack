@@ -1,6 +1,6 @@
 # Challenge 3: Scan an on-premise SQL Server 
 
-[< Previous Challenge](./Challenge2.md) - [Home](../readme.md) - [Next Challenge >](./Challenge4.md)
+[< Previous Solution](./Solution2.md) - [Home](./readme.md) - [Next Solution >](./Solution4.md)
 
 
 ## Introduction

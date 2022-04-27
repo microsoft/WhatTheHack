@@ -1,6 +1,6 @@
 # Challenge 7: Data insights
 
-[< Previous Challenge](./Challenge6.md) - [Home](../readme.md) - [Next Challenge >](./Challenge8.md)
+[< Previous Solution](./Solution6.md) - [Home](./readme.md) - [Next Solution >](./Solution8.md)
 
 
 ## Introduction
