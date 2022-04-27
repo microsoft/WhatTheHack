@@ -1,6 +1,6 @@
 # Challenge 4: Create custom classifications
 
-[< Previous Challenge](./Challenge3.md) - [Home](../readme.md) - [Next Challenge >](./Challenge5.md)
+[< Previous Challenge](./Challenge3.md) - [Home](../README.md) - [Next Challenge >](./Challenge5.md)
 
 ## Description
 

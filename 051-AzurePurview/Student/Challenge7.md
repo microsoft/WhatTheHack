@@ -1,7 +1,5 @@
 # Challenge 7: Data insights
 
-[< Previous Challenge](./Challenge6.md) - [Home](../readme.md) - [Next Challenge >](./Challenge8.md)
-
 ## Description
 
 There is quite a lot of metadata available already in Fabrikam's data catalog. You have received an ask from Chief Data Officer in your organization to briefly review current state of data environment. CDO is looking for information like what sources you have in the environment and what type of data.

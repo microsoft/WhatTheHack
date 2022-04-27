@@ -1,6 +1,6 @@
 # Challenge 6: Data lineage
 
-[< Previous Challenge](./Challenge5.md) - [Home](../readme.md) - [Next Challenge >](./Challenge7.md)
+[< Previous Challenge](./Challenge5.md) - [Home](../README.md) - [Next Challenge >](./Challenge7.md)
 
 ## Description
 

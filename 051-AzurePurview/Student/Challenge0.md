@@ -1,6 +1,6 @@
 # Challenge 0 - Pre-requisites - Setup
 
-**[Home](../readme.md)** - [Next Challenge >](./Challenge1.md)
+**[Home](../README.md)** - [Next Challenge >](./Challenge1.md)
 
 ## Introduction
 

@@ -1,6 +1,6 @@
 # Challenge 5: Business glossary
 
-[< Previous Challenge](./Challenge4.md) - [Home](../readme.md) - [Next Challenge >](./Challenge6.md)
+[< Previous Challenge](./Challenge4.md) - [Home](../README.md) - [Next Challenge >](./Challenge6.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # Challenge 1: Scanning Azure Datalake Storage
 
-[< Previous Challenge](./Challenge0.md) - [Home](../readme.md) - [Next Challenge >](./Challenge2.md)
+[< Previous Challenge](./Challenge0.md) - [Home](../README.md) - [Next Challenge >](./Challenge2.md)
 
 
 ## Introduction

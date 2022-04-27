@@ -1,6 +1,6 @@
 # Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated)
 
-[< Previous Challenge](./Challenge1.md) - [Home](../readme.md) - [Next Challenge >](./Challenge3.md)
+[< Previous Challenge](./Challenge1.md) - [Home](../README.md) - [Next Challenge >](./Challenge3.md)
 
 ## Introduction
 
