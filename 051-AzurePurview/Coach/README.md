@@ -10,31 +10,31 @@ This document provides guidance on the solution and links to files/scripts that 
 
 ## Solutions 
 
-- Solution 0: Setting up Microsoft Purview from the Portal and other required services 
-
+- [Solution 0: Setting up Microsoft Purview from the Portal and other required services](./Solution0.md)
+- 
     Review the general deployment, create collections under the root collection (TBD: What type of collections (ADLS, Azure Synapse, Azure SQL or Sales, Mktg, Finance..) and review options on setting permissions using collections 
-- Solution 1: Scanning Azure Data Lake Storage 
+- [Solution 1: Scanning Azure Data Lake Storage](./Solution1.md)
 
     Begin the first scanning by scanning the Data Lake Storage and review the scan results 
-- Solution 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated) 
+- [Solution 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated)](./Solution2.md)) 
 
     Continue with scanning databases 
-- Solution 3: Scan an on-prem SQL Server 
+- [Solution 3: Scan an on-prem SQL Server](./Solution3.md)
 
     Continue with scanning on-prem SQL Server 
-- Solution 4: Create custom classifications 
+- [Solution 4: Create custom classifications](./Solution4.md)
 
     Setup custom classifications and review the scan results with incremental scans 
-- Solution 5: Business glossary 
+- [Solution 5: Business glossary](./Solution5.md)
 
     Setup business glossary and associate assets to glossary items 
-- Solution 6: Data lineage 
+- [Solution 6: Data lineage](./Solution6.md)
 
     Learn to produce lineage using ADF and Synapse pipelines 
-- Solution 7: Data insights 
+- [Solution 7: Data insights](./Solution7.md)
 
     Produce insights on the work done so far 
-- Solution 8: Enhancing Microsoft Purview with Atlas API 
+- [Solution 8: Enhancing Microsoft Purview with Atlas API](./Solution8.md)
 
     Meet the requirements that are not available out of the box 
   

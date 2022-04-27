@@ -15,23 +15,23 @@ In this hack you will:
 - Use Atlas API for some use cases.
 
 ## Challenges
--  Challenge 0: Setting up Microsoft Purview from the Portal and other required services
+-  [Challenge 0: Setting up Microsoft Purview from the Portal and other required services](./Student/Challenge0.md)
    -  Review the general deployment, create collections under the root collection (TBD: What type of collections (ADLS, Azure Synapse, Azure SQL or Sales, Mktg,            Finance..) and review options on setting permissions using collections
--  Challenge 1: Scanning Azure Datalake Storage
+-  [Challenge 1: Scanning Azure Datalake Storage](./Student/Challenge1.md)
    -  Begin the first scanning by scanning the datalake storage and review the scan results
--  Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated)
+-  [Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated)](./Student/Challenge2.md)
    -  Continue with scanning by scanning by scanning databases
--  Challenge 3: Scan a on-prem SQL Server
+-  [Challenge 3: Scan a on-prem SQL Server](./Student/Challenge3.md)
    -  Continue the database scan by scanning an on-prem SQL Server
--  Challenge 4: Create custom classifications
+-  [Challenge 4: Create custom classifications](./Student/Challenge4.md)
    -  Setup custom classficiations and review the scan results with incremental scans
--  Challenge 5: Business glossary
+-  [Challenge 5: Business glossary](./Student/Challenge5.md)
    -  Setup business glossary and associate assets to glossary items
--  Challenge 6: Data lineage
+-  [Challenge 6: Data lineage](./Student/Challenge6.md)
    -  Learn to produce lineage using ADF and Synapse pipelines
--  Challenge 7: Data insights
+-  [Challenge 7: Data insights](./Student/Challenge7.md)
    -  Produce insights on the work done so far
--  Challenge 8: Enhancing Microsoft Purview with Atlas API
+-  [Challenge 8: Enhancing Microsoft Purview with Atlas API](./Student/Challenge8.md)
    -  Meet the requirements that are not available out of the box
 
 ## Technologies
