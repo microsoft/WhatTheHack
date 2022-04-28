@@ -11,7 +11,7 @@ This document provides guidance on the solution and links to files/scripts that 
 ## Solutions 
 
 - [Solution 0: Setting up Microsoft Purview from the Portal and other required services](./Solution0.md)
-- 
+
     Review the general deployment, create collections under the root collection (TBD: What type of collections (ADLS, Azure Synapse, Azure SQL or Sales, Mktg, Finance..) and review options on setting permissions using collections 
 - [Solution 1: Scanning Azure Data Lake Storage](./Solution1.md)
 
