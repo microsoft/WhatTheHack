@@ -1,4 +1,4 @@
-# Solution 1: Scanning Azure Datalake Storage  
+# Solution 1: Scanning Azure Datalake Storage - Coach Guide  
 
 [< Previous Solution](./Solution0.md) - [Home](./README.md) - [Next Solution >](./Solution2.md)
 

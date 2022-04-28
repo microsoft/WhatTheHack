@@ -1,4 +1,4 @@
-# Solution 5: Business glossary 
+# Solution 5: Business glossary - Coach Guide 
 
 [< Previous Solution](./Solution4.md) - [Home](./README.md) - [Next Solution >](./Solution6.md)
 

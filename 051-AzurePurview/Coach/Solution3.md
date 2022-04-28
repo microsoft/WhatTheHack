@@ -1,4 +1,4 @@
-# Solution 3: Scan an on-premise SQL Server 
+# Solution 3: Scan an on-premise SQL Server - Coach Guide 
 
 [< Previous Solution](./Solution2.md) - [Home](./README.md) - [Next Solution >](./Solution4.md)
 

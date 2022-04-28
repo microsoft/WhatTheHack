@@ -1,4 +1,4 @@
-# What The Hack – Microsoft Purview 
+# What The Hack – Microsoft Purview - Coach Guide
 
 ## Introduction
 
@@ -42,7 +42,7 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 - During the hack, students will deploy multiple services to theri subscribtion. Some of them (2x Virtual Machine, Azure Synapase SQL Pool) should be instantly removed/paused after the hack. Keeping these services online for days after hack, can significantly impact the cost.
 
 ## Student Resources
-- All required resources for this hack (sample data, required .csv files) can be found it this storage account below. It can be accessed with for example Azure Storage Explorer
+- All required resources for this hack (sample data, required .csv files) can be found it this storage account below. It can be accessed with for example Azure Storage Explorer:
     - https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.  
@@ -73,8 +73,8 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 
 - \`./Coach\`
   - Coach's Guide and related files
-- \`./Coach/Solutions\`
-  - Solution files with completed example answers to a challenge
+- \`./Coach/Resources\`
+  - Additional files for Coach which can help solve challenges
 - \`./Student\`
   - Student's Challenge Guide
 
