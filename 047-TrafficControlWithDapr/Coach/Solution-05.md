@@ -233,11 +233,11 @@ You should see the same logs as before. You can also view the fine notification 
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-    name: sendmail
+      name: sendmail
     spec:
-    type: bindings.http
-    version: v1
-    metadata:
+      type: bindings.http
+      version: v1
+      metadata:
         - name: url
           value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
     scopes:
