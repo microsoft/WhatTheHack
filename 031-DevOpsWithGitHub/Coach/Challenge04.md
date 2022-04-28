@@ -4,8 +4,6 @@
 
 ## Notes & Guidance
 
-### Work with Azure Functions and Github Actions
-
 - See solution, in solutions folder for GitHub Action Workflow file.
 
 ## Solution 

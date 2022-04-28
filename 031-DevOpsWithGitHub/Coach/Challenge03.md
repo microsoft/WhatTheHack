@@ -4,9 +4,6 @@
 
 ## Notes & Guidance
 
-### Github Action for Azure Webapp
-
-
 - See solution, in solutions folder for GitHub Action Workflow file.
 
 ## Solution 
