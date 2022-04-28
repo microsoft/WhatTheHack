@@ -1,4 +1,4 @@
-# Challenge 05: Secure Your Solution - Coach's Guide
+# Challenge 05: Build and push Docker image to container registry - Coach's Guide
 
 [< Previous Challenge](./Challenge04.md) - **[Home](README.md)**
 
