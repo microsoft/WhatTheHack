@@ -39,7 +39,7 @@ Users with login shell:
 root student omsagent nxautomation anna mary peter rick"
 ```
 
-3. Create a script that adds two integers requested from the user
+3. Create a script that adds two integers requested from the user and print the sum
 
 `student@vm01:~$ vim sum.sh`
 
