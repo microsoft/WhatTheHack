@@ -72,7 +72,7 @@ jobs:
     needs: docker-build-and-push
     environment:
       name: dev
-      url: https://kmg88devops-dev.azurewebsites.net/
+      url: https://devopsreg-dev.azurewebsites.net/
     
     steps:
       - name: 'Login via Azure CLI'
@@ -82,7 +82,7 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'kmg88devops-dev'
+          app-name: 'devopsreg-dev'
           images: ${{secrets.ACR_NAME}}/wth/razorcore:${{github.run_number}}
 
   deploy-to-test:
@@ -91,7 +91,7 @@ jobs:
     needs: deploy-to-dev
     environment:
       name: test
-      url: https://kmg88devops-test.azurewebsites.net/
+      url: https://devopsreg-test.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v2
@@ -103,7 +103,7 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'kmg88devops-test'
+        app-name: 'devopsreg-test'
         images: ${{secrets.ACR_NAME}}/wth/razorcore:${{github.run_number}}
 
   deploy-to-prod:
@@ -112,7 +112,7 @@ jobs:
     needs: deploy-to-test
     environment:
       name: prod
-      url: https://kmg88devops-prod.azurewebsites.net/
+      url: https://devopsreg-prod.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v2
@@ -124,5 +124,5 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'kmg88devops-prod'
+        app-name: 'devopsreg-prod'
         images: ${{secrets.ACR_NAME}}/wth/razorcore:${{github.run_number}}
