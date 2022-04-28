@@ -15,9 +15,8 @@ A well planned and executed deployment will provide a strong foundation for a su
 Deploy Microsoft Purview and create the collection structure based on the above requirements.
 
 ## Success Criteria
-- Present deployed Microsoft Purview instance and access the Purview Studio.
-- Reveiw created collection hierarchy built based on the above requirements.
-- Demonstrate the collections and permissions of each group.
+- Present deployed Microsoft Purview instance and access to the Purview Studio.
+- Review created collection hierarchy built on requirements above.
 
 ## Learning Resources
 - https://docs.microsoft.com/en-us/azure/purview/deployment-best-practices

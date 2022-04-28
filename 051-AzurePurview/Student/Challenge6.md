@@ -12,9 +12,9 @@ In this challenge, you will create data movement pipeline within Azure Data Fact
 
 ## Success Criteria
 - Confirm registration of Azure Data Factory in Microsoft Purview Studio.
-- Present a pipeline, which copy data from SQL Database to Azure Data Lake storage (tables: InvoiceLines and Invoices)
-- Present a dataflow, which join copied data sets (InvoiceLines and Invoices on ADLS) and save result in Azure SQL Database 
-- Understand limitations of Linage feature
+- Present a pipeline, which copies data from SQL Database to Azure Data Lake storage (tables: InvoiceLines and Invoices)
+- Present a dataflow, which joins copied data sets (InvoiceLines and Invoices on ADLS) and save result in Azure SQL Database 
+- Understand limitations of Linage feature.
 - Confirm that you can see data lineage between assets.
 
 Expected lineage view: 

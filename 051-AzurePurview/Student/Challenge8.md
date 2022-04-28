@@ -11,7 +11,7 @@ Fabrikam team is very happy with current Microsoft Purview deployment. Yet, ther
 ![screenshot](./screenshotChallenge8.png)
 
 ## Success Criteria
-- Validate new type definitions and entities for CustomDB 
+- Validate new type definitions and entities for CustomDB.
 - Validate linage between assets (Orders, Customers and Reporting tables). 
 
 ## Learning Resources

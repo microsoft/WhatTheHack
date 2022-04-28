@@ -13,7 +13,7 @@ Sample data files for your Data Lake can be found here: https://stpurviewfasthac
 ## Success Criteria
 - Present registered Data Lake store under a collection that is accessible to all users.
 - Present successful scan of the data lake using the Microsoft Purview Managed Identity.
-- Review the successful scan results.
+- Validate scanned assets.
 - Ensure the search results are accessible for the users that belong to the AllUsers group.
 
 ## Extended challenge
