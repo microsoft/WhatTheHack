@@ -11,7 +11,7 @@ Pre-requisites: This challenge needs an Azure SQL DB, Azure Synapse Analytics wo
 
 Optionally use the PS script provided to deploy the Azure SQL DB. 
 
-Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level possible and restore the existing sample database – [AdventureWorksLT](https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/Azure Database backup/AdventureWorksLT2019.bak).
+Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level possible and restore the existing sample database – [AdventureWorksLT](https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/AzureDatabasebackup/AdventureWorksLT2019.bak).
 
 This challenge could be a bit demanding if the attendees are new to Azure Synapse. It is recommended to check with the attendees they know the differences between serverless and dedicated pools. Use the below links for creating the databases for the serverless and dedicated pools: 
 
