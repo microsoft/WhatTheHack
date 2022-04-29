@@ -68,3 +68,9 @@
     ```
     Here is a link with helpful MySQL configuration recommendations for data loading during a migration
     https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-offline-portal#sizing-the-target-azure-database-for-mysql-instance
+
+* Here is a link to Azure CLI commands to manage Azure Database for PostgreSQL. This may be useful to verify the Azure Database for PostgreSQL deployment. https://docs.microsoft.com/en-us/cli/azure/postgres?view=azure-cli-latest 
+
+* Here is a link to the Azure CLI commands to manage Azure Database for MySQL. This may be useful to verify the Azure Database for MySQL deployment. https://docs.microsoft.com/en-us/cli/azure/mysql?view=azure-cli-latest
+
+
