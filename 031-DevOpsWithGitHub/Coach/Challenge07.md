@@ -12,10 +12,12 @@
     - Check "Require a pull request before merging" and select "Require review from Code Owners"
     - Select "Create"
 - The following is needed to run during the pull request and only for the application path:
+```
   pull_request:
     branches: [ main ]
     paths: Application/**
+```
 - Codeowners
     - A new file at the root of the repo is needed called "CODEOWNERS", you will need to define the path and the owner.  
-        - /Application/ @whowong
+        - `/Application/ @whowong`
 
