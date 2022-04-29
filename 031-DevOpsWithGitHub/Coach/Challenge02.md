@@ -11,6 +11,6 @@
   - Select "<> Code" which should be a green button.
   - In the clone section, click on the copy button to get the url.
 - Add the files the coaches provided in the same directory.
-- In the command line enter: `Git add --all` - This will add all of the files you just copied to the folder to be be tracked.
+- In the command line enter: `git add --all` - This will add all of the files you just copied to the folder to be be tracked.
 - Now we need to commit our changes by typing `git commit -am "My first commit"`
 - Finally we need to push to the remote repository in github by doing `git push -u`.  You may see a warning which will provide the full command if this is the first time you are doing this to target the github server.
