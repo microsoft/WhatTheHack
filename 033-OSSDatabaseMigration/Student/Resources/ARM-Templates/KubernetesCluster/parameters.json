@@ -23,6 +23,8 @@
       "systemPoolNodeType": {
         "value": "Standard_D2s_v4"
       },
+      "enableAutoScaling": true,
+
       "agentPoolNodeCount": {
         "value": 1
       },
