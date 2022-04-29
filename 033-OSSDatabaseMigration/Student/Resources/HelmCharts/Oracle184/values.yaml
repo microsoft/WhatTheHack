@@ -15,7 +15,7 @@ infrastructure:
 image:
   name: container-registry.oracle.com/database/express
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "18.4.0-xe"
   
 service:
   type: LoadBalancer
