@@ -1,4 +1,4 @@
-# What The Hack - Microsoft Purview
+# What The Hack - Data Governance with Microsoft Purview
 ## Introduction
 Most companies struggle to deal with humungous amount of data that is being generated across their business and across thier IT estate (on-prem, multiple clouds). The more a company understands their data, the more effective they are to use it.
 
@@ -16,9 +16,9 @@ In this hack you will:
 
 ## Challenges
 -  [Challenge 0: Setting up Microsoft Purview from the Portal and other required services](./Student/Challenge0.md)
-   -  Review the general deployment, create collections under the root collection (TBD: What type of collections (ADLS, Azure Synapse, Azure SQL or Sales, Mktg,            Finance..) and review options on setting permissions using collections
+   -  Review the general deployment options, create collections under the root collection and review options on setting permissions using collections
 -  [Challenge 1: Scanning Azure Datalake Storage](./Student/Challenge1.md)
-   -  Begin the first scanning by scanning the datalake storage and review the scan results
+   -  Begin the first scann by scanning the datalake storage and review the scan results
 -  [Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated)](./Student/Challenge2.md)
    -  Continue with scanning by scanning by scanning databases
 -  [Challenge 3: Scan a on-prem SQL Server](./Student/Challenge3.md)
