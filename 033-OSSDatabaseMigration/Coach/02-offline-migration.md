@@ -142,5 +142,5 @@ Azure Database Migration Service supports migrating PostgreSQL to Azure Database
 If the student would like to use Azure Data Factory (ADF) to move the data. Here is a link to the ADF documentation. The Copy Activity is the most direct way to use ADF. https://docs.microsoft.com/en-us/azure/data-factory/introduction 
 
 
-
+* For Oracle, the students can use either ora2pg in the CLI or the Visualate Web UI which will generate the required SQL files for them in the web interface. It's definitely easier to use Visualate although in real life, it's more likely a DBA would use the ora2pg tool. In Visualate, the setting for "Type" should be set to Insert under Export. If they use the ora2pg CLI tool, they will need to get into the ora2pg container first using `kubectl exec`, configure the ora2pg.conf file and then run something like `/usr/local/bin/ora2pg -c /express/../project/default/config/ora2pg.conf`. Either way this will generate both the `insert.sql` and `table.sql` files. The students will then need to run these queries in Azure DB for PostgreSQL. They can load them into a container that has psql or use something like Azure Data Studio
 
