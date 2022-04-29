@@ -136,6 +136,7 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
  
  * For MySQL the database the import file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
 
+Azure Database Migration Service supports migrating PostgreSQL to Azure Database for PostgreSQL and MySQL to Azure Database for MySQL. The service does not support Oracle migrations. Here is a link to the documentation with supported source and targets for both offline and online migration scenarios.  https://docs.microsoft.com/en-us/azure/dms/resource-scenario-status 
 
  
 
