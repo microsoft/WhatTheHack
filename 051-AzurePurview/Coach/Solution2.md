@@ -9,9 +9,9 @@ Duration: 30 – 45 minutes.
 
 Pre-requisites: This challenge needs an Azure SQL DB, Azure Synapse Analytics workspace. 
 
-Optionally use the ARM script provided to deploy the Azure SQL DB and the Azure Synapse Analytics workspace. 
+Optionally use the PS script provided to deploy the Azure SQL DB. 
 
-Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level possible and restore the existing sample database – AdventureWorksLT. 
+Azure SQLDB: If done manually, deploy an Azure SQL DB with the lowest tier level possible and restore the existing sample database – [AdventureWorksLT](https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/Azure Database backup/AdventureWorksLT2019.bak).
 
 This challenge could be a bit demanding if the attendees are new to Azure Synapse. It is recommended to check with the attendees they know the differences between serverless and dedicated pools. Use the below links for creating the databases for the serverless and dedicated pools: 
 
@@ -23,5 +23,5 @@ Note that the script in the above link for the dedicated SQL pool currently is p
 
 https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 
-Azure SQL DB now allows us to turn on lineage collection which although will be discussed in another challenge. Discuss the output of the scans. 
+Azure SQL DB allows us to turn on lineage collection which although will be discussed in another challenge. Discuss the output of the scans. 
 Similar to the previous challenge, it is useful to discuss various tabs of a given asset (table) 
