@@ -139,6 +139,7 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 Azure Database Migration Service supports migrating PostgreSQL to Azure Database for PostgreSQL and MySQL to Azure Database for MySQL. The service does not support Oracle migrations. Here is a link to the documentation with supported source and targets for both offline and online migration scenarios.  https://docs.microsoft.com/en-us/azure/dms/resource-scenario-status 
 
  
+If the student would like to use Azure Data Factory (ADF) to move the data. Here is a link to the ADF documentation. The Copy Activity is the most direct way to use ADF. https://docs.microsoft.com/en-us/azure/data-factory/introduction 
 
 
 
