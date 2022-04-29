@@ -56,6 +56,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Mastering Linux](/020-MasteringLinux/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+- [SAP App Modernization On Azure](/XXX-SAPAppModernization/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
@@ -102,4 +103,3 @@ This repository is licensed under MIT license. More info can be found [here](htt
 # [Contributing](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md)
 
 We welcome contributions and suggestions. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/CONTRIBUTING.md).
-
