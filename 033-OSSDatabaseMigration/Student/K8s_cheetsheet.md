@@ -56,8 +56,8 @@ kubectl -n contosoapppostgres get pods
 ### List the services and the pods for the Pizzeria application on Oracle
 
 ```
-kubectl -n contosoappporacle get svc
-kubectl -n contosoappporacle get pods
+kubectl -n contosoapporacle get svc
+kubectl -n contosoapporacle get pods
 ```
 
 ### Connect to the MySQL, Oracle, and PostgreSQL database
