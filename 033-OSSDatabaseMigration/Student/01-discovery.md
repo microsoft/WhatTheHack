@@ -21,7 +21,7 @@ In this challenge you will be connecting to your "on-prem" environment using the
 
 ## Hints
 
-* For Oracle you can use either GUI/CLI database tools or ora2pg to get the information requested. 
+* For Oracle you can use either GUI/CLI database tools or ora2pg to get the information requested. There is already an ora2pg container deployed in your environment that you can use. 
 
 
 ## References
