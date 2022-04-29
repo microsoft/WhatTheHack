@@ -9,16 +9,15 @@ Duration: 30 – 45 minutes.
 
 Pre-requisites: This challenge needs an Azure VM running SQL Server. 
 
-Optionally use the ARM script provided to deploy the SQL Server VM. 
+Optionally use the PS script provided to deploy the SQL Server VM. 
 
-If any attendee does not have an understanding of SHIR, you may want to spend some time explaining the concept here. It is ok to use the same SQL Server machine as SHIR too. 
+If any attendee does not have an understanding of SHIR, you may want to spend some time explaining the concept. It is ok to use the same SQL Server machine as SHIR too. 
 
+If VMs are going to be manually deployed then look for the following images in the Azure portal:
 Image for VM: SQL Server 2019 on Windows Server 2019 
-
 Free SQL Server License: SQL 2019 Developer on Windows Server 2019 - Gen 2 
 
-Restore the following backup on the SQ LServer (WideWorldImporters): https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Full.bak 
-
+Restore the following backup on the SQL Server [WideWorldImporters](https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/SQL Server backup/WideWorldImporters-Full.bak)
 
 After reviewing the results of the scan similar to the previous challenge, as a closing, you may want to discuss how the SHIR works to process the data and only send metadata to Purview and no actual data 
 
