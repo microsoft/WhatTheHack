@@ -4,9 +4,9 @@
 
 ## Coach Tips
 
-1. When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier since the Basic tier does not support Private Link which is required in a future challenge. Note that Flexible Server does not currently support Private Link.
+* When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier since the Basic tier does not support Private Link which is required in a future challenge. Note that Flexible Server does not currently support Private Link.
 
-2. If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL database containers, they have two options.
+* If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL database containers, they have two options.
 
      a)  Either under connection security, check the box for "Allow access to Azure services" 
 
@@ -17,7 +17,7 @@
     
 ### MySQL -- Important 
  
-3. Participants using Azure Cloud Shell and using the mysql client tool are using the MariaDB mysql client, not the one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl" at the end. If they are running it on WSL/Ubuntu or Mac Terminal and using the Oracle MySQL client, the "--ssl" flag is not required.
+* Participants using Azure Cloud Shell and using the mysql client tool are using the MariaDB mysql client, not the one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl" at the end. If they are running it on WSL/Ubuntu or Mac Terminal and using the Oracle MySQL client, the "--ssl" flag is not required.
 
 ```bash
 
@@ -54,10 +54,10 @@ apt install curl
 curl ifconfig.me
 ```
 
-3. There are other 3rd party tools similar to MySQL Workbench, pgAdmin and dbeaver which the attendees may choose to migrate the data if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL.
+* There are other 3rd party tools similar to MySQL Workbench, pgAdmin and dbeaver which the attendees may choose to migrate the data if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL.
 
 
-4. Before migrating the data, they need to create an empty database and create the application user. The SQL command to create the database is given below if they are using the CLI
+* Before migrating the data, they need to create an empty database and create the application user. The SQL command to create the database is given below if they are using the CLI
 
 
 
@@ -65,7 +65,7 @@ curl ifconfig.me
 create database wth ;
 ```
 
-5. After creating the database they need to create the database user "contosoapp" that will own the database objects. Connect using the dba account and then create the user and grant it privileges:
+* After creating the database they need to create the database user "contosoapp" that will own the database objects. Connect using the dba account and then create the user and grant it privileges:
 
 PostgreSQL Command -->
 
@@ -104,7 +104,7 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 ```
 
 
-6. The next step is to run a database export from the source database and import into Azure DB. 
+* The next step is to run a database export from the source database and import into Azure DB. 
 
 **PostgreSQL Export Import Commands**
 
