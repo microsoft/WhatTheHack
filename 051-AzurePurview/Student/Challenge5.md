@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Business users in Fabrikam would like to add additional descriptive information to assets in your data platform environment. This will help different departments to understand technical jargon associated with the data repositories. Some of these definitions can be reused in multiple assets so it is important for users to easily govern them and have people assigned in case of needed contact.
+Business users in Fabrikam would like to add additional descriptive information to assets in your data platform environment. This will help different departments to understand business jargon associated with the data repositories. Some of these definitions can be reused in multiple assets so it is important for users to easily govern them and have people assigned in case of needed contact.
 
 ## Description
 With the custom classfiication, we have been able to enrich the metadata and help users search for data more effectively. While this has helped, business users have expressed desire to be able to tag assets with business terms which make more sense for them while they try to use the catalog for finding their assets.
