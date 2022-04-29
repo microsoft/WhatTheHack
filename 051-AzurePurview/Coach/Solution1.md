@@ -7,7 +7,7 @@
 
 Duration: 30 minutes 
 
-Pre-requisites: This challenge needs an Azure Data Lake Store with a container created. Optionally use the ARM script provided to deploy ADLS.
+Pre-requisites: This challenge needs an Azure Data Lake Store with a container created. Optionally use the PS script provided to deploy ADLS.
 
 The data for the data lake is stored at: https://svcmadls.blob.core.windows.net/purviewhackdata 
 
