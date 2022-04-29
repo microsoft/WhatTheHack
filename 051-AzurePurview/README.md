@@ -46,14 +46,6 @@ In this hack you will:
 -  Azure subscription with Owner access
 -  See the challenge 0 for information on other pre-requisites
 
-## Repository Contents
-- `../Coach/Guides`
-
-- `../Coach/Solutions`
-
-- `../Student/Resources`
-
-
 ## Contributors
 - Michal Golojuch
 - Situmalli Chandra Mohan

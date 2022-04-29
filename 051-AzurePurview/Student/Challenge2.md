@@ -3,14 +3,15 @@
 [< Previous Challenge](./Challenge1.md) - [Home](../README.md) - [Next Challenge >](./Challenge3.md)
 
 ## Introduction
+After successfull scanning first data source, it is time to scan other services. The more sources are being scanned, the more information Purview can provide. 
 
+## Description
 We will continue scanning more data sources. In this challenge we will scan in the Azure SQLDB, serverless and dedicated pools of Fabrikam's Azure Synapse Analytics and continue to populate the Data Catalog. As before, after performing a successfully full scan, review the scan results, and like before setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the databases.
 
 ## Success Criteria
-- Register the Azure SQL DB, Azure Synapse Analytics workspace under a collection that is accessible to all users.
-- Run a successful scan of the Azure SQL DB, serverless and dedicated pools using the Microsoft Purview Managed Identity.
-- Review the successful scan results.
-- Setup a weekly incremental scan.
+- Validate registration of Azure SQL DB, Azure Synapse Analytics workspace under a collection that is accessible to all users.
+- Present a successful scan of the Azure SQL DB, serverless and dedicated pools using the Microsoft Purview Managed Identity.
+- Validate scanned assets.
 - Ensure the search results are accessible for the users that belong to the AllUsers group.
 
 ## Extended challenge
