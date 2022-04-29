@@ -16,7 +16,7 @@ Deploy Microsoft Purview and create the collection structure based on the above 
 
 ## Success Criteria
 - Present deployed Microsoft Purview instance and access to the Purview Studio.
-- Review created collection hierarchy built on requirements above.
+- Demonstrate collection hierarchy built on requirements above.
 
 ## Learning Resources
 - https://docs.microsoft.com/en-us/azure/purview/deployment-best-practices
