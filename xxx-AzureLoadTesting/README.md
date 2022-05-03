@@ -32,6 +32,7 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 - Azure subscription for creating the Load Testing service and running the sample application.
 - GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
 - [Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html) installed on your local machine or in a VM to create your load testing script.
+- [Azure Cloud Shell](https://shell.azure.com) or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 ## Repository Contents (Optional)
 - `./Coach/Guides`
