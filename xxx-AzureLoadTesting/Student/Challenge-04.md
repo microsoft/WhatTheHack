@@ -13,7 +13,8 @@ You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points
 You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
 
 ## Description
-- Create a new Azure DevOps project or GitHub repo. Use the Azure Load Testing extension with Azure DevOps or the Azure Load Testing GitHub Action to execute your load test with a manual trigger.
+- Create a new Azure DevOps project or GitHub repo. 
+- Use the Azure Load Testing extension with Azure DevOps or the Azure Load Testing GitHub Action to execute your load test with a manual trigger.
 - Intentionally set the pass/fail rules in your test configuration to a value (i.e., response time) that would cause the test to fail during the workflow. 
 - On load test failure, automatically create a work item or issue.
 
