@@ -26,3 +26,4 @@ learn how to add some automation to manage that incident.
 ## Contributors
 - Mark Godfrey
 - Bruno Terkaly
+- Anirudh Gandhi
