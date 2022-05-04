@@ -266,7 +266,10 @@
               "type": "VirtualMachineScaleSets",
               "mode": "User",
               "vnetSubnetID": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
-              "maxPods": "[parameters('maxPods')]"
+              "maxPods": "[parameters('maxPods')]",
+              "enableAutoScaling": "[parameters('enableAutoScaling')]",
+              "minCount": 1,
+              "maxCount": 5
             }
           ],
           "networkProfile": {
