@@ -1,4 +1,4 @@
-# Challenge 2 - Centralize your code with GitHub Repos - Coach's Guide
+# Challenge 02 - Centralize your code with GitHub Repos - Coach's Guide
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
