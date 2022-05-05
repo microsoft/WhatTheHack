@@ -1,6 +1,6 @@
 # Challenge 2 - Centralize your code with GitHub Repos - Coach's Guide
 
-[< Previous Challenge](./Challenge01.md) - **[Home](README.md)** - [Next Challenge >](./Challenge03.md)
+[< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
 

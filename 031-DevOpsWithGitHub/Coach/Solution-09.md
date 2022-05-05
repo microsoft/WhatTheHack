@@ -1,6 +1,6 @@
 # Challenge 09: Security - Coach's Guide
 
-[< Previous Challenge](./Challenge08.md) - **[Home](README.md)**
+[< Previous Solution](./Solution-08.md) - **[Home](README.md)**
 
 ## Notes & Guidance
 
@@ -17,4 +17,4 @@
     - It will give you a default template which you can modify.  A sample solution is in the coaches solution section.
 
 ## Solution 
-- [Navigate to Solution for Challenge 09](./Solution/Challenge%2009/Solution09.yml)
+- [Navigate to Solution for Challenge 09](./Solution/Solution-09/Solution09.yml)

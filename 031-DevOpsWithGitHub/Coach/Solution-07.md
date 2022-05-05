@@ -1,6 +1,6 @@
 # Challenge 07: Branching & Policies - Coach's Guide
 
-[< Previous Challenge](./Challenge06.md) - **[Home](README.md)**
+[< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
 ## Notes & Guidance
 

@@ -1,6 +1,6 @@
 # Challenge 08: Monitoring: Application Insights - Coach's Guide
 
-[< Previous Challenge](./Challenge07.md) - **[Home](README.md)**
+[< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
 

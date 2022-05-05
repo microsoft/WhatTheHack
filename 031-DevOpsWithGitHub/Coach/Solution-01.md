@@ -1,6 +1,6 @@
 # Challenge 01: Track your work with GitHub Project Boards - Coach's Guide
 
-**[Home](README.md)** - [Next Challenge >](./Challenge02.md)
+**[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
