@@ -1,10 +1,10 @@
-# Challenge 1: Assessment 
+# Challenge 1: Discovery and Assessment 
 
-[< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-size-analysis.md)
+[< Previous Challenge](./00-prereqs.md) - **[Home](./README.md)** - [Next Challenge >](./02-offline-migration.md)
 
 ## Coach Tips
 
-* The attendees should check the links given in Reference section about Limitations to figure out if the source database can be moved to Azure. Note: we only need to check the wth database that hosts the application data
+* The attendees should check the links given in Reference section about limitations to figure out if the source database can be moved to Azure. Note: we only need to check the wth database that hosts the application data
 
 
 
@@ -66,3 +66,11 @@
       SELECT table_schema "DB Name",         ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB"
        FROM information_schema.tables GROUP BY table_schema; 
     ```
+    Here is a link with helpful MySQL configuration recommendations for data loading during a migration
+    https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-offline-portal#sizing-the-target-azure-database-for-mysql-instance
+
+* Here is a link to Azure CLI commands to manage Azure Database for PostgreSQL. This may be useful to verify the Azure Database for PostgreSQL deployment. https://docs.microsoft.com/en-us/cli/azure/postgres?view=azure-cli-latest 
+
+* Here is a link to the Azure CLI commands to manage Azure Database for MySQL. This may be useful to verify the Azure Database for MySQL deployment. https://docs.microsoft.com/en-us/cli/azure/mysql?view=azure-cli-latest
+
+
