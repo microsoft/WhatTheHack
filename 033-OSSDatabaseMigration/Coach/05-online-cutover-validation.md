@@ -1,6 +1,6 @@
-# Challenge 6: Online Cutover and Validation
+# Challenge 5: Online Cutover and Validation
 
-[< Previous Challenge](./05-online-migration.md) - **[Home](./README.md)** - [Next Challenge >](./07-private-endpoint.md)
+[< Previous Challenge](./04-online-migration.md) - **[Home](./README.md)** - [Next Challenge >](./06-private-endpoint.md)
 
 ## Coach Tips
 
