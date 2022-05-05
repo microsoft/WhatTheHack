@@ -7,23 +7,23 @@ Welcome to the coach's guide for the IoT Hack of the Century What The Hack. Here
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
-- Challenge 01: **[Track your work with GitHub Project Boards](Coach/Solution-01.md)**
+- Challenge 01: **[Track your work with GitHub Project Boards](./Solution-01.md)**
 	 - How to track your projects/work leveraging GitHub Project Boards
-- Challenge 02: **[Centralize your code with GitHub Repos](Coach/Solution-02.md)**
+- Challenge 02: **[Centralize your code with GitHub Repos](./Solution-02.md)**
 	 - Centralize the storage of your application/infrastructure code with GitHub Repos
-- Challenge 03: **[Infrastructure as Code](Coach/Solution-03.md)**
+- Challenge 03: **[Infrastructure as Code](./Solution-03.md)**
 	 - Infrastructure as Code Automation with GitHub Actions
-- Challenge 04: **[Continuous Integration](Coach/Solution-04.md)**
+- Challenge 04: **[Continuous Integration](./Solution-04.md)**
 	 - Continuous Integration with GitHub Actions
-- Challenge 05: **[Build and push Docker image to container registry](Coach/Solution-05.md)**
+- Challenge 05: **[Build and push Docker image to container registry](./Solution-05.md)**
 	 - Build and push Docker images to container registry(ACR)
-- Challenge 06: **[Continuous Delivery](Coach/Solution-06.md)**
+- Challenge 06: **[Continuous Delivery](./Solution-06.md)**
 	 - Deploying your application to Azure with Continuous Delivery
-- Challenge 07: **[Branching & Policies](Coach/Solution-07.md)**
+- Challenge 07: **[Branching & Policies](./Solution-07.md)**
 	 - Protecting and creating processes for your repository with branching and branch policies
-- Challenge 08: **[Monitoring: Application Insights](Coach/Solution-08.md)**
+- Challenge 08: **[Monitoring: Application Insights](./Solution-08.md)**
 	 - Monitoring your applications leveraging Application Insights
-- Challenge 09: **[Security](Coach/Solution-09.md)**
+- Challenge 09: **[Security](./Solution-09.md)**
 	 - Incorporating security into your projects leveraging native GitHub features
 
 ## Coach Prerequisites 
