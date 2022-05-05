@@ -33,4 +33,4 @@
     - We are using consumption based model for Azure App Services
     - Application is not caching any data and always makes calls to Cosmos DB
 
-
+- Reenforce the importance of using existing metrics/usage patterns/data to inform the load testing own their own application.
