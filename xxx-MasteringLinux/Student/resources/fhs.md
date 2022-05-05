@@ -83,7 +83,7 @@ This way /usr has its own hierarchy just like the / (root) did.
 * Contains all user installed command binaries and
 * If you want to execute your scripts using a single command, you usually place them in /usr/bin/
 
-#### :white_check_mark: **/usr/sbin**
+#### **/usr/sbin**
 
 * This contains user installed command binaries that can only be used by system administrators.
 
