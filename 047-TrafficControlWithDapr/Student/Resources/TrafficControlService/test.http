@@ -1,0 +1,13 @@
+// Register entry
+POST http://127.0.0.1:6000/entrycam
+Content-Type: application/json
+
+{ "lane": 1, "licenseNumber": "XT-346-Y", "timestamp": "2020-09-10T10:38:47" }
+
+###
+
+// Register exit
+POST http://127.0.0.1:6000/exitcam
+Content-Type: application/json
+
+{ "lane": 1, "licenseNumber": "XT-346-Y", "timestamp": "2020-09-10T10:38:52" }
