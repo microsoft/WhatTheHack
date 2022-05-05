@@ -14,54 +14,54 @@ Because the FHS is the default filesystem layout on Linux machines, and each dir
 
 <img align="center" src="./images/fhs.png"/>
 
-### :white_check_mark: **/ (root)**
+### **/ (root)**
 
 * This is the beginning of the Linux filesystem hierarchy. All the file paths originate from root. The directories listed above or symbolic links to those directories are required in / otherwise, the file structure isn’t FSH compliant.
 
-### :white_check_mark: **/boot**
+### **/boot**
 
 * This directory contains all the files necessary for the system to boot up
 * This includes the kernel files, initrd, initramfs, bootloader etc.
 
-### :white_check_mark: **/bin**
+### **/bin**
 
  * Stores essential command binaries which can be used by both system administrator and user such as cat,ls,mv,ps,mount etc.
 * These commands are used to boot up a system (access boot files, mount drives) and can be used while repairing a system when the binaries in /usr aren’t available
 
-### :white_check_mark: **/sbin**
+### **/sbin**
 
 * Just like /bin, /sbin also contains essential system binaries. However these binaries are only meant to be used by a system administrator rather than a normal user.
 * These binaries are mostly used for device management. For example, fdisk, fsck, mkfs, ifconfig, reboot.
 
-### :white_check_mark: **/lib**
+### **/lib**
 
 * Libraries are standard code files that define the commands used in a programming language. During compilation, a compiler looks up these libraries to make sense of the code just as we might look up a dictionary to understand the meaning of words while reading a book.
 * This directory contains all the libraries needed to boot up the system and for commands in /bin and /sbin to run.
 * This also contains kernel modules which control a lot of your hardware and device functioning
 * A lot of times, there are different 32 bit and 64 bit libraries with the same name. To avoid any collusion, these binaries are kept in two separate directories accordingly named /lib32 and /lib64.
 
-### :white_check_mark:  **/media**
+### **/media**
 
 * This directory contains several sub-directories where the system mounts removable devices such as usb drives.
 
-### :white_check_mark: **/mnt**
+### **/mnt**
 
 * This directory can be used by an user to manually mount a device. (as opposed to /media which is only used by the system)
 * The current convention among users is making a separate subdirectory under /mnt and mounting the device in that subdirectory, while the older tradition is mounting the device directly in /mnt.
 
-### :white_check_mark: **/opt**
+### **/opt**
 
 * /opt contains libraries and binaries related to packages which are not installed by your system’s package managers but are installed through third party means like using Discord’s in-application update button.
 * /opt is a less popular alternative of /usr/local . It is the vendor who decided where the libraries and binaries go but usually more monolithic and proprietary softwares like zoom use /opt.
 
-### :white_check_mark: **/home**
+### **/home**
 
 * Home contains all the personal user specific files. It contains separate directories for each user which can be accessed by cd /home/username
 * This is where you do most of your work. All the downloads, pictures, music etc on your system are in /home.
 * The user specific configuration file for each application can be found in /home/[username]/.conf
 * You can go to any users home directory by executing cd ~[username] . If there is only one user on system, just cd ~ works.
 
-### :white_check_mark: **/etc**
+### **/etc**
 
 * This directory contains configuration files of your system.
 * The name of your device, your passwords, your network configuration, DNS, crontabs, date and time ..etc are stored here in configuration files.
@@ -69,7 +69,7 @@ Because the FHS is the default filesystem layout on Linux machines, and each dir
 * These configuration files affect all users on system. If you want to make config changes for a specific user, ~/.conf/ should be used instead of 
 /etc/
 
-### :white_check_mark: **/usr**
+### **/usr**
 
 The /usr directory has very interesting origins. At the time of formation, it was supposed to act like the /home directory, but when people ran out of space on /bin, they started storing the non-essential binaries in /usr. You can read the whole story [here](https://mobile.twitter.com/foone/status/1059310938354987008).
 
@@ -77,7 +77,7 @@ Over time, this directory has been fashioned to store the binaries and libraries
 
 This way /usr has its own hierarchy just like the / (root) did.
 
-#### :white_check_mark: /usr/bin
+#### **/usr/bin**
 
 * This is the primary directory of executable commands on the system.
 * Contains all user installed command binaries and
@@ -87,16 +87,16 @@ This way /usr has its own hierarchy just like the / (root) did.
 
 * This contains user installed command binaries that can only be used by system administrators.
 
-#### :white_check_mark: **/usr/lib**
+#### **/usr/lib**
 
 * This contains the essential libraries for packages in /usr/bin and /usr/sbin just like /lib.
 
-#### :white_check_mark: **/usr/local**
+#### **/usr/local**
 
 * This is used for all packages which are compiled manually from source by the system administrator.
 * This directory has its own hierarchy with all the bin, sbin and lib folders which contain the binaries and applications of the compiled softwares.
 
-#### :white_check_mark: **/usr/share**
+#### **/usr/share**
 
 * Contains several architecture-independent miscellaneous files
 * Man files, word list(dictionaries) and defintion files are all included in this.
@@ -111,48 +111,48 @@ Similarly /usr/sbin – /sbin and /usr/lib – /lib have been merged into the sa
 
 You can read more about the discussion regarding these merges [here](https://www.freedesktop.org/wiki/Software/systemd/TheCaseForTheUsrMerge/) and [here](https://www.linux-magazine.com/Issues/2019/228/Debian-usr-Merge).
 
-### :white_check_mark: **/run**
+### **/run**
 
 * This directory contains the metadata of the device since the last boot.
 * This includes data of all the system processes and daemons that were executed in the current session.
 * Files under this directory are cleared (removed or truncated) at the beginning of the boot process.
 
-### :white_check_mark: **/srv**
+### **/srv**
 
 * You will only ever use this directory if your device is acting as a webserver, as this directory contains all the files regarding webservers.
 * For example if host a FTP connection, all the files that need to be shared should by default go in a /srv/ftp.
 
-### :white_check_mark: **/tmp**
+### **/tmp**
 
 * Contains temporary files of the currently running processes.
 * This data is also flushed after every boot.
 
-### :white_check_mark: **/proc**
+### **/proc**
 
 * Just like /dev which provides devices as files, this folder contains system information and kernel information as files.
 * This includes information regarding memory, partitions, hardware (battery, temprature etc) , all loaded kernel modules etc.
 
-### :white_check_mark: **/sys (distro specific)**
+### **/sys (distro specific)**
 
 * It contains information similarly held in /proc/, but displays a hierarchical view of specific device information in regards to hot plug devices.
 
-### :white_check_mark:**/dev**
+### **/dev**
 
 * Contains device files for all the for all the physical and virtual devices mounted in the system.
 * Device files arent files in in the traditional sense. They are a way for device drivers to access and interact with the said device
 * Usually the primary storage is called sda (/dev/sda)
 
-### :white_check_mark: **/var**
+### **/var**
 
 * Contains variable data regarding the running processes.
 * This includes the logs, cache and spools for all applications.
 * Spools are the data which are waiting for further processing. For example, A document waiting in printer queue or a email header waiting to be sent.
 
-### :white_check_mark: **/root (optional)**
+### **/root (optional)**
 
 * This is supposed to be the home directory for the root user, as opposed to /home which is the home directory for the non root users.
 
-### :white_check_mark: **/lost+found (ext4 feature)**
+### **/lost+found (ext4 feature)**
 
 * While not listed in the FHS, this directory is automatically generated by fsck.
 * It stores all the orphaned and corruped files in this folder.
