@@ -14,8 +14,9 @@ Baselines help to determine the current efficiency state of your application and
 ## Description
 
 - Create a Load Testing service in Azure.
-- Run your load test using a typical user load and establish a performance baseline.
-- Make sure your script is parametarized and can be used against multiple environments.
+- Create a load test in the Load Testing service that accepts the website URL as an environment variable and passes that value to your load testing script.
+- Run your load test multiple times using a typical user load and establish a performance baseline.
+- Review the test results, identify the bottlenecks (CPU, memory, resource limits) and compile a list of insights.
 - Discuss where you may be able to leverage this baseline data you have gathered.
 
 ## Success Criteria
@@ -27,5 +28,6 @@ Baselines help to determine the current efficiency state of your application and
 ## Learning Resources
 
 - [Establish Baselines](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-test#establish-baselines)
+- [Create configurable load tests with secrets and environment variables](https://docs.microsoft.com/en-us/azure/load-testing/how-to-parameterize-load-tests)
 - [Load Testing documentation](https://docs.microsoft.com/en-us/azure/load-testing/)
 
