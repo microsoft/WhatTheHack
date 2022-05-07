@@ -17,9 +17,9 @@
 
 *Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
 
-## Introduction (Optional)
+## Introduction
 
-*Provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
 
 *Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
 
@@ -29,23 +29,23 @@
 
 ## Description
 
-*The challenge's details go here. This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goal*
-
-***This should NOT be step-by-step instructions but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it is likely you are not doing it right.***
+*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
 
 ***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
 
-*Optionally, you may provide resource files such as code snippets, templates, or sample application as learning aids for the students. These files are stored in the hack's \`Student/Resources\` folder. It is the coach's responsibility to package these resources up into a Resources.zip file and provide it to the students at the start of the hack.*
+***NOTE:** You may use Markdown sub-headers ("###" or "####") to organize key sections of your challenge description.*
+
+*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's \`Student/Resources\` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
 
 ***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
 
 *For example: "You can find a sample thingamajig.config file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach."*
 
-*As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on GitHub.*
+*As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
 
 *For example: "You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true)."*
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged during the review process by the WTH V-Team, including exceptions.*
+***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
 
 *For example:*
 
