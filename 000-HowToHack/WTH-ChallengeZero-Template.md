@@ -70,10 +70,10 @@ Please install these additional tools:
 In the \`/Challenge00/\` folder of the Resources.zip file, you will find an ARM template, \`setupIoTEnvironment.json\` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
 
 Please deploy the template by running the following Azure CLI commands from the location of the template file:
-\'\'\'
+\`\`\`
 az group create --name myIoT-rg --location eastus
 az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
-\'\'\'
+\`\`\`
 
 ## Success Criteria
 
