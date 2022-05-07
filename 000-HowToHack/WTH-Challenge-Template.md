@@ -1,7 +1,7 @@
 <!-- REMOVE_ME # Challenge ${suffixNumber} - <Title of Challenge> (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
-# Challenge XX - Title of Challenge Here
+# Challenge XX - Title of Challenge
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 <!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
@@ -11,7 +11,7 @@
 [< Previous Challenge](./Challenge-X-1.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-X+1.md)
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-*This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized text and replace with your content.*
+***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
 
 ## Pre-requisites (Optional)
 
@@ -25,7 +25,7 @@
 
 *For example:*
 
-*When setting up an IoT device, it is important to understand how 'thigamajigs' work. Thigamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thigamajigs  require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thigamajig and learn how one is configured.*
+When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs  require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
 
 ## Description
 
@@ -45,28 +45,31 @@
 
 *Sample challenge text for the IoT Hack Of The Century:*
 
-*In this challenge, you will properly configure the thigamajig for your IoT device so that it can communicate with the mother ship.*
+In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
 
+You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
-*You can find a sample thingamajig.config file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.*
-
-*Please configure the thigamajig with the following specifications:*
+Please configure the thingamajig with the following specifications:
 - Use dynamic IP addresses
 - Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
 - Deny access to "IoTProxyShip"
 
-*You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).*
+You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
 
 ## Success Criteria
 
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
+*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
+*The success criteria should not be a list of instructions.*
 
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
+*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
 
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+*Sample success criteria for the IoT sample challenge:*
 
+To complete this challenge successfully, you should be able to:
+- Verify that the IoT device boots properly after its thingamajig is configured.
+- Verify that the thingamajig can connect to the mothership.
+- Demonstrate that the thingamajic will not connect to the IoTProxyShip
 
 ## Learning Resources
 
