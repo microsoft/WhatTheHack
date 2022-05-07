@@ -1,25 +1,21 @@
-<!-- REMOVE_ME # Challenge ${suffixNumber} - Prerequisites - Ready, Set, GO! (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
-
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 # Challenge 00 - Prerequisites - Ready, Set, GO!
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 <!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
-<!-- If you are using this template manually, ensure the navigation link below is updated to link to next challenge relative to the current challenge. The "Home" link should always link to the homepage of the hack which is the README.md in the hack's parent directory. -->
+<!-- If you are using and editing this template manually, ensure the navigation link below is updated to link to next challenge relative to the current challenge. The "Home" link should always link to the homepage of the hack which is the README.md in the hack's parent directory. -->
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ***This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section.***
 
-***We have included some common What The Hack pre-reqs in this template. You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack.***
+***We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where the are more details on what each tool's purpose is.***
 
-***To simplify, you may remove the description text/section for each common pre-req and just leave the links to install if you choose.***
+***You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below.***
 
-***You should remove all italicized & sample text and replace with your content.***
+***You should remove all italicized & sample text in this template and replace with your content.***
 
-# Introduction
+## Introduction
 
 <!-- REMOVE_ME Thank you for participating in the ${nameOfChallengeArg} What The Hack. Before you can hack, you will need to set up some prerequisites. (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
@@ -27,164 +23,84 @@
 Thank you for participating in the IoT Hack of the Century What The Hack. Before you can hack, you will need to set up some prerequisites.
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-# Common Prerequisites
+## Common Prerequisites
 
-We have compiled a list of common tools and software that will come in handy to complete these Azure based hacks! 
+We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks! 
 
-You might not need all of them for the hack you are participating in.  However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
-- [Azure Subscription](#azure-subscription)
-- [Windows Subsystem for Linux](#windows-subsystem-for-linux)
-- [Managing Cloud Resources](#managing-cloud-resources)
-  - [Azure Portal](#azure-portal)
-  - [Azure CLI](#azure-cli)
-    - [Note for Windows Users](#note-for-windows-users)
-  - [Azure PowerShell CmdLets](/000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](#azure-cloud-shell)
-- [Visual Studio Code](#visual-studio-code)
-  - [Visual Studio Code plugins for ARM Templates](#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](#azure-storage-explorer)
+- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
+- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
+    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
+  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
+- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
-## Azure Subscription
+## Description
 
-You will need an Azure subscription to complete this hackathon. If you don't have one...
+*This section should clearly state any additional prerequisite tools that need to be installed, or set up in the Azure environment that the student will hack in.*
 
-[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+*While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack.*
 
-Our goal in the hackathon is limiting the cost of using Azure services. 
+*For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template.*
 
-If you've never used Azure, you will get:
-- $200 free credits for use for up to 30 days
-- 12 months of popular free services  (includes storage, Linux VMs)
-- Then there are services that are free up to a certain quota
+*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's \`Student/Resources\` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file.*
 
-Details can be found here on [free services](https://azure.microsoft.com/en-us/free/).
+***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
 
-If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroy services before end of the hackathon. You will still be able to use the free services (up to their quotas) like App Service, or Functions.
+***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
 
-## Windows Subsystem for Linux
+*Sample challenge zero text for the IoT Hack Of The Century:*
 
-The Windows Subsystem for Linux (WSL) lets developers run an entire Linux distribution -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the tools you're used to.
+Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-[Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+Please install these additional tools:
+- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
+- .NET Core SDK 2.1.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
-If you drive a Mac or Linux workstation, then you've already got Terminal access, carry on! :)
+In the \`/Challenge00/\` folder of the Resources.zip file, you will find an ARM template, \`setupIoTEnvironment.json\' that sets up the initial hack environment in Azure you will work with in subsequent challenges.
 
-## Managing Cloud Resources
+Please deploy the template by running the following Azure CLI commands from the location of the template file:
+\'\'\'
+az group create --name myIoT-rg --location eastus
+az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
+\'\'\'
 
-We can manage cloud resources via the following ways:
+## Success Criteria
 
-- Web Interface/Dashboard
-  - [Azure Portal](https://portal.azure.com/)
-- CLI
-  - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-  - [Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
-- CLI within Web Interface
-  - [Azure Cloud Shell (Bash)](https://shell.azure.com/bash)
-  - [Azure Cloud Shell (PowerShell)](https://shell.azure.com/powershell)
+*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
 
+*The success criteria should not be a list of instructions.*
 
-### Azure Portal
+*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
 
-Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console.
+*Sample success criteria for the IoT prerequisites challenge:*
 
-Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.com/](https://portal.azure.com/)
+To complete this challenge successfully, you should be able to:
+- Verify that you have a bash shell with the Azure CLI available.
+- Verify that the ARM template has deployed the following resources in Azure: 
+  - Azure IoT Hub
+  - Virtual Network
+  - Jumpbox VM
 
-The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal. 
+## Learning Resources
 
-### Azure CLI
+*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
 
-The Azure CLI is a cross-platform command-line tool providing a great experience for managing Azure resources. The CLI is designed to make scripting easy, query data in flexible ways, support long-running operations as non-blocking processes, and more. It is available on Windows, Mac, and Linux.
+*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
 
-The Azure CLI will be the preferred (and supported) approach for this event, so please install the Azure CLI on your workstation. If you are not able to install the Azure CLI, or are using a workstation that is not your own, you can use the Azure CLI in the browser via the Azure Cloud Shell from the Azure Portal.
+***Note:** Use descriptive text for each link instead of just URLs.*
 
-For Windows users, see the note below about how & where to install the Azure CLI!
+*Sample IoT resource links:*
 
-- [Install on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
-- [Install on macOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest)
-- Install on Linux or Windows Subsystem for Linux (WSL)
-  - [Install with apt on Debian or Ubuntu](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
-  - [Install with yum on RHEL, Fedora, or CentOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-yum?view=azure-cli-latest)
-  - [Install from script](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?view=azure-cli-latest)
-- [Run in Docker container](https://docs.microsoft.com/en-us/cli/azure/run-azure-cli-docker?view=azure-cli-latest)
+- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
+- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
 
-#### Note for Windows Users
-
-The Azure CLI can be installed locally on Windows. If you do this, you will access and use the Azure CLI from the Windows Command Prompt or PowerShell Console.
-
-While majority of the documentation should work fine locally on Windows, as you search the web for examples of how to use the Azure CLI, the examples frequently show Azure CLI commands used in Bash shell scripts. Bash shell scripts will not run in the Windows Command Prompt or PowerShell Console.
-
-For this reason, we recommend using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for interacting with the Azure CLI. This means you should install the Azure CLI within your WSL environment by following the instructions for the Linux distro you are using.
-
-Alternatively, you can use the [Azure Cloud Shell](https://shell.azure.com/bash). This is discussed shortly in the next section.
-
-### Azure PowerShell CmdLets
-
-Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. 
-
-[Install the Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
-
-The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and can be used to complete all of the challenges instead of the Azure CLI. 
-
-
-### Azure Cloud Shell
-
-The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you can use to run the Azure CLI or PowerShell Cmdlets needed to complete the hackathon challenges. It has common Azure tools pre-installed and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it.  There are a few ways to launch the Cloud Shell:
-
-
-|  |   |
-|-----------------------------------------------|---|
-| Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](images/try-it-button.png) |
-| Click the **Cloud Shell** button on the menu in the upper right of the [Azure portal](https://portal.azure.com). |	[![https://portal.azure.com/](images/portal-shell-button.png)](https://portal.azure.com/) |
-| Open Cloud Shell in your browser. |  [Open Cloud Shell in the browser](https://shell.azure.com/bash)|
-|  |  |
-
-
-**NOTE:** If you use the Azure CLI or PowerShell from the Azure Cloud Shell, you will need to copy the template files you will be creating and editing on your workstation during the hackathon to the Cloud Shell environment.
-
-
-## Visual Studio Code
-
-Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity).
-
-[Install Visual Studio Code](https://code.visualstudio.com/)
-
-VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows.
-
-### Visual Studio Code plugins for ARM Templates
-
-VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types.  There are two plugins available which we recommend for creating and editing ARM templates in VS Code.
-
-[ARM Tools Plugin](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-
-This extension provides language support for Azure Resource Manager deployment templates and template language expressions.  It adds syntax color-coding support and intellisense for editing ARM templates in VS Code.
-
-[ARM Snippets Plugin](https://marketplace.visualstudio.com/items?itemName=samcogan.arm-snippets)
-
-This extension adds snippets to Visual Studio Code for creating Azure Resource Manager Templates. These snippets are taken from the Cross Platform Tooling Samples. Snippets include:
-
-* Skeleton ARM Template
-* Windows and Linux Virtual Machines
-* Azure Web Apps
-* Azure SQL
-* Virtual Networks, Subnets and NSG's
-* Keyvault
-* Network Interfaces and IP's
-* Redis
-* Application Insights
-* DNS
-* Azure Container Instances
-* Inserting Snippets
-
-Inside any JSON file, start typing **`arm!`** to see a list of snippets availible. Select the snippet to insert and update any required values. This makes it VERY easy to quickly bang out the JSON syntax for many Azure resources within an ARM template.
-
-
-## Azure Storage Explorer
-
-Azure Storage Explorer is a cross-platform tool that lets you manage and access Azure Storage account resources in a GUI similar to Windows File Explorer or Finder on Mac.  Like VS Code, Azure Storage Explorer can be installed on Windows, Mac, or Linux.
-
-ARM templates and any resources they depend on (nested templates, script files, etc) need to be staged in a location where the Azure Resource Manager can access them via an HTTP endpoint. We will be using Azure Storage explorer during the hackathon to copy files to/from Azure Blob storage for staging purposes. 
-
-[Install Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
