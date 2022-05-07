@@ -1,6 +1,6 @@
 # Challenge 0: Pre-requisites - Ready, Set, GO!
 
-**[Home](./README.md)** - [Next Challenge >](./01-assessment.md)
+**[Home](./README.md)** - [Next Challenge >](./01-discovery.md)
 
 ## Coach tips
 
@@ -37,5 +37,7 @@ There are a lot of opportunities for things to go wrong in this step especially 
     
 * This hack can be done in an Azure trial account (one attendee per Azure trial). However, Microsoft anti-fraud detection may prevent multiple Azure trial subscriptions from being created in the same network location. Also, each attendee will need a working credit card to setup an Azure trial subscription (even though the card will not be charged).
 
+* Different database servers use different terminology. You may need to explain this to your attendees depending on their level of experience with the databases that are part of the hack. For example, in Oracle a database is a set of files while the schema is the set of objects (e.g., tables, constraints, indexes, etc.). 
 
+* For Microsoft internal subscriptions, it appears that MS IT is applying a default NSG to the AKS subnet. If you see this, you will have to add inbound rules to the NSG in order to connect to the AKS services (e.g., port 1521 and 3000 for Oracle, port 5432 for PostgreSQL, port 3306 for MySQL and the application's ports 8081-8083)
 
