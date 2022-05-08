@@ -110,20 +110,24 @@ All contributions to the What The Hack repo come through pull requests. This mea
 
 Okay, ready to get started creating your own What The Hack?
 
-We have a GitHub Action that automates the creation of a new hack and "scaffolds" out all of the Markdown templates from the [WTH Author's Guide](https://aka.ms/wthauthor) for you. After that, you can open your favorite text editor (VS Code :)) and start plugging in your content.
+We have a GitHub Action that automates the creation of a new hack and "scaffolds" out all of the Markdown templates from the [WTH Author's Guide](https://aka.ms/wthauthor) for you. After that, you can open your [favorite text editor](https://code.visualstudio.com) and start plugging in your content.
 
 The instructions below assume you have the [Git command line tool](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Visual Studio Code](https://code.visualstudio.com/) installed on your machine. 
 
 1. Create a fork of the WTH repo
-   - Navigate to the WTH repo at: <https://aka.ms/wthrepo>
+   - Navigate to the WTH repo at: [https://aka.ms/wthrepo](https://aka.ms/wthrepo)
    - Click the "Fork" button at the top right of the page and then choose the account you want to create the fork in. 
-1. Navigate to your fork of the WTH repo in the browser at: `https://github.com/<myGithubName>/WhatTheHack`
+1. Navigate to your fork of the WTH repo in the browser at: 
+    ```https://github.com/<myGithubName>/WhatTheHack```
 1. Click on the "Actions" tab at the top of the page and then select "Create new hack" from the list of "All Workflows" that appears on the left side of the screen.
 1. Click on the "Run workflow" dropdown that appears on the right side of the page and fill in the form that appears with:
     - The name of your hack. 
+    
     **NOTE:** Do not use spaces in your hack's name.
     - The number of challenges you would like your hack to have. 
+    
     **NOTE:** We recommend selecting a higher number of challenges than you actually plan to have as it is easier to remove extra challenges then add new ones manually later.
+    
     **NOTE:** Do NOT change the value of the "Run workflow from" field from the pre-selected "branch: master" 
 1. Click the green "Run Workflow" button on the form to kick off the GitHub Action. This process will take a couple of minutes to complete. The action will:
     - Create a new branch in your fork with the name of your hack prefixed with "xxx-". For example: `xxx-MyAwesomeHack`
