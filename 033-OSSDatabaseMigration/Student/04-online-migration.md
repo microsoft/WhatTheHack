@@ -1,6 +1,6 @@
-# Challenge 5: Online migration
+# Challenge 4: Online migration
 
-[< Previous Challenge](./04-offline-cutover-validation.md) - **[Home](../README.md)** - [Next Challenge >](./06-online-cutover-validation.md)
+[< Previous Challenge](./03-offline-cutover-validation.md) - **[Home](../README.md)** - [Next Challenge >](./05-online-cutover-validation.md)
 
 ## Introduction
 
@@ -11,6 +11,7 @@ In this challenge you will do a migration of the database by setting up a replic
 
 For PostgreSQL, you will use Azure Data Migration Serice Tool to do this. 
 For MySQL, you will not use Azure DMS and will use MySQL replication instead.
+Note: Online migration from Oracle to Azure DB for PostgreSQL is not supported.
 
 In an actual production environment on-premises, you would need to have connectivity to your source databases to Azure using either a Site To Site VPN or Azure ExpressRoute. To simplify the DMS experience, you can choose to deploy Azure DMS in the same VNet as the on-premises PostgreSQL database and the private IP address of the database container(s). Alternatively, you can create a separate virtual network for Azure DMS and then establish a VNet peering to the source databases' VNet. 
 
