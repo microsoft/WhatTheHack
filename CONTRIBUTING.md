@@ -121,12 +121,8 @@ The instructions below assume you have the [Git command line tool](https://git-s
     ```https://github.com/<myGithubName>/WhatTheHack```
 1. Click on the "Actions" tab at the top of the page and then select "Create new hack" from the list of "All Workflows" that appears on the left side of the screen.
 1. Click on the "Run workflow" dropdown that appears on the right side of the page and fill in the form that appears with:
-    - The name of your hack. 
-    
-    **NOTE:** Do not use spaces in your hack's name.
-    - The number of challenges you would like your hack to have. 
-    
-    **NOTE:** We recommend selecting a higher number of challenges than you actually plan to have as it is easier to remove extra challenges then add new ones manually later.
+    - The name of your hack. Do not use spaces in your hack's name.
+    - The number of challenges you would like your hack to have. We recommend selecting a higher number of challenges than you actually plan to have as it is easier to remove extra challenge templates then add new ones manually later.
     
     **NOTE:** Do NOT change the value of the "Run workflow from" field from the pre-selected "branch: master" 
 1. Click the green "Run Workflow" button on the form to kick off the GitHub Action. This process will take a couple of minutes to complete. The action will:
@@ -138,8 +134,10 @@ The instructions below assume you have the [Git command line tool](https://git-s
    git clone https://github.com/<myGitHubName>/WhatTheHack.git
    cd WhatTheHack
    ```
+   
    **NOTE:** Before running the `git clone` command, navigate to a folder location on your local workstation where you would like to clone it to.
-**WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, GoogleDrive, etc.
+   
+   **WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, GoogleDrive, etc.
 1. Switch to the new branch created by the 'Create new hack' GitHub Action. 
    ```
    git checkout xxx-MyAwesomeHack
