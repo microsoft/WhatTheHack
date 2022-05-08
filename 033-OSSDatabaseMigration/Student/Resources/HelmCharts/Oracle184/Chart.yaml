@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: Oracle Database Server
+
+description: A Helm chart for deploying a single node Oracle database server
+
+type: application
+
+version: 1.0
+
+appVersion: 18.4
