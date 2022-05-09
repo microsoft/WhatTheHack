@@ -1,4 +1,4 @@
-# Challenge 07 - Event Driven Notifications from SAP Business Events
+# Challenge 07 - Event-driven notifications from SAP business events
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 

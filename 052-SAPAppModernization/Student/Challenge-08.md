@@ -1,4 +1,4 @@
-# Challenge 08 - Azure Integration, Logic Apps and EAI
+# Challenge 08 - Azure integration, Logic Apps and EAI
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** 
 

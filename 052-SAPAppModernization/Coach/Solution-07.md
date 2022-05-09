@@ -1,4 +1,4 @@
-# Challenge 07 - SAPAppModernization - Coach's Guide 
+# Challenge 07 - Event-driven notifications from SAP business events - Coach's Guide 
 
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 

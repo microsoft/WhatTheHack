@@ -1,4 +1,4 @@
-# Challenge 06 - SAPAppModernization - Coach's Guide 
+# Challenge 06 - Self-service chatbot using data from SAP S/4 HANA system - Coach's Guide 
 
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 

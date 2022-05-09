@@ -1,4 +1,4 @@
-# Challenge 02 - .net web frontend with OpenAPI and OData via APIM
+# Challenge 02 - .NET Web frontend with OpenAPI and OData via APIM
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 

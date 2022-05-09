@@ -1,4 +1,4 @@
-# Challenge 01 - Rapid SAP Deployment
+# Challenge 01 - Rapid SAP deployment
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 

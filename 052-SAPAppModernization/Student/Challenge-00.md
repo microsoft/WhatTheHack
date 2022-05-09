@@ -1,4 +1,4 @@
-# Challenge 00 - Pre-requisites - Get Set for Success
+# Challenge 00 - Pre-requisites - get set for success
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 

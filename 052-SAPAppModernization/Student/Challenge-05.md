@@ -1,4 +1,4 @@
-# Challenge 05 - Private Link and Private Endpoint Communications for SAP
+# Challenge 05 - Private link and private endpoint communications for SAP
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 

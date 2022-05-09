@@ -7,23 +7,23 @@ Welcome to the coach's guide for the SAP App Modernization What The Hack. Here y
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
-- Challenge 00: **[Pre-requisites - Get Set for Success](./Solution-00.md)**
+- Challenge 00: **[Pre-requisites - get set for success](./Solution-00.md)**
 	 - Check that your team has followed the pre-requisites and are setup for success before we begin.
-- Challenge 01: **[Rapid SAP Deployment](./Solution-01.md)**
+- Challenge 01: **[Rapid SAP deployment](./Solution-01.md)**
 	 - Deploy a functional SAP S/4 HANA Instance via the SAP Cloud Appliance Library (CAL).
-- Challenge 02: **[.net web frontend with OpenAPI and OData via APIM](./Solution-02.md)**
+- Challenge 02: **[.NET Web frontend with OpenAPI and OData via APIM](./Solution-02.md)**
 	 - Connect a .net frontend application to your new SAP S/4 HANA Instance.
-- Challenge 03: **[Geode Pattern: Global Caching and Replication of SAP Source Data](./Solution-03.md)**
+- Challenge 03: **[Geode Pattern: Global Caching and replication of SAP source data](./Solution-03.md)**
 	 - Accelerate and offload SAP data via global data caches using CosmosDB and Azure FrontDoor.
-- Challenge 04: **[Azure AD Identity - Azure AD and SAP Principal Propagation](./Solution-04.md)**
+- Challenge 04: **[Azure AD Identity - Azure AD and SAP principal propagation](./Solution-04.md)**
 	 - Extend your corporate Azure Active Directory services into SAP for Authorization of your apps.
-- Challenge 05: **[Private Link and Private Endpoint Communications for SAP](./Solution-05.md)**
+- Challenge 05: **[Private link and private endpoint communications for SAP](./Solution-05.md)**
 	 - Deploy SAP Environments with no external attack surface inside your VNet.
 - Challenge 06: **[Self-service chatbot using data from SAP S/4 HANA system](./Solution-06.md)**
 	 - Adding AI to SAP Systems.
-- Challenge 07: **[Event Driven Notifications from SAP Business Events](./Solution-07.md)**
+- Challenge 07: **[Event-driven notifications from SAP business events](./Solution-07.md)**
 	 - Moving to an event-driven messaging service architecture to allow your business to be flexible.
-- Challenge 08: **[Azure Integration, Logic Apps and EAI](./Solution-08.md)**
+- Challenge 08: **[Azure integration, Logic Apps and EAI](./Solution-08.md)**
 	 - Classic integration with Logic Apps and the SAP Gateway solutions - invoke and run your SAP ABAP code remotely.
 
 ## Coach Prerequisites 

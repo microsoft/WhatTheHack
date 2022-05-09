@@ -1,4 +1,4 @@
-# Challenge 01 - Rapid SAP Deployment - Coach's Guide 
+# Challenge 01 - Rapid SAP deployment - Coach's Guide 
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 

@@ -18,34 +18,34 @@ You will then move on to building interactive applications and intelligent agent
 
 ### Setup and deploy an SAP Environment
 
-- Challenge 00: **[Pre-requisites - Get Set for Success](./Challenge-00.md)**
+- Challenge 00: **[Pre-requisites - get set for success](./Student/Challenge-00.md)**
 	 - Check that your team has followed the pre-requisites and are setup for success before we begin.
-- Challenge 01: **[Rapid SAP Deployment](./Challenge-01.md)**
+- Challenge 01: **[Rapid SAP deployment](./Student/Challenge-01.md)**
 	 - Deploy a functional SAP S/4 HANA Instance via the SAP Cloud Appliance Library (CAL).
 
 ### Connect an application to your SAP Environment and consume data
 
-- Challenge 02: **[.net web frontend with OpenAPI and OData via APIM](./Challenge-02.md)**
+- Challenge 02: **[.NET Web frontend with OpenAPI and OData via APIM](./Student/Challenge-02.md)**
 	 - Connect a .net frontend application to your new SAP S/4 HANA Instance.
-- Challenge 03: **[Geode Pattern: Global Caching and Replication of SAP Source Data](./Challenge-03.md)**
+- Challenge 03: **[Geode Pattern: Global Caching and replication of SAP source data](./Student/Challenge-03.md)**
 	 - Accelerate and offload SAP data via global data caches using CosmosDB and Azure FrontDoor.
 
 ### Apply common security and identity patterns to control and restrict access to your services
 
-- Challenge 04: **[Azure AD Identity - Azure AD and SAP Principal Propagation](./Challenge-04.md)**
+- Challenge 04: **[Azure AD Identity - Azure AD and SAP principal propagation](./Student/Challenge-04.md)**
 	 - Extend your corporate Azure Active Directory services into SAP for Authorization of your apps.
-- Challenge 05: **[Private Link and Private Endpoint Communications for SAP](./Challenge-05.md)**
+- Challenge 05: **[Private link and private endpoint communications for SAP](./Student/Challenge-05.md)**
 	 - Deploy SAP Environments with no external attack surface inside your VNet.
 
 ### Consume your SAP data and events to drive business outcomes from your applications
 
-- Challenge 06: **[Self-service chatbot using data from SAP S/4 HANA system](./Challenge-06.md)**
+- Challenge 06: **[Self-service chatbot using data from SAP S/4 HANA system](./Student/Challenge-06.md)**
 	 - Adding AI to SAP Systems.
-- Challenge 07: **[Event Driven Notifications from SAP Business Events](./Challenge-07.md)**
+- Challenge 07: **[Event-driven notifications from SAP business events](./Student/Challenge-07.md)**
 	 - Moving to an event-driven messaging service architecture to allow your business to be flexible.
 
 ### Flow data between SAP and third party systems over Azure Integration Services
-- Challenge 08: **[Azure Integration, Logic Apps and EAI](./Challenge-08.md)**
+- Challenge 08: **[Azure integration, Logic Apps and EAI](./Student/Challenge-08.md)**
 	 - Classic integration with Logic Apps and the SAP Gateway solutions - invoke and run your SAP ABAP code remotely.
 
 ## Repository Contents

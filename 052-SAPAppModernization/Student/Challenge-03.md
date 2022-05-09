@@ -1,4 +1,4 @@
-# Challenge 03 - Geode Pattern: Global Caching and Replication of SAP Source Data
+# Challenge 03 - Geode Pattern: Global Caching and replication of SAP source data
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 

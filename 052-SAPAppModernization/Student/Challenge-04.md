@@ -1,4 +1,4 @@
-# Challenge 04 - Azure AD Identity - Azure AD and SAP Principal Propagation
+# Challenge 04 - Azure AD Identity - Azure AD and SAP principal propagation
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 

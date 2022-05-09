@@ -1,4 +1,4 @@
-# Challenge 00 - Pre-requisites - Get Set for Success - Coach's Guide 
+# Challenge 00 - Pre-requisites - get set for success - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
