@@ -40,7 +40,11 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites (Optional)
 
-*Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment.*
+Check the following repos are available and accessible as the hack will be significantly accelerated by having these samples available.
+
+[Azure SAP OData Reader](https://github.com/MartinPankraz/AzureSAPODataReader)
+[Teams Chatbot and SAP Principal Propagation](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation)
+[Xbox Shipping](https://github.com/thzandvl/xbox-shipping)
 
 ## Azure Requirements
 

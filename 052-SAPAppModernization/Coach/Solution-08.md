@@ -3,4 +3,6 @@
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
-TBD
+- Biggest thing likely to go wrong is they miss [this step](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-using-sap-connector#multi-tenant-azure-prerequisites) and don't configure the host correctly. 
+
+- 
