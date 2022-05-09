@@ -1,7 +1,7 @@
-# What The Hack - IoT Hack of the Century - Coach Guide
+# What The Hack - DevOps with GitHub - Coach Guide
 
 ## Introduction
-Welcome to the coach's guide for the IoT Hack of the Century What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the DevOps with GitHub What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
@@ -45,16 +45,18 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Students will need access to a subscription or at minimum a resource group.  If the latter permissions are used, the group will need to ensure a student is either able to create a service principle or one will need to be generated in advance.
+- Azure resources that will be consumed by a student implementing the hack's challenges.
+	- Azure Container Registry
+	- Azure App Service
+- Students will need access to a subscription or at minimum a resource group.  If the students only have permissions to the resource group, the group will need to ensure a student is either able to create a service principle or one will need to be generated in advance.
 
 ## Repository Contents
 
-- \`./Coach\`
+- ./Coach
   - Coach's Guide and related files
-- \`./Coach/Solutions\`
+- ./Coach/Solutions
   - Solution files with completed example answers to a challenge
-- \`./Student\`
+- ./Student
   - Student's Challenge Guide
-- \`./Student/Resources\`
+- ./Student/Resources
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
