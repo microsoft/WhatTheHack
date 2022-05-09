@@ -9,7 +9,7 @@ In this challenge, you'll configure and connect up an ASP.NET core MVC applicati
 
 ## Description
 
-![Odata](Images/Challenge_OData_SAP_Architecture.png)
+![Odata](../images/apim-overview.png)
 
 At this point your SAP data will no longer be an island! There are a number of steps for you to perform.
 
