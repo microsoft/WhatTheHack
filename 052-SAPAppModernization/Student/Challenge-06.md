@@ -22,8 +22,8 @@ Your existing app service front end poses a nice interface into the SAP world. O
 | required dev environment setup | IDE of choice, build-environment (e.g. NPM), simulator, etc. | shipped with Composer studio | built into Microsoft Teams |
 
 ## Success Criteria
-- Functional message flow using the Bot simulator (actual deployment to Azure and Teams client cherry on the cake).
-- Parameterized SAP OData request and Response using a [Microsoft Adaptive Card](https://adaptivecards.io/).
+- You should have a fully functional message flow using the Bot simulator (actual deployment to Azure and Teams client are the cherry on the cake).
+- You should be able to fire a parameterized SAP OData request and your bot should be able to render the response using a [Microsoft Adaptive Card](https://adaptivecards.io/).
 - Optional: deploy your bot to Teams and see the SAP message flow in your client.
 
 ## Learning Resources

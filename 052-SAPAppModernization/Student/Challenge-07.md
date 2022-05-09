@@ -31,4 +31,3 @@ Be aware that SAP's materials for this integration pattern will always point tow
 - [ABAP Git to install ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure/blob/master/ABAP%20SDK%20for%20Azure%20-%20Github.md#heading--1-7)
 - [ABAP snippets for eventing](https://github.com/thzandvl/xbox-shipping/tree/main/ABAPCode)
 - [Hey SAP, where is my Xbox?](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
-- 

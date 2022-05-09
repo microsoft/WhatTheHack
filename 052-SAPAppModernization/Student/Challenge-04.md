@@ -17,7 +17,7 @@ Now you can propagate Azure Active Directory user principals into SAP S4 or ECC
 
 ## Success Criteria
 
-- Run an ASP.NET MVC Core app that can view and edit data in SAP S/4 HANA via RESTful OData calls, that have been secured and routed via an Azure API Management gateway, whilst your users have been authenticated via Azure Active Directory using OpenID Connect.
+- At the end of this hack you will have deployed and run an ASP.NET MVC Core app that can view and edit data in SAP S/4 HANA via RESTful OData calls, that have been secured and routed via an Azure API Management gateway, whilst your users have been authenticated via Azure Active Directory using OpenID Connect.
 
 ## Learning Resources
 
