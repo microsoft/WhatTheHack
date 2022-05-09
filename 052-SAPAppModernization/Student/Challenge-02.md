@@ -24,7 +24,7 @@ At this point your SAP data will no longer be an island! There are a number of s
 - Deploy an empty Azure Web Application into your subscription, again here you do not need to be concerned about network / vnet integration, but you would consider this model in a production-ready environment.
 
 - Configure the API Management instance to connect to your S/4HANA or SAP ECC services as detailed here. 
-	- [SAP Configuration] (https://github.com/MartinPankraz/AzureSAPODataReader#azure-api-management-config)
+	- [SAP Configuration](https://github.com/MartinPankraz/AzureSAPODataReader#azure-api-management-config)
 	- Hint, for now do not enable principal Propagation, - simply configure SAP Basic Auth for now - we will enable this in the APIM policy later in another challenge. But let's connect to the data first! 
 	
 ## Success Criteria
