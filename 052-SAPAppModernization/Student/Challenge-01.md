@@ -21,8 +21,8 @@ During the exercise, the Participants will be able to provision a landscape into
 - SAP Logon (Icon on Desktop) System S4H, Client 100, User bpinst, Password Welcome1.
 
 - Once logged in, verify that you can list data in the SAP System by:
- - Opening 'Tools > ABAP Workbench > Overview > SE16 Data Browser' from the Quick Access Menu
- - Entering Table Name SFLIGHT and pressing Enter, then press F8 to display the data in the SAP Flights Demo Table.
+   - Opening 'Tools > ABAP Workbench > Overview > SE16 Data Browser' from the Quick Access Menu
+   - Entering Table Name SFLIGHT and pressing Enter, then press F8 to display the data in the SAP Flights Demo Table.
  
 ## Success Criteria
 
