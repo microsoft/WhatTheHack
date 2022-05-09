@@ -1,67 +1,32 @@
-# Challenge 06 - SAPAppModernization
+# Challenge 06 - Self-service chatbot using data from SAP S/4 HANA system
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites (Optional)
-
-*Include any technical pre-requisites needed for this challenge.  Typically, it is completion of one or more of the previous challenges if there is a dependency.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus.**
-
-## Introduction (Optional)
-
-*Provide an overview of the technologies or tasks that will be needed to complete the next challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host may present a mini-lesson (with a PPT or video) to set up the context & introduction to the next topic.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
+## Introduction
+Your existing app service front end poses a nice interface into the SAP world. Often they get deployed or embedded into internal enterprise portals for discovery and governance purposes. In the Microsoft ecosystem there is no place better than the Microsoft Teams Client to achieve this. Speaking of Teams: You want to use natural language to query your SAP? Any interest? In this challenge you will implement a bot service that can leverage your existing infrastructure and process OData calls.
 
 ## Description
+- Familiarize yourself with this [repo](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation).
+- Setup your Azure Bot development environment (Note, you can use the Azure Bot Framework SDK, Azure Bot Composer, or even Power Virtual Agents if you prefer and it's available to you.)
+- You should think carefully about how your bot will connect to the SAP environment, since in the last challenge we made it private you have a couple of options.
+> - Consider moving your APIM instance from early challenges to "External" mode (this will present an External IP, but leave the APIM instance VNet integrated). 
+> - You could also front the Azure APIM instance with Azure Application Gateway (or even an NVA) and keep APIM "internal".
+> - Our recommendation for this challenge would be to deploy an SDK or Bot Composer bot to a VNet integrated App Service instance, that will allow you to call your private APIM instance. 
+> - For a Power Virtual Agents bot, you will have to either expose your APIM instance to the outside world, or deploy a Power Automation Flow that can connect to a Connector with a Data Gateway installed on your environment. We believe this is outside the scope of this article, but it is a completely valid approach.
 
-*The challenge description and details go here.  This should NOT be step-by-step but rather a simple stating of the technical goals of the challenge.  If this is more than 2-3 paragraphs, it's likely you are not doing it right.*
-
-*Optionally, you may provide learning resources and/or tips and code snippets in the sections below. These are meant  as learning aids for the attendees to help them complete the challenge and maintain momentum as they may fall behind the rest of their squad cohorts.*
-
-**Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+|| [Bot Framework SDK](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&tabs=csharp%2Cvs) | [Bot Framework Composer](https://docs.microsoft.com/en-us/composer/introduction?tabs=v2x) | [Power Virtual Agent (PVA)](https://docs.microsoft.com/en-us/power-virtual-agents/teams/fundamentals-what-is-power-virtual-agents-teams) |
+|----------|-------------|------|---|
+| coding style |  full-code | low-code | low-code |
+| programming language | C#, Java, NodeJS and Python | built-in designer with PowerFX scripting language | built-in designer with PowerFX scripting language |
+| complexity | high, but fully flexible | medium, more freedom than PVA but less than SDK | low |
+| required dev environment setup | IDE of choice, build-environment (e.g. NPM), simulator, etc. | shipped with Composer studio | built into Microsoft Teams |
 
 ## Success Criteria
-
-*Success criteria goes here. This is a list of things an coach can verfiy to prove the attendee has successfully completed the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-**- Vivamus venenatis accumsan neque non lacinia. Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia.**
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- Functional message flow using the Bot simulator (actual deployment to Azure and Teams client cherry on the cake).
+- Parameterized SAP OData request and Response using a [Microsoft Adaptive Card](https://adaptivecards.io/).
+- Optional: deploy your bot to Teams and see the SAP message flow in your client.
 
 ## Learning Resources
-
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-**- Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo.**
-
-## Tips (Optional)
-
-*Add tips and hints here to give students food for thought.*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit.**
-
-**- Fusce commodo nulla elit, vitae scelerisque lorem maximus eu.** 
-
-## Advanced Challenges (Optional)
-
-*Too comfortable?  Eager to do more?  Try these additional challenges!*
-
-**- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce commodo nulla elit, vitae scelerisque lorem maximus eu. Nulla vitae ante turpis. Etiam tincidunt venenatis mauris, ac volutpat augue rutrum sed. Vivamus dignissim est sed dolor luctus aliquet. Vestibulum cursus turpis nec finibus commodo. Vivamus venenatis accumsan neque non lacinia.**
-
-**- Sed maximus sodales varius. Proin eu nulla nunc. Proin scelerisque ipsum in massa tincidunt venenatis. Nulla eget interdum nunc, in vehicula risus. Etiam rutrum purus non eleifend lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis vestibulum risus. Maecenas eu eros sit amet ligula consectetur pellentesque vel quis nisi.**
+- [Hands-On Lab: Implementing a Node.JS client as Azure Bot and leveraging principal propagation between Azure and SAP Netweaver OData services](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation)
+- [Hands-On Lab: Combining the Microsoft-Graph and SAP-Graph in a Microsoft Teams and Azure Bot scenario](https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph)
+- [Alternative using Power Virtual Agent and on-prem components](https://blogs.sap.com/2021/04/13/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-business-technology-platform-btp-part-iv-sso-with-a-power-virtual-agent-chatbot-and-on-premises-data-gateway/)

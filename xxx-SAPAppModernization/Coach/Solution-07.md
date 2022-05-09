@@ -3,15 +3,12 @@
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
 ## Notes & Guidance
-This is the only section you need to include.
+TBD 
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-- Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
+### Activity 1: Event Grid
 
-Break things apart with more than one bullet list
-- Like this 
-- One
-- Right
-- Here
+### Activity 2: Service Bus
+ 
+### Activity 3: SAPIO
+
+### Activity 4: Azure Notification Services
