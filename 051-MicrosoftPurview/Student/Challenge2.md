@@ -18,7 +18,7 @@ We will continue scanning more data sources. In this challenge we will scan in t
 - Register an Microsoft Purview Account to a Synapse workspace. Explore how to discover Purview assets from Azure Synapse workspace and interact with them using Synapse capabilities
 
 ## Learning Resources
-- https://docs.microsoft.com/en-us/azure/purview/register-scan-synapse-workspace
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-scanning
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview
-- https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview
+- (Connect to and manage Azure Synapse Analytics workspaces in Microsoft Purview)[https://docs.microsoft.com/en-us/azure/purview/register-scan-synapse-workspace)
+- [Microsoft Purview scanning best practices](https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-scanning)
+- [QuickStart: Connect a Synapse workspace to a Microsoft Purview account](https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview)
+- [Discover, connect, and explore data in Synapse using Microsoft Purview](https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview)

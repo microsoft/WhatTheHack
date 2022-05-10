@@ -15,5 +15,5 @@ Fabrikam team is very happy with current Microsoft Purview deployment. Yet, ther
 - Show the linage between assets (Customers, Orders and Reporting tables). 
 
 ## Learning Resources
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-automation
-- https://github.com/wjohnson/pyapacheatlas
+- [Microsoft Purview automation best practices](https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-automation)
+- [pypacheatlas](https://github.com/wjohnson/pyapacheatlas)

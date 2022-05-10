@@ -1,4 +1,4 @@
-# Solution 6: Data lineage - Coach Guide
+# Challenge 6: Data lineage - Coach Guide
 
 [< Previous Solution](./Solution5.md) - [Home](./README.md) - [Next Solution >](./Solution7.md)
 

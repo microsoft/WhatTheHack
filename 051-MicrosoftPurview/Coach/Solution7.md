@@ -1,4 +1,4 @@
-# Solution 7: Data insights - Coach Guide
+# Challenge 7: Data insights - Coach Guide
 
 [< Previous Solution](./Solution6.md) - [Home](./README.md) - [Next Solution >](./Solution8.md)
 

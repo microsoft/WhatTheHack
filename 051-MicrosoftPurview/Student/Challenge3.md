@@ -1,4 +1,4 @@
-# Challenge 3: Scan a on-premise SQL Server
+# Challenge 3: Scan an On-Prem SQL Server
 
 [< Previous Challenge](./Challenge2.md) - [Home](../README.md) - [Next Challenge >](./Challenge4.md)
 
@@ -6,7 +6,7 @@
 As part of scanning data sources, in this challenge we will scan an on-prem SQL Server. Fabrikam's has its Finance data on the on-prem SQL Server which we will scan as part of this challenge.
 
 ## Description
-In this challenge, you need to first restore database to your SQL Server. The backup will be found here - https://stpurviewfasthack.blob.core.windows.net/purviewfasthack. Then, register on-premise SQL Server under a collection that is accessible to the Finanse users and scan it.
+In this challenge, you need to first restore database to your SQL Server. The backup will be found here - https://stpurviewfasthack.blob.core.windows.net/purviewfasthack. Then, register on-premise SQL Server under a collection that is accessible to the Finance users and scan it.
 
 
 ## Success Criteria
@@ -14,5 +14,5 @@ In this challenge, you need to first restore database to your SQL Server. The ba
 - Ensure the search results are accessible only for the users that belong to the Finance group.
 
 ## Learning Resources
-- https://docs.microsoft.com/en-us/azure/purview/register-scan-on-premises-sql-server
-- https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-scanning
+- [Connect to and manage an on-premises SQL server instance in Microsoft Purview](https://docs.microsoft.com/en-us/azure/purview/register-scan-on-premises-sql-server)
+- [Microsoft Purview scanning best practices](https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-scanning)

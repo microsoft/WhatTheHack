@@ -1,4 +1,4 @@
-# Solution 4: Create custom classifications - Coach Guide 
+# Challenge 4: Create custom classifications - Coach Guide 
 
 [< Previous Solution](./Solution3.md) - [Home](./README.md) - [Next Solution >](./Solution5.md)
 

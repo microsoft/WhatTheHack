@@ -1,4 +1,4 @@
-# Solution 0: Pre-requisites - Setup - Coach Guide
+# Challenge 0: Pre-requisites - Setup - Coach Guide
 
 [Home](./README.md) - [Next Solution >](./Solution1.md)
 
