@@ -4,7 +4,7 @@
 
 This hack is designed to help build skills in connecting other Azure services to SAP instances hosted on the Microsoft Azure platform. Connecting services to SAP systems hosted either on-premises or in the cloud should not be overly difficult, yet often the correct tools and processes are poorly understood and / or documented.
 
-Following on from 042-SAPOnAzure, many SAP S/4 HANA or ECC customers wish to use Azure to build build applications and integrations that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. 
+Following on from the SAP Infrastructure Hack [SAP On Azure](https://github.com/microsoft/WhatTheHack/042-SAPOnAzure/README.md), many SAP S/4 HANA or ECC customers wish to use Azure to build build applications and integrations that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. Note that the other SAP On Azure hack listed above is not mandatory to run before this Application Development Hack, they can stand alone or be run one after the other. 
 
 ## Learning Objectives
 
@@ -47,12 +47,6 @@ You will then move on to building interactive applications and intelligent agent
 ### Flow data between SAP and third party systems over Azure Integration Services
 - Challenge 08: **[Azure integration, Logic Apps and EAI](./Student/Challenge-08.md)**
 	 - Classic integration with Logic Apps and the SAP Gateway solutions - invoke and run your SAP ABAP code remotely.
-
-## Repository Contents
-- `../Student`
-  - Student Challenge Guides
-- `../Student/Resources`
-  - Student's resource files, code, and templates to aid with challenges
 
 ## Prerequisites
 - Your own Azure subscription with Owner access

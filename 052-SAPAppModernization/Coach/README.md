@@ -38,13 +38,13 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.  
 
-### Additional Coach Prerequisites (Optional)
+### Additional Coach Prerequisites
 
 Check the following repos are available and accessible as the hack will be significantly accelerated by having these samples available.
 
-[Azure SAP OData Reader](https://github.com/MartinPankraz/AzureSAPODataReader)
-[Teams Chatbot and SAP Principal Propagation](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation)
-[Xbox Shipping](https://github.com/thzandvl/xbox-shipping)
+- [Azure SAP OData Reader](https://github.com/MartinPankraz/AzureSAPODataReader)
+- [Teams Chatbot and SAP Principal Propagation](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation)
+- [Xbox Shipping](https://github.com/thzandvl/xbox-shipping)
 
 ## Azure Requirements
 
