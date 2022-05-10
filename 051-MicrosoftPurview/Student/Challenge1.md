@@ -8,7 +8,7 @@ Empty Purview instance doesn't bring much value. The whole magic starts when you
 ## Description
 Now that we have successfully setup Microsoft Purview we need to start scanning the data sources into Microsoft Purview to create the Data Map and the Data Catalog. In this challenge you will start with scanning Fabrikam's Data Lake Store to ingest the metadata successfully by performing a full scan, review the scan results, setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the Data Lake. 
 
-Sample data files for your Data Lake can be found here: https://stpurviewfasthack.blob.core.windows.net/purviewfasthack
+Sample data files for your Data Lake can be found here: https://wthpurview.blob.core.windows.net/wthpurview
 
 ## Success Criteria
 - Data Lake store registered under a collection that is accessible to all users.
