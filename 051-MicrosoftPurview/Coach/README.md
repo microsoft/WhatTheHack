@@ -75,3 +75,5 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
   - Additional files for Coach which can help solve challenges
 - `./Student`
   - Student's Challenge Guide
+- `./Student/Resources`
+  - Additional files for students which can help setup the environment
