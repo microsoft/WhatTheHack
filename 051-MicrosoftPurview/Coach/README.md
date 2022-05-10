@@ -4,8 +4,6 @@
 
 Welcome to the coach's guide for the Data Governance with Microsoft Purview What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional lecture presentation that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
-
 NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides 
@@ -71,11 +69,9 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 
 ## Repository Contents
 
-- \`./Coach\`
+- `./Coach`
   - Coach's Guide and related files
-- \`./Coach/Resources\`
+- `./Coach/Solutions`
   - Additional files for Coach which can help solve challenges
-- \`./Student\`
+- `./Student`
   - Student's Challenge Guide
-
-
