@@ -131,7 +131,7 @@ The instructions below assume you have the [Git command line tool](https://git-s
     - Create templated markdown files in the new folder for your hack as per the [WTH Author's Guide](https://aka.ms/wthauthor).
 1. When the GitHub Action has completed running, clone your new fork to your local machine.
     - Open a command prompt with access to the Git CLI and navigate to a folder location on your local workstation where you would like to clone it to.
-    - **WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, GoogleDrive, etc.
+    - **WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, Google Drive, etc.
     - Run the `git clone` command as shown below, then navigate to the `WhatTheHack` folder that is created afterward.
    ```
    git clone https://github.com/<myGitHubName>/WhatTheHack.git
