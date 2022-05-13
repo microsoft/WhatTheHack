@@ -108,6 +108,13 @@
           "description": "Boolean flag to turn on and off of RBAC."
         }
       },
+      "enableAutoScaling": {
+        "type": "bool",
+        "defaultValue": true,
+        "metadata": {
+          "description": "Boolean flag to turn on and off of cluster autoscaling."
+        }
+      },
       "enablePrivateCluster": {
         "type": "bool",
         "defaultValue": false,
@@ -259,7 +266,10 @@
               "type": "VirtualMachineScaleSets",
               "mode": "User",
               "vnetSubnetID": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
-              "maxPods": "[parameters('maxPods')]"
+              "maxPods": "[parameters('maxPods')]",
+              "enableAutoScaling": "[parameters('enableAutoScaling')]",
+              "minCount": 1,
+              "maxCount": 5
             }
           ],
           "networkProfile": {

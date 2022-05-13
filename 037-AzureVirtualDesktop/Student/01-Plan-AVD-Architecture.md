@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This Challenge is to design the AVD architecture that will be deployed in later challenges.  By the end of this session you should have have a plan for the host pools, session hosts, profile storage and client deployment.  
+This Challenge is to design the AVD architecture that will be deployed in later challenges.  By the end of this session you should have a plan for the host pools, session hosts, profile storage and client deployment.  
 
 You should also have considered all aspects of security in this design including GPO, identity, and RBAC.
 

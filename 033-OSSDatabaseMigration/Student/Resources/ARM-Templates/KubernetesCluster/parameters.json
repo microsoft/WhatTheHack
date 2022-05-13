@@ -23,6 +23,10 @@
       "systemPoolNodeType": {
         "value": "Standard_D2s_v4"
       },
+      "enableAutoScaling": {
+        "value": true
+      },
+
       "agentPoolNodeCount": {
         "value": 1
       },
@@ -36,7 +40,7 @@
         "value": "ossdbmigration-dns"
       },
       "kubernetesVersion": {
-        "value": "1.19.11"
+        "value": "1.22.6"
       },
       "networkPlugin": {
         "value": "azure"
