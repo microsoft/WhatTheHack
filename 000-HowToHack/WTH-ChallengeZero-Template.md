@@ -9,7 +9,7 @@
 
 ***This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section.***
 
-***We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where the are more details on what each tool's purpose is.***
+***We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is.***
 
 ***You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below.***
 
@@ -45,7 +45,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-*This section should clearly state any additional prerequisite tools that need to be installed, or set up in the Azure environment that the student will hack in.*
+*This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in.*
 
 *While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack.*
 
@@ -53,7 +53,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 *Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's \`Student/Resources\` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file.*
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resources.zip file provided by the coach.*
 
 ***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
 
@@ -65,7 +65,7 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 
 Please install these additional tools:
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET Core SDK 2.1.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
+- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
 In the \`/Challenge00/\` folder of the Resources.zip file, you will find an ARM template, \`setupIoTEnvironment.json\` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
 
