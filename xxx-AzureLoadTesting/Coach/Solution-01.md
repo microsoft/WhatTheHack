@@ -1,4 +1,4 @@
-# Challenge 01 - AzureLoadTesting - Coach's Guide 
+# Challenge 01 - Azure Load Testing - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
@@ -7,10 +7,10 @@
 
 
 - Define what services and the scope of your testing - Requirements
-    - We will be simulating an average day where a user hits our website during normal business hours 8 - 5 PM.  We will be testing all 3 endpoints (Get/Add/lasttimestamp) to ensure all features are tested.  
+    - We will be simulating an average day when a user hits our website during normal business hours 8 - 5 PM.  We will be testing all 3 endpoints (Get/Add/lasttimestamp) to ensure all features are tested.  
 
 - Environment Requirements
-    - Since we are testing the user  we will need the following resources at the same level as production.
+    - Since we are testing the user we will need the following resources at the same level as production.
         - App Service
         - Cosmos DB
 
@@ -33,4 +33,4 @@
     - We are using consumption based model for Azure App Services
     - Application is not caching any data and always makes calls to Cosmos DB
 
-- Reenforce the importance of using existing metrics/usage patterns/data to inform the load testing own their own application.
+- Reinforce the importance of using existing metrics/usage patterns/data to inform the load testing own their own application.

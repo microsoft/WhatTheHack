@@ -9,7 +9,7 @@
 
 In this challenge you will create the Load Testing service in Azure and use the load testing scripts you created in our last challenge to run baseline tests.
 
-Baselines help to determine the current efficiency state of your application and its supporting infrastructure. Baselines can provide good insights for improvements and determine if the application is meeting business goals. Baselines can be created for any application regardless of its maturity. No matter when you establish the baseline, measure performance against that baseline during continued development. When code and, or infrastructure changes, the effect on performance can be actively measured.
+Baselines help to determine the current efficiency state of your application and its supporting infrastructure. They can provide good insights for improvements and determine if the application is meeting business goals. Lastly, they can be created for any application regardless of its maturity. No matter when you establish the baseline, measure performance against that baseline during continued development. When code and, or infrastructure changes, the effect on performance can be actively measured.
 
 ## Description
 

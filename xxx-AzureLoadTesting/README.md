@@ -24,7 +24,7 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 	 - Reviewing load test results and identifying bottlenecks
 1. Challenge 06: **[Stress Testing](Student/Challenge-06.md)**
 	 - How to perform stress tests and observing your application behavior
-1. Challenge 07: **[ Load Testing During Chaos Experiment](Student/Challenge-07.md)**
+1. Challenge 07: **[Load Testing During Chaos Experiment](Student/Challenge-07.md)**
 	 - Incorporating load testing and chaos experiments together
 
 ## Prerequisites

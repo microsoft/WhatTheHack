@@ -4,7 +4,7 @@
 
 ## Introduction
 
-When some people think of load testing, the first thought that comes to mind is pointing a tool at your site and cranking the load to the max and see what happens.  While that might be exciting in the moment, it’s critical to take a step back and develop a load testing strategy that is tailored to the application. This means breaking down the architecture, internal/external dependencies, high availability design, scaling and the data tier.  Having a plan not only helps you prepare while you are testing the application but also provides context as to why and how you are testing the application for anyone in the future.  
+When some people think of load testing, the first thought that comes to mind is pointing a tool at your site and cranking the load to the max and see what happens.  While that might be exciting at the moment, it’s critical to take a step back and develop a load testing strategy that is tailored to the application. This means breaking down the architecture, internal/external dependencies, high availability design, scaling and the data tier.  Having a plan not only helps you prepare while you are testing the application but also provides context as to why and how you are testing the application for anyone in the future.  
 
 ## Description
 
@@ -25,7 +25,7 @@ The sample app is a single page web application that displays the number of time
 - (Post) Add - Updates the database with the number of visitors.  You will need to pass the number of visits to increment.
 - (Get) lasttimestamp - Updates the time stamp since this was accessed.
 
-This is deployed on app service with cosmos db as the database.
+This is deployed on App Service with Cosmos DB as the database.
 ## Success Criteria
 
 - Present your comprehensive load testing plan - paying special attention to how the load test will ‘touch’ the various application and components.

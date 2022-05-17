@@ -1,22 +1,22 @@
-# What The Hack - AzureLoadTesting - Coach Guide
+# What The Hack - Azure Load Testing - Coach Guide
 
 ## Introduction
-Welcome to the coach's guide for the AzureLoadTesting What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Azure Load Testing What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-Also remember that this hack includes a optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
-1. Challenge 01: **[Description of challenge](./Solution-01.md)**
-	 - Description of challenge
-1. Challenge 02: **[Description of challenge](./Solution-02.md)**
-	 - Description of challenge
-1. Challenge 03: **[Description of challenge](./Solution-03.md)**
-	 - Description of challenge
-1. Challenge 04: **[Description of challenge](./Solution-04.md)**
-	 - Description of challenge
-1. Challenge 05: **[Description of challenge](./Solution-05.md)**
-	 - Description of challenge
-1. Challenge 06: **[Description of challenge](./Solution-06.md)**
-	 - Description of challenge
-1. Challenge 07: **[Description of challenge](./Solution-07.md)**
-	 - Description of challenge
+1. Challenge 01: **[Develop a Load Testing Strategy](./Solution-01.md)**
+	 - How to develop a load testing strategy for your application
+1. Challenge 02: **[Deploy Sample App & Create Load Testing Script](./Solution-02.md)**
+	 - Deploy a sample application and create JMeter scripts to support your load testing strategy
+1. Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](./Solution-03.md)**
+	 - Create Azure Load Testing Service and learn techniques on how to establish baselines for your application
+1. Challenge 04: **[Enable Automated Load Testing (CI/CD)](./Solution-04.md)**
+	 - Incorporating load testing into your CI/CD Pipeline
+1. Challenge 05: **[Identify & Remediate Bottlenecks](./Solution-05.md)**
+	 - Reviewing load test results and identifying bottlenecks
+1. Challenge 06: **[Stress Testing](./Solution-06.md)**
+	 - How to perform stress tests and observing your application behavior
+1. Challenge 07: **[Load Testing During Chaos Experiment](./Solution-07.md)**
+	 - Incorporating load testing and chaos experiments together

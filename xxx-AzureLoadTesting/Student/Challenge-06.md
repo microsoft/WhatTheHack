@@ -11,7 +11,7 @@ Unlike load testing, which ensures that a system can handle what it's designed t
 
 - Create a new set of test scripts or parameters and run a stress test
 - Identify the bottlenecks and breakpoints of the application under stress
-- Decide whether to add the steps needed to remediate to the backlog #devops
+- Decide whether to add the steps needed to remediate to the backlog #DevOps
 
 ## Success Criteria
 

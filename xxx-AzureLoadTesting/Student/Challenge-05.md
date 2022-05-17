@@ -4,7 +4,7 @@
 
 ## Introduction
 
-From our last challenge we should now have load tests running against your environment!  While our load tests are automated now, we need to make sure we review the tests to see if we can identify any bottlenecks or changes in behavior.  From there we can share our findings and work towards remediating the issues.  If your application is hosted in Azure, you can leverage some of the synergy Azure Load Testing has with the other cloud services. 
+From our last challenge we should now have load tests running against your environment!  While our load tests are automated now, we need to make sure we review the tests to see if we can identify any bottlenecks or changes in behavior.  From there we can share our findings and work towards remediating the issues.  If your application is hosted in Azure, you can leverage some synergy Azure Load Testing has with the other cloud services. 
 
 ## Description
 
