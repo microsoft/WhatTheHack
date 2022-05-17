@@ -34,13 +34,6 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 - [Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html) installed on your local machine or in a VM to create your load testing script.
 - [Azure Cloud Shell](https://shell.azure.com) or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-## Repository Contents (Optional)
-- `./Coach/Guides`
-  - Coach's Guide and related files
-- `./images`
-  - Generic image files needed
-- `./Student/Guides`
-  - Student's Challenge Guide
 
 ## Contributors
 - Kevin M. Gates
