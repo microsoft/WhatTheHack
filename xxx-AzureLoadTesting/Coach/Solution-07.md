@@ -22,7 +22,7 @@
     - Select "CosmosDB Failover" as the Fault.  You can choose the duration but 2-3 mins should be enough.  Finally enter the region that your instance is paired with in the "readRegion" section.
     - Save your experiment.
 - Update CosmosDB Permissions
-    - In CosmodDB select "Access Control"
+    - In CosmoDB select "Access Control"
     - Select "Add" followed by "Add Role Assignment"
     - Select the CosmosDBOperator role, then click "Select members".
     - Search the name of the experiment from the earlier step and then click "Select".

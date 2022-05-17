@@ -7,7 +7,7 @@
 
 
 - Define what services and the scope of your testing - Requirements
-    - We will be simulatin an average day where a user hits our website during normal business hours 8 - 5 PM.  We will be testing all 3 endpoints (Get/Add/lasttimestamp) to ensure all features are tested.  
+    - We will be simulating an average day where a user hits our website during normal business hours 8 - 5 PM.  We will be testing all 3 endpoints (Get/Add/lasttimestamp) to ensure all features are tested.  
 
 - Environment Requirements
     - Since we are testing the user  we will need the following resources at the same level as production.

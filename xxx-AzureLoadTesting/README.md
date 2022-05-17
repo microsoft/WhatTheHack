@@ -28,7 +28,7 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 	 - Incorporating load testing and chaos experiments together
 
 ## Prerequisites
-- Familiarality with the fundamentals of load testing.
+- Familiarity with the fundamentals of load testing.
 - Azure subscription for creating the Load Testing service and running the sample application.
 - GitHub or Azure DevOps to automate load testing in your CI/CD pipelines.
 - [Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html) installed on your local machine or in a VM to create your load testing script.

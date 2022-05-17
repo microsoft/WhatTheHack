@@ -8,7 +8,7 @@ From our last challenge we should now have load tests running against your envir
 
 ## Description
 
-Review your load test results to see where there are potential bottlenecks in your application.  If needed, perform additional tests with different settings to help identiy any bottlenecks.  Once you have identified one or more bottlnecks, see how you could resolve the bottleneck and show that the fix resolved the issue.
+Review your load test results to see where there are potential bottlenecks in your application.  If needed, perform additional tests with different settings to help identity any bottlenecks.  Once you have identified one or more bottlenecks, see how you could resolve the bottleneck and show that the fix resolved the issue.
 
 ## Success Criteria
 

@@ -1,7 +1,6 @@
 # Challenge 02 - AzureLoadTesting - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
-
 ## Notes & Guidance
 
 - Install the sample app [GitHub Link](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck) (Copying instructions from GitHub)

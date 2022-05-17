@@ -29,4 +29,4 @@
 - Set Pass/Fail Criteria
     - Go back to your load test and select "Configure" followed by "Test"
     - Go to the "Test Criteria" Tab.
-    - Enter in your test criterias such as failure rate under x %
+    - Enter in your test criteria such as failure rate under x %

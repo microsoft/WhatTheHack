@@ -7,6 +7,6 @@ Sample solution files can be found in the coaches resources folder.
 
 High level
 
-- There is a sample action which will run a load test.  The default action will either create or run the existing load test.  It is case sensitive and the github action looks like it lowercases all the tests.
-- GitHub will require anothe action to create issues while ADO has a built in functionality to do this.
+- There is a sample action which will run a load test.  The default action will either create or run the existing load test.  It is case sensitive and the github action looks like it lowercase all the tests.
+- GitHub will require another action to create issues while ADO has a built in functionality to do this.
 - Students can use the baseline from their first run in challenge 3 to determine what their pass/fail criteria is.
