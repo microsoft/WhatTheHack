@@ -84,19 +84,21 @@ If you are the first one to start a review on a PR, you will see the following o
     ![PR In-line Comments](./images/wth-pr-inlinecomments.png "PR In-line Comments")
     1. Start a review from the “Review Changes” button at the top of the “Files Changed” tab.  If you are not requesting any changes or just want to leave a single comment, you would start (and finish) the review this way.
     ![PR Review Changes Button](./images/wth-pr-reviewchangesbutton.png "PR Review Changes Button")
-1.	Do your review!  Follow the guidelines from the WTH Author’s guide for help and be on the look out for the common issues:
-1.	Folder Structure/File organization/Navigation links/etc
-2.	Links from Student guide to the WTH repo
-3.	Grammar/spelling/template consistency
-7.	When you are done making in-line comments or you if want to make a only single comment, click the “Review Changes” button at the top of the “Files Changed” tab.  You need to select one of the three options: Comment, Approve, or Request Changes.   
-1.	If you choose “Comment”, your comment will be added to the conversation tab of the PR, but the review will not be completed.
-2.	If you choose “Request Changes”, you are indicating that the PR can NOT be merged UNTIL the author takes an action to make the change you requested.  The author should be notified automatically by GitHub. However, it’s a good practice to reach out to the author on Teams or email to let them know it is their action to implement the change(s) you requested.
-3.	If you choose “Approve”, this does NOT merge/publish the PR into the WTH repo.  This only indicates that as a reviewer, YOU “approve” the changes.  It takes TWO reviewers to APPROVE before the “Merge pull request” button lights up green.  Thus, if you are the first reviewer, you will not be able to merge the PR.  
-8.	Once you have completed your initial review, reach out to the second reviewer to make sure they know to complete their review.
+1.	Do your review!  Follow the guidelines from the [WTH Author’s Guide](https://aka.ms/wthauthor) for help and be on the look out for the common issues:
+    1.	Folder Structure/File organization/Navigation links/etc
+    1.	Links from Student guide to the WTH repo
+    1.	Grammar/spelling/template consistency
+1.	When you are done making in-line comments or you if want to make a only single comment, click the “Review Changes” button at the top of the “Files Changed” tab.  You need to select one of the three options: Comment, Approve, or Request Changes. 
+![PR Comment Approve or Request Changes](./images/wth-pr-comment-approve-changes.png "PR Comment Approve or Request Changes")  
+    1.	If you choose “Comment”, your comment will be added to the conversation tab of the PR, but the review will not be completed.
+    1.	If you choose “Request Changes”, you are indicating that the PR can NOT be merged UNTIL the author takes an action to make the change you requested.  The author should be notified automatically by GitHub. However, it’s a good practice to reach out to the author on Teams or email to let them know it is their action to implement the change(s) you requested.
+    1.	If you choose “Approve”, this does NOT merge/publish the PR into the WTH repo.  This only indicates that as a reviewer, YOU “approve” the changes.  It takes TWO reviewers to APPROVE before the “Merge pull request” button lights up green.  Thus, if you are the first reviewer, you will not be able to merge the PR.  
+    ![PR With A Single Approval](./images/wth-pr-singleapproval.png "PR With a Single Approval") 
+1.	Once you have completed your initial review, reach out to the second reviewer to make sure they know to complete their review.
 
-If the second (or any other) reviewer has requested changes, it is the responsibility of the assigned owner of the PR to reach out to the author(s) to let them know it is their action to make the changes requested by the second (or any other) reviewer.
+    If the second (or any other) reviewer has requested changes, it is the responsibility of the assigned owner of the PR to reach out to the author(s) to let them know it is their action to make the changes requested by the second (or any other) reviewer.
 
-NOTE: If the PR has a lof of changes, it is a good practice for the assigned PR owner to coordinate with all reviewers to let them have a chance to review and request changes before reaching out to the author(s) to let the author(s) know they have an action.
-9.	The steps above shall be repeated until all reviewers have “approved” the changes. When all reviews are complete and “approved’, the “Merge pull request” button will light up green, and it’s up to either reviewer to have the honor of mashing the big green button! 😊
+    **NOTE:** If the PR has a lof of changes, it is a good practice for the assigned PR owner to coordinate with all reviewers to let them have a chance to review and request changes before reaching out to the author(s) to let the author(s) know they have an action.
+1.	The steps above shall be repeated until all reviewers have “approved” the changes. When all reviews are complete and “approved’, the “Merge pull request” button will light up green, and it’s up to assigned PR owner to have the honor of mashing the big green button! 😊
 
-At this point, the PR is “closed” and the assigned task is complete.
+    At this point, the PR is “closed” and the assigned task is complete.
