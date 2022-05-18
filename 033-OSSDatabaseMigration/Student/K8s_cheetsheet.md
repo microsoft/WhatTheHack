@@ -6,7 +6,7 @@
 az aks get-credentials --name ossdbmigration --resource-group OSSDBMigration
 ```
 
-### Display  all the nodes
+### Display all the nodes
 
 ```
 kubectl get nodes
@@ -32,6 +32,12 @@ kubectl -n postgresql get svc
 kubectl -n postgresql get pods
 ```
 
+### List the services and the pods for Oracle
+
+```
+kubectl -n oracle get svc
+kubectl -n oracle get pods
+```
 
 ### List the services and the pods for the Pizzeria application on MySQL
 
@@ -47,11 +53,19 @@ kubectl -n contosoapppostgres get svc
 kubectl -n contosoapppostgres get pods
 ```
 
-### Connect to the MySQL and PostgreSQL database
+### List the services and the pods for the Pizzeria application on Oracle
+
+```
+kubectl -n contosoapporacle get svc
+kubectl -n contosoapporacle get pods
+```
+
+### Connect to the MySQL, Oracle, and PostgreSQL database
 
 ```
 kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u contosoapp -pOCPHack8
 kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U contosoapp postgres
+kubectl -n oracle exec deploy/oracle -it -- /opt/oracle/product/18c/dbhomeXE/bin/sqlplus C##WTH@XE/<password>
 ```
 
 
@@ -63,6 +77,11 @@ kubectl -n mysql exec deploy/mysql -it -- bash
 ### Open a Bash shell to the PostgreSQL service
 ```
 kubectl -n postgresql exec deploy/postgres -it -- bash
+```
+
+### Open a Bash shell to the Oracle service
+```
+kubectl -n oracle exec deploy/oracle -it -- /bin/bash
 ```
 
 ### View the deployment logs of the container(s)
