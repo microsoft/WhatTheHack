@@ -72,7 +72,7 @@ If you're new to GitHub, here is a quick guide on how to handle the Pull Request
 1.	The policy on the WTH repo is that every PR needs at least **two** “approving reviews” before it can be merged into the WTH repo.
 **NOTE:** To "merge” means to publish the contents/changes contained in the PR into the WTH repo. 
 If you are the first one to start a review on a PR, you will see the following on the right side: 
-    ![Sample PR Single Reviewer](./images/wth-pr-singlereviewer.png "Example PR Single Reviewer")
+    ![Sample PR Single Reviewer](./images/wth-pr-singlereviewer.png?raw=true "Example PR Single Reviewer")
 1.	You should add a second person to be a reviewer for this PR. To add an additional reviewer, click on the word “Reviewers” as-in the first screenshot below. Then, you may type in the desired reviewer’s name or GitHub handle in the drop down box as demonstrated in the second screen shot below.
 
     ![Add PR Reviewer - Part 1](./images/wth-pr-addreviewer-01.png "Add PR Reviewer 1")
