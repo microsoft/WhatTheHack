@@ -1,4 +1,4 @@
-# Welcome to the Mastering Linux Hack!
+# Welcome to the Linux Fundamentals Hack!
 
 This hachathon will serve as an introduction to important command line concepts and skills to learn more about Linux.
 <img align="right" src="images/linuxpenguin.png" width="250"/>
