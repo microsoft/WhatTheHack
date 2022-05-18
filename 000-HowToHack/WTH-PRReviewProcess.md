@@ -72,10 +72,11 @@ If you're new to GitHub, here is a quick guide on how to handle the Pull Request
 1.	The policy on the WTH repo is that every PR needs at least **two** “approving reviews” before it can be merged into the WTH repo.
 **NOTE:** To "merge” means to publish the contents/changes contained in the PR into the WTH repo. 
 If you are the first one to start a review on a PR, you will see the following on the right side: 
-![Sample PR Single Reviewer](./images/wth-pr-singlereviewer.png "Example PR Single Reviewer")
+    ![Sample PR Single Reviewer](./images/wth-pr-singlereviewer.png "Example PR Single Reviewer")
 1.	You should add a second person to be a reviewer for this PR. To add an additional reviewer, click on the word “Reviewers” as-in the first screenshot below. Then, you may type in the desired reviewer’s name or GitHub handle in the drop down box as demonstrated in the second screen shot below.
-![Add PR Reviewer - Part 1](./images/wth-pr-addreviewer-01.png "Add PR Reviewer 1")
-![Add PR Reviewer - Part 2](./images/wth-pr-addreviewer-02.png "Add PR Reviewer 2")
+
+    ![Add PR Reviewer - Part 1](./images/wth-pr-addreviewer-01.png "Add PR Reviewer 1")
+    ![Add PR Reviewer - Part 2](./images/wth-pr-addreviewer-02.png "Add PR Reviewer 2")
 1.	To view the author's content and see it in the web browser, open his/her/their branch by right-clicking on the link to it as shown in the screenshot below. It is a good idea to open it in a separate browser window, side-by-side with the PR itself. 
 ![Open PR Content](./images/wth-pr-opencontent.png "Open PR Content")
 1.	There are TWO ways to start a “review” of a PR in GitHub. Both require you to navigate to the “Files Changed” tab first. This will show you a list of all the files that were changed and their contents. Red lines represent things changed/removed and the accompanying green lines are what replaced it. 
