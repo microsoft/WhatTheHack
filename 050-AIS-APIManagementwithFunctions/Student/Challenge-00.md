@@ -12,9 +12,8 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
   - Install the recommended toolset as follows:
     - [Azure Subscription](#azure-subscription)
-    - [Visual Studio Code](#visual-studio-code)
-      - [Bicep CLI Extension](#bicep-cli-extension)
-      - [Azure CLI](#azure-cli)
+    - [Azure CLI](#azure-cli)
+    - [Visual Studio Code and Bicep extension](#visual-studio-code-and-bicep-extension)
       - [Set default Azure subscription and resource group](#set-default-azure-subscription-and-resource-group)
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
@@ -34,29 +33,21 @@ Details can be found here on [free services](https://azure.microsoft.com/en-us/f
 
 If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroy services before the end of the hackathon. You will still be able to use the free services up to their quotas.
 
-## Visual Studio Code
-
-Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity).
-
-[Install Visual Studio Code](https://code.visualstudio.com/)
-
-VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE on Windows. 
-
-As of writing, the version used is **1.63**.
 
 ### Azure CLI
 
-You also need to make sure that you have [installed the latest version of Azure CLI](https://docs.microsoft.com/en-us/cli/azure/update-azure-cli). To do so, open [Visual Studio Code Terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) and run ```az upgrade```.
+You also need to make sure that you have [installed the latest version of Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). To do so, open [Visual Studio Code Terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) and run ```az upgrade```.
 
-As of writing, the Azure CLI version used is **2.32.0**.
+This hack requires version **2.20.0 or higher**.
 
-### Bicep CLI Extension
 
-Visual Studio Code with the Bicep extension provides language support and resource autocompletion. The extension helps you create and validate Bicep files.
+## Visual Studio Code and Bicep extension
 
-To install the extension, search for bicep in the Extensions tab or in the [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).  Alternatively, you can open the VS Code Terminal window and run ```az bicep install && az bicep upgrade``` to get the latest version.
+You will need to set-up your environment using Visual Studio Code with Bicep extension to develop and deploy Azure resources using Bicep files. See [Install Bicep tools](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) for installation details.
 
-As of writing, the version used is **0.4.1124**.
+
+This hack requires VS Code version **1.63 or higher**.
+
 
 ### Set default Azure subscription and resource group
 
