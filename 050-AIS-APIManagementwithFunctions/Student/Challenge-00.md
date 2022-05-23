@@ -17,7 +17,8 @@ In this challenge we'll be setting up all the tools we will need to complete our
       - [Set default Azure subscription and resource group](#set-default-azure-subscription-and-resource-group)
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
-    <!-- - [DownGit](#downgit) -->
+      - [Azure Cloud Shell](#azure-cloud-shell)
+
 
 ## Azure Subscription
 
@@ -55,22 +56,22 @@ You can set your default Azure subscription and resource group by:
 
 - Sign-in by running ```az login``` in the VS Code Terminal
 - Set default subscription by running ```az account set --subscription "<subscription name or subscription id>"```
-- Set default resource group by running ```az configure --defaults group=<resource group name>```
+- Create a resource group by running ```az group create -l <location> -n <resource group name>```
+- Then, set the resource group as default by running ```az configure --defaults group=<resource group name>```
 
 ## Managing Cloud Resources
 
 We can manage cloud resources via the following ways:
 
-- Web Interface/Dashboard
-  - [Azure Portal](https://portal.azure.com/)
-
 ### Azure Portal
-
-Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console.
 
 Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.com/](https://portal.azure.com/)
 
 The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal.
+
+### Azure Cloud Shell
+
+Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console via the [Azure Cloud Shell](https://shell.azure.com/)
 
 
 [Back to Top](#challenge-00---preparing-your-development-environment)
