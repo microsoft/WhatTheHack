@@ -1,6 +1,6 @@
 # Challenge 01 - Provision your Integration Environment
 
-[<Previous Challenge](./Challenge-00.md) - **[Home](./README.md)** - [Next Challenge>](./Challenge-02.md)
+[<Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge-02.md)
 
 ## Pre-requisites
 
