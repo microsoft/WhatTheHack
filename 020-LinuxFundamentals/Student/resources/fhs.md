@@ -1,4 +1,4 @@
-# The Filesystem Herarchy Standard
+# The Filesystem Hierarchy Standard
 
 Nearly all Linux distributions are compliant with a universal standard for filesystem directory structure known as the Filesystem Hierarchy Standard (FHS). The FHS defines a set of directories, each of which serve their own special function.
 
