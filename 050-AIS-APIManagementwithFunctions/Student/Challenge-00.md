@@ -71,7 +71,7 @@ The Azure Portal is a great tool for quick prototyping, proof of concepts, and t
 
 ### Azure Cloud Shell
 
-Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console via the [Azure Cloud Shell](https://shell.azure.com/)
+Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console via the [Azure Cloud Shell](https://shell.azure.com/).
 
 
 [Back to Top](#challenge-00---preparing-your-development-environment)
