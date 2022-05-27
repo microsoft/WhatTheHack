@@ -18,9 +18,9 @@ In this challenge you will learn basic commands about file manipulation such as 
 - Change the date on `yesterday.log` to match yesterday's date
 - Check the creation date and time again
 - Create a directory `~/mybackup` and copy all files from `~/lab` into it
-- Use one command to remove the directory `~/mybackup` and all files into it
+- Use one command to remove the directory `~/mybackup` and all files under it
 - Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
-- Count the number of linux from the file `/etc/wgetrc`
+- Count the number of times 'linux' appear in the file `/etc/wgetrc`
 - Count the number of words from the file `/etc/hdparm.conf`
 
 ## Success Criteria
@@ -32,15 +32,15 @@ In this challenge you will learn basic commands about file manipulation such as 
 5. Validate the renaming of `azure-linux.svg` to `azure-linux.pdf` 
 6. After the renaming of the extension, check if the file type was changed
 7. Make sure the directory was successfully created and that you are inside of the directory 
-8. Check if the files were created correctly inside the `~/lab` directory 
+8. Check if files were created correctly inside the `~/lab` directory 
 9. Confirm the creation date and time for each file
 10. Make sure you have changed the date properly to yesterday's date
 11. Confirm if the creation date and time were defined as expected
 12. Validate if the all files from `~/lab` were sucessfully placed into `~/mybackup`
-13. Make sure if you was able to remove everything using just one command 
+13. Make sure if you were able to remove everything using just one command 
 14. Show all log files copied from `/var/log` into `~/logbackup`
-15. Confirm how many lines exist in the `/etc/wgetrc`
-16. Confirm how many words exist in the `/etc/hdparm.conf`
+15. Confirm how many lines exist in `/etc/wgetrc`
+16. Confirm how many words exist in `/etc/hdparm.conf`
 
 ## Learning Resources
 
