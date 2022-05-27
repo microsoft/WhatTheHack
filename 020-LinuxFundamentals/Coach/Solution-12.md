@@ -1,4 +1,4 @@
-# Challenge 12 - MasteringLinux - Coach's Guide 
+# Challenge 12 - Setting up a WebServer - Coach's Guide 
 
 [< Previous Solution](./Solution-11.md) - **[Home](./README.md)** 
 
@@ -161,13 +161,13 @@ To add SSL we will use [Certbot](https://certbot.eff.org/) to get a certificate 
     
 `student@vm01:~$ sudo sed -i.bkp -e 's/_;/linuxhackathon.com;/g' /etc/nginx/sites-enabled/default`
 
-Then let's proceed to the setup and configurations for Certbot setting new environment variables: 
+Then let's proceed to the setup and configurations for Certbot by setting new environment variables: 
 
 ```
 export DOMAIN_NAME="linuxhackathon.com"
 export EMAIL="admin@linuxhackathon.com"
 ````
-_Remember to change according your domain_
+_Remember to change according to your domain_
 
 Install snap tool to get certbot:
 
