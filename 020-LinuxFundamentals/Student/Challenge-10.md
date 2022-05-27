@@ -9,7 +9,7 @@
 
 ## Description
 
-This challenge will give to you understanding over the Logical Volume Manager on Linux, and knowledge using the commands pvcreate, vgcreate, lvrcreate, and more
+This challenge will give you an understanding over the Logical Volume Manager on Linux, and knowledge using the commands pvcreate, vgcreate, lvrcreate, and more
 
 - Create a Physical Volume (`PV`) with the disk added
 - Check that the ```PV``` is created
@@ -29,12 +29,12 @@ This challenge will give to you understanding over the Logical Volume Manager on
 ## Success Criteria
 
 1. Validate the creation of the Physical Volume
-2. Validate the creation of the Volum Group
+2. Validate the creation of the Volume Group
 3. Validate the creation of the Logical Volume
 4. Make sure both logical volumes were created with the expected sizes
 5. Make sure both logical volumes were formated as ext4 file system
 6. Confirm both logical volumes were properly mounted at `/mnt`
-7. Show the logical volume and file sytem resized
+7. Show the logical volume and file system resized
 
 
 ## Learning Resources
