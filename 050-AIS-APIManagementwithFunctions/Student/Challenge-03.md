@@ -34,8 +34,6 @@ For both scenarios, you should be able to:
 - [Automate resource deployment for your function app in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code)
  
 
-## Tips 
-
 ## Advanced Challenges
 - Use your newly acquired GitHub Action or DevOps Pipeline superpowers to deploy your Functions code to your Function app in a pipeline!
     - [Deploy Azure Functions using GitHub Actions](https://github.com/Azure/functions-action).

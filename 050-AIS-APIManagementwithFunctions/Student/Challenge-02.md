@@ -30,9 +30,6 @@ Verify that:
 - [Deploy Azure resources by using Bicep and Azure Pipelines](https://docs.microsoft.com/en-gb/learn/paths/bicep-azure-pipelines/)
 
 
-## Tips
-
-
 ## Advanced Challenges
 - In your GitHub Actions workflow or Azure DevOps pipeline, rather than having a single task that deploys your Bicep template straight to Azure, extend it to include some or all of the suggested tasks:
     - Linting and validating your Bicep code.

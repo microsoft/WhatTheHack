@@ -13,7 +13,7 @@ You are a cloud engineer for Runva - a global health and wellness company that p
 ## Description
 As a cloud engineer, you would like to be able to deploy this POC environment using Infrastructure-as-Code.  You have learned that you can efficiently do this in Azure using the new language called Bicep. As a baseline, you are going to deploy API Management service as gateway for your APIs, as well as a Function App where you would host your APIs.
 
-There are two scenarios you would like to prove:
+There are two scenarios you would like to prove (just choose one):
 
 - Scenario 1: Deploy a VNET-secured AIS environment - should you need to access services deployed over a private network (e.g. APIs hosted on-premises)
   - Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
@@ -33,6 +33,8 @@ There are two scenarios you would like to prove:
         - resource-specific properties
       - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
  
+ - Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
+  - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Success Criteria
 As mentioned earlier, you can choose which scenario to go for you POC environment:
@@ -78,10 +80,6 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
 - [Connect to a virtual network in internal mode using Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2)
 - [Deploying Azure API Management in an Internal mode (inside VNet)](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/deploying-azure-api-management-in-an-internal-mode-inside-vnet/ba-p/3033493)
 
-## Tips 
-- Decide among yourselves which Scenario you would go for.  
-- Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
-  - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Advanced Challenges
 - For either Scenario, move the parameters needed for your Bicep files into a seperate ```parameters.json``` file. Review your bicep templates and determine which of these parameters you could move out into a seperate file. You can learn how to format your ```parameters.json``` file [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameter-files).
