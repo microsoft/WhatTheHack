@@ -19,7 +19,7 @@
 
 `student@vm01:~$ cd /`
 
-4. List the contents of the root directory
+4. Listing the contents of the root directory
 
 `student@vm01:~$ ls`
 
