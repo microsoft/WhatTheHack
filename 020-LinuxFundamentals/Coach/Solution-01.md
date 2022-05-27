@@ -9,14 +9,14 @@ To accomplish the creation of the Ubuntu 20.04 Linux Virtual Machine, you can fo
 - Create the resource group:
 
 ```bash
-az group create --name rg-mastering-linux --location eastus
+az group create --name rg-linux-fundamentals --location eastus
 ```
 
 - Create the Virtual Machine
 
 ```bash
 az vm create \
-  --resource-group rg-mastering-linux \
+  --resource-group rg-linux-fundamentals \
   --name myVM \
   --image Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest \
   --admin-username student \
