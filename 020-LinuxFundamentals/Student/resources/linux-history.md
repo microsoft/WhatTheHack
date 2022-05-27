@@ -51,7 +51,7 @@ _Key Facts About the Fedora Family:_
 
 **SUSE Family**
 
-The relationship between SUSE,  SUSE Linux Enterprise Server (SLES), and openSUSE is similar to the one described between Fedora, Red Hat Enterprise Linux, and CentOS. 
+The relationship between SUSE, SUSE Linux Enterprise Server (SLES), and openSUSE is similar to the one described between Fedora, Red Hat Enterprise Linux, and CentOS. 
 
 _Key Facts About the SUSE Family:_
 
