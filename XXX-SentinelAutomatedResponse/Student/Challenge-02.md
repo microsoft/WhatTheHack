@@ -6,7 +6,6 @@
 ## Pre-requisites 
 
 Challenge-02 needs to be complete; this challenge is dependent on having logon events 4624 and 4625 sent to the Sentinel Log Analytics workspace </br></br>
-Estimated time to complete 90 to 120 minutes
 
 ## Introduction 
 
