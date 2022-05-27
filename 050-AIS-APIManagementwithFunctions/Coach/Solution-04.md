@@ -1,4 +1,4 @@
-# Solution 04 - Securing Backends APIs
+# Challenge 04 - Securing Backends APIs - Coach's Guide
 
 [<Previous Solution](./Solution-03.md) - **[Home](./README.md)** 
 

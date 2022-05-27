@@ -1,4 +1,4 @@
-# Solution 02 - Deploy your Integration Environment
+# Challenge 02 - Deploy your Integration Environment - Coach's Guide
 
 [<Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution>](./Solution-03.md)
 

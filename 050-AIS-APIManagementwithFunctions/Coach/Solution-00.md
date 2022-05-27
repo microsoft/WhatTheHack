@@ -1,4 +1,4 @@
-# Solution 00 - Preparing your Development Environment
+# Challenge 00 - Preparing your Development Environment - Coach's Guide
 
 **[Home](./README.md)** - [Next Solution>](./Solution-01.md)
 

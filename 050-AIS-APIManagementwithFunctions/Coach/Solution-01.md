@@ -1,4 +1,4 @@
-# Solution 01 - Provision your Integration Environment
+# Challenge 01 - Provision your Integration Environment - Coach's Guide
 
 [<Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution>](./Solution-02.md)
 
