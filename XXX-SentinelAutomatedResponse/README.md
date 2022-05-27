@@ -14,11 +14,11 @@ learn how to add some automation to manage that incident.
 5. Implement a logic app to automatically close the alert
 
 ## Challenges
-- Challenge 01: **[Architecture, Agents, Data Connectors and Workbooks](Student/Challenge-01.md)**
+- Challenge-01: **[Architecture, Agents, Data Connectors and Workbooks](Student/Challenge-01.md)**
    - Understand the various architecture and decide on the appropriate design based on the requirements. Install the appropriate data connector to import Windows security events and validate Log Analytics data ingestion.
-- Challenge 02: **[Custom Queries & Watchlists](Student/Challenge-02.md)**
+- Challenge-02: **[Custom Queries & Watchlists](Student/Challenge-02.md)**
    -  Build a custom analytics rule to show data ingested through the connector. Create a Watchlist and add data, verify the data is available in Log Analytics.  Change the table retention time to 7 days
-- Challenge 03: **[Automated Response](Student/Challenge-03.md)**
+- Challenge-03: **[Automated Response](Student/Challenge-03.md)**
    -  Bulid a custom rule that alerts when your user ID logs into a server. Use a playbook to automatically close the incident only if login occurred from a known IP address
 
 ## Prerequisites
