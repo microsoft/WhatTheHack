@@ -1,7 +1,7 @@
 # What The Hack - Linux Fundamentals
 
 ## Introduction
-This hachathon will serve as an introduction to important command line concepts and skills on Linux environments.
+This hackathon will serve as an introduction to important command line concepts and skills on Linux environments.
 
 <img align="right" src="./Student/resources/images/linuxpenguin.png" width="250"/>
 
@@ -9,7 +9,7 @@ This hachathon will serve as an introduction to important command line concepts 
 
 Linux is a family of free and open-source operating systems based on the Linux kernel. Operating systems based on Linux are known as Linux distributions or distros. Examples include Debian, Ubuntu, Fedora, CentOS, Gentoo, Arch Linux, and many others.
 
-The Linux kernel has been under active development since 1991, and has proven to be extremely versatile and adaptable. You can find computers that run Linux in a wide variety of contexts all over the world, from web servers to cell phones. Today, 90% of all cloud infrastructure and 74% of the world’s smartphones are powered by Linux.
+The Linux kernel has been under active development since 1991 and has proven to be extremely versatile and adaptable. You can find computers that run Linux in a wide variety of contexts all over the world, from web servers to cell phones. Today, 90% of all cloud infrastructure and 74% of the world’s smartphones are powered by Linux.
 
 To read more about Linux History, Linux Distributions and Linux Kernel, [click here](./Student/resources/linux-history.md).
 
@@ -20,11 +20,11 @@ In this hack you will be challenged with some common tasks from a real world sce
 1. Create a Linux Virtual Machine on Azure
 2. Handle files and directories
 3. Maninpulate file contents
-4. Work with standard linux permissions
-5. Collect information about Linux process in your environment
+4. Work with standard Linux permissions
+5. Collect information about Linux processes in your environment
 6. Management of users and groups
 7. Basic shell scripting 
-8. Work with disks,  partitions and logical volume manager
+8. Work with disks, partitions and logical volume manager
 9. Linux package management 
 10. Implement a basic webserver 
 
@@ -33,9 +33,9 @@ In this hack you will be challenged with some common tasks from a real world sce
 With the exception of challenge 01 which has as an outcome a Linux Virtual Machine which will be required for all other challenges, each challenge can be done separately and they are not interdependent. The level of complexity increases accordingly with the respective number of each one.
 
 1. Challenge 01: **[Create a Linux Virtual Machine](Student/Challenge-01.md)**
-	 - A Linux Virtual machine is the prequise for the challenges, so create a new Ubuntu Linux VM
+	 - A Linux Virtual machine is the prerequisite for the challenges, so create a new Ubuntu Linux VM
 1. Challenge 02: **[Handling directories](Student/Challenge-02.md)**
-	 - Learn how to perform common directory operations such as displaying your current directory and list directory contents.
+	 - Learn how to perform common directory operations such as displaying your current directory and listing directory contents.
 1. Challenge 03: **[Handling files](Student/Challenge-03.md)**
 	 - Learn basic commands about file manipulation such as create, rename, find and remove files.
 1. Challenge 04: **[File contents](Student/Challenge-04.md)**
@@ -55,7 +55,7 @@ With the exception of challenge 01 which has as an outcome a Linux Virtual Machi
 1. Challenge 11: **[Package management](Student/Challenge-11.md)**
 	 - Learn about package management and common activites such as update package distribution lists, install and uninstall packages.
 1. Challenge 12: **[Setting up a webserver](Student/Challenge-12.md)**
-	 - In this challenge we will setting up a webserver and deploy a simple php application into it. The usage of SSL could be a plus. 
+	 - In this challenge we will setting up a webserver and deploy a simple PHP application into it. The usage of SSL could be a plus. 
 	 
 ## Prerequisites
 - Your own Azure subscription with contributor access for the Challenge 01 or contributor access to a pre-created Azure Virtual Machine for all other challenges.
