@@ -1,17 +1,17 @@
-# Challenge #1:  Architecture, Agents, Data Connectors and Workbooks </br>
+# Challenge 01:  Architecture, Agents, Data Connectors and Workbooks </br>
 
 **[Home](../README.md)** - [Next Challenge>](./Challenge-02.md)
 
 
 ## Introduction 
 
-**In this challenge you will will decide on a architecture for your Sentinel workspace(s) and what information will be stored in that workspace.  Then you will add Sentinel to that workspace confirm you can now access Sentinel.  Next you will deploy agents to get data into the workspace, ** 
+In this challenge you will will decide on a architecture for your Sentinel workspace(s) and what information will be stored in that log analytics workspace.  Then you will add Sentinel to that workspace confirm you can now access Sentinel.  Next you will deploy agents to get data into the log analytics workspace.
 
 
 
 ## Description
 
-**This is a net new install, you need to design the workspace environment to meet the following requirements. Create a short doc that describes your decision and justification for these requirements:** <br>
+This is a net new install, you need to design the workspace environment to meet the following requirements. Create a short doc that describes your decision and justification for these requirements: <br>
 - Metrics and logs should not be in the same log analytics workspace
 - You do not have any regulatory requirements
 - There is only one tenant
@@ -24,7 +24,7 @@
 
 ## Success Criteria
 
-*To complete this challenge you need to design and deploy an architecture and install an agent on the two windows machines*
+To complete this challenge you need to design and deploy an architecture and install an agent on the two windows machines.
 
 **Tasks - Instanciate Your Microsoft Sentinel Environment**
 - Be able to launch the Sentinel service in the portal
@@ -37,27 +37,25 @@
 
 ## Learning Resources
 
-*The following articles will help you decide on an architecture, explain the alternatives and decide on the data connector required*
+The following articles will help you decide on an architecture, explain the alternatives and decide on the data connector required.
 
-**Architecture guidance :** https://docs.microsoft.com/en-us/azure/sentinel/design-your-workspace-architecture.</br>
-
-**Data connectors blog  :** https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891 </br>
-**Data connectors Doc   :** https://docs.microsoft.com/en-us/azure/sentinel/connect-data-sources </br>
-**Find a connector      :** https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference </br>
-
-**Visualizing Data      :** https://docs.microsoft.com/en-us/azure/sentinel/monitor-your-data </br>
+- **[Architecture guidance](https://docs.microsoft.com/en-us/azure/sentinel/design-your-workspace-architecture)**</br>
+- **[Data connectors blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891)** </br>
+- **[Data connectors Doc](https://docs.microsoft.com/en-us/azure/sentinel/connect-data-sources)** </br>
+- **[Find a connector](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference)** </br>
+- **[Visualizing Data](https://docs.microsoft.com/en-us/azure/sentinel/monitor-your-data)** </br>
 
 
 ## Tips (Optional)
 
-*Don't overthink the architecture, the guide here is to get you to understand the options. Ask yourself why would I need multiple Sentinel workspaces, and what is the impact of doing so?*
-*For the workbook, don't create one*
+Don't overthink the architecture, the guide here is to get you to understand the options. Ask yourself why would I need multiple Sentinel workspaces, and what is the impact of doing so?
+For the workbook, don't create one
 
 ## Advanced Challenges (Optional)
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
-**- Deploy the AMA agent and configure it to send only login and logoff events.  Be sure to capture all the user login and logoff events** </br>
-**- Deploy the Linux agent and collect authentication information**
+- Deploy the AMA agent and configure it to send only login and logoff events.  Be sure to capture all the user login and logoff events </br>
+- Deploy the Linux agent and collect authentication information
 
 
