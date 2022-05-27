@@ -28,7 +28,7 @@ We want to automatically update your Security Teams channel when the Incident is
 
 Hint: When you log on, if your IP is in the Watchlist, automatically close the alert/incident </br>
 
-**Update The Workbook**</br>
+**Update The Workbook**</br></br>
 Send a message to your security operations channel in Microsoft Teams or Slack to make sure your security analysts are aware of the incident.
 
 
