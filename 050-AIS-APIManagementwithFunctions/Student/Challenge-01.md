@@ -15,23 +15,23 @@ As a cloud engineer, you would like to be able to deploy this POC environment us
 
 There are two scenarios you would like to prove:
 
-Scenario 1: Deploy a VNET-secured AIS environment - should you need to access services deployed over a private network (e.g. APIs hosted on-premises)
-Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+- Scenario 1: Deploy a VNET-secured AIS environment - should you need to access services deployed over a private network (e.g. APIs hosted on-premises)
+  - Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
 
-Scenario 2: Deploy an identity-secured AIS environment - preferred for integrating with services hosted in the cloud or publicly-accessible
-Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Challenge-01/Scenario-02 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
-     - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
-      - main.bicep
-        - modules
-          - functions.bicep
-          - apim.bicep
-          - appinsights.bicep
-    - The resources should have the following properties at a minimum:
-      - name
-      - location
-      - sku/kind
-      - resource-specific properties
-    - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
+- Scenario 2: Deploy an identity-secured AIS environment - preferred for integrating with services hosted in the cloud or publicly-accessible
+  - Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Challenge-01/Scenario-02 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+      - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
+        - main.bicep
+          - modules
+            - functions.bicep
+            - apim.bicep
+            - appinsights.bicep
+      - The resources should have the following properties at a minimum:
+        - name
+        - location
+        - sku/kind
+        - resource-specific properties
+      - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
  
 
 ## Success Criteria
@@ -84,7 +84,6 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
   - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Advanced Challenges
-
-  - For either Scenario, move the parameters needed for your Bicep files into a seperate ```parameters.json``` file. Review your bicep templates and determine which of these parameters you could move out into a seperate file. You can learn how to format your ```parameters.json``` file [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameter-files).
+- For either Scenario, move the parameters needed for your Bicep files into a seperate ```parameters.json``` file. Review your bicep templates and determine which of these parameters you could move out into a seperate file. You can learn how to format your ```parameters.json``` file [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameter-files).
 
 [Back to Top](#challenge-01---provision-your-integration-environment)
