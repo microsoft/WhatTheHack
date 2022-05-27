@@ -29,7 +29,7 @@ Welcome to the coach's guide for the Mastering Linux What The Hack. Here you wil
 1. Challenge 11: **[Package management](../Coach/Solution-11.md)**
 	 - Learn about package management and common activites such as update package distribution lists, install and uninstall packages.
 1. Challenge 12: **[Setting up a webserver](../Coach/Solution-12.md)**
-	 - In this challenge we will setting up a webserver and deploy a simple php application into it. The usage of SSL could be a plus.
+	 - In this challenge we will setting up a webserver and deploy a simple PHP application into it. The usage of SSL could be a plus.
 
 ## Coach Prerequisites 
 
@@ -49,11 +49,11 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- For the Challenge 01 an Azure subscription with contributor access will be required.
+- For Challenge 01 an Azure subscription with contributor access will be required.
 - For all other challenges, at least a contributor access to a pre-created Ubuntu Linux 20.04 virtual machine will be required.
-- For the optional advanced challenge from the Challenge 12, these are the requirements:
-	- A public ip attached to the virtual machine
-	- Access to the public ip of the virtual machine
+- For the optional advanced challenge from Challenge 12, these are the requirements:
+	- A public IP attached to the virtual machine
+	- Access to the public IP of the virtual machine
 	- Access to the Azure App Service Domain to get a domain or a acess to the DNS management of an existent domain
 
 ## Repository Contents
@@ -65,4 +65,4 @@ This hack requires students to have access to an Azure subscription where they c
 - \`./Student\`
   - Student's Challenge Guide
 - \`./Student/Resources\`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Resource files, sample code, scripts, etc. meant to be provided to students. (Must be packaged up by the coach and provided to students at the start of event)
