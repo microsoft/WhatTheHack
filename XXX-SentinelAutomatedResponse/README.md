@@ -21,6 +21,21 @@ learn how to add some automation to manage that incident.
 - Challenge 3: **[Automated Response](Student/Challenge-03.md)**
    -  Bulid a custom rule that alerts when your user ID logs into a server. Use a playbook to automatically close the incident only if login occurred from a known IP address
 
+## Prerequisites
+You will need an Azure subscription with contributor rights to complete this hackathon. If you don't have one...
+
+[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+
+Our goal in the hackathon is limiting the cost of using Azure services. 
+
+If you've never used Azure, you will get:
+- $200 free credits for use for up to 30 days
+- 12 months of popular free services  (includes storage, Linux VMs)
+- Then there are services that are free up to a certain quota
+
+Details can be found here on [free services](https://azure.microsoft.com/en-us/free/).
+
+If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroy services before end of the hackathon. You will still be able to use the free services (up to their quotas) like App Service, or Functions.
 
 
 ## Contributors
