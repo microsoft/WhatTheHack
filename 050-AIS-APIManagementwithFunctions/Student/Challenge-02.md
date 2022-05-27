@@ -12,14 +12,17 @@
 Now that you've created your Bicep templates, you would like to create a CI/CD pipeline to deploy these templates to your Azure environment. 
 
 ## Description
-As a cloud engineer, you would like to be able create a CI/CD pipeline to perform automated deployment of integration environment.
+- Create a repository and upload your Bicep templates to the main branch.
+- Create a CI/CD pipeline using either GitHub Actions or Azure DevOps.
+    - If using GitHub actions, a sample workflow (deploy.yml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams channel.
+    - If using Azure Pipelines, a sample YAML pipeline (azure-pipelines.yaml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams channel.
+- Deploy your environment using the Bicep templates that you created from Challenge 01.
 
 ## Success Criteria
+Verify that:
+- you are able to run automated deployment your environment using the Bicep templates that you created from Challenge 01.
+- you are able to call send a GET or POST request to Echo API (the default API configured in APIM).
 
-You should be able to:
-1. Create a repository and upload your Bicep templates to the main branch.
-1. Create a CI/CD pipeline using either GitHub Actions or Azure DevOps.
-1. Deploy your environment using the Bicep templates that you created from Challenge 01.
 
 
 ## Learning Resources
@@ -32,12 +35,9 @@ You should be able to:
 
 
 ## Tips
-- You can choose to use either GitHub Actions or Azure DevOps Pipelines for this exercise.
-- If using GitHub actions, a sample workflow (deploy.yml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams channel.
-- If using Azure Pipelines, a sample YAML pipeline (azure-pipelines.yaml) can be found at Student/Resources/Challenge-02 in the Files tab of WhatTheHack - AIS Teams channel.
+
 
 ## Advanced Challenges
-
 - In your GitHub Actions workflow or Azure DevOps pipeline, rather than having a single task that deploys your Bicep template straight to Azure, extend it to include some or all of the suggested tasks:
     - Linting and validating your Bicep code.
     - Adding a preview job to see what will be deployed to Azure and an approval step before deploying your template.
