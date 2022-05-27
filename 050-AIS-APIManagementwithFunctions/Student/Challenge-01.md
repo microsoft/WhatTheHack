@@ -40,24 +40,24 @@ Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Ch
 As mentioned earlier, you can choose which scenario to go for you POC environment:
 
 - Scenario 1: Deploy a VNET-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
-  1. Application Insights resource
-  1. Virtual Network
-  1. API Management service in Developer tier, single-instance, in Internal mode
-  - Deployed to a dedicated subnet
-  - Configured to send monitoring data to your Application Insights resource
-  - Published the Developer Portal
-  1. Application Gateway, single-instance, in Standard WAF2
-  - Deployed to a dedicated subnet
-  1. Function App in Elastic Premium Plan - E1 SKU
-  - Configured to send monitoring data to your Application Insights resource
+  - Application Insights resource
+  - Virtual Network
+  - API Management service in Developer tier, single-instance, in Internal mode
+    - Deployed to a dedicated subnet
+    - Configured to send monitoring data to your Application Insights resource
+    - Published the Developer Portal
+  - Application Gateway, single-instance, in Standard WAF2
+    - Deployed to a dedicated subnet
+  - Function App in Elastic Premium Plan - E1 SKU
+    - Configured to send monitoring data to your Application Insights resource
   
 - Scenario 2: Deploy an identity-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
-  1. Application Insights resource
-  1. API Management service in Developer tier
-  - Configured to send monitoring data to your Application Insights resource
-  - Published the Developer Portal
-  1. Function App in the Consumption Plan - Y1 SKU
-  - Configured to send monitoring data to your Application Insights resource
+  - Application Insights resource
+  - API Management service in Developer tier
+    - Configured to send monitoring data to your Application Insights resource
+    - Published the Developer Portal
+  - Function App in the Consumption Plan - Y1 SKU
+    - Configured to send monitoring data to your Application Insights resource
   
 
 ## Learning Resources
