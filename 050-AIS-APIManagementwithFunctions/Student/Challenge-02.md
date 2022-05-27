@@ -22,8 +22,6 @@ Verify that:
 - you are able to run automated deployment your environment using the Bicep templates that you created from Challenge 01.
 - you are able to call send a GET or POST request to Echo API (the default API configured in APIM).
 
-
-
 ## Learning Resources
 - [Quickstart for GitHub Actions](https://docs.github.com/en/actions/quickstart)
 - [Quickstart: Deploy Bicep files by using GitHub Actions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-github-actions?tabs=CLI)
