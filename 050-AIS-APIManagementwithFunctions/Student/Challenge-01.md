@@ -7,7 +7,6 @@
 - You should have completed Challenge 00
 
 ## Introduction
-
 You are a cloud engineer for Runva - a global health and wellness company that provides solutions for individuals who takes running as sport, providing them a platform to track running activities, analyze performance and recommend plans to help them train smarter and safer.  They are going to embark on a six-month project to modernize their integration solution hosted on-premises and migrate them to Azure integration services.  Since this is their first foray in Azure, you are tasked to create a proof-of-concept (POC) that captures several integration patterns.
 
 
@@ -36,7 +35,6 @@ Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Ch
  
 
 ## Success Criteria
-
 As mentioned earlier, you can choose which scenario to go for you POC environment:
 
 - Scenario 1: Deploy a VNET-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
@@ -61,7 +59,6 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
   
 
 ## Learning Resources
-
 - [What is Bicep?](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
 
 - [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)

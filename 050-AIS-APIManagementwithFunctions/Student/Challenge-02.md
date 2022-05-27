@@ -8,7 +8,6 @@
 - You should have completed Challenge 01
 
 ## Introduction
-
 Now that you've created your Bicep templates, you would like to create a CI/CD pipeline to deploy these templates to your Azure environment. 
 
 ## Description
@@ -26,7 +25,6 @@ Verify that:
 
 
 ## Learning Resources
-
 - [Quickstart for GitHub Actions](https://docs.github.com/en/actions/quickstart)
 - [Quickstart: Deploy Bicep files by using GitHub Actions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-github-actions?tabs=CLI)
 - [Quickstart: Integrate Bicep with Azure Pipelines](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/add-template-to-azure-pipelines?tabs=CLI)
