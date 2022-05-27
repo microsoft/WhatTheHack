@@ -28,8 +28,8 @@ This hack includes optional [lecture presentations](../Coach/Resources) that int
 ## Prerequisites
 
 - Access to the Internet - Azure Docs
-- Access to the Azure Portal 
-- A Windows servers running in the subscription where you will run Sentinel
+- Azure subscription with contributor role
+- Prebuild a generic Windows server running in the subscription.
 
 </br>
 
@@ -47,19 +47,13 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Azure Requirements
 
-- An Azure subscription with Owner access
-- Two virtual machines running in the subscription
+- An Azure subscription with Contributor access
+- One virtual machines running in the subscription
 - Kusto code knowledge/reference material available
 - Patience
 
-## Suggested Hack Agenda (Optional)
-
+## Suggested Hack Agenda
 *This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event.  For example:*
-
-
-	- Challenge 1 (2 hours)
-	- Challenge 2 (2 hours)
-	- Challenge 3 (2 hours)
 
 
 ## Repository Contents
