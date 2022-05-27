@@ -4,7 +4,7 @@
 
 ## Description
 
-In this challenge you will learn about the creation of user and groups in a Linux environment.
+In this challenge you will learn about the creation of users and groups in a Linux environment.
 
 - Create the groups: marketing, finance, apps and production
 - Create the users below with the given characteristics:
