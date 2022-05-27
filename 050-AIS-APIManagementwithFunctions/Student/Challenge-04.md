@@ -60,9 +60,6 @@ Scenario 02:
 - [Postman - Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)
 
 
-## Tips 
-
-
 ## Advanced Challenges
 Scenario 02:
 - You can try to do end-to-end AAD authentication by either:
