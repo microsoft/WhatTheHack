@@ -14,27 +14,33 @@ You would like to be able to secure your backend APIs in one of the two ways:
 
 ## Description
 You should be able to either:
-- Scenario 01: Configure secured backend APIs in a private network
-- Scenario 02: Configure OAuth2 authorization when calling Hello API
+- For Scenario 01: Configure secured backend APIs in a private network
+    - Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
+    - The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: https://apim-{{unique_id}}.azure-api.net/external/hello
+    - Secure internal Hello Function App by enabling networking feature by either:
+        - Only accepts traffic coming from the APIM subnet
+        - Assigning a private endpoint to the Function App
+    - Import the new Function App as Hello Internal API to APIM.  The new path should be: https://apim-{{unique_id}}.azure-api.net/internal/hello
+    - Secure external Hello API so that it would only accept requests routed from Application Gateway, which includes setting-up an APIM policy.
+    - To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway so that:
+        - All calls to the AGW endpoint with the path /external/* (http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/external)  would go to https://api.{{unique_id}}.azure-api.net/external/hello
+        - While calls to the default path http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/ returns HTTP 404.
 
+- For Scenario 02: Configure OAuth2 authorization when calling Hello API
+    - Configure OAuth 2.0 authorization in APIM 
+        - Register a client application (e.g. APIM Developer Portal or [Postman](https://www.postman.com/)) in Azure AD.  This will be used to make calls to Hello API via APIM.
+        - Configure JWT validation policy to pre-authorize requests to Hello API. 
+        - Register Hello API Function app as an AD application.
+    - Call Hello API from your client application successfully.
 
 ## Success Criteria
-For Scenario 01:
-1. Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
-1. The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: https://apim-{{unique_id}}.azure-api.net/external/hello
-1. Secure internal Hello Function App by enabling networking feature by either:
-    - Only accepts traffic coming from the APIM subnet
-    - Assigning a private endpoint to the Function App
-1. Import the new Function App as Hello Internal API to APIM.  The new path should be: https://apim-{{unique_id}}.azure-api.net/internal/hello
-1. Secure external Hello API so that it would only accept requests routed from Application Gateway.
+- Scenario 01:
+    - Verify that you can send GET and POST requests to the public endpoint (https://apim-{{unique_id}}.azure-api.net/external/hello) and get a HTTP 200 response.
+    - Verify that you can send GET and POST requests to the internal endpoint (https://apim-{{unique_id}}.azure-api.net/internal/hello) over the private network (e.g. from a jumpbox VM) and get HTTP 200 response.
 
-
-For Scenario 02:
-1. Configure OAuth 2.0 authorization in APIM 
-    1. Register a client application (e.g. APIM Developer Portal or [Postman](https://www.postman.com/)) in Azure AD.  This will be used to make calls to Hello API via APIM.
-    1. Configure JWT validation policy to pre-authorize requests to Hello API. 
-    1. Register Hello API Function app as an AD application.
-1. Call Hello API from your client application successfully.
+- Scenario 02:
+    - Verify that you are able get an access token via the OAuth 2.0 authorization code flow.
+    - Verify that you are able to send GET and POST requestS to Hello API (passing the access token into the Authorization header) via the public endpoint () and get a HTTP 200 response.
 
 
 ## Learning Resources
@@ -55,27 +61,7 @@ Scenario 02:
 
 
 ## Tips 
-For Scenario 01:
-- Look into networking options for securing function apps, just use one or the other.
-- To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway so that:
-    - All calls to the AGW endpoint with the path /external/* (http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/external)  would go to https://api.{{unique_id}}.azure-api.net/external/hello
-    - While calls to the default path http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/ returns HTTP 404.
-- To secure APIM to only accept requests routed from Application Gateway, you may need to set-up a policy to filter traffic. 
 
-For Scenario 02:
-- Follow the steps in [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad), and use the APIM Developer portal as your client app.
-- If using Postman as your client application, you need to [specifiying the Authorization details using OAuth2](https://learning.postman.com/docs/sending-requests/authorization/#oauth-20) which will ask you to log in and consent before sending the generated Access Token.  Ensure that you specify Authorization Code as the grant type.
-    - Token Name: The name you want to use for the token.
-    - Grant Type: A dropdown list of options. Choose Authorization code.
-    - Callback URL: The client application callback URL redirected to after auth, and that should be registered with the API provider. If not provided, Postman will use a default empty URL and attempt to extract the code or access token from it. If this does not work for your API, you can use the following URL: https://oauth.pstmn.io/v1/browser-callback, but you need to add this to the list of Redirect URLs for your client-app AAD registration.
-        - Authorize using browser: You can enter your credentials in your web browser, instead of the pop-up that appears in Postman by default when you use the Authorization code or Implicit grant type. Checking this box will set the Callback URL to return to Postman. If you opt to authorize using the browser, make sure pop-ups are disabled for the callback URL, otherwise it won't work.
-    - Auth URL: The endpoint for the API provider authorization server, to retrieve the auth code. (e.g. https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize for multi-tenant AAD account authentication)
-    - Access Token URL: The provider's authentication server, to exchange an authorization code for an access token. (e.g. https://login.microsoftonline.com/organizations/oauth2/v2.0/token for multi-tenant AAD account authentication)
-    - Client ID: The ID for your client application registered with the API provider. (e.g. the Application ID of the client app AAD registration created [earlier](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#2-register-another-application-in-azure-ad-to-represent-a-client-application#:~:text=On%20the%20app%20Overview%20page%2C%20find%20the%20Application%20(client)%20ID%20value%20and%20record%20it%20for%20later.))
-    - Client Secret: The client secret given to you by the API provider. (e.g. the Client secret of the client app AAD registration created [earlier](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#2-register-another-application-in-azure-ad-to-represent-a-client-application##:~:text=Create%20a%20client%20secret%20for%20this%20application%20to%20use%20in%20a%20subsequent%20step.))
-    - Scope: The scope of access you are requesting, which may include multiple space-separated values. (e.g. This is the [backend app scope](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad#2-register-another-application-in-azure-ad-to-represent-a-client-application###:~:text=Use%20the%20back-end%20app%20scope%20you%20created%20in%20the%20Default%20scope%20field) granted to the client app)
-    - State: An opaque value to prevent cross-site request forgery. 
-    - Client Authentication: A dropdown list: send a Basic Auth request in the header, or client credentials in the request body. After upgrading to a new  version, change the value in this dropdown menu to avoid problems with client authentication.
 
 ## Advanced Challenges
 Scenario 02:
