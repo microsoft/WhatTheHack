@@ -4,7 +4,7 @@
 
 ## Description
 
-In this challenge we will setting up a webserver and deploy a simple php application into it. As a plus, you can add SSL to ensure security requirements.
+In this challenge we will be setting up a webserver and deploy a simple PHP application into it. As a plus, you can add SSL to ensure security requirements.
 
 - Download the sample application [from here](./resources/simple-php-app.tar.gz) to your home directory
 - Extract the content of simple-php-app.tar.gz on our home directory
@@ -21,7 +21,7 @@ In this challenge we will setting up a webserver and deploy a simple php applica
 
 ## Hint
 
-If you install Ubuntu 18.04 instead of the Ubuntu 20.04, the version of the php-fpm which will be installed will be the 7.2 instead of 7.4. Then make sure to configure the nginx config file properly.
+If you install Ubuntu 18.04 instead of Ubuntu 20.04, the version of the php-fpm which will be installed will be 7.2 instead of 7.4. Then make sure to configure the nginx config file properly.
 
 ## Learning Resources
 
