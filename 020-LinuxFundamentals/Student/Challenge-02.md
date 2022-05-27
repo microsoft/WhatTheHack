@@ -11,7 +11,7 @@ In this challenge you will learn how to perform common directory operations such
 - Go to the root directory
 - List the contents of the root directory
 - Display a long listing of the root directory
-- Stay where you are, and list the contents of `~`
+- Stay where you are and list the contents of `~`
 - List all the files (including hidden files) in your home directory
 - Use a single command to create the following directory tree `~/folder1/folder2/folder3` (folder3 is a subdirectory from folder2, and folder2 is a subdirectory from folder1)
 - List recursively the content of your `~` 
