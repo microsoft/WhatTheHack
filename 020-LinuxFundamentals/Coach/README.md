@@ -23,7 +23,7 @@ Welcome to the coach's guide for the Mastering Linux What The Hack. Here you wil
 1. Challenge 08: **[Scripting](../Coach/Solution-08.md)**
 	 - Learn some basic stuff on shell scripting and the usage of some commands such as echo, cut, read and grep.
 1. Challenge 09: **[Disks, partitions and file systems](../Coach/Solution-09.md)**
-	 - You will be working with disks and partitions and learn about linx filesystems and commands such as fdisk, mkfs and mount.
+	 - You will be working with disks and partitions and learn about Linux filesystems and commands such as fdisk, mkfs and mount.
 1. Challenge 10: **[Logical Volume Mananager](../Coach/Solution-10.md)**
 	 - Discover about the Logical Volume Manager on Linux, and how to use commands such as pvcreate, vgcreate, lvrcreate, and more.
 1. Challenge 11: **[Package management](../Coach/Solution-11.md)**
