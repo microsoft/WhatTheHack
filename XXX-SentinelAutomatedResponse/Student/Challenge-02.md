@@ -1,5 +1,5 @@
 
-# Challenge-02 - Custom Queries & Watchlists
+# Challenge 02 - Custom Queries & Watchlists
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge-03.md)
 
