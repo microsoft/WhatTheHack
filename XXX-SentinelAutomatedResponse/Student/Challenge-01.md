@@ -1,4 +1,4 @@
-# Challenge 01:  Architecture, Agents, Data Connectors and Workbooks </br>
+# Challenge-01:  Architecture, Agents, Data Connectors and Workbooks </br>
 
 **[Home](../README.md)** - [Next Challenge>](./Challenge-02.md)
 
