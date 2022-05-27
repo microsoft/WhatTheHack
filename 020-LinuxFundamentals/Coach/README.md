@@ -17,7 +17,7 @@ Welcome to the coach's guide for the Mastering Linux What The Hack. Here you wil
 1. Challenge 05: **[Standard file permissions](../Coach/Solution-05.md)**
 	 - Learn about the Linux standard file permissions and understand how to work with file permissioning on a Linux environment.
 1. Challenge 06: **[Process management](../Coach/Solution-06.md)**
-	 - Your objectives will involve basic process management, such as checking processes running and identifying process ids' 
+	 - Your objectives will involve basic process management, such as checking running processes and identifying process ids' 
 1. Challenge 07: **[Group and user management](../Coach/Solution-07.md)**
 	 - In this challenge you will learn about the creation of user and groups in a Linux environment.
 1. Challenge 08: **[Scripting](../Coach/Solution-08.md)**
