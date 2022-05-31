@@ -20,7 +20,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 - Create a directory `~/mybackup` and copy all files from `~/lab` into it
 - Use one command to remove the directory `~/mybackup` and all files under it
 - Create a directory `~/logbackup` and copy the `*.log` files from `/var/log` into it
-- Count the number of times 'linux' appear in the file `/etc/wgetrc`
+- Count the number of times 'linux' appears in the file `/etc/wgetrc`
 - Count the number of words from the file `/etc/hdparm.conf`
 
 ## Success Criteria
