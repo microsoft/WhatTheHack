@@ -9,7 +9,7 @@ Welcome to the coach's guide for the Mastering Linux What The Hack. Here you wil
 1. Challenge 01: **[Create a Linux Virtual Machine](../Coach/Solution-01.md)**
 	 - A Linux Virtual machine is the prerequisite for the challenges, so create a new Ubuntu Linux VM
 1. Challenge 02: **[Handling directories](../Coach/Solution-02.md)**
-	 - Learn how to perform common directory operations such as displaying your current directory and list directory contents.
+	 - Learn how to perform common directory operations such as displaying your current directory and listing directory contents.
 1. Challenge 03: **[Handling files](../Coach/Solution-03.md)**
 	 - Learn basic commands about file manipulation such as create, rename, find and remove files.
 1. Challenge 04: **[File contents](../Coach/Solution-04.md)**
