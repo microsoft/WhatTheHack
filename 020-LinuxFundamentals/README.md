@@ -43,7 +43,7 @@ With the exception of challenge 01 which has as an outcome a Linux Virtual Machi
 1. Challenge 05: **[Standard file permissions](Student/Challenge-05.md)**
 	 - Learn about the Linux standard file permissions and understand how to work with file permissioning on a Linux environment.
 1. Challenge 06: **[Process management](Student/Challenge-06.md)**
-	 - Your objectives will involve basic process management, such as checking processes running and identifying process ids' 
+	 - Your objectives will involve basic process management, such as checking processes running and identifying process ids. 
 1. Challenge 07: **[Group and user management](Student/Challenge-07.md)**
 	 - In this challenge you will learn about the creation of user and groups in a Linux environment.
 1. Challenge 08: **[Scripting](Student/Challenge-08.md)**
