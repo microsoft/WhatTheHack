@@ -16,7 +16,7 @@ This challenge you will be working with disks and partitions. Will be an opportu
     - Add a new partition with 500MB
     - List and identify in the operating system the partition created
     - Erase partition
-    - Check in operating system that the partition has been removed
+    - Check in the operating system that the partition has been removed
     - Add two new partitions with a native Linux partition (83), one with 500MB and another with 100MB
     - Check in the operating system that the partitions were created
 - Create a file system on each of the partitions created
