@@ -22,6 +22,6 @@ During the process of the creation of the VM, ensure the usage of **student** fo
 * [Create a Linux virtual machine in the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal)
 * [Create a Linux virtual machine with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli)
 * [Create a Linux virtual machine in Azure with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-powershell)
-* [Connect to a Linux VM][https://docs.microsoft.com/en-us/azure/virtual-machines/linux-vm-connect?tabs=Linux]
+* [Connect to a Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux-vm-connect?tabs=Linux)
 
 
