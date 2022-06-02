@@ -13,7 +13,7 @@
 
 This guide includes a couple of different options participants may choose for this challenge. If you have experienced participants that know one of the ways, you can steer them in the other directions to increase their learning curve:
 
-- To create the cluster you can use either kubeadm or aks-engine. aks-engine will soon be deprecated in favor of CAPI, the latter is not documented in this guide
+- To create the cluster you can use either kubeadm or aks-engine. aks-engine will soon be deprecated in favor of CAPI, the latter is not documented in this guide (there is a guide to create CAPI clusters in Azure in [https://pradeepl.com/blog/kubernetes/using-cluster-api-to-create-kubernetes-clusters-on-azure](https://pradeepl.com/blog/kubernetes/using-cluster-api-to-create-kubernetes-clusters-on-azure).
 - To deploy Arc-enabled data services, there are essentially the options for **direct** and **indirect** connectivity, plus support for different tooling (portal, VScode, CLI, etc). This guide focuses on indirect mode, since at the time of this writing it is the only mehtod providing end-to-end support for CLI. However, some direct code is documented too in the relevant sections.
 
 ### Create non-managed Kubernetes cluster with kubeadm
