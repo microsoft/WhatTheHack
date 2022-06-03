@@ -39,8 +39,8 @@ This challenge will give you an understanding over the Logical Volume Manager on
 
 ## Learning Resources
 
-- [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-lvm](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-lvm)
-- [https://linuxhandbook.com/lvm-guide/](https://linuxhandbook.com/lvm-guide/)
-- [https://linuxhint.com/whatis_logical_volume_management/](https://linuxhint.com/whatis_logical_volume_management/)
-- [https://linuxconfig.org/linux-lvm-logical-volume-manager](https://linuxconfig.org/linux-lvm-logical-volume-manager)
-- [https://www.howtoforge.com/linux_lvm](https://www.howtoforge.com/linux_lvm)
+- [LVM (Logical Volume Manager)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-lvm)
+- [LVM Guide](https://linuxhandbook.com/lvm-guide/)
+- [What is LVM (Logical Volume Management), and what are its Benefits?](https://linuxhint.com/whatis_logical_volume_management/)
+- [Linux Logical Volume Manager (LVM) tutorial](https://linuxconfig.org/linux-lvm-logical-volume-manager)
+- [A Beginner's Guide To LVM](https://www.howtoforge.com/linux_lvm)
