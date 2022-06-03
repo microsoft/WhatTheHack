@@ -234,7 +234,7 @@ while getopts ":c:dhn:p:v" option; do
     d) deleteExistingDirectoryArg=true;;
     h) Help
        exit;;
-    n) nameOfChallengeArg=${OPTARG};;
+    n) nameOfHackArg=${OPTARG};;
     p) pathArg=${OPTARG};;
     v) verbosityArg=true
   esac
@@ -242,12 +242,12 @@ done
 
 if $verbosityArg; then
   echo "Number of Challenges: $numberOfChallengesArg"
-  echo "Name of Challenge: $nameOfChallengeArg"
+  echo "Name of Challenge: $nameOfHackArg"
   echo "Path: $pathArg"
   echo "Delete existing directory: $deleteExistingDirectoryArg"
 fi
 
-declare -r wthDirectoryName="xxx-$nameOfChallengeArg"
+declare -r wthDirectoryName="xxx-$nameOfHackArg"
 
 declare -r rootPath="$pathArg/$wthDirectoryName"
 
