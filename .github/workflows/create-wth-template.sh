@@ -107,7 +107,7 @@ CreateHackDescription() {
   WriteMarkdownFile "$rootPath/README.md" "WTH-HackDescription-Template.md"
 }
 
-GenerateNavitationLink() {
+GenerateNavigationLink() {
   local -r suffixNumber=$1
   local -r numberOfChallenges=$2
   local -r linkName=$3
@@ -119,7 +119,7 @@ GenerateNavitationLink() {
 
   #have to account for the fact that there is 0 at the beginning of the challenge number, a 08 is interpreted as octal
   #therefore, the $((10#$suffixNumber)) syntax
-  if [[ $((10#$suffixNumber)) -gt 1 ]]; then
+  if [[ $((10#$suffixNumber)) -gt 0 ]]; then
     local -r previousChallengeNumber=$(printf %02d $((10#$suffixNumber - 1)))
     previousNavigationLink="[< Previous $linkName](./$linkName-$previousChallengeNumber.md) - "
   fi
@@ -158,7 +158,7 @@ CreateChallengeMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge" false)
+  local -r navigationLine=$(GenerateNavigationLink $suffixNumber $numberOfChallenges "Challenge" false)
 
   if [[ $suffixNumber -eq "00" ]]; then
     WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Common-Prerequisites.md"
@@ -176,7 +176,7 @@ CreateSolutionMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Solution" true)
+  local -r navigationLine=$(GenerateNavigationLink $suffixNumber $numberOfChallenges "Solution" true)
 
   WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Solution-Template.md"
 }
