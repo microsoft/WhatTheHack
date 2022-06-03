@@ -50,7 +50,7 @@ With the exception of challenge 01 which has as an outcome a Linux Virtual Machi
 	 - Learn some basic stuff on shell scripting and the usage of some commands such as echo, cut, read and grep.
 * Challenge 09: **[Disks, Partitions and File Systems](Student/Challenge-09.md)**
 	 - You will be working with disks and partitions and learn about linx filesystems and commands such as fdisk, mkfs and mount.
-* Challenge 10: **[Logical Volume Mananager](Student/Challenge-10.md)**
+* Challenge 10: **[Logical Volume Manager](Student/Challenge-10.md)**
 	 - Discover about the Logical Volume Manager on Linux, and how to use commands such as pvcreate, vgcreate, lvrcreate, and more.
 * Challenge 11: **[Package Management](Student/Challenge-11.md)**
 	 - Learn about package management and common activites such as update package distribution lists, install and uninstall packages.
