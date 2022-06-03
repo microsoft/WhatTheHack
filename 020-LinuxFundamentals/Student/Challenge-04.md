@@ -35,4 +35,4 @@ In this challenge let's learn about file content manipulation and discover how t
 
 ## Learning Resources
 
-- [https://linuxjourney.com/lesson/the-shell](https://linuxjourney.com/lesson/the-shell)
+- [The Shell](https://linuxjourney.com/lesson/the-shell)
