@@ -26,6 +26,12 @@ You will use the Dapr CLI `run` command and specify all the options above on the
 
 1.  Make sure you have started Docker Desktop on your machine and the Dapr CLI and runtime are installed (see the [prerequisites](../README.md#prerequisites)).
 
+    If you haven't done so yet, you should now initialize Dapr on your local machine, too (here we won't be using your AKS cluster yet):
+
+    ``` shell
+    dapr init
+    ```
+
 2.  Open the `Resources` folder in this repo in VS Code.
 
 3.  Open the [terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code and make sure the current folder is `Resources/VehicleRegistrationService`.

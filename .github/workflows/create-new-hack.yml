@@ -1,0 +1,33 @@
+name: Create new hack
+
+on:
+  workflow_dispatch:
+    inputs:
+      hackName:
+        description: The name of the hack you want to create
+        required: true
+        default: YetAnotherHack
+      numberOfChallenges:
+        description: The number of challenges you want
+        required: true
+        default: 3
+jobs:
+  createNewWhatTheHackTemplate:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: xxx-${{ github.event.inputs.hackName }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create new branch
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git checkout -b ${{ env.BRANCH_NAME }}
+      - name: Generate WhatTheHack template stubs
+        run: ${{ github.workspace }}/.github/workflows/create-wth-template.sh -p ${{ github.workspace }} -c ${{ github.event.inputs.numberOfChallenges}} -n ${{ github.event.inputs.hackName }} -v -d
+      - name: Push branch
+        run: |
+          git add *
+          git commit -m 'Created WhatTheHack template stub'
+          git push -u origin ${{ env.BRANCH_NAME }}
+
