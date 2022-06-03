@@ -7,7 +7,6 @@
 In this challenge your objectives will involve basic process management, giving you real-world activities such as checking a list of processes running, identifying process ids and discovering process execution in y our environment.
 
 - Discover how many processes are running on your server
-- How many processes are running on your server
 - View the list of processes in tree format
 - Identify if the syslog process is running
 - Identify the process id of the syslog process
@@ -22,7 +21,7 @@ In this challenge your objectives will involve basic process management, giving 
 
 ## Learning Resources
 
-- [https://linuxjourney.com/lesson/monitor-processes-ps-command](https://linuxjourney.com/lesson/monitor-processes-ps-command)
-- [https://www.geeksforgeeks.org/process-management-in-linux/](https://www.geeksforgeeks.org/process-management-in-linux/)
-- [https://linuxhandbook.com/ps-command/](https://linuxhandbook.com/ps-command/)
+- [The command PS](https://linuxjourney.com/lesson/monitor-processes-ps-command)
+- [Process Management in Linux](https://www.geeksforgeeks.org/process-management-in-linux/)
+- [PS Command](https://linuxhandbook.com/ps-command/)
 
