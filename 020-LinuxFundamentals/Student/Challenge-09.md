@@ -1,15 +1,15 @@
-# Challenge 09 - Disks, partitions and file Systems
+# Challenge 09 - Disks, Partitions and File Systems
 
 [< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-10.md)
 
 ## Pre-requisites 
 
-- Create a data disk woth the size of 5GB
+- Create a data disk with the size of 5GB
 - Add the disk the the virtual machine 
 
 ## Description
 
-This challenge you will be working with disks and partitions. Will be an opportunity to learn about linx filesystems and commands such as `fdisk`, `mkfs` and `mount`.
+This challenge you will be working with disks and partitions. Will be an opportunity to learn about Linux filesystems and commands such as `fdisk`, `mkfs` and `mount`.
 
 - Identify the new disk added to the machine
 - Edit the disk partition table:
@@ -33,15 +33,15 @@ This challenge you will be working with disks and partitions. Will be an opportu
 2. Make sure you created the partitions as expected
 3. Validate on both partitions the file system created 
 4. Make sure you have created the the respective directories inside `mnt` directory
-5. Make sure the partitions are properly monted
+5. Make sure the partitions are properly mounted
 6. Ensure you can create files on the partitions
 7. Make sure you unmonted the partitions and removed both properly
 
 ## Learning Resources
 
-- [https://linuxjourney.com/lesson/filesystem-hierarchy](https://linuxjourney.com/lesson/filesystem-hierarchy)
-- [https://linuxjourney.com/lesson/dev-directory](https://linuxjourney.com/lesson/dev-directory)
-- [https://opensource.com/article/18/6/how-partition-disk-linux](https://opensource.com/article/18/6/how-partition-disk-linux)
-- [https://www.cyberciti.biz/faq/linux-list-disk-partitions-command/](https://www.cyberciti.biz/faq/linux-list-disk-partitions-command/)
-- [https://ostechnix.com/how-to-list-disk-partitions-in-linux/](https://ostechnix.com/how-to-list-disk-partitions-in-linux/)
+- [Filesystem Hierarchy](https://linuxjourney.com/lesson/filesystem-hierarchy)
+- [Dev Directory](https://linuxjourney.com/lesson/dev-directory)
+- [How to partition a disk in Linux](https://opensource.com/article/18/6/how-partition-disk-linux)
+- [How To – Linux List Disk Partitions Command](https://www.cyberciti.biz/faq/linux-list-disk-partitions-command/)
+- [How To List Disk Partitions In Linux](https://ostechnix.com/how-to-list-disk-partitions-in-linux/)
 
