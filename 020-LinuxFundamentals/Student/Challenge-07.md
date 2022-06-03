@@ -22,5 +22,5 @@ In this challenge you will learn about the creation of users and groups in a Lin
 
 ## Learning Resources
 
-- [https://linuxjourney.com/lesson/users-and-groups](https://linuxjourney.com/lesson/users-and-groups)
-- [https://www.redhat.com/sysadmin/linux-user-group-management](https://www.redhat.com/sysadmin/linux-user-group-management)
+- [Users and Groups](https://linuxjourney.com/lesson/users-and-groups)
+- [Linux User Group Management](https://www.redhat.com/sysadmin/linux-user-group-management)
