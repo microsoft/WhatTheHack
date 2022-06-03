@@ -12,6 +12,11 @@ To follow along you will need access to a server running a Linux-based operating
 
 During the process of the creation of the VM, ensure the usage of **student** for the username with root privileges over the virtual machine, just to make it easier during the challenges. 
 
+### Disclaimer
+
+Opening port 22 to the public internet is a bad practice. The usage of Azure Bastion is higlhy recommended or create an NSG rule that limits access to the student's home IP address (or Azure Cloud Shell instance).
+
+
 ## Success Criteria
 
 * Validate you was able to successfully create your **Ubuntu 20.04** Linux Virtual Machine
