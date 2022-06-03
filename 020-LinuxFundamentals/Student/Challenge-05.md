@@ -27,9 +27,9 @@ In this challenge you will learn about the Linux standard file permissions and u
 
 ## Learning Resources
 
-- [https://linuxjourney.com/lesson/file-permissions](https://linuxjourney.com/lesson/file-permissions)
-- [https://www.linuxfoundation.org/blog/classic-sysadmin-understanding-linux-file-permissions/](https://www.linuxfoundation.org/blog/classic-sysadmin-understanding-linux-file-permissions/)
-- [https://chmod-calculator.com/](https://chmod-calculator.com/)
-- [https://linuxhandbook.com/linux-file-permissions/](https://linuxhandbook.com/linux-file-permissions/)
-- [https://linuxhandbook.com/suid-sgid-sticky-bit/](https://linuxhandbook.com/suid-sgid-sticky-bit/)
+- [File Permissions](https://linuxjourney.com/lesson/file-permissions)
+- [Understanding Linux File Permissions](https://www.linuxfoundation.org/blog/classic-sysadmin-understanding-linux-file-permissions/)
+- [Chmod Calculator](https://chmod-calculator.com/)
+- [Linux File Permissions](https://linuxhandbook.com/linux-file-permissions/)
+- [Suid, Sgid, and Sticky Bit](https://linuxhandbook.com/suid-sgid-sticky-bit/)
 
