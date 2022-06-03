@@ -4,7 +4,7 @@
 
 ## Description
 
-In this challenge you will learn how to perform common directory operations such as displaying your current directory and list directory contents.
+In this challenge you will learn how to perform common directory operations such as displaying your current directory and listing directory contents.
 
 - Display your current directory
 - Go to the parent directory of the current directory
@@ -26,12 +26,12 @@ In this challenge you will learn how to perform common directory operations such
 5. Confirm you can see the long list with details from `/` directory
 6. Confirm you are listing the content of `~` and not from `/`
 7. Confirm you can see the hidden files from your home directory
-8. Validate if you was able the create the directory tree using a single command
+8. Validate if you were able the create the directory tree using a single command
 9. Confirm if you are seeing a recursive list of the content from your `~` 
 10. Validate if only directories are being listed within your home folder
 
 ## Learning Resources
 
-- [https://linuxjourney.com/lesson/the-shell](https://linuxjourney.com/lesson/the-shell)
+- [The Shell](https://linuxjourney.com/lesson/the-shell)
 
 
