@@ -18,9 +18,9 @@ In this challenge you will learn some basic stuff on shell scripting and the usa
 
 ## Learning Resources
 
-- [https://www.linuxjournal.com/content/how-create-shell-script-linux](https://www.linuxjournal.com/content/how-create-shell-script-linux)
-- [https://www.tecmint.com/create-shell-scripts-in-linux/](https://www.tecmint.com/create-shell-scripts-in-linux/)
-- [https://www.howtogeek.com/67469/the-beginners-guide-to-shell-scripting-the-basics/](https://www.howtogeek.com/67469/the-beginners-guide-to-shell-scripting-the-basics/)
-- [https://www.geeksforgeeks.org/basic-operators-in-shell-scripting/](https://www.geeksforgeeks.org/basic-operators-in-shell-scripting/)
-- [https://www.linuxfordevices.com/tutorials/shell-script/if-else-in-shell-script](https://www.linuxfordevices.com/tutorials/shell-script/if-else-in-shell-script)
-- [https://linuxhandbook.com/run-shell-script/](https://linuxhandbook.com/run-shell-script/)
+- [How create SHell Script in Linux](https://www.linuxjournal.com/content/how-create-shell-script-linux)
+- [Create Shell Scripts in Linux](https://www.tecmint.com/create-shell-scripts-in-linux/)
+- [The beginners guide to shell scripting](https://www.howtogeek.com/67469/the-beginners-guide-to-shell-scripting-the-basics/)
+- [Basic operators in Shell Scripting](https://www.geeksforgeeks.org/basic-operators-in-shell-scripting/)
+- [If and Else in Shell Script](https://www.linuxfordevices.com/tutorials/shell-script/if-else-in-shell-script)
+- [Run Shell Script](https://linuxhandbook.com/run-shell-script/)
