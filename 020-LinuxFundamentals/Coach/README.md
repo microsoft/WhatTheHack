@@ -24,7 +24,7 @@ Welcome to the coach's guide for the Linux Fundamentals What The Hack. Here you 
 	 - Learn some basic stuff on shell scripting and the usage of some commands such as echo, cut, read and grep.
 * Challenge 09: **[Disks, partitions and file systems](../Coach/Solution-09.md)**
 	 - You will be working with disks and partitions and learn about Linux filesystems and commands such as fdisk, mkfs and mount.
-* Challenge 10: **[Logical Volume Mananager](../Coach/Solution-10.md)**
+* Challenge 10: **[Logical Volume Manager](../Coach/Solution-10.md)**
 	 - Discover about the Logical Volume Manager on Linux, and how to use commands such as pvcreate, vgcreate, lvrcreate, and more.
 * Challenge 11: **[Package management](../Coach/Solution-11.md)**
 	 - Learn about package management and common activites such as update package distribution lists, install and uninstall packages.
@@ -39,7 +39,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to ensure students can access the contents of the \`/Student/Resources\` folder.
+Before the hack, it is the Coach's responsibility to download and package up the contents of the /Student/Resources folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -58,11 +58,11 @@ This hack requires students to have access to an Azure subscription where they c
 
 ## Repository Contents
 
-- \`./Coach\`
+- `./Coach`
   - Coach's Guide and related files
-- \`./Coach/Solutions\`
+- `./Coach/Solutions`
   - Solution files with completed example answers to a challenge
-- \`./Student\`
+- `./Student`
   - Student's Challenge Guide
-- \`./Student/Resources\`
+- `./Student/Resources`
   - Resource files, sample code, scripts, etc. meant to be provided to students. (Must be packaged up by the coach and provided to students at the start of event)
