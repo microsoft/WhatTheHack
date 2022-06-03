@@ -88,7 +88,7 @@ GenerateChallengesSection() {
 
   local challengesSection=""
 
-  for challengeNumber in $(seq -f "%02g" 1 $numberOfChallenges); do
+  for challengeNumber in $(seq -f "%02g" 0 $numberOfChallenges); do
     eval challengesSection+=\$\'1. Challenge $challengeNumber: **[Description of challenge]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
   done
 
@@ -189,7 +189,7 @@ CreateChallenges() {
     echo "Creating $numberOfChallenges challenge Markdown files in $fullPath..."
   fi
 
-  for challengeNumber in $(seq -f "%02g" 1 $numberOfChallenges); do
+  for challengeNumber in $(seq -f "%02g" 0 $numberOfChallenges); do
     CreateChallengeMarkdownFile "$fullPath" "Challenge" $challengeNumber $numberOfChallenges
   done
 }
@@ -217,13 +217,13 @@ CreateSolutions() {
     echo "Creating $numberOfSolutions solution Markdown files in $fullPath..."
   fi
 
-  for solutionNumber in $(seq -f "%02g" 1 $numberOfSolutions); do
+  for solutionNumber in $(seq -f "%02g" 0 $numberOfSolutions); do
     CreateSolutionMarkdownFile "$fullPath" "Solution" $solutionNumber
   done
 }
 
 CreateChallengesAndSolutions() {
-  local -r numberOfChallenges=$(($1 + 1)) # + 1 to account for the including the prerequisites file
+  local -r numberOfChallenges=$1
 
   if $verbosityArg; then
     echo "Creating $numberOfChallenges solution & challenge Markdown files in $rootPath..."
@@ -265,6 +265,9 @@ declare -r pathToTemplateDirectory="$pathArg/$templateDirectoryName"
 
 CreateDirectoryStructure $deleteExistingDirectoryArg
 
-CreateHackDescription $numberOfChallengesArg
+# + 1 to account for the including the prerequisites file
+declare -r totalNumberOfChallenges=$(($numberOfChallengesArg + 1))
 
-CreateChallengesAndSolutions $numberOfChallengesArg
+CreateHackDescription $totalNumberOfChallenges
+
+CreateChallengesAndSolutions $totalNumberOfChallenges
