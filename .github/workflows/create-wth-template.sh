@@ -38,12 +38,18 @@ CreateDirectoryStructure() {
   # create the Coach & Coach/Solutions directories
   mkdir -p $rootPath/Coach/Solutions
 
+  #add a file to allow git to store an "empty" directory
+  touch $rootPath/Coach/Solutions/.gitkeep
+
   if $verbosityArg; then
     echo "Creating $rootPath/Student/Resources directories..."
   fi
 
   # create the Student & Student/Resources directories
   mkdir -p $rootPath/Student/Resources
+  
+  #add a file to allow git to store an "empty" directory
+  touch $rootPath/Student/Resources/.gitkeep
 }
 
 PreprocessTemplateFile() {
@@ -154,7 +160,11 @@ CreateChallengeMarkdownFile() {
 
   local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge" false)
 
-  WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
+  if [[ $suffixNumber -eq "00" ]]; then
+    WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Common-Prerequisites.md"
+  else
+    WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
+  fi
 }
 
 CreateSolutionMarkdownFile() {
@@ -213,7 +223,7 @@ CreateSolutions() {
 }
 
 CreateChallengesAndSolutions() {
-  local -r numberOfChallenges=$1
+  local -r numberOfChallenges=$(($1 + 1)) # + 1 to account for the including the prerequisites file
 
   if $verbosityArg; then
     echo "Creating $numberOfChallenges solution & challenge Markdown files in $rootPath..."
