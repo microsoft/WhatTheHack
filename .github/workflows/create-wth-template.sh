@@ -89,7 +89,7 @@ GenerateChallengesSection() {
   local challengesSection=""
 
   for challengeNumber in $(seq -f "%02g" 0 $numberOfChallenges); do
-    eval challengesSection+=\$\'1. Challenge $challengeNumber: **[Name of challenge]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
+    eval challengesSection+=\$\'1. Challenge $challengeNumber: **[Title of challenge]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
   done
 
   echo "$challengesSection"
