@@ -14,7 +14,7 @@ During the process of the creation of the VM, ensure the usage of **student** fo
 
 ### Disclaimer
 
-Opening port 22 to the public internet is a bad practice. The usage of Azure Bastion is higlhy recommended or create an NSG rule that limits access to the student's home IP address (or Azure Cloud Shell instance).
+Opening port 22 to the public internet is a bad practice. We highly recommend using Azure Bastion or creating an NSG rule that limits access to the student's home IP address (or Azure Cloud Shell instance).
 
 
 ## Success Criteria
