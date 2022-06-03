@@ -46,12 +46,12 @@ The following articles will help you decide on an architecture, explain the alte
 - **[Visualizing Data](https://docs.microsoft.com/en-us/azure/sentinel/monitor-your-data)** </br>
 
 
-## Tips (Optional)
+## Tips 
 
 Don't overthink the architecture, the guide here is to get you to understand the options. Ask yourself why would I need multiple Sentinel workspaces, and what is the impact of doing so?
-For the workbook, don't create one
+For the workbook, don't create one, use an existing workbook.
 
-## Advanced Challenges (Optional)
+## Advanced Challenges 
 
 *Too comfortable?  Eager to do more?  Try these additional challenges!*
 
