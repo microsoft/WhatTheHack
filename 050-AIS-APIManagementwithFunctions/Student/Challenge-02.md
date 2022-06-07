@@ -13,8 +13,8 @@ Now that you've created your Bicep templates, you would like to create a CI/CD p
 ## Description
 - Create a repository and upload your Bicep templates to the main branch.
 - Create a CI/CD pipeline using either GitHub Actions or Azure DevOps.
-    - If using GitHub actions, a sample workflow (deploy.yml) can be found at /Challenge-02 of the Resources.zip provided by your coach.
-    - If using Azure Pipelines, a sample YAML pipeline (azure-pipelines.yaml) can be found at /Challenge-02 of the Resources.zip provided by your coach.
+    - If using GitHub actions, a sample workflow (deploy.yml) can be found at `/Challenge-02` of the `Resources.zip` provided by your coach.
+    - If using Azure Pipelines, a sample YAML pipeline (azure-pipelines.yaml) can be found at `/Challenge-02` of the `Resources.zip` provided by your coach.
 - Deploy your environment using the Bicep templates that you created from Challenge 01.
 
 ## Success Criteria
