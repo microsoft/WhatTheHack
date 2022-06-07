@@ -13,7 +13,7 @@ You would like to be able to secure your backend APIs in one of the two ways:
 - Test end-to-end authorization to Hello API via OAuth.  
 
 ## Description
-You should be able to either:
+
 ### Scenario 01: Configure secured backend APIs in a private network
 - Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
 - The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: `https://apim-{{unique_id}}.azure-api.net/external/hello`
