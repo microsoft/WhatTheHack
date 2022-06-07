@@ -79,8 +79,6 @@ These Azure requirements should be shared with a stakeholder in the organization
 
 ## Repository Contents
 
-*The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add.*
-
 - \`./Coach\`
   - Coach's Guide and related files
 - \`./Coach/Solutions\`
