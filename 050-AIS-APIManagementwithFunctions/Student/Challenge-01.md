@@ -15,31 +15,33 @@ As a cloud engineer, you would like to be able to deploy this POC environment us
 
 There are two scenarios you would like to prove (just choose one):
 
-- Scenario 1: Deploy a VNET-secured AIS environment - should you need to access services deployed over a private network (e.g. APIs hosted on-premises)
-  - Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+### Scenario1: Deploy a VNET-secured AIS environment 
+This scenario is for when you need to access services deployed over a private network (e.g. APIs hosted on-premises)
+- Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
 
-- Scenario 2: Deploy an identity-secured AIS environment - preferred for integrating with services hosted in the cloud or publicly-accessible
-  - Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Challenge-01/Scenario-02 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
-      - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
-        - main.bicep
-          - modules
-            - functions.bicep
-            - apim.bicep
-            - appinsights.bicep
-      - The resources should have the following properties at a minimum:
-        - name
-        - location
-        - sku/kind
-        - resource-specific properties
-      - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
- 
- - Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
-  - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
+### Scenario2: Deploy an identity-secured AIS environment 
+This scenario is preferred for integrating with services hosted in the cloud or publicly-accessible
+- Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Challenge-01/Scenario-02 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+    - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
+      - main.bicep
+        - modules
+          - functions.bicep
+          - apim.bicep
+          - appinsights.bicep
+    - The resources should have the following properties at a minimum:
+      - name
+      - location
+      - sku/kind
+      - resource-specific properties
+    - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
+
+- Make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
+- After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Success Criteria
 As mentioned earlier, you can choose which scenario to go for you POC environment:
 
-- Scenario 1: Deploy a VNET-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
+### Scenario1: Deploy a VNET-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
   - Application Insights resource
   - Virtual Network
   - API Management service in Developer tier, single-instance, in Internal mode
@@ -51,7 +53,7 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
   - Function App in Elastic Premium Plan - E1 SKU
     - Configured to send monitoring data to your Application Insights resource
   
-- Scenario 2: Deploy an identity-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
+### Scenario2: Deploy an identity-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
   - Application Insights resource
   - API Management service in Developer tier
     - Configured to send monitoring data to your Application Insights resource
