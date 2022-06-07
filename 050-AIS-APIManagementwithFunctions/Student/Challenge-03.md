@@ -8,7 +8,7 @@
 - You should have completed Challenge 02
 
 ## Introduction
-Now that you have deployed a APIM service in Dev environment, you would now like to create a simple Hello World API that can be called via the APIM gateway and routes the calls to the backend API services hosted in Function Apps.  
+Now that you have deployed an APIM service in Dev environment, you would now like to create a simple Hello World API that can be called via the APIM gateway and routes the calls to the backend API services hosted in Function Apps.  
 
 
 ## Description
