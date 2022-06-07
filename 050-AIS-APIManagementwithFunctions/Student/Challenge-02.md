@@ -18,9 +18,8 @@ Now that you've created your Bicep templates, you would like to create a CI/CD p
 - Deploy your environment using the Bicep templates that you created from Challenge 01.
 
 ## Success Criteria
-Verify that:
-- you are able to run automated deployment your environment using the Bicep templates that you created from Challenge 01.
-- you are able to call send a GET or POST request to Echo API (the default API configured in APIM).
+- Verify that you are able to run an automated deployment of your environment using the Bicep templates that you created from Challenge 01.
+- Verify that you are able to send a GET or POST request to Echo API (the default API configured in APIM).
 
 ## Learning Resources
 - [Quickstart for GitHub Actions](https://docs.github.com/en/actions/quickstart)
