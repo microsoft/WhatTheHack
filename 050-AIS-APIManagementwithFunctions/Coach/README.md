@@ -79,13 +79,13 @@ These Azure requirements should be shared with a stakeholder in the organization
 
 ## Repository Contents
 
-- \`./Coach\`
+- `./Coach`
   - Coach's Guide and related files
-- \`./Coach/Solutions\`
+- `./Coach/Solutions`
   - Solution files with completed example answers to a challenge
-- \`./Student\`
+- `./Student`
   - Student's Challenge Guide
-- \`./Student/Resources\`
+- `./Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
 
 
