@@ -41,7 +41,8 @@ This scenario is preferred for integrating with services hosted in the cloud or 
 ## Success Criteria
 As mentioned earlier, you can choose which scenario to go for you POC environment:
 
-### Scenario1: Deploy a VNET-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
+### Scenario1: Deploy a VNET-secured AIS environment
+- Verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
   - Application Insights resource
   - Virtual Network
   - API Management service in Developer tier, single-instance, in Internal mode
@@ -53,7 +54,8 @@ As mentioned earlier, you can choose which scenario to go for you POC environmen
   - Function App in Elastic Premium Plan - E1 SKU
     - Configured to send monitoring data to your Application Insights resource
   
-### Scenario2: Deploy an identity-secured AIS environment, verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
+### Scenario2: Deploy an identity-secured AIS environment
+- Verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
   - Application Insights resource
   - API Management service in Developer tier
     - Configured to send monitoring data to your Application Insights resource
