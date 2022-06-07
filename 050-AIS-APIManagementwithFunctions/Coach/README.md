@@ -1,25 +1,12 @@
-<!-- REMOVE_ME # What The Hack - ${nameOfChallengeArg} - Coach Guide (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
-
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 # What The Hack - AIS - API Management with Function Apps - Coach Guide
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ## Introduction
 
-<!-- REMOVE_ME Welcome to the coach's guide for the ${nameOfChallengeArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges. (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
-
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 Welcome to the coach's guide for the Azure Integration Services - API Management with Function Apps Hack. Here you will find links to specific guidance for coaches for each of the challenges.
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
-
-<!-- This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge. -->
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
-<!-- REMOVE_ME ${challengesSection} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
-
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 -  Challenge 0: **[Prepare your Development Environment](Solution-00.md)**
    - Get yourself ready to build your integration solution
 -  Challenge 1: **[Provision an Integration Environment](Solution-01.md)**
@@ -30,7 +17,6 @@ Welcome to the coach's guide for the Azure Integration Services - API Management
    - Create backend APIs
 -  Challenge 4: **[Secure Backend APIs](Solution-04.md)**
    - Securing backend APIs by configuring them in the VNET or by using OAuth 2.0 authorization
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ## Coach Prerequisites 
 
@@ -53,6 +39,8 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Azure Requirements
 
+These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+
 This hack requires students to use an account that have Owner access to an Azure subscription so they can create and consume Azure resources such as: 
 
 - API Management Service
@@ -60,11 +48,7 @@ This hack requires students to use an account that have Owner access to an Azure
 - Virtual Networks 
 - Private Endpoints
 
-Ensure that the Azure subscription must be registered for the resource providers mentioned above.  You can check for this by following [these steps](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
-
-Moreover, check that the account the students will use have the right permissions to be able to create new AAD application registrations, either by being granted the Global Administrator role, or by asking your Global Administrator to allow users to register applications.  Steps on how do this can be found [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
-
-These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+Moreover, check that the account the students will use have the right permissions to be able to create new AAD application registrations (service principals).  If the student accounts do not have this permission, then ask if your AAD Global Administrator can allow it, or create app-registrations (service principals) on the student's behalf for the hack.  Steps on how do this can be found [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
 
 
 ## Suggested Hack Agenda 
