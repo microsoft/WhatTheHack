@@ -53,7 +53,18 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Azure Requirements
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+This hack requires students to use an account that have Owner access to an Azure subscription so they can create and consume Azure resources such as: 
+
+- API Management Service
+- Azure Function Apps
+- Virtual Networks 
+- Private Endpoints
+
+Ensure that the Azure subscription must be registered for the resource providers mentioned above.  You can check for this by following [these steps](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
+
+Moreover, check that the account the students will use have the right permissions to be able to create new AAD application registrations, either by being granted the Global Administrator role, or by asking your Global Administrator to allow users to register applications.  Steps on how do this can be found [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+
+These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
 
 ## Suggested Hack Agenda 
