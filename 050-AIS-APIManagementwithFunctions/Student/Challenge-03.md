@@ -25,7 +25,7 @@ For both scenarios, you should be able to:
 
 
 ## Success Criteria
-- Verify that you are able send GET and POST calls via the APIM endpoint and received HTTP 200 response.
+- Verify that you are able to send GET and POST calls via the APIM endpoint and received HTTP 200 response.
 
 
 ## Learning Resources
