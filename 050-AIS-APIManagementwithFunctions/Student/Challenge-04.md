@@ -16,15 +16,15 @@ You would like to be able to secure your backend APIs in one of the two ways:
 You should be able to either:
 - For Scenario 01: Configure secured backend APIs in a private network
     - Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
-    - The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: https://apim-{{unique_id}}.azure-api.net/external/hello
+    - The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: `https://apim-{{unique_id}}.azure-api.net/external/hello`
     - Secure internal Hello Function App by enabling networking feature by either:
         - Only accepts traffic coming from the APIM subnet
         - Assigning a private endpoint to the Function App
-    - Import the new Function App as Hello Internal API to APIM.  The new path should be: https://apim-{{unique_id}}.azure-api.net/internal/hello
+    - Import the new Function App as Hello Internal API to APIM.  The new path should be: `https://apim-{{unique_id}}.azure-api.net/internal/hello`
     - Secure external Hello API so that it would only accept requests routed from Application Gateway, which includes setting-up an APIM policy.
     - To allow routes to external Hello API only, you should configure URL redirection mechanism in Application Gateway so that:
-        - All calls to the AGW endpoint with the path /external/* (http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/external)  would go to https://api.{{unique_id}}.azure-api.net/external/hello
-        - While calls to the default path http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/ returns HTTP 404.
+        - All calls to the AGW endpoint with the path /external/* (`http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/external`)  would go to `https://api.{{unique_id}}.azure-api.net/external/hello`
+        - While calls to the default path `http://pip-{{unique_id}}.australiaeast.cloudapp.azure.com/` returns HTTP 404.
 
 - For Scenario 02: Configure OAuth2 authorization when calling Hello API
     - Configure OAuth 2.0 authorization in APIM 
@@ -35,8 +35,8 @@ You should be able to either:
 
 ## Success Criteria
 - Scenario 01:
-    - Verify that you can send GET and POST requests to the public endpoint (https://apim-{{unique_id}}.azure-api.net/external/hello) and get a HTTP 200 response.
-    - Verify that you can send GET and POST requests to the internal endpoint (https://apim-{{unique_id}}.azure-api.net/internal/hello) over the private network (e.g. from a jumpbox VM) and get HTTP 200 response.
+    - Verify that you can send GET and POST requests to the public endpoint (`https://apim-{{unique_id}}.azure-api.net/external/hello`) and get a HTTP 200 response.
+    - Verify that you can send GET and POST requests to the internal endpoint (`https://apim-{{unique_id}}.azure-api.net/internal/hello`) over the private network (e.g. from a jumpbox VM) and get HTTP 200 response.
 
 - Scenario 02:
     - Verify that you are able get an access token via the OAuth 2.0 authorization code flow.
