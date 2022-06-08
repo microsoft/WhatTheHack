@@ -17,4 +17,4 @@ You need to ensure that the students have prepared all the required tools such a
         - Set default subscription by running ```az account set --subscription "<subscription name or subscription id>"```
         - Set default resource group by running ```az configure --defaults group=<resource group name>```
 
-[Back to Top](#solution-00---preparing-your-development-environment)
+[Back to Top](#challenge-00---preparing-your-development-environment)
