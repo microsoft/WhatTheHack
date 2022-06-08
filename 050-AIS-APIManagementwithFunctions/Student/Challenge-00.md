@@ -4,11 +4,11 @@
 
 ## Introduction
 
-A cloud engineer should be have the right set of tools in order to be successful in deploying an integration solution in Azure.
+A cloud engineer should have the right set of tools in order to be successful in deploying an integration solution in Azure.
 
 ## Description
 
-In this challenge we'll be setting up all the tools we will need to complete our challenges.
+In this challenge we will be setting up all the tools needed to complete our challenges.
 
   - Install the recommended toolset as follows:
     - [Azure Subscription](#azure-subscription)
