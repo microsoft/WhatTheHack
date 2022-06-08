@@ -10,7 +10,7 @@ This challenge will cover the basics of containers and container runtimes, and g
 
 Create an Azure Container Registry. Build the API and Web images in this repository and store them in your new ACR.
 
-The application we will use in this hack has three components, as the following picture describes: a [web](./Resources/web) tier offers an HTML portal that shows the information produced by the [api](./Resources/api)], that in its turn access a **database** with a simple query that shows the database version. You will find the source code for each application in the files supplied for this hack:
+The application we will use in this hack has three components, as the following picture describes: a [web](./Resources/web) tier offers an HTML portal that shows the information produced by the [api](./Resources/api), that in its turn access a **database** with a simple query that shows the database version. You will find the source code for each application in the files supplied for this hack:
 
 ![app architecture](./images/app_arch.png)
 
@@ -51,8 +51,8 @@ Note the two links at the bottom of the page in the picture above will not work 
 
 These docs might help you achieving these objectives:
 
-- [API image documentation and source code](./Resources/api/README.md)
-- [Web image documentation and source code](./Resources/web/README.md)
+- [API image documentation and source code](https://github.com/erjosito/whoami/tree/master/api)
+- [Web image documentation and source code](https://github.com/erjosito/whoami/tree/master/web)
 - [Run SQL Server container images with Docker](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)
 - [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)

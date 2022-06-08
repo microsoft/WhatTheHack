@@ -70,6 +70,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [Azure Virtual Desktop](/037-AzureVirtualDesktop/README.md)
 - [SAP On Azure](/042-SAPOnAzure/README.md)
+- [Azure Migrate](/046-AzureMigrate/README.md)
 
 ## Application Development
 - [Java on Azure App Service](/040-JavaOnAppService/README.md)

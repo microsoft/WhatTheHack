@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Variables
+location=westeurope
+# Deploy template  (the default credentials are demouser/demo!pass123)
+# Parameters: resourceGroupBaseName, includeLandingZone
+template_uri="https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/SmartHotelFull.json"
+base_name=FastHack
+az deployment sub create -n "${rg_onprem}-${RANDOM}" --template-uri $template_uri -l $location --parameters resourceGroupBaseName=$base_name includeLandingZone=true
+# The template will create two resource groups
+rg_onprem="${base_name}HostRG"
+rg_azure_prod="${base_name}RG"
