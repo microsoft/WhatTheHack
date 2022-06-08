@@ -18,8 +18,8 @@ In this challenge we will be setting up all the tools needed to complete our cha
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
       - [Azure Cloud Shell](#azure-cloud-shell)
-    - Azure Dev Ops project OR  GitHub project 
-    - Postman
+    - [Azure DevOps or GitHub](#azure-devops-or-github)
+    - [Postman](#postman)
 
 
 ## Azure Subscription
@@ -75,5 +75,12 @@ The Azure Portal is a great tool for quick prototyping, proof of concepts, and t
 
 Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console via the [Azure Cloud Shell](https://shell.azure.com/).
 
+### Azure DevOps or GitHub
+
+You can [create an Azure DevOps project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser) and use Azure Pipelines for CI/CD.  If you prefer to use GitHub Actions, [create a new GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo).
+
+### Postman
+
+Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.  [Sign up for free](https://identity.getpostman.com/signup?_ga=2.238632832.125996110.1654669428-421004685.1654669428) to get started with Postman.
 
 [Back to Top](#challenge-00---preparing-your-development-environment)
