@@ -24,7 +24,7 @@ The students should be able to create upload the Bicep files to a repo and creat
           ![AGW Public Endpoint 1](./images/Solution03_AGW_Public_Endpoint_1.jpg)
           Here's the GET and POST calls to the APIM endpoint:
           ![AGW Public Endpoint 2](./images/Solution03_AGW_Public_Endpoint_2.jpg)
-        Make sure that you add the APIM subscription key (```Ocp-Apim-Subscription-Key```) in the request header if using subsription key to call the API. (which is enabled by default)
+        Make sure that you add the APIM subscription key (```Ocp-Apim-Subscription-Key```) in the request header if using subscription key to call the API. (which is enabled by default)
     - For Scenario 2
         - If testing the API in the Azure Portal, you just need to go to the Test tab and click Send.
             ![Test Hello API in the Azure Portal](./images/Solution03_Test_HelloAPI_Azure_Portal.jpg)
