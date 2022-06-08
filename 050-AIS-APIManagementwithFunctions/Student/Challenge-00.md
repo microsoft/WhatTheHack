@@ -77,7 +77,7 @@ Build, manage, and monitor everything from simple web apps to complex cloud appl
 
 ### Azure DevOps or GitHub
 
-You can [create an Azure DevOps project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser) and use Azure Pipelines for CI/CD.  If you prefer to use GitHub Actions, [create a new GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo).
+You can [create an Azure DevOps project](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser) to use Azure Pipelines for CI/CD.  If you prefer to use GitHub Actions instead, you must [create a new GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo).
 
 ### Postman
 
