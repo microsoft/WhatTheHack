@@ -112,7 +112,7 @@ For Scenario 02:
     ![Postman Auth Request 1](./images/Solution04_Postman_Auth_Request_1.jpg)
     ![Postman Auth Request 2](./images/Solution04_Postman_Auth_Request_2.jpg)
 
-- Click Get New Access Token which will pop-up another browser window prompting you to log-in.  Once successful, you will redirected back with the generated access token.  Click Use Token to add that to the request header.
+- Click Get New Access Token which will pop-up another browser window prompting you to log-in.  Once successful, you will be redirected back with the generated access token.  Click Use Token to add that to the request header.
     ![Postman Auth Request 3](./images/Solution04_Postman_Auth_Request_3.jpg)
   
 - Then, click Send to execute GET request to Hello API.
