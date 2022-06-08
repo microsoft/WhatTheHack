@@ -20,7 +20,7 @@ The students should be able to create upload the Bicep files to a repo and creat
 
 - To test API calls, students are free to use whatever tool they prefer, e.g. Powershell [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.2), Azure Portal ([APIM Test tab](https://docs.microsoft.com/en-us/azure/.api-management/import-function-app-as-api#test-in-azure-portal)), or [Postman](https://www.postman.com/)
     - For Scenario 1 
-        - You will not be able to test from the APIM portal since the it is in internal mode and already publicly inaccessible.  You have to use HTTP proxy tool like Postman and send calls to the Application Gateway public endpoint.
+        - You will not be able to test from the APIM portal since it is in internal mode and already publicly inaccessible.  You have to use HTTP proxy tool like Postman and send calls to the Application Gateway public endpoint.
           ![AGW Public Endpoint 1](./images/Solution03_AGW_Public_Endpoint_1.jpg)
           Here's the GET and POST calls to the APIM endpoint:
           ![AGW Public Endpoint 2](./images/Solution03_AGW_Public_Endpoint_2.jpg)
