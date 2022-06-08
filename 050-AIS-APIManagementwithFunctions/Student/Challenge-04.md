@@ -39,7 +39,7 @@ You would like to be able to secure your backend APIs in one of the two ways:
 - Verify that you can send GET and POST requests to the internal endpoint (`https://apim-{{unique_id}}.azure-api.net/internal/hello`) over the private network (e.g. from a jumpbox VM) and get HTTP 200 response.
 
 ### Scenario 02:
-- Verify that you are able get an access token via the OAuth 2.0 authorization code flow.
+- Verify that you are able to get an access token via the OAuth 2.0 authorization code flow.
 - Verify that you are able to send GET and POST requestS to Hello API (passing the access token into the Authorization header) via the public endpoint and get a HTTP 200 response.
 
 
