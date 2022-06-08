@@ -16,7 +16,7 @@ You would like to be able to secure your backend APIs in one of the two ways:
 
 ### Scenario 01: Configure secured backend APIs in a private network
 - Create a new Function App in Elastic Premium plan which will be imported to APIM as Hello Internal API.  
-- The existing API - Hello API - will now become the public/external API.  The new path should configured in APIM as: `https://apim-{{unique_id}}.azure-api.net/external/hello`
+- The existing API - Hello API - will now become the public/external API.  The new path should be configured in APIM as: `https://apim-{{unique_id}}.azure-api.net/external/hello`
 - Secure internal Hello Function App by enabling networking feature by either:
     - Only accepts traffic coming from the APIM subnet
     - Assigning a private endpoint to the Function App
