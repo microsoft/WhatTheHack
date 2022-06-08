@@ -15,11 +15,11 @@ As a cloud engineer, you would like to be able to deploy this POC environment us
 
 There are two scenarios you would like to prove (just choose one):
 
-### Scenario1: Deploy a VNET-secured AIS environment 
+### Scenario 01: Deploy a VNET-secured AIS environment 
 This scenario is for when you need to access services deployed over a private network (e.g. APIs hosted on-premises)
 - Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
 
-### Scenario2: Deploy an identity-secured AIS environment 
+### Scenario 02: Deploy an identity-secured AIS environment 
 This scenario is preferred for integrating with services hosted in the cloud or publicly-accessible
 - Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Challenge-01/Scenario-02 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
     - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
@@ -41,7 +41,7 @@ This scenario is preferred for integrating with services hosted in the cloud or 
 ## Success Criteria
 As mentioned earlier, you can choose which scenario to go for your POC environment:
 
-### Scenario1: Deploy a VNET-secured AIS environment
+### Scenario 01: Deploy a VNET-secured AIS environment
 - Verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
   - Application Insights resource
   - Virtual Network
@@ -54,7 +54,7 @@ As mentioned earlier, you can choose which scenario to go for your POC environme
   - Function App in Elastic Premium Plan - E1 SKU
     - Configured to send monitoring data to your Application Insights resource
   
-### Scenario2: Deploy an identity-secured AIS environment
+### Scenario 02: Deploy an identity-secured AIS environment
 - Verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
   - Application Insights resource
   - API Management service in Developer tier
