@@ -135,4 +135,4 @@ For Scenario 02:
       ![Enable Managed Identity in APIM 2](./images/Solution04_Enable_ManagedIdentity_APIM_2.jpg)
     - Test API call.
     
-[Back to Top](#challenge-04---securing-backends-apis)
+[Back to Top](#challenge-04---securing-backends-apis---coachs-guide)

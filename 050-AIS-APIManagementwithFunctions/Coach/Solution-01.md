@@ -236,7 +236,7 @@ Students has to do one of the following AIS environments, click on the link belo
     - Click API and test call Echo API GET operation (don't forget to a add the subscription key!)
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
 
-[Back to Top](#challenge-01---provision-your-integration-environment)
+[Back to Top](#challenge-01---provision-your-integration-environment---coachs-guide)
 
 <!-- - Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [Student/Resources/Challenge-01](../Student/Resources/Challenge-01).  
 
