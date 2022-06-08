@@ -18,6 +18,8 @@ In this challenge we will be setting up all the tools needed to complete our cha
     - [Managing Cloud Resources](#managing-cloud-resources)
       - [Azure Portal](#azure-portal)
       - [Azure Cloud Shell](#azure-cloud-shell)
+    - Azure Dev Ops project OR  GitHub project 
+    - Postman
 
 
 ## Azure Subscription
