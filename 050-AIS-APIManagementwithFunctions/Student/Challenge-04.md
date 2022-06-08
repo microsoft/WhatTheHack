@@ -40,7 +40,7 @@ You would like to be able to secure your backend APIs in one of the two ways:
 
 ### Scenario 02:
 - Verify that you are able to get an access token via the OAuth 2.0 authorization code flow.
-- Verify that you are able to send GET and POST requestS to Hello API (passing the access token into the Authorization header) via the public endpoint and get a HTTP 200 response.
+- Verify that you are able to send GET and POST requests to Hello API (passing the access token into the Authorization header) via the public endpoint and get a HTTP 200 response.
 
 
 ## Learning Resources
