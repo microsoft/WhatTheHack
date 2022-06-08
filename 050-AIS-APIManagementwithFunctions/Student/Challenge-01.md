@@ -39,7 +39,7 @@ This scenario is preferred for integrating with services hosted in the cloud or 
   - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
 
 ## Success Criteria
-As mentioned earlier, you can choose which scenario to go for you POC environment:
+As mentioned earlier, you can choose which scenario to go for your POC environment:
 
 ### Scenario1: Deploy a VNET-secured AIS environment
 - Verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
