@@ -33,7 +33,7 @@ This scenario is preferred for integrating with services hosted in the cloud or 
       - location
       - sku/kind
       - resource-specific properties
-    - Function app and APIM needs to configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
+    - Function app and APIM needs to be configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
 
 - For both scenarios, make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
   - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
