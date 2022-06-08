@@ -86,6 +86,6 @@ As mentioned earlier, you can choose which scenario to go for your POC environme
 
 
 ## Advanced Challenges
-- For either Scenario, move the parameters needed for your Bicep files into a seperate ```parameters.json``` file. Review your bicep templates and determine which of these parameters you could move out into a seperate file. You can learn how to format your ```parameters.json``` file [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameter-files).
+- For either Scenario, review your bicep templates and determine which parameters could be moved out into a separate ```parameters.json``` file.  You can learn how to format your ```parameters.json``` file [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/parameter-files).
 
 [Back to Top](#challenge-01---provision-your-integration-environment)
