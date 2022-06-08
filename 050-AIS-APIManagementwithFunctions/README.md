@@ -5,7 +5,7 @@ The Azure Integration Services (AIS) Hack will provide you a deep dive experienc
 
 
 ## Learning Objectives
-In this hack, the participants will learn how to build an integration solutin using API Management and Function Apps.  This involves the following:
+In this hack, the participants will learn how to build an integration solution using API Management and Function Apps.  This involves the following:
 
 1. Authoring Bicep templates to build API Management Service and backend APIs hosted in Function Apps
 2. Creating CI/CD pipeline to deploy environment
