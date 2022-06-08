@@ -233,7 +233,7 @@ Students has to do one of the following AIS environments, click on the link belo
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_2.jpg)
     - Open a new browser window (in incognito/private browsing mode) and then [view the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#visit-the-published-portal) 
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_3.jpg)
-    - Click API and test call Echo API GET operation (don't forget toa add the subscription key!)
+    - Click API and test call Echo API GET operation (don't forget to a add the subscription key!)
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
 
 [Back to Top](#solution-01---provision-your-integration-environment)
