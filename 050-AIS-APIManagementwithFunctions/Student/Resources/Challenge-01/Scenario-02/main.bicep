@@ -56,7 +56,7 @@ module functionModule 'modules/function.bicep' = {
     storageAccountName:storageAccountName
     functionAppName:functionAppName
     appServicePlanName:appServicePlanName
-    appInsightsInstrumentationKey: '<appinsights key>'
+    appInsightsInstrumentationKey: appInsightsModule.outputs.appInsightsInstrumentationKey
     resourceTags: resourceTags
   }
 }
@@ -70,8 +70,8 @@ module apimmodule './modules/apim.bicep' = {
     skuCount: 1
     publisherName: publisherName
     publisherEmail: publisherEmail
-    appInsightsInstrumentationKey: '<appinsights key>'
-    appInsightsResourceId: '<appinsights resource id>'
+    appInsightsInstrumentationKey: appInsightsModule.outputs.appInsightsInstrumentationKey
+    appInsightsResourceId: appInsightsModule.outputs.appInsightsResourceId
     resourceTags: resourceTags    
   }
 }

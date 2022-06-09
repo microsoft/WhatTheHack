@@ -51,10 +51,10 @@ resource apiManagementServiceLoggers 'Microsoft.ApiManagement/service/loggers@20
   parent: apiManagementService
   name: 'apimlogger' 
   properties: {
-    resourceId: ''
+    resourceId: appInsightsResourceId
     loggerType: 'applicationInsights'
     credentials: {
-      instrumentationKey: ''
+      instrumentationKey: appInsightsInstrumentationKey
     }
     isBuffered: true 
     
