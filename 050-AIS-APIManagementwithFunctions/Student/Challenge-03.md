@@ -15,10 +15,10 @@ Now that you have deployed an APIM service in Dev environment, you would now lik
 For both scenarios, you should be able to: 
 - Add a Function with HTTP Trigger that takes a name parameter and returns a simple message via a GET call. (e.g. "Hello [name]!")
 - Add a Function with HTTP Trigger  that sends name as a JSON payload and returns a simple message via a POST call. (e.g. "Hello [name]!")
-- Import the Functions in API Management and name it Hello API.
+- Import the functions in API Management and name it Hello API.
 - Test API GET and POST calls.  To do this, students are free to use tools like Powershell [Invoke-RestMethod](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.2), [APIM Test tab](https://docs.microsoft.com/en-us/azure/api-management/import-function-app-as-api#test-in-azure-portal) in the Azure Portal, or [Postman](https://www.postman.com/) (highly recommended)
     - For Scenario 1 - send call to the public AGW endpoint.  If you are using Postman, you should install the Desktop app in the jumpbox VM.
-    - For Scenario 2 - send calls to the public APIM endpoint
+    - For Scenario 2 - send calls to the public APIM endpoint.
 - Ensure that you [have added Hello API to the Unlimited product](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-add-products?tabs=azure-portal#add-apis-to-a-product).
 - Browse to the Dev portal in a separate incognito/private broswer and test Hello API GET operation.  
 - Enable Application Insights for Hello API, keep the default values (e.g. sampling to the default value of 100%)
