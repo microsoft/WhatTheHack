@@ -145,6 +145,7 @@ module privateDnsZoneResource 'modules/privateDnsZones.bicep' = {
     vnet_dns_link_name: vnet_dns_link_name
     vnetId: vnetModule.outputs.vnetId
     apim_dns_name: apim_dns_name_var
+    location: 'global'
   }
 }
 
@@ -167,5 +168,6 @@ module vmModule 'modules/vm.bicep' = {
     adminPassword: 'P@ssw-rd!1234'
     adminUsername: 'svradmin'
     subnetId: vnetModule.outputs.vmSubnetResourceId
+    location: location
   }
 }

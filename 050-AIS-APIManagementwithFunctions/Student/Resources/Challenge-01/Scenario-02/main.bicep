@@ -16,6 +16,10 @@ param resourceTags object = {
 @description('Application Insights name')
 param appInsightsName string = toLower('ai-${appName}')
 
+
+@description('Log Analytics workspace name')
+param lawsName string = toLower('laws-${appName}')
+
 @description('Function runtime')
 param functionRuntime string = 'dotnet'
 
@@ -44,6 +48,7 @@ module appInsightsModule 'modules/appInsights.bicep' = {
   params: {
     location:location
     appInsightsName: appInsightsName
+    lawsName: lawsName
     resourceTags: resourceTags
   }
 
