@@ -34,7 +34,10 @@ param appServicePlanName string = toLower('asp-${appName}')
 @description('API Management service name')
 param apiManagementServiceName string = toLower('apim-${appName}')
 
-var location = resourceGroup().location
+@description('Resource group location')
+param rgLocation string = resourceGroup().location
+
+var location = rgLocation
 
 module appInsightsModule 'modules/appInsights.bicep' = {
   name: 'aiDeploy'
