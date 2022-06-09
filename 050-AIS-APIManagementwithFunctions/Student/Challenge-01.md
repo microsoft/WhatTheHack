@@ -17,11 +17,11 @@ There are two scenarios you would like to prove (just choose one):
 
 ### Scenario 01: Deploy a VNET-secured AIS environment 
 This scenario is for when you need to access services deployed over a private network (e.g. APIs hosted on-premises)
-- Deploy the Bicep templates of the VNET-integrated AIS which can be found at /Challenge-01/Scenario-01 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+- Deploy the Bicep templates of the VNET-integrated AIS which can be found at `/Challenge-01/Scenario-01` of the `Resources.zip` file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
 
 ### Scenario 02: Deploy an identity-secured AIS environment 
 This scenario is preferred for integrating with services hosted in the cloud or publicly-accessible
-- Deploy the Bicep templates of the publicly-exposed AIS which can be found at /Challenge-01/Scenario-02 of the Resources.zip file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+- Deploy the Bicep templates of the publicly-exposed AIS which can be found at `/Challenge-01/Scenario-02` of the `Resources.zip` file provided to you by your coach.  There are some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
     - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
       - main.bicep
         - modules
