@@ -1,17 +1,17 @@
 @description('The VNET DNS Link name')
-param vnet_dns_link_name string
+param vnet_dns_link_name string = ''
 
 @description('The name of the API Management resource')
-param apim_name string
+param apim_name string = ''
 
 @description('The DNS of the API Management resource')
-param apim_dns_name string
+param apim_dns_name string = ''
 
 @description('The IPv4 address (private) of the API Management resource')
-param apimIpv4Address string
+param apimIpv4Address string = ''
 
 @description('The location where the resource would be created')
-param vnetId string
+param vnetId string = ''
 
 @description('The location where the resource would be created')
 param location string = 'global'

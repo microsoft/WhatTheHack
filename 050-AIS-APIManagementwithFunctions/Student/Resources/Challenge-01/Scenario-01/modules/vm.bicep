@@ -59,11 +59,7 @@ param subnetId string
 
 var storageAccountName = 'bootdiags${uniqueString(resourceGroup().id)}'
 var nicName = 'myVMNic'
-var addressPrefix = '10.0.0.0/16'
-var subnetName = 'Subnet'
-var subnetPrefix = '10.0.0.0/24'
-var virtualNetworkName = 'MyVNET'
-var networkSecurityGroupName = 'default-NSG'
+
 
 resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: storageAccountName
