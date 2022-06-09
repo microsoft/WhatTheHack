@@ -3,7 +3,7 @@ param appInsightsName string
 param resourceTags object
 
 resource laWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
-  name: '${appInsightsName}ws'
+  name: 'laws-${appInsightsName}'
   location: location
 }
 
