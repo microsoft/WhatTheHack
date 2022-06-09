@@ -68,7 +68,6 @@ module logAnalyticsModule 'modules/laws.bicep' = {
   name: laws_name_var
   params: {
     location: location
-    log_analytics_resource_group: resourceGroup().name
     app_insights_name: app_insights_name_var
     log_analytics_workspace_name: laws_name_var
   }
