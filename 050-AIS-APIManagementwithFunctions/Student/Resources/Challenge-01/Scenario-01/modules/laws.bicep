@@ -7,10 +7,6 @@ param app_insights_name string
 @description('The location where the resource would be created')
 param location string
 
-@description('The resource group where the Log Analytics resource would be deployed to')
-param log_analytics_resource_group string 
-
-
 resource log_analytics_workspace_name_resource 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
   name: log_analytics_workspace_name
   location: location
@@ -20,7 +16,6 @@ resource log_analytics_workspace_name_resource 'Microsoft.OperationalInsights/wo
     }
   }
 }
-
 
 resource appInsightsResource 'Microsoft.Insights/components@2020-02-02' = {
   name: app_insights_name
