@@ -79,8 +79,8 @@ Students has to do one of the following AIS environments, click on the link belo
           tags: resourceTags
         }
 
-        output appInsightsInstrumentationKey string = **appInsights.properties.InstrumentationKey**
-        output appInsightsResourceId string = **appInsights.id**
+        output appInsightsInstrumentationKey string = appInsights.properties.InstrumentationKey
+        output appInsightsResourceId string = appInsights.id
         ```
 
         See [Microsoft.Insights components](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/components?tabs=bicep) for reference
@@ -237,7 +237,3 @@ Students has to do one of the following AIS environments, click on the link belo
     ![Publish APIM Dev Portal](./images/Solution01_Publish_APIM_DevPortal_4.jpg)
 
 [Back to Top](#challenge-01---provision-your-integration-environment---coachs-guide)
-
-<!-- - Instructors can recommend the students to start working with the boilerplate Bicep files which can be found at [Student/Resources/Challenge-01](../Student/Resources/Challenge-01).  
-
-- Moreover, if they really challenged then you can give them snippets from the completed templates which can be found at [Coach/Solutions/Challenge-01/bicep](../Coach/Solutions/Challenge-01/bicep) -->

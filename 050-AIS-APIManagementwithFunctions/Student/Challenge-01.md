@@ -17,23 +17,12 @@ There are two scenarios you would like to prove (just choose one):
 
 ### Scenario 01: Deploy a VNET-secured AIS environment 
 This scenario is for when you need to access services deployed over a private network (e.g. APIs hosted on-premises)
-- Deploy the Bicep templates of the VNET-integrated AIS which can be found at `/Challenge-01/Scenario-01` of the `Resources.zip` file provided to you by your coach.  There might be some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
+- Deploy the Bicep templates of the VNET-integrated AIS which can be found at `/Challenge-01/Scenario-01` of the `Resources.zip` file provided to you by your coach.  These templates are ready for deployment, however, you might run into warning or errors about some missing parameter or variable values that you need to fill out.  Make sure to address these issues before deploying.
 
 ### Scenario 02: Deploy an identity-secured AIS environment 
 This scenario is preferred for integrating with services hosted in the cloud or publicly-accessible
-- Deploy the Bicep templates of the publicly-exposed AIS which can be found at `/Challenge-01/Scenario-02` of the `Resources.zip` file provided to you by your coach.  There might be some missing parameter or variable values that you need to fill out, and make sure that you fix all the errors and warnings before deploying.
-    - There should be several [Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules) for deploying individual resources, the file structure should be as follows:
-      - main.bicep
-        - modules
-          - functions.bicep
-          - apim.bicep
-          - appinsights.bicep
-    - The resources should have the following properties at a minimum:
-      - name
-      - location
-      - sku/kind
-      - resource-specific properties
-    - Function app and APIM needs to be configured with Application insights. Therefore, ensure that you create this resource first, and make sure that you define [output parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/outputs?tabs=azure-powershell) for instrumentation key and resource id.  You would need to pass values as input to the Function App and APIM modules. 
+- Deploy the Bicep templates of the publicly-exposed AIS which can be found at `/Challenge-01/Scenario-02` of the `Resources.zip` file provided to you by your coach.  These templates are ready for deployment, however, you might run into warning or errors about some missing parameter or variable values that you need to fill out.  Make sure to address these issues before deploying.
+
 
 - For both scenarios, make sure to [publish the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because you may need to use this in the succeeding challenges.  The steps for publishing the APIM Developer portal for Scenario 01 (in APIM internal mode) would be different from Scenario 02 (public). Don't forget to enable CORS afterwards.
   - After publishing, browse to the Dev portal in a separate incognito/private browser and test Echo API GET operation.  
