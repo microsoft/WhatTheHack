@@ -19,12 +19,12 @@ All of these three terms need additional column called "Microsoft Terminology".
 
 Ensure that these terms can be used for searching these tagged assets and can also be used as filter conditions for the search.
 
-.CSV file with terms: https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/StarterKitTerms.csv
+.CSV file with terms: [https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/StarterKitTerms.csv](https://wthpurview.blob.core.windows.net/wthpurview)
 
 ## Success Criteria
-- Present created parent-child term hierarchy.
-- Present bulk loaded terms.
-- Present from asset perspective assigned glossary terms.
+- Successfully created glossary elements demonstrating a parent-child term hierarchy.
+- Successfully bulk loaded terms into the Glossary.
+- Tagged asset(s) with appropriate glossary terms.
 - Confirm that the newly applied tags can be used to filter the search results.
 
 ## Learning Resources
