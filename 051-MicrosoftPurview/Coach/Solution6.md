@@ -11,4 +11,4 @@ Pre-requisites: Another Windows virtual machine which will serve as SHIR for Azu
 
 Optionally, you may choose a couple of related tables from AdventureWorksLT database from the Azure SQL DB used in challenge 2 and avoid setting up the additional SHIR machine.
 
-As detailed in the challenge (refer to the snip), the attendees will need to demonstrate the end-to-end lineage. The first copy in ADF can be setup using a copy activity, the second step will involve a dataflow as some join/unions are required. If the lineages are not shown as in the snip provided, it could be that the data sources for the dataflows are not correctly pointing to the actual files.
+As detailed in the challenge (refer to the snippet), the attendees will need to demonstrate the end-to-end lineage. The first copy in ADF can be setup using a copy activity, the second step will involve a dataflow as some join/unions are required. If the lineages are not shown as in the snip provided, it could be that the data sources for the dataflows are not correctly pointing to the actual files.
