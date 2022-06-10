@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge1.md) - [Home](../README.md) - [Next Challenge >](./Challenge3.md)
 
 ## Introduction
-After successfull scanning first data source, it is time to scan other services. The more sources are being scanned, the more information Purview can provide. 
+After successfully scanning the first data source, it is time to scan other services. The more sources that are scanned, the more information Purview can provide.
 
 ## Description
 We will continue scanning more data sources. In this challenge we will scan the Azure SQL Database, serverless and dedicated pools of Fabrikam's Azure Synapse Analytics and continue to populate the Data Catalog. Similar to the previous challenge, you will perform a full scan, review the results and setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the databases.
