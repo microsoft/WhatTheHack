@@ -13,7 +13,7 @@ In this challenge, you will create data movement pipeline within Azure Data Fact
 ## Success Criteria
 - Successful pipeline run that copies data from the SQL Database to Azure Data Lake storage (tables: InvoiceLines and Invoices)
 - Successful pipeline run that joins copied data sets (InvoiceLines and Invoices on ADLS) and save result into a single table in Azure SQL Database
-- Understand limitations of Lineage feature.
+- Explain to your coach the limitations of Lineage feature.
 - Successful lineage reporting for both the pipelines in Purview.
 
 Expected lineage view: 
