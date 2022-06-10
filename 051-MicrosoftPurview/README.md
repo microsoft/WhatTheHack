@@ -1,6 +1,6 @@
 # What The Hack - Data Governance with Microsoft Purview
 ## Introduction
-Most companies struggle to deal with humungous amount of data that is being generated across their business and across thier IT estate (on-prem, multiple clouds). The more a company understands their data, the more effective they are to use it.
+Most companies struggle to deal with humongous amount of data that is being generated across their business and across thier IT estate (on-prem, multiple clouds). The more a company understands their data, the more effective they are to use it.
 
 You will hack your way through to implement Microsoft Purview in your fictious organization - Fabrikam. You will implement Microsoft Purview so that Fabrikam can find, understand, govern, and consume data sources
 
