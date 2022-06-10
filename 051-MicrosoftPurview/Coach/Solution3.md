@@ -19,6 +19,6 @@ Free SQL Server License: SQL 2019 Developer on Windows Server 2019 - Gen 2
 
 Restore the following backup on the SQL Server [WideWorldImporters](https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/SQLServerbackup/WideWorldImporters-Full.bak)
 
-After reviewing the results of the scan similar to the previous challenge, as a closing, you may want to discuss how the SHIR works to process the data and only send metadata to Purview and no actual data 
+Like the previous challenge, after reviewing the results of the scan, you may want to discuss how the SHIR works to process the data and only send metadata to Purview and no actual data
 
 
