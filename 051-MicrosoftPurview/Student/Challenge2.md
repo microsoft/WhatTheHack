@@ -6,7 +6,7 @@
 After successfull scanning first data source, it is time to scan other services. The more sources are being scanned, the more information Purview can provide. 
 
 ## Description
-We will continue scanning more data sources. In this challenge we will scan in the Azure SQLDB, serverless and dedicated pools of Fabrikam's Azure Synapse Analytics and continue to populate the Data Catalog. As before, after performing a successfully full scan, review the scan results, and like before setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the databases.
+We will continue scanning more data sources. In this challenge we will scan the Azure SQL Database, serverless and dedicated pools of Fabrikam's Azure Synapse Analytics and continue to populate the Data Catalog. Similar to the previous challenge, you will perform a full scan, review the results and setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the databases.
 
 ## Success Criteria
 - Successful registration of Azure SQL DB, Azure Synapse Analytics workspace under a collection that is accessible to all users.
@@ -18,7 +18,7 @@ We will continue scanning more data sources. In this challenge we will scan in t
 - Register an Microsoft Purview Account to a Synapse workspace. Explore how to discover Purview assets from Azure Synapse workspace and interact with them using Synapse capabilities
 
 ## Learning Resources
-- (Connect to and manage Azure Synapse Analytics workspaces in Microsoft Purview)[https://docs.microsoft.com/en-us/azure/purview/register-scan-synapse-workspace)
+- [Connect to and manage Azure Synapse Analytics workspaces in Microsoft Purview](https://docs.microsoft.com/en-us/azure/purview/register-scan-synapse-workspace)
 - [Microsoft Purview scanning best practices](https://docs.microsoft.com/en-us/azure/purview/concept-best-practices-scanning)
 - [QuickStart: Connect a Synapse workspace to a Microsoft Purview account](https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview)
 - [Discover, connect, and explore data in Synapse using Microsoft Purview](https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview)
