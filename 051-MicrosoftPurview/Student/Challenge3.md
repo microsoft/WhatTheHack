@@ -10,7 +10,7 @@ In this challenge, you need to first restore database to your SQL Server. The ba
 
 
 ## Success Criteria
-- Successful scan of the on-premise SQL Server assets in Purview Studio.
+- Successful scan of the on-premises SQL Server assets in Purview Studio.
 - Ensure the search results are accessible only for the users that belong to the Finance group.
 
 ## Learning Resources
