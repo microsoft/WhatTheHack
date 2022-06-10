@@ -15,7 +15,7 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 	 - Begin the first scan by scanning the data lake storage and review the scan results 
 
 - [Challenge 2: Scan Azure SQL Database and Azure Synapse Analytics (Serverless and Dedicated)](./Solution2.md)) 
-	 - Continue with scanning by scanning by scanning databases 
+	 - Continue with scanning, by scanning databases 
 
 - [Challenge 3: Scan an on-prem SQL Server](./Solution3.md)
 	 - Continue the database scan by scanning an on-prem SQL Server 
@@ -36,27 +36,27 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 	 - Meet the requirements that are not available out of the box 
   
 ## Coach Prerequisites
-- During the hack, students will deploy multiple services to their subscribtion. Some of them (2x Virtual Machine, Azure Synapase dedicated SQL Pool) should be instantly removed/paused after the hack. Keeping these services online for days after hack, can significantly impact the cost.
+- During the hack, students will deploy multiple services to their subscription. Some of them (2x Virtual Machine, Azure Synapase dedicated SQL Pool) should be instantly removed/paused after the hack. Keeping these services online for days after hack, can significantly impact the cost.
 
 ## Student Resources
-- All required resources for this hack (sample data, required .csv files etc) can be found it this storage account below. They can be accessed with Azure Storage Explorer:
-    - https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/
+- All required resources for this hack (sample data, required .CSV files, etc.) can be found in the storage account below. They can be accessed with Azure Storage Explorer:
+    - https://wthpurview.blob.core.windows.net/wthpurview
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.  
 
 ## Azure Requirements
 
 - Azure subscription with Owner access 
-- See the challenge 0 for information on other pre-requisites 
+- See challenge 0 for information on other pre-requisites 
 - Azure Storage Explorer
 - Postman client
 
 ## Deployment script 
 
-- There are many services required in Azure to complete the hack. To save time, attendee may use script below to deploy required services. 
-- https://stpurviewfasthack.blob.core.windows.net/purviewfasthack/PurviewFastHack_Deployment.ps1  
+- There are many services required in Azure to complete the hack. To save time, the attendee may use the script below to deploy the required services. 
+- https://wthpurview.blob.core.windows.net/wthpurview/PurviewFastHack_Deployment.ps1  
 - Before executing, edit the script and enter your subscription ID. 
-- Change also required unique names of the services. 
+- Change the names of the required services so that they are unique.
 - Script will deploy: 
   - New resource group 
   - VM with SQL Server 2019 
@@ -72,7 +72,7 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 - `./Coach`
   - Coach's Guide and related files
 - `./Coach/Solutions`
-  - Additional files for Coach which can help solve challenges
+  - Additional files for the coach which can help solve challenges
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
