@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge0.md) - [Home](../README.md) - [Next Challenge >](./Challenge2.md)
 
 ## Introduction
-An empty Purview instance doesn't bring much value. The whole magic starts when you start scanning your first data sources. Filling Purview with metadata will be fundament of your Data Governance solution. 
+An empty Purview instance doesn't bring much value. The whole magic starts when you start scanning your first data sources. Filling Purview with metadata will be fundamental of your Data Governance solution.
 
 ## Description
 Now that we have successfully setup Microsoft Purview we need to start scanning the data sources into Microsoft Purview to create the Data Map and the Data Catalog. In this challenge you will start with scanning Fabrikam's Data Lake Store to ingest the metadata successfully by performing a full scan, review the scan results, setup weekly incremental scans. Finally login using a user account with Reader permissions to ensure that the search results from the catalog shows the assets from the Data Lake. 
