@@ -6,9 +6,9 @@
 A well planned and executed deployment will provide a strong foundation for a successful data governance platform. In this challenge you would review the best approaches of deploying Microsoft Purview and setting up collections based on the requirements below.
 
 ## Description
-- Fabrikam has multi region presence (In US and Europe) and would like to have their governance tool to be able to scan all the data sources from all the regions.
-- They would like to have organize their assets and data sources by their region and then by their business's flow (Finance, Marketing and Sales).
-- Finance assets should only be accessible for read by selected users that belong to Finance group.
+- Fabrikam has multi region presence (in US and Europe) and would like to have their governance tool to be able to scan all the data sources from all the regions.
+- They would like to organize their assets and data sources by their region and then by their business's flow (Finance, Marketing and Sales).
+- Finance assets should only be accessible for read by selected users that belong to the Finance group.
 - The AllUsers group should only have permissions to read all the assets except Finance.
 - Setup permissions by adding the relevant groups (Finance and AllUsers)
 
@@ -16,7 +16,7 @@ Deploy Microsoft Purview and create the collection structure based on the above 
 
 ## Success Criteria
 - Present deployed Microsoft Purview instance and access to the Purview Studio.
-- Demonstrate collection hierarchy built on requirements above.
+- Demonstrate the collection hierarchy built on the requirements above.
 
 ## Learning Resources
 - [Microsoft Purview deployment best practices](https://docs.microsoft.com/en-us/azure/purview/deployment-best-practices)
