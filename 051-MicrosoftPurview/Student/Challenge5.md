@@ -9,13 +9,13 @@ Business users in Fabrikam would like to add additional descriptive information 
 ## Description
 With the custom classification, we have been able to enrich the metadata and help users search for data more effectively. While this has helped, business users have expressed desire to be able to tag assets with business terms which make more sense for them while they try to use the catalog for finding their assets.
 
-In this challenge you will setup a business glossary with terms that have been provided by the business users through a .csv file. Once the glossary has been defined, you will tag assets and attributes using these terms. You also have to create new single terms in a parent-child hierarchy as follows:
+In this challenge you will setup a business glossary with terms that have been provided by the business users through a .CSV file. Once the glossary has been defined, you will tag assets and attributes using these terms. You also have to create new single terms in a parent-child hierarchy as follows:
 
 - Team Unit
     - Account Team Unit
     - Specialist Team Unit
 
-All of these three terms need additional column called "Microsoft Terminology".  
+All of these three terms need an additional column called "Microsoft Terminology".  
 
 Ensure that these terms can be used for searching these tagged assets and can also be used as filter conditions for the search.
 
