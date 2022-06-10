@@ -26,7 +26,7 @@ In this hack you will:
 -  Challenge 4: [Create custom classifications](./Student/Challenge4.md)
    -  Setup custom classifications and review the scan results with incremental scans
 -  Challenge 5: [Business glossary](./Student/Challenge5.md)
-   -  Setup business glossary and associate assets to glossary items
+   -  Setup the business glossary and associate assets to glossary items
 -  Challenge 6: [Data lineage](./Student/Challenge6.md)
    -  Learn to produce lineage using ADF and Synapse pipelines
 -  Challenge 7: [Data insights](./Student/Challenge7.md)
@@ -44,7 +44,7 @@ In this hack you will:
 
 ## Prerequisites
 -  Azure subscription with Owner access
--  See the challenge 0 for information on other pre-requisites
+-  See challenge 0 for information on other pre-requisites
 
 ## Contributors
 - Michal Golojuch
