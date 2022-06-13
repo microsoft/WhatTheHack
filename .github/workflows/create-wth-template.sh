@@ -41,6 +41,9 @@ CreateDirectoryStructure() {
   #add a file to allow git to store an "empty" directory
   touch $rootPath/Coach/Solutions/.gitkeep
 
+  # copying the Coach Lectures template file in the /Coach directory
+  cp $templateDirectoryName/WTH-Lectures-Template.pptx $rootPath/Coach/Lectures.pptx
+
   if $verbosityArg; then
     echo "Creating $rootPath/Student/Resources directories..."
   fi
