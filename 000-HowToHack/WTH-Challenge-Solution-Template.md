@@ -1,8 +1,8 @@
-<!-- REMOVE_ME # Challenge ${suffixNumber} - ${nameOfHackArg} - Coach's Guide  (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
+<!-- REMOVE_ME # Challenge ${suffixNumber} - <Title of Challenge> - Coach's Guide  (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-# Challenge 01 - Coach's Guide
+# Challenge 01 - \<Title of Challenge> - Coach's Guide
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
