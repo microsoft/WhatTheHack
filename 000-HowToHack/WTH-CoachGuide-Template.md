@@ -8,7 +8,7 @@
 
 ## Introduction
 
-<!-- REMOVE_ME Welcome to the coach's guide for the ${nameOfChallengeArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges. (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
+<!-- REMOVE_ME Welcome to the coach's guide for the ${nameOfHackArg} What The Hack. Here you will find links to specific guidance for coaches for each of the challenges. (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
