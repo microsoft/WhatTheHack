@@ -161,7 +161,7 @@ CreateChallengeMarkdownFile() {
   local -r navigationLine=$(GenerateNavigationLink $suffixNumber $numberOfChallenges "Challenge" false)
 
   if [[ $suffixNumber -eq "00" ]]; then
-    WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Common-Prerequisites.md"
+    WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-ChallengeZero-Template.md"
   else
     WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
   fi

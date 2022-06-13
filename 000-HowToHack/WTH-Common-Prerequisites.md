@@ -1,15 +1,5 @@
 # What The Hack: Common Prerequisites
 
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
-
-<!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
-
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
-
-**[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
-
-<!-- REPLACE_ME (this section will be removed by the automation script) -->
-
 Thanks for participating in a What The Hack! We have compiled a list of common tools and software that will come in handy to complete these Azure based hacks!
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
