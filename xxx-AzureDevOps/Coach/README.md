@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the AzureDevOps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Azure DevOps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -10,30 +10,26 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-1. Challenge 00: **[Title of challenge](./Solution-00.md)**
-	 - Description of challenge
-1. Challenge 01: **[Title of challenge](./Solution-01.md)**
-	 - Description of challenge
-1. Challenge 02: **[Title of challenge](./Solution-02.md)**
-	 - Description of challenge
-1. Challenge 03: **[Title of challenge](./Solution-03.md)**
-	 - Description of challenge
-1. Challenge 04: **[Title of challenge](./Solution-04.md)**
-	 - Description of challenge
-1. Challenge 05: **[Title of challenge](./Solution-05.md)**
-	 - Description of challenge
-1. Challenge 06: **[Title of challenge](./Solution-06.md)**
-	 - Description of challenge
-1. Challenge 07: **[Title of challenge](./Solution-07.md)**
-	 - Description of challenge
-1. Challenge 08: **[Title of challenge](./Solution-08.md)**
-	 - Description of challenge
-1. Challenge 09: **[Title of challenge](./Solution-09.md)**
-	 - Description of challenge
-1. Challenge 10: **[Title of challenge](./Solution-10.md)**
-	 - Description of challenge
-1. Challenge 11: **[Title of challenge](./Solution-11.md)**
-	 - Description of challenge
+- Challenge 00: **[Setup](./Solution-00.md)**
+	 - Prepare your workstation to be a devops master!
+- Challenge 01: **[Azure DevOps: Introduction](./Solution-01.md)**
+	 - Learn motivations for DevOps & assess yourself
+- Challenge 02: **[Azure Boards: Agile Project Management](./Solution-02.md)**
+	 - Learn how to work with Azure Boards
+- Challenge 03: **[Azure Repos: Introduction](./Solution-03.md)**
+	 - Setup an Azure Repo and learn how to integrate it with Azure Board task items
+- Challenge 04: **[Azure Pipelines: Infrastructure as Code](./Solution-04.md)**
+	 - Deploy an ARM template via an Azure Pipelines job
+- Challenge 05: **[Azure Pipelines: Continuous Integration](./Solution-05.md)**
+	 - Learn how to automate a build process for a sample app
+- Challenge 06: **[Azure Pipelines: Continuous Delivery](./Solution-06.md)**
+	 - Automate the deployment of an application into Azure
+- Challenge 07: **[Azure Repos: Branching & Policies](./Solution-07.md)**
+	 - Learn about Git branching and configure policies to ensure developers follow the rules
+- Challenge 08: **[Azure Monitoring: Application Insights](./Solution-08.md)**
+	 - Configure Application Insights to create work items in Azure Boards
+- Challenge 09: **[Azure Pipelines: OSS Scanning with WhiteSource Bolt](./Solution-09.md)**
+	 - Get a taste of DevSecOps by configuring a code scanning tool in your CI Pipeline
 
 ## Coach Prerequisites
 
@@ -49,37 +45,11 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
-
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
