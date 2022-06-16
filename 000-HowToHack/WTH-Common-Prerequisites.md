@@ -1,8 +1,8 @@
 # What The Hack: Common Prerequisites
 
-Thanks for participating in a What The Hack! We have compiled a list of common tools and software that will come in handy to complete these Azure based hacks! 
+Thanks for participating in a What The Hack! We have compiled a list of common tools and software that will come in handy to complete these Azure based hacks!
 
-You might not need all of them for the hack you are participating in.  However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
 - [Azure Subscription](#azure-subscription)
 - [Windows Subsystem for Linux](#windows-subsystem-for-linux)
@@ -22,11 +22,12 @@ You will need an Azure subscription to complete this hackathon. If you don't hav
 
 [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
 
-Our goal in the hackathon is limiting the cost of using Azure services. 
+Our goal in the hackathon is limiting the cost of using Azure services.
 
 If you've never used Azure, you will get:
+
 - $200 free credits for use for up to 30 days
-- 12 months of popular free services  (includes storage, Linux VMs)
+- 12 months of popular free services (includes storage, Linux VMs)
 - Then there are services that are free up to a certain quota
 
 Details can be found here on [free services](https://azure.microsoft.com/en-us/free/).
@@ -56,14 +57,13 @@ We can manage cloud resources via the following ways:
   - [Azure Cloud Shell (Bash)](https://shell.azure.com/bash)
   - [Azure Cloud Shell (PowerShell)](https://shell.azure.com/powershell)
 
-
 ### Azure Portal
 
 Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console.
 
 Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.com/](https://portal.azure.com/)
 
-The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal. 
+The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you use an automation tool, templates, or scripts instead of the portal.
 
 ### Azure CLI
 
@@ -93,28 +93,24 @@ Alternatively, you can use the [Azure Cloud Shell](https://shell.azure.com/bash)
 
 ### Azure PowerShell CmdLets
 
-Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. 
+Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources.
 
 [Install the Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
 
-The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and can be used to complete all of the challenges instead of the Azure CLI. 
-
+The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and can be used to complete all of the challenges instead of the Azure CLI.
 
 ### Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you can use to run the Azure CLI or PowerShell Cmdlets needed to complete the hackathon challenges. It has common Azure tools pre-installed and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it.  There are a few ways to launch the Cloud Shell:
+The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you can use to run the Azure CLI or PowerShell Cmdlets needed to complete the hackathon challenges. It has common Azure tools pre-installed and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it. There are a few ways to launch the Cloud Shell:
 
-
-|  |   |
-|-----------------------------------------------|---|
-| Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](images/try-it-button.png) |
-| Click the **Cloud Shell** button on the menu in the upper right of the [Azure portal](https://portal.azure.com). |	[![https://portal.azure.com/](images/portal-shell-button.png)](https://portal.azure.com/) |
-| Open Cloud Shell in your browser. |  [Open Cloud Shell in the browser](https://shell.azure.com/bash)|
-|  |  |
-
+|                                                                                                                  |                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Click **Try It** in the upper right corner of a code block.                                                      | ![Cloud Shell in this article](images/try-it-button.png)                                  |
+| Click the **Cloud Shell** button on the menu in the upper right of the [Azure portal](https://portal.azure.com). | [![https://portal.azure.com/](images/portal-shell-button.png)](https://portal.azure.com/) |
+| Open Cloud Shell in your browser.                                                                                | [Open Cloud Shell in the browser](https://shell.azure.com/bash)                           |
+|                                                                                                                  |                                                                                           |
 
 **NOTE:** If you use the Azure CLI or PowerShell from the Azure Cloud Shell, you will need to copy the template files you will be creating and editing on your workstation during the hackathon to the Cloud Shell environment.
-
 
 ## Visual Studio Code
 
@@ -126,36 +122,35 @@ VS Code runs on Windows, Mac, and Linux. It's a quick install, NOT a 2 hour inst
 
 ### Visual Studio Code plugins for ARM Templates
 
-VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types.  There are two plugins available which we recommend for creating and editing ARM templates in VS Code.
+VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types. There are two plugins available which we recommend for creating and editing ARM templates in VS Code.
 
 [ARM Tools Plugin](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-This extension provides language support for Azure Resource Manager deployment templates and template language expressions.  It adds syntax color-coding support and intellisense for editing ARM templates in VS Code.
+This extension provides language support for Azure Resource Manager deployment templates and template language expressions. It adds syntax color-coding support and intellisense for editing ARM templates in VS Code.
 
 [ARM Snippets Plugin](https://marketplace.visualstudio.com/items?itemName=samcogan.arm-snippets)
 
 This extension adds snippets to Visual Studio Code for creating Azure Resource Manager Templates. These snippets are taken from the Cross Platform Tooling Samples. Snippets include:
 
-* Skeleton ARM Template
-* Windows and Linux Virtual Machines
-* Azure Web Apps
-* Azure SQL
-* Virtual Networks, Subnets and NSG's
-* Keyvault
-* Network Interfaces and IP's
-* Redis
-* Application Insights
-* DNS
-* Azure Container Instances
-* Inserting Snippets
+- Skeleton ARM Template
+- Windows and Linux Virtual Machines
+- Azure Web Apps
+- Azure SQL
+- Virtual Networks, Subnets and NSG's
+- Keyvault
+- Network Interfaces and IP's
+- Redis
+- Application Insights
+- DNS
+- Azure Container Instances
+- Inserting Snippets
 
 Inside any JSON file, start typing **`arm!`** to see a list of snippets availible. Select the snippet to insert and update any required values. This makes it VERY easy to quickly bang out the JSON syntax for many Azure resources within an ARM template.
 
-
 ## Azure Storage Explorer
 
-Azure Storage Explorer is a cross-platform tool that lets you manage and access Azure Storage account resources in a GUI similar to Windows File Explorer or Finder on Mac.  Like VS Code, Azure Storage Explorer can be installed on Windows, Mac, or Linux.
+Azure Storage Explorer is a cross-platform tool that lets you manage and access Azure Storage account resources in a GUI similar to Windows File Explorer or Finder on Mac. Like VS Code, Azure Storage Explorer can be installed on Windows, Mac, or Linux.
 
-ARM templates and any resources they depend on (nested templates, script files, etc) need to be staged in a location where the Azure Resource Manager can access them via an HTTP endpoint. We will be using Azure Storage explorer during the hackathon to copy files to/from Azure Blob storage for staging purposes. 
+ARM templates and any resources they depend on (nested templates, script files, etc) need to be staged in a location where the Azure Resource Manager can access them via an HTTP endpoint. We will be using Azure Storage explorer during the hackathon to copy files to/from Azure Blob storage for staging purposes.
 
 [Install Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)

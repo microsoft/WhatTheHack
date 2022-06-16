@@ -73,7 +73,7 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-*List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge.*
+_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
 
 *Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
 
