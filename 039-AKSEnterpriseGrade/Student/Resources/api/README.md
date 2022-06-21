@@ -5,7 +5,7 @@
 Here you can find the source files to build this container. The container is a web API that returns JSON payload. It offers the following endpoints:
 
 * `/api/healthcheck`: returns a basic JSON code to verify if the application is running, it can be used for liveliness probes
-* `/api/sqlversion`: returns the results of a SQL query (`SELECT @@VERSION` for SQL Server or `SELECT VERSION();` for MySQL/Postgres) against a SQL database. You can override the value of the `SQL_SERVER_FQDN` via a query parameter 
+* `/api/sqlversion`: returns the results of a SQL query (`SELECT @@VERSION` for SQL Server or `SELECT VERSION();` for MySQL/Postgres) against a SQL database. You can override the value of the `SQL_SERVER_FQDN` via a query parameter
 * `/api/sqlsrcip`: returns the results of a SQL query (`SELECT CONNECTIONPROPERTY("client_net_address")` for SQL Server, `SELECT host FROM information_schema.processlist WHERE ID=connection_id();` for MySQL or `SELECT inet_client_addr ();` for Postgres) against a SQL database. You can override the value of the `SQL_SERVER_FQDN`, `SQL_SERVER_USERNAME`, `SQL_SERVER_PASSWORD` and `SQL_SERVER_ENGINE` via a query parameter
 * `/api/ip`: returns information about the IP configuration of the container, such as private IP address, egress public IP address, default gateway, DNS servers, etc
 * `/api/dns`: returns the IP address resolved from the FQDN supplied in the parameter `fqdn`
@@ -23,6 +23,7 @@ The container requires these environment variables :
 * `SQL_SERVER_PASSWORD`: password for the SQL server
 * `SQL_ENGINE`: can be either `sqlserver`, `mysql` or `postgres`
 * `PORT` (optional): TCP port where the web server will be listening (8080 per default)
+* `USE_SSL` (optional): Connect to the database using SSL. Can be either `yes` or `no`. Default `yes`.
 
 Note that environment variables can also be injected as files in the `/secrets` directory.
 
