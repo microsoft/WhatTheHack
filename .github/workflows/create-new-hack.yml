@@ -8,9 +8,9 @@ on:
         required: true
         default: YetAnotherHack
       numberOfChallenges:
-        description: The number of challenges you want
+        description: The number of challenges you want (note that it is better to auto-generate more challenges than you think you will need, you can always delete the files later)
         required: true
-        default: 3
+        default: '3'
 jobs:
   createNewWhatTheHackTemplate:
     runs-on: ubuntu-latest
