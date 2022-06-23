@@ -1,23 +1,32 @@
-# What The Hack - Challenge Solution Template
+<!-- REMOVE_ME # Challenge ${suffixNumber} - <Title of Challenge> - Coach's Guide  (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
 
-*This is a markdown template for how a WTH Challenge Solution should be organized and formatted. There really is only one section needed: "Notes & Guidance", organize all the hints for the coach there.*
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-*This file should be named according to this pattern: `Solution-X.md` where X is the number of the challenge, ie: 0, 1, 2, etc*
+# Challenge 01 - \<Title of Challenge> - Coach's Guide
 
-# Challenge \#: Coach's Guide
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
-[< Previous Challenge](./Solution-X-1.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution-X+1.md)
+<!-- REMOVE_ME ${navigationLine} (remove this from your MD files if you are writing them manually, this is for the automation script) REMOVE_ME -->
+
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
+
+[< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
+
+<!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 ## Notes & Guidance
+
 This is the only section you need to include.
 
 Use general non-bulleted text for the beginning of a solution area for this challenge
+
 - Then move into bullets
-    - And sub-bullets and even
-        - sub-sub-bullets
+  - And sub-bullets and even
+    - sub-sub-bullets
 
 Break things apart with more than one bullet list
-- Like this 
+
+- Like this
 - One
 - Right
 - Here

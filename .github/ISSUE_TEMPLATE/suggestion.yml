@@ -1,0 +1,81 @@
+name: Suggestion
+description: Suggest Hack Improvement
+title: "[Suggestion]: "
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this suggestion! Please search to see if a similar suggestion has already been made.
+  - type: dropdown
+    id: hack
+    attributes:
+      label: Which Hack?
+      multiple: false
+      options:
+        - 000-HowToHack
+        - 001-IntroToKubernetes
+        - 002-IntroToAzureAI
+        - 003-DrivingMissData
+        - 004-HotelCaliVegasDevHack
+        - 005-RockPaperScissorsBoom
+        - 006-AppModernization
+        - 007-AzureMonitoring
+        - 008-DatabricksIntroML
+        - 009-MicroservicesInAzure
+        - 010-AzureDevOps
+        - 011-InfraAsCode-ARM-DSC
+        - 012-InfraAsCode-Terraform
+        - 013-InfraAsCode-Ansible
+        - 014-OSSDevOps
+        - 015-Serverless
+        - 016-AppMigration
+        - 017-FrontDoor
+        - 018-BI2AI
+        - 019-ThisOldDataWarehouse
+        - 020-MasteringLinux
+        - 021-IdentityForApps
+        - 022-AzureGovernance
+        - 023-AdvancedKubernetes
+        - 024-DoYouEvenSynapse
+        - 025-ArcEnabledServers
+        - 026-ArcEnabledKubernetes
+        - 027-FHIRPoweredHealthcare
+        - 028-AdvancedNetworking
+        - 029-IoTEdge
+        - 030-ConversationalAI
+        - 031-DevOpsWithGitHub
+        - 032-MLOpsFromScratch
+        - 033-OSSDatabaseMigration
+        - 034-MicrosoftTeams-MakeItReal
+        - 035-HubAndSpoke
+        - 036-BGP
+        - 037-AzureVirtualDesktop
+        - 038-MDWCovid19
+        - 039-AKSEnterpriseGrade
+        - 040-JavaOnAppService
+        - 041-VirtualWAN
+        - 042-SAPOnAzure
+        - 043-SQLModernization
+        - 044-DevOpswithGithubActions
+        - 045-InfraAsCode-Bicep
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Suggestion
+      description: |
+        Please describe your suggestion and justification in detail.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: >
+        This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
+        For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or 
+        contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

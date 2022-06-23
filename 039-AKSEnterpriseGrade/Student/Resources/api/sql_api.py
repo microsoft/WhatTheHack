@@ -144,7 +144,7 @@ def send_sql_query(sql_server_fqdn = None, sql_server_db = None, sql_server_user
             cx.add_output_converter(-150, handle_sql_variant_as_string)
         except Exception as e:
             if is_valid_ipv4_address(sql_server_fqdn):
-                error_msg = 'SQL Server FQDN should not be an IP address when targeting Azure SQL Databse, maybe this is a problem?'
+                error_msg = 'SQL Server FQDN should not be an IP address when targeting Azure SQL Database, maybe this is a problem?'
             else:
                 error_msg = 'Connection to server ' + sql_server_fqdn + ' failed, you might have to update the firewall rules or check your credentials?'
             app.logger.info(error_msg)
@@ -166,14 +166,6 @@ def send_sql_query(sql_server_fqdn = None, sql_server_db = None, sql_server_user
     elif sql_engine == 'mysql':
         if sql_query == None:
             sql_query = "SELECT VERSION();"
-        # The user must be in the format user@server
-        sql_server_name = sql_server_fqdn.split('.')[0]
-        if sql_server_name:
-            sql_server_username = sql_server_username + '@' + sql_server_name
-        else:
-            error_msg = "MySql server name could not be retrieved out of FQDN"
-            app.logger.info(error_msg)
-            return error_msg
         try:
             # Different connection strings if using a database or not, if using SSL or not
             if use_ssl == 'yes':
@@ -291,7 +283,7 @@ def get_default_gateway():
                 return socket.inet_ntoa(struct.pack("<L", int(fields[2], 16)))
     except Exception as e:
         return str(e)
- 
+
 # Flask route for healthchecks
 @app.route("/api/healthcheck", methods=['GET'])
 def healthcheck():
@@ -300,7 +292,7 @@ def healthcheck():
           msg = {
             'health': 'OK',
             'version': '1.0'
-          }          
+          }
           return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
@@ -320,7 +312,7 @@ def sql():
             sql_output = send_sql_query(sql_server_fqdn=sql_server_fqdn, sql_server_db=sql_server_db, sql_server_username=sql_server_username, sql_server_password=sql_server_password, sql_query=sql_query, sql_engine=sql_engine, use_ssl=use_ssl)
             msg = {
                 'sql_output': sql_output
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
@@ -341,7 +333,7 @@ def sqlversion():
             sql_output = send_sql_query(sql_server_fqdn=sql_server_fqdn, sql_server_db=sql_server_db, sql_server_username=sql_server_username, sql_server_password=sql_server_password, sql_engine=sql_engine)
             msg = {
             'sql_output': sql_output
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
@@ -373,7 +365,7 @@ def sqlsrcip():
             sql_output = send_sql_query(sql_server_fqdn=sql_server_fqdn, sql_server_db=sql_server_db, sql_server_username=sql_server_username, sql_server_password=sql_server_password, sql_query=sql_query, sql_engine=sql_engine)
             msg = {
             'sql_output': sql_output
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
@@ -408,7 +400,7 @@ def sqlsrcipinit():
 
             msg = {
             'table_created': 'srciplog'
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
@@ -458,7 +450,7 @@ def sqlsrciplog():
                 'ip': src_ip_address,
                 'timestamp': timestamp
                 }
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
           return jsonify(str(e))
@@ -474,7 +466,7 @@ def pi():
         pi_str = "%s.%s\n" % (digits.pop(0), "".join(digits))
         msg = {
                 'pi': pi_str
-        }          
+        }
         return jsonify(msg)
     except Exception as e:
         return jsonify(str(e))
@@ -488,11 +480,11 @@ def dns():
         msg = {
                 'fqdn': fqdn,
                 'ip': ip
-        }          
+        }
         return jsonify(msg)
     except Exception as e:
         return jsonify(str(e))
-        
+
 
 # Flask route to provide the container's IP address
 @app.route("/api/ip", methods=['GET'])
@@ -543,7 +535,7 @@ def ip():
                 'your_browser': str(request.user_agent.browser),
                 'sql_server_fqdn': str(sql_server_fqdn),
                 'sql_server_ip': str(sql_server_ip)
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
             if msg:
@@ -573,7 +565,7 @@ def curl():
                 'url': url,
                 'method': 'GET',
                 'answer': http_answer
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
             return jsonify(str(e))
@@ -611,11 +603,11 @@ def mysql():
             cursor = db.cursor()
             cursor.execute("SELECT VERSION()")
             data = cursor.fetchone()
-            app.logger.info('Closing SQL connection...') 
+            app.logger.info('Closing SQL connection...')
             db.close()
             msg = {
                 'sql_output': str(data)
-            }          
+            }
             return jsonify(msg)
         except Exception as e:
             return jsonify(str(e))

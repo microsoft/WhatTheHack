@@ -24,7 +24,7 @@ In this challenge, you will build and push a docker image to ACR:
 
     - `registryName` - the full server address of your ACR instance. Set this to "`registryName`.azurecr.io" - replacing `registryName` with the `<prefix>devopsreg` value in your ARM template file (line #26). 
     - `repositoryName` - The repository to target in the registry. Set this to "`wth/dotnetcoreapp`".
-    - `dockerFolderPath` - The path to the folder that contains the Dockerfile - a critical parameter. You will need to point to the folder: `Application/aspnet-core-dotnet-core`.
+    - `dockerFolderPath` - The path to the folder that contains the Dockerfile - a critical parameter. You will need to point to the folder: `Application/src/RazorPagesTestSample`.
     - `tag` - This needs to be a unique value each time, as this is used to version the images in the repository. GitHub makes [environment variables](https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#github-context) available that helps with this. Set `tag` to the [github.run_number](https://www.bing.com/search?q=%24%7B%7Bgithub.run_number%7D%7D&form=QBLH&sp=-1&pq=%24%7B%7Bgithub.run_number%7D%7D&sc=0-22&qs=n&sk=&cvid=D84DA66323DC4E14BD794F90FCFD90D3) environment variable.
 
 2. Go to the Azure Portal and get the (1) username and (2) password and (3) login server to your ACR instance and save as GitHub secrets (`ACR_USERNAME`, `ACR_PASSWORD`, `ACR_LOGIN_SERVER`).
@@ -33,7 +33,7 @@ In this challenge, you will build and push a docker image to ACR:
 
 4. Make sure the first step in your second job includes `- uses: actions/checkout@v2`
 
-5. To authenticate to the registry, add a step named `Docker login` with the following as the `run` command: `docker $registryName -u ACR_USERNAME -p ACR_PASSWORD` - replacing ACR_USERNAME and ACR_PASSWORD with the secrets.
+5. To authenticate to the registry, add a step named `Docker login` with the following as the `run` command: `docker login $registryName -u ACR_USERNAME -p ACR_PASSWORD` - replacing ACR_USERNAME and ACR_PASSWORD with the secrets.
 
 6. To build your image, add a step named `Docker build` with the following as the `run` command: `docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath`
 

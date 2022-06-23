@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+    <h2>Dependent Details</h2>
+        <div class="form-horizontal">
+            <ul id="validationSummary"></ul>
+            <div class="form-group">
+                <label for="Person" class = "control-label col-md-2">
+                 Person
+                </label>
+                <div class="col-md-10">
+                    <a ng-href="#people/{{data.Person.id}}" >
+                    {{data.Person.DisplayName}}
+                    </a>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="PolicyHolder" class = "control-label col-md-2">
+                 Policy Holder
+                </label>
+                <div class="col-md-10">
+                    <a ng-href="#PolicyHolder/{{data.PolicyHolder.id}}" >
+                    {{data.PolicyHolderName}}
+                    </a>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="Active" class = "control-label col-md-2">
+                Active
+                </label>
+                <div class="col-md-10">
+                    <input type="checkbox" ng-model="data.Active" id="Active" ng-disabled="true" />
+                </div>
+            </div>
+        </div>

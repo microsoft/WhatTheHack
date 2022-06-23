@@ -14,7 +14,7 @@ Additional remarks:
   * Azure VPN Gateways: make sure that they do not get confused with the VNet gateways and Local Network Gateways. Make sure they use local network gateways (instead of vnet-to-vnet connections), so that they understand the process involved in configuring S2S tunnels
   * Windows Server: good enough for all scenarios, if the participants are familiar with Windows
   * Linux and StrongSwan: good enough for all scenarios, if the participants are familiar with StrongSwan
-  * Cisco CSR: the student resources bring an example of how to deploy and configure a Cisco CSR 1000v to simulate an onprem site [here](../Student/resources/csr).
+  * Cisco CSR: the student resources bring an example of how to deploy and configure a Cisco CSR 1000v to simulate an onprem site [here](../Student/resources/csr.md ).
     * Branch VM subnet needs to have UDR in place to properly route traffic destined to the hub/spoke via CSR.
     * Add system route within CSR to encompass VNET address space (ip route 172.16.0.0 255.255.0.0 172.16.0.1) and distribute route via BGP (network 172.16.0.0 mask 255.255.0.0)
     * Associate NSG with CSR subnet and ensure inbound/outbound rules are created to allow inbound traffic to be forwarded by appliance. 

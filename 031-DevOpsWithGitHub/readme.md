@@ -50,4 +50,5 @@ Regardless of the option you choose, you'll have to consider:
 ## Contributors
 - Kevin M. Gates
 - Will Fox
+- Andy Huang
 - Julia Nathan
