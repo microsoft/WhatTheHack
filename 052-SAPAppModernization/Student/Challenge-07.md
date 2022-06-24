@@ -24,7 +24,7 @@ Be aware that SAP's materials for this integration pattern will always point tow
 ## Stretch Goal
 - You could use the Business Events type model to update an external store (e.g CosmosDB) by exposing an additional write-back endpoint that consumes events inside SAP as the source of the truth, but that keeps another more dynamically scalable store in sync.
 
-- In a distributed environment, you could combine this with the [Cache Aside pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside) to simply your cache updates by simply reacting to the event and removing the cached version of the updated object from the APIM cache. Then the next request should reload it into the cache, or if you already know what the new cache data looks like as part of the event, you could simply update it in place. 
+- In a distributed environment, you could combine this with the [Cache Aside pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside) to simplify your cache updates by simply reacting to the event and removing the cached version of the updated object from the APIM cache. Then the next request should reload it into the cache or if you already know what the new cache data looks like as part of the event, you could simply update it in place. 
 
 ## Learning Resources
 - [ABAP SDK for Azure](https://github.com/Microsoft/ABAP-SDK-for-Azure)
