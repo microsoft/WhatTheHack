@@ -3,12 +3,12 @@
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 ## Introduction
-Your existing app service front end poses a nice interface into the SAP world. Often they get deployed or embedded into internal enterprise portals for discovery and governance purposes. In the Microsoft ecosystem there is no place better than the Microsoft Teams Client to achieve this. Speaking of Teams: You want to use natural language to query your SAP? Any interest? In this challenge you will implement a bot service that can leverage your existing infrastructure and process OData calls.
+Your existing app service front end poses a nice interface into the SAP world. Often they get deployed or embedded into internal enterprise portals for discovery and governance purposes. In the Microsoft ecosystem there is no place better than the Microsoft Teams Client to achieve this. You want to use natural language to query your SAP from Microsoft Teams? Any interest in that? In this challenge you will implement a bot service that can leverage your existing infrastructure and process OData calls.
 
 ## Description
 - Familiarize yourself with this [repo](https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation).
 - Setup your Azure Bot development environment (Note, you can use the Azure Bot Framework SDK, Azure Bot Composer, or even Power Virtual Agents if you prefer and it's available to you.)
-- You should think carefully about how your bot will connect to the SAP environment, since in the last challenge we made it private you have a couple of options.
+- You should think carefully about how your bot will connect to the SAP environment, since in the last challenge we made it private. You have a couple of options.
   - Consider moving your APIM instance from early challenges to "External" mode (this will present an External IP, but leave the APIM instance VNet integrated). 
   - You could also front the Azure APIM instance with Azure Application Gateway (or even an NVA) and keep APIM "internal".
   - Our recommendation for this challenge would be to deploy an SDK or Bot Composer bot to a VNet integrated App Service instance, that will allow you to call your private APIM instance. 
