@@ -1,4 +1,4 @@
-# Challenge 10 - <Title of Challenge> - Coach's Guide 
+# Challenge 10 - Azure Active Directory Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-09.md) - **[Home](./README.md)** - [Next Solution >](./Solution-11.md)
 

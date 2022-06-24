@@ -1,4 +1,4 @@
-# Challenge 09 - <Title of Challenge> - Coach's Guide 
+# Challenge 09 - Azure Key Vault Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-08.md) - **[Home](./README.md)** - [Next Solution >](./Solution-10.md)
 

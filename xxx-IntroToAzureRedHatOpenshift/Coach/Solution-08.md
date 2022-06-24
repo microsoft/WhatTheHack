@@ -1,4 +1,4 @@
-# Challenge 08 - <Title of Challenge> - Coach's Guide 
+# Challenge 08 - Azure Service Operators - Coach's Guide 
 
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 

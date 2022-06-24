@@ -1,4 +1,4 @@
-# Challenge 04 - <Title of Challenge> - Coach's Guide 
+# Challenge 04 - Storage - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 

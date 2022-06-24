@@ -1,4 +1,4 @@
-# Challenge 07 - <Title of Challenge> - Coach's Guide 
+# Challenge 07 - Scaling - Coach's Guide 
 
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
