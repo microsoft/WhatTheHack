@@ -16,9 +16,9 @@ During the exercise, participants will be able to provision a landscape into Azu
 
 ## Prerequisite
 
-A valid Azure subscription which can create azure resources (computed D-series, E-series, storage, Network..).
+A valid Azure subscription which can create Azure resources (Virtual Machines (In the D-series or E-series families), storage accounts and disks, virtual networks ..).
 
-The Participant will need an authorization to create or have a Service Principle with the Contributor Role, provided.
+The Participant will need an authorization to create a Service Principal with the Contributor Role, or will need one provided prior to the start of the challenge.
 
 An estimate of an additional $100/daily Azure budget during the challenge-session days.
  
