@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Now that we have an SAP landscape is deployed in Azure it's time to connect it to the outside world. 
+Now that we have an SAP landscape deployed in Azure, it's time to connect it to the outside world. 
 In this challenge, you'll configure and connect up an ASP.NET core MVC application to consume OData services from SAP using SAP's demo data set.
 
 ## Description
@@ -18,10 +18,10 @@ At this point your SAP data will no longer be an island! There are a number of s
 
 - Deploy a new Resource Group in your Azure Subscription 'SAP-WTH046'
 
-- Deploy an empty Developer Tier Azure API Management Instance into your subscription, for this setup you can leave it as not network integrated, but production environments should be located inside a VNet. 
+- Deploy an empty Developer Tier Azure API Management Instance into your subscription. For this setup you can leave it as not network integrated, but production environments should be located inside a VNet. 
 	- Hint: Look in the Azure Portal for "API Management" as a service in the Marketplace.  
 		
-- Deploy an empty Azure Web Application into your subscription, again here you do not need to be concerned about network / vnet integration, but you would consider this model in a production-ready environment.
+- Deploy an empty Azure Web Application into your subscription. Again here you do not need to be concerned about network/vnet integration, but you would consider this model in a production-ready environment.
 
 - Configure the API Management instance to connect to your S/4HANA or SAP ECC services as detailed here. 
 	- [SAP Configuration](https://github.com/MartinPankraz/AzureSAPODataReader#azure-api-management-config)
