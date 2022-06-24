@@ -2,9 +2,9 @@
 
 ## Introduction 
 
-This hack is designed to help build skills in connecting other Azure services to SAP instances hosted on the Microsoft Azure platform. Connecting services to SAP systems hosted either on-premises or in the cloud should not be overly difficult, yet often the correct tools and processes are poorly understood and / or documented.
+This hack is designed to help build skills in connecting other Azure services to SAP instances hosted on the Microsoft Azure platform. Connecting services to SAP systems hosted either on-premises or in the cloud should not be overly difficult, yet often the correct tools and processes are poorly understood and/or documented.
 
-Following on from the SAP Infrastructure Hack [SAP On Azure](../042-SAPOnAzure/README.md), many SAP S/4 HANA or ECC customers wish to use Azure to build build applications and integrations that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. Note that the other SAP On Azure hack listed above is not mandatory to run before this Application Development Hack, they can stand alone or be run one after the other. 
+Following on from the SAP Infrastructure Hack [SAP On Azure](../042-SAPOnAzure/README.md), many SAP S/4 HANA or ECC customers wish to use Azure to build applications and integrations that connect to or from an SAP environment to add new levels of scalability, elasticity or new features and functionality to their SAP backends. Note that the other SAP on Azure hack listed above is not mandatory to run before this Application Development Hack. This hack can be done stand alone or done after the other SAP Hack.
 
 ## Learning Objectives
 
@@ -26,7 +26,7 @@ You will then move on to building interactive applications and intelligent agent
 ### Connect an application to your SAP Environment and consume data
 
 - Challenge 02: **[.NET Web frontend with OpenAPI and OData via APIM](./Student/Challenge-02.md)**
-	 - Connect a .net frontend application to your new SAP S/4 HANA Instance.
+	 - Connect a .NET frontend application to your new SAP S/4 HANA Instance.
 - Challenge 03: **[Geode Pattern: Global Caching and replication of SAP source data](./Student/Challenge-03.md)**
 	 - Accelerate and offload SAP data via global data caches using CosmosDB and Azure FrontDoor.
 
