@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
-Quite some progess! You have created a nice cloud native setup surrounding your SAP. As such it is designed to run "free" on the Internet while still being secure. One example with global scale would be your Office365 for instance. But some times there are security regulations that prohibit such setups regardless. In this challenge you will move your sensitive components into a private virtual network (VNet) and connect the Azure PaaS services via private endpoints.
+Quite some progess! You have created a nice cloud native setup surrounding your SAP instance. As such it is designed to run externally whilst exposed to the Internet while still being secured. One example with global scale would be your Office365 for instance. But some times there are security regulations that prohibit such setups. In this challenge you will move your sensitive components into a private virtual network (VNet) and connect the Azure PaaS services via private endpoints.
 
 ## Description
 - Integrate your app service instance with your existing SAP VNet using Regional Vnet Integration. 
