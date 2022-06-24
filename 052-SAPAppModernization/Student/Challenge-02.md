@@ -25,7 +25,7 @@ At this point your SAP data will no longer be an island! There are a number of s
 
 - Configure the API Management instance to connect to your S/4HANA or SAP ECC services as detailed here. 
 	- [SAP Configuration](https://github.com/MartinPankraz/AzureSAPODataReader#azure-api-management-config)
-	- Hint, for now do not enable principal Propagation, - simply configure SAP Basic Auth for now - we will enable this in the APIM policy later in another challenge. But let's connect to the data first! 
+	- Hint: for now do not enable principal Propagation. Instead, simply configure SAP Basic Auth for now. We will enable this in the APIM policy later in another challenge. But let's connect to the data first! 
 	
 ## Success Criteria
 
@@ -33,7 +33,7 @@ At this point your SAP data will no longer be an island! There are a number of s
 
 ## Learning Resources
 
-- [.net speaks OData too!](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway)
+- [.NET speaks OData too!](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway)
 
 - [Azure SAP OData Reader](https://github.com/MartinPankraz/AzureSAPODataReader)
 
