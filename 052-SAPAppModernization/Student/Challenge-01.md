@@ -4,13 +4,13 @@
 
 ## Introduction
 
-We're going to use the SAP Cloud appliance library to deploy you a fully functional SAP S/4 HANA trial / demo environment to develop your new applications against. 
+We're going to use the SAP Cloud appliance library to deploy you a fully functional SAP S/4 HANA trial/demo environment to develop your new applications against. 
 
 ## Description
 
 During the exercise, the Participants will be able to provision a landscape into Azure for SAP environment and then build a fresh SAP system by using the SAP Cloud Appliance Library. 
 
-- Check if your S-User is allowed to open [SAP Cloud Appliance Library](https://cal.sap.com/) (CAL), browse the solutions catalog and hit deploy. Otherwise reach out to your SAP Basis Admin to sort out S-User authorizations prior the hack. Find more details on the [SAP docs](https://calstatic.hana.ondemand.com/res/docEN/46948f72469c42c88e1735fcb7aea529.html).
+- Check if your S-User is allowed to open [SAP Cloud Appliance Library](https://cal.sap.com/) (CAL), browse the solutions catalog and hit deploy. Otherwise reach out to your SAP Basis Admin to sort out S-User authorizations prior to the hack. Find more details on the [SAP docs](https://calstatic.hana.ondemand.com/res/docEN/46948f72469c42c88e1735fcb7aea529.html).
 - Ensure your S-User is linked to your Azure Subscription in the SAP Cloud Appliance Library. Find details on the setup on the [SAP docs](https://calstatic.hana.ondemand.com/res/docEN/042bb15ad2324c3c9b7974dbde389640.html). 
 - Deploy the S4/HANA Appliance to your Azure subscription (with a PUBLIC IP Address. Note that this is not the normal configuration (See hack 042 for a more-enterprise focused configuration), but will allow us to get started quickly) with an RDP instance.
 - Record the Master Password you specify as you will need it later to connect over RDP. 
@@ -28,4 +28,4 @@ During the exercise, the Participants will be able to provision a landscape into
 
 - Successful Appliance Deployment of SAP S/4HANA to Azure using the available image libraries in the SAP CAL.
 - Successful test logon to an SAP Application Server
-- Login to the system, verify all the resources deployed and that the correct demo data is present.
+- Login to the system, verify all the resources are deployed and that the correct demo data is present.
