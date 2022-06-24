@@ -6,7 +6,7 @@
 
 Geode Pattern: Global Caching and Replication of SAP Source Data
 
-What happens if you have a service that could quickly overwhelm your SAP system with requests, or you need it to be globally accessible from multiple locations with globally low latency, but your SAP HANA or ECC system is only located in one place.
+What happens if you have a service that could quickly overwhelm your SAP system with requests, or you need it to be globally accessible from multiple locations with globally low latency, but your SAP HANA or ECC system is only located in one place?
 
 Let's build on the prior solution and add geographical caching of data my inserting a geo-caching and distribution layer in front of the Odata service.
 
@@ -21,7 +21,7 @@ Let's build on the prior solution and add geographical caching of data my insert
 
 ## Success Criteria
 
-- Be able to successfully set up a two node geode shim caching data through CosmosDB over OData, and benchmark to the theoretical global improvements in OData performance.
+- Be able to successfully set up a two node geode shim caching data through CosmosDB over OData and benchmark to the theoretical global improvements in OData performance.
 
 ## Learning Resources
 
