@@ -50,11 +50,11 @@ Check the following repos are available and accessible as the hack will be signi
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- Every team should have an Azure subscription with $650 credit. Any team member can share a subscription with other members by providing contributor access to other team members.
+- Every team should have an Azure subscription with at least $650 credit available. Any team member can share a subscription with other members by providing contributor access to other team members.
 - Each team also requires access to the Microsoft Power Platform. At least one team member should have [M365 E5 subscription](https://go.microsoft.com/fwlink/p/?LinkID=698279)  and add other team members temporarily during the hack. Each team member should have licenses for Microsoft Power Apps plan 2 Trial, for Microsoft Power Automate free and ideally a Microsoft 365 E5 developer tenant.
 - [Challenge 1](../Student/Challenge-01.md), the Participant will need authorization to create an Azure Active Directory Service Principal with the Contributor Role (or have one provided prior to beginning the challenge). 
 - Challenge 1, one of the participants will require access to the [SAP Cloud Appliance Library](https://cal.sap.com) with an appropriate user linked to their subscription. That can be either an S-User given to you by your admin or a so called P-User, that you can create from the SAP community yourself. For the P-User navigate to the [SAP community](https://community.sap.com/), click login and register a new user, activate it using the activation email. Depending on existing relationships to [SAP Universal ID](https://account.sap.com/core/create/landing), you will need to use that password.
-- All team members can use default powerapp environment or if your license permits can create other environments.
+- All team members can use a default Power App environment or if your license permits can create other environments.
 - (Optionally) Identify or deploy a [developer instance of Azure APIM](https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance) to save time.
 
 ## Repository Contents
