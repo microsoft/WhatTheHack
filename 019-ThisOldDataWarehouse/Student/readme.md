@@ -36,10 +36,8 @@ Azure services and related products
 
 
 ## Optional Challenges
-1. Setup incremental loads in SSIS jobs
-1. Deploy job into ADF SSIS Runtime and Catalog
 1. [Generate new data and load into Synapase](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-generate-data?view=sql-server-ver15)
-1. [Deploy Azure Databricks workspace, mount your new storage and enable interactive queries and analytics!](https://docs.microsoft.com/en-us/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/databricks/toc.json&bc=/azure/databricks/breadcrumb/toc.json)
+1. Deploy Azure Synapse Analytics SPark POols and mount your new storage and enable interactive queries and analytics
 1. Refactor the T-SQL code in Polybase to leverage Python or Scala
 1. Build out these data pipelines using Azure Mapping Data Flows
 1. Setup external table in Azure Synapse Analytics
