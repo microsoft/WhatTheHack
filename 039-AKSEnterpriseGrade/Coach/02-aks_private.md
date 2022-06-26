@@ -13,12 +13,12 @@
 * If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
 * At the time of this writing, SLA API and private API are mutually exclusive
 
-## Solution Guide
+## Solution Guide - Private Clusters and Firewall Egress
 
-This is a possible script for this challenge:
+This is a possible script for this challenge using private clusters and filtering egress traffic through firewall (check later in the doc for a simplified guide with a public cluster and no firewall egress):
 
 ```bash
-# Get variables from previous labs and build images if required
+# Get variables from previous labs and build images
 rg=$(az group list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
 if [[ -n "$rg" ]]
 then
@@ -44,7 +44,6 @@ fi
 aks_name=aks
 aks_rbac=yes
 aks_service_cidr=10.0.0.0/16
-vmsize=Standard_B2ms
 vm_size=Standard_B2ms
 preview_version=no
 vnet_name=aks
@@ -74,26 +73,36 @@ else
     echo "Latest supported k8s version (not in preview) in $location is $k8s_version"
 fi
 # Create firewall
-azfw_subnet_name=Firewall
+az network firewall policy create -n azfwpolicy -g $rg --sku Standard
 azfw_subnet_prefix=10.13.2.0/24
 az network vnet subnet create -g $rg -n $azfw_subnet_name --vnet-name $vnet_name --address-prefix $azfw_subnet_prefix
 az network public-ip create -g $rg -n azfw-pip --sku standard --allocation-method static -l $location
 azfw_ip=$(az network public-ip show -g $rg -n azfw-pip --query ipAddress -o tsv)
 az network firewall create -n azfw -g $rg -l $location
+# az network firewall create -n azfw -g $rg -l $location --policy azfwpolicy
 azfw_id=$(az network firewall show -n azfw -g $rg -o tsv --query id)
 az network firewall ip-config create -f azfw -n azfw-ipconfig -g $rg --public-ip-address azfw-pip --vnet-name $vnet_name
 az network firewall update -n azfw -g $rg
 azfw_private_ip=$(az network firewall show -n azfw -g $rg -o tsv --query 'ipConfigurations[0].privateIpAddress')
 # Logging
-logws_name=log$RANDOM
-az monitor log-analytics workspace create -n $logws_name -g $rg
+logws_name=$(az monitor log-analytics workspace list -g $rg --query '[0].name' -o tsv)
+if [[ -z "$logws_name" ]]
+then
+    logws_name=log$RANDOM
+    az monitor log-analytics workspace create -n $logws_name -g $rg
+fi
 logws_id=$(az resource list -g $rg -n $logws_name --query '[].id' -o tsv)
 logws_customerid=$(az monitor log-analytics workspace show -n $logws_name -g $rg --query customerId -o tsv)
 az monitor diagnostic-settings create -n mydiag --resource $azfw_id --workspace $logws_id \
-      --metrics '[{"category": "AllMetrics", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false }, "timeGrain": null}]' \
-      --logs '[{"category": "AzureFirewallApplicationRule", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}, 
-              {"category": "AzureFirewallNetworkRule", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}]'
-# Rules
+      --metrics '[{"category": "AllMetrics", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false }, "timeGrain": null}]' \
+      --logs '[{"category": "AzureFirewallApplicationRule", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}}, 
+              {"category": "AzureFirewallNetworkRule", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}},
+              {"category": "AZFWNetworkRule", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}},
+              {"category": "AZFWApplicationRule", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}},
+              {"category": "AZFWNetworkRuleAggregation", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}},
+              {"category": "AZFWApplicationRuleAggregation", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}}]'
+
+# Rules (classic)
 az network firewall network-rule create -f azfw -g $rg -c VnetTraffic \
     --protocols Any --destination-addresses $vnet_prefix --destination-ports '*' --source-addresses $vnet_prefix -n Allow-VM-to-AKS --priority 210 --action Allow
 az network firewall network-rule create -f azfw -g $rg -c WebTraffic \
@@ -102,6 +111,8 @@ az network firewall network-rule create -f azfw -g $rg -c AKS-egress \
     --protocols Udp --destination-addresses '*' --destination-ports 123 --source-addresses $aks_subnet_prefix -n NTP --priority 220 --action Allow
 az network firewall network-rule create -f azfw -g $rg -c AKS-egress \
     --protocols Udp --destination-addresses '*' --destination-ports 1194 --source-addresses $aks_subnet_prefix -n TunnelTraffic
+az network firewall network-rule create -f azfw -g $rg -c AKS-egress \
+    --protocols Tcp --destination-addresses '*' --destination-ports 3306 1433 --source-addresses $aks_subnet_prefix -n SQLTraffic
 # Application rule: AKS-egress (https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic):
 az network firewall application-rule create -f azfw -g $rg -c Helper-tools \
     --protocols Http=80 Https=443 --target-fqdns ifconfig.co api.snapcraft.io jsonip.com --source-addresses $vnet_prefix -n Allow-ifconfig --priority 200 --action Allow
@@ -144,31 +155,56 @@ az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
     --protocols Http=80 Https=443 --target-fqdns gov-prod-policy-data.trafficmanager.net --source-addresses $aks_subnet_prefix -n AzPolicy
 az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
     --protocols Http=80 Https=443 --target-fqdns vortex.data.microsoft.com --source-addresses $aks_subnet_prefix -n SqlServer
+az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
+    --protocols Http=80 Https=443 --target-fqdns '*.github.io' --source-addresses $aks_subnet_prefix -n nginxRepo
+az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
+    --protocols Http=80 Https=443 --target-fqdns 'registry.k8s.io' --source-addresses $aks_subnet_prefix -n k8sRegistry
+
+# Rules (policy) - TBD!
+# Test rule to allow everything - THIS IS A SHORTCUT
+az network firewall policy rule-collection-group create -n AKSrules --policy-name azfwpolicy -g $rg --priority 100
+az network firewall policy rule-collection-group collection add-filter-collection --policy-name azfwpolicy --rule-collection-group-name AKSrules -g $rg \
+    --name NetworkTraffic --collection-priority 150 --action Allow --rule-name permitAny --rule-type NetworkRule --description "Permit all traffic - TEST" \
+    --destination-addresses '*' --destination-ports '*' --source-addresses '*' --ip-protocols Tcp Udp Icmp
+
 # Route table
 az network route-table create -n aks -g $rg -l $location
 az network route-table route create -n defaultRoute --route-table-name aks -g $rg \
     --next-hop-type VirtualAppliance --address-prefix "0.0.0.0/0" --next-hop-ip-address $azfw_private_ip
 aks_rt_id=$(az network route-table show -n aks -g $rg -o tsv --query id)
 az network vnet subnet update -g $rg --vnet-name $vnet_name -n $aks_subnet_name --route-table $aks_rt_id
+# User identity
+id_name=aksid
+id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
+if [[ -z "$id_id" ]]
+then
+    echo "Identity $id_name not found, creating a new one..."
+    az identity create -n $id_name -g $rg -o none
+    id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
+else
+    echo "Identity $id_name found with ID $id_id"
+fi
+id_principal_id=$(az identity show -n $id_name -g $rg --query principalId -o tsv)
+vnet_id=$(az network vnet show -n $vnet_name -g $rg --query id -o tsv)
+sleep 15 # Time for creation to propagate
+az role assignment create --scope $vnet_id --assignee $id_principal_id --role Contributor -o none
 # Create cluster
-az aks create -g $rg -n $aks_name -l $location \
-    -c 1 -s $vm_size -k $k8s_version --generate-ssh-keys \
-    --network-plugin azure --vnet-subnet-id $aks_subnet_id \
-    --service-cidr $aks_service_cidr \
+az aks create -g "$rg" -n "$aks_name" -l "$location" \
+    -c 1 -s "$vm_size" -k $k8s_version --generate-ssh-keys \
+    --network-plugin azure --vnet-subnet-id "$aks_subnet_id" \
+    --service-cidr "$aks_service_cidr" \
     --network-policy calico --load-balancer-sku Standard \
-    --node-resource-group "$aks_name"-iaas-"$RANDOM" \
-    --attach-acr $acr_name \
+    --node-resource-group "${aks_name}-iaas-${RANDOM}" \
+    --attach-acr "$acr_name" \
     --enable-private-cluster \
     --outbound-type userDefinedRouting \
-    --no-wait
+    --enable-managed-identity --assign-identity "$id_id"
 ```
 
-You can query the FW logs and look for denied packets by the firewall, in case you have forgotten to add any URL:
-
-
-Application rules:
+You can query the FW logs and look for denied packets by the firewall, in case you have forgotten to add any URL. For example, use this query for application rule logs:
 
 ```bash
+# App rule logs
 query_apprule='AzureDiagnostics 
 | where ResourceType == "AZUREFIREWALLS" 
 | where Category == "AzureFirewallApplicationRule" 
@@ -177,12 +213,13 @@ query_apprule='AzureDiagnostics
 | where Rule_Collection != "AzureInternalTraffic" 
 | where Action == "Deny" 
 | take 100'
-az monitor log-analytics query -w $logws_customerid --analytics-query $query_apprule -o tsv
+az monitor log-analytics query -w "$logws_customerid" --analytics-query "$query_apprule" -o tsv
 ```
 
-Network rules:
+And this one for network rule logs:
 
 ```bash
+# Net rule logs
 query_netrule='AzureDiagnostics
 | where ResourceType == "AZUREFIREWALLS"
 | where Category == "AzureFirewallNetworkRule" and OperationName == "AzureFirewallNetworkRuleLog"
@@ -191,7 +228,7 @@ query_netrule='AzureDiagnostics
 | extend From_IP=split(From, ":")[0], From_Port=split(From, ":")[1], To_IP=split(To, ":")[0], To_Port=split(To, ":")[1]
 | where Action == "Deny" 
 | take 100'
-az monitor log-analytics query -w $logws_customerid --analytics-query $query_netrule -o tsv
+az monitor log-analytics query -w "$logws_customerid" --analytics-query "$query_netrule" -o tsv
 ```
 
 You can install a VM in the same vnet and install kubectl to have access to the API.
@@ -199,42 +236,41 @@ You can install a VM in the same vnet and install kubectl to have access to the 
 ```bash
 # Variables
 vm_name=vm
-vm_nsg_name=${vm_name}-nsg
-vm_pip_name=${vm_name}-pip
-vm_disk_name=${vm_name}-disk0
+vm_nsg_name="${vm_name}-nsg"
+vm_pip_name="${vm_name}-pip"
+vm_disk_name="${vm_name}-disk0"
 vm_sku=Standard_B2ms
 publisher=Canonical
 offer=UbuntuServer
 sku=18.04-LTS
-image_urn=$(az vm image list -p $publisher -f $offer -s $sku -l $location --query '[0].urn' -o tsv)
-az network vnet subnet create -n $vm_subnet_name --vnet-name $vnet_name -g $rg --address-prefixes $vm_subnet_prefix
-az vm create -n $vm_name -g $rg -l $location --image $image_urn --size $vm_sku --generate-ssh-keys \
-  --os-disk-name $vm_disk_name --os-disk-size-gb 32 \
-  --vnet-name $vnet_name --subnet $vm_subnet_name \
-  --nsg $vm_nsg_name --nsg-rule SSH --public-ip-address $vm_pip_name
-vm_pip_ip=$(az network public-ip show -n $vm_pip_name -g $rg --query ipAddress -o tsv)
-ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $vm_pip_ip "ip a"
+image_urn=$(az vm image list -p "$publisher" -f "$offer" -s "$sku" -l "$location" --query '[0].urn' -o tsv)
+az network vnet subnet create -n "$vm_subnet_name" --vnet-name "$vnet_name" -g "$rg" --address-prefixes "$vm_subnet_prefix"
+az vm create -n "$vm_name" -g "$rg" -l "$location" --image $image_urn --size $vm_sku --generate-ssh-keys \
+  --os-disk-name "$vm_disk_name" --os-disk-size-gb 32 \
+  --vnet-name $vnet_name --subnet "$vm_subnet_name" \
+  --nsg $vm_nsg_name --nsg-rule SSH --public-ip-address "$vm_pip_name"
+vm_pip_ip=$(az network public-ip show -n "$vm_pip_name" -g "$rg" --query ipAddress -o tsv)
+ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$vm_pip_ip" "ip a"
 # Managed identity
-vm_identity_name=$vm_name-identity
-az identity create -g $rg -n $vm_identity_name
-az vm identity assign -n $vm_name -g $rg --identities $vm_name-identity
-vm_identity_clientid=$(az identity show -n $vm_name-identity -g $rg --query clientId -o tsv)
-vm_identity_principalid=$(az identity show -n $vm_name-identity -g $rg --query principalId -o tsv)
-vm_identity_id=$(az identity show -n $vm_name-identity -g $rg --query id -o tsv)
-rg_id=$(az group show -n $rg --query id -o tsv)
-az role assignment create --assignee $vm_identity_principalid --role Contributor --scope $rg_id
+vm_identity_name="${vm_name}-identity"
+az identity create -g "$rg" -n "$vm_identity_name"
+az vm identity assign -n "$vm_name" -g "$rg" --identities "${vm_name}-identity"
+vm_identity_clientid=$(az identity show -n "${vm_name}-identity" -g "$rg" --query clientId -o tsv)
+vm_identity_principalid=$(az identity show -n "${vm_name}-identity" -g "$rg" --query principalId -o tsv)
+vm_identity_id=$(az identity show -n "${vm_name}-identity" -g "$rg" --query id -o tsv)
+rg_id=$(az group show -n "$rg" --query id -o tsv)
+az role assignment create --assignee "$vm_identity_principalid" --role Contributor --scope "$rg_id"
 # Install Azure CLI
 alias remote="ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $vm_pip_ip"
 remote "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash"
 # Install kubectl
-remote "sudo apt-get update && sudo apt-get install -y apt-transport-https"
-remote "curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -"
-remote 'echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list'
-remote "sudo apt-get update"
-remote "sudo apt-get install -y kubectl"
+# remote "sudo apt-get update && sudo apt-get install -y apt-transport-https"
+# remote "curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -"
+# remote 'echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list'
+# remote "sudo apt-get update"
+# remote "sudo apt-get install -y kubectl"
+remote "sudo az aks install-cli"
 remote "kubectl version"
-# Note that in order to install kubectl the az aks command is preferred, since it will install kubelogin too:
-remote "az aks install-cli"
 # Install helm
 remote "curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -"
 remote "sudo apt-get install apt-transport-https --yes"
@@ -253,7 +289,7 @@ remote "az aks get-credentials -n $aks_name -g $rg"
 remote "kubectl get node"
 ```
 
-Create now the Azure SQL database and the private link endpoint:
+Create now the Azure SQL database and the private link endpoint (you could use the same database as in challenge 1 though):
 
 ```bash
 # Variables
@@ -264,33 +300,38 @@ private_zone_name=privatelink.database.windows.net
 sql_username=azure
 sql_password=Microsoft123!
 # Create SQL server and DB
-az sql server create -n $db_server_name -g $rg -l $location --admin-user $sql_username --admin-password $sql_password
-db_server_id=$(az sql server show -n $db_server_name -g $rg -o tsv --query id)
-az sql db create -n $db_db_name -s $db_server_name -g $rg -e Basic -c 5
+az sql server create -n "$db_server_name" -g "$rg" -l "$location" --admin-user "$sql_username" --admin-password "$sql_password"
+db_server_id=$(az sql server show -n "$db_server_name" -g "$rg" -o tsv --query id)
+az sql db create -n "$db_db_name" -s "$db_server_name" -g "$rg" -e Basic -c 5
+db_server_fqdn=$(az sql server show -n "$sql_server_name" -g "$rg" -o tsv --query fullyQualifiedDomainName)
 # Subnet and endpoint
-az network vnet subnet create -g $rg -n $db_subnet_name --vnet-name $vnet_name --address-prefix $db_subnet_prefix
-az network vnet subnet update -n $db_subnet_name -g $rg --vnet-name $vnet_name --disable-private-endpoint-network-policies true
-az network private-endpoint create -n $sql_endpoint_name -g $rg --vnet-name $vnet_name --subnet $db_subnet_name --private-connection-resource-id $db_server_id --group-ids sqlServer --connection-name sqlConnection
-endpoint_nic_id=$(az network private-endpoint show -n $sql_endpoint_name -g $rg --query 'networkInterfaces[0].id' -o tsv)
-endpoint_nic_ip=$(az resource show --ids $endpoint_nic_id --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
+az network vnet subnet create -g "$rg" -n "$db_subnet_name" --vnet-name "$vnet_name" --address-prefix "$db_subnet_prefix"
+az network vnet subnet update -n "$db_subnet_name" -g "$rg" --vnet-name "$vnet_name" --disable-private-endpoint-network-policies true
+az network private-endpoint create -n "$sql_endpoint_name" -g "$rg" --vnet-name "$vnet_name" --subnet "$db_subnet_name" --private-connection-resource-id "$db_server_id" --group-ids sqlServer --connection-name sqlConnection
+endpoint_nic_id=$(az network private-endpoint show -n "$sql_endpoint_name" -g "$rg" --query 'networkInterfaces[0].id' -o tsv)
+endpoint_nic_ip=$(az resource show --ids "$endpoint_nic_id" --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
 # DNS
-az network private-dns zone create -g $rg -n "$private_zone_name"
-az network private-dns link vnet create -g $rg --zone-name "$private_zone_name" -n MyDNSLink --virtual-network $vnet_name --registration-enabled false
-az network private-dns record-set a create --name $db_server_name --zone-name $private_zone_name -g $rg
-az network private-dns record-set a add-record --record-set-name $db_server_name --zone-name $private_zone_name -g $rg -a $endpoint_nic_ip
+az network private-dns zone create -g "$rg" -n "$private_zone_name"
+# Registration-enabled false not required any more!
+az network private-dns link vnet create -g "$rg" --zone-name "$private_zone_name" -n MyDNSLink --virtual-network "$vnet_name" --registration-enabled false
+az network private-dns record-set a create --name "$db_server_name" --zone-name "$private_zone_name" -g "$rg"
+az network private-dns record-set a add-record --record-set-name "$db_server_name" --zone-name "$private_zone_name" -g "$rg" -a "$endpoint_nic_ip"
 ```
 
 After having the database, we can finally deploy our images.
 
 ```bash
 # API
+cd Coach  # Make sure you are in the `Coach` folder of the WTH repo
 tmp_file=/tmp/api.yaml
 file=api.yaml
 cp ./Solutions/$file $tmp_file
 sed -i "s|__sql_username__|${sql_username}|g" $tmp_file
 sed -i "s|__sql_password__|${sql_password}|g" $tmp_file
-sed -i "s|__sql_server_name__|${db_server_name}|g" $tmp_file
+sed -i "s|__sql_server_name__|${db_server_fqdn}|g" $tmp_file
 sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
+sed -i "s|__sqlserver,mysql,postgres__|sqlserver|g" $tmp_file
+sed -i "s|__yes,no__|yes|g" $tmp_file
 scp $tmp_file $vm_pip_ip:$file
 remote "kubectl apply -f ./$file"
 # Get IP address of service
@@ -321,7 +362,18 @@ done
 remote "curl -s http://${web_svc_ip} | grep Healthcheck"
 ```
 
-And finally, the ingress controller. You can use any one you want, we will use Traefik:
+We can now configure the Database firewall to accept connections from our pod:
+
+```bash
+# Update firewall rules
+sqlapi_source_ip=$(remote "curl -s \"http://${api_svc_ip}:8080/api/ip\" | jq -r .my_public_ip")
+az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip"
+# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
+```
+
+And finally, the ingress controller. You can use any one you want, in this guide we include the options for Traefik and Nginx (the nginx option is more battle-tested, and hence recommended).
+
+If you still want to use Traefik:
 
 ```bash
 # Traefik Installation
@@ -336,36 +388,43 @@ do
     sleep 5
     traefik_svc_ip=$(remote "kubectl get svc/traefik -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
 done
+ingress_svc_ip=$traefik_svc_ip
 ```
 
+Alternatively, the recommended option for this lab is Nginx:
+
 ```bash
-# nginx
-remote 'helm repo add stable https://kubernetes-charts.storage.googleapis.com/'
+# Nginx installation
+remote 'helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx'
+remote 'helm repo update'
 remote 'kubectl create ns nginx'
-remote 'helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0'
+remote 'helm install nginx ingress-nginx/ingress-nginx --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true'
 # nginx service IP
 nginx_svc_name=$(remote "kubectl get svc -n nginx -o json | jq -r '.items[] | select(.spec.type == \"LoadBalancer\") | .metadata.name'")
 nginx_svc_ip=$(remote "kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
-while [[ "$traefik_svc_ip" == "null" ]]
+while [[ "$nginx_svc_ip" == "null" ]]
 do
     sleep 5
     nginx_svc_ip=$(remote "kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
 done
+ingress_svc_ip=$nginx_svc_ip
 ```
 
-We need DNAT at the AzFW.
+We need DNAT at the AzFW to send inbound traffic on certain ports (TCP 80) to the nginx instances.
 
 ```bash
-# NAT rule
-az network firewall nat-rule create -f azfw -g $rg -n nginx \
+# DNAT rule
+az network firewall nat-rule create -f azfw -g "$rg" -n nginx \
     --source-addresses '*' --protocols TCP \
-    --destination-addresses $azfw_ip --translated-address $nginx_svc_ip \
+    --destination-addresses "$azfw_ip" --translated-address "$ingress_svc_ip" \
     --destination-ports 80 --translated-port 80 \
     -c IngressController --action Dnat --priority 100
 ```
 
+And now that we have an ingress, we can create an ingress (aka route). You can use either an FQDN associated to the AzFW's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
+
 ```bash
-# Ingress
+# Ingress route (using Nginx)
 tmp_file=/tmp/ingress.yaml
 file=ingress.yaml
 cp ./Solutions/$file $tmp_file
@@ -374,6 +433,219 @@ sed -i "s|__ingress_ip__|${azfw_ip}|g" $tmp_file
 scp $tmp_file $vm_pip_ip:$file
 remote "kubectl apply -f ./$file"
 echo "You can browse to http://${azfw_ip}.nip.io"
+```
+
+At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
+
+![](images/aks_web.png)
+
+Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
+
+## Solution Guide - Public Clusters and no Firewall Egress
+
+This is a simplified script for this challenge using a public clusters and no egress traffic filtering through a firewall:
+
+```bash
+# Get variables from previous labs and build images
+rg=$(az group list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
+if [[ -n "$rg" ]]
+then
+    location=$(az group list --query "[?contains(name,'hack')].location" -o tsv)
+else
+    rg=hack$RANDOM
+    location=westeurope
+    az group create -n $rg -l $location
+fi
+acr_name=$(az acr list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
+if [[ -z "$acr_name" ]]
+then
+    acr_name=hack$RANDOM
+    az acr create -n $acr_name -g $rg --sku Standard
+    # Build images (you should be in the hack-containers home directory)
+    cd api
+    az acr build -r $acr_name -t hack/sqlapi:1.0 .
+    cd ../web
+    az acr build -r $acr_name -t hack/web:1.0 .
+    az acr repository list -n $acr_name -o table
+fi
+# Variables for AKS
+aks_name=aks
+aks_rbac=yes
+aks_service_cidr=10.0.0.0/16
+vm_size=Standard_B2ms
+preview_version=no
+vnet_name=aks
+vnet_prefix=10.13.0.0/16
+aks_subnet_name=aks
+aks_subnet_prefix=10.13.76.0/24
+vm_subnet_name=vm
+vm_subnet_prefix=10.13.1.0/24
+db_subnet_name=sql
+db_subnet_prefix=10.13.50.0/24
+akslb_subnet_name=akslb
+akslb_subnet_prefix=10.13.77.0/24
+
+# Create vnet
+az network vnet create -g $rg -n $vnet_name --address-prefix $vnet_prefix -l $location
+az network vnet subnet create -g $rg -n $aks_subnet_name --vnet-name $vnet_name --address-prefix $aks_subnet_prefix
+aks_subnet_id=$(az network vnet subnet show -n $aks_subnet_name --vnet-name $vnet_name -g $rg --query id -o tsv)
+
+# Get latest supported/preview version
+k8s_versions=$(az aks get-versions -l $location -o json)
+if [[ "$preview_version" == "yes" ]]
+then
+    k8s_version=$(echo $k8s_versions | jq '.orchestrators[]' | jq -rsc 'sort_by(.orchestratorVersion) | reverse[0] | .orchestratorVersion')
+    echo "Latest supported k8s version in $rg_location is $k8s_version (in preview)"
+else
+    k8s_version=$(echo $k8s_versions | jq '.orchestrators[] | select(.isPreview == null)' | jq -rsc 'sort_by(.orchestratorVersion) | reverse[0] | .orchestratorVersion')
+    echo "Latest supported k8s version (not in preview) in $location is $k8s_version"
+fi
+
+# User identity
+id_name=aksid
+id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
+if [[ -z "$id_id" ]]
+then
+    echo "Identity $id_name not found, creating a new one..."
+    az identity create -n $id_name -g $rg -o none
+    id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
+else
+    echo "Identity $id_name found with ID $id_id"
+fi
+id_principal_id=$(az identity show -n $id_name -g $rg --query principalId -o tsv)
+vnet_id=$(az network vnet show -n $vnet_name -g $rg --query id -o tsv)
+sleep 15 # Time for creation to propagate
+az role assignment create --scope $vnet_id --assignee $id_principal_id --role Contributor -o none
+
+# Create cluster
+az aks create -g "$rg" -n "$aks_name" -l "$location" \
+    -c 1 -s "$vm_size" -k $k8s_version --generate-ssh-keys \
+    --network-plugin azure --vnet-subnet-id "$aks_subnet_id" \
+    --service-cidr "$aks_service_cidr" \
+    --network-policy calico --load-balancer-sku Standard \
+    --node-resource-group "${aks_name}-iaas-${RANDOM}" \
+    --attach-acr "$acr_name" \
+    --enable-managed-identity --assign-identity "$id_id"
+```
+
+You can now access the cluster and get some info:
+
+```bash
+# Cluster-info
+az aks get-credentials -n $aks_name -g $rg --overwrite
+kubectl get node
+kubectl version
+```
+
+Create now the Azure SQL database and the private link endpoint (you could use the same database as in challenge 1 though):
+
+```bash
+# Variables
+db_server_name=$rg
+db_db_name=testdb
+sql_endpoint_name=sqlPrivateEndpoint
+private_zone_name=privatelink.database.windows.net
+sql_username=azure
+sql_password=Microsoft123!
+# Create SQL server and DB
+az sql server create -n "$db_server_name" -g "$rg" -l "$location" --admin-user "$sql_username" --admin-password "$sql_password"
+db_server_id=$(az sql server show -n "$db_server_name" -g "$rg" -o tsv --query id)
+az sql db create -n "$db_db_name" -s "$db_server_name" -g "$rg" -e Basic -c 5
+db_server_fqdn=$(az sql server show -n "$sql_server_name" -g "$rg" -o tsv --query fullyQualifiedDomainName)
+# Subnet and endpoint
+az network vnet subnet create -g "$rg" -n "$db_subnet_name" --vnet-name "$vnet_name" --address-prefix "$db_subnet_prefix"
+az network vnet subnet update -n "$db_subnet_name" -g "$rg" --vnet-name "$vnet_name" --disable-private-endpoint-network-policies true
+az network private-endpoint create -n "$sql_endpoint_name" -g "$rg" --vnet-name "$vnet_name" --subnet "$db_subnet_name" --private-connection-resource-id "$db_server_id" --group-ids sqlServer --connection-name sqlConnection
+endpoint_nic_id=$(az network private-endpoint show -n "$sql_endpoint_name" -g "$rg" --query 'networkInterfaces[0].id' -o tsv)
+endpoint_nic_ip=$(az resource show --ids "$endpoint_nic_id" --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
+# DNS
+az network private-dns zone create -g "$rg" -n "$private_zone_name"
+# Registration-enabled false not required any more!
+az network private-dns link vnet create -g "$rg" --zone-name "$private_zone_name" -n MyDNSLink --virtual-network "$vnet_name" --registration-enabled false
+az network private-dns record-set a create --name "$db_server_name" --zone-name "$private_zone_name" -g "$rg"
+az network private-dns record-set a add-record --record-set-name "$db_server_name" --zone-name "$private_zone_name" -g "$rg" -a "$endpoint_nic_ip"
+```
+
+After having the database, we can finally deploy our images.
+
+```bash
+# API
+cd Coach  # Make sure you are in the `Coach` folder of the WTH repo
+tmp_file=/tmp/api-public.yaml
+file=api-public.yaml
+cp "./Solutions/$file" $tmp_file
+sed -i "s|__sql_username__|${sql_username}|g" $tmp_file
+sed -i "s|__sql_password__|${sql_password}|g" $tmp_file
+sed -i "s|__sql_server_name__|${db_server_fqdn}|g" $tmp_file
+sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
+sed -i "s|__sqlserver,mysql,postgres__|sqlserver|g" $tmp_file
+sed -i "s|__yes,no__|yes|g" $tmp_file
+kubectl apply -f $tmp_file
+# Get IP address of service
+api_svc_ip=$(kubectl get svc/api -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$api_svc_ip" == "null" ]]
+do
+    sleep 5
+    api_svc_ip=$(kubectl get svc/api -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+curl -s "http://${api_svc_ip}:8080/api/healthcheck"
+```
+
+```bash
+# Web
+tmp_file=/tmp/web-public.yaml
+file=web-public.yaml
+cp ./Solutions/$file $tmp_file
+sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
+kubectl apply -f $tmp_file
+# Get IP address of service
+web_svc_ip=$(kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$web_svc_ip" == "null" ]]
+do
+    sleep 5
+    web_svc_ip=$(kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+curl -s "http://${web_svc_ip}" | grep Healthcheck
+```
+
+We can now configure the Database firewall to accept connections from our pod:
+
+```bash
+# Update firewall rules
+sqlapi_source_ip=$(curl -s "http://${api_svc_ip}:8080/api/ip" | jq -r .my_public_ip)
+az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip"
+# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
+```
+
+And finally, the ingress controller. You can use any one you want, in this guide we include the option Nginx (see the section on private clusters for Traefik).
+
+```bash
+# Nginx installation
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+kubectl create ns nginx
+helm install nginx ingress-nginx/ingress-nginx --namespace nginx
+# nginx service IP
+nginx_svc_name=$(kubectl get svc -n nginx -o json | jq -r '.items[] | select(.spec.type == "LoadBalancer") | .metadata.name')
+nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$nginx_svc_ip" == "null" ]]
+do
+    sleep 5
+    nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+```
+
+And now that we have an ingress, we can create an ingress (aka route). You can use either an FQDN associated to the AzFW's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
+
+```bash
+# Ingress route (using Nginx)
+tmp_file=/tmp/ingress.yaml
+file=ingress.yaml
+cp ./Solutions/$file $tmp_file
+sed -i "s|__ingress_class__|nginx|g" $tmp_file
+sed -i "s|__ingress_ip__|${nginx_svc_ip}|g" $tmp_file
+kubectl apply -f $tmp_file
+echo "You can browse to http://${nginx_svc_ip}.nip.io"
 ```
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
