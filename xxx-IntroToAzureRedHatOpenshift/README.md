@@ -1,4 +1,4 @@
-# What The Hack - IntroToAzureRedHatOpenshift
+# What The Hack - IntroToAzureRedHatOpenShift
 
 ## Introduction
 
@@ -18,7 +18,7 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[ARO Cluster Deployment](Student/Challenge-01.md)**
-	 - Description of challenge
+	 - Deploy an ARO cluster and access it using CLI and the Red Hat Portal
 - Challenge 02: **[Application Deployment](Student/Challenge-02.md)**
 	 - Description of challenge
 - Challenge 03: **[Logging and Metrics](Student/Challenge-03.md)**

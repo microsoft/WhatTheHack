@@ -2,12 +2,6 @@
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
 *This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
@@ -34,9 +28,7 @@ When setting up an IoT device, it is important to understand how 'thingamajigs' 
 
 ***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
 
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+In this challenge you will be deploying our first Azure Red Hat OpenShift cluster. This will give us an opportunity to learn how to use the `oc` OpenShift CLI, the Azure CLI to issue OpenShift commands, as well as how to access the ARO Web Console.
 
 You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
@@ -49,18 +41,16 @@ You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.P
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
 *The success criteria should not be a list of instructions.*
 
 *Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
 
-*Sample success criteria for the IoT sample challenge:*
 
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+- Verify that the ARO cluster has been created using the Azure CLI
+- Demonstrate that you can login to the ARO Web Console
+- Demonstrate that you can connect to the ARO cluster using the login command found in the ARO Web Console
+- Show that you understand ******
 
 ## Learning Resources
 
@@ -70,11 +60,10 @@ _List of relevant links and online articles that should give the attendees the k
 
 ***Note:** Use descriptive text for each link instead of just URLs.*
 
-*Sample IoT resource links:*
 
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster)
+- [Tutorial: Connect to an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster)
+
 
 ## Tips
 
@@ -84,16 +73,3 @@ _List of relevant links and online articles that should give the attendees the k
 
 - IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
 - An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.

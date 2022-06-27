@@ -1,8 +1,8 @@
-# What The Hack - IntroToAzureRedHatOpenshift - Coach Guide
+# What The Hack - IntroToAzureRedHatOpenShift - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the IntroToAzureRedHatOpenshift What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the IntroToAzureRedHatOpenShift What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -12,25 +12,25 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
+- Challenge 01: **[ARO Cluster Deployment](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
+- Challenge 02: **[Application Deployment](./Solution-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
+- Challenge 03: **[Logging and Metrics](./Solution-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
+- Challenge 04: **[Storage](./Solution-04.md)**
 	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
+- Challenge 05: **[Configuration](./Solution-05.md)**
 	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
+- Challenge 06: **[Networking](./Solution-06.md)**
 	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
+- Challenge 07: **[Scaling](./Solution-07.md)**
 	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
+- Challenge 08: **[Azure Service Operators](./Solution-08.md)**
 	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
+- Challenge 09: **[Azure Key Vault Integration](./Solution-09.md)**
 	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
+- Challenge 10: **[Azure Active Directory Integration](./Solution-10.md)**
 	 - Description of challenge
 - Challenge 11: **[Title of Challenge](./Solution-11.md)**
 	 - Description of challenge

@@ -12,13 +12,19 @@
 
 ## Introduction
 
-Thank you for participating in the IntroToAzureRedHatOpenshift What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the IntroToAzureRedHatOpenShift What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 
 We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+
+**Verify permissions (can I insert a table?)
+**Register the resource providers
+**Install OpenShift CLI
+**Redhat Pull Secret
+**Quotas for their subscription
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
