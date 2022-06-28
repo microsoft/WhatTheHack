@@ -11,15 +11,16 @@ It's time to deploy the Azure Red Hat OpenShift cluster we'll be using for this 
 In this challenge we will deploy our first Azure Red Hat OpenShift cluster. This will give us an opportunity to learn how to use the `oc` OpenShift CLI, the Azure CLI to issue OpenShift commands, as well as how to access the ARO Web Console.
 
 - Deploy an Azure Red Hat OpenShift cluster with your Red Hat pull secret
-- Access the ARO Web console and retrieve a login command
+- Access the ARO web console and retrieve a login command
 - Connect to the ARO cluster using the OpenShift CLI
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Verify that the ARO cluster has been created using the Azure CLI
+- Verify that the ARO cluster has been created using the command `az aro list -o table`
 - Demonstrate that you can login to the ARO Web Console
-- Demonstrate that you can connect to the ARO cluster
+- Demonstrate that you can connect to the ARO cluster using the login command found in the web console
+- Verify the cluster nodes are running by running `oc get nodes`
 
 ## Learning Resources
 
