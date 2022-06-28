@@ -62,6 +62,8 @@ To complete this challenge successfully, you should be able to:
 - Verify that the thingamajig can connect to the mothership.
 - Demonstrate that the thingamajic will not connect to the IoTProxyShip
 
+**CREATE A PROJECT
+
 ## Learning Resources
 
 _List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
