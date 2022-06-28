@@ -1,6 +1,16 @@
 FROM centos:latest
 MAINTAINER Jose Moreno <jose.moreno@microsoft.com>
 
+# CentOS Linux 8 had reached the End Of Life (EOL) on December 31st, 2021.
+# It means that CentOS 8 will no longer receive development resources from the official CentOS project.
+# After Dec 31st, 2021, if you need to update your CentOS, you need to change the mirrors to
+# vault.centos.org where they will be archived permanently. Alternatively, you may want to upgrade to CentOS Stream.
+# Reference: https://techglimpse.com/failed-metadata-repo-appstream-centos-8/
+# Another alternative is running a different distro such as rocketlinux:latest
+
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
+    && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
 # Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
 RUN yum update -y
 RUN yum install -y httpd

@@ -39,7 +39,7 @@ CREATE TABLE [Staging].[DimAccount]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -53,7 +53,7 @@ CREATE TABLE [Staging].[DimCurrency]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -93,7 +93,7 @@ CREATE TABLE [Staging].[DimCustomer]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -123,7 +123,7 @@ CREATE TABLE [Staging].[DimDate]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -137,7 +137,7 @@ CREATE TABLE [Staging].[DimDepartmentGroup]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -178,7 +178,7 @@ CREATE TABLE [Staging].[DimEmployee]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -199,7 +199,7 @@ CREATE TABLE [Staging].[DimGeography]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -215,7 +215,7 @@ CREATE TABLE [Staging].[DimOrganization]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -261,7 +261,7 @@ CREATE TABLE [Staging].[DimProduct]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -277,7 +277,7 @@ CREATE TABLE [Staging].[DimProductCategory]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -294,7 +294,7 @@ CREATE TABLE [Staging].[DimProductSubcategory]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -321,7 +321,7 @@ CREATE TABLE [Staging].[DimPromotion]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -353,7 +353,7 @@ CREATE TABLE [Staging].[DimReseller]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -368,7 +368,7 @@ CREATE TABLE [Staging].[DimSalesReason]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -385,7 +385,7 @@ CREATE TABLE [Staging].[DimSalesTerritory]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -398,7 +398,7 @@ CREATE TABLE [Staging].[DimScenario]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -412,7 +412,7 @@ CREATE TABLE [Staging].[FactCurrencyRate]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -431,7 +431,7 @@ CREATE TABLE [Staging].[FactFinance]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -465,7 +465,7 @@ CREATE TABLE [Staging].[FactInternetSales]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -479,7 +479,7 @@ CREATE TABLE [Staging].[FactInternetSalesReason]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -514,7 +514,7 @@ CREATE TABLE [Staging].[FactResellerSales]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO
@@ -533,7 +533,7 @@ CREATE TABLE [Staging].[FactSales]
 )
 WITH
 (
-	DISTRIBUTION = 'Choose the proper distribution method for staging tables'
+	DISTRIBUTION = 'Choose the proper distribution method for staging table'
 	, HEAP or CLUSTERED COLUMNSTORE
 )
 GO

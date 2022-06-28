@@ -14,39 +14,50 @@
 az aks enable-addons -n $aks_name -g $rg -a monitoring --workspace-resource-id $logws_id
 ```
 
-```bash
-remote "helm install prometheus stable/prometheus"
-remote "helm install grafana stable/grafana"
-remote "kubectl patch svc grafana -p '{\"spec\": {\"type\": \"LoadBalancer\"}}'"
-remote "kubectl patch svc grafana -p '{\"metadata\": {\"annotations\": {\"service.beta.kubernetes.io/azure-load-balancer-internal\": \"true\"}}}'"
-grafana_admin_password=$(remote "kubectl get secret --namespace default grafana -o jsonpath=\"{.data.admin-password}\" | base64 --decode")
-sleep 60 # Wait 60 secs until the svc chnages from public to private
-grafana_ip=$(remote "kubectl get svc/grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
-```
+If you are using a jump host to a private cluster and egress firewall:
 
 ```bash
+# Deploy Prometheus/Grafana
+remote "helm repo add stable https://charts.helm.sh/stable"
+remote "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts"
+remote "helm repo update"
+remote "helm install prometheus prometheus-community/kube-prometheus-stack"
+remote "kubectl patch svc prometheus-grafana -p '{\"spec\": {\"type\": \"LoadBalancer\"}}'"
+remote "kubectl patch svc prometheus-grafana -p '{\"metadata\": {\"annotations\": {\"service.beta.kubernetes.io/azure-load-balancer-internal\": \"true\"}}}'"
+grafana_admin_password=$(remote "kubectl get secret --namespace default prometheus-grafana -o jsonpath=\"{.data.admin-password}\" | base64 --decode")
+sleep 60 # Wait 60 secs until the svc chnages from public to private
+grafana_ip=$(remote "kubectl get svc/prometheus-grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
 # NAT rule
 az network firewall nat-rule create -f azfw -g $rg -n nginx \
     --source-addresses '*' --protocols TCP \
     --destination-addresses $azfw_ip --translated-address $grafana_ip \
     --destination-ports 8080 --translated-port 80 \
     -c Grafana --action Dnat --priority 110
-echo "You can browse now to http://${azfw_ip}:8080 and use the password $grafana_admin_password"
+echo "You can browse now to http://${azfw_ip}:8080 and use the credentials admin/${grafana_admin_password}"
+```
+
+If using a public cluster and no egress firewall:
+
+```bash
+# Deploy Prometheus/Grafana
+helm repo add stable https://charts.helm.sh/stable
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack
+kubectl patch svc prometheus-grafana -p '{"spec": {"type": "LoadBalancer"}}'
+grafana_admin_password=$(kubectl get secret --namespace default prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode)
+sleep 60 # Wait 60 secs until the svc chnages from public to private
+grafana_ip=$(kubectl get svc/prometheus-grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+echo "You can browse now to http://${grafana_ip}:80 and use the credentials admin/${grafana_admin_password}"
 ```
 
 We will now connect Grafana with Prometheus, and add a dashboard (credits to Mel Cone, more info in her gist [here](https://gist.github.com/melmaliacone/c5d2ef9e390ec3f2d4e510c304fe7bb0)):
 
 1. Add a data source
 
-    a. Once you login you will be taken to the Grafana homepage. Click `Create your first data source`.
+    a. There should already be an existing data source like `http://prometheus-kube-prometheus-prometheus.default:9090` (check the name of your k8s services on port 9090)
 
-    b. This will take you to a page with a list of data sources. Hover over `Prometheus` under the `Time series databases` section and click `Select`.
-
-    c. Under `HTTP` type in the DNS name for your Prometheus Server into the `URL` textbox. The DNS name for you Prometheus server should be something like `http://prometheus-server.default.svc.cluster.local`
-
-    If you've added the correct URL, you should see a green pop-up that says `Data source is working`.
-
-    > Note: If you leave out `http://` or try to use `http://localhost:9090`, you will see a red `HTTP Error Bad Gateway` pop-up.
+    You can test the data source, the result should be `Data source is working`.
 
 2. Add a Kubernetes Cluster Grafana dashboard
 
@@ -65,11 +76,20 @@ We will now connect Grafana with Prometheus, and add a dashboard (credits to Mel
 You can create CPU utilization with these commands, that leverage the `pi` endpoint of the API (calculate pi number with x digits).
 
 ```bash
-digits=20000
-namespace=test
+digits=20000  # Test with a couple of digits first (like 10), and then with more (like 20,000) to produce real CPU load
+# Determine endpoint IP depending of whether the cluster has outboundtype=uDR or not
+aks_outbound=$(az aks show -n aks -g $rg --query networkProfile.outboundType -o tsv)
+if [[ "$aks_outbound" == "userDefinedRouting" ]]; then
+  endpoint_ip=$azfw_ip
+  echo "Using AzFW's IP $azfw_ip as endpoint..."
+else
+  endpoint_ip=$nginx_svc_ip
+  echo "Using Ingress Controller's IP $nginx_svc_ip as endpoint..."
+fi
 # Tests
-curl -k "https://${namespace}.${azfw_ip}.nip.io/api/healthcheck"
-curl -k "https://${namespace}.${azfw_ip}.nip.io/api/pi?digits=5"
+echo "Testing API reachability (no stress test yet)..."
+curl -k "https://${endpoint_ip}.nip.io/api/healthcheck"
+curl -k "https://${endpoint_ip}.nip.io/api/pi?digits=5"
 function test_load {
   if [[ -z "$1" ]]
   then
@@ -77,11 +97,11 @@ function test_load {
   else
     seconds=$1
   fi
-  echo "Calculating $digits digits of pi for $seconds seconds"
+  echo "Launching stress test: Calculating $digits digits of pi for $seconds seconds..."
   for ((i=1; i <= $seconds; i++))
   do
-    curl -s -k "https://${namespace}.${azfw_ip}.nip.io" >/dev/null 2>&1
-    curl -s -k "https://${namespace}.${azfw_ip}.nip.io/api/pi?digits=${digits}" >/dev/null 2>&1
+    curl -s -k "https://${endpoint_ip}.nip.io" >/dev/null 2>&1
+    curl -s -k "https://${endpoint_ip}.nip.io/api/pi?digits=${digits}" >/dev/null 2>&1
     sleep 1
   done
 }
@@ -96,8 +116,10 @@ You can deploy an HPA.
 
 ```bash
 # Create HPA
-remote "cat <<EOF | kubectl -n test apply -f -
-apiVersion: autoscaling/v2beta2
+tmp_file=/tmp/hpa.yaml
+file=hpa.yaml
+cat > $tmp_file <<EOF
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: api
@@ -115,33 +137,69 @@ spec:
       target:
         type: Utilization
         averageUtilization: 50
-EOF"
+EOF
+aks_is_private=$(az aks show -n "$aks_name" -g "$rg" --query apiServerAccessProfile.enablePrivateCluster -o tsv)
+# If cluster is private, go over jump host
+if [[ "$aks_is_private" == "true" ]]; then
+  vm_pip_ip=$(az network public-ip show -n "$vm_pip_name" -g "$rg" --query ipAddress -o tsv)
+  scp $tmp_file $vm_pip_ip:$file
+  ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $vm_pip_ip "kubectl apply -f ./$file"
+# If cluster is not private, just deploy the yaml file
+else
+  kubectl apply -f $tmp_file
+fi
 ```
 
 Check that your deployment has requests and limits:
 
 ```bash
 # Verify deployment
-remote "kubectl -n test get deploy/api -o yaml"
-remote "kubectl -n test describe deploy/api"
+aks_is_private=$(az aks show -n "$aks_name" -g "$rg" --query apiServerAccessProfile.enablePrivateCluster -o tsv)
+# If cluster is private, go over jump host
+if [[ "$aks_is_private" == "true" ]]; then
+    remote "kubectl get deploy/api -o yaml"
+    remote "kubectl describe deploy/api"
+else
+    kubectl get deploy/api -o yaml
+    kubectl describe deploy/api
+fi
 ```
 
 And verify how many API pods exist after generating some load with the bash function `test_load` defined above:
 
 ```bash
-remote "kubectl -n test get hpa"
-remote "kubectl -n test describe hpa/api"
-remote "kubectl -n test top pod"
-remote "kubectl -n test get pod"
+# Verify deployment
+aks_is_private=$(az aks show -n "$aks_name" -g "$rg" --query apiServerAccessProfile.enablePrivateCluster -o tsv)
+# If cluster is private, go over jump host
+if [[ "$aks_is_private" == "true" ]]; then
+    remote "kubectl get hpa"
+    remote "kubectl describe hpa/api"
+    remote "kubectl top pod"
+    remote "kubectl get pod"
+else
+    kubectl get hpa
+    kubectl describe hpa/api
+    kubectl top pod
+    kubectl get pod
+fi
 ```
 
-If you are doing this after the service mesh lab, you might need to uninject the linkerd containers (see [https://github.com/linkerd/linkerd2/issues/2596](https://github.com/linkerd/linkerd2/issues/2596)).
+If you are doing this after the service mesh challenge, you might need to uninject the linkerd containers (see [https://github.com/linkerd/linkerd2/issues/2596](https://github.com/linkerd/linkerd2/issues/2596)).
 
 ```bash
 # Uninject linkerd, re-inject using --proxy-cpu-request/limit:
-remote "kubectl get -n test deploy -o yaml | linkerd uninject - | kubectl apply -f -"
-remote "kubectl get -n test deploy -o yaml | linkerd inject --proxy-cpu-request 25m --proxy-cpu-limit 500m  - | kubectl apply -f -"
-remote "kubectl rollout restart deploy/api"
-remote "kubectl rollout restart deploy/web"
+aks_is_private=$(az aks show -n "$aks_name" -g "$rg" --query apiServerAccessProfile.enablePrivateCluster -o tsv)
+# If cluster is private, go over jump host
+if [[ "$aks_is_private" == "true" ]]; then
+    remote "kubectl get deploy -o yaml | linkerd uninject - | kubectl apply -f -"
+    remote "kubectl get deploy -o yaml | linkerd inject --proxy-cpu-request 25m --proxy-cpu-limit 500m  - | kubectl apply -f -"
+    remote "kubectl rollout restart deploy/api"
+    remote "kubectl rollout restart deploy/web"
+else
+    kubectl get deploy -o yaml | linkerd uninject - | kubectl apply -f -
+    kubectl get deploy -o yaml | linkerd inject --proxy-cpu-request 25m --proxy-cpu-limit 500m  - | kubectl apply -f -
+    kubectl rollout restart deploy/api
+    kubectl rollout restart deploy/web
+fi
 ```
 
