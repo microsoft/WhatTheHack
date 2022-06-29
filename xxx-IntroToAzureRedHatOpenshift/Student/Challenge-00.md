@@ -58,13 +58,24 @@ Please get these additional pre-requisites completed:
 
 - [OpenShift CLI](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
 - Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
-  - **NOTE:** Note You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
+  - **NOTE:** You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
 
 | Permissions  | Resource Group which contains the VNet | User executing `az aro create` | Service Principal passed as `–client-id` |
 | ------------- | ------------- | ------------- | ------------- |
 | User Access Administrator | X | X | |
 | Contributor  | X | X | X |
+- Register the resource providers
+```
+# Register the Microsoft.RedHatOpenShift resource provider:
+az provider register -n Microsoft.RedHatOpenShift --wait
+
+# Register the Microsoft.Compute resource provider:
+az provider register -n Microsoft.Compute --wait
+
+# Register the Microsoft.Storage resource provider:
+az provider register -n Microsoft.Storage --wait
+```
 - .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
 In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
