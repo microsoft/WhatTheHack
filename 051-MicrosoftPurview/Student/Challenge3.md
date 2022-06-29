@@ -6,7 +6,7 @@
 As part of scanning data sources, in this challenge we will scan an on-prem SQL Server. Fabrikam's has its Finance data on the on-prem SQL Server which we will scan as part of this challenge.
 
 ## Description
-In this challenge, you need to first restore database to your SQL Server. The backup will be found here - [https://stpurviewfasthack.blob.core.windows.net/purviewfasthack](https://wthpurview.blob.core.windows.net/wthpurview). Then, register on-premise SQL Server under a collection that is accessible to the Finance users and scan it.
+In this challenge, you need to first restore the database to your SQL Server. The backup will be found here - [https://stpurviewfasthack.blob.core.windows.net/purviewfasthack](https://wthpurview.blob.core.windows.net/wthpurview). Then, register on-premise SQL Server under a collection that is accessible to the Finance users and scan it.
 
 
 ## Success Criteria
