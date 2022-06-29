@@ -2,29 +2,19 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
-
-**_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
-
 **_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
 
 **_You should remove all italicized & sample text in this template and replace with your content._**
 
 ## Introduction
 
-Thank you for participating in the IntroToAzureRedHatOpenShift What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Intro To Azure Red Hat OpenShift What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 
 We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
-
-**Verify permissions (can I insert a table?)
-**Register the resource providers
-**Install OpenShift CLI
-**Redhat Pull Secret
-**Quotas for their subscription
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
@@ -56,13 +46,29 @@ _Optionally, you may provide resource files such as a sample application, code s
 
 _Sample challenge zero text for the IoT Hack Of The Century:_
 
+**Verify permissions (can I insert a table?)
+**Register the resource providers
+**Quotas for their subscription
+
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please install these additional tools:
+Please get these additional pre-requisites completed:
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
+- [OpenShift CLI](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
+- Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
+  - **NOTE:** Note You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
+- To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
+
+		User executing az aro create	Service Principal passed as –client-id
+User Access Administrator	X	X	 
+Contributor	X	X	X
+
+| Permissions  | Resource Group which contains the VNet | User executing az aro create | Service Principal passed as –client-id |
+| ------------- | ------------- |
+| User Access Administrator | X | X | |
+| Contributor  | X | X | X |
 - .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
 In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
