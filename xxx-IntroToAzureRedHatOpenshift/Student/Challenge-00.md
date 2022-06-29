@@ -66,7 +66,7 @@ User Access Administrator	X	X
 Contributor	X	X	X
 
 | Permissions  | Resource Group which contains the VNet | User executing az aro create | Service Principal passed as –client-id |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- |
 | User Access Administrator | X | X | |
 | Contributor  | X | X | X |
 - .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
