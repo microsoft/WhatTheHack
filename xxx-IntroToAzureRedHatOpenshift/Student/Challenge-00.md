@@ -46,8 +46,6 @@ _Optionally, you may provide resource files such as a sample application, code s
 
 _Sample challenge zero text for the IoT Hack Of The Century:_
 
-**Verify permissions (can I insert a table?)
-**Register the resource providers
 **Quotas for their subscription
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
@@ -60,6 +58,7 @@ Please get these additional pre-requisites completed:
 - Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
   - **NOTE:** You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
+
 | Permissions  | Resource Group which contains the VNet | User executing `az aro create` | Service Principal passed as `–client-id` |
 | ------------- | ------------- | ------------- | ------------- |
 | User Access Administrator | X | X | |
