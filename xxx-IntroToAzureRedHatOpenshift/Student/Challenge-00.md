@@ -61,10 +61,6 @@ Please get these additional pre-requisites completed:
   - **NOTE:** Note You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
 
-		User executing az aro create	Service Principal passed as –client-id
-User Access Administrator	X	X	 
-Contributor	X	X	X
-
 | Permissions  | Resource Group which contains the VNet | User executing `az aro create` | Service Principal passed as –client-id |
 | ------------- | ------------- | ------------- | ------------- |
 | User Access Administrator | X | X | |
