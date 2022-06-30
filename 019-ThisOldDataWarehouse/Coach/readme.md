@@ -38,7 +38,7 @@ This area is for us to keep a running list of things we would like to incorporat
 1. [Generate new data and load into Synapase](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-generate-data?view=sql-server-ver15)
 1. Deploy Spark Pools to Data Lake and enable interactive queries and analytics
 1. Refactor the T-SQL code in Polybase to leverage Python or Scala
-1. Build out these data pipelines using Azure Mapping Data Flows
+1. Build out these data pipelines using Azure Data Factory Mapping Data Flows
 1. Setup external table in Azure Synapse Analytics
 1. Create Power BI report to use clickstream data
 1. Recreate this pipeline using Synapse Spark Pool

@@ -10,7 +10,7 @@ be showcasing how to migrate your traditional SQL Server (SMP) to Azure Synapse 
 
 ## Environment Setup
 
-**Note:** Until Synapse Analytics goes GA, the coach's notes and students guides will leverage the terms Azure Data Lake Store Gen2, Azure Data Factory and Azure Synapse Database.  These terms will be replaced with Linked Storage, Data Pipelines and SQL Pools respectively as the reference documentation is updated upon GA.  It is acceptable to use Synapse Analytics Workspace as one of the adventures. We did not explicitly mention it since supporting documentation is missing.
+**Note:** The coach's notes and students guides will leverage the terms Azure Data Lake Store Gen2, Azure Data Factory and Azure Synapse Analytics.  These terms will be replaced with Linked Storage, Data Pipelines and SQL Pools respectively in future updates of the WTH.  It is acceptable to use Synapse Analytics Workspace as one of the adventures and use SQL Pools for the data warehouse.
 
 WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.  Recommended to have students start Challenge 0 with setup of SQL environment before starting any presentations. 
 
@@ -32,8 +32,7 @@ az group create --location eastus2 --name {"Resource Group Name"}
 4. In the Cloudshell, run this command to create a SQL Server instance and restore the databases.  This will create an Azure Container Instance and restore the WideWorldImporters and WideWorldImoprtersDW databases.  These two databases are your LOB databases for this hack.
 
 ```
-az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7
---ports 1433 --ip-address Public
+az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
 ```
 **Note: In order to connect to this database server, the public IP address of the deployed container should be used as the hostname, and the default login credentials can be found in the [source repo for this container found on Docker Hub](https://hub.docker.com/repository/docker/alexk002/sqlserver2019_demo) 
 
@@ -71,7 +70,7 @@ end state to the one we've published into the "Coach/Solutions/Challenge1" folde
 
 ### Database Schema migration steps
 
-Database schemas need to be migrated from SQL Server to Azure Synapse.  Due to the MPP architecture, this will be more than just a data type translation exericse.  You will need to focus on how best to distribute the data across each table follow this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview).  A list of unsupported data types can be found in this [article](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) and how to find the best alternative. For Geography fields, please advise students to drop them from the DDL statements since they will not be part of teh SSIS job.
+Database schemas need to be migrated from SQL Server to Azure Synapse.  Due to the MPP architecture, this will be more than just a data type translation exericse.  You will need to focus on how best to distribute the data across each table follow this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview).  A list of unsupported data types can be found in this [article](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-data-types#unsupported-data-types) and how to find the best alternative. For Geography fields, please advise students to drop them from the DDL statements since they will not be part of teh SSIS job.
 
 1. Go to Source database on the SQL Server environment and right click the WWI DW database and select "Generate Scripts".  This will export all DDL statements for the database tables and schema.
 2. Create a user defined schema for each tier of the data warehouse; Integration, Dimension, Fact.
@@ -104,7 +103,7 @@ There are three patterns you can reuse across all scripts in the same family (Di
 1. Rewrite Dimension T-SQL
     1. "Exec as Owner" and Return can be removed for this lab
 2. Rewrite Fact T-SQL
-    1. Movement T-SQL is a special fact table that leverages a MERGE Statement.  [Merge is not supported today](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) in Azure Synapse.  Due to Identity column in Movement Table, Merge statement is not supported.  You will need to split it out into an Update and Insert statement.  [Merge Workaround](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas#replace-merge-statements)
+    1. Movement T-SQL is a special fact table that leverages a MERGE Statement.  [Merge is not supported today](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) in Azure Synapse.  Due to Identity column in Movement Table, Merge statement is not supported.  You will need to split it out into an Update and Insert statement.  [Merge Workaround](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext#ansi-join-replacement-for-merge)
     1. "Exec as Owner" and RETURN can be removed for this lab
 
 ### SSIS Job Refactor -- Informational and not required as a success criteria for this hack
@@ -114,13 +113,13 @@ Data movement in first lab will be execution of DailyETLMDWLC.ispac job in Azure
 1. Update each mapping that required DDL changes. (City and Employee Tables)
 1. Change Deployment properties to deploy package to SQL Server 2017.  This will enable it to be deployed to ADF SSIS Runtime directly.
 1. Unit test the jobs in SSDT before deploying them to SSIS Runtime to ensure no errors
-1. Refactoring SSIS jobs are not a success criteria in this hack.  Please provide them the ispac package from the library when they complete deploying the stored procedures.  Steer them away from using BCP to migrate the data rather provide them the SSIS package ask them to run it in ADF SSIS Runtime for data migration.
+1. Refactoring SSIS jobs are not a success criteria in this hack.  Please provide them the ispac package from the library when they complete deploying the stored procedures.  Recommend the SSIS package to migrate the data and ask them to run it in ADF SSIS Runtime.
 
 ### Data Migration
 
-There are numerous strategies and tools to migrate your data from on-premise to Azure. [Reference document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading) We will leverage the SSIS packages to migrate our data from on-premise WWI DB to Azure Synapse Analytics.d
+There are numerous strategies and tools to migrate your data from on-premise to Azure [Reference document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading). We will leverage the SSIS packages to migrate our data from on-premise WWI DB to Azure Synapse Analytics.
 
-1. Deploy SSIS package to SSIS Catalog following these instructions. [Reference document](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard)
+1. Deploy SSIS package to SSIS Catalog following these instructions [Reference document].(https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard)
 1. Create ADF pipeline with Execute SSIS Package activity. [ADF Activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#create-a-pipeline-with-an-execute-ssis-package-activity)
 1. Update [connection settings](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#connection-managers-tab) in package.
 1. Execute this package to load data into Azure Synapse Analytics. [SSIS Execution](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#run-the-pipeline)

@@ -58,18 +58,21 @@ There will be four different object types we'll migrate:
 ### Database code rewrite (T-SQL)
 1. [Common table Expression (WITH)](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest#features-and-limitations-of-common-table-expressions-in--and-9)
 1. [SQL Differences in T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot#differences-from-sql-database)
-1. [Merge Statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15)
+1. [Merge Statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest)
 1. [T-SQL Reference Doc](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-features)
 1. [T-SQL Supported in Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
 
 ### SSIS Job
 1. [Provision SSIS Runtime in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 1. [Deploy SSIS Package into SSIS Catalog](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15)
+1. [Execute SSIS package in Azure Data Factory pipeline ](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory)
+1. [Documentation to assess compatibility of SSIS packages developed on SQL Server and migrated to Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/scenario-ssis-migration-overview#assessment)
 
 ### Data Setup in Synapse
 For the first time setup only, you will need to execute the "Master Create.sql" script to populate all control tables before you execute the SSIS job.  This is required and it is only done on the initial setup.  After this is complete, you can run the SSIS job.  For all subsequent runs after the initial setup, execute the Reseed ETL Stored Procedure only.  This stored procedure will rollback the database to it's original state.
 
 ## Tips
+1. Connect to SQL Server 2017 databases in the containers with Azure Data Studio
 1. Determine your distribution column (HINT IDENTITY Column can not be your distribution key)
 1. Run this query to identify which columns are not supported by Azure Synapse Analytics
 ```
@@ -80,11 +83,11 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 	WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
 	OR  y.[is_user_defined] = 1;
 ```
-3. Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse.
-4. Request SSIS package from coach.  Current package in repo is setup for SQL Server 2017 which means you can run it thru Azure Data Factory. Here are [instructions](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard) to deploy the SSIS pakcage on in the SSIS Catalog.
-5. Create ADF pipeline with Execute SSIS Package activity. [ADF Activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#create-a-pipeline-with-an-execute-ssis-package-activity)
-6. Update [connection settings](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#connection-managers-tab) in package.
-7. Execute this package to load data into Azure Synapse Analytics. [SSIS Execution](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#run-the-pipeline)
+4. Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse Analytics.
+5. Request SSIS package from coach.  Current package in repo is setup for SQL Server 2017 which means you can run it thru Azure Data Factory. Here are [instructions](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard) to deploy the SSIS pakcage on in the SSIS Catalog.
+6. Create ADF pipeline with Execute SSIS Package activity. [ADF Activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#create-a-pipeline-with-an-execute-ssis-package-activity)
+7. Update [connection settings](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#connection-managers-tab) in package.
+8. Execute this package to load data into Azure Synapse Analytics. [SSIS Execution](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#run-the-pipeline)
 
 ## Additional Challenges
 

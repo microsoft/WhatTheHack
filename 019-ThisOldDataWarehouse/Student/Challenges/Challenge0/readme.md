@@ -54,7 +54,7 @@ az group create --location eastus2 --name {"Resource Group Name"}
 az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
 ```
 
-5. At the start of Challenge 1, reach out to your coach and they will share hostname, username and password for your team.
+5. At the start of Challenge 1, reach out to your coach and they will share username and password for the LOB databases for this hack.
 
 6. [Upload](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#upload-files) your ARM templates into Azure CloudShell. 
 
