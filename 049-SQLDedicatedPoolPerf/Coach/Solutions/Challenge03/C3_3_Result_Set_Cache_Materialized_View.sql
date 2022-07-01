@@ -67,7 +67,12 @@ GO
 
 /****************************************************************************************
 STEP 4 of 7 - Check the MPP plan.
+Requests:	
+checking sys.dm_pdw_exec_requests, result_cache_hit should be 1 
+
+Steps:
 It should be a one step MPP plan and should use 1 ReturnOperation step
+
 ****************************************************************************************/
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Result Set Cache - Second execution'
 SELECT * FROM sys.dm_pdw_request_steps WHERE request_id = 'request_id'
@@ -135,7 +140,7 @@ OPTION(LABEL = 'Materialized view')
 GO
 
 /****************************************************************************************
-STEP 4 of 7 - Check the MPP plan.
+STEP 7 of 7 - Check the MPP plan.
 It will use the new MV without specifying the name in t-SQL code
 ****************************************************************************************/
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Materialized view'
