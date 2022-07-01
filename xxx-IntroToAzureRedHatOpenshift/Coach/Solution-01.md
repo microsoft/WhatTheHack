@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 - Creating an ARO cluster takes a long time, consider having the students create a cluster before you present the challenge lecture
-  - Example: Lecture slides 1-2, have them create a cluster, then finish the rest of the slides for challenge 1
+  - Example: Go through lecture slides 1-2, then have the students create a cluster, and when they have started their cluster deployment, complete the remaining lecture slides
 
 ## Create an Azure Red Hat Openshift cluster
 
