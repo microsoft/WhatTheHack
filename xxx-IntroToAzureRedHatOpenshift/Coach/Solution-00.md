@@ -4,20 +4,9 @@
 
 ## Notes & Guidance
 
-** Make sure the students are able to get a Red Hat Pull Secret ahead of the hack.
-** Make sure the students are able to increase the quota to be able to use a minimum of 40 cores to create and run an ARO cluster
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+Days before the hack you will need to:
+- Make sure the students increase the VM quotas to use a minimum of 40 cores. Docs on how to do that can be found here: [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) 
+  - To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+- Make sure that all students are able to download a [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) at least 2 business days **BEFORE** the hack.
+  - **NOTE:** Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.

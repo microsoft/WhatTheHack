@@ -4,17 +4,28 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+- Creating an ARO cluster takes a long time, consider having the students create a cluster before you present the challenge lecture
+  - Example: Lecture slides 1-2, have them create a cluster, then finish the rest of the slides for challenge 1
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+## Create an Azure Red Hat Openshift cluster
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+- Follow the steps in the Microsoft documentation to create a ARO cluster here [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster)
+  - **NOTE:** Make sure the students use the flag `--pull-secret @pull-secret.txt` when creating their cluster and replace `@pull-secret.txt` with their pull secret file. IF they do not do this, they will have to redeploy their cluster in later challenges!
+  - **NOTE:** It normally takes about 35-45 minutes to create a cluster
 
-Break things apart with more than one bullet list
+## Login to the ARO Web Console
 
-- Like this
-- One
-- Right
-- Here
+- Find the login credentials for the web console using the command `az aro list-credentials --name $CLUSTER --resource-group $RESOURCEGROUP`
+- Find the web console URL using the command `az aro show --name $CLUSTER --resource-group $RESOURCEGROUP --query "consoleProfile.url" -o tsv` which will look like https://console-openshift-console.apps.<random>.<region>.aroapp.io/
+- Open the URL in a web browser and login using your login credentials found using `az aro list-credentials command`
+
+## Connect to an ARO cluster
+
+- In the ARO web console, click on the username on the top right, then click Copy login command
+- Open the Shell you are using and paste the login command
+- Verify they are connected to cluster by using the command `oc projects`. If you get an error `Error from server (Forbidden)` that means the user has not been connected to the cluster
+
+## Helpful Links
+
+- [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster)
+- [Tutorial: Connect to an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster)

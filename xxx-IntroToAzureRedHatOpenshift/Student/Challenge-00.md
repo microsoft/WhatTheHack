@@ -2,10 +2,6 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
-
-**_You should remove all italicized & sample text in this template and replace with your content._**
-
 ## Introduction
 
 Thank you for participating in the Intro To Azure Red Hat OpenShift What The Hack. Before you can hack, you will need to set up some prerequisites.
@@ -24,19 +20,13 @@ You might not need all of them for the hack you are participating in. However, i
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
     - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+**DO WE NEED VS CODE PRE-REQ OR STORAGE EXPLORER?**
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 - [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
 ## Description
-
-_This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
-
-_While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack._
-
-_For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template._
 
 _Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file._
 
@@ -44,19 +34,19 @@ _Optionally, you may provide resource files such as a sample application, code s
 
 **\*NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.\*
 
-_Sample challenge zero text for the IoT Hack Of The Century:_
-
-**Quotas for their subscription
-
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
 Please get these additional pre-requisites completed:
 
-- [OpenShift CLI](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
+- Install the [OpenShift CLI](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
 - Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
   - **NOTE:** You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
+  - **NOTE:** You will need an account before you can obtain your Red Hat pull secret
+- Minimum of 40 cores (VM Quotas):
+  - Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+  - If the limit is below 40, you will need to [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests)
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
 
 | Permissions  | Resource Group which contains the VNet | User executing `az aro create` | Service Principal passed as `–client-id` |
@@ -73,42 +63,21 @@ az provider register -n Microsoft.Compute --wait
 
 # Register the Microsoft.Storage resource provider
 az provider register -n Microsoft.Storage --wait
-```
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
-
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
-```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
+# Register the Microsoft.Authorization resource provider
+az provider register -n Microsoft.Authorization --wait
 ```
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
-
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
+- Verify that you have a bash shell with the Azure CLI available
+- Verify that your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3" has a limit of at least 40 cores using the command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+- Verify that OpenShift CLI is installed using the command: `oc help`
+- Demonstrate to your coach that you have a Red Hat pull secret in your hack environment
 
 ## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
 
 _Sample IoT resource links:_
 
