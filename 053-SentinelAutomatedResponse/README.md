@@ -1,13 +1,12 @@
 # What The Hack - Sentinel Automated Response
 
 ## Introduction
-This Hack will introduce you to Microsoft Sentinel by helping you implement and explore the core functionality of Microsoft's SIEM/SOAR platform.
+This Hack will introduce you to Microsoft Sentinel by helping you implement and explore the core functionality of Microsoft's Security Incident & Event Management (SIEM) /Security Orchestration Automated Response (SOAR) platform.
 
 ## Learning Objectives
-In this hack you will learn how to architect Sentinel, start ingesting data, use the Watchlists feature, create a custom alert and incident.  Finally you will
-learn how to add some automation to manage that incident.  
+In this hack you will learn how to architect Sentinel, start ingesting data, use the Watchlists feature, create a custom alert and incident.  Finally you will learn how to add some automation to manage that incident.  
 
-1. Decide on Sentinel Architecture
+1. Decide on the Sentinel Architecture
 2. Install the agent and start recieving logs
 3. Create a watchlist
 4. Create a custom alert and generate an incident

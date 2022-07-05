@@ -5,7 +5,7 @@
 
 ## Introduction 
 
-In this challenge you will will decide on a architecture for your Sentinel workspace(s) and what information will be stored in that log analytics workspace.  Then you will add Sentinel to that workspace confirm you can now access Sentinel.  Next you will deploy agents to get data into the log analytics workspace.
+In this challenge you will decide on an architecture for your Sentinel workspace(s) and what information will be stored in that Log Analytics workspace.  Then you will add Sentinel to that workspace and confirm you can now access Sentinel.  Next, you will deploy agents to get data into the log analytics workspace.
 
 
 
@@ -25,6 +25,10 @@ This is a net new install, you need to design the workspace environment to meet 
 ## Success Criteria
 
 To complete this challenge you need to design and deploy an architecture and install an agent on the two windows machines.
+- Create a Log Analytics workspace and explain your Sentinel architecture.
+- Launch the Sentinel Console.
+- Demonstrate that logs are being ingested into your Log Analytics Workspace.
+
 
 **Tasks - Instanciate Your Microsoft Sentinel Environment**
 - Be able to launch the Sentinel service in the portal

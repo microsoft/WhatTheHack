@@ -5,7 +5,9 @@
 ## Introduction
 In this Coach's guide, you fill find guidance, code, and examples that will help you guide the teams over the course of the WTH. In the spirit of continuous improvement, update this repository with any suggestions, altertnatives, or additional challenges.
 
-This section of the hack includes a optional [Intro To Sentinel](Intro2Sentinel.pptx) that features short presentations to introduce key topics associated with each section of this challengechallenge. 
+This section of the hack includes a optional [Intro To Sentinel](./Coach/Intro2Sentinel.pptx?raw=true) that features short presentations to introduce key topics associated with each section of this challenge. 
+
+Instructions on how to update the repository with updates can be found here. https://aka.ms/wthcontribute
 
 ## Challenge #1
 

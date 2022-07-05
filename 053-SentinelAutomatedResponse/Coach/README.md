@@ -7,13 +7,13 @@
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 Welcome to the coach's guide for the Sentinel Automated Response What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+
+This hack includes optional [lecture presentations](../Coach/Resources) that introduces key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.</br>
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
-
-This hack includes optional [lecture presentations](../Coach/Resources) that introduces key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.</br>
 
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 - Challenge-01: **[Architecture, Agents, Data Connectors and Workbooks](Solution-01.md)**
@@ -25,17 +25,15 @@ This hack includes optional [lecture presentations](../Coach/Resources) that int
 <!-- REPLACE_ME (this section will be removed by the automation script) -->
 
 
-## Prerequisites
+## Coach Prerequisites
 
-- Access to the Internet - Azure Docs
-- Azure subscription with contributor role
-- Prebuild a generic Windows server running in the subscription.
+This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the What The Hack Hosting Guide for information on how to host a hack event.
+
+The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
 </br>
 
-## Student Resources
-
-Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+### Student Resources
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -43,18 +41,18 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites (Optional)
 
-*Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment.*
+If the coach will do a demonstration then the following are required, if not, then these prerequisites can be ignored.
+- Access to the Internet - Azure Docs
+- Azure subscription with contributor role
+- Prebuild a generic Windows server running in the subscription.
 
 ## Azure Requirements
 
-- An Azure subscription with Contributor access
+This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+
 - One virtual machines running in the subscription
 - Kusto code knowledge/reference material available
 - Patience
-
-## Suggested Hack Agenda
-*This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event.  For example:*
-
 
 ## Repository Contents
 
@@ -62,7 +60,6 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 - `./Coach`
   - Coach's Guide and related files
   - Powerpoint files
-- `./Coach`
-  - Student's Challenge Guide
 - `./Student`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Student's Challenge Guide
+

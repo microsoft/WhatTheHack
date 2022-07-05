@@ -7,8 +7,9 @@
 In this section of the Coach's guide, you fill find guidance, code, and examples that will help you guide the teams over the course of the WTH. 
 In the spirit of continuous improvement, update this repository with any suggestions, altertnatives, or additional challenges.
 
-This section of the hack includes a optional [Sentinel Review Deck](Intro2Sentinel-C2.pptx) that features a short presentation to introduce key topics associated with
-this challenge. 
+This section of the hack includes a optional [Sentinel Review Deck](./Coach/Intro2Sentinel-C2.pptx?raw=true) that features a short presentation to introduce key topics associated with this challenge. 
+
+Instructions on how to update the repository with updates can be found here. https://aka.ms/wthcontribute
 </br>
 ## Part 1 - Alerts </br>
 
@@ -65,6 +66,9 @@ Double click on ‘Watchlist’ , then click Run  - you should see your table.</
 Step 2: Set the retention period </br>
 *Method 1 - Deploy the ARM template
 https://github.com/slavizh/ARMTemplates/blob/master/log-analytics/retention-per-table.json </br> </br>
+
+Note: This repository belongs to a public contributor on GitHub, not a Microsoft product team. Please mark this with a disclaimer that you are linking to content you don't own and may not be available. If the content is not available, please file a bug via the WTH Contribution Guide process: https://aka.ms/wthcontribute </br></br>
+
 Method 2 - Download the ARM client from chocolaty </br>
 armclient GET /subscriptions/bd4d88c1-fc0f-482f-b57b-2f3ed541945e/resourceGroups/WTH-Sentinel/providers/Microsoft.OperationalInsights/workspaces/WTH-Sentinel-LAW/Tables/Watchlist?api-version=2017-04-26-preview </br>
 Use the 'Put' format, this example checks the Security Events table </br>
