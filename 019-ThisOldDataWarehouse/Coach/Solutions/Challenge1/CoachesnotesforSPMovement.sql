@@ -1,3 +1,5 @@
+--As of May 2022 The Merge Statement is still not supported with Identity Columns.
+--The only changes is the Merge Statement, "Execute AS OWNER" and "Return" are the incompatiblities
 -- DROP PROCEDURE [Integration].[MigrateStagedMovementData] 
 
 CREATE PROCEDURE [Integration].[MigrateStagedMovementData] 
@@ -34,9 +36,8 @@ BEGIN
 
     -- Find the dimension keys required for foreign key to support joins between Fact and Dimension tables
 
-/* Part 1 - Fix the update statement, from clause not supported, get rid of table aliases*/ 
-
-/* 
+/* Part 1 - Fix the update statement, from clause not supported, get rid of table aliases*/  
+--Update Statement FROM and JOIN Clauses are supported post May 2020.  This code is compatiable with Synapse Analytics
 
     UPDATE m 
 
@@ -88,10 +89,11 @@ BEGIN
 
              ORDER BY tt.[Valid From]), 0) 
 
-    FROM Integration.Movement_Staging AS m; 
+    FROM Integration.Movement_Staging AS m;  
 
-*/ 
-
+/*
+--UPDATE Statement and ANSI Joins supportd in June 2020
+--This workaround is not longer required and commented out.  Kept notes for reference
     UPDATE Integration.Movement_Staging 
 
         SET [Stock Item Key] = COALESCE((SELECT TOP(1) si.[Stock Item Key] 
@@ -142,7 +144,7 @@ BEGIN
 
              ORDER BY tt.[Valid From]), 0); 
 
- 
+*/ 
 
 /* Part 2- Refactor Merge statement */ 
 
@@ -153,8 +155,6 @@ The general guidance here would be to union all the updated rows with all the in
 This won't work because this table has a surrogate key that is auto populated, and CTAS will not preserve the identity column. 
 
 The best way to acheive this is with an UPDATE followed by an INSERT. 
-
-Keep in mind that UPDATE statements are finicky about JOIN clauses in SQL DW.  You need to join in the where clause. (Implicit join)
 
 */ 
 

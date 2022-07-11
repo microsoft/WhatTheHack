@@ -8,25 +8,6 @@
                 "description": "Name of the data factory. Must be globally unique."
             }
         },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location of the data factory."
-            }
-        },
-        "virtualNetworkName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of your Azure virtual network."
-            }
-        },
-        "subNetName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the subnet in the virtual network."
-            }
-        },
         "nodeSize": {
             "type": "string",
             "defaultValue": "Standard_D2_v3",
@@ -72,38 +53,9 @@
             "metadata": {
                 "description": "Pricing tier of the SSIS Catalog (SSISDB datbase)"
             }
-        },
-        "databaseName": {
-            "type": "string",
-            "minLength": 1
         }
     },
     "resources": [
-        {
-            "name": "[parameters('virtualNetworkName')]",
-            "type": "Microsoft.Network/virtualNetworks",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2015-06-15",
-            "dependsOn": [],
-            "tags": {
-                "displayName": "ssiswth"
-            },
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('ssiswthPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('ssiswthSubnet1Name')]",
-                        "properties": {
-                            "addressPrefix": "[variables('ssiswthSubnet1Prefix')]"
-                        }
-                    }
-                ]
-            }
-        },
         {
             "type": "Microsoft.Sql/servers",
             "apiVersion": "2020-02-02-preview",
@@ -113,22 +65,7 @@
                 "administratorLogin": "[parameters('databaseAdminUsername')]",
                 "administratorLoginPassword": "[parameters('databaseAdminPassword')]",
                 "publicNetworkAccess": "Enabled"
-        },
-        "resources": [
-        {
-          "type": "databases",
-          "apiVersion": "2020-02-02-preview",
-          "name": "[parameters('databaseName')]",
-          "location": "[resourceGroup().location]",
-          "sku": {
-            "name": "Standard",
-            "tier": "Standard"
-          },
-          "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', concat(parameters('azureSqlServerName')))]"
-          ]
         }
-      ]
     },
     {
             "type": "Microsoft.Sql/servers/firewallRules",
@@ -153,7 +90,6 @@
                     "name": "[concat(parameters('dataFactoryName'), '/SPAzureSsisIR')]",
                     "type": "Microsoft.DataFactory/factories/integrationRuntimes",
                     "dependsOn": [
-                        "[parameters('virtualNetworkName')]",
                         "[parameters('azureSqlServerName')]",
                         "[parameters('dataFactoryName')]"
                     ],
@@ -165,11 +101,7 @@
                                 "location": "[resourceGroup().location]",
                                 "nodeSize": "[parameters('nodeSize')]",
                                 "numberOfNodes": "[parameters('nodeNumber')]",
-                                "maxParallelExecutionsPerNode": "[parameters('maximumParallelExecutionsPerNode')]",
-                                "vNetProperties": {
-                                    "vNetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                                    "subnet": "[parameters('subNetName')]"
-                                }
+                                "maxParallelExecutionsPerNode": "[parameters('maximumParallelExecutionsPerNode')]"
                             },
                             "ssisProperties": {
                                 "catalogInfo": {
@@ -189,9 +121,6 @@
         }
     ],
     "variables": {
-        "ssiswthPrefix": "10.0.0.0/16",
-        "ssiswthSubnet1Name": "default",
-        "ssiswthSubnet1Prefix": "10.0.0.0/24",
         "fqnDatabaseServer": "[concat(parameters('azureSqlServerName'),'.database.windows.net')]"
     }
 }
