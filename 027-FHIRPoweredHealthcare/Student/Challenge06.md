@@ -1,64 +1,66 @@
-# Challenge 6: Create a new Single Page App (SPA) for patient search
+# Challenge 6: Bulk export, anonymize and store FHIR data into Data Lake
 
 [< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge07.md)
 
 ## Introduction
 
-In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+In this challenge, you will explore bulk exporting, anonymizing and storing FHIR data into Data Lake. 
 
-<center><img src="../images/challenge06-architecture.jpg" width="350"></center>
+The **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** is an open-source project that helps anonymize healthcare FHIR data, on-premises or in the cloud, for secondary usage such as research, public health, and more. This architecture uses multiple Azure services for creating an automated pipeline to process the bulk export and anonymization for FHIR. The goal of the template is to enable quick and continuous creation of research datasets while applying HIPAA safe harbor rules.
+
+<center><img src="../images/challenge07-architecture.jpg" width="550"></center>
+
+A Timer is used to trigger the Logic App which bulk exports data from FHIR and stores in a preset storage location. The Logic App loops on an adjustable 5 minute interval until Bulk Export finishes exporting all data from FHIR. Logic App runs Azure Data Factory which in triggers Azure Batch which performs the deidentification with the FHIR Tools for Anonymization. The deidentified data is stored in Azure Data Lake Gen 2 for further use. 
 
 ## Description
 
-- Create a new JavaScript Single-Page App (SPA) Node.js or React app.
-  - Node.js: git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** 
-  - React: Use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
+You will deploy using the [Microsoft Health Architectures](https://github.com/microsoft/health-architectures/tree/master/Research-and-Analytics/FHIRExportwithAnonymization).
 
-- Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
-  
-    - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
+- **Setup**
+    - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
+    - Navigate to `health-architectures/Research-and-Analytics/FHIRExportwithAnonymization` and open the `./Assets/arm_template_parameters.json` file in your preferred JSON editor. Replace FHIR URL, client id, client secret, tenant id and export storage account with yours.
+    - Save & close the parameters file.
 
-    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+- **Deploy**
+    - Log into Azure using PowerShell
+        ```powershell
+        Connect-AzAccount
+        Get-AzSubscription
+        Select-AzSubscription -SubscriptionId "<SubscriptionId>"
+        ```
+    - Navigate to the repo directory
+        ```powershell
+        cd health-architectures-master\Research-and-Analytics\FHIRExportwithAnonymization
+        ```
+    - Create variables and deploy
+        ```powershell
+        $EnvironmentName = "<NAME HERE>" #The name must be lowercase, begin with a letter, end with a letter or digit, and not contain hyphens.
+        $EnvironmentLocation = "<LOCATION HERE>" #optional input. The default is eastus2
+ 
+        ./deployFHIRExportwithAnonymization.ps1 -EnvironmentName $EnvironmentName -EnvironmentLocation $EnvironmentLocation #Environment Location is optional
+        ```
+- **Validate deployment resources**
+    - Resource Group `{ENVIRONMENTNAME}`
+    - Azure Data Factory `{ENVIRONMENTNAME}adf`
+    - Batch Account `{ENVIRONMENTNAME}batch`
+    - Key Vault `{ENVIRONMENTNAME}kv`
+    - Logic App `{ENVIRONMENTNAME}la`
+    - Storage Account `{ENVIRONMENTNAME}dlg2`
 
-- Create a patient lookup by Given or Family name in JavaScript SPA app.
-  - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
+- **Post-deployment setup**
+    - In Azure Portal, navigate to the FHIR Integration Storage Account entered in the parameters file in the Setup above. Locate the storage account 'Access key' blade under 'Settings'. Copy one of the connection strings. 
+    - Navigate to the new key vault `{ENVIRONMENTNAME}kv` deployed with the script. Open the key vault, locate 'Secrets' blade under 'Settings'. Click on the secret named 'blobstorageacctstring'. Then click "+ New Version". In the 'Value' box paste the connection string from the storage account. Then click the 'Create' button at the bottom the page. This will point the Azure Data Factory to the pre-configured FHIR Integration Storage Account.
+    - Navigate to the Logic App Logic App `{ENVIRONMENTNAME}la` deployed with the script and click Run Trigger. Click on the Running status in Runs History below in the same screen. The time taken to complete depends on the volume of data you have in Azure API for FHIR.
 
-- (Optional) Include any other modern UI features to improve the user experience.
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
-  - Ensure that the Reply URL matches the local and Azure Web App URL
-    - In AAD `App Registration` of AAD with directory admin access, configure a new `Web Platform` under `Authentication` blade
-        - Add `Redirect URI` for both local and Azure Web App URLs
-        - Enable `Implicit Grant` by selecting Access token and ID tokens
-        - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
-
-- Build and test JavaScript SPA app locally.
-  - To run locally, you'll need to change the `redirectUri` property to: `http://localhost:3000/`.
-- Deploy JavaScript SPA web app to Azure App Service.
-  - To run on Azure, you'll need to change the `redirectUri` property to: `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
-- Test the JavaScript SPA Patient Search app:
-  - Browse to App Service website URL in a new in-private/Incognito window.
-  - Sign in with your admin tenant user credential saved in **[challenge 1](./Challenge01.md)**.
-  - Enter full/partial name in the patient search textbox and click the search button.
-  - You should see a list of FHIR patient(s) that matches your search criteria.
+- **Validate export and anonymization** 
+    - Compare pre de-identified data in the container with the latest date in the Storage Account entered in the parameters file in the Setup above, and post de-identified data in the container with output as suffix in the Storage Account `{ENVIRONMENTNAME}dlg2` deployed with the script. Look for the container with output as suffix. 
 
 ## Success Criteria
-- You have created a JavaScript SPA Patient Search app and deployed it to Azure App Service.
-- You have tested patient lookup in the Patient Search web app.
+- You have successfully deployed export and anonyization template.
+- You have compared pre de-ided and post de-ided FHIR data.
 
 ## Learning Resources
 
-- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)**
-- **[GitHub Azure Samples - MSAL JavaScript Single-page Application using Implicit Flow](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/)**
-- **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
-- **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
-- **[Initialization of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
-- **[Samples for the MSAL.js 2.x library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#advanced-topics)**
-- **[Getting Started: Using React AAD MSAL library components to integrate MSAL with AAD in your React app](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
-- **[Sample JavaScript code to acquired access token as a bearer in an HTTP request to call protected web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)**
-- **[How to create a simple search app in React](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
-- **[Sample React JS code to perform a search](https://github.com/lytes20/meal-search-app)**
-- **[Deploy your Node.js app using VS Code and the Azure App Service extension](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
-- **[Hosting options and deployment scenarios to move your node.js app from a local or cloud repository to Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
-- **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-- **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)**
+- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
+- **[HL7 bulk export](https://hl7.org/Fhir/uv/bulkdata/export/index.html)**
+- **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**

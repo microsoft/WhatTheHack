@@ -1,63 +1,97 @@
-# Challenge 7: Bulk export, anonymize and store FHIR data into Data Lake
+# Challenge 7: Stream IoMT Device data into FHIR from IoT Central
 
-[< Previous Challenge](./Challenge06.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge08.md)
+[< Previous Challenge](./Challenge06.md) - **[Home](../readme.md)**
 
 ## Introduction
 
-In this challenge, you will explore bulk exporting, anonymizing and storing FHIR data into Data Lake. 
+In this challenge, you will stream IoMT Device data into FHIR from IoT Central. 
 
-The **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** is an open-source project that helps anonymize healthcare FHIR data, on-premises or in the cloud, for secondary usage such as research, public health, and more. This architecture uses multiple Azure services for creating an automated pipeline to process the bulk export and anonymization for FHIR. The goal of the template is to enable quick and continuous creation of research datasets while applying HIPAA safe harbor rules.
+The **[Azure IoT Connector for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot-fhir-portal-quickstart)** for Fast Healthcare Interoperability Resources (FHIR®)* is a feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. Azure IoT Connector for FHIR needs two mapping templates to transform device messages into FHIR-based Observation resource(s): device mapping and FHIR mapping. Device mapping template transforms device data into a normalized schema. On the IoT Connector page, click on Configure device mapping button to go to the Device mapping page. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource. On the IoT Connector page, click on Configure FHIR mapping button to go to the FHIR mapping page.
 
-<center><img src="../images/challenge07-architecture.jpg" width="550"></center>
-
-A Timer is used to trigger the Logic App which bulk exports data from FHIR and stores in a preset storage location. The Logic App loops on an adjustable 5 minute interval until Bulk Export finishes exporting all data from FHIR. Logic App runs Azure Data Factory which in triggers Azure Batch which performs the deidentification with the FHIR Tools for Anonymization. The deidentified data is stored in Azure Data Lake Gen 2 for further use. 
+Azure offers an extensive suite of IoT products to connect and manage your IoT devices. Users can build their own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. This challenge leverages Azure IoT Central, which has industry-focused solution templates to help get started. Once IoT Central application is deployed, two out-of-the-box simulated devices will start generating telemetry.
+ 
+<center><img src="../images/challenge08-architecture.jpg" width="350"></center>
 
 ## Description
 
-You will deploy using the [Microsoft Health Architectures](https://github.com/microsoft/health-architectures/tree/master/Research-and-Analytics/FHIRExportwithAnonymization).
+You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and Connect to FHIR.
 
-- **Setup**
-    - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
-    - Navigate to `health-architectures/Research-and-Analytics/FHIRExportwithAnonymization` and open the `./Assets/arm_template_parameters.json` file in your preferred JSON editor. Replace FHIR URL, client id, client secret, tenant id and export storage account with yours.
-    - Save & close the parameters file.
+- **Deploy Azure IoT Connector for FHIR**
+	- Navigate to Azure API for FHIR resource. Click on IoT Connector under the Add-ins section. Click on the Add button to open the Create IoT Connector page. Enter Connector name for the new Azure IoT Connector for FHIR. Choose Create for Resolution Type and click on Create button.
+- **Configure Azure IoT Connector for FHIR**. To **upload mapping templates**, click on the newly deployed Azure IoT Connector for FHIR to go to the IoT Connector page.
+   * Device mapping template transforms **device data into a normalized schema**. On the IoT Connector page, click on **Configure device mapping** button to go to the Device mapping page. On the Device mapping page, add the following script to the JSON editor and click Save.
+      ```json
+      {
+        "templateType": "CollectionContent",
+        "template": [
+          {
+            "templateType": "IotJsonPathContent",
+            "template": {
+              "typeName": "heartrate",
+              "typeMatchExpression": "$..[?(@Body.HeartRate)]",
+              "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
+              "values": [
+                {
+                  "required": "true",
+                  "valueExpression": "$.Body.HeartRate",
+                  "valueName": "hr"
+                }
+              ]
+            }
+          }
+        ]
+      }
+     ``` 
+   * FHIR mapping template **transforms a normalized message to a FHIR-based Observation resource**. On the IoT Connector page, click on **Configure FHIR mapping** button to go to the FHIR mapping page. On the FHIR mapping page, add the following script to the JSON editor and click Save.
+      ```json
+      {
+        "templateType": "CollectionFhir",
+        "template": [
+          {
+            "templateType": "CodeValueFhir",
+            "template": {
+              "codes": [
+                {
+                  "code": "8867-4",
+                  "system": "http://loinc.org",
+                  "display": "Heart rate"
+                }
+              ],
+              "periodInterval": 0,
+              "typeName": "heartrate",
+              "value": {
+                "unit": "count/min",
+                "valueName": "hr",
+                "valueType": "Quantity"
+              }
+            }
+          }
+        ]
+      }
+     ``` 
+- **Generate a connection string for IoT Device**
+    - On the IoT Connector page, select **Manage client connections** button. Click on **Add** button. Provide a name and select the **Create** button. Select the newly created connection from the Connections page and copy the value of Primary connection string field from the overlay window on the right.
 
-- **Deploy**
-    - Log into Azure using PowerShell
-        ```powershell
-        Connect-AzAccount
-        Get-AzSubscription
-        Select-AzSubscription -SubscriptionId "<SubscriptionId>"
-        ```
-    - Navigate to the repo directory
-        ```powershell
-        cd health-architectures-master\Research-and-Analytics\FHIRExportwithAnonymization
-        ```
-    - Create variables and deploy
-        ```powershell
-        $EnvironmentName = "<NAME HERE>" #The name must be lowercase, begin with a letter, end with a letter or digit, and not contain hyphens.
-        $EnvironmentLocation = "<LOCATION HERE>" #optional input. The default is eastus2
- 
-        ./deployFHIRExportwithAnonymization.ps1 -EnvironmentName $EnvironmentName -EnvironmentLocation $EnvironmentLocation #Environment Location is optional
-        ```
-- **Validate deployment resources**
-    - Resource Group `{ENVIRONMENTNAME}`
-    - Azure Data Factory `{ENVIRONMENTNAME}adf`
-    - Batch Account `{ENVIRONMENTNAME}batch`
-    - Key Vault `{ENVIRONMENTNAME}kv`
-    - Logic App `{ENVIRONMENTNAME}la`
-    - Storage Account `{ENVIRONMENTNAME}dlg2`
+- **Create App in IoT Central**
+    - Navigate to the [Azure IoT Central application manager website](https://apps.azureiotcentral.com/). Select **Build** from the left-hand navigation bar and then click the **Healthcare** tab.
+    - Click the **Create app** button and sign in. It will take you to the **New application** page.
+    - Change the **Application name** and **URL** or leave as-is. 
+    - Check the **Pricing plan** and select free pricing plan or one of the standard pricing plans. 
+    - Select **Create** at the bottom of the page to deploy your application.
+    - More details on [Continuous Patient Monitoring](https://docs.microsoft.com/en-us/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template).
+- **Connect your IoT data with the Azure IoT Connector for FHIR**
+    - Navigate to IoT Central App created, click on **Data Export (legacy)** under App Settings in the left navigation.
+    - Choose **New --> Azure Event Hubs**. Enter a display name for your new export, and make sure the data export is Enabled.
+    - Choose **Connection String** in Event Hubs namespace and paste the Connection String copied from above. Event Hub name will autofill.
+    - Make sure **Telemetry** is enabled, Devices and Device templates are disabled.
+    - More details on [Data Export](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-export-data#set-up-data-export).
 
-- **Post-deployment setup**
-    - In Azure Portal, navigate to the FHIR Integration Storage Account entered in the parameters file in the Setup above. Locate the storage account 'Access key' blade under 'Settings'. Copy one of the connection strings. 
-    - Navigate to the new key vault `{ENVIRONMENTNAME}kv` deployed with the script. Open the key vault, locate 'Secrets' blade under 'Settings'. Click on the secret named 'blobstorageacctstring'. Then click "+ New Version". In the 'Value' box paste the connection string from the storage account. Then click the 'Create' button at the bottom the page. This will point the Azure Data Factory to the pre-configured FHIR Integration Storage Account.
-    - Navigate to the Logic App Logic App `{ENVIRONMENTNAME}la` deployed with the script and click Run Trigger. Click on the Running status in Runs History below in the same screen. The time taken to complete depends on the volume of data you have in Azure API for FHIR.
-
-- **Validate export and anonymization** 
-    - Compare pre de-identified data in the container with the latest date in the Storage Account entered in the parameters file in the Setup above, and post de-identified data in the container with output as suffix in the Storage Account `{ENVIRONMENTNAME}dlg2` deployed with the script. Look for the container with output as suffix. 
+- **Validate export and anonymization**
+    - Connect to Azure API for FHIR from Postman and check if Device and Observsation resources return data. 
 
 ## Success Criteria
-- You have successfully deployed export and anonyization template.
-- You have compared pre de-ided and post de-ided FHIR data.
+- You have successfully configured IoT Connector for FHIR.
+- You have successfully configured IoT Central Continuous Patient Monitoring Application.
 
 ## Learning Resources
 

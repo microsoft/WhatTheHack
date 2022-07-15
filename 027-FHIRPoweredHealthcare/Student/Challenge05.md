@@ -1,46 +1,47 @@
-# Challenge 5: Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps
+# Challenge 5: Analyze and Visualize FHIR data
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge06.md)
 
 ## Introduction
 
-In this challenge, you will explore patient medical records and SMART on FHIR apps through the FHIR Dashboard app. 
+In this challenge, you will deploy the OSS **[FHIR-to-Synapse Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md)** to move FHIR data from Azure FHIR Service to Azure Data Lake in near real time and making it available to a Synapse workspace, which will enable you to query against the entire FHIR data with tools such as Synapse Studio, SSMS, and/or Power BI.
 
-<center><img src="../images/challenge05-architecture.jpg" width="350"></center>
+This pipeline is an Azure Function solution that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. It contains a script to create External Tables and Views in Synapse Serverless SQL pool pointing to the Parquet files.  You can also access the Parquet files directly from a Synapse Spark Pool to perform custom transformation to downstream systems, i.e. USCDI datamart, etc.
 
-**[What is SMART on FHIR?](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-faq#what-is-smart-on-fhir)** 
-SMART ((Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner apps with FHIR Servers and other Health IT systems, i.e. Electronic Health Records and Health Information Exchanges.  By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by different systems.
-
-Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** to integrate partner apps with FHIR Servers and EMR systems through FHIR interfaces. This set of open specifications describes how an app should discover authentication endpoints for FHIR Server and start an authentication sequence.  Specifically, the proxy enables the **[EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence)**.  
+<center><img src="../images/challenge05-architecture.png" width="550"></center>
 
 ## Description
 
-You will perform the following steps to access patient medical records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
-- Access FHIR Dashboard app
-    - Open In-private/Incognito browser and navigate to FHIR Dashboard app URL.
-    - Use the dashboard user credentials to sign in (captured during FHIR Server Samples deployment in **[Challenge 1](./Challenge01.md)**.
-    - In popup Consent dialog box, accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
-- Explore patient medical records through FHIR Dashboard app, including:
-    - Patient and its FHIR bundle details
-    - Patient medical elements
-        - Conditions
-        - Encounters
-        - Observations
-- Explore SMART on FHIR apps through FHIR Dashboard app, including:
-    - Growth Chart
-    - Medications
+You need to deploy an instance of FHIR service (done in challenge 1) and a Synapse Workspace.
+
+- **Deploy the FHIR-to-Synapse Analytics Pipeline**
+    - To **[deploy the pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**, use this **[Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FFHIR-Analytics-Pipelines%2Fmain%2FFhirToDataLake%2Fdeploy%2Ftemplates%2FFhirSynapsePipelineTemplate.json)** ARM template link for deployment through the Azure Portal.  
+    
+
+- **Provide Access of the FHIR server to the Azure Function**
+    - Assign the FHIR Data Reader role to the Azure Function created from the deployment above
+- **Verify the data movement**
+    - The Azure Function app deployed previously runs automatically. 
+    - The time taken to write the data to the storage account depends on the amount of data in the FHIR server. 
+    - After the Azure Function execution is completed, you should have Parquet files in the Storage Account. 
+    - Browse to the results folder inside the container. You should see folders corresponding to different FHIR resources. 
+    - Note that you will see folders for only those Resources that are present in your FHIR server. Running the PowerShell script will create folders for other Resources.
+- **Provide privilege to your account**
+    - You must provide the following roles to your account to run the PowerShell script in the next step. You may revoke these roles after the installation is complete.
+        - Assign Synapse Administrator role in your Synapse Workspace
+        - Assign the Storage Blob Data Contributor role in your Storage Account.
+- **Provide access of the Storage Account to the Synapse Workspace**
+    - Assign the Storage Blob Data Contributor role to your Synapse Workspace.
+- **Run the PowerShell script**
+    - Run the PowerShell script to create External Tables and Views in Synapse Serverless SQL Pool pointing to the Parquet files in the Storage Account.
 
 ## Success Criteria
-- You have successfully access FHIR Dashboard app to access patient medical records and encounters.
-- You have explored SMART on FHIR applications.
+- You can query 'fhirdb' data in Synapse Studio to explore
+    the External Tables and Views to see the exported FHIR resource entities.
+- New persisted FHIR data are fetched automatically to the Data Lake and become available for querying.
 
 ## Learning Resources
 
-- **[SMART on FHIR - FHIR Server Dashboard app](https://github.com/smart-on-fhir/fhir-server-dashboard#:~:text=The%20FHIR%20Server%20Dashboard%20is%20a%20standalone%20app,at%20the%20sample%20data%20on%20a%20FHIR%20sandbox.)**
-- **[FHIR Server Dashboard Demo](http://docs.smarthealthit.org/fhir-server-dashboard/)**
-- **[FHIR Dashboard JS source code](https://github.com/microsoft/fhir-server-samples/blob/master/src/FhirDashboardJS/index.html)**
-- **[Use Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
-- **[Download the SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**
-- **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)**
-- **[SMART](https://smarthealthit.org/)**
-- **[HL7 FHIR SMART Application Launch Framework](http://www.hl7.org/fhir/smart-app-launch/)**
+- **[FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines)**
+- **[FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**
+- **[Data mapping from FHIR to Synapse](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Data-Mapping.md)**

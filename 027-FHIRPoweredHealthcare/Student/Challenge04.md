@@ -1,58 +1,64 @@
-# Challenge 4: Connect to FHIR Server and read FHIR data through a JavaScript app
+# Challenge 4: Create a new Single Page App (SPA) for patient search
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 
-In this challenge, you will deploy a sample JavaScript app to connect and read FHIR patient data.  You will configure public client application registration to allow JavaScript app to access FHIR Server.
+In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
-<center><img src="../images/challenge04-architecture.jpg" width="350"></center>
-
-
-**[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
-
+<center><img src="../images/challenge06-architecture.jpg" width="350"></center>
 
 ## Description
 
-You will deploy a FHIR sample JavaScript app in Azure to read patient data from the FHIR service.
-- **[Create a new Azure Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
-- Check in secondary Azure AD tenant (can be same as your primary AAD tenant if you already have admin privileges) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR Server resource.
+- Create a new JavaScript Single-Page App (SPA) Node.js or React app.
+  - Node.js: git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** 
+  - React: Use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
 
-    **Note:**
-    - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
-    - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR Server resource.
+- Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
+  
+    - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
 
-- **[Register your public client application to connect web app to FHIR Server](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)** in Secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
-    - Ensure that the Reply URL matches the Web App URL
-        - In AAD `App Registration`, configure a new `Web Platform` under `Authentication` blade
-            - Set `Redirect URIs` to your [Web App URL]
-            - Enable `Implicit Grant` by selecting Access token and ID tokens
-            - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
- 
-- Write a new JavaScript application to connect and read FHIR patient data
-    - Start with the sample code from the **[FHIR patient JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**.
-    - Initialize **[MSAL (Mirosoft Authentication Library) provider](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** configuration for your FHIR environment:
-        - `clientId` - Update with your client application ID of public client app registered earlier
-        - `authority` - Update with Authority from your FHIR Server (under Authentication)
-        - `FHIRendpoint` - Update the FHIRendpoint to have your FHIR service name
-        - `Scopes` - Update with Audience from your FHIR Server (under Authentication)
+    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
-- Deploy your sample code from your local repo to your App Service `wwwroot` folder.
-    - Use App Service Editor in-browser editing tool in Azure Portal to update your `index.html` code under the `wwwroot` folder.
+- Create a patient lookup by Given or Family name in JavaScript SPA app.
+  - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
 
-- Test sample JavaScript app
-  - Browse to App Service website URL in In-private / Incognito window.
-  - SignIn with your secondary tenant used in deploying FHIR Server Samples reference architecture.
-  - You should see a list of patients that were loaded into FHIR Server.
+- (Optional) Include any other modern UI features to improve the user experience.
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
+  - Ensure that the Reply URL matches the local and Azure Web App URL
+    - In AAD `App Registration` of AAD with directory admin access, configure a new `Web Platform` under `Authentication` blade
+        - Add `Redirect URI` for both local and Azure Web App URLs
+        - Enable `Implicit Grant` by selecting Access token and ID tokens
+        - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
+
+- Build and test JavaScript SPA app locally.
+  - To run locally, you'll need to change the `redirectUri` property to: `http://localhost:3000/`.
+- Deploy JavaScript SPA web app to Azure App Service.
+  - To run on Azure, you'll need to change the `redirectUri` property to: `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
+- Test the JavaScript SPA Patient Search app:
+  - Browse to App Service website URL in a new in-private/Incognito window.
+  - Sign in with your admin tenant user credential saved in **[challenge 1](./Challenge01.md)**.
+  - Enter full/partial name in the patient search textbox and click the search button.
+  - You should see a list of FHIR patient(s) that matches your search criteria.
 
 ## Success Criteria
-- You have deployed a FHIR sample Web App in Azure that connects to FHIR Server and retrieves FHIR patient data displayed in a web page.
+- You have created a JavaScript SPA Patient Search app and deployed it to Azure App Service.
+- You have tested patient lookup in the Patient Search web app.
 
 ## Learning Resources
 
-- **[Deploy a JavaSript app to read data from FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-fhir-server)**
+- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)**
+- **[GitHub Azure Samples - MSAL JavaScript Single-page Application using Implicit Flow](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/)**
+- **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
+- **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
+- **[Initialization of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
+- **[Samples for the MSAL.js 2.x library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#advanced-topics)**
+- **[Getting Started: Using React AAD MSAL library components to integrate MSAL with AAD in your React app](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
+- **[Sample JavaScript code to acquired access token as a bearer in an HTTP request to call protected web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)**
+- **[How to create a simple search app in React](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
+- **[Sample React JS code to perform a search](https://github.com/lytes20/meal-search-app)**
+- **[Deploy your Node.js app using VS Code and the Azure App Service extension](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
+- **[Hosting options and deployment scenarios to move your node.js app from a local or cloud repository to Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
+- **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
 - **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)**
-- **[Test FHIR API setup with Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-test-postman)**
-- **[Write Azure web app to read FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)**
-- **[Overview of Mirosoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview)**
-- **[Initial MSAL provider in HTML or JavaScript](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)**
