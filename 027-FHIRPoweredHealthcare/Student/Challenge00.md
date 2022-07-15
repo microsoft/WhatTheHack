@@ -8,7 +8,7 @@
 
 ## Introduction
 
-**Goal** is to complete all pre-requisites needed to finish all challenges.
+**Goal** is to complete all pre-requisites required to finish all challenges.
 
 ## Description
 
@@ -59,11 +59,10 @@
 - **[NodeJS pre-built installer downloads](https://nodejs.org/en/download/)**
 - **[Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
 
-- **[Azure API for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/overview)** as a centralized FHIR Compliant data management solution to persist FHIR bundles.
-- **[FHIR Bulk Load](https://github.com/microsoft/fhir-server-samples)** for bulk ingestions performed by a function app that is triggered whenever new or modified BLOB arrives in the `fhirimport` BLOB container.
-- **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is a logic app based workflow to ingest and convert C-CDA and HL7v2 message into FHIR bundle.
-- **[FHIR Proxy](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy)** is a function app solution that acts as an intelligent and secure gateway (reverse proxy) to FHIR Server and provides a consolidated approach to **[pre and post processing](https://github.com/microsoft/health-architectures/tree/master/FHIR/FHIRProxy#pre-and-post-processing-support)** of FHIR Server, i.e. `PublishFHIREventPostProcess` to publish FHIR CUD events for resources to a configured eventhub.  It acts as a FHIR specific reverse proxy rewriting responses and brokering requests to FHIR Servers.
-- **[SMART on FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** proxy to integrate partner apps with FHIR Servers and EMR systems through FHIR interfaces.
+- **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview)** is a set of managed API services that support multiple health data standards for the exchange of structured data. You can deploy multiple instances of different service types (FHIR, DICOM, and MedTech) that seamlessly work with one another within a workspace.  All service instances within a workspace share a compliance boundary and common configuration settings.
+- **[FHIR service in Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/)** is a managed, centralized Fast Healthcare Interoperability Resources (FHIR®) Compliant data management solution to ingest, manage, and persist Protected Health Information PHI in the cloud.  It enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering for high performance and low latency.  
+- **[FHIR Bulk Load](https://github.com/microsoft/fhir-loader)** is a Function App solution for bulk ingestions of FHIR Bundle (compressed and non-compressed) and NDJSON files that is triggered whenever new or modified BLOB arrives in the designated BLOB container.  It uses a High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources, and has a comprehensive Auditing, Error logging and Retry for throttled transactions.
+- **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that enables conversion of health data from legacy formats to FHIR.  It supports four types of conversions, HL7v2 to FHIR, C-CDA to FHIR, JSON to FHIR and FHIR STU3 to R4. The converter uses templates that define mappings between these different data formats. The templates are written in Liquid templating language and make use of custom filters.
 - **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
 - **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)** conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR Server.
 - **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7v2 messages, pushed to the FHIR Service Bus, into FHIR bundles.

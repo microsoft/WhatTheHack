@@ -7,22 +7,23 @@ You will implement a collection of FHIR reference architectures frome **[Microso
 
 ## Learning Objectives
 This hack will help you:
-1. Deploy Azure API for FHIR.
-2. Generate and load synthetic medical data into FHIR Server.
-3. Load HL7 and C-CDA data into FHIR Server.
-4. Read FHIR data through a JavaScript app and Single Page App.
-5. Visualize FHIR data in Parquet file for secondary analytics use.
-6. Export and anonymize FHIR data.
-7. Stream IoMT Device data into FHIR.
+1. Deploy FHIR service in Azure Health Data Services platform.
+2. Generate and load synthetic Electronic Health Record (EHR) data into FHIR Server.
+3. Convert and Load HL7v2 and C-CDA data into FHIR Server.
+4. Develop a JavaScript to read FHIR data 
+5. Develop a React Single Page App (SPA) to Search and view patient record.
+6. Transform and explore FHIR data for secondary use analytics.
+7. Export and anonymize FHIR data.
+8. Stream MedTech Device data into FHIR.
 
 ## Scenario
 Contoso Healthcare is implementing a FHIR-based data management solution. 
-Your team's assistance is needed to implement the following scenarios using FHIR Powered Healthcare hack:
-   * Ingest and process patient record in HL7 FHIR or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
+Your team's assistance is needed to implement the following scenarios through the FHIR Powered Healthcare hack as follows:
+   * Ingest and process patient record in HL7 FHIR Bundle or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
    * Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
-   * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studion and downstream transformation via Spark Pool against raw health data in Parquet files
-   * Bulk export data from FHIR, de-identify the data and store in Data Lake for further processing.
-   * Ingest and Persist IoT device data from IoT Central using IoT Connector for FHIR.
+   * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data in Parquet files.
+   * Bulk export data from FHIR, de-identify the data and store in staging Data Lake storage for downstream processing.
+   * Ingest and Persist IoT device data and correlate it with patient record in FHIR server.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>
@@ -36,8 +37,8 @@ Your team's assistance is needed to implement the following scenarios using FHIR
 - Challenge 3: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge03.md)**
 - Challenge 4: **[Create a new Single Page App (SPA) for patient search](Student/Challenge05.md)**
 - Challenge 5: **[Analyze and Visualize FHIR data](Student/Challenge05.md)**
-- Challenge 6: **[Bulk export, anonymize and store FHIR data into Data Lake](Student/Challenge07.md)**
-- Challenge 7: **[Stream IoMT Device data into FHIR from IoT Central](Student/Challenge07.md)**
+- Challenge 6: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge07.md)**
+- Challenge 7: **[Stream MedTech Device data into FHIR server](Student/Challenge07.md)**
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
