@@ -1,9 +1,15 @@
 # What The Hack - Azure Load Testing - Coach Guide
 
 ## Introduction
-Welcome to the coach's guide for the Azure Load Testing What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Azure Load Testing What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.  
 
 NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
+## Duration
+This hack is estimated to take 3 days with 4 hours each day.
+
+## Preparation
+There is a sample application located in the student resources folder.  This will need to be zipped up for the students.
+
 
 ## Coach's Guides
 1. Challenge 01: **[Develop a Load Testing Strategy](./Solution-01.md)**

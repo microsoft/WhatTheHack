@@ -12,19 +12,21 @@ This hack is designed to introduce you to Azure Load Testing and guide you throu
 - Perform load testing in conjunction with Azure Chaos Studio to ensure resiliency during an application/service/region degradation or failure
 
 ## Challenges
-1. Challenge 01: **[Develop a Load Testing Strategy](Student/Challenge-01.md)**
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+	 - Prepare your workstation to work with Azure.
+- Challenge 01: **[Develop a Load Testing Strategy](Student/Challenge-01.md)**
 	 - How to develop a load testing strategy for your application
-1. Challenge 02: **[Deploy Sample App & Create Load Testing Script](Student/Challenge-02.md)**
+- Challenge 02: **[Deploy Sample App & Create Load Testing Script](Student/Challenge-02.md)**
 	 - Deploy a sample application and create JMeter scripts to support your load testing strategy
-1. Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](Student/Challenge-03.md)**
+- Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](Student/Challenge-03.md)**
 	 - Create Azure Load Testing Service and learn techniques on how to establish baselines for your application
-1. Challenge 04: **[Enable Automated Load Testing (CI/CD)](Student/Challenge-04.md)**
+- Challenge 04: **[Enable Automated Load Testing (CI/CD)](Student/Challenge-04.md)**
 	 - Incorporating load testing into your CI/CD Pipeline
-1. Challenge 05: **[Identify & Remediate Bottlenecks](Student/Challenge-05.md)**
+- Challenge 05: **[Identify & Remediate Bottlenecks](Student/Challenge-05.md)**
 	 - Reviewing load test results and identifying bottlenecks
-1. Challenge 06: **[Stress Testing](Student/Challenge-06.md)**
+- Challenge 06: **[Stress Testing](Student/Challenge-06.md)**
 	 - How to perform stress tests and observing your application behavior
-1. Challenge 07: **[Load Testing During Chaos Experiment](Student/Challenge-07.md)**
+- Challenge 07: **[Load Testing During Chaos Experiment](Student/Challenge-07.md)**
 	 - Incorporating load testing and chaos experiments together
 
 ## Prerequisites
