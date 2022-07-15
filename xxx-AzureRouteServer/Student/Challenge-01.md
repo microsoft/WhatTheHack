@@ -1,4 +1,4 @@
-# Challenge 01 - <Title of Challenge>
+# Challenge 01 - Building a Basic Hub and Spoke Topology utilizing a central Network Virtual Appliance
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
