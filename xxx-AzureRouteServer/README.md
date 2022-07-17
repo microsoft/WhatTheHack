@@ -6,12 +6,12 @@ This challenge builds up on a traditional Hub and Spoke topology introducing Azu
 
 ## Learning Objectives
 
- • BGP Review
- • Understand how Azure Route Server leverages BGP to enable Dynamic Routing
- • Understand  Azure Route Server within a hub and Spoke Topology with a central Network Virtual Appliance.  
- • Understand Azure Route Server Route Exchange with On Premises 
- • Understand Azure Route Server Route Exchange with On Premises and SDWAN. 
- • Understand Azure Route Server Route Exchange with High Availability.
+- BGP Review
+- Understand how Azure Route Server leverages BGP to enable Dynamic Routing
+- Understand  Azure Route Server within a hub and Spoke Topology with a central Network Virtual Appliance.  
+- Understand Azure Route Server Route Exchange with On Premises 
+- Understand Azure Route Server Route Exchange with On Premises and SDWAN. 
+- Understand Azure Route Server Route Exchange with High Availability.
 
 
 ## Challenges
@@ -51,10 +51,7 @@ This challenge builds up on a traditional Hub and Spoke topology introducing Azu
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Not required but familiarity with Azure Hub and Spoke Topology and Boarder Gateway Protocol is highly desired. 
 
 ## Contributors
 
