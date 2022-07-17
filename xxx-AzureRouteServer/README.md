@@ -2,15 +2,17 @@
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+This challenge builds up on a traditional Hub and Spoke topology introducing Azure Route Server. The Students will engage into an increasingly adopted technology that provides the ability exchange routes more dynamically. Students will get familiar with basic trending implementations of Azure Route Server adopted in the industry.  
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+ • BGP Review
+ • Understand how Azure Route Server leverages BGP to enable Dynamic Routing
+ • Understand  Azure Route Server within a hub and Spoke Topology with a central Network Virtual Appliance.  
+ • Understand Azure Route Server Route Exchange with On Premises 
+ • Understand Azure Route Server Route Exchange with On Premises and SDWAN. 
+ • Understand Azure Route Server Route Exchange with High Availability.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
 
 ## Challenges
 
@@ -18,11 +20,11 @@ In this hack you will be solving the common business problem that companies in t
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Building a Basic Hub and Spoke Topology utilizing a central Network Virtual Appliance](Student/Challenge-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
+- Challenge 02: **[Introduce Azure Route Server and peer with a Network Virtual appliance.](Student/Challenge-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
+- Challenge 03: **[Connect Network Virtual Appliance to SD WAN router](Student/Challenge-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
+- Challenge 04: **[Introduce a High Availability with Central Network Virtual Appliances](Student/Challenge-04.md)**
 	 - Description of challenge
 - Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
 	 - Description of challenge
@@ -56,5 +58,5 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Mauricio Rojas
+- Jose Moreno
