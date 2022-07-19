@@ -52,7 +52,7 @@ param vmSize string = 'Standard_D2_v3'
 param location string = resourceGroup().location
 
 @description('Name of the virtual machine.')
-param vmName string = 'simple-vm'
+param vmName string
 
 @description('VM subnet')
 param subnetId string 
@@ -155,3 +155,4 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = {
 }
 
 output hostname string = pip.properties.dnsSettings.fqdn
+output vmResourceId string = vm.id //resourceId('Microsoft.Compute/virtualMachines', vmName)

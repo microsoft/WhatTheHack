@@ -24,6 +24,7 @@ Students has to do one of the following AIS environments, click on the link belo
   1. 3 Network Security Groups
   1. Private DNS zone (azure-api.net)
   1. Jumpbox VM
+  1. Bastion
   1. Virtual Network with 3-4 subnets
 
   Eventually, the environment would look like the one below:
