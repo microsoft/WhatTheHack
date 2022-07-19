@@ -12,23 +12,22 @@ In this challenge you will create the topology described in this diagram:
 
 ![hubnspoke noARS](/xxx-AzureRouteServer/Student/Resources/media/Azure%20Route%20Server%20WTH%20Challenge1.png)
 
-This hack offers configuration templates using Cisco 1000v that you can leverage (below) for each component, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet". If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
+This hack offers configuration templates using Cisco CSR 1000v (no license required) that you can leverage (below) for each component, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet". If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
 
-The number of Spokes is up to the student. Two is the suggested number. 
+The number of spokes is up to the student. Two is the suggested number. 
 
-***NOTE:** Please keep in mind, the vendor of your choice will be the one used through the course of this WTH.*
+> ***NOTE:** Please keep in mind, the vendor of your choice will be the one used through the course of this hack.*
 
 ## Success Criteria
-
 
 At the end of this challenge, you should:
 
 - Have a basic Hub and Spoke Topology in Azure connecting to a simulated On Premises Environment. 
-- Verify all traffic is inspected by the Central Network Virtual Appliance:
+- Verify all traffic is going through the Central Network Virtual Appliance:
   - spoke-to-spoke
   - spokes-to-onprem
   - onprem-to-hub
-  - on-prem-to-spokes
+  - onprem-to-spokes
 
 
 ## Learning Resources
@@ -36,22 +35,11 @@ At the end of this challenge, you should:
 * [Virtual Network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)
 * [Hub and Spoke topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 * [What is VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Cisco CSR 1000v On Premises Template](/xxx-AzureRouteServer/Student/Resources/wthcsronprem.md)
-* [Cisco CSR 1000v Central NVA](/xxx-AzureRouteServer/Student/Resources/centralnva.md)
+* [Cisco CSR 1000v On Premises Template](./Resources/wthcsronprem.md)
+* [Cisco CSR 1000v Central NVA](./Resources/centralnva.md)
 * [Create a Site-to-Site connection in the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-* [Configure BGP for VPN Gateways](https://docs.microsoft.com/en-us/azure/vpn-gateway/bgp-howto)
-* [View BGP status and metrics](https://docs.microsoft.com/en-us/azure/vpn-gateway/bgp-diagnostics)
+* [Configure BGP for VPN Gateways](https://docs.microsoft.com/azure/vpn-gateway/bgp-howto)
+* [View BGP status and metrics](https://docs.microsoft.com/azure/vpn-gateway/bgp-diagnostics)
 * [Subnet calculator](https://www.davidc.net/sites/default/subnets/subnets.html)
 
-## Advanced Challenges (Optional)
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
