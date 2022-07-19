@@ -1,4 +1,4 @@
-##You can use this script to deploy and configure the Central Network Virtual Appliance (Cisco CSR 1000v):
+#### You can use this script to deploy and configure the Central Network Virtual Appliance (Cisco CSR 1000v):
 
 ### Azure CLI CSR Creation
 
@@ -29,7 +29,10 @@ az vm create --resource-group $rg --location $location --name NVAHub --size Stan
 
 ```
 
+
 ### Cisco IOS Commands
+
+```bash
 
 conf t
 ## On premises route. DG outside interface
@@ -45,7 +48,7 @@ ip route <spokeN vnet prefix> <spokeN network mask> 10.0.1.1
 
 This list is by no means comprehensive, but it is conceived to give some of the most useful commands for admins new to the Cisco CLI
 
-* **config t**: enter configuration mode
-* **write mem**: save the config to non-volatile storage
-* **show ip interface brief**: show a summary of the network interfaces in the system
-* **show ip route**: show the system routing table
+**config t**: enter configuration mode
+**write mem**: save the config to non-volatile storage
+**show ip interface brief**: show a summary of the network interfaces in the system
+**show ip route**: show the system routing table
