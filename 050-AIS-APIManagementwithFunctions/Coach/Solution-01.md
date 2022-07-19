@@ -28,7 +28,7 @@ Students has to do one of the following AIS environments, click on the link belo
   1. Virtual Network with 3-4 subnets
 
   Eventually, the environment would look like the one below:
-  ![VNET-integration AIS](./images/Solution01_VNET_integrated_AIS.png)
+  ![VNET-integration AIS](./images/Solution01_VNET_integrated_AIS.jpg)
 
   - Create a resource group and run the following Azure CLI command to deploy the Bicep templates as follows:
     ```
