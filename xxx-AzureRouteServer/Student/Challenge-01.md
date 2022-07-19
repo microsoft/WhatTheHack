@@ -10,7 +10,7 @@ In this challenge you will be setting up a basic hub and spoke topology with a C
 
 In this challenge you will create the topology described in this diagram:
 
-
+![hubnspoke noARS](/xxx-AzureRouteServer/Student/Resources/media/Azure%20Route%20Server%20WTH%20Challenge1.png)
 
 For both, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet", this hack offers configuration templates using Cisco 1000v for each that you can leverage (below). If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
 
