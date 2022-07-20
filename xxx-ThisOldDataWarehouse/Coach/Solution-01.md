@@ -1,5 +1,7 @@
 # Challenge 01 - Data Warehouse Migration - Coach's Guide 
 
+[< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
+
 ## Story
 
 WWI wants to modernize their data warehouse in phases.  The first stage will be to scale-out horizontally their existing data warehouse (SQL Server OLAP) to Azure Synapse Analytics.

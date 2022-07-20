@@ -12,15 +12,15 @@ The format we're following for this is similar to other initiatives like OpenHac
 
 - Challenge 00: **[Setup](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
+- Challenge 01: **[Data Warehouse Migration](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
+- Challenge 02: **[Data Lake Integration](./Solution-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
+- Challenge 03: **[Data pipeline Migration](./Solution-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
+- Challenge 04: **[Real-time Data Pipeline](./Solution-04.md)**
 	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
+- Challenge 05: **[Analytics Migration](./Solution-05.md)**
 	 - Description of challenge
 - Challenge 06: **[Title of Challenge](./Solution-06.md)**
 	 - Description of challenge
