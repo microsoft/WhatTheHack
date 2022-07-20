@@ -1,4 +1,4 @@
-# Challenge 04 - <Real-time Data Pipelines>
+# Challenge 04 - Real-time Data Pipelines
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 

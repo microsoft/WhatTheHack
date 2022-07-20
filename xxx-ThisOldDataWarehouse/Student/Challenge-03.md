@@ -1,4 +1,4 @@
-# Challenge 03 - <Redesign SSIS jobs into ELT with ADF>
+# Challenge 03 - Redesign SSIS jobs into ELT with ADF
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 

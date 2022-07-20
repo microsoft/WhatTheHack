@@ -1,4 +1,4 @@
-# Challenge 02 - <Data Lake Integration>
+# Challenge 02 - Data Lake Integration
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 

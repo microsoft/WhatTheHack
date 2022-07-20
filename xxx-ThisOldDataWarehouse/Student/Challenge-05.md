@@ -1,4 +1,4 @@
-# Challenge 05 - <Analytics Migration>
+# Challenge 05 - Analytics Migration
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
