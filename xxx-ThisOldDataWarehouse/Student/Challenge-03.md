@@ -10,7 +10,7 @@ WW Importers keep missing the SLAs for their nightly data load process.  The loa
 
 The objective of this lab is to modernize the ETL pipeline that was originally built in SSIS.  A detailed diagram of the current workflow is included below.  We need to rebuild this pipeline in Azure leveraging scale-out architecture to transform this data.  The data flow will include steps to extract the data from the OLTP platform, store it in the Azure Data Lake and bulk ingest it into Azure Synapase Analytics.  This will be run on a nightly basis, and will need to leverage Azure Data Factory or Synapse Pipelines as a job orchestration and scheduling tool.
 
-![Current SSIS Workflow](../../../images/SSISFlow.png)
+![Current SSIS Workflow](../Coach/images/SSISFlow.png)
 
 **Below is a summary of each of the tasks in the existing SSIS package.  Note that we will be able to re-use the existing scripts for all of these tasks except for step 6.**
 
@@ -25,7 +25,7 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 Note: This challenge is intended to build upon the previous 2 challenges, and you should try to reuse content wherever possible
 
-![The Solution diagram is described in the text following this diagram.](../../../images/Challenge3.png)
+![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge3.png)
 
 ## Success Criteria
 

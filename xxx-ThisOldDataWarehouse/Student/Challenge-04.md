@@ -10,6 +10,8 @@ Worldwide importers wanted to build out their data warehouse to include clickstr
 
 Build a streaming pipeline to ingest simulated click stream data into enterprise Delta Lake.
 
+![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge4.png)
+
 ### Data Source: 
 In order to generate the source data stream for this exercise, you will need to execute sample .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
 

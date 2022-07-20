@@ -10,7 +10,7 @@ WWI importers realize they need to further modernize their data warehouse and wa
 
 The objective of this challenge is to build a Data Lake with Synapse Analytics or Azure Data Lake Store (ADLS) Gen 2.  The Data Lake will be a staging area where all our source system data files reside. We need to ensure this Data Lake is well organized and doesn't turn into a swamp. This challenge will help us organize the folder sturcture and setup security to prevent unauthorized access.  Lastly, we will extract data from the WWI OLTP platform and store it in the Data Lake.  The OLTP platform is on-premise so you will need to build a hybrid archtiecture to integrate it into Azure.  Keep in mind that the pipeline that you build will become the EXTRACT portion of the new E-L-T process. The first requirement is to build a functional POC that is able to move a single dataset to the new ADLS Gen 2 data lake. Ideally, it would be nice to make the process table driven so that new pipelines do not need to be created for each additional table that needs to be copied. (Optional, sharing to give insights on end-state.)
 
-![The Solution diagram is described in the text following this diagram.](../../../images/Challenge2.png)
+![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge2.png)
 
 ## Success Criteria
 

@@ -84,7 +84,7 @@ az deployment group create --name final --resource-group {ENTER RESOURCE GROUP N
 
 ## Learning Resources
 
-1. [Decision Tree for Analytics](../../../images/decisiontree.png)
+1. [Decision Tree for Analytics](../Coach/images/decisiontree.png)
 1. [DWU Units](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/resource-consumption-models)
 1. [Capacity Settings](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext#data-warehouse-capacity-settings)
 1. [Capacity Limits SQL Dedicated Pools](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
@@ -93,4 +93,4 @@ az deployment group create --name final --resource-group {ENTER RESOURCE GROUP N
 1. [Reference Architecture for Lambda Big Data Platforms](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Reference%20Lambda%20Architecture%20for%20Big%20Data%20Platform%20in%20Azure.pdf)
 
 ## On-premise Architecture
-![The Solution diagram is described in the text following this diagram.](../../../images/current.png)
+![The Solution diagram is described in the text following this diagram.](../Coach/images/current.png)

@@ -17,7 +17,7 @@ There will be four different object types we'll migrate:
 * SSIS code set refactor (Refactor has been done for you and not part of success criteria of this hack)
 * Data migration (with SSIS)
 
-![The Solution diagram is described in the text following this diagram.](../../../images/Challenge1.png)
+![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge1.png)
 
 ## Success Criteria
 

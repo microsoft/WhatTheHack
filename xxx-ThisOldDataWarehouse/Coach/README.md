@@ -2,15 +2,15 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the ThisOldDataWarehouse What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+This workshop is intended to give Data Engineers a level 400 understanding of the Modern Data Warehouse architecture and development skills to build it with Azure Synapse Analytics.  First, data engineers will learn how to migrate their SQL Server on-premise workloads to Azure Synapse analytics.  Likewise, the workshop will provide the skills and best practices to integrate a Data Lake into the existing data warehouse platform.  This will require the existing ETL (SSIS package) be refactored into Azure Data Factory pipelines.  Additionally, Modern Data Warehouse platforms are starting to integrate real-time data pipelines into the data lake.  Lastly, the students will be able to build out a Power BI Data model and tune it and the Synapse platform for optmial performance.  This will showcase Synapse Analytics performance with Dashboards.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+The format we're following for this is similar to other initiatives like OpenHack and What the Hack. The material is intended to be light on presentations and heavy on hands on experience. The participants will spend the majority of their time working on challenges. The challenges are not designed to be hands on labs, but rather a business problem with success criteria. The focus here is encouraging the participants to think about what they're doing and not just blindly following steps in a lab.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
+- Challenge 00: **[Setup](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Title of Challenge](./Solution-01.md)**
 	 - Description of challenge
@@ -74,16 +74,19 @@ _For example:_
 
 ## Suggested Hack Agenda (Optional)
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+The following is expected timing for a standard delivery.
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+|                                            |                                                                                                                                                       |
+| ------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Topic** |  **Duration**  |
+| Presentation 0:  [Welcome and Introduction](./MDWWTHIntro.pptx)  | 5 mins |
+| Challenge 0: Environment Setup | 30 mins|
+| Presentation 1: [Intro to Modern Data Warehouse](./MDWWTHIntro.pptx) | 30 mins|
+| Challenge 1: Data Warehouse Migration | 240 mins |
+| Challenge 2: Data Lake Integration | 120 mins |
+| Challenge 3: Data pipeline Migration | 240 mins |
+| Challenge 4: Realtime Data Pipelines | 120 mins |
+| Challenge 5: Analytics Migration | 120 mins |
 
 ## Repository Contents
 
