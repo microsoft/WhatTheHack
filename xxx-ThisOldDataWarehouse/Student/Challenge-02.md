@@ -12,25 +12,65 @@ The objective of this challenge is to build a Data Lake with Synapse Analytics o
 
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge2.png)
 
+### Setup Source Database for Incremental Load
+Prior to starting this challenge, you should ensure that there are changes in the City data captured from Wide World Importers OLTP Database.  Execute the script below to insert/change data in the source, and update necessary configuration values.
+
+1. Execute queries below in the Wide World Importers Database to update 10 existing records and insert 1 new record. 
+
+```
+        UPDATE T
+        SET [LatestRecordedPopulation] = LatestRecordedPopulation + 1000
+        FROM (SELECT TOP 10 * from [Application].[Cities]) T
+
+        INSERT INTO [Application].[Cities]
+	    (
+            [CityName]
+            ,[StateProvinceID]
+            ,[Location]
+            ,[LatestRecordedPopulation]
+            ,[LastEditedBy]
+	    )
+        VALUES
+        (
+		    'NewCity' + CONVERT(char(19), getdate(), 121)
+            ,1
+            ,NULL
+            , 1000
+            ,1
+	    )
+        ;
+```
+
+
+2. Modify the [Integration].[GetCityUpdates] stored procedure in the same OLTP database to remove the Location field from the result set returned.  
+
+```
+        SELECT [WWI City ID], City, [State Province], Country, Continent, [Sales Territory],
+                   Region, Subregion,
+
+		            -- [Location] geography,                       -->Remove due to data type compatibility issues
+
+		        [Latest Recorded Population], [Valid From],
+                [Valid To]
+        FROM #CityChanges
+        ORDER BY [Valid From];
+```
+
+3. Execute the query below in the Azure Synapse SQL Pool to update the parameter used as the upper bound for the ELT process:
+
+```
+        UPDATE INTEGRATION.LOAD_CONTROL
+        SET LOAD_DATE = getdate()
+```
+
 ## Success Criteria
 
-1. Deploy a new storage account resource.
-2. Define directory structure to support data lake use cases as follows:
-    - .\IN\WWIDB\ [TABLE]\ - This will be the sink location used as the landing zone for staging your data.
-    - .\RAW\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\ - This will be the location for downstream systems to consume the data once it has been processed.
-    - .\STAGED\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\ 
-    - .\CURATED\WWIDB\ [TABLE]\{YY}\{MM}\{DD}\
-3. Configure folder level security in your new data lake storage 
-    - only your ETL job should be able to write to your \IN directory
-    - you should be able to grant individual access to users who may want to access your \RAW directory based on AAD credentials
-4. Deploy Azure Data Factory or Synapse Pipelines
-5. Create a pipeline to copy data into ADLS.  Your pipeline will need the following components:
-    - Lookup Activity that queries the [Integration].[ETL Cutoff Table] in your Synapse DW to get the last refresh date for the City data. This result will be used as the @LastCutoff parameter in your copy activity.  The LastCutoff is similar to your Start Date in a range query.
-    - Lookup activity that queries [Integration].[Load Control] table in your Synapse DW to get the current refresh date. This result will be used as the @NewCutoff parameter in your copy activity. The NewCutoff is similar to your End Date in a range query.
-    - Copy Data activity that uses the [Integration].[GetCityUpdates] stored procedure in your WideWorldImporters OLTP database as your source, and the .\IN\WWIDB\City\ directory as the sink 
-    <br>**Note: You will need to modify this stored procedure to ensure that the [Location] field is excluded from the results.  Otherwise this data will cause errors due to incompatibility with Azure Data Factory**
-6. Once you have executed your new pipeline, there should be a .txt file with the 11 updated records from the City table in the \In\WWIDB\City\ folder of your data lake.
-<br>**Note: you can execute your new pipeline by clicking the "Debug" button or adding a trigger from the UI designer.**
+- Confirm Storage Account attached to Workspace
+- Outline directory structure to support data lake use cases and share with Coach
+- Review data pipeline and execute it after coach approves
+    <br>**Note: you can execute your new pipeline by clicking the "Debug" button or adding a trigger from the UI designer.**
+- Once you have executed your new pipeline, there should be a .txt file with the 11 updated records from the City table in the Incremental Landing zone folder of your data lake.
+- Open city text file as authorized AAD user and with unauthorized user to show proper security setup in your new data lake storage
 
 ## Learning Resources
 
@@ -53,9 +93,20 @@ The objective of this challenge is to build a Data Lake with Synapse Analytics o
 1. Things to consider when creating new data lake folder structure:
     - What types of data will you need to be able to support?
     - What types of processes will you need to be able to support?
+        - Incremental Landing zone for Source system extracts (Sinks)
+        - Historical landing zone for raw data and ETL loads
+        - Staged data for data cleansing and transformation before loads into DW
+        - Curated Data for end-users to leverage for analysis
     - How will you secure access to directories?
+        - ETL jobs should only have access to landing zone for incremental data from source system
+        - Grant a data scientist (any user) access to query raw data thru AAD credentials
 1. In addition to using the azure portal directly, you can view and manage your new storage account using the [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) 
 1. Be sure to review the [Integration].[ETL Cutoff] and [Integration].[Load Control] tables in your Synapse SQL Pool prior to executing this task.  If dates are not set correctly, the source stored procedure will not return any data.
+1. Create a pipeline to copy data into ADLS.  Your pipeline will need the following components:
+    - Lookup Activity that queries the [Integration].[ETL Cutoff Table] in your Synapse DW to get the last refresh date for the City data. This result will be used as the @LastCutoff parameter in your copy activity.  The LastCutoff is similar to your Start Date in a range query.
+    - Lookup activity that queries [Integration].[Load Control] table in your Synapse DW to get the current refresh date. This result will be used as the @NewCutoff parameter in your copy activity. The NewCutoff is similar to your End Date in a range query.
+    - Copy Data activity that uses the [Integration].[GetCityUpdates] stored procedure in your WideWorldImporters OLTP database as your source, and the Incremental Landing Zone directory as the sink 
+    <br>**Note: You will need to modify this stored procedure to ensure that the [Location] field is excluded from the results.  Otherwise this data will cause errors due to incompatibility with Azure Synapse Pipelines**
 1. Additional information on using Lookup Tasks and expressions in Azure Data Factory can be found [here](https://www.cathrinewilhelmsen.net/2019/12/23/lookups-azure-data-factory/)
 1. Synapse Analytics Workspace is available to leverage and might be a good way to simplify setup.
 

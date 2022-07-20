@@ -28,11 +28,7 @@ Azure Databricks will be used to consume data from Event Hub and write the strea
 
 ## Success Criteria
 
-1. Deploy new Event Hub in Azure
-1. Setup and configure data source
-1. Start Data stream
-1. Ingest data stream
-1. Write a query to view current number of clicks per product
+- Query current number of clicks per product.  Reuse notebook and show coach query polling table on regular intervals
 
 ## Learning Resources
 
@@ -44,6 +40,10 @@ Azure Databricks will be used to consume data from Event Hub and write the strea
 ## Tips
 
 1. In order to publish data to and consume data from Event Hubs, you will need to generate a shared access policy, and use this key and the host name of the namespace in your connection string.  These values will be needed on the consumer side of your Event hub.
+1. Deploy new Event Hub in Azure
+1. Setup and configure data source
+1. Start Data Stream
+1. Ingest data stream
 
 ## Advanced Challenges (Optional)
 

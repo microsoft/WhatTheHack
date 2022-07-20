@@ -23,13 +23,16 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-There are two setups required before starting this challenge.  The first one will be on your local PC and the second one is your Azure Tenant.  For your local PC, ensure the following tools are installed.
+### Setup your Development Environment on your Laptop
 
+For your local PC, ensure the following tools are installed.
 1. [SQL Server Management Studion (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 2. [Visual Studio Code](https://code.visualstudio.com/Download) 
 3. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-For your Azure subscription, WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
+### Setup Azure Tenant with Services for What the Hack
+
+WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
 
 1. Open your browser and login to your Azure Tenant.  We plan to setup the Azure Services required for the What the Hack (WTH).  In your portal, open the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
@@ -76,11 +79,13 @@ az deployment group create --name final --resource-group {ENTER RESOURCE GROUP N
 
 10. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
 
+![The Solution diagram is described in the text following this diagram.](../Coach/images/current.png)
+
 ## Success Criteria
 
-1. Complete setup of your environment
-2. Determine which SQL database offering is the best fit for the hack
-3. Estimate the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
+- Complete setup of your environment
+- Determine which SQL database offering is the best fit for the hack
+- Estimate the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
 
 ## Learning Resources
 
@@ -91,6 +96,3 @@ az deployment group create --name final --resource-group {ENTER RESOURCE GROUP N
 1. [Synapse Analytics Best Practices & Field Guidance](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Azure%20Synapse%20DW%20%20Pool%20Best%20Practices%20%26%20Field%20Guidance.pdf)
 1. [Azure Synapse Analytics Migration Guides](https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/)
 1. [Reference Architecture for Lambda Big Data Platforms](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Reference%20Lambda%20Architecture%20for%20Big%20Data%20Platform%20in%20Azure.pdf)
-
-## On-premise Architecture
-![The Solution diagram is described in the text following this diagram.](../Coach/images/current.png)

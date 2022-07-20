@@ -12,21 +12,21 @@ The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to ret
 
 ## Success Criteria
 
-* Reduce Response time to less than 10 seconds thru removing skew in Azure Synapse Analytics tables.
+- Reduce Response time to less than 10 seconds thru removing skew in Azure Synapse Analytics tables.
     1. Run "skew.pbix" in student directory to review skew in your Azure Synapse Analytics platform.  
     1. Review each table distribution to ensure you have the right type for each schema.  
-* Reduce Response time to less than 10 seconds by reviewing the Explain plan.    
+- Reduce Response time to less than 10 seconds by reviewing the Explain plan.    
     1. Capture the runtimes for the visual "Total Sales by State Province" in the "High Level Dashboard". (Lower right hand corner)  Open Performance analyzer and look for the visual and record the response time for your baseline.  You will need to also open the "+" icon to expand the section to see "Copy query".  Please copy this query into SSMS.
     1. This query joins date, city and sale tables to visualize.
     1. After you run each distribution type, execute "explain.sql".  The query in the explain plan is from the step above.
     1. Copy the explain plan into VS Code and format the XML file to read it.  Review explain plan for total cost and see if there is any "Shuffle Move" that is increasing the Cost.  Pick the best distribution that reduces the cost and eliminates any shuffles.
     1. Fix skew in any table leveraging Create Table as Select.
     1. After you pick the optimal distribution, rerun your query in Performance Analyzer to see if response time improved.
-* Reduce Response time to less than 5 seconds by running statistics and setting up result-set cache
+- Reduce Response time to less than 5 seconds by running statistics and setting up result-set cache
     1. Capture baseline runtimes from the performance analyzer for all visuals in "High Level Dashboard".
     1. Run statistics on all tables in Synapse.  Rerun performance analyzer and compare them with Step 1 to see gains.
     1. Turn on Result-set cache. The first run of performance analyzer will be high but the second run should be a big improvement from the baseline from the first step.
-* Reduce Response time to less than 10 seconds thru changes to the Power BI Data Model.
+- Reduce Response time to less than 10 seconds thru changes to the Power BI Data Model.
     1. Experiment with DirectQuery and Composite model in Power BI Desktop for optimal performance. Determine which table(s) are best in dual mode.  Open Performance Analyzer in Power BI Desktop to capture the runtimes.
 
 ## Learning Resources

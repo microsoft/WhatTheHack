@@ -5,6 +5,12 @@ Modern Data Warehouse What the Hack
 
 Modern Data Warehouse is a key upgrade motion for organizations to scale out their on-premise analytical workloads to the cloud.  This hack will help data engineers and administrators upgrade their skills to migrate to Azure Synapse Analytics. The hack will be the sequential migration steps required to migrate from on-premise to Synapse Analytics and re-platform attached workloads like ETL and reporting.
 
+The solution will require us to migrate the on-premise data warehouse to Azure Synapse Analytics.  In the first challenge, you will want to source data from the WWI OLTP sample database to **Azure Synapse Analytics**.  Data will be loaded from source to target thru the DailyETL packages (SSIS) found in the WWI importers sample database.  Secondly, a data lake  (**Azure Data Lake Store**) will be built out to be your staging area for future challenges to stage data prior to loading it into Azure Synapse. Third, the SSIS packages in Challenge 1 will be refactored into **Azure Data Factory** jobs to optimize the data loads and leverage the Data Lake as a staging area.  Next, clickstream data will be streamed into the Data Lake using **Azure Event Hub**.  This data will be stored in the lake and interactively queried via **Azure Databricks**.  Lastly, Power BI data model will be built out with a set of reports to streamline the performance.  You will work on how to optimize them via report design, data model tuning and Azure Synapse optimizaitons.
+
+Below is a diagram of the solution architecture you will build in this hack. Please study this carefully, so you understand the whole of the solution as you are working on the various components.
+
+![The Solution diagram is described in the text following this diagram.](/xxx-ThisOldDataWarehouse/Coach/images/solution_arch.png)
+
 
 ## Learning Objectives
 
@@ -57,6 +63,16 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 - Visual Studio Code
 - Azure CLI
 - Download WorldWide Importers Database (OLTP & OLAP)
+
+## Technologies
+
+Azure services and related products
+* Azure Synapse Analytics
+* Azure Data Lake Storage Gen2 (ADLS)
+* Azure Data Factory
+* Azure Event Hubs
+* Azure Databricks
+* Power BI
 
 ## Learning Path for Modern Data Warehouse
 

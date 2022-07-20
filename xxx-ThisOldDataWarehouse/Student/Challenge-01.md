@@ -21,20 +21,20 @@ There will be four different object types we'll migrate:
 
 ## Success Criteria
 
-1. Migrated all database schemas to Synapse
-2. Created one table per schema in Synapse
+- Migrated all database schemas to Synapse
+- Created one table per schema in Synapse
     - Tables to create are; Dimension.City, Fact.Order & Integration.Order_Staging
     - Coach will provide remaining DDL scripts
-3. Refactor one Stored Procedure per design pattern.  Parathensis contains recommended objects
+- Refactor one Stored Procedure per design pattern.  Parathensis contains recommended objects
     - Dimension Tables (Integration.MigratedCityData)
     - Fact Table (Appends Only; Integration.MigratedStagedSaleData)
     - Fact Table (Merge; Integration.MigratedStagedMovementData)
     - Coach will share remaining T-SQL Scripts
-4. Run SSIS jobs based on new mappings
+- Run SSIS jobs based on new mappings
     - Coach will share DailyETLMDWLC package
     - Review data setup instructions before you execute the SSIS jobs
     - Load data into Synapse Analytics
-5. Run Power BI Report (WWI_Sales.pbit) and share screen shot with coach to confirm success
+- Run Power BI Report (WWI_Sales.pbit) and share screen shot with coach to confirm success
     - Coach will share pbit file with you
 
 ## Learning Resources
@@ -68,9 +68,6 @@ There will be four different object types we'll migrate:
 1. [Execute SSIS package in Azure Data Factory pipeline ](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory)
 1. [Documentation to assess compatibility of SSIS packages developed on SQL Server and migrated to Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/scenario-ssis-migration-overview#assessment)
 
-### Data Setup in Synapse
-For the first time setup only, you will need to execute the "Master Create.sql" script to populate all control tables before you execute the SSIS job.  This is required and it is only done on the initial setup.  After this is complete, you can run the SSIS job.  For all subsequent runs after the initial setup, execute the Reseed ETL Stored Procedure only.  This stored procedure will rollback the database to it's original state.
-
 ## Tips
 
 1. Connect to SQL Server 2017 databases in the containers with Azure Data Studio
@@ -88,7 +85,8 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 5. Request SSIS package from coach.  Current package in repo is setup for SQL Server 2017 which means you can run it thru Azure Data Factory. Here are [instructions](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard) to deploy the SSIS pakcage on in the SSIS Catalog.
 6. Create ADF pipeline with Execute SSIS Package activity. [ADF Activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#create-a-pipeline-with-an-execute-ssis-package-activity)
 7. Update [connection settings](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#connection-managers-tab) in package.
-8. Execute this package to load data into Azure Synapse Analytics. [SSIS Execution](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#run-the-pipeline)
+8. **For the first time setup only**, you will need to execute the "Master Create.sql" script to populate all control tables before you execute the SSIS job.  This is required and it is only done on the initial setup.  After this is complete, you can run the SSIS job.  **For all subsequent runs after the initial setup**, execute the Reseed ETL Stored Procedure only.  This stored procedure will rollback the database to it's original state.**
+9. Execute this package to load data into Azure Synapse Analytics. [SSIS Execution](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#run-the-pipeline)
 
 ## Advanced Challenges (Optional)
 
