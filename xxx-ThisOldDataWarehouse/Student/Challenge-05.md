@@ -1,99 +1,61 @@
-# Challenge 05 - <Title of Challenge>
+# Challenge 05 - <Analytics Migration>
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+WWI leadership team wants to leverage Power BI to create rich semantic models to promote self-service BI using Azure Synapse Analytics (ASA). Additionally, they want to empower different analysts from different organizations to use Power BI reporting capability and build out analytics reports and dashboards from those data models. The final solution needs to consider both report design as well as optimal response times.  Dashboards need to return in less 5 seconds.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
-
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
-
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
-
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
-
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to return in less than 5 seconds.  This will require you to optimize the Power BI data model and report.  Secondly, you will need to tune the Azure Synapse SQL Pool to ensure your table design is setup properly and you have setup statistics and results-set cache.  After completion, review your results with the coach to determine optimal design.
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+* Reduce Response time to less than 10 seconds thru removing skew in Azure Synapse Analytics tables.
+    1. Run "skew.pbix" in student directory to review skew in your Azure Synapse Analytics platform.  
+    1. Review each table distribution to ensure you have the right type for each schema.  
+* Reduce Response time to less than 10 seconds by reviewing the Explain plan.    
+    1. Capture the runtimes for the visual "Total Sales by State Province" in the "High Level Dashboard". (Lower right hand corner)  Open Performance analyzer and look for the visual and record the response time for your baseline.  You will need to also open the "+" icon to expand the section to see "Copy query".  Please copy this query into SSMS.
+    1. This query joins date, city and sale tables to visualize.
+    1. After you run each distribution type, execute "explain.sql".  The query in the explain plan is from the step above.
+    1. Copy the explain plan into VS Code and format the XML file to read it.  Review explain plan for total cost and see if there is any "Shuffle Move" that is increasing the Cost.  Pick the best distribution that reduces the cost and eliminates any shuffles.
+    1. Fix skew in any table leveraging Create Table as Select.
+    1. After you pick the optimal distribution, rerun your query in Performance Analyzer to see if response time improved.
+* Reduce Response time to less than 5 seconds by running statistics and setting up result-set cache
+    1. Capture baseline runtimes from the performance analyzer for all visuals in "High Level Dashboard".
+    1. Run statistics on all tables in Synapse.  Rerun performance analyzer and compare them with Step 1 to see gains.
+    1. Turn on Result-set cache. The first run of performance analyzer will be high but the second run should be a big improvement from the baseline from the first step.
+* Reduce Response time to less than 10 seconds thru changes to the Power BI Data Model.
+    1. Experiment with DirectQuery and Composite model in Power BI Desktop for optimal performance. Determine which table(s) are best in dual mode.  Open Performance Analyzer in Power BI Desktop to capture the runtimes.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+1. [Performance Tuning](https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a)
+1. [Azure Synapse Analytics & Power BI performance](https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/)
+1. [Power BI Composite Model](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models)
+1. [Power BI change table storage mode](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode)
+1. [Table skew](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
+1. [Table skew workflow](https://github.com/rgl/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-manage-distributed-data-skew.md)
+1. [Explain Plan](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)
+1. [Result-set cache](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching)
+1. [Statistics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics#use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database)
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+1. Request from the coach the student zip file
+1. Use SQL Credential when connecting to the Azure Synapse Analytics SQL Pool
+1. Make sure the ASA service is running in Azure Portal since it might pause based on your settings
+1. Create direct query mode data model first because you can convert direct query mode to imported mode but not vice versa 
+1. Use Power BI Perforamance Analyzer to check power bi query time and performance
 
 ## Advanced Challenges (Optional)
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+1. [Add Indexes and Partitions to your table structures](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance?view=sql-server-ver15)
+1. [Ordered vs. Nonordered CCI](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci)
+1. Setup [Aggregate Tables](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-aggregations) in Power BI Report to see if this improves response times
+1. Setup Power BI Embed application "App Owns Data" for users to access data
+1. Setup RLS in Power BI Embed and Azure Synapse Analytics
+1. Setup workload management to run ETL and run Reports in parallel to see performance impact.

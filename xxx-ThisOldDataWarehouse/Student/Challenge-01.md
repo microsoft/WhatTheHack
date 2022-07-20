@@ -1,89 +1,94 @@
-# Challenge 01 - <Title of Challenge>
+# Challenge 01 - <Data Warehouse Migration>
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+WWI wants to modernize their data warehouse in phases.  The first stage will be to scale-out horizontally their existing data warehouse.  The data warehouse migration will be from their on-premise WWI Data Warehouse to Azure Synapse Analytics.  They like to reuse their existing ETL code and leave their source systems as-is (no migration).  This will require a hybrid architecture for on-premise OLTP and Azure Synapse Analytics as the end state.  This exercise will be showcasing how to migrate your traditional SQL Server (SMP) to Azure Synapse Analytics (MPP).
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+The objective of this lab is to migrate the WWI DW (OLAP) to Azure Synapse Analytics.  Azure Synapse Analytics is a MPP (Massive Parallel Processing) platform that allows you to scale out your datawarehouse by adding new server nodes (compute) rather than adding more cores to the server.  
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+There will be four different object types we'll migrate:
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+* Database Schemas and Tables
+* Database code (Stored Procedure, Function, Triggers, etc)
+* SSIS code set refactor (Refactor has been done for you and not part of success criteria of this hack)
+* Data migration (with SSIS)
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
-
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+![The Solution diagram is described in the text following this diagram.](../../../images/Challenge1.png)
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+1. Migrated all database schemas to Synapse
+2. Created one table per schema in Synapse
+    - Tables to create are; Dimension.City, Fact.Order & Integration.Order_Staging
+    - Coach will provide remaining DDL scripts
+3. Refactor one Stored Procedure per design pattern.  Parathensis contains recommended objects
+    - Dimension Tables (Integration.MigratedCityData)
+    - Fact Table (Appends Only; Integration.MigratedStagedSaleData)
+    - Fact Table (Merge; Integration.MigratedStagedMovementData)
+    - Coach will share remaining T-SQL Scripts
+4. Run SSIS jobs based on new mappings
+    - Coach will share DailyETLMDWLC package
+    - Review data setup instructions before you execute the SSIS jobs
+    - Load data into Synapse Analytics
+5. Run Power BI Report (WWI_Sales.pbit) and share screen shot with coach to confirm success
+    - Coach will share pbit file with you
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+### Overall Migration
+1. [SQL Server Database to Azure Synapse Analytics - Data Migration Guide](https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/migrate-to-synapse-analytics-guide)
+1. [Quick reference guide for Data migrations across all database platforms to Azure](https://datamigration.microsoft.com/scenario/sql-to-sqldw?step=1)(Optional Reading)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
+### Database Schema Migration
+1. [Azure Synapse Analytics SQL Architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-architecture)
+1. [Distributed Tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+1. [Distribution Keys](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview) 
+1. [Distribution Key Cheat Sheet](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/cheat-sheet#distributed-or-replicated-tables)
+1. [Data Types](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-data-types#unsupported-data-types)  A list of unsupported data types at this link.
+1. [Table Constraints](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-table-constraints?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+1. [Unsupported Table Features](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview#unsupported-table-features)
+1. [Create Table Syntax](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view%253Daps-pdw-2016-au7=&view=aps-pdw-2016-au7)
+1. [Identity Column](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+1. [Design Consideration for Synapse Analytics](https://medium.com/analytics-vidhya/azure-synapse-analytics-key-considerations-while-building-your-data-warehouse-a54ad1804139)
 
-***Note:** Use descriptive text for each link instead of just URLs.*
+### Database code rewrite (T-SQL)
+1. [Common table Expression (WITH)](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest#features-and-limitations-of-common-table-expressions-in--and-9)
+1. [SQL Differences in T-SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot#differences-from-sql-database)
+1. [Merge Statement](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest)
+1. [T-SQL Reference Doc](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-features)
+1. [T-SQL Supported in Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
 
-*Sample IoT resource links:*
+### SSIS Job
+1. [Provision SSIS Runtime in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+1. [Deploy SSIS Package into SSIS Catalog](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15)
+1. [Execute SSIS package in Azure Data Factory pipeline ](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory)
+1. [Documentation to assess compatibility of SSIS packages developed on SQL Server and migrated to Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/scenario-ssis-migration-overview#assessment)
 
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+### Data Setup in Synapse
+For the first time setup only, you will need to execute the "Master Create.sql" script to populate all control tables before you execute the SSIS job.  This is required and it is only done on the initial setup.  After this is complete, you can run the SSIS job.  For all subsequent runs after the initial setup, execute the Reseed ETL Stored Procedure only.  This stored procedure will rollback the database to it's original state.
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+1. Connect to SQL Server 2017 databases in the containers with Azure Data Studio
+1. Determine your distribution column (HINT IDENTITY Column can not be your distribution key)
+1. Run this query to identify which columns are not supported by Azure Synapse Analytics
+```
+SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
+	FROM sys.tables  t
+	JOIN sys.columns c on t.[object_id]    = c.[object_id]
+	JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
+	WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+	OR  y.[is_user_defined] = 1;
+```
+4. Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse Analytics.
+5. Request SSIS package from coach.  Current package in repo is setup for SQL Server 2017 which means you can run it thru Azure Data Factory. Here are [instructions](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard) to deploy the SSIS pakcage on in the SSIS Catalog.
+6. Create ADF pipeline with Execute SSIS Package activity. [ADF Activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#create-a-pipeline-with-an-execute-ssis-package-activity)
+7. Update [connection settings](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#connection-managers-tab) in package.
+8. Execute this package to load data into Azure Synapse Analytics. [SSIS Execution](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#run-the-pipeline)
 
 ## Advanced Challenges (Optional)
 
@@ -95,5 +100,5 @@ _List of relevant links and online articles that should give the attendees the k
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+1. Setup Virtual Machine to use Self-hosted runtime with proxy in SSIS job.  [Read instructions](https://docs.microsoft.com/en-us/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)
+1. [Generate new data and load into Synapase](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-generate-data?view=sql-server-ver15)

@@ -1,31 +1,35 @@
 # What The Hack - ThisOldDataWarehouse
+Modern Data Warehouse What the Hack
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+Modern Data Warehouse is a key upgrade motion for organizations to scale out their on-premise analytical workloads to the cloud.  This hack will help data engineers and administrators upgrade their skills to migrate to Azure Synapse Analytics. The hack will be the sequential migration steps required to migrate from on-premise to Synapse Analytics and re-platform attached workloads like ETL and reporting.
+
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
-
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+In this hack, data engineers will learn how to migrate their platform to the cloud (data, schema and code).  Additionally, they need to build out Data Warehouse architectures that can scale for large data volumes, different data structures and real-time ingestions.  Azure Synapse Analytics provides all these capabilities as an integrated platform and we'll help you better understand how to refactor your existing data warehouse to Azure.  
+1. Modern Data Warehouse Architecture
+1. Azure Synapse Decision Tree
+1. Refactor T-SQL code to be compatible with Synapse
+1. ETL/ELT design patterns and how to build them with ADF + ADLS
+1. Setup a streaming data pipeline with Kafka
+1. Tune Synapse for analytical workloads and design report for best performance
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+- Challenge 00: **[Setup](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
+- Challenge 01: **[Data Warehouse Migration](Student/Challenge-01.md)**
+	 - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
+- Challenge 02: **[Data Lake Integration](Student/Challenge-02.md)**
+	 - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
+- Challenge 03: **[Data pipeline Migration](Student/Challenge-03.md)**
+	 - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
+- Challenge 04: **[Realtime Data pipeline](Student/Challenge-04.md)**
+	 - Real-time data with Kafka and Databricks
+- Challenge 05: **[Analytics Migration](Student/Challenge-05.md)**
+	 - Migrate reporting into Azure
 - Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
@@ -52,9 +56,19 @@ In this hack you will be solving the common business problem that companies in t
 - Your own Azure subscription with Owner access
 - Visual Studio Code
 - Azure CLI
-- An AVNET X231 device
+- Download WorldWide Importers Database (OLTP & OLAP)
+
+## Learning Path for Modern Data Warehouse
+
+- [Modern Data Warehouse](https://microsoft.github.io/PartnerResources/skilling/data-analytics-ai/modern-analytics-academy)
+
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Alex Karasek
+- Jason Virtue
+- Annie Xu
+- Chris Mitchell
+- Brian Hitney
+- Israel Ekpo
+- Osamu Hirayama

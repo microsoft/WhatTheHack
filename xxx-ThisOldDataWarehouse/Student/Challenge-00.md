@@ -1,18 +1,10 @@
-# Challenge 00 - Prerequisites - Ready, Set, GO!
+# Challenge 00 - Setup
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
-
-**_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
-
-**_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
-
-**_You should remove all italicized & sample text in this template and replace with your content._**
-
 ## Introduction
 
-Thank you for participating in the ThisOldDataWarehouse What The Hack. Before you can hack, you will need to set up some prerequisites.
+The objective of this lab is to setup your on-premise data warehouse environment for the hack.  This will be your reference point for the migration.
 
 ## Common Prerequisites
 
@@ -20,15 +12,10 @@ We have compiled a list of common tools and software that will come in handy to 
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
-
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
@@ -36,65 +23,74 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-_This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
+There are two setups required before starting this challenge.  The first one will be on your local PC and the second one is your Azure Tenant.  For your local PC, ensure the following tools are installed.
 
-_While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack._
+1. [SQL Server Management Studion (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+2. [Visual Studio Code](https://code.visualstudio.com/Download) 
+3. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-_For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template._
+For your Azure subscription, WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
 
-_Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file._
+1. Open your browser and login to your Azure Tenant.  We plan to setup the Azure Services required for the What the Hack (WTH).  In your portal, open the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
-**\*NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resources.zip file provided by the coach.\*
+2. Go into the cloud shell and select the subscription you plan to use for this WTH.
 
-**\*NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.\*
-
-_Sample challenge zero text for the IoT Hack Of The Century:_
-
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
-
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
-
-Please install these additional tools:
-
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
-
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
-
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
 ```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
+az account set --subscription {"Subscription Name"}
+az account show
 ```
+
+3. Create a resource group to store the Modern Data Warehouse What the Hack.  This will be the services for your source systems/environments.  In Cloudshell, run this command
+
+```
+az group create --location eastus2 --name {"Resource Group Name"}
+```
+
+4. In the Cloudshell, run this command to create a SQL Server instance and restore the databases.  This will create an Azure Container Instance and restore the WideWorldImporters and WideWorldImoprtersDW databases.  These two databases are your LOB databases for this hack.
+
+```
+az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
+```
+
+5. At the start of Challenge 1, reach out to your coach and they will share username and password for the LOB databases for this hack.
+
+6. [Upload](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#upload-files) your ARM templates into Azure CloudShell. 
+
+
+    /Student/Challenges/Challenge0/ARM.  
+    The files are parametersFile.json and template.json.
+    Edit the parmeters file and replace any {} with information requested.  
+
+
+7. Run the last command to setup Azure Data Factory, Azure SQL Server Instance and SSIS Runtime.  This will build out for Challenge 1 the SSIS environment in Azure Data Factory.
+
+```
+az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json --parameters parametersFile.json
+```
+
+8. Last step is to start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
+
+
+9. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
+
+
+10. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
-
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
-To complete this challenge successfully, you should be able to:
-
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
+1. Complete setup of your environment
+2. Determine which SQL database offering is the best fit for the hack
+3. Estimate the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+1. [Decision Tree for Analytics](../../../images/decisiontree.png)
+1. [DWU Units](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/resource-consumption-models)
+1. [Capacity Settings](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext#data-warehouse-capacity-settings)
+1. [Capacity Limits SQL Dedicated Pools](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+1. [Synapse Analytics Best Practices & Field Guidance](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Azure%20Synapse%20DW%20%20Pool%20Best%20Practices%20%26%20Field%20Guidance.pdf)
+1. [Azure Synapse Analytics Migration Guides](https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/)
+1. [Reference Architecture for Lambda Big Data Platforms](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Reference%20Lambda%20Architecture%20for%20Big%20Data%20Platform%20in%20Azure.pdf)
 
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
-
-_Sample IoT resource links:_
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+## On-premise Architecture
+![The Solution diagram is described in the text following this diagram.](../../../images/current.png)
