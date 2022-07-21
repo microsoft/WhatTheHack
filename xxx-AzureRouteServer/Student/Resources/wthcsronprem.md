@@ -6,22 +6,23 @@ You can use this script to deploy a Cisco CSR router to a new Vnet:
 
 ```bash
 # Variables
-rg=myrg
-location=westeurope
-publisher=cisco
-offer=cisco-csr-1000v
-sku=16_12-byol
-branch_name=branch1
-branch_prefix=172.16.1.0/24
-branch_subnet=172.16.1.0/26
-branch_gateway=172.16.1.1
-branch_bgp_ip=172.16.1.10
-branch_asn=65501
-branch_username=labuser
-branch_password=BlahBlah123!
+$rg = myrg
+$location = <Azure region of your choice>
+$publisher= "cisco"
+$offer= "cisco-csr-1000v"
+$sku = "16_12-byol"
+$branch_name = "branch1"
+$branch_prefix = "172.16.1.0/24"
+$branch_subnet = "172.16.1.0/26"
+$branch_gateway = "172.16.1.1"
+$branch_bgp_ip= "172.16.1.10"
+$branch_asn = "65501"
+$branch_username = "labuser"
+$branch_password = "BlahBlah123!"
 
 # Create CSR
 az group create -n $rg -l westeurope
+# Replace the Azure region of your choice
 version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
 # You only need to accept the image terms once per subscription
 az vm image terms accept --urn ${publisher}:${offer}:${sku}:${version}
