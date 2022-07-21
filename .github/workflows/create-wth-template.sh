@@ -38,12 +38,21 @@ CreateDirectoryStructure() {
   # create the Coach & Coach/Solutions directories
   mkdir -p $rootPath/Coach/Solutions
 
+  #add a file to allow git to store an "empty" directory
+  touch $rootPath/Coach/Solutions/.gitkeep
+
+  # copying the Coach Lectures template file in the /Coach directory
+  cp $templateDirectoryName/WTH-Lectures-Template.pptx $rootPath/Coach/Lectures.pptx
+
   if $verbosityArg; then
     echo "Creating $rootPath/Student/Resources directories..."
   fi
 
   # create the Student & Student/Resources directories
   mkdir -p $rootPath/Student/Resources
+  
+  #add a file to allow git to store an "empty" directory
+  touch $rootPath/Student/Resources/.gitkeep
 }
 
 PreprocessTemplateFile() {
@@ -82,8 +91,12 @@ GenerateChallengesSection() {
 
   local challengesSection=""
 
-  for challengeNumber in $(seq -f "%02g" 1 $numberOfChallenges); do
-    eval challengesSection+=\$\'1. Challenge $challengeNumber: **[Description of challenge]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
+  for challengeNumber in $(seq -f "%02g" 0 $numberOfChallenges); do
+    if [[ $challengeNumber -eq "00" ]]; then
+      eval challengesSection+=\$\'- Challenge $challengeNumber: **[Prerequisites - Ready, Set, GO!]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Prepare your workstation to work with Azure.\\n\'
+    else
+      eval challengesSection+=\$\'- Challenge $challengeNumber: **[Title of Challenge]\($directoryName/$typeName-$challengeNumber.md\)**\\n\\t - Description of challenge\\n\'
+    fi
   done
 
   echo "$challengesSection"
@@ -101,7 +114,7 @@ CreateHackDescription() {
   WriteMarkdownFile "$rootPath/README.md" "WTH-HackDescription-Template.md"
 }
 
-GenerateNavitationLink() {
+GenerateNavigationLink() {
   local -r suffixNumber=$1
   local -r numberOfChallenges=$2
   local -r linkName=$3
@@ -113,7 +126,7 @@ GenerateNavitationLink() {
 
   #have to account for the fact that there is 0 at the beginning of the challenge number, a 08 is interpreted as octal
   #therefore, the $((10#$suffixNumber)) syntax
-  if [[ $((10#$suffixNumber)) -gt 1 ]]; then
+  if [[ $((10#$suffixNumber)) -gt 0 ]]; then
     local -r previousChallengeNumber=$(printf %02d $((10#$suffixNumber - 1)))
     previousNavigationLink="[< Previous $linkName](./$linkName-$previousChallengeNumber.md) - "
   fi
@@ -152,9 +165,13 @@ CreateChallengeMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Challenge" false)
+  local -r navigationLine=$(GenerateNavigationLink $suffixNumber $numberOfChallenges "Challenge" false)
 
-  WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
+  if [[ $suffixNumber -eq "00" ]]; then
+    WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-ChallengeZero-Template.md"
+  else
+    WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Template.md"
+  fi
 }
 
 CreateSolutionMarkdownFile() {
@@ -166,7 +183,7 @@ CreateSolutionMarkdownFile() {
     echo "Creating $fullPath/$prefix-$suffixNumber.md..."
   fi
 
-  local -r navigationLine=$(GenerateNavitationLink $suffixNumber $numberOfChallenges "Solution" true)
+  local -r navigationLine=$(GenerateNavigationLink $suffixNumber $numberOfChallenges "Solution" true)
 
   WriteMarkdownFile "$fullPath/$prefix-$suffixNumber.md" "WTH-Challenge-Solution-Template.md"
 }
@@ -179,7 +196,7 @@ CreateChallenges() {
     echo "Creating $numberOfChallenges challenge Markdown files in $fullPath..."
   fi
 
-  for challengeNumber in $(seq -f "%02g" 1 $numberOfChallenges); do
+  for challengeNumber in $(seq -f "%02g" 0 $numberOfChallenges); do
     CreateChallengeMarkdownFile "$fullPath" "Challenge" $challengeNumber $numberOfChallenges
   done
 }
@@ -207,7 +224,7 @@ CreateSolutions() {
     echo "Creating $numberOfSolutions solution Markdown files in $fullPath..."
   fi
 
-  for solutionNumber in $(seq -f "%02g" 1 $numberOfSolutions); do
+  for solutionNumber in $(seq -f "%02g" 0 $numberOfSolutions); do
     CreateSolutionMarkdownFile "$fullPath" "Solution" $solutionNumber
   done
 }
@@ -234,7 +251,7 @@ while getopts ":c:dhn:p:v" option; do
     d) deleteExistingDirectoryArg=true;;
     h) Help
        exit;;
-    n) nameOfChallengeArg=${OPTARG};;
+    n) nameOfHackArg=${OPTARG};;
     p) pathArg=${OPTARG};;
     v) verbosityArg=true
   esac
@@ -242,12 +259,12 @@ done
 
 if $verbosityArg; then
   echo "Number of Challenges: $numberOfChallengesArg"
-  echo "Name of Challenge: $nameOfChallengeArg"
+  echo "Name of Challenge: $nameOfHackArg"
   echo "Path: $pathArg"
   echo "Delete existing directory: $deleteExistingDirectoryArg"
 fi
 
-declare -r wthDirectoryName="xxx-$nameOfChallengeArg"
+declare -r wthDirectoryName="xxx-$nameOfHackArg"
 
 declare -r rootPath="$pathArg/$wthDirectoryName"
 

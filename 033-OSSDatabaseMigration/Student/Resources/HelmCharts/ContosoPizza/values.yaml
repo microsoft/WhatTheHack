@@ -1,4 +1,3 @@
-
 replicaCount: 1
 
 # Change the application settings here
@@ -49,7 +48,7 @@ infrastructure:
   volumeName: "contosopizza"
 
 image:
-  name: izzymsft/ubuntu-pizza
+  name: perktime/ubuntu-pizza
   pullPolicy: IfNotPresent
   tag: "1.0"
 
@@ -76,3 +75,6 @@ appSettings:
   postgres:
     dialect: "org.hibernate.dialect.PostgreSQL95Dialect"
     driverClass: "org.postgresql.Driver"
+  oracle:
+    dialect: "org.hibernate.dialect.Oracle12cDialect"
+    driverClass: "oracle.jdbc.OracleDriver"

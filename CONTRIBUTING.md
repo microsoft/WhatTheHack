@@ -110,31 +110,40 @@ All contributions to the What The Hack repo come through pull requests. This mea
 
 Okay, ready to get started creating your own What The Hack?
 
-The instructions below assume you have the [Git command line tool](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your machine. If you're more comfortable in a GUI Git client, you can use that too (we recommend [Atlassian's SourceTree](https://www.sourcetreeapp.com/)).
+We have a GitHub Action that automates the creation of a new hack and "scaffolds" out all of the Markdown templates from the [WTH Author's Guide](https://aka.ms/wthauthor) for you. After that, you can open your [favorite text editor](https://code.visualstudio.com) and start plugging in your content.
+
+The instructions below assume you have the [Git command line tool](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Visual Studio Code](https://code.visualstudio.com/) installed on your machine. 
 
 1. Create a fork of the WTH repo
-   - Navigate to the WTH repo at: <https://aka.ms/wthrepo>
+   - Navigate to the WTH repo at: [https://aka.ms/wthrepo](https://aka.ms/wthrepo)
    - Click the "Fork" button at the top right of the page and then choose the account you want to create the fork in. 
-1. Clone your new fork to your local machine
+1. Navigate to your fork of the WTH repo in the browser at: 
+    ```https://github.com/<myGithubName>/WhatTheHack```
+1. Click on the "Actions" tab at the top of the page and then select "Create new hack" from the list of "All Workflows" that appears on the left side of the screen.
+1. Click on the "Run workflow" dropdown that appears on the right side of the page and fill in the form that appears with:
+    - The name of your hack. Do not use spaces in your hack's name.
+    - The number of challenges you would like your hack to have. We recommend selecting a higher number of challenges than you actually plan to have as it is easier to remove extra challenge templates then add new ones manually later.
+    
+    **NOTE:** Do NOT change the value of the "Run workflow from" field from the pre-selected "branch: master" 
+1. Click the green "Run Workflow" button on the form to kick off the GitHub Action. This process will take a couple of minutes to complete. The action will:
+    - Create a new branch in your fork with the name of your hack prefixed with "xxx-". For example: `xxx-MyAwesomeHack`
+    - Create a new folder in the new branch with the same name as the branch: `xxx-MyAwesomeHack`
+    - Create templated markdown files in the new folder for your hack as per the [WTH Author's Guide](https://aka.ms/wthauthor).
+1. When the GitHub Action has completed running, clone your new fork to your local machine.
+    - Open a command prompt with access to the Git CLI and navigate to a folder location on your local workstation where you would like to clone it to.
+    - **WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, Google Drive, etc.
+    - Run the `git clone` command as shown below, then navigate to the `WhatTheHack` folder that is created afterward.
    ```
-   git clone https://github.com/<myname>/WhatTheHack.git
+   git clone https://github.com/<myGitHubName>/WhatTheHack.git
    cd WhatTheHack
    ```
-1. Create a new branch for your work in your fork. It is a best practice to never work directly on the main/master branch
+1. Switch to the new branch created by the 'Create new hack' GitHub Action. 
    ```
-   git branch MyWork
-   git checkout MyWork
+   git checkout xxx-MyAwesomeHack
    ```
-1. Add a new top level folder to the WTH repo using "`XXX`" as a placeholder for the number prefix
-   `mkdir XXX-MyAwesomeHack`
-1. Within your new folder, create the following directory structure:
-	```
-    ../Coach
-	    /Solutions
-	../Student
-	    /Resources
-    ```
-1. Follow the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) and scaffold out your hack's content as shown here:
+   **NOTE:** It is a best practice to never work directly on the main/master branch.
+
+1. Navigate to the new `WhatTheHack` folder on your local machine and open it with [Visual Studio Code](https://code.visualstudio.com) or your favorite text editor. In the `xxx-MyAwesomeHack` folder, you should see Markdown templates as per the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md):
     - `../`
         - Hack Description
     - `../Coach`
@@ -145,7 +154,10 @@ The instructions below assume you have the [Git command line tool](https://git-s
         - The Student guide's Challenge markdown files
         - `/Resources` 
             - The code and supporting files the students will need throughout the hack.
-1. Re-read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.
+1. Re-read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.  The templates contain in-line instructions and sample text to help guide you. 
+
+**NOTE:** If you have any questions regarding how to use Git/GitHub (commits/push/pull/etc), the WTH V-Team will be happy to help you.
+
 
 ### Release Process
 

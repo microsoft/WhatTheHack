@@ -1,3 +1,15 @@
+<!-- {% comment %} -->
+# What The Hack - Repo
+
+Welcome to the What The Hack repo on GitHub. This repo contains Coach content designed for people planning to host a What The Hack event with students in an organization. 
+
+If you are an organization that is interested in attending or hosting a What The Hack event, please visit the [What The Hack website](https://aka.ms/wth) at: **https://aka.ms/wth**
+
+**If you are a student attending a What The Hack event, please go to the [What The Hack website](https://aka.ms/wth).**
+
+![What The Hack Website](/assets/images/wth-logo.png)
+<!-- {% endcomment %} -->
+
 # What is What The Hack?
 
 "What the Hack" is a set of challenge based hackathons that can be hosted in-person or virtually via Microsoft Teams.
@@ -55,7 +67,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
-- [Mastering Linux](/020-MasteringLinux/README.md)
+- [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [Azure Virtual Desktop](/037-AzureVirtualDesktop/README.md)
 - [SAP On Azure](/042-SAPOnAzure/README.md)
 
@@ -67,20 +79,24 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
-- [Mastering Linux](/020-MasteringLinux/README.md)
+- [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
+- [Azure Integration Services - API Management with Function Apps](/050-AIS-APIManagementwithFunctions/README.md)
+- [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
 - [DevOps with GitHub Actions](/044-DevOpswithGitHubActions/README.md)
-- [Azure DevOps](/010-AzureDevOps/readme.md)
+- [Azure DevOps](/010-AzureDevOps/README.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
-- [Mastering Linux](/020-MasteringLinux/README.md)
+- [Linux Fundamentals](/020-LinuxFundamentals/README.md)
+- [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 
 ## Data & AI
+- [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
 - [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
@@ -93,8 +109,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Synapse Dedicated SQL Pool - Performance Best Practices](/049-SQLDedicatedPoolPerf/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
-- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
-- [Driving Miss Data](/003-DrivingMissData/README.md)
+- [Intro To Azure AI](/002-IntroToAzureAI/README.md) - ARCHIVED
+- [Driving Miss Data](/003-DrivingMissData/README.md) - ARCHIVED
 
 ## Microsoft Teams Platform
 - [Microsoft Teams: Make It Real](/034-MicrosoftTeams-MakeItReal/README.md)
@@ -112,5 +128,16 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
 
-# [License](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE)
+## SAP on Azure
+- [SAP on Azure](/042-SAPOnAzure/README.md)
+- [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
+
+## Archived
+
+These hacks have been archived due to obsolesence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
+
+- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
+- [Driving Miss Data](/003-DrivingMissData/README.md)
+
+# License
 This repository is licensed under MIT license. More info can be found [here](https://github.com/Microsoft/WhatTheHack/blob/master/LICENSE).
