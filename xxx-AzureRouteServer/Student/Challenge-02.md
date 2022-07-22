@@ -1,22 +1,11 @@
-# Challenge 02 - <Title of Challenge>
+# Challenge 02 -  Introduce Azure Route Server and peer with a Network Virtual appliance
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this challenge you will introduce Azure Route Server in the topology you have built previously in order to establish dynamic routing accross the Hub and Spoke Topology. 
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
 
 ## Description
 
@@ -57,10 +46,14 @@ You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.P
 
 *Sample success criteria for the IoT sample challenge:*
 
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+At the end of this challenge you should: 
+- Verify our environment has no UDRs. 
+- Validate the following traffic is still going through the NVA. 
+  - spoke-to-spoke
+  - spokes-to-onprem
+  - onprem-to-hub
+  - onprem-to-spokes
+- Demonstrate to your coach you understand the behavior of the Route Server for this excercise. 
 
 ## Learning Resources
 
