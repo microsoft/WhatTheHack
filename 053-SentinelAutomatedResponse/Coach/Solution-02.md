@@ -7,13 +7,13 @@
 In this section of the Coach's guide, you fill find guidance, code, and examples that will help you guide the teams over the course of the WTH. 
 In the spirit of continuous improvement, update this repository with any suggestions, altertnatives, or additional challenges.
 
-This section of the hack includes a optional [Sentinel Review Deck](./Coach/Intro2Sentinel-C2.pptx?raw=true) that features a short presentation to introduce key topics associated with this challenge. 
+This section of the hack includes a optional [Sentinel Review Deck](./Intro2Sentinel-C2.pptx?raw=true) that features a short presentation to introduce key topics associated with this challenge. 
 
 Instructions on how to update the repository with updates can be found here. https://aka.ms/wthcontribute
-</br>
-## Part 1 - Alerts </br>
 
-Analytics/Scheduled query rule: </br>
+## Part 1 - Alerts 
+
+Analytics/Scheduled query rule: 
 
 SecurityEvent </br>
 | where EventID == 4624 </br>
