@@ -18,6 +18,8 @@ Please perform the following actions:
 - Successfully establish BGP relationship between ARS and the Central Network Virtual Appliance
 - Analyze the different routing advertisements (VPN Gateway and ARS)
 
+*For this section, student will also be provided the necessary configuration for a Cisco CSR 1000v to establish BGP relationship with Azure Route Server and remove any stale configuration from the last section. Again, if the student has another third pary NVA preference, please provide the necessary configuration.*
+
 ## Success Criteria
 
 At the end of this challenge you should: 
