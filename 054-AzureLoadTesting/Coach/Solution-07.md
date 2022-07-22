@@ -1,8 +1,11 @@
-# Challenge 07 - Azure Load Testing - Coach's Guide 
+# Challenge 07 - Load Testing With Chaos Experiment (Resilience Testing) - Coach's Guide 
 
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
+
+Here are instructions on how to setup Chaos Studio and run the experiment.  Chaos studio does not offer a GitHub action at this time.  We want the users to get a taste of chaos engineering so they can trigger the chaos experiment manually while the load test runs.  They are not required to implement this all in the pipeline.  That is an advanced challenge.
+
 - Azure Chaos studio only supports a number of faults such as VMs, AKS, Cosmos DB, and networking to name a few.  Since our sample app only contains App Services and Cosmos DB, we will use the Cosmos DB faults.
 - First you will need to enable geo-redundancy in your Cosmos DB.  Go to your Cosmos DB instance and select "Enable Geo Redundancy" on the top bar.  Keep note of the paired region your cosmos db is paired with.
 - Create Azure Chaos Studio/Experiment

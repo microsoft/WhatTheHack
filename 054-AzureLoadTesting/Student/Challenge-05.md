@@ -12,9 +12,8 @@ Review your load test results to see where there are potential bottlenecks in yo
 
 ## Success Criteria
 
-- Present your test result insights to your coach - including prioritized list of bottlenecks and potential remediation steps
-- Identify a bottleneck that you could reasonably remediate in the time allotted
-- Rerun the load test and demonstrate some measurable improvement in the application performance or a reduction of errors
+- Show how you found the bottleneck
+- Verify that your bottleneck has been resolved.
 
 ## Learning Resources
 

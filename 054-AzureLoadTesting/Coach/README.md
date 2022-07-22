@@ -12,17 +12,59 @@ There is a sample application located in the student resources folder.  This wil
 
 
 ## Coach's Guides
-1. Challenge 01: **[Develop a Load Testing Strategy](./Solution-01.md)**
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
+	 - Prepare your workstation to work with Azure.
+- Challenge 01: **[Develop a Load Testing Strategy](./Solution-01.md)**
 	 - How to develop a load testing strategy for your application
-1. Challenge 02: **[Deploy Sample App & Create Load Testing Script](./Solution-02.md)**
+- Challenge 02: **[Create a Load Testing Script](./Solution-02.md)**
 	 - Deploy a sample application and create JMeter scripts to support your load testing strategy
-1. Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](./Solution-03.md)**
+- Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](./Solution-03.md)**
 	 - Create Azure Load Testing Service and learn techniques on how to establish baselines for your application
-1. Challenge 04: **[Enable Automated Load Testing (CI/CD)](./Solution-04.md)**
+- Challenge 04: **[Enable Automated Load Testing (CI/CD)](./Solution-04.md)**
 	 - Incorporating load testing into your CI/CD Pipeline
-1. Challenge 05: **[Identify & Remediate Bottlenecks](./Solution-05.md)**
+- Challenge 05: **[Identify & Remediate Bottlenecks](./Solution-05.md)**
 	 - Reviewing load test results and identifying bottlenecks
-1. Challenge 06: **[Stress Testing](./Solution-06.md)**
+- Challenge 06: **[Stress Testing](./Solution-06.md)**
 	 - How to perform stress tests and observing your application behavior
-1. Challenge 07: **[Load Testing During Chaos Experiment](./Solution-07.md)**
+- Challenge 07: **[Load Testing With Chaos Experiment (Resilience Testing)](./Solution-07.md)**
 	 - Incorporating load testing and chaos experiments together
+
+## Coach Prerequisites
+
+This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
+
+The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
+
+### Student Resources
+
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file as this contains the sample application they will need for this hack. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+
+Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
+
+**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
+
+## Azure Requirements
+
+This hack requires students to have access to an Azure subscription/resource group where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+
+Requirements:
+
+- Contributor permissions to a subscription or resource group
+- Resources - The following resources will be created during the hack
+	- Azure Load Testing
+	- Azure App Service
+	- Azure Cosmos DB
+	- Azure Application Insights
+
+## Repository Contents
+
+_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
+
+- `./Coach`
+  - Coach's Guide and related files
+- `./Coach/Solutions`
+  - Solution files with completed example answers to a challenge
+- `./Student`
+  - Student's Challenge Guide
+- `./Student/Resources`
+  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)

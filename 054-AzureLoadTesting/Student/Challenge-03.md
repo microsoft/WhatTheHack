@@ -21,8 +21,7 @@ Baselines help to determine the current efficiency state of your application and
 
 ## Success Criteria
 
-- Create an Azure Load Testing Service.
-- Run your load tests and establish a baseline.
+- Show your load tests run in Azure Load Testing service and what your performance baseline is.
 - Show that you can run the same load test and change parameters to hit different environments.
 
 ## Learning Resources

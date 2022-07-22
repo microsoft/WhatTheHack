@@ -2,10 +2,6 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-## Pre-requisites
-
-- You will need a GitHub account or Azure DevOps environment to create/run your workflows.
-
 ## Introduction
 
 You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build. In the test configuration, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, when the average response time exceeds a threshold, the test should fail. To get the maximum value from this approach, it is critical to integrate this in your CI/CD workflow as soon as possible.

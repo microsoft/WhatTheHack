@@ -1,8 +1,11 @@
-# Challenge 01 - Azure Load Testing - Coach's Guide 
+# Challenge 01 - Develop a Load Testing Strategy - Coach's Guide 
 
-**[Home](./README.md)** - [Next Solution >](./Solution-02.md)
+[< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
+
+Below is a sample load testing plan we have mapped out.  Students will have something different as we left it up to the student to interpret the environment however the overall feel should be similar.
+
 - Sample Load Testing Plan
 
 

@@ -1,8 +1,10 @@
-# Challenge 03 - Azure Load Testing - Coach's Guide 
+# Challenge 03 - Create Azure Load Testing Service and Establish Baselines - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes & Guidance
+
+Below are the instructions to complete challenge 3
 
 - Create Azure Load Testing resource
     - Search for the Azure Load Testing resource on the top search bar and select the resource.
@@ -30,3 +32,5 @@
     - Go back to your load test and select "Configure" followed by "Test"
     - Go to the "Test Criteria" Tab.
     - Enter in your test criteria such as failure rate under x %
+
+Sample solution JMeter script is located in the solution directory [here](./Solutions/Challenge3/).

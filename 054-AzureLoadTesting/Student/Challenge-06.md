@@ -15,10 +15,8 @@ Unlike load testing, which ensures that a system can handle what it's designed t
 
 ## Success Criteria
 
-- Review your *stress* test scripts and discuss the parameters that are different from a traditional *load* test.
 - Show a side-by-side comparison of the load tests results and the stress test results. 
-- Discuss the bottlenecks and breakpoints of the application under stress.
-- Discuss the steps needed to remediate to the bottlenecks and breakpoints.
+- Show where the bottlenecks and breakpoints are in the application from these tests.
 
 ## Learning Resources
 

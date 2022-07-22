@@ -1,4 +1,4 @@
-# Challenge 05 - Azure Load Testing - Coach's Guide 
+# Challenge 05 - Identify & Remediate Bottlenecks - Coach's Guide 
 
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 

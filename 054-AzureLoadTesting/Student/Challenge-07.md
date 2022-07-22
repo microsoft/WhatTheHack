@@ -15,8 +15,7 @@ We have gone over load testing for the majority of this hack.  While the informa
 
 ## Success Criteria
 
-- Identify failure points from your resilience test
-- Create a remediation plan to show how your application can withstand these failures in the future.
+- Show the failure points that occurred during your resilience testing and your remediation plan
 
 ## Learning Resources
 
