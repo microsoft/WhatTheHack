@@ -41,13 +41,10 @@ Send a message to your security operations channel in Microsoft Teams or Slack t
 
 ## Learning Resources
 
-**[Sentinel GitHub repository](  https://github.com/Azure/Azure-Sentinel)**
-
-**[Sentinel playbooks – understanding API connection]( https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/understanding-api-connections-for-your-microsoft-sentinel/ba-p/2593973)**
-
-**[Teams and email](  https://docs.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks)**
-
-**[Playbooks with automation rules](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC)**
+- [Sentinel GitHub repository](  https://github.com/Azure/Azure-Sentinel)
+- [Sentinel playbooks – understanding API connection]( https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/understanding-api-connections-for-your-microsoft-sentinel/ba-p/2593973)
+- [Teams and email](  https://docs.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks)
+- [Playbooks with automation rules](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC)
 
 
 ## Tips
