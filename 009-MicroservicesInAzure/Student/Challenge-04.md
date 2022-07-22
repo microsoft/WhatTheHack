@@ -19,8 +19,8 @@ For our microservices based architecture, we're going to use containers for our 
 - The Data API and Itinerary API containers, both need to specify a DNS Name, so they are easily addressable by the Web Site.
   - After you get the Data API deployed, use the Azure CLI to query the deployed container for its full qualified domain name (FQDN) and store it in a variable called:  
     - `dataServiceUri`
-    - After you get the Itinerary API deployed, use the Azure CLI to query the deployed container for the FQDN and store it in a variable called:  
-      - `itineraryServiceUri`
+  - After you get the Itinerary API deployed, use the Azure CLI to query the deployed container for the FQDN and store it in a variable called:  
+    - `itineraryServiceUri`
 - Verify the Data Service by browsing the URL:  
   - `http://$dataServiceUri/api/airport`
   - It should return a list of Airports
