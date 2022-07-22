@@ -30,13 +30,10 @@ Query Scheduling:</br> ![image](https://user-images.githubusercontent.com/225992
 Incident Settings: </br> ![image](https://user-images.githubusercontent.com/22599225/147886542-c3c87e82-a01c-4a3b-8d5a-64b573d52067.png)
 
 Automated Response: (next Challenge)
-</br>
+
 
 At this point the user should now be able to log into the Windows server and then within 3 minutes (usually more like 45 seconds) see the 4624 event.
 If the student has not included the '| where LogonType == 10 or LogonType == 7' in their query, this is a good point to add it.
-
-</br>
-</br>
 
 ## Part 2 - Watchlists  </br>
      
@@ -65,9 +62,9 @@ Double click on ‘Watchlist’ , then click Run  - you should see your table.</
 
 Step 2: Set the retention period </br>
 *Method 1 - Deploy the ARM template
-https://github.com/slavizh/ARMTemplates/blob/master/log-analytics/retention-per-table.json </br> </br>
+https://github.com/slavizh/ARMTemplates/blob/master/log-analytics/retention-per-table.json
 
-Note: This repository belongs to a public contributor on GitHub, not a Microsoft product team. Please mark this with a disclaimer that you are linking to content you don't own and may not be available. If the content is not available, please file a bug via the WTH Contribution Guide process: https://aka.ms/wthcontribute </br></br>
+**NOTE:** The repository linked above is not part of the What The Hack repository. This repo was available at the time of this publication but if it's not there, please report it as a bug via the WTH Contribution Guide process: https://aka.ms/wthcontribute
 
 Method 2 - Download the ARM client from chocolaty </br>
 armclient GET /subscriptions/bd4d88c1-fc0f-482f-b57b-2f3ed541945e/resourceGroups/WTH-Sentinel/providers/Microsoft.OperationalInsights/workspaces/WTH-Sentinel-LAW/Tables/Watchlist?api-version=2017-04-26-preview </br>
