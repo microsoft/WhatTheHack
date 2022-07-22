@@ -6,13 +6,18 @@
 
 Commands to run to create variables (substitute XXX for the unique prefix):
 
-- For Bash:
-  - ```
-    export loc="centralus"
-    export rg="rg-XXX"
-- For Powershell:   
-  - ```
-    $loc = "centralus"
-    $rg = "rg-XXX"
-- ```
-  az group create --name $rg --location $loc --subscription $sub
+For Bash:
+
+```bash
+export loc="centralus"
+export rg="rg-XXX"
+```
+
+For Powershell:
+
+```powershell
+$loc = "centralus"
+$rg = "rg-XXX"
+```
+
+```az group create --name $rg --location $loc --subscription $sub```

@@ -11,11 +11,11 @@ In this challenge, we are deploying our web front end container into Azure App S
 - Using the Azure CLI, create a Standard Linux App Service Plan
 - Using the Azure CLI, create a Web App and set the `microservicesdiscovery/travel-web` as the container image for the Web App
 - The following Application Settings need to be added:
-	- `DataAccountName`: Name of the Cosmos DB Account
-	- `DataAccountPassword`: Primary Key of the Cosmos DB Account
-	- `ApplicationInsights__InstrumentationKey`:  Instrumentation Key of the App Insights Resource
-	- `DataServiceUrl`: The URL to the Data Service, only over HTTP
-	- `ItineraryServiceUrl`: The URL to the Itinerary Service, only over HTTP
+  - `DataAccountName`: Name of the Cosmos DB Account
+  - `DataAccountPassword`: Primary Key of the Cosmos DB Account
+  - `ApplicationInsights__InstrumentationKey`:  Instrumentation Key of the App Insights Resource
+  - `DataServiceUrl`: The URL to the Data Service, only over HTTP
+  - `ItineraryServiceUrl`: The URL to the Itinerary Service, only over HTTP
 - Verify that you can browse to the URL of the App Service and get the website to display.
 
 ## Success Criteria
