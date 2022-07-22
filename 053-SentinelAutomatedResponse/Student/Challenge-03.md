@@ -54,7 +54,7 @@ Check the GitHub repository for existing Logic Apps/ Playbooks.
 
 When adding the Playbook, you need to Manage playbook permissions (in blue, just under the Actions heading).  
 
-Read the learning resource abouve on automated response to find out how to link into Teams (and you can search the web for additional info).  
+Read the learning resource above on automated response to find out how to link into Teams (and you can search the web for additional info).  
 
 ## Advanced Challenges
 
