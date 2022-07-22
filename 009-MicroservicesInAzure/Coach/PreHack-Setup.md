@@ -9,8 +9,8 @@ Someone who’s kicking off the hack needs to have access to a running version o
 ## Setup Procedure
 
 1. Chose the script file you will use for this setup. We have provided both bash and powershell:
- - [./Solutions/Scripts/deployHack.sh](Solutions/Scripts/deployHack.sh)
- - [./Solutions/Scripts/deployHack.ps1](Solutions/Scripts/deployHack.ps1)
+	- [./Solutions/Scripts/deployHack.sh](Solutions/Scripts/deployHack.sh)
+	- [./Solutions/Scripts/deployHack.ps1](Solutions/Scripts/deployHack.ps1)
 1. Login to Azure Portal and start the Cloud Shell
 1. Upload the appropriate script file through Cloud Shell based on which shell you’re using:
 	- bash: `deployHack.sh`
