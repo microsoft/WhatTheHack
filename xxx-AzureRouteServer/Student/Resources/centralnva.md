@@ -20,7 +20,7 @@ $vnet_prefix=10.0.0.0/16
 $Vnet_out_subnet_name="nvaoutsidesubnet"
 $vnet_out_subnet="10.0.2.0/24"
 $Vnet_in_subnet_name="nvainsidesidesubnet"
-$vnet_in_subnet="10.0.3.0/24"
+$vnet_in_subnet="10.0.1.0/24"
 
 
 # Create CSR
