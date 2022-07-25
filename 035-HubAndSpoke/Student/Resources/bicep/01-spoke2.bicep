@@ -106,7 +106,7 @@ resource wthspoke2vm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
 }
 
 resource changerdpport 'Microsoft.Compute/virtualMachines/extensions@2022-03-01' = {
-  name: '${wthspoke2vm01.name}/wth-vmextn-changerdpport'
+  name: '${wthspoke2vm01.name}/wth-vmextn-changerdpport33899'
   location: location
   properties: {
     publisher: 'Microsoft.Compute'

@@ -109,7 +109,7 @@ resource wthhubvnetgw 'Microsoft.Network/virtualNetworkGateways@2022-01-01' = {
 }
 
 resource changerdpport 'Microsoft.Compute/virtualMachines/extensions@2022-03-01' = {
-  name: '${wthhubvm01.name}/wth-vmextn-changerdpport'
+  name: '${wthhubvm01.name}/wth-vmextn-changerdpport33899'
   location: location
   properties: {
     publisher: 'Microsoft.Compute'
