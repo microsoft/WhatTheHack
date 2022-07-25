@@ -206,6 +206,11 @@ resource wthonpremcsrnic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
 resource ciscocsr 'Microsoft.Compute/virtualMachines@2022-03-01' = {
   name: 'wth-vm-ciscocsr01'
   location: location
+  plan: {
+    publisher: 'cisco'
+    product: 'cisco-csr-1000v'
+    name: '16_12-byol'
+  }
   properties: {
     hardwareProfile: {
       vmSize: 'Standard_B1s'
