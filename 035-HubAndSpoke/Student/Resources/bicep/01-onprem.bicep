@@ -195,7 +195,7 @@ resource wthonpremcsrnic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
           }
           privateIPAddress: '172.16.0.4'
           publicIPAddress: {
-            id: wthonpremvmpip01.id
+            id: wthonpremcsrpip01.id
           }
         }
       }
