@@ -40,7 +40,7 @@ These are your challenges, it is recommended to start with the first one and pro
     - Fine tune your routing to send additional traffic flows through the firewall
 - Challenge 3: **[Routing Troubleshooting](Student/03-Asymmetric.md)**
     - Troubleshoot a routing problem introduced by a different admin
-- Challenge 4: **[Application Gateway](Student/04-AppGW.MD)**
+- Challenge 4: **[Application Gateway](Student/04-AppGW.md)**
     - Add an Application Gateway to the mix
 - Challenge 5: **[PaaS Networking](Student/05-Paas.md)**
     - Integrate Azure Web Apps and Azure SQL Databases with your hub and spoke design
