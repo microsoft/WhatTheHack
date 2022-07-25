@@ -207,6 +207,9 @@ resource ciscocsr 'Microsoft.Compute/virtualMachines@2022-03-01' = {
   name: 'wth-vm-ciscocsr01'
   location: location
   properties: {
+    hardwareProfile: {
+      vmSize: 'Standard_B1s'
+    }
     storageProfile: {
       imageReference: {
         publisher: 'cisco'
