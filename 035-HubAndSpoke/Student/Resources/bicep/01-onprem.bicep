@@ -232,6 +232,7 @@ resource ciscocsr 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       adminUsername: onpremVMUsername
       adminPassword: onpremVMPassword
+      computerName: 'csr'
     }
   }
 }
