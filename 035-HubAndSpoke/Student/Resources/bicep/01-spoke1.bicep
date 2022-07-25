@@ -103,6 +103,7 @@ resource wthspoke1vm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
 
 resource rtspoke1vms 'Microsoft.Network/routeTables@2022-01-01' = {
   name: 'wth-rt-spoke1vmssubnet'
+  location: location
   properties: {
     routes: []
     disableBgpRoutePropagation: false
@@ -111,6 +112,7 @@ resource rtspoke1vms 'Microsoft.Network/routeTables@2022-01-01' = {
 
 resource nsgspoke1vms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
   name: 'wth-nsg-spoke1vmssubnet'
+  location: location
   properties: {
     securityRules: [
       {

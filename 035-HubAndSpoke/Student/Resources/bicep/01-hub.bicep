@@ -168,6 +168,7 @@ resource wthhubvm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
 
 resource rtvnetgw 'Microsoft.Network/routeTables@2022-01-01' = {
   name: 'wth-rt-hubgwsubnet'
+  location: location
   properties: {
     routes: []
     disableBgpRoutePropagation: false
@@ -176,6 +177,7 @@ resource rtvnetgw 'Microsoft.Network/routeTables@2022-01-01' = {
 
 resource rthubvms 'Microsoft.Network/routeTables@2022-01-01' = {
   name: 'wth-rt-hubvmssubnet'
+  location: location
   properties: {
     routes: []
     disableBgpRoutePropagation: false
@@ -184,6 +186,7 @@ resource rthubvms 'Microsoft.Network/routeTables@2022-01-01' = {
 
 resource nsghubvms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
   name: 'wth-nsg-hubvmssubnet'
+  location: location
   properties: {
     securityRules: [
       {
