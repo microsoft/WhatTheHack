@@ -48,6 +48,9 @@ resource wthhubgwpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
     name: 'Standard'
     tier: 'Regional'
   }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
 }
 
 resource wthhubgwpip02 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
@@ -56,6 +59,9 @@ resource wthhubgwpip02 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
   sku: {
     name: 'Standard'
     tier: 'Regional'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
   }
 }
 
@@ -99,6 +105,17 @@ resource wthhubvnetgw 'Microsoft.Network/virtualNetworkGateways@2022-01-01' = {
         }
       }
     ]
+  }
+}
+
+resource changerdpport 'Microsoft.Compute/virtualMachines/runCommands@2022-03-01' = {
+  name: '${wthhubvm01.name}/wth-vmextn-changerdpport'
+  location: location
+  properties: {
+    source: {
+      commandId: 'RunPowershellScript'
+      script: 'U2V0LUl0ZW1Qcm9wZXJ0eSAtUGF0aCAiSEtMTTpcU3lzdGVtXEN1cnJlbnRDb250cm9sU2V0XENvbnRyb2xcVGVybWluYWwgU2VydmVyXFdpblN0YXRpb25zXFJEUC1UY3BcIiAtTmFtZSBQb3J0TnVtYmVyIC1WYWx1ZSAzMzg5OQpOZXctTmV0RmlyZXdhbGxSdWxlIC1EaXNwbGF5TmFtZSAiUkRQIDMzODk5IFRDUCIgLURpcmVjdGlvbiBJbmJvdW5kIC1Mb2NhbFBvcnQgNTAxMDIgLVByb3RvY29sIFRDUCAtQWN0aW9uIEFsbG93Ck5ldy1OZXRGaXJld2FsbFJ1bGUgLURpc3BsYXlOYW1lICJSRFAgMzM4OTkgVURQIiAtRGlyZWN0aW9uIEluYm91bmQgLUxvY2FsUG9ydCA1MDEwMiAtUHJvdG9jb2wgVURQIC1BY3Rpb24gQWxsb3cKUmVzdGFydC1TZXJ2aWNlIC1OYW1lIFRlcm1TZXJ2aWNlIC1Gb3JjZQ=='
+    }
   }
 }
 
