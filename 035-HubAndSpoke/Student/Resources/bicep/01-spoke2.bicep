@@ -116,6 +116,7 @@ resource nsgspoke1vms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
       {
         name: 'allow-altrdp-to-vmssubnet-from-any'
         properties: {
+          priority: 1000
           access: 'Allow'
           direction: 'Inbound'
           protocol: 'Tcp'
@@ -128,6 +129,7 @@ resource nsgspoke1vms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
       {
         name: 'allow-altssh-to-vmssubnet-from-any'
         properties: {
+          priority: 1000
           access: 'Allow'
           direction: 'Inbound'
           protocol: 'Tcp'
