@@ -36,6 +36,8 @@ It is of paramount importance that you are aware that 100% of the Azure Route Se
 - [BGP Fundamentals](https://www.linkedin.com/learning/cisco-ccnp-encor-350-401-cert-prep-1-architecture-virtualization-and-infrastructure/fundamental-bgp-concepts?autoplay=true&u=3322)
 
 - [Great overview of BGP concepts outside configurations](https://www.youtube.com/watch?v=ydE-HprufbA)
+
+- [About VGP with Azure VPN Gateway] (https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
  
 ### Route Server and Azure Route Server
 
