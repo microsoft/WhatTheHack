@@ -20,7 +20,7 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 - Challenge 01: **[ARO Cluster Deployment](Student/Challenge-01.md)**
 	 - Deploy an ARO cluster and access it using CLI and the Red Hat Portal
 - Challenge 02: **[Application Deployment](Student/Challenge-02.md)**
-	 - Description of challenge
+	 - Deploy the frontend and backend of an application onto the ARO cluster
 - Challenge 03: **[Logging and Metrics](Student/Challenge-03.md)**
 	 - Description of challenge
 - Challenge 04: **[Storage](Student/Challenge-04.md)**
