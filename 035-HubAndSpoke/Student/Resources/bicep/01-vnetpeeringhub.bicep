@@ -1,5 +1,3 @@
-param location string = 'eastus2'
-
 resource hubvnet 'Microsoft.Network/virtualNetworks@2022-01-01' existing = {
   name: 'wth-vnet-hub01'
   scope: resourceGroup('wth-rg-hub')

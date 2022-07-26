@@ -36,10 +36,16 @@ param (
 )
 
 If (-NOT (Test-Path ./01-resourceGroups.bicep)) {
-    $scriptPath = ($MyInvocation.MyCommand.Path | Split-Path -Parent)
-    Write-Warning "This script need to be executed from the directory containing the bicep files. Attempting to set location to '$scriptPath'"
 
+    Write-Warning "This script need to be executed from the directory containing the bicep files. Attempting to set location to script location."
+
+    try {
+    $scriptPath = ($MyInvocation.MyCommand.Path | Split-Path -Parent -ErrorAction Stop)
     Push-Location -Path $scriptPath -ErrorAction Stop
+    }
+    catch {
+        Write-Error "Failed to set path to bicep file location. Use the 'cd' command to change the current directory to the same location as the WTH bicep files before executing this script."
+    }
 }
 
 If ( -NOT ($azContext = Get-AzContext)) {

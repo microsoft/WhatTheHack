@@ -154,7 +154,7 @@ resource nsgonpremvms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
           sourcePortRange: '*'
           destinationPortRange: '33899-33899'
           sourceAddressPrefix: '*'
-          destinationAddressPrefix: '10.1.10.0/24'
+          destinationAddressPrefix: '172.16.10.0/24'
         }
       }
       {
@@ -167,7 +167,7 @@ resource nsgonpremvms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
           sourcePortRange: '*'
           destinationPortRange: '22222-22222'
           sourceAddressPrefix: '*'
-          destinationAddressPrefix: '10.1.10.0/24'
+          destinationAddressPrefix: '172.16.10.0/24'
         }
       }
     ]
@@ -217,7 +217,7 @@ resource ciscocsr 'Microsoft.Compute/virtualMachines@2022-03-01' = {
   }
   properties: {
     hardwareProfile: {
-      vmSize: 'Standard_B1s'
+      vmSize: 'Standard_B2ms'
     }
     storageProfile: {
       imageReference: {
