@@ -30,8 +30,8 @@ ip route 10.0.3.5 255.255.255.255 10.0.1.1
 !
 ```
 
-# The following set of commands might be useful when influencing traffic to flow the NVA. Please stop to think for a minute which is the most adequate.
-Note that for Cisco CSR 1000v or any Router in general, the prefixes to be advertised in BGP, they need to exist first in the routing table and be valid!
+# The following set of commands might be useful when influencing traffic to flow through the NVA. Please stop to think for a minute which is the most adequate.
+Note that for Cisco CSR 1000v or any Router in general, the prefixes to be advertised in BGP, need to exist first in the routing table and be valid!
 
 ## Advertise a default route
 
