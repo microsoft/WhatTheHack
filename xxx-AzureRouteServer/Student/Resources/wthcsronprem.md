@@ -5,20 +5,19 @@
 You can use this script to deploy a Cisco CSR router to a new Vnet:
 
 ```bash
-# Variables
-$rg = myrg
+$rg = datacenter-rg
 $location = <Azure region of your choice>
 $publisher= "cisco"
 $offer= "cisco-csr-1000v"
 $sku = "16_12-byol"
-$branch_name = "branch1"
-$branch_prefix = "172.16.1.0/24"
-$branch_subnet = "172.16.1.0/26"
-$branch_gateway = "172.16.1.1"
-$branch_bgp_ip= "172.16.1.10"
-$branch_asn = "65501"
-$branch_username = "labuser"
-$branch_password = "BlahBlah123!"
+$site_name = "datacenter"
+$site_prefix = "172.16.1.0/24"
+$site_subnet = "172.16.1.0/26"
+$site_gateway = "172.16.1.1"
+$site_bgp_ip= "172.16.1.10"
+$site_asn = "65501"
+$site_username = "labuser"
+$site_password = "BlahBlah123!"
 
 # Create CSR
 az group create -n $rg -l westeurope
@@ -26,22 +25,22 @@ az group create -n $rg -l westeurope
 version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
 # You only need to accept the image terms once per subscription
 az vm image terms accept --urn ${publisher}:${offer}:${sku}:${version}
-az vm create -n ${branch_name}-nva -g $rg -l $location \
+az vm create -n ${site_name}-nva -g $rg -l $location \
     --image ${publisher}:${offer}:${sku}:${version} \
-    --admin-username "$branch_username" --admin-password $branch_password --authentication-type all --generate-ssh-keys \
-    --public-ip-address ${branch_name}-pip --public-ip-address-allocation static \
-    --vnet-name ${branch_name} --vnet-address-prefix $branch_prefix \
-    --subnet nva --subnet-address-prefix $branch_subnet \
-    --private-ip-address $branch_bgp_ip
+    --admin-username "$site_username" --admin-password $site_password --authentication-type all --generate-ssh-keys \
+    --public-ip-address ${site_name}-pip --public-ip-address-allocation static \
+    --vnet-name ${site_name} --vnet-address-prefix $site_prefix \
+    --subnet nva --subnet-address-prefix $site_subnet \
+    --private-ip-address $site_bgp_ip
 
 # Connect to the CSR and run commands (ideally using SSH key authentication)
-branch_ip=$(az network public-ip show -n ${branch_name}-pip -g $rg --query ipAddress -o tsv)
+site_ip=$(az network public-ip show -n ${site_name}-pip -g $rg --query ipAddress -o tsv)
 # Example 1-line command (the -n flag disables reading from stdin, the StrickHostKeyChecking=no flag automatically accepts the public key)
-ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no ${branch_username}@${branch_ip} "show ip interface brief"
+ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no ${site_username}@${site_ip} "show ip interface brief"
 # Example multi-line command
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no ${branch_username}@${branch_ip} <<EOF
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no ${site_username}@${site_ip} <<EOF
   config t
-    username ${branch_username} password 0 ${branch_password}
+    username ${site_username} password 0 ${site_password}
   end
   wr mem
 EOF
