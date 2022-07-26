@@ -47,5 +47,8 @@ At the end of this challenge you should:
 - Look at what routes are learned and advertised by the Vnet Gateway. 
 - Look at the routes that are learned and advertised to the NVA by Azure Route Server. One of the articles above has some useful commands for this.
 - Look at what gets programmed into the effective routes on the Nics.
-- Take a moment to think about how to influence traffic through the NVA using BGP advertisements. There's several ways to do it!!!!. Think in terms of supernets or default routes.  
+
+> [!IMPORTANT]
+>Take a moment to think about how to influence traffic through the NVA using BGP advertisements. There's several ways to do it!!!!. Think in terms of supernets or default routes.
+>Also think about the consequences of each method carefully. Take a look the Cisco CSR config file for both options to gain more insight about pros and cons of each method. 
 
