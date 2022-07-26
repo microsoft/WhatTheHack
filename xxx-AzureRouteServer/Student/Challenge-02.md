@@ -40,6 +40,7 @@ At the end of this challenge you should:
 - [ARS with ExR and VPN](https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support)
 - [Route Injections](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes)
 - [Troubleshooting](https://docs.microsoft.com/en-us/azure/route-server/troubleshoot-route-server)
+- [Cisco CSR 1000v Central NVA Config for Route Server and Route Propagation](./Resources/whatthehackcentralnvachallenge2.md)
 
 ## Tips
 
