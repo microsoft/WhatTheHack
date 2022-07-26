@@ -1,7 +1,7 @@
 param location string = 'eastus2'
 param spoke2VMUsername string = 'admin-wth'
 @secure()
-param spoke2VMPassword string
+param vmPassword string
 
 targetScope = 'resourceGroup'
 //spoke2 resources
@@ -83,7 +83,7 @@ resource wthspoke2vm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       computerName: 'vm-spoke201'
       adminUsername: spoke2VMUsername
-      adminPassword: spoke2VMPassword
+      adminPassword: vmPassword
       windowsConfiguration: {
         provisionVMAgent: true
         enableAutomaticUpdates: true

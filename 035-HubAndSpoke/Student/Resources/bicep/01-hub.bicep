@@ -1,7 +1,7 @@
 param location string = 'eastus2'
 param hubVMUsername string = 'admin-wth'
 @secure()
-param hubVMPassword string
+param vmPassword string
 
 targetScope = 'resourceGroup'
 //hub resources
@@ -174,7 +174,7 @@ resource wthhubvm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       computerName: 'vm-hub01'
       adminUsername: hubVMUsername
-      adminPassword: hubVMPassword
+      adminPassword: vmPassword
       windowsConfiguration: {
         provisionVMAgent: true
         enableAutomaticUpdates: true

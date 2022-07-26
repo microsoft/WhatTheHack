@@ -1,7 +1,7 @@
 param location string = 'eastus2'
 param spoke1VMUsername string = 'admin-wth'
 @secure()
-param spoke1VMPassword string
+param vmPassword string
 
 targetScope = 'resourceGroup'
 //spoke1 resources
@@ -20,8 +20,12 @@ resource wthspoke1vnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
         name: 'subnet-spoke1vms'
         properties: {
           addressPrefix: '10.1.10.0/24'
-          networkSecurityGroup: {id: nsgspoke1vms.id}
-          routeTable: { id: rtspoke1vms.id }
+          networkSecurityGroup: {
+            id: nsgspoke1vms.id
+          }
+          routeTable: { 
+            id: rtspoke1vms.id 
+          }
         }
       }
     ]
@@ -85,7 +89,7 @@ resource wthspoke1vm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       computerName: 'vm-spoke101'
       adminUsername: spoke1VMUsername
-      adminPassword: spoke1VMPassword
+      adminPassword: vmPassword
       windowsConfiguration: {
         provisionVMAgent: true
         enableAutomaticUpdates: true

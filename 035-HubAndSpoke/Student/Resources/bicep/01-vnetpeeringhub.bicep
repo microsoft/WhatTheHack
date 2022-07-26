@@ -29,7 +29,7 @@ resource hubtospoke1 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2
 }
 
 resource hubtospoke2 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2022-01-01' = {
-  name: '${hubvnet.name}/wth-peering-hubtospoke1'
+  name: '${hubvnet.name}/wth-peering-hubtospoke2'
   properties: {
     allowGatewayTransit: true
     allowForwardedTraffic: true

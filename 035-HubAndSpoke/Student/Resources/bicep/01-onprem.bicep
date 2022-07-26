@@ -1,7 +1,7 @@
 param location string = 'eastus2'
 param onpremVMUsername string = 'admin-wth'
 @secure()
-param onpremVMPassword string
+param vmPassword string
 
 targetScope = 'resourceGroup'
 //onprem resources
@@ -26,8 +26,12 @@ resource wthonpremvnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
         name: 'subnet-onpremvms'
         properties: {
           addressPrefix: '172.16.10.0/24'
-          networkSecurityGroup: {id: nsgonpremvms.id}
-          routeTable: { id: rtonpremvms.id }
+          networkSecurityGroup: {
+            id: nsgonpremvms.id
+          }
+          routeTable: { 
+            id: rtonpremvms.id 
+          }
         }
       }
     ]
@@ -91,7 +95,7 @@ resource wthonpremvm01 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       computerName: 'vm-onprem01'
       adminUsername: onpremVMUsername
-      adminPassword: onpremVMPassword
+      adminPassword: vmPassword
       windowsConfiguration: {
         provisionVMAgent: true
         enableAutomaticUpdates: true
@@ -236,7 +240,7 @@ resource ciscocsr 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     }
     osProfile: {
       adminUsername: onpremVMUsername
-      adminPassword: onpremVMPassword
+      adminPassword: vmPassword
       computerName: 'csr'
     }
   }
