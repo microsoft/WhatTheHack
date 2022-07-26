@@ -43,7 +43,7 @@ Note that for Cisco CSR 1000v or any Router in general, the prefixes to be adver
 
 ```bash
 conf t
-
+!
 router bgp **BGP_ID**
 address-family ipv4
 neighbor 10.0.3.4 default-originate
@@ -56,10 +56,20 @@ end
 ```bash
 
 conf t
-
+!
 ip route < n ip prefix> <network mask> 10.0.1.1
-
+!
 router bgp **BGP_ID**
  address-family ipv4
  network < n ip prefix> mask <network mask>
+end
 ``` 
+
+This list is by no means comprehensive, but it is conceived to give some of the most useful commands for admins new to the Cisco CLI
+
+* **config t**: enter configuration mode
+* **write mem**: save the config to non-volatile storage
+* **show ip interface brief**: show a summary of the network interfaces in the system
+* **show ip bgp summary**: show the status of configured BGP adjacencies
+* **show ip route**: show the system routing table
+* **show ip route bgp**: show the BGP routes in the routing table
