@@ -34,36 +34,17 @@ At the end of this challenge you should:
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [What is Azure Route Server](https://docs.microsoft.com/en-us/azure/route-server/overview)
+- [Configure Azure Route Server](https://docs.microsoft.com/en-us/azure/route-server/quickstart-configure-route-server-portal)
+- [Configure Route Server with Quagga](https://docs.microsoft.com/en-us/azure/route-server/tutorial-configure-route-server-with-quagga)
+- [ARS with ExR and VPN](https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support)
+- [Route Injections](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes)
+- [Troubleshooting](https://docs.microsoft.com/en-us/azure/route-server/troubleshoot-route-server)
 
 ## Tips
 
-*This section is optional and may be omitted.*
+- The best tip to understand the functionality of Azure Route Server is to look at the routing tables accross the board. You can find a way to do it through Power Shell, CLI or if it's available at this time in the Azure Portal. 
+- Look at what routes are learned and advertised by the Vnet Gateway. 
+- Look at the routes that are learned and advertised to the NVA by Azure Route Server. One of the articles above has some useful commands for this.
+- Look at what gets programmed into the effective routes on the Nics.
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
