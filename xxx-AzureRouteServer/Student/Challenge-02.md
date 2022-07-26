@@ -41,10 +41,12 @@ At the end of this challenge you should:
 - [Route Injections](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes)
 - [Troubleshooting](https://docs.microsoft.com/en-us/azure/route-server/troubleshoot-route-server)
 - [Cisco CSR 1000v Central NVA Config for Route Server and Route Propagation](./Resources/whatthehackcentralnvachallenge2.md)
+- [Can I Advertise the exact prefixes as my VNET?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes)
+- [VPN BGP Transit Routing in Azure](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#does-azure-vpn-gateway-support-bgp-transit-routing)
 
 ## Tips
 
-- The best tip to understand the functionality of Azure Route Server is to look at the routing tables accross the board. You can find a way to do it through Power Shell, CLI or if it's available at this time in the Azure Portal. 
+- The best tip to understand the functionality of Azure Route Server is to look at the routing tables accross the board. You can find a way to do it through Power Shell, CLI or Azure portal if the functionality is available.  
 - Look at what routes are learned and advertised by the Vnet Gateway. 
 - Look at the routes that are learned and advertised to the NVA by Azure Route Server. One of the articles above has some useful commands for this.
 - Look at what gets programmed into the effective routes on the Nics.
