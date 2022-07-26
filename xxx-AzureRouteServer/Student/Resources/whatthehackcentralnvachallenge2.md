@@ -37,8 +37,8 @@ Note that for Cisco CSR 1000v or any Router in general, the prefixes to be adver
 
 > [!IMPORTANT]
 > If you inject a 0/0, you will lose connectivity to the CSR from your public IP.
-> You may access the CSR through serial console or
-> Create a UDR with next hop internet for the CSR subnet interfaces or
+> You may access the CSR through serial console. 
+> Create a UDR with next hop internet for the CSR subnet interfaces. 
 > Create a jumpbox to ssh into the private IP of the CSRs
 
 ```bash
