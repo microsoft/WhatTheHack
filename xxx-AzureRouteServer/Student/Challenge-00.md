@@ -37,7 +37,6 @@ It is of paramount importance that you are aware that 100% of the Azure Route Se
 
 - [Great overview of BGP concepts outside configurations](https://www.youtube.com/watch?v=ydE-HprufbA)
 
-- [About VGP with Azure VPN Gateway] (https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
  
 ### Route Server and Azure Route Server
 
@@ -45,9 +44,10 @@ It is of paramount importance that you are aware that 100% of the Azure Route Se
 - [Azure Route Server](https://docs.microsoft.com/azure/route-server/overview)
 - [John Savill Review on Route Server](https://www.youtube.com/watch?v=c1f4rmkrF6M&t=1668s)
 
-### Review of Vnet Routing
+### Review of Vnet Routing and BGP on VPN Gateways
 
 - [Virtual Network Routing](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)
+- [About VGP with Azure VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
 
 ## Success Criteria
 
