@@ -11,7 +11,6 @@ In this challenge you will introduce Azure Route Server in the topology you have
 
 In this challenge you will insert Azure Route Server as described in this diagram:
 
-![hubnspoke noARS](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge2.png)
 
 Please perform the following actions:
 - Configure Azure Route Server
