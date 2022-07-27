@@ -42,10 +42,10 @@ az vm create --resource-group $rg --location $location --name NVAHub --size Stan
 ```bash
 
 conf t
-## On premises route. DG outside interface
+## On premises route. Default Gateway outside interface
 ip route 172.16.0.0 255.255.0.0 10.0.2.1
 
-## Routes to the spokes. DG inside interface
+## Routes to the spokes. Default Gateway inside interface
 ip route <spoke1 vnet prefix> <spoke1 network mask> 10.0.1.1
 ip route <spokeN vnet prefix> <spokeN network mask> 10.0.1.1
 
