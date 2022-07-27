@@ -34,4 +34,4 @@ Azure Load Testing is based on Apache JMeter - a popular open source load testin
 - [Custom Plugins for Apache JMeter](https://jmeter-plugins.org/)
 
 ## Advanced Challenges (Optional)
-- Your initial load test scripts may gradually increase load in a linear rate.  What if you wanted to simulate users starting their day at work at different time zones.  See if you are able to create a load test which steps into higher load like a stairway.
+- Your initial load test scripts may gradually increase load in a linear rate.  What if you wanted to simulate users starting their day at work at different time zones?  See if you are able to create a load test which steps into higher load like a stairway.

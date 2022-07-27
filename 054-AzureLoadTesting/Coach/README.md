@@ -21,13 +21,13 @@ There is a sample application located in the student resources folder.  This wil
 - Challenge 03: **[Create Azure Load Testing Service and Establish Baselines](./Solution-03.md)**
 	 - Create Azure Load Testing Service and learn techniques on how to establish baselines for your application
 - Challenge 04: **[Enable Automated Load Testing (CI/CD)](./Solution-04.md)**
-	 - Incorporating load testing into your CI/CD Pipeline
+	 - Incorporate load testing into your CI/CD Pipeline
 - Challenge 05: **[Identify & Remediate Bottlenecks](./Solution-05.md)**
-	 - Reviewing load test results and identifying bottlenecks
+	 - Review load test results and identifying bottlenecks
 - Challenge 06: **[Stress Testing](./Solution-06.md)**
 	 - How to perform stress tests and observing your application behavior
 - Challenge 07: **[Load Testing With Chaos Experiment (Resilience Testing)](./Solution-07.md)**
-	 - Incorporating load testing and chaos experiments together
+	 - Incorporate load testing and chaos experiments together
 
 ## Coach Prerequisites
 

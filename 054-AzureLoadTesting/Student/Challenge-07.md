@@ -4,7 +4,7 @@
 
 ## Introduction
 
-We have gone over load testing for the majority of this hack.  While the information you gather from load testing can help determine how you scale your application.  The resiliency of an application isn’t solely decided by how quickly it can scale up or out - but also how it handles failures. This means planning for a failure of every application component: a single container, cluster, VM, database and region.  Testing while having certain components fail is called Resilience testing, and we will be going over that here.
+We have gone over load testing for the majority of this hack.  While the information you gather from load testing can help determine how you scale your application.  The resiliency of an application isn’t solely decided by how quickly it can scale up or out - but also how it handles failures. This means planning for a failure of every application component: a single container, cluster, VM, database and region.  Testing while having certain components fail is called Resilience testing.  We will be going over that here.
 
 ## Description
 

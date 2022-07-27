@@ -7,7 +7,7 @@
 
 High level Notes
 
-- There is a sample action which will run a load test.  The default action will either create or run the existing load test.  It is case-sensitive and the GitHub action looks like it lowercase all the tests.
+- There is a sample action which will run a load test.  The default action will either create or run the existing load test.  However, the "TestName" parameter inside the config.yaml file will be automatically lower cased by the GitHub Action.  Since the UI allows upper or lowercase letters, this can cause a duplicate test to be created.
 - GitHub will require another action to create issues while ADO has a built-in functionality to do this.
 - Students can use the baseline from their first run in challenge 3 to determine what their pass/fail criteria is.
 

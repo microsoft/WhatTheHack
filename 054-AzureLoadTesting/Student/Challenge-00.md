@@ -25,11 +25,11 @@ Thank you for participating in the Azure Load Testing What The Hack. Before you 
 
 Now that you have the common prerequisites installed on your workstation, there is a sample application that we will be working off of for this hack.
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unzip it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unzip it there.
 
 ### Sample WebApp with Cosmos DB 
  
- The sample app is a WebApp deployed on app service with cosmos db as database. It counts the number of visitors visiting the page and inserts the same into a sample collection in Cosmos DB.
+ The sample app is a WebApp deployed on App Service with Cosmos DB as a database. It counts the number of visitors visiting the page and inserts the same into a sample collection in Cosmos DB.
 
 ### Installation
 
@@ -60,7 +60,7 @@ Similarly, you can utilize the **Delete resource group** toolbar button on the s
 
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have a bash shell with the Azure CLI available.
+- Verify that you have a Bash shell with the Azure CLI available.
 - Apache JMeter
 - Verify that your sample application is running
 
