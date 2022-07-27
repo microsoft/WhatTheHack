@@ -15,10 +15,10 @@ router bgp **BGP_ID**
  bgp log-neighbor-changes
  neighbor 10.0.3.4 remote-as 65515
  neighbor 10.0.3.4 ebgp-multihop 255
- neighbor 10.0.3.4 update-source GigabitEthernet1
+ neighbor 10.0.3.4 update-source GigabitEthernet2
  neighbor 10.0.3.5 remote-as 65515
  neighbor 10.0.3.5 ebgp-multihop 255
- neighbor 10.0.3.5 update-source GigabitEthernet1
+ neighbor 10.0.3.5 update-source GigabitEthernet2
  !
  address-family ipv4
   neighbor 10.0.3.4 activate
