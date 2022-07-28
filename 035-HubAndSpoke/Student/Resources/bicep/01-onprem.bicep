@@ -241,7 +241,8 @@ resource ciscocsr 'Microsoft.Compute/virtualMachines@2022-03-01' = {
     osProfile: {
       adminUsername: onpremVMUsername
       adminPassword: vmPassword
-      computerName: 'csr'
+      computerName: 'wthcsr01'
+      customData: loadFileAsBase64('./csrScript.txt.tmp')
     }
   }
 }

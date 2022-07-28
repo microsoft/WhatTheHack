@@ -53,6 +53,8 @@ resource wthhubgwpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
   }
 }
 
+output pipgw1 string = wthhubgwpip01.properties.ipAddress
+
 resource wthhubgwpip02 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
   name: 'wth-pip-gw02'
   location: location
@@ -64,6 +66,8 @@ resource wthhubgwpip02 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
     publicIPAllocationMethod: 'Static'
   }
 }
+
+output pipgw2 string = wthhubgwpip02.properties.ipAddress
 
 resource wthhubvnetgw 'Microsoft.Network/virtualNetworkGateways@2022-01-01' = {
   name: 'wth-vngw-hub01'
@@ -107,6 +111,10 @@ resource wthhubvnetgw 'Microsoft.Network/virtualNetworkGateways@2022-01-01' = {
     ]
   }
 }
+
+output wthhubvnetgwasn int = wthhubvnetgw.properties.bgpSettings.asn
+output wthhubvnetgwprivateip1 string = wthhubvnetgw.properties.bgpSettings.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]
+output wthhubvnetgwprivateip2 string = wthhubvnetgw.properties.bgpSettings.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]
 
 resource changerdpport 'Microsoft.Compute/virtualMachines/extensions@2022-03-01' = {
   name: '${wthhubvm01.name}/wth-vmextn-changerdpport33899'

@@ -13,14 +13,14 @@
 [CmdletBinding()]
 param (
     # challenge number to deploy
-    [Parameter(Mandatory=$true, HelpMessage='Enter the WTH hub and spoke challenge number (1-6)')]
-    [ValidateRange(1,6)]
+    [Parameter(Mandatory = $true, HelpMessage = 'Enter the WTH hub and spoke challenge number (1-6)')]
+    [ValidateRange(1, 6)]
     [int]
     $challengeNumber,
 
     # deploy fully configured lab or leave some configuration to be done
-    [Parameter(Mandatory=$false, HelpMessage='Deploy all challenge resources fully configured or partially configured (for learning!)')]
-    [ValidateSet('FullyConfigured','PartiallyConfigured')]
+    [Parameter(Mandatory = $false, HelpMessage = 'Deploy all challenge resources fully configured or partially configured (for learning!)')]
+    [ValidateSet('FullyConfigured', 'PartiallyConfigured')]
     [string]
     $deploymentType = 'FullyConfigured',
     
@@ -35,13 +35,15 @@ param (
     $vmPassword
 )
 
+$ErrorActionPreference = 'Stop'
+
 If (-NOT (Test-Path ./01-resourceGroups.bicep)) {
 
     Write-Warning "This script need to be executed from the directory containing the bicep files. Attempting to set location to script location."
 
     try {
-    $scriptPath = ($MyInvocation.MyCommand.Path | Split-Path -Parent -ErrorAction Stop)
-    Push-Location -Path $scriptPath -ErrorAction Stop
+        $scriptPath = ($MyInvocation.MyCommand.Path | Split-Path -Parent -ErrorAction Stop)
+        Push-Location -Path $scriptPath -ErrorAction Stop
     }
     catch {
         Write-Error "Failed to set path to bicep file location. Use the 'cd' command to change the current directory to the same location as the WTH bicep files before executing this script."
@@ -66,14 +68,19 @@ switch ($challengeNumber) {
         New-AzDeployment -Location $location -TemplateFile ./01-resourceGroups.bicep
 
         Write-Host "`tDeploying base resources (this will take up to 60 minutes for the VNET Gateway)..."
-        $baseInfraJobs = @()
-        $baseInfraJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-spoke1.bicep -TemplateParameterObject @{vmPassword = $vmPassword} -AsJob
-        $baseInfraJobs +=New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-spoke2.bicep -TemplateParameterObject @{vmPassword = $vmPassword} -AsJob
-        $baseInfraJobs +=New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-hub.bicep -TemplateParameterObject @{vmPassword = $vmPassword} -AsJob
-        $baseInfraJobs +=New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./01-onprem.bicep -TemplateParameterObject @{vmPassword = $vmPassword} -AsJob
+        $baseInfraJobs = @{}
+        $baseInfraJobs += @{'wth-rg-spoke1' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-spoke1.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
+        $baseInfraJobs += @{'wth-rg-spoke2' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-spoke2.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
+        $baseInfraJobs += @{'wth-rg-hub' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-hub.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
 
         Write-Host "`tWaiting up to 60 minutes for resources to deploy..." 
-        $baseInfraJobs | Wait-Job -Timeout 3600
+        $baseInfraJobs.GetEnumerator().ForEach({$_.Value}) | Wait-Job -Timeout 3600
+
+        $gw1pip = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.pipgw1.Value
+        $gw2pip = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.pipgw2.Value
+        $gwasn = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.wthhubvnetgwasn.Value
+        $gw1privateip = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.wthhubvnetgwprivateip1.Value
+        $gw2privateip = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.wthhubvnetgwprivateip2.Value
 
         Write-Host "`tDeploying VNET Peering..."
         $peeringJobs = @()
@@ -82,6 +89,32 @@ switch ($challengeNumber) {
         $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-vnetpeeringspoke2.bicep -AsJob
 
         $peeringJobs | Wait-Job -Timeout 300
+
+        Write-Host "Deploying 'onprem' infra"
+
+        #update csr bootstrap file
+        $csrConfigContent = Get-Content -Path .\csrScript.txt
+        $updatedCsrConfigContent = $csrConfigContent
+        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW0_Public_IP**',$gw1pip)
+        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW1_Public_IP**',$gw2pip)
+        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**BGP_ID**',$gwasn)
+        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW0_Private_IP**',$gw1privateip)
+        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW1_Private_IP**',$gw2privateip)
+
+        Set-Content -Path .\csrScript.txt.tmp -Value $updatedCsrConfigContent -Force
+
+        #deploy resources
+        $onPremJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./01-onprem.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob
+
+        $onPremJob | Wait-Job
+
+        Write-Host "`tConfiguring VPN resources..."
+
+        $vpnJobs = @()
+        $vpnJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-hubvpnconfig.bicep -AsJob
+        #$vpnJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./01-csrconfig.bicep -AsJob
+
+        $vpnJobs | Wait-Job -Timeout 600
     }
     2 {}
     3 {}
