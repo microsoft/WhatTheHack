@@ -54,8 +54,6 @@ Requirements:
 This hack is estimated to take 3 days with 4 hours each day.
 ## Repository Contents
 
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
 - `./Coach`
   - Coach's Guide and related files
 - `./Coach/Solutions`
@@ -63,4 +61,4 @@ _The default files & folders are listed below. You may add to this if you want t
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Sample app code, ARM Template, and deployment script is located here for students to deploy the sample app used in the challenges  (Must be packaged up by the coach and provided to students at start of event)
