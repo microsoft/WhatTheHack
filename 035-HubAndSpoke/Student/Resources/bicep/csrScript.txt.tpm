@@ -59,7 +59,7 @@ interface Tunnel1
 exit
 
 !
-router bgp **BGP_ID**
+router bgp 65510
  bgp router-id interface GigabitEthernet1
  bgp log-neighbor-changes
  redistribute connected

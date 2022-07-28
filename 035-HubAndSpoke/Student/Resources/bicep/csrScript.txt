@@ -59,14 +59,14 @@ interface Tunnel1
 exit
 
 !
-router bgp **BGP_ID**
+router bgp 65510
  bgp router-id interface GigabitEthernet1
  bgp log-neighbor-changes
  redistribute connected
- neighbor **GW0_Private_IP** remote-as 65515
+ neighbor **GW0_Private_IP** remote-as **VNETGWASN**
  neighbor **GW0_Private_IP** ebgp-multihop 5
  neighbor **GW0_Private_IP** update-source GigabitEthernet1
- neighbor **GW1_Private_IP** remote-as 65515
+ neighbor **GW1_Private_IP** remote-as **VNETGWASN**
  neighbor **GW1_Private_IP** ebgp-multihop 5
  neighbor **GW1_Private_IP** update-source GigabitEthernet1
  maximum-paths eibgp 4

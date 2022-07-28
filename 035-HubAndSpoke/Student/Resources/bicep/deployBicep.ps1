@@ -97,7 +97,7 @@ switch ($challengeNumber) {
         $updatedCsrConfigContent = $csrConfigContent
         $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW0_Public_IP**',$gw1pip)
         $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW1_Public_IP**',$gw2pip)
-        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**BGP_ID**',$gwasn)
+        $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**VNETGWASN**',$gwasn)
         $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW0_Private_IP**',$gw1privateip)
         $updatedCsrConfigContent = $updatedCsrConfigContent.Replace('**GW1_Private_IP**',$gw2privateip)
 

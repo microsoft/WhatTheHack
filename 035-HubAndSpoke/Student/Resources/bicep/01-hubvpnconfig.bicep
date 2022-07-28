@@ -36,7 +36,7 @@ resource wthhubconnection 'Microsoft.Network/connections@2022-01-01' = {
   name: 'wth-cxn-vpn01'
   location: location
   properties: {
-    authorizationKey: '123mysecretkey'
+    sharedKey: '123mysecretkey'
     connectionType: 'IPsec'
     connectionMode: 'Default'
     enableBgp: true
