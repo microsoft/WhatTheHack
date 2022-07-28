@@ -4,12 +4,6 @@
 Welcome to the coach's guide for the Azure Load Testing What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.  
 
 NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
-## Duration
-This hack is estimated to take 3 days with 4 hours each day.
-
-## Preparation
-There is a sample application located in the student resources folder.  This will need to be zipped up for the students.
-
 
 ## Coach's Guides
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
@@ -35,6 +29,7 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
+In addition, there is a sample application located in the student resources folder.  This will need to be zipped up for the students.
 ### Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file as this contains the sample application they will need for this hack. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
@@ -56,6 +51,8 @@ Requirements:
 	- Azure Cosmos DB
 	- Azure Application Insights
 
+## Suggested Hack Agenda
+This hack is estimated to take 3 days with 4 hours each day.
 ## Repository Contents
 
 _The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._

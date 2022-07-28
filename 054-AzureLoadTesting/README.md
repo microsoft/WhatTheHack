@@ -1,4 +1,4 @@
-# What The Hack - xxx-AzureLoadTesting
+# What The Hack - Azure Load Testing
 
 ## Introduction
 Azure Load Testing Service (Preview) enables developers and testers to generate high-scale load that reveal actionable insights into app performance, scalability, capacity - and ultimately resiliency - with a fully managed service.
