@@ -1,0 +1,8 @@
+#change RDP port to 33899, allow through FW
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\" -Name PortNumber -Value 33899
+New-NetFirewallRule -DisplayName "RDP 33899 TCP" -Direction Inbound -LocalPort 33899 -Protocol TCP -Action Allow -Enabled True
+New-NetFirewallRule -DisplayName "RDP 33899 UDP" -Direction Inbound -LocalPort 33899 -Protocol UDP -Action Allow -Enabled True
+Restart-Service -Name TermService -Force
+
+#allow ping
+New-NetFirewallRule -DisplayName 'ICMPv4' -Direction Inbound -Action Allow -Protocol icmpv4 -Enabled True
