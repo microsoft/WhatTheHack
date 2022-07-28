@@ -29,7 +29,6 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
-In addition, there is a sample application located in the student resources folder.  This will need to be zipped up for the students.
 ### Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file as this contains the sample application they will need for this hack. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
