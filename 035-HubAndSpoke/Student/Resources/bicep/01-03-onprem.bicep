@@ -134,7 +134,32 @@ resource rtonpremvms 'Microsoft.Network/routeTables@2022-01-01' = {
   name: 'wth-rt-onpremvmssubnet'
   location: location
   properties: {
-    routes: []
+    routes: [
+      {
+        name: 'route-hub'
+        properties: {
+          addressPrefix: '10.0.0.0/16'
+          nextHopIpAddress: '172.16.0.4'
+          nextHopType: 'VirtualAppliance'
+        }
+      }
+      {
+        name: 'route-spoke1'
+        properties: {
+          addressPrefix: '10.1.0.0/16'
+          nextHopIpAddress: '172.16.0.4'
+          nextHopType: 'VirtualAppliance'
+        }
+      }
+      {
+        name: 'route-spoke2'
+        properties: {
+          addressPrefix: '10.2.0.0/16'
+          nextHopIpAddress: '172.16.0.4'
+          nextHopType: 'VirtualAppliance'
+        }
+      }
+    ]
     disableBgpRoutePropagation: false
   }
 }
@@ -190,6 +215,7 @@ resource wthonpremcsrnic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
   name: 'wth-nic-csr01'
   location: location
   properties: {
+    enableIPForwarding: true
     ipConfigurations: [
       {
         name: 'ipconfig1'
