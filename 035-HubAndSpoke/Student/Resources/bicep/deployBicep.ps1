@@ -90,7 +90,13 @@ switch ($challengeNumber) {
 
         $peeringJobs | Wait-Job -Timeout 300
 
-        Write-Host "Deploying 'onprem' infra"
+        Write-Host "`tDeploying 'onprem' infra"
+
+        #accept csr marketplace terms
+        If (-Not (Get-AzMarketplaceTerms -Publisher 'cicso' -Product 'cisco-csr-1000v' -Name '16_12-byol').Accepted) {
+            Write-Host "`t`tAccepting Cisco CSR marketplace terms for this subscription..."
+            Set-AzMarketplaceTerms -Publisher 'cicso' -Product 'cisco-csr-1000v' -Name '16_12-byol' -Accept
+        }
 
         #update csr bootstrap file
         $csrConfigContent = Get-Content -Path .\csrScript.txt
