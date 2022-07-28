@@ -17,7 +17,7 @@ NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat 
 - Challenge 04: **[Enable Automated Load Testing (CI/CD)](./Solution-04.md)**
 	 - Incorporate load testing into your CI/CD Pipeline
 - Challenge 05: **[Identify & Remediate Bottlenecks](./Solution-05.md)**
-	 - Review load test results and identifying bottlenecks
+	 - Review load test results and identify bottlenecks
 - Challenge 06: **[Stress Testing](./Solution-06.md)**
 	 - How to perform stress tests and observing your application behavior
 - Challenge 07: **[Load Testing With Chaos Experiment (Resilience Testing)](./Solution-07.md)**
