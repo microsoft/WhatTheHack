@@ -93,9 +93,9 @@ switch ($challengeNumber) {
         Write-Host "`tDeploying 'onprem' infra"
 
         #accept csr marketplace terms
-        If (-Not (Get-AzMarketplaceTerms -Publisher 'cicso' -Product 'cisco-csr-1000v' -Name '16_12-byol').Accepted) {
+        If (-Not (Get-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol').Accepted) {
             Write-Host "`t`tAccepting Cisco CSR marketplace terms for this subscription..."
-            Set-AzMarketplaceTerms -Publisher 'cicso' -Product 'cisco-csr-1000v' -Name '16_12-byol' -Accept
+            Set-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol' -Accept
         }
 
         #update csr bootstrap file
