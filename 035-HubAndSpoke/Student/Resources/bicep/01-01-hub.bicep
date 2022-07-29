@@ -37,6 +37,12 @@ resource wthhubvnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
           }
         }
       }
+      {
+        name: 'AzureFirewallSubnet'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
     ]
   }
 }
@@ -142,6 +148,18 @@ resource changerdpport 'Microsoft.Compute/virtualMachines/extensions@2022-03-01'
   }
 }
 
+resource wthhubvmpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
+  name: 'wth-pip-hubvm01'
+  location: location
+  sku: {
+    name: 'Standard'
+    tier: 'Regional'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
+}
+
 resource wthhubvmnic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
   name: 'wth-nic-hubvm01'
   location: location
@@ -154,6 +172,9 @@ resource wthhubvmnic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
             id: '${wthhubvnet.id}/subnets/subnet-hubvms'
           }
           privateIPAddress: '10.0.10.4'
+          publicIPAddress: {
+            id: wthhubvmpip01.id
+          }
         }
       }
     ]

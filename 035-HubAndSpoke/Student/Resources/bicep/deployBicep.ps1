@@ -26,7 +26,7 @@ param (
     $location = 'EastUS2',
 
     # Parameter help description
-    [Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $false)]
     [SecureString]
     $vmPassword
 )
@@ -59,6 +59,10 @@ Else {
 switch ($challengeNumber) {
     1 {
         Write-Host "Deploying resources for Challenge 1: Hub-and-spoke Basics"
+
+        If (-NOT ($vmPassword)) {
+            $vmPassword = Read-Host "Enter (and make note of) a complex password which will be used for all deployed VMs" -AsSecureString
+        }
 
         Write-Host "`tDeploying resource groups..."
         New-AzDeployment -Location $location -TemplateFile ./01-00-resourceGroups.bicep
@@ -125,12 +129,19 @@ switch ($challengeNumber) {
 
         $afwJob | Wait-Job
 
-        Write-Host "`tDeploying updated Spoke resources..."
-        $spokeRTJobs = @()
-        $spokeRTJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./02-01-spoke1.bicep -AsJob
-        $spokeRTJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./02-01-spoke2.bicep -AsJob
+        Write-Host "`tDeploying firewall policies..."
+        $fwpolJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-fwpolicyrules.bicep -AsJob
 
-        $spokeRTJobs | Wait-Job
+        $fwpolJob | Wait-Job
+
+        Write-Host "`tDeploying updated hub, spoke, and on-prem configs..."
+        $jobs = @()
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./02-01-spoke1.bicep -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./02-01-spoke2.bicep -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-hub.bicep -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./02-01-onprem.bicep -AsJob
+
+        $jobs | Wait-Job
     }
     3 {}
     4 {}
