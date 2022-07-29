@@ -1,14 +1,10 @@
 <#
 .SYNOPSIS
 .DESCRIPTION
-    A longer description of the function, its purpose, common use cases, etc.
-.NOTES
-    Information or caveats about the function e.g. 'This function is not supported in Linux'
-.LINK
-    Specify a URI to a help page, this will show when Get-Help -Online is used.
+    Deploys or configures WTH Networking challenge resources. 
 .EXAMPLE
-    Test-MyTestFunction -Verbose
-    Explanation of the function or its result. You can include multiple examples with additional .EXAMPLE lines
+    ./deployBicep.ps1 -challengeNumber 1 
+    Deploy all resource groups and resources for Challenge 1. Script will prompt for a password, which will be used across all VMs. 
 #>
 [CmdletBinding()]
 param (
@@ -18,7 +14,7 @@ param (
     [int]
     $challengeNumber,
 
-    # deploy fully configured lab or leave some configuration to be done
+    # TODO: deploy fully configured lab or leave some configuration to be done
     [Parameter(Mandatory = $false, HelpMessage = 'Deploy all challenge resources fully configured or partially configured (for learning!)')]
     [ValidateSet('FullyConfigured', 'PartiallyConfigured')]
     [string]
@@ -46,15 +42,15 @@ If (-NOT (Test-Path ./01-resourceGroups.bicep)) {
         Push-Location -Path $scriptPath -ErrorAction Stop
     }
     catch {
-        Write-Error "Failed to set path to bicep file location. Use the 'cd' command to change the current directory to the same location as the WTH bicep files before executing this script."
+        throw "Failed to set path to bicep file location. Use the 'cd' command to change the current directory to the same location as the WTH bicep files before executing this script."
     }
 }
 
 If ( -NOT ($azContext = Get-AzContext)) {
-    Write-Error "Run 'Connect-AzAccount' before executing this script!"
+    throw "Run 'Connect-AzAccount' before executing this script!"
 }
 Else {
-    do { $response = (Read-Host "Resources will be created in subscription '$($azContext.Subscription.Name)'. Proceed? (y/n)") }
+    do { $response = (Read-Host "Resources will be created in subscription '$($azContext.Subscription.Name)'. If this is not the correct subscription, use 'Select-AzSubscription' before running this script. Proceed? (y/n)") }
     until ($response -match '[nNYy]')
 
     If ($response -match 'nN') { exit }
@@ -121,7 +117,21 @@ switch ($challengeNumber) {
 
         $vpnJobs | Wait-Job -Timeout 600
     }
-    2 {}
+    2 {
+        Write-Host "Deploying resources for Challenge 2: Azure Firewall"
+
+        Write-Host "`tDeploying Azure Firewall and related hub resources..."
+        $afwJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-00-afw.bicep -AsJob
+
+        $afwJob | Wait-Job
+
+        Write-Host "`tDeploying updated Spoke resources..."
+        $spokeRTJobs = @()
+        $spokeRTJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./02-01-spoke1.bicep -AsJob
+        $spokeRTJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./02-01-spoke2.bicep -AsJob
+
+        $spokeRTJobs | Wait-Job
+    }
     3 {}
     4 {}
     5 {}
