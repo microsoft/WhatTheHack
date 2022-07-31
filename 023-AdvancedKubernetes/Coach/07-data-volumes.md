@@ -1,3 +1,7 @@
+# Challenge 7: Coach's Guide - Data Volumes
+
+[< Previous Challenge](06-service-mesh.md) - **[Home](README.md)**
+
 ## Sub-challenge 1: Static provisioning with Azure Disks
 
 ### Provision an Azure Disk

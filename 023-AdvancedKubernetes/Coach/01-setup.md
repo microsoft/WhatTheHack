@@ -1,6 +1,6 @@
-# Challenge 1 - Setup
+# Challenge 1: Coach's Guide - Setup
 
-[Next Challenge>](./02-helm.md)
+**[Home](README.md)** - [Next Challenge>](./02-helm.md)
 
 ## Instructions
 

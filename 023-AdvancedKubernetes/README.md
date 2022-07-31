@@ -4,6 +4,8 @@
 
 This hack will guide you through advanced Kubernetes topics for both Operators and Developers.  These challenges are taken from what we are seeing in the field.
 
+Unlike other WhatTheHack's, each of the challenges here are independent (e.g. You can do GitOps challenges without having done the Scaling challenges).  This is by design as different teams can prioritize specific features of Kubernetes.
+
 ## Learning Objectives
 
 In this hack, you will be working on a set of "Day 2" operational best practices for Kubernetes cluster management.  You will learn:

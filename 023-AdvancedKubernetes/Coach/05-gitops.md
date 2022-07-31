@@ -1,3 +1,7 @@
+# Challenge 5: Coach's Guide - Gitops
+
+[< Previous Challenge](./04-scaling.md) - **[Home](README.md)** - [Next Challenge>](./06-service-mesh.md)
+
 Here are the steps to deploy Flux in your AKS cluster.
 
 ```bash
