@@ -1,6 +1,6 @@
-# Challenge 3 - Resiliency
+# Challenge 3: Coach's Guide - Resiliency
 
-[< Previous Challenge](./02-helm.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./04-scaling.md)
+[< Previous Challenge](./02-helm.md) - **[Home](README.md)** - [Next Challenge>](./04-scaling.md)
 
 ## Introduction
 
