@@ -29,7 +29,7 @@ At the end of this challenge you should:
 - Verify our environment has no UDRs. 
 - Determine if it is still possible to inspect all traffic through the NVA and answer the following questions:
   - Which traffic is possible?
-  - Which traffic is not possible with this design?
+  - Which traffic is not possible?
   - What other(s) design(s) would you consider (if applicable)?
    
 - Demonstrate to your coach you understand the behavior of the Route Server for this excercise. 
