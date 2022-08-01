@@ -69,9 +69,9 @@ switch ($challengeNumber) {
 
         Write-Host "`tDeploying base resources (this will take up to 60 minutes for the VNET Gateway)..."
         $baseInfraJobs = @{}
-        $baseInfraJobs += @{'wth-rg-spoke1' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-01-spoke1.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
-        $baseInfraJobs += @{'wth-rg-spoke2' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-01-spoke2.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
-        $baseInfraJobs += @{'wth-rg-hub' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-01-hub.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
+        $baseInfraJobs += @{'wth-rg-spoke1' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-01-spoke1.bicep -TemplateParameterObject @{vmPassword = $vmPassword; location = $location } -AsJob)}
+        $baseInfraJobs += @{'wth-rg-spoke2' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-01-spoke2.bicep -TemplateParameterObject @{vmPassword = $vmPassword; location = $location } -AsJob)}
+        $baseInfraJobs += @{'wth-rg-hub' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-01-hub.bicep -TemplateParameterObject @{vmPassword = $vmPassword; location = $location } -AsJob)}
 
         Write-Host "`tWaiting up to 60 minutes for resources to deploy..." 
         $baseInfraJobs.GetEnumerator().ForEach({$_.Value}) | Wait-Job -Timeout 3600 | Out-Null
@@ -92,9 +92,9 @@ switch ($challengeNumber) {
 
         Write-Host "`tDeploying VNET Peering..."
         $peeringJobs = @()
-        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-02-vnetpeeringhub.bicep -AsJob
-        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-02-vnetpeeringspoke1.bicep -AsJob
-        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-02-vnetpeeringspoke2.bicep -AsJob
+        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-02-vnetpeeringhub.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-02-vnetpeeringspoke1.bicep -TemplateParameterObject @{location = $location }  -AsJob
+        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-02-vnetpeeringspoke2.bicep -TemplateParameterObject @{location = $location }  -AsJob
 
         $peeringJobs | Wait-Job -Timeout 300 | Out-Null
 
@@ -130,7 +130,7 @@ switch ($challengeNumber) {
         Set-Content -Path .\csrScript.txt.tmp -Value $updatedCsrConfigContent -Force
 
         #deploy resources
-        $onPremJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./01-03-onprem.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob
+        $onPremJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./01-03-onprem.bicep -TemplateParameterObject @{vmPassword = $vmPassword; location = $location } -AsJob
 
         $onPremJob | Wait-Job | Out-Null
 
@@ -142,7 +142,7 @@ switch ($challengeNumber) {
         Write-Host "`tConfiguring VPN resources..."
 
         $vpnJobs = @()
-        $vpnJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-04-hubvpnconfig.bicep -AsJob
+        $vpnJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-04-hubvpnconfig.bicep -TemplateParameterObject @{location = $location } -AsJob
 
         $vpnJobs | Wait-Job -Timeout 600 | Out-Null
 
@@ -155,7 +155,7 @@ switch ($challengeNumber) {
         Write-Host "Deploying resources for Challenge 2: Azure Firewall"
 
         Write-Host "`tDeploying Azure Firewall and related hub resources..."
-        $afwJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-00-afw.bicep -AsJob
+        $afwJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-00-afw.bicep -TemplateParameterObject @{location = $location } -AsJob
 
         $afwJob | Wait-Job | Out-Null
 
@@ -165,7 +165,7 @@ switch ($challengeNumber) {
         }
 
         Write-Host "`tDeploying firewall policies..."
-        $fwpolJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-fwpolicyrules.bicep -AsJob
+        $fwpolJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-fwpolicyrules.bicep -TemplateParameterObject @{location = $location } -AsJob
 
         $fwpolJob | Wait-Job | Out-Null
 
@@ -176,10 +176,10 @@ switch ($challengeNumber) {
 
         Write-Host "`tDeploying updated hub, spoke, and on-prem configs..."
         $jobs = @()
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./02-01-spoke1.bicep -AsJob
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./02-01-spoke2.bicep -AsJob
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-hub.bicep -AsJob
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./02-01-onprem.bicep -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./02-01-spoke1.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./02-01-spoke2.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./02-01-onprem.bicep -TemplateParameterObject @{location = $location } -AsJob
 
         $jobs | Wait-Job | Out-Null
 

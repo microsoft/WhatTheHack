@@ -12,15 +12,27 @@ The WTH philosophy intends to have students learn by doing, and recognizes that 
 
 ## Using these templates
 
-Using Cloud Shell is recommended, as it already has the necessary tools installed. 
+Using Cloud Shell is recommended, as it already has the necessary tools installed. However, Cloud Shell has a timeout of about 20 minutes
 
 ### Prerequisites
 
 - Azure PowerShell module
 - git
 
+### Download Options
+
+#### Clone the Git repo (slow)
+
 1. Clone this repo to your local system or Cloud Shell
    `git clone https://github.com/microsoft/WhatTheHack.git`
 1. Navigate to the `035-HubAndSpoke\Student\Resources\bicep` directory in your clone of the repo
+1. Run the deployBicep.ps1 script. For example:
+   `./deployBicep.ps1 -challengeNumber 1`
+
+#### Download a zip of the bicep directory
+
+1. Browse to https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2FWhatTheHack%2Ftree%2Fnetwork-bicep%2F035-HubAndSpoke%2FStudent%2FResources%2Fbicep
+1. A zip of the directory will download to your system
+1. Expand the downloaded zip file and navigate to it in a PowerShell window
 1. Run the deployBicep.ps1 script. For example:
    `./deployBicep.ps1 -challengeNumber 1`
