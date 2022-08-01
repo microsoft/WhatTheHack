@@ -74,7 +74,15 @@ switch ($challengeNumber) {
         $baseInfraJobs += @{'wth-rg-hub' = (New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-01-hub.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob)}
 
         Write-Host "`tWaiting up to 60 minutes for resources to deploy..." 
-        $baseInfraJobs.GetEnumerator().ForEach({$_.Value}) | Wait-Job -Timeout 3600
+        $baseInfraJobs.GetEnumerator().ForEach({$_.Value}) | Wait-Job -Timeout 3600 | Out-Null
+
+        # check for deployment errors
+        $baseInfraJobs.GetEnumerator().ForEach({$_.Value}) | Foreach-Object {
+            $job = $_ | Get-Job
+            If ($job.Error) {
+                Write-Error "A deployment experienced an error: $($job.error)"
+            }
+        }
 
         $gw1pip = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.pipgw1.Value
         $gw2pip = $baseInfraJobs.'wth-rg-hub'.Output.Outputs.pipgw2.Value
@@ -88,16 +96,28 @@ switch ($challengeNumber) {
         $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-02-vnetpeeringspoke1.bicep -AsJob
         $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-02-vnetpeeringspoke2.bicep -AsJob
 
-        $peeringJobs | Wait-Job -Timeout 300
+        $peeringJobs | Wait-Job -Timeout 300 | Out-Null
+
+        # check for deployment errors
+        $peeringJobs | Foreach-Object {
+            $job = $_
+            If ($job.Error) {
+                Write-Error "A VNET peering deployment experienced an error: $($job.error)"
+            }
+        }
 
         Write-Host "`tDeploying 'onprem' infra"
 
         #accept csr marketplace terms
-        If (-Not (Get-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol').Accepted) {
-            Write-Host "`t`tAccepting Cisco CSR marketplace terms for this subscription..."
-            Set-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol' -Accept
+        try {
+            If (-Not (Get-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol').Accepted) {
+                Write-Host "`t`tAccepting Cisco CSR marketplace terms for this subscription..."
+                Set-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol' -Accept
+            }
         }
-
+        catch {
+            throw "An error occured while attempting to accept the markeplace terms for the Cisco CSR deployment. Try running `Set-AzMarketplaceTerms -Publisher 'cisco' -Product 'cisco-csr-1000v' -Name '16_12-byol' -Accept` in Cloud Shell for the target subscription. Error: $_"
+        }
         #update csr bootstrap file
         $csrConfigContent = Get-Content -Path .\csrScript.txt
         $updatedCsrConfigContent = $csrConfigContent
@@ -112,14 +132,24 @@ switch ($challengeNumber) {
         #deploy resources
         $onPremJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./01-03-onprem.bicep -TemplateParameterObject @{vmPassword = $vmPassword } -AsJob
 
-        $onPremJob | Wait-Job
+        $onPremJob | Wait-Job | Out-Null
+
+        # check for deployment errors
+        If ($onPremJob.Error) {
+            Write-Error "A on-prem infrastructure deployment experienced an error: $($job.error)"
+        }
 
         Write-Host "`tConfiguring VPN resources..."
 
         $vpnJobs = @()
         $vpnJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-04-hubvpnconfig.bicep -AsJob
 
-        $vpnJobs | Wait-Job -Timeout 600
+        $vpnJobs | Wait-Job -Timeout 600 | Out-Null
+
+        # check for deployment errors
+        If ($vpnJobs.Error) {
+            Write-Error "A VPN resource/configuration deployment experienced an error: $($job.error)"
+        }
     }
     2 {
         Write-Host "Deploying resources for Challenge 2: Azure Firewall"
@@ -127,12 +157,22 @@ switch ($challengeNumber) {
         Write-Host "`tDeploying Azure Firewall and related hub resources..."
         $afwJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-00-afw.bicep -AsJob
 
-        $afwJob | Wait-Job
+        $afwJob | Wait-Job | Out-Null
+
+        # check for deployment errors
+        If ($afwJob.Error) {
+            Write-Error "The Azure Firewall deployment experienced an error: $($job.error)"
+        }
 
         Write-Host "`tDeploying firewall policies..."
         $fwpolJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-fwpolicyrules.bicep -AsJob
 
-        $fwpolJob | Wait-Job
+        $fwpolJob | Wait-Job | Out-Null
+
+        # check for deployment errors
+        If ($fwpolJob.Error) {
+            Write-Error "The Firewall Policy deployment experienced an error: $($job.error)"
+        }
 
         Write-Host "`tDeploying updated hub, spoke, and on-prem configs..."
         $jobs = @()
@@ -141,7 +181,15 @@ switch ($challengeNumber) {
         $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-hub.bicep -AsJob
         $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-onprem' -TemplateFile ./02-01-onprem.bicep -AsJob
 
-        $jobs | Wait-Job
+        $jobs | Wait-Job | Out-Null
+
+        # check for deployment errors
+        $jobs | Foreach-Object {
+            $job = $_
+            If ($job.Error) {
+                Write-Error "A hub or spoke configuration deployment (to enable AFW) experienced an error: $($job.error)"
+            }
+        }
     }
     3 {}
     4 {}
