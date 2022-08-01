@@ -18,9 +18,9 @@ When using AIRS subscription,may face difficulties RDP/SSH into VMs due to secur
 - Setup vnet peering between spokes and hub vnet.
 - Create a Azure Network Gateway in Hub vnet with SKU supporting Active/Active and BGP.
 - Setup Local Network Gateway reprenting simulated on-prem branch. 
-- Deploy the provided Cisco CSR template to simulate branch (on-premises). Template also creates a "Branch1" vnet. 
+- Deploy the Cisco CSR template (provided in the challange section) to simulate branch (on-premises). Template also creates a "Branch1" vnet. 
 - Setup 2-tunnels to one active/active virtual network gateway created earlier.
-- Deploy provided Cisco CSR template to setup a central NVA (used as a BGP/Security NVA). 
+- Deploy Cisco CSR template (provided in the challange section) to setup a central NVA (used as a BGP/Security NVA). 
 - Deploy VMs in all vnets (including Branch).
 - Create Route Tables (UDRs) to steer traffic via NVAs for,
    - Branch VM subnet, Route to Hub/spoke vnets addres spaces (summarized should work as well) with next hop Branch NVA (CSR applaince).
@@ -36,7 +36,7 @@ When using AIRS subscription,may face difficulties RDP/SSH into VMs due to secur
 
 ## Sample deployment script
 
-You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gateway
+You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gateway. Other aspects such as configuring Active/Active VPN Gateway, BGP, setting up required Route Tables (UDRs) will need to be done manually. 
 
 ```bash
 
