@@ -92,9 +92,9 @@ switch ($challengeNumber) {
 
         Write-Host "`tDeploying VNET Peering..."
         $peeringJobs = @()
-        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-02-vnetpeeringhub.bicep -TemplateParameterObject @{location = $location } -AsJob
-        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-02-vnetpeeringspoke1.bicep -TemplateParameterObject @{location = $location }  -AsJob
-        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-02-vnetpeeringspoke2.bicep -TemplateParameterObject @{location = $location }  -AsJob
+        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./01-02-vnetpeeringhub.bicep -TemplateParameterObject @{} -AsJob
+        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./01-02-vnetpeeringspoke1.bicep -TemplateParameterObject @{}  -AsJob
+        $peeringJobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./01-02-vnetpeeringspoke2.bicep -TemplateParameterObject @{}  -AsJob
 
         $peeringJobs | Wait-Job -Timeout 300 | Out-Null
 
