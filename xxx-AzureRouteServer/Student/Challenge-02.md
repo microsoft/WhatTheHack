@@ -17,6 +17,8 @@ In this challenge you will insert Azure Route Server as described in this diagra
 Please perform the following actions:
 - Configure Azure Route Server
 - Successfully establish BGP relationship between ARS and the Central Network Virtual Appliance
+- Configure BGP advertisements so spoke to spoke traffic goes through the NVA
+- Configure BGP advertisements so spokes to On Premises traffic goes through the NVA 
 - Analyze the different routing advertisements (VPN Gateway and ARS)
 
 *For this section, student will also be provided the necessary configuration for a Cisco CSR 1000v to establish BGP relationship with Azure Route Server and remove any stale configuration from the last section. Again, if the student has another third pary NVA preference, please provide the necessary configuration.*
@@ -25,11 +27,11 @@ Please perform the following actions:
 
 At the end of this challenge you should: 
 - Verify our environment has no UDRs. 
-- Validate the following traffic is still going through the NVA. 
-  - spoke-to-spoke
-  - spokes-to-onprem
-  - onprem-to-hub
-  - onprem-to-spokes
+- Determine if it is still possible to inspect all traffic through the NVA and answer the following questions:
+  - Which traffic is possible?
+  - Which traffic is not possible with this design?
+  - What other(s) design(s) would you consider (if applicable)?
+   
 - Demonstrate to your coach you understand the behavior of the Route Server for this excercise. 
 
 ## Learning Resources
