@@ -34,9 +34,11 @@ When using AIRS subscription,may face difficulties RDP/SSH into VMs due to secur
    - onprem-to-hub
    - onprem-to-spokes
 
-## Helper Script to setup basic enviroment. 
+## Sample deployment script
 
-# Bash
+You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gateway
+
+```bash
 
 # Variables (change location as relevant)
 rg=arshack
