@@ -109,7 +109,7 @@ echo "Creating vnet gateway. command will finish running but gw creation takes a
 az network public-ip create -n $vpngw_pip -g $rg --allocation-method Dynamic
 az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-address $vpngw_pip -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
 
-# Create Local Network Gateway representing simulated on-prem. Replace the actual Public IP of from the simulated on-prem. 
+# Create Local Network Gateway representing simulated on-prem. Replace the actual Public IP of the CSR IPSec NVA from the simulated on-prem. 
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name datacenter -g $rg --local-address-prefixes 172.16.1.0/24
 
 echo "Creating Hub to Spoke1 Networking Peering"
