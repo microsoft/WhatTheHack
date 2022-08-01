@@ -1,6 +1,6 @@
-# Challenge 4 - Scaling
+# Challenge 4: Coach's Guide - Scaling
 
-[< Previous Challenge](./03-resiliency.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Next Challenge>](./05-gitops.md)
+[< Previous Challenge](./03-resiliency.md) - **[Home](README.md)** - [Next Challenge>](./05-gitops.md)
 
 ## Introduction
 
