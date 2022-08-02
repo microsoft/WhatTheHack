@@ -136,7 +136,7 @@ switch ($challengeNumber) {
 
         # check for deployment errors
         If ($onPremJob.Error) {
-            Write-Error "A on-prem infrastructure deployment experienced an error: $($job.error)"
+            Write-Error "A on-prem infrastructure deployment experienced an error: $($onPremJob.error)"
         }
 
         Write-Host "`tConfiguring VPN resources..."
@@ -148,7 +148,7 @@ switch ($challengeNumber) {
 
         # check for deployment errors
         If ($vpnJobs.Error) {
-            Write-Error "A VPN resource/configuration deployment experienced an error: $($job.error)"
+            Write-Error "A VPN resource/configuration deployment experienced an error: $($vpnJobs.error)"
         }
     }
     2 {
@@ -161,7 +161,7 @@ switch ($challengeNumber) {
 
         # check for deployment errors
         If ($afwJob.Error) {
-            Write-Error "The Azure Firewall deployment experienced an error: $($job.error)"
+            Write-Error "The Azure Firewall deployment experienced an error: $($afwJob.error)"
         }
 
         Write-Host "`tDeploying firewall policies..."
@@ -171,7 +171,7 @@ switch ($challengeNumber) {
 
         # check for deployment errors
         If ($fwpolJob.Error) {
-            Write-Error "The Firewall Policy deployment experienced an error: $($job.error)"
+            Write-Error "The Firewall Policy deployment experienced an error: $($fwpolJob.error)"
         }
 
         Write-Host "`tDeploying updated hub, spoke, and on-prem configs..."
