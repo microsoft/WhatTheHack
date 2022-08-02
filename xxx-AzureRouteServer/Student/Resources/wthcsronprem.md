@@ -11,6 +11,7 @@ location=<Azure region of your choice>
 publisher=cisco
 offer=cisco-csr-1000v
 sku=16_12-byol
+version=latest
 site_name=datacenter
 site_prefix=172.16.1.0/24
 site_subnet=172.16.1.0/26
