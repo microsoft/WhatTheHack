@@ -48,7 +48,7 @@ vnet_name=hub
 vnet_prefix=10.0.0.0/16
 vnet_prefix_long='10.0.0.0 255.255.0.0'
 hub_vm_subnet_name=vm
-hub_vm_subnet_prefix=10.0.3.0/24
+hub_vm_subnet_prefix=10.0.4.0/24
 gw_subnet_prefix=10.0.0.0/24
 username=azureuser
 
@@ -56,13 +56,13 @@ username=azureuser
 spoke1_name=spoke1
 spoke1_prefix=10.1.0.0/16
 spoke1_vm_subnet_name=vm
-spoke1_vm_subnet_prefix=10.1.3.0/24
+spoke1_vm_subnet_prefix=10.1.4.0/24
 
 # Spoke 2
 spoke2_name=spoke2
 spoke2_prefix=10.2.0.0/16
 spoke2_vm_subnet_name=vm
-spoke2_vm_subnet_prefix=10.2.3.0/24
+spoke2_vm_subnet_prefix=10.2.4.0/24
 
 # Azure VPN GW
 vpngw_name=vpngw
