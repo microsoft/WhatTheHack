@@ -11,6 +11,7 @@ You cant remove branch UDR since its a Azure vNet simulating on-premises (runnin
 Deploy Azure Route Server.<br/>
 Setup BGP peering with Central NVA.<br/>
 Test publishing routes/default routes on NVA.
+Validate traffic flows via NVA.
 
 
 
