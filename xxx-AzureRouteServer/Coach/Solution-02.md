@@ -4,7 +4,6 @@
 
 ## Notes & Guidance
 
-## Notes & Guidance
 
 Undo/remove static route tabls (UDRs) <br/>
 You cant remove branch UDR since its a Azure vNet simulating on-premises (running on Azure SDN).<br/>
