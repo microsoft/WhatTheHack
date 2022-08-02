@@ -15,10 +15,10 @@ When using AIRS subscription,may face difficulties RDP/SSH into VMs due to secur
 
 - Create a Hub Virtual Network (vnet).
 - Create two spoke vnets.
-- Setup vnet peering between spokes and hub vnet.
 - Create a Azure Network Gateway in Hub vnet with SKU supporting Active/Active and BGP.
+- Setup vnet peering between spokes and hub vnet.
 - Setup Local Network Gateway reprenting simulated on-prem branch. 
-- Deploy the Cisco CSR template (provided in the challange section) to simulate branch (on-premises). Template also creates a "Branch1" vnet. 
+- Deploy the Cisco CSR template (provided in the challange section) to simulate a branch office (on-premises). The said template also creates a "datacenter" vnet. 
 - Setup 2-tunnels to one active/active virtual network gateway created earlier.
 - Deploy Cisco CSR template (provided in the challange section) to setup a central NVA (used as a BGP/Security NVA). 
 - Deploy VMs in all vnets (including Branch).
@@ -41,7 +41,7 @@ You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gate
 ```bash
 
 # Variables (change location as relevant)
-rg=arshack
+rg=arshack-rg
 location=eastus
 vnet_name=hub
 vnet_prefix=10.0.0.0/16
