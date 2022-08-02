@@ -2,25 +2,20 @@
 
 ### Azure CLI CSR Creation
 
+(If you are not using bash, add $ symbol to the variable and double quote the values).
+
 ```bash
 # Variables
-$rg=<Resource Group of your Hub Vnet>
-$location=<Azure region same as Hub Vnet>
-$vnet_name=<Name of your Hub Vnet>
-$vnet_prefix=10.0.0.0/16
-
-  # Examples
-  # $rg="ARSFastHack"
-  # $location="southeastasia"
-  # $vnet_name="ARSFastHackHub"
-  # $vnet_prefix="10.0.0.0/16"
+rg=arshack-rg
+location=<Azure region same as Hub Vnet>
+vnet_name=hub
 
 //You may change the name and address space of the subnets if desired or required. 
 
-$Vnet_out_subnet_name="nvaoutsidesubnet"
-$vnet_out_subnet="10.0.2.0/24"
-$Vnet_in_subnet_name="nvainsidesidesubnet"
-$vnet_in_subnet="10.0.1.0/24"
+Vnet_out_subnet_name=nvaoutsidesubnet
+vnet_out_subnet=10.0.2.0/24
+Vnet_in_subnet_name=nvainsidesidesubnet
+vnet_in_subnet=10.0.1.0/24
 
 
 # Create CSR
