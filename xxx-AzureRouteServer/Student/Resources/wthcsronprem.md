@@ -2,26 +2,27 @@
 
 ## Sample deployment script
 
-You can use this script to deploy a Cisco CSR router to a new Vnet:
+You can use this script to deploy a Cisco CSR router to a new Vnet. 
+(If you are not using bash, add $ symbol to the variable and double quote the values)
 
 ```bash
-$rg = datacenter-rg
-$location = <Azure region of your choice>
-$publisher= "cisco"
-$offer= "cisco-csr-1000v"
-$sku = "16_12-byol"
-$site_name = "datacenter"
-$site_prefix = "172.16.1.0/24"
-$site_subnet = "172.16.1.0/26"
-$site_gateway = "172.16.1.1"
-$site_bgp_ip= "172.16.1.10"
-$site_asn = "65501"
-$site_username = "labuser"
-$site_password = "BlahBlah123!"
+rg=datacenter-rg
+location=<Azure region of your choice>
+publisher=cisco
+offer=cisco-csr-1000v
+sku=16_12-byol
+site_name=datacenter
+site_prefix=172.16.1.0/24
+site_subnet=172.16.1.0/26
+site_gateway=172.16.1.1
+site_bgp_ip=172.16.1.10
+site_asn=65501
+site_username=labuser
+site_password=BlahBlah123!
 
 # Create CSR
+# Replace -l with Azure region of your choice
 az group create -n $rg -l westeurope
-# Replace the Azure region of your choice
 version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
 # You only need to accept the image terms once per subscription
 az vm image terms accept --urn ${publisher}:${offer}:${sku}:${version}
