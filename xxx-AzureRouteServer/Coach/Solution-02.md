@@ -11,16 +11,14 @@ Deploy Azure Route Server <br/>
 Setup BGP peering with Central NVA <br/>
 Test publishing routes/default routes on NVA.<br/>
 Validate traffic flows via NVA <br/>
-You will notice only spoke to spoke routing will work <br/>
-On-premises to Azure can work but it requires static routes on Gateway and NVA Subnet (to prevent the loop)<br/>
+You will notice only spoke to spoke routing via NVA works <br/>
+On-premises to Azure routing is possible but it requires static routes on Gateway and NVA Subnet (to prevent the loop)<br/>
 
 Azure to on-prem will not work due to fact that on-premises routes over VPN gateways will always be preferred even if specific routes are advertised via NVA (routing loop will occur and packets will get dropped<br/>
 [Using Route server to firewall onprem traffic with an nva](https://blog.cloudtrooper.net/2021/03/29/using-route-server-to-firewall-onprem-traffic-with-an-nva/)
 
-Solution to this problem is to build a "transit" vnet with another instance of Route Server <br/>
+Solution to this problem is to build a 'transit' vnet with another instance of Route Server <br/>
 [Different Route Servers to advertise routes to Virtual Network Gateways and to VNets](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes#different-route-servers-to-advertise-routes-to-virtual-network-gateways-and-to-vnets)
-
-
 
 
 
