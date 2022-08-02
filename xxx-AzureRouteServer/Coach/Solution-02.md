@@ -6,11 +6,20 @@
 
 
 Undo/remove static route tabls (UDRs) <br/>
-You cant remove branch UDR since its a Azure vNet simulating on-premises (running on Azure SDN).<br/>
-Deploy Azure Route Server.<br/>
-Setup BGP peering with Central NVA.<br/>
+You cant remove branch UDR since its a Azure vNet simulating on-premises (running on Azure SDN) <br/>
+Deploy Azure Route Server <br/>
+Setup BGP peering with Central NVA <br/>
 Test publishing routes/default routes on NVA.<br/>
-Validate traffic flows via NVA.
+Validate traffic flows via NVA <br/>
+You will notice only spoke to spoke routing will work <br/>
+On-premises to Azure can work but it requires static routes on Gateway and NVA Subnet (to prevent the loop)<br/>
+Azure to on-prem will not work due to fact that on-premises routes over VPN gateways will always be preferred even if specific routes are advertised via NVA (routing loop will occur and packets will get dropped.
+https://blog.cloudtrooper.net/2021/03/29/using-route-server-to-firewall-onprem-traffic-with-an-nva/
+
+Solution to this problem is to build a "transit" vnet with another instance of Route Server
+https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes#different-route-servers-to-advertise-routes-to-virtual-network-gateways-and-to-vnets
+
+
 
 
 
