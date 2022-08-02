@@ -36,7 +36,8 @@ When using AIRS subscription,may face difficulties RDP/SSH into VMs due to secur
 
 ## Sample deployment script
 
-You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gateway. Other aspects such as configuring Active/Active VPN Gateway, BGP, setting up required Route Tables (UDRs) will need to be done manually. (Simulated on-premises and Central NVA templates are provided separately in the challange)
+You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gateway. Other aspects such as configuring Active/Active VPN Gateway, BGP, setting up required Route Tables (UDRs) will need to be done manually. (Simulated on-premises and Central NVA templates are provided separately in the challange).
+(If you are not using bash, add $ symbol to the variable and double quote the values).
 
 ```bash
 
