@@ -15,23 +15,17 @@ In this challenge you will insert Azure Route Server as described in this diagra
 
 
 Please perform the following actions:
-- Configure Azure Route Server
-- Successfully establish BGP relationship between ARS and the Central Network Virtual Appliance
-- Configure BGP advertisements so spoke to spoke traffic goes through the NVA
-- Configure BGP advertisements so spokes to On Premises traffic goes through the NVA 
-- Analyze the different routing advertisements (VPN Gateway and ARS)
+- Use BGP so that spoke to spoke traffic goes through the NVA.  
+> [!IMPORTANT]
+> No user defined routes (UDRs) are allowed.
 
 *For this section, student will also be provided the necessary configuration for a Cisco CSR 1000v to establish BGP relationship with Azure Route Server and remove any stale configuration from the last section. Again, if the student has another third pary NVA preference, please provide the necessary configuration.*
 
 ## Success Criteria
 
 At the end of this challenge you should: 
-- Verify our environment has no UDRs. 
-- Determine if it is still possible to inspect all traffic through the NVA and answer the following questions:
-  - Which traffic is possible?
-  - Which traffic is not possible?
-  - What other(s) design(s) would you consider (if applicable)?
-   
+
+- Determine if inspecting all traffic through he NVA is achievable.
 - Demonstrate to your coach you understand the behavior of the Route Server for this excercise. 
 
 ## Learning Resources
@@ -54,6 +48,6 @@ At the end of this challenge you should:
 - Look at what gets programmed into the effective routes on the Nics.
 
 > [!IMPORTANT]
->Take a moment to think about how to influence traffic through the NVA using BGP advertisements. There's several ways to do it!!!!. Think in terms of supernets or default routes.
->Also think about the consequences of each method carefully. Take a look the Cisco CSR config file for both options to gain more insight about pros and cons of each method. 
+>Take a moment to think about how to influence traffic through the NVA using BGP advertisements. There's several ways to do it!!!!. 
+>Take a look the Cisco CSR config file to gain more insight. 
 
