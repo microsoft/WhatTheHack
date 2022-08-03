@@ -43,11 +43,6 @@ At the end of this challenge you should:
 ## Tips
 
 - The best tip to understand the functionality of Azure Route Server is to look at the routing tables accross the board. You can find a way to do it through Power Shell, CLI or Azure portal if the functionality is available.  
-- Look at what routes are learned and advertised by the Vnet Gateway. 
-- Look at the routes that are learned and advertised to the NVA by Azure Route Server. One of the articles above has some useful commands for this.
+- Look at what routes are learned and advertised by the different Networking technologies utilized on this excercise. Articles above has some useful commands for this.
 - Look at what gets programmed into the effective routes on the Nics.
-
-> [!IMPORTANT]
->Take a moment to think about how to influence traffic through the NVA using BGP advertisements. There's several ways to do it!!!!. 
->Take a look the Cisco CSR config file to gain more insight. 
 
