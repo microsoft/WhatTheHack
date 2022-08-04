@@ -165,7 +165,7 @@ switch ($challengeNumber) {
         }
 
         Write-Host "`tDeploying firewall policies..."
-        $fwpolJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-fwpolicyrules.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $fwpolJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-01-fwpolicyrules.bicep -TemplateParameterObject @{} -AsJob
 
         $fwpolJob | Wait-Job | Out-Null
 
