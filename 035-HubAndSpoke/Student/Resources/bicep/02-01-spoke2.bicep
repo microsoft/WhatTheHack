@@ -35,7 +35,7 @@ resource installinspectorgadget 'Microsoft.Compute/virtualMachines/runCommands@2
   properties: {
     asyncExecution: true
     source: {
-      commandId: 'RunPowerShellScript'
+
             /*
       To generate encoded command in PowerShell: 
 
