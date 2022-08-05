@@ -12,7 +12,7 @@ The WTH philosophy intends to have students learn by doing, and recognizes that 
 
 ## Using these templates
 
-Using Cloud Shell is recommended, as it already has the necessary tools installed. However, Cloud Shell has a timeout of about 20 minutes
+Using Cloud Shell is recommended, as it already has the necessary tools installed. However, Cloud Shell has a timeout of about 20 minutes and may experience timeouts (in which case, run the same command again to pick up the deployments where they stopped).
 
 ### Prerequisites
 

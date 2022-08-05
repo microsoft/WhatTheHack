@@ -6,15 +6,14 @@ resource wthonpremvm01 'Microsoft.Compute/virtualMachines@2022-03-01' existing =
   scope: resourceGroup('wth-rg-onprem')
 }
 
-resource installinspectorgadget 'Microsoft.Compute/virtualMachines/extensions@2022-03-01' = {
-  name: '${wthonpremvm01.name}/wth-vmextn-installinspectorgadget'
+resource installinspectorgadget 'Microsoft.Compute/virtualMachines/runCommands@2022-03-01' = {
+  name: '${wthonpremvm01.name}/wth-runcmd-installinspectorgadget'
   location: location
   properties: {
-    publisher: 'Microsoft.Compute'
-    type: 'CustomScriptExtension'
-    typeHandlerVersion: '1.10'
-    settings: {
-      /*
+    asyncExecution: true
+    source: {
+      commandId: 'RunPowerShellScript'
+            /*
       To generate encoded command in PowerShell: 
 
       $s = @'
@@ -23,7 +22,8 @@ resource installinspectorgadget 'Microsoft.Compute/virtualMachines/extensions@20
       '@
       $bytes = [System.Text.Encoding]::Unicode.GetBytes($s)
       [convert]::ToBase64String($bytes) */
-      commandToExecute: 'powershell.exe -ep bypass -encodedcommand IAAgACAAIAAgACAAIAAgAEkAbgBzAHQAYQBsAGwALQBXAGkAbgBkAG8AdwBzAEYAZQBhAHQAdQByAGUAIABXAGUAYgAtAFMAZQByAHYAZQByACwAVwBlAGIALQBBAHMAcAAtAE4AZQB0ADQANQAgAC0ASQBuAGMAbAB1AGQAZQBNAGEAbgBhAGcAZQBtAGUAbgB0AFQAbwBvAGwAcwAKACAAIAAgACAAIAAgACAAIABbAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdABdADoAOgBuAGUAdwAoACkALgBEAG8AdwBuAGwAbwBhAGQARgBpAGwAZQAoACcAaAB0AHQAcABzADoALwAvAHIAYQB3AC4AZwBpAHQAaAB1AGIAdQBzAGUAcgBjAG8AbgB0AGUAbgB0AC4AYwBvAG0ALwBqAGUAbABsAGUAZAByAHUAeQB0AHMALwBJAG4AcwBwAGUAYwB0AG8AcgBHAGEAZABnAGUAdAAvAG0AYQBpAG4ALwBQAGEAZwBlAC8AZABlAGYAYQB1AGwAdAAuAGEAcwBwAHgAJwAsACcAYwA6AFwAaQBuAGUAdABwAHUAYgBcAHcAdwB3AHIAbwBvAHQAXABkAGUAZgBhAHUAbAB0AC4AYQBzAHAAeAAnACkA'
+      script: 'powershell.exe -ep bypass -encodedcommand IAAgACAAIAAgACAAIAAgAEkAbgBzAHQAYQBsAGwALQBXAGkAbgBkAG8AdwBzAEYAZQBhAHQAdQByAGUAIABXAGUAYgAtAFMAZQByAHYAZQByACwAVwBlAGIALQBBAHMAcAAtAE4AZQB0ADQANQAgAC0ASQBuAGMAbAB1AGQAZQBNAGEAbgBhAGcAZQBtAGUAbgB0AFQAbwBvAGwAcwAKACAAIAAgACAAIAAgACAAIABbAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdABdADoAOgBuAGUAdwAoACkALgBEAG8AdwBuAGwAbwBhAGQARgBpAGwAZQAoACcAaAB0AHQAcABzADoALwAvAHIAYQB3AC4AZwBpAHQAaAB1AGIAdQBzAGUAcgBjAG8AbgB0AGUAbgB0AC4AYwBvAG0ALwBqAGUAbABsAGUAZAByAHUAeQB0AHMALwBJAG4AcwBwAGUAYwB0AG8AcgBHAGEAZABnAGUAdAAvAG0AYQBpAG4ALwBQAGEAZwBlAC8AZABlAGYAYQB1AGwAdAAuAGEAcwBwAHgAJwAsACcAYwA6AFwAaQBuAGUAdABwAHUAYgBcAHcAdwB3AHIAbwBvAHQAXABkAGUAZgBhAHUAbAB0AC4AYQBzAHAAeAAnACkA'
     }
+    timeoutInSeconds: 600
   }
 }
