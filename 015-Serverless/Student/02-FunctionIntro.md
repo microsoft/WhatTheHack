@@ -27,7 +27,7 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 |                                            |                                                                                                                                                       |
 | ------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Description**                            |                                                                       **Links**                                                                       |
-| Functions Overview | <https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview> |
+| Functions Overview | <https://docs.microsoft.com/azure/azure-functions/functions-overview> |
 
 
 

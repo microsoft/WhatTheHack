@@ -10,16 +10,13 @@
 using System;
 using System.IO;
 using System.Net.Http;
-using System.Net.Mime;
 using System.Threading.Tasks;
+using Azure.Messaging.EventGrid;
+using Azure.Messaging.EventGrid.SystemEvents;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using Newtonsoft.Json.Linq;
 using TollBooth.Models;
 
 namespace TollBooth
@@ -48,7 +45,7 @@ namespace TollBooth
             {
                 if (incomingPlate != null)
                 {
-                    var createdEvent = ((JObject)eventGridEvent.Data).ToObject<StorageBlobCreatedEventData>();
+                    var createdEvent = eventGridEvent.Data.ToObjectFromJson<StorageBlobCreatedEventData>();
                     var name = GetBlobNameFromUrl(createdEvent.Url);
 
                     log.LogInformation($"Processing {name}");
