@@ -36,3 +36,26 @@ Using Cloud Shell is recommended, as it already has the necessary tools installe
 1. Expand the downloaded zip file and navigate to it in a PowerShell window
 1. Run the deployBicep.ps1 script. For example:
    `./deployBicep.ps1 -challengeNumber 1`
+
+## Deployed Configuration
+
+### Challenge 1
+
+- Windows VMs are deployed in the hub, both spokes, and on-prem Resource Groups
+- VM usernames are 'admin-wth' and passwords are the one supplied when executing the script
+- All Windows VMs have associated Public IP Addresses and are accessible via RDP using alternate port 33899 (ex: `mstsc /v:4.32.1.5:33899`)
+- The Cisco CSR deployed in the 'wth-rg-onprem' Resource Group uses the same username and password, but is not accessible from the internet. To access it, RDP to the Windows VM in the onprem Resource Group, then connect to the CSR using ssh and its private IP address
+
+### Challenge 2
+
+- With Azure Firewall deployed and traffic routing through it following the Challenge, the Windows VMs are no longer directly accessible via Public IP. Use the Azure Firewall public IP with the following DNAT port mapping:
+  - Hub: 33980
+  - Spoke 1: 33891
+  - Spoke 2: 33892
+  - On-prem (still accessible by Public IP and custom 33899 RDP port)
+
+- All Windows VMs have a diagnostic website configured in IIS called Inspector Gadget. To access it locally, browse to `http://localhost/default.aspx`. Web server DNAT through the Azure Firewall uses the following port mapping:
+
+  - Hub: 8080
+  - Spoke 1: 8081
+  - Spoke 2: 8082
