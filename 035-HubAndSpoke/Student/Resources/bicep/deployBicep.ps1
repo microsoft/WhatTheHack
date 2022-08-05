@@ -61,7 +61,7 @@ switch ($challengeNumber) {
         Write-Host "Deploying resources for Challenge 1: Hub-and-spoke Basics"
 
         If (-NOT ($vmPassword)) {
-            $vmPassword = Read-Host "Enter (and make note of) a complex password which will be used for all deployed VMs" -AsSecureString
+            $vmPassword = Read-Host "Enter (and make note of) a complex password which will be used for all deployed VMs (username will be 'admin-wth')" -AsSecureString
         }
 
         Write-Host "`tDeploying resource groups..."
