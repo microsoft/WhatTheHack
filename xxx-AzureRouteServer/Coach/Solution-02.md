@@ -11,12 +11,16 @@
 - Test publishing routes/default routes on NVA<br/>
 - Validate traffic flows via NVA <br/>
 - You will notice only spoke to spoke routing via NVA works <br/>
+- For spoke to spoke traffic, Advertise supernet since equal and more specific routes will be dropped by Azure Route Server.<br/>
+- Also, because of the limitation in the Azure virtual network gateway type VPN it's not possible to advertise a 0.0.0.0/0 route through to the VPN Gateway. Student can try the approach of splitting advertisements like 0/1 and 128/1., but still routes learned through VPN Gateway will be more specific. (There might be some differences with ExR but same principle applies)<br/>
+
+
+- Azure to on premises traffic is not possible in this design since advertising a more specific on prem prefix from the NVA will result in a routing loop with the SDN fabric. 
 - On-premises to Azure routing is possible but it requires static routes on Gateway and NVA Subnet (to prevent the loop)<br/>
 
-Spoke to on premises traffic is not possible in this design since advertising a more specific on prem prefix from the NVA will result in a routing loop with the SDN fabric. Few plausible solutions
-
+Few plausible solutions to solve these challanges.
 - [Create an overlay with Vxlan + eBGP](https://blog.cloudtrooper.net/2021/03/29/using-route-server-to-firewall-onprem-traffic-with-an-nva/) <br/>
-- [Split ARS design](https://blog.cloudtrooper.net/2021/03/29/using-route-server-to-firewall-onprem-traffic-with-an-nva/)<br/>
+- [Split ARS design](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes#different-route-servers-to-advertise-routes-to-virtual-network-gateways-and-to-vnets)<br/>
 
 ## Sample deployment script
 You can use this script to deploy Azure Route Server. Setting up via portal is recommended if you are new to Azure Route Server. 
