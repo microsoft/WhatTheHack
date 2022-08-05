@@ -4,12 +4,12 @@
 
 ## Notes & Guidance
 
-Setup up a basic hub and spoke topology with a Central Network Virtual Appliance.<br/>
-Establish connectivity to (simulated) onprem via VPN site-to-site.<br/>
-Prepare non overlapping address spaces ranges for virtual networks and various special (Gateway, NVA) and VM Workload subnets.<br/>
-Decide what Azure Region, Resource Group(s) to create. Plan for creating VMs in all vnets (Hub, Spokes, Simulated Branch) to test the connectivity. <br/>
-Linux VMs are easy to deploy and do basic connectivity (serial console).<br/>
-When using AIRS subscription,may face difficulties RDP/SSH into VMs due to security policy enforcement. (There are workarounds available).
+- Setup up a basic hub and spoke topology with a Central Network Virtual Appliance.<br/>
+- Establish connectivity to (simulated) onprem via VPN site-to-site.<br/>
+- Prepare non overlapping address spaces ranges for virtual networks and various special (Gateway, NVA) and VM Workload subnets.<br/>
+- Decide what Azure Region, Resource Group(s) to create. Plan for creating VMs in all vnets (Hub, Spokes, Simulated Branch) to test the connectivity. <br/>
+- Linux VMs are easy to deploy and do basic connectivity (serial console).<br/>
+- When using AIRS subscription,may face difficulties RDP/SSH into VMs due to security policy enforcement. (There are workarounds available).
 
 ## Solution Guide
 
