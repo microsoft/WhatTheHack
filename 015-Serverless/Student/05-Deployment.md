@@ -16,7 +16,7 @@ In this challenge, you will deploy the VS project to Azure.
   * Topic Type : Storage Accounts.
   * Resource : The first storage account you created.
   * Event type : Blob Created _only_
-  * Endpoint type : Leave as is
+  * Endpoint type : Select your ProcessImage Azure Function
 
 ## Success Criteria
 1. The solution successfully deploys to Azure

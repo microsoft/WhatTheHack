@@ -31,7 +31,7 @@ _HINT : Record names and keys_
     * Create a container &quot;images&quot;
     * Create a container &quot;export&quot;
 1. Create a function app (put &quot;App&quot; in the name)
-    * For your tollbooth app, consumption plan, .NET Core runtime stack
+    * For your tollbooth app, consumption plan, .NET runtime stack
     * Create new storage and disable application insights
 1. Create a function app (put &quot;Events&quot; in the name)
     * For your tollbooth events, consumption plan, Node.js runtime stack
@@ -41,6 +41,7 @@ _HINT : Record names and keys_
 1. Create a Key Vault
     * Pricing Tier : Standard
     * Create Secrets According to below
+1. Configure your Tollbooth app to use KeyVault for secrets
 
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -63,7 +64,8 @@ _HINT : Record names and keys_
 | Creating a function app                    |                                <https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal>                                |
 | Concepts in Event Grid                     |                                                <https://docs.microsoft.com/azure/event-grid/concepts>                                                 |
 | Creating an Azure Cosmos DB account        |                                              <https://docs.microsoft.com/azure/cosmos-db/manage-account>                                              |
-| Key Vault Secret Identifiers        |                                              <https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates>                                              |
+| Key Vault Secret Identifiers        |                                              <https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates>                                              |
+Configure Azure Functions and KeyVault to work together | <https://docs.microsoft.com/azure/app-service/app-service-key-vault-references?tabs=azure-cli#granting-your-app-access-to-key-vault>
 
 
 [Next challenge (Configuration) >](./04-Configuration.md)

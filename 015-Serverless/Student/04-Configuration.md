@@ -24,8 +24,8 @@ In this challenge, you will apply application settings using the Microsoft Azure
 | exportCsvContainerName | Blob storage CSV export container name (export) |
 | blobStorageConnection | blobStorageConnection from Key Vault |
  
-2. Open the Tollbooth solution in Visual Studio Code.
-3. Open the task list
+2. Open the Tollbooth folder in Visual Studio Code.
+3. Open the Todo Tree Extension
 4. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
 5.  The following code represents the completed task in ProcessImage.cs:
