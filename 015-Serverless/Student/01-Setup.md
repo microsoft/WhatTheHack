@@ -12,10 +12,11 @@
 The first challenge is to setup an environment that will help you build the Tollbooth application and deploy it locally. We need to make sure everything is working before bringing it to Azure.
 
 - Visual Studio or Visual Studio Code
-    - Azure development workload for Visual Studio 2017 or 2019
-    - Azure Functions and Web jobs tools
+    - Azure development workload for Visual Studio 2022 or 2019
+    - Azure Functions and Azure Functions Core Tools
     - [Node.js 8+](https://nodejs.org/en/download/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.
-    - .NET Core 3.1
+    - .NET 6
+    - [VS Code Todo Tree Extension](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
     - Any extentions required by your language of choice
 
 *To setup Azure Functions on Visual studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
