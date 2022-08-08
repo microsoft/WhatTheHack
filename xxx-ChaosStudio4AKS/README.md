@@ -23,15 +23,15 @@ You have been tasked to test the resiliency of the pizzeria application. The piz
 simulate various failures. 
 
 ## Challenges
-1. Challenge 01: **[Ready Set Go](Student/Challenge-01.md)**
+1. Challenge 00: **[Ready Set Go](Student/Challenge-00.md)**
 	 - Deploy the multi-region Kubernetes pizzeria application,
-1. Challenge 02: **[Is your application ready for the Super Bowl?](Student/Challenge-02.md)**
+1. Challenge 01: **[Is your application ready for the Super Bowl?](Student/Challenge-01.md)**
 	 - How does your application handle failure during large scale events?
-1. Challenge 03: **[My AZ burned down, now what?](Student/Challenge-03.md)**
+1. Challenge 02: **[My AZ burned down, now what?](Student/Challenge-02.md)**
 	 - Can your application survive an Azure outage of 1 or more Availability Zones?
-1. Challenge 04: **[Godzilla takes out an Azure region!](Student/Challenge-04.md)**
+1. Challenge 03: **[Godzilla takes out an Azure region!](Student/Challenge-03.md)**
 	 - Can your application survive a region failure? 
-1. Challenge 05: **[Injecting Chaos into your pipeline](Student/Challenge-05.md)**
+1. Challenge 04: **[Injecting Chaos into your pipeline](Student/Challenge-04.md)**
 	 - Optional challenge, using Chaos Studio experiments in your CI/CD pipeline
 
 ## Prerequisites
