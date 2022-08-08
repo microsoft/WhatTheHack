@@ -35,3 +35,5 @@ These docs might help you achieving these objectives:
 - [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
 - [AKS Overview](https://docs.microsoft.com/azure/aks/)
 - [Application Gateway Ingress Controller](https://docs.microsoft.com/azure/application-gateway/ingress-controller-overview)
+- [Create an Nginx ingress controller in AKS](https://docs.microsoft.com/azure/aks/ingress-basic?tabs=azure-cli)
+- [Web Application Routing Addon](https://docs.microsoft.com/azure/aks/web-app-routing)

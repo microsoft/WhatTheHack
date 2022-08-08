@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "217e9e19-6daa-4beb-a5b0-7d280dd1b724",
+		"name": "PurviewHackCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "https://purview.azure.net",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/{{tenantID}}/oauth2/token?=",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"{{tenantID}}",
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomDBEntityDef",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"entityDefs\": [\r\n        {\r\n            \"category\": \"ENTITY\",           \r\n            \"version\": 1,\r\n            \"name\": \"customdb\",\r\n            \"description\": \"custom database\",\r\n            \"typeVersion\": \"1.0\",\r\n            \"attributeDefs\": [\r\n            ],\r\n            \"superTypes\": [\r\n                \"DataSet\"\r\n            ],\r\n            \"subTypes\": [],\r\n            \"relationshipAttributeDefs\": [\r\n\r\n\r\n            ]\r\n        }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{PurviewAcctName}}.purview.azure.com/catalog/api/atlas/v2/types/typedefs",
+					"protocol": "https",
+					"host": [
+						"{{PurviewAcctName}}",
+						"purview",
+						"azure",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"api",
+						"atlas",
+						"v2",
+						"types",
+						"typedefs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomDBEntitySource1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entity\": {\r\n    \"meanings\": [\r\n    ],\r\n    \"status\": \"ACTIVE\",\r\n    \"version\": 0,\r\n    \"typeName\": \"customdb\",\r\n    \"attributes\": {\r\n        \"qualifiedName\": \"customdbdb://customdb/customer\",\r\n        \"name\": \"customer\",\r\n        \"description\": null,\r\n        \"principalId\": 0,\r\n        \"objectType\": null\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{PurviewAcctName}}.purview.azure.com/catalog/api/atlas/v2/entity",
+					"protocol": "https",
+					"host": [
+						"{{PurviewAcctName}}",
+						"purview",
+						"azure",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"api",
+						"atlas",
+						"v2",
+						"entity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomDBEntitySource2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entity\": {\r\n    \"meanings\": [\r\n    ],\r\n    \"status\": \"ACTIVE\",\r\n    \"version\": 0,\r\n    \"typeName\": \"customdb\",\r\n    \"attributes\": {\r\n        \"qualifiedName\": \"customdbdb://customdb/orders\",\r\n        \"name\": \"orders\",\r\n        \"description\": null,\r\n        \"principalId\": 0,\r\n        \"objectType\": null\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{PurviewAcctName}}.purview.azure.com/catalog/api/atlas/v2/entity",
+					"protocol": "https",
+					"host": [
+						"{{PurviewAcctName}}",
+						"purview",
+						"azure",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"api",
+						"atlas",
+						"v2",
+						"entity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomDBEntityDestination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entity\": {\r\n    \"meanings\": [\r\n    ],\r\n    \"status\": \"ACTIVE\",\r\n    \"version\": 0,\r\n    \"typeName\": \"customdb\",\r\n    \"attributes\": {\r\n        \"qualifiedName\": \"customdbdb://customdb/reporting\",\r\n        \"name\": \"reporting\",\r\n        \"description\": null,\r\n        \"principalId\": 0,\r\n        \"objectType\": null\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{PurviewAcctName}}.purview.azure.com/catalog/api/atlas/v2/entity",
+					"protocol": "https",
+					"host": [
+						"{{PurviewAcctName}}",
+						"purview",
+						"azure",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"api",
+						"atlas",
+						"v2",
+						"entity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomDBLineage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entity\": {\r\n    \"status\": \"ACTIVE\",\r\n    \"version\": 0,\r\n    \"typeName\": \"Process\",\r\n    \"attributes\": {\r\n        \"inputs\": [\r\n            {\"guid\": \"690a2b03-caf0-4239-ac24-60075c5a95b8\"},\r\n            {\"guid\": \"24e54e70-69cb-4c13-979a-3a74f9cd54e6\"}\r\n        ],\r\n        \"outputs\": [\r\n            {\"guid\": \"749878ec-2af9-4b20-a5e1-e5fd89ed00d2\"}\r\n        ],\r\n        \"qualifiedName\": \"customdb://customdblineage\",\r\n        \"name\": \"customdblineage\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{PurviewAcctName}}.purview.azure.com/catalog/api/atlas/v2/entity",
+					"protocol": "https",
+					"host": [
+						"{{PurviewAcctName}}",
+						"purview",
+						"azure",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"api",
+						"atlas",
+						"v2",
+						"entity"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "client_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "tenantID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "grant_type",
+			"value": "client_credentials",
+			"type": "string"
+		},
+		{
+			"key": "resource",
+			"value": "https://purview.azure.net",
+			"type": "string"
+		},
+		{
+			"key": "PurviewAcctName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "bearerToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

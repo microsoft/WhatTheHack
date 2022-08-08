@@ -51,7 +51,7 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 
 ## Learning Path for Modern Data Warehouse
 
-- [Modern Data Warehouse](https://github.com/bhitney/Learning-Plans/wiki/Modern-Data-Warehouse)
+- [Modern Data Warehouse](https://microsoft.github.io/PartnerResources/skilling/data-analytics-ai/modern-analytics-academy)
 
 
 ## Contributors
@@ -61,3 +61,5 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 - Chris Mitchell
 - Brian Hitney
 - Israel Ekpo
+- Ryan CrawCour
+- Osamu Hirayama

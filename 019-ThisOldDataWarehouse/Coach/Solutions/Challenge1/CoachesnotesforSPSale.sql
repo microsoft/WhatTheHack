@@ -1,3 +1,5 @@
+--Post May 2020 only T_SQL incompatibilities are "EXECUTE AS OWNER" and "RETURN".
+
 CREATE PROCEDURE [Integration].[MigrateStagedSaleData] 
 
 /* Part 0 - remove execute as owner Not supported in Azure Synapse Analytics */ 
@@ -159,19 +161,16 @@ UPDATE s
 
    - Set cutoff date/time 
 
-   - remove from clause 
-
 */ 
 
-    UPDATE Integration.[ETL Cutoff] 
-
+    UPDATE
         SET [Cutoff Time] = (SELECT [Source System Cutoff Time] 
 
                              FROM Integration.Lineage 
 
                              WHERE [Lineage Key] = @LineageKey) 
 
-    --FROM Integration.[ETL Cutoff] 
+    FROM Integration.[ETL Cutoff] 
 
     WHERE [Table Name] = N'Sale'; 
 

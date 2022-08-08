@@ -1,4 +1,4 @@
-$Kill = Read-Host -Prompt "Are you sure you want to kill all powershell sessions from this machine ? [Y] Yes, [N] No"
+$Kill = Read-Host -Prompt "Are you sure you want to kill all powershell sessions on this machine ? [Y] Yes, [N] No"
 
 if($Kill -eq "Y")
 {  
