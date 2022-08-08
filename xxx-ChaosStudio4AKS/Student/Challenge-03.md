@@ -1,4 +1,4 @@
-# Challenge 04 - Can your Application Survive Region Failure?
+# Challenge 03 - Can your Application Survive Region Failure?
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
