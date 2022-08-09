@@ -47,7 +47,7 @@ It is of paramount importance that you are aware that 100% of the Azure Route Se
 ### Review of Vnet Routing and BGP on VPN Gateways
 
 - [Virtual Network Routing](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)
-- [About VGP with Azure VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
+- [About BGP with Azure VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
 
 ## Success Criteria
 
