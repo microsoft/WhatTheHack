@@ -77,13 +77,12 @@ _This section is optional. You may wish to provide an estimate of how long each 
 
 ## Repository Contents
 
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
-- `./Coach`
+- `../Coach`
   - Coach's Guide and related files
-- `./Coach/Solutions`
-  - Solution files with completed example answers to a challenge
-- `./Student`
+- `../Student/Resources`
+  - Image files and code for TollBooth Application meant to be provided to students.
+  (Must be packaged up by the coach and provided to students at start of event)
+- `../images`
+  - Generic image files needed
+- `../Student`
   - Student's Challenge Guide
-- `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
