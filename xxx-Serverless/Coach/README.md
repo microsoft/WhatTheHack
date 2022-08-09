@@ -10,28 +10,28 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
+- Challenge 01: **[Setup](./Solution-01.md)**
+	 - Prepare your workstation to develop your Serverless Solution
+- Challenge 02: **[Create a Hello World Function](./Solution-02.md)**
+	 - Create your first "Hello World" Azure Function in Visual Studio Code
+- Challenge 03: **[Create Resources](./Solution-03.md)**
+	 - Provision the basic resources in Azure to prepare your deployment ground
+- Challenge 04: **[Configuration](./Solution-04.md)**
+	 - Configure application settings on the Microsoft Azure Portal and update the TollBooth application code
+- Challenge 05: **[Deployment](./Solution-05.md)**
+	 - Deploy the Tollbooth project to the "App" in the Azure Portal Function App and configure the Event Grid
+- Challenge 06: **[Create Functions in the Portal](./Solution-06.md)**
+	 - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics
+- Challenge 07: **[Monitoring](./Solution-07.md)**
+	 - Configure application monitoring with Application Insights Resource on Azure Portal
+- Challenge 08: **[Data Export Workflow](./Solution-08.md)**
+	 - Deploy a Logic App to periodically export the license plate data and conditionally send an email
+
+## Coach's Guides for Optional Challenges
+- Challenge A: **[Scale the Cognitive Service](./Solution-A.md)**
+	 - Witness the dynamic scaling of the Function App demonstrating the true Serverless behaviour
+- Challenge B: **[View Data in Cosmos DB](./Solution-B.md)**
+	 - Use the Azure Cosmos DB Data Explorer in the portal to view saved license plate data
 
 ## Coach Prerequisites
 
