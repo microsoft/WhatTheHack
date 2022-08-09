@@ -1,4 +1,4 @@
-# Challenge 03 - <Title of Challenge>
+# Challenge 03 -  Connect Network Virtual Appliance to SD WAN routers
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
@@ -9,6 +9,8 @@ Now that we have a solid understanding of the functionality of Azure Route Serve
 ## Description
 
 Your Network Organization decided that Azure is amazing and want to establish communications with two different SDWAN Data Centers in separate geographic locations. They are advertising the exact same prefixes from both locations via BGP and they want to reach their On Premises Data Center. 
+  
+![ARS_SDWAN](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge3.png)
   
 Please deploy the following scenareo:
 - Establish two simulated SDWAN branches on different locations
