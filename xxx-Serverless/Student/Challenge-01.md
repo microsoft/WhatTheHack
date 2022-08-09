@@ -30,6 +30,6 @@ Your coach will provide you with a `Resources.zip` file containing the source co
 ## Success Criteria
 
 1. Verify your Visual Studio or Visual Studio Code installation has all of the necessary developer tools installed and available.
-1. Verify you have the following folders locally:
-    - `/Resources/Tollbooth`
-    - `/Resources/license plates`
+1. Verify you have the following folders locally wherever you unpacked the `Resources.zip` file:
+    - `/Tollbooth`
+    - `/license plates`
