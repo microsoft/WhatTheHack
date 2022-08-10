@@ -1,4 +1,4 @@
-# Challenge 02 - Can your Application Survive an Availability Zone Failure
+# Challenge 02 - My Availability Zone burned down, now what?
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
@@ -8,7 +8,7 @@ Before creating your Azure Chaos Studio Experiment, ensure you have deployed and
 
 ## Introduction
 
-Welcome to Challenge 2. 
+Welcome to Challenge 2. Can your Application Survive an Availability Zone Failure?
 
 How did your application perform with pod failures? Are you still in business? Now that you have tested for pod faults and have
 overcome with resiliency at the pod level --it is time to kick it up to the next level. Winter storms are a possibility on Superbowl Sunday and you need to
