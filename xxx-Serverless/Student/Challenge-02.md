@@ -1,4 +1,4 @@
-# Challenge 02 - <Title of Challenge>
+# Challenge 02 - Create a Hello World Function
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
