@@ -4,15 +4,17 @@
 
 ## Pre-requisites
 To complete this challenge you will using the Pizza Application or your AKS application
-You will need to have an indepth understanding of DevOps and your CI/CD tool of choice
+
 
 ## Introduction
+You will need to have an indepth understanding of DevOps and your CI/CD tool of choice.
+
 This is where the rubber meets the road. You will take what you have learned from the previous challenges and apply the knowledge here. 
 
 
 ## Description
 In this challenge you will conduct a chaos experiment in your CI/CD pipeline.
-You will take one of your corporate applications and add chaos experiments to its deployment pipeline.
+You will take the Pizza Application or your application and add a chaos experiment to your deployment pipeline.
 Run your experiments in Dev/Test, do not run in Prod.
 
 
