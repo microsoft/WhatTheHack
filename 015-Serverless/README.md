@@ -10,8 +10,6 @@ The intent is to have you practice the tools, technologies and services our part
 
 And don't forget there are coaches around you, just raise your hand at any time!
 
-- Estimated duration is 12 hours depending on student skill level
-
 ## Learning Objectives
 
 In this hack, you will be solving the business problem of event driven scale for the Tollbooth Application.
