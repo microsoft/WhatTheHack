@@ -1,12 +1,12 @@
-# Challenge 6 - Create Functions in the Portal
+# Challenge 06 - Create Functions in the Portal
 
-## Prerequisities
-
-1. [Challenge 5 - Deployment](./05-Deployment.md) should be done successfuly.
+[< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 ## Introduction
 
 Create two new Azure Functions written in Node.js, using the Azure portal. These will be triggered by Event Grid and output to Azure Cosmos DB to save the results of license plate processing done by the ProcessImage function.
+
+## Description
 
 1. Navigate to the function app &quot;Events&quot;
 2. Create a function that is triggered by event grid (install extensions if prompted)
@@ -73,18 +73,13 @@ Create two new Azure Functions written in Node.js, using the Azure portal. These
     * Database Name : LicensePlates
     * Collection Name : NeedsManualReview
 
-
 ## Success Criteria
+
 1. Both functions do not have any compillation errors
 1. Both functions have event grid subscriptions
 1. Both functions have Cosmos DB as their outputs
 
-## Tips
+## Learning Resources
 
-|                                                                   |                                                                                                         |
-| ----------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------: |
-| **Description**                                                   |                                                **Links**                                                |
-| Create your first function in the Azure portal                    |        <https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function>         |
-| Store unstructured data using Azure Functions and Azure Cosmos DB | <https://docs.microsoft.com/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb> |
-
-[Next challenge (Monitoring) >](./07-Monitoring.md)
+- [Create your first function in the Azure portal](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
+- [Store unstructured data using Azure Functions and Azure Cosmos DB](https://docs.microsoft.com/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb)

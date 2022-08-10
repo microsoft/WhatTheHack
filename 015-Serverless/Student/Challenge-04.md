@@ -1,13 +1,12 @@
-# Challenge 4 - Configuration
+# Challenge 04 - Configuration
 
-## Prerequisities
-
-1. [Challenge 3 - Create Resources](./03-CreateResources.md) should be done successfuly.
-
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
 
 In this challenge, you will apply application settings using the Microsoft Azure Portal. You will then add the application settings to the TollBooth Starter Project.
+
+## Description
 
 1. Add the application settings in the **first** function app (with name containing &quot;App&quot;) you created as follows:
 
@@ -57,17 +56,13 @@ await Send("savePlateData", "TollBooth/CustomerService", data);
 await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
 
+
 ## Success Criteria
+
 1. The solution successfully builds
 2. The function app does not show any errors
 
-## Tips
+## Learning Resources
 
-
-|                                       |                                                                        |
-| ------------------------------------- | :--------------------------------------------------------------------: |
-| **Description**                       |                               **Links**                                |
-| Code and test Azure Functions locally | <https://docs.microsoft.com/azure/azure-functions/functions-run-local> |
-| How to add Application Settings to Azure Function | <https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings> |
-
-[Next challenge (Deployment) >](./05-Deployment.md)
+- [Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
+- [How to add Application Settings to Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)

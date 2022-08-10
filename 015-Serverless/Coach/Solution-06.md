@@ -1,19 +1,17 @@
-# Challenge 6 - Create Functions in the Portal
+# Challenge 06 - Create Functions in the Portal - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
+
+## Notes & Guidance
+
 Integration has changed in the new functions portal.  Might have to go to the old portal to add the integration.
 
 ## Step by Step Instructions
 
 ### Help references
 
-
-|                                                                   |                                                                                                         |
-| ----------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------: |
-| **Description**                                                   |                                                **Links**                                                |
-| Create your first function in the Azure portal                    |        <https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function>         |
-| Store unstructured data using Azure Functions and Azure Cosmos DB | <https://docs.microsoft.com/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb> |
-
+- [Create your first function in the Azure portal](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
+- [Store unstructured data using Azure Functions and Azure Cosmos DB](https://docs.microsoft.com/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb)
 
 ### Task 1: Create function to save license plate data to Azure Cosmos DB
 
@@ -214,3 +212,4 @@ In this task, you will configure a custom event type for each new Event Grid sub
 11. Select **Add Event Type**, then enter **queuePlateForManualCheckup** into the event types field. If you specified a different name in the SendToEventGrid class in the TollBooth solution, use that instead.
 
 12. Select **Save**.
+

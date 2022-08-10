@@ -1,16 +1,16 @@
-# Challenge 4 - Configuration
+# Challenge 04 - Configuration - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
+
+## Notes & Guidance
+
 None
 
 ## Step by Step Instructions
 
 ### Help references
 
-|                                       |                                                                        |
-| ------------------------------------- | :--------------------------------------------------------------------: |
-| **Description**                       |                               **Links**                                |
-| Code and test Azure Functions locally | <https://docs.microsoft.com/azure/azure-functions/functions-run-local> |
+- [Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
 ### Task 1: Configure application settings
 
