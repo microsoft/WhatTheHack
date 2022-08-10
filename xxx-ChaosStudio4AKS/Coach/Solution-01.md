@@ -1,20 +1,18 @@
-# Challenge 01 - <Title of Challenge> - Coach's Guide 
+# Challenge 01 - Is your Application ready for the Super Bowl? - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+This challenge is where the student will simulate a POD failure. For Chaos Studio to work with AKS, Chaos Mesh will need to be installed.
+Chaos doesn't work with private clusters. 
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+- Instructions to install chaos studio are at https://docs.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#set-up-chaos-mesh-on-your-aks-cluster
+- Once installed, create a POD failure experiment to fail a POD
+    - If using the Pizza App, the application should become unresponsive 
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+Have the student explore how to make PODs resilient by creating a replica of the POD
 
-Break things apart with more than one bullet list
+```bash
+kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
 
-- Like this
-- One
-- Right
-- Here
