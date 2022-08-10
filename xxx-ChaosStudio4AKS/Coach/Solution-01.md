@@ -16,4 +16,8 @@ Have the student explore how to make PODs resilient by creating a replica of the
 ```bash
 kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
 ```
+Then have the student run the experiment again and notice how the application is avalable with a failed POD
 
+Be the smode = one as per the JSON spec below:
+
+{"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["contosoappmysql"]}}
