@@ -1,6 +1,9 @@
-# Optional Challenge A - Scale the Cognitive Service
+# Optional Challenge 07A - Scale the Cognitive Service - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07B.md)
+
+## Notes & Guidance
+
 None
 
 ## Step by Step Instructions
@@ -24,3 +27,4 @@ In this task, you will change the Computer Vision API to the Free tier. This wil
 5.  After this has run for some time, close the UploadImages console to stop uploading photos.
 
 6.  Navigate back to the **Computer Vision** API and set the pricing tier back to **S1 Standard**.
+
