@@ -1,35 +1,35 @@
-# Challenge 1 - Setup
+# Challenge 01 - Setup
 
-## Prerequisities
+**[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
+
+## Pre-requisites
 
 - Your laptop: Win, MacOS or Linux OR A development machine that you have **administrator rights**.
 - Active Azure Subscription with **contributor level access or equivalent** to create or modify resources.
 
-## Introduction 
-
-### Set up your *local* environment.
+## Introduction
 
 The first challenge is to setup an environment that will help you build the Tollbooth application and deploy it locally. We need to make sure everything is working before bringing it to Azure.
+
+## Description
+
+Set up your *local* environment:
 
 - Visual Studio or Visual Studio Code
     - Azure development workload for Visual Studio 2022 or 2019
     - Azure Functions and Azure Functions Core Tools
     - [Node.js 8+](https://nodejs.org/en/download/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.
-    - .NET 6
+    - .NET 6 SDK
     - [VS Code Todo Tree Extension](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
     - Any extentions required by your language of choice
 
-*To setup Azure Functions on Visual studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
+*To setup Azure Functions on Visual Studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
  
-## Challenges
+Your coach will provide you with a `Resources.zip` file containing the source code and supporting files for this hack.  Uncompress the file on your local workstation.
 
-1. [Download](https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2Fmicrosoft%2FWhatTheHack%2Ftree%2Fmaster%2F015-Serverless%2FStudent%2FResources) the source code needed for this hack.
-1. Uncompress the file.
+## Success Criteria
 
-
-## Success criteria
-
-1. You have 2 folders locally.  One named Tollbooth and the other named license plates.
-
-
-[Next challenge (Create a Hello World Function) >](./02-FunctionIntro.md)
+1. Verify your Visual Studio or Visual Studio Code installation has all of the necessary developer tools installed and available.
+1. Verify you have the following folders locally wherever you unpacked the `Resources.zip` file:
+    - `/Tollbooth`
+    - `/license plates`

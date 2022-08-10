@@ -1,6 +1,9 @@
-# Challenge 5 - Deployment
+# Challenge 05 - Deployment - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
+
+## Notes & Guidance
+
 *As of May 2020, there is a new Portal view of the functions*
 1) Those that are not familiar with Azure functions will not know about how the Applications Settings work with the Function Code
 2) Key Vault reference in the Function App will require a reference __@Microsoft.KeyVault__ in the app setting value
@@ -17,17 +20,11 @@ Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 ### Help references
 
-
-|                                       |                                                                        |
-| ------------------------------------- | :--------------------------------------------------------------------: |
-| **Description**                       |                               **Links**                                |
-| Deploy Functions to Azure | <https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/> |
+- [Deploy Functions to Azure](https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/)
 
 
 ### **Errors in new portal**
 **The new Function App portal will display errors and not allow students to edit the Event Grid subscriptions.  These will need to be done in the old Function App portal**
-
-
 
 1.  Navigate to the **TollBooth** project using the Solution Explorer of Visual Studio.
 

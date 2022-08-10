@@ -1,6 +1,9 @@
-# Optional Challenge B - Data in Cosmos DB
+# Optional Challenge 07B - Data in Cosmos DB - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-07A.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
+
+## Notes & Guidance
+
 None
 
 ## Step by Step Instructions
@@ -8,10 +11,7 @@ None
 
 ### Help references
 
-|                       |                                                           |
-| --------------------- | :-------------------------------------------------------: |
-| **Description**       |                         **Links**                         |
-| About Azure Cosmos DB | <https://docs.microsoft.com/azure/cosmos-db/introduction> |
+- [About Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
 
 ### Task 1: Use the Azure Cosmos DB Data Explorer
 
@@ -37,5 +37,6 @@ SELECT VALUE COUNT(c.id) FROM c WHERE c.exported = false
 ```
 
 9.  Execute the query and observe the results. In our case, we have 1,369 processed documents that need to be exported.
+
 
 

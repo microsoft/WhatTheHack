@@ -1,11 +1,12 @@
-# Challenge 7 - Monitoring
+# Challenge 07 - Monitoring
 
-## Prerequisities
-
-1. [Challenge 6 - Create Functions in the Portal](./06-PortalFunctions.md) should be done successfuly.
+[< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
 ## Introduction
+
 Application Insights can be integrated with Azure Function Apps to provide robust monitoring for your functions. In this challenge, you will provision a new Application Insights account and configure your Function Apps to send telemetry to it.
+
+## Description
 
 1. Create an Application Insights resource
     * Name : Similar to TollboothMonitor
@@ -19,25 +20,18 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 7. Switch back to the Live Metrics Stream window and observe the activity as the photos are uploaded. It is possible that the process will run so efficiently that no more than two servers will be allocated at a time. You should also notice things such as a steady cadence for the Request Rate monitor, the Request Duration hovering below ~500ms second, and the Process CPU percentage roughly matching the Request Rate.
 8. Close the console window when done.
 
-
 ## Success Criteria
+
 1. You have been able to successfully monitor the execution of the functions in Application Insights.
 
-## Tips
+## Learning Resources
 
+- [Monitor Azure Functions using Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Live Metrics Stream: Monitor & Diagnose with 1-second latency](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)
 
-|                                                               |                                                                                  |
-| ------------------------------------------------------------- | :------------------------------------------------------------------------------: |
-| **Description**                                               |                                    **Links**                                     |
-| Monitor Azure Functions using Application Insights            |     <https://docs.microsoft.com/azure/azure-functions/functions-monitoring>      |
-| Live Metrics Stream: Monitor & Diagnose with 1-second latency | <https://docs.microsoft.com/azure/application-insights/app-insights-live-stream> |
+## Advanced Challenges
 
-[Next optional challenge A (Scale the Cognitive Service) >](./0A-ScaleCognitive.md)
+Too comfortable?  Eager to do more?  Try these additional challenges!
 
-Or
-
-[Next optional challenge B (View Data in Cosmos DB) >](./0B-Cosmos.md)
-
-Or
-
-[Next challenge (Data Export Workflow) >](./08-Workflow.md)
+- [Optional Challenge A - Scale the Cognitive Service](./Challenge-07A.md)
+- [Optional Challenge B - View Data in Cosmos DB](./Challenge-07B.md)
