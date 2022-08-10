@@ -32,9 +32,9 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Deploy a Logic App to periodically export the license plate data and conditionally send an email
 
 ## Coach's Guides for Optional Challenges
-- Challenge A: **[Scale the Cognitive Service](./Solution-A.md)**
+- Challenge 07A: **[Scale the Cognitive Service](./Solution-07A.md)**
 	 - Witness the dynamic scaling of the Function App demonstrating the true Serverless behaviour
-- Challenge B: **[View Data in Cosmos DB](./Solution-B.md)**
+- Challenge 07B: **[View Data in Cosmos DB](./Solution-07B.md)**
 	 - Use the Azure Cosmos DB Data Explorer in the portal to view saved license plate data
 
 ## Coach Prerequisites
