@@ -1,4 +1,4 @@
-# Challenge 03 - Can your Application Survive Region Failure?
+# Challenge 03 - Godzilla takes out an Azure region!
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
@@ -11,6 +11,8 @@ and WestUS)
 ## Introduction
 
 Welcome to Challenge 3. 
+
+Can your Application Survive Region Failure?
 
 So far you have tested failures with Contoso Pizza's AKS pod(s), AKS node(s), and now it is time to test failures at the regional
 level. 
