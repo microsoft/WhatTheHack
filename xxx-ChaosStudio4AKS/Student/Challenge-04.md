@@ -3,12 +3,11 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
 ## Pre-requisites
-To complete this challenge you will use one of your Company's applications.
-You should have a preexisting (Dev/Test) application and/or CI/CD pipeline. 
-Run your experiment(s) in Dev/Test, do not run in Prod.
+To complete this challenge you will using the Pizza Application or your AKS application
+You will need to have an indepth understanding of DevOps and your CI/CD tool of choice
 
 ## Introduction
-This is where the rubber meets the road. You will take what you have learned from the previous challenges and apply them here. 
+This is where the rubber meets the road. You will take what you have learned from the previous challenges and apply the knowledge here. 
 
 
 ## Description
