@@ -35,7 +35,7 @@ simulate various failures.
 	 - Optional challenge, using Chaos Studio experiments in your CI/CD pipeline
 
 ## Prerequisites
-- Azure subscription with owner access
+- Azure subscription with contributor access
 - Visual Studio Code terminal or Azure Shell (recommended)
 - Latest Azure CLI (if not using Azure Shell) 
 - Github or Azure DevOps to automate Chaos Testing
