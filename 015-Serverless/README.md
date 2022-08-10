@@ -82,11 +82,10 @@ This one possible Cloud Solution Architecture classifies under the **Application
 - Your laptop: Win, MacOS or Linux OR A development machine that you have **administrator rights**.
 - Active Azure Subscription with **contributor level access or equivalent** to create or modify resources.
 - [Node.js 8+](https://www.npmjs.com/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.
-- Visual Studio (2017/2019) or Visual Studio Code
-- Azure development workload for Visual Studio 2017 or 2019
+- Visual Studio 2022 or Visual Studio Code
+- Azure development workload for Visual Studio 2022
 - Azure Functions and Web jobs tools
-- .NET Framework 4.7 runtime (or higher)
-- .NET Core 2.1
+- .NET 6 SDK
 - Any extentions required by your language of choice
 
 *To setup Azure Functions on Visual studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
@@ -96,4 +95,4 @@ This one possible Cloud Solution Architecture classifies under the **Application
 - Ali Sanjabi
 - Devanshi Joshi
 - Nikki Conley
-- Gwyneth Pena-Siguenza
+- Gwyneth Peña-Siguenza
