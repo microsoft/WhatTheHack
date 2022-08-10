@@ -1,4 +1,4 @@
-# Challenge 01 - Is your Application Resilient?
+# Challenge 01 - Is your Application ready for the Super Bowl?
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
