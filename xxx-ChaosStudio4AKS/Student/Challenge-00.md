@@ -4,11 +4,13 @@
 
 ## Pre-requisites
 
-You will need an Azure subscription with "Owner" permissions.  
+You will need an Azure subscription with "Contributor" permissions.  
 
 Before starting, you should decide how and where you will want to work on the challenges of this hackathon.
 
 You can complete the entirety of this hack's challenges using the [Azure Cloud Shell](#work-from-azure-cloud-shell) in a web browser (fastest path), or you can choose to install the necessary tools on your [local workstation (Windows/WSL, Mac, or Linux)](#work-from-local-workstation).
+
+We recommend installing the tools on your workstation. 
 
 ### Work from Azure Cloud Shell
 
@@ -32,7 +34,7 @@ Take into consideration how much time you will need to install these tools on yo
 
 Once the pre-requisites are set up, now it's time to build the hack's environment.  
 
-This hack is designed to help you learn chaos testing with Azure Chaos Studio, versus AKS. The hack uses pre-canned Azure Kubernettes (AKS) environments that you will deploy into your Azure subscription. You many bring your own AKS application versus using the pre-canned AKS Pizza Application.
+This hack is designed to help you learn chaos testing with Azure Chaos Studio, however you should have a basic knowledge of Kubernetes (K8s). The hack uses pre-canned Azure Kubernettes (AKS) environments that you will deploy into your Azure subscription. You many bring your own AKS application versus using the pre-canned AKS Pizza Application.
 
 If using the Pizza Application, the Pizza Application will run in 2 Azure regions and entirely on an AKS cluster, consisting of the following:
  - 1 instance of the "Pizzeria" sample app (1 per region)
