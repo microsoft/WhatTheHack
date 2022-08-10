@@ -16,10 +16,10 @@ the following:
 2. Provide hands-on understanding of Chaos Engineering 
 3. Understand how resilientcy can be achieved with Azure 
 
-In this WTH, you are the system owner of the Contoso Pizzeria Application. Super Bowl Sunday is Contoso Pizza's busiest time of the year, the pizzeria
+In this WTH, you are the system owner of the Contoso Pizzeria Application (or you may bring your own application). Super Bowl Sunday is Contoso Pizza's busiest time of the year, the pizzeria
 ordering application must be must be available during the Super Bowl. 
 
-You have been tasked to test the resiliency of the pizzeria application. The pizzeria application is running on Azure and you will use Chaos Studio to
+You have been tasked to test the resiliency of the pizzeria application (or your application). The pizzeria application is running on Azure and you will use Chaos Studio to
 simulate various failures. 
 
 ## Challenges
