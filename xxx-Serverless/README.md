@@ -74,9 +74,9 @@ This one possible Cloud Solution Architecture classifies under the **Application
 	 - Deploy a Logic App to periodically export the license plate data and conditionally send an email
 
 ## Optional Challenges
-- Challenge A: **[Scale the Cognitive Service](Student/Challenge-A.md)**
+- Challenge 07A: **[Scale the Cognitive Service](Student/Challenge-07A.md)**
 	 - Witness the dynamic scaling of the Function App demonstrating the true Serverless behaviour
-- Challenge B: **[View Data in Cosmos DB](Student/Challenge-B.md)**
+- Challenge 07B: **[View Data in Cosmos DB](Student/Challenge-07B.md)**
 	 - Use the Azure Cosmos DB Data Explorer in the portal to view saved license plate data
 
 ## Prerequisites
