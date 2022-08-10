@@ -37,7 +37,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites (Optional)
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+None are required for this hack
 
 ## Azure Requirements
 
