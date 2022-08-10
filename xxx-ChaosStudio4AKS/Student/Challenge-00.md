@@ -32,17 +32,17 @@ Take into consideration how much time you will need to install these tools on yo
 
 Once the pre-requisites are set up, now it's time to build the hack's environment.  
 
-This hack is designed to help you learn chaos testing with Azure Chaos Studio, versus AKS. The hack uses pre-canned Azure Kubernettes (AKS) environments that you will deploy into your Azure subscription. 
+This hack is designed to help you learn chaos testing with Azure Chaos Studio, versus AKS. The hack uses pre-canned Azure Kubernettes (AKS) environments that you will deploy into your Azure subscription. You many bring your own AKS application versus using the pre-canned AKS Pizza Application.
 
-The Pizza Application runs in 2 Azure regions and entirely on an AKS cluster, consisting of the following:
+If using the Pizza Application, the Pizza Application will run in 2 Azure regions and entirely on an AKS cluster, consisting of the following:
  - 1 instance of the "Pizzeria" sample app (1 per region)
  - A MySQL database (1 per region)
 
 ## Description
 
-The Pizza Application is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, database, and sample Pizzeria application.  Your coach will provide you with a link to the Pizzaria.zip file that contains deployment files needed to deploy the AKS environment into EastUS and WestUS. Since the end goal is to test a multi-region application, deploy the application into each region. For best results, perform all experiments in your nearest region.
+The Pizza Application is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, database, and the sample Pizzeria application.  Your coach will provide you with a link to the Pizzaria.zip file that contains deployment files needed to deploy the AKS environment into EastUS and WestUS. Since the end goal is to test a multi-region application, deploy the application into each region. For best results, perform all experiments in your nearest region.
 
-   - Download the required PizzariaApp.zip file for this hack. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
+   - Download the required PizzariaApp.zip file (or you can use your own AKS application) for this hack. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
    - Unzip the file 
 
 ### Deploy the AKS Environment
@@ -83,8 +83,8 @@ Once the applications are deployed, you will see a link to a web sites running o
 
 ## Success Criteria
 
-* You have a Unix/Linux Shell for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
-* You have validated that the Pizzeria application is working in both regions (EastUS & WestUS)
+* You have a Unix/Linux Shell for setting up the Pizzeria application or your AKS application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
+* You have validated that the Pizzeria or your application is working in both regions (EastUS & WestUS)
 
 
 ## Tips
