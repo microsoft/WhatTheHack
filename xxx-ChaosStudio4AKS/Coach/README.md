@@ -43,25 +43,21 @@ _Please list any additional pre-event setup steps a coach would be required to s
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- Azure subscription with contributor access
+- Visual Studio Code terminal or Azure Shell (recommended)
+- Latest Azure CLI (if not using Azure Shell)
+- Chaos Studio, Azure Kubernetes Service (AKS) and Traffic Manager services will be used in this hack
 
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
 
 ## Suggested Hack Agenda (Optional)
 
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+- Day 1
+  - Challenge 1 (X hour)
+  - Challenge 2 (X mins)
+  - Challenge 3 (X hours)
+  - Challenge 4 (x hours)
 
 ## Repository Contents
 
