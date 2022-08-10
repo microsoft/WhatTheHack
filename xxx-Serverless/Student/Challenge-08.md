@@ -1,6 +1,6 @@
 # Challenge 08 - Data Export Workflow
 
-[< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
+[< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)**
 
 ## Introduction
 
