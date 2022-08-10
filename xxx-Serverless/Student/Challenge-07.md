@@ -33,5 +33,5 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-- [Optional Challenge A - Scale the Cognitive Service](./Challenge-A.md)
-- [Optional Challenge B - View Data in Cosmos DB](./Challenge-B.md)
+- [Optional Challenge A - Scale the Cognitive Service](./Challenge-07A.md)
+- [Optional Challenge B - View Data in Cosmos DB](./Challenge-07B.md)
