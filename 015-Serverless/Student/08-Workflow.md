@@ -37,7 +37,8 @@ In this challenge, you create a new Logic App for your data export workflow. Thi
     await blob.UploadFromStreamAsync(stream);
  ```
  8. Publish to Azure
- 9. Run the Logic App.  This time, the condition should be true.
+ 9. In your App Azure Function, add `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true` in the application settings.
+ 10. Run the Logic App.  This time, the condition should be true.
 
 
 ## Success Criteria

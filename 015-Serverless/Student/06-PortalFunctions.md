@@ -35,7 +35,7 @@ Create two new Azure Functions written in Node.js, using the Azure portal. These
     * Topic Type: Event Grid Topics.
     * Resource: your recently created Event Grid.
     * Event Type : Add `savePlateData`
-    * Endpoint : Leave As Is
+    * Endpoint : Select SavePlateData Function.
 5. Add a Cosmos DB Output to the function (install extensions if needed)
     * Select the Cosmos DB account created earlier
     * Database Name : LicensePlates
@@ -67,7 +67,7 @@ Create two new Azure Functions written in Node.js, using the Azure portal. These
     * Topic Type: Event Grid Topics.
     * Resource: your recently created Event Grid.
     * Add Event Type `queuePlateForManualCheckup`
-    * Leave Azure Function as the Endpoint Type.
+    * Endpoint: Select QueuePlateForManualCheckup Function.
 9. Add a Cosmos DB Output to the QueuePlateForManualCheckup function
     * Select the Cosmos DB account connection created earlier
     * Database Name : LicensePlates
