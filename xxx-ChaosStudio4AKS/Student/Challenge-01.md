@@ -56,12 +56,6 @@ kubectl get pods --all-namespaces
 
 ```
 
-Command to view all names spaces running in the AKS cluster
-
-```bash
-kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
-
-```
 
 ## Learning Resources  
 - [Simulate AKS pod failure with Chaos Studio](https://docs.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal)
