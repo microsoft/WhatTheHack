@@ -15,4 +15,5 @@ Have the student explore how to make PODs resilient by creating a replica of the
 
 ```bash
 kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
+```
 
