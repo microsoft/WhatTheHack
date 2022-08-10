@@ -41,7 +41,7 @@ simulate various failures.
 - Github or Azure DevOps to automate Chaos Testing
 - Azure fundamentals, Vnets, NSGs, ScaleSets, Traffic Manager 
 - Fundamentals of Chaos Engineering
-- Basic understanding of Kubernetes (kubectl commands)
+- Intermediate understanding of Kubernetes (kubectl commands)and AKS
 
 ## Learning Resources 
 * [What is Azure Chaos Studio](https://docs.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview)
