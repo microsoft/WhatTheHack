@@ -2,8 +2,13 @@
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
+## Notes & Guidance
+- In this challenge both the applications will be broken. Do not be alarmed, we will be fixing them in future challenges!
+  - The backend API is broken because we will need to deploy a Mongo DB backend and configure the environment variables on the deployment (Challenge 4 & 5)
+  - The frontend application is broken because we will need to configure our environment variables on the deployment to point to our backend API (Challenge 5)
+
 ## Retrieve Login Command
-- In the web console, retrieve the login command by clicking on the dropdown arrow next to your name in the top-right and select *Copy Login Command*
+- In the web console, retrieve the login command by clicking on the dropdown arrow next to your name in the top-right and select **Copy Login Command**
   - It was successful if you see something like `Logged into "https://api.abcd1234.westus.aroapp.io:6443" as "kube:admin" using the token provided.`
 
 ## Create New Project
@@ -13,38 +18,34 @@
 - Create in web console:
   - Go to *Home > Projects* and click on *Create Project* button on the right
 
-## Access Github Repos
-- Each student should fork this [repo](https://github.com/microsoft/rating-api) for the API, and this [repo](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-web) for the frontend, in order to be able to setup webhooks
+## Deploy the backend API
+- Deploy the backend API using the command `oc new-app the/rating-api/directory --name=rating-api --strategy=source`
+  - **NOTE:** Make sure the students set the **--strategy** flag to **source** when deploying the backend API and **--name** to **rating-api**
+  - Verify in terminal:
+    - Use the command `oc get deployments` and your output should look similar to below
+    - **NOTE:** Verify the **READY** state shows 1/1
+      ```
+      NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+      rating-api   1/1     1            1           1d23h
+      ```
+  - Verify in web console:
+    - Go to *Workloads > Deployments* and confirm the status of 'rating-api' shows **1 of 1 pods** deployed
 
-## Deploy the API
-- Create new application in web console using the command `oc new-app https://github.com/<your GitHub username>/rating-api --strategy=source` with their corresponding Github username
-  - It was successful if after `oc get pods`, the values under `NAME` are something like 
-  ```
-  rating-api-1-build 
-  rating-api-7699b66cf5-7ch4w
-  ```
-
-## Deploy frontend Service
-- Download updated Dockerfile and Footer.vue files using commands 
-```
-wget https://raw.githubusercontent.com/sajitsasi/rating-web/master/Dockerfile -O ./Dockerfile
-
-wget https://raw.githubusercontent.com/sajitsasi/rating-web/master/src/components/Footer.vue -O ./src/components/Footer.vue
-```
-- Push changes to the repository 
-- Deploy the frontend application using command `oc new-app https://github.com/<your GitHub username>/mslearn-aks-workshop-ratings-web --strategy=docker`
+## Deploy frontend application
+- Deploy the frontend application using the command `oc new-app the/rating-web/directory --name=rating-web --strategy=docker`
+  - **NOTE:** Make sure the students set the **--strategy** flag to **docker** when deploying the frontend application and **--name** to **rating-web**
   - This build will take 5-10 minutes
-  -   - It was successful if after `oc get pods`, the values under `NAME` are something like 
-  ```
-  mslearn-aks-workshop-ratings-web-1-build  
-  mslearn-aks-workshop-ratings-web-5bfcbdbff6-h8755
-  ```
-- Set the environment variable `oc set env deploy mslearn-aks-workshop-ratings-web API=http://rating-api:8080`
+  - Use the command `oc get deployments` and your output should look similar to below
+    - **NOTE:** Verify the **READY** state shows 1/1
+      ```
+      NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+      rating-web   1/1     1            1           3d21h
+      ```
 
-## Navigate to application online
-- Expose the service route using command `oc expose svc/mslearn-aks-workshop-ratings-web`
-- Get the route's hostname using command `oc get route mslearn-aks-workshop-ratings-web`
-  - You should see a result with a `HOST/PORT` that looks like 
+## Enable access to the application in a browser
+- Expose the service route using command `oc expose svc/rating-web`
+- Get the route's hostname using command `oc get route rating-web`
+  - **NOTE:** You should see a result with a `HOST/PORT` that looks similar to below 
   ```
-  http://mslearn-aks-workshop-ratings-web-test.apps.ibrnm3dw.eastus.aroapp.io/
+  http://rating-web-project.apps.ibrnm3dw.eastus.aroapp.io/
   ```

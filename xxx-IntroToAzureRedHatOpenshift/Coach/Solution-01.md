@@ -16,7 +16,7 @@
 ## Login to the ARO Web Console
 
 - Find the login credentials for the web console using the command `az aro list-credentials --name $CLUSTER --resource-group $RESOURCEGROUP`
-- Find the web console URL using the command `az aro show --name $CLUSTER --resource-group $RESOURCEGROUP --query "consoleProfile.url" -o tsv` which will look like https://console-openshift-console.apps.<random>.<region>.aroapp.io/
+- Find the web console URL using the command `az aro show --name $CLUSTER --resource-group $RESOURCEGROUP --query "consoleProfile.url" -o tsv` which will look like https://console-openshift-console.apps.[random].[region].aroapp.io/
 - Open the URL in a web browser and login using your login credentials found using `az aro list-credentials` command
 
 ## Connect to an ARO cluster

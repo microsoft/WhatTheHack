@@ -3,25 +3,27 @@
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
-In this challenge, we will see how to deploy an application to Azure Red Hat OpenShift using an example Fruit Smoothie Ratings application. 
+In this challenge, we will be deploying an application to Azure Red Hat OpenShift using an example application that tracks Fruit Smoothie Ratings. We will learn about deploying applications to ARO clusters and the steps needed to achieve that goal.
 
-The ratings application is a simple Node.js application that can allow users to rate different fruit smoothies and view the ratings leaderboard. For this challenge, let's set up our application!
+The ratings application is a simple Node.js application that allows users to rate different fruit smoothies and view their ratings in a leaderboard.
 
 ## Description
-In this challenge we will deploy an application to our Azure Red Hat OpenShift cluster using a source-to-image build strategy. This will give us an opportunity to see how to create a project on our cluster, as well as learn how to deploy our application's frontend and backend, and access our application on a browser.
+In this challenge we will deploy an application to our Azure Red Hat OpenShift cluster using two different build strategies. This challenge give us an opportunity to see how to create a project on our cluster, as well as learn how to deploy our application's frontend and backend, and access our application from a browser.
 
-- Create a new project called "ratings-app" in our cluster
-- Deploy the ratings API to our project
-- Deploy frontend service to our project
-- Find and navigate to our application's homepage in the browser
+- Create a new project called **ratings-app** in our cluster
+- Deploy the backend API to our project using a **source** build strategy and name it **rating-api**
+- Deploy our frontend application to our project using a **docker** build strategy and name it **rating-web**
+- Expose our frontend service using an ARO **Route**
+- Find and navigate to our application's homepage in the browser using the created route's hostname
+  - **NOTE:** When you navigate to your application's homepage, The website will be broken. Don't worry, we will be fixing this in future challenges!
 
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
-- Verify that project has been created using the command `oc project ratings-app`
-- Verify that frontend and backend have been deployed by using command `oc get pods`
+- Verify that project has been created using the command `oc project` and find your project name in the list
+- Verify that the application's frontend and backend have been deployed using either the OpenShift CLI or the ARO Web Console
 - Demonstrate that you can access the application by navigating to application's homepage on a browser
 
 ## Learning Resources
-- [ARO CLI Reference](https://docs.openshift.com/aro/3/cli_reference/index.html)
+- [Using the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#cli-using-cli_cli-developer-commands)
 - [Tutorial: Deploy application to Azure Red Hat OpenShift](https://docs.microsoft.com/en-us/azure/openshift/howto-deploy-with-s2i)
-- [Source-to-Image Build](https://docs.openshift.com/aro/3/using_images/s2i_images/nodejs.html)
+- [Creating applications using the CLI: Build Strategy Detection](https://docs.openshift.com/container-platform/4.8/applications/creating_applications/creating-applications-using-cli.html#build-strategy-detection)
