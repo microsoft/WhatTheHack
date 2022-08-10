@@ -12,12 +12,14 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
+- Challenge 01: **[Is your Application ready for the Super Bowl](./Solution-01.md)**
+	 - How does your application handle failure during large scale events?
+- Challenge 02: **[My AZ burned down, now what?](./Solution-02.md)**
+	 - Can your application survive an Azure outage of 1 or more Availability Zones?
+- Challenge 03: **[Godzilla takes out an Azure region!](./Solution-03.md)**
+	 - Can your application survive a region failure?
+- Challenge 04: **[Injecting Chaos into your pipeline](./Solution-04.md)**
+	 - Optional challenge, using Chaos Studio experiments in your CI/CD pipeline
 
 ## Coach Prerequisites
 
