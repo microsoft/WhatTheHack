@@ -41,6 +41,7 @@ In this challenge, you create a new Logic App for your data export workflow. Thi
  9. In your App Azure Function, add `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true` in the application settings.
  10. Run the Logic App.  This time, the condition should be true.
 
+
 ## Success Criteria
 
 1. The first execution of the logic app has executed successfully and you have received an email from your Logic App
