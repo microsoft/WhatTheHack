@@ -50,13 +50,6 @@ simulate various failures.
 * [Embrace the Chaos](https://medium.com/capital-one-tech/embrace-the-chaos-engineering-203fd6fc6ff7)
 * [Why you should break more things on purpose --AWS, Azure, and LinkedIn case studies](https://www.contino.io/insights/chaos-engineering)
 
-## Repository Contents
-- `./Coach/Guides`
-  - Coach's Guide and related files
-- `./ContosoPizzaApp`
-  - Image files and code for the pizza application
-- `./Student/Guides`
-  - Student's Challenge Guide
 
 ## Contributors
 - Jerry Rhoads
