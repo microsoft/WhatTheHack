@@ -16,17 +16,17 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
+	 - Prepare your workstation to work with Azure
 - Challenge 01: **[ARO Cluster Deployment](Student/Challenge-01.md)**
 	 - Deploy an ARO cluster and access it using CLI and the Red Hat Portal
 - Challenge 02: **[Application Deployment](Student/Challenge-02.md)**
 	 - Deploy the frontend and backend of an application onto the ARO cluster
 - Challenge 03: **[Logging and Metrics](Student/Challenge-03.md)**
-	 - Description of challenge
+	 - View application logs to identify application error
 - Challenge 04: **[Storage](Student/Challenge-04.md)**
-	 - Description of challenge
+	 - Address application errors
 - Challenge 05: **[Configuration](Student/Challenge-05.md)**
-	 - Description of challenge
+	 - Address application errors
 - Challenge 06: **[Networking](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**

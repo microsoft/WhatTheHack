@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 - In this challenge both the applications will be broken. Do not be alarmed, we will be fixing them in future challenges!
-  - The backend API is broken because we will need to deploy a Mongo DB backend and configure the environment variables on the deployment (Challenge 4 & 5)
+  - The backend API is broken because we will need to deploy a MongoDB backend and configure the environment variables on the deployment (Challenge 4 & 5)
   - The frontend application is broken because we will need to configure our environment variables on the deployment to point to our backend API (Challenge 5)
 
 ## Retrieve Login Command
@@ -13,7 +13,7 @@
 
 ## Create New Project
 - Create in terminal:
-  - In cluster, create new project called "ratings-app" using the command `oc new-project ratings-app`
+  - In the cluster, create a new project called "ratings-app" using the command `oc new-project ratings-app`
     - It was successful if you see something like `Now using project "ratings-app" on server "https://api.abcd1234.westus2.aroapp.io:6443"`
 - Create in web console:
   - Go to *Home > Projects* and click on *Create Project* button on the right

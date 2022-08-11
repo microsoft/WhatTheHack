@@ -8,7 +8,7 @@ In this challenge, we will be deploying an application to Azure Red Hat OpenShif
 The ratings application is a simple Node.js application that allows users to rate different fruit smoothies and view their ratings in a leaderboard.
 
 ## Description
-In this challenge we will deploy an application to our Azure Red Hat OpenShift cluster using two different build strategies. This challenge give us an opportunity to see how to create a project on our cluster, as well as learn how to deploy our application's frontend and backend, and access our application from a browser.
+In this challenge we will deploy an application to our Azure Red Hat OpenShift cluster using two different build strategies. This challenge gives us an opportunity to see how to create a project on our cluster, as well as learn how to deploy our application's frontend and backend, and access our application from a browser.
 
 - Create a new project called **ratings-app** in our cluster
 - Deploy the backend API to our project using a **source** build strategy and name it **rating-api**
