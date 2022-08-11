@@ -36,25 +36,10 @@ During the experiment, were you able to order a pizza or perform your appplicati
 - Was your application available? 
 - If not how can you make it available during such an outtage? 
 
-## Tips
+## Tip
 
-These tips apply to the Pizza Application
-
-verify the the "selector" in the experiment uses namespace of the application
-
-Command to view the private and public IP of the pizza application 
-
-```bash
-kubectl get -n contosoappmysql svc
-
-```
-
-Command to view all names spaces running in the AKS cluster
-
-```bash
-kubectl get pods --all-namespaces
-
-```
+- This tip applies to the Pizza Application
+  - verify the the "selector" in the experiment uses namespace of the application
 
 
 ## Learning Resources  
