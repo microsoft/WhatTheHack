@@ -20,7 +20,7 @@ az network vnet subnet create --address-prefix $vnet_out_subnet --name $Vnet_out
 az network vnet subnet create --address-prefix $vnet_in_subnet --name $Vnet_in_subnet_name --resource-group $rg --vnet-name $vnet_name
 
 ```
-**Create NSG for CSR1**
+**Create NSG for DSWAN1 Cisco CSR 1000V**
 ```bash
 <pre lang="...">
 az network nsg create --resource-group $rg --name SDWAN1-NSG --location $location
