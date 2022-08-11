@@ -54,10 +54,11 @@ This hack requires students to have access to an Azure subscription where they c
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
 - Day 1
-  - Challenge 1 (X hour)
-  - Challenge 2 (X mins)
-  - Challenge 3 (X hours)
-  - Challenge 4 (x hours)
+  - Challenge 0 (1.5 hours)
+  - Challenge 1 (2 hours)
+  - Challenge 2 (1 hours)
+  - Challenge 3 (1 hours)
+  - Challenge 4 (? hours)
 
 ## Repository Contents
 
