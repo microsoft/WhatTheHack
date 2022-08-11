@@ -58,6 +58,8 @@ _This section is optional. You may wish to provide an estimate of how long each 
   - Challenge 1 (2 hours)
   - Challenge 2 (1 hours)
   - Challenge 3 (1 hours)
+
+- Day 2
   - Challenge 4 (? hours)
 
 ## Repository Contents
