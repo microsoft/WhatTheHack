@@ -23,4 +23,4 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 - [Using the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#cli-using-cli_cli-developer-commands)
-- [Logging on ARO](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.11/html/logging/index#doc-wrapper)
+- [Logging on ARO](https://docs.openshift.com/container-platform/4.11/logging/cluster-logging.html)
