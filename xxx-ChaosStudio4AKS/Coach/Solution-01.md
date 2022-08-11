@@ -21,3 +21,17 @@ Then have the student run the experiment again and notice how the application is
 In the experiment, make the mode = "one" versus "all: as per the JSON spec below:
 
 {"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["contosoappmysql"]}}
+
+Command to view the private and public IP of the pizza application 
+
+```bash
+kubectl get -n contosoappmysql svc
+
+```
+
+Command to view all names spaces running in the AKS cluster
+
+```bash
+kubectl get pods --all-namespaces
+
+```
