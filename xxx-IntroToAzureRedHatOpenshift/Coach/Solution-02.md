@@ -19,8 +19,8 @@
   - Go to *Home > Projects* and click on *Create Project* button on the right
 
 ## Deploy the backend API
-- Deploy the backend API using the command `oc new-app the/rating-api/directory --name=rating-api --strategy=source`
-  - **NOTE:** Make sure the students set the **--strategy** flag to **source** when deploying the backend API and **--name** to **rating-api**
+- Deploy the backend API using the command `oc new-app the/rating-api/directory --name=rating-api --strategy=docker`
+  - **NOTE:** Make sure the students set the **--strategy** flag to **docker** when deploying the backend API and **--name** to **rating-api**
   - Verify in terminal:
     - Use the command `oc get deployments` and your output should look similar to below
     - **NOTE:** Verify the **READY** state shows 1/1

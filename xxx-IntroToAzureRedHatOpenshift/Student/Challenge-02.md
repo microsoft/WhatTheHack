@@ -11,10 +11,11 @@ The ratings application is a simple Node.js application that allows users to rat
 In this challenge we will deploy an application to our Azure Red Hat OpenShift cluster using two different build strategies. This challenge give us an opportunity to see how to create a project on our cluster, as well as learn how to deploy our application's frontend and backend, and access our application from a browser.
 
 - Create a new project called **ratings-app** in our cluster
-- Deploy the backend API to our project using a **source** build strategy and name it **rating-api**
+- Deploy the backend API to our project using a **docker** build strategy and name it **rating-api**
 - Deploy our frontend application to our project using a **docker** build strategy and name it **rating-web**
 - Expose our frontend service using an ARO **Route**
 - Find and navigate to our application's homepage in the browser using the created route's hostname
+  - **NOTE:** If you get the error **Application is not available** please make sure you are using HTTP and not HTTPS in your URL
   - **NOTE:** When you navigate to your application's homepage, The website will be broken. Don't worry, we will be fixing this in future challenges!
 
 ## Success Criteria
