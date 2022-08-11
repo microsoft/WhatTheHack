@@ -44,14 +44,12 @@ None are required for this hack
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
 - Azure subscription with contributor access
-- Visual Studio Code terminal or Azure Shell (recommended)
+- Visual Studio Code terminal or Azure Shell
 - Latest Azure CLI (if not using Azure Shell)
 - Chaos Studio, Azure Kubernetes Service (AKS) and Traffic Manager services will be used in this hack
 
 
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+## Suggested Hack Agenda
 
 - Day 1
   - Challenge 0 (1.5 hours)
