@@ -36,10 +36,11 @@ During the experiment, were you able to order a pizza or perform your appplicati
 - Was your application available? 
 - If not how can you make it available during such an outtage? 
 
-## Tip
+## Tips
 
-- This tip applies to the Pizza Application
-  - verify the the "selector" in the experiment uses namespace of the application
+These tips apply to the Pizza Application
+ - verify the the "selector" in the experiment uses namespace of the application
+ - the PizzaApp is a statefulset versus a deployment
 
 
 ## Learning Resources  
