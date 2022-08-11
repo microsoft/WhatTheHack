@@ -32,9 +32,7 @@ Machine layer?
 
 - Chaos Experiment fails a node running the pizzeria application
 - Observe any failure
-- Scale the AKS cluster 
-- Scale the pizza application replicas to run multiple virtual machines
-- Re-run the Chaos Experiment
+- Discuss with your coach how your application is (or was made) resilient
 - Verify the pizza application is available while a virtual machine is offline
 
 ## Tip
