@@ -1,6 +1,6 @@
 # Challenge 03 - Godzilla takes out an Azure region! - Coach's Guide 
 
-[< Previous Solution](./Solution-02.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes & Guidance
 
