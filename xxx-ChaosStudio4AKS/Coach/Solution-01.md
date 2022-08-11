@@ -11,7 +11,6 @@ Chaos doesn't work with private clusters.
 - Once installed, create a POD failure experiment to fail a POD
     - If using the Pizza App, the application should become unresponsive 
 
-Have the student explore how to make PODs resilient by creating a replica of the POD
 
 Command to view the private and public IP of the pizza application 
 
@@ -31,6 +30,8 @@ kubectl get pods --all-namespaces
 kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
 ```
 Then have the student run the experiment again and notice how the application is avalable with a failed POD
+
+Have the student explore how to make PODs resilient by creating a replica of the POD
 
 In the experiment, make the mode = "one" versus "all: as per the JSON spec below:
 
