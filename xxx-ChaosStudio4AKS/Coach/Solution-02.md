@@ -12,6 +12,7 @@ Chaos Studio will use the VMSS shutdown fault
     - Student should scale VMSS 
       - Scale the VMSS via AKS
     - Scale the PizzaApp or the student's AKS deployment or statefulset 
+    - Rerun the experiment 
 
 Verify where your pods are running (Portal or CLI)
 
