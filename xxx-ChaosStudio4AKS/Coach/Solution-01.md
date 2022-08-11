@@ -13,15 +13,6 @@ Chaos doesn't work with private clusters.
 
 Have the student explore how to make PODs resilient by creating a replica of the POD
 
-```bash
-kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
-```
-Then have the student run the experiment again and notice how the application is avalable with a failed POD
-
-In the experiment, make the mode = "one" versus "all: as per the JSON spec below:
-
-{"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["contosoappmysql"]}}
-
 Command to view the private and public IP of the pizza application 
 
 ```bash
@@ -35,3 +26,13 @@ Command to view all names spaces running in the AKS cluster
 kubectl get pods --all-namespaces
 
 ```
+
+```bash
+kubectl scale deployment -n APPNAME NAMESPACE --replicas=2
+```
+Then have the student run the experiment again and notice how the application is avalable with a failed POD
+
+In the experiment, make the mode = "one" versus "all: as per the JSON spec below:
+
+{"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["contosoappmysql"]}}
+
