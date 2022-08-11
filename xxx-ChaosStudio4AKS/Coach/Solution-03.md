@@ -1,20 +1,24 @@
-# Challenge 03 - <Title of Challenge> - Coach's Guide 
+# Challenge 03 - Godzilla takes out an Azure region! - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+In this Challenge, students will simulate a region failure. 
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+This can be done via the following: 
+- NSG and blocking port 8081, 
+- Chaos Mesh's POD failures set to all PODs in a region
+- VMSS fault and selecting all nodes in a region
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+Traffic manager is the solution.  
+- Verify students installed the application in WestUS and EastUS.  
+- Routing method = Performance
+- Configuration profile needs to be created
+ - DNS TTL = 1
+ - Protocal = Http
+ - Port = 8081
+ - Path = /pizzeria/
+ - Probining interval = 10
+ - Tolerated number of failures = 3
+ - Probe timeout = 5
