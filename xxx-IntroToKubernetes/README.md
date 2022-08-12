@@ -1,8 +1,8 @@
-# What The Hack - IntroToKubernetes
+# What The Hack - Intro To Kubernetes
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+The Intro To Kubernetes WTH will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
 
 ## Learning Objectives
 
