@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Intro To Kubernetes WTH will take you on a whirlwind tour in the world of Kubernetes and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa. Kubernetes has made its way to all the exteme ends of the Earth!
+The Intro To Kubernetes WTH will take you on a whirlwind tour in the world of Kubernetes and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa. Kubernetes has made its way to all the exteme ends of the Earth! And it can be updated from both VS Code AND Sourcetree!
 
 ## Learning Objectives
 
