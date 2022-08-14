@@ -1,4 +1,4 @@
-# Challenge 02A - The Azure Container Registry
+# Challenge 02 - Path A: The Azure Container Registry
 
 [< Previous Challenge](./Challenge-01A.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
