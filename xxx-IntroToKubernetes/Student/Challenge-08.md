@@ -1,99 +1,86 @@
-# Challenge 08 - <Title of Challenge>
+# Challenge 08 - Storage
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+Not all containers can be stateless. What happens when your application needs to have some persistent storage? 
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+In this challenge we will be creating Azure data disks and using the Kubernetes storage mechanism to make them available to be attached to running containers. This will give MongoDB a place to storage its data without losing it when the container is stopped and restarted.
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+- Verify what happens without persistent storage
+	- Make sure that you are using the latest version of the Fabmedical container images, either the ones you built or the pre-built ones available here:
+		- **whatthehackmsft/content-api:v2**
+		- **whatthehackmsft/content-web:v2**
+	- Delete the MongoDB pod created in Challenge 6. 
+		- Kubernetes should automatically create a new pod to replace it. 
+		- Connect to the new pod and you should observe that the “contentdb” database is no longer there since the pod was not configured with persistent storage.
+	- Delete your existing MongoDB deployment
+- Redeploy MongoDB with dynamic persistent storage
+	- **NOTE**: Some types of persistent volumes (specifically, Azure disks) are associated with a single zone, see [this document](https://docs.microsoft.com/en-us/azure/aks/availability-zones#azure-disks-limitations). Since we enabled availability zones in challenge 3, we need to guarantee that the two volumes and the node that the pod runs on are in the same zone.  
+    	- Fortunately, the default azure-disk storage class uses the "volumeBindingMode: WaitForFirstConsumer" setting which forces kubernetes to wait for a workload to be scheduled before provisioning the disks.  In other words, AKS is smart enough to create the disk in the same availability zone as the node.
+    	- You could optionally create your own storage class to specifically define the volumeBindingMode, but that's not necessary for this exercise.
+	- Create two Persistent Volume Claims (PVC) using the new Storage Class, one for data and one for config.
+    	- Look in the Resources/Challenge 8 folder for starter templates
+	- Modify your MongoDB deployment to use the PVCs.
+    	- Again, look in the Resources/Challenge 8 folder for starter templates
+	- Deploy MongoDB
+		- Examine the automatically provisioned Persistent Volumes (PVs) and verify that both are in the same zone.
+		- Check that the disk and the node that the pod runs on are in the same zone
+- Verify that persistent storage works
+	- Verify that MongoDB is working fine by connecting to the corresponding MongoDB Pod in interactive mode. Make sure that the disks are associated correctly (bold and italic below)
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+		- `kubectl exec -it <mongo-db pod name> bash`
+		- `root@mongo-db678745655b-f82vj:/#` **`df -Th`**
+			<pre><code>	Filesystem     Type     Size  Used Avail Use% Mounted on
+			overlay        overlay   30G  4.2G   25G  15% /
+			tmpfs          tmpfs    1.7G     0  1.7G   0% /dev
+			tmpfs          tmpfs    1.7G     0  1.7G   0% /sys/fs/cgroup
+			<b><i>/dev/sdc       ext4     2.0G  304M  1.5G  17% /data/db
+			/dev/sdd       ext4     2.0G  3.0M  1.8G   1% /data/configdb</i></b>
+			/dev/sda1      ext4      30G  4.2G   25G  15% /etc/hosts
+			shm            tmpfs     64M     0   64M   0% /dev/shm
+			tmpfs          tmpfs    1.7G   12K  1.7G   1% /run/secrets/kubernetes.io/serviceaccount
+			tmpfs          tmpfs    1.7G     0  1.7G   0% /sys/firmware</code></pre>
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+		- `root@mongo-db678745655b-f82vj:/#` **`mongo --version`**
+			```
+			MongoDB shell version v3.6.1
+			connecting to: mongodb://127.0.0.1:27017
+			MongoDB server version: 3.6.1
+			```
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+	- Re-load the sample content (Speakers & Sessions data) in to MongoDB by running the content-init job as you did earlier during Challenge 7.
+	- Make sure that the `contentdb` database is populated by connecting to the MongoDB pod with an interactive terminal and verify the database "contentdb" exists.
+		- `root@mongo-db678745655b-f82vj:/#` **`mongo`**
+			```
+			MongoDB shell version v3.6.1
+			connecting to: mongodb://127.0.0.1:27017
+			MongoDB server version: 3.6.1
+			
+			> show dbs
+			admin       0.000GB
+			config      0.000GB
+			contentdb   0.000GB
+			local       0.000GB
+			```
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+	- Destroy the MongoDB pod to prove that the data persisting to the disk 
+		- `kubectl delete pod <mongo-db-pod>`
+	- Wait for kubernetes to recreate the pod
+	- Once the pod is created, verify that data is persisted by following the previous MongoDB verification step.
+	- Verify the API can retrieve the data by viewing the speaker and sessions pages in the browser: 
+		- `http://<yourWebServicePIP>:3000/speakers.html`
+		- `http://<yourWebServicePIP>:3000/sessions.html`
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
+1. Verify that speaker and session data is imported into Mongo
+1. Verify that the data isn't lost after you stop and restart the MongoDB pod.
+1. Verify that this new MongoDB instance and its data are used in the application.
 
-*The success criteria should not be a list of instructions.*
+## Advanced Challenges 
 
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
-
-## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+Discuss with your coach what would happen if the Node running the MongoDB pod were to crash or be shut down.  Would Kubernetes be able to re-deploy the pod on a different node?  How do availability zones play into this?
