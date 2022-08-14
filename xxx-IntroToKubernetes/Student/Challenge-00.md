@@ -12,6 +12,8 @@ A smart cloud solution architect always has the right tools in their toolbox.
 
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
+### Install Cloud Tools on Your Workstation
+
 - Install the recommended toolset:
     - Windows Subsystem for Linux
     - Azure CLI 
@@ -21,6 +23,14 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - Visual Studio Code
 - **NOTE:** You can start the next challenge even if this one is still running by using the Azure Cloud Shell.
 - **Tip:** You can complete almost all of the challenges with the Azure Cloud Shell!  But be a good cloud architect and make sure you have experience installing the tools locally.
+
+### Student Resources
+
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.  
+
+If you have installed all of the tools listed above on your local workstation, you should unpack the `Resources.zip` file there too.
+
+If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
 
 ## Success Criteria
 
