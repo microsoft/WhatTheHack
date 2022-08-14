@@ -1,4 +1,4 @@
-# Challenge 07 - <Title of Challenge>
+# Challenge 07 - Updates and Rollbacks
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
