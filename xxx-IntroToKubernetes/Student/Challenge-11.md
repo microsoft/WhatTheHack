@@ -1,6 +1,6 @@
 # Challenge 11 - Operations and Monitoring
 
-[< Previous Challenge](./Challenge-10.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-12.md)
+[< Previous Challenge](./Challenge-10.md) - **[Home](../README.md)**
 
 ## Introduction
 
