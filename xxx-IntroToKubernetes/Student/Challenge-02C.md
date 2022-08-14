@@ -11,8 +11,8 @@ The first step in our journey will be to create a container registry and import 
 - Deploy an Azure Container Registry (ACR)
 - Ensure your ACR has proper permissions and credentials configured
 - Using the appropriate cli commands, import the following existing container images into your ACR from Docker Hub:
-  - **API app:** whatthehackmsft/content-api
-  - **Web app:** whatthehackmsft/content-web
+  - **API app:** `whatthehackmsft/content-api`
+  - **Web app:** `whatthehackmsft/content-web`
 - List all images in your ACR
 
 ## Success Criteria
