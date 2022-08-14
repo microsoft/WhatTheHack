@@ -8,7 +8,7 @@ In this set of challenges, you will be using an application called _FabMedical_,
 ## Select Your Path!
 **Attention Attendee:**  Your coach will advise you on the path to take through the first part of this material.  This path was chosen for you by your organization's stakeholder.
 
-### [Containers Path A](01a-containers.md)
-### [Containers Path B](02b-acr.md)
-### [Containers Path C](02c-acr.md)
-### [Containers Path D](03-k8sintro.md)
+### [Containers Path A](Challenge-01A.md)
+### [Containers Path B](Challenge-02B.md)
+### [Containers Path C](Challenge-02C.md)
+### [Containers Path D](Challenge-03.md)
