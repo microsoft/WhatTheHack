@@ -21,7 +21,7 @@
       "value": "10.0.0.0/24"
     },
     "scriptUri" : {
-      "value": "https://raw.githubusercontent.com/Microsoft/WhatTheHack/master/001-IntroToKubernetes/Student/Resources/Challenge%201/build-machine/docker-build-machine-config.sh"
+      "value": "https://raw.githubusercontent.com/Microsoft/WhatTheHack/master/001-IntroToKubernetes/Student/Resources/Challenge-01/build-machine/docker-build-machine-config.sh"
     },
     "scriptName" : {
       "value": "docker-build-machine-config.sh"
