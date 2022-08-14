@@ -11,11 +11,11 @@ You can use Azure container registries with your existing container development 
 ## Choose Your Path!
 **Attention Attendee:**  Your coach will advise you on the path to take with this challenge on Azure Container Registry.  
 
-### [ACR Path A](Challenge-02a.md)
+### [ACR Path A](Challenge-02A.md)
 - Deploy the containers you created in Challenge 1
-### [ACR Path B](Challenge-02b.md)
+### [ACR Path B](Challenge-02B.md)
 - Use ACR to build containers from source code using a provided Dockerfile.
-### [ACR Path C](Challenge-0ca.md)
+### [ACR Path C](Challenge-02C.md)
 - Import pre-built containers provided by your coach into ACR
 
 ## Learning Resources
