@@ -49,7 +49,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-## Pre-Select Your Path For Container Content
+### Pre-Select Your Path For Container Content
 Coaches, be sure to read the [Coach Guidance for Challenge 1](./Solution-01.md). You will need to select a proper path based on the learning objectives of the organization (to be decided PRIOR TO the hack!).  Select the proper path after consulting with the organization's stakeholder(s) for the hack.
 
 ## Azure Requirements
