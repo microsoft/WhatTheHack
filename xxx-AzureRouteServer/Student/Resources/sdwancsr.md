@@ -161,3 +161,67 @@ end
 !
 wr mem
 ```
+
+### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
+
+```
+crypto ikev2 proposal azure-proposal
+  encryption aes-cbc-256 aes-cbc-128 3des
+  integrity sha1
+  group 2
+  exit
+!
+crypto ikev2 policy azure-policy
+  proposal azure-proposal
+  exit
+!
+crypto ikev2 keyring azure-keyring
+  peer **nva_Public_IP**
+    address **nva_Public_IP**
+    pre-shared-key **PSK**
+    exit
+!
+crypto ikev2 profile azure-profile
+  match address local interface GigabitEthernet1
+  match identity remote address **nva_Public_IP** 255.255.255.255
+  authentication remote pre-share
+  authentication local pre-share
+  keyring local azure-keyring
+  exit
+!
+crypto ipsec transform-set azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
+ mode tunnel
+ exit
+
+crypto ipsec profile azure-vti
+  set transform-set azure-ipsec-proposal-set
+  set ikev2-profile azure-profile
+  set security-association lifetime kilobytes 102400000
+  set security-association lifetime seconds 3600 
+ exit
+!
+interface Tunnel0
+ ip unnumbered GigabitEthernet1 
+ ip tcp adjust-mss 1350
+ tunnel source GigabitEthernet1
+ tunnel mode ipsec ipv4
+ tunnel destination **nva_Public_IP**
+ tunnel protection ipsec profile azure-vti
+exit
+
+!
+router bgp **BGP_ID**
+ bgp router-id interface GigabitEthernet1
+ bgp log-neighbor-changes
+ redistribute connected
+ neighbor **nva_Private_IP** remote-as 65515
+ neighbor **nva_Private_IP** ebgp-multihop 5
+ neighbor **nva_Private_IP** update-source GigabitEthernet1
+ maximum-paths eibgp 4
+!
+ip route **nva_Private_IP** 255.255.255.255 Tunnel0
+!
+end
+!
+wr mem
+```
