@@ -16,7 +16,7 @@ In this challenge we need to get our application up and running in Kubernetes. W
 
 ### Deploy the **API app** from the command line using kubectl and YAML files:
 
-- **NOTE:** Sample YAML files to get you started can be found in the Student Resources folder.
+- **NOTE:** Sample YAML files to get you started can be found in the `/Challenge-04/` folder of the `Resources.zip` file provided by your coach.
 - Configuration details:
   - Number of pods: 1
   - Service: Internal
