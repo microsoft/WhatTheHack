@@ -24,7 +24,7 @@ Switching gears, we will now start working with ingress controllers, which allow
 1. Delete the existing content-web service.
 2. Create an nginx ingress controller. (Hint: use helm)
 3. Deploy the content-web service and create an Ingress resource for it. 
-	- The reference template (which will need editing!) can be found in the Challenge 10 Resources folder: `template-web-ingress-deploy.yaml`
+	- The reference template (which will need editing!) can be found in the `Challenge-10` folder of the `Resources.zip` package: `template-web-ingress-deploy.yaml`
 4. Show your coach that you can access the ingress in your browser via IP address
 
 ## Part 2b: Ingress Controller + DNS for Public IPs
