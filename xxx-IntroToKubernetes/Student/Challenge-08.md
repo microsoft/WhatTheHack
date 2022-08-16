@@ -25,7 +25,7 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 	- Create two Persistent Volume Claims (PVC) using the new Storage Class, one for data and one for config.
     	- Look in the Resources/Challenge 8 folder for starter templates
 	- Modify your MongoDB deployment to use the PVCs.
-    	- Again, look in the Resources/Challenge 8 folder for starter templates
+    	- Look in the `/Challenge-08` folder of the `Resources.zip` package for starter templates
 	- Deploy MongoDB
 		- Examine the automatically provisioned Persistent Volumes (PVs) and verify that both are in the same zone.
 		- Check that the disk and the node that the pod runs on are in the same zone
