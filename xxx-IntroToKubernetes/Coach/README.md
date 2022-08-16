@@ -66,7 +66,7 @@ If attendees will be using a shared Azure subscription, see the [Coach Guidance 
 
 ## Suggested Hack Agenda
 
-This hack was designed to be run as a full 3-day event, for a total of 18 hours to complete all challenges. There are multiple variations of this hack that enable you run it for a shorter periods of time and still provide value to attendees.
+This hack is designed to be run as a full 3-day event, for a total of approximately 18 hours to complete all challenges. There are multiple variations of this hack that enable you run it for a shorter periods of time and still provide value to attendees. Different groups of students will complete the challenges at different paces based on their comfort level with Linux and/or using Command Line Interface (CLI) tools.  This is okay, and students should be encouraged to participate in this intro-level hack no matter what their experience level is.
 
 ### Challenges 1-3: 4 Paths
 
