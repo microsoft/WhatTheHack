@@ -14,7 +14,7 @@ Helm is the microwave dinner of the Kubernetes world, allowing you to package en
 
 ## Description
 
-In this challenge you will be installing Helm locally and in your cluster and then creating a Helm "Chart" for the Language Facts application and then using helm to quickly deploy different version of that application.
+In this challenge you will be installing Helm locally and then creating a Helm "Chart" for the Language Facts application and then using helm to quickly deploy different version of that application.
 
 ### Without Helm
 - Deploy the Language Facts application for this challenge using the yaml files provided in the `/Challenge-09` folder of the `Resources.zip` package. You will have to install the namespace, deployment, and service yaml in that sequence.
@@ -36,7 +36,9 @@ In this challenge you will be installing Helm locally and in your cluster and th
 		- `helm-webapp-namespace.yml`
 		- **Hint:** The namespace will NOT be a part of your Chart but must be specified when installing the chart.
 	- Convert these yaml files that were just used to deploy the app into a Helm chart using v1 of the container image.
-		- **DO NOT** blindly copy the entire yaml file into the chart. The whole point of helm is that it allows us to parameterize our yaml files and make them more versatile.
+		- You should parameterize the following values in the deployment YAML file (`helm-webapp-deployment.yml`):
+			- container image name
+			- container image version 
 	- Create a Helm package on the local machine for each version of the web app.
 		- **Hint:** If you parameterize things properly, you'll be able to write ONE helm chart that takes the version as an input.
 	- Remove the previously deployed app by deleting the namespace that was created via the yaml file
