@@ -13,7 +13,7 @@ When delivering the hack, advise your students of the proper path to select from
 
 ### Challenges 1-3: Four Paths to Choose
 
-Challenge 1 has attendees start by taking the FabMedical sample application's source code, learn how to containerize it, and then run the application in Docker. We have found that this challenge often takes a significant amount of time (3+ hours) for attendees.
+[Challenge 1](./Solution-01A) has attendees start by taking the FabMedical sample application's source code, learn how to containerize it, and then run the application in Docker. We have found that this challenge often takes a significant amount of time (3+ hours) for attendees.
 
 For organizations who are not focused on how to build container images, we have provided pre-built container images for the FabMedical sample application hosted in Dockerhub. This means you may choose to start the hack with either Challenge 2 or Challenge 3.
 
@@ -23,12 +23,16 @@ You can workaround this either by skipping Challenge 2 altogether, or completing
 
 ![The Container Challenge Paths are mapped in this diagram.](../Images/wth-container-challenge-paths.png 'Container Challenge Paths')
 
-In summary, the four paths are:
+###Choose your path:
 
-* **[PATH A](./Solution-01A.md)**: Use this path to provide students with a comprehensive experience of building, testing, and running containers locally. Students will create a VM (using a provided ARM template) with Docker and all other required tools to ensure uniformity of environments. In this path, your students will create a Dockerfile, build and test local containers, and then push these container images to Azure Container Registry. 
-* **[PATH B](./Solution-02B.md)**: Use this path if your students understand Docker, don't care about building images locally, and/or have environments issues that would prevent them from building containers locally. In this path, your students will be given a Dockerfile, will create an Azure Container Registry, and then will use ACR tasks to build the images natively inside ACR.
-* **[PATH C](./Solution-02C.md)**: Use this path to skip any work with docker & containers, but you still want to learn about ACR.  The path is similar to Path B, however in this case students will simply import pre-staged containers from DockerHub into ACR (eg, there is no container building involved)
-* **[PATH D](./Solution-03.md)**:  Use this path to skip any work with Docker, containers, and ACR altogether. This path can also be used if students do not have "Owner" role permissions on their Azure subscription and thus will not be able to attach ACR to AKS.  Students will deploy our pre-built container images directly from DockerHub when creating their Kubernetes manifests.
+####[PATH A](./Solution-01A.md) - Challenge 1A & 2A Coach Guides
+ Use this path to provide students with a comprehensive experience of building, testing, and running containers locally. Students will create a VM (using a provided ARM template) with Docker and all other required tools to ensure uniformity of environments. In this path, your students will create a Dockerfile, build and test local containers, and then push these container images to Azure Container Registry. 
+####[PATH B](./Solution-02B.md) - Challenge 2B Coach Guide
+Use this path if your students understand Docker, don't care about building images locally, and/or have environments issues that would prevent them from building containers locally. In this path, your students will be given a Dockerfile, will create an Azure Container Registry, and then will use ACR tasks to build the images natively inside ACR.
+####[PATH C](./Solution-02C.md) - Challenge 2C Coach Guide
+Use this path to skip any work with docker & containers, but you still want to learn about ACR.  The path is similar to Path B, however in this case students will simply import pre-staged containers from DockerHub into ACR (eg, there is no container building involved)
+####[PATH D](./Solution-03.md) - Challenge 3 Coach Guide
+Use this path to skip any work with Docker, containers, and ACR altogether. This path can also be used if students do not have "Owner" role permissions on their Azure subscription and thus will not be able to attach ACR to AKS.  Students will deploy our pre-built container images directly from DockerHub when creating their Kubernetes manifests.
 
 **NOTE:** When choosing paths B, C, or D, the Coach should still cover the [lectures for Challenges 1, 2, and 3](Lectures.pptx?raw=true) before the students begin Challenge 3.
 
