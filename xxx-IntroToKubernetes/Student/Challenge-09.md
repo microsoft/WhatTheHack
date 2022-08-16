@@ -16,7 +16,7 @@ Helm is the microwave dinner of the Kubernetes world, allowing you to package en
 
 In this challenge you will be installing Helm locally and then creating a Helm "Chart" for the Language Facts application and then using helm to quickly deploy different version of that application.
 
-### Without Helm
+### Deploy Without Helm
 - Deploy the Language Facts application for this challenge using the yaml files provided in the `/Challenge-09` folder of the `Resources.zip` package. You will have to install the namespace, deployment, and service yaml in that sequence.
 	- `helm-webapp-namespace.yml`
 	- `helm-webapp-deployment.yml`
@@ -24,9 +24,7 @@ In this challenge you will be installing Helm locally and then creating a Helm "
 - Verify that the app has been deployed successfully by browsing the web app via the LoadBalancer IP address at port 80. 
 - Redeploy the app to use v2 of the image and verify that the update is visible in the web app. Repeat these steps with v3 and v4 of the container image.
 
-### With Helm
-
-#### Install Helm on Your Workstation
+### Install Helm on Your Workstation
 If you do not have Helm installed on your local workstation, you can do so with the following steps:
 - Fetch the script for installing Helm to the local machine where you will be using Helm
 	- `curl -fsSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 -o get_helm.sh`
@@ -35,9 +33,9 @@ If you do not have Helm installed on your local workstation, you can do so with 
 - Install Helm client locally
 	- `./get_helm.sh`
 
-#### Use Helm in Azure Cloud Shell
+If you are using the Azure Cloud Shell, the Helm CLI is already installed and you can continue with the tasks below.
 
-If you are using the Azure Cloud Shell, the Helm CLI is already installed and you can continue with the tasks below:
+### Deploy With Helm
 
 - Creating a Helm Chart from a local package
 	- **NOTE:** You will need to create the expected namespace on the CLI when you run the `helm install` command (it is a parameter). You'll need to use the namespace found in this file that you used above 
