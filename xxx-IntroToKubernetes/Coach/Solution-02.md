@@ -2,9 +2,11 @@
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
-## Choose Your Path!
+## Attention Coaches!
 
-**Attention Coach:** As per the [Coach Guidance for Challenge 1](./Solution-01.md), there are four paths to choose for Challenges 1 through 3. You will need to select a proper path based on the learning objectives of the organization (to be decided PRIOR TO the hack!). Select the proper path after consulting with the organization's stakeholder(s) for the hack.
+ As per the [Coach Guidance for Challenge 1](./Solution-01.md), there are four paths to choose for Challenges 1 through 3. You will need to select a proper path based on the learning objectives of the organization (to be decided PRIOR TO the hack!). Select the proper path after consulting with the organization's stakeholder(s) for the hack.
+
+![The Container Challenge Paths are mapped in this diagram.](../Images/wth-container-challenge-paths.png 'Container Challenge Paths')
 
 ### Choose Your Path:
 
