@@ -46,7 +46,7 @@ This is a three step process which any Azure professional should be familiar wit
         - Have a digit
         - Have a special character 
 
-Once you the deployment is complete, you can ssh into the build machine using port 2266 on the VMs public IP:
+When the deployment is complete, you can ssh into the build machine using port 2266 on the VMs public IP:
 - `ssh -p 2266 wthadmin@<VM Public IP>` 
 - Verify that Docker and Azure CLI are installed on the VM.
 
