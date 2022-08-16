@@ -87,9 +87,9 @@ When the deployment is complete, you can ssh into the build machine using port 2
 
 ## Success Criteria
 
-1. You can run both the node.js based web and api parts of the FabMedical app on the VM
-2. You have created 2 Dockerfiles files and created a container image for both web and api.
-3. You can run the application using containers.
+1. Verify that you can run both the node.js based web and api parts of the FabMedical app on the VM
+2. Verify that you have created 2 Dockerfiles files and created a container image for both web and api.
+3. Verify that you can run the application using containers.
 
 ## Learning Resources
 
