@@ -12,9 +12,9 @@ vnet_name=<SDWAN1_Vnet_name>
 
 Vnet_address_prefix=<ipv4 address space CIDR>
 Vnet_out_subnet_name=sdwan1outsidesubnet
-vnet_out_subnet=<ipv4subnet address space CIDR>
+vnet_out_subnet=<ipv4subnet out address space CIDR>
 Vnet_in_subnet_name=sdwan1insidesidesubnet
-vnet_in_subnet=<ipv4subnet address space CIDR>
+vnet_in_subnet=<ipv4subnet in address space CIDR>
 
 az group create --name $rg --location $location
 az network vnet create --name $vnet_name --resource-group $rg --address-prefix $Vnet_address_prefix
