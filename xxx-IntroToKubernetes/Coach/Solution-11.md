@@ -1,20 +1,16 @@
-# Challenge 11 - <Title of Challenge> - Coach's Guide 
+# Challenge 11 - Operations and Monitoring - Coach's Guide 
 
 [< Previous Solution](./Solution-10.md) - **[Home](./README.md)** - [Next Solution >](./Solution-12.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- You can check for the logs of a pod using:
+	- `kubectl logs`
+- Pod failures can be investigated during troubleshooting with:
+	- `kubectl describe pod`
+- A bash shell can be opened on any pod so you can poke around on the filesystem to debug issues. You can open the shell with:
+	- `kubectl exec -it <pod-name> -- /bin/bash`
+- **NOTE:** More coach material needed for Azure Monitor.
+	- For now see *Learning Resources* in Student Guide for links.
+- **NOTE:** More coach material needed for Kibana.
+	- For now see *Learning Resources* in Student Guide for links.
