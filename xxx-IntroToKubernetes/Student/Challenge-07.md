@@ -14,9 +14,9 @@ In this challenge you'll be deploying a v2 of the FabMedical application to your
 - We have staged an updated version of the app on Docker Hub with id and version:
 	- `whatthehackmsft/content-web:v2`
 	- `whatthehackmsft/content-api:v2`
-- **NOTE:** If you have been building your docker container images from source code and deploying to an Azure Container Registry, you can find v2 of the source code in your Challenge 7 Resources folder.
-- Version 2 of FabMedical stores its data in MongoDB.  We have provided a container image with an initialization script called “content-init” that loads the database with the sample content (Student/Resources/Challenge 7).  The container runs as a Kubernetes Job.  The container image is available on Dockerhub at: **whatthehackmsft/content-init**
-	- Use the content-init “Job” yaml provided to run the initialization of MongoDB for our new version of the app.
+- **NOTE:** If you have been building your docker container images from source code and deploying to an Azure Container Registry, you can find v2 of the source code in the `/Challenge-07` folder of the `Resources.zip` package.
+- Version 2 of FabMedical stores its data in MongoDB.  We have provided a container image with an initialization script called “content-init” that loads the database with the sample content. The container runs as a Kubernetes Job. The container image is available on Dockerhub at: `whatthehackmsft/content-init`. 
+	- Use the content-init “Job” YAML file provided in the `/Challenge-07` folder of the `Resources.zip` package to run the initialization of MongoDB for our new version of the app.
 	- Logs for content-init will provide the detailed logs showing whether it was able to successfully connect and add the contents to the MongoDB. You can use kubectl (or the Azure Portal) to check the logs.
 	- You can also verify that the MongoDB contains the FabMedical data after content-init job has completed.  Hint:
     	- Connect to the mongodb pod
