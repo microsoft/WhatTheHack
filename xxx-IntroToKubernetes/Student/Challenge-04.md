@@ -31,9 +31,9 @@ In this challenge we need to get our application up and running in Kubernetes. W
 	- You should get a huge json document in response.
    
 ### Deploy the Web app from the command line using kubectl and YAML files
-- **NOTE:** Sample YAML files to get you started can be found in the Files section of the General channel in Teams.
+- **NOTE:** Sample YAML files to get you started can be found in the `/Challenge-04` folder of the `Resources.zip` file provided by your coach.
 - **NOTE:** The Web app expects to have an environment variable pointing to the URL of the API app named:
-	- **CONTENT_API_URL**
+	- `CONTENT_API_URL`
 - Create a deployment yaml file for the Web app using the specs from the API app, except for:
 	- Port and Target Port: 3000
 - Create a service yaml file to go with the deployment
