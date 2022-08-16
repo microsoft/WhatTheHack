@@ -36,7 +36,7 @@ This is a three step process which any Azure professional should be familiar wit
 
     - If using a shared Azure subscription, we recommend you use the a combination of your initials and "rg" for the `<resource-group-name>` value. For example: `peterlaudati-rg`
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
-1. Deploy the template with the following Azure CLI command from wherever you have unpacked the `/Challenge-01/build-machine` folder:
+1. Deploy the template by running the following Azure CLI command from wherever you have unpacked the `/Challenge-01/build-machine` folder:
     ```
     az deployment group create -g <resource-group-name> -n LinuxBuildVM -f docker-build-machine-vm.json -p docker-build-machine-vm.parameters.json
     ```
