@@ -8,6 +8,8 @@ This is **PATH A**: Use this path if your students want to understand what's inv
 
 ## Notes & Guidance
 
+**NOTE:** Before the hack, it is the Coach's responsibility to download and package up the contents of the /Student/Resources folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+
 #### Tooling:
 The students can either work with Docker locally on their workstation, or they can deploy a build machine VM in Azure using the provided template.  There is no need to do both.  We recommend using the build VM deployed in Azure as this provides a known-to-work common environment.
 
