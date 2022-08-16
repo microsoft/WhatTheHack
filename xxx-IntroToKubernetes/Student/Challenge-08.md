@@ -12,8 +12,8 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 
 - Verify what happens without persistent storage
 	- Make sure that you are using the latest version of the Fabmedical container images, either the ones you built or the pre-built ones available here:
-		- **whatthehackmsft/content-api:v2**
-		- **whatthehackmsft/content-web:v2**
+		- `whatthehackmsft/content-api:v2`
+		- `whatthehackmsft/content-web:v2`
 	- Delete the MongoDB pod created in Challenge 6. 
 		- Kubernetes should automatically create a new pod to replace it. 
 		- Connect to the new pod and you should observe that the “contentdb” database is no longer there since the pod was not configured with persistent storage.
