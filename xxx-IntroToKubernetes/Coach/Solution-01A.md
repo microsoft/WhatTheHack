@@ -57,7 +57,7 @@ One of the tasks in this challenge is, prior to building the docker images, is t
 	- **NOTE:** Attendees should **not** struggle with getting app to run locally.  If they are not familiar with Node.js, help them through this part.  Let them spend more time figuring out Docker later.
 
 #### Dockerizing the Application
-- It is up to you as coach to gauge how long attendees should spend creating their own Dockerfiles.  **Feel free to provide the sample Dockerfiles at an appropriate time.**  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  
+- It is up to you as coach to gauge how long attendees should spend creating their own Dockerfiles.  **Feel free to provide the sample Dockerfiles at an appropriate time.**  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1. These files are also located in the `/Challenge-02` folder of the `Resources.zip` package the students have, but they shouldn't know that at this point unless you tell them.
 	- The value of the env URL for content-web should match whatever value is used for the --name parameter when executing docker run on content-api as seen below.
 - Build Docker images for both content-api & content-web. 
 	- `docker build –t content-api .`
