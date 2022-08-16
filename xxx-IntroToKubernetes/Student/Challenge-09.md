@@ -17,7 +17,7 @@ Helm is the microwave dinner of the Kubernetes world, allowing you to package en
 In this challenge you will be installing Helm locally and in your cluster and then creating a Helm "Chart" for the Language Facts application and then using helm to quickly deploy different version of that application.
 
 ### Without Helm
-- Deploy the Language Facts application for this challenge using the yaml files provided in your Challenge 9 Resources folder. You will have to install the namespace, deployment and service yaml in that sequence.
+- Deploy the Language Facts application for this challenge using the yaml files provided in the `/Challenge-09` folder of the `Resources.zip` package. You will have to install the namespace, deployment and service yaml in that sequence.
 	- `helm-webapp-namespace.yml`
 	- `helm-webapp-deployment.yml`
 	- `helm-webapp-service.yml`
