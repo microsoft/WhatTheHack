@@ -1,4 +1,6 @@
-**Create SDWAN1 Cisco CSR 1000V VNET and subnets**
+# Cheat sheet for Simulating two SDWAN Routers
+
+### Create SDWAN1 Cisco CSR 1000V VNET and subnets
 
 ```bash
 # Variables
@@ -20,14 +22,14 @@ az network vnet subnet create --address-prefix $vnet_out_subnet --name $Vnet_out
 az network vnet subnet create --address-prefix $vnet_in_subnet --name $Vnet_in_subnet_name --resource-group $rg --vnet-name $vnet_name
 
 ```
-**Create NSG for SDWAN1 Cisco CSR 1000V**
+### Create NSG for SDWAN1 Cisco CSR 1000V**
 ```bash
 az network nsg create --resource-group $rg --name SDWAN1-NSG --location $location
 az network nsg rule create --resource-group $rg --nsg-name SDWAN1-NSG --name all --access Allow --protocol "*" --direction Inbound --priority 100 --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range "*"
 
 ```
 
-**Create SDWAN Router Site 1**
+### Create SDWAN Router Site 1
 
 ```bash
 
@@ -38,7 +40,7 @@ az vm image accept-terms --urn cisco:cisco-csr-1000v:16_12-byol:latest
 az vm create --resource-group $rg --location $location --name SDWAN1Router --size Standard_D2_v2 --nics SDWAN1OutsideInterface SDWAN1nsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
 ```
 
-**Create SDWAN2 Cisco CSR 1000V VNET and subnets**
+### Create SDWAN2 Cisco CSR 1000V VNET and subnets
 
 ```bash
 # Variables
@@ -60,14 +62,14 @@ az network vnet subnet create --address-prefix $vnet_out_subnet --name $Vnet_out
 az network vnet subnet create --address-prefix $vnet_in_subnet --name $Vnet_in_subnet_name --resource-group $rg --vnet-name $vnet_name
 
 ```
-**Create NSG for SDWAN2 Cisco CSR 1000V**
+### Create NSG for SDWAN2 Cisco CSR 1000V
 ```bash
 az network nsg create --resource-group $rg --name SDWAN2-NSG --location $location
 az network nsg rule create --resource-group $rg --nsg-name SDWAN2-NSG --name all --access Allow --protocol "*" --direction Inbound --priority 100 --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range "*"
 
 ```
 
-**Create SDWAN Router Site 2**
+### Create SDWAN Router Site 2
 
 ```bash
 
