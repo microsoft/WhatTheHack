@@ -28,7 +28,10 @@ The coach should demonstrate running the application locally.  To run the Fab Me
 
 
 #### Dockerizing the Application
-- You will need to provide the sample Dockerfiles to the students  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  They will use these Dockerfiles in conjunction with the source code for content-web and content-api.
+
+- The students should have sample dockerfiles for both content-api and content-web. These are located in the `/Challenge-02` folder of their `Resources.zip` package.  They will use these Dockerfiles in conjunction with the source code in the `/Challenge-01` folder for content-web and content-api.
+
+**NOTE:** Before the hack, it is the Coach's responsibility to download and package up the contents of the /Student/Resources folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 If the students get stuck, point them to the ACR documentation for building a container image in Azure:
 
