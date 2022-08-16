@@ -54,10 +54,10 @@ When the deployment is complete, you can ssh into the build machine using port 2
 
 - Run the node.js application
 	- Each part of the app (api and web) runs independently.
-	- Build the API app by navigating to the content-api folder and run `npm install`.
+	- Build the API app by navigating to the `/content-api` folder and run `npm install`.
 	- To start the app, run `node ./server.js &`
 	- Verify the API app runs by hitting its URL with one of the three function names. Eg: **<http://localhost:3001/speakers>**
-- Repeat for the steps above for the content-web app, but verify it's available via a browser on the Internet!
+- Repeat for the steps above for the content-web app which is located in the `/content-web` folder, but verify it's available via a browser on the Internet!
 	- **NOTE:** The content-web app expects an environment variable named `CONTENT_API_URL` that points to the API app's URL. 
 
 ### Create Dockerfiles to Containerize the FabMedical Application
