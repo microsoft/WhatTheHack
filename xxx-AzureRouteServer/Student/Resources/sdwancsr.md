@@ -101,7 +101,7 @@ crypto ikev2 keyring to-sdwan1-keyring
   exit
 
 crypto ikev2 profile to-sdwan1-profile
-  match address local GigabitEthernet1
+  match address local interface GigabitEthernet1
   match identity remote address **Sdwan1_Public_IP** 255.255.255.255
   authentication remote pre-share
   authentication local  pre-share
@@ -120,7 +120,7 @@ crypto ipsec profile to-sdwan1-IPsecProfile
   set security-association lifetime seconds 3600
   exit
 
-int tunnel 11
+int tunnel 98
   ip address 192.168.1.1 255.255.255.255
   tunnel mode ipsec ipv4
   ip tcp adjust-mss 1350
