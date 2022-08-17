@@ -130,9 +130,9 @@ int tunnel 11
   exit 
 
 
-router bgp 65001
+router bgp **BGP_ID**
   bgp log-neighbor-changes
-  neighbor 192.168.1.2 remote-as 65098
+  neighbor 192.168.1.2 remote-as **Central NVA BGP ID**
   neighbor 192.168.1.2 ebgp-multihop 255
   neighbor 192.168.1.2 update-source tunnel 11
 
@@ -143,7 +143,7 @@ router bgp 65001
 
 !route BGP peer IP over the tunnel
 ip route 192.168.1.2 255.255.255.255 Tunnel 11
-```
+
 
 ### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
 
