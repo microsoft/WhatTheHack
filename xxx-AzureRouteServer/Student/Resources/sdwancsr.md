@@ -143,10 +143,9 @@ router bgp **BGP_ID**
 
 !route BGP peer IP over the tunnel
 ip route 192.168.1.2 255.255.255.255 Tunnel 11
-
+```
 
 ### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
-
 ```
 crypto ikev2 proposal azure-proposal
   encryption aes-cbc-256 aes-cbc-128 3des
