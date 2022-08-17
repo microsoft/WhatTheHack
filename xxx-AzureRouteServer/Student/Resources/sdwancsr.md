@@ -90,7 +90,7 @@ crypto ikev2 proposal to-sdwan1-proposal
 
 crypto ikev2 policy to-sdwan1-policy
   proposal to-sdwan1-proposal
-  match address local GigabitEthernet1
+  match address local "GigabitEthernet1 IP Address"
   exit
   
 crypto ikev2 keyring to-sdwan1-keyring
@@ -101,8 +101,8 @@ crypto ikev2 keyring to-sdwan1-keyring
   exit
 
 crypto ikev2 profile to-sdwan1-profile
-  match address local interface GigabitEthernet1
-  match identity remote address **Sdwan1_Public_IP** 255.255.255.255
+  match address local "GigabitEthernet1 IP Address"
+  match identity remote address **Sdwan1_privateSNATed_IP** 255.255.255.255
   authentication remote pre-share
   authentication local  pre-share
   lifetime 3600
@@ -147,63 +147,65 @@ ip route 192.168.1.2 255.255.255.255 Tunnel 98
 
 ### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
 ```
-crypto ikev2 proposal azure-proposal
-  encryption aes-cbc-256 aes-cbc-128 3des
+crypto ikev2 proposal to-central-nva-proposal
+  encryption aes-cbc-256
   integrity sha1
   group 2
   exit
-!
-crypto ikev2 policy azure-policy
-  proposal azure-proposal
+
+crypto ikev2 policy to-central-nva-policy
+  proposal to-central-nva-proposal
+  match address local "GigabitEthernet1 IP Address"
   exit
-!
-crypto ikev2 keyring azure-keyring
-  peer **nva_Public_IP**
-    address **nva_Public_IP**
-    pre-shared-key **PSK**
+  
+crypto ikev2 keyring to-central-nva-keyring
+  peer "Insert nva_Public_IP"
+    address "Insert nva_Public_IP"
+    pre-shared-key Msft123Msft123
     exit
-!
-crypto ikev2 profile azure-profile
-  match address local interface GigabitEthernet1
-  match identity remote address **nva_Public_IP** 255.255.255.255
-  authentication remote pre-share
-  authentication local pre-share
-  keyring local azure-keyring
   exit
-!
-crypto ipsec transform-set azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
- mode tunnel
- exit
 
-crypto ipsec profile azure-vti
-  set transform-set azure-ipsec-proposal-set
-  set ikev2-profile azure-profile
-  set security-association lifetime kilobytes 102400000
-  set security-association lifetime seconds 3600 
- exit
-!
-interface Tunnel0
- ip unnumbered GigabitEthernet1 
- ip tcp adjust-mss 1350
- tunnel source GigabitEthernet1
- tunnel mode ipsec ipv4
- tunnel destination **nva_Public_IP**
- tunnel protection ipsec profile azure-vti
-exit
+crypto ikev2 profile to-central-nva-profile
+  match address local "GigabitEthernet1 IP Address"
+  match identity remote address **CentralNVA_privateSNATed_IP** 255.255.255.255
+  authentication remote pre-share
+  authentication local  pre-share
+  lifetime 3600
+  dpd 10 5 on-demand
+  keyring local to-central-nva-keyring
+  exit
 
-!
-router bgp **BGP_ID**
- bgp router-id interface GigabitEthernet1
- bgp log-neighbor-changes
- redistribute connected
- neighbor **nva_Private_IP** remote-as 65515
- neighbor **nva_Private_IP** ebgp-multihop 5
- neighbor **nva_Private_IP** update-source GigabitEthernet1
- maximum-paths eibgp 4
-!
-ip route **nva_Private_IP** 255.255.255.255 Tunnel0
-!
-end
-!
-wr mem
+crypto ipsec transform-set to-central-nva-TransformSet esp-gcm 256 
+  mode tunnel
+  exit
+
+crypto ipsec profile to-central-nva-IPsecProfile
+  set transform-set to-central-nva-TransformSet
+  set ikev2-profile to-central-nva-profile
+  set security-association lifetime seconds 3600
+  exit
+
+int tunnel 98
+  ip address 192.168.1.2 255.255.255.255
+  tunnel mode ipsec ipv4
+  ip tcp adjust-mss 1350
+  tunnel source GigabitEthernet1
+  tunnel destination "Insert nva_Public_IP"
+  tunnel protection ipsec profile to-central-nva-IPsecProfile
+  exit
+
+router bgp **BGP ID**
+  bgp log-neighbor-changes
+  neighbor 192.168.1.1 remote-as **Central NVA BGP ID**
+  neighbor 192.168.1.1 ebgp-multihop 255
+  neighbor 192.168.1.1 update-source tunnel 98
+
+  address-family ipv4
+    neighbor 192.168.1.1 activate    
+    exit
+  exit
+
+!route BGP peer IP over the tunnel
+ip route 192.168.1.1 255.255.255.255 Tunnel 98
+
 ```
