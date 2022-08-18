@@ -1,4 +1,4 @@
-# Challenge 03 -  Connect Network Virtual Appliance to SD WAN routers
+# Challenge 03 -  Connect Network Virtual Appliance to an SDWAN environment
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
