@@ -6,13 +6,15 @@
 
 In this challenge you will be setting up a basic hub and spoke topology with a Central Network Virtual Appliance. You will also establish connectivity to onprem via VPN site-to-site or Express Route Circuit if you have access to one.
 
+In this challenge you will learn how to build a basic testbed upon which simulate different Route Server topologies, like the ones described in the rest of the hack. 
+
 ## Description
 
 In this challenge you will create the topology described in this diagram:
 
 ![hubnspoke noARS](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge1.png)
 
-This hack offers configuration templates using Cisco CSR 1000v (no license required) that you can leverage (below) for each component, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet". If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
+This hack offers configuration templates using Cisco CSR 1000v (no license required) that you can leverage (see the Learning Resources section below) for each component, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet". If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
 
 The number of spokes is up to the student. Two is the suggested number. 
 
