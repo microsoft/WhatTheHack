@@ -22,7 +22,7 @@ This challenge builds up on a traditional Hub and Spoke topology introducing Azu
 	 - Description of challenge
 - Challenge 02: **[Introduce Azure Route Server and peer with a Network Virtual appliance.](Student/Challenge-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Connect Network Virtual Appliance to SD WAN router](Student/Challenge-03.md)**
+- Challenge 03: **[Connect Network Virtual Appliance to an SDWAN environment](Student/Challenge-03.md)**
 	 - Description of challenge
 - Challenge 04: **[Introduce a High Availability with Central Network Virtual Appliances](Student/Challenge-04.md)**
 	 - Description of challenge
@@ -57,3 +57,4 @@ This challenge builds up on a traditional Hub and Spoke topology introducing Azu
 
 - Mauricio Rojas
 - Jose Moreno
+- Ravi Bakamwar
