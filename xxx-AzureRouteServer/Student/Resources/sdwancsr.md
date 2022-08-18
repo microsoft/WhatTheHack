@@ -80,7 +80,7 @@ az vm image accept-terms --urn cisco:cisco-csr-1000v:16_12-byol:latest
 az vm create --resource-group $rg --location $location --name SDWAN2Router --size Standard_D2_v2 --nics SDWAN2OutsideInterface SDWAN2nsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
 ```
 
-### Site to Site VPN and BGP from Central NVA to SDWAN Routers
+###  Central NVA to SDWAN Routers Cisco CSR 1000 BGP over IPsec Connection
 ```
 crypto ikev2 proposal to-sdwan-proposal
   encryption aes-cbc-256
@@ -169,7 +169,7 @@ ip route 192.168.1.2 255.255.255.255 Tunnel 98
 ip route 192.168.1.3 255.255.255.255 Tunnel 99
 ```
 
-### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
+### SDWAN1 Router to Central NVA Cisco CSR 1000 BGP over IPsec Connection
 ```
 crypto ikev2 proposal to-central-nva-proposal
   encryption aes-cbc-256
@@ -236,7 +236,7 @@ ip route 192.168.1.1 255.255.255.255 Tunnel 98
 ip route "vnet Address space" 255.255.0.0 Null0
 ```
 
-### Create Site to Site and BGP connection from SDWAN2 Router to Central NVA
+### SDWAN2 Router to Central NVA Cisco CSR 1000 BGP over IPsec Connection
 ```
 crypto ikev2 proposal to-central-nva-proposal
   encryption aes-cbc-256
