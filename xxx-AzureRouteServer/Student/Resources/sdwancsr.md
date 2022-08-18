@@ -99,10 +99,18 @@ crypto ikev2 keyring to-sdwan1-keyring
     pre-shared-key Msft123Msft123
     exit
   exit
+  
+ crypto ikev2 keyring to-sdwan1-keyring
+  peer "Insert sdwan2PublicIP"
+    address "Insert sdwan2PublicIP"
+    pre-shared-key Msft123Msft123
+    exit
+  exit
 
 crypto ikev2 profile to-sdwan1-profile
   match address local "GigabitEthernet1 IP Address"
   match identity remote address **Sdwan1_privateSNATed_IP** 255.255.255.255
+  match identity remote address **Sdwan2_privateSNATed_IP** 255.255.255.255
   authentication remote pre-share
   authentication local  pre-share
   lifetime 3600
@@ -121,6 +129,7 @@ crypto ipsec profile to-sdwan1-IPsecProfile
   exit
 
 int tunnel 98
+  description to SDWAN1-Router
   ip address 192.168.1.1 255.255.255.255
   tunnel mode ipsec ipv4
   ip tcp adjust-mss 1350
@@ -128,21 +137,37 @@ int tunnel 98
   tunnel destination "Insert sdwan1PublicIP"
   tunnel protection ipsec profile to-sdwan1-IPsecProfile
   exit 
-
+  
+ int tunnel 99 
+  description to SDWAN2-Router
+  ip address 192.168.1.4 255.255.255.255
+  tunnel mode ipsec ipv4
+  ip tcp adjust-mss 1350
+  tunnel source GigabitEthernet1
+  tunnel destination "Insert sdwan2PublicIP"
+  tunnel protection ipsec profile to-sdwan1-IPsecProfile
+  exit  
 
 router bgp **Central NVA BGP ID**
   bgp log-neighbor-changes
   neighbor 192.168.1.2 remote-as **sdwan1 NVA BGP ID**
   neighbor 192.168.1.2 ebgp-multihop 255
   neighbor 192.168.1.2 update-source tunnel 98
+  !
+  neighbor 192.168.1.3 remote-as **sdwan2 NVA BGP ID**
+  neighbor 192.168.1.3 ebgp-multihop 255
+  neighbor 192.168.1.3 update-source tunnel 99
+  
 
   address-family ipv4
-   neighbor 192.168.1.2 activate    
+   neighbor 192.168.1.2 activate 
+   neighbor 192.168.1.3 activate 
     exit
   exit
 
 !route BGP peer IP over the tunnel
 ip route 192.168.1.2 255.255.255.255 Tunnel 98
+ip route 192.168.1.3 255.255.255.255 Tunnel 99
 ```
 
 ### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
@@ -199,7 +224,7 @@ router bgp **BGP ID**
   neighbor 192.168.1.1 remote-as **Central NVA BGP ID**
   neighbor 192.168.1.1 ebgp-multihop 255
   neighbor 192.168.1.1 update-source tunnel 98
-
+  
   address-family ipv4
     network "vnet Address space" mask 255.255.0.0
     redistribute connected
@@ -252,7 +277,7 @@ crypto ipsec profile to-central-nva-IPsecProfile
   set security-association lifetime seconds 3600
   exit
 
-int tunnel 98
+int tunnel 99
   ip address 192.168.1.3 255.255.255.255
   tunnel mode ipsec ipv4
   ip tcp adjust-mss 1350
@@ -263,9 +288,9 @@ int tunnel 98
 
 router bgp **BGP ID**
   bgp log-neighbor-changes
-  neighbor 192.168.1.1 remote-as **Central NVA BGP ID**
-  neighbor 192.168.1.1 ebgp-multihop 255
-  neighbor 192.168.1.1 update-source tunnel 98
+  neighbor 192.168.1.4 remote-as **Central NVA BGP ID**
+  neighbor 192.168.1.4 ebgp-multihop 255
+  neighbor 192.168.1.4 update-source tunnel 99
 
   address-family ipv4
     network "vnet Address space" mask 255.255.0.0
@@ -275,6 +300,6 @@ router bgp **BGP ID**
   exit
 
 !route BGP peer IP over the tunnel
-ip route 192.168.1.1 255.255.255.255 Tunnel 98
+ip route 192.168.1.4 255.255.255.255 Tunnel 99
 ip route "vnet Address space" 255.255.0.0 Null0
 ```
