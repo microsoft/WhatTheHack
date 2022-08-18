@@ -8,15 +8,15 @@ Now the rubber meets the road.... we will be deploying the application to our ne
 
 ## Description
 
-In this challenge we need to get our application up and running in Kubernetes. We will learn about Kubernetes configuration YAML files used to create the various Kubernetes resources that will be needed to run our app. We will give our containers resource limits and open the app up to the outside world so we can test it.
+In this challenge we need to get our application up and running in Kubernetes. We will learn about Kubernetes configuration YAML files used to create the various Kubernetes resources that will be needed to run our app. We will give our containers resource requests and open the app up to the outside world so we can test it.
 
 **NOTE:** If you have not or could not deploy your containers to the Azure Container Registry, we have staged the FabMedical apps on Docker Hub at these locations:
-- **API app:** whatthehackmsft/content-api
-- **Web app:** whatthehackmsft/content-web
+- **API app:** `whatthehackmsft/content-api`
+- **Web app:** `whatthehackmsft/content-web`
 
 ### Deploy the **API app** from the command line using kubectl and YAML files:
 
-- **NOTE:** Sample YAML files to get you started can be found in the Student Resources folder.
+- **NOTE:** Sample YAML files to get you started can be found in the `/Challenge-04/` folder of the `Resources.zip` file provided by your coach.
 - Configuration details:
   - Number of pods: 1
   - Service: Internal
@@ -31,9 +31,9 @@ In this challenge we need to get our application up and running in Kubernetes. W
 	- You should get a huge json document in response.
    
 ### Deploy the Web app from the command line using kubectl and YAML files
-- **NOTE:** Sample YAML files to get you started can be found in the Files section of the General channel in Teams.
+- **NOTE:** Sample YAML files to get you started can be found in the `/Challenge-04` folder of the `Resources.zip` file provided by your coach.
 - **NOTE:** The Web app expects to have an environment variable pointing to the URL of the API app named:
-	- **CONTENT_API_URL**
+	- `CONTENT_API_URL`
 - Create a deployment yaml file for the Web app using the specs from the API app, except for:
 	- Port and Target Port: 3000
 - Create a service yaml file to go with the deployment

@@ -36,7 +36,7 @@ This is a three step process which any Azure professional should be familiar wit
 
     - If using a shared Azure subscription, we recommend you use the a combination of your initials and "rg" for the `<resource-group-name>` value. For example: `peterlaudati-rg`
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
-1. Deploy the template with the following Azure CLI command from wherever you have unpacked the `/Challenge-01/build-machine` folder:
+1. Deploy the template by running the following Azure CLI command from wherever you have unpacked the `/Challenge-01/build-machine` folder:
     ```
     az deployment group create -g <resource-group-name> -n LinuxBuildVM -f docker-build-machine-vm.json -p docker-build-machine-vm.parameters.json
     ```
@@ -46,7 +46,7 @@ This is a three step process which any Azure professional should be familiar wit
         - Have a digit
         - Have a special character 
 
-Once you the deployment is complete, you can ssh into the build machine using port 2266 on the VMs public IP:
+When the deployment is complete, you can ssh into the build machine using port 2266 on the VMs public IP:
 - `ssh -p 2266 wthadmin@<VM Public IP>` 
 - Verify that Docker and Azure CLI are installed on the VM.
 
@@ -54,10 +54,10 @@ Once you the deployment is complete, you can ssh into the build machine using po
 
 - Run the node.js application
 	- Each part of the app (api and web) runs independently.
-	- Build the API app by navigating to the content-api folder and run `npm install`.
+	- Build the API app by navigating to the `/content-api` folder and run `npm install`.
 	- To start the app, run `node ./server.js &`
 	- Verify the API app runs by hitting its URL with one of the three function names. Eg: **<http://localhost:3001/speakers>**
-- Repeat for the steps above for the content-web app, but verify it's available via a browser on the Internet!
+- Repeat for the steps above for the content-web app which is located in the `/content-web` folder, but verify it's available via a browser on the Internet!
 	- **NOTE:** The content-web app expects an environment variable named `CONTENT_API_URL` that points to the API app's URL. 
 
 ### Create Dockerfiles to Containerize the FabMedical Application
@@ -87,9 +87,9 @@ Once you the deployment is complete, you can ssh into the build machine using po
 
 ## Success Criteria
 
-1. You can run both the node.js based web and api parts of the FabMedical app on the VM
-2. You have created 2 Dockerfiles files and created a container image for both web and api.
-3. You can run the application using containers.
+1. Verify that you can run both the node.js based web and api parts of the FabMedical app on the VM
+2. Verify that you have created 2 Dockerfiles files and created a container image for both web and api.
+3. Verify that you can run the application using containers.
 
 ## Learning Resources
 

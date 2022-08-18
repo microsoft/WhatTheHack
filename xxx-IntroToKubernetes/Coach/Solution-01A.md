@@ -8,6 +8,8 @@ This is **PATH A**: Use this path if your students want to understand what's inv
 
 ## Notes & Guidance
 
+**NOTE:** Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a `Resources.zip` file. The coach should then provide a copy of the `Resources.zip` file to all students at the start of the hack.  The student guide refers to relative path locations within this zip package.
+
 #### Tooling:
 The students can either work with Docker locally on their workstation, or they can deploy a build machine VM in Azure using the provided template.  There is no need to do both.  We recommend using the build VM deployed in Azure as this provides a known-to-work common environment.
 
@@ -57,7 +59,7 @@ One of the tasks in this challenge is, prior to building the docker images, is t
 	- **NOTE:** Attendees should **not** struggle with getting app to run locally.  If they are not familiar with Node.js, help them through this part.  Let them spend more time figuring out Docker later.
 
 #### Dockerizing the Application
-- It is up to you as coach to gauge how long attendees should spend creating their own Dockerfiles.  **Feel free to provide the sample Dockerfiles at an appropriate time.**  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1.  
+- It is up to you as coach to gauge how long attendees should spend creating their own Dockerfiles.  **Feel free to provide the sample Dockerfiles at an appropriate time.**  The sample dockerfiles for both content-api and content-web are in the Coach Solutions folder for Challenge 1. These files are also located in the `/Challenge-02` folder of the `Resources.zip` package the students have, but they shouldn't know that at this point unless you tell them.
 	- The value of the env URL for content-web should match whatever value is used for the --name parameter when executing docker run on content-api as seen below.
 - Build Docker images for both content-api & content-web. 
 	- `docker build –t content-api .`
