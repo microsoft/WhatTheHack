@@ -211,3 +211,70 @@ router bgp **BGP ID**
 ip route 192.168.1.1 255.255.255.255 Tunnel 98
 ip route "vnet Address space" 255.255.0.0 Null0
 ```
+
+### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
+```
+crypto ikev2 proposal to-central-nva-proposal
+  encryption aes-cbc-256
+  integrity sha1
+  group 2
+  exit
+
+crypto ikev2 policy to-central-nva-policy
+  proposal to-central-nva-proposal
+  match address local "GigabitEthernet1 IP Address"
+  exit
+  
+crypto ikev2 keyring to-central-nva-keyring
+  peer "Insert nva_Public_IP"
+    address "Insert nva_Public_IP"
+    pre-shared-key Msft123Msft123
+    exit
+  exit
+
+crypto ikev2 profile to-central-nva-profile
+  match address local "GigabitEthernet1 IP Address"
+  match identity remote address **CentralNVA_privateSNATed_IP** 255.255.255.255
+  authentication remote pre-share
+  authentication local  pre-share
+  lifetime 3600
+  dpd 10 5 on-demand
+  keyring local to-central-nva-keyring
+  exit
+
+crypto ipsec transform-set to-central-nva-TransformSet esp-gcm 256 
+  mode tunnel
+  exit
+
+crypto ipsec profile to-central-nva-IPsecProfile
+  set transform-set to-central-nva-TransformSet
+  set ikev2-profile to-central-nva-profile
+  set security-association lifetime seconds 3600
+  exit
+
+int tunnel 98
+  ip address 192.168.1.3 255.255.255.255
+  tunnel mode ipsec ipv4
+  ip tcp adjust-mss 1350
+  tunnel source GigabitEthernet1
+  tunnel destination "Insert nva_Public_IP"
+  tunnel protection ipsec profile to-central-nva-IPsecProfile
+  exit
+
+router bgp **BGP ID**
+  bgp log-neighbor-changes
+  neighbor 192.168.1.1 remote-as **Central NVA BGP ID**
+  neighbor 192.168.1.1 ebgp-multihop 255
+  neighbor 192.168.1.1 update-source tunnel 98
+
+  address-family ipv4
+    network "vnet Address space" mask 255.255.0.0
+    redistribute connected
+    neighbor 192.168.1.1 activate    
+    exit
+  exit
+
+!route BGP peer IP over the tunnel
+ip route 192.168.1.1 255.255.255.255 Tunnel 98
+ip route "vnet Address space" 255.255.0.0 Null0
+```
