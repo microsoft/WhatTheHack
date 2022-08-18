@@ -4,7 +4,9 @@
 
 ## Introduction
 
-In this challenge you will introduce Azure Route Server in the topology you have built previously in order to establish dynamic routing accross the Hub and Spoke Topology. 
+In this challenge you will introduce Azure Route Server in the topology you have built previously in order to establish dynamic routing accross the Hub and Spoke topology.
+
+This challenge simulates the insertion pattern of firewall NVAs that have no hybrid or SDWAN connectivity and rely on Azure VPN or ExpressRoute gateways for the communication to on-premises networks.
 
 
 ## Description
