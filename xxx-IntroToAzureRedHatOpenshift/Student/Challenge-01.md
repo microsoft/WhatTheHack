@@ -12,8 +12,9 @@ In this challenge we will deploy our first Azure Red Hat OpenShift cluster. This
 
 - Deploy an Azure Red Hat OpenShift cluster with your Red Hat pull secret 
   - **NOTE:** Use the flag `--pull-secret @pull-secret.txt` when creating your cluster and replace `@pull-secret.txt` with your pull secret file
-- Access the ARO web console and retrieve a login command
+- Access the ARO Web Console and retrieve a login command
 - Connect to the ARO cluster using the OpenShift CLI
+- Explore the ARO Web Console
 
 ## Success Criteria
 
