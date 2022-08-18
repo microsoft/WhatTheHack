@@ -13,7 +13,7 @@ When delivering the hack, advise your students of the proper path to select from
 
 ### Challenges 1-3: Four Paths to Choose
 
-[Challenge 1](./Solution-01A) has attendees start by taking the FabMedical sample application's source code, learn how to containerize it, and then run the application in Docker. We have found that this challenge often takes a significant amount of time (3+ hours) for attendees.
+[Challenge 1](./Solution-01A.md) has attendees start by taking the FabMedical sample application's source code, learn how to containerize it, and then run the application in Docker. We have found that this challenge often takes a significant amount of time (3+ hours) for attendees.
 
 For organizations who are not focused on how to build container images, we have provided pre-built container images for the FabMedical sample application hosted in Dockerhub. This means you may choose to start the hack with either Challenge 2 or Challenge 3.
 
