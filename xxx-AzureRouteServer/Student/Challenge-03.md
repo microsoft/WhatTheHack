@@ -15,15 +15,15 @@ Your Network Organization decided that Azure is amazing and want to establish co
 ![ARS_SDWAN](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge3.png)
   
 Please deploy the following scenareo:
-- Establish two simulated SDWAN branches on different locations
-- Carve out 3 non overlapping prefixes: Two of them will be advertised from your branches. The third one will only be advertised from one of them.  
 
-  ***NOTE:** You may use the Cisco CSR 1000v templates for this challenge provided below.*
-
-> [!IMPORTANT]
-> SDWAN technologies are emerging and have a level of detail beyond the scope of this class. Just to give a very brief idea, they often use Azure as a transit infrastructure and run IPsec tunnels as an overlay amongst other protocols. They centralize control plane and management plane operations into different virtual components (v-manage, v-smart). For intent and purpose of this challenge, we will just create two separate Cisco routers on two separate Vnets without going into further complexity. 
-
+- Establish two simulated SDWAN branches on different locations.You have two options for deployment: 
+  - Create two SDWAN Data Centers using the same address space and advertise it to the Central NVA.
+  - Create two SDWAN Data Centers using different address spaces and advertise an aditional identical address space from each.
   
+- Plan for additional prefixes for BGP advertisements.
+- You may use the following BGP topology as an aid.
+- Click on the link to go to the configuration template to simulate your [SDWAN topology using Cisco CSR 1000v](./Resources/sdwancsr.md)
+
 
 ## Success Criteria
 
@@ -36,5 +36,4 @@ At the end of this challenge you should:
 
 ## Learning Resources
 
-* [Cisco CSR 1000v SDWAN Configuration](./Resources/sdwancsr.md)
 
