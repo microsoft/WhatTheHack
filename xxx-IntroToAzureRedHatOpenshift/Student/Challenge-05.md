@@ -7,9 +7,9 @@ In the last challenge, we deployed a Mongo DB database as one step towards fixin
 
 ## Description
 In this challenge, we will need to configure our deployments. Your goal is to find out what environment variables need to be configured for the application to work.
-    - **HINT:** You will need to set two variables. Your goal is to figure out what will go into these variables and what deployments to configure them to.
-        - **MONGODB_URI**=`Your Mongo DB URI`
-        - **API**=`http://<backend service>:<backend service port> `
+- **HINT:** You will need to set two variables. Your goal is to figure out what will go into these variables and what deployments to configure them to.
+    - **MONGODB_URI**=`Your Mongo DB URI`
+    - **API**=`http://<backend service>:<backend service port> `
 
 These variables can be created by using either the ARO Web Console or the OpenShift CLI, it's up to you! Once we set these variables, we will want to ensure that our application is now working. To do this, try exploring the application and see if data persists!
 
