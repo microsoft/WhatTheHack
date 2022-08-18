@@ -212,7 +212,7 @@ ip route 192.168.1.1 255.255.255.255 Tunnel 98
 ip route "vnet Address space" 255.255.0.0 Null0
 ```
 
-### Create Site to Site and BGP connection from SDWAN1 Router to Central NVA
+### Create Site to Site and BGP connection from SDWAN2 Router to Central NVA
 ```
 crypto ikev2 proposal to-central-nva-proposal
   encryption aes-cbc-256
