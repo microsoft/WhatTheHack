@@ -12,13 +12,13 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
+- Challenge 01: **[Building a Basic Hub and Spoke Topology utilizing a central Network Virtual Appliance](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
+- Challenge 02: **[Introduce Azure Route Server and peer with a Network Virtual appliance](./Solution-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
+- Challenge 03: **[Connect Network Virtual Appliance to an SDWAN environment](./Solution-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
+- Challenge 04: **[Introduce a High Availability with Central Network Virtual Appliances](./Solution-04.md)**
 	 - Description of challenge
 - Challenge 05: **[Title of Challenge](./Solution-05.md)**
 	 - Description of challenge
