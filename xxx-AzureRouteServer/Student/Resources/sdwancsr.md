@@ -201,11 +201,13 @@ router bgp **BGP ID**
   neighbor 192.168.1.1 update-source tunnel 98
 
   address-family ipv4
+    network "vnet Address space" mask 255.255.0.0
+    redistribute connected
     neighbor 192.168.1.1 activate    
     exit
   exit
 
 !route BGP peer IP over the tunnel
 ip route 192.168.1.1 255.255.255.255 Tunnel 98
-
+ip route "vnet Address space" 255.255.0.0 Null0
 ```
