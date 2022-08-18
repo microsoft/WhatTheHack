@@ -26,7 +26,7 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 - Challenge 04: **[Storage](Student/Challenge-04.md)**
 	 - Address application errors
 - Challenge 05: **[Configuration](Student/Challenge-05.md)**
-	 - Address application errors
+	 - Configure our frontend and backend applications
 - Challenge 06: **[Networking](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**
