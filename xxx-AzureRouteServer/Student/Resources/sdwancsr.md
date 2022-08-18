@@ -82,32 +82,31 @@ az vm create --resource-group $rg --location $location --name SDWAN2Router --siz
 
 ### Site to Site VPN and BGP from Central NVA to SDWAN Routers
 ```
-crypto ikev2 proposal to-sdwan1-proposal
+crypto ikev2 proposal to-sdwan-proposal
   encryption aes-cbc-256
   integrity sha1
   group 2
   exit
 
-crypto ikev2 policy to-sdwan1-policy
-  proposal to-sdwan1-proposal
+crypto ikev2 policy to-sdwan-policy
+  proposal to-sdwan-proposal
   match address local "GigabitEthernet1 IP Address"
   exit
   
-crypto ikev2 keyring to-sdwan1-keyring
+crypto ikev2 keyring to-sdwan-keyring
   peer "Insert sdwan1PublicIP"
     address "Insert sdwan1PublicIP"
     pre-shared-key Msft123Msft123
     exit
   exit
   
- crypto ikev2 keyring to-sdwan1-keyring
   peer "Insert sdwan2PublicIP"
     address "Insert sdwan2PublicIP"
     pre-shared-key Msft123Msft123
     exit
   exit
 
-crypto ikev2 profile to-sdwan1-profile
+crypto ikev2 profile to-sdwan-profile
   match address local "GigabitEthernet1 IP Address"
   match identity remote address **Sdwan1_privateSNATed_IP** 255.255.255.255
   match identity remote address **Sdwan2_privateSNATed_IP** 255.255.255.255
@@ -115,16 +114,16 @@ crypto ikev2 profile to-sdwan1-profile
   authentication local  pre-share
   lifetime 3600
   dpd 10 5 on-demand
-  keyring local to-sdwan1-keyring
+  keyring local to-sdwan-keyring
   exit
 
-crypto ipsec transform-set to-sdwan1-TransformSet esp-gcm 256 
+crypto ipsec transform-set to-sdwan-TransformSet esp-gcm 256 
   mode tunnel
   exit
 
-crypto ipsec profile to-sdwan1-IPsecProfile
-  set transform-set to-sdwan1-TransformSet
-  set ikev2-profile to-sdwan1-profile
+crypto ipsec profile to-sdwan-IPsecProfile
+  set transform-set to-sdwan-TransformSet
+  set ikev2-profile to-sdwan-profile
   set security-association lifetime seconds 3600
   exit
 
