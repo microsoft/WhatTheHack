@@ -34,12 +34,5 @@ At the end of this challenge you should:
 
 ## Learning Resources
 
-TBD
+* [Cisco CSR 1000v SDWAN Configuration](./Resources/sdwancsr.md)
 
-## Tips
-
-TBD
-
-## Advanced Challenges (Optional)
-
-TBD
