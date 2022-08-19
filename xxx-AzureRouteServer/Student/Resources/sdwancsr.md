@@ -7,9 +7,9 @@
 rg=<RG>
 location=<SDWAN1_Location_1>
 vnet_name=<SDWAN1_Vnet_name>
-
-//You may change the name and address space of the subnets if desired or required. 
-
+```
+You may change the name and address space of the subnets if desired or required. 
+```
 Vnet_address_prefix=<ipv4 address space CIDR>
 Vnet_out_subnet_name=sdwan1outsidesubnet
 vnet_out_subnet=<ipv4subnet out address space CIDR>
@@ -47,9 +47,9 @@ az vm create --resource-group $rg --location $location --name SDWAN1Router --siz
 rg=<RG>
 location=<SDWAN2_Location_1>
 vnet_name=<SDWAN2_Vnet_name>
-
-//You may change the name and address space of the subnets if desired or required. 
-
+```
+You may change the name and address space of the subnets if desired or required. 
+```
 Vnet_address_prefix=<ipv4 address space CIDR>
 Vnet_out_subnet_name=SDWAN2outsidesubnet
 vnet_out_subnet=<ipv4subnet address space CIDR>
@@ -301,4 +301,45 @@ router bgp **BGP ID**
 !route BGP peer IP over the tunnel
 ip route 192.168.1.4 255.255.255.255 Tunnel 99
 ip route "vnet Address space" 255.255.0.0 Null0
+```
+
+## Route Manipulation
+### Create prefix list
+```
+ip prefix-list toRS seq 5 permit <prefix in CIDR notation>
+```
+
+Example:
+```
+ip prefix-list toRS seq 5 permit 172.16.1.0/24
+```
+### Create Route Map
+```
+route-map toRS permit 10
+ match ip address prefix-list toRS
+ set as-path prepend <LocalASN> <LocalASN> <LocalASN>
+```
+
+Example:
+``` 
+route-map toRS permit 10
+ match ip address prefix-list toRS
+ set as-path prepend 65001 65001
+```
+
+### Assign to neighbor
+
+```
+router bgp <LocalASN>
+address-family ipv4
+neighbor <RS BGP IP> route-map toRS out
+neighbor <RS BGP IP> route-map toRS out
+```
+
+Example:
+```
+router bgp 65001
+address-family ipv4
+neighbor 10.0.3.4 route-map toRS out
+neighbor 10.0.3.5 route-map toRS out
 ```
