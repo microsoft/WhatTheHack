@@ -1,100 +1,53 @@
-# Challenge 7: Stream IoMT Device data into FHIR from IoT Central
+# Challenge 7: Stream IoMT Device data into FHIR using MedTech service
 
 [< Previous Challenge](./Challenge06.md) - **[Home](../readme.md)**
 
 ## Introduction
 
-In this challenge, you will stream IoMT Device data into FHIR from IoT Central. 
+In this challenge, you will work with medical IoT device data using the **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot)** in Azure Health Data Services.  You will use **[MedTech service toolkit](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** to transform medical IoT device data into Fast Healthcare Interoperability Resources (FHIR®)-based Observation resources.  You will deploy a **[MedTech service data pipeline](microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)** to ingest medical IoT data, normaize and group these messages,transform the grouped-normalized messages into FHIR-based Observation resources, and then persist the transformed messages into the FHIR service (previously deployed in challenge 1).
 
-The **[Azure IoT Connector for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot-fhir-portal-quickstart)** for Fast Healthcare Interoperability Resources (FHIR®)* is a feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. Azure IoT Connector for FHIR needs two mapping templates to transform device messages into FHIR-based Observation resource(s): device mapping and FHIR mapping. Device mapping template transforms device data into a normalized schema. On the IoT Connector page, click on Configure device mapping button to go to the Device mapping page. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource. On the IoT Connector page, click on Configure FHIR mapping button to go to the FHIR mapping page.
+The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot)** in Azure Health Data Services uses an event hub to ingests streaming event data from IoT medical devices, transforms them into FHIR-based Observation resources, retrieves associated Patient resource from FHIR service, adds them as reference to the Observation resource created, and then persists the transformed messages to the FHIR service.
 
-Azure offers an extensive suite of IoT products to connect and manage your IoT devices. Users can build their own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. This challenge leverages Azure IoT Central, which has industry-focused solution templates to help get started. Once IoT Central application is deployed, two out-of-the-box simulated devices will start generating telemetry.
- 
-<center><img src="../images/challenge08-architecture.jpg" width="350"></center>
+**[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** is the MedTech toolkit to visualize and configure normalize mapping between the medical Iot data and FHIR.  Once you completed the FHIR mapping, you can export it and upload the mapping files to your **[MedTech service Device Mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** configuration in Azure Portal.
+
+
+Below is the overview of the **[MedTech service data flow](microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**:
+<center><img src="../images/challenge07-IoT Ingest and Persist.png" width="550"></center>
 
 ## Description
 
-You will deploy IoT Connector for FHIR and Setup IoT Device in IoT Central and Connect to FHIR.
+You will deploy an instance of MedTech service in your Azure Health Data Service workspace, and configure it to receive and transform medical IoT data for persitence in your FHIR service (deployed in challenge 1) as Observation resources.
 
-- **Deploy Azure IoT Connector for FHIR**
-	- Navigate to Azure API for FHIR resource. Click on IoT Connector under the Add-ins section. Click on the Add button to open the Create IoT Connector page. Enter Connector name for the new Azure IoT Connector for FHIR. Choose Create for Resolution Type and click on Create button.
-- **Configure Azure IoT Connector for FHIR**. To **upload mapping templates**, click on the newly deployed Azure IoT Connector for FHIR to go to the IoT Connector page.
-   * Device mapping template transforms **device data into a normalized schema**. On the IoT Connector page, click on **Configure device mapping** button to go to the Device mapping page. On the Device mapping page, add the following script to the JSON editor and click Save.
-      ```json
-      {
-        "templateType": "CollectionContent",
-        "template": [
-          {
-            "templateType": "IotJsonPathContent",
-            "template": {
-              "typeName": "heartrate",
-              "typeMatchExpression": "$..[?(@Body.HeartRate)]",
-              "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
-              "values": [
-                {
-                  "required": "true",
-                  "valueExpression": "$.Body.HeartRate",
-                  "valueName": "hr"
-                }
-              ]
-            }
-          }
-        ]
-      }
-     ``` 
-   * FHIR mapping template **transforms a normalized message to a FHIR-based Observation resource**. On the IoT Connector page, click on **Configure FHIR mapping** button to go to the FHIR mapping page. On the FHIR mapping page, add the following script to the JSON editor and click Save.
-      ```json
-      {
-        "templateType": "CollectionFhir",
-        "template": [
-          {
-            "templateType": "CodeValueFhir",
-            "template": {
-              "codes": [
-                {
-                  "code": "8867-4",
-                  "system": "http://loinc.org",
-                  "display": "Heart rate"
-                }
-              ],
-              "periodInterval": 0,
-              "typeName": "heartrate",
-              "value": {
-                "unit": "count/min",
-                "valueName": "hr",
-                "valueType": "Quantity"
-              }
-            }
-          }
-        ]
-      }
-     ``` 
-- **Generate a connection string for IoT Device**
-    - On the IoT Connector page, select **Manage client connections** button. Click on **Add** button. Provide a name and select the **Create** button. Select the newly created connection from the Connections page and copy the value of Primary connection string field from the overlay window on the right.
-
-- **Create App in IoT Central**
-    - Navigate to the [Azure IoT Central application manager website](https://apps.azureiotcentral.com/). Select **Build** from the left-hand navigation bar and then click the **Healthcare** tab.
-    - Click the **Create app** button and sign in. It will take you to the **New application** page.
-    - Change the **Application name** and **URL** or leave as-is. 
-    - Check the **Pricing plan** and select free pricing plan or one of the standard pricing plans. 
-    - Select **Create** at the bottom of the page to deploy your application.
-    - More details on [Continuous Patient Monitoring](https://docs.microsoft.com/en-us/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template).
-- **Connect your IoT data with the Azure IoT Connector for FHIR**
-    - Navigate to IoT Central App created, click on **Data Export (legacy)** under App Settings in the left navigation.
-    - Choose **New --> Azure Event Hubs**. Enter a display name for your new export, and make sure the data export is Enabled.
-    - Choose **Connection String** in Event Hubs namespace and paste the Connection String copied from above. Event Hub name will autofill.
-    - Make sure **Telemetry** is enabled, Devices and Device templates are disabled.
-    - More details on [Data Export](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-export-data#set-up-data-export).
-
-- **Validate export and anonymization**
-    - Connect to Azure API for FHIR from Postman and check if Device and Observsation resources return data. 
+- **Deploy Azure Event Hubs for use by MedTech service**
+- **Deploy a new instance of the MedTech service in your Azure Health Data Services workspace (deployed in challenge 1) and configure it to ingest IoT data from the above Event Hubs instance**
+- **Deploy the **[IoT mapper tool](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)****
+  - Import **[sample IoT messages](https://github.com/microsoft/azure-health-data-services-workshop/tree/main/Challenge-09%20-%20MedTech%20service/SampleData/Answers)** into tool to customize device mapping to FHIR
+  - Export customized mapping in tool to generate the new Device Mapping and FHIR Mapping files
+- **Import the newly generated FHIR mapping into your MedTech service**
+  - Configure and save the **[Device mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#configure-device-mapping-properties)** JSON in the MedTech service (Device Mapping setting)
+  - Configure and save the Destination mapping JSON to in the MedTech service (Destination setting)
+- **Send sample device data to persist in the FHIR service using Postman via **[MedTech service Event Hub service](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token)****
 
 ## Success Criteria
-- You have successfully configured IoT Connector for FHIR.
-- You have successfully configured IoT Central Continuous Patient Monitoring Application.
+- You have successfully configured device mapping to FHIR using the data mapper tool
+- You have successfully generated a custom FHIR mapping for medical IoT device data
+- You have successfully configured MedTech service for mapping IoT device data to FHIR
+- You have successfully ingested sample medical IoT device data into the FHIR services as Observation resources.
+
 
 ## Learning Resources
 
-- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
-- **[HL7 bulk export](https://hl7.org/Fhir/uv/bulkdata/export/index.html)**
-- **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**
+- **[What is the MedTech service?](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-connector-overview?WT.mc_id=Portal-Microsoft_Healthcare_APIs)**
+- **[MedTech service data flow](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**
+- **[Deploy the MedTech service manually](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)**, which will allow you to use existing FHIR service deployed in challenge 1 in the MedTech service destination configuration.
+- **[Deploy the MedTech service using Azure portal](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#configure-device-mapping-properties)**, which will include the following Azure services: Event Hubs, Health Data Services workspace, FHIR service and MedTech service.
+- **[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)**
+- **[How to use Device mappings](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)**
+- **[How to use the FHIR destination mappings](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-fhir-mappings)**
+- **[Granting access to device message event hub and FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#granting-the-medtech-service-access-to-the-device-message-event-hub-and-fhir-service)**
+- **[Receive device data through Azure IoT Hub](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/device-data-through-iot-hub)**
+- **[Create an IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal)**
+- **[Connect IoT Hub to MedTech Service with Message Routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c)**
+- **[Upload files from connected devices to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload)**
+- **[Ingest data from IoT devices](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/device-data-through-iot-hub#send-device-message-to-iot-hub)**
+- **[Get an Azure Active Directory (Azure AD) token and use it send events to an event hub](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#send-messages-to-a-queue)**
