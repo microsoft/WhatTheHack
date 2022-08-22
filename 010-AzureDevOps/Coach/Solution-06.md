@@ -4,4 +4,4 @@
 
 ## Notes & Guidance
 
--the application and the docker image are deployed to Azure DevOps, it's not ready. should have to update to 3.0.0 .net core at least, inside pjoject file. 
+-the application and the docker image are deployed to Azure DevOps, it's not ready. should have to update to 3.0.0 .net core at least, inside project file. 
