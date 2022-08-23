@@ -21,6 +21,12 @@ This is a net new install, you need to design the workspace environment to meet 
 - You need to be able to check visually that the data connector is healthy
 - You need to collect active directory events
 
+**Tasks - Instanciate Your Microsoft Sentinel Environment**
+- Be able to launch the Sentinel service in the portal
+- Deploy the AMA or MMA agent on a Windows Server
+- Verify that data is being ingested into Sentinel
+- Deploy the appropriate data connector
+- Deploy the 'Data collector health monitoring' workbook
 
 ## Success Criteria
 
@@ -28,14 +34,6 @@ To complete this challenge you need to design and deploy an architecture and ins
 - Create a Log Analytics workspace and explain your Sentinel architecture.
 - Launch the Sentinel Console.
 - Demonstrate that logs are being ingested into your Log Analytics Workspace.
-
-
-**Tasks - Instanciate Your Microsoft Sentinel Environment**
-- Be able to launch the Sentinel service in the portal
-- Deploy the AMA or MMA agent on a Windows Server
-- Verify that data is being ingested into Sentinel
-- Deploy the appropriate data connector
-- Deploy the 'Data collector health monitoring' workbook
 
 
 
