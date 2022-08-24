@@ -19,51 +19,16 @@ You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microso
 
 - **Setup ADF pipeline configuration for anonymization**
     - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
-    - Navigate to the project subfolder at: 'FHIR-Tools-for-Anonymization\FHIR\src\Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline' folder and configure 'AzureDataFactorySettings.json' file as follows:
-        ```
-        {
-            "dataFactoryName": "[Custom Data Factory Name]",
-            "resourceLocation": "[Region for Data Factory]",
-            "sourceStorageAccountName": "[Storage Account Name for source files]",
-            "sourceStorageAccountKey": "[Storage Account Key for source files]",
-            "destinationStorageAccountName": "[Storage Account Name for destination files]",
-            "destinationStorageAccountKey": "[Storage Account Key for destination files]",
-            "sourceStorageContainerName": "[Storage Container Name for source files]",
-            "sourceContainerFolderPath": "[Optional: Directory for source resource file path]",
-            "destinationStorageContainerName": "[Storage Container Name for destination files]",
-            "destinationContainerFolderPath": "[Optional: Directory for destination resource file path]",
-            "activityContainerName": "[Container name for anonymizer tool binraries]"
-        }
-        ```
-    - In PowerShell command window, execute the following commands to define variables needed during the script execution to create and configure the Anonymization Batch service:
-        ```powershell
-        $SubscriptionId = "SubscriptionId"
-        $BatchAccountName = "BatchAccountName. New batch account would be created if account name is null or empty."
-        $BatchAccountPoolName = "BatchAccountPoolName"
-        $BatchComputeNodeSize = "Node size for batch node. Default value is 'Standard_d1'"
-        $ResourceGroupName = "Resource group name for Data Factory. Default value is $dataFactoryName + 'resourcegroup'"
-        ```
+    - Configure the Anonymization pipeline deployment **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** execution for your environment.
+    - Define command line environment variables needed during the script execution to create and configure the Anonymization pipeline.
 - **Deploy ADF pipeline for FHIR data anonymization**
-    - Run the following PowerShell commands to create the Data Factory anonymization pipeline:
-        - First, log into Azure using PowerShell
-            ```powershell
-            Connect-AzAccount
-            Get-AzSubscription
-            Select-AzSubscription -SubscriptionId "<SubscriptionId>"
-            ```
-        - Navigate to the project subfolder at: 'FHIR-Tools-for-Anonymization\FHIR\src\Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline' and run the script with parameters as follows:
-            ```powershell
-            .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName
-            ```
+    - Execute **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to created the Anonymization pipeline.
 - **Upload test FHIR patient data for anonymization**
-    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the builk FHIR export using the $export operation in the FHIR service via Postman.
+    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the bulk FHIR export using the $export operation in the FHIR service via Postman.
     - Or you can simply upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline for testing the Anonymization pipeline.
 - **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
-    - Run in PowerShell:
-        ```powershell
-        .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName
-        ```
-- **Validate export and anonymization** 
+    - **[Trigger pipeline run](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#trigger-and-monitor-pipeline-run-from-powershell)** to de-ID test FHIR patient data.
+- **Validate FHIR data export and anonymization** 
     - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container. 
 
 ## Success Criteria

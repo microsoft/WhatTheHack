@@ -11,11 +11,11 @@ In this challenge, you will use Azure Health Data Services platform to export an
 - Azure Data Factory (ADF) pipeline 
 - De-ID $export FHIR service operation  
 
-<center><img src="../images/challenge07-architecture.jpg" width="550"></center>
+<center><img src="../images/challenge06-architecture.png" width="550"></center>
 
 ## Description
 
-You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to de-identify FHIR data.  You will run a PowerShell **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to create an ADF pipeline that reads data from a source container in Azure Blob storage and writes the outputted anonymized data to a destination containter in Azure Blob storage.  You have the option to call the $export operation in FHIR service to **[bulk export](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** FHIR data into a pre-defined source container in the Azure Blob store for Anonymization pipeline.  Alternatively, you can simply upload a test Synthea generate FHIR patient data to this container.
+You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to de-identify FHIR data.  You will run a PowerShell **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to create an ADF pipeline that reads data from a source container in Azure Blob storage and writes the outputted anonymized data to a destination containter in Azure Blob storage.  You have the option to call the $export operation in FHIR service to **[bulk export](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** FHIR data into a pre-defined source container in the Azure Blob store for Anonymization pipeline.  Alternatively, you can simply upload a test Synthea generate FHIR patient data to this container.
 
 - **Setup ADF pipeline configuration for anonymization**
     - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
@@ -56,8 +56,8 @@ You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microso
             .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName
             ```
 - **Upload test FHIR patient data for anonymization**
-    - Upload Synthea generated FHIR patient data to the source container configured in the ADF pipeline.
-    - [Optional], **[Configure](https://github.com/microsoft/fhir-server/blob/main/docs/BulkExport.md)** and **[perform](https://github.com/rsliang/FHIR-Tools-for-Anonymization/blob/master/docs/FHIR-anonymization.md#how-to-perform-de-identified-export-operation-on-the-fhir-server)** the de-ID FHIR export using the $export operation in the FHIR service.
+    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the builk FHIR export using the $export operation in the FHIR service via Postman.
+    - Or you can simply upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline for testing the Anonymization pipeline.
 - **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
     - Run in PowerShell:
         ```powershell
@@ -67,12 +67,14 @@ You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microso
     - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container. 
 
 ## Success Criteria
-- You have successfully configured FHIR Bulk Export
 - You have successfully configure and deploy the FHIR anonyization tool.
-- You have compared pre de-ided and post de-ided FHIR data.
+- You have successfully configured FHIR Bulk Export and called the $export operation to upload the test FHIR data for anonymization
+- You have successfully trigger and monitor the Anonymization pipeline in ADF
+- You have compared pre de-ided and post de-ided FHIR data in the resource and destination containers respectively.
 
 ## Learning Resources
 
-- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
-- **[Bulk export](https://github.com/microsoft/fhir-server/blob/main/docs/BulkExport.md)**
 - **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**
+- **[Configure Bulk export FHIR service operation](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)**
+- **[How to export FHIR data with $export opertation in FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)**
+- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
