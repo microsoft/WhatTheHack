@@ -4,63 +4,75 @@
 
 ## Introduction
 
-In this challenge, you will explore bulk exporting, anonymizing and storing FHIR data into Data Lake. 
+In this challenge, you will use Azure Health Data Services platform to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challege is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
 
-The **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** is an open-source project that helps anonymize healthcare FHIR data, on-premises or in the cloud, for secondary usage such as research, public health, and more. This architecture uses multiple Azure services for creating an automated pipeline to process the bulk export and anonymization for FHIR. The goal of the template is to enable quick and continuous creation of research datasets while applying HIPAA safe harbor rules.
+**[FHIR Tool for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** provides tooling to anonymize healthcare FHIR data, on-premises or cloud, for secondary usage such as research, public health, etc. in the following methods:
+- Command line tool, 
+- Azure Data Factory (ADF) pipeline 
+- De-ID $export FHIR service operation  
 
-<center><img src="../images/challenge07-architecture.jpg" width="550"></center>
-
-A Timer is used to trigger the Logic App which bulk exports data from FHIR and stores in a preset storage location. The Logic App loops on an adjustable 5 minute interval until Bulk Export finishes exporting all data from FHIR. Logic App runs Azure Data Factory which in triggers Azure Batch which performs the deidentification with the FHIR Tools for Anonymization. The deidentified data is stored in Azure Data Lake Gen 2 for further use. 
+<center><img src="../images/challenge06-architecture.png" width="550"></center>
 
 ## Description
 
-You will deploy using the [Microsoft Health Architectures](https://github.com/microsoft/health-architectures/tree/master/Research-and-Analytics/FHIRExportwithAnonymization).
+You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to de-identify FHIR data.  You will run a PowerShell **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to create an ADF pipeline that reads data from a source container in Azure Blob storage and writes the outputted anonymized data to a destination containter in Azure Blob storage.  You have the option to call the $export operation in FHIR service to **[bulk export](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** FHIR data into a pre-defined source container in the Azure Blob store for Anonymization pipeline.  Alternatively, you can simply upload a test Synthea generate FHIR patient data to this container.
 
-- **Setup**
-    - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
-    - Navigate to `health-architectures/Research-and-Analytics/FHIRExportwithAnonymization` and open the `./Assets/arm_template_parameters.json` file in your preferred JSON editor. Replace FHIR URL, client id, client secret, tenant id and export storage account with yours.
-    - Save & close the parameters file.
-
-- **Deploy**
-    - Log into Azure using PowerShell
-        ```powershell
-        Connect-AzAccount
-        Get-AzSubscription
-        Select-AzSubscription -SubscriptionId "<SubscriptionId>"
+- **Setup ADF pipeline configuration for anonymization**
+    - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
+    - Navigate to the project subfolder at: 'FHIR-Tools-for-Anonymization\FHIR\src\Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline' folder and configure 'AzureDataFactorySettings.json' file as follows:
         ```
-    - Navigate to the repo directory
-        ```powershell
-        cd health-architectures-master\Research-and-Analytics\FHIRExportwithAnonymization
+        {
+            "dataFactoryName": "[Custom Data Factory Name]",
+            "resourceLocation": "[Region for Data Factory]",
+            "sourceStorageAccountName": "[Storage Account Name for source files]",
+            "sourceStorageAccountKey": "[Storage Account Key for source files]",
+            "destinationStorageAccountName": "[Storage Account Name for destination files]",
+            "destinationStorageAccountKey": "[Storage Account Key for destination files]",
+            "sourceStorageContainerName": "[Storage Container Name for source files]",
+            "sourceContainerFolderPath": "[Optional: Directory for source resource file path]",
+            "destinationStorageContainerName": "[Storage Container Name for destination files]",
+            "destinationContainerFolderPath": "[Optional: Directory for destination resource file path]",
+            "activityContainerName": "[Container name for anonymizer tool binraries]"
+        }
         ```
-    - Create variables and deploy
+    - In PowerShell command window, execute the following commands to define variables needed during the script execution to create and configure the Anonymization Batch service:
         ```powershell
-        $EnvironmentName = "<NAME HERE>" #The name must be lowercase, begin with a letter, end with a letter or digit, and not contain hyphens.
-        $EnvironmentLocation = "<LOCATION HERE>" #optional input. The default is eastus2
- 
-        ./deployFHIRExportwithAnonymization.ps1 -EnvironmentName $EnvironmentName -EnvironmentLocation $EnvironmentLocation #Environment Location is optional
+        $SubscriptionId = "SubscriptionId"
+        $BatchAccountName = "BatchAccountName. New batch account would be created if account name is null or empty."
+        $BatchAccountPoolName = "BatchAccountPoolName"
+        $BatchComputeNodeSize = "Node size for batch node. Default value is 'Standard_d1'"
+        $ResourceGroupName = "Resource group name for Data Factory. Default value is $dataFactoryName + 'resourcegroup'"
         ```
-- **Validate deployment resources**
-    - Resource Group `{ENVIRONMENTNAME}`
-    - Azure Data Factory `{ENVIRONMENTNAME}adf`
-    - Batch Account `{ENVIRONMENTNAME}batch`
-    - Key Vault `{ENVIRONMENTNAME}kv`
-    - Logic App `{ENVIRONMENTNAME}la`
-    - Storage Account `{ENVIRONMENTNAME}dlg2`
-
-- **Post-deployment setup**
-    - In Azure Portal, navigate to the FHIR Integration Storage Account entered in the parameters file in the Setup above. Locate the storage account 'Access key' blade under 'Settings'. Copy one of the connection strings. 
-    - Navigate to the new key vault `{ENVIRONMENTNAME}kv` deployed with the script. Open the key vault, locate 'Secrets' blade under 'Settings'. Click on the secret named 'blobstorageacctstring'. Then click "+ New Version". In the 'Value' box paste the connection string from the storage account. Then click the 'Create' button at the bottom the page. This will point the Azure Data Factory to the pre-configured FHIR Integration Storage Account.
-    - Navigate to the Logic App Logic App `{ENVIRONMENTNAME}la` deployed with the script and click Run Trigger. Click on the Running status in Runs History below in the same screen. The time taken to complete depends on the volume of data you have in Azure API for FHIR.
-
+- **Deploy ADF pipeline for FHIR data anonymization**
+    - Run the following PowerShell commands to create the Data Factory anonymization pipeline:
+        - First, log into Azure using PowerShell
+            ```powershell
+            Connect-AzAccount
+            Get-AzSubscription
+            Select-AzSubscription -SubscriptionId "<SubscriptionId>"
+            ```
+        - Navigate to the project subfolder at: 'FHIR-Tools-for-Anonymization\FHIR\src\Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline' and run the script with parameters as follows:
+            ```powershell
+            .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName
+            ```
+- **Upload test FHIR patient data for anonymization**
+    - Upload Synthea generated FHIR patient data to the source container configured in the ADF pipeline.
+    - [Optional], **[Configure](https://github.com/microsoft/fhir-server/blob/main/docs/BulkExport.md)** and **[perform](https://github.com/rsliang/FHIR-Tools-for-Anonymization/blob/master/docs/FHIR-anonymization.md#how-to-perform-de-identified-export-operation-on-the-fhir-server)** the de-ID FHIR export using the $export operation in the FHIR service.
+- **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
+    - Run in PowerShell:
+        ```powershell
+        .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName
+        ```
 - **Validate export and anonymization** 
-    - Compare pre de-identified data in the container with the latest date in the Storage Account entered in the parameters file in the Setup above, and post de-identified data in the container with output as suffix in the Storage Account `{ENVIRONMENTNAME}dlg2` deployed with the script. Look for the container with output as suffix. 
+    - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container. 
 
 ## Success Criteria
-- You have successfully deployed export and anonyization template.
+- You have successfully configured FHIR Bulk Export
+- You have successfully configure and deploy the FHIR anonyization tool.
 - You have compared pre de-ided and post de-ided FHIR data.
 
 ## Learning Resources
 
 - **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
-- **[HL7 bulk export](https://hl7.org/Fhir/uv/bulkdata/export/index.html)**
+- **[Bulk export](https://github.com/microsoft/fhir-server/blob/main/docs/BulkExport.md)**
 - **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**

@@ -8,13 +8,13 @@ You will implement a collection of FHIR reference architectures frome **[Microso
 ## Learning Objectives
 This hack will help you:
 1. Deploy FHIR service in Azure Health Data Services platform.
-2. Generate and load synthetic Electronic Health Record (EHR) data into FHIR Server.
-3. Convert and Load HL7v2 and C-CDA data into FHIR Server.
+2. Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
+3. Convert and Load HL7v2 and C-CDA data into FHIR Service.
 4. Develop a JavaScript to read FHIR data 
 5. Develop a React Single Page App (SPA) to Search and view patient record.
 6. Transform and explore FHIR data for secondary use analytics.
 7. Export and anonymize FHIR data.
-8. Stream MedTech Device data into FHIR.
+8. Stream MedTech Device data into FHIR service.
 
 ## Scenario
 Contoso Healthcare is implementing a FHIR-based data management solution. 
@@ -23,7 +23,7 @@ Your team's assistance is needed to implement the following scenarios through th
    * Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
    * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data in Parquet files.
    * Bulk export data from FHIR, de-identify the data and store in staging Data Lake storage for downstream processing.
-   * Ingest and Persist IoT device data and correlate it with patient record in FHIR server.
+   * Ingest and Persist IoT device data and correlate it with patient record in FHIR service.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>
@@ -35,9 +35,9 @@ Your team's assistance is needed to implement the following scenarios through th
 **These challenges can be completed in any order:**
 - Challenge 2: **[Extract, transform and load HL7v2 and C-CDA EHR data](Student/Challenge02.md)**
 - Challenge 3: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge03.md)**
-- Challenge 4: **[Create a new Single Page App (SPA) for patient search](Student/Challenge05.md)**
+- Challenge 4: **[Create a new Single Page App (SPA) for patient search](Student/Challenge04.md)**
 - Challenge 5: **[Analyze and Visualize FHIR data](Student/Challenge05.md)**
-- Challenge 6: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge07.md)**
+- Challenge 6: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge06.md)**
 - Challenge 7: **[Stream MedTech Device data into FHIR server](Student/Challenge07.md)**
 
 ## Prerequisites

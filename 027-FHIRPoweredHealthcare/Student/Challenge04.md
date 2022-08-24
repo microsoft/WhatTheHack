@@ -6,7 +6,7 @@
 
 In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
-<center><img src="../images/challenge06-architecture.jpg" width="350"></center>
+<center><img src="../images/challenge04-architecture.jpg" width="350"></center>
 
 ## Description
 

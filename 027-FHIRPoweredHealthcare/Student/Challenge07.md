@@ -12,7 +12,7 @@ The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/i
 
 
 Below is the overview of the **[MedTech service data flow](microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**:
-<center><img src="../images/challenge07-IoT Ingest and Persist.png" width="550"></center>
+<center><img src="../images/challenge07-architecture.png" width="550"></center>
 
 ## Description
 
