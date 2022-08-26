@@ -1,51 +1,90 @@
-# Challenge 02 - <Title of Challenge>
+# Challenge 02 - Monitoring Basics and Dashboards
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+After deploying your initial solution for eshoponweb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. To accomplish this, you will have to understand the concept of counters, how to collect them, how to configure Alerts and display them in a Dashboard.  
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Using HammerDB to stress the SQL database, you will collect the database and CPU counters of the VMSS after loading the CPU and display the results on the dashboard.
+ 
+In this challenge you need to complete the following management tasks:
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+- Create an empty database called “tpcc” on the SQL Server VM
+	- Note: Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+- Using AZ CLI, Powershell or ARM template, send the below guest OS metric to Azure Monitor for the SQL Server
+	- Add a Performance Counter Metric:
+	- Object: SQLServer:Databases
+	- Counter: Active Transactions
+	- Instance:tpcc
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+- Use HammerDB to create transaction load
+	- Download and Install HammerDB tool on the Visual Studio VM (instructions are in your Student\Guides\Day-1 folder for setting up and using [HammerDB](www.hammerdb.com).
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+- From Azure Monitor, create a graph for the SQL Server Active Transactions and Percent CPU and pin to your Azure Dashboard
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+- From Azure Monitor, create an Action group, to send email to your address
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+- Create an Alert if Active Transactions goes over 40 on the SQL Server tpcc database.
 
-*Sample challenge text for the IoT Hack Of The Century:*
+- Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails me when you go over the threshold.
+	- Note: In the Student\Resources\Loadscripts folder you will find a CPU load script to use.
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+### Reconcile From Hack 2
+### Tasks to finish the Challenge
+- Create an empty DB "tpcc" in the SQL server
+- Enable the collection of the following counter:
+	- \SQLServer:Databases(*)\Active Transactions
+- Stress the "tpcc" DB using HammerDB. For detailed instructions, see section [HammerDB Configuration]() below.
+- Simulate a CPU load on the VM Scale Set using the [cpuGenLoadwithPS.ps1](https://github.com/msghaleb/AzureMonitorHackathon/blob/master/sources/Loadscripts/cpuGenLoadwithPS.ps1)
+- Pin the metric of the above SQL counter as well as the average VMSS CPU utilization to your Dashboard
+- Create an Alert to be notified in case the SQL active transactions went above 40
+- Create an Alert to get notified if the average CPU load on the VMSS is above 75%
+- Suppress the Alerts over the weekends
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+### Definition of Done:
+Show the dashboard with the metric in it, which should also show a spike representing before and after the DB stress
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/ch1_metric_spike.jpg)
+
+### HammerDB Configuration
+
+#### Stress the Database using HammerDB 
+- From the Visual Studio Server, download and install the latest version of [HammerDB](http://www.hammerdb.com/)
+  ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image13.png)    
+- Open HammerDB and double click on SQL Server to start configuring the transaction load. In the dialog that opens, click OK.
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image18.png)   
+
+- Drill into SQL Server \\ TPC-C \\ Schema Build and double click on **Options**
+- Modify the Build Options for the following:
+	- SQL Server: Name of your SQL Server
+	- SQL Server ODBC Driver: SQL Server
+	- Authentication: SQL Server Authentication
+	- SQL Server User ID: sqladmin
+	- SQL Server User Password: \<password  you  used during the deployment\>
+	- SQL Server Database: tpcc
+	- Number of Warehouses: 50
+	- Virtual Users to Build Schema: 50  
+>**Note: **Setting the last two at 50 should generate enough load to trip a threshold and run long enough for you to graph to show a spike
+
+  
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image19.png)
+  
+- Double click on Build and Click Yes to kick of a load test.
+  
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image20.png)
+  
+When the test is running it should look like the screenshot below:
+>**TIP:** If you would like to run a second test you **must** first delete the database you created and recreate it. HammerDB will not run a test against a database that has data in it. When you run a test is fills the database with a bunch of sample data.
+  
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image21.png) 
+
 
 ## Success Criteria
 
@@ -64,36 +103,12 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+Stress the SQL using HammerDB, collect the DB and CPU counter of the VMSS after loading the CPU, and display them on a Dashboard. The dashboard should have the metric with a spike representing before and after the DB stress.
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
+## Learning Resources
 
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- [Install and configure Windows Azure diagnostics extension (WAD) using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-windows-install#azure-cli-deployment)
+- [HammerDB](https://www.hammerdb.com)
+- [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1)
+- [In case you will modify the code (keep in mind you need to convert to bicep and match the syntax)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm)
+- [Converting to bicep and bicep playground](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-decompile?tabs=azure-cli)
