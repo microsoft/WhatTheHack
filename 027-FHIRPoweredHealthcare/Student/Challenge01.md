@@ -18,13 +18,13 @@ First you will deploy **[Azure Health Data Services workspace](https://docs.micr
 You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.
 - Install and configure FHIR Bulk Loader with the deploy **[script](https://github.com/microsoft/fhir-loader/blob/main/scripts/Readme.md#getting-started)**.
 - Validate your deployment, check Azure components installed:
-      - Function App with App Insights and Storage
-      - Function App Service plan
-      - EventGrid
-      - Storage Account (with containers)
-      - Key Vault
+   - Function App with App Insights and Storage
+   - Function App Service plan
+   - EventGrid
+   - Storage Account (with containers)
+   - Key Vault
 
-To test the FHIR Bulk Loader, you will load Synthea generated test FHIR patient data for bulk load into the FHIR service.
+To test the FHIR Bulk Loader, you will copy Synthea generated test FHIR patient data files to a specified Data Lake storage for bulk load into the FHIR service.
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
    - Configure the **[Synthea default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for FHIR output.  Below are the recommended properties setting for this challenge:
       - Set Synthea export directory: 
@@ -37,7 +37,7 @@ To test the FHIR Bulk Loader, you will load Synthea generated test FHIR patient 
  - Load Synthea generated FHIR bundle JSON files
    - Copy from Synthea project subfolder `./output/fhir` to `bundles` BLOB container.
    - You can copy data to Azure Storage using **[Azure AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** commandline tool or **[Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** user interface.
-- Test FHIR bulk load using Postman `FHIR API` collection to retreive FHIR patient data loaded.
+- Test the results of FHIR bulk load using Postman `FHIR API` collection to retreive FHIR patient data loaded.
    - You can import Postman collection and environment variables for FHIR API from the **[Student Resources folder for Postman](./Resources/Postman)** folder.
    - You need to register your **[public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)** to connect Postman desktop app to FHIR Server.
 
