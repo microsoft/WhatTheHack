@@ -1,6 +1,6 @@
 # Challenge 07 - Visualizations - Coach's Guide 
 
-[< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
+[< Previous Solution](./Solution-06.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
