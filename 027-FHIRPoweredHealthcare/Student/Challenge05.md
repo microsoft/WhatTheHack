@@ -22,8 +22,8 @@ To test the FHIR Anonymization pipeline, call the **[$export endpoint](https://d
 
 - **Setup ADF pipeline configuration for anonymization**
     - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
-    - Configure the Anonymization pipeline deployment **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** execution for your environment.
-    - Define command line environment variables needed during the script execution to create and configure the Anonymization pipeline.
+    - Configure the Anonymization pipeline deployment **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** execution for your **[environment](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#create-data-factory-pipeline)**.
+    - Define **[command line environment variables](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#create-data-factory-pipeline)** needed during the script execution to create and configure the Anonymization pipeline.
 - **Deploy ADF pipeline for FHIR data anonymization**
     - Execute **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to created the Anonymization pipeline.
 - **Upload test FHIR patient data for anonymization**
