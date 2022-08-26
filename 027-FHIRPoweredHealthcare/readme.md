@@ -13,7 +13,7 @@ This hack will help you:
 4. Develop React Single Page App (SPA) to Search and view FHIR patient data.
 5. Transform and explore FHIR data for secondary use analytics.
 6. Export and anonymize FHIR data.
-7. Ingest, transform and load medical IoT device data into MedTech and FHIR service.
+7. Ingest, transform and load medical IoT device data into FHIR using MedTech service.
 
 ## Scenario
 Contoso Healthcare is implementing a FHIR-based data management solution. 
@@ -22,7 +22,7 @@ Your team's assistance is needed to implement the following scenarios through th
    * Securely connect and search FHIR patient data stored in a FHIR Server through a patient lookup web app to enhance patient engagement.
    * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data.
    * Export de-identify FHIR data and store in staging Data Lake storage for downstream processing.
-   * Ingest, transform, correlate and persist medical IoT device data in FHIR and MedTech services in Azure Health Data Services platform.
+   * Ingest, transform, correlate and persist medical IoT device data in FHIR using the MedTech services in Azure Health Data Services platform.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>
@@ -36,7 +36,7 @@ Your team's assistance is needed to implement the following scenarios through th
 - Challenge 3: **[Create a new Single Page App (SPA) for patient search](Student/Challenge03.md)**
 - Challenge 4: **[Analyze and Visualize FHIR data](Student/Challenge04.md)**
 - Challenge 5: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge05.md)**
-- Challenge 6: **[Stream MedTech Device data into FHIR server](Student/Challenge06.md)**
+- Challenge 6: **[Stream IoMT Device data into FHIR using MedTech service](Student/Challenge06.md)**
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
