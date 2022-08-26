@@ -17,7 +17,7 @@ This hack will help you:
 
 ## Scenario
 Contoso Healthcare is implementing a FHIR-based data management solution. 
-Your team's assistance is needed to implement the following scenarios through the FHIR Powered Healthcare hack that leverages the **[Azure Health Data Service](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform as follows:
+Your team's assistance is needed to implement the following scenarios through the FHIR Powered Healthcare hack that leverages the **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform as follows:
    * Ingest and process patient record in HL7 FHIR Bundle or legacy formats from EHR systems into a common FHIR-based standard format, and persist them into a FHIR Compliant store.
    * Securely connect and search FHIR patient data stored in a FHIR Server through a patient lookup web app to enhance patient engagement.
    * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data.
