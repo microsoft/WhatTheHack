@@ -88,21 +88,6 @@ When the test is running it should look like the screenshot below:
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
-
-## Learning Resources
-
 Stress the SQL using HammerDB, collect the DB and CPU counter of the VMSS after loading the CPU, and display them on a Dashboard. The dashboard should have the metric with a spike representing before and after the DB stress.
 
 ## Learning Resources
