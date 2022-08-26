@@ -31,7 +31,7 @@ $zipFileeShopTemp = [System.IO.Path]::GetTempPath().ToString() + "eShopOnWeb-mas
 if (Test-Path $zipFileeShopTemp) { Remove-Item $zipFileeShopTemp -Force }
 $zipFileeShop = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "eShopOnWeb-master.zip" -PassThru
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest -Uri "https://github.com/jrzyshr/AzureMonitoringRefresh/blob/main/xxx-AzureMonitoring/Student/Resources/sources/masterWTH.zip?raw=true" -OutFile $zipFileeShop
+Invoke-WebRequest -Uri "https://github.com/jrzyshr/WhatTheHack/blob/xxx-AzureMonitoring/xxx-AzureMonitoring/Student/Resources/sources/masterWTH.zip?raw=true" -OutFile $zipFileeShop
 $BackUpPath = $zipFileeShop.FullName
 New-Item -Path c:\eshoponweb -ItemType directory -Force
 $Destination = "C:\eshoponweb"
