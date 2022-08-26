@@ -18,7 +18,7 @@ Below depicts the Azure Data Factory pipeline method for FHIR anonymization leve
 
 You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to de-identify FHIR data.  You will run a PowerShell **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to create an ADF pipeline that reads data from a source container in Azure Blob storage and writes the outputted anonymized data to a destination containter in Azure Blob storage.
 
-To test the FHIR Anonymization pipeline, you can to call the **[$export endpoint](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data#calling-the-export-endpoint)** in FHIR service to export FHIR data into a blob storage container inside the storage account for the Anonymization pipeline.  Alternatively, you can directly upload the test Synthea generated FHIR Bundles to the container.
+To test the FHIR Anonymization pipeline, call the **[$export endpoint](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data#calling-the-export-endpoint)** in FHIR service to export FHIR data into a blob storage container inside the storage account for the Anonymization pipeline.  Alternatively, you can directly upload the test Synthea generated FHIR Bundles to the container.
 
 - **Setup ADF pipeline configuration for anonymization**
     - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
@@ -32,7 +32,7 @@ To test the FHIR Anonymization pipeline, you can to call the **[$export endpoint
 - **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
     - **[Trigger pipeline run](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#trigger-and-monitor-pipeline-run-from-powershell)** to de-ID test FHIR patient data.
 - **Validate FHIR data export and anonymization** 
-    - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container of the Storage Account(s). 
+    - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container in the Storage Account(s). 
 
 ## Success Criteria
 - You have successfully configure and deploy the FHIR anonyization tool.
