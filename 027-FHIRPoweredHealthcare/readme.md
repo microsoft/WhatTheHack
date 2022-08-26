@@ -12,7 +12,7 @@ This hack will help you:
 3. Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
 4. Develop React Single Page App (SPA) to search and view FHIR patient data.
 5. Transform and explore FHIR data for secondary use analytics.
-6. Export and anonymize FHIR data.
+6. Export and anonymize FHIR data for secondary use.
 7. Ingest, transform and load medical IoT device data into FHIR using MedTech service.
 
 ## Scenario
