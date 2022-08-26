@@ -1,20 +1,9 @@
-# Challenge 00 - <Title of Challenge> - Coach's Guide 
+# Challenge 00 - Prerequisites - Ready, Set, GO! - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Biggest issues I have seen when deploying the workshop are around compute quotas, changing the region to one that does not support the Azure Monitor preview, not having contributor role membership to the subscription and local machine issues.  If you run into a student who cannot seem to get her or his computer working with the Azure CLI, have them use the Azure Cloud Shell.  Remember to copy up the ARM template and parameters JSON files before kicking off the deployment.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+I highly recommend your students make sure they have an Azure Subscription they have contributor role access to before day one of the hack.  
