@@ -1,6 +1,6 @@
 # Challenge 07 - Visualizations
 
-[< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** ]
+[< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
 ## Introduction
 Your company's eShopOnWeb website is going to launch soon and as one of the application owners you are responsible for ensuring that the site is performant, available, and overall provides a good user experience. Together with your team you have decided to use Azure Workbooks to visualize the most important metrics of your application, as Workbooks are a flexible canvas and seem to provide all the functionality you need. 
