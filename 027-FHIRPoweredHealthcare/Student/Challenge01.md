@@ -7,7 +7,7 @@
 In this challenge, you will implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** function app-based event-driven architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk load into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
 
 ### FHIR bulk load scenario
-In this scenario, you will deploy a storage account with a BLOB container and copy Synthea generated FHIR patient data files (JSON Bundles) into it.  These FHIR Bundles will be automatically ingested into a FHIR server.  This bulk ingestion process is kicked off by a Event Grid Trigger (blobCreatedEvent) Function App as depicted below:
+In this scenario, you will deploy a storage account with a BLOB container and copy Synthea generated FHIR patient data files (JSON Bundles) into it.  These FHIR Bundles will be automatically ingested into a FHIR server.  This bulk ingestion process will be kick-off by an Event Grid Trigger (blobCreatedEvent) Function App as depicted below:
 
 <center><img src="../images/challenge01-architecture.png" width="550"></center>
 
@@ -17,16 +17,16 @@ First you will deploy **[Azure Health Data Services workspace](https://docs.micr
 
 You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.
 - Install and configure FHIR Bulk Loader with the deploy **[script](https://github.com/microsoft/fhir-loader/blob/main/scripts/Readme.md#getting-started)**.
-- Validate your deployment, check Azure components installed in the specified Resource Group includes the following:
+- Validate your deployment, check Azure components installed:
       - Function App with App Insights and Storage
       - Function App Service plan
       - EventGrid
       - Storage Account (with containers)
-      - Keyvault
+      - Key Vault
 
-To test FHIR Bulk Loader, you will load Synthea generated FHIR patient data for bulk load into the FHIR service.
+To test the FHIR Bulk Loader, you will load Synthea generated test FHIR patient data for bulk load into the FHIR service.
 - Generate simulated patient data in FHIR format using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)**.
-   - Configure the **[Synthea default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for FHIR output.
+   - Configure the **[Synthea default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for FHIR output.  Below are the recommended properties setting for this challenge:
       - Set Synthea export directory: 
       `exporter.baseDirectory = ./output/fhir`
       - Enable FHIR bundle export: 
@@ -34,20 +34,7 @@ To test FHIR Bulk Loader, you will load Synthea generated FHIR patient data for 
       - Generate 1000 patient records: 
       `generate.default_population = 1000`
         
-      ```properties
-      exporter.baseDirectory = ./output/fhir
-      ...
-      exporter.ccda.export = false
-      exporter.fhir.export = true
-      ...
-      # the number of patients to generate, by default
-      # this can be overridden by passing a different value to the Generator constructor
-      generate.default_population = 1000
-      ```
-
-      **Note:** The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
-
-- Load Synthea generated FHIR bundle JSON files
+ - Load Synthea generated FHIR bundle JSON files
    - Copy from Synthea project subfolder `./output/fhir` to `bundles` BLOB container.
    - You can copy data to Azure Storage using **[Azure AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** commandline tool or **[Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** user interface.
 - Test FHIR bulk load using Postman `FHIR API` collection to retreive FHIR patient data loaded.
