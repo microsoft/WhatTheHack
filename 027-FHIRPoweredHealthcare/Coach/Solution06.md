@@ -63,6 +63,7 @@ You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microso
         ```powershell
         .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName
         ```
+    - Note: If you get **Azure Batch error**, either Azure Batch is not enabled in your subscription or Azure Batch already deployed the max number of time in your subscription.
 - **Validate export and anonymization** 
     - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container. 
 
