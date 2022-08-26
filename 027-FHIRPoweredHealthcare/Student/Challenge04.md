@@ -1,64 +1,45 @@
-# Challenge 4: Create a new Single Page App (SPA) for patient search
+# Challenge 4: Analyze and Visualize FHIR data
 
 [< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 
-In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+In this challenge, you will deploy the OSS **[FHIR-to-Synapse Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md)** to move FHIR data from Azure FHIR service to a Azure Data Lake storage in near real time and making it available to a Synapse workspace, which will enable you to query against the entire FHIR dataset with tools such as Synapse Studio, SSMS, and/or Power BI.
 
-<center><img src="../images/challenge04-architecture.jpg" width="350"></center>
+This pipeline is an Azure Function solution that extracts data from the FHIR server using FHIR Resource APIs, converts them to hierarchical Parquet files, and writes them to Azure Data Lake storage in near real time. It contains a script to create External Tables and Views in Synapse Serverless SQL pool pointing to the Parquet files.  You can also access the Parquet files directly from a Synapse Spark Pool to perform custom transformation to downstream systems, i.e. USCDI datamart, etc.
+
+<center><img src="../images/challenge04-architecture.png" width="550"></center>
 
 ## Description
 
-- Create a new JavaScript Single-Page App (SPA) Node.js or React app.
-  - Node.js: git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** 
-  - React: Use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
+You need to deploy an instance of FHIR service (done in challenge 1) and a Synapse Workspace.
 
-- Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
-  
-    - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
-
-    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
-
-- Create a patient lookup by Given or Family name in JavaScript SPA app.
-  - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
-
-- (Optional) Include any other modern UI features to improve the user experience.
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
-  - Ensure that the Reply URL matches the local and Azure Web App URL
-    - In AAD `App Registration` of AAD with directory admin access, configure a new `Web Platform` under `Authentication` blade
-        - Add `Redirect URI` for both local and Azure Web App URLs
-        - Enable `Implicit Grant` by selecting Access token and ID tokens
-        - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
-
-- Build and test JavaScript SPA app locally.
-  - To run locally, you'll need to change the `redirectUri` property to: `http://localhost:3000/`.
-- Deploy JavaScript SPA web app to Azure App Service.
-  - To run on Azure, you'll need to change the `redirectUri` property to: `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
-- Test the JavaScript SPA Patient Search app:
-  - Browse to App Service website URL in a new in-private/Incognito window.
-  - Sign in with your admin tenant user credential saved in **[challenge 1](./Challenge01.md)**.
-  - Enter full/partial name in the patient search textbox and click the search button.
-  - You should see a list of FHIR patient(s) that matches your search criteria.
+- **Deploy the FHIR-to-Synapse Analytics Pipeline**
+    - To **[deploy the pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**, run this **[ARM template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FFHIR-Analytics-Pipelines%2Fmain%2FFhirToDataLake%2Fdeploy%2Ftemplates%2FFhirSynapsePipelineTemplate.json)** for pipeline deployment through the Azure Portal.      
+- **Provide Access of the FHIR server to the Azure Function**
+    - Assign the FHIR Data Reader role to the Azure Function created from the deployment above
+- **Verify the data movement**
+    - Azure Function app deployed runs automatically. 
+    - Time taken to write the FHIR dataset to the storage account depends on the amount of data stored in the FHIR server. 
+    - After the Azure Function execution is completed, you should have Parquet files stored in the Storage Account. 
+    - Browse to the results folder inside the container. You should see folders corresponding to different FHIR resources. 
+    - Note that you will see folders for only those Resources that are present in your FHIR server. Running the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** will create folders for other Resources.
+- **Provide privilege to your account**
+    - You must provide the following roles to your account to run the PowerShell script in the next step. You may revoke these roles after the installation is complete.
+        - Assign Synapse Administrator role in your Synapse Workspace
+        - Assign the Storage Blob Data Contributor role in your Storage Account.
+- **Provide access of the Storage Account to the Synapse Workspace**
+    - Assign the Storage Blob Data Contributor role to your Synapse Workspace.
+- **Run the PowerShell script**
+    - Run the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** to create External Tables and Views in Synapse Serverless SQL Pool pointing to the Parquet files in the Storage Account.
 
 ## Success Criteria
-- You have created a JavaScript SPA Patient Search app and deployed it to Azure App Service.
-- You have tested patient lookup in the Patient Search web app.
+- You can query 'fhirdb' data in Synapse Studio to explore
+    the External Tables and Views to see the exported FHIR resource entities.
+- New persisted FHIR data are fetched automatically to the Data Lake and become available for querying.
 
 ## Learning Resources
 
-- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)**
-- **[GitHub Azure Samples - MSAL JavaScript Single-page Application using Implicit Flow](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/)**
-- **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
-- **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
-- **[Initialization of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
-- **[Samples for the MSAL.js 2.x library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#advanced-topics)**
-- **[Getting Started: Using React AAD MSAL library components to integrate MSAL with AAD in your React app](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
-- **[Sample JavaScript code to acquired access token as a bearer in an HTTP request to call protected web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)**
-- **[How to create a simple search app in React](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
-- **[Sample React JS code to perform a search](https://github.com/lytes20/meal-search-app)**
-- **[Deploy your Node.js app using VS Code and the Azure App Service extension](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
-- **[Hosting options and deployment scenarios to move your node.js app from a local or cloud repository to Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
-- **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-- **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)**
+- **[FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines)**
+- **[FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**
+- **[Data mapping from FHIR to Synapse](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Data-Mapping.md)**

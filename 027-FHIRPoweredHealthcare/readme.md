@@ -2,28 +2,27 @@
 ## Introduction
 Contoso Healthcare is implementing FHIR (Fast Healthcare Interoperability Resources) to rapidly and securely exchange data in the HL7 FHIR standard format with a single, simplified data management solution for protected health information (PHI). Azure API for FHIR is fully managed, enterprise-grade FHIR service in the cloud lets you quickly connect existing data sources, such as electronic health record systems and research databases. Create new opportunities with analytics, machine learning, and actionable intelligence across your health data.
 
-You will implement a collection of FHIR reference architectures frome **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)** that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architectures for Azure API for FHIR.
+You will implement a collection of FHIR reference architectures from the **[Azure Health Data Service](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architecture for the FHIR ecosystem.
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
 This hack will help you:
 1. Deploy FHIR service in Azure Health Data Services platform.
 2. Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
-3. Convert and Load HL7v2 and C-CDA data into FHIR Service.
-4. Develop a JavaScript to read FHIR data 
-5. Develop a React Single Page App (SPA) to Search and view patient record.
-6. Transform and explore FHIR data for secondary use analytics.
-7. Export and anonymize FHIR data.
-8. Stream MedTech Device data into FHIR service.
+3. Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
+4. Develop React Single Page App (SPA) to Search and view FHIR patient data.
+5. Transform and explore FHIR data for secondary use analytics.
+6. Export and anonymize FHIR data.
+7. Ingest, transform and load medical IoT device data into MedTech and FHIR service.
 
 ## Scenario
 Contoso Healthcare is implementing a FHIR-based data management solution. 
-Your team's assistance is needed to implement the following scenarios through the FHIR Powered Healthcare hack as follows:
-   * Ingest and process patient record in HL7 FHIR Bundle or legacy formats from EHR systems into a common FHIR-based standard format and persist them into a FHIR Compliant store.
-   * Securely connect and read FHIR patient data from FHIR Server through a web app and add a patient lookup feature to improve user experience.
-   * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data in Parquet files.
-   * Bulk export data from FHIR, de-identify the data and store in staging Data Lake storage for downstream processing.
-   * Ingest and Persist IoT device data and correlate it with patient record in FHIR service.
+Your team's assistance is needed to implement the following scenarios through the FHIR Powered Healthcare hack that leverages the **[Azure Health Data Service](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform as follows:
+   * Ingest and process patient record in HL7 FHIR Bundle or legacy formats from EHR systems into a common FHIR-based standard format, and persist them into a FHIR Compliant store.
+   * Securely connect and search FHIR patient data stored in a FHIR Server through a patient lookup web app to enhance patient engagement.
+   * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data.
+   * Export de-identify FHIR data and store in staging Data Lake storage for downstream processing.
+   * Ingest, transform, correlate and persist medical IoT device data in FHIR and MedTech services in Azure Health Data Services platform.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>
@@ -34,11 +33,10 @@ Your team's assistance is needed to implement the following scenarios through th
 
 **These challenges can be completed in any order:**
 - Challenge 2: **[Extract, transform and load HL7v2 and C-CDA EHR data](Student/Challenge02.md)**
-- Challenge 3: **[Connect to FHIR Server and read FHIR data through a JavaScript app](Student/Challenge03.md)**
-- Challenge 4: **[Create a new Single Page App (SPA) for patient search](Student/Challenge04.md)**
-- Challenge 5: **[Analyze and Visualize FHIR data](Student/Challenge05.md)**
-- Challenge 6: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge06.md)**
-- Challenge 7: **[Stream MedTech Device data into FHIR server](Student/Challenge07.md)**
+- Challenge 3: **[Create a new Single Page App (SPA) for patient search](Student/Challenge03.md)**
+- Challenge 4: **[Analyze and Visualize FHIR data](Student/Challenge04.md)**
+- Challenge 5: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge05.md)**
+- Challenge 6: **[Stream MedTech Device data into FHIR server](Student/Challenge06.md)**
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).

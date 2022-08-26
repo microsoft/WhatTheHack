@@ -1,47 +1,48 @@
-# Challenge 5: Analyze and Visualize FHIR data
+# Challenge 5: Bulk export, anonymize and store FHIR data into Data Lake
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge06.md)
 
 ## Introduction
 
-In this challenge, you will deploy the OSS **[FHIR-to-Synapse Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md)** to move FHIR data from Azure FHIR Service to Azure Data Lake in near real time and making it available to a Synapse workspace, which will enable you to query against the entire FHIR data with tools such as Synapse Studio, SSMS, and/or Power BI.
+In this challenge, you will use Azure Health Data Services platform to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challege is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
 
-This pipeline is an Azure Function solution that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. It contains a script to create External Tables and Views in Synapse Serverless SQL pool pointing to the Parquet files.  You can also access the Parquet files directly from a Synapse Spark Pool to perform custom transformation to downstream systems, i.e. USCDI datamart, etc.
+**[FHIR Tool for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** provides tooling to anonymize healthcare FHIR data, on-premises or cloud, for secondary usage such as research, public health, etc. in the following methods:
+- **[Command line tool](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-the-command-line-tool)**, 
+- **[Azure Data Factory (ADF) pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)**
+- **[De-ID $export](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#how-to-perform-de-identified-export-operation-on-the-fhir-server)** FHIR service operation  
 
+Below depicts the Azure Data Factory pipeline method for FHIR anonymization leveraged in this challenge:
 <center><img src="../images/challenge05-architecture.png" width="550"></center>
 
 ## Description
 
-You need to deploy an instance of FHIR service (done in challenge 1) and a Synapse Workspace.
+You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to de-identify FHIR data.  You will run a PowerShell **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to create an ADF pipeline that reads data from a source container in Azure Blob storage and writes the outputted anonymized data to a destination containter in Azure Blob storage.
 
-- **Deploy the FHIR-to-Synapse Analytics Pipeline**
-    - To **[deploy the pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**, use this **[Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FFHIR-Analytics-Pipelines%2Fmain%2FFhirToDataLake%2Fdeploy%2Ftemplates%2FFhirSynapsePipelineTemplate.json)** ARM template link for deployment through the Azure Portal.  
-    
+To test the FHIR Anonymization pipeline, call the **[$export endpoint](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data#calling-the-export-endpoint)** in FHIR service to export FHIR data into a blob storage container inside the storage account for the Anonymization pipeline.  Alternatively, you can directly upload the test Synthea generated FHIR Bundles to the container.
 
-- **Provide Access of the FHIR server to the Azure Function**
-    - Assign the FHIR Data Reader role to the Azure Function created from the deployment above
-- **Verify the data movement**
-    - The Azure Function app deployed previously runs automatically. 
-    - The time taken to write the data to the storage account depends on the amount of data in the FHIR server. 
-    - After the Azure Function execution is completed, you should have Parquet files in the Storage Account. 
-    - Browse to the results folder inside the container. You should see folders corresponding to different FHIR resources. 
-    - Note that you will see folders for only those Resources that are present in your FHIR server. Running the PowerShell script will create folders for other Resources.
-- **Provide privilege to your account**
-    - You must provide the following roles to your account to run the PowerShell script in the next step. You may revoke these roles after the installation is complete.
-        - Assign Synapse Administrator role in your Synapse Workspace
-        - Assign the Storage Blob Data Contributor role in your Storage Account.
-- **Provide access of the Storage Account to the Synapse Workspace**
-    - Assign the Storage Blob Data Contributor role to your Synapse Workspace.
-- **Run the PowerShell script**
-    - Run the PowerShell script to create External Tables and Views in Synapse Serverless SQL Pool pointing to the Parquet files in the Storage Account.
+- **Setup ADF pipeline configuration for anonymization**
+    - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
+    - Configure the Anonymization pipeline deployment **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** execution for your environment.
+    - Define command line environment variables needed during the script execution to create and configure the Anonymization pipeline.
+- **Deploy ADF pipeline for FHIR data anonymization**
+    - Execute **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to created the Anonymization pipeline.
+- **Upload test FHIR patient data for anonymization**
+    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the bulk FHIR export using the $export operation in FHIR service via Postman.
+    - Or you can directly upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline.
+- **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
+    - **[Trigger pipeline run](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#trigger-and-monitor-pipeline-run-from-powershell)** to de-ID test FHIR patient data.
+- **Validate FHIR data export and anonymization** 
+    - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container in the Storage Account(s). 
 
 ## Success Criteria
-- You can query 'fhirdb' data in Synapse Studio to explore
-    the External Tables and Views to see the exported FHIR resource entities.
-- New persisted FHIR data are fetched automatically to the Data Lake and become available for querying.
+- You have successfully configure and deploy the FHIR anonyization tool.
+- You have successfully configured FHIR Bulk Export and called the $export operation to upload the test FHIR data for anonymization
+- You have successfully trigger and monitor the Anonymization pipeline in ADF
+- You have compared pre de-ided and post de-ided FHIR data in the resource and destination containers respectively.
 
 ## Learning Resources
 
-- **[FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines)**
-- **[FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**
-- **[Data mapping from FHIR to Synapse](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Data-Mapping.md)**
+- **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**
+- **[Configure Bulk export FHIR service operation](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)**
+- **[How to export FHIR data with $export opertation in FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)**
+- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
