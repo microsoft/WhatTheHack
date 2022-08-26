@@ -1,8 +1,8 @@
-# What The Hack - AzureMonitoring - Coach Guide
+# What The Hack - Azure Monitoring - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the AzureMonitoring What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Azure Monitoring What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -12,25 +12,19 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
+- Challenge 01: **[Alerts, Activity Logs and Service Health](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
+- Challenge 02: **[Monitoring Basics and Dashboards](./Solution-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
+- Challenge 03: **[Azure Monitor for Virtual Machines](./Solution-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
+- Challenge 04: **[Azure Monitor for Applications](./Solution-04.md)**
 	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
+- Challenge 05: **[Azure Monitor for Containers](./Solution-05.md)**
 	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
+- Challenge 06: **[Log Queries with KQL and Grafana](./Solution-06.md)**
 	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
+- Challenge 07: **[Visualizations](./Solution-07.md)**
 	 - Description of challenge
 
 ## Coach Prerequisites
@@ -76,8 +70,6 @@ _This section is optional. You may wish to provide an estimate of how long each 
   - Challenge 6 (45 mins)
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files

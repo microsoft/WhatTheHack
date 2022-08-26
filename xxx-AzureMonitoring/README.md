@@ -1,4 +1,4 @@
-# What The Hack - Azure Monitoring V2.0
+# What The Hack - Azure Monitoring
 
 ## Introduction
 
@@ -27,12 +27,6 @@ In this hack, you will be getting hands on experience with monitoring resources 
 - Challenge 06: **[Log Queries with KQL and Grafana](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Visualizations](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
 	 - Description of challenge
 
 ## Prerequisites
