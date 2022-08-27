@@ -93,7 +93,7 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2020-06-01' = {
               autoUpgradeMinorVersion: true
               settings: {
                 fileUris: [
-                  'https://raw.githubusercontent.com/jrzyshr/WhatTheHack/xxx-AzureMonitoring/xxx-AzureMonitoring/Student/Resources/scripts/SetupWebServers.ps1'
+                  'https://raw.githubusercontent.com/jrzyshr/WhatTheHack/AM-DotNET6/xxx-AzureMonitoring/Student/Resources/scripts/SetupWebServers.ps1'
                 ]
               }
               protectedSettings:{
