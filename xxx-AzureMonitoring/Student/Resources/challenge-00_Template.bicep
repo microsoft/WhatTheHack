@@ -681,9 +681,9 @@ var VirtualMachines = [
     Name: 'vmwthvsd${NameSuffix}'
     NIC: 'nic-wth-monitor-vs-d-${NameSuffix}'
     Size: 'Standard_D4s_v3'
-    ImageVersion: 'vs-2019-comm-latest-win10-n'
+    ImageVersion: 'vs-2022-comm-latest-ws2022'
     ImagePublisher: 'MicrosoftVisualStudio'
-    ImageOffer: 'VisualStudio2019latest'
+    ImageOffer: 'visualstudio2022'
   }
 ]
 var VirtualMachineScaleSetName = 'vmss-wth-monitor-d-${NameSuffix}'

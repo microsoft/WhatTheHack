@@ -4,12 +4,24 @@ param (
     [string]$AdminUsername
 )
 
+<#
 # Install Microsoft .Net Core 3.1.100
 $exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-sdk-3.1.100-win-x64.exe"
 if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
 # Download file from Microsoft Downloads and save to local temp file (%LocalAppData%/Temp/2)
 $exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-sdk-3.1.100-win-x64.exe" -PassThru
 Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/639f7cfa-84f8-48e8-b6c9-82634314e28f/8eb04e1b5f34df0c840c1bffa363c101/dotnet-sdk-3.1.100-win-x64.exe" -OutFile $exeFileNetCore
+# Run the exe with arguments
+$proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
+$proc | Wait-Process 
+#>
+
+# Install Microsoft .Net Core 6.0.4
+$exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-sdk-6.0.400-win-x64.exe"
+if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
+# Download file from Microsoft Downloads and save to local temp file (%LocalAppData%/Temp/2)
+$exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-sdk-6.0.400-win-x64.exe" -PassThru
+Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/9a1d2e89-d785-4493-aaf3-73864627a1ea/245bdfaa9c46b87acfb2afbd10ecb0d0/dotnet-sdk-6.0.400-win-x64.exe" -OutFile $exeFileNetCore
 # Run the exe with arguments
 $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
 $proc | Wait-Process 
@@ -31,7 +43,7 @@ $zipFileeShopTemp = [System.IO.Path]::GetTempPath().ToString() + "eShopOnWeb-mas
 if (Test-Path $zipFileeShopTemp) { Remove-Item $zipFileeShopTemp -Force }
 $zipFileeShop = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "eShopOnWeb-master.zip" -PassThru
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest -Uri "https://github.com/jrzyshr/WhatTheHack/blob/xxx-AzureMonitoring/xxx-AzureMonitoring/Student/Resources/sources/masterWTH.zip?raw=true" -OutFile $zipFileeShop
+Invoke-WebRequest -Uri "https://github.com/dotnet-architecture/eShopOnWeb/archive/master.zip" -OutFile $zipFileeShop
 $BackUpPath = $zipFileeShop.FullName
 New-Item -Path c:\eshoponweb -ItemType directory -Force
 $Destination = "C:\eshoponweb"
