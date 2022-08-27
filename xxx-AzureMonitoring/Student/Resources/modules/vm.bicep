@@ -88,7 +88,7 @@ resource VsCseExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01
     enableAutomaticUpgrade: false
     settings: {
       fileUris: [
-        'https://raw.githubusercontent.com/jrzyshr/WhatTheHack/xxx-AzureMonitoring/xxx-AzureMonitoring/Student/Resources/scripts/SetupVSServer.ps1'
+        'https://raw.githubusercontent.com/jrzyshr/WhatTheHack/AM-DotNET6/xxx-AzureMonitoring/Student/Resources/scripts/SetupVSServer.ps1'
       ]
     }
     protectedSettings: {
