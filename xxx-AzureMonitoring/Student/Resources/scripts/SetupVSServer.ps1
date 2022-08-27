@@ -93,7 +93,7 @@ netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=
 
 #Configure eShoponWeb application
 # Run dotnet restore with arguments
-$eShopWebDestination = "C:\eshoponweb\eShopOnWeb-master\src\Web"
+$eShopWebDestination = "C:\eshoponweb\eShopOnWeb-main\src\Web"
 $proc = (Start-Process -FilePath 'C:\Program Files\dotnet\dotnet.exe' -ArgumentList ('restore') -WorkingDirectory $eShopWebDestination -RedirectStandardOutput "c:\windows\temp\dotnetrestoreoutput.txt" -Passthru)
 $proc | Wait-Process
 
@@ -123,6 +123,6 @@ Grant-SmbShareAccess -Name "eShopPub" -AccountName SYSTEM -AccessRight Full -For
 Grant-SmbShareAccess -Name "eShopPub" -AccountName Everyone -AccessRight Full -Force
 
 # Run dotnet publish to to publish files to our share created above
-$eShopWebDestination = "C:\eshoponweb\eShopOnWeb-master\src\Web"
+$eShopWebDestination = "C:\eshoponweb\eShopOnWeb-main\src\Web"
 $proc = (Start-Process -FilePath 'C:\Program Files\dotnet\dotnet.exe' -ArgumentList ('publish','--output','C:\eShopPub\wwwroot\') -WorkingDirectory $eShopWebDestination -Passthru -RedirectStandardOutput "c:\windows\temp\dotnetpuboutput.txt")
 $proc | Wait-Process
