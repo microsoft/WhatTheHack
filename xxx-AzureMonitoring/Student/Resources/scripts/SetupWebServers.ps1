@@ -35,13 +35,24 @@ $proc | Wait-Process
 Get-Content $logFile
 
 
-
+<#
 # Install Microsoft .Net Core Hosting 3.1.0 (This replaces 3.0.1)
 $exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-hosting-3.1.0-win.exe"
 if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
 # Download file from Microsoft Downloads and save to local temp file (%LocalAppData%/Temp/2)
 $exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-hosting-3.1.0-win.exe" -PassThru
 Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/fa3f472e-f47f-4ef5-8242-d3438dd59b42/9b2d9d4eecb33fe98060fd2a2cb01dcd/dotnet-hosting-3.1.0-win.exe" -OutFile $exeFileNetCore
+# Run the exe with arguments
+$proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
+$proc | Wait-Process 
+#>
+
+# Install Microsoft .Net Core Hosting 6.0.8 (This replaces 3.1.0)
+$exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-hosting-6.0.8-win.exe"
+if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
+# Download file from Microsoft Downloads and save to local temp file (%LocalAppData%/Temp/2)
+$exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-hosting-6.0.8-win.exe" -PassThru
+Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/c5e0609f-1db5-4741-add0-a37e8371a714/1ad9c59b8a92aeb5d09782e686264537/dotnet-hosting-6.0.8-win.exe" -OutFile $exeFileNetCore
 # Run the exe with arguments
 $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
 $proc | Wait-Process 
