@@ -50,6 +50,7 @@ $Destination = "C:\eshoponweb"
 Add-Type -assembly "system.io.compression.filesystem" -PassThru
 [io.compression.zipfile]::ExtractToDirectory($BackUpPath, $destination)
 
+<#
 #Modified version of Update eShopOnWeb project to use SQL Server
 #modify Startup.cs
 $Startupfile = 'C:\eshoponweb\eShopOnWeb-master\src\Web\Startup.cs'
@@ -59,6 +60,7 @@ $replace = '            //ConfigureInMemoryDatabases(services);'
 $find1 = '            //ConfigureProductionServices(services);'
 $replace1 = '            ConfigureProductionServices(services);'
 (Get-Content $Startupfile).replace($find1, $replace1) | Set-Content $Startupfile -Force
+#>
 
 #modify appsettings.json
 $SQLusername = "sqladmin"
