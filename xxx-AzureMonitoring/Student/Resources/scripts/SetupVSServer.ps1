@@ -50,7 +50,8 @@ $Destination = "C:\eshoponweb"
 Add-Type -assembly "system.io.compression.filesystem" -PassThru
 [io.compression.zipfile]::ExtractToDirectory($BackUpPath, $destination)
 
-<#
+<# New .NET 6 version of eShopOnWeb doesn't use this file. 
+#  This setting is now maintained in the appsettings.json file and is on by default!
 #Modified version of Update eShopOnWeb project to use SQL Server
 #modify Startup.cs
 $Startupfile = 'C:\eshoponweb\eShopOnWeb-master\src\Web\Startup.cs'
