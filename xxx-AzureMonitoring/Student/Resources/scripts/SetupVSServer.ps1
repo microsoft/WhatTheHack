@@ -39,9 +39,9 @@ try
 catch {}
 
 # Download eShopOnWeb to c:\eShopOnWeb and extract contents
-$zipFileeShopTemp = [System.IO.Path]::GetTempPath().ToString() + "eShopOnWeb-master.zip"
+$zipFileeShopTemp = [System.IO.Path]::GetTempPath().ToString() + "eShopOnWeb-main.zip"
 if (Test-Path $zipFileeShopTemp) { Remove-Item $zipFileeShopTemp -Force }
-$zipFileeShop = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "eShopOnWeb-master.zip" -PassThru
+$zipFileeShop = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "eShopOnWeb-main.zip" -PassThru
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-WebRequest -Uri "https://github.com/dotnet-architecture/eShopOnWeb/archive/master.zip" -OutFile $zipFileeShop
 $BackUpPath = $zipFileeShop.FullName
@@ -64,7 +64,7 @@ $replace1 = '            ConfigureProductionServices(services);'
 
 #modify appsettings.json
 $SQLusername = "sqladmin"
-$appsettingsfile = 'C:\eshoponweb\eShopOnWeb-master\src\Web\appsettings.json'
+$appsettingsfile = 'C:\eshoponweb\eShopOnWeb-main\src\Web\appsettings.json'
 $find = '    "CatalogConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
 $replace = '    "CatalogConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
 (Get-Content $appsettingsfile).replace($find, $replace) | Set-Content $appsettingsfile -Force
@@ -73,7 +73,7 @@ $replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated
 (Get-Content $appsettingsfile).replace($find1, $replace1) | Set-Content $appsettingsfile -Force
 
 #add exception to ManageController.cs
-$ManageControllerfile = 'C:\eshoponweb\eShopOnWeb-master\src\Web\Controllers\ManageController.cs'
+$ManageControllerfile = 'C:\eshoponweb\eShopOnWeb-main\src\Web\Controllers\ManageController.cs'
 $Match = [regex]::Escape("public async Task<IActionResult> ChangePassword()")
 $NewLine = 'throw new ApplicationException($"Oh no!  Error!  Error! Yell at Rob!  He put this here!");'
 $Content = Get-Content $ManageControllerfile -Force
