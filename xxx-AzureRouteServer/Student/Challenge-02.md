@@ -20,8 +20,7 @@ Please perform the following actions:
 - Use BGP so that spoke to spoke traffic goes through the NVA.  
 > [!IMPORTANT]
 > No user defined routes (UDRs) are allowed.
-
-*For this section, student will also be provided the necessary configuration for a Cisco CSR 1000v to establish BGP relationship with Azure Route Server and remove any stale configuration from the last section. Again, if the student has another third pary NVA preference, please provide the necessary configuration.*
+- Click on the link to get the necessary configuration to [establish BGP relationship between the Cisco CSR 1000v Central NVA and Azure Route Server](./Resources/whatthehackcentralnvachallenge2.md). This script will also remove any stale configuration from the last section.
 
 ## Success Criteria
 
@@ -38,7 +37,6 @@ At the end of this challenge you should:
 - [ARS with ExR and VPN](https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support)
 - [Route Injections](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes)
 - [Troubleshooting](https://docs.microsoft.com/en-us/azure/route-server/troubleshoot-route-server)
-- [Cisco CSR 1000v Central NVA Config for Route Server and Route Propagation](./Resources/whatthehackcentralnvachallenge2.md)
 - [Can I Advertise the exact prefixes as my VNET?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes)
 - [VPN BGP Transit Routing in Azure](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#does-azure-vpn-gateway-support-bgp-transit-routing)
 
