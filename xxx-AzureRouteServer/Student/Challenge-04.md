@@ -13,7 +13,7 @@ Your Network Organization has decided to deploy High Availability on your curren
 
 ![ARS_SDWAN](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge3.png)
   
-Using the configurations from the past challenges, please add a secondary NVA to will fullfil that requirement.
+- Using the configurations from the past challenges, please add a secondary NVA to will fullfil that requirement.
 
 ## Success Criteria
 
