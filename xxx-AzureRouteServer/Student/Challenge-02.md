@@ -13,7 +13,7 @@ This challenge simulates the insertion pattern of firewall NVAs that have no hyb
 
 In this challenge you will insert Azure Route Server as described in this diagram:
 
-![hubnspoke noARS](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge2.png)
+![hubnspoke noARS](./Resources/media/azurerouteserver-challenge2.png)
 
 
 Please perform the following actions:
