@@ -28,9 +28,9 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 - Challenge 05: **[Configuration](Student/Challenge-05.md)**
 	 - Configure our frontend and backend applications
 - Challenge 06: **[Networking](Student/Challenge-06.md)**
-	 - Description of challenge
+	 - Create a network policy
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**
-	 - Description of challenge
+	 - Scale number of pods
 - Challenge 08: **[Azure Service Operators](Student/Challenge-08.md)**
 	 - Description of challenge
 - Challenge 09: **[Azure Key Vault Integration](Student/Challenge-09.md)**

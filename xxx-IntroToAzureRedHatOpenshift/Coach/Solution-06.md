@@ -3,18 +3,15 @@
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
+- In this challenge, we will be creating a network policy to restrict communications to the API. 
 
-This is the only section you need to include.
+## Switch to Cluster Console
+- Switch to Administrator Console 
+  - In the top left, under the Red Hat OpenShift Logo, there will be a dropdown that when clicked on, will show Administrator and Developer tabs
+  - Click on **Administrator** tab
+- In the project, expand the Networking dropdown (in the lefthand side menubar) and click **Create Network Policy**
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+## Create Network Policy
+- Drag and drop the **network.YAML** file into the editor
+  - Alternatively, can copy and paste contents of YAML file
+  - This will create a policy that applies to any pod matching the `app=rating-api` label and allow ingress only from pods matching the `app=rating-web` label

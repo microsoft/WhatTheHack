@@ -16,13 +16,13 @@ oc new-app bitnami/mongodb \
   -e MONGODB_ROOT_USER=root \
   -e MONGODB_ROOT_PASSWORD=ratingspassword
 ```
-  - This is successful if you go to the ARO portal and see a new deployment for MongoDB
+  - This is successful if you go to the ARO console and see a new deployment for MongoDB
   - You can also use the command `oc get all` to view the status of the application and if the deployment was succesful
 
   ## Retrieve MongoDB hostname for configuration
   - Find the MongoDB service using the command `oc get svc mongodb`
   - The service will be accessible at the following DNS name: `mongodb.workshop.svc.cluster.local` which is formed of `[service name].[project name].svc.cluster.local`
-  - This can also be retrieved from the web portal
+  - This can also be retrieved from the ARO console
   - Instruct students to save this, because we will need it for the next challenge
 
   ## Retrieve rating-api hostname for configuration
