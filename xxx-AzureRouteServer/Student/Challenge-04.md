@@ -11,7 +11,7 @@ In the real world, organizations avoid single points of failure by deploying Hig
 
 Your Network Organization has decided to deploy High Availability on your current topology as depicted in the picture below. 
 
-![ARS_SDWAN](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge4.png)
+![ARS_SDWAN](./Resources/media/azurerouteserver-challenge4.png)
   
 - Using the configurations from the past challenges, please add a secondary NVA to will fullfil that requirement.
 
