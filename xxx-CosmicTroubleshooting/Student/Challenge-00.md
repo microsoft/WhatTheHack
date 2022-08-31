@@ -20,9 +20,11 @@ You might not need all of them for the hack you are participating in. However, i
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux) - not required
+- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure Powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) - v7.2 or newer required
+    - [Azure PowerShell CmdLets](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
   - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
     - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
     - [Azure PowerShell CmdLets](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
@@ -54,7 +56,8 @@ Please deploy the infrastructure by running the following scripts in the `/Chall
   # Connect to your Azure Account
   Connect-AzAccount
 
-  # Deploy the infrastructur
+  # Deploy the infrastructure
+  # Please make sure you are using Powershell v7.2 or newer
   # You might need to unblock the file
   .\deploy.ps1 
   ```

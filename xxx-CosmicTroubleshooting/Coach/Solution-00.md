@@ -1,20 +1,9 @@
-# Challenge 00 - <Title of Challenge> - Coach's Guide 
+# Challenge 00 - Prerequisites - Ready, Set, GO! - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Please refer prerequisites as listed under student section [Pre-reqs.](../Student/00-prereqs.md)
+- In a test environment we tried out the deployment, `dotnet build` would not execute for the web application to get packaged and deployed due to an empty nuget source list (the build fase will error out as it will be unable to restore the required packages). If this happens, please see [nugest add source examples](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source#examples)
+- Should the students choose to re-deploy, they can but they will face an issue with the load test script deployment. As Azure Load Testing is in Preview at the time of writing, there is an issue with the test plan validation on updating an existing Test plan. They should disregard the Timeout error that will get generated.
