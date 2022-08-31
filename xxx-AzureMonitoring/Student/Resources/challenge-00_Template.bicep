@@ -694,6 +694,19 @@ resource rg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   location: Location
 }
 
+module artifactsStorage 'modules/sa-artifacts.bicep' = {
+  name: 'Artifacts-Storage'
+  scope: rg
+  params: {
+    location: Location
+  }
+}
+
+//Retrieve the blob storage URL where the artifacts will be stored
+var artifactsURL = artifactsStorage.outputs.artifactsURL
+//Retrieve ID of storage account used for artifacts
+var artifactsStorageID = artifactsStorage.outputs.artifactsStorageID
+
 module law 'modules/loganalytics.bicep' = {
   name: 'LogAnalyticsWorkspace_${TimeStamp}'
   scope: rg
@@ -783,6 +796,8 @@ module vm 'modules/vm.bicep' = {
     StorageKey: sa.outputs.Key
     SubnetIds: vnet.outputs.SubnetIds
     VirtualMachines: VirtualMachines
+    ArtifactsURL: artifactsURL
+    ArtifactsStorageID: artifactsStorageID
   }
 }
 
@@ -846,9 +861,11 @@ module vmss 'modules/vmss.bicep' = {
     StorageAccountKey: sa.outputs.Key
     StorageEndpoint: StorageEndpoint
     Subnet: vnet.outputs.SubnetIds[1]
+    ArtifactsURL: artifactsURL
   }
   dependsOn: [
     vm
+    artifactsStorage
   ]
 }
 
