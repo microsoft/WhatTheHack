@@ -35,9 +35,9 @@ az network nsg rule create --resource-group $rg --nsg-name SDWAN1-NSG --name all
 
 az network public-ip create --name SDWAN1PublicIP --resource-group $rg --idle-timeout 30 --allocation-method Static
 az network nic create --name SDWAN1OutsideInterface --resource-group $rg --subnet $Vnet_out_subnet_name --vnet $vnet_name --public-ip-address SDWAN1PublicIP --ip-forwarding true --network-security-group SDWAN1-NSG
-az network nic create --name SDWAN1nsideInterface --resource-group $rg --subnet $Vnet_in_subnet_name --vnet $vnet_name --ip-forwarding true --network-security-group SDWAN1-NSG
+az network nic create --name SDWAN1InsideInterface --resource-group $rg --subnet $Vnet_in_subnet_name --vnet $vnet_name --ip-forwarding true --network-security-group SDWAN1-NSG
 az vm image accept-terms --urn cisco:cisco-csr-1000v:16_12-byol:latest
-az vm create --resource-group $rg --location $location --name SDWAN1Router --size Standard_D2_v2 --nics SDWAN1OutsideInterface SDWAN1nsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
+az vm create --resource-group $rg --location $location --name SDWAN1Router --size Standard_D2_v2 --nics SDWAN1OutsideInterface SDWAN1InsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
 ```
 
 ### Create SDWAN2 Cisco CSR 1000V VNET and subnets
@@ -53,7 +53,7 @@ You may change the name and address space of the subnets if desired or required.
 Vnet_address_prefix=<ipv4 address space CIDR>
 Vnet_out_subnet_name=SDWAN2outsidesubnet
 vnet_out_subnet=<ipv4subnet address space CIDR>
-Vnet_in_subnet_name=SDWAN2insidesidesubnet
+Vnet_in_subnet_name=SDWAN2insidesubnet
 vnet_in_subnet=<ipv4subnet address space CIDR>
 
 az group create --name $rg --location $location
@@ -77,7 +77,7 @@ az network public-ip create --name SDWAN2PublicIP --resource-group $rg --idle-ti
 az network nic create --name SDWAN2OutsideInterface --resource-group $rg --subnet $Vnet_out_subnet_name --vnet $vnet_name --public-ip-address SDWAN2PublicIP --ip-forwarding true --network-security-group SDWAN2-NSG
 az network nic create --name SDWAN2InsideInterface --resource-group $rg --subnet $Vnet_in_subnet_name --vnet $vnet_name --ip-forwarding true --network-security-group SDWAN2-NSG
 az vm image accept-terms --urn cisco:cisco-csr-1000v:16_12-byol:latest
-az vm create --resource-group $rg --location $location --name SDWAN2Router --size Standard_D2_v2 --nics SDWAN2OutsideInterface SDWAN2nsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
+az vm create --resource-group $rg --location $location --name SDWAN2Router --size Standard_D2_v2 --nics SDWAN2OutsideInterface SDWAN2InsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
 ```
 
 ###  Central NVA to SDWAN Routers Cisco CSR 1000 BGP over IPsec Connection
