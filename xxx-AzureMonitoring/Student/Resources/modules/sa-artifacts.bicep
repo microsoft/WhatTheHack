@@ -14,7 +14,7 @@ param location string = resourceGroup().location
 @description('Desired name of the storage account')
 param artifactsStorageAccountName string = 'bootstrap${uniqueString(resourceGroup().id, deployment().name, 'blob')}'
 
-// Build name of artifacts location to be passed as an output back to main and then passed into the VM.bicep
+// Build name of artifacts location to be passed as an output back to main and then passed into the VM.bicep & VMSS.bicep modules
 var artifactsURL = 'https://${artifactsStorageAccountName}.blob.core.windows.net/scripts/'
 
 resource artifactsStorage 'Microsoft.Storage/storageAccounts@2021-04-01' = {
@@ -33,35 +33,6 @@ resource artifactsStorage 'Microsoft.Storage/storageAccounts@2021-04-01' = {
     }
   }
 }
-
-// var artifactsManagedIdentityName = 'ArtifactsManagedIdentity'
-
-// //Create a new user managed identity
-// resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2022-01-31-preview' = {
-//   name: artifactsManagedIdentityName
-//   location: location
-// }
-
-// //Retrieve the "Storage Blob Data Reader" role from Azure
-// resource StorageBlobDataReaderRole 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
-//   scope: resourceGroup()
-//   name: '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1'
-// }
-
-// //Assign the UMI the Storage Blob Data Reader role
-// resource roleAssignmentUMI 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-//   name: guid(resourceGroup().id, managedIdentity.id, StorageBlobDataReaderRole.id)
-//   scope: resourceGroup()
-//   properties: {
-//     roleDefinitionId: StorageBlobDataReaderRole.id
-//     principalId: managedIdentity.properties.principalId
-//     principalType: 'ServicePrincipal'
-//   }
-// }
-// // Return the UMI Client ID so it can be used by the VM and VMSS deployments
-// // output artifactsManagedIdentityClientID string = managedIdentity.properties.clientId
-// output artifactsManagedIdentityClientID string = managedIdentity.properties.principalId
-// output artifactsManagedIdentityResourceID string = managedIdentity.id
 
 resource bootstrapServerScripts 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'bootstrap-ServerScripts-${utcValue}'
