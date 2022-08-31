@@ -2,8 +2,6 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-![hubnspoke noARS](./Resources/media/arstestdrawio.png)
-
 ## Introduction
 
 A smart Azure engineer always has the right tools in their toolbox. In addition, a good grasp on the key fundamental networking concepts. In this case, the Border Gateway Protocol (BGP).
