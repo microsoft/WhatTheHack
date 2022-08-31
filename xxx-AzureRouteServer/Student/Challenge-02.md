@@ -18,8 +18,9 @@ In this challenge you will insert Azure Route Server as described in this diagra
 
 Please perform the following actions:
 - Use BGP so that spoke to spoke traffic goes through the NVA.  
-> [!IMPORTANT]
-> No user defined routes (UDRs) are allowed.
+  
+  **NOTE:** No user defined routes (UDRs) are allowed.
+
 - Click on the link to get the necessary configuration to [establish BGP relationship between the Cisco CSR 1000v Central NVA and Azure Route Server](./Resources/whatthehackcentralnvachallenge2.md). This script will also remove any stale configuration from the last section.
 
 ## Success Criteria
