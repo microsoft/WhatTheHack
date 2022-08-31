@@ -12,7 +12,7 @@ In this challenge you will learn how to build a basic testbed upon which simulat
 
 In this challenge you will create the topology described in this diagram:
 
-![hubnspoke noARS](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge1.png)
+![hubnspoke noARS](./Resources/media/azurerouteserver-challenge1.png)
 
 This hack offers configuration templates using Cisco CSR 1000v (no license required) that you can leverage (see the Learning Resources section below) for each component, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet". If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
 
