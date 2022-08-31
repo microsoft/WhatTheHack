@@ -12,7 +12,7 @@ While the topology in the previous challenge focused on insertion patterns for f
 
 Your Network Organization decided that Azure is amazing and want to establish communications with two different SDWAN Data Centers in separate geographic locations. They are advertising the exact same prefixes from both locations via BGP and they want to reach their On Premises Data Center. 
   
-![ARS_SDWAN](/xxx-AzureRouteServer/Student/Resources/media/azurerouteserver-challenge3.png)
+![ARS_SDWAN](./Resources/media/azurerouteserver-challenge3.png)
   
 Please deploy the following scenareo:
 
