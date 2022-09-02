@@ -62,8 +62,11 @@
             using Microsoft.Azure.WebJobs.Host;
             using Microsoft.Extensions.Logging;
             using Microsoft.Azure.Documents;
+            using Microsoft.Azure.Documents.Client;
+            using Microsoft.Azure.Documents.Linq;
             using System;
             using System.Threading.Tasks;
+            using System.Collections.Generic;
             using Newtonsoft.Json;
 
 
@@ -92,6 +95,57 @@
                     this.Description = doc.GetPropertyValue<string>("description");
                     this.Type = doc.GetPropertyValue<string>("type");
                 }
+            }
+
+            public class CustomerCartNew : Document
+            {
+                [JsonProperty("customerId")]
+                public string CustomerId { get; set; }
+
+                [JsonProperty(PropertyName = "type")]
+                public string Type => $"CustomerCart-{StoreId}";
+                
+                [JsonProperty(PropertyName = "storeId")]
+                public int StoreId  { get; set; }
+
+                [JsonProperty(PropertyName = "items")]
+                public List<CustomerCartItem> Items { get; set; }
+
+                public CustomerCartNew() : base() {}
+
+                public CustomerCartNew(Document doc)
+                {
+                    this.Id = doc.GetPropertyValue<string>("customerId");
+                    this.CustomerId = doc.GetPropertyValue<string>("customerId");
+                    this.StoreId = doc.GetPropertyValue<int>("storeId");
+                    this.Items = new List<CustomerCartItem>();
+                    
+                    this.Items.Add(
+                        new CustomerCartItem {
+                            ProductId = doc.GetPropertyValue<string>("productId"),
+                            ProductName = doc.GetPropertyValue<string>("productName"),
+                            ProductPrice = doc.GetPropertyValue<decimal>("productPrice"),
+                            Quantity = doc.GetPropertyValue<int>("quantity")
+                        }
+                    );
+                }
+            }
+
+            public class CustomerCartItem {
+
+                [JsonProperty(PropertyName = "productId")]
+                public string ProductId { get; set; }
+
+                [JsonProperty(PropertyName = "productName")]
+                public string ProductName { get; set; }
+
+                [JsonProperty(PropertyName = "productPrice")]
+                public decimal ProductPrice { get; set; }
+
+                [JsonProperty(PropertyName = "quantity")]
+                public int Quantity { get; set; }
+
+                public CustomerCartItem(){}
             }
 
             public class CustomerCart : Document
@@ -142,6 +196,7 @@
 
                 public CustomerOrder(Document doc)
                 {
+
                     this.Id = doc.GetPropertyValue<string>("id");
                     this.CustomerId = doc.GetPropertyValue<string>("customerId");
                     this.StoreId = doc.GetPropertyValue<int>("storeId");
@@ -155,7 +210,8 @@
             public static async Task Run(IReadOnlyList<Document> input,
                                         IAsyncCollector<Product> productsnewDocument,
                                         IAsyncCollector<CustomerOrder> ordersDocument,
-                                        IAsyncCollector<CustomerCart> cartDocument,
+                                        IAsyncCollector<CustomerCartNew> cartDocument,
+                                        DocumentClient client,
                                         ILogger log)
             {
                 if (input != null && input.Count > 0)
@@ -172,7 +228,39 @@
                                 await ordersDocument.AddAsync(new CustomerOrder(doc));
                                 break;
                             case "CustomerCart":
-                                await cartDocument.AddAsync(new CustomerCart(doc));
+                                // Check if we already have a CustomerCart item for that store in the target collection
+                                var customerId = doc.GetPropertyValue<string>("customerId");
+                                var storeId = doc.GetPropertyValue<int>("storeId");
+                                
+                                Uri collectionUri = UriFactory.CreateDocumentCollectionUri("wth-cosmos", "productsnew");
+                                var cartItem = client.CreateDocumentQuery<CustomerCartNew>(collectionUri)
+                                    .Where(p => p.Id == customerId && p.Type == $"CustomerCart-{storeId}")
+                                    .AsEnumerable()
+                                    .SingleOrDefault();
+
+                                if(cartItem != null){
+                                    log.LogInformation($"Found existing Cart Item with {cartItem.Items.Count()} items. Updating.");
+
+                                    var items = cartItem.Items;
+
+                                    items.Add(
+                                        new CustomerCartItem {
+                                            ProductId = doc.GetPropertyValue<string>("productId"),
+                                            ProductName = doc.GetPropertyValue<string>("productName"),
+                                            ProductPrice = doc.GetPropertyValue<decimal>("productPrice"),
+                                            Quantity = doc.GetPropertyValue<int>("quantity")
+                                        }
+                                    );
+                                    
+                                    cartItem.SetPropertyValue("items", items);
+                                    await client.ReplaceDocumentAsync(cartItem);
+                                    log.LogInformation($"Updated Cart Item. Now has {cartItem.Items.Count()} items.");
+                                }
+                                else{
+                                    log.LogInformation("Creating new cart item.");
+                                    await cartDocument.AddAsync(new CustomerCartNew(doc));
+                                }
+                                
                                 break;
                             default:
                                 log.LogInformation($"Found an unknown document type: {doc.GetPropertyValue<string>("type")}");
@@ -190,7 +278,7 @@
                     "type": "cosmosDBTrigger",
                     "name": "input",
                     "direction": "in",
-                    "connectionStringSetting": "cosmosdb-sql-oois4i4w6sp22_DOCUMENTDB",
+                    "connectionStringSetting": "<Connection string name>",
                     "databaseName": "wth-cosmos",
                     "collectionName": "products",
                     "leaseCollectionName": "leases",
@@ -202,7 +290,7 @@
                     "databaseName": "wth-cosmos",
                     "collectionName": "productsnew",
                     "createIfNotExists": true,
-                    "connectionStringSetting": "cosmosdb-sql-oois4i4w6sp22_DOCUMENTDB",
+                    "connectionStringSetting": "<Connection string name>",
                     "partitionKey": "/type",
                     "direction": "out",
                     "type": "cosmosDB"
@@ -212,7 +300,7 @@
                     "databaseName": "wth-cosmos",
                     "collectionName": "productsnew",
                     "createIfNotExists": true,
-                    "connectionStringSetting": "cosmosdb-sql-oois4i4w6sp22_DOCUMENTDB",
+                    "connectionStringSetting": "<Connection string name>",
                     "partitionKey": "/type",
                     "direction": "out",
                     "type": "cosmosDB"
@@ -222,14 +310,22 @@
                     "databaseName": "wth-cosmos",
                     "collectionName": "orders",
                     "createIfNotExists": true,
-                    "connectionStringSetting": "cosmosdb-sql-oois4i4w6sp22_DOCUMENTDB",
+                    "connectionStringSetting": "<Connection string name>",
                     "partitionKey": "/type",
                     "direction": "out",
                     "type": "cosmosDB"
+                    },
+                    {
+                    "type": "cosmosDB",
+                    "name": "client",
+                    "databaseName": "wth-cosmos",
+                    "collectionName": "productsnew",
+                    "connectionStringSetting": "<Connection string name>",
+                    "direction": "inout"
                     }
                 ]
-            }
+                }
             ```
-    9. We will now enable the function. Before doing so, please delete the `leases` collection that was already created. If we don't delete this, the Change Feed trigger will only get new documents and we want to get all documents (hence the `startFromBeginning: true` property in our trigger binding). Once delete, enable the function. You should now see the two new collections (`productsnew` and `orders` getting populated with data).
-- The will need to change the queries in each page of the web application. A sample of what would be a correct application is included in the Coaches resources for Challenge 02 (although other potential solutions are also acceptable).
+    9. We will now enable the function. Before doing so, **please delete** the `leases` collection that was already created. If we don't delete this, the Change Feed trigger will only get new documents and we want to get all documents (hence the `startFromBeginning: true` property in our trigger binding). Once delete, enable the function. You should now see the two new collections (`productsnew` and `orders` getting populated with data).
+- The will need to change the queries in each page of the web application. A sample of what would be a correct application is included in the Coaches resources for Challenge 02 (although other potential solutions are also acceptable). As a suggestion, the application should be deployed in another slot. A sample PowerShell script to do is included in the `Challenge02` folder, named `deploy.ps1`.
 - After changes are implemented and they switch the the new collection, they should re-run the load test in Azure Load Testing and compare the new results to the former results.
