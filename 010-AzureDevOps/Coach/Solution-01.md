@@ -5,4 +5,4 @@
 ## Notes & Guidance
 
 - Provide access to the team across the organization.
-- DevOps Self- Assessment with issue in the certificate.
+- DevOps Self- Assessment with issue in the certificate, I recommend to alert users of the issue certificate, or just skip the step. 
