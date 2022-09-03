@@ -4,4 +4,4 @@
 
 ## Notes & Guidance
 
-- Check the solution file as ADO pipeline solution sample  (./solutions/solutions-05.yaml)
+- Check the solution file as ADO pipeline solution sample [Solution-05.yaml](./solutions/solutions-05.yaml)
