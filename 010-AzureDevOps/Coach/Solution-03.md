@@ -6,4 +6,4 @@
 
 Download the resources content  in the **(../student/resources)** and zip the content and provide to the students. 
  - Students can have issues if many of them upload the content in the same time in the same repo.
- - Recommend to just one execute this challenge and share the screen with others. 
+ - Recommend to just one execute this challenge and share the screen with others, others students to the same in their ADO.
