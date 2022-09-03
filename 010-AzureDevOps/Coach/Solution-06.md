@@ -3,5 +3,5 @@
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
-
--the application and the docker image are deployed to Azure DevOps, it's not ready. should have to update to 3.0.0 .net core at least, inside project file. 
+Check inside the predefined variables, and update them. 
+more information in [Use predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml)
