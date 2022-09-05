@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Currently, XXX is manually processing and shipping orders to their customers. While not an issue early on, with the new demand and number of customers, they are quickly failing to process orders in a timely manner, creating long wait periods for their customers to get their products. They would like to invest in a way to automatically process their orders.
+Currently, Stuff and More Stuff Co. is manually processing and shipping orders to their customers. While not an issue early on, with the new demand and number of customers, they are quickly failing to process orders in a timely manner, creating long wait periods for their customers to get their products. They would like to invest in a way to automatically process their orders.
 
 ## Description
 
