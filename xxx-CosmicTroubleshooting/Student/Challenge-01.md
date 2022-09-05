@@ -17,7 +17,7 @@ In this challenge, you will have to identify how the current system has been set
 - The user submits their order
 - The user views their orders
 
-As we would like to simulate real-life traffic, we should load test with a representative load (please leave the 1000 users and 5 loops values unchanged). Please scale up the Azure App Service Plan hosting the Web App to P1V3 for the duration of the test. You may then scale back down to S1.
+As we would like to simulate real-life traffic, we should load test with a representative load (the load test runs a 1000 user test across the web app). Please scale up the Azure App Service Plan hosting the Web App to P1V3 for the duration of the test. You may then scale back down to S1.
 
 
 ## Success Criteria
