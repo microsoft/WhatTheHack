@@ -40,7 +40,5 @@ The students will need to:
     - They can scale up to X amount of RU/s based on their research. With 10K RU/s, Http 429s are either gone or substantially decreased. However, after multiple load test runs, the problems will re-appear so not considered a correct solution.
     - They could enable Autoscale. However, they will need to discuss the cost implications (i.e. the access pattern of the application should be defined - if traffic is more/less constant across the whole day, Autoscale will not provide savings)
     - Serverless could also be an option, however they will need to be careful about potential limitations and take them under consideration - such as storage limits.
+  - If they don't change anything, they would need to scale up quite significantly (between 50K - 100K+ RU/s in our tests) for the experience to be good.
 - When done, they should have a strategy on what would they need to change so that the issues are resolved.
-
-As a general note:
-- The web application uses the [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository). This is a wrapper over the actual SDK, which they may choose to change - although this would require more work and development skills.

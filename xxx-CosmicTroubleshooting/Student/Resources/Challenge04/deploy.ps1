@@ -1,3 +1,8 @@
+param(
+    [Parameter(Mandatory = $true)]
+    ${resource-group-name[rg-wth-azurecosmosdb]}
+)
+
 Write-Host "Installing bicep"
 # Install Bicep
 # Create the install folder
@@ -16,4 +21,8 @@ $parameters = Get-Content .\WTHAzureCosmosDB.IaC\main.parameters.json | ConvertF
 
 Write-Host "Deploying infrastructure"
 # Deploy our infrastructure
-$output = New-AzSubscriptionDeployment -Location $parameters.parameters.location.value -TemplateFile WTHAzureCosmosDB.IaC\main.bicep -TemplateParameterFile WTHAzureCosmosDB.IaC\main.parameters.json
+$output = New-AzSubscriptionDeployment `
+            -Location $parameters.parameters.location.value `
+            -TemplateFile WTHAzureCosmosDB.IaC\main.bicep `
+            -TemplateParameterFile WTHAzureCosmosDB.IaC\main.parameters.json `
+            -resourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]}

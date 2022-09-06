@@ -12,7 +12,7 @@ For this, they are capturing ClickStream data in the `clickstream` container. Ho
 
 In this challenge, you will properly configure the `clickstream` container to enable Analytical queries.
 
-You will need to run the deployment script under the `/Challenge04/` folder from the archive your coach provided.
+You will need to run the deployment script under the `/Challenge04/` folder of the Resources.zip file given by your coach.
 
 ## Success Criteria
 
@@ -30,7 +30,6 @@ To complete this challenge successfully, you should be able to:
 
 - [Azure Synapse Link for Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link)
 
-## Tips
 
 ## Advanced Challenges (Optional)
 
