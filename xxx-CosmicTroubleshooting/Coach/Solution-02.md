@@ -11,6 +11,10 @@
     - New orders collection:
         - Partition key: `/type`
         - Id should be the OrderId field.
+    
+  Since we would like to optimize for point reads, our data model stores `Product` documents with the `/id` field being the Product Id (which always know in our queries) and as the Partition key the `/type` field which in the Product case, holds the value "Product". The CustomerCart document will have as the `/id` field the Customer Id (which we always know in our queries) as well have in the `/type` field (partition key) the value of "CustomerCart-\<CustomerId\>", which again we always know. In the previous solution, we stored a single CustomerCart document for each item we added to the cart, which created two problems: we needed an unique `/id` field for each document, as well as when we submitted the order, we needed to delete all of these documents. In our current solution, each item in the cart is appended to a single document.
+
+  For the Order document, since we will have multiple CustomerOrder documents per customer and store, we opted to use a unique `/id` field (GUID) and set the partition key `/type` field to "CustomerOrder-\<CustomerId\>". This gives us a small number of documents per partition that we would need to query, greatly reducing the amount of RU/s necessary to retrieve the orders of the customer. We could combine all orders in a single document but would potentially hit the max size of a single document in Azure Cosmos DB.
 - They should leverage Change feed to move to a different (or more than one) collection(s). Please discourage them from creating new Azure Cosmos DB accounts - it will break the authentication of the Web App as it uses Azure AD authentication with Service Principals
     - They can of course do so but would need to give "Cosmos DB Built-in Data Contributor" role in the new account(s) to the MSI used by the Web App.
 - For an easy way to leverage Change Feed for the migration:
