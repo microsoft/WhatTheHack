@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Stuff and More Stuff Co.</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WTHAzureCosmosDB.Web.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Stuff and More Stuff Co.</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Cart/1">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Shipment/1">Shipment</a>
+                        </li>
+                    </ul>
+                </div>         
+                <div class="col-md-3 text-end">
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#devToolsModal">Dev. tools</button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="devToolsModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="devToolsModalLabel">Developer tools</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-left">
+    @{ #if DEBUG }
+                                <i>Load testing feature is not available on localhost</i>
+    @{#else}
+                                <div class="form-label">Simulate load on website</div>
+                                <form class="row" method="post" asp-page="/DevTools" asp-page-handler="CreateNewLoadTest">
+                                    @* <div class="col-5">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="users" class="form-control" value="250" disabled>
+                                            <span class="input-group-text">users</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="loops" class="form-control" value="5" dis>
+                                            <span class="input-group-text">loops</span>
+                                        </div>
+                                    </div> *@
+                                    <div class="col-6">
+                                        <input type="hidden" name="users" value="250">
+                                        <input type="hidden" name="loops" value="5">
+                                        <button class="btn btn-outline-success" type="submit">Start Load Test</button>
+                                    </div>
+                                </form>
+    @{#endif}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Bookstore++ - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

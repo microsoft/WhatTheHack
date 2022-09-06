@@ -4,7 +4,7 @@
 
 ## Introduction
 
-XXX has decided that it needs to introduce ML capabilities in their platform to assist their users to discover more products that are of interest to them based on their interactions with the site. 
+Stuff and More Stuff Co. has decided that it needs to introduce ML capabilities in their platform to assist their users to discover more products that are of interest to them based on their interactions with the site. 
 
 For this, they are capturing ClickStream data in the `clickstream` container. However, when trying to leverage that dataset, they have seen that they would need to scale the container to a high amount of RU/s for their queries to be effective. They will need a different strategy to do analytics over that data set.
 
@@ -12,7 +12,7 @@ For this, they are capturing ClickStream data in the `clickstream` container. Ho
 
 In this challenge, you will properly configure the `clickstream` container to enable Analytical queries.
 
-You will need to run the deployment script under the `Challenge04` folder in your Resources.
+You will need to run the deployment script under the `/Challenge04/` folder from the archive your coach provided.
 
 ## Success Criteria
 

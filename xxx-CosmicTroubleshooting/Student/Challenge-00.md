@@ -61,10 +61,6 @@ Please deploy the infrastructure by running the following scripts in the `/Chall
   # You might need to unblock the file
   .\deploy.ps1 
   ```
-- If using bash and Azure CLI: 
-  ``` 
-  deploy.sh 
-  ```
 
 ## Success Criteria
 
@@ -72,10 +68,11 @@ Please deploy the infrastructure by running the following scripts in the `/Chall
 To complete this challenge successfully, you should be able to:
 
 - The deployment script (either Powershell or Bash) has completed successfully
-- Vefiry that the deployment script has deployed in your subscription under a Resource Group call `rg-wth-azurecosmosdb` the following resources:
+- Vefiry that the deployment script has deployed in your subscription under a Resource Group call `rg-wth-azurecosmosdb` (if left at the default value) the following resources:
   - Azure App Service Plan
   - Azure Application Insights
   - Azure App Service
   - Azure Cosmos DB Account
+  - Azure Load Testing
   - A Managed Identity 
 - You should have a web application running in your Azure Web App.

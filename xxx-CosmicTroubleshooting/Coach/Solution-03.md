@@ -37,7 +37,7 @@ Example of a solution:
           public string CustomerId { get; set; }
 
           [JsonProperty(PropertyName = "storeId")]
-          public string StoreId { get; set; }
+          public int StoreId { get; set; }
 
           [JsonProperty(PropertyName = "orderId")]
           public string OrderId { get; set; }
@@ -108,7 +108,7 @@ Example of a solution:
                       // Add a new Shipment document
                       var shipment = new Shipment{
                           CustomerId = doc.GetPropertyValue<string>("customerId"),
-                          StoreId = doc.GetPropertyValue<string>("storeId"),
+                          StoreId = doc.GetPropertyValue<int>("storeId"),
                           OrderId = doc.GetPropertyValue<string>("id"),
                           ShippedOn = DateTime.Now
                       };
@@ -170,3 +170,4 @@ Example of a solution:
         ]
       }
       ```
+4. If the students now navigate to the `Shipments` page, they should see Shipments getting populated. Conversely, they should see the Status on the `Orders` page of each order changing to `Shipped` once the trigger fires.

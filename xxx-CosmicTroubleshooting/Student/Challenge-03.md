@@ -8,10 +8,10 @@ Currently, Stuff and More Stuff Co. is manually processing and shipping orders t
 
 ## Description
 
-In this challenge, you will have to process CustomerOrder items automatically, creating processed ShippedOrder items in a new collection you will name `shipments`.
+In this challenge, you will have to process `CustomerOrder` items automatically, creating processed `Shipment` items in the collection named `shipments`.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Verify that the `Shipments/Index` page in the web application shows data for a user.
-- Fix the code in the `Order/Index` page so that shipped order have a status of `Shipped`
+- Verify that the `Shipments` page in the web application shows data for a user.
+- Verify that in the `Orders` page, each shipped order has a status of `Shipped`.

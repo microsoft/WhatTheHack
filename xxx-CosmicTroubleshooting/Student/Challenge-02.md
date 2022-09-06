@@ -10,7 +10,7 @@ Now that we have identified some issues, it is time to mitigate them. Based on y
 
 In this challenge, you will properly configure you Azure Cosmos DB so that it minimizes cost as well as optimizes performance. You will also need to make some changes in the application code itself to take advantage of the changes.
 
-Lastly, you will compare your previous findings on performance/cost with the newer metrics. You will need to re-run the Load Test defined in your Azure Load Testing service. As in Challenge 01, we would like to simulate real-life traffic, we should load test with a representative load (the load test runs a 1000 user test across the web app). Please scale up the Azure App Service Plan hosting the Web App to P1V3 for the duration of the test. You may then scale back down to S1.
+Lastly, you will compare your previous findings on performance/cost with the newer metrics. You will need to re-run the Load Test defined in your Azure Load Testing service. As in [Challenge 01](./Challenge-01.md), we would like to simulate real-life traffic, we should load test with a representative load (the load test runs a 1000 user test across the web app). Please scale up the Azure App Service Plan hosting the Web App to P1V3 for the duration of the test. You may then scale back down to S1.
 
 ## Success Criteria
 
@@ -21,6 +21,5 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-- [Cosmos Dotnet Repository](https://ievangelist.github.io/azure-cosmos-dotnet-repository/1-getting-started/)
 - [Change feed in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed)
 - [Serverless event-based architectures with Azure Cosmos DB and Azure Functions](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/change-feed-functions)
