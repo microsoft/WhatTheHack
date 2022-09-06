@@ -44,7 +44,7 @@ Please install these additional tools:
 
 - .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
-In the `/Challenge00/` folder of the Resources.zip file, two deployment scripts that deploy a bicep template with the required services for the challenge, as well as building and deploying our sample web application.
+In the `/Challenge00/` folder of the Resources.zip file given by your coach, two deployment scripts that deploy a bicep template with the required services for the challenge, as well as building and deploying our sample web application.
 
 Please deploy the infrastructure by running the following scripts in the `/Challenge00/` folder:
 
