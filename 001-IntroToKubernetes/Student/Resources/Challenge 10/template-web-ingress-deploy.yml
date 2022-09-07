@@ -11,7 +11,7 @@ spec:
     app: content-web
   type: ClusterIP
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: web
@@ -22,7 +22,10 @@ spec:
   - http:
       paths:
       - backend:
-          serviceName: web
-          servicePort: 80
+          service:
+            name: web
+            port:
+              number: 80
         path: /
+        pathType: Prefix
 #    host: <myserviceuniquelabel>.<location>.cloudapp.azure.com  # Leave this line commented out until Part 2b
