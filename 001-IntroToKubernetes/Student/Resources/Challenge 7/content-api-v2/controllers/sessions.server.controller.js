@@ -3,9 +3,7 @@ const mongoose = require('mongoose'),
 
 exports.list = function(query, callback) {
     console.log("==== Load Sessions ====");
-    Session.find(query).sort({
-        startTime: 1
-    }).lean().exec(function(err, sessionsList) {
+    Session.find(query).lean().exec(function(err, sessionsList) {
         if (err) {
             console.error(err);
             callback(err);

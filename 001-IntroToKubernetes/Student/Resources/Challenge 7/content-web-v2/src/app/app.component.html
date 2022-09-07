@@ -1,0 +1,53 @@
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+
+    <!-- Off Canvas Menu -->
+    <aside class="right-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li class=""><a [routerLink]="['/speakers']" routerLinkActive="router-link-active">Speakers</a></li>
+        <li class=""><a [routerLink]="['/sessions']" routerLinkActive="router-link-active">Sessions</a></li>
+        <li class=""><a [routerLink]="['/stats']" routerLinkActive="router-link-active">Stats</a></li>
+  </ul>
+    </aside>
+    <div class="contain-to-grid sticky show-for-small-up fixed">
+      <nav id="top-bar" data-topbar class="top-bar" role="navigation" data-options="sticky_on: small-up">
+        <ul class="title-area">
+          <li class="name">
+            <h1 class="contosoevents"><a href="/">Contoso Neuro 2017 Conference</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <section id="mobile-nav" class="right-small show-for-medium-down">
+            <a class="right-off-canvas-toggle menu-icon" href="#"><span class=""></span></a>
+          </section>
+          <ul id="desktop-nav" class="right buttons show-for-large-up">
+            <li class=""><a [routerLink]="['/speakers']" routerLinkActive="router-link-active">Speakers</a></li>
+            <li class=""><a [routerLink]="['/sessions']" routerLinkActive="router-link-active">Sessions</a></li>
+            <li class=""><a [routerLink]="['/stats']" routerLinkActive="router-link-active">Stats</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+    <div class="hero large-4 hero-panel">
+      <div class="row">
+        <h1>SEPTEMBER <span class="highlight">14-17,</span> 2021</h1>
+        <p>Monterey Conference Center<p>
+            <p>Monterey, California<p>
+                <!--<p style="font-size: 40px; color: #fff; text-shadow: -1px 1px 2px rgba(150, 150, 150, 1); padding: 120px;">October 22-28<br>at Super Fancy Hotel</p>-->
+      </div>
+    </div>
+    <hr style="padding: 0; margin: 0;" />
+    <router-outlet></router-outlet>
+    <div class="footer contentband">
+      <div class="row">
+        <div class="small-12 columns">
+          <ul style="margin-bottom: 0;">
+            <li>Copyright &copy; 2017-2021 Contoso Neuro. All rights reserved.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
