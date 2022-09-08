@@ -20,12 +20,13 @@ def randpage():
     return (int(random.random() * 100) + 1)
 
 def writeseen( sessinfo, sessnum ):
-    ts = str(datetime.datetime.now())
+    ts = datetime.datetime.now()
 
     container.upsert_item({
         'id': str(uuid.uuid4()),
         'user_id': sessinfo[sessnum]['user'],
-        'page_id': sessinfo[sessnum]['page']
+        'page_id': sessinfo[sessnum]['page'],
+        'date': ts.strftime("%Y-%m-%d")
     })
     
     return True

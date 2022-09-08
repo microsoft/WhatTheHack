@@ -12,7 +12,22 @@ For this, they are capturing ClickStream data in the `clickstream` container. Ho
 
 In this challenge, you will properly configure the `clickstream` container to enable Analytical queries.
 
-You will need to run the deployment script under the `/Challenge04/` folder of the Resources.zip file given by your coach.
+You will need to run the deployment script under the `/Challenge04/` folder of the Resources.zip file given by your coach. To d
+
+- Powershell: 
+  ``` 
+  # Update your Az Powershell commandlets
+  Update-Module Az
+
+  # Connect to your Azure Account
+  Connect-AzAccount
+  
+  # Deploy the infrastructure
+  # Please make sure you are using Powershell v7.2 or newer
+  # You might need to unblock the file
+  # You will need to provide your user's Principal Id (objectId) in you Azure AD tenant
+  .\deploy.ps1 
+  ```
 
 ## Success Criteria
 
@@ -22,8 +37,6 @@ To complete this challenge successfully, you should be able to:
   - Azure Container Instance
   - Your Azure Cosmos DB account has an additional container named `clickstream`
   - Azure Key Vault
-  - Azure Storage Account
-  - Azure Synapse Analytics Workspace
 - Demonstrate how you would be able to run Analytical queries over the data in the `clickstream` container without scaling up the container's RU/s
 
 ## Learning Resources

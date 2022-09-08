@@ -6,6 +6,27 @@
 
 Stuff and More Stuff Co. have deployed their newly designed web application on Azure, using Azure Cosmos DB as the database backend, since they were looking for a NoSQL database to suite their requirements.  In the first few weeks, all was going quite well, until their first marketing campaign. The number of customers visiting the web application increased exponentially and a host of issues and complaints started arriving. The web application was constantly very slow, multiple error messages were being generated and overall customer experience was severely degraded.
 
+The web application is a multi-tenant application; for the purposes of the WhatTheHack, we offer a simplified version, where in the `Carts` and `Orders` pages, the application user may select the Store for which to view their data. Each user can order from any of the available stores.
+
+The application interface itself is as below:
+
+![Application Interface](../images/webapp.png)
+
+The `Products` page provides a per-store inventory of available products. This page statically reads a json file since practically such a page would be driven from a search backend (such as [Azure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search)) which is not implemented in our case.
+
+The `Cart` page provides an interface to view, for a given user/store pair, the contents of their cart.
+
+The `Orders` page provides interface to view, for a given user/store pair, the orders they have finalized.
+
+The `Shipments` page provides interface to view, for a given user/store pair, the orders that have been shipped.
+
+Finally, clicking on the `Dev. tools` button allows a user to run a Load Test from the deployed Azure Load Testing service. The load test will simulate 1000 users making the following interactions:
+- Viewing a Product
+- Adding the Product to their Cart
+- Viewing their Cart for the specific Shop
+- Finalizing their Order
+- Viewing their Orders for the specific Shop
+
 ## Description
 
 In this challenge, you will have to identify how the current system has been set up and what problems does this create.

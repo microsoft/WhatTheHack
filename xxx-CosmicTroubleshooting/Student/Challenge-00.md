@@ -48,7 +48,7 @@ In the `/Challenge00/` folder of the Resources.zip file given by your coach, two
 
 Please deploy the infrastructure by running the following scripts in the `/Challenge00/` folder:
 
-- If using Powershell: 
+- Powershell: 
   ``` 
   # Update your Az Powershell commandlets
   Update-Module Az

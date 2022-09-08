@@ -10,7 +10,7 @@
         - Each document type id (ex. Product document has a ProductId field) should be copied over to the `/id` field
     - New orders collection:
         - Partition key: `/type`
-        - Id should be the OrderId field.
+        - Id should be the OrderId field (GUID).
     
   Since we would like to optimize for point reads, our data model stores `Product` documents with the `/id` field being the Product Id (which always know in our queries) and as the Partition key the `/type` field which in the Product case, holds the value "Product". The CustomerCart document will have as the `/id` field the Customer Id (which we always know in our queries) as well have in the `/type` field (partition key) the value of "CustomerCart-\<CustomerId\>", which again we always know. In the previous solution, we stored a single CustomerCart document for each item we added to the cart, which created two problems: we needed an unique `/id` field for each document, as well as when we submitted the order, we needed to delete all of these documents. In our current solution, each item in the cart is appended to a single document.
 

@@ -13,18 +13,12 @@ param location string
 @description('Location where resources will be deployed. Defaults to resource group location.')
 param resourceGroupName string
 
-param sqlAdminLogin string
-@secure()
-param sqlAdminPassword string
-
 targetScope = 'subscription'
 
 var uniquePostfix = uniqueString(rg.id)
 var aciName = toLower('aci-${uniquePostfix}')
 var cosmosDBSecretName = 'cosmosDBConnectionString'
 var keyVaultName = 'kv-${uniquePostfix}'
-var adlsGen2Name = toLower('adlsg2${uniquePostfix}')
-var synapsewsname = 'synapse-${uniquePostfix}'
 var cosmosdbaccountname = 'cosmosdb-sql-${uniquePostfix}'
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
@@ -48,11 +42,9 @@ module cosmosDb 'modules/cosmosdb-clickstream.bicep' = {
     kv
   ]
   params: {
-    location: location
     containerName: containerName
     databaseName: databaseName
     partKey: partKey
-    primaryRegion: location
     principalIdACI: msiACI.outputs.managedIdentityPrincipalId
     keyVaultSecretName: cosmosDBSecretName
     keyVaultName: keyVaultName
@@ -84,18 +76,6 @@ module kv 'modules/keyvault.bicep' = {
     name: keyVaultName
     location: location
     msiObjectId: msiACI.outputs.managedIdentityPrincipalId
-  }
-  scope: rg
-}
-
-module synapse 'modules/synapse.bicep' = {
-  name: 'synapseDeploy'
-  params: {
-    adlsgen2name: adlsGen2Name
-    location: location
-    sqlAdminLogin: sqlAdminLogin
-    sqlAdminPassword: sqlAdminPassword
-    synapseWorkspaceName: synapsewsname
   }
   scope: rg
 }

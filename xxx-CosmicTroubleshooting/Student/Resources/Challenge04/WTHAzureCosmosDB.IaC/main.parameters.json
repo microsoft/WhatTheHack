@@ -16,9 +16,6 @@
       },
       "resourceGroupName": {
         "value": "rg-wth-azurecosmosdb"
-      },
-      "sqlAdminLogin": {
-        "value": "mySQLAdmin"
       }
     }
   }
