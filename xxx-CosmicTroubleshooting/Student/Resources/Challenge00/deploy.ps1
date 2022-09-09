@@ -101,7 +101,7 @@ if ( [int]($statusCode) -ne 200 -and [int]($statusCode) -ne 201) {
     Write-Error -Message "Azure Load Testing dataplane returned different status code (${statusCode}, was expecting 200 or 201) for test creation.\n${output}" -ErrorAction Stop
 }
 
-# As first upload a file
+# next is uploading a file
 $loadTestingTestFilesEndpoint = $loadTestingTestEndpoint + "/files/" + $loadTestFilename + "?fileType=0&api-version=2022-06-01-preview"
 if ($showDebugOutput) {
     Write-Host "Load testing files endpoing: "
@@ -179,4 +179,5 @@ elseif ($testPlanStatus -ne "VALIDATION_SUCCESS" -and $testPlanStatus -ne "VALID
 }
 else {
     # ok
+    Write-Host "Azure Load Testing JMX test plan validation completed."
 }
