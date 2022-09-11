@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-webapp",
+  "version": "0.0.0",
+  "description": "nodejs-webapp",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": {
+    "name": "microsoft"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jsdom": "18.1.1",
+    "mongodb": "3.7.3"
+  },
+  "engines": {
+    "node": "14.16.0"
+  }
+}

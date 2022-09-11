@@ -29,7 +29,7 @@ spec:
         - name: SQL_SERVER_USERNAME
           value: "__sql_username__"
         - name: SQL_SERVER_FQDN
-          value: "__sql_server_name__.[database.windows.net,mysql.database.azure.com]"
+          value: "__sql_server_name__"
         - name: SQL_ENGINE
           value: "__sqlserver,mysql,postgres__"
         - name: USE_SSL

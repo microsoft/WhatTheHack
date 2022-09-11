@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: api
+    aadpodidentitybinding: app1-identity
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: api
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: api
+    spec:
+      containers:
+      - image: __acr_name__.azurecr.io/hack/sqlapi:1.0
+        name: api
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+        - name: SQL_SERVER_PASSWORD
+          value: "__sql_password__"
+        - name: SQL_SERVER_USERNAME
+          value: "__sql_username__"
+        - name: SQL_SERVER_FQDN
+          value: "__sql_server_name__"
+        - name: SQL_ENGINE
+          value: "__sqlserver,mysql,postgres__"
+        - name: USE_SSL
+          value: "__yes,no__"
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    run: api
