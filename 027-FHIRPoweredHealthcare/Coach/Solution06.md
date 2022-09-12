@@ -13,9 +13,41 @@ The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/i
 ### IoMT MedTech service scenario
 You will deploy an instance of MedTech service in your Azure Health Data Service workspace, and configure it to receive and transform medical IoT data for persitence in your FHIR service (deployed in challenge 1) as Observation resources.
 
-**Deploy **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)** for MedTech service to **[ingest](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow#ingest)** medical IoT device data**
+**Deploy and configure **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)** for MedTech service to **[ingest](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow#ingest)** medical IoT device data**
+- Create **[Event Hubs namespace](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace)** using Azure Portal
+    - Search and select Event Hubs in Azure Portal
+    - Click +Add in Event Hubs
+    - Enter a unique name and other Azure parameters on the Create namespace page
+    - Review and create Event Hubs Namespace
+   
+    Hint: An Event Hubs namespace provides a unique scoping container, in which you create one or more event hubs. 
 
-****[Deploy](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure)** a new instance of the MedTech service in your Azure Health Data Services workspace (deployed in challenge 1) and configure it to ingest IoT data from the above Event Hubs instance**
+- Create an **[Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hub)** within the namespace
+    - Click +Event Hub on the Event Hub blade of the Event Hubs Namespace page
+    - Enter name and create your event hub
+
+    Hint: 
+    - The partition count setting allows you to parallelize consumption across many consumers.
+    - The message retention setting specifies how long the Event Hubs service keeps data.
+
+**Deploy **[MedTech Service manually](ttps://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)** in your AHDS workspace and configure it to use FHIR service deployed in challenge 1**
+- Open your AHDS worksapce
+- Select Deploy MedTech service button
+- Select +Add MedTech service
+- Configure it to ingest IoT data from the newly created Event Hubs instance in this challenge
+    - Enter MedTech service name (a friendly, unique name for your MedTech service)
+    - Enter Event Hubs Namespace (name of the Event Hubs Namespace that you've previously deployed)
+    - Enter Event Hubs name (the event hub that you previously deployed within the Event Hubs Namespace, i.e. `devicedata`)
+    - Enter Consumer group (Defaults to `$Default`)
+    - Under Device Mapping, 
+        - Enter the Device mapping JSON code for use with your MedTech service
+    - Under Destination,
+        - Enter the destination properties associated with your MedTech service.
+        - Enter the FHIR Service name (previously deployed in challenge 1)
+        - Enter Destination Name (a friendly name for the destination)
+        - Select `Create` or `Lookup` for Resolution Type (If device and patient resource doesn't exist in FHIR service, `Create` option will new resources will be created; otherwise an error will occur for `Lookup` option )
+    
+    Hint: The Device Mapping and Destination (FHIR) Mapping be generated using the IoT mapper tool later on in this challenge.
 
 **Deploy the **[IoT mapper tool](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)****
   - Import **[sample IoT messages](https://github.com/microsoft/azure-health-data-services-workshop/tree/main/Challenge-09%20-%20MedTech%20service/SampleData/Answers)** into tool to customize device mapping to FHIR
