@@ -1,7 +1,7 @@
 # Challenge 05 - Build a Power App
 
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 Before you can use Power Apps you need:
 	· An account with access to Power Apps
