@@ -17,7 +17,7 @@ In this hack you will be solving the common business problem that companies in t
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
+	 - Prepare your environment to work with Power Platform.
 - Challenge 01: **[Challenge Setup](Student/Challenge-01.md)**
 	 - Description of challenge
 - Challenge 02: **[Handing incoming orders](Student/Challenge-02.md)**
