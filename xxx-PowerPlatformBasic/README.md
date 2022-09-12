@@ -19,23 +19,23 @@ In this hack you will be solving the common business problem that companies in t
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your environment to work with Power Platform.
 - Challenge 01: **[Challenge Setup](Student/Challenge-01.md)**
-	 - Description of challenge
+	 - The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and create a new role of Citizen Developer.
 - Challenge 02: **[Handing incoming orders](Student/Challenge-02.md)**
-	 - Description of challenge
+	 - Learner will choose a method for revising the current order receiving process using the tools in the low code platform selected in Challenge 1.
 - Challenge 03: **[Extracting Order Data using AI Builder](Student/Challenge-03.md)**
-	 - Description of challenge
+	 - In this challenge, you will set up a Model to extract data from a sample Order form so we can use it in the Power Automate Flow.
 - Challenge 04: **[Automation – Approval Process](Student/Challenge-04.md)**
-	 - Description of challenge
+	 - In this challenge, you will set up a multi-level approval process using Power Automate Flow.
 - Challenge 05: **[Build a Power App](Student/Challenge-05.md)**
-	 - Description of challenge
+	 - In this challenge, you will create a Power App to support Order and Customer Management
 - Challenge 06: **[Teams Integration](Student/Challenge-06.md)**
-	 - Description of challenge
+	 - To support collaboration and ease of access, you will embed the canvas app directly in Microsoft Teams
 - Challenge 07: **[Build a Power BI Dashboard](Student/Challenge-07.md)**
-	 - Description of challenge
+	 - Now that Tailspin Toys staff is easily able to streamline their processes for customer orders, their management has requested some new reporting features that will enhance their reporting, recognize trends in their data, and better analytics
 - Challenge 08: **[PVA Chatbot](Student/Challenge-08.md)**
-	 - Description of challenge
+	 - In this challenge, you will create a customer service chatbot for greeting, answering FAQs, and to support Order queries from Customers and Account Managers
 - Challenge 09: **[Application Lifecycle Management](Student/Challenge-09.md)**
-	 - Description of challenge
+	 - Your challenge is to migrate all your work from the previous challenges from your dev environment to your test environment. Set up all the components so that they are usable in your test environment.
 - Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
 	 - Description of challenge
 
