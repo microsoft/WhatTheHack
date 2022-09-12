@@ -22,19 +22,19 @@ In this hack you will be solving the common business problem that companies in t
 	 - Description of challenge
 - Challenge 02: **[Handing incoming orders](Student/Challenge-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
+- Challenge 03: **[Extracting Order Data using AI Builder](Student/Challenge-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
+- Challenge 04: **[Automation – Approval Process](Student/Challenge-04.md)**
 	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
+- Challenge 05: **[Build a Power App](Student/Challenge-05.md)**
 	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
+- Challenge 06: **[Teams Integration](Student/Challenge-06.md)**
 	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
+- Challenge 07: **[Build a Power BI Dashboard](Student/Challenge-07.md)**
 	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
+- Challenge 08: **[PVA Chatbot](Student/Challenge-08.md)**
 	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
+- Challenge 09: **[Application Lifecycle Management](Student/Challenge-09.md)**
 	 - Description of challenge
 - Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
 	 - Description of challenge
