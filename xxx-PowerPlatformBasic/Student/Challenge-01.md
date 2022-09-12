@@ -1,99 +1,73 @@
-# Challenge 01 - <Title of Challenge>
+# Challenge 01 - <Power Platform Basics>
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
 
 ## Pre-requisites (Optional)
 
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+Before you can use:
+  - Ensure you have a test environment for which you can import your development solution
 
-## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+## Introduction - Tailspin Toys – Order process automation
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+Welcome to the Power Platform Basics What the Hack!  It’s time to challenge yourself and work together with a group of 3-5 of your peers to solve the technical challenges below!
 
-*For example:*
+Tailspin Toys is a toy and school supplies company. The company sells toy products, party products and different school supplies through its retail locations and the Internet. Tailspin Toys has around 500 stores all over the world and has ten major contracts for school supplies all over USA. The company stores are located in 35 countries. The company owns and operates one website http://www.tailspintoys.com/ that includes an online store. The second biggest market for them is in Poland, Europe so the company opened a subsidiary there.
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+Subsidiary address: Ul. Dobra, 4321, Warsaw, Poland
+Phone number: +48 12 345 67 89
+ 
+During the COVID-19 pandemic, Tailspin toys identified challenges in their supply chain.  Their legacy based order system required on premises hardware that is costly to scale and would eventually become obsolete.  The board has approved investing in a new platform that will automate their order taking; however, due to the limited budget, the solution must have the following properties:
+ 
+	1. Minimal user interface maintenance as much of the experience is delivered via configuration versus outright coding.
+	2. Predominantly a low code development platform.
+	3. Model-driven apps with tried and tested application lifecycle management options.
+	4. Supports a strong and flexible data security model affecting the degree to which users can interact with table records and columns. 
+	5. Logic can be introduced to ensure that columns contain the data that adheres to the business rules.
+Solution will be maintained by the team via Citizen Developer
 
-## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+## Choose the platform and build environment
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+Challenge
+  
+	1. Answer the question:  What platform will you choose and why?
+	2. Form a team and assign roles.  Recommended:  Choose a method of collaboration (e.g. OneNote, Teams, etc.
+	3. Install requirements for Power Platform.
+	4. To begin this challenge, Tailspin Toys would like for your team to create a new solution in your team's development environment. This new solution will serve as a container for the components that your team will be assigned in later challenges. In accordance with application lifecycle management (ALM) best practices, all future work should be created from this solution.
+Bonus Challenge: Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
+NOTE: This challenge will require license to complete the challenge (trials)
+Success Criteria
+Learners will provide the coaches with their platform of choice which should be Power Platform.  Learners should detail their team structure, show how they will collaborate, and demonstrate how the environment is setup.   
+BONUS:  Learners will deliver this in PPT to the coaches who are the board.
+BONUS:  Choose licensing <- Costs associated to solutions
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
-
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
-
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+Learners will provide the coaches with their platform of choice which should be Power Platform.  Learners should detail their team structure, show how they will collaborate, and demonstrate how the environment is setup.   
+BONUS:  Learners will deliver this in PPT to the coaches who are the board.
+BONUS:  Choose licensing <- Costs associated to solutions
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+Microsoft Power Platform documentation 
+https://docs.microsoft.com/en-us/power-platform/
+ 
+The benefits of the model-driven approach 
+https://docs.microsoft.com/en-us/power-apps/maker/model-driven-apps/app-value-proposition
+ 
+Administer Microsoft Power Platform 
+https://docs.microsoft.com/en-us/power-platform/admin/admin-documentation
+ 
+Licensing overview for Microsoft Power Platform 
+https://docs.microsoft.com/en-us/power-platform/admin/pricing-billing-skus
+ 
+Application lifecycle management (ALM) with Microsoft Power Platform 
+https://docs.microsoft.com/en-us/power-platform/alm/
+ 
+Microsoft Power Platform Center of Excellence (CoE) Starter Kit 
+https://docs.microsoft.com/en-us/power-platform/guidance/coe/starter-kit 
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
 
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
