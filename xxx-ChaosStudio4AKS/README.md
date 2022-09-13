@@ -1,4 +1,4 @@
-# What The Hack - xxx-ChaosStudio4AKS
+# What The Hack - ChaosStudio4AKS
 
 ## Introduction 
 
