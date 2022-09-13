@@ -24,7 +24,7 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
 
 - Create an **[Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hub)** within the namespace
     - Click +Event Hub on the Event Hub blade of the Event Hubs Namespace page
-    - Enter name and create your event hub
+    - Enter name and create your event hub (i.e. `devicedata`)
 
     Hint: 
     - The partition count setting allows you to parallelize consumption across many consumers.
@@ -33,7 +33,7 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
 **Deploy **[MedTech Service manually](ttps://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)** in your AHDS workspace and configure it to use FHIR service deployed in challenge 1**
 - Open your AHDS worksapce
 - Select Deploy MedTech service button
-- Select +Add MedTech service
+- Select `+Add` MedTech service
 - Configure it to ingest IoT data from the newly created Event Hubs instance in this challenge
     - Enter MedTech service name (a friendly, unique name for your MedTech service)
     - Enter Event Hubs Namespace (name of the Event Hubs Namespace that you've previously deployed)
@@ -45,9 +45,10 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
         - Enter the destination properties associated with your MedTech service.
         - Enter the FHIR Service name (previously deployed in challenge 1)
         - Enter Destination Name (a friendly name for the destination)
-        - Select `Create` or `Lookup` for Resolution Type (If device and patient resource doesn't exist in FHIR service, `Create` option will new resources will be created; otherwise an error will occur for `Lookup` option )
+        - Select `Create` or `Lookup` for Resolution Type 
+        Hint: If device and patient resource doesn't exist in FHIR service, `Create` option will enable new resources will be created; otherwise an error will occur for `Lookup` option.
     
-    Hint: The Device Mapping and Destination (FHIR) Mapping be generated using the IoT mapper tool later on in this challenge.
+    Hint: The custom Device Mapping and Destination (FHIR) Mapping will be configured and generated using the IoT mapper tool later on in this challenge.
 
 **Deploy the **[IoT mapper tool](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)****
   - Import **[sample IoT messages](https://github.com/microsoft/azure-health-data-services-workshop/tree/main/Challenge-09%20-%20MedTech%20service/SampleData/Answers)** into tool to customize device mapping to FHIR
@@ -55,6 +56,46 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
 
 **Import the newly generated FHIR mapping into your MedTech service**
   - Configure and save the **[Device mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#configure-device-mapping-properties)** JSON in the MedTech service (Device Mapping setting)
-  - Configure and save the Destination mapping JSON to in the MedTech service (Destination setting)
+  - Configure and save the Destination (FHIR) mapping JSON to in the MedTech service (Destination setting)
 
 **Send sample device data to persist in the FHIR service using Postman via **[MedTech service Event Hub service](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token)****
+- Get an Azure Active Directory (Azure AD) token to send events to an event hub
+    - **[Register your app with AAD](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#register-your-app-with-azure-ad)**
+        - In Azure Portal, go to AAD -> App registrations -> select `+ New registration`
+        - Enter name for the client app/service principle and select `Register`
+        - Go to `Overview` page for the client app service registered, save the following values for use in Postman configuration to get AAD token later.
+            - Application (client) ID 
+            - Directory (tenant) ID
+        - Go to  `Certificates & secrets` page and select `+New client secret`
+            - Enter description and when certificate will expire, then select `Add`
+            - Copy the client secret value for use in Postman configuration to get AAD token later.
+    - **[Add application to the Event Hubs Data Sender role](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#add-application-to-the-event-hubs-data-sender-role)**
+        - In `Event Hubs Namespace`, select `Access Control (IAM)` page
+            - Select `+Add` to add Role Assignment
+                - Select Azure Event Hubs Data Sender for `Role` dropdown
+                - Select `Azure AD user, group or principla` for `Assign access to` dropdown
+                - Select your application for the service principal (name of client app/service principle created above).
+                - Select `Save` to add the new role assignment
+- Send events to an event hub via Postman
+    - **[Use Postman to get the AAD token](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#use-postman-to-get-the-azure-ad-token)**
+    - **[Send messages to a queue](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#send-messages-to-a-queue)**
+        - Configure a new Postman opertation
+            - Select `Post` for method
+            - Enter URI: `https://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/<QUEUE NAME>/messages. Replace <EVENT HUBS NAMESPACE NAME>`
+                - Replace <EVENT HUBS NAMESPACE NAME> with the name of the Event Hubs namespace
+                - Replace <QUEUE NAME> with the name of the queue
+            - on `Header` tab, add the following
+                - Add `Authorization` key and value: `Bearer <TOKEN from Azure AD>`
+                Hint: Don't copy the enclosing double quotes in the token value
+                - Add `Content-Type` key and `application/atom+xml;type=entry;charset=utf-8` as the value for it.
+            - On the `Body` tab,
+                - Select `raw` for the data type
+                - Enter the test device data as the message for the body
+            - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
+                - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
+            - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
+- Verify device data is saved in the FHIR service as Observation resource(s) in Postman
+    - Search for the Observation resource for patient in Postman using one of the search operation in the Postman collection imported in challenge 1.
+
+
+
