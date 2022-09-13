@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysqld-config
+  namespace: "{{ .Values.infrastructure.namespace }}"
+data:
+  mysqld.cnf: |-
+    # Mounted at /etc/mysql/mysql.conf.d/mysqld.cnf
+    [mysqld]
+    
+    lower_case_table_names = 1
+    server_id       = 3
+
+    pid-file        = /var/run/mysqld/mysqld.pid
+    socket          = /var/run/mysqld/mysqld.sock
+    datadir         = /usr/local/mysql/data
+
+    explicit_defaults_for_timestamp = on
+
+    #log-error      = /var/log/mysql/error.log
+
+    # Disabling symbolic-links is recommended to prevent assorted security risks
+    symbolic-links=0
+
+    # The value of log_bin is the base name of the sequence of binlog files.
+    log_bin           				= mysql-bin
+
+    # The binlog-format must be set to ROW or row.
+    binlog_format     				= row
+
+    # The binlog_row_image must be set to FULL or full
+    binlog_row_image  				= full
+
+    # This is the number of days for automatic binlog file removal. The default is 0 which means no automatic removal.
+    expire_logs_days  				= 7
+
+    # Boolean which enables/disables support for including the original SQL statement in the binlog entry.
+    binlog_rows_query_log_events 	= on
+
+    # Whether updates received by a replica server from a replication source server should be logged to the replica's own binary log
+    log_slave_updates             = on
+
+    # Boolean which specifies whether GTID mode of the MySQL server is enabled or not.
+    gtid_mode                 		= on
+
+    # Boolean which instructs the server whether or not to enforce GTID consistency by allowing
+    # the execution of statements that can be logged in a transactionally safe manner; required when using GTIDs.
+    enforce_gtid_consistency  		= on
+
+    # The number of seconds the server waits for activity on an interactive connection before closing it.
+    interactive_timeout 			= 36000
+
+    # The number of seconds the server waits for activity on a noninteractive connection before closing it.
+    wait_timeout					= 72000
+
+    # end of file
