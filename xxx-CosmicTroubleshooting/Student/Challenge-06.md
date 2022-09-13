@@ -1,6 +1,6 @@
 # Challenge 06 - Securing the data
 
-[< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
+[< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)**
 
 Now that the application is in great shape and the end users get a great experience, STUFF AND MORE STUFF CO. would like to focus on making sure their deployment is secure and if any issues arise, they can know about them and are able to mitigate.
 

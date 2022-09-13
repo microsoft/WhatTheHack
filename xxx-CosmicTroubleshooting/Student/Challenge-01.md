@@ -40,15 +40,18 @@ In this challenge, you will have to identify how the current system has been set
 
 As we would like to simulate real-life traffic, we should load test with a representative load (the load test runs a 1000 user test across the web app). Please scale up the Azure App Service Plan hosting the Web App to P1V3 for the duration of the test. You may then scale back down to S1.
 
+To be able to identify the required data points to help you formulate a plan to mitigate the issues, you will need to:
+- Enable Diagnostics in Cosmos DB
+- Identify what is the current data model used by the application and how it is implemented in Azure Cosmos DB
 
 ## Success Criteria
 
-To complete this challenge successfully, you should be able to:
-- Load Test was successfully run
-- Diagnostics correctly setup
-- Identify and define the current data model used by the database.
-- Identify and describe the types of queries executed from the application, along with associated database cost.
-- Discuss your findings and identify potential ways that could alleviate the various problems found.
+To complete this challenge successfully:
+- Show that the Load Test successfully ran (even with errors - this might happen :) )
+- Show a correct set-up of Diagnostics in Azure Cosmos DB
+- Show the current data model
+- Show sample queries that where executed along with their associated RU cost
+- Show your findings and identify potential ways that could alleviate the various problems found.
 - Should you not change anything in the application, identify the scale factor the database would need to operate correctly.
 - Evaluate the user experience while the load test is running.
 

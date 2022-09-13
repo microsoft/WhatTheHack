@@ -36,7 +36,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
@@ -61,6 +61,15 @@ Please deploy the infrastructure by running the following scripts in the `/Chall
   # You might need to unblock the file
   .\deploy.ps1 
   ```
+- Bash:
+  ```
+  # Make sure your machine has the prerequisites
+  # Also does an "az login"
+  ./setup-machine.sh
+
+  # Deploy the infrastructure
+  ./deploy.sh
+  ```
 
 ## Success Criteria
 
@@ -68,7 +77,7 @@ Please deploy the infrastructure by running the following scripts in the `/Chall
 To complete this challenge successfully, you should be able to:
 
 - The deployment script (either Powershell or Bash) has completed successfully
-- Vefiry that the deployment script has deployed in your subscription under a Resource Group call `rg-wth-azurecosmosdb` (if left at the default value) the following resources:
+- Verify that the deployment script has deployed in your subscription under a Resource Group call `rg-wth-azurecosmosdb` (if left at the default value) the following resources:
   - Azure App Service Plan
   - Azure Application Insights
   - Azure App Service

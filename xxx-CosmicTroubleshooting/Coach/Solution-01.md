@@ -21,7 +21,7 @@ The students will need to:
   - What is the Partition key of the collection.
     - /id - Can be found using the Data Explorer feature in the Azure Cosmos DB instance using the Azure Portal.
   - What is the indexing policy of the collection.
-    - No indexing is applied. Can be found under Scale and Settings option (under the Indexing Policy tab) in the collection using the Data Explorer feature in the Azure Cosmos DB instance using the Azure Portal. Specifically, the should see in the `excludedPaths` section of the indexing policy that the path `"/*"` is excluded which means no propery is indexed.
+    - No indexing is applied. Can be found under Scale and Settings option (under the Indexing Policy tab) in the collection using the Data Explorer feature in the Azure Cosmos DB instance using the Azure Portal. Specifically, the should see in the `excludedPaths` section of the indexing policy that the path `"/*"` is excluded which means no property is indexed.
   - What is the current Capacity model (Provisioned vs Autoscale vs Serverless) and what the current RU limit is.
     - Manual provisioned throughput at 400 RU/s. an be found under Scale and Settings option (Scale tab)
   - Based on the output of the queries and Azure Cosmos DB metrics, identify most expensive queries.

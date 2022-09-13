@@ -26,7 +26,8 @@ az bicep version
 if [ $? == 0 ]; then
   echosuccess "[.] bicep support...OK";
 else
-  echoerr "Error with 'az bicep' tool!";
+  echo "Installing bicep"
+  az bicep install
   exit 1;
 fi
 

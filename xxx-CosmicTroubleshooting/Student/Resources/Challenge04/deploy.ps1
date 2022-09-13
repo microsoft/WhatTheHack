@@ -2,6 +2,10 @@ param(
     [Parameter(Mandatory = $true)]
     ${resource-group-name[rg-wth-azurecosmosdb]}
 )
+${resource-group-name[rg-wth-azurecosmosdb]} = if (${resource-group-name[rg-wth-azurecosmosdb]}) { ${resource-group-name[rg-wth-azurecosmosdb]} }
+else {
+    'rg-wth-azurecosmosdb'
+}
 
 Write-Host "Installing bicep"
 # Install Bicep

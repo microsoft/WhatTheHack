@@ -13,7 +13,7 @@ Ideally, the students will have opted to leverage Azure Synapse Link to solve th
     - Analytical Storage Time to Live: 2628000 (1 month) - for the Analytical store.
 - The students should have deployed an Azure Synapse Workspace
 - The students should show a sample query (either using Spark Pools or Serverless) in Synapse.
-- As a bonus, the students should enabel custom partitioning of the data in the Analytical store. Since in the Analytical store, data is not partitioned, doing so may greatly benefit both cost and performance of their analytical queries. They can use the guidance linked in [this document](https://docs.microsoft.com/en-us/azure/cosmos-db/configure-custom-partitioning?tabs=python) to configure the custom partioning. A suggestion would be to partition using two jobs:
+- As a bonus, the students should enable custom partitioning of the data in the Analytical store. Since in the Analytical store, data is not partitioned, doing so may greatly benefit both cost and performance of their analytical queries. They can use the guidance linked in [this document](https://docs.microsoft.com/en-us/azure/cosmos-db/configure-custom-partitioning?tabs=python) to configure the custom partitioning. A suggestion would be to partition using two jobs:
     - By date and User Id. This would be useful for analytical queries that filter/aggregate on date and user
     - By date and Page Id. This would be useful for analytical queries that filter/aggregate on date and page
     - Job definitions:

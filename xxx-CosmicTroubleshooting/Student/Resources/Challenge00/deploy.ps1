@@ -4,6 +4,10 @@ param(
     ${resource-group-name[rg-wth-azurecosmosdb]},
     $showDebugOutput = $false
 )
+${resource-group-name[rg-wth-azurecosmosdb]} = if (${resource-group-name[rg-wth-azurecosmosdb]}) { ${resource-group-name[rg-wth-azurecosmosdb]} }
+else {
+    'rg-wth-azurecosmosdb'
+}
 Write-Host "Installing bicep"
 # Install Bicep
 # Create the install folder
