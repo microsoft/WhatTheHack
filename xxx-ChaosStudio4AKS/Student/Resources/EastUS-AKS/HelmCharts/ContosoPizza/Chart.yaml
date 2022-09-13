@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: Contoso Pizza
+
+description: A Helm chart for deploying Contoso Pizza Web Application
+
+type: application
+
+version: 1.0
+
+appVersion: 15.08
