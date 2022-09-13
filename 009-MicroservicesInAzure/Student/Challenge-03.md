@@ -8,7 +8,7 @@ Our application, like all applications, needs data. We will be using Azure Cosmo
 
 ## Description
 
-- In your shell, create a CosmosDB Account 
+- In your shell, create a CosmosDB Account
   - **NOTE:** When creating large resources, be patient for it to end.
 - Copy the `PrimaryMasterKey` of the CosmosDB Account you just created as we will be needing it later
 - **TIP:** Once again, think about using a shell variable to hold this value.

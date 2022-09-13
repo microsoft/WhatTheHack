@@ -12,12 +12,12 @@ The objective of this lab is to setup your on-premise data warehouse environment
 
 ## Learning Resources
 1. [Decision Tree for Analytics](../../../images/decisiontree.png)
-1. [ISV Patterns](https://docs.microsoft.com/en-us/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse)
-1. [DWU Units](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)
-1. [Capacity Settings](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits#data-warehouse-capacity-settings)
-1. [DWU Architecture](https://www.databasejournal.com/features/mssql/getting-started-with-azure-sql-data-warehouse-part-2.html)
-1. [DWU Configuration](../../../images/dwuconfig.png)
-
+1. [DWU Units](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/resource-consumption-models)
+1. [Capacity Settings](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext#data-warehouse-capacity-settings)
+1. [Capacity Limits SQL Dedicated Pools](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+1. [Synapse Analytics Best Practices & Field Guidance](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Azure%20Synapse%20DW%20%20Pool%20Best%20Practices%20%26%20Field%20Guidance.pdf)
+1. [Azure Synapse Analytics Migration Guides](https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/)
+1. [Reference Architecture for Lambda Big Data Platforms](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Reference%20Lambda%20Architecture%20for%20Big%20Data%20Platform%20in%20Azure.pdf)
 
 ## Pre-requisites
 1. Laptop computer as Development environment
@@ -31,8 +31,7 @@ The objective of this lab is to setup your on-premise data warehouse environment
 
 ### Setup Azure Tenant with Services for What the Hack
 
-WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second
-is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
+WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
 
 1. Open your browser and login to your Azure Tenant.  We plan to setup the Azure Services required for the What the Hack (WTH).  In your portal, open the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
@@ -52,11 +51,10 @@ az group create --location eastus2 --name {"Resource Group Name"}
 4. In the Cloudshell, run this command to create a SQL Server instance and restore the databases.  This will create an Azure Container Instance and restore the WideWorldImporters and WideWorldImoprtersDW databases.  These two databases are your LOB databases for this hack.
 
 ```
-az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7
---ports 1433 --ip-address Public
+az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
 ```
 
-5. At the start of Challenge 1, reach out to your coach and they will share hostname, username and password for your team.
+5. At the start of Challenge 1, reach out to your coach and they will share username and password for the LOB databases for this hack.
 
 6. [Upload](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#upload-files) your ARM templates into Azure CloudShell. 
 
@@ -66,20 +64,19 @@ az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/s
     Edit the parmeters file and replace any {} with information requested.  
 
 
-7. Run the last command to setup Azure Data Factory, SSIS Runtime, Vnet, and Azure SQL Database to host the SSIS catalog.  This will build out for Challenge one the SSIS environment in Azure Data Factory.
+7. Run the last command to setup Azure Data Factory, Azure SQL Server Instance and SSIS Runtime.  This will build out for Challenge 1 the SSIS environment in Azure Data Factory.
 
 ```
-az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json
---parameters parametersFile.json
+az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json --parameters parametersFile.json
 ```
 
-8. Last step and most important start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  Run before the kickoff presentation so it has enough time to start up before you start Challenge 1.  The startup time is approximately 30 minutes.
+8. Last step is to start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
 
 
-10. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
+9. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
 
 
-11. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
+10. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
 
 
 ## On-premise Architecture
