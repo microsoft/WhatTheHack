@@ -124,7 +124,13 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
                     - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
                 - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
 - Verify device data is saved in the FHIR service as Observation resource(s) in Postman
-    - Search for the Observation resource for patient in Postman using one of the search operation in the Postman collection imported in challenge 1.
+    - Run `Get Observation` API HTTP Requests in the `WTH FHIR` Postman collection::
+    - First, open `AuthorizeGetToken SetBearer` and confirm `WTH FHIR` environment is selected in the top-right `Environment` drop-down. 
+        - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
+    - Open `Get Observation` and click the `Send` button. This will return all patient's Observation resources stored in your FHIR service in the Response body.
+    - Search for the test device data ingested via Event Hub earlier is persisted in FHIR service as Obervation resource, i.e. sample Vital Signs data for Heart Rate.
+    
+    **Note:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
 
 
 
