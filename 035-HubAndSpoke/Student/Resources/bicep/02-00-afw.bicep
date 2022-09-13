@@ -5,11 +5,6 @@ resource hubvnet 'Microsoft.Network/virtualNetworks@2022-01-01' existing = {
   scope: resourceGroup('wth-rg-hub')
 }
 
-resource wthrthubvmssubnet 'Microsoft.Network/routeTables@2022-01-01' existing = {
-  name: 'wth-rt-hubvmssubnet'
-  scope: resourceGroup('wth-rg-hub')
-}
-
 resource afwsubnet 'Microsoft.Network/virtualNetworks/subnets@2022-01-01' = {
   name: '${hubvnet.name}/AzureFirewallSubnet'
   properties: {

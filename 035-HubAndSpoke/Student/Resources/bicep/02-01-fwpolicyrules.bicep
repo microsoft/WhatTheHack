@@ -3,11 +3,6 @@ resource wthafwpolicy 'Microsoft.Network/firewallPolicies@2022-01-01' existing =
   scope: resourceGroup('wth-rg-hub')
 }
 
-resource wthafw 'Microsoft.Network/azureFirewalls@2022-01-01' existing = {
-  name: 'wth-afw-hub01'
-  scope: resourceGroup('wth-rg-hub')
-}
-
 resource wthafwpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' existing = {
   name: 'wth-pip-afw01'
   scope: resourceGroup('wth-rg-hub')
