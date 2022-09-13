@@ -12,9 +12,9 @@ incidents, such as a region outages or application failures causing high CPU uti
 This “What the Hack” WTH is designed to introduce you to Azure Chaos Studios (Preview) and guide you through a series of hands-on challenges to accomplish
 the following:
   
-1. Leverage the Azure Chaos Studio to inject failure into an application/workload
-2. Provide hands-on understanding of Chaos Engineering 
-3. Understand how resilientcy can be achieved with Azure 
+* Leverage the Azure Chaos Studio to inject failure into an application/workload
+* Provide hands-on understanding of Chaos Engineering 
+* Understand how resilientcy can be achieved with Azure 
 
 In this WTH, you are the system owner of the Contoso Pizzeria Application (or you may bring your own application). Super Bowl Sunday is Contoso Pizza's busiest time of the year, the pizzeria
 ordering application must be must be available during the Super Bowl. 
@@ -23,15 +23,15 @@ You have been tasked to test the resiliency of the pizzeria application (or your
 simulate various failures. 
 
 ## Challenges
-1. Challenge 00: **[Ready Set Go](Student/Challenge-00.md)**
+* Challenge 00: **[Ready Set Go](Student/Challenge-00.md)**
 	 - Deploy the multi-region Kubernetes pizzeria application,
-1. Challenge 01: **[Is your application ready for the Super Bowl?](Student/Challenge-01.md)**
+* Challenge 01: **[Is your application ready for the Super Bowl?](Student/Challenge-01.md)**
 	 - How does your application handle failure during large scale events?
-1. Challenge 02: **[My AZ burned down, now what?](Student/Challenge-02.md)**
+* Challenge 02: **[My AZ burned down, now what?](Student/Challenge-02.md)**
 	 - Can your application survive an Azure outage of 1 or more Availability Zones?
-1. Challenge 03: **[Godzilla takes out an Azure region!](Student/Challenge-03.md)**
+* Challenge 03: **[Godzilla takes out an Azure region!](Student/Challenge-03.md)**
 	 - Can your application survive a region failure? 
-1. Challenge 04: **[Injecting Chaos into your pipeline](Student/Challenge-04.md)**
+* Challenge 04: **[Injecting Chaos into your pipeline](Student/Challenge-04.md)**
 	 - Optional challenge, using Chaos Studio experiments in your CI/CD pipeline
 
 ## Prerequisites
