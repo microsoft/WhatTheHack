@@ -43,6 +43,7 @@ Using Cloud Shell is recommended, as it already has the necessary tools installe
 
 - Windows VMs are deployed in the hub, both spokes, and on-prem Resource Groups
 - VM usernames are 'admin-wth' and passwords are the one supplied when executing the script
+- Windows VM firewalls have been modified to allow Ping traffic
 - All Windows VMs have associated Public IP Addresses and are accessible via RDP using alternate port 33899 (ex: `mstsc /v:4.32.1.5:33899`)
 - The Cisco CSR deployed in the 'wth-rg-onprem' Resource Group uses the same username and password, but is not accessible from the internet. To access it, RDP to the Windows VM in the onprem Resource Group, then connect to the CSR using ssh and its private IP address
 
@@ -59,3 +60,6 @@ Using Cloud Shell is recommended, as it already has the necessary tools installe
   - Hub: 8080
   - Spoke 1: 8081
   - Spoke 2: 8082
+
+## Resource Cleanup
+
