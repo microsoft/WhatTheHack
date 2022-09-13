@@ -77,23 +77,52 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
                 - Select your application for the service principal (name of client app/service principle created above).
                 - Select `Save` to add the new role assignment
 - Send events to an event hub via Postman
-    - **[Use Postman to get the AAD token](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#use-postman-to-get-the-azure-ad-token)**
-    - **[Send messages to a queue](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#send-messages-to-a-queue)**
-        - Configure a new Postman opertation
-            - Select `Post` for method
-            - Enter URI: `https://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/<QUEUE NAME>/messages. Replace <EVENT HUBS NAMESPACE NAME>`
-                - Replace <EVENT HUBS NAMESPACE NAME> with the name of the Event Hubs namespace
-                - Replace <QUEUE NAME> with the name of the queue
-            - on `Header` tab, add the following
-                - Add `Authorization` key and value: `Bearer <TOKEN from Azure AD>`
-                Hint: Don't copy the enclosing double quotes in the token value
-                - Add `Content-Type` key and `application/atom+xml;type=entry;charset=utf-8` as the value for it.
+    - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
+        - In Postman, click Import.
+        - In your **[Student Resources folder for Postman](../Student/Resources/Postman)**, select **[Environment](../Student/Resources/Postman/WTH FHIR-IoT-MedTech.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTH FHIR-IoT-MedTech.postman_collection.json)** JSON files.
+        - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
+        - You will get confirmation that `WTH FHIR-IoT-MedTech` Collection and Environment were imported and see in Postman a new `WTH FHIR-IoT-MedTech` in `Collections` (left) blade and top right `Manage Environments` drop-down list.
+    - Select `WTH FHIR-IoT-MedTech_event hub namespace` environment and click `Environment Quick Look` button to see a list of env vars: 
+        - Click `Edit` to open `Management Environments` window and input the corresponding FHIR environment values:
+            - `adtenantId`: This is the tenant Id of the AD tenant
+            - `clientId`: This is the client Id that is stored in Secret.
+            - `clientSecret`: This is the client Secret that is stored in Secret.
+            - `bearerToken`: The value will be set when `AuthorizeGetToken SetBearer` request below is sent.
+            - `fhirurl`: This is the FHIR URL `https://{ENVIRONMENTNAME}.azurehealthcareapis.com` from FHIR service you created in challenge 1.
+            - `resource`: `https://eventhubs.azure.net`
+            - `eventhubnamespaceurl`: event hub namespace url created for MedTech service
+        - Click the Update button and close the `MANAGE ENVIRONMENTS` window.
+        
+        - Run `Send message to devicedata` API HTTP Request in the `WTH FHIR-IoT-MedTech` Postman collection:
+        - First, open `AuthorizeGetToken SetBearer` and confirm `WTH FHIR-IoT-MedTech_event hub namespace` environment is selected in the top-right `Environment` drop-down. 
+            - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
+        - Open `Send message to devicedata`
             - On the `Body` tab,
                 - Select `raw` for the data type
                 - Enter the test device data as the message for the body
             - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
                 - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
-            - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
+                - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
+        **Note:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
+
+    - **Alternatively, you can configure Postman collection and environment manually as follows:**
+        - **[Use Postman to get the AAD token](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#use-postman-to-get-the-azure-ad-token)**
+        - **[Send messages to a queue](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#send-messages-to-a-queue)**
+            - Configure a new Postman opertation
+                - Select `Post` for method
+                - Enter URI: `https://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/<QUEUE NAME>/messages. Replace <EVENT HUBS NAMESPACE NAME>`
+                    - Replace <EVENT HUBS NAMESPACE NAME> with the name of the Event Hubs namespace
+                    - Replace <QUEUE NAME> with the name of the queue
+                - on `Header` tab, add the following
+                    - Add `Authorization` key and value: `Bearer <TOKEN from Azure AD>`
+                    Hint: Don't copy the enclosing double quotes in the token value
+                    - Add `Content-Type` key and `application/atom+xml;type=entry;charset=utf-8` as the value for it.
+                - On the `Body` tab,
+                    - Select `raw` for the data type
+                    - Enter the test device data as the message for the body
+                - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
+                    - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
+                - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
 - Verify device data is saved in the FHIR service as Observation resource(s) in Postman
     - Search for the Observation resource for patient in Postman using one of the search operation in the Postman collection imported in challenge 1.
 
