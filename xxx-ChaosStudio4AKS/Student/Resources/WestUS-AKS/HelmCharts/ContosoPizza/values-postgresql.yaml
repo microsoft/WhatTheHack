@@ -1,0 +1,13 @@
+replicaCount: 1
+
+# Change the application settings here
+appConfig:
+  databaseType: "postgres" # mysql or postgres
+  dataSourceURL: "jdbc:postgresql://XXX.XXX.XXX.XXX:5432/wth" # your JDBC connection string goes here
+  dataSourceUser: "contosoapp" # your database username goes here
+  dataSourcePassword: "OCPHack8" # your database password goes here
+  webPort: 8082 # the port the app listens on
+  webContext: "pizzeria" # the application context http://hostname:port/webContext
+
+infrastructure:
+  namespace: contosoapppostgres

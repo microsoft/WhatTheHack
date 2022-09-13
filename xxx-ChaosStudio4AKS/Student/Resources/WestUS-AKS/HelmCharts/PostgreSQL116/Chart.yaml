@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: PostgreSQL
+
+description: A Helm chart for deploying a single node PostgreSQL database server
+
+type: application
+
+version: 2.0
+
+appVersion: 11.6
