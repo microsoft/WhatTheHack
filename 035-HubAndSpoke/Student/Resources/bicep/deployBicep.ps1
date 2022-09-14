@@ -210,7 +210,25 @@ switch ($challengeNumber) {
             }
         }
     }
-    4 {}
+    4 {
+        Write-Host "Deploying resources for Challenge 4: Application Gatway"
+
+        Write-Host "`tDeploying App GW configs..."
+        $jobs = @()
+        #$jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./03-01-spoke1.bicep -TemplateParameterObject @{location = $location } -AsJob
+        #$jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./03-01-spoke2.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./04-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
+
+        $jobs | Wait-Job | Out-Null
+
+        # check for deployment errors
+        $jobs | Foreach-Object {
+            $job = $_
+            If ($job.Error) {
+                Write-Error "A hub or spoke configuration deployment experienced an error: $($job.error)"
+            }
+        }
+    }
     5 {}
     6 {}
 }
