@@ -123,14 +123,14 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
                 - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
                     - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
                 - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
-- Verify device data is saved in the FHIR service as Observation resource(s) in Postman
-    - Run `Get Observation` API HTTP Requests in the `WTH FHIR` Postman collection::
-    - First, open `AuthorizeGetToken SetBearer` and confirm `WTH FHIR` environment is selected in the top-right `Environment` drop-down. 
-        - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
-    - Open `Get Observation` and click the `Send` button. This will return all patient's Observation resources stored in your FHIR service in the Response body.
-    - Search for the test device data ingested via Event Hub earlier is persisted in FHIR service as Obervation resource, i.e. sample Vital Signs data for Heart Rate.
+- Verify device data is saved in the FHIR service as Observation resource(s) using Postman
+    - Open Postman collection: `WTH FHIR` (imported in challenge 1)
+    - First, run `AuthorizeGetToken SetBearer` API request and confirm `WTH FHIR` environment is selected in the top-right `Environment` drop-down. 
+        - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable `bearerToken`.
+    - Run `Get Observation` API request and click the `Send` button. This will return all patients' Observation resources in the Response body.
+    - Search for the test device data persisted in the FHIR service as Obervation resource, i.e. sample Vital Signs data for Heart Rate.
     
-    **Note:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
+    **Hint:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
 
 
 
