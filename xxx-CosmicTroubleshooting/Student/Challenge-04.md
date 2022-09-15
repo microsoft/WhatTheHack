@@ -28,6 +28,14 @@ You will need to run the deployment script under the `/Challenge04/` folder of t
   # You will need to provide your user's Principal Id (objectId) in you Azure AD tenant
   .\deploy.ps1 
   ```
+- Bash:
+  ```
+  # Login to you Azure subscription via the Azure CLI
+  az login
+
+  # Run the deployment script
+  ./deploy.sh
+  ```
 
 ## Success Criteria
 
@@ -37,7 +45,7 @@ To complete this challenge successfully, you should be able to:
   - Azure Container Instance
   - Your Azure Cosmos DB account has an additional container named `clickstream`
   - Azure Key Vault
-- Demonstrate how you would be able to run Analytical queries over the data in the `clickstream` container without scaling up the container's RU/s
+- Show an Analytical query over the data collected in the `clickstream` container that runs without consuming the container's RU/s.
 
 ## Learning Resources
 

@@ -47,13 +47,12 @@ To be able to identify the required data points to help you formulate a plan to 
 ## Success Criteria
 
 To complete this challenge successfully:
-- Show that the Load Test successfully ran (even with errors - this might happen :) )
+- Show that the Load Test successfully ran (even with errors - this will probably happen :) )
 - Show a correct set-up of Diagnostics in Azure Cosmos DB
-- Show the current data model
+- Show the current data model as you have identified it
 - Show sample queries that where executed along with their associated RU cost
 - Show your findings and identify potential ways that could alleviate the various problems found.
-- Should you not change anything in the application, identify the scale factor the database would need to operate correctly.
-- Evaluate the user experience while the load test is running.
+- Should you not change anything in the application, identify the scale factor (in RU/s) the database would need to operate correctly.
 
 ## Learning Resources
 
