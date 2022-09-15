@@ -5,8 +5,8 @@ resource wthafw 'Microsoft.Network/azureFirewalls@2022-01-01' existing = {
   scope: resourceGroup('wth-rg-hub')
 }
 
-resource rtspoke2vms 'Microsoft.Network/routeTables@2022-01-01' = {
-  name: 'wth-rt-spoke2vmssubnet'
+resource rthubvms 'Microsoft.Network/routeTables@2022-01-01' = {
+  name: 'wth-rt-hubvmssubnet'
   location: location
   properties: {
     routes: [
@@ -20,12 +20,19 @@ resource rtspoke2vms 'Microsoft.Network/routeTables@2022-01-01' = {
         }
       }
       {
-        name: 'route-hubvnet-to-afw'
+        name: 'route-spoke1-to-afw'
         properties: {
-          addressPrefix: '10.0.0.0/16'
+          addressPrefix: '10.1.0.0/16'
           nextHopType: 'VirtualAppliance'
           nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
-
+        }
+      }
+            {
+        name: 'route-spoke2-to-afw'
+        properties: {
+          addressPrefix: '10.2.0.0/16'
+          nextHopType: 'VirtualAppliance'
+          nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
         }
       }
     ]

@@ -20,9 +20,9 @@ resource rtspoke2vms 'Microsoft.Network/routeTables@2022-01-01' = {
         }
       }
       {
-        name: 'route-hubvnet-to-afw'
+        name: 'route-hubvnet_vms-to-afw'
         properties: {
-          addressPrefix: '10.0.0.0/16'
+          addressPrefix: '10.0.10.0/24'
           nextHopType: 'VirtualAppliance'
           nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
 

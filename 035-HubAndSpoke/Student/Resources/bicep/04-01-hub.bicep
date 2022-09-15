@@ -16,6 +16,9 @@ param frontendPort int = 80
 @description('Application gateway Backend port')
 param backendPort int = 80
 
+@description('Secret identifier for AppGW TLS private key - ex: https://<keyvaultname>.vault.azure.net/secrets/<certname>/<certVersionId>')
+param appGWTLSSecretID string = 'https://wthotlxegowqsmac.vault.azure.net/secrets/wildcard/0de83a6671604affabc155af5bea1d7f'
+
 resource wthspoke1vmnic 'Microsoft.Network/networkInterfaces@2022-01-01' existing = {
   name: 'wth-nic-spoke1vm01'
   scope: resourceGroup('wth-rg-spoke1')
@@ -122,9 +125,9 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
     }
     sslCertificates: [
       {
-        name: 'wildcard_fcride_com'
+        name: 'wth_certificate'
         properties: {
-          keyVaultSecretId: 'https://wthotlxegowqsmac.vault.azure.net/secrets/wildcard/0de83a6671604affabc155af5bea1d7f'
+          keyVaultSecretId: appGWTLSSecretID
         }
       }
     ]
@@ -195,6 +198,15 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
           cookieBasedAffinity: cookieBasedAffinity
         }
       }
+      {
+        name: 'appGatewayBackendHttpSettingsSpokes'
+        properties: {
+          port: backendPort
+          protocol: 'Http'
+          cookieBasedAffinity: cookieBasedAffinity
+          path: '/'
+        }
+      }
     ]
     httpListeners: [
       {
@@ -220,14 +232,14 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
           }
           protocol: 'Https'
           sslCertificate: {
-            id: resourceId('Microsoft.Network/applicationGateways/sslCertificates', applicationGatewayName, 'wildcard_fcride_com')
+            id: resourceId('Microsoft.Network/applicationGateways/sslCertificates', applicationGatewayName, 'wth_certificate')
           }
         }
       }
     ]
     requestRoutingRules: [
       {
-        name: 'rule1'
+        name: 'requestRoutingRuleDefault'
         properties: {
           ruleType: 'Basic'
           httpListener: {
@@ -242,17 +254,17 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
         }
       }
       {
-        name: 'spokes'
+        name: 'requestRoutingRuleSpokes'
         properties: {
-          ruleType: 'Basic'
+          ruleType: 'PathBasedRouting'
           urlPathMap: {
-            id: resourceId('Microsoft.Network/applicationGateways/urlPathMaps', applicationGatewayName, 'spokes')
+            id: resourceId('Microsoft.Network/applicationGateways/urlPathMaps', applicationGatewayName, 'urlPathMapSpokes')
           }
           httpListener: {
             id: resourceId('Microsoft.Network/applicationGateways/httpListeners', applicationGatewayName, 'appGatewayHttpsListener')
           }
           backendAddressPool: {
-            id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', applicationGatewayName, 'appGatewayBackendPoolSpoke1')
+            id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', applicationGatewayName, 'appGatewayBackendPool')
           }
           backendHttpSettings: {
             id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', applicationGatewayName, 'appGatewayBackendHttpSettings')
@@ -262,10 +274,10 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
     ]
     urlPathMaps: [
       {
-        name: 'spokes'
+        name: 'urlPathMapSpokes'
         properties: {
           defaultBackendAddressPool: {
-            id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', applicationGatewayName, 'appGatewayBackendPoolSpoke1')
+            id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', applicationGatewayName, 'appGatewayBackendPool')
           }
           defaultBackendHttpSettings: {
             id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', applicationGatewayName, 'appGatewayBackendHttpSettings')
@@ -281,7 +293,7 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
                   id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', applicationGatewayName, 'appGatewayBackendPoolSpoke1')
                 }
                 backendHttpSettings: {
-                  id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', applicationGatewayName, 'appGatewayBackendHttpSettings')
+                  id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', applicationGatewayName, 'appGatewayBackendHttpSettingsSpokes')
                 }
               }
             }
@@ -295,7 +307,7 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
                   id: resourceId('Microsoft.Network/applicationGateways/backendAddressPools', applicationGatewayName, 'appGatewayBackendPoolSpoke2')
                 }
                 backendHttpSettings: {
-                  id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', applicationGatewayName, 'appGatewayBackendHttpSettings')
+                  id: resourceId('Microsoft.Network/applicationGateways/backendHttpSettingsCollection', applicationGatewayName, 'appGatewayBackendHttpSettingsSpokes')
                 }
               }
             }
@@ -303,5 +315,6 @@ resource applicationGateway 'Microsoft.Network/applicationGateways@2020-06-01' =
         }
       }
     ]
+    enableHttp2: true
   }
 }

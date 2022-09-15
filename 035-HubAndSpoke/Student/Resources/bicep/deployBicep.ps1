@@ -28,7 +28,12 @@ param (
     # Parameter help description
     [Parameter(Mandatory = $false)]
     [SecureString]
-    $vmPassword
+    $vmPassword,
+
+    # include to correct intentionally misconfigured resources (deployed as part of the challenge)
+    [Parameter(Mandatory = $false)]
+    [switch]
+    $correctedConfiguration
 )
 
 $ErrorActionPreference = 'Stop'
@@ -194,19 +199,38 @@ switch ($challengeNumber) {
     3 {
         Write-Host "Deploying resources for Challenge 3: Asymmetric Routes"
 
-        Write-Host "`tDeploying updated hub and spoke route configs..."
-        $jobs = @()
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./03-01-spoke1.bicep -TemplateParameterObject @{location = $location } -AsJob
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./03-01-spoke2.bicep -TemplateParameterObject @{location = $location } -AsJob
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./03-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
+        If (!$correctedConfiguration.IsPresent) {
+            Write-Host "`tDeploying updated hub and spoke route configs (intentionally misconfigured!)..."
+            $jobs = @()
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./03-01-spoke1.bicep -TemplateParameterObject @{location = $location } -AsJob
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./03-01-spoke2.bicep -TemplateParameterObject @{location = $location } -AsJob
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./03-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
 
-        $jobs | Wait-Job | Out-Null
+            $jobs | Wait-Job | Out-Null
 
-        # check for deployment errors
-        $jobs | Foreach-Object {
-            $job = $_
-            If ($job.Error) {
-                Write-Error "A hub or spoke configuration deployment experienced an error: $($job.error)"
+            # check for deployment errors
+            $jobs | Foreach-Object {
+                $job = $_
+                If ($job.Error) {
+                    Write-Error "A hub or spoke configuration deployment experienced an error: $($job.error)"
+                }
+            }
+        }
+        Else {
+            Write-Host "`tDeploying updated hub and spoke route configs (corrected configuration from original Challenge 3 design)..."
+            $jobs = @()
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./03-02-spoke1.bicep -TemplateParameterObject @{location = $location } -AsJob
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./03-02-spoke2.bicep -TemplateParameterObject @{location = $location } -AsJob
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./03-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
+
+            $jobs | Wait-Job | Out-Null
+
+            # check for deployment errors
+            $jobs | Foreach-Object {
+                $job = $_
+                If ($job.Error) {
+                    Write-Error "A hub or spoke configuration deployment experienced an error: $($job.error)"
+                }
             }
         }
     }
