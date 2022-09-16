@@ -235,7 +235,7 @@ switch ($challengeNumber) {
         }
     }
     4 {
-        Write-Host "Deploying resources for Challenge 4: Application Gatway"
+        Write-Host "Deploying resources for Challenge 4: Application Gateway"
 
         Write-Host "`tDeploying App GW configs..."
         $jobs = @()
@@ -253,7 +253,31 @@ switch ($challengeNumber) {
             }
         }
     }
-    5 {}
+    5 {
+        Write-Host "Deploying resources for Challenge 5: PaaS Networking"
+
+        Write-Host "`tDeploying PaaS resources..."
+
+        $adminUser = Get-AzAdUser -SignedIn
+        $adminUserLogin = $adminUser.UserPrincipalName
+        $adminUserSid = $adminUser.Id
+
+        $jobs = @()
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./05-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./05-01-spoke1.bicep -TemplateParameterObject @{location = $location; adminUserLogin = $adminUserLogin; adminUserSid = $adminUserSid } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./05-01-spoke2.bicep -TemplateParameterObject @{location = $location; adminUserLogin = $adminUserLogin; adminUserSid = $adminUserSid } -AsJob
+
+
+        $jobs | Wait-Job | Out-Null
+
+        # check for deployment errors
+        $jobs | Foreach-Object {
+            $job = $_
+            If ($job.Error) {
+                Write-Error "A hub or spoke configuration deployment experienced an error: $($job.error)"
+            }
+        }
+    }
     6 {}
 }
 
