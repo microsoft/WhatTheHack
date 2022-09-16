@@ -1,6 +1,6 @@
 # Challenge 04 - Introduce a High Availability with Central Network Virtual Appliances
 
-[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
 
 ## Introduction
