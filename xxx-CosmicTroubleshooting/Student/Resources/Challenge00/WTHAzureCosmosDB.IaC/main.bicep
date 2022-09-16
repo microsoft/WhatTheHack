@@ -10,6 +10,9 @@ param productsContainerName string
 @description('The name for the container')
 param shipmentContainerName string
 
+@description('The name for the proxy func app')
+param proxyFuncAppName string
+
 @description('Partition key field')
 param partKey string
 
@@ -27,6 +30,7 @@ var webSiteName = toLower('web-${webAppName}-${uniquePostfix}')
 var appInsightsName = toLower('appins-${webAppName}-${uniquePostfix}')
 var cosmosdbaccountname = 'cosmosdb-sql-${uniquePostfix}'
 var loadTestingName = toLower('loadtesting-${webAppName}-${uniqueString(rg.id)}')
+var proxyFuncName = toLower('backend-${proxyFuncAppName}-${uniquePostfix}')
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
@@ -63,7 +67,7 @@ module cosmosDb 'modules/cosmosdb-products.bicep' = {
 module appPlan 'modules/webapp.bicep' = {
   name: 'webAppDeploy'
   dependsOn: [
-    msiAppPlan
+    msiAppPlan, proxyFunctionApp
   ]
   params: {
     location: location
@@ -78,6 +82,8 @@ module appPlan 'modules/webapp.bicep' = {
     cosmosDBShipmentContainerId: shipmentContainerName
     loadTestingDataPlaneEndpoint: 'https://${loadTesting.outputs.loadtestingNameDataPlaneUri}'
     loadTestId: guid(rg.id, 'loadtest')
+    proxyFuncAppHostname: proxyFunctionApp.outputs.hostname
+    proxyFuncAppKey: proxyFunctionApp.outputs.functionKey
   }
   scope: rg
 }
@@ -94,8 +100,21 @@ module loadTesting 'modules/load-testing.bicep' = {
 }
 
 
+module proxyFunctionApp 'modules/functionapp.bicep' = {
+  name: 'proxyFuncDeploy'
+  params: {
+    location: location
+    appName: proxyFuncName
+    appInsightsLocation: location
+    runtime: 'dotnet'
+    storageAccountType: 'Standard_LRS'
+  }
+  scope: rg
+}
+
 
 output webAppName string = webSiteName
+output webAppHostname string = appPlan.outputs.hostname
 output cosmosDbAccountEndpoint string = cosmosDb.outputs.accountEndpoint
 output cosmosDbConnectionString string = cosmosDb.outputs.connString
 
@@ -105,3 +124,8 @@ output loadtestingId string = loadTesting.outputs.loadtestingId
 output loadTestingDataPlaneUri string = loadTesting.outputs.loadtestingNameDataPlaneUri
 output loadTestingNewTestId string = loadTestingNewTestId
 output loadTestingNewTestFileId string = loadTestingNewTestFileId
+
+
+output proxyFuncAppName string = proxyFuncName
+output proxyFuncHostname string = proxyFunctionApp.outputs.hostname
+output proxyFuncKey string = proxyFunctionApp.outputs.functionKey

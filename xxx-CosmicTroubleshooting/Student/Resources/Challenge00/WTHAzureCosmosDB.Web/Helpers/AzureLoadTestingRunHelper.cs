@@ -38,10 +38,12 @@ namespace WTHAzureCosmosDB.Web.Helpers
         }
 
 
-        public async Task<HttpResponseMessage> CreateNewTestRunAsync(string altDataPlaneEndpoint, string testId, string accessToken, IDictionary<string, string> envVariables, IDictionary<string, string> secrets, string displayName, string description)
+        public async Task<HttpResponseMessage> CreateNewTestRunAsync(string altDataPlaneEndpoint, string testId, string accessToken, IDictionary<string, string> envVariables, IDictionary<string, string> secrets, string displayName, string description, Guid? newTestRunId = null)
         {
-            var newTestRunId = Guid.NewGuid();
-
+            if (newTestRunId == null)
+            {
+                newTestRunId = Guid.NewGuid();
+            }
 
             var requestBody = new
             {
@@ -74,6 +76,22 @@ namespace WTHAzureCosmosDB.Web.Helpers
             var response = await _httpClient.PatchAsync(url, content);
 
             return response;
+        }
+
+        public async Task<string> GetLastTestRunStatusAsync(string altDataPlaneEndpoint, string testRunId, string accessToken)
+        {
+            //get info about test
+            var url = $"{altDataPlaneEndpoint}/testruns/{testRunId}?api-version=2022-06-01-preview";
+
+            _httpClient.DefaultRequestHeaders.Clear();
+
+            _httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var response = await _httpClient.GetAsync(url);
+            
+            return await response.Content.ReadAsStringAsync();
+
         }
     }
 }

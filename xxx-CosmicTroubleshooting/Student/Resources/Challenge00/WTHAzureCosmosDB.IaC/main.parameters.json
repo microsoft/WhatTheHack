@@ -8,6 +8,9 @@
     "databaseName": {
       "value": "wth-cosmos"
     },
+    "proxyFuncAppName": {
+      "value": "proxy-func"
+    },
     "productsContainerName": {
       "value": "products"
     },

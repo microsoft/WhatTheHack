@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using WTHAzureCosmosDB.Models;
 using WTHAzureCosmosDB.Web.Helpers;
 using WTHAzureCosmosDB.Repositories;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,7 @@ builder.Services.AddSingleton<ICosmosDbService<Product>>(
         var accountEndpoint = builder.Configuration.GetValue<string>("Cosmos:AccountEndpoint");
         var tokenCredential = new Azure.Identity.DefaultAzureCredential();
         var database = builder.Configuration.GetValue<string>("Cosmos:Database");
-        var container = builder.Configuration.GetValue<string>("Cosmos:CollectionName");        
+        var container = builder.Configuration.GetValue<string>("Cosmos:CollectionName");
         var connectionString = builder.Configuration.GetValue<string>("Cosmos:ConnectionString");
         Microsoft.Azure.Cosmos.CosmosClient client;
 
@@ -66,7 +67,7 @@ builder.Services.AddSingleton<ICosmosDbService<CustomerOrder>>(
         var accountEndpoint = builder.Configuration.GetValue<string>("Cosmos:AccountEndpoint");
         var tokenCredential = new Azure.Identity.DefaultAzureCredential();
         var database = builder.Configuration.GetValue<string>("Cosmos:Database");
-        var container = builder.Configuration.GetValue<string>("Cosmos:CollectionName");        
+        var container = builder.Configuration.GetValue<string>("Cosmos:CollectionName");
         var connectionString = builder.Configuration.GetValue<string>("Cosmos:ConnectionString");
         Microsoft.Azure.Cosmos.CosmosClient client;
 
@@ -90,7 +91,7 @@ builder.Services.AddSingleton<ICosmosDbService<Shipment>>(
         var accountEndpoint = builder.Configuration.GetValue<string>("Cosmos:AccountEndpoint");
         var tokenCredential = new Azure.Identity.DefaultAzureCredential();
         var database = builder.Configuration.GetValue<string>("Cosmos:Database");
-        var container = builder.Configuration.GetValue<string>("Cosmos:ShipmentCollectionName");        
+        var container = builder.Configuration.GetValue<string>("Cosmos:ShipmentCollectionName");
         var connectionString = builder.Configuration.GetValue<string>("Cosmos:ConnectionString");
         Microsoft.Azure.Cosmos.CosmosClient client;
 
@@ -107,6 +108,8 @@ builder.Services.AddSingleton<ICosmosDbService<Shipment>>(
         return service;
     }
 );
+
+builder.Services.AddSingleton(typeof(MemoryCache), new MemoryCache(new MemoryCacheOptions() { }));
 
 // The following line enables Application Insights telemetry collection.
 builder.Services.AddApplicationInsightsTelemetry();

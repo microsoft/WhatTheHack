@@ -40,7 +40,7 @@ output=$(az deployment sub create \
   --location $location \
   --template-file "WTHAzureCosmosDB.IaC/main.bicep" \
   --parameters @$parametersfilename)
-
+  
 
 originDir=$PWD
 
@@ -55,6 +55,22 @@ webAppName=`echo $output | jq -r '.properties.outputs.webAppName.value'`
 suppressOutput=$(az webapp deployment source config-zip -g $RG_NAME -n $webAppName --src "./deploy.zip")
 rm "./deploy.zip"
 cd $originDir
+
+
+
+echo "Building and publishing proxy func app solution"
+# Build and publish the solution
+cd "./WTHAzureCosmosDB.ProxyFuncApp"
+dotnet publish "WTHAzureCosmosDB.ProxyFuncApp.csproj" -c "Release" -clp:ErrorsOnly
+cd "./bin/Release/net6.0/publish/"
+zip -r deploy.zip *
+
+# Publish the web app to azure and clean up
+funcProxyAppName=`echo $output | jq -r '.properties.outputs.proxyFuncAppName.value'`
+suppressOutput=$(az functionapp deployment source config-zip -g $RG_NAME -n $funcProxyAppName --src "./deploy.zip")
+rm "./deploy.zip"
+cd $originDir
+
 
 
 cd  "./WTHAzureCosmosDB.Console"
@@ -208,3 +224,6 @@ echo ""
 echo ""
 echosuccess "The deployment has been completed."
 echo ""
+
+webUrl=`echo $bicepDeploymentOutputs | jq -r '.webAppHostname.value'`
+echo "Website is available on https://$webUrl"

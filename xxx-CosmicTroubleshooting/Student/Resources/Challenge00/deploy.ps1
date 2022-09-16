@@ -41,7 +41,20 @@ $zipPath = Get-Item .\deploy.zip | % { $_.FullName }
 $suppressOutput = Publish-AzWebApp -ArchivePath $zipPath -Name $output.Outputs.webAppName.Value -ResourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]} -Force
 Remove-Item deploy.zip
 
-Set-Location .\WTHAzureCosmosDB.Console
+
+echo "Building and publishing proxy func app solution"
+# Build and publish the solution
+cd "./WTHAzureCosmosDB.ProxyFuncApp"
+dotnet publish "WTHAzureCosmosDB.ProxyFuncApp.csproj" -c "Release" -clp:ErrorsOnly
+Compress-Archive -Path .\bin\Release\net6.0\publish\* deploy.zip -Force
+
+# Publish the web app to azure and clean up
+$zipPath = Get-Item .\deploy.zip | % { $_.FullName }
+$suppressOutput = Publish-AzWebApp -ArchivePath $zipPath -Name $output.Outputs.proxyFuncAppName.Value -ResourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]} -Force
+Remove-Item deploy.zip
+
+
+Set-Location ..\WTHAzureCosmosDB.Console
 # Seed the database
 if ($seedDatabase) {
     Write-Host "Seeding the Azure Cosmos DB database with data"

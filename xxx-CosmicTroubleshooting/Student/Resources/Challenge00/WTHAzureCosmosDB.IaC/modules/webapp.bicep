@@ -11,6 +11,8 @@ param cosmosDBProductsContainerId string
 param cosmosDBShipmentContainerId string
 param loadTestingDataPlaneEndpoint string
 param loadTestId string
+param proxyFuncAppHostname string
+param proxyFuncAppKey string
 
 var appSettings = [
   {
@@ -48,6 +50,14 @@ var appSettings = [
   {
     name: 'LOADT_TEST_ID'
     value: loadTestId
+  }
+  {
+    name: 'PROXY_FUNC_HOSTNAME'
+    value: proxyFuncAppHostname
+  }
+  {
+    name: 'PROXY_FUNC_KEY'
+    value: proxyFuncAppKey
   }
 ]
 
@@ -90,3 +100,6 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
     IngestionMode: 'ApplicationInsightsWithDiagnosticSettings'
   }
 }
+
+
+output hostname string = appService.properties.hostNames[0]
