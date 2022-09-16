@@ -13,41 +13,18 @@ This challenge builds up on a traditional Hub and Spoke topology introducing Azu
 - Understand Azure Route Server Route Exchange with On Premises and SDWAN. 
 - Understand Azure Route Server Route Exchange with High Availability.
 
-
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Building a Basic Hub and Spoke Topology utilizing a central Network Virtual Appliance](Student/Challenge-01.md)**
-	 - Description of challenge
+	 - Warming up
 - Challenge 02: **[Introduce Azure Route Server and peer with a Network Virtual appliance.](Student/Challenge-02.md)**
-	 - Description of challenge
+	 - Azure Route Server basic concepts, interaction with NVAs
 - Challenge 03: **[Connect Network Virtual Appliance to an SDWAN environment](Student/Challenge-03.md)**
-	 - Description of challenge
+	 - Azure Route Server interaction with Virtual Network Gateways (VPN or ExpressRoute)
 - Challenge 04: **[Introduce a High Availability with Central Network Virtual Appliances](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](Student/Challenge-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](Student/Challenge-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](Student/Challenge-15.md)**
-	 - Description of challenge
+	 - High Availability concepts
 
 ## Prerequisites
 
