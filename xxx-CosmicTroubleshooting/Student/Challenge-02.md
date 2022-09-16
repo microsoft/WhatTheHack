@@ -14,10 +14,10 @@ Lastly, you will compare your previous findings on performance/cost with the new
 
 ## Success Criteria
 
-To complete this challenge successfully, you should be able to:
-- Define a plan to apply a new data model that minimizes downtime for the application.
-- Implement the data model change as well as the application code to the advantage of the improvements.
-- Present how the new design has optimized the database and application performance and cost.
+To complete this challenge successfully:
+- You should present your plan to apply a new data model that minimizes downtime for the application.
+- You should implement the actions in your plan so that the data model is reflected in the Azure Cosmos DB database as well application code changes to the advantage of the improvements.
+- Present how the new design has optimized the database and application performance and cost. Refer to your previous findings and sample queries. What is the associated cost after your changes?
 
 ## Learning Resources
 

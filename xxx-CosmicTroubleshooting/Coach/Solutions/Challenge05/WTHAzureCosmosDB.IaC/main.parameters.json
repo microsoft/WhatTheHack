@@ -30,10 +30,10 @@
       "value": "rg-wth-azurecosmosdb"
     },
     "primaryCosmosDbAccountLocation": {
-      "value": "EastUS"
+      "value": "eastus"
     },
     "secondaryCosmosDbAccountLocation": {
-      "value": "WestEurope"
+      "value": "westeurope"
     }
   }
 }
