@@ -4,14 +4,15 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.1",
-    "chalk": "^2.4.1",
-    "lodash": "^4.17.10",
-    "mongoose": "^5.1.4"
+    "async": "^2.6.3",
+    "chalk": "^2.4.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.7"
   }
 }

@@ -7,9 +7,9 @@
     "start": "node ./server.js"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "chalk": "^2.4.1",
-    "express": "^4.14.0",
-    "mongoose": "^5.1.4"
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7"
   }
 }
