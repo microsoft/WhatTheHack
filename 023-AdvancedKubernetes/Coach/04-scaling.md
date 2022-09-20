@@ -32,11 +32,11 @@ az aks nodepool update --cluster-name $CLUSTER_NAME -g $RESOURCE_GROUP \
 
 Open AKS resource. Select "Node pools" on the left bar. Find the user nodepool and select the menu on the right side (three dots). Set scale method to "autoscale".
 
-![Nodepool scaling from portal](img/scale-portal.png)
+![Nodepool scaling from portal](./Solutions/img/scale-portal.png)
 
 ### Create a deployment and service using the container image `k8s.gcr.io/hpa-example`
 
-Create a yaml file similar to the one [here](../Resources/04-scaling/hpa-example.yaml).
+Create a yaml file similar to the one [here](./Solutions/04-scaling/hpa-example.yaml).
 
 ```yaml
 apiVersion: apps/v1

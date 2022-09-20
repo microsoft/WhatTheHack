@@ -20,12 +20,11 @@ Check the number of pods running
 kubectl get pods
 ```
 
-Manually scale up the deployment if necessary
+Modify the replicaCount in the values.yaml to 3
 
-```bash
-kubectl scale --replicas=3 deployment/myapp
+```yaml
+replicaCount: 3
 ```
-
 ### Update the readiness and liveness probes
 
 Modify the deployment.yaml file:
