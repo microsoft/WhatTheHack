@@ -55,7 +55,7 @@ If ( -NOT ($azContext = Get-AzContext)) {
     throw "Run 'Connect-AzAccount' before executing this script!"
 }
 Else {
-    do { $response = (Read-Host "Resources will be created in subscription '$($azContext.Subscription.Name)'. If this is not the correct subscription, use 'Select-AzSubscription' before running this script. Proceed? (y/n)") }
+    do { $response = (Read-Host "Resources will be created in subscription '$($azContext.Subscription.Name)' in region '$location'. If this is not the correct subscription, use 'Select-AzSubscription' before running this script and specify an alternate location with the -Location parameter. Proceed? (y/n)") }
     until ($response -match '[nNYy]')
 
     If ($response -match 'nN') { exit }

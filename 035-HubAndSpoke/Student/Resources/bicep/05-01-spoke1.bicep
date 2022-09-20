@@ -21,7 +21,6 @@ resource sqlServer 'Microsoft.Sql/servers@2021-11-01' = {
       login: adminUserLogin
       sid: adminUserSid
       tenantId: tenant().tenantId
-      azureADOnlyAuthentication: true
     }
   }
 }

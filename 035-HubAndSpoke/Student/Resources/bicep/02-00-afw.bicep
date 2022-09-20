@@ -25,9 +25,13 @@ resource wthafwpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
 }
 
 resource wthafwpolicy 'Microsoft.Network/firewallPolicies@2022-01-01' = {
-  name: 'wth-fwp-default01'
+  name: 'wth-fwp-premium01'
   location: location
-  properties: {}
+  properties: {
+    sku: {
+      tier: 'Premium'
+    }
+  }
 }
 
 resource wthafw 'Microsoft.Network/azureFirewalls@2022-01-01' = {
