@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const chalk = require('chalk');
 
 const port = 3001;
-mongoose.connect(config.appSettings.db, function(err) {
+mongoose.connect(config.appSettings.db, { useNewUrlParser: true, useUnifiedTopology: true }, function (err) {
     if (err) {
         console.error(chalk.red('Could not connect to MongoDB!'));
         console.log(chalk.red(err));
@@ -23,7 +23,7 @@ require('./models/speakers.model');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
@@ -34,7 +34,7 @@ const routes = require('./routes');
 routes(app);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     const err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.send({
             message: err.message,
@@ -56,7 +56,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.send({
         message: err.message,
