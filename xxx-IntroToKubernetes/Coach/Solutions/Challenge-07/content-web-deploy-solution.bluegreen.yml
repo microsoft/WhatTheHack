@@ -23,6 +23,7 @@ spec:
             memory: 128Mi
         ports:
         - containerPort: 3000
+        imagePullPolicy: Always
         env:
         - name: CONTENT_API_URL
           value: "http://content-api:3001"

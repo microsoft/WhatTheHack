@@ -21,6 +21,7 @@ spec:
           requests:
             cpu: 500m
             memory: 128Mi
+        imagePullPolicy: Always
         ports:
         - containerPort: 3001
         env:
