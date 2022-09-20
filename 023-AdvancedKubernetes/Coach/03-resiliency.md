@@ -22,7 +22,7 @@ kubectl get pods
 
 Modify the replicaCount in the values.yaml to 3
 
-```bash
+```yaml
 replicaCount: 3
 ```
 ### Update the readiness and liveness probes
