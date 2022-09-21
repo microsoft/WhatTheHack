@@ -1,5 +1,7 @@
 # Challenge 03 - Extracting Order Data Using AI Builder
 
+[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
+
 ## Pre-requisites
 
 	· An account with access to Power Automate
