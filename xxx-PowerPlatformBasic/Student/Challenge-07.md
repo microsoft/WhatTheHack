@@ -1,5 +1,6 @@
 # Challenge 07 - Optional Power BI Reporting and Integration
 
+[< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
 ## Pre-requisites (Optional)
 
