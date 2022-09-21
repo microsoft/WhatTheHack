@@ -1,4 +1,4 @@
-# Challenge 08 - Optional PVA Chatbot
+# Challenge 08 - PVA Chatbot (optional)
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
