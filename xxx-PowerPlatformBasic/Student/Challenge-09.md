@@ -1,4 +1,4 @@
-# Challenge 09 - Application Lifecycle Maangement
+# Challenge 09 - Application Lifecycle Maangement (optional)
 
 [< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-10.md)
 
