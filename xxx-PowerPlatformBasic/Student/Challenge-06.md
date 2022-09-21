@@ -1,5 +1,6 @@
 # Challenge 06 - Optional Teams Integration
 
+[< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 ## Pre-requisites (Optional)
 
