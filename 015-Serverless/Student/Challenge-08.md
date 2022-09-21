@@ -1,11 +1,12 @@
-# Challenge 8 - Data Export Workflow
+# Challenge 08 - Data Export Workflow
 
-## Prerequisities
-
-1. [Challenge 7 - Monitoring](./07-Monitoring.md) should be done successfuly.
+[< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)**
 
 ## Introduction
+
 In this challenge, you create a new Logic App for your data export workflow. This Logic App will execute periodically and call your ExportLicensePlates function, then conditionally send an email if there were no records to export.
+
+## Description
 
 1. Create a logic app
     * Name : Similar to TollboothLogic
@@ -37,19 +38,16 @@ In this challenge, you create a new Logic App for your data export workflow. Thi
     await blob.UploadFromStreamAsync(stream);
  ```
  8. Publish to Azure
- 9. Run the Logic App.  This time, the condition should be true.
+ 9. In your App Azure Function, add `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true` in the application settings.
+ 10. Run the Logic App.  This time, the condition should be true.
 
 
 ## Success Criteria
+
 1. The first execution of the logic app has executed successfully and you have received an email from your Logic App
 2. The first execution of the logic app has executed successfully and you have data in your export container
 
-## Tips
+## Learning Resources
 
-|                                      |                                                                                                                 |
-| ------------------------------------ | :-------------------------------------------------------------------------------------------------------------: |
-| **Description**                      |                                                    **Links**                                                    |
-| What are Logic Apps?                 |                  <https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps>                   |
-| Call Azure Functions from logic apps | <https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-functions#call-azure-functions-from-logic-apps> |
-|                                      |                                                                                                                 |
-
+- [What are Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)
+- [Call Azure Functions from logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-functions#call-azure-functions-from-logic-apps)

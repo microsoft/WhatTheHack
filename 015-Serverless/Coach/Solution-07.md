@@ -1,6 +1,9 @@
-# Challenge 7 - Monitoring
+# Challenge 07 - Monitoring - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07A.md)
+
+## Notes & Guidance
+
 The App insights can be created in new or old functions portal.  In new, Instrumentation key is not needed.  In old, the key will need to be added to the app settings.
 
 For edits to the App.config, the following will need to be added:
@@ -17,13 +20,8 @@ If students still get a storage account error, then they need to add the connect
 
 ### Help references
 
-
-|                                                               |                                                                                  |
-| ------------------------------------------------------------- | :------------------------------------------------------------------------------: |
-| **Description**                                               |                                    **Links**                                     |
-| Monitor Azure Functions using Application Insights            |     <https://docs.microsoft.com/azure/azure-functions/functions-monitoring>      |
-| Live Metrics Stream: Monitor & Diagnose with 1-second latency | <https://docs.microsoft.com/azure/application-insights/app-insights-live-stream> |
-
+- [Monitor Azure Functions using Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Live Metrics Stream: Monitor & Diagnose with 1-second latency](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)
 
 ### Task 1: Provision an Application Insights instance
 

@@ -1,17 +1,16 @@
-# Challenge 8 - Data Export Workflow
+# Challenge 08 - Data Export Workflow - Coach's Guide 
 
-## Coach's Notes
+[< Previous Solution](./Solution-07B.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
+
+## Notes & Guidance
+
 None
 
 ## Step by Step Instructions
 
+- [What are Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)
+- [Call Azure Functions from logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-functions)
 
-|                                      |                                                                                                                 |
-| ------------------------------------ | :-------------------------------------------------------------------------------------------------------------: |
-| **Description**                      |                                                    **Links**                                                    |
-| What are Logic Apps?                 |                  <https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps>                   |
-| Call Azure Functions from logic apps | <https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-functions> |
-|                                      |                                                                                                                 |
 ### Task 1: Create the Logic App
 
 1.  Navigate to the Azure Management portal, <http://portal.azure.com>.

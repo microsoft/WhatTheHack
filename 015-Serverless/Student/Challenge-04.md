@@ -1,13 +1,12 @@
-# Challenge 4 - Configuration
+# Challenge 04 - Configuration
 
-## Prerequisities
-
-1. [Challenge 3 - Create Resources](./03-CreateResources.md) should be done successfuly.
-
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
 
 In this challenge, you will apply application settings using the Microsoft Azure Portal. You will then add the application settings to the TollBooth Starter Project.
+
+## Description
 
 1. Add the application settings in the **first** function app (with name containing &quot;App&quot;) you created as follows:
 
@@ -24,8 +23,8 @@ In this challenge, you will apply application settings using the Microsoft Azure
 | exportCsvContainerName | Blob storage CSV export container name (export) |
 | blobStorageConnection | blobStorageConnection from Key Vault |
  
-2. Open the Tollbooth solution in Visual Studio Code.
-3. Open the task list
+2. Open the Tollbooth folder in Visual Studio Code.
+3. Open the Todo Tree Extension
 4. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
 5.  The following code represents the completed task in ProcessImage.cs:
@@ -57,17 +56,13 @@ await Send("savePlateData", "TollBooth/CustomerService", data);
 await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
 
+
 ## Success Criteria
+
 1. The solution successfully builds
 2. The function app does not show any errors
 
-## Tips
+## Learning Resources
 
-
-|                                       |                                                                        |
-| ------------------------------------- | :--------------------------------------------------------------------: |
-| **Description**                       |                               **Links**                                |
-| Code and test Azure Functions locally | <https://docs.microsoft.com/azure/azure-functions/functions-run-local> |
-| How to add Application Settings to Azure Function | <https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings> |
-
-[Next challenge (Deployment) >](./05-Deployment.md)
+- [Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
+- [How to add Application Settings to Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
