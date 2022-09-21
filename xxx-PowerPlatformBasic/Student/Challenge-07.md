@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 Before you build your Power BI report ensure:
 	· At least one attendee should have the Power BI desktop app
