@@ -1,5 +1,6 @@
 # Challenge 05 - Build a Power App
 
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Pre-requisites
 
