@@ -1,5 +1,7 @@
 # Challenge 04 - Approval Process
 
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
+
 ## Pre-requisites
 
 Before you can use Approval Process in Power Automate, you need:
