@@ -18,7 +18,7 @@ Your challenge is to migrate all your work from the previous challenges from you
 
 While importing your solution file, rename the canvas app to include your team number and specify the test environment. (e.g. Tailspin Toys – Team 2 – Test).
 
-_Tip: Remember to publish all customizations after importing your solution into your production environment.
+- Tip: Remember to publish all customizations after importing your solution into your production environment.
 
 ## Success Criteria
 
