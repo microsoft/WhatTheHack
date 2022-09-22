@@ -28,12 +28,13 @@ Information:
 - Transform the data to include the Age of the student in the Contact table
 - Create necessary relationships between the tables
 - Build 4 of the 5 visualizations below in your report that show the following information:
-		○ Xx
-		○ Xx
-		○ xx
-	· Save your report and publish it to your OpenHack Team's workspace in the Power BI Service to share with your other team members.
-	· Create a new Dashboard and pin the 4 report visualizations to it.
-	· Embed all the Power BI dashboard visualizations in the analytics screen of your canvas app
+	- Xx
+	- Xx
+	- Xx
+	- Xx
+- Save your report and publish it to your OpenHack Team's workspace in the Power BI Service to share with your other team members.
+- Create a new Dashboard and pin the 4 report visualizations to it.
+- Embed all the Power BI dashboard visualizations in the analytics screen of your canvas app
 
 
 ## Success Criteria
