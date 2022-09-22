@@ -14,11 +14,11 @@ In this challenge learners will discuss the value of automation, synergizing aut
 
 ## Description
 
-	1. Volume coming into the shared mailbox is too much to be monitored and handled completely by the order processing team. What are some ways that the low code platform could provide solutions?
-	2. Implement a solution to monitor the inbound emails.
-	3. Now that we have a system in place to monitor the traffic, we need to manage it and document it. Create an entry in a record keeping system to document the emails and generate an order number.
-	4. Verify that the order has been received by send the order number back to the customer. 
-	5. Questions to consider: How might something like automatically generating an order number and sending it to the customer benefit your process and customer satisfaction? What are some potential pitfalls of providing this kind of transparency in the fulfillment process? How might we improve the process to account for these?
+- Volume coming into the shared mailbox is too much to be monitored and handled completely by the order processing team. What are some ways that the low code platform could provide solutions?
+- Implement a solution to monitor the inbound emails.
+- Now that we have a system in place to monitor the traffic, we need to manage it and document it. Create an entry in a record keeping system to document the emails and generate an order number.
+- Verify that the order has been received by send the order number back to the customer. 
+- Questions to consider: How might something like automatically generating an order number and sending it to the customer benefit your process and customer satisfaction? What are some potential pitfalls of providing this kind of transparency in the fulfillment process? How might we improve the process to account for these?
 	
 Bonus Challenge: Responsiveness to customers is key to success. How can your solution be extended to improve communicate with your customers? 
 
