@@ -8,9 +8,12 @@ This is the only section you need to include.
 
 Use general non-bulleted text for the beginning of a solution area for this challenge
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+- Power Platform is more than just Canvas Apps
+- Create an Order table
+- Create an Order Line Item table
+- Read email subject for "Order"
+- Enhance with notifications
+
 
 Break things apart with more than one bullet list
 
