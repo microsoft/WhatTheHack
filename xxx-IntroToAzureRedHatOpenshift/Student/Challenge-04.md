@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
-In the last challenge, we discovered that our application is not connected to any database, so in this challenge, we will be learning how to deploy a MongoDB database onto ARO so that our application can have persistent data.
+In the previous challenge, we discovered that our application is not connected to any database, so in this challenge, we will be learning how to deploy a MongoDB database onto ARO so that our application can have persistent data.
 
 ## Description
 In this challenge we will deploy MongoDB database service. We will be doing this by deploying a container image from Docker Hub. 
@@ -27,5 +27,5 @@ To complete this challenge successfully, you should be able to:
 - Identify the `rating-api` service's hostname and have it written down or stored somewhere for the next challenge
 
 ## Learning Resources
-- [Using the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#cli-using-cli_cli-developer-commands)
 - [Images on ARO](https://docs.openshift.com/container-platform/4.11/openshift_images/index.html)
+- [Using the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#cli-using-cli_cli-developer-commands)

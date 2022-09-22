@@ -8,7 +8,7 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 
 ## Learning Objectives
 
-[**Needs to change: In this hack you learn how to use Azure Redhat Openshift. You will take a simple multi-tiered web app and deploy it to an ARO cluster. Once the application is in ARO, you will learn how to tweak all the knobs and levers to scale, manage and monitor it as well as integrate it with Azure.
+In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a simple multi-tiered web app and deploy it to an ARO cluster. Once the application is in ARO, you will learn how to tweak all the knobs and levers to scale, manage and monitor it as well as integrate it with Azure.
 
 1. Deploy an ARO cluster and deploy applications to it
 2. Understand key ARO management areas: monitoring, storage, networking, scaling, and Azure service operators
@@ -30,7 +30,7 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 - Challenge 06: **[Networking](Student/Challenge-06.md)**
 	 - Secure cluster traffic between pods using network policies
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**
-	 - Scaling the frontend and backend applications
+	 - Scale the frontend and backend applications
 - Challenge 08: **[Azure Service Operators](Student/Challenge-08.md)**
 	 - Connect the ARO cluster to Azure services
 - Challenge 09: **[Azure Key Vault Integration](Student/Challenge-09.md)**

@@ -13,25 +13,25 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[ARO Cluster Deployment](./Solution-01.md)**
-	 - Description of challenge
+	 - Deploy an ARO cluster and access it using CLI and the Red Hat Portal
 - Challenge 02: **[Application Deployment](./Solution-02.md)**
-	 - Description of challenge
+	 - Deploy the frontend and backend of an application onto the ARO cluster
 - Challenge 03: **[Logging and Metrics](./Solution-03.md)**
-	 - Description of challenge
+	 - View application logs to identify application errors
 - Challenge 04: **[Storage](./Solution-04.md)**
-	 - Description of challenge
+	 - Deploy a MongoDB database service to address application errors
 - Challenge 05: **[Configuration](./Solution-05.md)**
-	 - Description of challenge
+	 - Configure the frontend and backend applications
 - Challenge 06: **[Networking](./Solution-06.md)**
-	 - Description of challenge
+	 - Secure cluster traffic between pods using network policies
 - Challenge 07: **[Scaling](./Solution-07.md)**
-	 - Description of challenge
+	 - Scale the frontend and backend applications
 - Challenge 08: **[Azure Service Operators](./Solution-08.md)**
-	 - Description of challenge
+	 - Connect the ARO cluster to Azure services
 - Challenge 09: **[Azure Key Vault Integration](./Solution-09.md)**
-	 - Description of challenge
+	 - Use Azure Key Vault in the backend application
 - Challenge 10: **[Azure Active Directory Integration](./Solution-10.md)**
-	 - Description of challenge
+	 - Provide authentication to your ARO Web Console
 - Challenge 11: **[Title of Challenge](./Solution-11.md)**
 	 - Description of challenge
 - Challenge 12: **[Title of Challenge](./Solution-12.md)**
