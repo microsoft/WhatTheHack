@@ -4,8 +4,8 @@
 
 ## Pre-requisites
 
-	· An account with access to Power Automate
-	· A trained AI Builder model or an AI Builder prebuilt model.
+- An account with access to Power Automate
+- A trained AI Builder model or an AI Builder prebuilt model.
 
 ## Introduction
 
@@ -28,23 +28,23 @@ Once the model is set up properly and extracted information as expected, integra
 
 ## Success Criteria
 
-	· Verify that the Model extracts information from the Order form properly
-	· Demonstrate that the Model can be integrated with Power Automate flow that we built in Challenge 2
+- Verify that the Model extracts information from the Order form properly
+- Demonstrate that the Model can be integrated with Power Automate flow that we built in Challenge 2
 
 ## Learning Resources
 
-	· AI models and business scenarios - AI Builder | Microsoft Docs
-	· Invoice processing prebuilt AI model - AI Builder | Microsoft Docs
-	· Overview of document processing model - AI Builder | Microsoft Docs
-	· Use the document processing model in Power Automate - AI Builder | Microsoft Docs
-	· Use the form processor component in Power Apps - AI Builder | Microsoft Docs
+- AI models and business scenarios - AI Builder | Microsoft Docs
+- Invoice processing prebuilt AI model - AI Builder | Microsoft Docs
+- Overview of document processing model - AI Builder | Microsoft Docs
+- Use the document processing model in Power Automate - AI Builder | Microsoft Docs
+- Use the form processor component in Power Apps - AI Builder | Microsoft Docs
 
 ## Advanced Challenges
 
 Too comfortable? Eager to do more? Try these additional challenges!
-	· Handle Exception Cases (What if the model extracting data incorrectly).
-	· Try to use the AI Model that extracts Order Information in Power Apps Canvas App
-	· Explore the Document automation toolkit - AI Builder | Microsoft Docs
+- Handle Exception Cases (What if the model extracting data incorrectly).
+- Try to use the AI Model that extracts Order Information in Power Apps Canvas App
+- Explore the Document automation toolkit - AI Builder | Microsoft Docs
 
 ## Note
 
