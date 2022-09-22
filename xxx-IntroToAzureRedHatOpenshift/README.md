@@ -8,7 +8,7 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 
 ## Learning Objectives
 
-[**Needs to change: In this hack you will solve a common challenge for companies migrating to the cloud. You will take a simple multi-tiered web app, containerize it, and deploy it to an AKS cluster.] Once the application is in ARO, you will learn how to tweak all the knobs and levers to scale, manage and monitor it.
+[**Needs to change: In this hack you learn how to use Azure Redhat Openshift. You will take a simple multi-tiered web app and deploy it to an ARO cluster. Once the application is in ARO, you will learn how to tweak all the knobs and levers to scale, manage and monitor it as well as integrate it with Azure.
 
 1. Deploy an ARO cluster and deploy applications to it
 2. Understand key ARO management areas: monitoring, storage, networking, scaling, and Azure service operators
@@ -22,21 +22,21 @@ This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that f
 - Challenge 02: **[Application Deployment](Student/Challenge-02.md)**
 	 - Deploy the frontend and backend of an application onto the ARO cluster
 - Challenge 03: **[Logging and Metrics](Student/Challenge-03.md)**
-	 - View application logs to identify application error
+	 - View application logs to identify application errors
 - Challenge 04: **[Storage](Student/Challenge-04.md)**
-	 - Address application errors
+	 - Deploy a MongoDB database service to address application errors
 - Challenge 05: **[Configuration](Student/Challenge-05.md)**
-	 - Configure our frontend and backend applications
+	 - Configure the frontend and backend applications
 - Challenge 06: **[Networking](Student/Challenge-06.md)**
-	 - Create a network policy
+	 - Secure cluster traffic between pods using network policies
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**
-	 - Scale number of pods
+	 - Scaling the frontend and backend applications
 - Challenge 08: **[Azure Service Operators](Student/Challenge-08.md)**
-	 - Description of challenge
+	 - Connect the ARO cluster to Azure services
 - Challenge 09: **[Azure Key Vault Integration](Student/Challenge-09.md)**
-	 - Description of challenge
+	 - Use Azure Key Vault in the backend application
 - Challenge 10: **[Azure Active Directory Integration](Student/Challenge-10.md)**
-	 - Description of challenge
+	 - Provide authentication to your ARO Web Console
 - Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
 	 - Description of challenge
 - Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
