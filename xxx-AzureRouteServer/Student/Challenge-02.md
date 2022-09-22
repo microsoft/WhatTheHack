@@ -29,6 +29,7 @@ At the end of this challenge you should:
 
 - Determine if inspecting all traffic through he NVA is achievable.
 - Demonstrate to your coach you understand the behavior of the Route Server for this excercise. 
+- Demonstrate this is a dynamic environment, no User Defined Routes should remain. 
 
 ## Learning Resources
 
