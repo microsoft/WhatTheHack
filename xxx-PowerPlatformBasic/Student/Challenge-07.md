@@ -21,13 +21,13 @@ Tailspin Toys is already a Power BI customer and has requested that you create a
 In this challenge, you will create a Power BI report and publish to your environment's Power BI site and embed visualizations into your canvas app's reporting screen.
 Information:
 
-	· Navigate to the https://powerbi.microsoft.com/desktop/ Power BI site, download, and install Power BI Desktop (if you have not already done so)
-	· Pull in the Account, Contact, Order, and Order details tables using the Dataverse data source.
-	· Any other data?
-	· Edit the queries so the tables only include the most relevant columns
-	· Transform the data to include the Age of the student in the Contact table
-	· Create necessary relationships between the tables
-	· Build 4 of the 5 visualizations below in your report that show the following information:
+- Navigate to the https://powerbi.microsoft.com/desktop/ Power BI site, download, and install Power BI Desktop (if you have not already done so)
+- Pull in the Account, Contact, Order, and Order details tables using the Dataverse data source.
+- Any other data?
+- Edit the queries so the tables only include the most relevant columns
+- Transform the data to include the Age of the student in the Contact table
+- Create necessary relationships between the tables
+- Build 4 of the 5 visualizations below in your report that show the following information:
 		○ Xx
 		○ Xx
 		○ xx
