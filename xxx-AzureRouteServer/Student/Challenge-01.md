@@ -16,7 +16,7 @@ In this challenge you will create the topology described in this diagram:
 
 Please perform the following actions:
 - Create a Hub and Spoke Topology as described above **without the use of Route Server.**
-- Traffic should be flowing through the Central Network Virtual Appliance using User Defined Routes (UDRs) in Azure.
+- With the use of User Defined Routes (UDRs) in Azure and static routes on the NVA, route traffic through the Central Network Virtual.
 - Click on the link to get the configuration to deploy an [On Premises Environment using Cisco CSR 1000v](./Resources/wthcsronprem.md)
 - Click on the link to get the configuration to deploy a [Central Network Virtual Appliance using Cisco CSR 1000v](./Resources/centralnva.md)
 - If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration however, the appliance of your choice will be used throughout this hack
