@@ -29,6 +29,6 @@ To complete this challenge successfully, you should be able to
 
 ## Learning Resources
 
-[Solutions overview] (https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/solutions-overview)
-[Package and distribute extensions using solutions] (https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/solutions-overview)
-[Export and import flows across your environments with packaging] (https://flow.microsoft.com/en-us/blog/import-export-bap-packages/)![image](https://user-images.githubusercontent.com/66692710/189578246-cb3df5c7-7d6e-413a-a80b-9fb2ff356872.png)
+* [Solutions overview](https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/solutions-overview)
+* [Package and distribute extensions using solutions](https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/solutions-overview)
+* [Export and import flows across your environments with packaging](https://flow.microsoft.com/en-us/blog/import-export-bap-packages/)
