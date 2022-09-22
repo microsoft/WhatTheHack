@@ -41,29 +41,31 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Prerequisites
 
-	· Your own O365 E3 with Global Admin access
-	· Trials of Power Apps, Power Automate, AI Builder, Power Virtual Agent
-	· Power BI Desktop
-	Need Help!
+- Your own O365 E3 with Global Admin access
+- Trials of Power Apps, Power Automate, AI Builder, Power Virtual Agent, Power BI Pro
+- Power BI Desktop
+- Need help!
+
 	
 ## Repository Contents (Optional)
-	· `./Coach/Guides`
-			o Coach’s Guide and related files
-	· `./SteamShovel`
-			o Image files and code for steam shovel microservice
-	· `./images`
-			o Generic image files needed
-	· `./Student/Guides`
-			o Student’s Challenge Guide![image](https://user-images.githubusercontent.com/66692710/189555249-199ea7d5-08cb-4e65-bebd-5695683e6ae3.png)
+-  `./Coach/Guides`
+-  	Coach’s Guide and related files
+-  `./SteamShovel`
+-  Image files and code for steam shovel microservice
+-  `./images`
+-  Generic image files needed
+-  `./Student/Guides`
+-  Student’s Challenge Guide
+-  	[image](https://user-images.githubusercontent.com/66692710/189555249-199ea7d5-08cb-4e65-bebd-5695683e6ae3.png)
 
 
 ## Contributors
 
-	· Trinh Tran
-	· Tad Thompson
-	· Nghiem Doan
-	· Matt Karr
-	· Behnaz Majidi
+- Trinh Tran
+- Tad Thompson
+- Nghiem Doan
+- Matt Karr
+- Behnaz Majidi
 
 
 
