@@ -20,6 +20,8 @@ Please perform the following actions:
 - Click on the link to get the configuration to deploy an [On Premises Environment using Cisco CSR 1000v](./Resources/wthcsronprem.md)
 - Click on the link to get the configuration to deploy a [Central Network Virtual Appliance using Cisco CSR 1000v](./Resources/centralnva.md)
 - If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration however, the appliance of your choice will be used throughout this hack
+> **Warning**
+> Vnet Gateway should be deployed on Active/Active mode!
 
 ## Success Criteria
 
