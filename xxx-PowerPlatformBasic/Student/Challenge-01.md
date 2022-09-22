@@ -20,11 +20,11 @@ Phone number: +48 12 345 67 89
  
 During the COVID-19 pandemic, Tailspin toys identified challenges in their supply chain.  Their legacy based order system required on premises hardware that is costly to scale and would eventually become obsolete.  The board has approved investing in a new platform that will automate their order taking; however, due to the limited budget, the solution must have the following properties:
  
-	1. Minimal user interface maintenance as much of the experience is delivered via configuration versus outright coding.
-	2. Predominantly a low code development platform.
-	3. Model-driven apps with tried and tested application lifecycle management options.
-	4. Supports a strong and flexible data security model affecting the degree to which users can interact with table records and columns. 
-	5. Logic can be introduced to ensure that columns contain the data that adheres to the business rules.
+- Minimal user interface maintenance as much of the experience is delivered via configuration versus outright coding.
+- Predominantly a low code development platform.
+- Model-driven apps with tried and tested application lifecycle management options.
+- Supports a strong and flexible data security model affecting the degree to which users can interact with table records and columns. 
+- Logic can be introduced to ensure that columns contain the data that adheres to the business rules.
 Solution will be maintained by the team via Citizen Developer
 
 
@@ -32,10 +32,11 @@ Solution will be maintained by the team via Citizen Developer
 
 Challenge
   
-	1. Answer the question:  What platform will you choose and why?
-	2. Form a team and assign roles.  Recommended:  Choose a method of collaboration (e.g. OneNote, Teams, etc.
-	3. Install requirements for Power Platform.
-	4. To begin this challenge, Tailspin Toys would like for your team to create a new solution in your team's development environment. This new solution will serve as a container for the components that your team will be assigned in later challenges. In accordance with application lifecycle management (ALM) best practices, all future work should be created from this solution.
+- Answer the question:  What platform will you choose and why?
+- Form a team and assign roles.  Recommended:  Choose a method of collaboration (e.g. OneNote, Teams, etc.
+- Install requirements for Power Platform.
+- To begin this challenge, Tailspin Toys would like for your team to create a new solution in your team's development environment. This new solution will serve as a container for the components that your team will be assigned in later challenges. In accordance with application lifecycle management (ALM) best practices, all future work should be created from this solution
+
 Bonus Challenge: Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
 NOTE: This challenge will require license to complete the challenge (trials)
 Success Criteria
