@@ -14,11 +14,12 @@ In this challenge you will create the topology described in this diagram:
 
 ![hubnspoke noARS](./Resources/media/azurerouteserver-challenge1.png)
 
-This hack offers configuration templates using Cisco CSR 1000v (no license required) that you can leverage (see the Learning Resources section below) for each component, the Central Network Virtual Appliance and the On Premises environment simulation "onprem vnet". If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration. 
-
-The number of spokes is up to the student. Two is the suggested number. 
-
-> ***NOTE:** Please keep in mind, the vendor of your choice will be the one used through the course of this hack.*
+Please perform the following actions:
+- Create a Hub and Spoke Topology as described above **without the use of Route Server.**
+- Traffic should be flowing through the Central Network Virtual Appliance using User Defined Routes (UDRs) in Azure.
+- Click on the link to get the configuration to deploy an [On Premises Environment using Cisco CSR 1000v](./Resources/wthcsronprem.md)
+- Click on the link to get the configuration to deploy a [Central Network Virtual Appliance using Cisco CSR 1000v](./Resources/centralnva.md)
+- If you prefer or are experienced with other vendor, please feel free to deploy and provide your own configuration however, the appliance of your choice will be used throughout this hack
 
 ## Success Criteria
 
@@ -37,8 +38,6 @@ At the end of this challenge, you should:
 * [Virtual Network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)
 * [Hub and Spoke topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 * [What is VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Cisco CSR 1000v On Premises Template](./Resources/wthcsronprem.md)
-* [Cisco CSR 1000v Central NVA](./Resources/centralnva.md)
 * [Create a Site-to-Site connection in the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 * [Configure BGP for VPN Gateways](https://docs.microsoft.com/azure/vpn-gateway/bgp-howto)
 * [View BGP status and metrics](https://docs.microsoft.com/azure/vpn-gateway/bgp-diagnostics)
