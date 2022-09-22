@@ -1,4 +1,4 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - Handling Incoming Orders- Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
