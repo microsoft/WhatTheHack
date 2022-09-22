@@ -6,7 +6,7 @@
 
 ```bash
 # Variables
-rg=arshack-rg
+rg=<Resource Group for Hub and Spoke>
 location=<Azure region same as Hub Vnet>
 vnet_name=hub
 
