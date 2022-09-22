@@ -134,7 +134,7 @@ int tunnel 98
   ip tcp adjust-mss 1350
   tunnel source GigabitEthernet1
   tunnel destination "Insert sdwan1PublicIP"
-  tunnel protection ipsec profile to-sdwan1-IPsecProfile
+  tunnel protection ipsec profile to-sdwan-IPsecProfile
   exit 
   
  int tunnel 99 
@@ -144,7 +144,7 @@ int tunnel 98
   ip tcp adjust-mss 1350
   tunnel source GigabitEthernet1
   tunnel destination "Insert sdwan2PublicIP"
-  tunnel protection ipsec profile to-sdwan1-IPsecProfile
+  tunnel protection ipsec profile to-sdwan-IPsecProfile
   exit  
 
 router bgp **Central NVA BGP ID**
