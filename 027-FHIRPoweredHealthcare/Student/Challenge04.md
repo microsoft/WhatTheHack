@@ -41,5 +41,5 @@ You need to deploy an instance of FHIR service (done in challenge 1) and a Synap
 ## Learning Resources
 
 - **[FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines)**
-- **[FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**
+- **[FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#fhir-to-synapse-sync-agent)**
 - **[Data mapping from FHIR to Synapse](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Data-Mapping.md)**
