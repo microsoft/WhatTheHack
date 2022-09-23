@@ -18,7 +18,7 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
   
     - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request within the web app.
 
-    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-auth-code-flow.png)
 
 - Create a patient lookup by Given or Family name in JavaScript SPA app.
   - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
@@ -47,8 +47,8 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 
 ## Learning Resources
 
-- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)**
-- **[GitHub Azure Samples - MSAL JavaScript Single-page Application using Implicit Flow](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/)**
+- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-auth-code)**
+- **[Vanilla JavaScript Single-page Application secured with MSAL.js v2](https://github.com/Azure-Samples/ms-identity-javascript-v2)**
 - **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
 - **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
 - **[Initialization of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
