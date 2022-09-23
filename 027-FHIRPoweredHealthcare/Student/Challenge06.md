@@ -27,8 +27,8 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
   - Import **[sample IoT messages](https://github.com/microsoft/azure-health-data-services-workshop/tree/main/Challenge-09%20-%20MedTech%20service/SampleData/Answers)** into tool to customize device mapping to FHIR
   - Export customized mapping in tool to generate the new Device Mapping and FHIR Mapping files
 - **Import the newly generated FHIR mapping into your MedTech service**
-  - Configure and save the **[Device mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#configure-device-mapping-properties)** JSON in the MedTech service (Device Mapping setting)
-  - Configure and save the Destination mapping JSON to in the MedTech service (Destination setting)
+  - Configure and save the **[Device mapping](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** JSON in the MedTech service (Device Mapping setting)
+  - Configure and save the **[Destination mapping](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-fhir-mappings)** JSON to in the MedTech service (Destination setting)
 - **Send sample device data to persist in the FHIR service using Postman via **[MedTech service Event Hub service](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token)****
 
 ## Success Criteria
