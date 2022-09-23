@@ -11,7 +11,7 @@ The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/i
 **[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** is the MedTech toolkit to visualize and configure normalize mapping between the medical Iot data and FHIR.  Once you completed the FHIR mapping, you can export it and upload the mapping files to your **[MedTech service Device Mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** configuration in Azure Portal.
 
 
-Below is the overview of the **[MedTech service data flow](microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**:
+Below is the overview of the **[MedTech service data flow](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**:
 <center><img src="../images/challenge06-architecture.png" width="550"></center>
 
 ## Description
