@@ -1,12 +1,12 @@
-# What The Hack - DatadogOnAzure
+# What The Hack - Datadog On Azure
 
 ## Introduction
 
-Welcome to the Datadog Hack The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+Welcome to the Datadog on Azure hack. This What The Hack provides provides hands on experience on how to monitor Azure workloads using Datadog. This hack was designed specifically for Infrastructure engineers, DevOps engineers, administrators and IT architects who want to build their knowledge on Datadog & Azure. However, anyone with a passion around monitoring is welcome!
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack, you will be getting hands on experience with monitoring resources (VMs, applications, containers) using Datadog's capabilities such as log analytics, dashboards, and KQL. Additionally, Grafana has been introduced to add additional visualization tools.
 
 1. Provision an IoT Hub
 2. Set up an IoT Edge device
@@ -56,5 +56,7 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- [Ryan Maclean](https://github.com/ryanmaclean)
+- [Matt Burke](https://github.com)
+- [Prashant Nayak](https://github.com/prashantnayak)
+- [Peter Laudati](https://github.com/jrzyshr)
