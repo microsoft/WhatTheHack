@@ -12,11 +12,9 @@ They were very excited about how quickly you are able to deploy the solution, an
 
 ## Prerequisites
 
-Thank you for participating in the Datadog On Azure What The Hack. 
-
 You will need an Azure Subscription with sufficient RBAC roles assigned to complete the challenges at the subscription scope.
 
-You can complete this entire hack in a web browser using the Azure Portal, Datadog Portal, and Azure Cloud Shell.
+You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com), [Datadog Portal](https://datadog.com), and [Azure Cloud Shell](https://shell.azure.com).
 
 However, if you work with Azure and on a regular basis, these are tools you should consider having installed on your local workstation:
 
