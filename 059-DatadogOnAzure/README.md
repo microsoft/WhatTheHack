@@ -16,7 +16,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
+- Challenge 01: **[Alerts, Activity Logs, and Service Health](Student/Challenge-01.md)**
 	 - Description of challenge
 - Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
 	 - Description of challenge
