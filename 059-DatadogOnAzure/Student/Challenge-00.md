@@ -14,7 +14,7 @@ They were very excited about how quickly you are able to deploy the solution, an
 
 You will need an Azure Subscription with sufficient RBAC roles assigned to complete the challenges at the subscription scope.
 
-You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com), [Datadog Portal](https://datadog.com), and [Azure Cloud Shell](https://shell.azure.com).
+You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com), [Datadog Portal](https://datadog.com), and [Azure Cloud Shell](https://shell.azure.com). 
 
 However, if you work with Azure and on a regular basis, these are tools you should consider having installed on your local workstation:
 
@@ -27,6 +27,9 @@ However, if you work with Azure and on a regular basis, these are tools you shou
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
   - [VS Code plugin for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
+- [Terraform for Azure](https://learn.microsoft.com/en-us/azure/developer/terraform/overview)
+
+**NOTE:** Datadog is commonly automated via Terraform. Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. If you want Terraform to work on your local workstation, you will need to [Install Terraform on Windows with Bash](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash).
 
 ### Student Resources
 
