@@ -14,7 +14,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Alerts, Activity Logs, and Service Health](Student/Challenge-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
+- Challenge 02: **[Monitoring Basics and Dashboards](Student/Challenge-02.md)**
 	 - Description of challenge
 - Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
 	 - Description of challenge
@@ -55,6 +55,6 @@ Optionally, on your local workstation:
 ## Contributors
 
 - [Ryan Maclean](https://github.com/ryanmaclean)
-- [Matt Burke](https://github.com)
+- [Matt Burke](https://github.com/mattburke)
 - [Prashant Nayak](https://github.com/prashantnayak)
 - [Peter Laudati](https://github.com/jrzyshr)
