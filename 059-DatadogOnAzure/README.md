@@ -8,10 +8,6 @@ Welcome to the Datadog on Azure hack. This What The Hack provides provides hands
 
 In this hack, you will be getting hands on experience with monitoring resources (VMs, applications, containers) using Datadog's capabilities such as log analytics, dashboards, and KQL. Additionally, Grafana has been introduced to add additional visualization tools.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
-
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
@@ -49,10 +45,12 @@ In this hack, you will be getting hands on experience with monitoring resources 
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
+- An Azure subscription with Owner access
+- Access to Azure Cloud Shell
+Optionally, on your local workstation:
 - Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Azure CLI or Azure PowerShell
+
 
 ## Contributors
 
