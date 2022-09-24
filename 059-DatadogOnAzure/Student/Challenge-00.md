@@ -28,69 +28,56 @@ However, if you work with Azure and on a regular basis, these are tools you shou
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
   - [VS Code plugin for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 
+### Student Resources
+
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.  
+
+If you have installed all of the tools listed above on your local workstation, you should unpack the `Resources.zip` file there too.
+
+If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
+
 ## Description
 
-For this challenge, you will deploy the pre-developed scripts using either PowerShell or Azure CLI. This script will setup the environment with a specific focus learning Azure monitor.  Should you require additional knowledge outside of Azure monitor for this hack, please refer to [Azure Learning](https://docs.microsoft.com/en-us/learn/).
+For this challenge, you will deploy the eShopOnWeb application and its underlying infrastructure resources to Azure using a set of pre-developed Bicep templates. Once the application and its infrastructure are deployed, you will complete the hack's challenges using Datadog to monitor it.
 
 ### Deploy Resources
 
-Use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6b97242fb99411ec83659823c955fa16) or the [PowerShell Az module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps) to deploy the baseline requirements to start the Monitoring WTH
+You will find the provided `main.bicep` template and its associated script files in the `/Challenge-00/` folder of the `Resources.zip` file provided to you by your coach. 
 
-#### Azure CLI
+Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6b97242fb99411ec83659823c955fa16) or the [PowerShell Az module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps) to deploy the Bicep template.
 
-1. Copy the code below and paste it in your desired tool: PowerShell, Terminal, VSCode, or CloudShell.
+#### Use Azure CLI
 
-    ```az login --tenant "<Tenant ID>"```
+1. Log into your Azure Subscription with the Azure CLI: 
+    ```
+    az login
+    ```
+    **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as the Azure CLI is already logged into your Azure subscription.
 
-2. Replace `<Tenant ID>` with your Azure Tenant ID. This can be found on the Overview blade of Azure AD in the Azure Portal.
-
-3. Press the ENTER key and login to Azure using the prompt.
-
-4. Copy the code below and paste it in your desired tool:
-
-    ```az account set --subscription "<Subscription ID>"```
-
-5. Replace `<Subscription ID>` with your Azure Subscription ID. This can be round on the Overview blade of your Subscription in the Azure Portal.
-
-6. Press the ENTER key to set your default Azure subscription.
-
-7. Copy the Azure CLI code below:
+1. Deploy the template by running the following Azure CLI command from wherever you have unpacked the `/Challenge-00/` folder:
 
     ```
-    az deployment sub create --name "<Username>" --location "eastus" -f challenge-00_Template.bicep --verbose
+    az deployment sub create --name "<deploymentName>" --location "<azure-region>" -f main.bicep --verbose
     ```
+    
+    - We recommend you use your initials for the  `<deploymentName>` value.
+    - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
+    - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
 
-8. Paste the code in your desired tool.
+#### Use PowerShell with the AZ Module
 
-9. Replace `<Username>` with your username, not your UPN (e.g., username, **NOT** username@outlook.com).
-
-10. You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
-
-#### PowerShell with the AZ Module
-
-1. Copy the PowerShell code below and paste it in your desired tool: PowerShell, Terminal, VSCode, or CloudShell.
+1. Log into your Azure Subscription with the PowerShell:
 
     ```Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>'```
 
-2. Replace `<Tenant ID>` with your Azure Tenant ID.  This can be found on the Overview blade of Azure AD in the Azure Portal.  
-
-3. Replace `<Subscription ID>` with your Azure Subscription ID.  This can be round on the Overview blade of your Subscription in the Azure Portal.
-
-4. Press the ENTER key and login to Azure using the prompt.
-
-5. Copy the PowerShell code below:
+1. Deploy the template by running the following PowerShell command from wherever you have unpacked the `/Challenge-00/` folder:
 
     ```
-    New-AzDeployment -Name "<Username>" -Location "eastus" -TemplateUri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json" -Verbose
+    New-AzDeployment -Name "<deploymentName>" -Location "<azure-region>" -TemplateUri "main.bicep" -Verbose
     ```
-
-6. Paste the code in your desired tool.
-
-7. Replace `<Username>` with your username, not your UPN (e.g. username, **NOT** username@outlook.com).
-
-8. Press ENTER to start the deployment.
-
-9. You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to Azure's requirements. [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - We recommend you use your initials for the  `<deploymentName>` value.
+    - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
+    - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
 
 ### View Deployed Resources
 
@@ -118,4 +105,3 @@ Use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6
 - Make sure the Admin password adheres to the Azure password policy
 - Make sure you are logged into the correct subscription and you have the at least contributors role access.  
 - Make sure you have the compute capacity in the region you are deploying to and request an increase to the limit if needed.
-- Make sure you are using a region that supports the public preview for Azure Monitor for VMs
