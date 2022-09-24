@@ -49,14 +49,14 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 #### Use Azure CLI
 
 1. Log into your Azure Subscription with the Azure CLI: 
-    ```
+    ```bash
     az login
     ```
     **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as the Azure CLI is already logged into your Azure subscription.
 
 1. Deploy the template by running the following Azure CLI command from wherever you have unpacked the `/Challenge-00/` folder:
 
-    ```
+    ```bash
     az deployment sub create --name "<deploymentName>" --location "<azure-region>" -f main.bicep --verbose
     ```
     
@@ -68,13 +68,15 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 
 1. Log into your Azure Subscription with the PowerShell:
 
-    ```Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>'```
+    ```PowerShell
+    Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>'
+    ```
 
     **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as PowerShell is already logged into your Azure subscription.
-    
+
 1. Deploy the template by running the following PowerShell command from wherever you have unpacked the `/Challenge-00/` folder:
 
-    ```
+    ```PowerShell
     New-AzDeployment -Name "<deploymentName>" -Location "<azure-region>" -TemplateUri "main.bicep" -Verbose
     ```
     - We recommend you use your initials for the  `<deploymentName>` value.
