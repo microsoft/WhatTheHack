@@ -10,7 +10,7 @@ Logs show everything that is happening to your resources at the API level. Platf
 
 Understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
 
-- Update the parameters file and deployment script for the `GenerateMonitors.tf` template located in the `Challenge-01` folder of the `Resources.zip` file provided by your coach.
+- Update the parameters file and deployment script for the [GenerateMonitors.tf](Resources/Challenge-01/GenerateMonitors.tf?raw=true) template located in the `Challenge-01` folder of the `Resources.zip` file provided by your coach.
 - Add the names of your VMs for your monitors
 - Deploy the `GenerateMonitors.tf` template using the sample shell script (`deployMonitorTemplate.sh`).
 - Verify you have new Monitors in Datadog or using the API. 
