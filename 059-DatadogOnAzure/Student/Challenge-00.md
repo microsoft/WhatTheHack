@@ -29,7 +29,7 @@ However, if you work with Azure and on a regular basis, these are tools you shou
   - [VS Code plugin for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 - [Terraform for Azure](https://learn.microsoft.com/en-us/azure/developer/terraform/overview)
 
-**NOTE:** Datadog is commonly automated via Terraform. Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. If you want Terraform to work on your local workstation, you will need to [Install Terraform on Windows with Bash](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash).
+**NOTE:** Datadog is commonly automated via [Terraform](https://www.terraform.io/). Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. If you want Terraform to work on your local workstation, you will need to [Install Terraform on Windows with Bash](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash).
 
 ### Student Resources
 
