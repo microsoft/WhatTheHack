@@ -58,9 +58,9 @@ This hack requires students to have access to an Azure subscription where they c
 
 - Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate their AKS clusters against their Azure Container Registries.  For more info: <https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration>
 - Each student will spin up the following resources in Azure:
-	- 3 x 2core VMs for the AKS cluster + 2 Public IPs (1 for AKS cluster, 1 for content-web)
-	- 1 x 2core VM for the Docker Build machine + one Public IP
-	- Total: 8 cores + 3 Public IPs per attendee
+	- 3 x 2 vCPUs VMs for the AKS cluster + 2 Public IPs (1 for AKS cluster, 1 for content-web)
+	- 1 x 2 vCPUs VM for the Docker Build machine + one Public IP
+	- Total: 8 vCPUs + 3 Public IPs per attendee
 
 If attendees will be using a shared Azure subscription, see the [Coach Guidance for Challenge 0](./Solution-00.md) for additional information on how to configure the subscription.
 
@@ -94,4 +94,4 @@ Challenges 9, 10, and 11 do not build on each other. You may "chooose your own a
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Resource files, sample code, scripts, etc. meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)

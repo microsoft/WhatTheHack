@@ -30,7 +30,7 @@ In this challenge you will learn how to view application logs and trouble-shoot 
 ## Success Criteria
 
 1. Show logs for the containers running in your cluster.
-2. Demonstrate that you can log into a running container and issue bash commands.
+2. Demonstrate that you can login to a running container and issue bash commands.
 3. Show Azure Monitor working.
 4. Show Kibana dashboards working.
 

@@ -22,7 +22,7 @@ Use this path if your students understand Docker, don't care about building imag
 
 #### [PATH C](Solution-02C.md) - Challenge 2C Coach's Guide
 
-Use this path to skip any work with docker & containers, but you still want to learn about ACR.  The path is similar to Path B, however in this case students will simply import pre-staged containers from DockerHub into ACR (eg, there is no container building involved)
+Use this path to skip any work with Docker & containers, but you still want to learn about ACR.  The path is similar to Path B, however in this case students will simply import pre-staged containers from DockerHub into ACR (eg, there is no container building involved)
 
 #### [PATH D](./Solution-03.md) - Challenge 3 Coach's Guide
 Use this path to skip any work with Docker, containers, and ACR altogether. This path can also be used if students do not have "Owner" role permissions on their Azure subscription and thus will not be able to attach ACR to AKS.  Students will deploy our pre-built container images directly from DockerHub when creating their Kubernetes manifests.

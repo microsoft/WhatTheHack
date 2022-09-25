@@ -8,10 +8,10 @@ The first step in our journey will be to take our application and package it as 
 
 ## Description
 
-To help ensure everyone can start this hack on the same page and avoid the complexities of installing and setting up Docker, we have provided you with an ARM Template that will deploy a Linux VM into Azure. Once deployed, the Linux VM will have the FabMedical application's source code and all of the Docker & Node JS tools pre-installed.
+To help ensure everyone can start this hack on the same page and avoid the complexities of installing and setting up Docker, we have provided you with an ARM Template that will deploy a Linux VM into Azure. Once deployed, the Linux VM will have the FabMedical application's source code and all of the Docker & Node.js tools pre-installed.
 
 You will use the Linux VM during this challenge to perform several tasks to prepare the application for containerization and eventual deployment into Kubernetes, including:
-- Build and run the NodeJS-based FabMedical application locally on the VM to observe how it works
+- Build and run the Node.js-based FabMedical application locally on the VM to observe how it works
 - Create a set of Dockerfiles to build container images of the application
 - Run the containerized application on the VM to observe how it works in the Docker environment
 
@@ -52,7 +52,7 @@ When the deployment is complete, you can ssh into the build machine using port 2
 
 ### Build & Run the FabMedical Application
 
-- Run the node.js application
+- Run the Node.js application
 	- Each part of the app (api and web) runs independently.
 	- Build the API app by navigating to the `/content-api` folder and run `npm install`.
 	- To start the app, run `node ./server.js &`
@@ -87,7 +87,7 @@ When the deployment is complete, you can ssh into the build machine using port 2
 
 ## Success Criteria
 
-1. Verify that you can run both the node.js based web and api parts of the FabMedical app on the VM
+1. Verify that you can run both the Node.js based web and api parts of the FabMedical app on the VM
 2. Verify that you have created 2 Dockerfiles files and created a container image for both web and api.
 3. Verify that you can run the application using containers.
 
@@ -95,4 +95,4 @@ When the deployment is complete, you can ssh into the build machine using port 2
 
 - [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 - [How to Dockerize a Node.js application](https://buddy.works/guides/how-dockerize-node-application)
-- [Why and How To Containerize Modern NodeJS Applications](https://www.cuelogic.com/blog/why-and-how-to-containerize-modern-nodejs-applications)
+- [Why and How To Containerize Modern Node.js Applications](https://www.cuelogic.com/blog/why-and-how-to-containerize-modern-nodejs-applications)

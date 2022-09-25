@@ -77,7 +77,7 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 
 ## Success Criteria
 
-1. Verify that speaker and session data is imported into Mongo
+1. Verify that speaker and session data is imported into MongoDB
 1. Verify that the data isn't lost after you stop and restart the MongoDB pod.
 1. Verify that this new MongoDB instance and its data are used in the application.
 

@@ -4,12 +4,12 @@
 
 ## Challenge 1 & 2 Path B
 
-This is **PATH B**: Use this path if your students understand docker, don't care about building images locally, and/or have environments issues that would prevent them from building containers locally. In this path, your students will be given a Dockerfile, will create an Azure Container Registry, and then will use ACR tasks to build the images natively inside ACR.
+This is **PATH B**: Use this path if your students understand Docker, don't care about building images locally, and/or have environments issues that would prevent them from building containers locally. In this path, your students will be given a Dockerfile, will create an Azure Container Registry, and then will use ACR tasks to build the images natively inside ACR.
 
 ## Notes & Guidance
 
 #### Tooling:
-The students will need to be able to run the Azure cli.  Ideally this would be run from their local workstation, but it could also be the Azure Cloud Shell.
+The students will need to be able to run the Azure CLI.  Ideally this would be run from their local workstation, but it could also be the Azure Cloud Shell.
 
 #### Fab Medical Application:
 The coach should demonstrate running the application locally.  To run the Fab Medical application locally:

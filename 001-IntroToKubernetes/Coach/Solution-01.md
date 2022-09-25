@@ -30,7 +30,7 @@ You can workaround this either by skipping Challenge 2 altogether, or completing
 #### [PATH B](./Solution-02B.md) - Challenge 2B Coach's Guide
 Use this path if your students understand Docker, don't care about building images locally, and/or have environments issues that would prevent them from building containers locally. In this path, your students will be given a Dockerfile, will create an Azure Container Registry, and then will use ACR tasks to build the images natively inside ACR.
 #### [PATH C](./Solution-02C.md) - Challenge 2C Coach's Guide
-Use this path to skip any work with docker & containers, but you still want to learn about ACR.  The path is similar to Path B, however in this case students will simply import pre-staged containers from DockerHub into ACR (eg, there is no container building involved)
+Use this path to skip any work with Docker & containers, but you still want to learn about ACR.  The path is similar to Path B, however in this case students will simply import pre-staged containers from DockerHub into ACR (eg, there is no container building involved)
 #### [PATH D](./Solution-03.md) - Challenge 3 Coach's Guide
 Use this path to skip any work with Docker, containers, and ACR altogether. This path can also be used if students do not have "Owner" role permissions on their Azure subscription and thus will not be able to attach ACR to AKS.  Students will deploy our pre-built container images directly from DockerHub when creating their Kubernetes manifests.
 
