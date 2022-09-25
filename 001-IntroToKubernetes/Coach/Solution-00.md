@@ -11,6 +11,11 @@ Links to install the tooling for this hack:
 - [Visual Studio Code](https://code.visualstudio.com/)
 - *Optional:* [Azure Storage Explorer](http://storageexplorer.com)
 
+Coach's should recommend Windows users to install the Azure CLI into the WSL instance on their machine using the installation instructions for the Linux distribution they use in WSL.  If a Windows user installs the Azure CLI on Windows in PowerShell or the Command Prompt, the Azure CLI will work, however they may experience two issues in the future:
+1. Many code samples online that use the Azure CLI use Bash shell scripting. These will not work in PowerShell or Windows Command Prompt.
+1. WSL's integration with Windows combines the Windows & Linux PATH settings.  If a user installs the Azure CLI on both Windows PowerShell and in the WSL, it will show up in WSL's $PATH environment variable twice. This could result in the Windows' installation of the Azure CLI being used instead of the WSL's installation of the Azure CLI being used when using the Azure CLI in WSL.
+
+
 If attendees will be using a shared Azure subscription, you should be aware of the following:
 - In addition to the “Contributor” role, all attendees should have the  “Azure account administrator” role on the Azure subscription in order to authenticate their AKS clusters against their Azure Container Registries.  For more info: <https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration>
 - CPU and Public IP quotas will need to be raised for the subscription.  Default quota is 10 for each.  Each student will be spinning up:
