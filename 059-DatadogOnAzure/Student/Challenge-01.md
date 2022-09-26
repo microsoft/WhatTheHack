@@ -10,6 +10,19 @@ Logs show everything that is happening to your resources at the API level. Platf
 
 Understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
 
+**For this module, we will use Terraform to deploy the Datadog monitor.**
+
+For those unfamiliar with Terraform, Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration files. It's often best practice to use infrastructure as code (IAC) to deploy resources into Azure for repeatability, fewer mistakes from manual processes, and leverage the organization's CI/CD pipeline.
+
+In order to accomplish deploying the Datadog monitor through Terraform, you will log into the **vmwthvsdeu** virtual machine in Azure through Bastion.
+
+- Start by going to the Azure portal (https://portal.azure.com and sign in with the credentials provided)
+- Navigate to the virtual machines (search bar) and find the **vmwthvsdeu** virtual machine.
+- Click connect, select Bastion, and type in the username and password to the virtual machine.
+- Once connected into the virtual machine, download and install Terraform from https://www.terraform.io/downloads _(Select the Amd64 version)_
+- Extract the download into a new folder called **Terraform** on your C: drive
+- Update your system path variable **set PATH="%PATH%;C:\Terraform**
+
 - Update the parameters file and deployment script for the [GenerateMonitors.tf](Resources/Challenge-01/GenerateMonitors.tf?raw=true) template located in the `Challenge-01` folder of the `Resources.zip` file provided by your coach.
 - Add the names of your VMs for your monitors
 - Deploy the `GenerateMonitors.tf` template using the sample shell script (`deployMonitorTemplate.sh`).
