@@ -55,6 +55,6 @@ Optionally, on your local workstation:
 ## Contributors
 
 - [Ryan Maclean](https://github.com/ryanmaclean)
-- [Matt Burke](https://github.com/mattburke)
+- [Matt Burcke](https://github.com/mattburke)
 - [Prashant Nayak](https://github.com/prashantnayak)
 - [Peter Laudati](https://github.com/jrzyshr)
