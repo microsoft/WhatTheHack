@@ -17,7 +17,7 @@ jobs:
     env:
       BRANCH_NAME: xxx-${{ github.event.inputs.hackName }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Create new branch
         run: |
           git config user.name "GitHub Actions Bot"
