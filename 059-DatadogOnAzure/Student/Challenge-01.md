@@ -16,10 +16,6 @@ For those unfamiliar with Terraform, Terraform is an open-source infrastructure 
 
 In order to accomplish deploying the Datadog monitor through Terraform, you will log into Azure Cloud Shell, and deploy from there.
 
-- Start by going to the Azure portal (https://portal.azure.com and sign in with the credentials provided)
-- Open Azure Cloud Shell by clicking on the following button in the portal. ![image](https://user-images.githubusercontent.com/88440047/192346979-57ae9c6a-848b-4ab8-856c-37998237937f.png)
-- If prompted, create a new storage account.
-- Connect to the OneDrive .zip file by typing (**CONTENT-GOES-HERE**)
 - Update the parameters file and deployment script for the [GenerateMonitors.tF] 
 - Add the names of your VMs for your monitors
 - Deploy the `GenerateMonitors.tf` template using tf apply -f`).
