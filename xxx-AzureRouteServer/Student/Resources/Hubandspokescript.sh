@@ -1,4 +1,4 @@
-```bash
+#!/bin/bash
 
 # Variables (change location as relevant)
 rg=arshack-rg
