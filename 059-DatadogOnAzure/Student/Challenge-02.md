@@ -13,10 +13,10 @@ Using HammerDB to stress the SQL database, you will collect the database and CPU
 In this challenge you need to complete the following management tasks:
 - Create an empty database called “tpcc” on the SQL Server VM
     **NOTE:** Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
-- Using DATADOG ON THE VISUAL STUDIO VM, CONFIGURE DATABASE METRICS TO COLLECT DB MONITORING DETAILS
-    - Add Datadog Windows Agent
-    - Configure Datadog to connect to DB
-    - Ensure DBM is working
+- On the SQL Server VM, complete the Datadog install and configure database monitoring
+    - Configure Datadog agent's API key
+    - Update the sample SQL Server check in order to connect to the DB
+    - Run the Datadog agent's `status` subcommand and look for `sqlserver` in the Checks section  
     - Find sqlserver.queries.count in Metrics Explorer
 - Use HammerDB to create transaction load
     - Download and Install HammerDB tool on the Visual Studio VM (instructions are in your Student\Guides\Day-1 folder for setting up and using HammerDB.
@@ -52,9 +52,9 @@ _List of relevant links and online articles that should give the attendees the k
 
 *Sample IoT resource links:*
 
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [SQL Server Integration Tile]([https://www.bing.com/search?q=what+is+a+thingamajig](https://us3.datadoghq.com/integrations/sql-server))
+- [Datadog SQL Server DBM Docs]([https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://docs.datadoghq.com/database_monitoring/setup_sql_server/selfhosted/?tab=sqlserver2014))
+- [Datadog Windows Agent Guide (CLI)]([https://www.youtube.com/watch?v=yPYZpwSpKmA](https://docs.datadoghq.com/agent/basic_agent_usage/windows/?tab=commandline))
 
 ## Tips
 
