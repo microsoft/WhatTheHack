@@ -18,7 +18,7 @@ resource "datadog_monitor" "VM_CPU" {
   message            = "Monitor triggered. Notify: @teams-channel"
   escalation_message = "Escalation message @teams-channel"
 
-  query = "avg(last_1h):avg:azure.vm.percentage_cpu{host:dddashvm1} by {host} > 90"
+  query = "avg(last_1h):avg:azure.vm.percentage_cpu{host:vmwthdbdeu} by {host} > 90"
 
   monitor_thresholds {
     warning  = 80
