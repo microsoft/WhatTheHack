@@ -42,6 +42,8 @@ As mentioned earlier, you can choose which scenario to go for your POC environme
     - Deployed to a dedicated subnet
   - Function App in Elastic Premium Plan - E1 SKU
     - Configured to send monitoring data to your Application Insights resource
+  - Virtual Machine
+  - Bastion
   
 ### Scenario 02: Deploy an identity-secured AIS environment
 - Verify that the provided Bicep templates have deployed the following resources into your Azure subscription:
@@ -59,7 +61,7 @@ As mentioned earlier, you can choose which scenario to go for your POC environme
 - [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
   - [Azure Quickstart Templates - Create API Management Service](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/azure-api-management-create)
   - [Microsoft.ApiManagement service](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/service?tabs=bicep)
-  - [Tutorial: Access and customize the developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize)
+  - [Tutorial: Access and customize the developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish)
   
 - [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)
   - [Deploy Function App on Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code#deploy-on-premium-plan)
