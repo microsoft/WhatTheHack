@@ -1,6 +1,6 @@
 # Challenge 6: Stream IoMT Device data into FHIR using MedTech service
 
-[< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)**
+[< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge07.md)
 
 ## Introduction
 
