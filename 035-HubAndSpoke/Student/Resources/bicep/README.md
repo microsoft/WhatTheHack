@@ -14,6 +14,8 @@ The WTH philosophy intends to have students learn by doing, and recognizes that 
 
 Using Cloud Shell is recommended, as it already has the necessary tools installed. However, Cloud Shell has a timeout of about 20 minutes and may experience timeouts (in which case, run the same command again to pick up the deployments where they stopped).
 
+Challenges are meant to be deployed sequentially, as the infrastructure builds on itself. For example, to work with the Challenge 5 infrastructure, deploy Challenges 1-4 first. 
+
 ### Prerequisites
 
 - Azure PowerShell module
@@ -60,6 +62,17 @@ Using Cloud Shell is recommended, as it already has the necessary tools installe
   - Hub: 8080
   - Spoke 1: 8081
   - Spoke 2: 8082
+
+### Challenge 3
+
+- The routing tables are adjusted to match the Challenge documentation. To correct the inital deployment, run `deployBicep.ps1 -challengeNumber 3 -correctedConfiguration`
+
+### Challenge 4
+
+### Challenge 5
+
+An Application Gateway is deployed matching the Challenge requirements. For the App GW to deploy, a TLS secret identifier from a Key Vault must be provided. The App GW's managed identity needs permissions to read the secret from the Key Vault. For convenience,
+a Key Vault is deployed and the App GW is granted necessary permissions; however, the TLS certificate needs to be uploaded to the Key Vault for the App GW to deploy successfully. 
 
 ## Resource Cleanup
 

@@ -14,11 +14,13 @@ param (
     [int]
     $challengeNumber,
 
+    <#
     # TODO: deploy fully configured lab or leave some configuration to be done
     [Parameter(Mandatory = $false, HelpMessage = 'Deploy all challenge resources fully configured or partially configured (for learning!)')]
     [ValidateSet('FullyConfigured', 'PartiallyConfigured')]
     [string]
     $deploymentType = 'FullyConfigured',
+    #>
     
     # resource deployment Azure region, defaults to 'eastus2'
     [Parameter(Mandatory = $false)]
@@ -33,7 +35,12 @@ param (
     # include to correct intentionally misconfigured resources (deployed as part of the challenge)
     [Parameter(Mandatory = $false)]
     [switch]
-    $correctedConfiguration
+    $correctedConfiguration,
+
+    # confirm subscription and resource types
+    [Parameter(Mandatory=$false)]
+    [System.Boolean]
+    $confirm = $true
 )
 
 $ErrorActionPreference = 'Stop'
@@ -54,7 +61,7 @@ If (-NOT (Test-Path ./01-resourceGroups.bicep)) {
 If ( -NOT ($azContext = Get-AzContext)) {
     throw "Run 'Connect-AzAccount' before executing this script!"
 }
-Else {
+ElseIf ($confirm) {
     do { $response = (Read-Host "Resources will be created in subscription '$($azContext.Subscription.Name)' in region '$location'. If this is not the correct subscription, use 'Select-AzSubscription' before running this script and specify an alternate location with the -Location parameter. Proceed? (y/n)") }
     until ($response -match '[nNYy]')
 
