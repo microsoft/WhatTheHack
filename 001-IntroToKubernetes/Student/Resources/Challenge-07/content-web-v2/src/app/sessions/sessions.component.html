@@ -1,0 +1,25 @@
+<a name="sessions"></a>
+<div class="contentband bottom-ruled autosize">
+    <div class="row">
+        <div class="small-12 large-12">
+            <h1 class="page-title"><span class="header-icon sessions" style="text-indent: 0px">9</span>sessions</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 large-12 column band-panel center">
+
+            <ul id="session-list" class="session-list-detailed">
+                <li *ngFor="let session of sessions">
+                    <h1>{{session.title}}</h1>
+                    <h2>
+                        <span *ngFor="let speakerName of session.speakerNames last as isLast">
+                            <span [innerHTML]="speakerName"></span><span *ngIf="!isLast"> - </span></span>
+                    </h2>
+                    <p class="abstract" [innerHTML]="session.abstract"></p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
