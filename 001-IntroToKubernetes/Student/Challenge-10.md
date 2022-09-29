@@ -1,4 +1,4 @@
-# Challenge 10 - Networking, DNS, and Ingress
+# Challenge 10 - Networking and Ingress
 
 [< Previous Challenge](./Challenge-09.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-11.md)
 

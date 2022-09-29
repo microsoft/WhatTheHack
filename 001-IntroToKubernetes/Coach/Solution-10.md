@@ -1,4 +1,4 @@
-# Challenge 10 - Networking - Coach's Guide 
+# Challenge 10 - Networking and Ingress - Coach's Guide 
 
 [< Previous Solution](./Solution-09.md) - **[Home](./README.md)** - [Next Solution >](./Solution-11.md)
 
