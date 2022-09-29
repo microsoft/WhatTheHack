@@ -18,10 +18,12 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
 - **[Configure Azure roles for access to DICOM data](https://docs.microsoft.com/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)**
 
   Hint: You will need to add the `DICOM Data Owner` role for yourself and the Postman service client (Service Principal created in challenge 1). 
+
 - **Import and configure Postman environment and collection files to connect to DICOM service.**  
-  - You can find these Postman template files (`WTHFHIR.Conformance-as-Postman.postman_collection.json` and `WTHFHIR.dicom-service.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
-  - Import the Environment and Collections files into Postman
+  - You can find the Postman template files (`WTHFHIR.Conformance-as-Postman.postman_collection.json` and `WTHFHIR.dicom-service.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
+  - Import the environment and collection template files into your Postman
   - Configure Postman environment variables specific to your DICOM service instance
+    
     Hint:
     From your existing fhir-service Postman environment:
     - tenantId - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
@@ -30,16 +32,17 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
     New values you need to input:
     - resource - https://dicom.healthcareapis.azure.com
     - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1
+    
 - **Use DICOM service to load imaging files**
   - Obtain access token to connect with your DICOM service
   - Store DICOM instances with sample DICOM files
     - Select corresponding POST `Store-single-instance (xxx.dcm)` in `Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
     - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
     - For each sample .dcm file, Send appropriate `POST Store-single-instance...` call to populate your DICOM service with the three .dcm single instance files.
-  - Use DICOM service API calls to Search for DICOM instance stored
-  - Use DICOM service API calls to Retrieve DICOM instances
+  - Use DICOM service API calls to Search for DICOM instance(s)
+  - Use DICOM service API calls to Retrieve DICOM instance(s)
   - Check logs for changes in DICOM service via Change Feed
-  - Manage extended query tags in your DICOM service instance
+  - Manage extended query tags in your DICOM service instance(s)
     - Add extended query tags
     - List extended query tags
     - Get extended query tags
