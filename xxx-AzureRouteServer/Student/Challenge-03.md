@@ -24,6 +24,10 @@ Please deploy the following scenareo:
 - You may use the following [BGP topology](./Resources/bgplayout.md) as an aid.
 - Click on the link to go to the configuration template to simulate your [SDWAN topology using Cisco CSR 1000v](./Resources/sdwancsr.md)
 
+> **Warning**
+> 
+> Consider the BGP Topology and SDWAN deployment carefully and make sure your Vnet address space does not overlap with the Virtual Tunnel Interfaces on the configuration inside the boxes.
+
 
 ## Success Criteria
 
@@ -33,7 +37,4 @@ At the end of this challenge you should:
 - Verify connectivity between Hubs, Spokes and SDWAN branches. 
 - The SDWAN Data Center closest to Azure should be preferred.
 - Ensure no asymmetric routing is found.
-
-## Learning Resources
-
 
