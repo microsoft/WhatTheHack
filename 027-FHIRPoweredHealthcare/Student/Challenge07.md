@@ -30,7 +30,7 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
     - tenantId - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
     - clientId - Application (client) ID for Postman service client app.
     - clientSecret - Client secret for your Postman app.
-    
+
     New values you need to input:
     - resource - https://dicom.healthcareapis.azure.com
     - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1
@@ -38,9 +38,12 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
 - **Use DICOM service to load imaging files**
   - Obtain access token to connect with your DICOM service
   - Store DICOM instances with sample DICOM files
+
+    Hint:
     - Select corresponding POST `Store-single-instance (xxx.dcm)` in `Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
     - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
     - For each sample .dcm file, Send appropriate `POST Store-single-instance...` call to populate your DICOM service with the three .dcm single instance files.
+    
   - Use DICOM service API calls to Search for DICOM instance(s)
   - Use DICOM service API calls to Retrieve DICOM instance(s)
   - Check logs for changes in DICOM service via Change Feed
