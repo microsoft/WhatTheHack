@@ -35,6 +35,7 @@ This hack will help you:
 - Challenge 4: **[Analyze and Visualize FHIR data](Student/Challenge04.md)**
 - Challenge 5: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge05.md)**
 - Challenge 6: **[Stream IoMT Device data into FHIR using MedTech service](Student/Challenge06.md)**
+- Challenge 7: **[ Ingest, search & retrieve DICOM imaging data](Student/Challenge07.md)**
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
