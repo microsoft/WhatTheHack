@@ -30,7 +30,7 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
   - Stream Analytics job setup & running with input reading data from `$upstream`
   - Stream Analytics job setup & running with output being written to Data Lake Store Gen2
   - Stream Analytics job filtering or aggregating data that is output
-  - Vizualizing the data in a Power BI report.
+  - Visualizing the data in a Power BI report.
 
 ## Learning Resources
 1. [Azure Stream Analytics Introduction](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
