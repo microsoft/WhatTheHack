@@ -313,7 +313,7 @@ ip route "vnet Address space" 255.255.0.0 Null0
 conf t
 !
 interface loopback 1
-ip address 1.1.1.1 255.255.255.255
+ip address <floating address space> 255.255.255.255
 end
 
 !
@@ -322,6 +322,20 @@ router bgp **BGP_ID**
  network < n ip prefix> mask <network mask>
 end
 ``` 
+Example:
+``` 
+conf t
+!
+interface loopback 1
+ip address 1.1.1.1 255.255.255.255
+end
+
+!
+router bgp 65001
+ address-family ipv4
+ network 1.1.1.0 mask 255.255.255.0
+end
+```
 
 ## Route Manipulation
 ### Create prefix list
