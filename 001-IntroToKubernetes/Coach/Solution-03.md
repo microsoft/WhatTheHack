@@ -1,4 +1,4 @@
-# Challenge 03 - Intro To Kubernetes - Coach's Guide 
+# Challenge 03 - Introduction To Kubernetes - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
