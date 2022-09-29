@@ -22,11 +22,12 @@ In this challenge, you will deploy, configure and use **[DICOM service](https://
         - Search for user (yourself) and service principle (created in challenge 1) to assign the `DICOM Data Owner` role to in the `Select` box
 - **Import and configure Postman environment and collection files to connect to DICOM service.**  
   - You can find these Postman template files (`WTHFHIR.Conformance-as-Postman.postman_collection.json` and `WTHFHIR.dicom-service.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
-  - Import the Environment and Collection files into Postman
+  - Import the environment and collection template files into Postman
     - In Postman `Environment` tab, click the `Import` button
     - Add `dicom-service.postman_environment.json` file to Postman using the `Upload Files` button
     - Add `Conformance-as-Postman.postman_collection.json` file to Postman using the `Upload Files` button
   - Configure Postman environment variables specific to your DICOM service instance
+
     Hint:
     From your existing fhir-service Postman environment:
     - tenantId - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
@@ -35,6 +36,7 @@ In this challenge, you will deploy, configure and use **[DICOM service](https://
     New values you need to input:
     - resource - https://dicom.healthcareapis.azure.com
     - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1
+    
 - **Use DICOM service to load imaging files**
   - Obtain access token to connect with your DICOM service
     - Call `POST AuthorizeGetToken` API call in `Conformance-as-Postman` collection to obtian the access token needed to access DICOM data
