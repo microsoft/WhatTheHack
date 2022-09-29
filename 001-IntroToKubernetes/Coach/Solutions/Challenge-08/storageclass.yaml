@@ -1,0 +1,8 @@
+# This storage class is no longer needed
+# Keeping file around for reference
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: zone-disk
+provisioner: kubernetes.io/azure-disk
+volumeBindingMode: WaitForFirstConsumer

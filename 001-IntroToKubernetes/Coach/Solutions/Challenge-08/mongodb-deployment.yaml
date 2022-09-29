@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    name: mongodb
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 27017
+    targetPort: 27017
+  selector:
+    name: mongo-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  mongo-db-deploy
+  labels:
+    name:  mongo-db
+spec:
+  selector:
+    matchLabels:
+      name: mongo-db
+  template:
+    metadata:
+      labels:
+        name:  mongo-db
+    spec:
+      containers:
+      - image:  mongo
+        name:  mongo-db-cntnr
+        resources:
+          requests:
+            cpu: "20m"
+            memory: "55M"
+        ports:
+        - containerPort:  27017
+          name:  mongo-db
+        volumeMounts:
+        - mountPath: /data/db
+          name: mongodb-datadisk
+        - mountPath: /data/configdb
+          name: mongodb-configdisk
+      volumes:
+        - name: mongodb-datadisk
+          persistentVolumeClaim:
+            claimName: mongodb-datadisk-pvc
+        - name: mongodb-configdisk
+          persistentVolumeClaim:
+            claimName: mongodb-configdisk-pvc
