@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: langfacts
+  namespace: whatthehack
+  labels:
+    k8s-app: langfacts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: langfacts
+  template:
+    metadata:
+      labels:
+        k8s-app: langfacts
+    spec:
+      containers:
+      - name: langfacts
+        image: whatthehackmsft/langfacts:v1
+        ports:
+        - containerPort: 80
+          name: ui
+          protocol: TCP
