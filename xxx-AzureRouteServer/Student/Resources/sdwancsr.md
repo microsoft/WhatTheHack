@@ -303,6 +303,26 @@ ip route 192.168.1.4 255.255.255.255 Tunnel 99
 ip route "vnet Address space" 255.255.0.0 Null0
 ```
 
+## Use the network command to advertise your routes from SDWAN Routers
+
+> **Note**
+> 
+> You may use floating address space via a loopback network to simulate additional prefixes and advertise them through the **network** command
+
+```bash
+conf t
+!
+interface loopback 1
+ip address 1.1.1.1 255.255.255.255
+end
+
+!
+router bgp **BGP_ID**
+ address-family ipv4
+ network < n ip prefix> mask <network mask>
+end
+``` 
+
 ## Route Manipulation
 ### Create prefix list
 ```
