@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 6 - Stream IoMT Device data into FHIR using MedTech service
+# Coach's Guide: Challenge 7 - Ingest, search & retrieve DICOM imaging data
 
 [< Previous Challenge](./Solution06.md) - **[Home](../readme.md)**
 
