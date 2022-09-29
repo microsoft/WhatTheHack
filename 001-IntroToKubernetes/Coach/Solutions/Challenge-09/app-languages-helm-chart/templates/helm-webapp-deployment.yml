@@ -1,0 +1,41 @@
+---
+# Deploys the container as a single pod in the Kubernetes Cluster
+# 
+# kubectl create -f webapp-deployment.yml
+# 
+# This is how we validate that it is working
+# kubectl describe deployment nginx-webapp -n whatthehack
+#
+# This is how to remove this deployment
+# kubectl delete deployment nginx-webapp -n whatthehack
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appData.labelValue }}
+  namespace: {{ .Values.appData.namespace }}
+  labels:
+    k8s-app: {{ .Values.appData.labelValue }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: {{ .Values.appData.labelValue }}
+  template:
+    metadata:
+      labels:
+        k8s-app: {{ .Values.appData.labelValue }}
+    spec:
+      containers:
+      - name: {{ .Values.appData.labelValue }}
+        image: {{ .Values.appData.imageName }}:{{ .Values.appData.imageVersion }}
+        env:
+          - name: HACK_YEAR
+            value: "2018"
+          - name: HACK_MONITORING_ENABLED
+            value: "false"
+          - name: HACK_SECURITY_ENABLED
+            value: "false"
+        ports:
+        - containerPort: 80
+          name: ui
+          protocol: TCP
