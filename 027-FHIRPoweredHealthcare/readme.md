@@ -21,6 +21,7 @@ This hack will help you:
 5. Transform and explore FHIR data for secondary use analytics.
 6. Export and anonymize FHIR data for secondary use.
 7. Ingest, transform and load medical IoT device data into FHIR using MedTech service.
+8. Ingest, search and retrieve imaging data persisted in the DICOM service.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>
