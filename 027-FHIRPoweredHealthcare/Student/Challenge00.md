@@ -8,11 +8,43 @@
 
 ## Introduction
 
-**Goal** is to complete all pre-requisites required to finish all challenges.
+This hack presents a series of challenges to help learners build knowledge, experience, and skills in working with Azure Health Data Services. It features solutions for use in real-world health data production environments. After working through the challenges, learners will have a better understanding of how to build their own solutions using the latest health data tools from Microsoft.
+
+In general, you will walk away with the capabilities of Azure Health Data Services platform and a sense of confidence in deploying, configuring, and implementing health data solutions within the platform.  You will know how to ingest, transform, and connect health data using the Azure Health Data Service platform, and understand how these components fit together, which will prepare you to use Microsoft's health data tools in real-world solutions.
+
+Thank you for participating in the FHIR Powered Healthcare What The Hack. Before you can hack, you will need to set up some prerequisites.
+
+## Common Prerequisites
+
+We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
+
+You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+
+<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
+
+- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
+- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
+    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
+  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
+- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
 ## Description
 
-**Install the recommended tool set:** 
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+
+Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+
+Please install these additional tools:
+
+- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
+- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
+
 - Access to an **Azure subscription** with Owner access. **[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)**
 - **[Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**
 - **[Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7)** version 5.1
@@ -41,15 +73,15 @@
 
 ## Success Criteria
 
-- Azure Subscription is ready for use
-- Powershell is installed
-- Azure Ad and Az modules are installed
-- Bash shell (WSL, Mac, Linux or Azure Cloud Shell) is installed
-- .NET Core is installed
-- Java JDK is installed
-- Visual Studio Code and required extensions are installed
-- Node.js and npm are installed
-- Postman is installed
+- Verify Azure Subscription is ready for use
+- Verfiy Powershell is installed
+- Verify Azure Ad and Az modules are installed
+- Verify Bash shell (WSL, Mac, Linux or Azure Cloud Shell) is installed
+- Verfiy .NET Core is installed
+- Verify Java JDK is installed
+- Verfiy Visual Studio Code and required extensions are installed
+- Verfiy Node.js and npm are installed
+- Verify Postman is installed
 
 ## Learning Resources
 
@@ -58,7 +90,6 @@
 - **[VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)**
 - **[NodeJS pre-built installer downloads](https://nodejs.org/en/download/)**
 - **[Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-
 - **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview)** is a set of managed API services that support multiple health data standards for the exchange of structured data. You can deploy multiple instances of different service types (FHIR, DICOM, and MedTech) that seamlessly work with one another within a workspace.  All service instances within a workspace share a compliance boundary and common configuration settings.
 - **[FHIR service in Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/)** is a managed, centralized Fast Healthcare Interoperability Resources (FHIR®) Compliant data management solution to ingest, manage, and persist Protected Health Information PHI in the cloud.  It enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering for high performance and low latency.  
 - **[FHIR Bulk Load](https://github.com/microsoft/fhir-loader)** is a Function App solution for bulk ingestions of FHIR Bundle (compressed and non-compressed) and NDJSON files that is triggered whenever new or modified BLOB arrives in the designated BLOB container.  It uses a High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources, and has a comprehensive Auditing, Error logging and Retry for throttled transactions.
@@ -73,9 +104,6 @@
 - **[Azure Data Lake Store Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)** is a set of capabilities dedicated to big data analytics, is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1.
 - **[Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)** is Azure storage management used to upload, download, and manage Azure blobs, files, queues, and tables, as well as Azure Cosmos DB and Azure Data Lake Storage entities.
 - **[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)** is Azure's cloud ETL service for scale-out serverless data integration and data transformation.
-- **[Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)** is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. 
-- **[Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/)** is a managed, secure, and intelligent product that use the SQL Server database engine in the Azure cloud.
-- **[PowerBI](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)** is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
 
 
