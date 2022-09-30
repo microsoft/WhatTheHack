@@ -12,10 +12,11 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 **These challenges must be completed in order:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-  - 
+    - Required tools needed to implement the hack challenges
 - Challenge 1: **[Extract and load FHIR synthetic Electronic Health Record (EHR) data](Student/Challenge01.md)**
     - Deploy FHIR service in Azure Health Data Services platform
     - Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
+
 **These challenges can be completed in any order:**
 - Challenge 2: **[Extract, transform and load HL7v2 and C-CDA EHR data](Student/Challenge02.md)**
     - Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
