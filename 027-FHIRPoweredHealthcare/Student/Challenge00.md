@@ -42,26 +42,6 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 
 Please install these additional tools:
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
-
-- Access to an **Azure subscription** with Owner access. **[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)**
-- **[Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**
-- **[Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7)** version 5.1
-  - Confirm PowerShell version is **[5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)** `$PSVersionTable.PSVersion`
-  - **[PowerShell modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7)**
-    - Confirm PowerShell module versions.  Re-install the required version below (if needed):
-      - Az version 4.1.0 
-      - AzureAd version 2.0.2.4
-        ```PowerShell
-        Get-InstalledModule -Name Az -AllVersions
-        Get-InstalledModule -Name AzureAd -AllVersions
-        ```
-- **[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)**
-   - (Windows-only) Install Azure CLI on Windows Subsystem for Linux
-   - Update to the latest
-   - Must be at least version 2.7.x
-- Alternatively, you can use the **[Azure Cloud Shell](https://shell.azure.com/)**
 - **[.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)**
 - **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)** (needed to run Synthea Patient Generator tool)
 - **[Visual Studio Code](https://code.visualstudio.com/)**
