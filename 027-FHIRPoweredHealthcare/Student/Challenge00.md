@@ -84,6 +84,11 @@ Please install these additional tools:
 - **[Azure Data Lake Store Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)** is a set of capabilities dedicated to big data analytics, is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1.
 - **[Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)** is Azure storage management used to upload, download, and manage Azure blobs, files, queues, and tables, as well as Azure Cosmos DB and Azure Data Lake Storage entities.
 - **[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)** is Azure's cloud ETL service for scale-out serverless data integration and data transformation.
-
-
+- **Postman API Testing Tools**
+  - [Installing and updating Postman](https://learning.postman.com/docs/getting-started/installation-and-updates/)
+  - [Navigating Postman](https://learning.postman.com/docs/getting-started/navigating-postman/)
+  - [Sending your first request](https://learning.postman.com/docs/getting-started/sending-the-first-request/)
+  - [Creating a workspace](https://learning.postman.com/docs/getting-started/creating-your-first-workspace/)
+  - [Creating your first collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/)
+  - [Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)
 
