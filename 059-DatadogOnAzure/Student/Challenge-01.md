@@ -10,9 +10,18 @@ Logs show everything that is happening to your resources at the API level. Platf
 
 Understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
 
-**For this module, we will use Terraform to deploy the Datadog monitor.**
+There are multiple ways to configure monitoring in Datadog.  You can configure monitoring manually in the Datadog portal or via the Datadog API.  This is a great way to learn how Datadog works and what settings are available to choose from. However, this method does not scale when you need to configure monitoring across 10s, 100s, or even 1000s of resources in Azure. It is easier to configure monitoring at scale across many Azure resources if you use a declarative infrastructure-as-code tool.
 
+For this challenge, you will use Terraform to deploy the Datadog monitor. 
+
+==Test==
+
+<mark>testing a mark</mark>
+
+
+<mark style="background-color: lightblue">
 For those unfamiliar with Terraform, Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration files. It's often best practice to use infrastructure as code (IAC) to deploy resources into Azure for repeatability, fewer mistakes from manual processes, and leverage the organization's CI/CD pipeline.
+</mark>
 
 In order to accomplish deploying the Datadog monitor through Terraform, you will log into Azure Cloud Shell, and deploy from there.
 
