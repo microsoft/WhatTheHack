@@ -4,7 +4,7 @@
 
 Welcome to the coach's guide for the Intro To Kubernetes What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -88,7 +88,7 @@ Challenges 9, 10, and 11 do not build on each other. You may "chooose your own a
 
 - `./Coach`
   - Coach's Guide and related files
-  - [Lecture presentation](Coach/Lectures.pptx) with short presentations to introduce each challenge.
+  - [Lecture presentation](Lectures.pptx?raw=true) with short presentations to introduce each challenge.
 - `./Coach/Solutions`
   - Solution files with completed example answers to a challenge
 - `./Student`
