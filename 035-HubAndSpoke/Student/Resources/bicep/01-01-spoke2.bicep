@@ -20,6 +20,12 @@ resource wthspoke2vnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
         name: 'subnet-spoke2vms'
         properties: {
           addressPrefix: '10.2.10.0/24'
+          networkSecurityGroup: {
+            id: nsgspoke2vms.id
+          }
+          routeTable: { 
+            id: rtspoke2vms.id 
+          }
         }
       }
     ]
