@@ -10,25 +10,20 @@ Logs show everything that is happening to your resources at the API level. Platf
 
 Understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
 
-There are multiple ways to configure monitoring in Datadog.  You can configure monitoring manually in the Datadog portal or via the Datadog API.  This is a great way to learn how Datadog works and what settings are available to choose from. However, this method does not scale when you need to configure monitoring across 10s, 100s, or even 1000s of resources in Azure. It is easier to configure monitoring at scale across many Azure resources if you use a declarative infrastructure-as-code tool.
+There are multiple ways to configure monitoring in Datadog.  You can configure monitoring manually in the Datadog portal or via the Datadog API.  This is a great way to learn how Datadog works and what settings are available to choose from. However, this method does not scale when you need to configure monitoring across 10s, 100s, or even 1000s of resources in Azure. It is easier to configure monitoring at scale across many Azure resources if you use a declarative infrastructure-as-code tool such as Terraform.
 
-For this challenge, you will use Terraform to deploy the Datadog monitor. 
+**NOTE:** Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration files. It's often best practice to use infrastructure as code (IAC) to deploy resources into Azure for repeatability, fewer mistakes from manual processes, and leverage the organization's CI/CD pipeline.
 
-==Test==
+For this challenge, you will use Terraform to deploy the Datadog monitor. We have provided you with a sample Terraform file that can be used to configure monitoring in Datadog. 
 
-<mark>testing a mark</mark>
+You can find the sample Terraform file, `GenerateMonitors.tf`, in the `/Challenge-01` folder of the `Resources.zip` file provided by your coach. To complete the challenge, navigate to the location of this file using your terminal client (WSL or Azure Cloud Shell).
 
-
-<span style="background-color: lightblue">
-For those unfamiliar with Terraform, Terraform is an open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration files. It's often best practice to use infrastructure as code (IAC) to deploy resources into Azure for repeatability, fewer mistakes from manual processes, and leverage the organization's CI/CD pipeline.
-</span>
-
-In order to accomplish deploying the Datadog monitor through Terraform, you will log into Azure Cloud Shell, and deploy from there.
-
-- Update the parameters file and deployment script for the [GenerateMonitors.tF] 
+- Update the parameters for the `GenerateMonitors.tf` file 
 - Add the names of your VMs for your monitors
-- Deploy the `GenerateMonitors.tf` template using tf apply -f`).
-- Verify you have new Monitors in Datadog or using the API. 
+- Deploy the `GenerateMonitors.tf` template using: 
+
+    ```terraform apply -f GenerateMonitors.tf```
+ 
 - Modify the `GenerateMonitors.tf` to include “Disk Write Operations/Sec” and set a threshold of 20
 - Rerun your template and verify your new Monitors are created for each of your VMs
 - Create a new Monitor configuration that suppresses alerts from the scale set and virtual machines
@@ -39,6 +34,7 @@ Bonus question/task:
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
+ - Verify you have new Monitors in Datadog or using the API.
  - Show the Monitor which got fired and explain what you have done.
 
 ## Learning Resources
