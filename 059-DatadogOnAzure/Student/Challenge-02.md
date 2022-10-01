@@ -10,8 +10,9 @@ After deploying your initial solution for eShopOnWeb, you want to make sure that
 
 Using HammerDB to stress the SQL database, you will collect the database and CPU counters of the VMSS using Datadog and display the results on the dashboard.
 
-> **Note**
+> 
 > This is a note
+> Here is some more text in this block without a note.
 
 > **Warning**
 > This is a warning.
