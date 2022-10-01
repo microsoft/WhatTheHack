@@ -1,4 +1,4 @@
-# Challenge 1: Extract and load FHIR synthetic Electronic Health Record (EHR)
+# Challenge 1: Extract and Load FHIR EHR Data
 
 [< Previous Challenge](./Challenge00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge02.md)
 

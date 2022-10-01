@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 7 - Ingest, search & retrieve DICOM imaging data
+# Coach's Guide: Challenge 7 - Load DICOM Imaging Data
 
 [< Previous Challenge](./Solution06.md) - **[Home](../readme.md)**
 
@@ -34,7 +34,7 @@ In this challenge, you will deploy, configure and use **[DICOM service](https://
     - tenantId - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
     - clientId - Application (client) ID for Postman service client app.
     - clientSecret - Client secret for your Postman app.
-    
+
     New values you need to input:
     - resource - https://dicom.healthcareapis.azure.com
     - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1

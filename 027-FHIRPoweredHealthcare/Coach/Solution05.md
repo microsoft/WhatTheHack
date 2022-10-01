@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 5 - Bulk export, anonymize and store FHIR data into Data Lake
+# Coach's Guide: Challenge 5 - : Export and Anonymize FHIR EHR Data
 
 [< Previous Challenge](./Solution04.md) - **[Home](../readme.md)** - [Next Challenge>](./Solution06.md)
 

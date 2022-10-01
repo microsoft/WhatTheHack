@@ -12,6 +12,12 @@ This hack presents a series of challenges to help learners build knowledge, expe
 
 In general, you will walk away with the capabilities of Azure Health Data Services platform and a sense of confidence in deploying, configuring, and implementing health data solutions within the platform.  You will know how to ingest, transform, and connect health data using the Azure Health Data Service platform, and understand how these components fit together, which will prepare you to use Microsoft's health data tools in real-world solutions.
 
+Prerequisit knowledge in the following area is needed in completing this hack:
+- A solid foundation in Azure fundamentals and basic knowledge of Azure Active Directory
+- Familiarity with FHIR® and the solutions it provides versus other health data formats
+- Experience with making RESTful API requests using Postman or a similar API testing tool (like cURL or Fiddler)
+- Experience using Postman as your API testing tool
+
 Thank you for participating in the FHIR Powered Healthcare What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites

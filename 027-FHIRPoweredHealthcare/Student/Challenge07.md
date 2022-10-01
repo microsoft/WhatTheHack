@@ -1,4 +1,4 @@
-# Challenge 7: Ingest, search & retrieve DICOM imaging data
+# Challenge 7: Load DICOM Imaging Data
 
 [< Previous Challenge](./Challenge06.md) - **[Home](../readme.md)**
 
@@ -43,7 +43,7 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
     - Select corresponding POST `Store-single-instance (xxx.dcm)` in `Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
     - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
     - For each sample .dcm file, Send appropriate `POST Store-single-instance...` call to populate your DICOM service with the three .dcm single instance files.
-    
+
   - Use DICOM service API calls to Search for DICOM instance(s)
   - Use DICOM service API calls to Retrieve DICOM instance(s)
   - Check logs for changes in DICOM service via Change Feed

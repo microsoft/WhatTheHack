@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 3 - Create a new Single Page App (SPA) for patient search
+# Coach's Guide: Challenge 3 - Search FHIR EHR Data
 
 [< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
 

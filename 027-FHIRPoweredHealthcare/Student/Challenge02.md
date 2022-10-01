@@ -1,4 +1,4 @@
-# Challenge 2: Extract, transform and load HL7v2 and C-CDA Electronic Health Record (EHR) data
+# Challenge 2: Extract and Load HL7v2 & C-CDA EHR Data
 
 [< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
 

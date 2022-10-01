@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 2 - Extract, transform and load C-CDA synthetic medical data
+# Coach's Guide: Challenge 2 - Extract and Load HL7v2 & C-CDA EHR Data
 
 [< Previous Challenge](./Solution01.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution03.md)
 

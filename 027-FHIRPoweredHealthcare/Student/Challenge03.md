@@ -1,4 +1,4 @@
-# Challenge 3: Create a new Single Page App (SPA) for patient search
+# Challenge 3: Search FHIR EHR Data
 
 [< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
 

@@ -13,22 +13,22 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 **These challenges must be completed in order:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
     - Required tools needed to implement the hack challenges
-- Challenge 1: **[Extract and load FHIR synthetic Electronic Health Record (EHR) data](Student/Challenge01.md)**
+- Challenge 1: **[Extract and Load FHIR EHR data](Student/Challenge01.md)**
     - Deploy FHIR service in Azure Health Data Services platform
     - Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
 
 **These challenges can be completed in any order:**
-- Challenge 2: **[Extract, transform and load HL7v2 and C-CDA EHR data](Student/Challenge02.md)**
+- Challenge 2: **[Extract and Load HL7v2 and C-CDA EHR data](Student/Challenge02.md)**
     - Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
-- Challenge 3: **[Create a new Single Page App (SPA) for patient search](Student/Challenge03.md)**
-    - Develop React Single Page App (SPA) to search and view FHIR patient data.
-- Challenge 4: **[Analyze and Visualize FHIR data](Student/Challenge04.md)**
+- Challenge 3: **[Search FHIR EHR Data](Student/Challenge03.md)**
+    - Develop Single Page App (SPA) to search and view FHIR EHR data.
+- Challenge 4: **[Explore and Analyze FHIR EHR data](Student/Challenge04.md)**
     - Transform and explore FHIR data for secondary use analytics.
-- Challenge 5: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge05.md)**
-    - Export and anonymize FHIR data for secondary use.
-- Challenge 6: **[Stream IoMT Device data into FHIR using MedTech service](Student/Challenge06.md)**
+- Challenge 5: **[Export and Anonymize FHIR EHR Data](Student/Challenge05.md)**
+    - Export, anonymize and store FHIR EHR data in data lake for secondary use.
+- Challenge 6: **[Ingest and Persist IoT Medical Device Data](Student/Challenge06.md)**
     - Ingest, transform and load medical IoT device data into FHIR using MedTech service.
-- Challenge 7: **[ Ingest, search & retrieve DICOM imaging data](Student/Challenge07.md)**
+- Challenge 7: **[ Load Imaging Data](Student/Challenge07.md)**
     - Ingest, search and retrieve imaging data persisted in the DICOM service.
 
 ## Coach Prerequisites
@@ -45,26 +45,27 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-### Pre-Select Your Path For Container Content
-Coaches, be sure to read the [Coach Guidance for Challenge 1](./Solution-01.md). You will need to select a proper path based on the learning objectives of the organization (to be decided PRIOR TO the hack!).  Select the proper path after consulting with the organization's stakeholder(s) for the hack.
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
 This hack will deploy the following Azure resources and OSS components to implement the hack's challenges:
-- Azure Health Data Services workspace (managed PaaS)
-- FHIR service	(managed FHIR server)
-- FHIR Loader (OSS) Function App (for ingesting FHIR data in Challenge 1)
+- Azure Health Data Services workspace (managed PaaS in various challenges)
+- FHIR service	(managed FHIR server in challenge 1)
+- DICOM service (managed DICOM server in challenge 7)
+- MedTech service (managed PaaS to ingest and convert IoT medical device data into FHIR in challenge 6)
+- FHIR Loader (OSS) Function App based event-driven pipeline (for ingesting FHIR data in Challenge 1)
+- Azure Function (managed Serverless solution to host FHIR Loader app in challenge 1)
+- FHIR Analytics Pipeline - FHIR to Synapse sync agent (OSS pipeline to move FHIR data in FHIR service to Azure Data Lake for analytics with Synapse in challenge 4)
+- Serverless SQL pool in Azure Synapse Analytics (Query service over the data in your data lake in challenge 4)
 - App Service Plan (Shared by FHIR Loader function apps)
-- Storage account (Blob storage for FHIR service $export operation in Challenge 5)
-- Storage account (Storage account for FHIR Loader)
-- Key Vault (Stores secrets and configuration settings)
-- Log Analytics Workspace (Logs the activity of deployed components)
-- Application Insights (Monitors FHIR Loader application)
+- Storage account (Data Lake/Blob storage for various challenges)
+- Key Vault (Stores secrets and configuration settings in various challenges)
+- Log Analytics Workspace (Logs the activity of deployed components in various challenges)
+- Application Insights (Monitors FHIR Loader application in various challenges)
 - Event Grid System Topic (Triggers processing of FHIR bundles placed in the FHIR Loader storage account)
+- Azure Data Factory (Export/Anonymize pipeline in challenge 5)
+- Event Hub (managed event ingesting service in challenge 6)
 
 ## Suggested Hack Agenda (Optional)
 
