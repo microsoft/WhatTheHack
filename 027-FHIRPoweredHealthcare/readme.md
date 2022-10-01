@@ -28,15 +28,15 @@ This hack will help you:
 
 **These challenges must be completed in order:**
 - Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
-- Challenge 1: **[Extract and load FHIR synthetic Electronic Health Record (EHR) data](Student/Challenge01.md)**
+- Challenge 1: **[Extract and Load FHIR EHR Data](Student/Challenge01.md)**
 
 **These challenges can be completed in any order:**
-- Challenge 2: **[Extract, transform and load HL7v2 and C-CDA EHR data](Student/Challenge02.md)**
-- Challenge 3: **[Create a new Single Page App (SPA) for patient search](Student/Challenge03.md)**
-- Challenge 4: **[Analyze and Visualize FHIR data](Student/Challenge04.md)**
-- Challenge 5: **[Bulk export, anonymize and store FHIR data into Data Lake storage](Student/Challenge05.md)**
-- Challenge 6: **[Stream IoMT Device data into FHIR using MedTech service](Student/Challenge06.md)**
-- Challenge 7: **[ Ingest, search & retrieve DICOM imaging data](Student/Challenge07.md)**
+- Challenge 2: **[Extract and Load HL7v2 and C-CDA EHR Data](Student/Challenge02.md)**
+- Challenge 3: **[Search FHIR EHR Data](Student/Challenge03.md)**
+- Challenge 4: **[Explore and Analyze FHIR EHR Data](Student/Challenge04.md)**
+- Challenge 5: **[Export and Anonymize FHIR EHR Data](Student/Challenge05.md)**
+- Challenge 6: **[Ingest and Persist IoT Medical Device Data](Student/Challenge06.md)**
+- Challenge 7: **[Load Imaging Data](Student/Challenge07.md)**
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
