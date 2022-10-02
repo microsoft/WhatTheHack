@@ -39,7 +39,7 @@ In this challenge you need to complete the following management tasks:
 Now that Datadog is configured to monitor the eShopOnWeb resources, it is time to simulate load on the SQL Server database and the eShopOnWeb website:
 - Use HammerDB to create a transaction load on the "tpcc" database on the SQL Server
     - Download and Install HammerDB tool on the Visual Studio VM 
-    - Instructions for setting up and using HammerDB are in the `/Challenge-02` folder from the student resource package. [TBD ADD LINK TO HAMMERDB INSTRUCTIONS HERE]
+    - See sample [Instructions for using HammerDB](./Resources/Challenge-02/UsingHammerDB.md) to generate load on the "tpcc" database.
 - Simulate a load on the VM Scale Set using the `UrlGenLoadwithCurl.sh` script in the `/Challenge-02` folder of the student resource package.
     - Modify the URL in the script file to point at either the Public IP address or DNS name of the `pip-wth-monitor-web-d-eu` resource in Azure.
     - This script is designed to be run from any bash shell, including the Azure Cloud Shell.
