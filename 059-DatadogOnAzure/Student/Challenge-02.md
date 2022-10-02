@@ -50,8 +50,8 @@ Now that Datadog is configured to monitor the eShopOnWeb resources, it is time t
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Verify that the Datadog is collecting the metrics
-- Show the Datadog dashboard with the database metric in it, which should show a spike representing before and after the database stress
+- Verify that the Datadog is collecting the metrics.
+- Show the Datadog dashboard with the database metric in it, which should show a spike representing before and after the database stress test.
 - Show the Datadog dashboard with the CPU metric in it, which should show a spoke representing before and after the CPU load test.
 
 ## Learning Resources
