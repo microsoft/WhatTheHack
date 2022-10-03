@@ -28,7 +28,7 @@ To test the FHIR Anonymization pipeline, call the **[$export endpoint](https://d
     - Execute **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to created the Anonymization pipeline.
 - **Upload test FHIR patient data for anonymization**
     - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the bulk FHIR export using the $export operation in FHIR service via Postman.
-        - Alternatively, upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline.
+    - Alternatively, upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline.
 - **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
     - **[Trigger pipeline run](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#trigger-and-monitor-pipeline-run-from-powershell)** to de-ID test FHIR patient data.
 - **Validate FHIR data export and anonymization** 
