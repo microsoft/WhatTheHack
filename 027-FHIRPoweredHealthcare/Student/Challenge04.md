@@ -18,11 +18,12 @@ You need to deploy an instance of FHIR service (done in challenge 1) and a Synap
     - To **[deploy the pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**, run this **[ARM template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FFHIR-Analytics-Pipelines%2Fmain%2FFhirToDataLake%2Fdeploy%2Ftemplates%2FFhirSynapsePipelineTemplate.json)** for pipeline deployment through the Azure Portal.      
 - **Provide Access of the FHIR server to the Azure Function**
     - **[Assign the FHIR Data Reader role](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-fhir-service)** to the Azure Function created from the deployment above
-- **Verify the data movement**
+- **Verify the data movement** as the function app deployed will run automatically and the time taken to write the FHIR dataset to the storage account will depend on the amount of data stored in the FHIR server. 
+    
     Hint:
-    - Azure Function app deployed runs automatically and time taken to write the FHIR dataset to the storage account will depend on the amount of data stored in the FHIR server. 
     - You should have Parquet files stored in the Storage Account after the Azure Function execution is completed and will see folders corresponding to different FHIR resources in the container's results folder.
     - You will see folders for only those Resources that are present in your FHIR server. Running the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** will create folders for other Resources.
+
 - **Provide privilege to your account**
     - You must provide the following roles to your account to run the PowerShell script in the next step (and revoke these roles after the installation if needed)
         - Assign Synapse Administrator role in your Synapse Workspace
