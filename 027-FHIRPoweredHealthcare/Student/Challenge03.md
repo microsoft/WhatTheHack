@@ -25,11 +25,7 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 
 - (Optional) Include any other modern UI features to improve the user experience.
 - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
-  - Ensure that the Reply URL matches the local and Azure Web App URL
-    - In AAD `App Registration` of AAD with directory admin access, configure a new `Web Platform` under `Authentication` blade
-        - Add `Redirect URI` for both local and Azure Web App URLs
-        - Enable `Implicit Grant` by selecting Access token and ID tokens
-        - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
+    Hint: Ensure that the Reply URL matches the local and Azure Web App URL.
 
 - Build and test JavaScript SPA app locally.
   - To run locally, you'll need to change the `redirectUri` property to: `http://localhost:3000/`.
