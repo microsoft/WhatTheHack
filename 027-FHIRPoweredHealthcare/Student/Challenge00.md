@@ -56,7 +56,7 @@ Please install these additional tools:
 
 ## Success Criteria
 
-- You have verify Azure Subscription is ready for use
+- You have verified Azure Subscription is ready for use
 - You have validated Powershell is installed
 - You have validated Azure Ad and Az modules are installed
 - You have validated Bash shell (WSL, Mac, Linux or Azure Cloud Shell) is installed
