@@ -40,7 +40,7 @@ To test the FHIR Bulk Loader, you will copy Synthea generated test FHIR patient 
 - Test the results of FHIR bulk load using Postman `FHIR API` collection to retreive FHIR patient data loaded.
    - You need to import the FHIR API Postman collection and environment variables:
       - You can find the Postman template files (`WTHFHIR.postman_collection.json` and `WTHFHIR.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
-      - Import the environment and collection template files into your Postman
+      - **[Import](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)** the environment and collection template files into your Postman
       - Configure Postman environment variables specific to your FHIR service instance
    - You need to register your **[public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)** to connect Postman desktop app to FHIR Server.
 
