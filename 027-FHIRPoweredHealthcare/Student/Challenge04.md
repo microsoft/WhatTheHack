@@ -26,7 +26,7 @@ You need to deploy an instance of FHIR service (done in challenge 1) and a **[Sy
 - **Provide privilege to your account**
     - You must provide the following roles to your account to run the PowerShell script in the next step (and revoke these roles after the installation if needed)
         - **[Assign Synapse Administrator role](https://learn.microsoft.com/en-us/azure/synapse-analytics/get-started-add-admin#synapse-rbac-synapse-administrator-role-for-the-workspace)** in your Synapse Workspace
-        - *[Assign the Storage Blob Data Contributor role](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role)** in your Storage Account for running the PowerScript below.
+        - **[Assign the Storage Blob Data Contributor role](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role)** in your Storage Account for running the PowerScript below.
 - **Provide access of the Storage Account to the Synapse Workspace**
     - **[Assign the Storage Blob Data Contributor role](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role)** to your Synapse Workspace.
 - **Run the PowerShell script**
