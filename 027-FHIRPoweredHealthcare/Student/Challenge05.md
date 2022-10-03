@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you will leverage the API requests in FHIR service within the Azure Health Data Services platform in a Azure Data Factory (ADF) pipeline to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challege is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
+In this challenge, you will leverage the API requests in FHIR service within the Azure Health Data Services platform in the Azure Data Factory (ADF) pipeline to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challege is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
 
 **[FHIR Tool for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** provides various tooling to anonymize healthcare FHIR data, on-premises or cloud, for secondary usage such as research, public health, etc. as follows:
 - **[Command line tool](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-the-command-line-tool)**, 
@@ -35,9 +35,9 @@ To test the FHIR Anonymization pipeline, call the **[$export endpoint](https://d
     - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container in the Storage Account(s). 
 
 ## Success Criteria
-- You have successfully configure and deploy the FHIR anonyization tool.
+- You have successfully configured and deployed the FHIR anonymization tool.
 - You have successfully configured FHIR Bulk Export and called the $export operation to upload the test FHIR data for anonymization
-- You have successfully trigger and monitor the Anonymization pipeline in ADF
+- You have successfully triggered and monitored the Anonymization pipeline in ADF
 - You have compared pre de-ided and post de-ided FHIR data in the resource and destination containers respectively.
 
 ## Learning Resources
