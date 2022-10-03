@@ -11,7 +11,7 @@ Below is the overview of the **[DICOMcast synchronization pipeline](https://lear
 
 ## Description
 
-You will deploy an instance of DICOM service in your Azure Health Data Service workspace, and configure it to ingest DICOM files for persitence in the DICOM service.  Its DICOMcast pipeline will synchronize image metadata to FHIR service (deployed in challenge 1), which will enable healthcare organizations to integrate clinical and imaging data.  DICOMcast expands the heath data use cases by supporting a longitudinal patient data and creating cohorts for medical studies, analytics, and machine learning.
+You will deploy an instance of DICOM service in your Azure Health Data Service workspace, and configure it to ingest DICOM files for persistence in the DICOM service.  Its DICOMcast pipeline will synchronize image metadata to FHIR service (deployed in challenge 1), which will enable healthcare organizations to integrate clinical and imaging data.  DICOMcast expands the heath data use cases by supporting a longitudinal patient data and creating cohorts for medical studies, analytics, and machine learning.
 
 - **Deploy a DICOM service instance within your Azure Health Data Services workspace (deployed in challenge 1).**
 
