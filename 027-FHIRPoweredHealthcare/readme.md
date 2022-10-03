@@ -8,9 +8,10 @@ Your team's assistance is needed to implement the following scenarios:
    * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data.
    * Export de-identify FHIR data and store in staging Data Lake storage for downstream processing.
    * Ingest, transform, correlate and persist medical IoT device data in FHIR using the MedTech service in Azure Health Data Services platform.
-   * Load and search imaging data in FHIR using the DICOM service in Azure Health Data Services platform.
+   * Load and search imaging data using the DICOM service in Azure Health Data Services platform.
 
-You will implement a collection of FHIR reference architectures from the **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architecture for the FHIR ecosystem.
+You will implement a collection of Microsoft Health reference architectures using the **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architecture for the FHIR ecosystem.
+
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
