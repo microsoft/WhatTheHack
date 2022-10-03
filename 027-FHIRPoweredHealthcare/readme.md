@@ -7,21 +7,21 @@ Your team's assistance is needed to implement the following scenarios:
    * Securely connect and search FHIR patient data stored in a FHIR Server through a patient lookup web app to enhance patient engagement.
    * Auto export new FHIR data via FHIR Anaytics piple for data exporation in Synapse Studio and perform downstream transformation against raw health data.
    * Export de-identify FHIR data and store in staging Data Lake storage for downstream processing.
-   * Ingest, transform, correlate and persist medical IoT device data in FHIR using the MedTech services in Azure Health Data Services platform.
+   * Ingest, transform, correlate and persist medical IoT device data in FHIR using the MedTech service in Azure Health Data Services platform.
+   * Load and search imaging data in FHIR using the DICOM service in Azure Health Data Services platform.
 
 You will implement a collection of FHIR reference architectures from the **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health architecture for the FHIR ecosystem.
 ![Health Architecture](./images/HealthArchitecture.png)
 
 ## Learning Objectives
 This hack will help you:
-1. Deploy FHIR service in Azure Health Data Services platform.
-2. Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
-3. Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
-4. Develop React Single Page App (SPA) to search and view FHIR patient data.
-5. Transform and explore FHIR data for secondary use analytics.
-6. Export and anonymize FHIR data for secondary use.
-7. Ingest, transform and load medical IoT device data into FHIR using MedTech service.
-8. Ingest, search and retrieve imaging data persisted in the DICOM service.
+1. Deploy FHIR service in Azure Health Data Services platform to persist generated synthetic FHIR data into FHIR Service.
+2. Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
+3. Develop React Single Page App (SPA) to search and view FHIR patient data.
+4. Transform and explore FHIR data for secondary use analytics.
+5. Export and anonymize FHIR data for secondary use.
+6. Ingest, transform and load medical IoT device data into FHIR using MedTech service.
+7. Ingest, search and retrieve imaging data persisted in the DICOM service.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>

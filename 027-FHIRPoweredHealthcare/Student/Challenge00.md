@@ -26,8 +26,6 @@ We have compiled a list of common tools and software that will come in handy to 
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
-
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
@@ -50,7 +48,6 @@ Please install these additional tools:
 
 - **[.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)**
 - **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)** (needed to run Synthea Patient Generator tool)
-- **[Visual Studio Code](https://code.visualstudio.com/)**
 - **[Node Module Extension for VS Code](https://code.visualstudio.com/docs/nodejs/extensions)**
 - **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
 - **[Node.js Window Installer](https://nodejs.org/en/download/)**
@@ -59,37 +56,32 @@ Please install these additional tools:
 
 ## Success Criteria
 
-- Verify Azure Subscription is ready for use
-- Verfiy Powershell is installed
-- Verify Azure Ad and Az modules are installed
-- Verify Bash shell (WSL, Mac, Linux or Azure Cloud Shell) is installed
-- Verfiy .NET Core is installed
-- Verify Java JDK is installed
-- Verfiy Visual Studio Code and required extensions are installed
-- Verfiy Node.js and npm are installed
-- Verify Postman is installed
+- You have verify Azure Subscription is ready for use
+- You have validated Powershell is installed
+- You have validated Azure Ad and Az modules are installed
+- You have validated Bash shell (WSL, Mac, Linux or Azure Cloud Shell) is installed
+- You have validated .NET Core is installed
+- You have validated Java JDK is installed
+- Youh ave validated Visual Studio Code and required extensions are installed
+- You have validated Node.js and npm are installed
+- You have validated Postman is installed
 
 ## Learning Resources
 
-- **[Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)**
-- **[Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)**
-- **[VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)**
-- **[NodeJS pre-built installer downloads](https://nodejs.org/en/download/)**
-- **[Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
 - **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview)** is a set of managed API services that support multiple health data standards for the exchange of structured data. You can deploy multiple instances of different service types (FHIR, DICOM, and MedTech) that seamlessly work with one another within a workspace.  All service instances within a workspace share a compliance boundary and common configuration settings.
 - **[FHIR service in Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/)** is a managed, centralized Fast Healthcare Interoperability Resources (FHIR®) Compliant data management solution to ingest, manage, and persist Protected Health Information PHI in the cloud.  It enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering for high performance and low latency.  
-- **[FHIR Bulk Load](https://github.com/microsoft/fhir-loader)** is a Function App solution for bulk ingestions of FHIR Bundle (compressed and non-compressed) and NDJSON files that is triggered whenever new or modified BLOB arrives in the designated BLOB container.  It uses a High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources, and has a comprehensive Auditing, Error logging and Retry for throttled transactions.
+- **[FHIR Bulk Load](https://github.com/microsoft/fhir-loader)** is an OSS Function App solution for bulk ingestions of FHIR Bundle (compressed and non-compressed) and NDJSON files that is triggered whenever new or modified BLOB arrives in the designated BLOB container.  It uses a High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources, and has a comprehensive Auditing, Error logging and Retry for throttled transactions.
 - **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that enables conversion of health data from legacy formats to FHIR.  It supports four types of conversions, HL7v2 to FHIR, C-CDA to FHIR, JSON to FHIR and FHIR STU3 to R4. The converter uses templates that define mappings between these different data formats. The templates are written in Liquid templating language and make use of custom filters.
-- **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** event-driven architecture that handles FHIR CUD events from the FHIR Server to enable post-processing for topic subscribers to kickoff downstream workflows.
-- **[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)** conversion workflow to ingest C-CDA data, call FHIR Converter API for C-CDA to FHIR bundle conversion and load the resulted FHIR bundle into FHIR Server.
-- **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** as the event trigger mechanism to auto ingest and convert HL7v2 messages, pushed to the FHIR Service Bus, into FHIR bundles.
-- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to search for patient(s) stored in FHIR Server and display the results in web page(s).
-- **[Azure Batch](https://docs.microsoft.com/en-us/azure/batch/)** runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
-- **[Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)** is a fully managed enterprise integration message broker. Service Bus can decouple applications and services. 
+- **[Tools for Health Data Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md)** is available as a command line tool, Azure Data Factory (ADF) pipeline or De-identified $export operation in FHIR service to export and anonymize FHIR data.
+- **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** is an event-driven architecture that ingests and asynchronously processes millions of IoT medical device data over the Internet in real time for persistence into the FHIR service.
+- **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** is used in the `FHIR-Bulk Loader` pipeline to provide services for ingesting FHIR data.
+- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to search for patient(s) stored in FHIR service and display the results in web page(s).
+- **[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)** is Azure's cloud ETL service for scale-out serverless data integration and data transformation.  The ADF pipeline is one of the options in `Tools for Health Data Anonymiation` that reads from an Azure blob container, anonymizes it as per the configuration file, and writes the output to another blob container.
+- **[Azure Batch](https://docs.microsoft.com/en-us/azure/batch/)** runs large-scale applications efficiently in the cloud, and is used in the `Tools for Health Data Anonymization` to perform the deidentification.
 - **[Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)** is Microsoft's object storage solution, optimized for storing massive amounts of unstructured data. 
 - **[Azure Data Lake Store Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)** is a set of capabilities dedicated to big data analytics, is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1.
 - **[Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)** is Azure storage management used to upload, download, and manage Azure blobs, files, queues, and tables, as well as Azure Cosmos DB and Azure Data Lake Storage entities.
-- **[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)** is Azure's cloud ETL service for scale-out serverless data integration and data transformation.
+- **[VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery)** lets you browse and install languages, debuggers, and tools to your default VS Code installation to support your development workflow.
 - **[Postman](https://learning.postman.com/docs/getting-started/introduction/)** is an API Testing Tool to work with FHIR, DICOM and MedTech services in Azure Health Data Services.
   - [Installing and updating Postman](https://learning.postman.com/docs/getting-started/installation-and-updates/)
   - [Navigating Postman](https://learning.postman.com/docs/getting-started/navigating-postman/)

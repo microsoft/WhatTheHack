@@ -57,7 +57,10 @@ This hack will deploy the following Azure resources and OSS components to implem
 - FHIR Loader (OSS) Function App based event-driven pipeline (for ingesting FHIR data in Challenge 1)
 - Azure Function (managed Serverless solution to host FHIR Loader app in challenge 1)
 - FHIR Analytics Pipeline - FHIR to Synapse sync agent (OSS pipeline to move FHIR data in FHIR service to Azure Data Lake for analytics with Synapse in challenge 4)
+- Tool for Health Data Anonymization pipleine (ADF pipeline to export and anonymize FHIR data in challenge 5)
 - Serverless SQL pool in Azure Synapse Analytics (Query service over the data in your data lake in challenge 4)
+- Azure Data Factory (Cloud ETL pipeline used in challege 5)
+- Azure Batch (Perform the deidentification in Tools for Health Data Anonymization in challenge 4))
 - App Service Plan (Shared by FHIR Loader function apps)
 - Storage account (Data Lake/Blob storage for various challenges)
 - Key Vault (Stores secrets and configuration settings in various challenges)
@@ -66,19 +69,6 @@ This hack will deploy the following Azure resources and OSS components to implem
 - Event Grid System Topic (Triggers processing of FHIR bundles placed in the FHIR Loader storage account)
 - Azure Data Factory (Export/Anonymize pipeline in challenge 5)
 - Event Hub (managed event ingesting service in challenge 6)
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
 
 ## Repository Contents
 
