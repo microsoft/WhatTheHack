@@ -40,7 +40,7 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
   - Store DICOM instances with sample DICOM files
 
     Hint:
-    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
+    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `WTH FHIR-Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
     - You can find the sample DICOM files (`red-triangle.dcm`, `green-square.dcm` and `blue-circle.dcm`) in the `/DICOM-service` folder of the Resources.zip file provided by your coach.
     - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
     - For each sample .dcm file, send appropriate `POST Store-single-instance...` API call to populate your DICOM service with the three .dcm single instance files.
