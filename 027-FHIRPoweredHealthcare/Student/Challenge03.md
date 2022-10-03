@@ -25,6 +25,7 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 
 - (Optional) Include any other modern UI features to improve the user experience.
 - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
+
     Hint: Ensure that the Reply URL matches the local and Azure Web App URL.
 
 - Build and test JavaScript SPA app locally.
