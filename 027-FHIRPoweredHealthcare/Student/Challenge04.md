@@ -17,7 +17,7 @@ You need to deploy an instance of FHIR service (done in challenge 1) and a Synap
 - **Deploy the FHIR-to-Synapse Analytics Pipeline**
     - To **[deploy the pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**, run this **[ARM template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FFHIR-Analytics-Pipelines%2Fmain%2FFhirToDataLake%2Fdeploy%2Ftemplates%2FFhirSynapsePipelineTemplate.json)** for pipeline deployment through the Azure Portal.      
 - **Provide Access of the FHIR server to the Azure Function**
-    - Assign the FHIR Data Reader role to the Azure Function created from the deployment above
+    - **[Assign the FHIR Data Reader role](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-fhir-service)** to the Azure Function created from the deployment above
 - **Verify the data movement**
     - Azure Function app deployed runs automatically. 
     - Time taken to write the FHIR dataset to the storage account depends on the amount of data stored in the FHIR server. 
