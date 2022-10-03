@@ -19,13 +19,12 @@ You need to deploy an instance of FHIR service (done in challenge 1) and a Synap
 - **Provide Access of the FHIR server to the Azure Function**
     - **[Assign the FHIR Data Reader role](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-fhir-service)** to the Azure Function created from the deployment above
 - **Verify the data movement**
-    - Azure Function app deployed runs automatically. 
-    - Time taken to write the FHIR dataset to the storage account depends on the amount of data stored in the FHIR server. 
-    - After the Azure Function execution is completed, you should have Parquet files stored in the Storage Account. 
-    - Browse to the results folder inside the container. You should see folders corresponding to different FHIR resources. 
-    - Note that you will see folders for only those Resources that are present in your FHIR server. Running the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** will create folders for other Resources.
+    Hint:
+    - Azure Function app deployed runs automatically and time taken to write the FHIR dataset to the storage account will depend on the amount of data stored in the FHIR server. 
+    - You should have Parquet files stored in the Storage Account after the Azure Function execution is completed and will see folders corresponding to different FHIR resources in the container's results folder.
+    - You will see folders for only those Resources that are present in your FHIR server. Running the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** will create folders for other Resources.
 - **Provide privilege to your account**
-    - You must provide the following roles to your account to run the PowerShell script in the next step. You may revoke these roles after the installation is complete.
+    - You must provide the following roles to your account to run the PowerShell script in the next step (and revoke these roles after the installation if needed)
         - Assign Synapse Administrator role in your Synapse Workspace
         - Assign the Storage Blob Data Contributor role in your Storage Account.
 - **Provide access of the Storage Account to the Synapse Workspace**
@@ -34,9 +33,9 @@ You need to deploy an instance of FHIR service (done in challenge 1) and a Synap
     - Run the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** to create External Tables and Views in Synapse Serverless SQL Pool pointing to the Parquet files in the Storage Account.
 
 ## Success Criteria
-- You can query 'fhirdb' data in Synapse Studio to explore
+- You have query the `fhirdb` data in Synapse Studio to explore
     the External Tables and Views to see the exported FHIR resource entities.
-- New persisted FHIR data are fetched automatically to the Data Lake and become available for querying.
+- You have verfied that new persisted FHIR data are fetched automatically to the Data Lake and are available for querying.
 
 ## Learning Resources
 
