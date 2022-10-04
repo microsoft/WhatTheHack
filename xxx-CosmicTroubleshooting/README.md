@@ -43,4 +43,4 @@ In this hack you will be diving deeper into Azure Cosmos DB data modelling, moni
 ## Contributors
 
 - Ioannis Stavrinides
-- Vaclav Jirovski
+- Vaclav Jirovsky
