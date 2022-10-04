@@ -47,12 +47,12 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 Please install these additional tools:
 
 - **[.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)**
-- **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)** (needed to run Synthea Patient Generator tool)
-- **[Node Module Extension for VS Code](https://code.visualstudio.com/docs/nodejs/extensions)**
-- **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)**
-- **[Node.js Window Installer](https://nodejs.org/en/download/)**
-- **[Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-- **[Postman](https://www.getpostman.com)**
+- **[Java 1.8 JDK](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)** (Used in challenge 1 for compiling Synthea Patient Generator tool)
+- **[Node Module Extension for VS Code](https://code.visualstudio.com/docs/nodejs/extensions)** (Used in challenge 3 for Patient Search app development)
+- **[App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)** (Used in challenge 3 for Patient Search app deployment)
+- **[Node.js Window Installer](https://nodejs.org/en/download/)** (Used in challenge 3 for Patient Search app development)
+- **[Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)** (Used in challenge 3 for Patient Search app development)
+- **[Postman](https://www.getpostman.com)** (Used in various challenges for API testing of Azure Health Data Services endpoints)
 
 ## Success Criteria
 
@@ -73,7 +73,7 @@ Please install these additional tools:
 - **[FHIR Bulk Load](https://github.com/microsoft/fhir-loader)** is an OSS Function App solution for bulk ingestions of FHIR Bundle (compressed and non-compressed) and NDJSON files that is triggered whenever new or modified BLOB arrives in the designated BLOB container.  It uses a High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources, and has a comprehensive Auditing, Error logging and Retry for throttled transactions.
 - **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** is an open source project that enables conversion of health data from legacy formats to FHIR.  It supports four types of conversions, HL7v2 to FHIR, C-CDA to FHIR, JSON to FHIR and FHIR STU3 to R4. The converter uses templates that define mappings between these different data formats. The templates are written in Liquid templating language and make use of custom filters.
 - **[Tools for Health Data Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md)** is available as a command line tool, Azure Data Factory (ADF) pipeline or De-identified $export operation in FHIR service to export and anonymize FHIR data.
-- **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** is an event-driven architecture that ingests and asynchronously processes millions of IoT medical device data over the Internet in real time for persistence into the FHIR service.
+- **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about)** is an event-driven architecture used by MedTech service to ingest and asynchronously processes millions of IoT medical device data over the Internet in real time for persistence into the FHIR service.
 - **[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)** is used in the `FHIR-Bulk Loader` pipeline to provide services for ingesting FHIR data.
 - **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)** to host the frontend web app to search for patient(s) stored in FHIR service and display the results in web page(s).
 - **[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)** is Azure's cloud ETL service for scale-out serverless data integration and data transformation.  The ADF pipeline is one of the options in `Tools for Health Data Anonymiation` that reads from an Azure blob container, anonymizes it as per the configuration file, and writes the output to another blob container.
