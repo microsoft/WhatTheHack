@@ -18,7 +18,7 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
   
     - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request within the web app.
 
-    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-auth-code-flow.png)
+    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
 - Create a patient lookup by Given or Family name in JavaScript SPA app.
   - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
