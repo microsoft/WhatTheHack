@@ -6,7 +6,7 @@
 
 In this challenge, you will create a new Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
-![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-auth-code-flow.png)
+![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
 - Make sure the following Node.js prerequistes have been completed
   - To see if you already have Node.js and npm installed and check the installed version, run: 
