@@ -1,6 +1,6 @@
 # Challenge 3: Search FHIR EHR Data
 
-[< Previous Challenge](./Challenge02.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge04.md)
+[< Previous Challenge](./Challenge02.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge04.md)
 
 ## Introduction
 

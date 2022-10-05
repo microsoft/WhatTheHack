@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 1 - Extract and Load FHIR EHR Data
 
-[< Previous Challenge](./Solution00.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution02.md)
+[< Previous Challenge](./Solution00.md) - **[Home](./README.md)** - [Next Challenge>](./Solution02.md)
 
 ## Notes & Guidance
 

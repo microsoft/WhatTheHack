@@ -1,6 +1,6 @@
 # Challenge 1: Extract and Load FHIR EHR Data
 
-[< Previous Challenge](./Challenge00.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge02.md)
+[< Previous Challenge](./Challenge00.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge02.md)
 
 ## Introduction
 

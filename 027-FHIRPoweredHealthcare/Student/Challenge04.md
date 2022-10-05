@@ -1,6 +1,6 @@
 # Challenge 4: Explore and Analyze FHIR EHR Data
 
-[< Previous Challenge](./Challenge03.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge05.md)
+[< Previous Challenge](./Challenge03.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge05.md)
 
 ## Introduction
 

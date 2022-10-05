@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 3 - Search FHIR EHR Data
 
-[< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
+[< Previous Challenge](./Solution02.md) - **[Home](./README.md)** - [Next Challenge>](./Solution04.md)
 
 ## Notes & Guidance
 

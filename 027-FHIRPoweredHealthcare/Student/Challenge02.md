@@ -1,6 +1,6 @@
 # Challenge 2: Extract and Load HL7v2 & C-CDA EHR Data
 
-[< Previous Challenge](./Challenge01.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge03.md)
+[< Previous Challenge](./Challenge01.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge03.md)
 
 ## Introduction
 
