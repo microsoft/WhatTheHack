@@ -68,6 +68,17 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 ![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
+## Deploy Datadog from Azure Marketplace
+- Go to the Azure Marketplace and deploy Datadog into your subscription using the "Datadog Pro Pay-As-You-Go" offering.
+- Create a new Datadog organization when asked to choose between linking to an existing Datadog org or creating a new one.
+- Select the existing resource group ".._rg-wth-monitor-d_.." to deploy the Datadog resource.
+- Ensure that the Azure resource details show as "West US 2" and the Datadog site is "US3".
+- You do not need to enable single sign-on through Azure Active Directory for this workshop, but we recommend doing so in a production environment.
+- Proceed with the deployment, and once the deployment is finished, click the link **Set Password in Datadog.**
+- Choose a password that you will remember for the duration of this workshop.
+- Proceed to log in to Datadog. The username/Email can be found in the Azure portal, top right. Click View account to see the full email address. Use the password from the previous step.
+-  We recommend keeping the Datadog and Azure portal browser tabs open for the duration of this workshop.
+
 ## Success Criteria
 
 - Verify you have access to the contents of the `Resources.zip` package in your Azure Cloud Shell environment
