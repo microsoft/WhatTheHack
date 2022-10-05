@@ -11,24 +11,24 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 ## Coach's Guides
 
 **These challenges must be completed in order:**
-- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Student/Challenge00.md)**
+- Challenge 0: **[Pre-requisites - Ready, Set, GO!](Coach/Solution00.md)**
     - Required tools needed to implement the hack challenges
-- Challenge 1: **[Extract and Load FHIR EHR Data](Student/Challenge01.md)**
+- Challenge 1: **[Extract and Load FHIR EHR Data](Coach/Solution01.md)**
     - Deploy FHIR service in Azure Health Data Services platform
     - Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
 
 **These challenges can be completed in any order:**
-- Challenge 2: **[Extract and Load HL7v2 and C-CDA EHR Data](Student/Challenge02.md)**
+- Challenge 2: **[Extract and Load HL7v2 and C-CDA EHR Data](Coach/Solution02.md)**
     - Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
-- Challenge 3: **[Search FHIR EHR Data](Student/Challenge03.md)**
+- Challenge 3: **[Search FHIR EHR Data](Coach/Solution03.md)**
     - Develop Single Page App (SPA) to search and view FHIR EHR data.
-- Challenge 4: **[Explore and Analyze FHIR EHR Data](Student/Challenge04.md)**
+- Challenge 4: **[Explore and Analyze FHIR EHR Data](Coach/Solution04.md)**
     - Transform and explore FHIR data for secondary use analytics.
-- Challenge 5: **[Export and Anonymize FHIR EHR Data](Student/Challenge05.md)**
+- Challenge 5: **[Export and Anonymize FHIR EHR Data](Coach/Solution05.md)**
     - Export, anonymize and store FHIR EHR data in data lake for secondary use.
-- Challenge 6: **[Ingest and Persist IoT Medical Device Data](Student/Challenge06.md)**
+- Challenge 6: **[Ingest and Persist IoT Medical Device Data](Coach/Solution06.md)**
     - Ingest, transform and load medical IoT device data into FHIR using MedTech service.
-- Challenge 7: **[Load Imaging Data](Student/Challenge07.md)**
+- Challenge 7: **[Load DICOM Imaging Data](Coach/Solution07.md)**
     - Ingest, search and retrieve imaging data persisted in the DICOM service.
 
 ## Coach Prerequisites
