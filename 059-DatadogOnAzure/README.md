@@ -16,9 +16,9 @@ In this hack, you will be getting hands on experience with monitoring resources 
 	 - Description of challenge
 - Challenge 02: **[Monitoring Basics and Dashboards](Student/Challenge-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
+- Challenge 03: **[Monitoring Azure Virtual Machines](Student/Challenge-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
+- Challenge 04: **[Datadog for Applications](Student/Challenge-04.md)**
 	 - Description of challenge
 - Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
 	 - Description of challenge
