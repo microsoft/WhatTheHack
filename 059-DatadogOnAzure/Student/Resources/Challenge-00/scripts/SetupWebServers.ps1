@@ -77,3 +77,7 @@ Copy-Item "V:\wwwroot" -Destination "C:\inetpub\" -Recurse -Force -Verbose >> c:
 
 #Restart iis
 Start-Process -FilePath C:\Windows\System32\iisreset.exe -ArgumentList /RESTART >> c:\windows\temp\SetupWebServers.log
+
+# Call Datadog Setup script to configure Datadog on this web server
+# This script is designed to be modified by students during the hack.
+.\SetupDatadogOnWebServers.ps1

@@ -1,6 +1,7 @@
 @description('Name of the blob as it is stored in the blob container')
 param VSServerScriptName string = 'SetupVSServer.ps1'
 param WebServersScriptName string = 'SetupWebServers.ps1'
+param DatadogScriptName string = 'SetupDatadogOnWebServers.ps1'
 
 @description('UTC timestamp used to create distinct deployment scripts for each deployment')
 param utcValue string = utcNow()
@@ -59,8 +60,12 @@ resource bootstrapServerScripts 'Microsoft.Resources/deploymentScripts@2020-10-0
         name: 'WEBSERVERSCRIPT'
         value: loadTextContent('../scripts/SetupWebServers.ps1')
       }
+      {
+        name: 'DATADOGSERVERSCRIPT'
+        value: loadTextContent('../scripts/SetupDatadogOnWebServers.ps1')
+      }
     ]
-    scriptContent: 'echo "$VSSERVERSCRIPT" > ${VSServerScriptName} && az storage blob upload -f ${VSServerScriptName} -c ${containerName} -n ${VSServerScriptName}; echo "$WEBSERVERSCRIPT" > ${WebServersScriptName} && az storage blob upload -f ${WebServersScriptName} -c ${containerName} -n ${WebServersScriptName};'
+    scriptContent: 'echo "$VSSERVERSCRIPT" > ${VSServerScriptName} && az storage blob upload -f ${VSServerScriptName} -c ${containerName} -n ${VSServerScriptName}; echo "$WEBSERVERSCRIPT" > ${WebServersScriptName} && az storage blob upload -f ${WebServersScriptName} -c ${containerName} -n ${WebServersScriptName}; echo "$DATADOGSERVERSCRIPT" > ${DatadogScriptName} && az storage blob upload -f ${DatadogScriptName} -c ${containerName} -n ${DatadogScriptName};'
   }
 }
 

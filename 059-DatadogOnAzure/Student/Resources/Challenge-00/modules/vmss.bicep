@@ -23,6 +23,8 @@ param Subnet string
 
 param ArtifactsURL string //blob storage URL where the artifacts (PowerShell script) is located
 param WebServersScriptName string = 'SetupWebServers.ps1' //name of the PowerShell script
+param DatadogScriptName string = 'SetupDatadogOnWebServers.ps1' //name of the PowerShell script
+
 
 //Get the role id for Storage Blob Data Reader
 resource StorageBlobDataReaderRole 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
@@ -128,7 +130,7 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2022-03-01' = {
               }
               protectedSettings:{
                 fileUris: [
-                  '${ArtifactsURL}${WebServersScriptName}'
+                  '${ArtifactsURL}${WebServersScriptName}', '${ArtifactsURL}${DatadogScriptName}'
                 ]
                 commandToExecute: 'powershell.exe -ExecutionPolicy Unrestricted -File SetupWebServers.ps1 ${SqlServer} ${AdminUsername} ${AdminPassword}'
                 managedIdentity: { clientId: userManagedIdentity.properties.clientId }
