@@ -83,5 +83,6 @@ To complete this challenge successfully, you should be able to:
   - Azure App Service
   - Azure Cosmos DB Account
   - Azure Load Testing
-  - A Managed Identity 
+  - A Managed Identity
+  - Azure Function App
 - You should have a web application running in your Azure Web App.
