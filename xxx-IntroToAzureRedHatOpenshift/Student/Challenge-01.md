@@ -21,7 +21,7 @@ In this challenge we will deploy our first Azure Red Hat OpenShift cluster. This
 To complete this challenge successfully, you should be able to:
 - Verify that the ARO cluster has been created using the command `az aro list -o table`
 - Demonstrate that you can login to the ARO Web Console
-- Demonstrate that you are connected to the ARO cluster using the command ``
+- Demonstrate that you are connected to the ARO cluster using the command `oc login --token=[retrieve from login command] --server=https:[retrieve from login command]`
 - Verify the cluster nodes are running using the command `oc get nodes`
 
 ## Learning Resources

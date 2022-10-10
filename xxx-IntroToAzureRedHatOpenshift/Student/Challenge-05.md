@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
-In challnge 4 we deployed a Mongo DB database as one step towards fixing one of our errors in challenge 3. For this challenge we will be configuring our backend and frontend applications to fix the errors we found in challenge 3.
+In challenge 4 we deployed a Mongo DB database as one step towards fixing one of our errors in challenge 3. For this challenge we will be configuring our backend and frontend applications to fix the errors we found in challenge 3.
 
 ## Description
 In this challenge, we will need to configure our deployments. Your goal is to find out what environment variables need to be configured for the application to work.
