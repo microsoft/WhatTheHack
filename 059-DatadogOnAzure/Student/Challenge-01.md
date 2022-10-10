@@ -28,7 +28,6 @@ You can find the sample Terraform file, `GenerateMonitors.tf`, in the `/Challeng
  
 - Modify the `GenerateMonitors.tf` to include “Disk Write Operations/Sec” and set a threshold of 20
 - Rerun your template and verify your new Monitors are created for each of your VMs
-- Create a new Monitor configuration that suppresses alerts from the scale set and virtual machines
 
 Bonus question/task:
 - Will the Monitor get triggered if the VM was turned off from the OS? Or if the VM was not available? Why? What if it takes longer than expected to turn on?
