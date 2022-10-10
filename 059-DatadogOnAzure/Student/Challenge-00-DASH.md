@@ -36,8 +36,9 @@ However, if you work with Azure and on a regular basis, these are tools you shou
 
 To access the Azure lab environment for this hack, you will need to do the following:
 
-- Login to Spektra Systems' website with your email address and the password provided by your coach: [https://URL.TBD](https://url.tbd)
+- Login to Spektra Systems' website with your email address and the password provided by your coach: [https://bit.ly/3dVFY9U](https://https://bit.ly/3dVFY9U)
 - Copy the provided username & password for the Azure environment to an easy to access location on your workstation (Notepad, OneNote, etc).
+- Please be sure to copy the VM username and password as well.
 - Login to the Azure portal at: [https://portal.azure.com](https://portal.azure.com)
 - Login to the Azure Cloud Shell and create a new Bash environment (if it does not exist): [https://shell.azure.com](https://shell.azure.com)
 
