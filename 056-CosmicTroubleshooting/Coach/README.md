@@ -10,26 +10,18 @@ Welcome to the coach's guide for the CosmicTroubleshooting What The Hack. Here y
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
+- Challenge 01: **[What is going on](./Solution-01.md)**
+	 - Troubleshoot the performance issues
+- Challenge 02: **[Time to fix things](./Solution-02.md)**
+	 - Implement planned changes
+- Challenge 03: **[Automate order processing](./Solution-03.md)**
+	 - Automate processing of submitted orders
+- Challenge 04: **[Time to analyze data](./Solution-04.md)**
+	 - Integrate clickstream data and plan for analyzing
+- Challenge 05: **[Going Global](./Solution-05.md)**
+	 - Multi-region deployment of the application/database
+- Challenge 06: **[Securing the data](./Solution-06.md)**
+	 - Let's make sure we prevent bad things from happening
 
 ## Coach Prerequisites
 
@@ -45,20 +37,11 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
-
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+- Your own Azure subscription with Owner access
+- Visual Studio Code
+- Azure CLI
 
 ## Repository Contents
 
