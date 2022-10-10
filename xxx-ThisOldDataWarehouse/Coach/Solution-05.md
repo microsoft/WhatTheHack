@@ -10,9 +10,9 @@ WWI leadership team wants to leverage Power BI to create rich semantic models to
 The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to return in less than 5 seconds.  This will require you to optimize the Power BI data model and report.  Secondly, you will need to tune the Azure Synapse database to ensure your table design is setup properly and you have setup statistics and results-set cache.  After completion, review your results with the coach to determine optimal design.
 
 ## Coach's notes
-1. This Challenge will be reusing existing assets to determine optimal performance of their Power BI Report and Azure Synapse Analytics Data tables
+1. This Challenge will be reusing existing assets to determine optimal performance of their Power BI Report and Azure Synapse Analytics SQL Pools
 1. Please share the student.zip file in the student_share directory in the solutions for Challenge 5
-1. There will be four success criteria in this challenge.  First one will be with Power BI Data model and remaining with tuning Synapse ANalytics tables
+1. There will be four success criteria in this challenge.  First one will be with Power BI Data model and remaining with tuning Synapse ANalytics SQL Pools
 1. Azure Synapse Analytics tuning
     1. Leverage WWI_Sales.pbix during this part of the exercise.
     1. First success criteria is to review the skew of the tables.  THis will be different for each team depending on how they setup the previous challenges. It is recommended to review the skew and fix it by using the CTAS statement.  This will give them a similar baseline to everyone else.
@@ -30,11 +30,11 @@ The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to ret
 1. [Azure Synapse Analytics & Power BI performance](https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/)
 1. [Power BI Composite Model](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models)
 1. [Power BI change table storage mode](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode)
-1. [Table skew](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)
-1. [Table skew workflow](https://github.com/rgl/azure-content/blob/master/articles/sql-data-warehouse/sql-data-warehouse-manage-distributed-data-skew.md)
+1. [Table skew](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+1. [Table skew workflow](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analyzer-report-to-monitor-and-improve-azure/ba-p/3276960)
 1. [Explain Plan](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)
-1. [Result-set cache](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching)
-1. [Statistics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics#use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database)
+1. [Result-set cache](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching)
+1. [Statistics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-statistics)
 
 ## Additional Challenges
 1. [Add Indexes and Partitions to your table structures](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance?view=sql-server-ver15)

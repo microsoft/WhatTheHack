@@ -1,4 +1,4 @@
-# Challenge 00 - <Title of Challenge> - Coach's Guide 
+# Challenge 00 - Setup - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
@@ -41,7 +41,7 @@ az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/s
 6. [Upload](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#upload-files) your ARM templates into Azure CloudShell. 
 
 
-    /Student/Challenges/Challenge0/ARM.  
+    /Student/Resources/Challenge0/.  
     The files are parametersFile.json and template.json.
     Edit the parmeters file and replace any {} with information requested.  
 

@@ -34,7 +34,7 @@ Note: This challenge is intended to build upon the previous 2 challenges, and yo
 
 ## Learning Resources
 
-1. [Load data into DW via Polybase](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase)
+1. [Load data into DW via Polybase](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
 1. [Incrementally load multiple tables in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
 1. [Azure Data Factory Copy Activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
 

@@ -15,8 +15,6 @@ There are many adventures you can take on this Challenge and one of them can be 
 
 ## Environment Setup
 
-**Note:** Until Synapse Analytics goes GA, the coach's notes and students guides will leverage the terms Azure Data Lake Store Gen2, Azure Data Factory and Azure Synapse Database.  These terms will be replaced with Linked Storage, Data Pipelines and SQL Pools respectively as the reference documentation is updated upon GA.  It is acceptable to use Synapse Analytics Workspace as one of the adventures. We did not explicitly mention it since supporting documentation is missing.
-
 1. Execute queries below in the Wide World Importers Database to update 10 existing records and insert 1 new record. 
 ~~~
 UPDATE T
@@ -56,7 +54,7 @@ SELECT [WWI City ID], City, [State Province], Country, Continent, [Sales Territo
     ORDER BY [Valid From];
 ~~~~
 
-2. Execute the query below in the Azure Synapse DW database to update the parameter used as the upper bound for the ELT process:
+2. Execute the query below in the Azure Synapse SQL Pool to update the parameter used as the upper bound for the ELT process:
 
 ~~~~
 UPDATE INTEGRATION.LOAD_CONTROL
@@ -64,7 +62,7 @@ SET LOAD_DATE = getdate()
 ~~~~
 
 3. Deploy a new storage account resource.
-    - Create a new Azure Storage Account and enable Data Lake Storage Gen 2 (Note: set Hierarchical namespace property to Enabled).  Step by step directions can be found [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+    - Create a new Azure Storage Account and enable Data Lake Storage Gen 2 (Note: set Hierarchical namespace property to Enabled).  Step by step directions can be found [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)  This is provided if you setup storage manually.
 
 4. Define directory structure to support data lake use cases.  [This document](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-best-practices#batch-jobs-structure) describes this concept in more detail.
 
@@ -75,12 +73,9 @@ SET LOAD_DATE = getdate()
 
 5. Configure folder level security in your new data lake storage.  Supporting documentation for securing ADLS Gen 2 can be found [here](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control). 
 
-6. Deploy a new Azure Data Factory resource in your subscription.  You can find a similar sample explained [here](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-data-tool).  
-<br>**Note: steps below explain how to create applicable pipelines and activities in more detail.**
+6. Create a pipeline to copy data into ADLS. Keep in mind that this pipeline will serve as the **EXTRACT** portion of WWI's new ELT process.  There are stored procedures already present in the OLTP database that can be used to query the source data, but they will require start and end date parameters in order to be executed.
 
-7. Create a pipeline to copy data into ADLS. Keep in mind that this pipeline will serve as the **EXTRACT** portion of WWI's new ELT process.  There are stored procedures already present in the OLTP database that can be used to query the source data, but they will require start and end date parameters in order to be executed.
-
-    - Using instructions found in [here](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal#create-a-data-factory), access the Azure Data Factory UI and create necessary linked services, datasets, pipelines, and activities (Note: JSON for each of the objects below can be found in the resources folder).  
+    - Using instructions found in [here](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal#create-a-data-factory), access the Synapse pipelines UI and create necessary linked services, datasets, pipelines, and activities (Note: JSON for each of the objects below can be found in the resources folder).  
         - Linked Services:
             - SQL Server connection for WideWorldImporters database  
             <br>**Note: you will need to create a new Self Hosted Integration Runtime IF your source SQL server is not open to the public. This is an advanced topic and not required for Challenge 2**
