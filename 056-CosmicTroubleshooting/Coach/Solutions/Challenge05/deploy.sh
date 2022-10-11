@@ -45,6 +45,7 @@ location=`jq -r ".parameters.location.value" $parametersfilename`
 
 # Deploy our infrastructure
 output=$(az deployment sub create \
+  --name "Challenge05-sh" \
   --location $location \
   --template-file "WTHAzureCosmosDB.IaC/main.bicep" \
   --parameters @$parametersfilename \

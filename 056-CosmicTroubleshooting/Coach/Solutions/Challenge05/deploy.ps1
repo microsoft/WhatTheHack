@@ -27,6 +27,7 @@ $parameters = (Get-Content .\WTHAzureCosmosDB.IaC\main.parameters.json | Convert
 # Write-Host "Deploying infrastructure"
 # Deploy our infrastructure
 $output = New-AzSubscriptionDeployment `
+    -Name "Challenge05-PS" `
     -Location $parameters.location.value `
     -TemplateFile WTHAzureCosmosDB.IaC\main.bicep `
     -TemplateParameterFile WTHAzureCosmosDB.IaC\main.parameters.json `

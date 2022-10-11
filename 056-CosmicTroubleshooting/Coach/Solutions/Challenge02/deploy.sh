@@ -45,6 +45,7 @@ location=`jq -r ".parameters.location.value" $parametersfilename`
 
 # Deploy our infrastructure
 output=$(az deployment sub create \
+  --name "Challenge02-sh" \
   --location $location \
   --template-file "WTHAzureCosmosDB.IaC/main.bicep" \
   --parameters @$parametersfilename \
@@ -61,7 +62,29 @@ zip -r deploy.zip *
 
 # Publish the web app to azure and clean up
 webAppName=`echo $output | jq -r '.properties.outputs.webAppName.value'`
-slotName=`echo $output | jq -r '.parameters.slotName.value'`
+slotName=`echo $output | jq -r '.properties.parameters.slotName.value'`
 suppressOutput=$(az webapp deployment source config-zip -g $RG_NAME -n $webAppName --src "./deploy.zip" --slot $slotName)
 rm "./deploy.zip"
 cd $originDir
+
+echo "Building and publishing proxy func app solution"
+# Build and publish the solution
+cd "./WTHAzureCosmosDB.ProxyFuncApp"
+dotnet publish "WTHAzureCosmosDB.ProxyFuncApp.csproj" -c "Release" -clp:ErrorsOnly
+cd "./bin/Release/net6.0/publish/"
+zip -r deploy.zip *
+
+# Publish the web app to azure and clean up
+funcProxyAppName=`echo $output | jq -r '.properties.outputs.proxyFuncAppName.value'`
+suppressOutput=$(az functionapp deployment source config-zip -g $RG_NAME -n $funcProxyAppName --src "./deploy.zip")
+rm "./deploy.zip"
+cd $originDir
+
+echo ""
+echo ""
+echo ""
+echosuccess "The deployment has been completed."
+echo ""
+
+webUrl=`echo $bicepDeploymentOutputs | jq -r '.webAppHostname.value'`
+echo "Website is available on https://$webUrl"

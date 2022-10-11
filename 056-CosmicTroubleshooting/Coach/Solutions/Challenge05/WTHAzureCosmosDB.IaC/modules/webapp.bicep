@@ -14,6 +14,8 @@ param cosmosDBCustomerOrderContainerId string
 param cosmosDBShipmentContainerId string
 param loadTestingDataPlaneEndpoint string
 param loadTestId string
+param proxyFuncAppHostname string
+param proxyFuncAppKey string
 
 var appSettings = [
   {
@@ -64,6 +66,14 @@ var appSettings = [
     name: 'LOADT_TEST_ID'
     value: loadTestId
   }
+  {
+    name: 'PROXY_FUNC_HOSTNAME'
+    value: proxyFuncAppHostname
+  }
+  {
+    name: 'PROXY_FUNC_KEY'
+    value: proxyFuncAppKey
+  }
 ]
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01'  = {
@@ -88,6 +98,7 @@ resource webApp 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: appSettings
       netFrameworkVersion: 'v6.0'
     }
+    keyVaultReferenceIdentity: msiObjectId
   }
   identity: {
     type: 'UserAssigned'

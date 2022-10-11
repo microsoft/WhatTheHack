@@ -27,6 +27,7 @@ $parameters = (Get-Content .\WTHAzureCosmosDB.IaC\main.parameters.json | Convert
 # Write-Host "Deploying infrastructure"
 # Deploy our infrastructure
 $output = New-AzSubscriptionDeployment `
+    -Name "Challenge02-PS" `
     -Location $parameters.location.value `
     -TemplateFile WTHAzureCosmosDB.IaC\main.bicep `
     -TemplateParameterFile WTHAzureCosmosDB.IaC\main.parameters.json `
@@ -41,5 +42,16 @@ Compress-Archive -Path .\WTHAzureCosmosDB.Web\bin\Release\net6.0\publish\* deplo
 
 # Publish the web app to azure and clean up
 $zipPath = Get-Item .\deploy.zip | % { $_.FullName }
-$output = Publish-AzWebApp -ArchivePath $zipPath -Slot $parameters.slotName.value -Name $output.Outputs.webAppName.Value -ResourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]} -Force
+$suppressOutput = Publish-AzWebApp -ArchivePath $zipPath -Slot $parameters.slotName.value -Name $output.Outputs.webAppName.Value -ResourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]} -Force
+Remove-Item deploy.zip
+
+echo "Building and publishing proxy func app solution"
+# Build and publish the solution
+cd "./WTHAzureCosmosDB.ProxyFuncApp"
+dotnet publish "WTHAzureCosmosDB.ProxyFuncApp.csproj" -c "Release" -clp:ErrorsOnly
+Compress-Archive -Path .\bin\Release\net6.0\publish\* deploy.zip -Force
+
+# Publish the web app to azure and clean up
+$zipPath = Get-Item .\deploy.zip | % { $_.FullName }
+$suppressOutput = Publish-AzWebApp -ArchivePath $zipPath -Name $output.Outputs.proxyFuncAppName.Value -ResourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]} -Force
 Remove-Item deploy.zip

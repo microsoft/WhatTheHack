@@ -4,6 +4,7 @@ using WTHAzureCosmosDB.Models;
 using WTHAzureCosmosDB.Web.Helpers;
 using WTHAzureCosmosDB.Repositories;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -162,6 +163,8 @@ builder.Services.AddSingleton<ICosmosDbService<Shipment>>(
         return service;
     }
 );
+
+builder.Services.AddSingleton(typeof(MemoryCache), new MemoryCache(new MemoryCacheOptions() { }));
 
 // The following line enables Application Insights telemetry collection.
 builder.Services.AddApplicationInsightsTelemetry();

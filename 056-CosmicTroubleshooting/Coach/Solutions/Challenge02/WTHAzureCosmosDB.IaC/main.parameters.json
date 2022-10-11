@@ -31,6 +31,9 @@
     },
     "slotName":{
       "value": "Secondary"
+    },
+    "proxyFuncAppName": {
+      "value": "proxy-func"
     }
   }
 }

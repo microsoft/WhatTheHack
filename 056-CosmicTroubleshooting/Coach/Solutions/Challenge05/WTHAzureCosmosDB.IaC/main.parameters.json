@@ -34,6 +34,9 @@
     },
     "secondaryCosmosDbAccountLocation": {
       "value": "westeurope"
+    },
+    "proxyFuncAppName": {
+      "value": "proxy-func"
     }
   }
 }

@@ -26,6 +26,9 @@ param location string
 @description('Location where resources will be deployed. Defaults to resource group location.')
 param resourceGroupName string
 
+@description('The name for the proxy func app')
+param proxyFuncAppName string
+
 param slotName string
 
 targetScope = 'subscription'
@@ -36,6 +39,9 @@ var webSiteName = toLower('web-${webAppName}-${uniquePostfix}')
 var appInsightsName = toLower('appins-${webAppName}-${uniquePostfix}')
 var cosmosdbaccountname = 'cosmosdb-sql-${uniquePostfix}'
 var loadTestingName = toLower('loadtesting-${webAppName}-${uniqueString(rg.id)}')
+var proxyFuncName = toLower('backend-${proxyFuncAppName}-${uniquePostfix}')
+var keyVaultName = 'kv-${uniquePostfix}'
+var keyVaultFuncAppSecretName = 'proxy-func-key'
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
@@ -64,7 +70,7 @@ module cosmosDb 'modules/cosmosdb-products.bicep' = {
 module appPlan 'modules/webapp.bicep' = {
   name: 'webAppDeploy'
   dependsOn: [
-    msiAppPlan
+    msiAppPlan, proxyFunctionApp
   ]
   params: {
     location: location
@@ -83,6 +89,8 @@ module appPlan 'modules/webapp.bicep' = {
     slotName: slotName
     loadTestingDataPlaneEndpoint: 'https://${loadTesting.outputs.loadtestingNameDataPlaneUri}'
     loadTestId: guid(rg.id, 'loadtest')
+    proxyFuncAppHostname: proxyFunctionApp.outputs.hostname
+    proxyFuncAppKey: '@Microsoft.KeyVault(VaultName=${keyVaultName};SecretName=${keyVaultFuncAppSecretName})'
   }
   scope: rg
 }
@@ -95,5 +103,34 @@ module loadTesting 'modules/load-testing.bicep' = {
   scope: rg
 }
 
+module proxyFunctionApp 'modules/functionapp.bicep' = {
+  name: 'proxyFuncDeploy'
+  dependsOn: [
+    kv
+  ]
+  params: {
+    location: location
+    appName: proxyFuncName
+    appInsightsLocation: location
+    runtime: 'dotnet'
+    storageAccountType: 'Standard_LRS'
+    keyVaultName: keyVaultName
+    keyVaultSecretName: keyVaultFuncAppSecretName
+  }
+  scope: rg
+}
+
+module kv 'modules/keyvault.bicep' = {
+  name: 'kvDeploy'
+  params: {
+    name: keyVaultName
+    location: location
+    msiObjectId: msiAppPlan.outputs.managedIdentityPrincipalId
+  }
+  scope: rg
+}
 
 output webAppName string = webSiteName
+output webAppHostname string = appPlan.outputs.hostname
+output proxyFuncAppName string = proxyFuncName
+output proxyFuncHostname string = proxyFunctionApp.outputs.hostname

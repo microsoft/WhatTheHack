@@ -1,4 +1,5 @@
 param name string
+param location string = resourceGroup().location
 param msiObjectId string
 
 @description('Specifies the role the user will get with the secret in the vault. Valid values are: Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, Key Vault Secrets User.')
@@ -26,8 +27,17 @@ var roleIdMapping = {
 }
 
 
-resource kv 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2022-07-01'= {
   name: name
+  location: location
+  properties: {
+    enableRbacAuthorization: true
+    tenantId: tenant().tenantId
+    sku: {
+      name: 'standard'
+      family: 'A'
+    }
+  }
 }
 
 resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {

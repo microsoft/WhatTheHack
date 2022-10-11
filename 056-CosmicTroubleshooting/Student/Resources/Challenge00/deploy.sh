@@ -31,15 +31,25 @@ echosuccess() { printf "\033[0;32m%s\n\033[0m" "$*" >&2; }
 # Read the bicep parameters
 parametersfilename='./WTHAzureCosmosDB.IaC/main.parameters.json'
 
+echo "Please enter a resource group name (Hit enter to accept 'rg-wth-azurecosmosdb' as the default value):"
+read rgname
+
+if ! [ -z "$rgname" ]
+then
+    RG_NAME=$rgname
+fi
+
 echo "Deploying infrastructure"
 
 location=`jq -r ".parameters.location.value" $parametersfilename`
 
 # Deploy our infrastructure
 output=$(az deployment sub create \
+  --name "Challenge00-sh" \
   --location $location \
   --template-file "WTHAzureCosmosDB.IaC/main.bicep" \
-  --parameters @$parametersfilename)
+  --parameters @$parametersfilename \
+  --parameters resourceGroupName=$RG_NAME)
   
 
 originDir=$PWD

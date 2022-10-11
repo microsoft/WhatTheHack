@@ -72,7 +72,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 
-resource appService 'Microsoft.Web/sites@2020-06-01' = {
+resource appService 'Microsoft.Web/sites@2022-03-01' = {
   name: webSiteName
   location: location
   properties: {
@@ -82,6 +82,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
       appSettings: appSettings
       netFrameworkVersion: 'v6.0'
     }
+    keyVaultReferenceIdentity: msiObjectId
   }
   identity:{
     type: 'UserAssigned'

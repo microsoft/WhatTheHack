@@ -74,7 +74,6 @@ module kv 'modules/keyvault.bicep' = {
   name: 'kvDeploy'
   params: {
     name: keyVaultName
-    location: location
     msiObjectId: msiACI.outputs.managedIdentityPrincipalId
   }
   scope: rg

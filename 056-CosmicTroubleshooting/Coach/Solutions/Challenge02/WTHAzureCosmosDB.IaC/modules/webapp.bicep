@@ -14,6 +14,8 @@ param cosmosDBShipmentContainerId string
 param slotName string = 'Secondary'
 param loadTestingDataPlaneEndpoint string
 param loadTestId string
+param proxyFuncAppHostname string
+param proxyFuncAppKey string
 
 var appSettings = [
   {
@@ -64,6 +66,14 @@ var appSettings = [
     name: 'LOADT_TEST_ID'
     value: loadTestId
   }
+  {
+    name: 'PROXY_FUNC_HOSTNAME'
+    value: proxyFuncAppHostname
+  }
+  {
+    name: 'PROXY_FUNC_KEY'
+    value: proxyFuncAppKey
+  }
 ]
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01'  existing = {
@@ -81,6 +91,7 @@ resource secondarySlot 'Microsoft.Web/sites/slots@2022-03-01' = {
       appSettings: appSettings
       netFrameworkVersion: 'v6.0'
     }
+    keyVaultReferenceIdentity: msiObjectId
   }
   identity: {
     type: 'UserAssigned'
@@ -93,3 +104,5 @@ resource secondarySlot 'Microsoft.Web/sites/slots@2022-03-01' = {
 resource appInsights 'Microsoft.Insights/components@2020-02-02' existing = {
   name: appInsightsName
 }
+
+output hostname string = secondarySlot.properties.hostNames[0]
