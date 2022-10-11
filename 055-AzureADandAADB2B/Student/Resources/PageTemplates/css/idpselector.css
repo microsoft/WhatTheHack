@@ -1,0 +1,90 @@
+#simplemodal-overlay {
+  background: #000;
+}
+#simplemodal-container {
+  background: #fff;
+  padding: 30px 20px 20px;
+  text-align: left;
+  -webkit-box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+#simplemodal-container h2 {
+  font-family: Arial,Helvetica,sans-serif;
+  color: #1C5B96;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+#simplemodal-container h1 {
+  margin-bottom: 20px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.container.unified_container .row .panel.panel-default .panel-body {
+  padding: 3rem 1rem;
+}
+#api ul li {
+  display: block;
+  list-style-type: none;
+}
+#api .intro {
+  margin-left: auto;
+  margin-right: auto;
+}
+#api .intro p {
+  text-align: left;
+  font-size: 1.5em;
+  margin: auto;
+}
+table {
+  width: 40%;
+  margin: auto;
+}
+.alert-modal {
+  display: none;
+}
+.accountButton, .buttons button {
+    background-size: 10% 70%;
+    background-position-x: 3%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: auto;
+    margin-bottom: 0px;
+    white-space: normal;
+    box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+}
+.accountButton:hover, .buttons button:hover {
+    border-radius: 0.5rem;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: white;
+}
+/** Social Button Styles **/
+#SignInWithLogonNameExchange {
+  background-color: white;
+  background-size: 10%;
+  background-position-x: 2%;
+  background-position-y: 50%;
+  color: #296ec6;
+  border-color: #296ec6;
+  border-width: thin;
+  border-style: solid;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  width: 100%;
+  font-size: 1.0em;
+  margin-left: auto;
+}
+#SignInWithLogonNameExchange:hover {
+  background-color: white;
+}

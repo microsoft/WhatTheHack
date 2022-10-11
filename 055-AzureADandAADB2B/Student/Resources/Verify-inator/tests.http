@@ -1,0 +1,15 @@
+@endpoint = https://[name-of-app-service].azurewebsites.net/Territory
+@b2cappid = [your-b2c-app-id]
+
+# Notes: no dashes in the b2c app id
+# THE BELOW SHOULD BE A VALID REQUEST TO TEST YOUR API CONNECTOR WITH
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+    "givenName": "Dave",
+    "surname": "Lastname",
+    "extension_{{b2cappid}}_ConsultantID": "123ABCD456",
+    "state": "PA",
+    "city": "Pittsburgh"
+}

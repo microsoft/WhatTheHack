@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-WebApp_OpenIDConnect_DotNet-81EA87AD-E64D-4755-A1CC-5EA47F49B5D8</UserSecretsId>
+    <WebProject_DirectoryAccessLevelKey>0</WebProject_DirectoryAccessLevelKey>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppCreationScripts\**" />
+    <Compile Remove="ReadmeFiles\**" />
+    <Content Remove="AppCreationScripts\**" />
+    <Content Remove="ReadmeFiles\**" />
+    <EmbeddedResource Remove="AppCreationScripts\**" />
+    <EmbeddedResource Remove="ReadmeFiles\**" />
+    <None Remove="AppCreationScripts\**" />
+    <None Remove="ReadmeFiles\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.5.1" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.5.1" />
+  </ItemGroup>
+
+</Project>

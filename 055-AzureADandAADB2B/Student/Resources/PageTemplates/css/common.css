@@ -1,0 +1,439 @@
+html {
+  background: none;
+}
+body {
+  font-family: Segoe UI,SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-attachment: fixed;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: left;
+}
+p {
+    margin: 0px;
+}
+:focus, a:focus {
+    outline: none;
+}
+input, select {
+    border: 1px solid white;
+}
+input[type=password]:focus, input[type=text]:focus, input[type=email]:focus, select:focus {
+    border: 1px solid rgba(41, 110, 198, 0.5);
+}
+.container {
+  text-align: center;
+  width: 100%;
+  display: table;
+  height: 100vh;
+  padding: 0px;
+}
+#api {
+  margin: 0 auto;
+}
+.col-lg-6 {
+  max-width: 470px;
+  width: 100%;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px;
+}
+.row {
+  width: 100%;
+  margin: 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+ul {
+  padding: 0;
+}
+#simplemodal-container .simplemodal-data {
+    padding: 5px 8px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 3px;
+    font-style: italic;
+}
+/** Social Button Styles **/
+#SignInWithLogonNameExchange {
+  background-color: #296ec6;
+  background-image: url(none);
+  background-size: 10%;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  width: 100%;
+  width: 100%;
+  font-size: 1.0em;
+  margin-left: auto;
+}
+#SignInWithLogonNameExchange:hover {
+  background-color: #1662c7;
+}
+#AmazonExchange:hover {
+    background-color: #36474f !important;
+}
+#FacebookExchange:hover {
+    background-color: #3B5595 !important;
+}
+#GitHubExchange:hover {
+    background-color: #0f0f0f !important;
+}
+#GoogleExchange:hover {
+    background-color: #C64A29 !important;
+}
+#LinkedInExchange:hover {
+    background-color: #0274b3 !important;
+}
+#MicrosoftAccountExchange:hover {
+    background-color: #01a4ef !important;
+}
+#QQExchange:hover {
+    background-color: #1a97df !important;
+}
+#TwitterExchange:hover {
+    background-color: #1DA1F2 !important;
+}
+#WeChatExchange:hover {
+    background-color: #4cc522 !important;
+}
+#WeiboExchange:hover {
+    background-color: #e81123 !important;
+}
+.buttons #continue:disabled {
+  margin: 0 auto;
+  width: 60%;
+  height: 50px;
+  background-color: #296ec6;
+  opacity: .3;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  font-size: 1em;
+}
+.buttons #continue {
+  margin: 0 auto;
+  width: 60%;
+  height: 50px;
+  background-color: #296ec6;
+  opacity: 1;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  font-size: 1em;
+  box-shadow: 0 0px 30px 0px #dae1f7;
+}
+.buttons #continue:hover {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #1662c7;
+  border-color: #204d74;
+}
+.buttons #cancel {
+  padding: 0;
+  margin-left: auto;
+  background: none;
+  border: 0;
+  width: 80px;
+  position: absolute;
+  background-color: transparent;
+  top: 2px;
+  left: 15px;
+  font-size: 1em;
+  color: #505050;
+  box-shadow: none;
+  text-align: left;
+}
+.buttons #cancel:hover {
+  color: black !important;
+}
+.buttons #cancel:before {
+  padding: 10px;
+  vertical-align: sub;
+  zoom: 90%;
+  display: inline-block;
+}
+#attributeList ul {
+  padding: 0;
+}
+#attributeList ul li {
+  list-style: none;
+  margin: 1rem 0;
+}
+label {
+  font-weight: 600;
+}
+#attributeList ul li label {
+  float: left;
+  display: none !important;
+}
+#attributeList ul li.CheckboxMultiSelect label,
+#attributeList ul li.RadioSingleSelect label {
+    display: block !important;
+}
+#attributeList ul li label[for=country] {
+  float: left;
+  display: inline-block !important;
+  margin-bottom: 0.5rem;
+}
+#attributeList ul li label[for=cpiminternal_legalCountry] {
+  float: none;
+  display: block !important;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+#attributeList ul li label[for=cpiminternal_dateOfBirth] {
+  float: none;
+  text-align: left;
+  display: block !important;
+  margin-bottom: 0.5rem;
+}
+#attributeList ul li input {
+  outline: none;
+  height: 50px;
+  width: 70%;
+  border-radius: 0.5rem;
+  text-indent: 20px;
+  box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+}
+#attributeList ul li input::-webkit-input-placeholder {
+  text-indent: 20px;
+}
+#attributeList ul li .attrEntry.validate input:invalid, #attributeList ul li .attrEntry.validate input.invalid {
+    border: 1px solid #bb0000;
+}
+#attributeList ul li .attrEntry .verify {
+    margin-top: 2rem;
+    padding-bottom: 10px;
+    position: relative;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_send {
+  width: 60%;
+  height: 50px;
+  background-color: #296ec6;
+  color: white;
+  border-radius: 0.5rem;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_send:hover {
+  background-color: #1662c7;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_verify {
+    width: inherit;
+    padding: 0px 20px;
+    height: 50px;
+    background-color: #296ec6;
+    color: white;
+    margin-right: 5px;
+    border-radius: 0.5rem;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_verify:hover {
+  background-color: #1662c7;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_resend {
+    width: inherit;
+    padding: 0px 20px;
+    border: 0;
+    font-size: 1em;
+    height: 50px;
+    right: 0;
+    bottom: -38px;
+    background-color: #296ec6;
+    color: white;
+    border-radius: 0.5rem;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_resend:hover {
+  background-color: #1662c7;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_edit {
+  border: none;
+  color: white;
+  background-color: #296ec6;
+  width: 60%;
+  height: 50px;
+  border-radius: 0.5rem;
+}
+#attributeList ul li .attrEntry .verify #email_ver_but_edit:hover {
+  background-color: #1662c7;
+}
+#attributeList ul li .attrEntry .verify #email_ver_input_label {
+  display: none !important;
+}
+#attributeList ul li .attrEntry .itemLevel {
+  display: none;
+}
+#attributeList ul li .attrEntry .dropdown_single {
+    height: 45px;
+    border-radius: 0.5rem;
+    width: 100%;
+    padding-left: 15px;
+    box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+}
+#attributeList ul li .attrEntry .dropdown_single option:first-child {
+    display: block !important;
+}
+#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth.date {
+  display: table;
+  width: 100%;
+}
+#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth.date select {
+  border-radius: 0.5rem;
+  display: table-cell;
+  height: 50px;
+  box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+  padding-left: 15px;
+}
+#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_day.day {
+  margin-right: 3%;
+  width: 23%;
+}
+#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_month.month {
+  margin-right: 3%;
+  width: 38%;
+}
+#attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_year.year {
+  width: 33%;
+}
+#attributeList ul li .helpLink {
+  display: none;
+}
+#attributeVerification .buttons {
+    margin-top: 30px;
+}
+@media screen and (max-width: 100%) {
+  .row .panel-default .panel-body {
+      margin-top: 40px;
+ }
+  .row .panel-default .panel-body .branding img {
+      display: block;
+      height: 80px;
+      width: auto;
+      margin: 0 auto;
+ }
+  .row .panel-default .panel-body .branding h1 {
+      display: none;
+ }
+  .row .panel-default .panel-body h3 {
+      font-size: 1.5em;
+      margin-top: 15px;
+ }
+  #attributeVerification #attributeList ul li input {
+      width: 60%;
+      height: 40px;
+      border-radius: 0.5rem;
+      border: none;
+      text-indent: 10px;
+      box-shadow: 0 0px 40px 2px #dae1f7;
+ }
+  #attributeVerification #attributeList ul li input::-webkit-input-placeholder {
+      text-indent: 10px;
+ }
+  #attributeVerification #attributeList ul li #email {
+      width: 65%;
+      float: left;
+      position: relative;
+      z-index: 2;
+ }
+  #attributeVerification #attributeList ul li #email_ver_but_verify {
+      background: none;
+      border: 0;
+      color: #496ad8;
+      font-size: 1em;
+      position: relative;
+      right: 0;
+      top: 60px;
+      font-size: 1.1em;
+      width: auto;
+      z-index: 1;
+      height: 20px;
+ }
+  #attributeVerification #attributeList ul li #email_ver_input {
+      min-width: 50%;
+      width: 60%;
+      float: left;
+ }
+  #attributeVerification #attributeList ul li #email_ver_but_resend {
+      top: 10px;
+      font-size: 1.1em;
+      height: 20px;
+ }
+  #attributeVerification #attributeList ul li .attrEntry #email {
+      height: 40px;
+ }
+  #attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_send:after {
+      content: " Verify";
+      font-size: 1.1em;
+      font-style: bold;
+      margin-left: 40%;
+ }
+  #attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_send {
+      height: 40px;
+      width: auto;
+      float: right;
+      overflow: hidden;
+      text-indent: -200px;
+ }
+  #attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_edit {
+      margin-bottom: 15px;
+      border: none;
+      color: white;
+      background-color: #496ad8;
+      border-radius: 0.5rem;
+      font-size: 1em;
+      box-shadow: 0 0px 40px 2px #dae1f7;
+      width: 30%;
+      height: 40px;
+      overflow: hidden;
+      padding-top: 6px;
+      margin-left: 40%;
+ }
+  #attributeVerification #attributeList ul li .attrEntry .verify:after {
+      content: " ";
+      display: block;
+      clear: both;
+ }
+  #attributeVerification #attributeList #verifying_blurb {
+      margin-top: 15px;
+ }
+  #attributeVerification .buttons #continue {
+      height: 40px;
+ }
+  #attributeVerification .buttons #cancel {
+      font-size: 1em;
+      left: 40%;
+ }
+}
+.panel, .panel_layout, .panel_layout_row, body, html {
+  height: 100%;
+}
+.accountButton, .buttons button {
+    background-color: white;
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    width: 60%;
+    border: none;
+    font-size: 1em;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: auto;
+    white-space: normal;
+    box-shadow: 0px 2px 10px rgba(0,0,150,0.15);
+}
+.accountButton:hover, .buttons button:hover {
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  background-color: #1662c7;
+  color: white !important;
+}
+/** Phone **/
+@media only screen and (max-width: 600px) {
+    .container .row .panel-default {
+        border-radius: 0px;
+    }
+}

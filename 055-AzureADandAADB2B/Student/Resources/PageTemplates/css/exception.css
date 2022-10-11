@@ -1,0 +1,74 @@
+.error-page-help,.error-page-messagedetails,body{
+    font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+a,h2{
+    font-weight: 700;
+}
+img{
+    border: 0;
+    height: 70px;
+}
+h2{
+    font-size: 1.1em;
+    padding-bottom: 3px;
+    text-align: justify;
+}
+a{
+    text-decoration: none;
+    color:#696969;
+}
+a:visited{
+    font-weight: 400;
+}
+a:hover{
+    text-decoration: underline;
+}
+.error-page{
+    margin: 110px 0 0 80px;
+    position: relative;
+}
+.error-page-content{
+    top: 110px;
+    width: 400px;
+    color: #000;
+}
+#api{
+    height: 100%;
+}
+.error-page-image{
+    position: absolute;
+    top: 0;
+    left: 320px;
+}
+.error-page-help{
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+.error-page-messagedetails{
+    font-weight: 300;
+    font-size: 12px;
+    margin-bottom: 21px;
+    text-align: justify;
+}
+.error-body{
+    position: absolute;
+    top: 750px;
+    left: 16px;
+    right: 16px;
+}
+.api_container div{
+    padding-bottom: 0;
+}
+.col-lg-6 {
+    height: 100%;
+}
+.panel, .panel_layout, .panel_layout_row, body, html {
+    margin: auto;
+}
