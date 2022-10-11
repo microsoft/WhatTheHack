@@ -26,7 +26,8 @@ spoke2_vm_subnet_prefix=10.2.4.0/24
 # Azure VPN GW
 vpngw_name=vpngw
 vpngw_asn=65515
-vpngw_pip="${vpngw_name}-pip"
+vpngw_pip1="${vpngw_name}-pip1"
+vpngw_pip2="${vpngw_name}-pip2"
 
 # Create Vnet
 echo "Creating RG and VNet..."
