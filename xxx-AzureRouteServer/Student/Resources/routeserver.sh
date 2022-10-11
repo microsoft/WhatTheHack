@@ -73,7 +73,7 @@ az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-address $vpn
 # Check every second for Succeeded
 #=======================================================
 declare lookfor='"Succeeded"'
-declare cmd="az network vnet-gateway list -g $rg | jq '.$rg.provisioningState'"
+declare cmd="az network vnet-gateway list -g arshack-rg | jq '.[0].provisioningState'"
 gwStatus=$(eval $cmd)
 echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
@@ -83,7 +83,7 @@ do
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
 done
-echo "Ready"       
+echo "Ready"          
 
 # Create Local Network Gateway representing simulated on-prem. Replace the actual Public IP of the CSR IPSec NVA from the simulated on-prem. 
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name datacenter -g $rg --local-address-prefixes 172.16.1.0/24
