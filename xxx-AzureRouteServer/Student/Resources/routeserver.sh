@@ -85,7 +85,10 @@ do
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
 done
-echo "Ready"          
+echo "Ready"
+
+# Enable BGP
+az network vnet-gateway update -g $rg -n $vpngw_name --enable-bgp true --no-wait
 
 # Create Local Network Gateway representing simulated on-prem. Replace the actual Public IP of the CSR IPSec NVA from the simulated on-prem. 
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name datacenter -g $rg --local-address-prefixes 172.16.1.0/24
