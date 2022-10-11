@@ -34,7 +34,6 @@ $output = New-AzSubscriptionDeployment `
     -resourceGroupName ${resource-group-name[rg-wth-azurecosmosdb]}
 
 $bicepoutputs = $output.Outputs
-Write-Host $bicepoutputs
 
 Write-Host "Building and publishing solution"
 # Build and publish the solution
