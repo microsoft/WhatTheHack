@@ -1,19 +1,17 @@
-# Identity for Developers
+# Azure Active Directory
 
 ## Introduction
 
-The Identity for Developers Hack will provide you a deep dive experience into enabling customer-facing identity solutions for your applications. Identity is a booming area of the Microsoft Cloud platform and enabling identity solutions in your engagements allows for faster production deployments. Azure Active Directory B2C enables you to provide custom identity access management solutions for your applications.
+In this what the hack, participants will learn what Azure Active Directory (AAD) is and how to use this service to implement Modern Authentication in your applications.
 
 
-![Azure AD Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-singlesignon.png)
+![Azure AD Overview](./Images/aspnetwebapp-intro.svg)
 ## Learning Objectives
 
+Understanding how to migrate an ASP.NET WebForms application from Windows Integrated Authentication to OpenID Connect using Azure Active Directory
+Using a Managed Identity to avoid having to manage and store credentials
 
-## Overall Architecture
 
-In this hack, you will build Azure AD B2C policies that enable users to be able to sign up, sign in, edit their profile, and delete their account. Along the way, you will enable API integration, conditional access checks, monitoring, and other services. The below diagram shows the various services this hack involves, along with the corresponding challenges where you will encounter these services. The section that follows this provides additional information and links to the specific challenges.
-
-![Contoso Manufacturing Consultant App Architecture](./Images/Azure_AD_B2C_WTH_Final_Design.png)
 ## Challenges
 
 Challenge 1: **[Azurer AD Tenant set-up](Student/00-tenant-setup.md)**
@@ -57,23 +55,8 @@ Challenge 6(optional): **[Deployt to Azure](Student/05-deploy-to-azure.md)**
 ## Prerequisites
 
 - Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
+- Visual Studio Code or Visual Studio
 
-## Repository Contents
-
-- `./Student`
-  - Student's Challenge Guide
-- `./Student/Resources/HarnessApp`
-  - Sample AspNetCore app to be used to interact with your B2C tenant
-- `./Student/Resources/MSGraphApp`
-  - Sample DotNetCore Console app to be used to query your B2C tenant
-- `./Student/Resources/Verify-inator`
-  - Sample AspNetCore WebApi app to be called by your B2C tenant's SignUp User Flows
-- `./Student/Resources/PageTemplates`
-  - Sample HTML page template that can be used to customize User Flows and Custom Policies
-- `./Coach`
-  - Coach's Guide and related files
 
 ## Contributors
 
