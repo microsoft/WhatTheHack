@@ -80,7 +80,7 @@ gwStatus=$(eval $cmd)
 echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
 do
-    sleep 1
+    sleep 10
     echo "Gatway provisioning state not equal to Succeeded, instead = $gwStatus"
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
@@ -97,7 +97,7 @@ gwStatus=$(eval $cmd)
 echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
 do
-    sleep 1
+    sleep 10
     echo "Gatway provisioning state not equal to Succeeded, instead = $gwStatus"
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
