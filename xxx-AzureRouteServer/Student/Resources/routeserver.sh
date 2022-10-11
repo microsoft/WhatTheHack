@@ -68,7 +68,7 @@ echo "Creating vnet gateway. command will finish running but gw creation takes a
 
 az network public-ip create -n $vpngw_pip1 -g $rg --allocation-method Dynamic
 az network public-ip create -n $vpngw_pip2 -g $rg --allocation-method Dynamic
-az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-address $vpngw_pip1 $vpngw_pip2 -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
+az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-addresses $vpngw_pip1 $vpngw_pip2 -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
 
 #=======================================================
 # Check every second for Succeeded
