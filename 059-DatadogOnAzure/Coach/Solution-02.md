@@ -1,20 +1,10 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - Monitoring Basics and Dashboards - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+ Here's the screenshot for setting up SQL Queries count monitor in Datadog.
+![](../Images/02-07-SQLQueries-GT-40.png)
+ Here's the screenshot for setting up VMSS CPU metrics monitor in Datadog.
+![](../Images/02-06-VMSS-cpu-GT-75.png)
