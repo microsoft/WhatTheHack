@@ -30,8 +30,12 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 ### Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack. For this hack, please provide the contents of the following files.
-1. [Hub and Spoke](./Resources/HubAndSpoke.azcli) Azure CLI Script file. This files contain the creations of a Hub and Spoke topology with Linux VMs.
-2. [Readme file](./Resources/HubAndSpokeReadme.md). This file contains the username and password of the Virtual machine as well as an inventory of the elements of the script above. 
+- [Hub and Spoke](./Resources/HubAndSpoke.azcli) Azure CLI Script file. This files contain the creations of a Hub and Spoke topology with Linux VMs.
+- Username and password must be provided to the students for the Ubuntu VMs
+	-username: azureuser
+	-psswd: Msft123Msft123
+
+**NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent Vnet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -39,7 +43,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites
 
-The coach should offer the student the afore mentioned script file at the start of the event so credits using the VPN Gateway are not consumed. If the student opts to do the initial setup manually, bring awareness is going to consume time. 
+The coach should offer the student the afore mentioned script file at the start of the event so credits using the VPN Gateway are not consumed before the Hack. If the student opts to do the initial setup manually, bring awareness is going to consume time and is prone to errors. 
 
 The script takes about 30 minutes to deploy, in the meantime, coach can proceed with a Lecture or explanation of the challenges. 
 
