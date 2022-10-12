@@ -60,6 +60,7 @@ So how can you check whether or not the call to the `VehicleRegistrationService`
 - Use the `dapr run` command to start up a Dapr sidecar & make sure and append the `dotnet run` command at the end of the command to ensure that both services are started at the same time.
 - Refer to the [Prevent port collisions](./Resources/README.md#prevent-port-collisions) section to see what ports to use.
 - Make sure you use the same spelling & case for the `app-id` of the `VehicleRegistrationService` as the one used in the `FineCollectionService` class.
+  - **IMPORTANT:** Use lowercase letters for the `app-id` of all Dapr services (some Dapr configurations don't support CamelCase)!
 
 ## Learning Resources
 

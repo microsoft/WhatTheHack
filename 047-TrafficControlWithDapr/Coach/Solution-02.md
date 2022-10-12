@@ -279,3 +279,5 @@ dapr run --app-id VehicleRegistrationService --app-port 6002 --dapr-http-port 36
 ```csharp
 $"http://localhost:3601/v1.0/invoke/VehicleRegistrationService/method/vehicleinfo/{licenseNumber}");
 ```
+
+**IMPORTANT:** Use lowercase letters for the `app-id` of all Dapr services (some Dapr configurations don't support CamelCase)!
