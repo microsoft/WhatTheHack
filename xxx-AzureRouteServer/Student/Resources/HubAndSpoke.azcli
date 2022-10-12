@@ -108,9 +108,6 @@ done
 
 echo "BGP enabled"
 
-# Create Local Network Gateway representing simulated on-prem. Replace the actual Public IP of the CSR IPSec NVA from the simulated on-prem. 
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name datacenter -g $rg --local-address-prefixes 172.16.1.0/24
-
 echo "Creating Hub to Spoke1 Networking Peering"
 az network vnet peering create -n hubtospoke1 -g $rg --vnet-name $vnet_name --remote-vnet $spoke1_name --allow-vnet-access --allow-forwarded-traffic --allow-gateway-transit -o none
 echo "Creating Spoke1 to Hub Networking Peering"
