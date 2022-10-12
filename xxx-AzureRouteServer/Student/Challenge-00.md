@@ -11,8 +11,8 @@ A smart Azure engineer always has the right tools in their toolbox. In addition,
 In this challenge we'll be setting up all the tools we will need to complete our challenges.
 
 - Make sure that you have joined the Teams group for this track. Please ask your coach about the correct Teams channel to join.
-- Ask your coach about the subscription you are going to use to fulfill the challenges
-- Install the recommended toolset, being one of this:
+- Make sure you have an Azure Subscription. In case you don't, possibly ask your coach to create a Resource Group for you. 
+- You can use the Azure Portal and Azure Cloud Shell from the portal or use a dedicated window by accesing [https://shell.azure.com](https://shell.azure.com) to accomplish all the tasks. In case you needed to install the tools on your Desktop, please do the below (optional). 
   - The Powershell way (same tooling for Windows, Linux or Mac):
     - [Powershell core (7.x)](https://docs.microsoft.com/en-us/powershell/scripting/overview)
     - [Azure Powershell modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az)
@@ -23,9 +23,29 @@ In this challenge we'll be setting up all the tools we will need to complete our
     - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
     - [Visual Studio Code](https://code.visualstudio.com/): the Windows Powershell ISE might be an option here for Windows users, but VS Code is far, far better
     - [VScode Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-  - The Azure Portal way: not really recommended, but you can still use the portal to fulfill most of the challenges. Do not complain about having to do more than once the same task across the challenges :)
 
-**NOTE:** You can use Azure Powershell and CLI on the Azure Cloud Shell, but running the commands locally along Visual Studio Code will give you a much better experience
+### Student Resources
+
+Your coach will provide you with a link to a `Resources.zip` file that contains resource files you will use to setup the initial Hub and Spoke Topology.  
+
+- Download and unpack this file in your Azure Cloud Shell environment. 
+- The readme.txt has the list of resources that will get deployed.
+- The readme.txt has the proper username and passwords of the Virtual Machines.
+- This process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges. 
+
+```bash
+# Upload the Resources.zip file from the URL provided by your coach into your cloud shell with the upload button on the console
+```
+```bash
+# Unpack the zip file
+unzip Resources.zip
+# Navigate to the "Resources" folder
+cd Resources
+# Make the file executable
+chmod +x HubAndSpoke.azcli
+#run the file
+./HubAndSpoke.azcli
+```
 
 ## Learning Resources
 
@@ -52,5 +72,5 @@ It is of paramount importance that you are aware that 100% of the Azure Route Se
 ## Success Criteria
 
 - You have an Azure shell at your disposal (Powershell, WSL(2), Mac, Linux or Azure Cloud Shell)
-- Running az login or Connect-AzAccount allows to authenticate to Azure
+- Implemented the base line Hub and Spoke Topology. 
 - You have reviewed foundational knowledge in Virtual Network Routing, Azure VNG , Azure Route Server, BGP fundamentals.
