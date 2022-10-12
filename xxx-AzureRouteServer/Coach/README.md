@@ -29,15 +29,19 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack. For this hack, please provide the contents of the following files.
+1. [Hub and Spoke](./Resources/HubAndSpoke.azcli) Azure CLI Script file. This files contain the creations of a Hub and Spoke topology with Linux VMs.
+2. Readme file. This file contains the username and password of the Virtual machine as well as an inventory of the elements of the script above. 
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
+### Additional Coach Prerequisites
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+The coach should offer the student the afore mentioned script file at the start of the event so credits using the VPN Gateway are not consumed. If the student opts to do the initial setup manually, bring awareness is going to consume time. 
+
+The script takes about 30 minutes to deploy, in the meantime, coach can proceed with a Lecture or explanation of the challenges. 
 
 ## Azure Requirements
 
@@ -49,19 +53,6 @@ _For example:_
 
 - Azure resources that will be consumed by a student implementing the hack's challenges
 - Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
 
 ## Repository Contents
 
