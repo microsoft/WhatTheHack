@@ -284,6 +284,12 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
     ```
 
+1.  Run the following command to initalize your local Dapr environment:
+
+    ```shell
+    dapr init
+    ```
+
 ### Review TrafficControl application architecture
 
 Spend some time with your teammates reviewing the TrafficControl application architecture & services.
