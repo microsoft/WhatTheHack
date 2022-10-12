@@ -31,7 +31,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack. For this hack, please provide the contents of the following files.
 1. [Hub and Spoke](./Resources/HubAndSpoke.azcli) Azure CLI Script file. This files contain the creations of a Hub and Spoke topology with Linux VMs.
-2. [Readme file](./Resources/HubAndSpokeReadme.txt). This file contains the username and password of the Virtual machine as well as an inventory of the elements of the script above. 
+2. [Readme file](./Resources/HubAndSpokeReadme.md). This file contains the username and password of the Virtual machine as well as an inventory of the elements of the script above. 
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
