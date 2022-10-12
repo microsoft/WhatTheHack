@@ -28,9 +28,9 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 Your coach will provide you with a link to a `Resources.zip` file that contains resource files you will use to setup the initial Hub and Spoke Topology.  
 
+**NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent Vnet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge.
+
 - Download and unpack this file in your Azure Cloud Shell environment. 
-- The readme.txt has the list of resources that will get deployed.
-- The readme.txt has the proper username and passwords of the Virtual Machines.
 - This process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges. 
 
 ```bash
