@@ -1,6 +1,5 @@
 param keyVaultName string
 param location string
-param aadUserObjectId string
 param logAnalyticsWorkspaceName string
 
 resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
@@ -14,16 +13,6 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
     tenantId: subscription().tenantId
     enableRbacAuthorization: false
     accessPolicies: [
-      {
-        permissions: {
-          secrets: [
-            'all'
-            'purge'
-          ]
-        }
-        objectId: aadUserObjectId
-        tenantId: subscription().tenantId
-      }
     ]
   }
 }

@@ -273,7 +273,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     Run the following command, substituting the username & password you got in the previous step:
 
     ```shell
-    kubectl create secret docker-registry dapr-acr-pull-secret --namespace dapr-trafficcontrol --docker-server="<container-registry-name>".azurecr.io --docker-username="<container-registry-username>" --docker-password="<container-registry-password>"
+    kubectl create secret docker-registry dapr-acr-pull-secret --namespace dapr-trafficcontrol --docker-server=<container-registry-name>.azurecr.io --docker-username=<container-registry-username> --docker-password=<container-registry-password>
     ```
 
 1.  Assign permissions to KeyVault

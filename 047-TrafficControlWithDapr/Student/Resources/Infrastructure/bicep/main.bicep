@@ -4,7 +4,6 @@ param environment string
 param adminUsername string
 param publicSSHKey string
 param location string = resourceGroup().location
-param aadUserObjectId string
 
 module names 'resource-names.bicep' = {
   name: 'resource-names'
@@ -30,7 +29,6 @@ module keyVaultModule 'key-vault.bicep' = {
     keyVaultName: names.outputs.keyVaultName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
-    aadUserObjectId: aadUserObjectId
   }
 }
 
