@@ -1,38 +1,27 @@
-param longName string
+param aksName string
+param location string
+param logAnalyticsWorkspaceName string
 param adminUsername string
 param publicSSHKey string
-
-resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2020-10-01' = {
-  name: 'la-${longName}'
-  location: resourceGroup().location  
-}
-
-resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
-  name: 'ai-${longName}'
-  location: resourceGroup().location
-  kind: 'web'
-  properties: {
-    Application_Type: 'web'
-  }
-}
 
 resource aksAzurePolicy 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
   name: 'aksAzurePolicy'
   scope: resourceGroup()
   properties: {
+    #disable-next-line use-resource-id-functions
     policyDefinitionId: '/providers/Microsoft.Authorization/policyDefinitions/c26596ff-4d70-4e6a-9a30-c2506bd2f80c'
-  }  
+  }
 }
 
 resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
-  name: 'aks-${longName}'
-  location: resourceGroup().location
+  name: aksName
+  location: location
   dependsOn: [
     aksAzurePolicy
   ]
   properties: {
-    kubernetesVersion: '1.22.6'
-    dnsPrefix: longName
+    kubernetesVersion: '1.24.6'
+    dnsPrefix: aksName
     enableRBAC: true
     agentPoolProfiles: [
       {
@@ -61,13 +50,77 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
       omsagent: {
         enabled: true
         config: {
-          logAnalyticsWorkspaceResourceID: logAnalytics.id
+          logAnalyticsWorkspaceResourceID: logAnalyticsWorkspace.id
         }
       }
     }
   }
-  identity:{
-    type:'SystemAssigned'
+  identity: {
+    type: 'SystemAssigned'
+  }
+}
+
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' existing = {
+  name: logAnalyticsWorkspaceName
+}
+
+resource diagnosticSettings 'Microsoft.Insights/diagnosticsettings@2017-05-01-preview' = {
+  name: 'Logging'
+  scope: aks
+  properties: {
+    workspaceId: logAnalyticsWorkspace.id
+    logs: [
+      {
+        category: 'kube-apiserver'
+        enabled: true
+      }
+      {
+        category: 'kube-audit'
+        enabled: true
+      }
+      {
+        category: 'kube-audit-admin'
+        enabled: true
+      }
+      {
+        category: 'kube-controller-manager'
+        enabled: true
+      }
+      {
+        category: 'kube-scheduler'
+        enabled: true
+      }
+      {
+        category: 'cluster-autoscaler'
+        enabled: true
+      }
+      {
+        category: 'cloud-controller-manager'
+        enabled: true
+      }
+      {
+        category: 'guard'
+        enabled: true
+      }
+      {
+        category: 'csi-azuredisk-controller'
+        enabled: true
+      }
+      {
+        category: 'csi-azurefile-controller'
+        enabled: true
+      }
+      {
+        category: 'csi-snapshot-controller'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'AllMetrics'
+        enabled: true
+      }
+    ]
   }
 }
 
@@ -75,6 +128,3 @@ output aksName string = aks.name
 output aksfqdn string = aks.properties.fqdn
 output aksazurePortalFQDN string = aks.properties.azurePortalFQDN
 output aksNodeResourceGroupName string = aks.properties.nodeResourceGroup
-output logAnalyticsName string = logAnalytics.name
-output appInsightsName string = appInsights.name
-output appInsightsInstrumentationKey string = appInsights.properties.InstrumentationKey

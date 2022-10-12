@@ -1,0 +1,37 @@
+# apiVersion: dapr.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: pubsub
+# spec:
+#   type: pubsub.rabbitmq
+#   version: v1
+#   metadata:
+#   - name: host
+#     value: "amqp://localhost:5672"
+#   - name: durable
+#     value: "false"
+#   - name: deletedWhenUnused
+#     value: "false"
+#   - name: autoAck
+#     value: "false"
+#   - name: reconnectWait
+#     value: "0"
+#   - name: concurrency
+#     value: parallel
+# scopes:
+#   - trafficcontrolservice
+#   - finecollectionservice
+
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub
+spec:
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString
+    value: "Endpoint=sb://sb-dapr-ussc-demo.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=zvdPBgJrH1tRG+zcnZ3rksK7JbGv5BXaNn0JVv7mP1M="
+scopes:
+- trafficcontrolservice
+- finecollectionservice

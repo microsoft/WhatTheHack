@@ -3,65 +3,107 @@ param region string
 param environment string
 param adminUsername string
 param publicSSHKey string
+param location string = resourceGroup().location
+param aadUserObjectId string
 
-var longName = '${appName}-${environment}'
-
-module keyVaultModule 'keyVault.bicep' = {
-  name: 'keyVaultDeploy'  
+module names 'resource-names.bicep' = {
+  name: 'resource-names'
   params: {
-    longName: longName
+    appName: appName
+    region: region
+    env: environment
   }
 }
 
-module serviceBusModule 'serviceBus.bicep' = {
-  name: 'serviceBusDeploy'
+module loggingDeployment 'logging.bicep' = {
+  name: 'logging'
   params: {
-    longName: longName
+    appInsightsName: names.outputs.appInsightsName
+    logAnalyticsWorkspaceName: names.outputs.logAnalyticsWorkspaceName
+    location: location
   }
 }
 
-module logicAppModule 'logicApp.bicep' = {
-  name: 'logicAppDeploy'
+module keyVaultModule 'key-vault.bicep' = {
+  name: 'key-vault-deployment'
   params: {
-    longName: longName
-  }  
+    keyVaultName: names.outputs.keyVaultName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    aadUserObjectId: aadUserObjectId
+  }
 }
 
-module containerRegistryModule 'containerRegistry.bicep' = {
-  name: 'containerRegistryDeploy'
+module serviceBusModule 'service-bus.bicep' = {
+  name: 'service-bus-deployment'
   params: {
-    longName: longName
+    serviceBusNamespaceName: names.outputs.serviceBusNamespaceName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
+}
+
+module logicAppModule 'logic-app.bicep' = {
+  name: 'logic-app-deployment'
+  params: {
+    logicAppName: names.outputs.logicAppName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
+}
+
+module containerRegistryModule 'container-registry.bicep' = {
+  name: 'container-registry-deployment'
+  params: {
+    containerRegistryName: names.outputs.containerRegistryName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
   }
 }
 
 module aksModule 'aks.bicep' = {
-  name: 'aksDeploy'
+  name: 'aks-deployment'
   params: {
-    longName: longName
+    aksName: names.outputs.aksName
     adminUsername: adminUsername
     publicSSHKey: publicSSHKey
-  }  
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
 }
 
-module redisCacheModule 'redisCache.bicep' = {
-  name: 'redisCacheDeploy'
+module redisCacheModule 'redis-cache.bicep' = {
+  name: 'redis-cache-deployment'
   params: {
-    longName: longName
-  }  
+    redisCacheName: names.outputs.redisCacheName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
 }
 
 module mqttModule 'mqtt.bicep' = {
   name: 'mqttDeploy'
   params: {
-    longName: longName
-  }  
+    iotHubName: names.outputs.iotHubName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    eventHubConsumerGroupName: names.outputs.eventHubConsumerGroupName
+    eventHubNamespaceName: names.outputs.eventHubNamespaceName
+    eventHubEntryCamName: names.outputs.eventHubEntryCamName
+    eventHubExitCamName: names.outputs.eventHubExitCamName
+    eventHubListenAuthorizationRuleName: names.outputs.eventHubListenAuthorizationRuleName
+  }
 }
 
 module storageAccountModule 'storage.bicep' = {
-  name: 'storageAccountDeploy'
+  name: 'storage-account-deployment'
   params: {
-    longName: longName
-  }  
+    storageAccountName: names.outputs.storageAccountName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    storageAccountEntryCamContainerName: names.outputs.storageAccountEntryCamContainerName
+    storageAccountExitCamContainerName: names.outputs.storageAccountExitCamContainerName
+  }
 }
 
 output subscriptionId string = subscription().subscriptionId
@@ -69,7 +111,6 @@ output resourceGroupName string = resourceGroup().name
 output serviceBusName string = serviceBusModule.outputs.serviceBusName
 output serviceBusEndpoint string = serviceBusModule.outputs.serviceBusEndpoint
 output redisCacheName string = redisCacheModule.outputs.redisCacheName
-//output redisCachePrimaryAccessKey string = redisCacheModule.outputs.redisCachePrimaryAccessKey
 output keyVaultName string = keyVaultModule.outputs.keyVaultName
 output logicAppName string = logicAppModule.outputs.logicAppName
 output logicAppAccessEndpoint string = logicAppModule.outputs.logicAppAccessEndpoint
@@ -88,6 +129,6 @@ output storageAccountName string = storageAccountModule.outputs.storageAccountNa
 output storageAccountEntryCamContainerName string = storageAccountModule.outputs.storageAccountEntryCamContainerName
 output storageAccountExitCamContainerName string = storageAccountModule.outputs.storageAccountExitCamContainerName
 output storageAccountKey string = storageAccountModule.outputs.storageAccountContainerKey
-output appInsightsName string = aksModule.outputs.appInsightsName
-output appInsightsInstrumentationKey string = aksModule.outputs.appInsightsInstrumentationKey
+output appInsightsName string = loggingDeployment.outputs.appInsightsName
+output appInsightsInstrumentationKey string = loggingDeployment.outputs.appInsightsInstrumentationKey
 output keyVaultResourceId string = keyVaultModule.outputs.keyVaultResourceId

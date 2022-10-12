@@ -39,6 +39,7 @@ spec:
         dapr.io/sidecar-cpu-limit: "300m"
         dapr.io/sidecar-memory-limit: "1000Mi"
         dapr.io/config: "zipkin"
+        prometheus.io/scrape: "true"
     spec:
       containers:
       - name: traffic-control-service

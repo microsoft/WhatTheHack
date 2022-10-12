@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "value": "daprEventify"
+    },
+    "region": {
+      "value": "ussc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "adminUsername": {
+      "value": "jordanbean"
+    },
+    "publicSSHKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC464k4lBFe7dHi3+bUhIgHGqAL3xGKnVPJWrH/p5WBKNaUiulGmTTaajRqheuZP4RXUDW4P8I4wOmbu44gQa8GJqiSBvzBCDOo2X859ZuIcTMJ+Sv5tY32S9kR2qtcekLAslwOhasCmUTC8Ku7Q2N06gb2eOA39mqStxoQXUB17/rZFnhKH+vhEwyuhSXQFKi3MmOHzSGAKWxeIGwFvpdWF3uwOEEICxEbCH7ca7x6RVu/KzEVdhbMttJ1rcMXxa0KQCS8L2phc8FTJAxOSpd1mb9JZdsb2k8AB63J6SX1rshGCVXTeAD2eN50efQnpkFkhX/V2Fw4dy18M8ewnBTn NORTHAMERICA+jordanbean@TABLET-MDUOTL9A"
+    },
+    "aadUserObjectId": {
+      "value": "be7346a1-f02d-4514-8e52-14295d7d5d24"
+    }
+  }
+}

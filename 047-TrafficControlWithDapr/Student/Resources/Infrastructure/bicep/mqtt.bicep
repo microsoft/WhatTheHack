@@ -1,8 +1,15 @@
-param longName string
+param eventHubNamespaceName string
+param location string
+param logAnalyticsWorkspaceName string
+param eventHubEntryCamName string
+param eventHubExitCamName string
+param eventHubConsumerGroupName string
+param eventHubListenAuthorizationRuleName string
+param iotHubName string
 
 resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-01-01-preview' = {
-  name: 'ehn-${longName}-trafficcontrol'
-  location: resourceGroup().location
+  name: eventHubNamespaceName
+  location: location
   identity: {
     type: 'SystemAssigned'
   }
@@ -13,13 +20,8 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-01-01-preview' = 
   }
 }
 
-var eventHubEntryCamName = 'entrycam'
-
 resource eventHubEntryCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-preview' = {
   name: '${eventHubNamespace.name}/${eventHubEntryCamName}'
-  dependsOn: [
-    eventHubNamespace
-  ]
   properties: {
     partitionCount: 1
     messageRetentionInDays: 1
@@ -27,17 +29,14 @@ resource eventHubEntryCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-pr
 }
 
 resource eventHubEntryCamConsumerGroup 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-01-01-preview' = {
-  name: '${eventHubNamespace.name}/${eventHubEntryCamName}/trafficcontrolservice'
+  name: '${eventHubNamespace.name}/${eventHubEntryCamName}/${eventHubConsumerGroupName}'
   dependsOn: [
     eventHubEntryCam
   ]
 }
 
 resource eventHubEntryCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2021-01-01-preview' = {
-  name: '${eventHubEntryCam.name}/listen'
-  dependsOn: [
-    eventHubEntryCam
-  ]
+  name: '${eventHubEntryCam.name}/${eventHubListenAuthorizationRuleName}'
   properties: {
     rights: [
       'Listen'
@@ -46,13 +45,8 @@ resource eventHubEntryCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/
   }
 }
 
-var eventHubExitCamName = 'exitcam'
-
 resource eventHubExitCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-preview' = {
   name: '${eventHubNamespace.name}/${eventHubExitCamName}'
-  dependsOn: [
-    eventHubNamespace
-  ]
   properties: {
     partitionCount: 1
     messageRetentionInDays: 1
@@ -60,17 +54,14 @@ resource eventHubExitCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-pre
 }
 
 resource eventHubExitCamConsumerGroup 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-01-01-preview' = {
-  name: '${eventHubNamespace.name}/${eventHubExitCamName}/trafficcontrolservice'
+  name: '${eventHubNamespace.name}/${eventHubExitCamName}/${eventHubConsumerGroupName}'
   dependsOn: [
     eventHubExitCam
   ]
 }
 
 resource eventHubExitCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2021-01-01-preview' = {
-  name: '${eventHubExitCam.name}/listen'
-  dependsOn: [
-    eventHubExitCam
-  ]
+  name: '${eventHubExitCam.name}/${eventHubListenAuthorizationRuleName}'
   properties: {
     rights: [
       'Listen'
@@ -79,11 +70,9 @@ resource eventHubExitCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/e
   }
 }
 
-var eventHubNamespaceEndpointUri = 'sb://${eventHubNamespace.name}.servicebus.windows.net'
-
 resource iotHub 'Microsoft.Devices/IotHubs@2021-03-31' = {
-  name: 'iothub-${longName}'
-  location: resourceGroup().location
+  name: iotHubName
+  location: location
   sku: {
     name: 'B1'
     capacity: 1
@@ -93,14 +82,14 @@ resource iotHub 'Microsoft.Devices/IotHubs@2021-03-31' = {
       endpoints: {
         eventHubs: [
           {
-            name: 'entrycam'
+            name: eventHubEntryCamName
             authenticationType: 'keyBased'
             connectionString: listKeys(eventHubEntryCamListenAuthorizationRule.id, eventHubEntryCamListenAuthorizationRule.apiVersion).primaryConnectionString
             subscriptionId: subscription().subscriptionId
             resourceGroup: resourceGroup().name
           }
           {
-            name: 'exitcam'
+            name: eventHubExitCamName
             authenticationType: 'keyBased'
             connectionString: listKeys(eventHubExitCamListenAuthorizationRule.id, eventHubExitCamListenAuthorizationRule.apiVersion).primaryConnectionString
             subscriptionId: subscription().subscriptionId
@@ -110,18 +99,18 @@ resource iotHub 'Microsoft.Devices/IotHubs@2021-03-31' = {
       }
       routes: [
         {
-          name: 'entrycam'
+          name: eventHubEntryCamName
           source: 'DeviceMessages'
-          condition: 'trafficcontrol = \'entrycam\''
+          condition: 'trafficcontrol = \'${eventHubEntryCamName}\''
           endpointNames: [
             eventHubEntryCamName
           ]
           isEnabled: true
         }
         {
-          name: 'exitcam'
+          name: eventHubExitCamName
           source: 'DeviceMessages'
-          condition: 'trafficcontrol = \'exitcam\''
+          condition: 'trafficcontrol = \'${eventHubExitCamName}\''
           endpointNames: [
             eventHubExitCamName
           ]
@@ -132,9 +121,133 @@ resource iotHub 'Microsoft.Devices/IotHubs@2021-03-31' = {
   }
 }
 
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' existing = {
+  name: logAnalyticsWorkspaceName
+}
+
+resource diagnosticSettingsEventHub 'Microsoft.Insights/diagnosticsettings@2017-05-01-preview' = {
+  name: 'Logging'
+  scope: eventHubNamespace
+  properties: {
+    workspaceId: logAnalyticsWorkspace.id
+    logs: [
+      {
+        category: 'ArchiveLogs'
+        enabled: true
+      }
+      {
+        category: 'OperationalLogs'
+        enabled: true
+      }
+      {
+        category: 'AutoScaleLogs'
+        enabled: true
+      }
+      {
+        category: 'KafkaCoordinatorLogs'
+        enabled: true
+      }
+      {
+        category: 'KafkaUserErrorLogs'
+        enabled: true
+      }
+      {
+        category: 'EventHubVNetConnectionEvent'
+        enabled: true
+      }
+      {
+        category: 'CustomerManagedKeyUserLogs'
+        enabled: true
+      }
+      {
+        category: 'ApplicationMetricsLogs'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'AllMetrics'
+        enabled: true
+      }
+    ]
+  }
+}
+
+resource diagnosticSettingsIotHub 'Microsoft.Insights/diagnosticsettings@2017-05-01-preview' = {
+  name: 'Logging'
+  scope: iotHub
+  properties: {
+    workspaceId: logAnalyticsWorkspace.id
+    logs: [
+      {
+        category: 'Connections'
+        enabled: true
+      }
+      {
+        category: 'DeviceTelemetry'
+        enabled: true
+      }
+      {
+        category: 'C2DCommands'
+        enabled: true
+      }
+      {
+        category: 'DeviceIdentityOperations'
+        enabled: true
+      }
+      {
+        category: 'FileUploadOperations'
+        enabled: true
+      }
+      {
+        category: 'Routes'
+        enabled: true
+      }
+      {
+        category: 'D2CTwinOperations'
+        enabled: true
+      }
+      {
+        category: 'C2DTwinOperations'
+        enabled: true
+      }
+      {
+        category: 'TwinQueries'
+        enabled: true
+      }
+      {
+        category: 'JobsOperations'
+        enabled: true
+      }
+      {
+        category: 'DirectMethods'
+        enabled: true
+      }
+      {
+        category: 'DistributedTracing'
+        enabled: true
+      }
+      {
+        category: 'Configurations'
+        enabled: true
+      }
+      {
+        category: 'DeviceStreams'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'AllMetrics'
+        enabled: true
+      }
+    ]
+  }
+}
+
 output iotHubName string = iotHub.name
 output eventHubNamespaceName string = eventHubNamespace.name
 output eventHubNamespaceHostName string = eventHubNamespace.properties.serviceBusEndpoint
-output eventHubNamespaceEndpointUri string = eventHubNamespaceEndpointUri
+output eventHubNamespaceEndpointUri string = 'sb://${eventHubNamespace.name}.servicebus.windows.net'
 output eventHubEntryCamName string = eventHubEntryCam.name
 output eventHubExitCamName string = eventHubExitCam.name
