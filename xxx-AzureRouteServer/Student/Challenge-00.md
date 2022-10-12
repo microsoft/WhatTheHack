@@ -34,7 +34,7 @@ Your coach will provide you with a link to a `Resources.zip` file that contains 
 - This process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges. 
 
 ```bash
-# Upload the Resources.zip file from the URL provided by your coach into your cloud shell with the upload button on the console
+# Upload the Resources.zip file provided by your coach into your cloud shell with the upload button on the console
 ```
 ```bash
 # Unpack the zip file
