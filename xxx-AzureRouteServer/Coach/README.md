@@ -13,35 +13,13 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Building a Basic Hub and Spoke Topology utilizing a central Network Virtual Appliance](./Solution-01.md)**
-	 - Description of challenge
+	 - Warming up
 - Challenge 02: **[Introduce Azure Route Server and peer with a Network Virtual appliance](./Solution-02.md)**
-	 - Description of challenge
+	 - Azure Route Server basic concepts, interaction with NVAs
 - Challenge 03: **[Connect Network Virtual Appliance to an SDWAN environment](./Solution-03.md)**
-	 - Description of challenge
+	 - Azure Route Server interaction with Virtual Network Gateways (VPN or ExpressRoute)
 - Challenge 04: **[Introduce a High Availability with Central Network Virtual Appliances](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](./Solution-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](./Solution-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](./Solution-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](./Solution-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](./Solution-15.md)**
-	 - Description of challenge
+	 - High Availability concepts
 
 ## Coach Prerequisites
 
