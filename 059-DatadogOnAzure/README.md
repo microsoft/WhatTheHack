@@ -6,7 +6,7 @@ Welcome to the Datadog on Azure hack. This What The Hack provides provides hands
 
 ## Learning Objectives
 
-In this hack, you will be getting hands on experience with monitoring resources (VMs, applications, containers) using Datadog's capabilities such as log analytics, dashboards, and KQL. Additionally, Grafana has been introduced to add additional visualization tools.
+In this hack, you will be getting hands on experience with monitoring resources (VMs, applications, containers) using Datadog's capabilities such as logs, metrics, alerts and dashboards. 
 
 ## Challenges
 
