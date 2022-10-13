@@ -40,12 +40,6 @@ Update the dashboard to handle a drop-down via template variables for:
 - Host
 - Region
 
-Use Azure Policy to enable Configuration Management resources to monitor VM operations and performance.
-- Configure Update Management for all virtual machines
-- Enable VM Update Management solution
-- Enable Automatic OS image upgrades for VM Scaleset
-- Add a metric for Total Update Deployment Runs to dashboard
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
@@ -58,3 +52,5 @@ To complete this challenge successfully, you should be able to:
 - [Live Process monitoring configuration](https://docs.datadoghq.com/infrastructure/process/?tab=linuxwindows) 
 - [Dashboard docs](https://docs.datadoghq.com/dashboards) 
 - [Dashboard copy and paste](https://www.datadoghq.com/blog/copy-paste-widget/)
+- [Dashboard widgets](https://docs.datadoghq.com/dashboards/widgets/)
+- [Dashboard Powerpacks](https://www.datadoghq.com/blog/standardize-dashboards-powerpacks-datadog/)
