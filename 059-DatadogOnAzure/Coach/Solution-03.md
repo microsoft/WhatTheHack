@@ -1,20 +1,26 @@
-# Challenge 03 - <Title of Challenge> - Coach's Guide 
+# Challenge 03 - Monitoring Azure Virtual Machines - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+### Windows Agent Install Steps
+For SQL server host - use Bastion to remotely connect to the host and run the updated powershell script. 
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+For the IIS server scaleset, add the script to the correct location, reboot the host and you should see them appear in the Events page in Datadog when the hosts have come online and Datadog has been installed. 
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+### Dashboard Steps
+* Navigate to the infrastructure list
+* Click on a host
+* Click on the host dashboard
+* Clone the dashboard
+* Add widgets to the dashboard:
+  * Logs
+  * System network
+* Add a graph to the dashboard
+  * Process top list
+* Add template variables (top left) for the following tags:
+  * `env`
+  * `host`
+  * `region`
+* Then update each graph's `host` query section to instead reference the template variable. 
