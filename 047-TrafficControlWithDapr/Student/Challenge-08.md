@@ -8,7 +8,7 @@ In this challenge, you're going to deploy the Dapr-enabled services you have wri
 
 ![architecture](../images/Challenge-08/architecture.png)
 
-- Update all the port numbers to use the Dapr defaults since it will be running in AKS.
+- Update all the host names & port numbers to use the Dapr defaults since it will be running in AKS.
 - Create a Kubernetes secret in your AKS cluster that references your Azure KeyVault secrets.
 - Update the Dapr secret configuration file to pull secrets from the Kubernetes secret.
 - Build Docker images of all 3 services & upload to the Azure Container Registry.
@@ -25,6 +25,8 @@ To complete this challenge, you must reach the following goals:
 
 ## Tips
 
+- Change the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
+  - https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/
 - Use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
 - Modify the `Resources/dapr/components/fine-collection-service.yaml` (and other services) spec files to deploy each service to AKS. You will need to customize them with the names of your specific Azure container registries, etc.
 - Use the Kubernetes [Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/) command to deploy all the services in the `Resources/dapr/components` directory simulatiously
