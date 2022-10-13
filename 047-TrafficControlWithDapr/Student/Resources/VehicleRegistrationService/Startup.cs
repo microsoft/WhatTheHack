@@ -37,7 +37,7 @@ namespace VehicleRegistrationService
 
       app.UseEndpoints(endpoints =>
       {
-        services.AddHealthChecks();
+        endpoints.MapHealthChecks("/healthz");
         endpoints.MapControllers();
       });
     }
