@@ -32,7 +32,28 @@ To complete this challenge, you must reach the following goals:
   cd Resources/dapr/components
   kubectl apply -k .
   ```
+- Use various `kubectl` commands to validate that all the services are running in your AKS cluster. Here are some useful ones.
+
+  - Get all pods (in the current namespace)
+
+    ```shell
+    kubectl get pods
+    ```
+
+  - Describe a specific pod (to help debug deployment issues)
+
+    ```shell
+    kubectl describe pod <pod-name>
+    ```
+
+  - Tail the logs of a specific pod (and follow)
+
+    ```shell
+    kubectl logs fine-collection-service-7c99df4c85-2bxvf -f
+    ```
 
 ## Learning Resources
 
-Thanks for participating in these hands-on challenges! Hopefully you've learned about Dapr and how to use it. Obviously, these challenges barely scratch the surface of what is possible with Dapr. We have not touched upon subjects like: hardening production environments, actors, integration with Azure Functions, Azure API Management and Azure Logic Apps just to name a few. So if you're interested in learning more, I suggest you read the [Dapr documentation](https://docs.dapr.io).
+- [AKS Key Vault integration](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
+
+Thanks for participating in these hands-on challenges! Hopefully you've learned about Dapr and how to use it. Obviously, these challenges barely scratch the surface of what is possible with Dapr. We have not touched upon subjects like: hardening production environments, actors, integration with Azure Functions and Azure API Management just to name a few. So if you're interested in learning more, I suggest you read the [Dapr documentation](https://docs.dapr.io).
