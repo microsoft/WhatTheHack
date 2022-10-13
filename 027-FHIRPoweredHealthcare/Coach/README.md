@@ -57,7 +57,7 @@ This hack will deploy the following Azure resources and OSS components to implem
 - FHIR Loader (OSS) Function App based event-driven pipeline (for ingesting FHIR data in Challenge 1)
 - Azure Function (managed Serverless solution to host FHIR Loader app in challenge 1)
 - FHIR Analytics Pipeline - FHIR to Synapse sync agent (OSS pipeline to move FHIR data in FHIR service to Azure Data Lake for analytics with Synapse in challenge 4)
-- Tool for Health Data Anonymization pipleine (ADF pipeline to export and anonymize FHIR data in challenge 5)
+- Tool for Health Data Anonymization pipeline (ADF pipeline to export and anonymize FHIR data in challenge 5)
 - Serverless SQL pool in Azure Synapse Analytics (Query service over the data in your data lake in challenge 4)
 - Azure Data Factory (Cloud ETL pipeline used in challege 5)
 - Azure Batch (Perform the deidentification in Tools for Health Data Anonymization in challenge 4))
@@ -74,11 +74,11 @@ This hack will deploy the following Azure resources and OSS components to implem
 
 _The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
-- \`./Coach\`
+- \`.Coach\`
   - Coach's Guide and related files
-- \`./Coach/Solutions\`
+- \`.Coach/Solutions\`
   - Solution files with completed example answers to a challenge
-- \`./Student\`
+- \`.Student\`
   - Student's Challenge Guide
-- \`./Student/Resources\`
+- \`.Student/Resources\`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)

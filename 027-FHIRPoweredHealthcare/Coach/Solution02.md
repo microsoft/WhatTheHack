@@ -11,7 +11,7 @@ In this challenge, you will use the **[\$convert-data](https://docs.microsoft.co
 
 **Convert data using the $convert-data endpoint**
 - Test send **[sample HL7v2](https://github.com/microsoft/FHIR-Converter/tree/main/data/SampleData/Hl7v2)** and **[sample C-CDA](https://github.com/microsoft/FHIR-Converter/tree/main/data/SampleData/Ccda)** requests in the request body payload and make the appropriate $convert-data API calls to receive FHIR Bundle response.
-            ```
+
 **Use Postman to retrieve Patients clinical data via FHIR Patients API**
 - Open Postman and import Postman collection and environment variables for FHIR API (if you have not imported them).
 - Run FHIR API HTTP Requests to validate imported clinical data.
