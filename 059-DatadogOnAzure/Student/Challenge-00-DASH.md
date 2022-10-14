@@ -14,21 +14,7 @@ You will be provided with access to an Azure Subscription where the eShopOnWeb s
 
 You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com), [Datadog Portal](https://datadog.com), and [Azure Cloud Shell](https://shell.azure.com). The Azure Cloud Shell has most of the common Azure management tools already pre-installed.
 
-However, if you work with Azure and on a regular basis, these are tools you should consider having installed on your local workstation:
-
-- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-  - [VS Code plugin for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
-- [Terraform for Azure](https://learn.microsoft.com/en-us/azure/developer/terraform/overview)
-
->**Note** Datadog is commonly automated via [Terraform](https://www.terraform.io/). Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. If you want Terraform to work on your local workstation, you will need to [Install Terraform on Windows with Bash](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash).
-
+>**Note** Datadog is commonly automated via [Terraform](https://www.terraform.io/). Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. 
 
 ## Description
 
@@ -69,7 +55,7 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 ![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
-## Deploy Datadog from Azure Marketplace
+### Deploy Datadog from Azure Marketplace
 - Go to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
 - Create a new Datadog organization when asked to choose between linking to an existing Datadog org or creating a new one.
 - Select the existing resource group `XXX-rg-wth-monitor-d-XX` to deploy the Datadog resource.
