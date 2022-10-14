@@ -43,7 +43,7 @@ Now that Datadog is configured to monitor the eShopOnWeb resources, it is time t
     - Download and Install HammerDB tool on the Visual Studio VM 
     - See sample [Instructions for using HammerDB](./Resources/Challenge-02/UsingHammerDB.md) to generate load on the "tpcc" database.
 - Simulate a CPU load on the VM Scale Set using the `cpuGenLoadwithPS.ps1` script located in the `/Challenge-02` folder of the student resource package.
-    - This script is designed to be run directly on the VMs in the VMSS.
+    - This script is designed to be run directly on the VM instances in the VMSS.
     - **HINT:** You will need to upload this script to the VMs in order to run it on each instance.
 
 ## Success Criteria
