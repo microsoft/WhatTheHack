@@ -13,5 +13,5 @@ Use general non-bulleted text for the beginning of a solution area for this chal
     - sub-sub-bullets
 
 **Guidance for Challenge 1**
-  Point students to the learning resources section of the challenge.
-  The solution for challenge 1 is located in the solutions subfolder on the GitHub site.
+  - Point students to the learning resources section of the challenge.
+  - The solution for challenge 1 is located in the solutions subfolder on the GitHub site.
