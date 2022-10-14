@@ -10,7 +10,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00-DASH.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Alerts, Activity Logs, and Service Health](Student/Challenge-01.md)**
 	 - Description of challenge
@@ -20,28 +20,6 @@ In this hack, you will be getting hands on experience with monitoring resources 
 	 - Description of challenge
 - Challenge 04: **[Datadog for Applications](Student/Challenge-04.md)**
 	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](Student/Challenge-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](Student/Challenge-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](Student/Challenge-15.md)**
-	 - Description of challenge
 
 ## Prerequisites
 
@@ -50,7 +28,6 @@ In this hack, you will be getting hands on experience with monitoring resources 
 Optionally, on your local workstation:
 - Visual Studio Code
 - Azure CLI or Azure PowerShell
-
 
 ## Contributors
 

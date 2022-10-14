@@ -1,6 +1,6 @@
 # Challenge 01 - Alerts, Activity Logs, and Service Health
 
-[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
+[< Previous Challenge](./Challenge-00-DASH.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Introduction
 
