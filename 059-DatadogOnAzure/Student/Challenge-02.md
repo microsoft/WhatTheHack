@@ -15,9 +15,11 @@ Feel free to achieve these objectives using the Azure portal, Datadog portal, Az
 ## Description
 
 In the eShopOnWeb Azure environment, there are three compute resources to be aware of:
-- **`vmss-wth-monitor-d-eu`** - Virtual Machine Scale Set (VMSS) hosting the eShopOnWeb web site
-- **`vmwthdbdeu`** - Virtual Machine running SQL Server 2019 hosting the eShopOnWeb database
-- **`vmwthvsdeu`** - Virtual Machine running Windows Server 2022 + Visual Studio 2022 + SQL Management Studio to act as a "jumpbox" that you will login to for administrative tasks.
+- **`vmss-wth-monitor-d-XX`** - Virtual Machine Scale Set (VMSS) hosting the eShopOnWeb web site
+- **`vmwthdbdXX`** - Virtual Machine running SQL Server 2019 hosting the eShopOnWeb database
+- **`vmwthvsdXX`** - Virtual Machine running Windows Server 2022 + Visual Studio 2022 + SQL Management Studio to act as a "jumpbox" that you will login to for administrative tasks.
+
+>**Note** The "XX" in each resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
 
 Azure Bastion has been configured to enable you to securely login to any of these VMs with a Remote Desktop session through a web brower. 
 
@@ -26,8 +28,8 @@ To login to a VM via Azure Bastion, navigate to the blade for any of these VMs i
 In this challenge you need to complete the following management tasks:
 - Create an empty database called “tpcc” on the eShopOnWeb SQL Server
     >**Note** Use SQL Auth with the username being "sqladmin" and password being whatever you used during deployment in Challenge 0.
-- On the SQL Server VM, complete the Datadog install and configure database monitoring
-    - Configure Datadog agent's API key
+    - **HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM to create the database.
+- On the SQL Server VM:
     - Update the sample SQL Server check in order to connect to the DB
     - Run the Datadog agent's `status` subcommand and look for `sqlserver` in the Checks section  
     - Find `sqlserver.queries.count` in Metrics Explorer
@@ -40,12 +42,9 @@ Now that Datadog is configured to monitor the eShopOnWeb resources, it is time t
 - Use HammerDB to create a transaction load on the "tpcc" database on the SQL Server
     - Download and Install HammerDB tool on the Visual Studio VM 
     - See sample [Instructions for using HammerDB](./Resources/Challenge-02/UsingHammerDB.md) to generate load on the "tpcc" database.
-- Simulate a load on the VM Scale Set using the `UrlGenLoadwithCurl.sh` script in the `/Challenge-02` folder of the student resource package.
-    - Modify the URL in the script file to point at either the Public IP address or DNS name of the `pip-wth-monitor-web-d-eu` resource in Azure.
-    - This script is designed to be run from any bash shell, including the Azure Cloud Shell.
 - Simulate a CPU load on the VM Scale Set using the `cpuGenLoadwithPS.ps1` script located in the `/Challenge-02` folder of the student resource package.
     - This script is designed to be run directly on the VMs in the VMSS.
-    - **HINT:** You will need to upload this script to the VMs in order to run it.
+    - **HINT:** You will need to upload this script to the VMs in order to run it on each instance.
 
 ## Success Criteria
 
