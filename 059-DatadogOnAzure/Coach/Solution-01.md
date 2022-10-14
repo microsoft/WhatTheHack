@@ -12,9 +12,6 @@ Use general non-bulleted text for the beginning of a solution area for this chal
   - And sub-bullets and even
     - sub-sub-bullets
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+**Guidance for Challenge 1**
+  Point students to the learning resources section of the challenge.
+  The solution for challenge 1 is located in the solutions subfolder on the GitHub site.
