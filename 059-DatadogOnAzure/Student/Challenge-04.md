@@ -1,6 +1,6 @@
 # Challenge 04 - Datadog for Applications
 
-[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** 
 
 ## Introduction
 
