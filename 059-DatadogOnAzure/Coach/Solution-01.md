@@ -7,5 +7,5 @@
 **Guidance for Challenge 1**
   - Point students to the learning resources section of the challenge.
   - Don't forget to install the DD agent on the vmwthdbdxx machine. Bastion works fine, log into the DD website, download the agent using the api key. Run the command manually on the VM. 
-  -- (i.e. start /wait msiexec /qn /i datadog-agent-7-latest.amd64.msi APIKEY="**xxxx**" SITE="us3.datadoghq.com")
+  - (i.e. start /wait msiexec /qn /i datadog-agent-7-latest.amd64.msi APIKEY="**xxxx**" SITE="us3.datadoghq.com")
   - The solution for challenge 1 is located in the solutions subfolder on the GitHub site.
