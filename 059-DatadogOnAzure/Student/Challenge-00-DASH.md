@@ -4,6 +4,10 @@
 
 ## Introduction
 
+Thank you for joining us at the DASH conference in NYC on October 18th, 2022! You will be participating in a special edition of this hack where you will be provided with an Azure lab environment to participate. 
+
+The content of this hack will be available if you wish to attempt the hack in your own Azure subscription at a later time on the [What The Hack website](https://aka.ms/wth).
+
 You have been contracted to monitor and manage an online shopping website in Azure for a start-up company called "eShopOnWeb".  The eShopOnWeb solution in Azure has an Azure environment that consists of (2) Azure resource groups that include a VNet, subnets, NSG(s), LB(s), NAT rules, scale set and a fully functional .NET Core Application (eShopOnWeb) to monitor.
 
 The eShopOnWeb solution in Azure has been pre-deployed by our lab partner, Spektra Systems. Your job will be to use Datadog to configure the eShopOnWeb solution to be monitored so you can demonstrate to your company's leadership team that you can effectively manage it.
