@@ -17,7 +17,7 @@ For this challenge, you will need to complete the following tasks:
         - Configure the Datadog agent, ensuring APM is enabled 
         - Enable logging for IIS 
 - Enable RUM (Real User Monitoring) for your eShoponWeb application. 
-    - Inject the RUM snippet the homepage of the eShopOnWeb website 
+    - Inject the RUM snippet into the homepage of the eShopOnWeb website 
 
 ### Edit the eShopOnWeb Website
 
