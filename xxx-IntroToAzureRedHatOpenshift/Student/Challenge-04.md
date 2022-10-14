@@ -6,7 +6,7 @@
 In the previous challenge, we discovered that our application is not connected to any database, so in this challenge, we will be learning how to deploy a MongoDB database onto ARO so that our application can have persistent data.
 
 ## Description
-In this challenge we will deploy MongoDB database service. We will be doing this by deploying a container image from Docker Hub. 
+In this challenge we will deploy a MongoDB database service. We will be using the OpenShift CLI to deploy a [bitnami/mongodb](https://hub.docker.com/r/bitnami/mongodb) container image from Docker Hub. 
 
 The database should have the following variables:
   ```
@@ -29,3 +29,4 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 - [Images on ARO](https://docs.openshift.com/container-platform/4.11/openshift_images/index.html)
 - [Using the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#cli-using-cli_cli-developer-commands)
+- [Create an application from Docker Hub Example](https://docs.openshift.com/container-platform/4.8/applications/creating_applications/creating-applications-using-cli.html#docker-hub-mysql-image)

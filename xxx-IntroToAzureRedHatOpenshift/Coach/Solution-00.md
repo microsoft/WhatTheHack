@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 
-Days before the hack you will need to:
+**Days before the hack you will need to:**
 - Make sure the students increase the VM quotas to use a minimum of 40 cores. Docs on how to do that can be found here: [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) 
   - To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
 - Make sure that all students are able to download a [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) at least 2 business days **BEFORE** the hack.

@@ -37,15 +37,15 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 	 - Provide authentication to your ARO Web Console
 
 ## Prerequisites
-
 - Your own Azure subscription with Owner access
 - Visual Studio Code
 - Azure CLI
 - Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
+- **Important!** - This challenge requires some steps to be performed days in advance. Please see additional pre-requisites in Challenge 0: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)** that say ***Complete this days in advance**
 
 ## Contributors
 
-- Anahita Afshari
 - Daniel Kondrashevich
+- Anahita Afshari
 - Sownmyan Soman Chullikkattil
 - Tommy Falgout

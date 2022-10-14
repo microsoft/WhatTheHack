@@ -4,7 +4,8 @@
 
 ## Introduction
 
-Thank you for participating in the Intro To Azure Red Hat OpenShift What The Hack. This session expects you to have a baseline understanding of Kubernetes (nodes, pods, services, etc). Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Intro To Azure Red Hat OpenShift What The Hack. This session expects you to have a baseline understanding of Kubernetes (nodes, pods, services, etc). Before you can hack, you will need to set up some prerequisites. 
+- **NOTE:** This challenge requires some steps to be performed days in advance. Please see additional pre-requisites that say ***Complete this days in advance**
 
 ## Common Prerequisites
 
@@ -27,17 +28,17 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-**Something to keep in mind:** This hack can be completed entirely in Azure Cloud Shell! However, if you work with Azure often, you'll want to consider installing these tools locally even if you plan to use Cloud Shell today.
+**Something to keep in mind:** This hack can be completed entirely in Azure Cloud Shell! However, if you work with Azure often, you'll want to consider installing these tools locally even if you plan to use Cloud Shell today. Most of the hack can also be completed using the ARO Web Console inside your web browser.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please get these additional pre-requisites completed:
+## Additional Pre-requisites
 
 - Install the [OpenShift CLI](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
-- Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
+- ***Complete this days in advance**: Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
   - **NOTE:** You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
   - **NOTE:** You will need an account before you can obtain your Red Hat pull secret
-- Minimum of 40 cores (VM Quotas):
+- ***Complete this days in advance**: Minimum of 40 cores (VM Quotas):
   - Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
   - If the limit is below 40, you will need to [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests)
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
@@ -72,5 +73,5 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
+- [Azure Red Hat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/intro-openshift)
+- [Azure Red Hat OpenShift 4 Documentation](https://docs.openshift.com/aro/4/welcome/index.html)
