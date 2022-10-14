@@ -22,7 +22,7 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 - Challenge 02: **[Application Deployment](Student/Challenge-02.md)**
 	 - Deploy the frontend and backend of an application onto the ARO cluster
 - Challenge 03: **[Logging and Metrics](Student/Challenge-03.md)**
-	 - View application logs to identify application errors
+	 - Integrate Azure Monitor and view the application logs to identify application errors
 - Challenge 04: **[Storage](Student/Challenge-04.md)**
 	 - Deploy a MongoDB database service to address application errors
 - Challenge 05: **[Configuration](Student/Challenge-05.md)**
@@ -31,16 +31,10 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 	 - Secure cluster traffic between pods using network policies
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**
 	 - Scale the frontend and backend applications
-- Challenge 08: **[Azure Service Operators](Student/Challenge-08.md)**
-	 - Connect the ARO cluster to Azure services
-- Challenge 09: **[Azure Key Vault Integration](Student/Challenge-09.md)**
-	 - Use Azure Key Vault in the backend application
-- Challenge 10: **[Azure Active Directory Integration](Student/Challenge-10.md)**
+- Challenge 08: **[Azure Key Vault Integration](Student/Challenge-08.md)**
+	 - Integrate an Azure Key Vault using Azure Service Operator
+- Challenge 09: **[Azure Active Directory Integration](Student/Challenge-09.md)**
 	 - Provide authentication to your ARO Web Console
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
-	 - Description of challenge
 
 ## Prerequisites
 

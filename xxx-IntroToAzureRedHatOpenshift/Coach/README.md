@@ -26,16 +26,10 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Secure cluster traffic between pods using network policies
 - Challenge 07: **[Scaling](./Solution-07.md)**
 	 - Scale the frontend and backend applications
-- Challenge 08: **[Azure Service Operators](./Solution-08.md)**
-	 - Connect the ARO cluster to Azure services
-- Challenge 09: **[Azure Key Vault Integration](./Solution-09.md)**
-	 - Use Azure Key Vault in the backend application
-- Challenge 10: **[Azure Active Directory Integration](./Solution-10.md)**
+- Challenge 08: **[Azure Key Vault Integration](./Solution-08.md)**
+	 - Integrate an Azure Key Vault using Azure Service Operator
+- Challenge 09: **[Azure Active Directory Integration](./Solution-09.md)**
 	 - Provide authentication to your ARO Web Console
-- Challenge 11: **[Title of Challenge](./Solution-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](./Solution-12.md)**
-	 - Description of challenge
 
 ## Coach Prerequisites
 

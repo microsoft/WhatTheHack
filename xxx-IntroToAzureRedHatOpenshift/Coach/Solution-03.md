@@ -27,7 +27,7 @@ Just to reiterate the errors in the application:
   ```
   - The error will show that there is no mongoDB connected, with an error beginning with `process.env.MONGODB_URI is undefined`
 
-## Getting logs from ARO Console
+## Getting logs from ARO Web Console
 - Make sure you are under the Administrator tab (shown on the top-left, there is also a Developer tab)
 - Navigate to workloads from the menu on the left-hand side
 - Under Workloads, navigate to Pods

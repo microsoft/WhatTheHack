@@ -1,20 +1,22 @@
-# Challenge 09 - Azure Key Vault Integration - Coach's Guide 
+# Challenge 09 - Azure Active Directory Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-08.md) - **[Home](./README.md)** - [Next Solution >](./Solution-10.md)
 
 ## Notes & Guidance
+- In this challenge, we will be integrating Azure Active Directory with ARO so that Azure AD can be configured as authentication for our cluster. 
 
-This is the only section you need to include.
+## Retrieve OAuth callback URL
+domain=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query clusterProfile.domain -o tsv)
+location=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query location -o tsv)
+echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2callback/AAD"
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+## Create Azure AD Application for authentication
+- In Azure portal, navigate to **App Registrations**, and create a new registration to create the new application
+- Fill in redirect URI with the value of the callback URL
+- In **Certificates and Secrets** and create **New Client Secret** and fill in details
+    - *Note:* Make note of the key value
+    - *Note:* In **Overview**, make note of the Application (client) ID and Directory (tenant) ID
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+## Configure OpenShift OpenID Authentication
+- In the ARO portal, navigate to **Administration** and click on **Cluster Settings**, then select **Global Configuration**, and then and in that tab, select **OAuth**
+- 

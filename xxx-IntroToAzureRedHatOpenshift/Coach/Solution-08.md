@@ -1,20 +1,20 @@
-# Challenge 08 - Azure Service Operators - Coach's Guide 
+# Challenge 08 - Azure Key Vault Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+- To see all operators installed use `oc get subs -n openshift-operators` and Azure should show up
+- To see all operators installed in the web console, go to `Operators installed`
+- 
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Create a key vault using the Azure Service Operator
+1) Create a SP
+2) Create a namespace called `operators`
+2) Create a secret
+3) Install Azure Service Operator
+4) Install Key Vault
+5) Add Key
+6) Reference Key

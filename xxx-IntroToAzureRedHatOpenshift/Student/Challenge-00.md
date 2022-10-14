@@ -46,7 +46,7 @@ Please get these additional pre-requisites completed:
 | ------------- | ------------- | ------------- | ------------- |
 | User Access Administrator | X | X | |
 | Contributor  | X | X | X |
-- Register the resource providers in your subscription
+- Register the resource providers in your subscription:
 ```
 # Register the Microsoft.RedHatOpenShift resource provider
 az provider register -n Microsoft.RedHatOpenShift --wait
@@ -73,3 +73,4 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 
+- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
