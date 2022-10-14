@@ -7,9 +7,9 @@
 ### Windows Agent Install Steps
 For SQL server host - use Bastion to remotely connect to the host and run the updated powershell script. 
 
-_$ProgressPreference = 'SilentlyContinue' wget "https://s3.amazonaws.com/ddagent-windows-stable/datadog-agent-7-latest.amd64.msi" -usebasicparsing -outfile .\ddagent.msi Start-Process -Wait msiexec -ArgumentList '/qn /i ddagent.msi APIKEY="YOURAPIKEY" SITE="us3.datadoghq.com" TAGS="env:hme" DD_ENV=hme REBOOT=ReallySuppress ADDLOCAL="MainApplication,NPM" LOGS_ENABLED=true PROCESS_ENABLED=true CMD_PORT=6001 APPSEC_ENABLED=true' $ProgressPreference = 'Continue'
+``$ProgressPreference = 'SilentlyContinue' wget "https://s3.amazonaws.com/ddagent-windows-stable/datadog-agent-7-latest.amd64.msi" -usebasicparsing -outfile .\ddagent.msi Start-Process -Wait msiexec -ArgumentList '/qn /i ddagent.msi APIKEY="YOURAPIKEY" SITE="us3.datadoghq.com" TAGS="env:hme" DD_ENV=hme REBOOT=ReallySuppress ADDLOCAL="MainApplication,NPM" LOGS_ENABLED=true PROCESS_ENABLED=true CMD_PORT=6001 APPSEC_ENABLED=true' $ProgressPreference = 'Continue'
+``
 _
-
 For the IIS server scaleset, add the script to the correct location, reboot the host and you should see them appear in the Events page in Datadog when the hosts have come online and Datadog has been installed. 
 
 ### Dashboard Steps
