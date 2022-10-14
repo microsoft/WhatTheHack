@@ -6,9 +6,29 @@
 
 Logs show everything that is happening to your resources at the API level. Platform logs from Azure in Datadog provide insights into subscription-level events. This includes information such as when a resource is modified or when a virtual machine is started.
 
+In the eShopOnWeb Azure environment, there are three compute resources to be aware of:
+- **`vmss-wth-monitor-d-XX`** - Virtual Machine Scale Set (VMSS) hosting the eShopOnWeb web site
+- **`vmwthdbdXX`** - Virtual Machine running SQL Server 2019 hosting the eShopOnWeb database
+- **`vmwthvsdXX`** - Virtual Machine running Windows Server 2022 + Visual Studio 2022 + SQL Management Studio to act as a "jumpbox" that you will login to for administrative tasks.
+
+>**Note** The "XX" in each resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
+
+Azure Bastion has been configured to enable you to securely login to any of these VMs with a Remote Desktop session through a web brower. 
+
+To login to a VM via Azure Bastion, navigate to the blade for any of these VMs in the Azure portal, click the "Connect" button, and select "Bastion". Use the username and password provided in Challenge 0.
+
+
 ## Description
 
-Understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
+For this challenge, your goal is to understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
+
+You will do this by configuring monitors with Datadog on the SQL Server VM (`vmwthdbdXX`).
+
+### Install & Configure Datadog Agent
+- On the SQL Server VM, complete the Datadog install and configure database monitoring
+- Configure the Datadog agent's API key
+
+### Configure Monitors with Datadog
 
 There are multiple ways to configure monitoring in Datadog.  You can configure monitoring manually in the Datadog portal or via the Datadog API.  This is a great way to learn how Datadog works and what settings are available to choose from. 
 
