@@ -44,7 +44,7 @@ You can find the sample Terraform file, `GenerateMonitors.tf`, in the `/Challeng
 - Add the names of your VMs for your monitors
 - Deploy the `GenerateMonitors.tf` template using: 
 
-    ```terraform apply -f GenerateMonitors.tf```
+    ```terraform init && terraform apply -auto-approve```
  
 - Modify the `GenerateMonitors.tf` to include “Disk Write Operations/Sec” and set a threshold of 20
 - Rerun your template and verify your new Monitors are created for each of your VMs
