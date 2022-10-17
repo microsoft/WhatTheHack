@@ -43,11 +43,10 @@ To make this possible, we have provided you a way to hook into the automation pr
 - The VM scale set is configured to look for a PowerShell script named `SetupDatadogOnWebServers.ps1` in an Azure Blob Storage container in the eShopOnWeb Azure environment.  
 - The container name is `/scripts` and the storage account is named with a prefix of `bootstrap` followed by a random set of characters. (For example `bootstrapXXXXXXXXXX`)
 
-In the `/Challenge-03` folder of your student resource package, you will find a sample PowerShell script named `SetupDatadogOnWebServers.ps1`. This script has the commands needed to install the Datadog agent and a sample configuration block that configures Logs.  
+In the `/Challenge-03` folder of your student resource package, you will find a sample PowerShell script named `SetupDatadogOnWebServers.ps1`. This script has the commands needed to install the Datadog agent and a sample configuration block that configures Logs, Live Process Monitoring, and Network Monitoring.  
 
 You will need to edit this script and add the following:
 - Your Datadog API key
-- Additional configuration settings to add Live Process Monitoring & Networking Monitoring.
 
 Once your script is ready:
 - Upload the completed script to the `/scripts` container of the storage account named with the prefix `bootstrap` in the eShopOnWeb Azure environment. 
