@@ -13,13 +13,13 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Alerts, Activity Logs, and Service Health](./Solution-01.md)**
-	 - Description of challenge
+	 - Create a monitor for one of your VMs using Terraform
 - Challenge 02: **[Monitoring Basics and Dashboards](./Solution-02.md)**
-	 - Description of challenge
+	 - Using the SQL server that is deployed, we will cover the basics of monitoring and Dashboards.
 - Challenge 03: **[Monitoring Azure Virtual Machines](./Solution-03.md)**
-	 - Description of challenge
+	 - Datadog agent manual and scalable installations on Windows and VM scale sets.
 - Challenge 04: **[Datadog for Applications](./Solution-04.md)**
-	 - Description of challenge
+	 - Monitoring applications deployed to Azure using Datadog. 
 
 
 ## Coach Prerequisites
