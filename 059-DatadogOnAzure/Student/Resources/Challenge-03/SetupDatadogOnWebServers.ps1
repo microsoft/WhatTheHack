@@ -55,53 +55,6 @@ logs:
     service: System
     sourcecategory: windowsevent
 
-  - type: windows_event
-    channel_path: Setup
-    source: Setup
-    service: Setup
-    sourcecategory: windowsevent" > C:\ProgramData\Datadog\conf.d\win32_event_log.d\conf.yaml 
-
-# Enable logs and live process 
-((Get-Content -path C:\ProgramData\Datadog\datadog.yaml -Raw) -replace '# logs_enabled: false','logs_enabled: true') | Set-Content -Path C:\ProgramData\Datadog\datadog.yaml 
-(Add-Content C:\ProgramData\Datadog\datadog.yaml "`nprocess_config:`n  enabled: true" )
-
-# Configure win32_event_log 
- echo "init_config:
-instances:
-    - type:
-         - Information
-         - Critical
-         - Error
-         - Warning
-         - Information
-         - Audit Failure
-         - Audit Success
-      log_file:
-         - Application
-         - System
-         - Security
-         - Application
-         - Setup
-
-logs:
-  - type: windows_event
-    channel_path: Application
-    source: Application
-    service: Application
-    sourcecategory: windowsevent
-
-  - type: windows_event
-    channel_path: Security
-    source: Security
-    service: Security
-    sourcecategory: windowsevent
-
-  - type: windows_event
-    channel_path: System
-    source: System
-    service: System
-    sourcecategory: windowsevent
-
   - type: file
     path: C:\inetpub\logs\LogFiles\W3SVC1\u_ex*
     service: eshoponweb
