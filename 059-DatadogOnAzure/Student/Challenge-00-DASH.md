@@ -81,7 +81,7 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 - Verify the resources contained in architecture diagram below are present in your own Azure subscription.
 - Verify that you have deployed Datadog into your Azure lab environment. 
 
-![Hack Diagram](../Images/monitoringhackdiagram1.png)
+![Hack Diagram](../Images/datadoghackdiagram.png)
 
 ## Learning Resources
 
