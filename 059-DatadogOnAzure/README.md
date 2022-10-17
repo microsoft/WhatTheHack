@@ -32,6 +32,6 @@ Optionally, on your local workstation:
 ## Contributors
 
 - [Ryan Maclean](https://github.com/ryanmaclean)
-- [Matt Burcke](https://github.com/mattburke)
+- [Matt Burcke](https://github.com/mattburcke)
 - [Prashant Nayak](https://github.com/prashantnayak)
 - [Peter Laudati](https://github.com/jrzyshr)
