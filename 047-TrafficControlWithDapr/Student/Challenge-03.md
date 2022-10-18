@@ -43,11 +43,8 @@ This challenge targets the operations labeled as **number 2** in the end-state s
   ```
 - RabbitMQ provides a built-in dashboard that presents messaging activity, logging, and performance metrics. Open a browser and navigate to [http://localhost:15672/](http://localhost:15672/). Both the login name is `guest` and the password is `guest`. Shown below, the dashboard is helpful for troubleshooting RabbitMQ anomalies:
   <img src="../images/Challenge-03/rabbitmq-dashboard.png" style="padding-top: 25px;" />
+- See the [TrafficControl Application & Services Description](./Resources/README.md#prevent-port-collisions) for the port numbers used by the services.
 - Put your Dapr configuration files in the `Resources/dapr/components` directory (you will see some existing files related to the Azure Kubernetes Service deployment in [Challenge-08](./Challenge-08.md), you can ignore these for now and put your files here as well)
-- Default Dapr configuration files can be found in the following locations:
-  - `%USERPROFILE%\.dapr\components\` on Windows
-  - `$HOME/.dapr/components` on Linux or Mac
-- Copy all the .yaml files from the default Dapr configuration file directory to the `Resources/dapr/components` folder to get started.
 - You will need to specify the directory where you provide the custom Dapr configuration files when running the Dapr sidecars.
   ```shell
   dapr run ... --components-path ../dapr/components dotnet run

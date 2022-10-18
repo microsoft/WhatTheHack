@@ -2,4 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.9.0" />
+  </ItemGroup>
 </Project>

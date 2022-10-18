@@ -61,6 +61,10 @@ So how can you check whether or not the call to the `VehicleRegistrationService`
 - Refer to the [Prevent port collisions](./Resources/README.md#prevent-port-collisions) section to see what ports to use.
 - Make sure you use the same spelling & case for the `app-id` of the `VehicleRegistrationService` as the one used in the `FineCollectionService` class.
   - **IMPORTANT:** Use lowercase letters for the `app-id` of all Dapr services (some Dapr configurations don't support CamelCase)!
+- On a Mac, the ports may not be released if Dapr crashes (`port in use` error). Use the following commands to help find the offending process and kill it:
+  - `lsof -i :<port>`
+  - `ps -al | grep dapr`
+  - `kill -9 <pid>`
 
 ## Learning Resources
 

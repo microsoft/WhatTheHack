@@ -25,6 +25,7 @@ namespace TrafficControlService
 
       services.AddHttpClient();
 
+      //add the InMemoryVehicleStateRepository to the ServiceCollection
       services.AddSingleton<IVehicleStateRepository, InMemoryVehicleStateRepository>();
       services.AddHealthChecks();
 

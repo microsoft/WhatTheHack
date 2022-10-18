@@ -39,6 +39,8 @@ namespace FineCollectionService
       }
 
       app.UseRouting();
+      //enables direct deserialization from CloudEvents to POCO
+      app.UseCloudEvents();
 
       app.UseEndpoints(endpoints =>
       {

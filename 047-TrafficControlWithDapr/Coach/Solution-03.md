@@ -36,7 +36,7 @@ You can later restart the container by entering the following command:
 docker start dtc-rabbitmq
 ```
 
-Later on, when you're dong with this class, you can remove the running container by entering the following command:
+Later on, when you're done with this class, you can remove the running container by entering the following command:
 
 ```shell
 docker rm dtc-rabbitmq -f
@@ -60,11 +60,7 @@ To change the message broker component from Redis to RabbitMQ, you'll create a l
 
    *Note: Version 1.41+ of Visual Studio Code collapses embedded subfolders into a single child subfolder. This feature is called *compact folders*. You can disable this feature from the menu: File... Preferences... Settings... Explorer... CompactFolders.*
 
-1. Copy all the .yaml files from the Dapr installation folder `%USERPROFILE%\.dapr\components\` on Windows and `$HOME/.dapr/components` on Linux or Mac to the `Resources/dapr/components` folder.
-
-   _On most Windows 10 machines, look in `c:\users\<you>\.dapr\components`_
-
-1. Open the file `Resources/dapr/components/pubsub.yaml` in VS Code.
+1. Create a new file `Resources/dapr/components/pubsub.yaml` in VS Code.
 
 1. Inspect this file. The `type` field specifies the type of the message broker to use (`pubsub.redis`). The `metadata` section provides information on how to connect to the Redis server .
 
@@ -123,7 +119,7 @@ With the Dapr pub/sub building block, you use a [topic](https://docs.microsoft.c
 1. You'll use this template to publish a message from the TrafficControlService to the `collectfine` topic in the `FineCollectionService`. The new call will instruct Dapr to use the newly-created pub/sub component named `pubsub`. The Dapr sidecar for the TrafficControlService will run on HTTP port `3600`. Replace the hardcoded URL in the `VehicleExit` method with the following call to the Dapr pub/sub API:
 
    ```csharp
-   await _httpClient.PostAsync("http://localhost:3600/v1.0/publish/pubsub/collectfine", message);
+   await _httpClient.PostAsync("http://localhost:3600/v1.0/publish/pubsub/collectfinetopic", message);
    ```
 
 Keep in mind that `TrafficControlService` is no longer coupled to `FineCollectionService`. Instead, `TrafficControlService` publishes the message to its Dapr sidecar service on port 3600. The sidecar is then responsible for executing the publish command using the Dapr pub/sub building block and component.
@@ -154,41 +150,16 @@ You are going to prepare the `FineCollectionService` so that it can receive mess
    metadata:
      name: collectfine-subscription
    spec:
-     topic: collectfine
+     topic: collectfinetopic
      route: /collectfine
      pubsubname: pubsub
    scopes:
      - finecollectionservice
    ```
 
-   _The `route` field tells Dapr to forward messages published to the `collectfine` topic to the `/collectfine` endpoint. From there, the subscriber can handle each message. The `pubsubname` links the subscription.yaml file to the `pubsub` component. The `scopes` field restricts this subscription to only the service with the `finecollectionservice` app-id._
+   _The `route` field tells Dapr to forward messages published to the `collectfinetopic` topic to the `/collectfine` endpoint. From there, the subscriber can handle each message. The `pubsubname` links the subscription.yaml file to the `pubsub` component. The `scopes` field restricts this subscription to only the service with the `finecollectionservice` app-id._
 
-Now the `FineCollectionService` is ready to receive published messages through Dapr. But there is a catch! Dapr wraps pub/sub messages inside the open-source [CloudEvents](https://cloudevents.io/) message format. Upon receipt, the subscriber must transform the message to a `CloudEvent`. You'll start by manually parsing the incoming JSON. Later, you'll evolve the implementation to use the ASP.NET Core model binding via the Dapr SDK for .NET.
-
-_CloudEvents is a standardized messaging format, providing a common way to describe event information across platforms. Dapr embraces CloudEvents. For more information about CloudEvents, see the cloudevents specification_
-
-1. Open the file `Resources/FineCollectionService/Controllers/CollectionController.cs` in VS Code.
-
-1. In the `CollectFine` method, remove the `SpeedingViolation` parameter and replace it with a `System.Text.Json.JsonDocument` parameter. Name it `cloudevent` and decorate it with the `[FromBody]` attribute:
-
-   ```csharp
-   public async Task<ActionResult> CollectFine([FromBody] System.Text.Json.JsonDocument cloudEvent)
-   ```
-
-   _The JsonDocument parameter enables you to extract the raw JSON from the request body._
-
-1. Add the following code at the beginning of the `CollectFine` method to extract the `SpeedingViolation` data from the cloud event:
-
-   ```csharp
-   var data = cloudEvent.RootElement.GetProperty("data");
-   var speedingViolation = new SpeedingViolation
-   {
-     VehicleId = data.GetProperty("vehicleId").GetString(),
-     RoadId = data.GetProperty("roadId").GetString(),
-     Timestamp = data.GetProperty("timestamp").GetDateTime(),
-     ViolationInKmh = data.GetProperty("violationInKmh").GetInt32()
-   };
-   ```
+Now the `FineCollectionService` is ready to receive published messages through Dapr.
 
 1. Open the terminal window in VS Code and make sure the current folder is `Resources/FineCollectionService`.
 
@@ -304,7 +275,7 @@ The other approach to subscribing to pub/sub events is to do it programmatically
        new
        {
          pubsubname = "pubsub",
-         topic = "collectfine",
+         topic = "collectfinetopic",
          route = "/collectfine"
        }
      };
@@ -371,7 +342,7 @@ In this step, you'll simplify pub/sub messaging with the Dapr SDK for .NET. Firs
 
    ```csharp
    // publish speedingviolation
-   await daprClient.PublishEventAsync("pubsub", "collectfine", speedingViolation);
+   await daprClient.PublishEventAsync("pubsub", "collectfinetopic", speedingViolation);
    ```
 
 1. Open the file `Resources/TrafficControlService/Startup.cs`.

@@ -88,17 +88,6 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     az account set --subscription "xxxx-xxxx-xxxx-xxxx"
     ```
 
-1.  Generate an [SSH key pair](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#overview-of-ssh-and-keys) if you don't already have one.
-
-    ```shell
-    ssh-keygen -t rsa -b 2048
-    ```
-
-    - If prompted for a file name, leave the entry blank, and press enter.
-    - If prompted for a passphrase, leave the entry blank, and press enter.
-
-    Once complete, you'll find two SSH key files in the following directory: `%USERPROFILE%\.ssh`. Right-click on the `id_rsa.pub` file and open with a text editor. Copy the entire contents of the file which is the public key. You'll need it to configure the parameter file in an upcoming step.
-
 1.  In the accompanying source code, modify the `Resources/Infrastructure/bicep/env/main.parameters.json` file so it contains the proper data for the deployment:
 
     ```json
@@ -111,15 +100,6 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
       },
       "environment": {
         "value": "dev"
-      },
-      "adminUserName": {
-        "value": "adminbruce"
-      },
-      "publicSSHKey": {
-        "value": "ssh-rsa AAAAB...wnBTn bruce.wayne@<your computer name>"
-      },
-      "aadUserObjectId": {
-        "value": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
       }
     }
     ```

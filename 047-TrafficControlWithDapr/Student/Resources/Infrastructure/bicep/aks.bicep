@@ -1,8 +1,6 @@
 param aksName string
 param location string
 param logAnalyticsWorkspaceName string
-param adminUsername string
-param publicSSHKey string
 
 resource aksAzurePolicy 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
   name: 'aksAzurePolicy'
@@ -33,16 +31,6 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
         mode: 'System'
       }
     ]
-    linuxProfile: {
-      adminUsername: adminUsername
-      ssh: {
-        publicKeys: [
-          {
-            keyData: publicSSHKey
-          }
-        ]
-      }
-    }
     addonProfiles: {
       httpApplicationRouting: {
         enabled: true

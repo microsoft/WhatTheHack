@@ -1,8 +1,6 @@
 param appName string
 param region string
 param environment string
-param adminUsername string
-param publicSSHKey string
 param location string = resourceGroup().location
 
 module names 'resource-names.bicep' = {
@@ -63,21 +61,19 @@ module aksModule 'aks.bicep' = {
   name: 'aks-deployment'
   params: {
     aksName: names.outputs.aksName
-    adminUsername: adminUsername
-    publicSSHKey: publicSSHKey
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
   }
 }
 
-module redisCacheModule 'redis-cache.bicep' = {
-  name: 'redis-cache-deployment'
-  params: {
-    redisCacheName: names.outputs.redisCacheName
-    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
-    location: location
-  }
-}
+// module redisCacheModule 'redis-cache.bicep' = {
+//   name: 'redis-cache-deployment'
+//   params: {
+//     redisCacheName: names.outputs.redisCacheName
+//     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+//     location: location
+//   }
+// }
 
 module mqttModule 'mqtt.bicep' = {
   name: 'mqttDeploy'
@@ -104,29 +100,30 @@ module storageAccountModule 'storage.bicep' = {
   }
 }
 
-output subscriptionId string = subscription().subscriptionId
-output resourceGroupName string = resourceGroup().name
-output serviceBusName string = serviceBusModule.outputs.serviceBusName
-output serviceBusEndpoint string = serviceBusModule.outputs.serviceBusEndpoint
-output redisCacheName string = redisCacheModule.outputs.redisCacheName
-output keyVaultName string = keyVaultModule.outputs.keyVaultName
-output logicAppName string = logicAppModule.outputs.logicAppName
-output logicAppAccessEndpoint string = logicAppModule.outputs.logicAppAccessEndpoint
-output containerRegistryName string = containerRegistryModule.outputs.containerRegistryName
-output containerRegistryLoginServerName string = containerRegistryModule.outputs.containerRegistryLoginServerName
-output aksName string = aksModule.outputs.aksName
 output aksFQDN string = aksModule.outputs.aksfqdn
-output aksazurePortalFQDN string = aksModule.outputs.aksazurePortalFQDN
+output aksName string = aksModule.outputs.aksName
 output aksNodeResourceGroupName string = aksModule.outputs.aksNodeResourceGroupName
-output iotHubName string = mqttModule.outputs.iotHubName
-output eventHubNamespaceName string = mqttModule.outputs.eventHubNamespaceName
-output eventHubNamespaceHostName string = mqttModule.outputs.eventHubNamespaceHostName
+output aksazurePortalFQDN string = aksModule.outputs.aksazurePortalFQDN
+output appInsightsInstrumentationKey string = loggingDeployment.outputs.appInsightsInstrumentationKey
+output appInsightsName string = loggingDeployment.outputs.appInsightsName
+output containerRegistryLoginServerName string = containerRegistryModule.outputs.containerRegistryLoginServerName
+output containerRegistryName string = containerRegistryModule.outputs.containerRegistryName
 output eventHubEntryCamName string = mqttModule.outputs.eventHubEntryCamName
 output eventHubExitCamName string = mqttModule.outputs.eventHubExitCamName
-output storageAccountName string = storageAccountModule.outputs.storageAccountName
+output eventHubNamespaceHostName string = mqttModule.outputs.eventHubNamespaceHostName
+output eventHubNamespaceName string = mqttModule.outputs.eventHubNamespaceName
+output iotHubName string = mqttModule.outputs.iotHubName
+output keyVaultName string = keyVaultModule.outputs.keyVaultName
+output keyVaultResourceId string = keyVaultModule.outputs.keyVaultResourceId
+output logicAppAccessEndpoint string = logicAppModule.outputs.logicAppAccessEndpoint
+output logicAppName string = logicAppModule.outputs.logicAppName
+// output redisCacheName string = redisCacheModule.outputs.redisCacheName
+output resourceGroupName string = resourceGroup().name
+output serviceBusConnectionString string = serviceBusModule.outputs.serviceBusConnectionString
+output serviceBusEndpoint string = serviceBusModule.outputs.serviceBusEndpoint
+output serviceBusName string = serviceBusModule.outputs.serviceBusName
 output storageAccountEntryCamContainerName string = storageAccountModule.outputs.storageAccountEntryCamContainerName
 output storageAccountExitCamContainerName string = storageAccountModule.outputs.storageAccountExitCamContainerName
 output storageAccountKey string = storageAccountModule.outputs.storageAccountContainerKey
-output appInsightsName string = loggingDeployment.outputs.appInsightsName
-output appInsightsInstrumentationKey string = loggingDeployment.outputs.appInsightsInstrumentationKey
-output keyVaultResourceId string = keyVaultModule.outputs.keyVaultResourceId
+output storageAccountName string = storageAccountModule.outputs.storageAccountName
+output subscriptionId string = subscription().subscriptionId
