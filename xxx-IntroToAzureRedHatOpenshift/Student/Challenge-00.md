@@ -28,7 +28,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-**Something to keep in mind:** This hack can be completed entirely in Azure Cloud Shell! However, if you work with Azure often, you'll want to consider installing these tools locally even if you plan to use Cloud Shell today. Most of the hack can also be completed using the ARO Web Console inside your web browser.
+**Something to keep in mind:** This hack can be completed entirely in Azure Cloud Shell! However, if you work with Azure often, you'll want to consider installing these tools locally even if you plan to use Cloud Shell today. Most of the hack can also be completed using the ARO Web Console inside your web browser (and some of the challenges will be MUCH easier using the ARO Web Console).
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 

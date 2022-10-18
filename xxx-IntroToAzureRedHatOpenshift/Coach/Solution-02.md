@@ -12,23 +12,23 @@
   - It was successful if you see something like `Logged into "https://api.abcd1234.westus.aroapp.io:6443" as "kube:admin" using the token provided.`
 
 ## Create New Project
-- Create in terminal:
+- **Create in terminal:**
   - In the cluster, create a new project called "ratings-app" using the command `oc new-project ratings-app`
     - It was successful if you see something like `Now using project "ratings-app" on server "https://api.abcd1234.westus2.aroapp.io:6443"`
-- Create in web console:
+- **Create in web console:**
   - Go to *Home > Projects* and click on *Create Project* button on the right
 
 ## Deploy the backend API
 - Deploy the backend API using the command `oc new-app the/rating-api/directory --name=rating-api --strategy=docker`
   - **NOTE:** Make sure the students set the **--strategy** flag to **docker** when deploying the backend API and **--name** to **rating-api**
-  - Verify in terminal:
+  - **Verify in terminal:**
     - Use the command `oc get deployments` and your output should look similar to below
     - **NOTE:** Verify the **READY** state shows 1/1
       ```
       NAME         READY   UP-TO-DATE   AVAILABLE   AGE
       rating-api   1/1     1            1           1d23h
       ```
-  - Verify in web console:
+  - **Verify in web console:**
     - Go to *Workloads > Deployments* and confirm the status of 'rating-api' shows **1 of 1 pods** deployed
 
 ## Deploy frontend application

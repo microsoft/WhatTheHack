@@ -3,52 +3,75 @@
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
 ## Notes & Guidance
-- In this challenge, we will be scaling up the number of pods we have.
+- In this challenge, we will be scaling up the number of pods we have in our deployments.
 
-## Scaling by manually editing deployment definition
-- In the `.YAML` file, find the line that states `replicas: 1` and change that to `replicas: 3`, then save and quit
-  - It will look like:
+## Scale Backend Application
+- **In terminal:**
+  - Scale the pods using the command `oc scale deployment rating-api --replicas=4` 
+  - Confirm using the command `oc get pods` 
+
+- **In web console:**
+  - Go to *Workloads > Deployments > `rating-api` > Actions (in the top right) > Edit Pod Count*
+    - Enter 4 and click save
+  - Confirm by going to the *Details* tab
+
+- **Using the YAML file:**
+  - Go to *Workloads > Deployments > `rating-api` > YAML 
+  - In the `YAML` file, find the line that states `replicas: 1` and change that to `replicas: 4`, then save and quit
+    - It will look like:
+    ```
+    spec:
+      replicas: 4
+      selector:
+        matchLabels:
+          deployment: rating-web
+    ```
+  - Press save at the bottom of the screen
+  - Confirm by going to the *Details* tab
+
+## Scale Frontend Application
+- **In terminal:**
+  - Scale the pods using the command `oc scale deployment rating-web --replicas=2` 
+  - Confirm using the command `oc get pods` 
+
+- **In web console:**
+  - Go to *Workloads > Deployments > `rating-web` > Actions (in the top right) > Edit Pod Count*
+    - Enter 2 and click save
+  - Confirm by going to the *Details* tab
+
+- **Using the YAML file:**
+  - Go to *Workloads > Deployments > `rating-web` > YAML 
+  - In the `YAML` file, find the line that states `replicas: 1` and change that to `replicas: 2`, then save and quit
+    - It will look like:
+    ```
+    spec:
+      replicas: 2
+      selector:
+        matchLabels:
+          deployment: rating-web
+    ```
+  - Press save at the bottom of the screen
+  - Confirm by going to the *Details* tab
+
+## Pod Autoscaling (Optional):
+
+- **Set Resource Limits:**
+  - Go to *Workloads > Deployments > `rating-web` > Actions (in the top right) > Edit Resource Limits*
+    - Under *CPU > Request* enter **500** and select **millicores**
+    - Under *CPU > Limit* enter **1** and select **cores**
+    - Scroll down and click save
+
+- **Add Horizontal Pod Autoscaler:**
+  - Go to *Workloads > Deployments > `rating-web` > Actions (in the top right) > Add HorizontalPodAutoscaler*
+  - Scroll down to minimum pods and enter **1**
+  - Scroll down to maximum pods and enter **3**
+  - Scroll down and click save
+
+- **Increase Traffic To Frontend:**
+  - Copy the frontend application URL to the clipboard
+  - Deploy the following application and replace  `<rating-web-url>` with the frontend application route using the command below:
+    - **NOTE**: This will increase the traffic to the frontend application. After a few minutes we should see the `rating-web` deployment have more than 1 pod deployed
   ```
-  spec:
-    selector:
-      matchLabels:
-        app: ostoy-microservice
-    replicas: 3
+  kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- <rating-web-url>; done"
   ```
-- Execute the following command `oc apply -f network.yaml`
-- In the portal's left menu, click on *Workloads > Deployments > rating-api* and confirm that there is more than one pod running
-
-## Scaling using Command Line
-- Scale the pods using the command `oc scale deployment --replicas=3` 
-- Confirm using the command `oc get pods` 
-
-
-// Scale using autoscaler by sending a bunch of pings/curl to the web api to the route you got from challenge 2
-
-// Need resource limits on the deployment
-In portal:
-
-in cli:
-`oc get dc`
-
-``
-
-``
-
-Autoscale pods to max 5 and watch
-`oc autoscale deployment/rating-web --min=1 --max=10 --cpu-percent=25`
-
-Check pods while autoscaling
-`oc get pods -w`
-
-Deploy the spam to test autoscaling
-`kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- <web-service-route-url>; done"`
-
-`kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- http://rating-web-expose.apps.urjfps3a.eastus.aroapp.io/#/ ; done"`
-
-Kill the spam
-`kubectl delete deployment busybox`
-
-`ctrl+c`
-
-`oc delete horizontalpodautoscalers.autoscaling rating-web`
+  - Delete the busybox deployment using the command: `kubectl delete deployment busybox`
