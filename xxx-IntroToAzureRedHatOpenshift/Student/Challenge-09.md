@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)**
 
 ## Introduction
-You've made it to the last challenge. Congratulations! Guess what? You're also able to authenticate your Azure Red Hat OpenShift with Azure Active Directory! In this challenge, we will be integrating Azure AD with ARO so that we can use Microsoft credentials to login to the ARO Web Console
+You've made it to the last challenge. Congratulations! Guess what? You're also able to authenticate your Azure Red Hat OpenShift with Azure Active Directory! In this challenge, we will be integrating Azure AD with ARO so that we can use Microsoft credentials to login to the ARO Web Console.
 
 ## Description
 In this challenge, we will be integrating Azure Active Directory with ARO so that Azure AD can be configured as authentication for the ARO Web Console. 
