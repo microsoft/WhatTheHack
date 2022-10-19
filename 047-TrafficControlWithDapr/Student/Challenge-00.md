@@ -28,7 +28,8 @@ Install all the prerequisites listed below and make sure they're working correct
   - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
   - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
   - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
-- Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
+- Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
+- Azure CLI extension for cluster extensions ([instructions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions))
 - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
@@ -67,9 +68,26 @@ _If you can't instantiate some of these resources, you won't be able to complete
   - 1 Zipkin service running to monitor communciation between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
+**IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided.
+
+[https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions)
+
+### Deployment
+
 To start, you'll need access to an Azure Subscription & Resource Group:
 
 - If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
+  - You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
+    - Microsoft.ContainerService
+    - Microsoft.ContainerRegistry
+    - Microsoft.EventHub
+    - Microsoft.Insights
+    - Microsoft.KeyVault
+    - Microsoft.Logic
+    - Microsoft.OperationalInsights
+    - Microsoft.ServiceBus
+    - Microsoft.Storage
+    - Microsoft.Web
 - If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
 
 _Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._

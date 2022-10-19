@@ -19,8 +19,6 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
   ]
   properties: {
     kubernetesVersion: '1.24.6'
-    dnsPrefix: aksName
-    enableRBAC: true
     agentPoolProfiles: [
       {
         name: 'agentpool'
@@ -32,19 +30,37 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
       }
     ]
     addonProfiles: {
-      httpApplicationRouting: {
-        enabled: true
-      }
       omsagent: {
         enabled: true
         config: {
           logAnalyticsWorkspaceResourceID: logAnalyticsWorkspace.id
         }
       }
+      azureKeyVaultSecretsProvider: {
+        enabled: true
+        config: {
+          enableSecretRotation: 'true'
+          rotationPollInterval: '120s'
+        }
+      }
     }
   }
   identity: {
     type: 'SystemAssigned'
+  }
+}
+
+resource dapr 'Microsoft.KubernetesConfiguration/extensions@2022-03-01' = {
+  name: 'dapr'
+  scope: aks
+  properties: {
+    extensionType: 'microsoft.dapr'
+    scope: {
+      cluster: {
+        releaseNamespace: 'dapr-system'
+      }
+    }
+    autoUpgradeMinorVersion: true
   }
 }
 
