@@ -28,7 +28,7 @@ Finally, clicking on the `Dev. tools` button allows a user to run a Load Test fr
 - Viewing their Orders for the specific Shop
 
 
-The architecture of the solution:
+The architecture of the solution:<br>
 ![Application Interface](../images/architecture-overview.png)
 
 The resources in the blue box are not part of the application itself, but allow for easier development and testing experience.
