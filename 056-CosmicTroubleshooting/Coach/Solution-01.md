@@ -15,7 +15,7 @@ The students will need to:
     - Requests
   - If they would like to get the Full Text of the query in the results, they should enable the "Diagnostics full-text query" under Features.
   - **Note** If they select Resource Specific for Destination table, the queries from the documentation will not run as they assume the destination table is AzureDiagnostics. Students should change the queries accordingly.
-- After enabling the diagnostic settings, they will need to run the Azure Load Test using either the button in the web application or going directly to the Azure Load Service and running the included test. Please note that the test will require some time to run. They can always access the test run to see it's progress within Azure Load Testing.
+- After enabling the diagnostic settings, they will need to run a test by Azure Load Testing using either the button "Start New Simulation" in the section "Dev. tools" in the web application or going directly to the Azure Load Testing service and running the included test. Please note that the test will require some time to run. From the web application student can watch the progress of simulation test or they can always access the test run to see it's progress within Azure Load Testing service inside Azure Portal.
 - After the test concludes, students should investigate the generated logs. A very good stating point are the queries in the Azure Cosmos DB documentation (link is included in the Learning Resources section of the challenge).
 - The students will need to identify:
   - What is the Partition key of the collection.
