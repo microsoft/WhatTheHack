@@ -1,24 +1,22 @@
 param aksName string
 param location string
 param logAnalyticsWorkspaceName string
+param managedIdentityName string
 
-resource aksAzurePolicy 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
-  name: 'aksAzurePolicy'
-  scope: resourceGroup()
-  properties: {
-    #disable-next-line use-resource-id-functions
-    policyDefinitionId: '/providers/Microsoft.Authorization/policyDefinitions/c26596ff-4d70-4e6a-9a30-c2506bd2f80c'
-  }
+resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+  name: managedIdentityName
 }
 
-resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
+resource aks 'Microsoft.ContainerService/managedClusters@2021-11-01-preview' = {
   name: aksName
   location: location
-  dependsOn: [
-    aksAzurePolicy
-  ]
   properties: {
     kubernetesVersion: '1.24.6'
+    enableRBAC: true //this is required to install Dapr correctly
+    dnsPrefix: aksName
+    networkProfile: {
+      networkPlugin: 'azure'
+    }
     agentPoolProfiles: [
       {
         name: 'agentpool'
@@ -44,9 +42,37 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
         }
       }
     }
+    podIdentityProfile: {
+      enabled: true
+      userAssignedIdentities: [
+        {
+          name: 'pod-identity'
+          namespace: 'dapr-trafficcontrol'
+          identity: {
+            clientId: managedIdentity.properties.clientId
+            objectId: managedIdentity.properties.principalId
+            resourceId: managedIdentity.id
+          }
+        }
+      ]
+    }
+    securityProfile: {
+      workloadIdentity: {
+        enabled: true
+      }
+    }
+    oidcIssuerProfile: {
+      enabled: true
+    }
+    workloadIdentityProfile: {
+      enabled: true
+    }
   }
   identity: {
-    type: 'SystemAssigned'
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${managedIdentity.id}': {}
+    }
   }
 }
 
@@ -61,6 +87,18 @@ resource dapr 'Microsoft.KubernetesConfiguration/extensions@2022-03-01' = {
       }
     }
     autoUpgradeMinorVersion: true
+  }
+}
+
+resource federatedIdentityCredential 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials@2022-01-31-preview' = {
+  name: 'dapr-trafficcontrol-service-account'
+  parent: managedIdentity
+  properties: {
+    audiences: [
+      'api://AzureADTokenExchange'
+    ]
+    issuer: aks.properties.oidcIssuerProfile.issuerURL
+    subject: 'system:serviceaccount:dapr-trafficcontrol:dapr-trafficcontrol-service-account'
   }
 }
 
