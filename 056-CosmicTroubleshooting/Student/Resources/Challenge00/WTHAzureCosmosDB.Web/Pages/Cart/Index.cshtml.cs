@@ -84,6 +84,6 @@ public class CartIndexModel : PageModel
             await _customerCartService.DeleteItemAsync(cci.Id);
         }
 
-        return RedirectToPage("/Order/Index", new { customerId = CustomerId });
+        return RedirectToPage("/Order/Index", new { customerId = CustomerId, storeId = StoreId });
     }
 }
