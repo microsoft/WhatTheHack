@@ -1,99 +1,65 @@
-# Challenge 07 - <Title of Challenge>
+# Challenge 7 - Unified Data Governance
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+# Introduction
 
-## Pre-requisites (Optional)
+WWI wants to get a centralized view of all data assets and offer data sources discoverable and understandable to enterprise users and customers. Currently a group of data analysts and data engineers are spending more time on manual processes to annotate, catalog and find trusted data sources. There's no central location to register data sources. Data consumers spend a lot of time tracing root cause problems created by upstream data pipelines that are owned by other teams.
 
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+They also want to address all below (not easy to answer) questions,
 
-## Introduction
+- How do users know what data is available?
+- Does the data contain sensitive or personal information (PII, PCI, PHI etc.)?
+- How do administrators manage data when they may not know what type of data exists and where it's stored?
+- How can one derive the end-to-end data flow while compiling reports or data products?
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+# Description
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+The objective of this challenge is to implement purview core features such as data map, data catalog and lineage using resources (Data sources) deployed part of previous challenges. This hack involves configuring various resources such as Microsoft purview account, purview collection, key vault, purview integration with Azure data factory and synapse, ADF copy sample job etc.
 
-*For example:*
+Note: If you haven't completed previous challenges, then you can bring your own or register any data sources you have in your subscription. Provision a basic tier SQL database (Use existing data option) with AdventureWorksLT sample data pre-loaded.
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+# Success Criteria
 
-## Description
+- Verify all the data sources (For example. Resources such as ADLS Gen2, SQL dedicated pool, SQL database etc.) are registered and associated with appropriate collection hierarchy in Purview data map
+- Verify the scanning works fine for the registered data sources.
+- Validate the synapse and ADF is integrated with Microsoft purview account
+- Validate the catalog search works fine using Synapse workspace and Microsoft purview portal.
+- Verify the Table Dimension.Employee column "WWI Employee ID" classified with custom classification rule. Show the total number of columns classified (Auto or custom) to coach. Note: Use employee table in a dedicated sql pool or use product table (productnumber column) in a sample adventure works SQL database.
+- Verify the Label applied to sensitive fields for your registered data sources, validate using catalog search and filtering.
+- Verify the lineage captured for an ADF copy job.
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+# Learning resources
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+- [Quickstart: Create a Microsoft Purview (formerly Azure Purview) account - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
+- [How to manage multi-cloud data sources - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/manage-data-sources)
+- [Lineage from SQL Server Integration Services - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/how-to-lineage-sql-server-integration-services)
+- [Connect a Data Factory to Microsoft Purview - Azure Data Factory | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-factory/connect-data-factory-to-azure-purview)
+- [https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-synapse-analytics](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-synapse-analytics)
+- [Connect to and manage Azure Synapse Analytics workspaces - Microsoft Purview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/purview/register-scan-synapse-workspace?tabs=MI)
+- [https://docs.microsoft.com/en-us/azure/purview/register-scan-adls-gen2?tabs=MI](https://docs.microsoft.com/en-us/azure/purview/register-scan-adls-gen2?tabs=MI)
+- [https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview](https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview)
+- [https://docs.microsoft.com/en-us/azure/purview/create-a-custom-classification-and-classification-rule](https://docs.microsoft.com/en-us/azure/purview/create-a-custom-classification-and-classification-rule)
+- [Tutorial: Register and scan an on-premises SQL Server - Microsoft Purview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/purview/tutorial-register-scan-on-premises-sql-server)
+- [The future of compliance and data governance is here: Introducing Microsoft Purview - Microsoft Security Blog](https://www.microsoft.com/security/blog/2022/04/19/the-future-of-compliance-and-data-governance-is-here-introducing-microsoft-purview/)
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+# Tips
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+- Provision Microsoft Purview (not Azure purview) account in a same subscription, region and resource group as other previously deployed lab resources. Refer rebranding blog in learning resources.
+- Register SQL dedicated pool as a data source, not synapse analytics workspace.
+- Pick the appropriate authentication option while registering data sources in purview account.
+- For SQL server data source registration, turn off lineage extraction (preview).
+- Setup manage identity on data lake storage Gen2 for purview access
+- Setup collection specific data curator role for synapse in purview portal
+- Setup collection specific data curator role for ADF in purview portal.
+- Do not use private endpoint or restricted network settings (This is recommended for demo/learning purpose only)
+- Name the purview account wisely to simplify permission assignment and overall search.
+- While integrating ADF or Synapse with purview, If the integration status is "Disconnected OR Unknown", then you need further troubleshooting in order to capture the lineage successfully.
+- Create a sample copy job (without stored procedure) to test the lineage feature, sample copy job example – Copy fact.sale to fact.salecopy table using ADF or Synapse pipeline.
+- Create a custom classification to classify employee ID column in a Dimension.Employee table. Use sample data .csv file for regular expression configuration and testing.
+- Re-scan the data asset to see the effect of custom classification.
+- Use advanced filters in the data catalog to identify the table / column classification, use "\*" or specific keywords "City" based searching.
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+# Additional Challenges
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
-
-## Success Criteria
-
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
-
-## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- Setup scanning for containerized SQL Server databases.
