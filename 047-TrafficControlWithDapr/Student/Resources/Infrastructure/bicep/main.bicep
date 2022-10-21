@@ -13,7 +13,7 @@ module names 'resource-names.bicep' = {
 }
 
 module loggingDeployment 'logging.bicep' = {
-  name: 'logging'
+  name: 'logging-deployment'
   params: {
     appInsightsName: names.outputs.appInsightsName
     logAnalyticsWorkspaceName: names.outputs.logAnalyticsWorkspaceName
@@ -21,16 +21,25 @@ module loggingDeployment 'logging.bicep' = {
   }
 }
 
-module keyVaultModule 'key-vault.bicep' = {
+module managedIdentityDeployment 'managed-identity.bicep' = {
+  name: 'managed-identity-deployment'
+  params: {
+    location: location
+    managedIdentityName: names.outputs.managedIdentityName
+  }
+}
+
+module keyVaultDeployment 'key-vault.bicep' = {
   name: 'key-vault-deployment'
   params: {
     keyVaultName: names.outputs.keyVaultName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
   }
 }
 
-module serviceBusModule 'service-bus.bicep' = {
+module serviceBusDeployment 'service-bus.bicep' = {
   name: 'service-bus-deployment'
   params: {
     serviceBusNamespaceName: names.outputs.serviceBusNamespaceName
@@ -39,7 +48,7 @@ module serviceBusModule 'service-bus.bicep' = {
   }
 }
 
-module logicAppModule 'logic-app.bicep' = {
+module logicAppDeployment 'logic-app.bicep' = {
   name: 'logic-app-deployment'
   params: {
     logicAppName: names.outputs.logicAppName
@@ -48,7 +57,7 @@ module logicAppModule 'logic-app.bicep' = {
   }
 }
 
-module containerRegistryModule 'container-registry.bicep' = {
+module containerRegistryDeployment 'container-registry.bicep' = {
   name: 'container-registry-deployment'
   params: {
     containerRegistryName: names.outputs.containerRegistryName
@@ -57,16 +66,17 @@ module containerRegistryModule 'container-registry.bicep' = {
   }
 }
 
-module aksModule 'aks.bicep' = {
+module aksDeployment 'aks.bicep' = {
   name: 'aks-deployment'
   params: {
     aksName: names.outputs.aksName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
   }
 }
 
-// module redisCacheModule 'redis-cache.bicep' = {
+// module redisCacheDeployment 'redis-cache.bicep' = {
 //   name: 'redis-cache-deployment'
 //   params: {
 //     redisCacheName: names.outputs.redisCacheName
@@ -75,8 +85,8 @@ module aksModule 'aks.bicep' = {
 //   }
 // }
 
-module mqttModule 'mqtt.bicep' = {
-  name: 'mqttDeploy'
+module mqttDeployment 'mqtt.bicep' = {
+  name: 'mqtt-deployment'
   params: {
     iotHubName: names.outputs.iotHubName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
@@ -89,7 +99,7 @@ module mqttModule 'mqtt.bicep' = {
   }
 }
 
-module storageAccountModule 'storage.bicep' = {
+module storageAccountDeployment 'storage.bicep' = {
   name: 'storage-account-deployment'
   params: {
     storageAccountName: names.outputs.storageAccountName
@@ -100,30 +110,31 @@ module storageAccountModule 'storage.bicep' = {
   }
 }
 
-output aksFQDN string = aksModule.outputs.aksfqdn
-output aksName string = aksModule.outputs.aksName
-output aksNodeResourceGroupName string = aksModule.outputs.aksNodeResourceGroupName
-output aksazurePortalFQDN string = aksModule.outputs.aksazurePortalFQDN
+output aksFQDN string = aksDeployment.outputs.aksfqdn
+output aksName string = aksDeployment.outputs.aksName
+output aksNodeResourceGroupName string = aksDeployment.outputs.aksNodeResourceGroupName
+output aksazurePortalFQDN string = aksDeployment.outputs.aksazurePortalFQDN
 output appInsightsInstrumentationKey string = loggingDeployment.outputs.appInsightsInstrumentationKey
 output appInsightsName string = loggingDeployment.outputs.appInsightsName
-output containerRegistryLoginServerName string = containerRegistryModule.outputs.containerRegistryLoginServerName
-output containerRegistryName string = containerRegistryModule.outputs.containerRegistryName
-output eventHubEntryCamName string = mqttModule.outputs.eventHubEntryCamName
-output eventHubExitCamName string = mqttModule.outputs.eventHubExitCamName
-output eventHubNamespaceHostName string = mqttModule.outputs.eventHubNamespaceHostName
-output eventHubNamespaceName string = mqttModule.outputs.eventHubNamespaceName
-output iotHubName string = mqttModule.outputs.iotHubName
-output keyVaultName string = keyVaultModule.outputs.keyVaultName
-output keyVaultResourceId string = keyVaultModule.outputs.keyVaultResourceId
-output logicAppAccessEndpoint string = logicAppModule.outputs.logicAppAccessEndpoint
-output logicAppName string = logicAppModule.outputs.logicAppName
-// output redisCacheName string = redisCacheModule.outputs.redisCacheName
+output containerRegistryLoginServerName string = containerRegistryDeployment.outputs.containerRegistryLoginServerName
+output containerRegistryName string = containerRegistryDeployment.outputs.containerRegistryName
+output eventHubEntryCamName string = mqttDeployment.outputs.eventHubEntryCamName
+output eventHubExitCamName string = mqttDeployment.outputs.eventHubExitCamName
+output eventHubNamespaceHostName string = mqttDeployment.outputs.eventHubNamespaceHostName
+output eventHubNamespaceName string = mqttDeployment.outputs.eventHubNamespaceName
+output iotHubName string = mqttDeployment.outputs.iotHubName
+output keyVaultName string = keyVaultDeployment.outputs.keyVaultName
+output keyVaultResourceId string = keyVaultDeployment.outputs.keyVaultResourceId
+output logicAppAccessEndpoint string = logicAppDeployment.outputs.logicAppAccessEndpoint
+output logicAppName string = logicAppDeployment.outputs.logicAppName
+// output redisCacheName string = redisCacheDeployment.outputs.redisCacheName
 output resourceGroupName string = resourceGroup().name
-output serviceBusConnectionString string = serviceBusModule.outputs.serviceBusConnectionString
-output serviceBusEndpoint string = serviceBusModule.outputs.serviceBusEndpoint
-output serviceBusName string = serviceBusModule.outputs.serviceBusName
-output storageAccountEntryCamContainerName string = storageAccountModule.outputs.storageAccountEntryCamContainerName
-output storageAccountExitCamContainerName string = storageAccountModule.outputs.storageAccountExitCamContainerName
-output storageAccountKey string = storageAccountModule.outputs.storageAccountContainerKey
-output storageAccountName string = storageAccountModule.outputs.storageAccountName
+output serviceBusConnectionString string = serviceBusDeployment.outputs.serviceBusConnectionString
+output serviceBusEndpoint string = serviceBusDeployment.outputs.serviceBusEndpoint
+output serviceBusName string = serviceBusDeployment.outputs.serviceBusName
+output storageAccountEntryCamContainerName string = storageAccountDeployment.outputs.storageAccountEntryCamContainerName
+output storageAccountExitCamContainerName string = storageAccountDeployment.outputs.storageAccountExitCamContainerName
+output storageAccountKey string = storageAccountDeployment.outputs.storageAccountContainerKey
+output storageAccountName string = storageAccountDeployment.outputs.storageAccountName
 output subscriptionId string = subscription().subscriptionId
+output userAssignedManagedIdentityClientId string = managedIdentityDeployment.outputs.userAssignedManagedIdentityClientId

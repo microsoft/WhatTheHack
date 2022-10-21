@@ -1,6 +1,11 @@
 param keyVaultName string
 param location string
 param logAnalyticsWorkspaceName string
+param managedIdentityName string
+
+resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+  name: managedIdentityName
+}
 
 resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
   name: keyVaultName
@@ -13,6 +18,16 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
     tenantId: subscription().tenantId
     enableRbacAuthorization: false
     accessPolicies: [
+      {
+        objectId: managedIdentity.properties.principalId
+        tenantId: managedIdentity.properties.tenantId
+        permissions: {
+          secrets: [
+            'get'
+            'list'
+          ]
+        }
+      }
     ]
   }
 }

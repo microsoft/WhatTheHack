@@ -1,0 +1,78 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.fineCollectionService.name }}
+  labels:
+    app: {{ .Values.fineCollectionService.name }}
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.fineCollectionService.containerPort }}
+  selector:
+    app: {{ .Values.fineCollectionService.name }}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.fineCollectionService.name }}
+  labels:
+    app: {{ .Values.fineCollectionService.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.fineCollectionService.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.fineCollectionService.name }}
+        aadpodidbinding: {{ .Values.userAssignedManagedIdentity.name }}
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "{{ .Values.fineCollectionService.dapr.appId }}"
+        dapr.io/app-port: "{{ .Values.fineCollectionService.containerPort }}"
+        dapr.io/log-level: "debug"
+        dapr.io/sidecar-cpu-request: "100m"
+        dapr.io/sidecar-memory-request: "250Mi"
+        dapr.io/sidecar-cpu-limit: "300m"
+        dapr.io/sidecar-memory-limit: "1000Mi"
+        dapr.io/config: "zipkin"
+        prometheus.io/scrape: "true"
+        azure.workload.identity/inject-proxy-sidecar: "true"
+        azure.workload.identity/proxy-sidecar-port: "8080"
+    spec:
+      containers:
+        - name: fine-collection-service
+          image: "{{ .Values.imageCredentials.registry }}/{{ .Values.fineCollectionService.repositoryName }}:{{ .Values.fineCollectionService.imageTag }}"
+          ports:
+            - containerPort: {{ .Values.fineCollectionService.containerPort }}
+          imagePullPolicy: {{ .Values.imageCredentials.pullPolicy }}
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 1000m
+              memory: 200Mi
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path }}
+              port: {{ .Values.fineCollectionService.containerPort }}
+            initialDelaySeconds:
+              {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path }}
+              port: {{ .Values.fineCollectionService.containerPort }}
+            initialDelaySeconds:
+              {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
