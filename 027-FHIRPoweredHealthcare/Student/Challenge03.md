@@ -10,7 +10,8 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 
 ## Description
 
-- Create a new JavaScript Single-Page App (SPA) Node.js or React app.
+- Create a new JavaScript Web App or Single-Page App (SPA).
+  - Web App: **[Deploy sample web app with MSAL in Azure App Service Web App to read FHIR data in FHIR service](https://learn.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-write-web-app)**
   - Node.js: git clone sample code for **[Node.js JavaScript SPA with MSAL](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-auth-code)** 
   - React: Use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
 
@@ -24,7 +25,7 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
   - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
 
 - (Optional) Include any other modern UI features to improve the user experience.
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
+- **[Register your app](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
 
     Hint: Ensure that the Reply URL matches the local and Azure Web App URL.
 
@@ -44,6 +45,8 @@ In this challenge, you will create a new JavaScript Single Page App (SPA) integr
 
 ## Learning Resources
 
+- **[Write Azure App Service Web App to read FHIR data in FHIR service (includes sample code) ](https://learn.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-write-web-app)**
+- **[Build and host a web app with Azure Web Apps](https://ms.portal.azure.com/?quickstart=true#view/Microsoft_Azure_Resources/QuickstartAnchorServicesBlade/goalId/create-a-web-app)**
 - **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-auth-code)**
 - **[Vanilla JavaScript Single-page Application secured with MSAL.js v2](https://github.com/Azure-Samples/ms-identity-javascript-v2)**
 - **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
