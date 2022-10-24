@@ -126,7 +126,9 @@ Hint: These scripts will gather (and export) information necessary for the prope
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
 **Use Postman to retrieve Patients data via FHIR Patients API**
-- Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
+- You need to first register your **[public client application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**  to connect Postman desktop app to FHIR service in Azure Health Data Services.
+- Then **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**  to assign access to the Azure Health Data Services data plane.
+- To **[access FHIR service using Postman](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)**, open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
     - In Postman, click Import.
     - In your **[Student Resources folder for Postman](../Student/Resources/Postman)**, select **[Environment](../Student/Resources/Postman/WTHFHIR.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTHFHIR.postman_collection.json)** JSON files.
     - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
