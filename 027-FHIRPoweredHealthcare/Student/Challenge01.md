@@ -44,7 +44,6 @@ To test the FHIR Bulk Loader, you will copy Synthea generated test FHIR patient 
       - You can find the Postman template files (`WTHFHIR.postman_collection.json` and `WTHFHIR.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
       - **[Import](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)** the environment and collection template files into your Postman
       - Configure Postman environment variables specific to your FHIR service instance
-   - You need to register your **[public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)** to connect Postman desktop app to FHIR Server.
 
 ## Success Criteria
 
@@ -62,6 +61,7 @@ To test the FHIR Bulk Loader, you will copy Synthea generated test FHIR patient 
 - **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)**
 - **[Copy data to Azure Storage using Azure AzCopy tool](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)**
 - **[Copy data to Azure Storage using Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** 
+- **[Register a client application in Azure Active Directory](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**
 - **[Import Postman data, including collections, environments, data dumps, and globals.](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**
-- **[Access FHIR service using Postman](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)**
-- **[Postman setup for FHIR service and sample Postman collection](https://github.com/rsliang/azure-healthcare-apis-workshop/blob/main/resources/docs/Postman_FHIR_service_README.md)**
+- **[Access FHIR service using Postman](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)**
+- **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**
