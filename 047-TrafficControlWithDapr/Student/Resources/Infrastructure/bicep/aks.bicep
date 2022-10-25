@@ -7,7 +7,7 @@ resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-
   name: managedIdentityName
 }
 
-resource aks 'Microsoft.ContainerService/managedClusters@2021-11-01-preview' = {
+resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
   name: aksName
   location: location
   properties: {
@@ -62,9 +62,6 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-11-01-preview' = {
       }
     }
     oidcIssuerProfile: {
-      enabled: true
-    }
-    workloadIdentityProfile: {
       enabled: true
     }
   }

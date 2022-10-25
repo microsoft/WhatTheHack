@@ -258,20 +258,10 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     kubectl create namespace dapr-trafficcontrol
     ```
 
-1.  Create a Kubernetes secret to allow AKS to pull images from ACR
-
-    You need to grant the AKS cluster access to your Azure Container Registry so that it can pull Docker images.
-
-    Get the credentials:
+1.  Install the AKS Workload Identity extension in your AKS cluster so it can use the managed identity to access Azure services (like Key Vault).
 
     ```shell
-    az acr credential show -n "<container-registry-name>"
-    ```
-
-    Run the following command, substituting the username & password you got in the previous step:
-
-    ```shell
-    kubectl create secret docker-registry dapr-acr-pull-secret --namespace dapr-trafficcontrol --docker-server=<container-registry-name>.azurecr.io --docker-username=<container-registry-username> --docker-password=<container-registry-password>
+     az aks update -g <resource-group-name> -n <cluster-name> --enable-oidc-issuer --enable-workload-identity
     ```
 
 1.  Assign permissions to KeyVault

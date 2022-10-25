@@ -2,7 +2,11 @@ trafficcontrol:
   imageCredentials:
     registry: crdaprtestusscdev.azurecr.io
     username: crdaprtestusscdev
+<<<<<<< HEAD
     password: ***REMOVED***
+=======
+    password: 7qjy4FakekeyCnmsRB0LO11EsSF/
+>>>>>>> 9a412e40 (helm)
     email: noreply@email.com
     pullPolicy: Always
     secretName: acr-credentials
