@@ -31,6 +31,7 @@ Install all the prerequisites listed below and make sure they're working correct
 - Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
 - Azure CLI extension for cluster extensions ([instructions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions))
 - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+- Helm ([instructions](https://helm.sh/docs/intro/install/))
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 

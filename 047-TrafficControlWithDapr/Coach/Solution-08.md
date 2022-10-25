@@ -32,19 +32,19 @@ Also update the host name for each service (in the `Program.cs` file) from `http
 
 You will need to build these services, create a Docker container image that has this source code baked into it and then upload to an Azure Container Registry. The easiest way to do that is to use [ACR tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview).
 
-1.                   Navigate to the `Resources/VehicleRegistrationService` directory & use the Azure Container Registry task to build your image from source.
+1.  Navigate to the `Resources/VehicleRegistrationService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
     az acr build --registry <container-registry-name> --image vehicleregistrationservice:assignment08 .
     ```
 
-1.                   Navigate to the `Resources/TrafficControlService` directory & use the Azure Container Registry task to build your image from source.
+1.  Navigate to the `Resources/TrafficControlService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
     az acr build --registry <container-registry-name> --image trafficcontrolservice:assignment08 .
     ```
 
-1.                   Navigate to the `Resources/FineCollectionService` directory & use the Azure Container Registry task to build your image from source.
+1.  Navigate to the `Resources/FineCollectionService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
     az acr build --registry <container-registry-name> --image trafficcontrolservice:assignment08 .
