@@ -46,9 +46,4 @@ There isn't a consultant management web application yet (the developers are a bi
 - [Azure AD B2C User Flow Overview](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-flow-overview)
 - [Azure AD B2C Custom Attributes](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-flow-custom-attributes)
 
-## Advanced Challenges (Optional)
 
-_Too comfortable? Eager to do more? Try these additional challenges!_
-
-- IT Management has decided that the sign-up policy doesn't require Email Verification (I mean, who would enter a non-existent email address??). Disable this in your sign-up policy.
-- IT Management is also considering allowing users to edit their account after creation. Get a head start on this by putting together an Edit Profile User Flow and test it in the B2C Tenant Portal.

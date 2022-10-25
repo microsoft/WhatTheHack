@@ -29,8 +29,4 @@ CMC IT Leadership will judge your success based on:
 - [Integrate Facebook with Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-facebook)
 - [Integrate GitHub with Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-github)
 
-## Advanced Challenges (Optional)
 
-_Too comfortable? Eager to do more? Try these additional challenges!_
-
-- Instead of using a 3rd party social IdP, integrate an [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-azure-ad-single-tenant). This could be a new AAD Tenant that you create for this challenge, but you will need permission to create Application Registrations.

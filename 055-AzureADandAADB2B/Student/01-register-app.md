@@ -1,6 +1,6 @@
 # Challenge \#1 - Getting Started with B2C
 
-[< Previous Challenge](./00-pre-reqs.md) - **[Home](../README.md)** - [Next Challenge>](./02-susi.md)
+[< Previous Challenge](./00-tenant-setup.md) - **[Home](../README.md)** - [Next Challenge>](./02-test-sign-in.md)
 
 ## Introduction
 
@@ -8,7 +8,7 @@ You are a cloud engineer at Contoso Manufacturing (CMC). Recently, CMC IT Leader
 
 ## Description
 
-As an engineer, you have heard of Azure AD B2C. You know that your tenant will need a globally unique name. You mentioned this as an option to your IT Leadership, and they jumped at the chance to pilot this solution. They have asked you to get a new B2C tenant deployed. 
+As an engineer, you have heard of Azure AD . You know that your tenant will need a globally unique name. They have asked you to get a new B2C tenant deployed. 
 
 ## Success Criteria
 
@@ -17,8 +17,4 @@ As an engineer, you have heard of Azure AD B2C. You know that your tenant will n
 
 ## Learning Resources
 
-- [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/overview)
-- [Technical and feature overview of Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview)
-- [Azure Active Directory B2C: What's new](https://docs.microsoft.com/azure/active-directory-b2c/whats-new-docs)
-- [Tutorial: Create an Azure Active Directory B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)
-- [Link an Azure AD B2C tenant to a subscription](https://docs.microsoft.com/azure/active-directory-b2c/billing#link-an-azure-ad-b2c-tenant-to-a-subscription)
+- [Register an application with the Azure AD?](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
