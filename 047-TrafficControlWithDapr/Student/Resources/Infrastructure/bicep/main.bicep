@@ -76,14 +76,14 @@ module aksDeployment 'aks.bicep' = {
   }
 }
 
-// module redisCacheDeployment 'redis-cache.bicep' = {
-//   name: 'redis-cache-deployment'
-//   params: {
-//     redisCacheName: names.outputs.redisCacheName
-//     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
-//     location: location
-//   }
-// }
+module redisCacheDeployment 'redis-cache.bicep' = {
+  name: 'redis-cache-deployment'
+  params: {
+    redisCacheName: names.outputs.redisCacheName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
+}
 
 module mqttDeployment 'mqtt.bicep' = {
   name: 'mqtt-deployment'
@@ -127,7 +127,7 @@ output keyVaultName string = keyVaultDeployment.outputs.keyVaultName
 output keyVaultResourceId string = keyVaultDeployment.outputs.keyVaultResourceId
 output logicAppAccessEndpoint string = logicAppDeployment.outputs.logicAppAccessEndpoint
 output logicAppName string = logicAppDeployment.outputs.logicAppName
-// output redisCacheName string = redisCacheDeployment.outputs.redisCacheName
+output redisCacheName string = redisCacheDeployment.outputs.redisCacheName
 output resourceGroupName string = resourceGroup().name
 output serviceBusConnectionString string = serviceBusDeployment.outputs.serviceBusConnectionString
 output serviceBusEndpoint string = serviceBusDeployment.outputs.serviceBusEndpoint
