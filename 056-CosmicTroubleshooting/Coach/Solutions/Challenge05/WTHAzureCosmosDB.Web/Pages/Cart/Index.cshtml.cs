@@ -103,6 +103,6 @@ public class CartIndexModel : PageModel
 
 
 
-        return RedirectToPage("/Order/Index", new { customerId = CustomerId });
+        return RedirectToPage("/Order/Index", new { customerId = CustomerId, storeId = StoreId });
     }
 }
