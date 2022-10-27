@@ -10,7 +10,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00-DASH.md)**
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your environment to work with Azure and Datadog.
 - Challenge 01: **[Alerts, Activity Logs, and Service Health](Student/Challenge-01.md)**
 	 - Create a monitor for one of your VMs using Terraform
