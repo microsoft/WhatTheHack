@@ -6,19 +6,17 @@
 
 You have been contracted to deploy, monitor and manage an online shopping website in Azure for a start-up company called "eShopOnWeb".  
 
-After evaluating the requirements, your team has provided you with a set of Azure Bicep templates and scripts that will deploy the "eShopOnWeb" application and its underlying infrastructure resources into Azure. 
-
-The Azure environment consists of a VNet, subnets, NSG(s), LoadBalancer(s), NAT rules, a SQL Server VM, a Visual Studio VM, a VM scale set, and an AKS cluster.
+After evaluating the requirements, your team has provided you with a set of Azure Bicep templates and scripts that will deploy the "eShopOnWeb" application and its underlying infrastructure resources into Azure. The Azure environment consists of a VNet, subnets, NSG(s), LoadBalancer(s), NAT rules, a SQL Server VM, a Visual Studio VM, a VM scale set, and an AKS cluster.
 
 Upon successful testing, you present your deployment solution to the company's leadership for approval along with Azure CLI, PowerShell, and Azure Cloud Shell options for quick deployment. 
 
-They were very excited about how quickly you are able to deploy the solution, and give you the green light to proceed.
+They were very excited about how quickly your team was able to create a deployment solution, and give you the green light to proceed.
 
-Your job will be to use Datadog to configure the eShopOnWeb solution to be monitored so you can demonstrate to your company's leadership team that you can effectively manage it.
+Your job will be to use Datadog to configure the eShopOnWeb solution to be monitored so you can demonstrate to the company's leadership team that you can effectively manage it.
 
 ## Prerequisites
 
-You will need an Azure Subscription with sufficient RBAC roles assigned to complete the challenges at the subscription scope.
+You will need an Azure Subscription with the Owner role assigned to deploy the eShopOnWeb Azure environment at the subscription scope.
 
 You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com), [Datadog Portal](https://datadog.com), and [Azure Cloud Shell](https://shell.azure.com). 
 
