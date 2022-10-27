@@ -4,11 +4,17 @@
 
 ## Introduction
 
-You have been contracted to deploy, monitor and manage an online shopping website in Azure for a start-up company called "eShopOnWeb".  After evaluating the requirements, you develop a solution in Azure that includes an Azure environment that consists of (2) Azure resource groups that include a VNet, subnets, NSG(s), LB(s), NAT rules, scale set and a fully functional .NET Core Application (eShopOnWeb) to monitor.
+You have been contracted to deploy, monitor and manage an online shopping website in Azure for a start-up company called "eShopOnWeb".  
 
-Upon successful testing, you present your solution to company's leadership for approval along with the PowerShell, CLI and/or Azure Cloud Shell options for quick deployment. 
+After evaluating the requirements, your team has provided you with a set of Azure Bicep templates and scripts that will deploy the "eShopOnWeb" application and its underlying infrastructure resources into Azure. 
+
+The Azure environment consists of a VNet, subnets, NSG(s), LoadBalancer(s), NAT rules, a SQL Server VM, a Visual Studio VM, a VM scale set, and an AKS cluster.
+
+Upon successful testing, you present your deployment solution to the company's leadership for approval along with Azure CLI, PowerShell, and Azure Cloud Shell options for quick deployment. 
 
 They were very excited about how quickly you are able to deploy the solution, and give you the green light to proceed.
+
+Your job will be to use Datadog to configure the eShopOnWeb solution to be monitored so you can demonstrate to your company's leadership team that you can effectively manage it.
 
 ## Prerequisites
 
@@ -29,15 +35,27 @@ However, if you work with Azure and on a regular basis, these are tools you shou
   - [VS Code plugin for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 - [Terraform for Azure](https://learn.microsoft.com/en-us/azure/developer/terraform/overview)
 
-**NOTE:** Datadog is commonly automated via [Terraform](https://www.terraform.io/). Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. If you want Terraform to work on your local workstation, you will need to [Install Terraform on Windows with Bash](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash).
+>**Note** Datadog is commonly automated via [Terraform](https://www.terraform.io/). Some of the challenges have you use Terraform to configure Datadog features. Terraform is already included in the Azure Cloud Shell. If you want Terraform to work on your local workstation, you will need to [Install Terraform on Windows with Bash](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash).
 
 ### Student Resources
 
 Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.  
 
-If you have installed all of the tools listed above on your local workstation, you should unpack the `Resources.zip` file there too.
+The Azure Bicep templates and scripts developed by your team to deploy the eShopOnWeb Azure environment are included in this package.
 
-If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
+If you have installed all of the tools listed above and plan to work on your local workstation, you should download and unpack the `Resources.zip` file there too.
+
+If you plan to use the Azure Cloud Shell, download and unpack this file in your Azure Cloud Shell environment. 
+
+```bash
+# Download the Resources.zip file from the URL provided by your coach
+wget https://aka.ms/WTHDashResources -O Resources.zip
+# Unpack the zip file
+unzip Resources.zip
+# Navigate to the "Resources" folder
+cd Resources
+```
+The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
 ## Description
 
@@ -66,6 +84,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     - We recommend you use your initials for the  `<deploymentName>` value.
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
     - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - **NOTE:** This deployment will take approximately 20-25 minutes.
 
 #### Use PowerShell with the AZ Module
 
@@ -85,19 +104,37 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     - We recommend you use your initials for the  `<deploymentName>` value.
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
     - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - **NOTE:** This deployment will take approximately 20-25 minutes.
 
 ### View Deployed Resources
 
-- Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-eu** , in the Azure Portal.  
+- Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-XX** , in the Azure Portal.  
 - In the Overview blade, copy the DNS name to your clipboard.  
 - Open a web browser, paste your DNS name in the address bar and press ENTER.  Your browser should render the eShopOnWeb site. 
 
 ![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
+### Deploy Datadog from Azure Marketplace
+- Go to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
+- Create a new Datadog organization when asked to choose between linking to an existing Datadog org or creating a new one.
+- Select the existing resource group `XXX-rg-wth-monitor-d-XX` to deploy the Datadog resource.
+  >**Note** The "XXX" in the resource group name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
+- Ensure that the Azure resource details show as `West US 2` and the Datadog site is `US3`.
+- You do not need to enable single sign-on through Azure Active Directory for this workshop, but we recommend doing so in a production environment.
+- Proceed with the deployment, and once the deployment is finished, click the link **Set Password in Datadog.**
+- Choose a password that you will remember for the duration of this workshop.
+- Proceed to log in to Datadog. 
+  - The username/email can be found in the Azure portal, top right. 
+  - Click View account to see the full email address.
+  - Use the password from the previous step.
+-  We recommend keeping the Datadog and Azure portal browser tabs open for the duration of this workshop.
+
 ## Success Criteria
 
+- Verify you have access to the contents of the `Resources.zip` package provided by your Coach.
 - Verify you can see the website deployed
 - Verify the resources contained in architecture diagram below are present in your own Azure subscription.
+- Verify that you have deployed Datadog into your Azure lab environment.
 
 ![Hack Diagram](../Images/datadoghackdiagram.png)
 
@@ -106,9 +143,5 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 - [Get Started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-6.4.0)
 - [Get Started with Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)
 - [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-
-## Tips
-
-- Make sure the Admin password adheres to the Azure password policy
-- Make sure you are logged into the correct subscription and you have the at least contributors role access.  
-- Make sure you have the compute capacity in the region you are deploying to and request an increase to the limit if needed.
+- [New Microsoft partnership embeds Datadog natively in the Azure portal](https://www.datadoghq.com/blog/azure-datadog-partnership/)
+- [Datadog in the Azure Portal](https://docs.datadoghq.com/integrations/guide/azure-portal/)
