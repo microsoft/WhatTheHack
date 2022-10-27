@@ -1,0 +1,527 @@
+## All options defined here are available to all instances.
+#
+init_config:
+
+    ## @param custom_metrics - list of mappings - optional
+    ## Collect custom metrics and send them to Datadog based on
+    ## your SQL server counters.
+    ##
+    ## See https://docs.datadoghq.com/integrations/guide/collect-sql-server-custom-metrics/
+    #
+    # custom_metrics:
+    #   - name: sqlserver.clr.execution
+    #     counter_name: CLR Execution
+
+    ## @param global_custom_queries - list of mappings - optional
+    ## See `custom_queries` defined below.
+    ##
+    ## Global custom queries can be applied to all instances using the
+    ## `use_global_custom_queries` setting at the instance level.
+    #
+    # global_custom_queries:
+    #   - query: <QUERY>
+    #     columns: <COLUMNS>
+    #     tags: <TAGS>
+
+    ## @param service - string - optional
+    ## Attach the tag `service:<SERVICE>` to every metric, event, and service check emitted by this integration.
+    ##
+    ## Additionally, this sets the default `service` for every log source.
+    #
+    # service: <SERVICE>
+
+## Every instance is scheduled independent of the others.
+##
+## Note: All '%' characters must be escaped as '%%'.
+#
+instances:
+
+    ## @param host - string - required
+    ## Host and port of your SQL server.
+    #
+  - host: vmwthdbdeu,1433
+
+    ## @param username - string - optional
+    ## Username for the Datadog-SQL server check user. It will be ignored if using Windows authentication.
+    #
+    username: datadog
+
+    ## @param password - string - optional
+    ## Password for the Datadog-SQL server check user. It will be ignored if using Windows authentication.
+    #
+    password: XXXXXX
+
+    ## @param server_version - string - optional - default: 2014
+    ## Server version year of sqlserver the agent will connect to. 
+    ## Important for validating connection string attributes for older sqlserver versions.
+    ##
+    ## This is required if connecting to a SQLServer instance older than 2014.
+    #
+    # server_version: '2014'
+
+    ## @param database - string - optional - default: master
+    ## Database name to query.  Not compatible with `database_autodiscovery`.
+    #
+    # database: master
+
+    ## @param reported_hostname - string - optional
+    ## Set the reported hostname for this instance. This value overrides the hostname detected by the Agent
+    ## and can be useful to set a custom hostname when connecting to a remote database through a proxy.
+    #
+    # reported_hostname: <REPORTED_HOSTNAME>
+
+    ## @param database_autodiscovery - boolean - optional - default: false
+    ## Auto-discover and monitor databases. Supported for the metrics check. 
+    ## If `true`, overrides `database` option.
+    ## Can be combined with `autodiscovery_include` and `autodiscovery_exclude` options.
+    #
+    database_autodiscovery: true
+
+    ## @param autodiscovery_include - list of strings - optional
+    ## Regular expression for database names to include as part of `database_autodiscovery`.
+    ## Will report metrics for databases that are found in this instance, ignores databases listed but not found.
+    ##
+    ## Character casing is ignored. The regular expressions start matching from the beginning, so
+    ## to match anywhere, prepend `.*`. For exact matches append `$`.
+    ##
+    ## Defaults to `.*` to include everything.
+    #
+    # autodiscovery_include:
+    #   - master$
+    #   - AdventureWorks.*
+
+    ## @param autodiscovery_exclude - list of strings - optional
+    ## Regular expression for database names to exclude as part of `database_autodiscovery`.
+    ##
+    ## Character casing is ignored. The regular expressions start matching from the beginning, so
+    ## to match anywhere, prepend `.*`. For exact matches append `$`.
+    ##
+    ## In case of conflicts, database exclusion via `autodiscovery_exclude` takes precedence over
+    ## those found via `autodiscovery_include`.
+    #
+    # autodiscovery_exclude:
+    #   - model
+    #   - msdb
+
+    ## @param database_autodiscovery_interval - integer - optional - default: 3600
+    ## Frequency in seconds of scans for new databases.  Defaults to `3600`.
+    #
+    # database_autodiscovery_interval: 3600
+
+    ## @param autodiscovery_db_service_check - boolean - optional - default: true
+    ## When enabled with database autodiscovery, attempts to connect to the list of
+    ## autodiscovered databases and submits a service check that signifies whether
+    ## the agent can connect to that database or not.
+    #
+    autodiscovery_db_service_check: true
+
+    ## @param include_ao_metrics - boolean - optional - default: false
+    ## Include AlwaysOn availability group metrics.
+    #
+    # include_ao_metrics: false
+
+    ## @param availability_group - string - optional
+    ## You can specify an availability group when `include_ao_metrics`
+    ## is enabled to monitor a specific availability group.
+    ## If no availability group is specified, then all availability
+    ## groups on the current replica will output metrics.
+    #
+    # availability_group: <AVAILABILITY_GROUP>
+
+    ## @param only_emit_local - boolean - optional - default: false
+    ## Primary replicas may emit metrics for remote secondary replicas
+    ## in the same availability group. If this option is set to true,
+    ## the primary replica will only emit information local to itself.
+    #
+    # only_emit_local: false
+
+    ## @param ao_database - string - optional
+    ## AlwaysOn metrics are only emitted for the selected `ao_database` if not empty.
+    #
+    # ao_database: <AO_DATABASE>
+
+    ## @param include_master_files_metrics - boolean - optional - default: false
+    ## Include database file size and state from `sys.master_files`.
+    #
+    # include_master_files_metrics: false
+
+    ## @param include_fci_metrics - boolean - optional - default: false
+    ## Include Failover Cluster Instance metrics. Note that these metrics
+    ## requires a SQLServer set up with Failover Clustering enabled.
+    #
+    # include_fci_metrics: false
+
+    ## @param include_instance_metrics - boolean - optional - default: true
+    ## Include server-level instance metrics.  When setting up multiple instances for
+    ## different databases on the same host these metrics will be duplicated unless this option is turned off.
+    #
+    # include_instance_metrics: true
+
+    ## @param include_task_scheduler_metrics - boolean - optional - default: false
+    ## Include additional Task and Scheduler metrics.
+    #
+    # include_task_scheduler_metrics: false
+
+    ## @param include_db_fragmentation_metrics - boolean - optional - default: false
+    ## Include database fragmentation metrics. Note these queries can be resource intensive on large datasets.
+    ## Recommend to limit these via autodiscovery or specific database instances.
+    #
+    # include_db_fragmentation_metrics: false
+
+    ## @param db_fragmentation_object_names - list of strings - optional
+    ## Fragmentation metrics normally emit metrics for all objects within a database.
+    ## This option allows you to specify database object names to query for fragmentation metrics.
+    ## Note: Each object name is unique to each database.
+    #
+    # db_fragmentation_object_names: []
+
+    ## @param adoprovider - string - optional - default: SQLOLEDB
+    ## Choose the ADO provider.  Note that the (default) provider
+    ## SQLOLEDB is being deprecated.  To use the newer MSOLEDBSQL
+    ## provider, set the adoprovider to "MSOLEDBSQL" below. You will also need
+    ## to download the new provider from
+    ## https://docs.microsoft.com/en-us/sql/connect/oledb/oledb-driver-for-sql-server?view=sql-server-2017
+    #
+    # adoprovider: SQLOLEDB
+
+    ## @param connector - string - optional - default: adodbapi
+    ## Change the connection method from adodbapi (the default) to
+    ## odbc (valid connector names are 'odbc' and 'adodbapi')
+    ## Note: 'adodbapi` is only available on Windows
+    #
+    # connector: adodbapi
+
+    ## @param driver - string - optional - default: SQL Server
+    ## If using odbc, use the named driver.
+    #
+    # driver: SQL Server
+
+    ## @param dsn - string - optional
+    ## If using odbc, configure a connection using a DSN.
+    #
+    # dsn: <DSN>
+
+    ## @param connection_string - string - optional
+    ## Specify a custom connection string to be used
+    ## Ex: "ApplicationIntent=ReadWrite" or "Trusted_Connection=Yes" to use Windows Authentication
+    ## (note that in this case the connection will be performed with the `ddagentuser` user, you can
+    ## find more information about this user in https://docs.datadoghq.com/agent/faq/windows-agent-ddagent-user/)
+    ##
+    ## Please note that certain connection string values will vary depending on the connection Provider used,
+    ## for example:
+    ## * "OLE DB" provider uses "MultiSubnetFailover=Yes"
+    ## * "ADO" provider uses "MultiSubnetFailover=True"
+    #
+    # connection_string: <CONNECTION_STRING>
+
+    ## @param dbm - boolean - optional - default: false
+    ## Set to `true` to enable Database Monitoring.
+    #
+    dbm: true
+
+    ## Configure collection of query metrics
+    #
+    query_metrics:
+
+        ## @param enabled - boolean - optional - default: true
+        ## Enable collection of query metrics. Requires `dbm: true`.
+        #
+        # enabled: true
+
+        ## @param collection_interval - number - optional - default: 10
+        ## Set the query metric collection interval (in seconds). Each collection involves one or more queries to
+        ## the SQL Server Query Plan Cache. If a non-default value is chosen then that exact same value must be used
+        ## for *every* check instance. Running different instances with different collection intervals is not supported.
+        #
+        # collection_interval: 10
+
+        ## @param dm_exec_query_stats_row_limit - integer - optional - default: 10000
+        ## Set the maximum number of query stats rows that can be retrieved in a single check run.
+        #
+        # dm_exec_query_stats_row_limit: 10000
+
+        ## @param samples_per_hour_per_query - integer - optional - default: 4
+        ## Set the rate limit for the number of query sample events that are ingested per hour and per normalized
+        ## execution plan.
+        #
+        # samples_per_hour_per_query: 4
+
+    ## Configure collection of active sessions monitoring
+    #
+    query_activity:
+
+        ## @param enabled - boolean - optional - default: true
+        ## Enable collection of active sessions. Requires `dbm: true`.
+        #
+        # enabled: true
+
+        ## @param collection_interval - number - optional - default: 10
+        ## Set the activity collection interval in seconds. Each collection involves querying several
+        ## different DMV tables such as `dm_exec_requests`, `dm_exec_sessions`, and `dm_exec_sql_text`.
+        ## If a non-default value is chosen, then that exact same value must be used for *every* check instance.
+        ## Running different instances with different collection intervals is not supported.
+        #
+        # collection_interval: 10
+
+    ## This block defines the configuration for AWS RDS and Aurora instances. 
+    ##
+    ## Complete this section if you have installed the Datadog AWS Integration 
+    ## (https://docs.datadoghq.com/integrations/amazon_web_services) to enrich instances 
+    ## with SQL Server integration telemetry.
+    ##
+    ## These values are only applied when `dbm: true` option is set.
+    #
+    # aws:
+
+        ## @param instance_endpoint - string - optional - default: mydb.cfxgae8cilcf.us-east-1.rds.amazonaws.com
+        ## Equal to the Endpoint.Address of the instance the agent is connecting to. 
+        ## This value is optional if the value of `host` is already configured to the instance endpoint.
+        ##
+        ## For more information on instance endpoints, 
+        ## see the AWS docs https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html
+        #
+        # instance_endpoint: mydb.cfxgae8cilcf.us-east-1.rds.amazonaws.com
+
+    ## This block defines the configuration for Google Cloud SQL instances.
+    ##
+    ## Complete this section if you have installed the Datadog GCP Integration 
+    ## (https://docs.datadoghq.com/integrations/google_cloud_platform) to enrich instances 
+    ## with SQL Server integration telemetry.
+    ##
+    ## These values are only applied when `dbm: true` option is set.
+    #
+    # gcp:
+
+        ## @param project_id - string - optional - default: foo-project
+        ## Equal to the GCP resource's project ID.
+        ##
+        ## For more information on project IDs,
+        ## See the GCP docs https://cloud.google.com/resource-manager/docs/creating-managing-projects
+        #
+        # project_id: foo-project
+
+        ## @param instance_id - string - optional - default: foo-database
+        ## Equal to the GCP resource's instance ID.
+        ##
+        ## For more information on instance IDs,
+        ## See the GCP docs https://cloud.google.com/sql/docs/sqlserver/instance-settings#instance-id-2ndgen
+        #
+        # instance_id: foo-database
+
+    ## This block defines the configuration for Azure Managed Instance, Azure SQL Database or 
+    ## SQLServer on Virtual Machines.
+    ##
+    ## Complete this section if you have installed the Datadog Azure Integration 
+    ## (https://docs.datadoghq.com/integrations/azure) to enrich instances 
+    ## with SQL Server integration telemetry.
+    ##
+    ## These values are only applied when `dbm: true` option is set.
+    #
+    azure:
+
+        ## @param deployment_type - string - optional - default: sql_database
+        ## Equal to the deployment type for the managed database. 
+        ##
+        ## Acceptable values are:
+        ##   - `sql_database` 
+        ##   - `managed_instance`
+        ##   - `virtual_machine`
+        ##
+        ## For more information on deployment types, see the Azure
+        ## docs https://docs.microsoft.com/en-us/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql
+        #
+        deployment_type: virtual_machine
+
+        ## @param name - string - optional - default: my-sqlserver-instance
+        ## Equal to the name of the SQL Database, Managed Instance (SQL MI) or virtual machine.
+        #
+        # name: my-sqlserver-instance
+
+    ## Configure how the SQL obfuscator behaves.
+    ## Note: This option only applies when `dbm` is enabled.
+    #
+    # obfuscator_options:
+
+        ## @param replace_digits - boolean - optional - default: false
+        ## Set to `true` to replace digits in identifiers and table names with question marks in your SQL statements.
+        ## Note: This option also applies to extracted tables using `collect_tables`.
+        #
+        # replace_digits: false
+
+        ## @param collect_metadata - boolean - optional - default: true
+        ## Set to `false` to disable the collection of metadata in your SQL statements.
+        ## Metadata includes things such as tables, commands, and comments.
+        #
+        # collect_metadata: true
+
+        ## @param collect_tables - boolean - optional - default: true
+        ## Set to `false` to disable the collection of tables in your SQL statements.
+        ## Requires `collect_metadata: true`.
+        #
+        # collect_tables: true
+
+        ## @param collect_commands - boolean - optional - default: true
+        ## Set to `false` to disable the collection of commands in your SQL statements.
+        ## Requires `collect_metadata: true`.
+        ##
+        ## Examples: SELECT, UPDATE, DELETE, etc.
+        #
+        # collect_commands: true
+
+        ## @param collect_comments - boolean - optional - default: true
+        ## Set to `false` to disable the collection of comments in your SQL statements.
+        ## Requires `collect_metadata: true`.
+        #
+        # collect_comments: true
+
+        ## @param keep_sql_alias - boolean - optional - default: true
+        ## Set to `true` to keep sql aliases in obfuscated SQL statements. Examples of aliases are
+        ## `with select 1 as alias`, `select column as other_name`, or `select * from table t`.
+        ## When `true` these aliases will not be removed.
+        #
+        # keep_sql_alias: true
+
+    ## @param command_timeout - integer - optional - default: 5
+    ## Timeout in seconds for the connection and each command run
+    #
+    # command_timeout: 5
+
+    ## @param only_custom_queries - boolean - optional - default: false
+    ## Set this parameter to `true` if you want to skip the integration's default metrics collection.
+    ## Only metrics specified in `custom_queries` will be collected.
+    #
+    # only_custom_queries: false
+
+    ## @param use_global_custom_queries - string - optional - default: true
+    ## How `global_custom_queries` should be used for this instance. There are 3 options:
+    ##
+    ## 1. true - `global_custom_queries` override `custom_queries`.
+    ## 2. false - `custom_queries` override `global_custom_queries`.
+    ## 3. extend - `global_custom_queries` are used in addition to any `custom_queries`.
+    #
+    # use_global_custom_queries: 'true'
+
+    ## @param custom_queries - list of mappings - optional
+    ## Each query must have 2 fields, and can have a third optional field:
+    ##
+    ## 1. query - The SQL to execute. It can be a simple statement or a multi-line script.
+    ##            Use the pipe `|` if you require a multi-line script.
+    ## 2. columns - The list representing each column, ordered sequentially from left to right.
+    ##              The number of columns must equal the number of columns returned in the query.
+    ##              There are 2 required pieces of data:
+    ##                a. name - The suffix to append to `<INTEGRATION>.` to form
+    ##                          the full metric name. If `type` is `tag`, this column is
+    ##                          considered a tag and applied to every
+    ##                          metric collected by this particular query.
+    ##                b. type - The submission method (gauge, monotonic_count, etc.).
+    ##                          This can also be set to `tag` to tag each metric in the row
+    ##                          with the name and value of the item in this column. You can
+    ##                          use the `count` type to perform aggregation for queries that
+    ##                          return multiple rows with the same or no tags.
+    ##              Columns without a name are ignored. To skip a column, enter:
+    ##                - {}
+    ## 3. tags (optional) - A list of tags to apply to each metric.
+    #
+    # custom_queries:
+    #   - query: SELECT foo, COUNT(*) FROM table.events GROUP BY foo
+    #     columns:
+    #     - name: foo
+    #       type: tag
+    #     - name: event.total
+    #       type: gauge
+    #     tags:
+    #     - test:<INTEGRATION>
+
+    ## @param stored_procedure - string - optional
+    ## Get metrics from custom proc in MyDB but only if the database is writable
+    ## (i.e. it's the master in an availability group) Note: Custom proc must be defined in its own instance
+    ## See https://docs.datadoghq.com/integrations/guide/collect-sql-server-custom-metrics/
+    #
+    # stored_procedure: <PROCEDURE_NAME>
+
+    ## @param proc_only_if - string - optional
+    ## Run this SQL before each call to `stored_procedure`. Only if it returns 1 then call the proc.
+    #
+    # proc_only_if: <SQL_QUERY>
+
+    ## @param proc_only_if_database - string - optional - default: master
+    ## The database to run the `proc_only_if` SQL in.
+    #
+    # proc_only_if_database: master
+
+    ## @param ignore_missing_database - boolean - optional - default: false
+    ## If the DB specified doesn't exist on the server then don't do the check
+    #
+    # ignore_missing_database: false
+
+    ## @param tags - list of strings - optional
+    ## A list of tags to attach to every metric and service check emitted by this instance.
+    ##
+    ## Learn more about tagging at https://docs.datadoghq.com/tagging
+    #
+    # tags:
+    #   - <KEY_1>:<VALUE_1>
+    #   - <KEY_2>:<VALUE_2>
+
+    ## @param service - string - optional
+    ## Attach the tag `service:<SERVICE>` to every metric, event, and service check emitted by this integration.
+    ##
+    ## Overrides any `service` defined in the `init_config` section.
+    #
+    # service: <SERVICE>
+
+    ## @param min_collection_interval - number - optional - default: 15
+    ## This changes the collection interval of the check. For more information, see:
+    ## https://docs.datadoghq.com/developers/write_agent_check/#collection-interval
+    #
+    # min_collection_interval: 15
+
+    ## @param empty_default_hostname - boolean - optional - default: false
+    ## This forces the check to send metrics with no hostname.
+    ##
+    ## This is useful for cluster-level checks.
+    #
+    # empty_default_hostname: false
+
+    ## @param disable_generic_tags - boolean - optional - default: false
+    ## Generic tags such as `host` are replaced by `sqlserver_host` to avoid
+    ## getting mixed with other integraton tags.
+    #
+    disable_generic_tags: true
+
+    ## @param metric_patterns - mapping - optional
+    ## A mapping of metrics to include or exclude, with each entry being a regular expression.
+    ##
+    ## Metrics defined in `exclude` will take precedence in case of overlap.
+    #
+    # metric_patterns:
+    #   include:
+    #   - <INCLUDE_REGEX>
+    #   exclude:
+    #   - <EXCLUDE_REGEX>
+
+## Log Section
+##
+## type - required - Type of log input source (tcp / udp / file / windows_event)
+## port / path / channel_path - required - Set port if type is tcp or udp.
+##                                         Set path if type is file.
+##                                         Set channel_path if type is windows_event.
+## source  - required - Attribute that defines which integration sent the logs.
+## encoding - optional - For file specifies the file encoding, default is utf-8, other
+##                       possible values are utf-16-le and utf-16-be.
+## service - optional - The name of the service that generates the log.
+##                      Overrides any `service` defined in the `init_config` section.
+## tags - optional - Add tags to the collected logs.
+##
+## Discover Datadog log collection: https://docs.datadoghq.com/logs/log_collection/
+#
+# logs:
+#   - type: file
+#     path: /var/opt/mssql/log/errorlog
+#     source: sqlserver
+#     encoding: utf-16-le
+#     service: <SERVICE_NAME>
+#     log_processing_rules:
+#     - type: multi_line
+#       name: new_log_start_with_date
+#       pattern: \d{4}\-\d{2}\-\d{2}
