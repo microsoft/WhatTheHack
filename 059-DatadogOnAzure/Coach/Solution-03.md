@@ -13,7 +13,7 @@ For SQL server host - use Bastion to remotely connect to the host and run the up
 - ``Start-Process -Wait msiexec -ArgumentList '/qn /i ddagent.msi APIKEY="INSERT-YOUR-API-KEY-HERE" SITE="us3.datadoghq.com" TAGS="env:dev" DD_ENV=dev REBOOT=ReallySuppress ADDLOCAL="MainApplication,NPM" LOGS_ENABLED=true PROCESS_ENABLED=true CMD_PORT=6001 APPSEC_ENABLED=true'``
 - ``$ProgressPreference = 'Continue'``
 
-- For the IIS server scaleset, add the script to the correct location, reboot the host and you should see them appear in the Events page in Datadog when the hosts have come online and Datadog has been installed. 
+- For the IIS VM scaleset, add the script to the correct Azure blob storage location, the DELETE the VM instances. Azure will deploy two new VM instances to the scale set. You should see them appear in the Events page in Datadog when the hosts have come online and Datadog has been installed. 
 
 ### Dashboard Steps
 * Navigate to the infrastructure list

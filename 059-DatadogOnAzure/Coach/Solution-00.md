@@ -4,17 +4,17 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Challenge 0 has two major parts:
+- Deploy the eShopOnWeb Azure environment from provided Bicep templates.
+- Deploy Datadog into Azure from the Azure portal.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+The entire hack can be completed from a browser using the Azure Cloud Shell. 
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+If students have the prerequisite tools installed on their local workstations, you should encourage them to work from there.  
 
-Break things apart with more than one bullet list
+If the students do not have the tools installed, it will take extra time to do this. Encourage them to use the Azure Cloud Shell to kick off the deployment of the eShopOnWeb Azure environment. They can install the tools on their local workstation while they wait for the deployment to complete.
 
-- Like this
-- One
-- Right
-- Here
+The eShopOnWeb deployment typically takes 20-25 minutes to complete. 
+
+While the students are waiting for their deployments to complete, you should use the time to lecture and/or provide them an overview of Datadog and how it is integrated into the Azure portal.
+
