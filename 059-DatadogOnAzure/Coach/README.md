@@ -36,37 +36,25 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate their AKS clusters against Azure Container Registries.  For more info: <https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration>
+- Each student will spin up the following resources in Azure:
+	- 1 x 2 vCPUs VMs for the AKS cluster + 2 Public IPs
+  - 2 x 4 vCPUs VMs for SQL Server & Visual Studio
+  - 4 x 4 vCPUs VMSS for IIS (initial deployment is 2 x 4 vCPU, but students will scale it up to 4 during the hack)
+  - 1 PIP for the eShopOnWeb website
+  - 1 PIP for Azure Bastion
+  - 2 Azure Storage accounts (blob storage)
+  - Total: 26 vCPU + 4 Public IPs per studente
 
-_For example:_
+>**Note** The VM SKUs are configurable in the Bicep templates. Smaller VM SKU sizes can be used if cost is a concern for the hack.  
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+>**Note** Always remind students to stop all VMs, VM Scale Sets, and AKS clusters at the end of each hack day to conserve costs during a multi-day hack.
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
