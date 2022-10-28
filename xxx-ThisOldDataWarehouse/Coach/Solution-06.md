@@ -92,10 +92,8 @@ The intent is to not only to enable security features but also to understand wha
 
 **Data masking and Row/Column Level Security** 
 
-1. Row Level Security 
+1. Row/Column Level Security 
    1. [SQL Reference Script](../Coach/Solutions/Challenge6/RowColumnSecurity.sql) 
-1. Column Level Security 
-   1. [SQL Reference Script](../Coach/Solutions/Challenge6/RowColumnSecurity.sql)
 1. Data Masking 
    1. Using Azure Portal navigate to “Dynamic Data Masking” under Security pane within the Synapse Workspace SQL Pool
    1. Click “Add mask”
