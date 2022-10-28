@@ -60,7 +60,6 @@ You will need to create SQL users for scenario testing as follows:
 - [Column Level Security](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/column-level-security)
 - [Dynamic Data Masking](https://docs.microsoft.com/en-us/azure/azure-sql/database/dynamic-data-masking-overview?view=azuresql)
 - [Transparent Data Encryption](https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?view=azuresql&tabs=azure-portal)
-- [SQL Data Classification](https://docs.microsoft.com/en-us/azure/azure-sql/database/data-discovery-and-classification-overview?view=azuresql)
 - [Azure Synapse Analytics security white paper - Azure Synapse Analytics | Microsoft Learn](https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-introduction)
 
 # Tips
