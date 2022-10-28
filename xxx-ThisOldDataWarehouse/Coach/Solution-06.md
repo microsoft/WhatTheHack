@@ -110,7 +110,6 @@ The intent is to not only to enable security features but also to understand wha
    1. Make note of Object ID and name of the ADF resource 
 1. Create MSI user within the Synapse SQL Pool and apply appropriate permissions \
    ``` CREATE USER [“ADF Name”] FROM EXTERNAL PROVIDER; ```  
-   
    ``` EXEC sp_addrolemember 'db_owner', 'ADF Name'; ```
   
 1. New MSI user will need to be added to the row level security function in previous exercise or the row level security policy needs to be disabled for the MSI to see the data
