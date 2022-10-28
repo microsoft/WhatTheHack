@@ -120,6 +120,7 @@ module acaDeployment 'container-app.bicep' = if (shouldDeployToContainerApps) {
     containerAppFineCollectionServiceObject: containerAppFineCollectionServiceObject
     containerAppVehicleRegistrationServiceObject: containerAppVehicleRegistrationServiceObject
     containerRegistryName: containerRegistryDeployment.outputs.containerRegistryName
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
   }
 }
 

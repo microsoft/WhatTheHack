@@ -49,7 +49,7 @@ This hack's setup files will create the following resources in your Azure Resour
 - Application Insights
 - Azure Cache for Redis
 - Azure Container Registry
-- Azure Kubernetes Service
+- Azure Kubernetes Service (or Azure Container Apps)
 - Event Hub Namespace
 - IoT Hub
 - Key Vault
@@ -85,6 +85,7 @@ To start, you'll need access to an Azure Subscription & Resource Group:
 
 - If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
   - You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
+    - Microsoft.App
     - Microsoft.ContainerService
     - Microsoft.ContainerRegistry
     - Microsoft.EventHub
@@ -131,8 +132,16 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
 
 1.  You'll now create the required Azure resources inside your resource group with the following Azure CLI command (replace the resource group name).
 
+    **If you are going to deploy to Azure Kubernetes Service (AKS).**
+
     ```shell
     az deployment group create --resource-group <resource-group-name> --template-file ./main.bicep --parameters ./env/main.parameters.json --query "properties.outputs" --output yamlc
+    ```
+
+    **If you are going to deploy to Azure Container Apps (ACA) service.**
+
+    ```shell
+    az deployment group create --resource-group <resource-group-name> --template-file ./main.bicep --parameters ./env/main.parameters.json --query "properties.outputs" --output yamlc --parameters shouldDeployToContainerApps=true
     ```
 
     _Creating the resources can take some time (>20 minutes). You're encouraged to jump to review the [TrafficControl app architecture](./Resources/README.md) while the command executes._
@@ -200,6 +209,22 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
     ```
 
     Copy these values into a text editor. You'll need them to configure your Dapr services.
+
+1.  Assign permissions to KeyVault
+
+    Assign yourself access to the KeyVault so you can create secrets:
+
+    ```shell
+    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
+    ```
+
+1.  Run the following command to initalize your local Dapr environment:
+
+    ```shell
+    dapr init
+    ```
+
+#### Additional instructions for Azure Kubernetes Service (AKS), skip these if using Azure Container Apps (ACA)
 
 1.  Run the following command to fetch the AKS credentials for your cluster.
 
@@ -269,20 +294,6 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
 
     ```shell
      az aks update -g <resource-group-name> -n <cluster-name> --enable-oidc-issuer --enable-workload-identity
-    ```
-
-1.  Assign permissions to KeyVault
-
-    Lastly, assign yourself access to the KeyVault so you can create secrets:
-
-    ```shell
-    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
-    ```
-
-1.  Run the following command to initalize your local Dapr environment:
-
-    ```shell
-    dapr init
     ```
 
 ### Review TrafficControl application architecture

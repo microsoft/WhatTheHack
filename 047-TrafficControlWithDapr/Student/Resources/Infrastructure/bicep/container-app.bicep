@@ -4,6 +4,11 @@ param containerAppVehicleRegistrationServiceObject object
 param location string
 param containerAppEnvironmentName string
 param containerRegistryName string
+param managedIdentityName string
+
+resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+  name: managedIdentityName
+}
 
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2022-02-01-preview' existing = {
   name: containerRegistryName
@@ -18,6 +23,12 @@ var containerRegistryPasswordSecretName = '${containerRegistry.name}-password'
 resource containerAppVehicleRegistrationService 'Microsoft.App/containerApps@2022-03-01' = {
   name: containerAppVehicleRegistrationServiceObject.name
   location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${managedIdentity.id}': {}
+    }
+  }
   properties: {
     managedEnvironmentId: containerAppEnvironment.id
     configuration: {
@@ -89,6 +100,12 @@ resource containerAppVehicleRegistrationService 'Microsoft.App/containerApps@202
 resource containerAppFineCollectionService 'Microsoft.App/containerApps@2022-03-01' = {
   name: containerAppFineCollectionServiceObject.name
   location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${managedIdentity.id}': {}
+    }
+  }
   properties: {
     managedEnvironmentId: containerAppEnvironment.id
     configuration: {
@@ -158,6 +175,12 @@ resource containerAppFineCollectionService 'Microsoft.App/containerApps@2022-03-
 resource containerAppTrafficControlService 'Microsoft.App/containerApps@2022-03-01' = {
   name: containerAppTrafficControlServiceObject.name
   location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${managedIdentity.id}': {}
+    }
+  }
   properties: {
     managedEnvironmentId: containerAppEnvironment.id
     configuration: {
