@@ -93,9 +93,9 @@ The intent is to not only to enable security features but also to understand wha
 **Data masking and Row/Column Level Security** 
 
 1. Row Level Security 
-   1. Path to sql script 
+   1. [TDE Customer Managed](../Coach/Solutions/Challenge6/TDE.png) 
 1. Column Level Security 
-   1. Path to sql script
+   1. [TDE Customer Managed](../Coach/Solutions/Challenge6/TDE.png)
 1. Data Masking 
    1. Using Azure Portal navigate to “Dynamic Data Masking” under Security pane within the Synapse Workspace SQL Pool
    1. Click “Add mask”
@@ -141,4 +141,4 @@ The intent is to not only to enable security features but also to understand wha
 1. Customer-managed transparent data encryption 
    1. Customer-managed TDE is also referred to as Bring Your Own Key (BYOK) support for TDE. In this scenario, the TDE Protector that encrypts the DEK is a customer-managed asymmetric key, which is stored in a customer-owned and managed Azure Key Vault (Azure's cloud-based external key management system) and never leaves the key vault. With TDE with Azure Key Vault integration, users can control key management tasks including key rotations, key vault permissions, key backups, and enable auditing/reporting on all TDE protectors using Azure Key Vault functionality. Key Vault provides central key management, leverages tightly monitored HSMs, and **enables separation of duties between management of keys and data to help meet compliance with security policies.**
 
-![TDE Customer Managed](../Coach/Resources/Challenge6/TDE.png)
+![TDE Customer Managed](../Coach/Solutions/Challenge6/TDE.png)
