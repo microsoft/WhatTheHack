@@ -83,17 +83,23 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
 - [Azure Integration Services - API Management with Function Apps](/050-AIS-APIManagementwithFunctions/README.md)
+- [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
+- [Datadog On Azure](/059-DatadogOnAzure/README.md)
 - [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
 - [DevOps with GitHub Actions](/044-DevOpswithGitHubActions/README.md)
 - [Azure DevOps](/010-AzureDevOps/README.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
+- [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
+- [Sentinel Automated Response](/053-SentinelAutomatedResponse/README.md)
+- [Azure Load Testing](/054-AzureLoadTesting/README.md)
 
 ## Data & AI
+- [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
 - [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
@@ -124,6 +130,10 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
+
+## SAP on Azure
+- [SAP on Azure](/042-SAPOnAzure/README.md)
+- [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
 
 ## Archived
 
