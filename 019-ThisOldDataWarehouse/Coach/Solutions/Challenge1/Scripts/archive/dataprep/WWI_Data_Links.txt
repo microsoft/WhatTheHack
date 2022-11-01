@@ -1,4 +1,0 @@
-https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0
-	[WideWorldImporters-Full.bak] == OLTP Database
-	[WideWorldImportersDW-Full.bak] == Data Warehouse
---Setup these two databases on SQL Server 2017 as IaaS VM in Azure
