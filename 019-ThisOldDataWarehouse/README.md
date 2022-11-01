@@ -8,7 +8,7 @@ The solution will require us to migrate the on-premise data warehouse to Azure S
 
 Below is a diagram of the solution architecture you will build in this hack. Please study this carefully, so you understand the whole of the solution as you are working on the various components.
 
-![The Solution diagram is described in the text following this diagram.](/xxx-ThisOldDataWarehouse/Coach/images/solution_arch.png)
+![The Solution diagram is described in the text following this diagram.](./Coach/images/solution_arch.png)
 
 
 ## Learning Objectives
@@ -20,6 +20,8 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 1. ETL/ELT design patterns and how to build them with ADF + ADLS
 1. Setup a streaming data pipeline with Kafka
 1. Tune Synapse for analytical workloads and design report for best performance
+1. Setup Data Governance in Syanpase
+1. Build Enterprise Security into your data warehouse
 
 ## Challenges
 
@@ -31,7 +33,7 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 	 - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
 - Challenge 03: **[Data pipeline Migration](Student/Challenge-03.md)**
 	 - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
-- Challenge 04: **[Realtime Data pipeline](Student/Challenge-04.md)**
+- Challenge 04: **[Real-time Data pipeline](Student/Challenge-04.md)**
 	 - Real-time data with Kafka and Databricks
 - Challenge 05: **[Analytics Migration](Student/Challenge-05.md)**
 	 - Migrate reporting into Azure
