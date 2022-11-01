@@ -1,5 +1,4 @@
-# What The Hack - ThisOldDataWarehouse
-Modern Data Warehouse What the Hack
+# What The Hack - This Old Data Warehouse  
 
 ## Introduction
 
@@ -36,26 +35,10 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 	 - Real-time data with Kafka and Databricks
 - Challenge 05: **[Analytics Migration](Student/Challenge-05.md)**
 	 - Migrate reporting into Azure
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](Student/Challenge-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](Student/Challenge-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](Student/Challenge-15.md)**
-	 - Description of challenge
+- Challenge 06: **[Enterprise Security](Student/Challenge-06.md)**
+	 - Enterprise Security into Synapse Analytics
+- Challenge 07: **[Unified Data Governance](Student/Challenge-07.md)**
+	 - Data Governance integration into Synapse
 
 ## Prerequisites
 
@@ -88,3 +71,5 @@ Azure services and related products
 - Brian Hitney
 - Israel Ekpo
 - Osamu Hirayama
+- Alan Kleinert
+- Prashant Atri
