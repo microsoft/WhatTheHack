@@ -21,6 +21,13 @@ You might not need all of them for the hack you are participating in. However, i
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 - [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
+## Student Resources
+Your coach will provide you with a Resources.zip file that contains resource files you will use to complete some of the challenges for this hack.
+
+If you have installed all of the tools listed above on your local workstation, you should unpack the Resources.zip file there too.
+
+If you plan to use the Azure Cloud Shell, you should upload the Resources.zip file to your cloud shell first and then unpack it there.
+
 ## Description
 
 ### Setup your Development Environment on your Laptop
