@@ -1,4 +1,4 @@
-# Challenge 03 - Redesign SSIS jobs into ELT with ADF - Coach's Guide 
+# Challenge 03 - Data pipeline Migration - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 

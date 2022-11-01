@@ -1,10 +1,10 @@
-# What The Hack - ThisOldDataWarehouse - Coach Guide
+# What The Hack - This Old Data Warehouse - Coach Guide
 
 ## Introduction
 
-This workshop is intended to give Data Engineers a level 400 understanding of the Modern Data Warehouse architecture and development skills to build it with Azure Synapse Analytics.  First, data engineers will learn how to migrate their SQL Server on-premise workloads to Azure Synapse analytics.  Likewise, the workshop will provide the skills and best practices to integrate a Data Lake into the existing data warehouse platform.  This will require the existing ETL (SSIS package) be refactored into Azure Data Factory pipelines.  Additionally, Modern Data Warehouse platforms are starting to integrate real-time data pipelines into the data lake.  Lastly, the students will be able to build out a Power BI Data model and tune it and the Synapse platform for optmial performance.  This will showcase Synapse Analytics performance with Dashboards.
+Welcome to the coach's guide for the This Old Data Warehouse What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-The format we're following for this is similar to other initiatives like OpenHack and What the Hack. The material is intended to be light on presentations and heavy on hands on experience. The participants will spend the majority of their time working on challenges. The challenges are not designed to be hands on labs, but rather a business problem with success criteria. The focus here is encouraging the participants to think about what they're doing and not just blindly following steps in a lab.
+This hack includes an optional [lecture presentation](./MDWWTHIntro.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -13,35 +13,19 @@ The format we're following for this is similar to other initiatives like OpenHac
 - Challenge 00: **[Setup](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Data Warehouse Migration](./Solution-01.md)**
-	 - Description of challenge
+	 - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
 - Challenge 02: **[Data Lake Integration](./Solution-02.md)**
-	 - Description of challenge
+	 - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
 - Challenge 03: **[Data pipeline Migration](./Solution-03.md)**
-	 - Description of challenge
+	 - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
 - Challenge 04: **[Real-time Data Pipeline](./Solution-04.md)**
-	 - Description of challenge
+	 - Real-time data with Kafka and Databricks
 - Challenge 05: **[Analytics Migration](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](./Solution-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](./Solution-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](./Solution-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](./Solution-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](./Solution-15.md)**
-	 - Description of challenge
+	 - Migrate reporting into Azure
+- Challenge 06: **[Enterprise Security](./Solution-06.md)**
+	 - Enterprise Security into Synapse Analytics
+- Challenge 07: **[Unified Data Governance](./Solution-07.md)**
+	 - Data Governance integration into Synapse
 
 ## Coach Prerequisites
 
@@ -56,10 +40,6 @@ Before the hack, it is the Coach's responsibility to download and package up the
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
-
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
 
 ## Azure Requirements
 
@@ -87,10 +67,10 @@ The following is expected timing for a standard delivery.
 | Challenge 3: Data pipeline Migration | 240 mins |
 | Challenge 4: Realtime Data Pipelines | 120 mins |
 | Challenge 5: Analytics Migration | 120 mins |
+| Challenge 6: Enterprise Security | 120 mins |
+| Challenge 7: Unified Data Governance | 120 mins |
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
