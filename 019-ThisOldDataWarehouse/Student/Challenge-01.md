@@ -41,7 +41,6 @@ There will be four different object types we'll migrate:
 
 ### Overall Migration
 1. [SQL Server Database to Azure Synapse Analytics - Data Migration Guide](https://docs.microsoft.com/en-us/azure/synapse-analytics/migration-guides/migrate-to-synapse-analytics-guide)
-1. [Quick reference guide for Data migrations across all database platforms to Azure](https://datamigration.microsoft.com/scenario/sql-to-sqldw?step=1)(Optional Reading)
 
 ### Database Schema Migration
 1. [Azure Synapse Analytics SQL Architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-architecture)
