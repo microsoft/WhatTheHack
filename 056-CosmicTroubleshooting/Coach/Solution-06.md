@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 For this challenge, the students will need to present various ways that they can ensure their Azure Cosmos DB deployment doesn't just serve the application as a backend database but has all the accompanying components to ensure an Enterprise grade deployment. Students should rely on the Reliability and Operational Excellence pillar of Microsoft Azure Well-Architected Framework to evaluate what is needed in the context of this solution. At a minimum:
-- Azure Cosmos DB and the application is deployed in the region that corresponds to end users (already done, what should they consider for future expansion).
+- Azure Cosmos DB and the application are deployed in the region that corresponds to end users. This is already done but what should they consider for future expansion?
 - Implications of conflict resolution in multi-master deployments.
 - Should they re-evaluate the default Consistency level and are there any operations that require unique consistency constraints? For example, submitting the order could be at a higher consistency level than the other operations.
 - Configuring preferred locations

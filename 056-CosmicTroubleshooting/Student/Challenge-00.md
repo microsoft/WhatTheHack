@@ -74,10 +74,10 @@ Please deploy the infrastructure by running the following scripts in the `/Chall
 ## Success Criteria
 
 
-To complete this challenge successfully, you should be able to:
+To complete this challenge successfully, you should check:
 
 - The deployment script (either Powershell or Bash) has completed successfully
-- Verify that the deployment script has deployed in your subscription under a Resource Group call `rg-wth-azurecosmosdb` (if left at the default value) the following resources:
+- The deployment script has deployed in your subscription under a Resource Group called `rg-wth-azurecosmosdb` (if left at the default value) and it contains the following resources:
   - Azure App Service Plan
   - Azure Application Insights
   - Azure App Service

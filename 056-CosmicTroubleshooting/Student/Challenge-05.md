@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Stuff and More Stuff Co. has is expanding their operations across the globe. Since their user base is growing at a rapid pace in Europe, they would like to have their database and application available across both the US and Europe.
+Stuff and More Stuff Co. is expanding their operations across the globe. Since their user base is growing at a rapid pace in Europe, they would like to have their database and application available across both the US and Europe.
 
 ## Description
 

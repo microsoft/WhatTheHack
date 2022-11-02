@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-For this challenge, students will need to leverage Change Feed again, this time though to continuously get any Order item. If they created a collection just for the Order items, they can simply get every document created with a status of `Pending Shipment`, add an item in the `Shipments` collection and update the item with a status of `Shipped`.
+For this challenge, students will need to leverage the the Change Feed again, this time though to continuously get any Order item. If they created a collection just for the Order items, they can simply get every document created with a status of `Pending Shipment`, add an item in the `Shipments` collection and update the item with a status of `Shipped`.
 
 Example of a solution:
 1. Create a new Azure Function (in the existing Function App or a new one):  
