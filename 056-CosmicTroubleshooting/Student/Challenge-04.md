@@ -12,7 +12,7 @@ For this, they are capturing ClickStream data in the `clickstream` container. Ho
 
 In this challenge, you will properly configure the `clickstream` container to enable Analytical queries.
 
-You will need to run the deployment script under the `/Challenge04/` folder of the Resources.zip file given by your coach. To d
+You will need to run the deployment script under the `/Challenge04/` folder of the Resources.zip file given by your coach. To do this, please run the respective PowerShell or Bash script as below:
 
 - Powershell: 
   ``` 

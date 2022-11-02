@@ -16,9 +16,9 @@ The `Products` page provides a per-store inventory of available products. This p
 
 The `Cart` page provides an interface to view, for a given user/store pair, the contents of their cart.
 
-The `Orders` page provides interface to view, for a given user/store pair, the orders they have finalized.
+The `Orders` page provides an interface to view, for a given user/store pair, the orders they have finalized.
 
-The `Shipments` page provides interface to view, for a given user/store pair, the orders that have been shipped.
+The `Shipments` page provides an interface to view, for a given user/store pair, the orders that have been shipped.
 
 Finally, clicking on the `Dev. tools` button allows a user to run a Load Test from the deployed Azure Load Testing service. The load test will simulate 1000 users making the following interactions:
 - Viewing a Product

@@ -24,10 +24,10 @@ You might not need all of them for the hack you are participating in. However, i
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure Powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) - v7.2 or newer required
-    - [Azure PowerShell CmdLets](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
+    - [Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
   - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
     - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
+    - [Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-8.2.0)
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
@@ -36,7 +36,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
+Now that you have the common prerequisites installed on your workstation, there are prerequisites specific to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
