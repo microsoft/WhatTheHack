@@ -12,7 +12,7 @@ This hack is mostly useful for identity architects and developers who want to in
 - Understanding how to migrate an your(SPA/ASP.NET/WebForms/Console etc) application from Windows Integrated Authentication to OpenID Connect using Azure Active Directory.
 - Compare the different identity offerings.
 - Choose which identity offering is most appropriate for your requirements.
-Using a Managed Identity to avoid having to manage and store credentials
+- Using a Managed Identity to avoid having to manage and store credentials.
 
 
 ## Challenges
