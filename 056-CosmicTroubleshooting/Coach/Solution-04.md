@@ -53,7 +53,7 @@ Ideally, the students will have opted to leverage Azure Synapse Link to solve th
             date AS 'Date'
         FROM
             OPENROWSET(
-                BULK 'https://<adlsaccount>/<container_name>/mnt/CosmosDBPartitionedStoreByDateByPage/**',
+                BULK 'https://<adlsaccount>.dfs.core.windows.net/<container_name>/mnt/CosmosDBPartitionedStoreByDateByPage/**',
                 FORMAT = 'PARQUET'
             ) AS [result]
         GROUP BY [date], page_id
@@ -66,7 +66,7 @@ Ideally, the students will have opted to leverage Azure Synapse Link to solve th
             date AS 'Date'
         FROM
             OPENROWSET(
-                BULK 'https://<adlsaccount>/<container_name>/mnt/CosmosDBPartitionedStoreByDateByUser/**',
+                BULK 'https://<adlsaccount>.dfs.core.windows.net/<container_name>/mnt/CosmosDBPartitionedStoreByDateByUser/**',
                 FORMAT = 'PARQUET'
             ) AS [result]
         GROUP BY [date], user_id

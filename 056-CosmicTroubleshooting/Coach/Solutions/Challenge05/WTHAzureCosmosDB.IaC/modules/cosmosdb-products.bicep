@@ -26,6 +26,7 @@ resource accountName_resource 'Microsoft.DocumentDB/databaseAccounts@2021-01-15'
     locations: locations
     databaseAccountOfferType: 'Standard'
     enableMultipleWriteLocations: true
+    enableAnalyticalStorage: true
   }
 }
 
