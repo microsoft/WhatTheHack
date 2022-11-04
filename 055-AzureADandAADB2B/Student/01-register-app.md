@@ -1,20 +1,22 @@
-# Challenge \#1 - Getting Started with B2C
+# Challenge \#1 - Register an application in Azure AD
 
 [< Previous Challenge](./00-tenant-setup.md) - **[Home](../README.md)** - [Next Challenge>](./02-test-sign-in.md)
 
 ## Introduction
 
-You are a cloud engineer at Contoso Manufacturing (CMC). Recently, CMC IT Leadership has become interested in offering a fully feature white-label identity solution to individuals outside of the company. They do not wish to see these identities inside of your primary Azure AD tenant, nor do they want these identities to be used for collaborating in your Microsoft 365 environment.
+For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure Active Directory (Azure AD), you're providing an identity configuration for your application that allows it to integrate with the Microsoft identity platform.
 
-## Description
-
-As an engineer, you have heard of Azure AD . You know that your tenant will need a globally unique name. They have asked you to get a new B2C tenant deployed. 
+After the app is registered, it's given a unique identifier that it shares with the Microsoft identity platform when it requests tokens. If the app is a confidential client application, it will also share the secret or the public key depending on whether certificates or secrets were used.
 
 ## Success Criteria
 
-1. You have an Azure AD B2C tenant
-1. You are able to switch directories between your B2C tenant and the tenant that contains your Azure subscription
+1. Your app is registered in Azure Active Directory.
+2. You will know about Multi-tenant apps, Service Principals, authentication vs authorization, security tokens.
 
 ## Learning Resources
 
 - [Register an application with the Azure AD?](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+- [Security Best Practices](https://learn.microsoft.com/en-us/azure/active-directory/develop/security-best-practices-for-app-registration)
+- [Details of registered application](https://learn.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-applications-are-added)
+- [Modern Authentication](https://github.com/Azure/FTALive-Sessions/blob/main/content/identity/identity-for-applications-AAD/modern-authentication.md)
+- [Tokens in AAD](https://learn.microsoft.com/en-us/azure/active-directory/develop/security-tokens)

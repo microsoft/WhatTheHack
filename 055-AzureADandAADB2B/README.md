@@ -4,15 +4,19 @@
 
 In this what the hack, participants will learn what Azure Active Directory (AAD) is and how to use this service to implement Modern Authentication in your applications.
 
+This hack is mostly useful for identity architects and developers who want to integrate their solutions with the Microsoft Identity Platform to allow organizational users as well as external identities to sign in to their custom developed applications.
 
 ![Azure AD Overview](./Images/aspnetwebapp-intro.svg)
 ## Learning Objectives
 
-Understanding how to migrate an ASP.NET WebForms application from Windows Integrated Authentication to OpenID Connect using Azure Active Directory
+- Understanding how to migrate an your(SPA/ASP.NET/WebForms/Console etc) application from Windows Integrated Authentication to OpenID Connect using Azure Active Directory.
+- Compare the different identity offerings.
+- Choose which identity offering is most appropriate for your requirements.
 Using a Managed Identity to avoid having to manage and store credentials
 
 
 ## Challenges
+
 
 Challenge 1: **[Azurer AD Tenant set-up](Student/00-tenant-setup.md)**
 
@@ -38,13 +42,12 @@ Challenge 5: **[Integrate Azure AD authentication into an application](Student/0
 
 - Integrate Azure AD authentication into an application
     - ASP.Net (Authorization Code Flow)
-    - SPA (React / Angular) (PKCI)
-    - Native Client (Windows Forms)
+    - SPA (React / Angular) (PKCI)  
     - Console application (Client Credential Flow)
 
 - un the app with your user and guest user 
 
-Challenge 6(optional): **[Deployt to Azure](Student/05-deploy-to-azure.md)**
+Challenge 6(optional): **[Deploy to Azure](Student/05-deploy-to-azure.md)**
 
 - Deploy to Azure
 - publish the Web App  to the web site, and

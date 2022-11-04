@@ -1,32 +1,27 @@
-# Challenge \#3 - External Identity Providers
+# Challenge \#3 - Invite Guest Users in Azure AD tenant
 
-[< Previous Challenge](./02-susi.md) - **[Home](../README.md)** - [Next Challenge>](./04-l14n.md)
+[< Previous Challenge](./02-test-sign-in.md) - **[Home](../README.md)** - [Next Challenge>](./04-integrate-app.md)
 
 ## Introduction
 
-In addition to creating local accounts, Azure Active Directory B2C allows your users to sign in with credentials from enterprise or social identity providers (IdP), supporting OAuth 1.0 and 2.0, OpenID Connect, and SAML protocols.
+Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Azure AD or an IT department.
 
-![Identity Providers Supported by B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/technical-overview/external-idps.png)
-## Description
-
-CMC IT Leadership is very excited with the SignUp / SignIn flow that you developed....BUT, they want some more features. They've decided that they would like to streamline the ability of consultants to sign in and sign up by allowing the consultants to use their social identity to sign up and sign in.
-
-CMC IT has empowered you to determine which 3rd party Identity Provider (IdP) to integrate into your User Flow. Some examples that IT Leadership provided included Facebook, GitHub, and Twitter, but it's your decision.
-
-CMC IT Leadership has asked that the consultant can choose, during sign-up, to either create a new account or use their 3rd party identity. IF they choose to use a 3rd party identity, they would be directed to the 3rd party IdP to authenticate before their Azure AD B2C user account is created. You should also collect the same information that you're collecting for new account creation (see Challenge 2), but most importantly is collecting the CMC Consultant ID. Other attributes are optional (as they may depend on the 3rd party IdP being integrated), but the CMC Consultant ID is **required** to be collected.
+![Azure AD B2B guest User Access](../Images/aad-b2b-guest-user.png)
 
 ## Success Criteria
 
-CMC IT Leadership will judge your success based on:
+1. Your new guest user is invited.
+2. Invited user have received and accepted the invitation.
+3. Sign in with the guest user account is successful(using [Authr](https://authr.biz/)).
 
-- Successful integration of a 3rd party IdP of your choosing for account SignUp and SignIn
-- You are collecting additional attributes for the user, and the CMC Consultant ID is a required attribute. If the user does not provide it, do not allow the user to proceed.
-- You are still enforcing the certified states and not allowing a user to choose a state that CMC is not certified.
-- You can sign-up with both 3rd party social identities and also create a new account; you can sign-in with both 3rd party identities and also local accounts.
+
+## Advanced Challenges (Optional)
+
+1. Self Service sign up would be enabled for your tenant.
+
 
 ## Learning Resources
 
-- [Integrate Facebook with Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-facebook)
-- [Integrate GitHub with Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-github)
-
-
+- [B2B Collaboration Overview](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b)
+- [B2B Guest User ](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/user-properties)
+- [Real WOrld Scenario with External Identities](https://github.com/Azure/FTALive-Sessions/blob/main/content/identity/microsoft-identity-platform/11-external-identities-scenario.md)
