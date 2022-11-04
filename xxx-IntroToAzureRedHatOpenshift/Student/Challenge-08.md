@@ -1,19 +1,16 @@
-# Challenge 08 - Azure Key Vault Integration
+# Challenge 08 - Azure Service Operator Connection
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
 ## Introduction
-So now we have a cluster up and running, but what about the security? Key Vault allows us to securely store our passwords so we do not have to worry about any data leaks or potential threats to our information. 
+So now we have a cluster up and running, but what about the security? What about other things we may want to add onto our cluster? Azure Serivce Operator help us provision other Azure resources and connect them to our applications from within ARO.
 
 ## Description
-In this challenge, we will be connecting to Azure Service Operator and using that to create a vault. We will then use the Azure Key Vault to store our MongoDB passwords. Once we store our passwords in Azure Key Vault, we will point our MongoDB environment variables to the key vault. Then we will confirm with the coach that the application works with the Key Vault integration.
+In this challenge, we will be connecting to Azure Service Operator. While we cannot connect it to Key Vault just yet because Key Vault is not yet supported, we will still learn how to create the Service Operator that we would in theory use to connect to Key Vault and store our passwords, so we can point our environment variables to that instead.
 
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
-- Demonstrate that the Azure Service Operator has been installed in your ARO cluster
-- Demonstrate that Azure Key Vault got created using the Azure Service Operator
-- Demonstrate that MongoDB is using the key we created inside of Azure Key Vault
-- Demonstrate that the application works and the database is up and running correctly
+- Demonstrate that the Azure Service Operator has been installed in your ARO cluster by using the command `oc get pods -n openshift-operators`
 
 ## Learning Resources
 - [Using the Azure Service Operator on OpenShift](https://cloud.redhat.com/blog/using-the-azure-service-operator-on-openshift)

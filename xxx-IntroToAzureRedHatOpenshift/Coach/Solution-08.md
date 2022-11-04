@@ -3,10 +3,10 @@
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
-In this challenge, we will be connecting to Azure Service Operator and using that to create a vault in order to store our MongoDB passwords.
+In this challenge, we will be connecting to Azure Service Operator.
 
 ## Create a namespace called `operators`
-- I do not know how to do this
+- Use the command `az feature register --namespace Microsoft.RedHatOpenShift --name operators`
 
 ## Connect to Azure Service Operator
 - Find account information using the command `az account show` in the Azure CLI
@@ -42,25 +42,4 @@ In this challenge, we will be connecting to Azure Service Operator and using tha
         AZURE_CLIENT_SECRET: <your-client-secret>
         AZURE_CLOUD_ENV: <your-azure-cloud-environment>
     ```
-- Check that operators are installed using the command `oc get subs -n openshift-operators` or going to the web console **Operators Installed** tab
-
-## Add secret to Key Vault
-- Create a KeyVault resource in your resource group 
-- In the settings page, select **Secrets**
-- Click on **Generate/Import**
-- Upload the **Secret** file
-    - Enter the **Application ID** from the service principal as the name for your key and enter it into the *Value* tab
-    - Select **Service Principal** for the content type
-
-## Upload MongoDB secret
-- Create a new secret with the MongoDB credentials
-- Upload to Key Vault
-
-- Create a key vault using the Azure Service Operator
-1) Create a SP
-2) Create a namespace called `operators`
-2) Create a secret
-3) Install Azure Service Operator
-4) Install Key Vault
-5) Add Key
-6) Reference Key
+- Check that operators are installed using the command `oc get pods -n openshift-operators` or going to the web console **Operators Installed** tab
