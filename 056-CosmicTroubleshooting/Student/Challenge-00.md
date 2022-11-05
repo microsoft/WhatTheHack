@@ -38,13 +38,13 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common prerequisites installed on your workstation, there are prerequisites specific to this hack.
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+Your coach will provide you with a `Resources.zip` file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
 Please install these additional tools:
 
 - .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
 
-In the `/Challenge00/` folder of the Resources.zip file given by your coach, two deployment scripts that deploy a bicep template with the required services for the challenge, as well as building and deploying our sample web application.
+In the `/Challenge00/` folder of the `Resources.zip` file given by your coach, you will find two deployment scripts that deploy a bicep template with the required services for the challenge, as well as building and deploying our sample web application.
 
 Please deploy the infrastructure by running the following scripts in the `/Challenge00/` folder:
 
