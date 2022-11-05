@@ -6,7 +6,7 @@
 
 Thank you for participating in the CosmicTroubleshooting What The Hack. Before you can hack, you will need to set up some prerequisites.
 
-** :warning: Please note:** this is not an Introduction to Cosmos DB What The Hack. The What The Hack assumes you already have a solid understanding on Azure Cosmos DB (and more specifically the Core API). If you need to skill-up with enough knowledge to get through this What The Hack, please have a look at the following resources:
+:warning: **NOTE:** this is not an Introduction to Cosmos DB What The Hack. The What The Hack assumes you already have a solid understanding on Azure Cosmos DB (and more specifically the Core API). If you need to skill-up with enough knowledge to get through this What The Hack, please have a look at the following resources:
 
 - [Work with NoSQL data in Azure Cosmos DB](https://docs.microsoft.com/en-us/learn/paths/work-with-nosql-data-in-azure-cosmos-db/)
 - [Azure Cosmos DB Labs - .NET (V3)](https://azurecosmosdb.github.io/labs/dotnet/labs/00-account_setup.html)
