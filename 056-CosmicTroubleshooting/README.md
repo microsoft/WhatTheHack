@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Cosmic Troubleshooting hack will allow you to upskill in idneitfying and resolving performance issues in Azure Cosmos DB due to bad design decisions. It follows a real-world scenario (Retail) where the application is facing severe performance issues and needs to be re-architected sightly to take advantage of the full power of Azure Cosmos DB.
+The Cosmic Troubleshooting hack will allow you to upskill in identifying and resolving performance issues in Azure Cosmos DB due to bad design decisions. It follows a real-world scenario (Retail) where the application is facing severe performance issues and needs to be re-architected sightly to take advantage of the full power of Azure Cosmos DB.
 
 We estimate that running this hack end-to-end will take approximately 8 hours, with an Azure cost of about $50 or less.
 
