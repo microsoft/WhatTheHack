@@ -37,7 +37,7 @@ The resources in the blue box are not part of the application itself, but allow 
 
 In this challenge, you will have to identify how the current system has been set up and what problems does this create.
 
-**Note** You will need to run the Load Test defined in the Azure Load Testing service that is deployed in your Resource Group to gather data. The load test simulates the following user actions:
+**NOTE:** You will need to run the Load Test defined in the Azure Load Testing service that is deployed in your Resource Group to gather data. The load test simulates the following user actions:
 - The user views a product
 - The user adds the product to the cart
 - The user views the cart
