@@ -1,4 +1,4 @@
-# Challenge 04 - Time to analyze data
+# Challenge 04 - Time to Analyze Data
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
@@ -52,8 +52,8 @@ To complete this challenge successfully, you should be able to:
 - [Azure Synapse Link for Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link)
 
 
-## Advanced Challenges (Optional)
+## Advanced Challenge
 
-Too comfortable?  Eager to do more?  Try these additional challenges!
+Too comfortable?  Eager to do more?  Try this additional challenge:
 
 - Are the analytical queries you are running optimized? Is there a way to further optimize them?
