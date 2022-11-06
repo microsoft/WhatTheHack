@@ -1,4 +1,4 @@
-# Challenge 03 - Automate order processing
+# Challenge 03 - Automate Order Processing
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
