@@ -6,7 +6,7 @@
 
 Stuff and More Stuff Co. has deployed their newly designed web application on Azure, using Azure Cosmos DB as the database backend, since they were looking for a NoSQL database to suit their requirements.  In the first few weeks, all was going quite well, until their first marketing campaign. The number of customers visiting the web application increased exponentially and a host of issues and complaints started arriving. The web application was constantly very slow, multiple error messages were being generated and the overall customer experience was severely degraded.
 
-The web application is a multi-tenant application; for the purposes of the WhatTheHack, we offer a simplified version, where in the `Carts` and `Orders` pages, the application user may select the Store for which to view their data. Each user can order from any of the available stores.
+The web application is a multi-tenant application; for the purposes of the What The Hack, we offer a simplified version, where in the `Carts` and `Orders` pages, the application user may select the Store for which to view their data. Each user can order from any of the available stores.
 
 The application interface itself is as below:
 
