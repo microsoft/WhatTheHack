@@ -1,4 +1,4 @@
-# Challenge 06 - Securing the data - Coach's Guide 
+# Challenge 06 - Securing the Data - Coach's Guide 
 
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)**
 
