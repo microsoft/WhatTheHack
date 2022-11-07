@@ -8,11 +8,14 @@ The code samples are built and maintained by Microsoft to demonstrate usage of o
 
 Each code sample includes a README.md file describing how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
 
-- Single Page Application
-- Web Application
-- Desktop(Console) Application
+- [Single Page Application](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/1-Authentication/1-sign-in/README.md)
 
-![SPA with Azure AD](../Images/spa-angular.png)
+- [Web Application](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/1-WebApp-OIDC/1-1-MyOrg/README.md)
+ 
+
+- [Desktop(Console) Application](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/1-Calling-MSGraph/1-1-AzureAD)
+
+
 
 
 ## Success Criteria
@@ -22,6 +25,7 @@ Each code sample includes a README.md file describing how to build the project (
 
 ## Learning Resources
 
+- [Modernize Intranet Web App Authentication - Prerequisites](https://github.com/Azure/fta-identity/blob/master/identity-applications/articles/preparation-modernize-intranet-webapp.md)
 - [Angular single-page application using MSAL Angular to sign-in users with Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/1-Authentication/1-sign-in/README.md)
 
 
