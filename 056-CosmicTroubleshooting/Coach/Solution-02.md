@@ -1,4 +1,4 @@
-# Challenge 02 - Time to fix things - Coach's Guide 
+# Challenge 02 - Time to Fix Things - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
