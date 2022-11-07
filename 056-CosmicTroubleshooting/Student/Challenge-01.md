@@ -1,4 +1,4 @@
-# Challenge 01 - What is going on?
+# Challenge 01 - What Is Going On?
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
@@ -6,7 +6,7 @@
 
 Stuff and More Stuff Co. has deployed their newly designed web application on Azure, using Azure Cosmos DB as the database backend, since they were looking for a NoSQL database to suit their requirements.  In the first few weeks, all was going quite well, until their first marketing campaign. The number of customers visiting the web application increased exponentially and a host of issues and complaints started arriving. The web application was constantly very slow, multiple error messages were being generated and the overall customer experience was severely degraded.
 
-The web application is a multi-tenant application; for the purposes of the WhatTheHack, we offer a simplified version, where in the `Carts` and `Orders` pages, the application user may select the Store for which to view their data. Each user can order from any of the available stores.
+The web application is a multi-tenant application; for the purposes of the What The Hack, we offer a simplified version, where in the `Carts` and `Orders` pages, the application user may select the Store for which to view their data. Each user can order from any of the available stores.
 
 The application interface itself is as below:
 
@@ -37,7 +37,7 @@ The resources in the blue box are not part of the application itself, but allow 
 
 In this challenge, you will have to identify how the current system has been set up and what problems does this create.
 
-**Note** You will need to run the Load Test defined in the Azure Load Testing service that is deployed in your Resource Group to gather data. The load test simulates the following user actions:
+**NOTE:** You will need to run the Load Test defined in the Azure Load Testing service that is deployed in your Resource Group to gather data. The load test simulates the following user actions:
 - The user views a product
 - The user adds the product to the cart
 - The user views the cart

@@ -1,8 +1,8 @@
-# What The Hack - CosmicTroubleshooting - Coach Guide
+# What The Hack - Cosmic Troubleshooting - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the CosmicTroubleshooting What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Cosmic Troubleshooting What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -10,17 +10,17 @@ Welcome to the coach's guide for the CosmicTroubleshooting What The Hack. Here y
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[What is going on](./Solution-01.md)**
+- Challenge 01: **[What is Going On?](./Solution-01.md)**
 	 - Troubleshoot the performance issues
-- Challenge 02: **[Time to fix things](./Solution-02.md)**
+- Challenge 02: **[Time to Fix Things](./Solution-02.md)**
 	 - Implement planned changes
-- Challenge 03: **[Automate order processing](./Solution-03.md)**
+- Challenge 03: **[Automate Order Processing](./Solution-03.md)**
 	 - Automate processing of submitted orders
-- Challenge 04: **[Time to analyze data](./Solution-04.md)**
+- Challenge 04: **[Time to Analyze Data](./Solution-04.md)**
 	 - Integrate clickstream data and plan for analyzing
 - Challenge 05: **[Going Global](./Solution-05.md)**
 	 - Multi-region deployment of the application/database
-- Challenge 06: **[Securing the data](./Solution-06.md)**
+- Challenge 06: **[Securing the Data](./Solution-06.md)**
 	 - Let's make sure we prevent bad things from happening
 
 ## Coach Prerequisites

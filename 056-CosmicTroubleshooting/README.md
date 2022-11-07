@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Cosmic Troubleshooting hack will allow you to upskill in idneitfying and resolving performance issues in Azure Cosmos DB due to bad design decisions. It follows a real-world scenario (Retail) where the application is facing severe performance issues and needs to be re-architected sightly to take advantage of the full power of Azure Cosmos DB.
+The Cosmic Troubleshooting hack will allow you to upskill in identifying and resolving performance issues in Azure Cosmos DB due to bad design decisions. It follows a real-world scenario (Retail) where the application is facing severe performance issues and needs to be re-architected sightly to take advantage of the full power of Azure Cosmos DB.
 
 We estimate that running this hack end-to-end will take approximately 8 hours, with an Azure cost of about $50 or less.
 
@@ -29,17 +29,17 @@ We are expecting students to have the following skills within their team:
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[What is going on?](Student/Challenge-01.md)**
+- Challenge 01: **[What is Going On?](Student/Challenge-01.md)**
 	 - Troubleshoot the performance issues
-- Challenge 02: **[Time to fix things](Student/Challenge-02.md)**
+- Challenge 02: **[Time to Fix Things](Student/Challenge-02.md)**
 	 - Implement planned changes
-- Challenge 03: **[Automate order processing](Student/Challenge-03.md)**
+- Challenge 03: **[Automate Order Processing](Student/Challenge-03.md)**
 	 - Automate processing of submitted orders
-- Challenge 04: **[Time to analyze data](Student/Challenge-04.md)**
+- Challenge 04: **[Time to Analyze Data](Student/Challenge-04.md)**
 	 - Integrate clickstream data and plan for analyzing
 - Challenge 05: **[Going Global](Student/Challenge-05.md)**
 	 - Multi-region deployment of the application/database
-- Challenge 06: **[Securing the data](Student/Challenge-06.md)**
+- Challenge 06: **[Securing the Data](Student/Challenge-06.md)**
 	 - Let's make sure we prevent bad things from happening.
 
 ## Prerequisites
