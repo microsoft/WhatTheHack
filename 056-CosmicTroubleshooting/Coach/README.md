@@ -42,6 +42,25 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 - Your own Azure subscription with Owner access
 - Visual Studio Code
 - Azure CLI
+- Each student will spin up the following resources in Azure (when they run the provided scripts in the student resources folder):
+  - 1x S1 Azure App Service Plan for the web app
+  - 1x Consumption App Service Plan for supporting Function apps
+  - 1x App Service
+  - 2x Azure Application Insights instances
+  - 1x Azure Cosmos DB Account with 3 containers (total of 1800 RU/s)
+  - 1x Azure Load Testing Service
+  - 2x Managed Identities
+  - 1x Azure Function App
+  - 1x Azure Key Vault
+  - 1x Azure Storage Account
+  
+  Depending on how the students will elect to solve the challenges, more Azure Services will need to be deployed, such as:
+
+  - Additional Azure Cosmos DB containers (with cross-region multi-master support)
+  - Additional Azure Function Apps
+  - Azure Traffic Manager
+  - Azure Synapse Analytics with an Apache Spark Pool
+  - Additional Azure Storage Accounts
 
 ## Repository Contents
 

@@ -46,7 +46,7 @@ Please install these additional tools:
 
 In the `/Challenge00/` folder of the Resources.zip file given by your coach, two deployment scripts that deploy a bicep template with the required services for the challenge, as well as building and deploying our sample web application.
 
-Please deploy the infrastructure by running the following scripts in the `/Challenge00/` folder:
+Please deploy the infrastructure by running one of the following scripts in the `/Challenge00/` folder:
 
 - Powershell: 
   ``` 
