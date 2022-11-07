@@ -1,4 +1,4 @@
-# Challenge 01 - What is going on? - Coach's Guide 
+# Challenge 01 - What is Going On? - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
