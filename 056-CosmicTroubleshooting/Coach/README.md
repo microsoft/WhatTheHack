@@ -10,7 +10,7 @@ Welcome to the coach's guide for the Cosmic Troubleshooting What The Hack. Here 
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[What is Going On](./Solution-01.md)**
+- Challenge 01: **[What is Going On?](./Solution-01.md)**
 	 - Troubleshoot the performance issues
 - Challenge 02: **[Time to Fix Things](./Solution-02.md)**
 	 - Implement planned changes
