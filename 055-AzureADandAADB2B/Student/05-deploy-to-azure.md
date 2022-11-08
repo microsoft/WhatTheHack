@@ -1,6 +1,6 @@
 # Challenge \#5 - Deploy your app to Azure!!
 
-[< Previous Challenge](./04-l14n.md) - **[Home](../README.md)** - [Next Challenge>](./06-conditional-access.md)
+[< Previous Challenge](./04-l14n.md) - **[Home](../README.md)**
 ## Introduction
 
 Modern authentication protocols allow you to decouple from Windows and Active Directory, instead allowing any person in the organization to sign in to a web application from any device - as long as it has internet connectivity.
@@ -17,7 +17,7 @@ During this scenario, you will modernize an existing intranet web application fr
 
 ## Learning Resources
 
-- [Deployment to Azure APp Service](https://learn.microsoft.com/en-us/azure/app-service/deploy-local-git?tabs=cli)
+- [Deployment to Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/deploy-local-git?tabs=cli)
 - [Quickstart: Deploy an ASP.NET web app](https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vs#publish-to-azure)
 ## Advanced Challenges (Optional)
 
