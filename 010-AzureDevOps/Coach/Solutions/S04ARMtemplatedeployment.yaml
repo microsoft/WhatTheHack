@@ -1,0 +1,10 @@
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  displayName: DEV
+  inputs:
+    azureResourceManagerConnection: 'Azure Pass - Sponsorship (12248e4e-6b1f-4000-a721-12bf8444f6b2)'
+    subscriptionId: '12248e4e-6b1f-4000-a721-12bf8444f6b2'
+    resourceGroupName: rgDev
+    location: 'Central US'
+    csmFile: 'AzureDevOpsWhatTheHack/ArmTemplates/container-webapp-template.json'
+    overrideParameters: '-webAppName "updevdevops-dev" -hostingPlanName "updevdevops-asp" -appInsightsLocation "Central US" -appInsightsName "updevdevops-ai" -sku "S1" -registryName "updevdevopsreg" -imageName "updevdevopsimage" -registryLocation "Central US" -registrySku "Standard" -startupCommand ""'
