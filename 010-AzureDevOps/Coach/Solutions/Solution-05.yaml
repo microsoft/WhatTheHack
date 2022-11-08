@@ -1,0 +1,49 @@
+variables:
+- name: BuildParameters.RestoreBuildProjects
+  value: '**/*.csproj'
+- name: BuildParameters.TestProjects
+  value: '**/*[Tt]ests/*.csproj'
+trigger:
+  branches:
+    include:
+    - refs/heads/main
+name: $(date:yyyyMMdd)$(rev:.r)
+jobs:
+- job: Job_1
+  displayName: AJRun
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: restore
+      projects: $(BuildParameters.RestoreBuildProjects)
+      feedRestore: 588828cb-7c9e-49d1-a7d2-4f31c8bfbae3
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      projects: $(BuildParameters.RestoreBuildProjects)
+      arguments: --configuration $(BuildConfiguration)
+  - task: DotNetCoreCLI@2
+    displayName: Test
+    inputs:
+      command: test
+      projects: $(BuildParameters.TestProjects)
+      arguments: --configuration $(BuildConfiguration)
+  - task: DotNetCoreCLI@2
+    displayName: Publish
+    inputs:
+      command: publish
+      publishWebProjects: True
+      projects: $(BuildParameters.RestoreBuildProjects)
+      arguments: --configuration $(BuildConfiguration) --output $(System.DefaultWorkingDirectory)/PublishedWebApp
+      zipAfterPublish: false
+  - task: Docker@2
+    displayName: buildAndPush
+    inputs:
+      containerRegistry: 14f82486-ac7f-4218-b4ff-4fbd260d637f
+      repository: Dev-CI Build
+      buildContext: $(System.DefaultWorkingDirectory)/PublishedWebApp
+...

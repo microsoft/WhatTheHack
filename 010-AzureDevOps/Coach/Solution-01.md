@@ -4,17 +4,5 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Provide access to the team across the organization.
+- DevOps Self-Assessment with issue in the certificate, I recommend to alert users of the issue certificate, or just skip the step. 

@@ -4,17 +4,5 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- To archive this item the student has to understand the permissions in the ADO and work items inside of ADO.
+  - More information in https://docs.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops&tabs=agile-process

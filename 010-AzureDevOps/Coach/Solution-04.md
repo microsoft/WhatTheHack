@@ -4,17 +4,11 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+- Use classic version in the ARM deployment
+- Override template parameters, student should have this solution:
+  - Students can archive this item clicking in the 3 dots, open a new window with the name/value table.
+  - Solution tested: -webAppName "updevdevops-dev" -hostingPlanName "updevdevops-asp" -appInsightsLocation "Central US" -appInsightsName "updevdevops-ai" -sku "S1" -registryName "updevdevopsreg" -imageName "updevdevopsimage" -registryLocation "Central US" -registrySku "Standard" -startupCommand ""
+  - check the YAML in the solutions **[S04ARMtemplatedeployment.yaml](./Solutions/S04ARMtemplatedeployment.yaml)** for the prefix part
+- Check the **[Solution-04](./Solutions/Solution-04.json)** for entire possible solution for this challenge. 
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here

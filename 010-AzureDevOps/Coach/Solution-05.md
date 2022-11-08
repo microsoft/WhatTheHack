@@ -4,17 +4,5 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Check the solution file as ADO pipeline solution sample [Solution-05.yaml](./Solutions/Solution-05.yaml)
+- Additionally, the application and the Docker image are deployed to Azure DevOps, but it's not ready. The student should have to update to 3.0.0 .NET Core at least inside the project file. 

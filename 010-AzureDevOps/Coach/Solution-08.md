@@ -6,15 +6,5 @@
 
 This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+Follow the steps inside the basics of Azure Insights integration. See [Doc App insights Get Started](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#get-started) for more information
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
