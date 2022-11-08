@@ -1,0 +1,243 @@
+{
+    "options": [
+        {
+            "enabled": false,
+            "definition": {
+                "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+            },
+            "inputs": {
+                "branchFilters": "[\"+refs/heads/*\"]",
+                "additionalFields": "{}"
+            }
+        },
+        {
+            "enabled": false,
+            "definition": {
+                "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+            },
+            "inputs": {
+                "workItemType": "Bug",
+                "assignToRequestor": "true",
+                "additionalFields": "{}"
+            }
+        }
+    ],
+    "variables": {
+        "system.debug": {
+            "value": "false",
+            "allowOverride": true
+        }
+    },
+    "properties": {},
+    "tags": [],
+    "_links": {
+        "self": {
+            "href": "https://dev.azure.com/student020227/1e77625f-8419-4c7e-a9d5-caab9c479b5b/_apis/build/Definitions/2?revision=18"
+        },
+        "web": {
+            "href": "https://dev.azure.com/student020227/1e77625f-8419-4c7e-a9d5-caab9c479b5b/_build/definition?definitionId=2"
+        },
+        "editor": {
+            "href": "https://dev.azure.com/student020227/1e77625f-8419-4c7e-a9d5-caab9c479b5b/_build/designer?id=2&_a=edit-build-definition"
+        },
+        "badge": {
+            "href": "https://dev.azure.com/student020227/1e77625f-8419-4c7e-a9d5-caab9c479b5b/_apis/build/status/2"
+        }
+    },
+    "comment": "v3",
+    "jobAuthorizationScope": 1,
+    "jobTimeoutInMinutes": 60,
+    "jobCancelTimeoutInMinutes": 5,
+    "process": {
+        "phases": [
+            {
+                "steps": [
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "DEV",
+                        "timeoutInMinutes": 0,
+                        "retryCountOnTaskFailure": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "94a74903-f93f-4075-884f-dc11f34058b4",
+                            "versionSpec": "3.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "deploymentScope": "Resource Group",
+                            "ConnectedServiceName": "23871882-0f4d-4b02-be7b-232bae2dd877",
+                            "subscriptionName": "122111111-6b1f-4000-a721-1111111",
+                            "action": "Create Or Update Resource Group",
+                            "resourceGroupName": "rgDev",
+                            "location": "Central US",
+                            "templateLocation": "Linked artifact",
+                            "csmFileLink": "",
+                            "csmParametersFileLink": "",
+                            "csmFile": "AzureDevOpsWhatTheHack/ArmTemplates/container-webapp-template.json",
+                            "csmParametersFile": "",
+                            "overrideParameters": "-webAppName \"updevdevops-dev\" -hostingPlanName \"updevdevops-asp\" -appInsightsLocation \"Central US\" -appInsightsName \"updevdevops-ai\" -sku \"S1\" -registryName \"updevdevopsreg\" -imageName \"updevdevopsimage\" -registryLocation \"Central US\" -registrySku \"Standard\" -startupCommand \"\"",
+                            "deploymentMode": "Incremental",
+                            "deploymentName": "",
+                            "deploymentOutputs": "",
+                            "addSpnToEnvironment": "false"
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "TEST",
+                        "timeoutInMinutes": 0,
+                        "retryCountOnTaskFailure": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "94a74903-f93f-4075-884f-dc11f34058b4",
+                            "versionSpec": "3.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "deploymentScope": "Resource Group",
+                            "ConnectedServiceName": "23871882-0f4d-4b02-be7b-232bae2dd877",
+                            "subscriptionName": "122111111-6b1f-4000-a721-1111111",
+                            "action": "Create Or Update Resource Group",
+                            "resourceGroupName": "rgTest",
+                            "location": "Central US",
+                            "templateLocation": "Linked artifact",
+                            "csmFileLink": "",
+                            "csmParametersFileLink": "",
+                            "csmFile": "AzureDevOpsWhatTheHack/ArmTemplates/container-webapp-template.json",
+                            "csmParametersFile": "",
+                            "overrideParameters": "-webAppName \"uptesdevops-test\" -hostingPlanName \"uptesdevops-asp\" -appInsightsLocation \"Central US\" -appInsightsName \"uptesdevops-ai\" -sku \"S1\" -registryName \"uptesdevopsreg\" -imageName \"uptesdevopsimage\" -registryLocation \"Central US\" -registrySku \"Standard\" -startupCommand \"\"",
+                            "deploymentMode": "Incremental",
+                            "deploymentName": "",
+                            "deploymentOutputs": "",
+                            "addSpnToEnvironment": "false"
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "PROD",
+                        "timeoutInMinutes": 0,
+                        "retryCountOnTaskFailure": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "94a74903-f93f-4075-884f-dc11f34058b4",
+                            "versionSpec": "3.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "deploymentScope": "Resource Group",
+                            "ConnectedServiceName": "23871882-0f4d-4b02-be7b-232bae2dd877",
+                            "subscriptionName": "122111111-6b1f-4000-a721-1111111",
+                            "action": "Create Or Update Resource Group",
+                            "resourceGroupName": "rgProd",
+                            "location": "Central US",
+                            "templateLocation": "Linked artifact",
+                            "csmFileLink": "",
+                            "csmParametersFileLink": "",
+                            "csmFile": "AzureDevOpsWhatTheHack/ArmTemplates/container-webapp-template.json",
+                            "csmParametersFile": "",
+                            "overrideParameters": "-webAppName \"upprddevops-prod\" -hostingPlanName \"upprddevops-asp\" -appInsightsLocation \"Central US\" -appInsightsName \"upprddevops-ai\" -sku \"S1\" -registryName \"upprddevopsreg\" -imageName \"upprddevopsimage\" -registryLocation \"Central US\" -registrySku \"Standard\" -startupCommand \"\"",
+                            "deploymentMode": "Incremental",
+                            "deploymentName": "",
+                            "deploymentOutputs": "",
+                            "addSpnToEnvironment": "false"
+                        }
+                    }
+                ],
+                "name": "RUN AGENT",
+                "refName": "Job_1",
+                "condition": "succeeded()",
+                "target": {
+                    "executionOptions": {
+                        "type": 0
+                    },
+                    "allowScriptsAuthAccessOption": false,
+                    "type": 1
+                },
+                "jobAuthorizationScope": 1
+            }
+        ],
+        "target": {
+            "agentSpecification": {
+                "identifier": "windows-2019"
+            }
+        },
+        "type": 1
+    },
+    "repository": {
+        "properties": {
+            "cleanOptions": "0",
+            "labelSources": "0",
+            "labelSourcesFormat": "$(build.buildNumber)",
+            "reportBuildStatus": "true",
+            "gitLfsSupport": "false",
+            "skipSyncSource": "false",
+            "checkoutNestedSubmodules": "false",
+            "fetchDepth": "0"
+        },
+        "id": "597c47d0-1cfd-4f73-91f6-01a63d8b3511",
+        "type": "TfsGit",
+        "name": "Squad 2 - What the Hack",
+        "url": "https://dev.azure.com/student020227/Squad%202%20-%20What%20the%20Hack/_git/Squad%202%20-%20What%20the%20Hack",
+        "defaultBranch": "refs/heads/main",
+        "clean": "false",
+        "checkoutSubmodules": false
+    },
+    "processParameters": {},
+    "quality": 1,
+    "authoredBy": {
+        "displayName": "Student04 Student04",
+        "url": "https://spsprodsbr1.vssps.visualstudio.com/A36db7980-c94c-4c7b-9bbe-ac0fb9cf167a/_apis/Identities/7776b2a1-7cd1-64c1-94db-c1b166e7a93b",
+        "_links": {
+            "avatar": {
+                "href": "https://dev.azure.com/student020227/_apis/GraphProfile/MemberAvatars/aad.Nzc3NmIyYTEtN2NkMS03NGMxLTk0ZGItYzFiMTY2ZTdhOTNi"
+            }
+        },
+        "id": "7776b2a1-7cd1-64c1-94db-c1b166e7a93b",
+        "uniqueName": "student04@ideris02outlook.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/student020227/_apis/GraphProfile/MemberAvatars/aad.Nzc3NmIyYTEtN2NkMS03NGMxLTk0ZGItYzFiMTY2ZTdhOTNi",
+        "descriptor": "aad.Nzc3NmIyYTEtN2NkMS03NGMxLTk0ZGItYzFiMTY2ZTdhOTNi"
+    },
+    "drafts": [],
+    "queue": {
+        "_links": {
+            "self": {
+                "href": "https://dev.azure.com/student020227/_apis/build/Queues/18"
+            }
+        },
+        "id": 18,
+        "name": "Azure Pipelines",
+        "url": "https://dev.azure.com/student020227/_apis/build/Queues/18",
+        "pool": {
+            "id": 9,
+            "name": "Azure Pipelines",
+            "isHosted": true
+        }
+    },
+    "id": 2,
+    "name": "Infrastructure Release",
+    "url": "https://dev.azure.com/student020227/1e77625f-8419-4c7e-a9d5-caab9c479b5b/_apis/build/Definitions/2?revision=18",
+    "uri": "vstfs:///Build/Definition/2",
+    "path": "\\Pipeline",
+    "type": 2,
+    "queueStatus": 0,
+    "revision": 18,
+    "createdDate": "2022-06-21T15:32:23.437Z",
+    "project": {
+        "id": "1e77625f-8419-4c7e-a9d5-caab9c479b5b",
+        "name": "Squad 2 - What the Hack",
+        "url": "https://dev.azure.com/student020227/_apis/projects/1e77625f-8419-4c7e-a9d5-caab9c479b5b",
+        "state": 1,
+        "revision": 19,
+        "visibility": 0,
+        "lastUpdateTime": "2022-06-20T13:30:01.883Z"
+    }
+}
