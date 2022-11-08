@@ -18,7 +18,7 @@ This hack is mostly useful for identity architects and developers who want to in
 ## Challenges
 
 
-Challenge 1: **[Azurer AD Tenant set-up](Student/00-tenant-setup.md)**
+Challenge 1: **[Azure AD Tenant set-up](Student/00-tenant-setup.md)**
 
 - Create an Azure AD Tenant
 - Azure AD  Single Tenant setup
