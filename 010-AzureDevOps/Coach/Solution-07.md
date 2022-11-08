@@ -6,4 +6,4 @@
 
 This is the only section you need to include.
 
-Should add a new validate in the steps in the pipeline. 
+Should add a new validate step in the steps in the pipeline. 
