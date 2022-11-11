@@ -1,6 +1,6 @@
-# What The Hack - Bronze-Silver-Gold-Using-Synapse-and-Databricks
-
 ![picture alt](img/WTH.png)
+
+# What The Hack - Bronze-Silver-Gold-Using-Synapse-and-Databricks
 
 ## Introduction
 
@@ -17,24 +17,28 @@ In this hack you will be solving the common business problem that companies in t
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
+	 - Understand the basics of Synapse
+	 - Understand the basics of Databricks
+	 - Understand the Delta Lake Concepts.
+- Challenge 01: **[Setup the Environment and Hydrate the Bronze Lake](Student/Challenge-01.md)**
+	 - Standup and configure the Synapse and Databricks Environments.
+	 - Hydrate the Bronze Data Lake
+	 - Encrypt all connection details in Key Vault
+- Challenge 02: **[Hydrate the Silver Delta Lake](Student/Challenge-02.md)**
+	 - Move the data from the Bronze Layer to the Silver Layer 
+	 - Apply Delta Format to the Silver Layer
+- Challenge 03: **[Go for the Gold](Student/Challenge-03.md)**
+	 - Take data from the Silver Layer and make it business analyst ready
+- Challenge 04: **[Visualize the Results](Student/Challenge-04.md)**
+	 - Create Power BI Assets to showcase your results
 
 ## Prerequisites
 
 - Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Willingness to learn from your colleagues
+- A wicked' cool Teams background.
 
 ## Contributors
 
-- Jack Bender
-- Farhan Arif
+- [Jack Bender](https://www.linkedin.com/in/jack-bender/)
+- [Farhan Arif](https://www.linkedin.com/in/frhnarif/)
