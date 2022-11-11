@@ -6,7 +6,18 @@
 
 Activity Logs show everything that is happening to your resources at the API level. The Activity log is a platform log in Azure that provides insights into subscription-level events. This includes information such as when a resource is modified or when a virtual machine is started.
 
+For this challenge, your goal is to understand Azure platform logs, configure a monitor to get notified if a VM has been turned off, and view the service health.
+
+There are multiple ways to configure monitoring in Azure.  You can configure monitoring manually in the Azure portal like you did in the previous challenge.  This is a great way to learn how Azure Monitor works and what settings are available to choose from. 
+
+However, this method does not scale when you need to configure monitoring across 10s, 100s, or even 1000s of resources in Azure. It is easier to configure monitoring at scale across many Azure resources if you use a declarative infrastructure-as-code tool such as ARM templates, Bicep, or Terraform.
+
 ## Description
+
+For this challenge, you will use Bicep to deploy the ??????? monitor. We have provided you with a sample Bicep file that can be used to configure monitoring in Datadog. 
+
+You can find the sample Bicep file, `XXXXXXX.bicep`, in the `/Challenge-02` folder of the `Resources.zip` file provided by your coach. To complete the challenge, navigate to the location of this file using your terminal client (WSL or Azure Cloud Shell).
+
 
 Understand Activity Logs, configure an Alert to get notified if a VM has been turned off, and view the service health.
 
@@ -24,6 +35,7 @@ Bonus question/task:
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
+- Verify that you have the new Monitor Alert Rules in the Azure Portal
 - Show the Alert which got fired and explain what you have done.
 
 ## Learning Resources
