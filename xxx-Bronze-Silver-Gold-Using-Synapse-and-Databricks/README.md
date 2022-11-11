@@ -1,6 +1,6 @@
 # What The Hack - Bronze-Silver-Gold-Using-Synapse-and-Databricks
 
-![picture alt](/img/WTH.png)
+	![picture alt](/img/WTH.png)
 
 ## Introduction
 
