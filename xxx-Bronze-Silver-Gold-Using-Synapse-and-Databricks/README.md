@@ -16,11 +16,11 @@ In this hack you will be solving the common big data archicture issue of bringin
 	 - Understand the basics of Synapse
 	 - Understand the basics of Databricks
 	 - Understand the Delta Lake Concepts.
-- Challenge 01: **[Setup the Environment and Hydrate the Bronze Lake](Student/Challenge-01.md)**
+- Challenge 01: **[Building out the Bronze](Student/Challenge-01.md)**
 	 - Standup and configure the Synapse and Databricks Environments.
 	 - Hydrate the Bronze Data Lake
 	 - Encrypt all connection details in Key Vault
-- Challenge 02: **[Hydrate the Silver Delta Lake](Student/Challenge-02.md)**
+- Challenge 02: **[Standardizing on Silver](Student/Challenge-02.md)**
 	 - Move the data from the Bronze Layer to the Silver Layer 
 	 - Apply Delta Format to the Silver Layer
 - Challenge 03: **[Go for the Gold](Student/Challenge-03.md)**
