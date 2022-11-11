@@ -4,17 +4,23 @@
 
 ## Introduction
 
-You have been contracted to deploy, monitor and manage an online shopping website in Azure for a start-up company called "eshoponweb".  After evaluating the requirements, you develop a solution in Azure that includes an Azure environment that consists of (2) Azure resource groups that include a VNet, subnets, NSG(s), LB(s), NAT rules, scale set and a fully functional .NET Core Application (eShopOnWeb) to monitor.
+You have been contracted to deploy, monitor and manage an online shopping website in Azure for a start-up company called "eShopOnWeb".  
 
-Upon successful testing, you present your solution to company's leadership for approval along with the PowerShell, CLI and/or Azure Cloud Shell options for quick deployment. 
+After evaluating the requirements, your team has provided you with a set of Azure Bicep templates and scripts that will deploy the "eShopOnWeb" application and its underlying infrastructure resources into Azure. The Azure environment consists of a VNet, subnets, NSG(s), LoadBalancer(s), NAT rules, a SQL Server VM, a Visual Studio VM, a VM scale set, and an AKS cluster.
 
-They were very excited about how quickly you are able to deploy the solution, and give you the green light to proceed.
+Upon successful testing, you present your deployment solution to the company's leadership for approval along with Azure CLI, PowerShell, and Azure Cloud Shell options for quick deployment. 
 
-## Common Prerequisites
+They were very excited about how quickly your team was able to create a deployment solution, and give you the green light to proceed.
 
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
+Your job will be to use Azure Monitoring to configure the eShopOnWeb solution to be monitored so you can demonstrate to the company's leadership team that you can effectively manage it.
 
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+## Prerequisites
+
+You will need an Azure Subscription with the "Owner" role assigned to deploy the eShopOnWeb Azure environment at the subscription scope.
+
+You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com) and [Azure Cloud Shell](https://shell.azure.com). 
+
+However, if you work with Azure and on a regular basis, these are tools you should consider having installed on your local workstation:
 
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
@@ -27,75 +33,71 @@ You might not need all of them for the hack you are participating in. However, i
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 
-Additionally, you will need an Azure Subscription with sufficient RBAC roles assigned to complete the challenges at the subscription scope.
+### Student Resources
+
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.  
+
+The Azure Bicep templates and scripts developed by your team to deploy the eShopOnWeb Azure environment are included in this package.
+
+If you have installed all of the tools listed above and plan to work on your local workstation, you should download and unpack the `Resources.zip` file there too.
+
+If you plan to use the Azure Cloud Shell, upload and unpack this file in your Azure Cloud Shell environment. 
+
+The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
 ## Description
 
-For this challenge, you will deploy the pre-developed scripts using either PowerShell or Azure CLI. This script will setup the environment with a specific focus learning Azure monitor.  Should you require additional knowledge outside of Azure monitor for this hack, please refer to [Azure Learning](https://docs.microsoft.com/en-us/learn/).
+For this challenge, you will deploy the eShopOnWeb application and its underlying infrastructure resources to Azure using a set of pre-developed Bicep templates. Once the application and its infrastructure are deployed, you will complete the hack's challenges using Azure Monitor to monitor it.
 
 ### Deploy Resources
 
-Use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6b97242fb99411ec83659823c955fa16) or the [PowerShell Az module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps) to deploy the baseline requirements to start the Monitoring WTH
+You will find the provided `main.bicep` template and its associated script files in the `/Challenge-00/` folder of the `Resources.zip` file provided to you by your coach. 
+
+Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6b97242fb99411ec83659823c955fa16) or the [PowerShell Az module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps) to deploy the Bicep template.
 
 #### Azure CLI
 
-1. Copy the code below and paste it in your desired tool: PowerShell, Terminal, VSCode, or CloudShell.
-
-    ```az login --tenant "<Tenant ID>"```
-
-2. Replace `<Tenant ID>` with your Azure Tenant ID. This can be found on the Overview blade of Azure AD in the Azure Portal.
-
-3. Press the ENTER key and login to Azure using the prompt.
-
-4. Copy the code below and paste it in your desired tool:
-
-    ```az account set --subscription "<Subscription ID>"```
-
-5. Replace `<Subscription ID>` with your Azure Subscription ID. This can be round on the Overview blade of your Subscription in the Azure Portal.
-
-6. Press the ENTER key to set your default Azure subscription.
-
-7. Copy the Azure CLI code below:
-
+1. Log into your Azure Subscription with the Azure CLI: 
+    ```bash
+    az login
     ```
-    az deployment sub create --name "<Username>" --location "eastus" -f challenge-00_Template.bicep --verbose
+    **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as the Azure CLI is already logged into your Azure subscription.
+
+1. Deploy the template by running the following Azure CLI command from wherever you have unpacked the `/Challenge-00/` folder:
+
+    ```bash
+    az deployment sub create --name "<deploymentName>" --location "<azure-region>" -f main.bicep --verbose
     ```
-
-8. Paste the code in your desired tool.
-
-9. Replace `<Username>` with your username, not your UPN (e.g., username, **NOT** username@outlook.com).
-
-10. You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    
+    - We recommend you use your initials for the  `<deploymentName>` value.
+    - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
+    - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - **NOTE:** This deployment will take approximately 20-25 minutes.
 
 #### PowerShell with the AZ Module
 
-1. Copy the PowerShell code below and paste it in your desired tool: PowerShell, Terminal, VSCode, or CloudShell.
+1. Log into your Azure Subscription with the PowerShell:
 
-    ```Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>'```
-
-2. Replace `<Tenant ID>` with your Azure Tenant ID.  This can be found on the Overview blade of Azure AD in the Azure Portal.  
-
-3. Replace `<Subscription ID>` with your Azure Subscription ID.  This can be round on the Overview blade of your Subscription in the Azure Portal.
-
-4. Press the ENTER key and login to Azure using the prompt.
-
-5. Copy the PowerShell code below:
-
-    ```
-    New-AzDeployment -Name "<Username>" -Location "eastus" -TemplateUri "https://raw.githubusercontent.com/jamasten/WhatTheHack/master/007-AzureMonitoring/Student/Resources/challenge-00_Template.json" -Verbose
+    ```PowerShell
+    Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>'
     ```
 
-6. Paste the code in your desired tool.
+    **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as PowerShell is already logged into your Azure subscription.
 
-7. Replace `<Username>` with your username, not your UPN (e.g. username, **NOT** username@outlook.com).
+1. Deploy the template by running the following PowerShell command from wherever you have unpacked the `/Challenge-00/` folder:
 
-8. Press ENTER to start the deployment.
-
-9. You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to Azure's requirements. [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    ```PowerShell
+    New-AzDeployment -Name "<deploymentName>" -Location "<azure-region>" -TemplateUri "main.bicep" -Verbose
+    ```
+    - We recommend you use your initials for the  `<deploymentName>` value.
+    - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
+    - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - **NOTE:** This deployment will take approximately 20-25 minutes.
 
 ### View Deployed Resources
 
-- Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-eu** , in the Azure Portal.  
+- Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-XX** , in the Azure Portal.
+  - >**Note** The "XX" in the Public IP Address resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
 - In the Overview blade, copy the DNS name to your clipboard.  
 - Open a web browser, paste your DNS name in the address bar and press ENTER.  Your browser should render the eShopOnWeb site. 
 
@@ -103,6 +105,7 @@ Use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6
 
 ## Success Criteria
 
+- Verify you have access to the contents of the `Resources.zip` package provided by your Coach.
 - Verify you can see the website deployed
 - Verify the resources contained in architecture diagram below are present in your own Azure subscription.
 
@@ -115,8 +118,6 @@ Use either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?msclkid=6
 - [Overview of Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
 ## Tips
-
-- Make sure the Admin password adheres to the Azure password policy
-- Make sure you are logged into the correct subscription and you have the at least contributors role access.  
+ 
 - Make sure you have the compute capacity in the region you are deploying to and request an increase to the limit if needed.
 - Make sure you are using a region that supports the public preview for Azure Monitor for VMs
