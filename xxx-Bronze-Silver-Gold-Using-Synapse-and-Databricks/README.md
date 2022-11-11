@@ -34,5 +34,5 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Jack Bender
+- Farhan Arif
