@@ -4,15 +4,11 @@
 
 ## Introduction
 
-With many customers moving towards a modern three-tiered Data Lake architecture it is imperative that we understand how you can utilize Synapase and Databricks to build out the bronze, silver and gold layer to serve data to Power Bi for dashboards and reporting.
+With many customers moving towards a modern three-tiered Data Lake architecture it is imperative that we understand how you can utilize Synapase and Databricks to build out the bronze, silver and gold layers to serve data to Power Bi for dashboards and reporting while also ensuring that the bronze and silver layers are being hydrated correctly for ML/AI workloads.
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
-
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+In this hack you will be solving the common big data archicture issue of bringing multiple data sources together and serve them up with a Delta based technology so that both Azure Synapse and Databricks can consume the data and what are the similarities and differences between them.
 
 ## Challenges
 
@@ -36,7 +32,7 @@ In this hack you will be solving the common business problem that companies in t
 
 - Your own Azure subscription with Owner access
 - Willingness to learn from your colleagues
-- A wicked' cool Teams background.
+- A wicked' cool Teams background.  There will be prizes for each day.
 
 ## Contributors
 
