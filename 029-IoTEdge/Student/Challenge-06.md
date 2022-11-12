@@ -26,7 +26,7 @@ High-level steps:
     - OPC Simulator module (from a previous challenge) and any required routes/configurations
     - Simulated Temperature Sensor module and any required routes
 
-1. Push the deployment manifest manifest to the IoT Hub, making sure that only the you target the tag you created in step 1, i.e., only the devices with that tag receive the deployment.
+1. Push the deployment manifest to the IoT Hub, making sure that you only target the tag you created in step 1, i.e., only the devices with that tag receive the deployment.
 
 1. Check the new IoT Edge device confirm that the modules running are the ones you specified in your deployment manifest.
 

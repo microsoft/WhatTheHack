@@ -14,7 +14,7 @@ For this challenge you should focus on the steps below to successfully establish
 1. Configuration of IoT Edge Runtime to communicate with Azure HINT: This should be done in an automated fashion -- learning resources below.
 1. Configuration of OPC module(s) as per documentation HINT: This requires customization to the deployment/modules running on the Edge.
  + Documentation on OPC Publisher Module -- challenging to locate
-    - https://github.com/Azure/iot-edge-opc-publisher/blob/main/CommandLineArguments.md
+    - https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher-commandline.md
     - https://github.com/azure/iot-edge-opc-publisher
 
 
