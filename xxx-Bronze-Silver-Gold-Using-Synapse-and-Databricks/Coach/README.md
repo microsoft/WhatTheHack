@@ -39,7 +39,7 @@ These databases can be obtained at the following sites:
 
 - [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers)
 
-Also, make sure to create a database reader account that the users can utilize to read the various tables.  The _CREATE LOGIN HackathonUser.sql_ script is located in the [Solutions](/Solutions) folder.
+Also, make sure to create a database reader account that the users can utilize to read the various tables.  The _CREATE LOGIN HackathonUser.sql_ script is located in the [Solutions](./Solutions) folder.
 
 ### Student Resources
 
