@@ -1,4 +1,4 @@
-# Challenge 04 - <Title of Challenge>
+# Challenge 04 - Visualize the Results
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
