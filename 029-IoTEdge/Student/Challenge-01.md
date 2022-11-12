@@ -45,7 +45,7 @@ Check for the updated list of supported regions here: [Device Streams: Regional 
 1. [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
 1. [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge?view=iotedge-2018-06)
 1. [Azure Industrial IoT modules](https://azure.github.io/Industrial-IoT/)
-1. [IoT Edge Background Deck for WTH](../Coach/Presentations/IoTHub_Edge.pptx)
+1. [IoT Edge Background Deck for WTH](../Coach/Presentations/IoTHub_Edge.pptx?raw=true)
 
 
 ## Advanced Challenges (Optional)
