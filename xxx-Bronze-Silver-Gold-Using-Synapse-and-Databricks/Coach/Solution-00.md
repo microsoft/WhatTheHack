@@ -4,17 +4,10 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+In preparation for the event, please make sure that the students review [Challenge 0 - Prerequisites - Ready, Set, GO! - Coach's Guide](../Student/Challenge-00.md) ahead of time and are familiar with the topics listed in the Foundational Knowledge section.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+Also assign your students to squads of 4 persons max and add them to the Team Channels for their respective squads so that they can be utilized on Day 1.  
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+If you have used the survey described in the coache's README, please utilize the scores when dividing up the attendees between squads.
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+Also review the [Lechtures.pptx](./Lectures.pptx) presentation in preparation for the kick off of the first session.
