@@ -1,4 +1,4 @@
-# Challenge 04 - <Title of Challenge> - Coach's Guide 
+# Challenge 04 - Visualize the Results - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)**
 
