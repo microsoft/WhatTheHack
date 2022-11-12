@@ -27,6 +27,20 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
+### Additional Coach Prerequisites
+
+The purpose of this hackathon is for the particpants to utilize the three-tier data lake architecture to combine different data sources into one Delta Lake architecture that can be utilized.  
+
+For Challenge 0, they will need to import data from both the AdventureWork and WideWorldImporters databases into the Bronze layer.  Thus, for the hackathon you must setup these databases in an Azure SQL environment so that the users can connect to these are a source.  We want the users to focus on Databricks and Synapse technologies and not be responsible for setting up these databases.
+
+These databases can be obtained at the following sites:
+
+- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
+
+- [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers)
+
+Also, make sure to create a database reader account that the users can utilize to read the various tables.  The _CREATE LOGIN HackathonUser.sql_ script is located in the [Solutions](/Solutions) folder.
+
 ### Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
@@ -35,33 +49,39 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
 
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+Each team/squad will collaborate in one Student's Azure subscription.  The subscription chosen must have the ability to add all users to that subscription and give them contributor access within the Resource Group created for this hackathon. 
 
-_For example:_
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+## Session Guidance 
 
-## Suggested Hack Agenda (Optional)
+This What the Hack was cdesigned and executed for a remote/virtual audience.
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+We initially conducted this hackathon in three - 4 hour sessions for a total of 12 hours. It was done over a three week period with each session being conducted on a Friday.
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+- Day 1
+  - Challenge 1 - Building Out the Bronze
+  - Challenge 2 - Standardizing on Silver
+ 
+- Day 2
+  - Challenge 2 - Standardizing on Silver
+  - Challenge 3 - Go for the Gold
+
+- Day 3
+  - Challenge 3 - Go for the Gold
+  - Challenge 4 - Visualize the Results
+
+We also had the attendees fill out a survey during registration to guage their expertise and we made sure that each team was balanced with experts and beginners using the following questions:
+
+- Experience Level with ADF/ Synapse Pipelines (100=Newbie -> 400=SME)
+- Experience Level with ADF/Synapse Data Flows
+- Experience Level with Azure Databricks
+- Experience Level with Power BI
+Answers were single select options of 100/200/300/400
 
 ## Repository Contents
 
