@@ -8,7 +8,7 @@ With many customers moving towards a modern three-tiered Data Lake architecture 
 
 ## Learning Objectives
 
-In this hack you will be solving the common big data archicture issue of bringing multiple data sources together and serve them up with a Delta based technology so that both Azure Synapse and Databricks can consume the data and what are the similarities and differences between them.
+In this hack you will be solving the common big data archicture issue of bringing multiple data sources together, standardizing them in a Delta format, and serving them up to Power Bi for dashboards and reporting.  You will get hands on with Azure Synapse and Databricks so that you understand the similarities and differences between them and how they both can collaborate on the same data, including Delta technology.
 
 ## Challenges
 
