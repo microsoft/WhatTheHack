@@ -4,11 +4,11 @@
 
 ## Introduction
 
-With many customers moving towards a modern three-tiered Data Lake architecture it is imperative that we understand how you can utilize Synapase and Databricks to build out the bronze, silver and gold layers to serve data to Power Bi for dashboards and reporting while also ensuring that the bronze and silver layers are being hydrated correctly for ML/AI workloads.
+With many customers moving towards a modern three-tiered Data Lake architecture it is imperative that we understand how to utilize Synapase and Databricks to build out the bronze, silver and gold layers to serve data to Power Bi for dashboards and reporting while also ensuring that the bronze and silver layers are being hydrated correctly for ML/AI workloads.
 
 ## Learning Objectives
 
-In this hack you will be solving the common big data archicture issue of bringing multiple data sources together, standardizing them in a Delta format, and serving them up to Power Bi for dashboards and reporting.  You will get hands on with Azure Synapse and Databricks so that you understand the similarities and differences between them and how they both can collaborate on the same data, including Delta technology.
+In this hack you will be solving the common big data architecture issue of bringing multiple data sources together, standardizing them in a Delta format, and serving them up to Power Bi for dashboards and reporting.  You will get hands on with Azure Synapse and Databricks so that you understand the similarities and differences between them and how they both can collaborate on the same data, including Delta technology.
 
 ## Challenges
 
