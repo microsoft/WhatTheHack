@@ -2,17 +2,15 @@
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
 ## Introduction
 
-We are now ready to setup the environment and populate the data into the Bronze Data Layer.  For this challenge, we  want to bring in the data _as is_.  No data transformation is needed at this layer.
+We are now ready to setup the environment and populate the data into the Bronze Data Layer.  For this challenge, we want to bring in the data "as is".  No data transformation is needed at this layer.
 
 ## Description
 
-1. *Environmental Setup* - We need to setup the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancilliaries resources such as Power BI, the Azure Storage Accounts and Key Vault.
+1. __Environmental Setup__ - We need to setup the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancilliaries resources such as Power BI, the Azure Storage Accounts and Key Vault.
 
-2. *Hydration of Data in the Bronze Data Lake* - For this component we will copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.
+2. __Hydration of Data in the Bronze Data Lake__ - For this component we will copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.
 
 If you are copying the customer data, we would ask that you only grab the customer and address information.  If you are copying the sales order data, please copy in the product, sales order header and sales order detail information.   
 
