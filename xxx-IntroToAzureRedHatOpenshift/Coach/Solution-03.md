@@ -33,3 +33,30 @@ Just to reiterate the errors in the application:
 - Under Workloads, navigate to Pods
 - In Pods, there is a Logs tab (in between Environment and Events)
 - In this tab, the logs will be shown
+
+### View metrics and logs by integrating with Azure Arc
+You can use Azure services for metrics and logging by enabling your ARO cluster with Azure Arc. The instructions for setting this up can be found at the following locations. Perform them in the following order. These are prerequisites for this part of the lab.
+
+1. [Connect an existing cluster to Azure Arc](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli)
+1. [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fkubernetes%2Fbreadcrumb%2Ftoc.json)
+
+> Note: These also have some small prerequisites. Make sure to read those too. Also, when it asks for the "Cluster Name" for the CLI commands, it will most likely be the name of the Arc enabled cluster name and NOT the name of your ARO cluster.
+Once you have completed the above steps, if you are not already in Container Insights, then type "Azure Arc" in the search bar from the Home screen and select "Kubernetes - Azure Arc".
+
+![arckubernetes](Solutions/Resources/Images/1-searcharc.png)
+
+Select the Arc connected cluster you just created, then select "Insights".
+
+![arcclusterselect](Solutions/Resources/Images/2-arcselect.png)
+
+You will see a page with all sorts of metrics for the cluster.
+
+![clustermetrics](Solutions/Resources/Images/3-clustermetrics.png)
+
+![containerlogs](Solutions/Resources/Images/4-containerlogs.png)
+
+This will populate a query that requires a parameter to search for. Let's look for our error entry. Type "stderr" in the location for `FindString`, then click run.  You should see one line returned that contains the message you inputted earlier. You can also click the twist for more information.
+
+![getmessage](Solutions/Resources/Images/5-getlogmessage.png)
+
+Feel free to spend a few minutes exploring logs with the pre-created queries or try your own to see how robust the service is.
