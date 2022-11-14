@@ -4,17 +4,42 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+For this section, there are 2 main concepts that they need to be able to showcase.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+1. __Proper setup of the environment__
+   a. They should decide on a Resource Group within one user's subscription.
+   b. Be able to setup proper user access for all resources needed, including workspace access for both Dtabricks and Azure Synapse.
+   c. Articulate the reasons for their setup choices.
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+2. __Hydration of the Bronze Data Lake__ - For this section they can use either Databricks or Synapse.  The key here is that they only copy in either Customer/Address information or Product/Sales Order information.  
 
-Break things apart with more than one bullet list
+For guidance on this we recommend only the following tables for each database.  
 
-- Like this
-- One
-- Right
-- Here
+### Customer/Address Data
+
+#### AdventureWorks
+- SalesLT.Address
+- SalesLT.CustomerAddress
+- SalesLT.Customer
+
+#### WideWorldImporters
+- Application.Cities
+- Application.StateProvinces
+- Application.Countries
+- Sales.Customers
+
+### Product/Sales Order Data
+
+#### AdventureWorks
+- SalesLT.SalesOrderDetail
+- SalesLT.SalesOrderHeader
+- SalesLT.Product
+
+#### WideWorldImporters
+- Sales.Orders
+- Sales.Orderlines
+- Warehouse.StockItems
+
+It is also imperative to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.
+
+
