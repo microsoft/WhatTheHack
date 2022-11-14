@@ -8,6 +8,6 @@ In preparation for the event, please make sure that the students review [Challen
 
 Also assign your students to squads of 4 persons max and add them to the Team Channels for their respective squads so that they can be utilized on Day 1.  
 
-If you have used the survey described in the coache's README, please utilize the scores when dividing up the attendees between squads.
+If you have used the survey described in the coach's README, please utilize the scores when dividing the attendees between squads.
 
 Also review the [Lechtures.pptx](./Bronze-Silver-Gold.pptx?raw=true) presentation in preparation for the kick off of the first session.
