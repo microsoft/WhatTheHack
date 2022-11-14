@@ -1,19 +1,20 @@
-# Challenge 08 - Azure Service Operator Connection
+# Challenge 08 - Azure Active Directory Integration
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
 ## Introduction
-So now we have a cluster up and running, but what about the security? What about other things we may want to add onto our cluster? Azure Serivce Operator help us provision other Azure resources and connect them to our applications from within ARO.
+You're also able to authenticate your Azure Red Hat OpenShift with Azure Active Directory! In this challenge, we will be integrating Azure AD with ARO so that we can use Microsoft credentials to login to the ARO Web Console.
 
 ## Description
-In this challenge, we will be connecting to Azure Service Operator. While we cannot connect it to Key Vault just yet because Key Vault is not yet supported, we will still learn how to create the Service Operator that we would in theory use to connect to Key Vault and store our passwords, so we can point our environment variables to that instead.
+In this challenge, we will be integrating Azure Active Directory with ARO so that Azure AD can be configured as authentication for the ARO Web Console. 
+- **HINT:** To do this, you will need to register an Azure AD application for authentication. Please keep track of the different values you receive from the Azure Portal, they will be used to configure the ARO Web Console
 
 ## Success Criteria
-To complete this challenge successfully, you should be able to:
-- Demonstrate that the Azure Service Operator has been installed in your ARO cluster by using the command `oc get pods -n openshift-operators`
+- Demonstrate that you have an option to login to the ARO Web Console using Azure AD
+- Demonstrate logging in with Azure AD successfully
 
 ## Learning Resources
-- [Using the Azure Service Operator on OpenShift](https://cloud.redhat.com/blog/using-the-azure-service-operator-on-openshift)
-- [Azure Service Operator](https://azure.github.io/azure-service-operator/introduction/)
-- [Set secret from Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal)
-- [Store Service Principals in Azure Key Vault](https://learn.microsoft.com/en-us/azure-stack/user/azure-stack-key-vault-store-credentials?view=azs-2206)
+- [Authentication in ARO](https://docs.openshift.com/container-platform/4.11/authentication/index.html)
+- [Understanding Identity Provider Configuration](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html)
+- [Configuring OAuth Clients](https://docs.openshift.com/container-platform/4.11/authentication/configuring-oauth-clients.html)
+- [Configure Azure AD authentication for an ARO cluster](https://learn.microsoft.com/en-us/azure/openshift/configure-azure-ad-ui)

@@ -31,10 +31,10 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 	 - Secure cluster traffic between pods using network policies
 - Challenge 07: **[Scaling](Student/Challenge-07.md)**
 	 - Scale the frontend and backend applications
-- Challenge 08: **[Azure Service Operator Connection](Student/Challenge-08.md)**
-	 - Integrate Azure Service Operator
-- Challenge 09: **[Azure Active Directory Integration](Student/Challenge-09.md)**
+- Challenge 08: **[Azure Active Directory Integration](Student/Challenge-08.md)**
 	 - Provide authentication to your ARO Web Console
+- Challenge 09: **[Azure Service Operator Connection](Student/Challenge-09.md)**
+	 - Integrate Azure Service Operator
 
 ## Prerequisites
 - Your own Azure subscription with Owner access

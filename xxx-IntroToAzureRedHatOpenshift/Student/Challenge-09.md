@@ -1,20 +1,17 @@
-# Challenge 09 - Azure Active Directory Integration
+# Challenge 09 - Azure Service Operator Connection
 
 [< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)**
 
 ## Introduction
-You've made it to the last challenge. Congratulations! Guess what? You're also able to authenticate your Azure Red Hat OpenShift with Azure Active Directory! In this challenge, we will be integrating Azure AD with ARO so that we can use Microsoft credentials to login to the ARO Web Console.
+You've made it to the last challenge. Congratulations! So now we have a cluster up and running, but what about security? What about other things we may want to add to our cluster? Azure Serivce Operator helps us provision other Azure resources and connect them to our applications from within ARO.
 
 ## Description
-In this challenge, we will be integrating Azure Active Directory with ARO so that Azure AD can be configured as authentication for the ARO Web Console. 
-- **HINT:** To do this, you will need to register an Azure AD application for authentication. Please keep track of the different values you receive from the Azure Portal, they will be used to configure the ARO Web Console
+In this challenge, we will be installing Azure Service Operator and using it. While we cannot connect it to Azure Key Vault yet, there are other things we can do with it. This challenge is very free-flow so you and your team will decide which features of Azure Service Operator you want to use! Have fun :)
 
 ## Success Criteria
-- Demonstrate that you have an option to login to the ARO Web Console using Azure AD
-- Demonstrate logging in with Azure AD successfully
+To complete this challenge successfully, you should be able to:
+- Demonstrate that the Azure Service Operator has been installed in your ARO cluster by using the command `oc get pods -n openshift-operators`
 
 ## Learning Resources
-- [Authentication in ARO](https://docs.openshift.com/container-platform/4.11/authentication/index.html)
-- [Understanding Identity Provider Configuration](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html)
-- [Configuring OAuth Clients](https://docs.openshift.com/container-platform/4.11/authentication/configuring-oauth-clients.html)
-- [Configure Azure AD authentication for an ARO cluster](https://learn.microsoft.com/en-us/azure/openshift/configure-azure-ad-ui)
+- [Using the Azure Service Operator on OpenShift](https://cloud.redhat.com/blog/using-the-azure-service-operator-on-openshift)
+- [Azure Service Operator](https://operatorhub.io/operator/azure-service-operator)
