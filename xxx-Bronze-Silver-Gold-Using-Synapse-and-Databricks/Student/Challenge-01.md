@@ -18,9 +18,9 @@ If you are copying the customer data, we would ask that you only grab the custom
 To complete this challenge successfully, you should be able to:
 
 1. Validate that all resources exist in one Resource Group and are tagged appropriately.
-2. Validate that all team members have the proper access to all the assets; Storage Accounts, Synapse and Databricks Workspaces.
+2. Validate that all team members have the proper access to all the assets; Storage Accounts, Synapse and Databricks Workspaces, etc.
 3. Showcase the data copied into the Bronze layer and be able to articulate the file type and folder structure and the reasons for your choies.
-4. Showcase that no credentials are stored in an Azure Synapse Linked Service or Databricks notebook.
+4. Showcase that no credentials are stored in an Azure Synapse Linked Service or a Databricks Notebook.
 
 ## Learning Resources
 
@@ -30,7 +30,7 @@ The following links may be useful to achieving the success crieria listed above.
 
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 
-- [Databricks - manage Users](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/users)
+- [Databricks - Manage Users](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/users)
 
 - [Access Azure Blob Storage using Azure Databricks and Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/integrate-databricks-blob-storage)
 
