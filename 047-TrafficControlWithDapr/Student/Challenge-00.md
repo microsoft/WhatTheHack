@@ -18,7 +18,7 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 Install all the prerequisites listed below and make sure they're working correctly:
 
   - Git ([download](https://git-scm.com/))
-  - .NET 5 SDK ([download](https://dotnet.microsoft.com/download/dotnet/5.0))
+  - .NET 5 SDK ([download](https://dotnet.microsoft.com/download/dotnet/5.0)), .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
   - Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
     - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
     - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
