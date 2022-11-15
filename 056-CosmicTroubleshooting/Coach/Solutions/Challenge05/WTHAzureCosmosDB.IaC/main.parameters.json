@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "webAppName": {
+      "value": "wth-cosmos"
+    },
+    "databaseName": {
+      "value": "wth-cosmos"
+    },
+    "oldContainerName": {
+      "value": "products"
+    },
+    "productsContainerName": {
+      "value": "productsnew"
+    },
+    "customerCartContainerName": {
+      "value": "productsnew"
+    },
+    "customerOrderContainerName": {
+      "value": "orders"
+    },
+    "shipmentContainerName": {
+      "value": "shipments"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "resourceGroupName": {
+      "value": "rg-wth-azurecosmosdb"
+    },
+    "primaryCosmosDbAccountLocation": {
+      "value": "eastus"
+    },
+    "secondaryCosmosDbAccountLocation": {
+      "value": "westeurope"
+    },
+    "proxyFuncAppName": {
+      "value": "proxy-func"
+    }
+  }
+}
