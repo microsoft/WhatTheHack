@@ -1,0 +1,18 @@
+﻿@using Microsoft.Extensions.Caching.Memory
+@using WTHAzureCosmosDB.Web.Helpers
+@inject MemoryCache memoryCache
+@inject IConfiguration _configuration
+@inject AzureLoadTestingRunHelper _azureLoadTestingRunHelper
+@{
+    Layout = "_Layout";
+    try
+    {
+        ViewContext.ViewData["AltLastTestRunId"] = memoryCache.Get(DevToolsIndexModel.ALT_CACHE_LAST_TEST_RUN);
+        ViewContext.ViewData["PROXY_FUNC_HOSTNAME"] = _configuration["PROXY_FUNC_HOSTNAME"];
+        ViewContext.ViewData["PROXY_FUNC_KEY"] = _configuration["PROXY_FUNC_KEY"];
+        ViewContext.ViewData["LOADT_DATA_PLANE_ENDPOINT"] = _configuration["LOADT_DATA_PLANE_ENDPOINT"];
+        ViewContext.ViewData["LOADT_ACCESS_TOKEN"] = (await _azureLoadTestingRunHelper.GetDefaultAzureTokenAsync(_configuration["AZURE_CLIENT_ID"], DevToolsIndexModel.ALT_TOKEN_ENDPOINT)).Token;
+
+    }
+    catch (Exception) { }
+}

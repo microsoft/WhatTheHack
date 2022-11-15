@@ -1,0 +1,151 @@
+﻿@page
+@model ProductsModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Products Page</h1>
+</div>
+<hr />
+<div class="row p-2">
+        <div class="col-2">
+            <label class="form-label h5">For store:</label>
+        </div>
+        <div class="col-3">
+            <select id="storeId" class="form-select">
+                <option value="1">Store1</option>
+                <option value="2">Store2</option>
+                <option value="3">Store3</option>
+                <option value="4">Store4</option>
+                <option value="5">Store5</option>
+                <option value="6">Store6</option>
+                <option value="7">Store7</option>
+                <option value="8">Store8</option>
+                <option value="9">Store9</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <button id="btnChangeStore" type="button" class="btn btn-info text-white">Change Store</button>
+        </div>
+    </div>
+
+<div class="container">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <a class="page-link page-link-previous" href="#" tabindex="-1">Previous</a>
+            </li>
+            @for (var i = 0; i <= Model.Products.Count() / 12; i++)
+            {
+                <li class='page-item @(i == 0 ? "active" : "")'>
+                    <a class="page-link" data-page="@(i+1)" href="#">@(i+1)</a>
+                </li>
+            }
+            <li class="page-item">
+                <a class="page-link page-link-next" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+    @{
+        var itemIndex = 0;
+    }
+    @for (var j = 0; j < (Model.Products.Count() / 3); j++)
+    {
+        <div class="row">
+
+            @{
+                var triplet = Model.Products.Skip(j * 3).Take(3).ToList();
+            }
+            @for (var i = 0; i < 3; i++)
+            {                
+                if (i <= triplet.Count)
+                {
+                    <div class="col-sm-4">
+                        <div class='card page-@((int)(itemIndex/12 + 1)) page m-2'>
+                            <img src="@Url.Content(triplet[i].ImageURI)" class="img-fluid" data-id="@triplet[i].Id"
+                                style="width:500px;height:300px;object-fit:cover;" />
+                            <div class='card-body text-center'>
+                                <div class="text">
+                                    <h5>@triplet[i].Name</h5>
+                                </div>
+                                <div class="text">
+                                    @triplet[i].Description
+                                </div>
+                                <hr />
+                                <div>
+                                    <strong>Price:</strong> $@triplet[i].Price
+                                </div>
+                                <hr />
+                                <div>
+                                    <button class="btn btn-info text-white btnShowDetails" data-id='@triplet[i].ItemId'>Show Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                itemIndex += 1;
+            }
+        </div>
+    }
+</div>
+
+@section Scripts
+{
+<script>
+    $(document).ready(function () {
+
+        // Get the store id from querystring
+        const params = new URLSearchParams(window.location.search);
+        if(params.has('storeId')){
+            $('#storeId option[value="' + params.get('storeId') + '"').attr('selected', 'selected');
+        }
+
+        $('.page').hide();
+        $('.page-1').show();
+
+        $('.page-link').click(function () {
+            var idOfPageToGo = 0;
+
+            if ($(this).hasClass('page-link-previous')) {
+                // Find active page
+                var idOfPageToGo = parseInt($('.page-item.active').children('.page-link').attr('data-page')) - 1;
+            }
+            else if ($(this).hasClass('page-link-next')) {
+                // Find active page
+                var idOfPageToGo = parseInt($('.page-item.active').children('.page-link').attr('data-page')) + 1;
+            }
+            else {
+                var idOfPageToGo = parseInt($(this).attr('data-page'));
+            }
+            $('.page').hide();
+            $('.page-' + idOfPageToGo).show();
+            $('.page-item').removeClass('active');
+            $('.page-link[data-page="' + idOfPageToGo + '"]').parent().addClass('active');
+
+            if (idOfPageToGo > 1) {
+                $('.page-link-previous').parent().removeClass('disabled');
+            }
+            else {
+                $('.page-link-previous').parent().addClass('disabled');
+            }
+
+            if (idOfPageToGo < @(Model.Products.Count / 12 + 1)) {
+                $('.page-link-next').parent().removeClass('disabled');
+            }
+            else {
+                $('.page-link-next').parent().addClass('disabled');
+            }
+        });
+
+        $('.btnShowDetails').click(function(){
+           window.location.href = '/Product/' + $(this).attr('data-id');
+        });
+
+        $("#btnChangeStore").on("click", function () {
+            location.href = "/Products" + "?storeId=" + $("#storeId").find(':selected').val();
+        });
+    })
+</script>
+}

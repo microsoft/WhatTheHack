@@ -1,0 +1,21 @@
+{
+  "DetailedErrors": true,
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "RepositoryOptions": {
+    "CosmosConnectionString": "<<your cosmosdb connection string>>",
+    "DatabaseId": "wth-cosmos",
+    "ContainerId": "products",
+    "OptimizeBandwidth": true,
+    "ContainerPerItemType": false,
+    "AllowBulkExecution": true,
+    "SerializationOptions": {
+      "IgnoreNullValues": true,
+     "PropertyNamingPolicy": "CamelCase"
+    }
+  }
+}
