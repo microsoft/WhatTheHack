@@ -6,7 +6,6 @@
 
 In this challenge, you'll do the following:
 
-- Install the prerequisite tools and software locally.
 - Create Azure resources required.
   - Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, review the application architecture & description with your coach.
 - Review TrafficControl application architecture.
@@ -15,91 +14,20 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 
 ### Install local prerequisites
 
-Install all the prerequisites listed below and make sure they're working correctly:
-
-- Git ([download](https://git-scm.com/))
-- .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
-- Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
-  - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-  - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-- Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
-- Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-- Install Azure CLI
-  - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-  - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
-  - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
-- Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
-- Azure CLI extension for cluster extensions ([instructions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions))
-- If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-- Helm ([instructions](https://helm.sh/docs/intro/install/))
+Your coach will have indicated which tools you need to install locally.
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 
 | Software             | Version | Command Line       |
 | -------------------- | ------- | ------------------ |
-| Dapr runtime version | v1.2.2  | `dapr --version`   |
+| Dapr runtime version | v1.8.4  | `dapr --version`   |
 | Dapr CLI version     | v1.2.0  | `dapr --version`   |
-| DotNet version       | 5.0.302 | `dotnet --version` |
-| azure-cli            | 2.24.0  | `az --version`     |
-
-### Create Azure Resources
-
-This hack's setup files will create the following resources in your Azure Resource Group. Make sure you can create the following:
-
-- Application Insights
-- Azure Cache for Redis
-- Azure Container Registry
-- Azure Kubernetes Service
-- Event Hub Namespace
-- IoT Hub
-- Key Vault
-- Log Analytics Workspace
-- Logic App (with the Office 365 activity for sending email)
-- Storage Account
-- Service Bus Namespace
-
-_If you can't instantiate some of these resources, you won't be able to complete the part of the challenge that uses them, but you may still be able to complete the other challenges_
-
-#### Special Considerations for Azure Kubernetes Service (AKS)
-
-- AKS requires the ability to create a public IP address. This may be blocked by some organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
-- The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
-  - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
-  - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
-  - 1 Zipkin service running to monitor communciation between the services.
-- **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
-
-**IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
-
-[https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions)
-
-**IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
-
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+| DotNet version       | 6.0.0   | `dotnet --version` |
+| azure-cli            | 2.42.0  | `az --version`     |
 
 ### Deployment
 
-To start, you'll need access to an Azure Subscription & Resource Group:
-
-- If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
-  - You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
-    - Microsoft.ContainerService
-    - Microsoft.ContainerRegistry
-    - Microsoft.EventHub
-    - Microsoft.Insights
-    - Microsoft.KeyVault
-    - Microsoft.Logic
-    - Microsoft.OperationalInsights
-    - Microsoft.ServiceBus
-    - Microsoft.Storage
-    - Microsoft.Web
-- If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
-
-_Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._
-
-Next, you'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
+You'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
 
 1.  If you're using [Azure Cloud Shell](https://shell.azure.com), skip this step and proceed to step 2. Open the [terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code and make sure you're logged in to Azure
 
@@ -219,7 +147,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
 
     ```shell
     CURRENT  NAME                   CLUSTER                AUTHINFO                                               NAMESPACE
-    *        aks-dapr-<your value>  aks-dapr-<your value>  clusterUser_rg-dapr-<your value>_aks-dapr-<your value> blah-blah-blah
+    *        aks-dapr-<your value>  aks-dapr-<your value>  clusterUser_rg-dapr-<your value>_aks-dapr-<your value> default
     ```
 
 1.  Install Dapr in your AKS cluster
