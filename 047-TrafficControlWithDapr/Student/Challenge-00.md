@@ -6,7 +6,6 @@
 
 In this challenge, you'll do the following:
 
-- Install the prerequisite tools and software locally.
 - Create Azure resources required.
   - Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, review the application architecture & description with your coach.
 - Review TrafficControl application architecture.
@@ -15,29 +14,13 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 
 ### Install local prerequisites
 
-Install all the prerequisites listed below and make sure they're working correctly:
-
-- Git ([download](https://git-scm.com/))
-- .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
-- Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
-  - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-  - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-- Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
-- Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-- Install Azure CLI
-  - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-  - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
-  - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
-- Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
-- Azure CLI extension for cluster extensions ([instructions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions))
-- If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-- Helm ([instructions](https://helm.sh/docs/intro/install/))
+Your coach will have indicated which tools you need to install locally.
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 
 | Software             | Version | Command Line       |
 | -------------------- | ------- | ------------------ |
-| Dapr runtime version | v1.2.2  | `dapr --version`   |
+| Dapr runtime version | v1.8.4  | `dapr --version`   |
 | Dapr CLI version     | v1.2.0  | `dapr --version`   |
 | DotNet version       | 5.0.302 | `dotnet --version` |
 | azure-cli            | 2.24.0  | `az --version`     |
@@ -85,17 +68,17 @@ To start, you'll need access to an Azure Subscription & Resource Group:
 
 - If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
   - You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
-    - Microsoft.App
-    - Microsoft.ContainerService
-    - Microsoft.ContainerRegistry
-    - Microsoft.EventHub
-    - Microsoft.Insights
-    - Microsoft.KeyVault
-    - Microsoft.Logic
-    - Microsoft.OperationalInsights
-    - Microsoft.ServiceBus
-    - Microsoft.Storage
-    - Microsoft.Web
+    - `Microsoft.App`
+    - `Microsoft.ContainerService`
+    - `Microsoft.ContainerRegistry`
+    - `Microsoft.EventHub`
+    - `Microsoft.Insights`
+    - `Microsoft.KeyVault`
+    - `Microsoft.Logic`
+    - `Microsoft.OperationalInsights`
+    - `Microsoft.ServiceBus`
+    - `Microsoft.Storage`
+    - `Microsoft.Web`
 - If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
 
 _Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._
@@ -244,7 +227,7 @@ Next, you'll create the Azure resources for the subsequent challenges using [Azu
 
     ```shell
     CURRENT  NAME                   CLUSTER                AUTHINFO                                               NAMESPACE
-    *        aks-dapr-<your value>  aks-dapr-<your value>  clusterUser_rg-dapr-<your value>_aks-dapr-<your value> blah-blah-blah
+    *        aks-dapr-<your value>  aks-dapr-<your value>  clusterUser_rg-dapr-<your value>_aks-dapr-<your value> default
     ```
 
 1.  Install Dapr in your AKS cluster
