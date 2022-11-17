@@ -35,7 +35,7 @@ Note: If you haven't completed previous challenges, then you can bring your own 
 - [How to manage multi-cloud data sources - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/manage-data-sources)
 - [Lineage from SQL Server Integration Services - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/how-to-lineage-sql-server-integration-services)
 - [Connect a Data Factory to Microsoft Purview - Azure Data Factory | Microsoft Docs](https://docs.microsoft.com/en-us/azure/data-factory/connect-data-factory-to-azure-purview)
-- [Connect to and managed dedicated SQP Pools in Microsfot Purview - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-synapse-analytics)
+- [Connect to and manage dedicated SQL Pools in Microsoft Purview - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/register-scan-azure-synapse-analytics)
 - [Connect to and manage Azure Synapse Analytics workspaces - Microsoft Purview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/purview/register-scan-synapse-workspace?tabs=MI)
 - [Connect to ADLS in Microsoft Purview - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/register-scan-adls-gen2?tabs=MI)
 - [Quickstart: Connect to Synapse Workspace - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview)
