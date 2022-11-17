@@ -3,7 +3,7 @@
 
 [< Back to Challenge](../../Challenge-01.md)
 
-This is a reference guide for [Challenge 02 - Monitoring Basics and Dashboards](../../Challenge-02.md) that demonstrates how to configure HammerDB to generate a load test against the eShopOnWeb database.
+This is a reference guide for [Challenge 01 - Monitoring Basics and Dashboards](../../Challenge-01.md) that demonstrates how to configure HammerDB to generate a load test against the eShopOnWeb database.
 
 ### Stress the Database using HammerDB 
 
