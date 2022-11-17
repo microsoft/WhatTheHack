@@ -51,7 +51,7 @@ In this challenge you need to complete the following management tasks:
 Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is time to simulate load on the SQL Server database and the eShopOnWeb website:
 - Use HammerDB to create a transaction load on the "tpcc" database on the SQL Server
     - Download and Install HammerDB tool on the Visual Studio VM 
-    - See sample [Instructions for using HammerDB](./Resources/Challenge-02/UsingHammerDB.md) to generate load on the "tpcc" database.
+    - See sample [Instructions for using HammerDB](./Resources/Challenge-01/UsingHammerDB.md) to generate load on the "tpcc" database.
 - Simulate a CPU load on the VM Scale Set using the `cpuGenLoadwithPS.ps1` script located in the `/Challenge-01` folder of the student resource package.
     - This script is designed to be run directly on the VM instances in the VMSS.
     - **HINT:** You will need to upload this script to the VMs in order to run it on each instance.
