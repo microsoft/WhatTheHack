@@ -5,12 +5,13 @@
 *This page is currently being worked on*
 
 ## Introduction
+In this challenge we will begin to transform the data we loaded "as is" to the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer.
 
-In this challenge we will begin to transform the data we loaded "as is" into the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer.
 
 ## Description
-
 Some of the things we try to achieve within the Silver layer are
+- __Data Lake Storage Formats__  
+  In the Bronze layer the data is usually stored in its native source format, such as CSV or TXT for file-based sources. In the Silver layer we make sure all the different data sources are converted into a file format better suited for the Data Lake, such as Parquet or Delta.
 - __Domain Separation__  
   An important point to keep in mind is that in the Bronze layer, the data is often organized based on the Source System or source object name, on the contrary, in the Silver layer the data is organized by Domain, such as Customer or Product. 
 - __Consolidation__  
@@ -20,31 +21,21 @@ Some of the things we try to achieve within the Silver layer are
 - __Formatting__  
   Continuing with the trend of standardizing, we make sure our Silver layer data does not have different kinds of formatting within the data. We could do that by doing things such as enforcing NULLs if needed, cleaning up blank spaces, syncing up decimal points across the sources etc.
 - __Partitioning and Sharding__  
-  Although optional for this challenge, this is highly recommended for more production focused use cases. Making sure the data is appropriately physically arranged insures efficient access when doing ad-hoc analysis or when pulling to the Gold Layer.
+  Although optional for this challenge, this is highly recommended for more production focused use cases. Making sure the data is appropriately physically arranged ensures efficient access when doing ad-hoc analysis or when pulling to the Gold Layer.
+  
+The above steps can be achieved using Azure Databricks Spark/SQL or Azure Synapse Pipelines.
+__Bonus Challenge__ Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
 
 ## Success Criteria
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+- Validate that all the data has been transformed and has been loaded into the Silver layer in the appropriate storage hierarchies based on the discussion above.
+- Showcase the data copied into the Silver layer and be able to articulate the transformations performed and the reasons for your choices.
+- Showcase how this data can also be accessed for ad-hoc analysis and reporting, if the need be.
+
 
 ## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
+The following links may be useful to achieving the success crieria listed above.
+- [Placeholder Link](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
 
 
 
