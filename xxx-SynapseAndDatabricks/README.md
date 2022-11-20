@@ -1,6 +1,6 @@
 ![picture alt](img/WTH.png)
 
-# What The Hack - Bronze-Silver-Gold using Synapse and Databricks
+# What The Hack | Bronze-Silver-Gold using Synapse and Databricks
 
 ## Introduction
 
