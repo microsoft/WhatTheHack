@@ -23,8 +23,8 @@ Some of the things we try to achieve within the Silver layer are
 - __Partitioning and Sharding__  
   Although optional for this challenge, this is highly recommended for more production focused use cases. Making sure the data is appropriately physically arranged ensures efficient access when doing ad-hoc analysis or when pulling to the Gold Layer.
   
-The above steps can be achieved using Azure Databricks Spark/SQL or Azure Synapse Pipelines.
-__Bonus Challenge__ Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
+The above steps can be achieved using Azure Databricks Spark/SQL or Azure Synapse Pipelines.  
+__Bonus Challenge__: Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
 
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
