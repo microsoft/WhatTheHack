@@ -8,7 +8,7 @@ World Wide Importers (WWI) leadership is happy with the progress of the migratio
 
 # Description
 
-The objective of this lab is to baseline anthe implementation of enterprise grade security controls and services for Azure Synapse Dedicated SQL Pools.
+The objective of this lab is to baseline the implementation of enterprise grade security controls and services for Azure Synapse Dedicated SQL Pools.
 
 Categories of security enablement are as follows:
 
