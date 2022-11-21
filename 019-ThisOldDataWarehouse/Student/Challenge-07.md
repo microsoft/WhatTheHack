@@ -4,7 +4,7 @@
 
 # Introduction
 
-WWI wants to get a centralized view of all data assets and offer data sources discoverable and understandable to enterprise users and customers. Currently a group of data analysts and data engineers are spending more time on manual processes to annotate, catalog and find trusted data sources. There's no central location to register data sources. Data consumers spend a lot of time tracing root cause problems created by upstream data pipelines that are owned by other teams.
+WWI wants to get a centralized view of all data assets and offer data sources discoverable and understandable to enterprise users and customers. Currently, a group of data analysts and data engineers are spending more time on manual processes to annotate, catalog and find trusted data sources. There's no central location to register data sources. Data consumers spend a lot of time tracing root cause problems created by upstream data pipelines that are owned by other teams.
 
 They also want to address all below (not easy to answer) questions,
 
@@ -25,7 +25,7 @@ Note: If you haven't completed previous challenges, then you can bring your own 
 - Verify the scanning works fine for the registered data sources.
 - Validate the synapse and ADF is integrated with Microsoft purview account
 - Validate the catalog search works fine using Synapse workspace and Microsoft purview portal.
-- Verify the Table Dimension.Employee column "WWI Employee ID" classified with custom classification rule. Show the total number of columns classified (Auto or custom) to coach. Note: Use employee table in a dedicated sql pool or use product table (productnumber column) in a sample adventure works SQL database.
+- Verify the Table Dimension.Employee column "WWI Employee ID" classified with custom classification rule. Show the total number of columns classified (Auto or custom) to coach. Note: Use employee table in a dedicated SQL pool or use product table (productnumber column) in a sample adventure works SQL database.
 - Verify the Label applied to sensitive fields for your registered data sources, validate using catalog search and filtering.
 - Verify the lineage captured for an ADF copy job.
 
