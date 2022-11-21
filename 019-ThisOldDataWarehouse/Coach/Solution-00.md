@@ -7,7 +7,7 @@
 ### Setup your Development Environment on your Laptop
 
 For your local PC, ensure the following tools are installed.
-1. [SQL Server Management Studion (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+1. [SQL Server Management Studio (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 2. [Visual Studio Code](https://code.visualstudio.com/Download) 
 3. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
