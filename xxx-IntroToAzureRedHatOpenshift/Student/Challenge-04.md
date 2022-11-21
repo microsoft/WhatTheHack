@@ -30,3 +30,4 @@ To complete this challenge successfully, you should be able to:
 - [Images on ARO](https://docs.openshift.com/container-platform/4.11/openshift_images/index.html)
 - [Using the OpenShift CLI](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html#cli-using-cli_cli-developer-commands)
 - [Create an application from Docker Hub Example](https://docs.openshift.com/container-platform/4.8/applications/creating_applications/creating-applications-using-cli.html#docker-hub-mysql-image)
+- [Database Images - MongoDB](https://docs.openshift.com/aro/3/using_images/db_images/mongodb.html)
