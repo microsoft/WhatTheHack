@@ -12,7 +12,7 @@ be showcasing how to migrate your traditional SQL Server (SMP) to Azure Synapse 
 
 **Note:** The coach's notes and students guides will leverage the terms Azure Data Lake Store Gen2, Azure Data Factory and Azure Synapse Analytics.  These terms will be replaced with Linked Storage, Data Pipelines and SQL Pools respectively in future updates of the WTH.  It is acceptable to use Synapse Analytics Workspace as one of the adventures and use SQL Pools for the data warehouse.
 
-WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.  Recommended to have students start Challenge 0 with setup of SQL environment before starting any presentations. 
+WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.  Recommend having students start Challenge 0 with setup of SQL environment before starting any presentations. 
 
 1. Open your browser and login to your Azure Tenant.  We plan to setup the Azure Services required for the What the Hack (WTH).  In your portal, open the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
@@ -45,7 +45,7 @@ az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/s
 
 ## Tools
 
-1. [SQL Server Management Studion (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+1. [SQL Server Management Studio (Version 18.x or higher)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 2. [Visual Studio Code](https://code.visualstudio.com/Download) 
 3. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
@@ -65,14 +65,14 @@ There will be four different object types we'll migrate:
 * SSIS code set refactor (Share SSIS Job with team before they load data in Synapse)
 * Data migration (with SSIS)
 
-Guidelines will be provided below but you will have to determine how best to migrate.  At the end of the migration compare your 
+Guidelines will be provided below, but you will have to determine how best to migrate.  At the end of the migration compare your 
 end state to the one we've published into the "Coach/Solutions/Challenge1" folder.  The detailed migration guide below is here for things to consider during your migration.
 
 ### Database Schema migration steps
 
-Database schemas need to be migrated from SQL Server to Azure Synapse.  Due to the MPP architecture, this will be more than just a data type translation exericse.  You will need to focus on how best to distribute the data across each table follow this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview).  A list of unsupported data types can be found in this [article](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-data-types#unsupported-data-types) and how to find the best alternative. For Geography fields, please advise students to drop them from the DDL statements since they will not be part of teh SSIS job.
+Database schemas need to be migrated from SQL Server to Azure Synapse.  Due to the MPP architecture, this will be more than just a data type translation exericse.  You will need to focus on how best to distribute the data across each table follow this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-overview).  A list of unsupported data types can be found in this [article](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-data-types#unsupported-data-types) and how to find the best alternative. For Geography fields, please advise students to drop them from the DDL statements since they will not be part of the SSIS job.
 
-1. Go to Source database on the SQL Server environment and right click the WWI DW database and select "Generate Scripts".  This will export all DDL statements for the database tables and schema.
+1. Go to Source database on the SQL Server environment and right-click the WWI DW database and select "Generate Scripts".  This will export all DDL statements for the database tables and schema.
 2. Create a user defined schema for each tier of the data warehouse; Integration, Dimension, Fact.
 3. Items that require refactoring (You can refer to this [document](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) for more information)
     * Data types
