@@ -8,9 +8,9 @@ This hack builds on a traditional Hub and Spoke topology and introduces Azure Ro
 
 - BGP Review
 - Understand how Azure Route Server leverages BGP to enable Dynamic Routing
-- Understand  Azure Route Server within a hub and Spoke Topology with a central Network Virtual Appliance.  
-- Understand Azure Route Server Route Exchange with On Premises 
-- Understand Azure Route Server Route Exchange with On Premises and SDWAN. 
+- Understand  Azure Route Server within a Hub and Spoke Topology with a central Network Virtual Appliance.  
+- Understand Azure Route Server Route Exchange with On-Premises 
+- Understand Azure Route Server Route Exchange with On-Premises and SDWAN. 
 - Understand Azure Route Server Route Exchange with High Availability.
 
 ## Challenges
@@ -28,7 +28,7 @@ This hack builds on a traditional Hub and Spoke topology and introduces Azure Ro
 
 ## Prerequisites
 
-- Not required but familiarity with Azure Hub and Spoke Topology and Boarder Gateway Protocol is highly desired. 
+- Not required but familiarity with Azure Hub and Spoke Topology and Border Gateway Protocol is highly desired. 
 
 ## Contributors
 
