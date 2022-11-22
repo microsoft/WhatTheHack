@@ -19,4 +19,4 @@
     - [VScode Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
   - The Azure Portal way: not really recommended, but you can still use the portal to fulfill most of the challenges.You may have to do the same task multiple times across the challenges :)
 
-**NOTE:** You can use Azure PowerShell and CLI on the Azure Cloud Shell, but running the commands locally along Visual Studio Code will give you a much better experience
+**NOTE:** You can use Azure PowerShell and CLI on the Azure Cloud Shell, but running the commands within Visual Studio Code will give you a much better experience
