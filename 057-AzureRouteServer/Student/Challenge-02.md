@@ -39,7 +39,7 @@ At the end of this challenge you should:
 - [ARS with ExR and VPN](https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support)
 - [Route Injections](https://docs.microsoft.com/en-us/azure/route-server/route-injection-in-spokes)
 - [Troubleshooting](https://docs.microsoft.com/en-us/azure/route-server/troubleshoot-route-server)
-- [Can I Advertise the exact prefixes as my VNET?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes)
+- [Can I advertise the exact prefixes as my VNET?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes)
 - [VPN BGP Transit Routing in Azure](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview#does-azure-vpn-gateway-support-bgp-transit-routing)
 
 ## Tips
