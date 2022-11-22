@@ -16,13 +16,12 @@
     - The user will need to accept the invite before this is complete.
 - Create Automated Kanban Board
     - In your repository, select "Projects"
-    - Make sure on the left hand side you select "Projects", the one not in beta
-    - Select "New Project"
-    - Fill in the name you want.
-    - Select "Automated Kanban" in the template drop down.
-    - Select "Create Project
+    - Make sure on the left hand side you select "Projects",
+    - Change "Link Project" to be "New Project" and Select "New Project"
+    - Select "Team backlog" in the project templates.
+    - Select "Create"
 - Creating Issues
-    - In your repository, select "Issues" 
-    - Select "New Issue"
-    - Create the issue for each challenge.  Make sure you link the issue to the project on the right hand side before creating.
-    - New issues if linked properly should show up in the "To do" column.  Once you set to closed, it should move to "Done" column.  If you are viewing the issues in the kanban board, you are able to drag the issues across the columns.
+    - In your board select "Add Items"
+    - Create the draft issue for each challenge. 
+    - Convert draft issues to issues. Make sure you select the repository for each one.
+    - New issues if linked properly should show up in the "New" column.  Once you set to closed, it should move to "Done" column.  If you are viewing the issues in the kanban board, you are able to drag the issues across the columns.
