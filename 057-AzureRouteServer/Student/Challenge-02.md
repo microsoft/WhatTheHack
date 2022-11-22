@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge you will introduce Azure Route Server in the topology you have built previously in order to establish dynamic routing accross the Hub and Spoke topology.
+In this challenge you will introduce Azure Route Server into the topology that you have built previously in order to establish dynamic routing across the Hub and Spoke topology.
 
 This challenge simulates the insertion pattern of firewall NVAs that have no hybrid or SDWAN connectivity and rely on Azure VPN or ExpressRoute gateways for the communication to on-premises networks.
 
@@ -27,13 +27,13 @@ Please perform the following actions:
 
 At the end of this challenge you should: 
 
-- Determine if inspecting all traffic through he NVA is achievable.
-- Demonstrate to your coach you understand the behavior of the Route Server for this excercise. 
-- Demonstrate this is a dynamic environment, no User Defined Routes should remain. 
+- Determine if inspecting all traffic through the NVA is achievable.
+- Demonstrate to your coach that you understand the behavior of the Route Server for this exercise. 
+- Demonstrate this is a dynamic environment. No User Defined Routes should remain. 
 
 ## Learning Resources
 
-- [What is Azure Route Server](https://docs.microsoft.com/en-us/azure/route-server/overview)
+- [What is Azure Route Server?](https://docs.microsoft.com/en-us/azure/route-server/overview)
 - [Configure Azure Route Server](https://docs.microsoft.com/en-us/azure/route-server/quickstart-configure-route-server-portal)
 - [Configure Route Server with Quagga](https://docs.microsoft.com/en-us/azure/route-server/tutorial-configure-route-server-with-quagga)
 - [ARS with ExR and VPN](https://docs.microsoft.com/en-us/azure/route-server/expressroute-vpn-support)
@@ -44,7 +44,7 @@ At the end of this challenge you should:
 
 ## Tips
 
-- The best tip to understand the functionality of Azure Route Server is to look at the routing tables accross the board. You can find a way to do it through Power Shell, CLI or Azure portal if the functionality is available.  
-- Look at what routes are learned and advertised by the different Networking technologies utilized on this excercise. Articles above has some useful commands for this.
-- Look at what gets programmed into the effective routes on the Nics.
+- The best tip to understand the functionality of Azure Route Server is to look at the routing tables across the board. You can find a way to do it through PowerShell, CLI or Azure portal if the functionality is available.  
+- Look at what routes are learned and advertised by the different Networking technologies utilized on this exercise. The articles above have some useful commands for this.
+- Look at what gets programmed into the effective routes on the NICs.
 
