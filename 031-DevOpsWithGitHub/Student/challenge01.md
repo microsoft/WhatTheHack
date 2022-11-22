@@ -25,7 +25,7 @@ Review the following introduction to GitHub project boards: [GitHub project boar
 
 3. Ensure your project is with linked with your repository
 
-4. Create an draft issue for this challenge and each of the remaining challenges (i.e., create 9 issues total - skip challenge 0). When creating each issue, make sure to:
+4. Create a draft issue for this challenge and each of the remaining challenges (i.e., create 9 issues total - skip challenge 0). When creating each issue, make sure to:
     - Assign an owner for each issue from your team. 
     - Convert the `challenge 1` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 1` issue
 
