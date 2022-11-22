@@ -13,21 +13,21 @@
 
 ## Solution Guide
 
-- Create a Hub Virtual Network (vnet).
-- Create two spoke vnets.
-- Create a Azure Network Gateway in Hub vnet with SKU supporting Active/Active and BGP.
-- Setup vnet peering between spokes and hub vnet.
+- Create a Hub Virtual Network (VNet).
+- Create two spoke VNets.
+- Create a Azure Network Gateway in Hub VNet with SKU supporting Active/Active and BGP.
+- Setup VNet peering between spokes and hub VNet.
 - Setup Local Network Gateway reprenting simulated on-prem branch. 
-- Deploy the Cisco CSR template (provided in the challange section) to simulate a branch office (on-premises). The said template also creates a "datacenter" vnet. 
+- Deploy the Cisco CSR template (provided in the challange section) to simulate a branch office (on-premises). The said template also creates a "datacenter" VNet. 
 - Setup 2-tunnels to one active/active virtual network gateway created earlier.
 - Deploy Cisco CSR template (provided in the challange section) to setup a central NVA (used as a BGP/Security NVA). 
-- Deploy VMs in all vnets (including Branch).
+- Deploy VMs in all VNets (including Branch).
 - Create Route Tables (UDRs) to steer traffic via NVAs for,
-   - Branch VM subnet, Route to Hub/spoke vnets addres spaces (summarized should work as well) with next hop Branch NVA (CSR applaince).
-   (This is required because branch vnet is really Azure vNet (think of SDN)).
+   - Branch VM subnet, Route to Hub/spoke VNets addres spaces (summarized should work as well) with next hop Branch NVA (CSR applaince).
+   (This is required because branch VNet is really Azure vNet (think of SDN)).
    - GW subnet, route to Hub, next hop Central NVA (Outside Interface). 
    - Hub VM subnet, route to Spokes and Branch, next hop Central NVA (Inside Interface).
-   - Spoke VM subnet, route to the other spoke and branch, next hop Central NVa (Inside Interface).
+   - Spoke VM subnet, route to the other spoke and branch, next hop Central NVA (Inside Interface).
 - Verify all traffic is going through the Central Network Virtual Appliance:
    - spoke-to-spoke
    - spokes-to-onprem
@@ -36,8 +36,8 @@
 
 ## Sample deployment script
 
-You can use this script to deploy a Hub and Spoke vnet, Test VMs, Azure VPN Gateway. Other aspects such as configuring Active/Active VPN Gateway, BGP, setting up required Route Tables (UDRs) will need to be done manually. (Simulated on-premises and Central NVA templates are provided separately in the challange) <br/>
-(If you are not using bash, add $ symbol to the variable and double quote the values).
+You can use this script to deploy a Hub and Spoke VNet, Test VMs, Azure VPN Gateway. Other aspects such as configuring Active/Active VPN Gateway, BGP, setting up required Route Tables (UDRs) will need to be done manually. (Simulated on-premises and Central NVA templates are provided separately in the challange) <br/>
+(If you are not using Bash, add $ symbol to the variable and double quote the values).
 
 ```bash
 
