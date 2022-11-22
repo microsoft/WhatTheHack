@@ -16,7 +16,7 @@ In this challenge we'll be setting up all the tools we will need to complete our
   - The PowerShell way (same tooling for Windows, Linux or Mac):
     - [PowerShell core (7.x)](https://docs.microsoft.com/en-us/powershell/scripting/overview)
     - [Azure PowerShell modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az)
-    - [Visual Studio Code](https://code.visualstudio.com/): the Windows Powershell ISE might be an option here for Windows users, but VS Code is far, far better
+    - [Visual Studio Code](https://code.visualstudio.com/): the Windows PowerShell ISE might be an option here for Windows users, but VS Code is far, far better
     - [Visual Studio Code PowerShell extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
   - The Azure CLI way:
     - [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), if you are running Windows and want to install the Azure CLI under a Linux shell like bash or zsh
