@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 - Undo/remove static route tabls (UDRs) <br/>
-- You can't remove branch UDR since its a Azure VNet simulating on-premises (running on Azure SDN) <br/>
+- You can't remove branch UDR since it's an Azure VNet simulating on-premises (running on Azure SDN) <br/>
 - Deploy Azure Route Server <br/>
 - Setup BGP peering with Central NVA <br/>
 - Test publishing routes/default routes on NVA<br/>
