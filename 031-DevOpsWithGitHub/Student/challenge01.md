@@ -29,7 +29,7 @@ Review the following introduction to GitHub project boards: [GitHub project boar
     - Assign an owner for each issue from your team. 
     - Convert the `challenge 1` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 1` issue
 
-5. Move all your issues to the "Ready" column and convert each one from dart to an issue.
+5. Move all your issues to the "Ready" column and convert each one from draft to an issue.
 
 6. Since you are currently working on Challenge 1, drag the `Challenge 1` issue to the "In progress" column.
 
@@ -37,7 +37,7 @@ Review the following introduction to GitHub project boards: [GitHub project boar
 
 8. Create a new view to show your challenge issues in a table view. 
 
-9. Add a custom field to your issue. The custom field can be called cCmplexity and will be a single select type with the options (Very Easy, Easy, Hard and Very Hard).
+9. Add a custom field to your issue. The custom field can be called Complexity and will be a single select type with the options (Very Easy, Easy, Hard and Very Hard).
 
 10. After you complete each of the following challenges, be sure to close each associated issue. 
 
