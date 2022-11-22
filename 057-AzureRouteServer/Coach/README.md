@@ -1,8 +1,8 @@
-# What The Hack - AzureRouteServer - Coach Guide
+# What The Hack - Azure Route Server - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the AzureRouteServer What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Azure Route Server What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -43,9 +43,9 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites
 
-The coach should offer the student the afore mentioned script file at the start of the event so credits using the VPN Gateway are not consumed before the Hack. If the student opts to do the initial setup manually, bring awareness is going to consume time and is prone to errors. 
+The coach should offer the student the aforementioned script file at the start of the event so credits using the VPN Gateway are not consumed before the Hack. If the student opts to do the initial setup manually, bring awareness that this is going to consume time and is prone to errors. 
 
-The script takes about 30 minutes to deploy, in the meantime, coach can proceed with a Lecture or explanation of the challenges. 
+The script takes about 30 minutes to deploy. In the meantime, the coach can proceed with a lecture or explanation of the challenges. 
 
 ## Azure Requirements
 
