@@ -1,4 +1,4 @@
-# Challenge 04 - Introduce a High Availability with Central Network Virtual Appliances
+# Challenge 04 - Introduce High Availability with Central Network Virtual Appliances
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
@@ -13,7 +13,7 @@ Your Network Organization has decided to deploy High Availability on your curren
 
 ![ARS_SDWAN](./Resources/media/azurerouteserver-challenge4.png)
   
-- Using the configurations from the past challenges, please add a secondary NVA to will fullfil that requirement.
+- Using the configurations from the past challenges, please add a secondary NVA that will fullfil that requirement.
 
 ## Success Criteria
 
