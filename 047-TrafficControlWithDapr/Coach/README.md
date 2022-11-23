@@ -24,8 +24,8 @@ Welcome to the coach's guide for the Traffic Control with Dapr What The Hack. He
   - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry- and exit-cam messages over the MQTT protocol.
 - Challenge 7: **[Dapr Secrets Management](Solution-07.md)**
   - Add the Dapr secrets management building block.
-- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS)](Solution-08.md)**
-  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
+- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS) or Azure Container Apps (ACA)](Solution-08.md)**
+  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster or an Azure Container Apps service.
 
 ## Coach Prerequisites
 
