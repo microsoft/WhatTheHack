@@ -1,0 +1,30 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ubuntuOSVersion": {
+      "value": "20_04-lts"
+    },
+    "resourcePrefix": {
+      "value": "wth"
+    },
+    "adminUsername": {
+      "value": "wthadmin"
+    },
+    "vnetPrefix": {
+      "value": "10.0.0.0/16"
+    },
+    "subnetName": {
+      "value": "Default"
+    },
+    "subnetPrefix": {
+      "value": "10.0.0.0/24"
+    },
+    "scriptUri" : {
+      "value": "https://raw.githubusercontent.com/Microsoft/WhatTheHack/master/001-IntroToKubernetes/Student/Resources/Challenge-01/build-machine/docker-build-machine-config.sh"
+    },
+    "scriptName" : {
+      "value": "docker-build-machine-config.sh"
+    }
+  }
+}
