@@ -33,6 +33,8 @@ The most likely things to go wrong here are
 
   * Testing the scenario - postman reply URL should match to the REPLY URL that was set in the Enterprise app SAML configuration – the below is the right template (original is using aws.live): 
 
+    ![Postman URL](../images/postman-URL.png)
+
     https://{{SCP account name}}.authentication.{{SCP landscape}}.hana.ondemand.com/oauth/token/alias/{{SCP account name}}.azure-{{SCP landscape}}
 
 ## Description
