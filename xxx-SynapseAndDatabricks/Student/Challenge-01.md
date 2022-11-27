@@ -13,7 +13,7 @@ We are now ready to setup the environment and populate the data into the Bronze 
 
 - __Hydration of Data in the Bronze Data Lake__  
   For this challenge we will be working with two data sets, AdventureWorks and WideWorldImporters. Your coaches should provide with the details needed to connect to them.  
-  The main goal is to use Azure Synapse and/or Azure Databricks and find ways to copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both. 
+  The main goal is to use Azure Synapse and/or Azure Databricks and find ways to copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.  
   If you are copying the customer data, we would ask that you only grab the customer and address information. If you are copying the sales order data, please copy in the product, sales order header and sales order detail information.   
     
 ![picture alt](../img/Bronze.png)
@@ -24,11 +24,11 @@ Things to keep in mind about data in the Raw Zone:
 - __Data Landed in Native Format​__  
   In an effort to load data as-is, we try and keep the data format in the Raw Zone the same as it is in the source.
 - __Additonal Checks__  
-  Schema Validated​  
-  Lake Hierarchy Applied​  
-  Timeliness Assessed​  
-  Elements Tagged​  
-  Completeness and Accuracy Accepted  
+    Schema Validated​  
+    Lake Hierarchy Applied​  
+    Timeliness Assessed​  
+    Elements Tagged​  
+    Completeness and Accuracy Accepted  
   
 
 
