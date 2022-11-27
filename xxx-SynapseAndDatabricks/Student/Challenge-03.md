@@ -2,8 +2,6 @@
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-*This page is currently being worked on*
-
 ## Introduction
 Now that we have our data arranged into more standardized" and integrated datasets, it's time for the final push into the Gold Layer, also know as the Curated Layer, which is in most cases the last leg of our data transformation journey.  
 In the Gold Layer we get the data ready for consumption from business users and downstream systems.
@@ -18,9 +16,15 @@ Some of the things we try to achieve within the Gold layer are
 - __Security__  
   Since the Gold Layer will be the go-to place for most of the organization to get their data, it's a good idea to focus on the security of this data too. Things like Row Level Security and Data Masking are often used here in addition to the normal Role Based Access Control mechanisms. 
   
-The above steps can be achieved using Azure Databricks Spark/SQL and/or Azure Synapse Pipelines, Azure Synapse Dedicated Pools and/or Power BI Datamarts.  
-__Bonus Challenge__: Brainstorm and discover a quick and easy way to make use of pre-made data models to help support this challenge.
-
+The above steps can be achieved using Azure Databricks Spark/SQL and/or Azure Synapse Pipelines, Azure Synapse Dedicated Pools and/or Power BI Datamarts.
+A visual representation of the ask is shown below.  
+  
+![picture alt](../img/Gold.png) 
+  
+__Bonus Challenge__:  
+- Brainstorm and discover a quick and easy way to make use of pre-made data models to help support this challenge.
+- Brainstorm and find a quicker way to access the Silver Layer data in-place without pushing to a physical model-based Gold Layer.
+  
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Gold layer in the appropriate data models using the points in the discussion above.
@@ -30,4 +34,6 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 The following links may be useful to achieving the success crieria listed above.
-- [Placeholder Link](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
+- [What is dedicated SQL pool?](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) 
+- [Load data into dedicated SQL pool](https://learn.microsoft.com/en-us/azure/synapse-analytics/quickstart-copy-activity-load-sql-pool)
+- [Introduction to datamarts](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-overview)
