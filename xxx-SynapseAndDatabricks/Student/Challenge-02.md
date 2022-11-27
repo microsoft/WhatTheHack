@@ -24,7 +24,7 @@ Some of the things we try to achieve within the Silver layer are
 The above steps can be achieved using Azure Databricks Spark/SQL or Azure Synapse Pipelines.
 A more visual guide on the process can be seen below.
   
-![picture alt](../img/Bronze.png) 
+![picture alt](../img/Silver.png) 
   
 __Bonus Challenges__: 
 - Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
