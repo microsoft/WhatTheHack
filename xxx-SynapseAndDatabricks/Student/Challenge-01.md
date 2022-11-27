@@ -14,7 +14,7 @@ We are now ready to setup the environment and populate the data into the Bronze 
 - __Hydration of Data in the Bronze Data Lake__  
   For this component we will copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.
   
-![picture alt](img/Bronze.png)
+![picture alt](../img/Bronze.png)
   
 If you are copying the customer data, we would ask that you only grab the customer and address information. If you are copying the sales order data, please copy in the product, sales order header and sales order detail information.   
 
