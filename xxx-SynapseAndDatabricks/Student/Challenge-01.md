@@ -24,11 +24,11 @@ Things to keep in mind about data in the Raw Zone:
 - __Data Landed in Native Format​__  
   In an effort to load data as-is, we try and keep the data format in the Raw Zone the same as it is in the source.
 - __Additonal Checks__  
-    Schema Validated​  
-    Lake Hierarchy Applied​  
-    Timeliness Assessed​  
-    Elements Tagged​  
-    Completeness and Accuracy Accepted  
+- [ ] Schema Validated​  
+- [ ] Lake Hierarchy Applied​  
+- [ ] Timeliness Assessed​  
+- [ ] Elements Tagged​  
+- [ ] Completeness and Accuracy Accepted  
   
 
 
