@@ -22,8 +22,8 @@ Things to keep in mind about data in the Raw Zone:
 - __Organized by Source__  
   Have a look at the above diagram to get an idea of what your storage organization would be like.
 - __Data Landed in Native Format​__  
-  In an effort to load data as-is, we often keep the data format in the Raw Layer the same as it is in the source. This means our Raw Layer often has CSV and TXTs, depending on the type of source.
-  The being said, if we manage to bring in the data in Parquet format instead, that would be an added bonus.
+  In an effort to load data as-is, we often keep the data format in the Raw Layer the same as it is in the source. This means our Raw Layer often has CSV and TXTs, depending on the type of source.  
+  That being said, if we manage to bring in the data in Parquet format instead, that would be an added bonus.
 - __Additonal Checks__  
   - Schema Validated​  
   - Lake Hierarchy Applied​  
