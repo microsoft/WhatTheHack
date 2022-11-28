@@ -42,7 +42,7 @@ For guidance on this we recommend only the following tables for each database.
 
 Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.  
   
-Most student will probably use Azure Synapse to bring in the data to Bronze.  
+Most students will probably use Azure Synapse to bring in the data to Bronze.  
 In that case, the most common steps needed would be to learn about:
 - Linked Services, and create and LS for the source SQL DBs and the target ADLS locations  
    [Linked services in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics)
