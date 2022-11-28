@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 Most of the students would gravitate towards using Azure Synapse Dataflows for this challenge.  
-Based on the requirements of the challenge, it would be a good idea for them to familiraize themselves with the transformation options available.  
+Based on the requirements of the challenge, it would be a good idea for them to familiarize themselves with the transformation options available.  
 Example dataflows for both data sets are provided below as a reference:
   
 ![picture alt](./Solutions/Challenge2a_Example.png)
