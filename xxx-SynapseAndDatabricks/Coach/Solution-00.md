@@ -10,4 +10,4 @@ Also assign your students to squads of 4 persons max and add them to the Team Ch
 
 If you have used the survey described in the coach's README, please utilize the scores when dividing the attendees between squads.
 
-Also review the [Lectures.pptx](./Bronze-Silver-Gold.pptx?raw=true) presentation in preparation for the kick off of the first session.
+Also review the [Bronze-Silver-Gold.pptx](./Bronze-Silver-Gold.pptx?raw=true) presentation in preparation for the kick off of the first session.
