@@ -40,4 +40,14 @@ For guidance on this we recommend only the following tables for each database.
 - Sales.Orderlines
 - Warehouse.StockItems
 
-Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.
+Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.  
+  
+Most student will probably use Azure Synapse to bring in the data to Bronze.  
+In the case, the most common steps needed would be to learn about:
+- Linked Services, and create and LS for the source SQL DBs and the target ADLS locations  
+   [Linked services in Azure Data Factory and Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics)
+- Dataflows, to bring in the data  
+   [Data flows in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/concepts-data-flow-overview)
+  
+For the Databricks crew, this link could provide some info on the steps that are needed to pull data out from our Azure SQL sample databases.  
+[Using Azure Databricks to Query Azure SQL Database](https://www.mssqltips.com/sqlservertip/6151/using-azure-databricks-to-query-azure-sql-database/)
