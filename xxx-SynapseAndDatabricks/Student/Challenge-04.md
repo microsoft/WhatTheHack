@@ -22,7 +22,7 @@ Some of the things we can try in this challenge are:
 - __Role Based Row Level Security__  
   In tools such as Power BI, there are ways in which the same report can be read by two different people of varying security approval levels and they could get access to subsets of the whole data, and all the visualizations and metrics in that report would automatically conform to the amount of data readable by each user. This way instead of different security levels using different manual reports, the same report can be used across a team/organization.
   
-A visual representation of the ask is shown below.  
+A visual representation (no pun intended) of the ask is shown below.  
   
 ![picture alt](../img/Visualizations.png) 
   
