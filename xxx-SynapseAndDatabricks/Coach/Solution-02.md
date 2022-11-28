@@ -4,19 +4,13 @@
 
 ## Notes & Guidance
 
-This is my change.
-
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+Most of the students would gravitate towards using Azure Synapse Dataflows for this challenge.  
+Based on the requirements of the challenge, it would be a good idea for them to familiraize themselves with the transformation options available.  
+Example dataflows for both data sets are provided below as a reference:
+  
+![picture alt](./Solutions/Challenge2a_Example.png)
+  
+![picture alt](./Solutions/Challenge2b_Example.png)
+  
+__Bonus Challenge__:  
+For the bonus challenge, we can use a GetMetadata or a similar pipeline object in Azure Synapse to check for files being present and copy over the file(s) at the end (or start) of a pipeline run.
