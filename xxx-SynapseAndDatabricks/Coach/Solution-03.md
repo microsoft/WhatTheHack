@@ -11,7 +11,7 @@ __Bonus Challenge__:
 For the bonus challenges, the possible answers to those questions are:
 - Azure Synapse Database Templates  
   [What are Azure Synapse database templates?](https://learn.microsoft.com/en-us/azure/synapse-analytics/database-designer/overview-database-templates)
-- Using Azure Synapse Serverless SQL Views 
+- Using Azure Synapse Serverless SQL Views  
   [Create and use views using serverless SQL pool in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/create-use-views)  
   Details on what that would look like are added below.
   
