@@ -4,17 +4,16 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Most of the focus in this challenge would be in setting up the Dedicated Pools or the Power BI Datamarts.
+*More solution details to be added soon*
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+__Bonus Challenge__:  
+For the bonus challenges, the possible answers to those questions are:
+- Azure Synapse Database Templates  
+  [What are Azure Synapse database templates?](https://learn.microsoft.com/en-us/azure/synapse-analytics/database-designer/overview-database-templates)
+- Using Azure Synapse Serverless SQL Views 
+  [Create and use views using serverless SQL pool in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/create-use-views)
+  Details on what that would look like are added below.
+  
+![picture alt](./Solutions/Challenge3BC_Example.png)
+  
