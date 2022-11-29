@@ -4,17 +4,16 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+When it comes to visualizations, there isn't really a wrong answer. The students can try out any metrics and visuals that makes sense to them.
+  
+The most obvious example looking at the Sales data could be a breakdown of the Product sales by area, or quantity or maybe revenue too.
+In that case we could use visualizations such as a choropleth map and a treemap.
+The solution could look something like this:
+  
+![picture alt](./Solutions/Challenge4_Example.png)
+  
+__Bonus Challenge__:  
+For the bonus challenge, both Azure Synapse and Azure Databricks have basic visualizations available as well.  
+More details here:  
+- [Visualize data with Azure Synapse](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-data-visualization)
+- [Visualizations with Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/notebooks/visualizations/)

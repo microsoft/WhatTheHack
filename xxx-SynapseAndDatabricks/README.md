@@ -1,6 +1,6 @@
 ![picture alt](img/WTH.png)
 
-# What The Hack - Bronze-Silver-Gold-Using-Synapse-and-Databricks
+# What The Hack | Bronze-Silver-Gold using Synapse and Databricks
 
 ## Introduction
 
@@ -26,15 +26,17 @@ In this hack you will be solving the common big data architecture issue of bring
 - Challenge 02: **[Standardizing on Silver](Student/Challenge-02.md)**
 	 - Move the data from the Bronze Layer to the Silver Layer 
 	 - Apply Delta Format to the Silver Layer
+	 - Perform consolidation and standardization
 - Challenge 03: **[Go for the Gold](Student/Challenge-03.md)**
 	 - Take data from the Silver Layer and make it business analyst ready.
+	 - Understand the basics of data models.
 - Challenge 04: **[Visualize the Results](Student/Challenge-04.md)**
-	 - Create Power BI Assets to showcase your results
+	 - Create Power BI assets to showcase your results
 
 ## Prerequisites
 
 - Your own Azure subscription with Owner access
-- Willingness to learn from your colleagues
+- Willingness to get your hands dirty and learn from your colleagues
 - A wicked' cool Teams background.  There will be prizes for each day.
 
 ## Contributors
