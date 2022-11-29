@@ -49,7 +49,7 @@ In this challenge, you will deploy, configure and use **[DICOM service](https://
   - Call `Search-for-xxx` API calls in `Conformance-as-Postman` collection to Search for DICOM studies
   - Call `Retrieve-xxx` API calls in `Conformance-as-Postman` collection to Retrieve DICOM studies
   - Check logs for changes in DICOM service via Change Feed
-    - Call `GET /changefeed` API call to retrive logs of all the changes that occur in DICOM service
+    - Call `GET /changefeed` API call to retreive logs of all the changes that occur in DICOM service
     - Call `GET /changefeed/latest` API call to retrieve log of latest changes that ocrrur in DICOM service
   - Call `xxx-extended-query tags` API calls in `Conformance-as-Postman` collection to manage extended query tags in DICOM studies
     - Add extended query tags
