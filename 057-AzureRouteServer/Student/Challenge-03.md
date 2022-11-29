@@ -21,7 +21,7 @@ Please deploy the following scenario:
   - Create two SDWAN Data Centers using different address spaces and advertise an additional identical address space from each.
   
 - Plan for additional prefixes for BGP advertisements.
-- You may use the following [BGP topology](./Resources/bgplayout.md) as an aid.
+- You may use the following [BGP topology](./Resources/media/azurerouteserver-bgplayout.png) as an aid.
 - Click on the link to go to the configuration template to simulate your [SDWAN topology using Cisco CSR 1000v](./Resources/sdwancsr.md)
 
 > **Warning**
