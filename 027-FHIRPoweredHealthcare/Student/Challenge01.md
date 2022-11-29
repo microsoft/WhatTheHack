@@ -15,7 +15,7 @@ In this scenario, you will deploy a storage account with a BLOB container and co
 
 First you will deploy **[Azure Health Data Services workspace](https://docs.microsoft.com/en-us/azure/healthcare-apis/workspace-overview)** and **[deploy a FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-portal-quickstart)** within the workspace.
 
-You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.
+You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.
 - Install and configure FHIR Bulk Loader with the deploy **[script](https://github.com/microsoft/fhir-loader/blob/main/scripts/Readme.md#getting-started)**.
 - Validate your deployment, check Azure components installed:
    - Function App with App Insights and Storage
