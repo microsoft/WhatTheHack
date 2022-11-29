@@ -30,7 +30,7 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
     - The partition count setting allows you to parallelize consumption across many consumers.
     - The message retention setting specifies how long the Event Hubs service keeps data.
 
-**Deploy **[MedTech Service manually](ttps://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)** in your AHDS workspace and configure it to use FHIR service deployed in challenge 1**
+**Deploy **[MedTech Service manually](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)** in your AHDS workspace and configure it to use FHIR service deployed in challenge 1**
 - Open your AHDS worksapce
 - Select Deploy MedTech service button
 - Select `+Add` MedTech service
@@ -79,7 +79,7 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
 - Send events to an event hub via Postman
     - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
         - In Postman, click Import.
-        - In your **[Student Resources folder for Postman](../Student/Resources/Postman)**, select **[Environment](../Student/Resources/Postman/WTH FHIR-IoT-MedTech.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTH FHIR-IoT-MedTech.postman_collection.json)** JSON files.
+        - In your **[Student Resources folder for Postman](../Student/Resources/Postman)**, select **[Environment](../Student/Resources/Postman/WTHFHIR.IoT-MedTech.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTHFHIR.IoT-MedTech.postman_collection.json)** JSON files.
         - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
         - You will get confirmation that `WTH FHIR-IoT-MedTech` Collection and Environment were imported and see in Postman a new `WTH FHIR-IoT-MedTech` in `Collections` (left) blade and top right `Manage Environments` drop-down list.
     - Select `WTH FHIR-IoT-MedTech_event hub namespace` environment and click `Environment Quick Look` button to see a list of env vars: 
@@ -101,7 +101,7 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
                 - Select `raw` for the data type
                 - Enter the test device data as the message for the body
             - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
-                - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
+                - If successful, you'll see the status as Created with the code 201 as shown in the following image.
                 - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
         **Note:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
 
@@ -121,14 +121,14 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
                     - Select `raw` for the data type
                     - Enter the test device data as the message for the body
                 - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
-                    - If sucessful, you'll see the status as Created with the code 201 as shown in the following image.
+                    - If successful, you'll see the status as Created with the code 201 as shown in the following image.
                 - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
 - Verify device data is saved in the FHIR service as Observation resource(s) using Postman
     - Open Postman collection: `WTH FHIR` (imported in challenge 1)
     - First, run `AuthorizeGetToken SetBearer` API request and confirm `WTH FHIR` environment is selected in the top-right `Environment` drop-down. 
         - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable `bearerToken`.
     - Run `Get Observation` API request and click the `Send` button. This will return all patients' Observation resources in the Response body.
-    - Search for the test device data persisted in the FHIR service as Obervation resource, i.e. sample Vital Signs data for Heart Rate.
+    - Search for the test device data persisted in the FHIR service as Observation resource, i.e. sample Vital Signs data for Heart Rate.
     
     **Hint:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
 
