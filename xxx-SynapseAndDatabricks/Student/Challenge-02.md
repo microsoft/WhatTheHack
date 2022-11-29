@@ -21,21 +21,17 @@ Some of the things we try to achieve within the Silver layer are
 - __Partitioning and Sharding__  
   Although optional for this challenge, this is highly recommended for more production focused use cases. Making sure the data is appropriately physically arranged ensures efficient access when doing ad-hoc analysis or when pulling to the Gold Layer.
   
-The above steps can be achieved using Azure Databricks Spark/SQL or Azure Synapse Pipelines.
+The above steps can be achieved using Azure Databricks or Azure Synapse.
 A more visual guide on the process can be seen below.
   
 ![picture alt](../img/Silver.png) 
   
-__Bonus Challenges__: 
-- Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
-- As part of your pipeline, find a way to archive the Raw Zone files that have already been loaded into the Silver Zone by moving them to a seperate area.
   
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Silver layer in the appropriate storage hierarchies based on the discussion above.
 - Showcase the data copied into the Silver layer and be able to articulate the transformations performed and the reasons for your choices.
-- Showcase how this data can also be accessed for ad-hoc analysis and reporting, if the need be.
-
+- Showcase how this data can also be accessed for ad-hoc analysis and reporting, via both Synapse and Databricks.
 
 ## Learning Resources
 The following links may be useful to achieving the success crieria listed above.
@@ -43,4 +39,6 @@ The following links may be useful to achieving the success crieria listed above.
 - [Extract, transform, and load data by using Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) 
 
 
-
+## Bonus Challenges 
+- Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
+- As part of your pipeline, find a way to archive the Raw Zone files that have already been loaded into the Silver Zone by moving them to a seperate area.
