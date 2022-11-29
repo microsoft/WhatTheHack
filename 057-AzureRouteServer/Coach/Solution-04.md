@@ -1,20 +1,13 @@
-# Challenge 04 - <Title of Challenge> - Coach's Guide 
+# Challenge 04 - Introduce High Availability with Central Network Virtual Appliances - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)**
            
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- First instance of Central NVA has been deployed in challange 01. 
+- Deploy another instance for the purpose of High Availability.
+- Use same "Hub" Azure Virtual network but add two new subnets.
+- Establish BGP Peering with new NVA using cheat sheet made available in the challange 02 section.
+- Setup Internal Load Balancer.
+- Update Route advertisements as necessary. 
+- Internal Load Balancers are required for traffic symmetry. 
