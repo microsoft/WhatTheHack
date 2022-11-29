@@ -87,6 +87,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
+- [Datadog On Azure](/059-DatadogOnAzure/README.md)
 - [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
 - [DevOps with GitHub Actions](/044-DevOpswithGitHubActions/README.md)
 - [Azure DevOps](/010-AzureDevOps/README.md)
@@ -98,6 +99,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Load Testing](/054-AzureLoadTesting/README.md)
 
 ## Data & AI
+- [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
 - [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
