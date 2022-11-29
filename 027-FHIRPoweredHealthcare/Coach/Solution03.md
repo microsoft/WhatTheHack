@@ -16,7 +16,8 @@ In this challenge, you will create a new Single Page App (SPA) integrated with M
     ```
 
   - Download and install **[Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-    - Download and run latest **[Node.js pre-built installer](https://nodejs.org/en/download/)** to install node.js
+    - Download latest **[Node.js pre-built installer](https://nodejs.org/en/download/)** for your platform
+    - Run the above downloaded executable to install node.js
     - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, 
     ```Command
     Press any key to continue...
