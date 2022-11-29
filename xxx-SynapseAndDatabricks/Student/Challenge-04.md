@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
 ## Introduction
-Data, in general, is not as useful if it's just sitting in storage on our Data Lake. One of the most common ways to drive insights from data is through visualizations.  
+Data, in general, is not as useful if it's just sitting in storage on our Data Lake. One of the most common ways to drive insights from data is through visualizations.<BR>  
 In this challenge we will try and visualize some of the data we've loaded into the Gold Layer using Power BI.
 
 ## Description
@@ -26,9 +26,6 @@ A visual representation (no pun intended) of the ask is shown below.
   
 ![picture alt](../img/Visualizations.png) 
   
-__Bonus Challenge__:  
-- Brainstorm and find ways in which we can use built-in visualizations in other services apart from Power BI
-  
 
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
@@ -40,4 +37,9 @@ To complete this challenge successfully, you should be able to:
 The following links may be useful to achieving the success crieria listed above.
 - [Visualizations in Power BI reports](https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-report-visualizations)
 - [How to connect Azure Synapse to Power BI for data visualization](https://techcommunity.microsoft.com/t5/educator-developer-blog/how-to-connect-azure-synapse-to-power-bi-for-data-visualization/ba-p/3614555) 
+- [Azure Databricks - Connect to Power BI](https://learn.microsoft.com/en-us/azure/databricks/partners/bi/power-bi#connect-to-power-bi-desktop-manually)
 - [Row-level security (RLS) with Power BI](https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-rls)
+
+
+## Bonus Challenge  
+- Brainstorm and find ways in which we can use built-in visualizations in other services apart from Power BI
