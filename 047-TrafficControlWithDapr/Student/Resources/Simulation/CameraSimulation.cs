@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -11,6 +12,7 @@ namespace Simulation
     public class CameraSimulation
     {
         private readonly ITrafficControlService _trafficControlService;
+        private readonly UiRenderingService _uiRenderingService;
         private Random _rnd;
         private int _camNumber;
         private int _minEntryDelayInMS = 50;
@@ -18,10 +20,11 @@ namespace Simulation
         private int _minExitDelayInS = 4;
         private int _maxExitDelayInS = 10;
 
-        public CameraSimulation(int camNumber, ITrafficControlService trafficControlService)
+        public CameraSimulation(int camNumber, ITrafficControlService trafficControlService, UiRenderingService uiRenderingService)
         {
             _camNumber = camNumber;
             _trafficControlService = trafficControlService;
+            _uiRenderingService = uiRenderingService;
         }
 
         public void Start()
@@ -47,10 +50,15 @@ namespace Simulation
                         {
                             Lane = _camNumber,
                             LicenseNumber = GenerateRandomLicenseNumber(),
-                            Timestamp = entryTimestamp
+                            Timestamp = entryTimestamp,
+                            BackgroundColor = GenerateRandomColor()
+
                         };
                         _trafficControlService.SendVehicleEntry(vehicleRegistered);
-                        Console.WriteLine($"Simulated ENTRY of vehicle with license-number {vehicleRegistered.LicenseNumber} in lane {vehicleRegistered.Lane}");
+                        Debug.WriteLine($"Simulated ENTRY of vehicle with license-number {vehicleRegistered.LicenseNumber} in lane {vehicleRegistered.Lane}");
+                        _uiRenderingService.AddCarToBeAnimatedInWindow(0, _camNumber, vehicleRegistered.LicenseNumber, "#FFFFFF", vehicleRegistered.BackgroundColor);
+
+
 
                         // simulate exit
                         TimeSpan exitDelay = TimeSpan.FromSeconds(_rnd.Next(_minExitDelayInS, _maxExitDelayInS) + _rnd.NextDouble());
@@ -58,7 +66,8 @@ namespace Simulation
                         vehicleRegistered.Timestamp = DateTime.Now;
                         vehicleRegistered.Lane = _rnd.Next(1, 4);
                         _trafficControlService.SendVehicleExit(vehicleRegistered);
-                        Console.WriteLine($"Simulated EXIT of vehicle with license-number {vehicleRegistered.LicenseNumber} in lane {vehicleRegistered.Lane}");
+                        Debug.WriteLine($"Simulated EXIT of vehicle with license-number {vehicleRegistered.LicenseNumber} in lane {vehicleRegistered.Lane}");
+                        _uiRenderingService.AddCarToBeAnimatedInWindow(1, _camNumber, vehicleRegistered.LicenseNumber, "#FFFFFF", vehicleRegistered.BackgroundColor);
                     });
                 }
                 catch (Exception ex)
@@ -106,6 +115,38 @@ namespace Simulation
 
             return kenteken;
         }
+
+
+        private string GenerateRandomColor()
+        {
+            int type = _rnd.Next(1, 9);
+            string mycolor = null;
+            switch (type)
+            {
+                default:
+                case 1: // silver
+                    mycolor = "#A5BCB6";
+                    break;
+                case 2: // blue
+                    mycolor = "#1524EC";
+                    break;
+                case 3: // yellow
+                    mycolor = "#ffe599";
+                    break;
+                case 4: // white
+                    mycolor = "#FFFFFF";
+                    break;
+                case 5: // red
+                    mycolor = "#ea9999";
+                    break;
+                case 6: // green #2
+                    mycolor = "#d9ead3";
+                    break;
+            }
+
+            return mycolor;
+        }
+
 
         private string GenerateRandomCharacters(int aantal)
         {

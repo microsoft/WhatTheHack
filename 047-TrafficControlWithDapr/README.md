@@ -71,3 +71,4 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 - Rob Vettor
 - Edwin van Wijk
 - Chandrasekar B
+- Vaclav Jirovsky
