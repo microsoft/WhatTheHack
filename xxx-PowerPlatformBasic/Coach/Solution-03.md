@@ -5,7 +5,9 @@
 ## Notes & Guidance
 
 - Power Platform is more than just Canvas Apps
+- Strongly encourage creating a new solution for their development
 - Create an Order table
 - Create an Order Line Item table
+- Create 1-N relationship; Order to Order line
 - Read email subject for "Order"
 - Enhance with notifications
