@@ -18,4 +18,4 @@ Discussion points are the list 1 - 5
 
 - Refer to tenant setup docs:
   - https://github.com/tadthompson/WhatTheHack/blob/xxx-PowerPlatformBasic/xxx-PowerPlatformBasic/Coach/Solutions/TenantSetup_Coach.pdf
-  - 
+  - https://github.com/tadthompson/WhatTheHack/blob/xxx-PowerPlatformBasic/xxx-PowerPlatformBasic/Coach/Solutions/Setup_CDX_Trial.pdf
