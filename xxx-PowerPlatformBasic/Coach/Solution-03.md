@@ -9,5 +9,8 @@
 - Create an Order table
 - Create an Order Line Item table
 - Create 1-N relationship; Order to Order line
+- In the flow, they will need a List Row - Dataverse step to lookup Accounts and add in the filter line:
+    - accountnumber eq 'CustomerID' (customerID - dynamic value from AI Builder)
+- Populating the 'Name' field for Order lines, it's required, tell them any field such as description
 - Read email subject for "Order"
 - Enhance with notifications
