@@ -8,10 +8,12 @@ The Power Platform Basics What The Hack will enable your team on leveraging Micr
 ## Learning Objectives
 
 In this hack you will be solving the common business problem that companies in the retain industry by replacing their legacy systems.  The new systems will be able to:
-	1. Build a Power Platform Canvas App
-	2. Enable Power Platform automation using AI Builder
-	3. Enable Power Platform automation using Virtual Agents
-	4. Report statistics using Power BI
+
+- Enable Power Platform automation using AI Builder
+- Build an approval process with Power Automate
+- Build a Power Platform Canvas App
+- Enable Power Platform automation using Virtual Agents
+- Report statistics using Power BI
 
 
 ## Challenges
