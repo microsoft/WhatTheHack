@@ -31,10 +31,10 @@ Part 1: Prepare the core tables to store Order Data
 	
 Part 2: Build the Cloud flow
 1. Trigger of the Cloud flow - consider which trigger type can handle incoming emails
-2. As Order Information is coming as Attachment in the email, it is important to check which file type that is received
+2. As Order Information is coming as Attachment in the email, it is important to check for an attachment.
 3. Once the flow is set up to handle information, we need to integrate the model in challenge 2 into the cloud flow.
     * Consider which action to use for AI Builder Model
-    * Save the information of Order and Customer extracted from PDF into Order Table
+    * Save the information of Order and related Customer extracted from PDF into Dataverse
     * Save the information of Order Detail extracted from PDF to Order Line Item Table
     * Maintain the relationship between Order and Order Line Item
 4. Send response email to sender to confirm that Order is received with extract information and Auto generated confirmation Order Code.
@@ -47,7 +47,7 @@ Part 2: Build the Cloud flow
 
 To complete this challenge successfully, you should be able to:
 - Managing the volume of incoming orders without relying on people to monitor mailbox
-- Demonstrate that the Model that we built in Challenge can be integrated with Power Automate flow
+- Demonstrate that the Model that we used in the challenge can be integrated with a Power Automate flow
 - Successfully save order information into Dataverse
 - Respond to the customer order with processing information and Order Code
 
@@ -64,7 +64,7 @@ To complete this challenge successfully, you should be able to:
 
 Too comfortable? Eager to do more? Try these additional challenges!
 - Handle Exception Cases (What if the model extracting data incorrectly).
-- Try to use the AI Model that extracts Order Information in Power Apps Canvas App
+- Try to use the AI Model that extracts Order Information in Power Apps Canvas App (next challenge)
 * [Explore the Document automation toolkit - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/doc-automation?msclkid=d7043197d0a211ec83ca9d25453fab57)
 
 
