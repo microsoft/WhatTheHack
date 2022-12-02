@@ -5,8 +5,8 @@
 ## Pre-requisites
 
 Before you can perform this challenge:
-	· Ensure you created a solution in Challenge 2
-	· Ensure you have a test environment for which you can import your development solution
+- Ensure you created a solution in the earlier Challenges
+- Ensure you have a test environment for which you can import your development solution
 
 ## Introduction
 
@@ -16,15 +16,13 @@ Congratulations! You did it! Tailspin Toys management is very pleased with your 
 
 Your challenge is to migrate all your work from the previous challenges from your dev environment to your test environment. Set up all the components so that they are usable in your test environment. Your test environment should already have Dataverse.
 
-While importing your solution file, rename the canvas app to include your team number and specify the test environment. (e.g. Tailspin Toys – Team 2 – Test).
-
-- Tip: Remember to publish all customizations after importing your solution into your production environment.
+- Tip: Remember to publish all customizations after importing your solution into your test environment.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to
-	· Test your process and launch the canvas app from the Test environment and demonstrate to your coach that you can successfully execute the actions from the previous challenges.
-	· Cheers to a successful hack
+- Test your process and launch the canvas app from the Test environment and demonstrate to your coach that you can successfully execute the actions from the previous challenges.
+- Cheers to a successful hack
 
 
 ## Learning Resources
