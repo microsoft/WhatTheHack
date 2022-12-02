@@ -31,7 +31,7 @@ Bonus: Show your coach the approval message that was sent to you.
 ## Learning Resources
 
 * [Add an app to Microsoft Teams](https://docs.microsoft.com/en-us/powerapps/user/open-app-embedded-in-teams)
-* [Power Apps and Teams Integration}(https://learn.microsoft.com/en-us/power-apps/teams/overview)
+* [Power Apps and Teams Integration](https://learn.microsoft.com/en-us/power-apps/teams/overview)
 
 
 
