@@ -4,17 +4,15 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Discussion points are the list 1 - 5
+- Ensure they create a Power Platform trial - with a database
+- Need to add a Learning Resource link for creating a trial
+- Ensure users use in-private/incognito and to not use the default - create a new environment
+- Do not use your corporate license/environment for the hack 
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+- If partners have access to CDX, we can suggest them to create a Dataverse Trial Environment from CDX tenant
+  - https://cdx.transform.microsoft.com/my-tenants/create-tenant
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+* [Microsoft Power Platform Developer](https://powerapps.microsoft.com/en-us/developerplan)
+* [Check for current Licenses](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/licenses)
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
