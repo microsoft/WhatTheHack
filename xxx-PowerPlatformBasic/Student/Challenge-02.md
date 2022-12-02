@@ -4,9 +4,11 @@
 
 ## Pre-requisites
 
-- An account with access to Power Automate
+- An account with access to Power Automate https://make.powerautomate.com
 - Started a free trial of with AI Builder
 - A trained AI Builder model or an AI Builder prebuilt model
+* [AI Builder Model](https://docs.microsoft.com/en-us/ai-builder/build-model)
+* [Pre-built model](https://docs.microsoft.com/en-us/ai-builder/prebuilt-overview)
 
 ## Introduction
 
