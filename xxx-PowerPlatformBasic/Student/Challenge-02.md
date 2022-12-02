@@ -2,33 +2,33 @@
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
+## Pre-requisites
+
+- An account with access to Power Automate
+- Started a free trial of with AI Builder
+- A trained AI Builder model or an AI Builder prebuilt model
 
 ## Introduction
 
-Learner will choose a method for revising the current order receiving process using the tools in the low code platform selected in Challenge 1.
-
-Current process: All orders from  larger contracts come through a single shared mailbox (Will need to setup the mailbox and provide the email address for the hack).
-
-In this challenge learners will discuss the value of automation, synergizing automation with people, and implementing power automate and AIBuilder.
-
+AI Builder is a Microsoft Power Platform capability you can use to bring the power of Microsoft AI to your organization, without the need for coding or data science skills. This challenge involves building an end-to-end process to extract key Order Data from an Order in PDF/Image/Word format to help automate the processing of Orders. 
 
 ## Description
 
-- Volume coming into the shared mailbox is too much to be monitored and handled completely by the order processing team. What are some ways that the low code platform could provide solutions?
-- Implement a solution to monitor the inbound emails.
-- Now that we have a system in place to monitor the traffic, we need to manage it and document it. Create an entry in a record keeping system to document the emails and generate an order number.
-- Verify that the order has been received by send the order number back to the customer. 
-- Questions to consider: How might something like automatically generating an order number and sending it to the customer benefit your process and customer satisfaction? What are some potential pitfalls of providing this kind of transparency in the fulfillment process? How might we improve the process to account for these?
-	
-Bonus Challenge: Responsiveness to customers is key to success. How can your solution be extended to improve communicate with your customers? 
+In this challenge, you will set up a Model to extract data from a sample Order form so we can use it in the Power Automate Flow.
 
-NOTE: This challenge will require a sufficient enough license for power automate usage to allow for processing the orders. For most organizations the E3 or E5 license should be sufficient. For larger volume an add on power automate license should be considered.
+You can find the sample Order Form in the Challenge2 folder of the Resources.zip file provided by your coach.
 
+Review the sample Order Document and decide whether we can use any prebuilt model that AI Builder offers, or we need to build a custom model to read the information on the form.
+
+The Model is required to:
+- Extract General Order Information (Order Number, Order Date, Order Total)
+- Extract Customer Information (Full name, Address, Email or Phone)
+- Extract Order Detail Information (Product Code, Product Description, Quantity and Unit Price)
 
 ## Success Criteria
 
-Learners will provide a solution for managing the volume of incoming orders without relying on people to monitor mailbox, generate an order number, create a record, or respond to the customer order with processing information. 
-Identify levels of the solution that provide for a better customer experience with an automated system.
+To complete this challenge successfully, you should be able to:
+- Verify that the Model extracts information from the Order form properly
 
 ## Learning Resources
 
