@@ -1,4 +1,4 @@
-# Challenge 02 - Handling Incoming Orders
+# Challenge 02 - Build an AI Model to extract Order Data
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
