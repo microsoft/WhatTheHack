@@ -5,7 +5,8 @@
 ## Pre-requisites
 
 Before you can build your PVA Chatbot ensure:
-	· Power Virtual Agent trial started in your dev environment
+- Completed challenges 1 - 5
+- Power Virtual Agent trial started in your dev environment
 
 
 ## Introduction
@@ -16,11 +17,12 @@ Now that Tailspin Toys has signed off on your team’s hard work, their manageme
 
 In this challenge, you will create a customer service chatbot for greeting, answering FAQs, and to support Order queries from Customers and Account Managers
 Information:
-	· Leverage and personalize out of the box topics such as greeting, survey, etc. 
-	· Create topic suggestions using this site: FAQs - TailSpin Tools
-	· Provide ability to identify customer and lookup order data
-		○ Common scenarios:
-		○ Did you receive order X, was it approved, etc.
+- Leverage and personalize out of the box topics such as greeting, survey, etc. 
+- Create topic suggestions using this site: FAQs - TailSpin Tools
+- Provide ability to identify customer and lookup order data
+- Common scenarios:
+  * Did you receive order X
+  * Was it approved, etc.
 
 
 ## Success Criteria
@@ -31,9 +33,9 @@ To complete this challenge successfully, you should be able to demonstrate a wor
 ## Learning Resources
 
 
-- [Microsoft Power Virtual Agents documentation] (https://docs.microsoft.com/en-us/power-virtual-agents/)
-- [Create and delete Power Virtual Agents bots] (https://docs.microsoft.com/en-us/power-virtual-agents/authoring-first-bot)
-- [Create and edit topics in your Power Virtual Agents bot] (https://docs.microsoft.com/en-us/power-virtual-agents/authoring-create-edit-topics)
-- [Test your Power Virtual Agents bot] (https://docs.microsoft.com/en-us/power-virtual-agents/authoring-test-bot)
-- [Use entities and slot filing in Power Virtual Agents bots] (https://docs.microsoft.com/en-us/power-virtual-agents/advanced-entities-slot-filling)
+* [Microsoft Power Virtual Agents documentation](https://docs.microsoft.com/en-us/power-virtual-agents/)
+* [Create and delete Power Virtual Agents bots](https://docs.microsoft.com/en-us/power-virtual-agents/authoring-first-bot)
+* [Create and edit topics in your Power Virtual Agents bot](https://docs.microsoft.com/en-us/power-virtual-agents/authoring-create-edit-topics)
+* [Test your Power Virtual Agents bot](https://docs.microsoft.com/en-us/power-virtual-agents/authoring-test-bot)
+* [Use entities and slot filing in Power Virtual Agents bots](https://docs.microsoft.com/en-us/power-virtual-agents/advanced-entities-slot-filling)
 
