@@ -25,15 +25,16 @@ Information:
 - Pull in the Account, Contact, Order, and Order details tables using the Dataverse data source.
 - Any other data?
 - Edit the queries so the tables only include the most relevant columns
-- Transform the data to include the Age of the student in the Contact table
+- Transform the data to include the Age of order approval
 - Create necessary relationships between the tables
 - Build 4 of the 5 visualizations below in your report that show the following information:
-	- Xx
-	- Xx
-	- Xx
-	- Xx
+	- Order totals by Customer
+	- Orders by Approval Status
+	- Show pending approval orders by age
+	- Orders by Year,Quarter,Month,Date
+	
 - Save your report and publish it to your OpenHack Team's workspace in the Power BI Service to share with your other team members.
-- Create a new Dashboard and pin the 4 report visualizations to it.
+- Create a new Dashboard and pin the report visualizations to it.
 - Embed all the Power BI dashboard visualizations in the analytics screen of your canvas app
 
 
