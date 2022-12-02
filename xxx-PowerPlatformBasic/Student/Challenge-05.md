@@ -55,6 +55,8 @@ To complete this challenge successfully, you should be able to:
 * [Understand canvas app variables in Power Apps](https://docs.microsoft.com/powerapps/maker/canvas-apps/add-screen-context-variables)
 * [Add a data connection to a canvas app in Power Apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/add-data-connection)
 * [App in a Day](https://aka.ms/appinaday)
+* [EditForm, NewForm, SubmitForm, ResetForm, and ViewForm functions in Power Apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-form)
+* [Filter, Search, and Lookup functions in Power Apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-filter-lookup)
 
 
 ## Advanced Challenges (Optional)
