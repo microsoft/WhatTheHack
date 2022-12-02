@@ -26,15 +26,15 @@ Now that your base solution and app is imported, implement the following design 
 1. A working navigation component that allows the user to switch between app screens.  
     - Hint: You will need to add and configure the navigation component from the base solution to the screens that you and your team creates
 2. Four app screens that show the following:
-- A screen and a label that shows the Customer records view
-- A screen and a label that shows the Order records view for a selected customer
-- A screen and a label that allows for viewing of a selected Order and detail lines
-- A screen that will be used to view analytics (report visualizations will be created in a future challenge)
-- It is your choice as to which fields are displayed on the screens.
-- Include a search box for locating a customer on the customer screen
-- Include a search box for locating an order on the Orders screen
-- Appropriate buttons for navigation, editing/viewing, etc.
-- Connect the above components so that the custom properties in the provided navigation system directs the user to the correct page.
+    * A screen and a label that shows the Customer records view
+    * A screen and a label that shows the Order records view for a selected customer
+    * A screen and a label that allows for viewing of a selected Order and detail lines
+    * A screen that will be used to view analytics (report visualizations will be created in a future challenge)
+    * It is your choice as to which fields are displayed on the screens
+    * Include a search box for locating a customer on the customer screen
+    * Include a search box for locating an order on the Orders screen
+    * Appropriate buttons for navigation, editing/viewing, etc.
+    * Connect the above components so that the custom properties in the provided navigation system directs the user to the correct page.
 
 
 ## Success Criteria
