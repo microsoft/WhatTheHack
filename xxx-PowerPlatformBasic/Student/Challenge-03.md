@@ -41,8 +41,7 @@ Part 2: Build the Cloud flow
 
 ## Note
 
-Link to Order PDF Sample in What The Hack Team's site
-https://microsoft.sharepoint.com/:f:/t/wth/EhBumzUu7V5Ln5YfOtEHqyoBOwvpMURwBprRaymEKebQww?e=gMWGYc
+* [Link to Order PDF Sample in What The Hack Student Resources](https://github.com/tadthompson/WhatTheHack/blob/xxx-PowerPlatformBasic/xxx-PowerPlatformBasic/Student/Resources/TailspinToysBaseApp_20221202.zip)
 
 ## Success Criteria
 
