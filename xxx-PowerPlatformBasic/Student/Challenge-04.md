@@ -38,7 +38,7 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-* [Get started with Power Automate Approvals(https://docs.microsoft.com/en-us/power-automate/get-started-approvals)
+* [Get started with Power Automate Approvals](https://docs.microsoft.com/en-us/power-automate/get-started-approvals)
 * [Power Automate Modern Approvals](https://docs.microsoft.com/en-us/power-automate/modern-approvals)
 * [Power Automate Approval Attachments](https://docs.microsoft.com/en-us/power-automate/approval-attachments)
 * [Get started with Power Automate](https://docs.microsoft.com/power-automate/getting-started)
