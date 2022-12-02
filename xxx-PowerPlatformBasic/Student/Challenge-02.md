@@ -32,4 +32,14 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
+* [Get Started with Power Automate](https://docs.microsoft.com/en-us/learn/modules/get-started-flows/)
+* [AI models and business scenarios - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/model-types)
+* [Invoice processing prebuilt AI model - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/prebuilt-invoice-processing)
+* [Overview of document processing model - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-overview)
+* [Use the document processing model in Power Automate - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
+* [Use the form processor component in Power Apps - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
+
+NOTE:
+
+* [Link to Order PDF Sample in What The Hack Team's site](https://microsoft.sharepoint.com/:f:/t/wth/EhBumzUu7V5Ln5YfOtEHqyoBOwvpMURwBprRaymEKebQww?e=gMWGYc)
 
