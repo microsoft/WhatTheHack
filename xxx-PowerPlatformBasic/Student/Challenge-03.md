@@ -57,6 +57,7 @@ To complete this challenge successfully, you should be able to:
 * [Use the form processor component in Power Apps - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
 * [What is Microsoft Dataverse? - Power Apps | Microsoft Learn](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intro)
 * [Solution concepts - Power Platform | Microsoft Learn](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm)
+* [Use Lists of rows in Powerautomate flows](https://learn.microsoft.com/en-us/power-automate/dataverse/list-rows)
 
 
 ## Advanced Challenges
