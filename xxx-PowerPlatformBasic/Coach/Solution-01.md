@@ -16,3 +16,6 @@ Discussion points are the list 1 - 5
 * [Microsoft Power Platform Developer](https://powerapps.microsoft.com/en-us/developerplan)
 * [Check for current Licenses](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/licenses)
 
+- Refer to tenant setup docs:
+  - https://github.com/tadthompson/WhatTheHack/blob/xxx-PowerPlatformBasic/xxx-PowerPlatformBasic/Coach/Solutions/TenantSetup_Coach.pdf
+  - 
