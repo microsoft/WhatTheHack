@@ -32,12 +32,15 @@ To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Silver layer in the appropriate storage hierarchies based on the discussion above.
 - Showcase the data copied into the Silver layer and be able to articulate the transformations performed and the reasons for your choices.
 - Showcase how this data can also be accessed for ad-hoc analysis and reporting, via both Synapse and Databricks.
+- Showcase how to utilize detla lake versioning and time travel.
 
 ## Learning Resources
 The following links may be useful to achieving the success crieria listed above.
 - [Data flows in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/concepts-data-flow-overview) 
 - [Extract, transform, and load data by using Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) 
-
+- [Azure Synapse - Linux Foundation Delta Lake overview](https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-delta-lake-overview)
+- [Databricks - Introducing Delta Time Travel for Large Scale Data Lakes](https://www.databricks.com/blog/2019/02/04/introducing-delta-time-travel-for-large-scale-data-lakes.html)
+- [YouTube - Azure Synapse Analytics - Can Synapse Time Travel with Delta?](https://youtu.be/5LufBKIA2s4)
 
 ## Bonus Challenges 
 - Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
