@@ -87,3 +87,16 @@ _The default files & folders are listed below. You may add to this if you want t
   - Student's Challenge Guide
 - `./Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+
+	
+## Repository Contents (Optional)
+-  `./Coach/Guides`
+-  	Coach’s Guide and related files
+-  `./SteamShovel`
+-  Image files and code for steam shovel microservice
+-  `./images`
+-  Generic image files needed
+-  `./Student/Guides`
+-  Student’s Challenge Guide
+
+
