@@ -128,19 +128,19 @@ For the advanced challenge, here are the steps:
 
 1. Download the sample application [from here](/Student/resources/simple-php-app.tar.gz) to your home directory
 
-`student@vm01:~$ cd ~ ;  wget https://github.com/ricmmartins/fasthack-linux/blob/main/Student/resources/simple-php-app.tar.gz?raw=true -O simple-php-app.tar.gz`
+`student@vm01:~$ cd ~ ;  wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true -O simple-php-app.tar.gz`
 
 ```bash
---2022-11-09 01:46:30--  https://github.com/ricmmartins/fasthack-linux/blob/main/Student/resources/simple-php-app.tar.gz?raw=true
+--2022-11-09 01:46:30--  wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true
 Resolving github.com (github.com)... 192.30.255.112
 Connecting to github.com (github.com)|192.30.255.112|:443... connected.
 HTTP request sent, awaiting response... 302 Found
-Location: https://github.com/ricmmartins/fasthack-linux/raw/main/Student/resources/simple-php-app.tar.gz [following]
---2022-11-09 01:46:30--  https://github.com/ricmmartins/fasthack-linux/raw/main/Student/resources/simple-php-app.tar.gz
+Location: wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true [following]
+--2022-11-09 01:46:30--  wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true
 Reusing existing connection to github.com:443.
 HTTP request sent, awaiting response... 302 Found
-Location: https://raw.githubusercontent.com/ricmmartins/fasthack-linux/main/Student/resources/simple-php-app.tar.gz [following]
---2022-11-09 01:46:30--  https://raw.githubusercontent.com/ricmmartins/fasthack-linux/main/Student/resources/simple-php-app.tar.gz
+Location: https://raw.githubusercontent.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz [following]
+--2022-11-09 01:46:30--  https://raw.githubusercontent.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.111.133, ...
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
