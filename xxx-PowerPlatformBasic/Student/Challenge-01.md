@@ -5,7 +5,7 @@
 
 ## Introduction - Tailspin Toys – Order Process Automation
 
-Tailspin Toys is a toy and school supplies company. The company sells toy products, party products and different school supplies through its retail locations and the Internet. Tailspin Toys has around 500 stores all over the world and has ten major contracts for school supplies all over USA. The company stores are located in 35 countries. The company owns and operates one website http://www.tailspintoys.com/ that includes an online store. The second biggest market for them is in Poland, Europe so the company opened a subsidiary there.
+Tailspin Toys is a toy and school supplies company. The company sells toy products, party products, and different school supplies through its retail locations and the Internet. Tailspin Toys has around 500 stores all over the world and has ten major contracts for school supplies all over USA. The company stores are located in 35 countries. The company owns and operates one website http://www.tailspintoys.com/ that includes an online store. The second biggest market for them is in Poland, Europe so the company opened a subsidiary there.
 
 Subsidiary address: Ul. Dobra, 4321, Warsaw, Poland
 Phone number: +48 12 345 67 89
@@ -30,13 +30,13 @@ You will choose a platform for Tailspin Toys and provision the Power Platform en
 ## Introduction
   
 - Answer the question:  What platform will you choose and why?
-- Form a team and assign roles.  Recommended:  Choose a method of collaboration (e.g. OneNote, Teams, etc.
-- Install requirements for Power Platform.
-- To begin this challenge, Tailspin Toys would like for your team to create a new solution in your team's development environment. This new solution will serve as a container for the components that your team will be assigned in later challenges. In accordance with application lifecycle management (ALM) best practices, all future work should be created from this solution
+- Form a team and assign roles.  Recommended:  Choose a method of collaboration (e.g. OneNote, Teams, etc.)
+- Provision requirements for Power Platform.
+- To begin this challenge, Tailspin Toys would like your team to create a new solution in your team's development environment. This new solution will serve as a container for the components that your team will be assigned in later challenges. In accordance with application lifecycle management (ALM) best practices, all future work should be created from this solution
 
 Bonus Challenge: Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
 
-NOTE: This challenge will require license to complete the challenge (trials)
+NOTE: This challenge will require licenses to complete the challenge using trials
 
 ## Success Criteria
 
