@@ -1,14 +1,11 @@
-# Challenge 02 - Build an AI Model to extract Order Data
+# Challenge 02 - Build an AI Model to Extract Order Data
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Pre-requisites
 
-- An account with access to Power Automate https://make.powerautomate.com
-- Started a free trial of with AI Builder
-- A trained AI Builder model or an AI Builder prebuilt model
-* [AI Builder Model](https://docs.microsoft.com/en-us/ai-builder/build-model)
-* [Pre-built model](https://docs.microsoft.com/en-us/ai-builder/prebuilt-overview)
+- Test your login to access Power Automate https://make.powerautomate.com and select country
+- You may be prompted to start a free trial of with AI Builder
 
 ## Introduction
 
@@ -18,7 +15,7 @@ AI Builder is a Microsoft Power Platform capability you can use to bring the pow
 
 In this challenge, you will set up a Model to extract data from a sample Order form so we can use it in the Power Automate Flow.
 
-You can find the sample Order Form in the TailSpinToys_Orders.zip file
+You can find the sample Order Form in the '/TailspinToysOrders/' folder of the student 'Resources.zip' file provided by your coach
 
 Review the sample Order Document and decide whether we can use any prebuilt model that AI Builder offers, or we need to build a custom model to read the information on the form.
 
@@ -34,6 +31,8 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
+* [AI Builder Model](https://docs.microsoft.com/en-us/ai-builder/build-model)
+* [Pre-built model](https://docs.microsoft.com/en-us/ai-builder/prebuilt-overview)
 * [Get Started with Power Automate](https://docs.microsoft.com/en-us/learn/modules/get-started-flows/)
 * [AI models and business scenarios - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/model-types)
 * [Invoice processing prebuilt AI model - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/prebuilt-invoice-processing)
@@ -41,7 +40,4 @@ To complete this challenge successfully, you should be able to:
 * [Use the document processing model in Power Automate - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
 * [Use the form processor component in Power Apps - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
 
-NOTE:
-
-* [Link to Order PDF Sample in What The Hack Student Resources](https://github.com/tadthompson/WhatTheHack/blob/xxx-PowerPlatformBasic/xxx-PowerPlatformBasic/Student/Resources/TailspinToysBaseApp_20221202.zip)
 
