@@ -9,7 +9,7 @@ Current process: All orders from  larger contracts come through a single shared 
 
 In this challenge you will discuss the value of automation, synergizing automation with people, and implementing power automate and AI Builder.
 
-Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Now that you have installed the right license to unlock access to PowerApps and Power Automate. AI builder is trained and tested from challenge 2. Next we want to start using Power Automate integrated with your AI builder to do form processing and store the data into Dataverse tables. 
+Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Now that you have provisioned the proper licenses to unlock access to Power Apps and Power Automate. AI builder is trained and tested from challenge 2, you are ready to start using Power Automate to integrate with your AI builder to do form processing and store the data into Dataverse tables. 
 
 ## Description
 
@@ -33,17 +33,13 @@ Part 2: Build the Cloud flow
     * Maintain the relationship between Order and Order Line Item
 4. Send response email to sender to confirm that Order is received with extract information and Auto generated confirmation Order Code.
 
-## Note
-
-* [Link to Order PDF Sample in What The Hack Student Resources](https://github.com/tadthompson/WhatTheHack/blob/xxx-PowerPlatformBasic/xxx-PowerPlatformBasic/Student/Resources/TailspinToysBaseApp_20221202.zip)
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Managing the volume of incoming orders without relying on people to monitor mailbox
+- Manage the volume of incoming orders without relying on people to monitor mailbox
 - Demonstrate that the Model that we used in the challenge can be integrated with a Power Automate flow
 - Successfully save order information into Dataverse
-- Respond to the customer order with processing information and Order Code
+- Respond to the customer order with processing information and Order Confirmation Code
 
 ## Learning Resources
 
