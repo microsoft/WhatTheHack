@@ -30,8 +30,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Description of challenge
 - Challenge 09: **[Title of Challenge](./Solution-09.md)**
 	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
+
 
 ## Coach Prerequisites
 
@@ -67,13 +66,16 @@ _For example:_
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
 - Sample Day 1
-  - Challenge 1 (1 hour)
+  - Challenge 1 (50 minutes)
   - Challenge 2 (30 mins)
   - Challenge 3 (2 hours)
+  - Challenge 4 (90 mins)
 - Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
+  - Challenge 5 (2 hours)
   - Challenge 6 (45 mins)
+  - Challenge 7 (90 mins)
+  - CHallenge 8 (1 hour)
+  - Challenge 9 45 mins)
 
 ## Repository Contents
 
