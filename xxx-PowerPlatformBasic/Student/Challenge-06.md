@@ -1,4 +1,4 @@
-# Challenge 06 - Teams Integration (optional)
+# Challenge 06 - Teams Integration
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
