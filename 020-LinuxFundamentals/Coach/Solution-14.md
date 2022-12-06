@@ -131,25 +131,25 @@ For the advanced challenge, here are the steps:
 `student@vm01:~$ cd ~ ;  wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true -O simple-php-app.tar.gz`
 
 ```bash
---2022-11-09 01:46:30--  wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true
-Resolving github.com (github.com)... 192.30.255.112
-Connecting to github.com (github.com)|192.30.255.112|:443... connected.
+--2022-12-06 09:54:55--  https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true
+Resolving github.com (github.com)... 140.82.113.3
+Connecting to github.com (github.com)|140.82.113.3|:443... connected.
 HTTP request sent, awaiting response... 302 Found
-Location: wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true [following]
---2022-11-09 01:46:30--  wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true
+Location: https://github.com/microsoft/WhatTheHack/raw/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz [following]
+--2022-12-06 09:54:56--  https://github.com/microsoft/WhatTheHack/raw/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz
 Reusing existing connection to github.com:443.
 HTTP request sent, awaiting response... 302 Found
-Location: https://raw.githubusercontent.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz [following]
---2022-11-09 01:46:30--  https://raw.githubusercontent.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.111.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+Location: https://raw.githubusercontent.com/microsoft/WhatTheHack/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz [following]
+--2022-12-06 09:54:56--  https://raw.githubusercontent.com/microsoft/WhatTheHack/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 28596 (28K) [application/octet-stream]
 Saving to: ‘simple-php-app.tar.gz’
 
-simple-php-app.tar.gz         100%[=================================================>]  27.93K  --.-KB/s    in 0.001s
+simple-php-app.tar.gz         100%[=================================================>]  27.93K  --.-KB/s    in 0.003s
 
-2022-11-09 01:46:30 (32.0 MB/s) - ‘simple-php-app.tar.gz’ saved [28596/28596]
+2022-12-06 09:54:56 (8.09 MB/s) - ‘simple-php-app.tar.gz’ saved [28596/28596]
 ```
 
 2. Create the Dockerfile
