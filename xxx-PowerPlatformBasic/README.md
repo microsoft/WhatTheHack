@@ -1,4 +1,4 @@
-# What The Hack - PowerPlatformBasic
+# What The Hack - Power Platform Basic
 
 ## Introduction
 
@@ -48,18 +48,6 @@ In this hack you will be solving the common business problem that companies in t
 - Power BI Desktop
 - Need help!
 
-	
-## Repository Contents (Optional)
--  `./Coach/Guides`
--  	Coach’s Guide and related files
--  `./SteamShovel`
--  Image files and code for steam shovel microservice
--  `./images`
--  Generic image files needed
--  `./Student/Guides`
--  Student’s Challenge Guide
--  	[image](https://user-images.githubusercontent.com/66692710/189555249-199ea7d5-08cb-4e65-bebd-5695683e6ae3.png)
-
 
 ## Contributors
 
@@ -68,6 +56,7 @@ In this hack you will be solving the common business problem that companies in t
 - Nghiem Doan
 - Matt Karr
 - Behnaz Majidi
+- Sherry Xu
 
 
 
