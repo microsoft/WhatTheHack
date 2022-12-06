@@ -3,7 +3,7 @@
 [< Previous Solution](./Solution-11.md) - **[Home](../README.md)** - [Next Solution >](./Solution-13.md)
 
 ## Notes & Guidance
-1. Download the sample application [from here](/resources/simple-php-app.tar.gz) to your home directory
+1. Download the sample application [from here](/Student/resources/simple-php-app.tar.gz) to your home directory
 
 `student@vm01:~$ cd ~ ; wget https://github.com/ricmmartins/fasthack-linux/raw/main/Student/resources/simple-php-app.tar.gz`
 
