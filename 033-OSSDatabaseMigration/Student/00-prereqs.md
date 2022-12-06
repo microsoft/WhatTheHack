@@ -52,7 +52,7 @@ MySQL -> Azure DB for MySQL
 
 PostgreSQL -> Azure DB for PostgreSQL
 
-Oracle -> Azure DB for Oracle
+Oracle -> Azure DB for PostgreSQL
 
 You can choose to perform a migration for one or more of these scenarios. It's up to you. If you choose more than one, you will be expected to perform the migration steps for each database in Challenges 1 through 6. 
 
