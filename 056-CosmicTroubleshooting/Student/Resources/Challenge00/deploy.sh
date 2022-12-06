@@ -125,7 +125,7 @@ payload="{
     'keyvaultReferenceIdentityId': null,
     'keyvaultReferenceIdentityType': 'SystemAssigned',
     'loadTestConfig': {
-        'engineInstances': 4,
+        'engineInstances': 1,
         'splitAllCSVs': false
     },
     'passFailCriteria': {
