@@ -47,22 +47,12 @@ NOTE: This challenge will require licenses to complete the challenge using trial
 
 ## Learning Resources
 
-Microsoft Power Platform documentation 
-https://docs.microsoft.com/en-us/power-platform/
- 
-The benefits of the model-driven approach 
-https://docs.microsoft.com/en-us/power-apps/maker/model-driven-apps/app-value-proposition
- 
-Administer Microsoft Power Platform 
-https://docs.microsoft.com/en-us/power-platform/admin/admin-documentation
- 
-Licensing overview for Microsoft Power Platform 
-https://docs.microsoft.com/en-us/power-platform/admin/pricing-billing-skus
- 
-Application lifecycle management (ALM) with Microsoft Power Platform 
-https://docs.microsoft.com/en-us/power-platform/alm/
- 
-Microsoft Power Platform Center of Excellence (CoE) Starter Kit 
-https://docs.microsoft.com/en-us/power-platform/guidance/coe/starter-kit 
+* [AI Builder Model](https://docs.microsoft.com/en-us/ai-builder/build-model)
+* [Microsoft Power Platform documentation](https://docs.microsoft.com/en-us/power-platform/)
+* [The benefits of the model-driven approach](https://docs.microsoft.com/en-us/power-apps/maker/model-driven-apps/app-value-proposition)
+* [Administer Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/admin/admin-documentation)
+* [Licensing overview for Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/admin/pricing-billing-skus)
+* [Application lifecycle management (ALM) with Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/alm/)
+* [Microsoft Power Platform Center of Excellence (CoE) Starter Kit](https://docs.microsoft.com/en-us/power-platform/guidance/coe/starter-kit )
 
 
