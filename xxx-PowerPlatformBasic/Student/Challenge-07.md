@@ -1,4 +1,4 @@
-# Challenge 07 - Power BI Reporting and Integration (optional)
+# Challenge 07 - Power BI Reporting and Integration
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
