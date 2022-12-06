@@ -23,8 +23,9 @@ During the COVID-19 pandemic, Tailspin toys identified challenges in their suppl
 
 Choose the platform and build environment
 
-Learner will choose a platform for Tailspin Toys and install the Power Platform environment/Licenses.
-In this challenge learners will discuss the value proposition of Power Platform, form a team, and install system requirements.
+In this challenge the team will discuss the value proposition of Power Platform, design a solution, and install system requirements.
+You will choose a platform for Tailspin Toys and provision the Power Platform environment and necessary licenses.
+
 
 ## Introduction
   
