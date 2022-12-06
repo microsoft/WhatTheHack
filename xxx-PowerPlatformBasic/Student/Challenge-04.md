@@ -27,7 +27,7 @@ Based on the order total you will have different approval process.
 - Between 25000 & 100000 Manager and  Senior manager approval
 - More then 100000 Senior manager & district manager approval
 - Both when approver rejects or approves an email should be sent to the user. User should also be able to see if approval is pending and who is manager for then pending approval.
-- Also have the pdf from challenge 2 attached to approval.
+- Also have the pdf from challenge 3 attached to approval.
 
 
 ## Success Criteria
