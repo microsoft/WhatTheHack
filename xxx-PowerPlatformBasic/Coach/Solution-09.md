@@ -1,6 +1,6 @@
 # Challenge 09 - Application Lifecycle Management - Coach's Guide 
 
-[< Previous Solution](./Solution-08.md) - **[Home](./README.md)** - [Next Solution >](./Solution-10.md)
+[< Previous Solution](./Solution-08.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
