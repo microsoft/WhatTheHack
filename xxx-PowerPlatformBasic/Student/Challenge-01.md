@@ -5,9 +5,6 @@
 
 ## Pre-requisites
 
-Before you can use:
-  - Ensure you have a test environment for which you can import your development solution
-
 
 ## Introduction - Tailspin Toys – Order process automation
 
@@ -27,9 +24,9 @@ During the COVID-19 pandemic, Tailspin toys identified challenges in their suppl
 - Logic can be introduced to ensure that columns contain the data that adheres to the business rules.
 Solution will be maintained by the team via Citizen Developer
 
-## Choose the platform and build environment
+## Description
 
-Introduction
+Choose the platform and build environment
 
 Learner will choose a platform for Tailspin Toys and install the Power Platform environment/Licenses.
 In this challenge learners will discuss the value proposition of Power Platform, form a team, and install system requirements.
@@ -47,9 +44,10 @@ NOTE: This challenge will require license to complete the challenge (trials)
 
 ## Success Criteria
 
-Learners will provide the coaches with their platform of choice which should be Power Platform.  Learners should detail their team structure, show how they will collaborate, and demonstrate how the environment is setup.   
-BONUS:  Learners will deliver this in PPT to the coaches who are the board.
-BONUS:  Choose licensing <- Costs associated to solutions
+- Learners will provide the coaches with their platform of choice which should be Power Platform.
+- Learners should detail their team structure, show how they will collaborate, and demonstrate how the environment is setup.   
+- BONUS:  Learners will deliver this in PPT to the coaches who are the board.
+- BONUS:  Choose licensing <- Costs associated to solutions
 
 ## Learning Resources
 
