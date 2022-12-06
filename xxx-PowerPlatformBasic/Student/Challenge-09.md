@@ -1,6 +1,6 @@
 # Challenge 09 - Application Lifecycle Maangement
 
-[< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-10.md)
+[< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)**
 
 ## Pre-requisites
 
