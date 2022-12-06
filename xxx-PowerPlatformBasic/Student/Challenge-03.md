@@ -1,19 +1,13 @@
-# Challenge 03 - Extract Order Data to Dataverse using Power Automate
+# Challenge 03 - Extract Order Data to Dataverse Using Power Automate
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-## Pre-requisites
 
-Before you can build the Power Automate flow, you need:
-- Finish challenge 1-2
-- An account with access to Power Automate
-- An Office365 Mailbox to accept incoming Order information
-
-## Challenge
+## Introduction
 
 Current process: All orders from  larger contracts come through a single shared mailbox (Will need to setup the mailbox and provide the email address for the hack). Order would be send as an attachment using the Ordering Product Template. (1)
 
-In this challenge learners will discuss the value of automation, synergizing automation with people, and implementing power automate and AI Builder.
+In this challenge you will discuss the value of automation, synergizing automation with people, and implementing power automate and AI Builder.
 
 Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Now that you have installed the right license to unlock access to PowerApps and Power Automate. AI builder is trained and tested from challenge 2. Next we want to start using Power Automate integrated with your AI builder to do form processing and store the data into Dataverse tables. 
 
