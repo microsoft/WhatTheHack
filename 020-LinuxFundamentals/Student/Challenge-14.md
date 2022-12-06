@@ -32,7 +32,7 @@ This challenge will let you have your first contact with containers. You will:
 
 If you would like to go over an advanced challenge, try this one:
 
-- Download this sample application [from here](/Student/resources/simple-php-app.tar.gz) to your home directory
+- Download thes sample application [from here](/Student/resources/simple-php-app.tar.gz) to your home directory
 - Create a Dockerfile to install the Nginx, PHP, and run this php application.
 - Build the image
 - Test the execution of the container
