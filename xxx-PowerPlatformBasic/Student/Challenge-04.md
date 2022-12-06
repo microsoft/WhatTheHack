@@ -2,11 +2,6 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-## Pre-requisites
-
-Before you can use Approval Process in Power Automate, you need:
-- Complete challenge 1, 2, & 3
-- An Office365 Mailbox to accept incoming Order information
 
 ## Introduction
 
