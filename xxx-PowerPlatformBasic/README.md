@@ -1,4 +1,4 @@
-# What The Hack - Power Platform Basic
+# What The Hack - Power Platform Basics
 
 ## Introduction
 
