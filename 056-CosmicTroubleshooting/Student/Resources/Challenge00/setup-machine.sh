@@ -9,7 +9,13 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 
 #4.5. Install the Azure CLI packages, jq, .NET, zip
-sudo apt -qy install jq dotnet6 zip
+sudo apt -qy install dotnet6 zip
+
+# install jq on Mac
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew install jq
+fi
 
 # check installed tooling
 echo "Testing tools:";
