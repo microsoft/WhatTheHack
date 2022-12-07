@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 Ensure you have a Team created with a channel to embed Power Apps, Power Virtual Agent, Power BI, etc.
 
