@@ -10,24 +10,24 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
+- Challenge 01: **[Power Platform Environment](./Solution-01.md)**
+	 - The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and take on the role of Citizen Developer.
+- Challenge 02: **[Build an AI Model to Extract Order Data](./Solution-02.md)**
+	 - In this challenge you will explore AI Builder data models
+- Challenge 03: **[Extract Order Data to Dataverse Using Power Automate](./Solution-03.md)**
+	 - Next you will model the data and extract data from a sample Order forms so we can use it in the Power Automate Flow.
+- Challenge 04: **[Approval Process](./Solution-04.md)**
+	 - With the order data stored in Dataverse you will next set up a multi-level approval process using Power Automate Flow.
+- Challenge 05: **[Build a Power App](./Solution-05.md)**
+	 - In this challenge, you will create a Power App to support Order and Customer Management
+- Challenge 06: **[Teams Integration](./Solution-06.md)**
+	 - To support collaboration and ease of access, you will embed the canvas app directly in Microsoft Teams
+- Challenge 07: **[Power BI Reporting and Integration](./Solution-07.md)**
+	 - Now that Tailspin Toys staff is easily able to streamline their processes for customer orders, their management has requested some new reporting features 
+- Challenge 08: **[Power Virtual Agent Chatbot](./Solution-08.md)**
+	 - In this challenge, you will create a customer service chatbot for greeting, answering FAQs, and to support Order queries from Customers and Account Managers
+- Challenge 09: **[Application Lifecycle Management](./Solution-09.md)**
+	 - Your challenge is to export all your development work from your dev environment as preperation for import to the test environment
 
 
 ## Coach Prerequisites
