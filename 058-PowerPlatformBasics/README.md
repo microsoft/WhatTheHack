@@ -32,7 +32,7 @@ In this hack you will be solving the common business problem that companies in t
 	 - To support collaboration and ease of access, you will embed the canvas app directly in Microsoft Teams
 - Challenge 07: **[Power BI Reporting and Integration](Student/Challenge-07.md)**
 	 - Now that Tailspin Toys staff is easily able to streamline their processes for customer orders, their management has requested some new reporting features that will enhance their reporting, recognize trends in their data, and better analytics
-- Challenge 08: **[PVA Chatbot](Student/Challenge-08.md)**
+- Challenge 08: **[Power Virtual Agent Chatbot](Student/Challenge-08.md)**
 	 - In this challenge, you will create a customer service chatbot for greeting, answering FAQs, and to support Order queries from Customers and Account Managers
 - Challenge 09: **[Application Lifecycle Management](Student/Challenge-09.md)**
 	 - Your challenge is to migrate all your work from the previous challenges from your dev environment to your test environment. Set up all the components so that they are usable in your test environment.
