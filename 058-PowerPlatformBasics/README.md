@@ -18,11 +18,9 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your environment to work with Power Platform.
 - Challenge 01: **[Challenge Setup](Student/Challenge-01.md)**
-	 - The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and create a new role of Citizen Developer.
-- Challenge 02: **[Handling incoming orders](Student/Challenge-02.md)**
+	 - The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and take on the role of Citizen Developer.
+- Challenge 02: **[Build an AI Model to extract Order Data](Student/Challenge-02.md)**
 	 - Learner will choose a method for revising the current order receiving process using the tools in the low code platform selected in Challenge 1.
 - Challenge 03: **[Extracting Order Data using AI Builder](Student/Challenge-03.md)**
 	 - In this challenge, you will set up a Model to extract data from a sample Order form so we can use it in the Power Automate Flow.
