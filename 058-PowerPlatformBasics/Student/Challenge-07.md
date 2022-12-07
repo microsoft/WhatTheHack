@@ -15,7 +15,6 @@ Now that Tailspin Toys staff is easily able to streamline their processes for cu
 
 Tailspin Toys is already a Power BI customer and has requested that you create a Power BI Dashboard so that their staff can analyze data trends and consume customer order data from Dataverse.
 
-
 ## Description
 
 In this challenge, you will create a Power BI report and publish to your environment's Power BI site and embed visualizations into your canvas app's reporting screen.
@@ -23,7 +22,7 @@ Information:
 
 - Navigate to the https://powerbi.microsoft.com/desktop/ Power BI site, download, and install Power BI Desktop (if you have not already done so)
 - Pull in the Account, Contact, Order, and Order details tables using the Dataverse data source.
-- Any other data?
+- Consider any other data that may be relavent
 - Edit the queries so the tables only include the most relevant columns
 - Transform the data to include the Age of order approval
 - Create necessary relationships between the tables
