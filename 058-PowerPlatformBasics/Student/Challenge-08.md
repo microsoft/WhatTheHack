@@ -26,9 +26,9 @@ Information:
 
 ## Success Criteria
 
-To complete this challenge successfully, you should be able to demonstrate a working chatbot to your coach that fully answers the above questions
+- To complete this challenge successfully, you should be able to demonstrate a working chatbot to your coach that fully answers the above questions
 
-Optional: show your Chatbot deployed to your OpenHack Team’s Microsoft Teams channel.
+- Optional: show your Chatbot deployed to your OpenHack Team’s Microsoft Teams channel.
 
 
 ## Learning Resources
