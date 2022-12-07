@@ -13,7 +13,9 @@ Congratulations! You did it! Tailspin Toys management is very pleased with your 
 
 ## Description
 
-Your challenge is to export all your work from the previous challenges from your dev environment. Set up all the components so that they are usable in your test environment.
+Your challenge is to export all your work from the previous challenges from your dev environment. Ensure all the dependencies are satisfied so that your solution will successfully import and function in the test environment.
+
+Hint: Leverage the Solution Checker
 
 
 ## Success Criteria
