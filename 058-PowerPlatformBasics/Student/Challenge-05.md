@@ -5,9 +5,7 @@
 ## Pre-requisites
 
 Before you can use Power Apps you need:
-- An account with access to Power Apps
-- Complete challenges 1 - 4
-- Locate the starter solution from the reources
+- Locate the starter App from the reources zip file: /resources/BasePowerApp/TailspinToysBaseApp.zip
 
 ## Introduction
 
@@ -17,15 +15,15 @@ Now that you have managed to processes of handling inbound emails, extracting an
 
 In this challenge, you will create a Power App to support Order and Customer Management
 
-Once you have imported the starter solution, your team will design an app which will allow users to Customers, Orders, and order details.
-To get you started, we have provided your team with a solution zip file with a canvas app which includes two custom components, a navigation bar, and a title bar. Since the components are generalized, you might to customize them to include proper icons and labels.
+Once you have imported the starter Power App, your team will continue to design and build the app which will allow users to Customers, Orders, and order details.
+To get you started, we have provided your team with a zip file with a canvas app which includes two custom components, a navigation bar, and a title bar. Since the components are generalized, you want to customize them to include proper icons and labels.
 
 Rename the canvas app to include your team number and specify the development environment. (e.g., Tailspin Toys – Team 2 – Dev).
 
-Now that your base solution and app is imported, implement the following design requirements:
-1. A working navigation component that allows the user to switch between app screens.  
+Now that your base app is imported, implement the following design requirements:
+- A working navigation component that allows the user to switch between app screens.  
     - Hint: You will need to add and configure the navigation component from the base solution to the screens that you and your team creates
-2. Four app screens that show the following:
+- Four app screens that show the following:
     * A screen and a label that shows the Customer records view
     * A screen and a label that shows the Order records view for a selected customer
     * A screen and a label that allows for viewing of a selected Order and detail lines
@@ -36,11 +34,12 @@ Now that your base solution and app is imported, implement the following design 
     * Appropriate buttons for navigation, editing/viewing, etc.
     * Connect the above components so that the custom properties in the provided navigation system directs the user to the correct page.
 
+- Thre is an example of how the app might start to look in the resources zip file: /resources/BasePowerApp/TailspinToys_PowerApp_Example,JPG
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Demonstrate a working app to your coach that reads data from the Dataverse and fulfills the above requirements as well as in the solution in your team's development environment.
+- Demonstrate a working app to your coach that uses data from the Dataverse tables and fulfills the above requirements as well as in the solution in your team's development environment.
 
 ## Learning Resources
 
