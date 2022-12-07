@@ -36,6 +36,8 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
+We reccommend that coaches provision or leverage their own environment and import the completed solution for reference
+
 ### Student Resources
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
@@ -43,10 +45,6 @@ Before the hack, it is the Coach's responsibility to download and package up the
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
-
-### Additional Coach Prerequisites
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
 
 ## Suggested Hack Agenda
 
