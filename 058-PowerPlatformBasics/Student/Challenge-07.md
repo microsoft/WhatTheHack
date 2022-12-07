@@ -27,7 +27,7 @@ Information:
 - Edit the queries so the tables only include the most relevant columns
 - Transform the data to include the Age of order approval
 - Create necessary relationships between the tables
-- Build 4 of the 5 visualizations below in your report that show the following information:
+- Build visualizations in your report that show the following information:
 	- Order totals by Customer
 	- Orders by Approval Status
 	- Show pending approval orders by age
