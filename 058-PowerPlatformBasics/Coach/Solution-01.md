@@ -4,17 +4,13 @@
 
 ## Notes & Guidance
 
-Discussion points are the list 1 - 5
+Environment setup guidence
 - Ensure they create a Power Platform trial - with a database
-- Need to add a Learning Resource link for creating a trial
-- Ensure users use in-private/incognito or create a new bprofile in their browser (to not use the default browser to create a new environment)
+- Ensure users use in-private/incognito or create a new profile in their browser (do not use the default browser to create a new environment as it will conflict with their work O365 login)
 - Do not use your corporate license/environment for the hack
 - Create a unique tenant name such as: ppwth2022TeamXX
 
-- If partners have access to CDX, we can suggest them to create a Dataverse Trial Environment from CDX tenant
-  - https://cdx.transform.microsoft.com/my-tenants/create-tenant
-
-* [Microsoft Power Platform Developer](https://powerapps.microsoft.com/en-us/developerplan)
-* [Check for current Licenses](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/licenses)
+- If Microsoft employees and Partners have access to CDX, we reccommend they stil follow the trial setup process
+- A Power Platform Developer environment would only be advised for a single person attempting the challenges
 
 - Refer to tenant setup docs in the /coach/solutios folder
