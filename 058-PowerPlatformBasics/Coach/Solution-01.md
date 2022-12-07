@@ -17,4 +17,4 @@ Discussion points are the list 1 - 5
 * [Microsoft Power Platform Developer](https://powerapps.microsoft.com/en-us/developerplan)
 * [Check for current Licenses](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/licenses)
 
-- Refer to tenant setup docs in the /coach/resources folder
+- Refer to tenant setup docs in the /coach/solutios folder
