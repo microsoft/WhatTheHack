@@ -13,7 +13,7 @@ Congratulations! You did it! Tailspin Toys management is very pleased with your 
 
 ## Description
 
-Your challenge is to export all your work from the previous challenges from your dev environment.. Set up all the components so that they are usable in your test environment.
+Your challenge is to export all your work from the previous challenges from your dev environment. Set up all the components so that they are usable in your test environment.
 
 
 ## Success Criteria
