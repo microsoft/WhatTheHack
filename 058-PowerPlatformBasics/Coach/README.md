@@ -44,32 +44,25 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
+### Additional Coach Prerequisites
 
 _Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
 
-## Azure Requirements
+## Suggested Hack Agenda
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+Ideally Challenges 1 - 5 should be completed.
 
-_Please list Azure subscription requirements._
+Challenges 6 - 8 are not interdependent
 
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+Challenge 9 could include 1 - 5 and any of the others that are completed
 
 - Sample Day 1
   - Challenge 1 (50 minutes)
   - Challenge 2 (30 mins)
   - Challenge 3 (2 hours)
   - Challenge 4 (90 mins)
-- Sample Day 2
   - Challenge 5 (2 hours)
+- Sample Day 2
   - Challenge 6 (45 mins)
   - Challenge 7 (90 mins)
   - CHallenge 8 (1 hour)
@@ -86,7 +79,7 @@ _The default files & folders are listed below. You may add to this if you want t
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Resource files including tenant setup guidence, order pdf files, a starter base Power App, and example jpg of app design
 
 	
 ## Repository Contents (Optional)
