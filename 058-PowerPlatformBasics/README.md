@@ -18,7 +18,7 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Challenges
 
-- Challenge 01: **[Challenge Setup](Student/Challenge-01.md)**
+- Challenge 01: **[Power Platform Environment](Student/Challenge-01.md)**
 	 - The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and take on the role of Citizen Developer.
 - Challenge 02: **[Build an AI Model to extract Order Data](Student/Challenge-02.md)**
 	 - In this challenge you will explore AI Builder data models
