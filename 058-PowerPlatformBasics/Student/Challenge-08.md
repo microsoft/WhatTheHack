@@ -5,7 +5,6 @@
 ## Pre-requisites
 
 Before you can build your PVA Chatbot ensure:
-- Completed challenges 1 - 5
 - Power Virtual Agent trial started in your dev environment
 
 
