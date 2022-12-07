@@ -35,15 +35,14 @@ In this hack you will be solving the common business problem that companies in t
 - Challenge 08: **[Power Virtual Agent Chatbot](Student/Challenge-08.md)**
 	 - In this challenge, you will create a customer service chatbot for greeting, answering FAQs, and to support Order queries from Customers and Account Managers
 - Challenge 09: **[Application Lifecycle Management](Student/Challenge-09.md)**
-	 - Your challenge is to migrate all your work from the previous challenges from your dev environment to your test environment. Set up all the components so that they are usable in your test environment.
+	 - Your challenge is to export all your development work from your dev environment as preperation for import to the test environment
 
 ## Prerequisites
 
 - Your own O365 E3 with Global Admin access
 - Trials of Power Apps, Power Automate, AI Builder, Power Virtual Agent, Power BI Pro
 - Power BI Desktop
-- Need help!
-
+- The desire to develop and enhance your Power Platform skills
 
 ## Contributors
 
