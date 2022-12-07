@@ -1,8 +1,8 @@
-# What The Hack - PowerPlatformBasic - Coach Guide
+# What The Hack - Power Platform Basics - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the PowerPlatformBasic What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Power Platform Basics What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -10,8 +10,6 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Title of Challenge](./Solution-01.md)**
 	 - Description of challenge
 - Challenge 02: **[Title of Challenge](./Solution-02.md)**
