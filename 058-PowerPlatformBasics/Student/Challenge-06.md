@@ -20,13 +20,12 @@ To support collaboration and ease of access, you will embed the canvas app direc
 - Create a team for your app
 - Embed the app
 
-Bonus step: enhance approval communication to a Manger channel
+### Bonus step: enhance approval communication to a Manger channel
 
 ## Success Criteria
 
-To complete this challenge successfully, you should be able to demonstrate to your coach that you can launch the Power App for Order Management Microsoft Teams.
-
-Bonus: Show your coach the approval message that was sent to you.
+- To complete this challenge successfully, you should be able to demonstrate to your coach that you can launch the Power App for Order Management Microsoft Teams.
+- Show your coach the approval message that was sent to you.
 
 ## Learning Resources
 
