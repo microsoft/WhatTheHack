@@ -1,4 +1,4 @@
-# Challenge 01 - Power Platform Basics
+# Challenge 01 - Power Platform Environment
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
