@@ -74,8 +74,6 @@ This hack will deploy the following Azure resources and OSS components to implem
 
 - `.Coach`
   - Coach's Guide and related files
-- `.Coach/Solutions`
-  - Solution files with completed example answers to a challenge
 - `.Student`
   - Student's Challenge Guide
 - `.Student/Resources`
