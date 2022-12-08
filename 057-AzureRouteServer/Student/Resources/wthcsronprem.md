@@ -1,6 +1,6 @@
 # Cheat sheet for using a Cisco CSR to simulate a branch (on Premises)
 
-[< Back to Challenge 1](./Challenge-01.md) 
+[< Back to Challenge 1](../Challenge-01.md) 
 
 ## Sample deployment script
 
