@@ -5,7 +5,7 @@
 ## Pre-requisites
 
 - Test your login to access Power Automate https://make.powerautomate.com and select country
-- You may be prompted to start a free trial of with AI Builder
+- You may be prompted to start a free trial of AI Builder
 
 ## Introduction
 
