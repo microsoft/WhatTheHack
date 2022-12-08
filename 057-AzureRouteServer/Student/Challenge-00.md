@@ -47,6 +47,12 @@ chmod +x HubAndSpoke.azcli
 ./HubAndSpoke.azcli
 ```
 
+## Success Criteria
+
+- You have an Azure shell at your disposal (Powershell, WSL(2), Mac, Linux or Azure Cloud Shell)
+- Implemented the base line Hub and Spoke Topology. 
+- You have reviewed foundational knowledge in Virtual Network Routing, Azure VNG , Azure Route Server, BGP fundamentals.
+
 ## Learning Resources
 
 ### Border Gateway Protocol
@@ -68,9 +74,3 @@ It is of paramount importance that you are aware that 100% of the Azure Route Se
 
 - [Virtual Network Routing](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)
 - [About BGP with Azure VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-bgp-overview)
-
-## Success Criteria
-
-- You have an Azure shell at your disposal (Powershell, WSL(2), Mac, Linux or Azure Cloud Shell)
-- Implemented the base line Hub and Spoke Topology. 
-- You have reviewed foundational knowledge in Virtual Network Routing, Azure VNG , Azure Route Server, BGP fundamentals.
