@@ -1,3 +1,3 @@
 ### Challenge 3 BGP Layout
 
-![BGP Layout](./Resources/media/azurerouteserver-bgplayout.png)
+![BGP Layout](./media/azurerouteserver-bgplayout.png)
