@@ -14,7 +14,20 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 
 ### Install local prerequisites
 
-Your coach will have indicated which tools you need to install locally.
+- Git ([download](https://git-scm.com/))
+- .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
+- Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
+  - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+- Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
+- Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
+- Install Azure CLI
+  - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
+  - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
+  - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
+- Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
+- If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+- Helm ([instructions](https://helm.sh/docs/intro/install/))
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 
