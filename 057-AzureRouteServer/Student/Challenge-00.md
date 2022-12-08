@@ -8,7 +8,7 @@ A smart Azure engineer always has the right tools in their toolbox. In addition,
 
 ## Description
 
-In this challenge you will be setting up the prerequisite tools you will need to complete the hack's challenges. You will also deploy an initial Hub and Spoke network topography into Azure which you will use complete the challenges of this hack.
+In this challenge you will be setting up the prerequisite tools you will need to complete the hack's challenges. You will also deploy a baseline Hub and Spoke network topography into Azure which you will use complete the challenges of this hack.
 
 - First, make sure you have an Azure Subscription. 
 
@@ -35,9 +35,9 @@ If you have installed all of the tools listed above and plan to work on your loc
 
 If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
 
-### Deploy the initial Hub & Spoke Topology to Azure
+### Deploy the Baseline Hub & Spoke Topology to Azure
 
-From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.azcli`. Run it to deploy the initial Hub & Spoke network in Azure.
+From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.azcli`. Run it to deploy the baseline Hub & Spoke network in Azure.
 
  **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent VNet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge.
 
@@ -55,7 +55,7 @@ From a bash shell on your local workstation, or in the Azure Cloud Shell, naviga
 ## Success Criteria
 
 - You have an Azure shell at your disposal (Powershell, WSL(2), Mac, Linux or Azure Cloud Shell)
-- Implemented the base line Hub and Spoke Topology. 
+- Validate that you have deployed the base line Hub and Spoke Topology into your Azure subscription.
 - You have reviewed foundational knowledge in Virtual Network Routing, Azure VNG , Azure Route Server, BGP fundamentals.
 
 ## Learning Resources
