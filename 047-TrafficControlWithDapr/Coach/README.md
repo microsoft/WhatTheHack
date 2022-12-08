@@ -1,4 +1,4 @@
-# What The Hack - TrafficControlWithDapr - Coach Guide
+# What The Hack - Traffic Control With Dapr - Coach Guide
 
 ## Introduction
 
