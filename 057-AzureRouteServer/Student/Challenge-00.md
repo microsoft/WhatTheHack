@@ -8,21 +8,22 @@ A smart Azure engineer always has the right tools in their toolbox. In addition,
 
 ## Description
 
-In this challenge we'll be setting up all the tools we will need to complete our challenges.
+In this challenge you will be setting up the prerequisite tools you will need to complete the hack's challenges. You will also deploy an initial Hub and Spoke network topography into Azure which you will use complete the challenges of this hack.
 
-- Make sure that you have joined the Teams group for this track. Please ask your coach about the correct Teams channel to join.
-- Make sure you have an Azure Subscription. In case you don't, possibly ask your coach to create a Resource Group for you. 
-- You can use the Azure Portal and Azure Cloud Shell from the portal or use a dedicated window by accesing [https://shell.azure.com](https://shell.azure.com) to accomplish all the tasks. In case you needed to install the tools on your Desktop, please do the below (optional). 
-  - The PowerShell way (same tooling for Windows, Linux or Mac):
-    - [PowerShell core (7.x)](https://docs.microsoft.com/en-us/powershell/scripting/overview)
-    - [Azure PowerShell modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az)
-    - [Visual Studio Code](https://code.visualstudio.com/): the Windows PowerShell ISE might be an option here for Windows users, but VS Code is far, far better
-    - [Visual Studio Code PowerShell extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
-  - The Azure CLI way:
-    - [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), if you are running Windows and want to install the Azure CLI under a Linux shell like bash or zsh
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-    - [Visual Studio Code](https://code.visualstudio.com/): the Windows Powershell ISE might be an option here for Windows users, but VS Code is far, far better
-    - [VScode Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+- First, make sure you have an Azure Subscription. 
+
+You can complete all of the challenges in this hack in a web browser using the [Azure Portal](https://portal.azure.com) and [Azure Cloud Shell](https://shell.azure.com). However, if you work with Azure and on a regular basis, be a good cloud architect and make sure you have experience installing the required tools on your local workstation:
+ 
+- The PowerShell way (same tooling for Windows, Linux or Mac):
+  - [PowerShell core (7.x)](https://docs.microsoft.com/en-us/powershell/scripting/overview)
+  - [Azure PowerShell modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az)
+  - [Visual Studio Code](https://code.visualstudio.com/): the Windows PowerShell ISE might be an option here for Windows users, but VS Code is far, far better
+  - [Visual Studio Code PowerShell extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
+- The Azure CLI way:
+  - [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), if you are running Windows and want to install the Azure CLI under a Linux shell like bash or zsh
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+  - [Visual Studio Code](https://code.visualstudio.com/): the Windows Powershell ISE might be an option here for Windows users, but VS Code is far, far better
+  - [VScode Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 
 ### Student Resources
 
