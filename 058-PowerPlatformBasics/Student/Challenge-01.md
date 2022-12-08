@@ -31,16 +31,16 @@ You will choose a platform for Tailspin Toys and provision the Power Platform en
 - Provision requirements for Power Platform.
 - To begin this challenge, Tailspin Toys would like your team to create a new solution in your team's development environment. This new solution will serve as a container for the components that your team will be assigned in later challenges. In accordance with application lifecycle management (ALM) best practices, all future work should be created from this solution
 
-Bonus Challenge: Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
+**Bonus Challenge:** Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
 
-NOTE: This challenge will require licenses to complete the challenge using trials
+**NOTE:** This challenge will require licenses to complete the challenge using trials
 
 ## Success Criteria
 
 - Provide the coaches with the platform of choice which should be Power Platform.
 - You should detail the team structure, show how you will collaborate, and demonstrate how the environment is setup.   
-- BONUS:  Deliver this in PPT to the coaches similar to showing to key stakeholders and decision makers.
-- BONUS:  Show licensing and Costs associated to solutions
+- **BONUS:**  Deliver this in PPT to the coaches similar to showing to key stakeholders and decision makers.
+- **BONUS:**  Show licensing and Costs associated to solutions
 
 ## Learning Resources
 
