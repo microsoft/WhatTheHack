@@ -15,7 +15,7 @@ AI Builder is a Microsoft Power Platform capability you can use to bring the pow
 
 In this challenge, you will set up a Model to extract data from a sample Order form so we can use it in the Power Automate Flow.
 
-You can find the sample Order Form in the '/TailspinToysOrders/' folder of the student 'Resources.zip' file provided by your coach
+You can find the sample Order Form in the `/TailspinToysOrders/` folder of the student `Resources.zip` file provided by your coach
 
 Review the sample Order Document and decide whether we can use any prebuilt model that AI Builder offers, or we need to build a custom model to read the information on the form.
 
