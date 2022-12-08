@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This hack builds on a traditional Hub and Spoke topology and introduces Azure Route Server. The Students will engage in an increasingly adopted technique that provides the ability to exchange routes more dynamically. Students will get familiar with basic trending implementations of Azure Route Server that have been adopted in the industry.  
+This hack builds on a traditional Hub and Spoke topology and introduces Azure Route Server. Students will engage in an increasingly adopted technique that provides the ability to exchange routes more dynamically. Students will get familiar with basic trending implementations of Azure Route Server that have been adopted in the industry.  
 
 ## Learning Objectives
 
