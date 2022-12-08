@@ -27,21 +27,21 @@ You can complete all of the challenges in this hack in a web browser using the [
 
 ### Student Resources
 
-Your coach will provide you with a link to a `Resources.zip` file that contains resource files you will use to setup the initial Hub and Spoke Topology.  
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to setup the initial Hub and Spoke Topology. 
+
+If you have installed all of the tools listed above and plan to work on your local workstation, you should download and unpack the `Resources.zip` file there too.
+
+If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
+
+From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.azcli`. Run it to deploy the initial Hub & Spoke network in Azure.
 
 **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent VNet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge.
 
-- Download and unpack this file in your Azure Cloud Shell environment. 
-- This process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges. 
+**NOTE:** The deployment process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges.
+
+**TIP:** You may need to make the script file executable before you can run it.
 
 ```bash
-# Upload the Resources.zip file provided by your coach into your Cloud Shell with the upload button on the console
-```
-```bash
-# Unpack the zip file
-unzip Resources.zip
-# Navigate to the "Resources" folder
-cd Resources
 # Make the file executable
 chmod +x HubAndSpoke.azcli
 #run the file
