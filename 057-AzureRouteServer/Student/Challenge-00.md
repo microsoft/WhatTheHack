@@ -35,18 +35,18 @@ If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` 
 
 From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.azcli`. Run it to deploy the initial Hub & Spoke network in Azure.
 
-**NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent VNet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge.
+ **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent VNet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge.
 
-**NOTE:** The deployment process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges.
+ **NOTE:** The deployment process takes aproximately 30 min. In the meantime, your coach will provide an intro lecture or explanation of the challenges.
 
-**TIP:** You may need to make the script file executable before you can run it.
+ **TIP:** You may need to make the script file executable before you can run it.
 
-```bash
-# Make the file executable
-chmod +x HubAndSpoke.azcli
-#run the file
-./HubAndSpoke.azcli
-```
+ ```bash
+ # Make the file executable
+ chmod +x HubAndSpoke.azcli
+ #run the file
+ ./HubAndSpoke.azcli
+ ```
 
 ## Success Criteria
 
