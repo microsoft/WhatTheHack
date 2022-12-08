@@ -6,7 +6,7 @@
 
 In this challenge you will be setting up a basic hub and spoke topology with a Central Network Virtual Appliance. You will also establish connectivity to on-prem via VPN site-to-site or Express Route Circuit if you have access to one.
 
-In this challenge you will learn how to build a basic testbed upon which to simulate different Route Server topologies, like the ones described in the rest of the hack. 
+In this challenge you will learn how to build a basic test bed upon which to simulate different Route Server topologies, like the ones described in the rest of the hack. 
 
 ## Description
 
