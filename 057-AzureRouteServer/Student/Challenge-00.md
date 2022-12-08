@@ -12,6 +12,8 @@ In this challenge you will be setting up the prerequisite tools you will need to
 
 - First, make sure you have an Azure Subscription. 
 
+### Set Up Your Local Workstation
+
 You can complete all of the challenges in this hack in a web browser using the [Azure Portal](https://portal.azure.com) and [Azure Cloud Shell](https://shell.azure.com). However, if you work with Azure and on a regular basis, be a good cloud architect and make sure you have experience installing the required tools on your local workstation:
  
 - The PowerShell way (same tooling for Windows, Linux or Mac):
@@ -32,6 +34,8 @@ Your coach will provide you with a `Resources.zip` file that contains resource f
 If you have installed all of the tools listed above and plan to work on your local workstation, you should download and unpack the `Resources.zip` file there too.
 
 If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
+
+### Deploy the initial Hub & Spoke Topology to Azure
 
 From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.azcli`. Run it to deploy the initial Hub & Spoke network in Azure.
 
