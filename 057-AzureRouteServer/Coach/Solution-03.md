@@ -1,4 +1,4 @@
-# Challenge 03 Challenge 03 - Connect Network Virtual Appliance to an SDWAN environment - Coach's Guide 
+# Challenge 03 - Connect Network Virtual Appliance to an SDWAN environment - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
