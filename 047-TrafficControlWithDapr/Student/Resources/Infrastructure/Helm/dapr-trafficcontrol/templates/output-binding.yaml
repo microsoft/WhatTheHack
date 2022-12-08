@@ -1,0 +1,12 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ .Values.daprComponents.outputBindings.componentName }}
+spec:
+  type: bindings.http
+  version: v1
+  metadata:
+    - name: url
+      value: {{ .Values.daprComponents.outputBindings.url }}
+scopes:
+  - {{ .Values.trafficcontrol.fineCollectionService.dapr.appId }}

@@ -22,7 +22,7 @@ And you're done! That's right, you don't need to change anything in order to use
 
 You'll use [Mosquitto](https://mosquitto.org/), a lightweight MQTT broker, as the MQTT broker between the `Simulation` and `TrafficControlService`. You'll run Mosquitto from a Docker container.
 
-In order to connect to Mosquitto, you need to pass in a custom configuration file when starting it. With Docker, you can pass a configuration file when starting a container using a *Volume mount*. The folder `Resources/Infrastructure/mosquitto` already contains a config file you can use.
+In order to connect to Mosquitto, you need to pass in a custom configuration file when starting it. With Docker, you can pass a configuration file when starting a container using a _Volume mount_. The folder `Resources/Infrastructure/mosquitto` already contains a config file you can use.
 
 1.  Open the terminal window in VS Code and make sure the current folder is `Resources/Infrastructure/mosquitto`.
 
@@ -41,13 +41,13 @@ In order to connect to Mosquitto, you need to pass in a custom configuration fil
 
 This will pull the docker image `eclipse-mosquitto` from Docker Hub and start it. The name of the container will be `dtc-mosquitto`. The server will be listening for connections on port `1883` for MQTT traffic.
 
-The `-v` flag specifies a Docker volume mount. It mounts the current folder (containing the config file) as the `/mosquitto/config/` folder in the container. Mosquitto reads its config file from that folder.  
+The `-v` flag specifies a Docker volume mount. It mounts the current folder (containing the config file) as the `/mosquitto/config/` folder in the container. Mosquitto reads its config file from that folder.
 
 If everything goes well, you should see some output like this:
 
 ![](../images/Challenge-06/docker-mosquitto-output.png)
 
-*If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info.*
+_If you see any errors, make sure you have access to the Internet and are able to download images from Docker Hub. See [Docker Hub](https://hub.docker.com/) for more info._
 
 The container will keep running in the background. If you want to stop it, enter the following command:
 
@@ -69,9 +69,9 @@ docker rm dtc-mosquitto -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+_For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container._
 
-*You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
+_You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script._
 
 ### Step 3: Configure the input binding
 
@@ -95,12 +95,12 @@ First, create an input binding for the `/entrycam` operation:
       type: bindings.mqtt
       version: v1
       metadata:
-      - name: url
-        value: mqtt://localhost:1883
-      - name: topic
-        value: trafficcontrol/entrycam
-      - name: consumerID
-        value: trafficcontrolservice
+        - name: url
+          value: mqtt://localhost:1883
+        - name: topic
+          value: trafficcontrol/entrycam
+        - name: consumerID
+          value: trafficcontrolservice
     scopes:
       - trafficcontrolservice
     ```
@@ -127,14 +127,14 @@ Next, create an input binding for the `/exitcam` operation:
       type: bindings.mqtt
       version: v1
       metadata:
-      - name: url
-        value: mqtt://localhost:1883
-      - name: topic
-        value: trafficcontrol/exitcam
-      - name: consumerID
-        value: trafficcontrolservice
+        - name: url
+          value: mqtt://localhost:1883
+        - name: topic
+          value: trafficcontrol/exitcam
+        - name: consumerID
+          value: trafficcontrolservice
     scopes:
-      - trafficcontrolservice    
+      - trafficcontrolservice
     ```
 
 Now with input bindings configured, it's time to change the Camera Simulation so it'll send MQTT messages to Mosquitto.
@@ -171,13 +171,13 @@ The proxy uses HTTP to send the message to the `TrafficControlService`. You will
     using System.Text;
     using System.Text.Json;
     using Simulation.Events;
-   
+
     namespace Simulation.Proxies
     {
         public class MqttTrafficControlService : ITrafficControlService
         {
             private readonly IMqttClient _client;
-   
+
             public MqttTrafficControlService(int camNumber)
             {
                 // connect to mqtt broker
@@ -190,14 +190,14 @@ The proxy uses HTTP to send the message to the `TrafficControlService`. You will
                 var sessionState = _client.ConnectAsync(
                   new MqttClientCredentials(clientId: $"camerasim{camNumber}")).Result;
             }
-   
+
             public void SendVehicleEntry(VehicleRegistered vehicleRegistered)
             {
                 var eventJson = JsonSerializer.Serialize(vehicleRegistered);
                 var message = new MqttApplicationMessage("trafficcontrol/entrycam", Encoding.UTF8.GetBytes(eventJson));
                 _client.PublishAsync(message, MqttQualityOfService.AtMostOnce).Wait();
             }
-   
+
             public void SendVehicleExit(VehicleRegistered vehicleRegistered)
             {
                 var eventJson = JsonSerializer.Serialize(vehicleRegistered);
@@ -314,7 +314,7 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     dotnet add package Microsoft.Azure.Devices.Client
     ```
 
-1.  Replace the implementation of the `Resources/Simulation/Proxies/MqttTrafficControlService.cs` class with similar code to below.  
+1.  Create a new class for the implementation of the `Resources/Simulation/Proxies/IotHubTrafficControlService.cs` class with similar code to below.
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -324,11 +324,11 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
 
     namespace Simulation.Proxies
     {
-        public class MqttTrafficControlService : ITrafficControlService
+        public class IotHubTrafficControlService : ITrafficControlService
         {
             private readonly DeviceClient _client;
 
-            public MqttTrafficControlService(int camNumber)
+            public IotHubTrafficControlService(int camNumber)
             {
                 _client = DeviceClient.CreateFromConnectionString("HostName=iothub-dapr-ussc-demo.azure-devices.net;DeviceId=simulation;SharedAccessKey=/cRA4cYbcyC7FakekeyNV6CrfugBe8Ka2z2m8=", TransportType.Mqtt);
             }
@@ -350,6 +350,12 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
             }
         }
     }
+    ```
+
+1.  Update the `Resources/Simulation/Program.cs` file to use the new `IotHubTrafficControlService` class.
+
+    ```csharp
+    var trafficControlService = new IotHubTrafficControlService(camNumber);
     ```
 
 1.  Get the connection strings for your event hubs (one for the **entrycam** EventHub & one for the **exitcam** EventHub). Customize for your deployment.
@@ -377,18 +383,18 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
       type: bindings.azure.eventhubs
       version: v1
       metadata:
-      - name: connectionString
-        value: "Endpoint=sb://ehn-dapr-ussc-demo-trafficcontrol.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=IQrpNCFakekeykn5xkSVyn5y4uZCGerc=;EntityPath=entrycam"
-      - name: consumerGroup
-        value: "trafficcontrolservice"
-      - name: storageAccountName
-        value: "sadaprusscdemo"
-      - name: storageAccountKey
-        value: "IKJgQ4KAFakekeyhAmi4zSz2ehm1btpQXZ+l68ol7wJmg8TA0ClQChRK7sWnvMEVexgg=="
-      - name: storageContainerName
-        value: "trafficcontrol-entrycam"
+        - name: connectionString
+          value: "Endpoint=sb://ehn-dapr-ussc-demo-trafficcontrol.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=IQrpNCFakekeykn5xkSVyn5y4uZCGerc=;EntityPath=entrycam"
+        - name: consumerGroup
+          value: "trafficcontrolservice"
+        - name: storageAccountName
+          value: "sadaprusscdemo"
+        - name: storageAccountKey
+          value: "IKJgQ4KAFakekeyhAmi4zSz2ehm1btpQXZ+l68ol7wJmg8TA0ClQChRK7sWnvMEVexgg=="
+        - name: storageContainerName
+          value: "trafficcontrol-entrycam"
     scopes:
-    - trafficcontrolservice
+      - trafficcontrolservice
     ```
 
 1.  Replace the implementation of the `Resources/dapr/components/exitcam.yaml` file with code similar to above, making sure to replace the `connectionString` & `storageContainerName` with the appropriate ones for `exitcam`.
@@ -396,3 +402,21 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
 1.  Re-run all the services.
 
 1.  Re-run the Simulation application.
+
+## Troubleshooting
+
+Make sure the `app-id` and scopes in the Dapr configuration and command line are all lower-case. Input bindings especially don't seem to support CamelCase.
+
+Getting the input binding to the local MQTT queue is finicky.
+
+Run dapr in debug logging mode to see more errors (note the `--log-level debug` flag):
+
+```shell
+dapr run --log-level debug --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+```
+
+Error:
+
+```shell
+time="2022-10-12T16:44:02.462071-05:00" level=error msg="error reading from input binding entrycam: not currently connected and ResumeSubs not set" app_id=trafficcontrolservice
+```

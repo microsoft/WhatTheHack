@@ -1,0 +1,18 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ .Values.daprComponents.stateStore.componentName }}
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+    - name: redisHost
+      value: {{ .Values.daprComponents.stateStore.redisHost }}
+    - name: redisPassword
+      value: {{ .Values.daprComponents.stateStore.redisPassword }}
+    - name: actorStateStore
+      value: true
+    - name: enableTLS
+      value: true
+scopes:
+  - {{ .Values.trafficcontrol.trafficControlService.dapr.appId }}

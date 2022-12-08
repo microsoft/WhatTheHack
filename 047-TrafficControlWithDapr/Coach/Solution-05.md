@@ -19,7 +19,7 @@ Start by running the SMTP server:
 1.  Start a MailDev SMTP server by entering the following command:
 
     ```shell
-    docker run -d -p 4000:80 -p 4025:25 --name dtc-maildev maildev/maildev:latest
+    docker run -d -p 4000:1080 -p 4025:1025 --name dtc-maildev maildev/maildev:latest
     ```
 
 This will pull the docker image `maildev/maildev:latest` from Docker Hub and start it. The name of the container will be `dtc-maildev`. The server will be listening for connections on port `4025` for SMTP traffic and port `4000` for HTTP traffic. This last port is where the inbox web app will run for inspecting the emails.
@@ -50,9 +50,9 @@ docker rm dtc-maildev -f
 
 Keep in mind that once you remove, it's gone. You'll need to start it again with the `docker run` command shown at the beginning of this step.
 
-*For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container.*
+_For your convenience, the `Resources/Infrastructure` folder contains PowerShell scripts for starting the infrastructural components you'll use throughout the WhatTheHack. You can use the `Resources/Infrastructure/maildev/start-maildev.ps1` script to start the MailDev container._
 
-*You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script.*
+_You can also start all the infrastructure containers at once (also for challenges to come) with the `Resources/Infrastructure/start-all.ps1` script._
 
 ## Step 2: Use the Dapr output binding in the `FineCollectionService`
 
@@ -99,7 +99,7 @@ You will enhance the `FineCollectionService` so that it uses the Dapr SMTP outpu
     await daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
     ```
 
-    *The first two parameters passed into `InvokeBindingAsync` are the name of the binding to use and the operation (in this case 'create' the email).*
+    _The first two parameters passed into `InvokeBindingAsync` are the name of the binding to use and the operation (in this case 'create' the email)._
 
 1.  This method uses the `[FromServices]` attribute to inject the `DaprClient` class. You'll need to register `DaprClient` with the dependency injection container. Open the file `Resources/FineCollectionService/Startup.cs`. Add the following `using` statement to the file:
 
@@ -125,7 +125,7 @@ You will enhance the `FineCollectionService` so that it uses the Dapr SMTP outpu
 
     If you see any warnings or errors, review the previous steps to make sure the code is correct
 
-That's it! That's all the code you need to send an email over SMTP.  
+That's it! That's all the code you need to send an email over SMTP.
 
 ## Step 3: Configure the output binding
 
@@ -146,18 +146,18 @@ In this step you will add a Dapr binding component configuration file to connect
       type: bindings.smtp
       version: v1
       metadata:
-      - name: host
-        value: localhost
-      - name: port
-        value: 4025
-      - name: user
-        value: "_username"
-      - name: password
-        value: "_password"
-      - name: skipTLSVerify
-        value: true
+        - name: host
+          value: localhost
+        - name: port
+          value: 4025
+        - name: user
+          value: "_username"
+        - name: password
+          value: "_password"
+        - name: skipTLSVerify
+          value: true
     scopes:
-    - finecollectionservice
+      - finecollectionservice
     ```
 
 As you can see, you specify the binding type (`bindings.smtp`) and describe how to connect to it in the `metadata` section. For now, you'll run on localhost on port `4025`. The other metadata can be ignored.
@@ -222,60 +222,61 @@ You should see the same logs as before. You can also view the fine notification 
 
 1. Open the Logic App that is deployed to your Azure Resource Group. You will need to initialize the Office 365 connector and copy the HTTP trigger endpoint.
 
-    1. Click on the **Logic app designer** blade
-    1. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
-    1. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
+   1. Click on the **Logic app designer** blade
+   1. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
+   1. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
 
 1. Update the `Resources/dapr/components/email.yaml` file to use the Azure Logic App to send email. You will change the bindings from SMTP to HTTP and fill in the HTTP endpoint for the Logic App in Azure.
 
-    **Example:**
-    ```yaml
-    apiVersion: dapr.io/v1alpha1
-    kind: Component
-    metadata:
-      name: sendmail
-    spec:
-      type: bindings.http
-      version: v1
-      metadata:
-        - name: url
-          value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
-    scopes:
-    - finecollectionservice
-    ```
+   **Example:**
 
-1.  Add the package to your project.
+   ```yaml
+   apiVersion: dapr.io/v1alpha1
+   kind: Component
+   metadata:
+     name: sendmail
+   spec:
+     type: bindings.http
+     version: v1
+     metadata:
+       - name: url
+         value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
+   scopes:
+     - finecollectionservice
+   ```
 
-    ```shell
-    dotnet add package Newtonsoft.Json
-    ```
+1. Add the package to your project.
 
-1.  Navigate to the `Resources/FineCollectionService` directory. Open the `Resources\FineCollectionService\Controllers\CollectionController.cs` file. Modify the **CollectFine** method to pass in a JSON object to the Logic App's HTTP endpoint. 
+   ```shell
+   dotnet add package Newtonsoft.Json
+   ```
 
-    Add the following to the using statements at the top of the file.
+1. Navigate to the `Resources/FineCollectionService` directory. Open the `Resources\FineCollectionService\Controllers\CollectionController.cs` file. Modify the **CollectFine** method to pass in a JSON object to the Logic App's HTTP endpoint.
 
-    ```csharp
-    using Newtonsoft.Json.Linq;
-    ```
+   Add the following to the using statements at the top of the file.
 
-    Replace the line that starts with `var metadata = new Dictionary<string, string>` with the following.
+   ```csharp
+   using Newtonsoft.Json.Linq;
+   ```
 
-    ```csharp
-    dynamic email = new JObject();
-    email.from = "noreply@cfca.gov";
-    email.to = "<YOUR_EMAIL_ADDRESS_HERE>";
-    email.subject = $"Speeding violation on the {speedingViolation.RoadId}";
-    email.body = body;
+   Replace the line that starts with `var metadata = new Dictionary<string, string>` with the following.
 
-    var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(email);
+   ```csharp
+   dynamic email = new JObject();
+   email.from = "noreply@cfca.gov";
+   email.to = "<YOUR_EMAIL_ADDRESS_HERE>";
+   email.subject = $"Speeding violation on the {speedingViolation.RoadId}";
+   email.body = body;
 
-    await daprClient.InvokeBindingAsync("sendmail", "create", jsonString);
-    ```
+   var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(email);
 
-1.  Rebuild your `FineCollectionService`.
+   await daprClient.InvokeBindingAsync("sendmail", "create", jsonString);
+   ```
 
-    ```shell
-    dotnet build
-    ```
+1. Rebuild your `FineCollectionService`.
 
-1.  Re-run all services and the simulation application. You should begin to see emails in your inbox for speeding violations.
+   ```shell
+   dotnet build
+   ```
+
+1. Re-run all services and the simulation application. You should begin to see emails in your inbox for speeding violations.
