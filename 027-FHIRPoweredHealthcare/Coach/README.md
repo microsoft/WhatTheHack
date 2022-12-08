@@ -39,7 +39,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -74,11 +74,11 @@ This hack will deploy the following Azure resources and OSS components to implem
 
 _The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
-- \`.Coach\`
+- `.Coach`
   - Coach's Guide and related files
-- \`.Coach/Solutions\`
+- `.Coach/Solutions`
   - Solution files with completed example answers to a challenge
-- \`.Student\`
+- `.Student`
   - Student's Challenge Guide
-- \`.Student/Resources\`
+- `.Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
