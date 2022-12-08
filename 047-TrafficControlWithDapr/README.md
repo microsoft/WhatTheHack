@@ -43,13 +43,6 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
 - Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS)](Student/Challenge-08.md)**
   - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
 
-## Repository Contents
-
-- `./Coach/Solutions`
-  - Coach's Solutions and related files
-- `./Student/Resources`
-  - Student's Challenge Guide
-
 ## Contributors
 
 - Jordan Bean
