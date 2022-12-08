@@ -9,7 +9,7 @@ Current process: All orders from  larger contracts come through a single shared 
 
 In this challenge you will discuss the value of automation, synergizing automation with people, and implementing power automate and AI Builder.
 
-Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Now that you have provisioned the proper licenses to unlock access to Power Apps and Power Automate. AI builder is trained and tested from challenge 2, you are ready to start using Power Automate to integrate with your AI builder to do form processing and store the data into Dataverse tables. 
+Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Now that you have provisioned the proper licenses to unlock access to Power Apps and Power Automate and, AI builder is trained and tested from challenge 2, you are ready to start using Power Automate to integrate with your AI builder to do form processing and store the data into Dataverse tables. 
 
 ## Description
 
