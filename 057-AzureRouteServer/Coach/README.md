@@ -29,11 +29,13 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack. For this hack, please provide the contents of the following files.
-- [Hub and Spoke](./Resources/HubAndSpoke.azcli) Azure CLI Script file. This files contain the creations of a Hub and Spoke topology with Linux VMs.
-- Username and password must be provided to the students for the Ubuntu VMs
-	-username: azureuser
-	-psswd: Msft123Msft123
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the `Resources.zip` file to all students at the start of the hack. 
+
+In Challenge 00, the students will run a script from this Resources.zip file that deploys a baseline Hub & Spoke network topology into their Azure subscriptions with Linux VMs.  
+
+The coach should provide the students with the Username and password used for the Ubuntu VMs:
+- username: azureuser
+- psswd: Msft123Msft123
 
 **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent Vnet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge
 
