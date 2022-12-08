@@ -1,4 +1,4 @@
-# Challenge 5: : Export and Anonymize FHIR EHR Data
+# Challenge 5: Export and Anonymize FHIR EHR Data
 
 [< Previous Challenge](./Challenge04.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge06.md)
 
