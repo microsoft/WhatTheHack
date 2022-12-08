@@ -24,8 +24,12 @@ Welcome to the coach's guide for the Traffic Control with Dapr What The Hack. He
   - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry- and exit-cam messages over the MQTT protocol.
 - Challenge 7: **[Dapr Secrets Management](Solution-07.md)**
   - Add the Dapr secrets management building block.
+    <<<<<<< HEAD
 - Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS) or Azure Container Apps (ACA)](Solution-08.md)**
-  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster or an Azure Container Apps service.
+  - # Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster or an Azure Container Apps service.
+- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS)](Solution-08.md)**
+  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
+    > > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
 
 ## Coach Prerequisites
 
@@ -35,7 +39,12 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
+<<<<<<< HEAD
 Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+=======
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+
+> > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -62,7 +71,11 @@ You will need the following subcription [resource providers](https://learn.micro
 - Microsoft.Storage
 - Microsoft.Web
 
-- If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
+<<<<<<< HEAD
+
+- # If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
+- If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
+  > > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
 
 _Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._
 
@@ -93,13 +106,22 @@ _If you can't instantiate some of these resources, you won't be able to complete
 
 **IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
 
+<<<<<<< HEAD
 [https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions)
 
 **IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
 
 1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
 1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+1.  # [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+    [Enable the Azure CLI Extension for Cluster Extensions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions)
+
+**IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
+
+1.  [Install the AKS Preview Azure CLI Extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
+1.  [Register the enableworkloadidentitypreview feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
+1.  [Register the enabledoidcissuepreview feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+    > > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
 
 ## Student Local Machine Requirements
 
@@ -136,11 +158,21 @@ Students will need to have the following tools installed locally on their machin
 
 ## Repository Contents
 
+<<<<<<< HEAD
+
 - \`./Coach\`
   - Coach's Guide and related files
 - \`./Coach/Solutions\`
   - Solution files with completed example answers to a challenge
 - \`./Student\`
   - Student's Challenge Guide
-- \`./Student/Resources\`
+- # \`./Student/Resources\`
+- `./Coach`
+  - Coach's Guide and related files
+- `./Coach/Solutions`
+  - Solution files with completed example answers to a challenge
+- `./Student`
+  - Student's Challenge Guide
+- `./Student/Resources`
+  > > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
