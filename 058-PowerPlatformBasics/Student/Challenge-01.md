@@ -24,6 +24,10 @@ During the COVID-19 pandemic, Tailspin toys identified challenges in their suppl
 In this challenge the team will discuss the value proposition of Power Platform, design a solution, and install system requirements.
 You will choose a platform for Tailspin Toys and provision the Power Platform environment and necessary licenses.
 
+### Student Resources
+
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack. You should unpack the `Resources.zip` file on your workstation. The challenges will refer to files and relative folder paths from wherever you unpack the Zip file.
+
 ### Choose the platform and build environment
   
 - Answer the question:  What platform will you choose and why?
