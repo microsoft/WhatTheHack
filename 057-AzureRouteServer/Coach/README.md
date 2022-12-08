@@ -60,8 +60,6 @@ _For example:_
 
 ## Repository Contents
 
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
 - `./Coach`
   - Coach's Guide and related files
 - `./Coach/Solutions`
