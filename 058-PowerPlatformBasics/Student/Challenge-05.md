@@ -34,7 +34,9 @@ Now that your base app is imported, implement the following design requirements:
     * Appropriate buttons for navigation, editing/viewing, etc.
     * Connect the above components so that the custom properties in the provided navigation system directs the user to the correct page.
 
-- Thre is an example of how the app might start to look in the resources zip file: /resources/BasePowerApp/TailspinToys_PowerApp_Example,JPG
+Below is an example of how the app might start to look: 
+    
+![Sample App UI](./Resources/BasePowerApp/TailspinToys_PowerApp_Example.JPG)
 
 ## Success Criteria
 
