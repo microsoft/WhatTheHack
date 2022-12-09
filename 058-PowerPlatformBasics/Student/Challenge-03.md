@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Current process: All orders from  larger contracts come through a single shared mailbox. Order would be sent as an attachment using the Ordering Product Template.
+Current process: All orders from larger contracts come through a single shared mailbox. Order would be sent as an attachment using the Ordering Product Template.
 
 In this challenge you will discuss the value of automation, synergizing automation with people, and implementing power automate and AI Builder.
 
