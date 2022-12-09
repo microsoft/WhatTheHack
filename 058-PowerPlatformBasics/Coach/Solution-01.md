@@ -10,7 +10,7 @@ Environment setup guidence
 - Do not use your corporate license/environment for the hack
 - Create a unique tenant name such as: ppwth2022TeamXX
 
-- If Microsoft employees and Partners have access to CDX, we reccommend they stil follow the trial setup process
+- If Microsoft employees and Partners have access to CDX, we recommend they still follow the trial setup process
 - A Power Platform Developer environment would only be advised for a single person attempting the challenges
 
 - Refer to [tenant setup docs](./Solutions/TenantSetup_Coach.pdf) for more information
