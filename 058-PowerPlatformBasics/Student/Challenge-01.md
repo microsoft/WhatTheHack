@@ -36,7 +36,7 @@ Your coach will provide you with a `Resources.zip` file that contains resource f
 
 **Bonus Challenge:** Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
 
-**NOTE:** This challenge will require licenses to complete the challenge using trials
+**NOTE:** This challenge will require licenses to complete the challenge using a trial account. For more information on creating a trial account, see the `TenantSetup.pdf` in the `Resources.zip` file provided by your coach.
 
 ## Success Criteria
 
