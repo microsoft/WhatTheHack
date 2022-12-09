@@ -4,7 +4,6 @@
 
 The Power Platform Basics What The Hack will enable your team to leverage Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and create a new role of Citizen Developer.
 
-
 ## Learning Objectives
 
 In this hack you will be solving business problems that companies in the Retail industry face by replacing their legacy systems.  The new systems will be able to:
@@ -15,11 +14,10 @@ In this hack you will be solving business problems that companies in the Retail 
 - Enable Power Platform automation using Virtual Agents
 - Report statistics using Power BI
 
-
 ## Challenges
 
 - Challenge 01: **[Power Platform Environment](Student/Challenge-01.md)**
-	 - The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and take on the role of Citizen Developer.
+	 - The Power Platform Basics What The Hack will enable your team to leverage Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and take on the role of Citizen Developer.
 - Challenge 02: **[Build an AI Model to extract Order Data](Student/Challenge-02.md)**
 	 - In this challenge you will explore AI Builder data models
 - Challenge 03: **[Extract Order Data to Dataverse Using Power Automate](Student/Challenge-03.md)**
