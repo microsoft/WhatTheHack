@@ -54,7 +54,7 @@ To complete this challenge successfully, you should be able to:
 ## Advanced Challenges
 
 Too comfortable? Eager to do more? Try these additional challenges!
-- Handle Exception Cases (What if the model extracts data incorrectly).
+- Handle Exception Cases. What if the model extracts data incorrectly?
 - Try to use the AI Model that extracts Order Information in Power Apps Canvas App (next challenge)
 * [Explore the Document automation toolkit - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/doc-automation?msclkid=d7043197d0a211ec83ca9d25453fab57)
 
