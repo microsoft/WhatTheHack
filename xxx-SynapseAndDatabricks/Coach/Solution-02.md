@@ -12,5 +12,11 @@ Example dataflows for both data sets are provided below as a reference:
   
 ![picture alt](./Solutions/Challenge2b_Example.png)
   
+
+
+If your students are more inclined towards Databricks or Synapse Spark then you can use this generic [notebook](../Coach/Solutions/Bronze%20to%20Silver%20Delta%20Lake.ipynb?raw=true) to explain the steps that they need to follow to load data into the Silver layer and play around with Delta and time travel. 
+
+
 __Bonus Challenge__:  
 For the bonus challenge, we can use a GetMetadata or a similar pipeline object in Azure Synapse to check for files being present and copy over the file(s) at the end (or start) of a pipeline run.
+  
