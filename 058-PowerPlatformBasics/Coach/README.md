@@ -48,11 +48,13 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Suggested Hack Agenda
 
-Ideally Challenges 1 - 5 should be completed.
+This hack is designed to be run as a 2-3 day event. It is okay to run this hack as a shorter event and have students cover the core learning objectives by completing at least Challenges 1 through 5.
 
-Challenges 6 - 8 are not interdependent
+Challenges 1-5 build upon each other and must be completed in order.  Challenges 6 through 8 are not interdependent. Once a student completes Challenges 1 through 5, they can "choose their own adventure" by doing 6, 7, or 8 in any order they wish.
 
-Challenge 9 could include 1 - 5 and any of the others that are completed
+Challenge 9 involves re-packaging the work a student completes in any or all of the previous challenges. Students can attempt challenge 9 after the first five have been completed, or after 6,7, or 8 are completed.
+
+The below is a rough estimate of how long we have observed these challenges to take. However, no two groups will take the same amount of time to complete the challenges.  It will totally vary based on the skillset of the students.  This is only a sample suggested agenda. 
 
 - Sample Day 1
   - Challenge 1 (50 minutes)
