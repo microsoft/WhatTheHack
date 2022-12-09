@@ -39,5 +39,3 @@ To complete this challenge successfully, you should be able to:
 * [Overview of document processing model - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-overview)
 * [Use the document processing model in Power Automate - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
 * [Use the form processor component in Power Apps - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
-
-
