@@ -58,8 +58,4 @@ To complete this challenge successfully, you should be able to:
 * [Filter, Search, and Lookup functions in Power Apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-filter-lookup)
 
 
-## Advanced Challenges (Optional)
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
 
