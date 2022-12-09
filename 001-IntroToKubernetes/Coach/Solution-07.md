@@ -8,7 +8,7 @@
 	- Connect to the pod running mongodb with the exec command: 
 		- `kubectl exec -it <mongodbpodname> -- /bin/bash`
 	- Connect to mongodb by running: 
-		- `mongo`
+		- `mongosh`
 	- Check for the existence of “contentdb” database by running the following at the mongodb prompt: 
 		- `show dbs`
 - They will need to use something similar to the command below to perform the rolling update:
