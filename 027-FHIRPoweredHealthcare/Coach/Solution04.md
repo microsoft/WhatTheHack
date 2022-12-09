@@ -1,47 +1,88 @@
-# Coach's Guide: Challenge 4 - Connect to FHIR Server and read FHIR data through a JavaScript app
+# Coach's Guide: Challenge 4 - Explore and Analyze FHIR EHR Data
 
-[< Previous Challenge](./Solution03.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution05.md)
+[< Previous Challenge](./Solution03.md) - **[Home](../README.md)** - [Next Challenge>](./Solution05.md)
 
-## Notes & Guidance
+## Introduction
 
-In this challenge, you will deploy a **[FHIR sample JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)** to connect and read FHIR patient data.  You will configure **[public client application registration](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** to allow JavaScript app to access FHIR Server.
+In this challenge, you will deploy the OSS **[FHIR-to-Synapse Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md)** to move FHIR data from Azure FHIR service to a Azure Data Lake storage in near real time and making it available to a Synapse workspace, which will enable you to query against the entire FHIR dataset with tools such as Synapse Studio, SSMS, and/or Power BI.
 
-**[Public Client Application registrations](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-public-azure-ad-client-app)** are Azure AD representations of apps that can authenticate and authorize for API permissions on behalf of a user. Public clients are mobile and SPA JavaScript apps that can't be trusted to hold an application secret, so you don't need to add one.  For a SPA, you can enable implicit flow for app user sign-in with ID tokens and/or call a protected web API with Access tokens.
+This pipeline is an Azure Function solution that extracts data from the FHIR server using FHIR Resource APIs, converts them to hierarchical Parquet files, and writes them to Azure Data Lake storage in near real time. It contains a script to create External Tables and Views in Synapse Serverless SQL pool pointing to the Parquet files.  You can also access the Parquet files directly from a Synapse Spark Pool to perform custom transformation to downstream systems, i.e. USCDI datamart, etc.
 
-**You will deploy a FHIR sample JavaScript app in Azure to read patient data from the FHIR service.**
-- **[Create a new Azure Web App](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app#create-web-application)** in Azure Portal to host the FHIR sample JavaScript app.
-- Check in secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) that a **[Resource Application](https://docs.microsoft.com/en-us/azure/healthcare-apis/register-resource-azure-ad-client-app)** has been registered for the FHIR Server resource.
+**First, you need to deploy an instance of FHIR service (done in challenge 1) and a **[Synapse Workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace)**.**
+- First, create ADLSGEN2 storage account in Azure Portal for use by Synapse workspace
+    - Search for Data Lake Storage Gen 2
+    - Select Data Lake Storage Gen 2
+    - Create new ADLSGEN2 storage account
+    - Select File System and name it `users` 
+- Create Synapse workspace
+    - Search for Synapse in Azure Portal
+    - Select Azure Synapse Analytics
+    - Select Add to create workspace
 
-    **Note:** 
-    - If you are using the Azure API for FHIR, a Resource Application is automatically created when you deploy the service in same AAD tenant as your application.
-    - In the FHIR Server Sample environment deployment, a Resource Application is automatically created for the FHIR Server resource.
+**Deploy the FHIR-to-Synapse Analytics Pipeline**
+- To **[deploy the pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md#1-deploy-the-pipeline)**, run this **[ARM template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FFHIR-Analytics-Pipelines%2Fmain%2FFhirToDataLake%2Fdeploy%2Ftemplates%2FFhirSynapsePipelineTemplate.json)** for pipeline deployment through the Azure Portal.  You will need to provide the following Azure and script parameters (at minimum):    
+    - Subscription
+    - Resource Group (Name of the resource group where you want the pipeline related resources to be created)
+    - Region
+    - App Name (A name for the Azure Function)
+    - Fhir server Url (The URL of the FHIR server)
+    - Authentication (Whether to access the FHIR server with managed identity authentication. Set it to false if you are using an instance of the FHIR server for Azure with public access)
+    - Fhir Version (defaults to `R4`)
+    - Container name (A name for the Storage Account container to which Parquet files will be written - defaults to `fhir`)
+    - Filter Scope (For data filtering use. The export scope can be System or Group. Defaults to `System`)
+    - Customized Schema (If enabled, pipeline Generate customized data based on given schema - defaults to `false`)
+    - Package url(The build package of the agent. You need not change this)
+    - Storage Account Type (Defaults to `Standard_LRS`)
+    - Location (Location for all resources - Defaults to Resource group location)
+    - Deploy App Insights (Whether to deploy the Application Insights - Defaults to `true`)
+    - App Insight Location (The location to deploy the App Insight)
 
-- **[Register a public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg)** in secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege) to allow the deployed Web App to authenticate and authorize for FHIR Server API access.
-  - Go to Azure AD and switch to your secondary Azure AD tenant (can be primary tenant if you already have directory admin privilege)
-  - Click `App Registration` and add a new Public client/native (mobile & desktop) registration or open existing one if already exist (from FHIR Server Samples deployment).
-    - Capture `client ID` and `tenant ID` from `Overview` blade for use in later step.
-  - Connect with web app
-    - Select `Authentication` blade, click `Add a new platform` and select `Web`
-      - Add `https://[WEB-APP-NAME].azurewebsites.net` to `redirect URI` list.
-      - Select `Access tokens` and `ID tokens` check boxes and click `Configure`.
-  - Add `API Permissions`
-    - Select `API permissions` blade and click `Add a new permission`
-    - Select `APIs my organization uses`, search for `Azure Healthcare APIs` and select it.
-    - Select `user_impersonation` and click `add permissions`.
-- Update the sample JavaScript app to connect and read FHIR patient data from your FHIR Serer.
-  - Start with the sample code from the **[FHIR patient JavaScript app](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-write-web-app)** site or **[index.html](../Student/Resources/JavaScript-Sample/index.html)** file in the Student Resources folder. 
-  - Open App Service resource for sample web app in Azure Portal.
-    - Select App Service Editor and select `index.html` file to open it in the editor.
-    - Paste the sample code into the editor to replace the content.
-    - Initialize **[MSAL ((Mirosoft Authentication Library) provider](https://docs.microsoft.com/en-us/graph/toolkit/providers/msal)** configuration object for your FHIR environment:
-        - `clientId` - Update with your client application ID of public client app registered earlier
-        - `authority` - Update with Authority from your FHIR Server (under Authentication)
-        - `FHIRendpoint` - Update the FHIRendpoint to have your FHIR service name
-        - `Scopes` - Update with Audience from your FHIR Server (under Authentication)
-      
-      **Note:** App Services Editor automatically saves changes.
-- Test sample JavaScript app
-  - Browse to App Service website URL in a new In-private / InCognito window
-  - Sign in with your secondary tenant (can be primary tenant if you already have directory admin privilege) used in deploying FHIR Server Samples reference architecture
-  - You should see a list of patients that were loaded into FHIR Server.
-  
+Hint: Ensure to make note of the names of the Storage Account and the Azure Function App created during the deployment.
+
+**Provide Access of the FHIR server to the Azure Function**
+- Assign the FHIR Data Reader role to the Azure Function created from the deployment above
+
+**Verify the data movement**
+- Azure Function app deployed runs automatically. 
+- Time taken to write the FHIR dataset to the storage account depends on the amount of data stored in the FHIR server. 
+- After the Azure Function execution is completed, you should have Parquet files stored in the Storage Account. 
+- Browse to the results folder inside the container. You should see folders corresponding to different FHIR resources. 
+
+Hint: you will see folders for only those Resources that are present in your FHIR server. Running the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** will create folders for other Resources.
+
+**Provide privilege to your account**
+- You must provide the following roles to your account to run the PowerShell script in the next step. You may revoke these roles after the installation is complete.
+    - Assign Synapse Administrator role in your Synapse Workspace
+        - Select Synapse Studio> Manage > Access Control
+        - Provide `Synapse Administrator` role to your account
+    - Assign the Storage Blob Data Contributor role in your Storage Account
+        - Select Access Control (IAM) 
+        - Assign `Storage Blob Data Contributor` role to your account
+
+**Provide access of the Storage Account to the Synapse Workspace**
+- Assign the Storage Blob Data Contributor role to your Synapse Workspace.
+    - Select Managed identify while adding members to `Storage Blob Data Contributor` role. 
+    - Select your Synapse workspace instance from the list of managed identities shown on the portal.
+    
+**Run the PowerShell script**
+- Run the PowerShell **[script](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/scripts/Set-SynapseEnvironment.ps1)** to create External Tables and Views in Synapse Serverless SQL Pool pointing to the Parquet files in the Storage Account.
+    - Clone the **[FHIR-Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines)** GitHub repo.
+    - Open PowerShell console (ensure you have the latest version of PowerShell)
+    - Install `Az` and `Az.Synapse` (if not exist)
+        ```PowerShell
+        Install-Module -Name Az
+        Install-Module -Name Az.Synapse
+        ```
+    - Log into Azure subscription where Synapse exists
+        ```PowerShell
+        Connect-AzAccount -SubscriptionId 'yyyy-yyyy-yyyy-yyyy'
+        ```
+    - Run PowerShell script under the scripts folder (..\FhirToDataLake\scripts)
+        ```PowerShell
+        ./Set-SynapseEnvironment.ps1 -SynapseWorkspaceName "{Name of your Synapse workspace instance}" -StorageName "{Name of your storage account where Parquet files are written}".
+        ```
+    - Query data from Synapse Studio
+        - Go to your Synapse workspace serverless SQL pool
+            - Select `fhirdb` database
+            - Expand External Tables and Views
+            - Query FHIR data in the entities

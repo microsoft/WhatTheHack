@@ -1,64 +1,57 @@
-# Challenge 6: Create a new Single Page App (SPA) for patient search
+# Challenge 6: Ingest and Persist IoT Medical Device Data 
 
-[< Previous Challenge](./Challenge05.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge07.md)
+[< Previous Challenge](./Challenge05.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge07.md)
 
 ## Introduction
 
-In this challenge, you will create a new JavaScript Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+In this challenge, you will work with IoT medical device data using the **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot)** in Azure Health Data Services.  You will use **[MedTech service toolkit](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** to transform IoT medical device data into Fast Healthcare Interoperability Resources (FHIR®)-based Observation resources.  You will deploy a **[MedTech service data pipeline](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)** to ingest medical IoT data, normalize and group these messages,transform the grouped-normalized messages into FHIR-based Observation resources, and then persist the transformed messages into the FHIR service (previously deployed in challenge 1).
 
-<center><img src="../images/challenge06-architecture.jpg" width="350"></center>
+The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot)** in Azure Health Data Services uses an event hub to ingests streaming event data from IoT medical devices, transforms them into FHIR-based Observation resources, retrieves associated Patient resource from FHIR service, adds them as reference to the Observation resource created, and then persists the transformed messages to the FHIR service.
+
+**[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** is the MedTech toolkit to visualize and configure normalize mapping between the medical IoT data and FHIR.  Once you completed the FHIR mapping, you can export it and upload the mapping files to your **[MedTech service Device Mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** configuration in Azure Portal.
+
+
+Below is the overview of the **[MedTech service data flow](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**:
+<center><img src="../images/challenge06-architecture.png" width="550"></center>
 
 ## Description
 
-- Create a new JavaScript Single-Page App (SPA) Node.js or React app.
-  - Node.js: git clone sample code for **[Node.js JavaScript SPA with MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)** 
-  - React: Use **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** frontend build pipeline (toolchain) to generate the initial project structure.
+You will deploy an instance of MedTech service in your Azure Health Data Service workspace, and configure it to receive and transform medical IoT data for persitence in your FHIR service (deployed in challenge 1) as Observation resources.
 
-- Integrate and configure the Microsoft Authentication Library (MSAL) with your JavaScript SPA app to fetch data from protected FHIR web API.
-  
-    - You need to use MSAL to authenticate and acquired access token as a bearer in your FHIR API HTTP request.
+- **Deploy **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)** for MedTech service to **[ingest](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow#ingest)** medical IoT device data**
 
-    ![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+    Hint: An Event Hubs namespace provides a unique scoping container, in which you create one or more event hubs. 
 
-- Create a patient lookup by Given or Family name in JavaScript SPA app.
-  - Explore the `FHIR API` collection imported into Postman earlier to obtain the appropriate API request for the patient search query.
-
-- (Optional) Include any other modern UI features to improve the user experience.
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)** on AAD tenant with directory admin access to connect web app with FHIR Server for both local and Azure web app URLs.
-  - Ensure that the Reply URL matches the local and Azure Web App URL
-    - In AAD `App Registration` of AAD with directory admin access, configure a new `Web Platform` under `Authentication` blade
-        - Add `Redirect URI` for both local and Azure Web App URLs
-        - Enable `Implicit Grant` by selecting Access token and ID tokens
-        - Configure permissions for Azure Healthcare APIs with `User_Impersonation` permission (if needed)
-
-- Build and test JavaScript SPA app locally.
-  - To run locally, you'll need to change the `redirectUri` property to: `http://localhost:3000/`.
-- Deploy JavaScript SPA web app to Azure App Service.
-  - To run on Azure, you'll need to change the `redirectUri` property to: `<YOUR_AZURE_APP_SERVICE_WEBSITE_URL>`.
-- Test the JavaScript SPA Patient Search app:
-  - Browse to App Service website URL in a new in-private/Incognito window.
-  - Sign in with your admin tenant user credential saved in **[challenge 1](./Challenge01.md)**.
-  - Enter full/partial name in the patient search textbox and click the search button.
-  - You should see a list of FHIR patient(s) that matches your search criteria.
+- ****[Deploy](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure)** a new instance of the MedTech service in your Azure Health Data Services workspace (deployed in challenge 1) and configure it to ingest IoT data from the above Event Hubs instance**
+- **Deploy the **[IoT mapper tool](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)****
+  - Import **[sample IoT messages](https://github.com/microsoft/azure-health-data-services-workshop/tree/main/Challenge-09%20-%20MedTech%20service/SampleData/Answers)** into tool to customize device mapping to FHIR
+    - You can also find the sample IoT message files (`devicecontent.json` and `fhirmapping.json`) in the `/MedTech-service/SampleData` folder of the Resources.zip file provided by your coach.
+  - Export customized mapping in tool to generate the new Device Mapping and FHIR Mapping files
+- **Import the newly generated FHIR mapping into your MedTech service**
+  - Configure and save the **[Device mapping](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** JSON in the MedTech service (Device Mapping setting)
+  - Configure and save the **[Destination mapping](https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-fhir-mappings)** JSON to in the MedTech service (Destination setting)
+- **Send sample device data to persist in the FHIR service using Postman via **[MedTech service Event Hub service](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token)****
 
 ## Success Criteria
-- You have created a JavaScript SPA Patient Search app and deployed it to Azure App Service.
-- You have tested patient lookup in the Patient Search web app.
+- You have successfully configured device mapping to FHIR using the data mapper tool
+- You have successfully generated a custom FHIR mapping for medical IoT device data
+- You have successfully configured MedTech service for mapping IoT device data to FHIR
+- You have successfully ingested sample medical IoT device data into the FHIR services as Observation resources.
+
 
 ## Learning Resources
 
-- **[Create a new JavaSCript SPA using MSAL to call protected Web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa)**
-- **[GitHub Azure Samples - MSAL JavaScript Single-page Application using Implicit Flow](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/)**
-- **[Create React App integrated toochain](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)**
-- **[Microsoft Authentication Library for React (@azure/msal-react)](https://www.npmjs.com/package/@azure/msal-react)**
-- **[Initialization of MSAL (@azure/msal-react) in React app](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)**
-- **[Samples for the MSAL.js 2.x library](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#advanced-topics)**
-- **[Getting Started: Using React AAD MSAL library components to integrate MSAL with AAD in your React app](https://www.npmjs.com/package/react-aad-msal#checkered_flag-getting-started)**
-- **[Sample JavaScript code to acquired access token as a bearer in an HTTP request to call protected web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)**
-- **[How to create a simple search app in React](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
-- **[Sample React JS code to perform a search](https://github.com/lytes20/meal-search-app)**
-- **[Deploy your Node.js app using VS Code and the Azure App Service extension](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)**
-- **[Hosting options and deployment scenarios to move your node.js app from a local or cloud repository to Azure](https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/deploy-web-app)**
-- **[Deploying React apps to Azure with Azure DevOps](https://devblogs.microsoft.com/premier-developer/deploying-react-apps-to-azure-with-azure-devops/)**
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-- **[Register a web app public client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/tutorial-web-app-public-app-reg#connect-with-web-app)**
+- **[What is the MedTech service?](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-connector-overview?WT.mc_id=Portal-Microsoft_Healthcare_APIs)**
+- **[MedTech service data flow](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)**
+- **[Deploy the MedTech service manually](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)**, which will allow you to use existing FHIR service deployed in challenge 1 in the MedTech service destination configuration.
+- **[Deploy the MedTech service using Azure portal](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#configure-device-mapping-properties)**, which will include the following Azure services: Event Hubs, Health Data Services workspace, FHIR service and MedTech service.
+- **[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)**
+- **[How to use Device mappings](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)**
+- **[How to use the FHIR destination mappings](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-fhir-mappings)**
+- **[Granting access to device message event hub and FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#granting-the-medtech-service-access-to-the-device-message-event-hub-and-fhir-service)**
+- **[Receive device data through Azure IoT Hub](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/device-data-through-iot-hub)**
+- **[Create an IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal)**
+- **[Connect IoT Hub to MedTech Service with Message Routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c)**
+- **[Upload files from connected devices to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload)**
+- **[Ingest data from IoT devices](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/device-data-through-iot-hub#send-device-message-to-iot-hub)**
+- **[Get an Azure Active Directory (Azure AD) token and use it send events to an event hub](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#send-messages-to-a-queue)**

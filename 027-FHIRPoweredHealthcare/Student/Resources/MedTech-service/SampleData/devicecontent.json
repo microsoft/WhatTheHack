@@ -1,0 +1,175 @@
+{
+    "templateType": "CollectionContent",
+    "template": [
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "heartrate",
+                "typeMatchExpression": "$..[?(@hr)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "heartRate",
+                        "valueExpression": "$.hr",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "Spo2",
+                "typeMatchExpression": "$..[?(@spo2)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "oxygenSaturation",
+                        "valueExpression": "$.spo2",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "BloodPerfusion",
+                "typeMatchExpression": "$..[?(@bloodperfusion)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "bloodPerfusion",
+                        "valueExpression": "$.bloodperfusion",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "Steps",
+                "typeMatchExpression": "$..[?(@steps)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "steps",
+                        "valueExpression": "$.steps",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "BloodPulseWave",
+                "typeMatchExpression": "$..[?(@bpw)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "bloodPulseWave",
+                        "valueExpression": "$.bpw",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "RespirationRate",
+                "typeMatchExpression": "$..[?(@rrate)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "respirationRate",
+                        "valueExpression": "$.rrate",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "SkinTemp",
+                "typeMatchExpression": "$..[?(@bodytemp)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "skinTemperature",
+                        "valueExpression": "$.bodytemp",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "BloodPressureDiastolic",
+                "typeMatchExpression": "$..[?(@dia)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "diastolic",
+                        "valueExpression": "$.dia",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "BloodPressureSystolic",
+                "typeMatchExpression": "$..[?(@sys)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "systolic",
+                        "valueExpression": "$.sys",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        {
+            "templateType": "JsonPathContent",
+            "template": {
+                "typeName": "Weight",
+                "typeMatchExpression": "$..[?(@weight)]",
+                "timestampExpression": "$.utctimestamp",
+                "deviceIdExpression": "$.device_id",
+                "patientIdExpression": "$.patient_id",
+                "values": [
+                    {
+                        "valueName": "weight",
+                        "valueExpression": "$.weight",
+                        "required": false
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,1286 @@
+{
+	"info": {
+		"_postman_id": "8241b02f-9ac3-4215-acdb-69548a9a82c4",
+		"name": "WTH FHIR-Conformance-as-Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15998620"
+	},
+	"item": [
+		{
+			"name": "AuthorizeGetToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"bearerToken\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{clientId}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{clientSecret}}",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "{{resource}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/{{tenantId}}/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"{{tenantId}}",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store-single-instance (red-triangle.dcm)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/dicom+json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/dicom"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/v-pbartley/OneDrive - Microsoft/Documents/OpenHack MC4H 2021/DICOM/red-triangle.dcm"
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/studies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Store-single-instance (green-square.dcm)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/dicom+json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/dicom"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/v-pbartley/OneDrive - Microsoft/Documents/OpenHack MC4H 2021/DICOM/green-square.dcm"
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/studies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies"
+					]
+				},
+				"description": "This upload is simply to ensure the remaining requests succeed. Ideally, red-triangle.dcm, blue-cirle.dcm, and green-square.dcm are all uploaded.\r\n\r\nFor the body of the request, select the green-square.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Store-single-instance (blue-circle.dcm)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/dicom+json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/dicom"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/v-pbartley/OneDrive - Microsoft/Documents/OpenHack MC4H 2021/DICOM/blue-circle.dcm"
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/studies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies"
+					]
+				},
+				"description": "This upload is simply to ensure the remaining requests succeed. Ideally, red-triangle.dcm, blue-cirle.dcm, and green-square.dcm are all uploaded.\r\n\r\nFor the body of the request, select the blue-circle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "[will not work - see description] Store-instances-using-multipart/related",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/dicom+json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "multipart/related;boundary=ABCD1234"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"contentType": "application/dicom",
+							"type": "file",
+							"src": "/C:/githealth/dicom-samples/visus.com/case1/dicomfile"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/studies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies"
+					]
+				},
+				"description": "This request intends to demonstrate how to upload DICOM files using multipart/related. However, it will not work in Postman.\r\n\r\n> NOTE: Postman cannot be used to upload DICOM files in a way that complies with the DICOM standard. This is due to a Postman limitation. Instead, consider using cURL or programatically uploading the file using Python, C# or another full featured language.\r\n\r\n_Details:_\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n    * `Accept: application/dicom+json`\r\n    * `Content-Type: multipart/related; type=\"application/dicom\"`\r\n* Body:\r\n    * `Content-Type: application/dicom` for each file uploaded, separated by a boundary value\r\n\r\n> Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.\r\n> * `Content-Type: multipart/related; type=\"application/dicom\"; boundary=ABCD1234`\r\n> * `Content-Type: multipart/related; boundary=ABCD1234`\r\n> * `Content-Type: multipart/related`\r\n\r\nIf using Postman, please consider using Store-single-instance. This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related."
+			},
+			"response": []
+		},
+		{
+			"name": "[will not work - see description] Store-instances-for-a-specific-study",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}"
+					]
+				},
+				"description": "This request intends to demonstrate how to upload DICOM files using multipart/related to a designated study. However, it will not work in Postman.\r\n\r\n> NOTE: Postman cannot be used to upload DICOM files in a way that complies with the DICOM standard. This is due to a Postman limitation. Instead, consider using cURL or programatically uploading the file using Python, C# or another full featured language.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}\r\n* Method: POST\r\n* Headers:\r\n    * `Accept: application/dicom+json`\r\n    * `Content-Type: multipart/related; type=\"application/dicom\"`\r\n* Body:\r\n    * `Content-Type: application/dicom` for each file uploaded, separated by a boundary value\r\n\r\n> Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.\r\n > * `Content-Type: multipart/related; type=\"application/dicom\"; boundary=ABCD1234`\r\n > * `Content-Type: multipart/related; boundary=ABCD1234`\r\n > * `Content-Type: multipart/related`\r\n\r\nIf using Postman, please consider using Store-single-instance. This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related."
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-all-instances-within-a-study",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "multipart/related; type=\"application/dicom\"; transfer-syntax=*",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}"
+					]
+				},
+				"description": "This request retrieves all instances within a single study, and returns them as a collection of multipart/related bytes.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: multipart/related; type=\"application/dicom\"; transfer-syntax=*`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-metadata-of-all-instances-in-study",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let seriesid = pm.variables.get(\"series1\");\r",
+							"pm.test(\"Series in returned metadata\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(seriesid);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/metadata",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"metadata"
+					]
+				},
+				"description": "This request retrieves the metadata for all instances within a single study.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}/metadata\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-all-instances-within-a-series",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "multipart/related; type=\"application/dicom\"; transfer-syntax=*",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}"
+					]
+				},
+				"description": "This request retrieves all instances within a single series, and returns them as a collection of multipart/related bytes.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}/series{series}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: multipart/related; type=\"application/dicom\"; transfer-syntax=*`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-metadata-of-all-instances-within-a-series",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}/metadata",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}",
+						"metadata"
+					]
+				},
+				"description": "This request retrieves the metadata for all instances within a single series.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}/series/{series}/metadata\r\n* Method: GET\r\n* Headers:\r\n  * `Accept: application/dicom+json`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-a-single-instance-within-a-series-of-a-study",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom; transfer-syntax=*",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}/instances/{{instance1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}",
+						"instances",
+						"{{instance1}}"
+					]
+				},
+				"description": "This request retrieves a single instances, and returns it as a DICOM formatted stream of bytes.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}/series{series}/instances/{instance}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom; transfer-syntax=*`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-metadata-of-a-single-instance-within-a-series-of-a-study",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}/instances/{{instance1}}/metadata",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}",
+						"instances",
+						"{{instance1}}",
+						"metadata"
+					]
+				},
+				"description": "This request retrieves the metadata for a single instances within a single study and series.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}/series/{series}/instances/{instance}/metadata\r\n* Method: GET\r\n* Headers:\r\n  * `Accept: application/dicom+json`"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve-one-or-more-frames-from-a-single-instance",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "multipart/related; type=\"application/octet-stream\"; transfer-syntax=1.2.840.10008.1.2.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}/instances/{{instance1}}/frames/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}",
+						"instances",
+						"{{instance1}}",
+						"frames",
+						"1"
+					]
+				},
+				"description": "This request retrieves one or more frames from a single instance, and returns them as a collection of multipart/related bytes.\r\n\r\n_Details:_\r\n* Path: ../studies/{study}/series{series}/instances/{instance}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: multipart/related; type=\"application/octet-stream\"; transfer-syntax=1.2.840.10008.1.2.1` (Default) or\r\n   * `Accept: multipart/related; type=\"application/octet-stream\"; transfer-syntax=*` or\r\n   * `Accept: multipart/related; type=\"application/octet-stream\";`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Search-for-studies",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/dicom+json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies?StudyInstanceUID={{study1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies"
+					],
+					"query": [
+						{
+							"key": "StudyInstanceUID",
+							"value": "{{study1}}"
+						}
+					]
+				},
+				"description": "This request enables searches for studies, series and instances by DICOM attributes.\r\n\r\n> Please see the [Conformance.md](https://github.com/microsoft/dicom-server/blob/main/docs/users/Conformance.md) file for supported DICOM attributes.\r\n\r\n_Details:_\r\n* Path: ../studies?StudyInstanceUID={{study1}}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Search-for-series",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/series?SeriesInstanceUID={{series1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"series"
+					],
+					"query": [
+						{
+							"key": "SeriesInstanceUID",
+							"value": "{{series1}}"
+						}
+					]
+				},
+				"description": "This request enables searches for one or more series by DICOM attributes.\r\n\r\n> Please see the [Conformance.md](https://github.com/microsoft/dicom-server/blob/main/docs/users/Conformance.md) file for supported DICOM attributes.\r\n\r\n_Details:_\r\n* Path: ../series?SeriesInstanceUID={{series}}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Search-for-series-within-a-study",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series?SeriesInstanceUID={{series1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series"
+					],
+					"query": [
+						{
+							"key": "SeriesInstanceUID",
+							"value": "{{series1}}"
+						}
+					]
+				},
+				"description": "This request enables searches for one or more series within a single study by DICOM attributes.\r\n\r\n> Please see the [Conformance.md](https://github.com/microsoft/dicom-server/blob/main/docs/users/Conformance.md) file for supported DICOM attributes.\r\n\r\n_Details:_\r\n* Path: ../studies/{{study}}/series?SeriesInstanceUID={{series}}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Search-for-instances",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/instances?SOPInstanceUID={{instance1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"instances"
+					],
+					"query": [
+						{
+							"key": "SOPInstanceUID",
+							"value": "{{instance1}}"
+						}
+					]
+				},
+				"description": "This request enables searches for one or more instances by DICOM attributes.\r\n\r\n> Please see the [Conformance.md](https://github.com/microsoft/dicom-server/blob/main/docs/users/Conformance.md) file for supported DICOM attributes.\r\n\r\n_Details:_\r\n* Path: ../instances?SOPInstanceUID={{instance}}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Search-for-instances-within-a-study",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/dicom+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/instances?SOPInstanceUID={{instance1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"instances"
+					],
+					"query": [
+						{
+							"key": "SOPInstanceUID",
+							"value": "{{instance1}}"
+						}
+					]
+				},
+				"description": "This request enables searches for one or more instances within a single study by DICOM attributes.\r\n\r\n> Please see the [Conformance.md](https://github.com/microsoft/dicom-server/blob/main/docs/users/Conformance.md) file for supported DICOM attributes.\r\n\r\n_Details:_\r\n* Path: ../studies/{{study}}/instances?SOPInstanceUID={{instance}}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`"
+			},
+			"response": []
+		},
+		{
+			"name": "Search-for-instances-within-a-study-and-series",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/dicom+json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}/instances?SOPInstanceUID={{instance1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}",
+						"instances"
+					],
+					"query": [
+						{
+							"key": "SOPInstanceUID",
+							"value": "{{instance1}}"
+						}
+					]
+				},
+				"description": "This request enables searches for one or more instances within a single study and single series by DICOM attributes.\r\n\r\n> Please see the [Conformance.md](https://github.com/microsoft/dicom-server/blob/main/docs/users/Conformance.md) file for supported DICOM attributes.\r\n\r\n_Details:_\r\n* Path: ../studies/{{study}}/series/{{series}}instances?SOPInstanceUID={{instance}}\r\n* Method: GET\r\n* Headers:\r\n   * `Accept: application/dicom+json`"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-a-specific-instance-within-a-study -and-series",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}/instances/{{instance1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}",
+						"instances",
+						"{{instance1}}"
+					]
+				},
+				"description": "This request deletes a single instance within a single study and single series.\r\n\r\n> Delete is not part of the DICOM standard, but has been added for convenience.\r\n\r\n_Details:_\r\n* Path: ../studies/{{study}}/series/{{series}}/instances/{{instance}}\r\n* Method: DELETE\r\n* Headers: No special headers needed"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-a-specific-series-within-a-study",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}/series/{{series1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}",
+						"series",
+						"{{series1}}"
+					]
+				},
+				"description": "This request deletes a single series (and all child instances) within a single study.\r\n\r\n> Delete is not part of the DICOM standard, but has been added for convenience.\r\n\r\n_Details:_\r\n* Path: ../studies/{{study}}/series/{{series}}\r\n* Method: DELETE\r\n* Headers: No special headers needed"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-a-specific-study",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/studies/{{study1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"studies",
+						"{{study1}}"
+					]
+				},
+				"description": "This request deletes a single study (and all child series and instances).\r\n\r\n> Delete is not part of the DICOM standard, but has been added for convenience.\r\n\r\n_Details:_\r\n* Path: ../studies/{{study}}\r\n* Method: DELETE\r\n* Headers: No special headers needed"
+			},
+			"response": []
+		},
+		{
+			"name": "Create-extended-query-tag",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Path\": \"{{extendedQueryTag}}\",\r\n        \"VR\": \"LO\",\r\n        \"Level\": \"Series\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/extendedquerytags",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"extendedquerytags"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "List-extended-query-tags",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/extendedquerytags",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"extendedquerytags"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get-extended-query-tag",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/extendedquerytags/{{extendedQueryTag}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"extendedquerytags",
+						"{{extendedQueryTag}}"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-extended-query-tag",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/extendedquerytags/{{extendedQueryTag}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"extendedquerytags",
+						"{{extendedQueryTag}}"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update-extended-query-tag",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"QueryStatus\": \"Disabled\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/extendedquerytags/{{extendedQueryTag}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"extendedquerytags",
+						"{{extendedQueryTag}}"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "List-extended-query-tag-errors",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/extendedquerytags/{{extendedQueryTag}}/errors",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"extendedquerytags",
+						"{{extendedQueryTag}}",
+						"errors"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get-operation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-type": true,
+					"user-agent": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/operations/{{operationId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"operations",
+						"{{operationId}}"
+					]
+				},
+				"description": "For the body of the request, select the red-triangle.dcm file located in the GitHub repo at ../docs/dcms.  Ensure you attach the file as `binary`.\r\n\r\n> NOTE: This is a non-standard API that allows the upload of a single DICOM file without the need to configure the POST for multipart/related. It allows the use of Postman to upload files to the DICOMweb service.\r\n\r\nThe following is required to upload a single DICOM file.\r\n\r\n* Path: ../studies\r\n* Method: POST\r\n* Headers:\r\n   *  `Accept: application/dicom+json`\r\n   *  `Content-Type: application/dicom`\r\n* Body:\r\n    * Contains the DICOM file as a bytes.\r\n\r\n> This API is currently not implemented\r\n"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:63838/v1"
+		},
+		{
+			"key": "study1",
+			"value": "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"
+		},
+		{
+			"key": "series1",
+			"value": "1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"
+		},
+		{
+			"key": "instance1",
+			"value": "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395"
+		},
+		{
+			"key": "instance2",
+			"value": "1.2.826.0.1.3680043.8.498.12714725698140337137334606354172323212\n"
+		},
+		{
+			"key": "extendedQueryTag",
+			"value": "ManufacturerModelName",
+			"type": "default"
+		},
+		{
+			"key": "operationId",
+			"value": "1",
+			"type": "default"
+		}
+	]
+}

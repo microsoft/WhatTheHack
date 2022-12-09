@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 0 - Pre-requisites - Ready, Set, GO!
 
-**[Home](./readme.md)** - [Next Challenge>](./Solution01.md)
+**[Home](./README.md)** - [Next Challenge>](./Solution01.md)
 
 ## Notes & Guidance
 

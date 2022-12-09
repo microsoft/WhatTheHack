@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "d47122ef-fe12-4bed-bfc5-472931f50f1c",
+		"name": "WTH FHIR-IoT-MedTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AuthorizeGetToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"bearerToken\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_Id",
+							"value": "{{clientId}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{clientSecret}}",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "{{resource}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/{{adtenantId}}/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"{{adtenantId}}",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthorizeGetToken SetBearer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"bearerToken\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_Id",
+							"value": "{{clientId}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{clientSecret}}",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "{{resource}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/{{adtenantId}}/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"{{adtenantId}}",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send message to devicedata",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n============ VITALS =============\r\n{\r\n    \"type\": \"VITALS\",\r\n    \"data\": [{\"patient_id\": \"PatientMary\",\r\n        \"device_id\": \"MSFT00001\",\r\n        \"utctimestamp\": \"2020-10-22T01:34:56+00:00\",\r\n        \"spo2\": 96, //Spo2 - Pulse Ox\r\n        \"hr\": 80, //Heart Rate\r\n        \"bloodperfusion\": 1.1399999856948853,\r\n        \"steps\": 3, //Steps per second\r\n        \"bpw\": 2.4800000190734863, //Blood Pulse wave\r\n        \"rrate\": 20, //Respiration Rate\r\n        \"bodytemp\": 33, //Skin Temp in C\r\n    }]\r\n}\r\n \r\n========== BP =============\r\n{\r\n    \"type\": \"BP\",\r\n    \"data\": [\r\n        {\r\n           \"patient_id\": \"PatientMary\",\r\n           \"device_id\": \"MSFT00002BP\",\r\n            \"sys\": \"185\",\r\n            \"dia\": \"100\",\r\n            \"utctimestamp\": \"2020-11-04T08:09:02+00:00\"\r\n        }\r\n    ]\r\n}\r\n \r\n=========== WEIGHT =========\r\n{\r\n    \"type\": \"WEIGHT\",\r\n    \"data\": [\r\n        {\r\n            \"patient_id\": \"PatientMary\",\r\n            \"device_id\": \"MSFT00003WT\",\r\n            \"weight\": \"150\",\r\n            \"unit\": \"kg\",\r\n            \"utctimestamp\": \"2020-11-04T10:21:28+00:00\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{eventhubnamespaceurl}}",
+					"host": [
+						"{{eventhubnamespaceurl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

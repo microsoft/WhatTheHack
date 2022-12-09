@@ -1,148 +1,136 @@
-# Coach's Guide: Challenge 6 - Create a new Single Page App (SPA) for patient search
+# Coach's Guide: Challenge 6 - : Ingest and Persist IoT Medical Device Data
 
-[< Previous Challenge](./Solution05.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution07.md)
+[< Previous Challenge](./Solution05.md) - **[Home](../README.md)** - [Next Challenge>](./Solution07.md)
 
 ## Notes & Guidance
 
-In this challenge, you will create a new Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
+In this challenge, you will work with IoT medical device data using the **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot)** in Azure Health Data Services.  You will use **[MedTech service toolkit](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** to transform IoT medical device data into Fast Healthcare Interoperability Resources (FHIR®)-based Observation resources.  You will deploy a **[MedTech service data pipeline](microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow)** to ingest medical IoT data, normalize and group these messages,transform the grouped-normalized messages into FHIR-based Observation resources, and then persist the transformed messages into the FHIR service (previously deployed in challenge 1).
 
-![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
+The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot)** in Azure Health Data Services uses an event hub to ingests streaming event data from IoT medical devices, transforms them into FHIR-based Observation resources, retrieves associated Patient resource from FHIR service, adds them as reference to the Observation resource created, and then persists the transformed messages to the FHIR service.
 
-- Make sure the following Node.js prerequistes have been completed
-  - To see if you already have Node.js and npm installed and check the installed version, run: 
-    ```bash
-    node -v
-    npm -v
-    ```
+**[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** is the MedTech toolkit to visualize and configure normalize mapping between the medical Iot data and FHIR.  Once you completed the FHIR mapping, you can export it and upload the mapping files to your **[MedTech service Device Mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** configuration in Azure Portal.
 
-  - Download and install **[Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
-    - Download latest **[Node.js pre-built installer](https://nodejs.org/en/download/)** for your platform
-    - Run downloaded `node-v14.15.1-x64.msi` executable to install node.js 
-    - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, 
-    ```Command
-    Press any key to continue...
-    ```
-- Create a new JavaScript SPA patient search app 
-  - **Option 1: Create a Node.js SPA AAD MSAL Patient Search app**
-    - This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. 
-    - In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
-    - Setup you web server or project, download **[project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)**
-    - Create and initialize your project
-      - Initialize your SPA, run `npm init` at your project root folder
-      - Install required dependencies, run 
-        ```bash
-        npm install express --save
-        npm install morgan --save
-        ```
+### IoMT MedTech service scenario
+You will deploy an instance of MedTech service in your Azure Health Data Service workspace, and configure it to receive and transform medical IoT data for persitence in your FHIR service (deployed in challenge 1) as Observation resources.
 
-    - Create a simple server to serve your SPA in `server.js` file.
-        - Setup front-end source folder, i.e. `JavaScriptSPA`
-        - Setup route for `index.html`
-        - Start the server
-    - Create the SPA UI in `index.html` file that handles the following:
-      - Implements UI built with Bootstrap 4 Framework
-      -	Imports script files for 
-        - configuration, 
-        - authentication,
-        - API call
-    - Access and update DOM elements in `ui.js` file
-      - User authentication interface (SignIn/SignOut)
-      - Display patient search results interface
-    - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-      - Set a redirect URL to your JavaScrip Web App URL (Azure and Local) in the `Public Client` `Web Platform Configuration` of your App Registration tenant.
-        - Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
-    - Configure your JavaScript SPA parameters for authentication, in `authConfig.js` file, where:
-        - `clientId`: <Enter_the_Application_Id_Here> is the Application (client) ID for the application you registered.
-        - `authority`: <Enter_Authority_URL_Here> is the Authority value from FHIR Server Authentication setting.
-        - `redirectUri`: <Enter_the_redirect_uri> is your JavaScrip Web App URL from App Service.
-        - `Scope`: <Enter FHIR_Server_endpoint/.default>
-    - Process MSAL authentication and acquire token to call FHIR Server API in `authPopup.js` file
-    - Store REST endpoint for FHIR server in `graphConfig.js` file
-    - Make REST call to FHIR Server in `graph.js` file
-      - Create helper function `callMSGraph()` to make the HTTP GET request against the protected FHIR API resource that requires a token. 
-        - This method appends the acquired token in the HTTP Authorization header.
-        - The request then uses `fetch` method to call the API and returns the response to the caller. 
-    - Add search components in `index.html` to implement patient lookup.
-      - Add a search input textbox to enter search criteria
-      - Add a submit button to perform the patient search
+**Deploy and configure **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)** for MedTech service to **[ingest](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow#ingest)** medical IoT device data**
+- Create **[Event Hubs namespace](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace)** using Azure Portal
+    - Search and select Event Hubs in Azure Portal
+    - Click +Add in Event Hubs
+    - Enter a unique name and other Azure parameters on the Create namespace page
+    - Review and create Event Hubs Namespace
+   
+    Hint: An Event Hubs namespace provides a unique scoping container, in which you create one or more event hubs. 
 
-  - **Option 2: Create React AAD MSAL Patient Search SPA**
-    - Build a new SPA in React using **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. 
+- Create an **[Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hub)** within the namespace
+    - Click +Event Hub on the Event Hub blade of the Event Hubs Namespace page
+    - Enter name and create your event hub (i.e. `devicedata`)
+
+    Hint: 
+    - The partition count setting allows you to parallelize consumption across many consumers.
+    - The message retention setting specifies how long the Event Hubs service keeps data.
+
+**Deploy **[MedTech Service manually](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)** in your AHDS workspace and configure it to use FHIR service deployed in challenge 1**
+- Open your AHDS worksapce
+- Select Deploy MedTech service button
+- Select `+Add` MedTech service
+- Configure it to ingest IoT data from the newly created Event Hubs instance in this challenge
+    - Enter MedTech service name (a friendly, unique name for your MedTech service)
+    - Enter Event Hubs Namespace (name of the Event Hubs Namespace that you've previously deployed)
+    - Enter Event Hubs name (the event hub that you previously deployed within the Event Hubs Namespace, i.e. `devicedata`)
+    - Enter Consumer group (Defaults to `$Default`)
+    - Under Device Mapping, 
+        - Enter the Device mapping JSON code for use with your MedTech service
+    - Under Destination,
+        - Enter the destination properties associated with your MedTech service.
+        - Enter the FHIR Service name (previously deployed in challenge 1)
+        - Enter Destination Name (a friendly name for the destination)
+        - Select `Create` or `Lookup` for Resolution Type 
+        Hint: If device and patient resource doesn't exist in FHIR service, `Create` option will enable new resources will be created; otherwise an error will occur for `Lookup` option.
     
-      - You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
-        ```bash
-        npx create-react-app react-patient-search
-        cd react-patient-search
-        npm start
-        ```
+    Hint: The custom Device Mapping and Destination (FHIR) Mapping will be configured and generated using the IoT mapper tool later on in this challenge.
+
+**Deploy the **[IoT mapper tool](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)****
+  - Import **[sample IoT messages](https://github.com/microsoft/azure-health-data-services-workshop/tree/main/Challenge-09%20-%20MedTech%20service/SampleData/Answers)** into tool to customize device mapping to FHIR
+  - Export customized mapping in tool to generate the new Device Mapping and FHIR Mapping files
+
+**Import the newly generated FHIR mapping into your MedTech service**
+  - Configure and save the **[Device mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#configure-device-mapping-properties)** JSON in the MedTech service (Device Mapping setting)
+  - Configure and save the Destination (FHIR) mapping JSON to in the MedTech service (Destination setting)
+
+**Send sample device data to persist in the FHIR service using Postman via **[MedTech service Event Hub service](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token)****
+- Get an Azure Active Directory (Azure AD) token to send events to an event hub
+    - **[Register your app with AAD](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#register-your-app-with-azure-ad)**
+        - In Azure Portal, go to AAD -> App registrations -> select `+ New registration`
+        - Enter name for the client app/service principle and select `Register`
+        - Go to `Overview` page for the client app service registered, save the following values for use in Postman configuration to get AAD token later.
+            - Application (client) ID 
+            - Directory (tenant) ID
+        - Go to  `Certificates & secrets` page and select `+New client secret`
+            - Enter description and when certificate will expire, then select `Add`
+            - Copy the client secret value for use in Postman configuration to get AAD token later.
+    - **[Add application to the Event Hubs Data Sender role](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#add-application-to-the-event-hubs-data-sender-role)**
+        - In `Event Hubs Namespace`, select `Access Control (IAM)` page
+            - Select `+Add` to add Role Assignment
+                - Select Azure Event Hubs Data Sender for `Role` dropdown
+                - Select `Azure AD user, group or principla` for `Assign access to` dropdown
+                - Select your application for the service principal (name of client app/service principle created above).
+                - Select `Save` to add the new role assignment
+- Send events to an event hub via Postman
+    - Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
+        - In Postman, click Import.
+        - In your **[Student Resources folder for Postman](../Student/Resources/Postman)**, select **[Environment](../Student/Resources/Postman/WTHFHIR.IoT-MedTech.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTHFHIR.IoT-MedTech.postman_collection.json)** JSON files.
+        - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
+        - You will get confirmation that `WTH FHIR-IoT-MedTech` Collection and Environment were imported and see in Postman a new `WTH FHIR-IoT-MedTech` in `Collections` (left) blade and top right `Manage Environments` drop-down list.
+    - Select `WTH FHIR-IoT-MedTech_event hub namespace` environment and click `Environment Quick Look` button to see a list of env vars: 
+        - Click `Edit` to open `Management Environments` window and input the corresponding FHIR environment values:
+            - `adtenantId`: This is the tenant Id of the AD tenant
+            - `clientId`: This is the client Id that is stored in Secret.
+            - `clientSecret`: This is the client Secret that is stored in Secret.
+            - `bearerToken`: The value will be set when `AuthorizeGetToken SetBearer` request below is sent.
+            - `fhirurl`: This is the FHIR URL `https://{ENVIRONMENTNAME}.azurehealthcareapis.com` from FHIR service you created in challenge 1.
+            - `resource`: `https://eventhubs.azure.net`
+            - `eventhubnamespaceurl`: event hub namespace url created for MedTech service
+        - Click the Update button and close the `MANAGE ENVIRONMENTS` window.
         
-        **Note:** `npx` on the first line above refers to a package runner tool that comes with npm 5.2+.
+        - Run `Send message to devicedata` API HTTP Request in the `WTH FHIR-IoT-MedTech` Postman collection:
+        - First, open `AuthorizeGetToken SetBearer` and confirm `WTH FHIR-IoT-MedTech_event hub namespace` environment is selected in the top-right `Environment` drop-down. 
+            - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable bearerToken.
+        - Open `Send message to devicedata`
+            - On the `Body` tab,
+                - Select `raw` for the data type
+                - Enter the test device data as the message for the body
+            - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
+                - If successful, you'll see the status as Created with the code 201 as shown in the following image.
+                - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
+        **Note:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
 
-    - Use **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)** for Browser-Based Single-Page Applications
-      -Install **[MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**, run:
-        ```bash
-        npm install react react-dom
-        npm install @azure/msal-react @azure/msal-browser
-        ```
-    - Setup `index.js` in root project folder to handle the app startup and basic HTTP web server functionality similar what's done in traditional Apache.
-      - Import `react-dom` package to provide DOM-specific methods to be used in the app.
-        ```DotNet
-        import ReactDOM from "react-dom";
-        ```
-      - Setup **[React Redux store](https://react-redux.js.org/introduction/basic-tutorial)** to make it available to the app. 
-        ```DotNet
-        import { Provider } from "react-redux";
-        import { basicReduxStore } from "./reduxStore";
-        ```
-      - Setup `react-dom` `render` method to render React app to the web page.
-      - **[Providing the Redux store](https://react-redux.js.org/introduction/basic-tutorial#providing-the-store)** by wrapping the app with the `<Provider />` API provided by React Redux in the `ReactDOM.render()` function.
-        ```DotNet
-        ReactDOM.render(
-          <Provider store={basicReduxStore}>
-            <App />
-          </Provider>,
-          document.getElementById("root")
-        );
-        ```
-    - Create React SPA UI in `App.js` to handle MS Identity Platorm authentication services and patient search UI functionalities.
-      - Import authentication provider and instantiate it only once as a singleton service.
-      - Implement patient search UI built with Bootstrap 4 Framework.
-          - **[Include React Bootstrap package in your app](https://react-bootstrap.github.io/getting-started/introduction/)**
-          - **[Create a simple search app in your React app](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
-            - Create a search component
-            - Add a search input textbox and submit button to perform the search
-            - Create helper functions to handle search events in JavaScript
-    -	Setup MSAL authentication services in `authService.js`:
-        - MSAL configuration
-        - Initialize **[MSAL (@azure/msal-react)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)** in React app
-        - Configure **[Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
-        - MSAL client authentication,
-          - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
-    - Create patient search function `callPatientSearch.js` to setup and call FHIR API using `fetch` method
-      - Single-page application: **[Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** 
-      - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
-    - Access and update DOM elements in `updateUI.js` to render patient search results
+    - **Alternatively, you can configure Postman collection and environment manually as follows:**
+        - **[Use Postman to get the AAD token](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#use-postman-to-get-the-azure-ad-token)**
+        - **[Send messages to a queue](https://docs.microsoft.com/en-us/rest/api/eventhub/get-azure-active-directory-token#send-messages-to-a-queue)**
+            - Configure a new Postman opertation
+                - Select `Post` for method
+                - Enter URI: `https://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/<QUEUE NAME>/messages. Replace <EVENT HUBS NAMESPACE NAME>`
+                    - Replace <EVENT HUBS NAMESPACE NAME> with the name of the Event Hubs namespace
+                    - Replace <QUEUE NAME> with the name of the queue
+                - on `Header` tab, add the following
+                    - Add `Authorization` key and value: `Bearer <TOKEN from Azure AD>`
+                    Hint: Don't copy the enclosing double quotes in the token value
+                    - Add `Content-Type` key and `application/atom+xml;type=entry;charset=utf-8` as the value for it.
+                - On the `Body` tab,
+                    - Select `raw` for the data type
+                    - Enter the test device data as the message for the body
+                - Select `Send` to send the message to the Event Hub queue for processing by the MedTech service
+                    - If successful, you'll see the status as Created with the code 201 as shown in the following image.
+                - On the `Event Hub Namespace` Overview page in the Azure portal, you'll' see that the messages are posted to the queue in the `Incoming Messages` section.
+- Verify device data is saved in the FHIR service as Observation resource(s) using Postman
+    - Open Postman collection: `WTH FHIR` (imported in challenge 1)
+    - First, run `AuthorizeGetToken SetBearer` API request and confirm `WTH FHIR` environment is selected in the top-right `Environment` drop-down. 
+        - Click the Send button to pass the values in the Body to AD Tenant, get the bearer token back and assign it to variable `bearerToken`.
+    - Run `Get Observation` API request and click the `Send` button. This will return all patients' Observation resources in the Response body.
+    - Search for the test device data persisted in the FHIR service as Observation resource, i.e. sample Vital Signs data for Heart Rate.
+    
+    **Hint:** `bearerToken` has expiration, so if you get Authentication errors in any requests, re-run `AuthorizeGetToken SetBearer` to get a new `bearerToken`.
 
-- (Optional) Include any other modern UI features to improve the user experience.
-- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
-  - Set a redirect URL to your local and Azure JavaScript Web App URL in the `Public Client` `Web Platform Configuration` of your App Registration tenant with directory admin access.
 
-    **Note:** These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
 
-- Test and run your code locally 
-  - Set redirectUri to `https://localhost:3000` in `authConfig.js` file 
-  - Run at cmdline:
-    ```bash
-    npm install
-    nmp start
-    ```
-- **[Deploy your React web app](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)** to Azure from VS Code
-  - Set `redirectUri` to `https://[react-patient-search-app-name].azurewebsites.net` in `authConfig.js` file
-  - Deploy your React web app using VS Code and the Azure App Service extension
-- Test updated sample JavaScript app with patient Lookup feature
-  - Browse to App Service website URL in In-private / Incognito window
-  - Sign in with your secondary tenant (or tenant where App Registration is configured) used in deploying FHIR Server Samples reference architecture
-  - You should see a list of patients that were loaded into FHIR Server
-  - Enter full or partial name (Given or Family) in the Search box and click Search button
-    - This will call the FHIR API interface that filters patient data that contains the specified Given name or Family name configured and return the patient search results to browser
- 
