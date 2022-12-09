@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-13.md) - **[Home](../README.md)**
 
-## Description
+## Introduction
 
 Containers are executable units of software in which application code is packaged, along with its libraries and dependencies, in common ways so that it can be run anywhere, whether it be on desktop, traditional IT, or the cloud.
 
@@ -23,6 +23,8 @@ Podman seeks to be a drop-in replacement for Docker as far as the CLI is concern
 Another key difference is that, unlike Docker, Podman is not able to build container images (the tool [Buildah](https://buildah.io/) is instead used for this). This shows that Podman is not built to be monolithic.
 
 It handles running containers (among some other things) but not building them. The goal here is to have a set of container standards that any application can be developed to support, rather than relying on a single monolithic application such as Docker to perform all duties.
+
+## Description
 
 This challenge will let you have your first contact with containers. You will: 
 
