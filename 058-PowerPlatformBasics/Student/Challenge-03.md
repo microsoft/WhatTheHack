@@ -2,7 +2,6 @@
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-
 ## Introduction
 
 Current process: All orders from larger contracts come through a single shared mailbox. Order would be sent as an attachment using the Ordering Product Template.
@@ -50,12 +49,9 @@ To complete this challenge successfully, you should be able to:
 * [Solution concepts - Power Platform | Microsoft Learn](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm)
 * [Use Lists of rows in Power Automate flows](https://learn.microsoft.com/en-us/power-automate/dataverse/list-rows)
 
-
 ## Advanced Challenges
 
 Too comfortable? Eager to do more? Try these additional challenges!
 - Handle Exception Cases. What if the model extracts data incorrectly?
 - Try to use the AI Model that extracts Order Information in Power Apps Canvas App (next challenge)
 * [Explore the Document automation toolkit - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/doc-automation?msclkid=d7043197d0a211ec83ca9d25453fab57)
-
-
