@@ -36,7 +36,7 @@ Now that your base app is imported, implement the following design requirements:
 
 Below is an example of how the app might start to look: 
     
-![Sample App UI](./Resources/BasePowerApp/TailspinToys_PowerApp_Example.JPG)
+![Sample App UI](./Resources/BasePowerApp/TailSpinToys_PowerApp_Example_Layout.JPG)
 
 ## Success Criteria
 
