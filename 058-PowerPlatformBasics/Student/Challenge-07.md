@@ -40,7 +40,8 @@ Information:
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-Show your coach the visualizations embedded in your tablet app after navigating from the home screen. Prove that the numbers displayed in the visualizations match the data in the Dataverse.
+- Show your coach the visualizations embedded in your tablet app after navigating from the home screen. 
+- Prove that the numbers displayed in the visualizations match the data in the Dataverse.
 
 
 ## Learning Resources
