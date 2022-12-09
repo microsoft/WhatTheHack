@@ -4,15 +4,9 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
 - Students will import the starter app and they should add to their solution
 - Starter app has componens to use to build their screens
 - They should add nav icons to the component
 - Good practice is to create a screen with the components, subsequent screens could be jump-started by duplicating
 - Customer screen should have a select icon to nav to customer detail screen with sub-gallery to orders
 - Order screen with detail lines
-
-
