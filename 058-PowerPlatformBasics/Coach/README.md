@@ -68,8 +68,6 @@ Challenge 9 could include 1 - 5 and any of the others that are completed
 
 ## Repository Contents
 
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
 - `./Coach`
   - Coach's Guide and related files
 - `./Coach/Solutions`
@@ -78,16 +76,5 @@ _The default files & folders are listed below. You may add to this if you want t
   - Student's Challenge Guide
 - `./Student/Resources`
   - Resource files including tenant setup guidence, order pdf files, a starter base Power App, and example jpg of app design
-
-	
-## Repository Contents (Optional)
--  `./Coach/Guides`
--  	Coach’s Guide and related files
--  `./SteamShovel`
--  Image files and code for steam shovel microservice
--  `./images`
--  Generic image files needed
--  `./Student/Guides`
--  Student’s Challenge Guide
 
 
