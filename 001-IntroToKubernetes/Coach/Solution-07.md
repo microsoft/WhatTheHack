@@ -8,7 +8,7 @@
 	- Connect to the pod running mongodb with the exec command: 
 		- `kubectl exec -it <mongodbpodname> -- /bin/bash`
 	- Connect to mongodb by running: 
-		- `mongo`
+		- `mongosh`
 	- Check for the existence of “contentdb” database by running the following at the mongodb prompt: 
 		- `show dbs`
 - They will need to use something similar to the command below to perform the rolling update:
@@ -26,7 +26,7 @@
     	- **NOTE:** The **content-web-deploy-solution.bluegreen.yaml** solution file is an example of an updated deployment using the v2 flag.
     - When the new pods are ready to go, they will update the service YAML to point to the new tags.
 - The following errors get reported with v2 of the app:
-	- content-web crashes if content-api retuns null/blank
+	- content-web crashes if content-api returns null/blank
 	- content-api returns null/blank if it loses connection to mongodb after the first initialization
 	- API has no db connection retry logic to reconnect if it loses db connection
 	- **Solution:** If you restart the mongo backend for any reason (re-deploy/scale/crash/testing etc), you have to kill & restart all api pods to force them to re-establish their DB connection again.
