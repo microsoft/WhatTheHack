@@ -6,7 +6,6 @@
 
 Ensure you have a Team created with a channel to embed Power Apps, Power Virtual Agent, Power BI, etc.
 
-
 ## Introduction
 
 Tailspin Toys is already using Microsoft Teams for collaboration, chats, etc.
@@ -31,6 +30,3 @@ To support collaboration and ease of access, you will embed the canvas app direc
 
 * [Add an app to Microsoft Teams](https://docs.microsoft.com/en-us/powerapps/user/open-app-embedded-in-teams)
 * [Power Apps and Teams Integration](https://learn.microsoft.com/en-us/power-apps/teams/overview)
-
-
-
