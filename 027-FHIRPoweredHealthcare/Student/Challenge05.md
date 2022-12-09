@@ -1,46 +1,48 @@
-# Challenge 5: Explore FHIR medical records through FHIR Dashboard and SMART on FHIR apps
+# Challenge 5: Export and Anonymize FHIR EHR Data
 
-[< Previous Challenge](./Challenge04.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge06.md)
+[< Previous Challenge](./Challenge04.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge06.md)
 
 ## Introduction
 
-In this challenge, you will explore patient medical records and SMART on FHIR apps through the FHIR Dashboard app. 
+In this challenge, you will leverage the API requests in FHIR service in Azure Health Data Services within the Azure Data Factory (ADF) pipeline to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challege is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
 
-<center><img src="../images/challenge05-architecture.jpg" width="350"></center>
+**[FHIR Tool for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** provides various tooling to anonymize healthcare FHIR data, on-premises or cloud, for secondary usage such as research, public health, etc. as follows:
+- **[Command line tool](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-the-command-line-tool)**, 
+- **[Azure Data Factory (ADF) pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)**
+- **[De-ID $export](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#how-to-perform-de-identified-export-operation-on-the-fhir-server)** FHIR service operation  
 
-**[What is SMART on FHIR?](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-faq#what-is-smart-on-fhir)** 
-SMART ((Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner apps with FHIR Servers and other Health IT systems, i.e. Electronic Health Records and Health Information Exchanges.  By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by different systems.
-
-Azure API for FHIR has a built-in **[Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)** to integrate partner apps with FHIR Servers and EMR systems through FHIR interfaces. This set of open specifications describes how an app should discover authentication endpoints for FHIR Server and start an authentication sequence.  Specifically, the proxy enables the **[EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence)**.  
+Below depicts the Azure Data Factory pipeline method for FHIR anonymization leveraged in this challenge:
+<center><img src="../images/challenge05-architecture.png" width="550"></center>
 
 ## Description
 
-You will perform the following steps to access patient medical records and explore the use of SMART on FHIR applications in Azure API for FHIR through the FHIR Dashboard app:
-- Access FHIR Dashboard app
-    - Open In-private/Incognito browser and navigate to FHIR Dashboard app URL.
-    - Use the dashboard user credentials to sign in (captured during FHIR Server Samples deployment in **[Challenge 1](./Challenge01.md)**.
-    - In popup Consent dialog box, accept consent to permissions requested by the Confidential Client app to get access to FHIR Server.
-- Explore patient medical records through FHIR Dashboard app, including:
-    - Patient and its FHIR bundle details
-    - Patient medical elements
-        - Conditions
-        - Encounters
-        - Observations
-- Explore SMART on FHIR apps through FHIR Dashboard app, including:
-    - Growth Chart
-    - Medications
+You will deploy a **[FHIR Anonymization ADF pipeline](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#anonymize-fhir-data-using-azure-data-factory)** to de-identify FHIR data.  You will run a PowerShell **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to create an ADF pipeline that reads data from a source container in Azure Blob storage and writes the outputted anonymized data to a destination containter in Azure Blob storage.
+
+To test the FHIR Anonymization pipeline, call the **[$export endpoint](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data#calling-the-export-endpoint)** in FHIR service to export FHIR data into a blob storage container inside the storage account for the Anonymization pipeline.  Alternatively, you can directly upload the test Synthea generated FHIR Bundles to the container.
+
+- **Setup ADF pipeline configuration for anonymization**
+    - Download or Clone the **[Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization)** GitHub repo
+    - Configure the Anonymization pipeline deployment **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** execution for your **[environment](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#create-data-factory-pipeline)**.
+    - Define **[command line environment variables](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#create-data-factory-pipeline)** needed during the script execution to create and configure the Anonymization pipeline.
+- **Deploy ADF pipeline for FHIR data anonymization**
+    - Execute **[script](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/tree/master/FHIR/src/Microsoft.Health.Fhir.Anonymizer.R4.AzureDataFactoryPipeline)** to created the Anonymization pipeline.
+- **Upload test FHIR patient data for anonymization**
+    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the bulk FHIR export using the $export operation in FHIR service via Postman.
+    - Alternatively, upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline.
+- **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
+    - **[Trigger pipeline run](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#trigger-and-monitor-pipeline-run-from-powershell)** to de-ID test FHIR patient data.
+- **Validate FHIR data export and anonymization** 
+    - Compare pre de-identified data in the 'source' container  and post de-identified data in the 'destination' container in the Storage Account(s). 
 
 ## Success Criteria
-- You have successfully access FHIR Dashboard app to access patient medical records and encounters.
-- You have explored SMART on FHIR applications.
+- You have successfully configured and deployed the FHIR anonymization tool.
+- You have successfully configured FHIR Bulk Export and called the $export operation to upload the test FHIR data for anonymization
+- You have successfully triggered and monitored the Anonymization pipeline in ADF
+- You have compared pre de-ided and post de-ided FHIR data in the resource and destination containers respectively.
 
 ## Learning Resources
 
-- **[SMART on FHIR - FHIR Server Dashboard app](https://github.com/smart-on-fhir/fhir-server-dashboard#:~:text=The%20FHIR%20Server%20Dashboard%20is%20a%20standalone%20app,at%20the%20sample%20data%20on%20a%20FHIR%20sandbox.)**
-- **[FHIR Server Dashboard Demo](http://docs.smarthealthit.org/fhir-server-dashboard/)**
-- **[FHIR Dashboard JS source code](https://github.com/microsoft/fhir-server-samples/blob/master/src/FhirDashboardJS/index.html)**
-- **[Use Azure AD SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy)**
-- **[Download the SMART on FHIR app launcher](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#download-the-smart-on-fhir-app-launcher)**
-- **[Test the SMART on FHIR proxy](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-smart-on-fhir-proxy#test-the-smart-on-fhir-proxy)**
-- **[SMART](https://smarthealthit.org/)**
-- **[HL7 FHIR SMART Application Launch Framework](http://www.hl7.org/fhir/smart-app-launch/)**
+- **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**
+- **[Configure Bulk export FHIR service operation](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)**
+- **[How to export FHIR data with $export opertation in FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)**
+- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
