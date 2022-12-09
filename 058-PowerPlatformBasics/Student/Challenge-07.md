@@ -5,8 +5,8 @@
 ## Pre-requisites
 
 Before you build your Power BI report ensure:
-	· At least one attendee should have the Power BI desktop app
-	· Ensure your environment's Power BI Pro trial has been activated
+- At least one attendee should have the Power BI desktop app
+- Ensure your environment's Power BI Pro trial has been activated
 
 
 ## Introduction
@@ -18,9 +18,10 @@ Tailspin Toys is already a Power BI customer and has requested that you create a
 ## Description
 
 In this challenge, you will create a Power BI report and publish to your environment's Power BI site and embed visualizations into your canvas app's reporting screen.
+
 Information:
 
-- Navigate to the https://powerbi.microsoft.com/desktop/ Power BI site, download, and install Power BI Desktop (if you have not already done so)
+- Navigate to the [Power BI website](https://powerbi.microsoft.com/desktop/), download, and install Power BI Desktop (if you have not already done so)
 - Pull in the Account, Contact, Order, and Order details tables using the Dataverse data source.
 - Consider any other data that may be relavent
 - Edit the queries so the tables only include the most relevant columns
