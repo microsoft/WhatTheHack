@@ -15,7 +15,7 @@ Congratulations! You did it! Tailspin Toys management is very pleased with your 
 
 Your challenge is to export all your work from the previous challenges from your dev environment. Ensure all the dependencies are satisfied so that your solution will successfully import and function in the test environment.
 
-Hint: Leverage the Solution Checker
+**HINT:** Leverage the Solution Checker
 
 
 ## Success Criteria
@@ -24,7 +24,7 @@ To complete this challenge successfully, you should be able to
 - Demonstrate your process from the Dev environment and describe to your coach how Tailspin Toys IT will proceed with the test environment.
 - Cheers to a successful hack
 
-### Bonus: Create a test environment, import, and test your solution as the Tailsopin Toys IT Team would need to do.
+**Bonus:** Create a test environment, import, and test your solution as the Tailsopin Toys IT Team would need to do.
 
 ## Learning Resources
 
