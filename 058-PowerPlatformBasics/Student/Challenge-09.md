@@ -17,7 +17,6 @@ Your challenge is to export all your work from the previous challenges from your
 
 **HINT:** Leverage the Solution Checker
 
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to
