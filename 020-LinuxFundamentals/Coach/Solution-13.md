@@ -1,5 +1,5 @@
 # Challenge 13 - Protecting a Server - Coach's Guide 
-[< Previous Solution](./Solution-12.md) - **[Home](./README.md)** - [Next Solution >](./Solution-14.md)
+[< Previous Solution](./Solution-12.md) - **[Home](./README.md)** 
 
 ## Notes & Guidance
 1. Ensure the distriubtion lists are update 
