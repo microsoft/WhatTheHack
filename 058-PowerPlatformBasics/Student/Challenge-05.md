@@ -2,11 +2,6 @@
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-## Pre-requisites
-
-Before you can use Power Apps you need:
-- Locate the starter App from the reources zip file: /resources/BasePowerApp/TailspinToysBaseApp.zip
-
 ## Introduction
 
 Now that you have managed to processes of handling inbound emails, extracting and storing order data leveraging AI Builder, and creating an approval process, in this challenge you will create a Power App to view and manage the order data.
@@ -15,8 +10,11 @@ Now that you have managed to processes of handling inbound emails, extracting an
 
 In this challenge, you will create a Power App to support Order and Customer Management
 
+To get you started, we have provided your team with a zip file with a starter canvas app which includes two custom components, a navigation bar, and a title bar. You can find starter app Zip file in the `/BasePowerApp/` folder of the student `Resources.zip` file provided by your coach.
+
+Since the components are generalized, you will want to customize them to include proper icons and labels. 
+
 Once you have imported the starter Power App, your team will continue to design and build the app which will allow users to Customers, Orders, and order details.
-To get you started, we have provided your team with a zip file with a canvas app which includes two custom components, a navigation bar, and a title bar. Since the components are generalized, you want to customize them to include proper icons and labels.
 
 Rename the canvas app to include your team number and specify the development environment. (e.g., Tailspin Toys – Team 2 – Dev).
 
