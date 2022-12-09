@@ -56,6 +56,3 @@ To complete this challenge successfully, you should be able to:
 * [App in a Day](https://aka.ms/appinaday)
 * [EditForm, NewForm, SubmitForm, ResetForm, and ViewForm functions in Power Apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-form)
 * [Filter, Search, and Lookup functions in Power Apps](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-filter-lookup)
-
-
-
