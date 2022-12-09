@@ -2,7 +2,6 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-
 ## Introduction
 
 Approval Processing is a Microsoft Power Automate capability you can use without the need for coding or data science skills. This challenge involves building an end-to-end process to approve the data that was extracted in earlier challenges and have users review the data as well as having managers efficiantly approving the request rather than sending emails with links to the application for approvals
@@ -24,7 +23,6 @@ Based on the order total you will have different approval process.
 - User should also be able to see if approval is pending and which manager has been requested for the approval.
 - Also have the pdf from challenge 3 attached to approval.
 
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
@@ -40,6 +38,3 @@ To complete this challenge successfully, you should be able to:
 * [Send an email when an account is created in Dynamics 365](https://us.flow.microsoft.com/en-us/galleries/public/templates/41ddb497b31747fc8c4d5ae0211d3e6e/send-an-email-when-an-account-is-created-in-dynamics-365/)
 * [Send an email when a Dynamics 365 record is created](https://flow.microsoft.com/en-us/galleries/public/templates/30234bf0b64f11e68af78d1a54677f1f/send-an-email-when-a-dynamics-365-record-is-updated/)
 * [How to customize date and time values in a Flow](https://support.microsoft.com/en-us/help/4534778/how-to-customize-format-date-and-time-values-in-a-flow)
-
-
-
