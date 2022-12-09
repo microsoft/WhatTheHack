@@ -5,7 +5,7 @@
 ## Notes & Guidance
 1. Download the sample application [from here](/Student/resources/simple-php-app.tar.gz) to your home directory
 
-`student@vm01:~$ cd ~ ; wget https://github.com/microsoft/WhatTheHack/blob/master/020-LinuxFundamentals/Student/resources/simple-php-app.tar.gz?raw=true -O simple-php-app.tar.gz`
+`student@vm01:~$ cd ~ ; wget https://aka.ms/linuxhack-simple-php-app -O simple-php-app.tar.gz`
 
 2. Extract the content of simple-php-app.tar.gz on our home directory
 
