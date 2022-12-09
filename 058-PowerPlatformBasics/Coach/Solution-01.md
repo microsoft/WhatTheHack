@@ -1,6 +1,6 @@
 # Challenge 01 - Challenge Setup - Coach's Guide 
 
-[< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
+**[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
@@ -13,4 +13,4 @@ Environment setup guidence
 - If Microsoft employees and Partners have access to CDX, we reccommend they stil follow the trial setup process
 - A Power Platform Developer environment would only be advised for a single person attempting the challenges
 
-- Refer to tenant setup docs in the /coach/solutios folder
+- Refer to [tenant setup docs](./Solutions/TenantSetup_Coach.pdf) for more information
