@@ -10,7 +10,7 @@ Now that you have managed to processes of handling inbound emails, extracting an
 
 In this challenge, you will create a Power App to support Order and Customer Management
 
-To get you started, we have provided your team with a zip file with a starter canvas app which includes two custom components, a navigation bar, and a title bar. You can find starter app Zip file in the `/BasePowerApp/` folder of the student `Resources.zip` file provided by your coach.
+To get you started, we have provided your team with a zip file with a starter canvas app which includes two custom components, a navigation bar, and a title bar. You can find starter app Zip file in the `/BasePowerApp/` folder of the student `Resources.zip` file provided by your coach.  You can import this starter app into your Dataverse environment.
 
 Since the components are generalized, you will want to customize them to include proper icons and labels. 
 
