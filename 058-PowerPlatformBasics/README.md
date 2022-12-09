@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Power Platform Basics What The Hack will enable your team on leveraging Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and create a new role of Citizen Developer.
+The Power Platform Basics What The Hack will enable your team to leverage Microsoft’s Low Code Power Platform to solve business problems, reduce technical debt, and create a new role of Citizen Developer.
 
 
 ## Learning Objectives
@@ -52,6 +52,3 @@ In this hack you will be solving the common business problem that companies in t
 - Matt Karr
 - Behnaz Majidi
 - Sherry Xu
-
-
-
