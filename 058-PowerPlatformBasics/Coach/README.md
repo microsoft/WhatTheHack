@@ -65,7 +65,7 @@ The below is a rough estimate of how long we have observed these challenges to t
 - Sample Day 2
   - Challenge 6 (45 mins)
   - Challenge 7 (90 mins)
-  - CHallenge 8 (1 hour)
+  - Challenge 8 (1 hour)
   - Challenge 9 45 mins)
 
 ## Repository Contents
