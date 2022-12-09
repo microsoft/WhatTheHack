@@ -7,7 +7,7 @@ The Power Platform Basics What The Hack will enable your team to leverage Micros
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the retain industry by replacing their legacy systems.  The new systems will be able to:
+In this hack you will be solving business problems that companies in the Retail industry face by replacing their legacy systems.  The new systems will be able to:
 
 - Enable Power Platform automation using AI Builder
 - Build an approval process with Power Automate
