@@ -20,7 +20,7 @@ Rename the canvas app to include your team number and specify the development en
 
 Now that your base app is imported, implement the following design requirements:
 - A working navigation component that allows the user to switch between app screens.  
-    - Hint: You will need to add and configure the navigation component from the base solution to the screens that you and your team creates
+    - **HINT:** You will need to add and configure the navigation component from the base solution to the screens that you and your team creates
 - Four app screens that show the following:
     * A screen and a label that shows the Customer records view
     * A screen and a label that shows the Order records view for a selected customer
