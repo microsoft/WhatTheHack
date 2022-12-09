@@ -8,7 +8,6 @@ Before you build your Power BI report ensure:
 - At least one attendee should have the Power BI desktop app
 - Ensure your environment's Power BI Pro trial has been activated
 
-
 ## Introduction
 
 Now that Tailspin Toys staff is easily able to streamline their processes for customer orders, their management has requested some new reporting features that will enhance their reporting, recognize trends in their data, and better analytics
@@ -37,13 +36,11 @@ Information:
 - Create a new Dashboard and pin the report visualizations to it.
 - Embed all the Power BI dashboard visualizations in the analytics screen of your canvas app
 
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 - Show your coach the visualizations embedded in your tablet app after navigating from the home screen. 
 - Prove that the numbers displayed in the visualizations match the data in the Dataverse.
-
 
 ## Learning Resources
 
@@ -56,4 +53,3 @@ To complete this challenge successfully, you should be able to:
  * [Power Query M function Reference](https://docs.microsoft.com/powerquery-m/power-query-m-function-reference)
  * [Create and manage relationship in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-create-and-manage-relationships)
  * [Embed Power BI tiles in Power Apps](https://powerapps.microsoft.com/blog/power-bi-tile-in-powerapps/)
-
