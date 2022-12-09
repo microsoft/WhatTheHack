@@ -32,7 +32,7 @@ To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Silver layer in the appropriate storage hierarchies based on the discussion above.
 - Showcase the data copied into the Silver layer and be able to articulate the transformations performed and the reasons for your choices.
 - Showcase how this data can also be accessed for ad-hoc analysis and reporting, via both Synapse and Databricks.
-- Showcase how to utilize detla lake versioning and time travel.
+- Showcase how to utilize delta lake versioning and time travel.
 
 ## Learning Resources
 The following links may be useful to achieving the success crieria listed above.
