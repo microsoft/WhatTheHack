@@ -2,7 +2,6 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-
 ## Introduction - Tailspin Toys – Order Process Automation
 
 Tailspin Toys is a toy and school supplies company. The company sells toy products, party products, and different school supplies through its retail locations and the Internet. Tailspin Toys has around 500 stores all over the world and has ten major contracts for school supplies all over USA. The company stores are located in 35 countries. The company owns and operates one website http://www.tailspintoys.com/ that includes an online store. The second biggest market for them is in Poland, Europe so the company opened a subsidiary there.
@@ -54,6 +53,4 @@ Your coach will provide you with a `Resources.zip` file that contains resource f
 * [Administer Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/admin/admin-documentation)
 * [Licensing overview for Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/admin/pricing-billing-skus)
 * [Application lifecycle management (ALM) with Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/alm/)
-* [Microsoft Power Platform Center of Excellence (CoE) Starter Kit](https://docs.microsoft.com/en-us/power-platform/guidance/coe/starter-kit )
-
-
+* [Microsoft Power Platform Center of Excellence (CoE) Starter Kit](https://docs.microsoft.com/en-us/power-platform/guidance/coe/starter-kit)
