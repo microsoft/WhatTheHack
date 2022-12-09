@@ -4,10 +4,6 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
 Before the team can use Approval Process in Power Automate they will need:
 - Complete challenge 1, 2, & 3
 - An Office365 Mailbox to accept incoming Order information
