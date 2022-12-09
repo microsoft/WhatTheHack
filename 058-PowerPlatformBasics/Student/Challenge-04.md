@@ -35,6 +35,5 @@ To complete this challenge successfully, you should be able to:
 * [Power Automate Modern Approvals](https://docs.microsoft.com/en-us/power-automate/modern-approvals)
 * [Power Automate Approval Attachments](https://docs.microsoft.com/en-us/power-automate/approval-attachments)
 * [Get started with Power Automate](https://docs.microsoft.com/power-automate/getting-started)
-* [Send an email when an account is created in Dynamics 365](https://us.flow.microsoft.com/en-us/galleries/public/templates/41ddb497b31747fc8c4d5ae0211d3e6e/send-an-email-when-an-account-is-created-in-dynamics-365/)
-* [Send an email when a Dynamics 365 record is created](https://flow.microsoft.com/en-us/galleries/public/templates/30234bf0b64f11e68af78d1a54677f1f/send-an-email-when-a-dynamics-365-record-is-updated/)
+* [Send an email after approval on record creation in Microsoft Dataverse](https://powerautomate.microsoft.com/en-us/templates/details/8413eeec934b4bbe9a3fd62dc81a00e1/send-an-email-after-approval-on-record-creation-in-microsoft-dataverse/)
 * [How to customize date and time values in a Flow](https://support.microsoft.com/en-us/help/4534778/how-to-customize-format-date-and-time-values-in-a-flow)
