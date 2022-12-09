@@ -18,7 +18,7 @@ Information:
 	
 Based on the order total you will have different approval process.
 - Less than 25,000 will only require manager approval
-- Between 25,000 & 100,000 Manager and Senior manag- Customer Information (Full name, Address, Email or Phone)er approval
+- Between 25,000 & 100,000 Manager and Senior manager - Customer Information (Full name, Address, Email or Phone) approval
 - More then 100,000 Senior manager & district manager approval
 - Both when approver rejects or approves, an email should be sent to the user.
 - User should also be able to see if approval is pending and which managerhas been requested for the approval.
