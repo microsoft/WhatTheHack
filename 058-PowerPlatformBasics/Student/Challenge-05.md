@@ -9,7 +9,7 @@ Before you can use Power Apps you need:
 
 ## Introduction
 
-Now that you have managed to processes of handling inbound emails, extracting and storing order data leveraging AI Builder, and creating an approval process, this challenge you will create a Power App to view and manage the order data.
+Now that you have managed to processes of handling inbound emails, extracting and storing order data leveraging AI Builder, and creating an approval process, in this challenge you will create a Power App to view and manage the order data.
 
 ## Description
 
