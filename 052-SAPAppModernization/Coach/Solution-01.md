@@ -9,6 +9,8 @@ The most likely things to go wrong here are
 1. The user has no SAP subscription or licence and has no S-number. They simply will need to be registered with SAP within their organization to get this.
 2. They have not linked their Cloud Appliance Library account to their Azure subscription.
 3. They have not configured a service principal with the appropriate rights and added it to allow the SAP Cloud Appliance library to deploy into their subscription.
+4. The user cannot authenticate with the described credentials as they are using a different Appliance version. All details relevant for the specific SAP S/4HANA deployment is detailed under Win Server file:///C:/ProgramData/WelcomePage/Welcome.html
+5. Transaction code SE16 is not found -> use /n SE16
 
 ## Description
 
