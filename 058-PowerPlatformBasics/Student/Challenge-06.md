@@ -20,7 +20,7 @@ To support collaboration and ease of access, you will embed the canvas app direc
 - Create a team for your app
 - Embed the app
 
-### Bonus step: enhance approval communication to a Manager channel
+**Bonus step:** Enhance approval communication to a Manager channel
 
 ## Success Criteria
 
