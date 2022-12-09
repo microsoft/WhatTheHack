@@ -56,6 +56,8 @@ With the exception of challenge 01 which has as an outcome a Linux Virtual Machi
 	 - Learn about package management and common activites such as update package distribution lists, install and uninstall packages.
 * Challenge 12: **[Setting up a Webserver](Student/Challenge-12.md)**
 	 - In this challenge we will setting up a webserver and deploy a simple PHP application into it. The usage of SSL could be a plus. 
+* Challenge 13: **[Protecting a Server](Student/Challenge-13.md)**
+	- In this challenge we will discover about how to use Fail2Ban to protect services in a Linux environment.
 	 
 ## Prerequisites
 - Your own Azure subscription with contributor access for the Challenge 01 or contributor access to a pre-created Azure Virtual Machine for all other challenges.

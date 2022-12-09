@@ -1,11 +1,11 @@
 # Challenge 12 - Setting up a WebServer - Coach's Guide 
 
-[< Previous Solution](./Solution-11.md) - **[Home](./README.md)** 
+[< Previous Solution](./Solution-11.md) - **[Home](./README.md)** - [Next Solution >](./Solution-13.md)
 
 ## Notes & Guidance
-1. Download the sample application [from here](/resources/simple-php-app.tar.gz) to your home directory
+1. Download the sample application [from here](/Student/resources/simple-php-app.tar.gz) to your home directory
 
-`student@vm01:~$ cd ~ ; wget https://github.com/ricmmartins/fasthack-linux/raw/main/resources/simple-php-app.tar.gz`
+`student@vm01:~$ cd ~ ; wget https://aka.ms/linuxhack-simple-php-app -O simple-php-app.tar.gz`
 
 2. Extract the content of simple-php-app.tar.gz on our home directory
 

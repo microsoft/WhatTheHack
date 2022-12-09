@@ -48,7 +48,7 @@
 /usr/bin/passwd: setuid ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6af93256cb810d90b2f96fc052b05b43b954f5b2, for GNU/Linux 3.2.0, stripped
 ```
 
-3. Go to your home directory and download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf) 
+3. Go to your home directory and download [azure-linux.svg](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg)  and [InfographicRC2.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/infographic-reliability-with-microsoft-azure/InfographicRC2.pdf)
 
 `student@vm01:~$ cd ~; wget https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg`
 
@@ -65,41 +65,41 @@ azure-linux.svg                                                           [ <=> 
 2022-04-08 00:01:28 (67.5 MB/s) - ‘azure-linux.svg’ saved [1651731]
 ```
 
-`student@vm01:~$ wget https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf`
+`student@vm01:~$ wget https://azure.microsoft.com/mediahandler/files/resourcefiles/infographic-reliability-with-microsoft-azure/InfographicRC2.pdf`
 
 ```bash
---2022-04-08 00:01:54--  https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf
-Resolving docsmsftpdfs.blob.core.windows.net (docsmsftpdfs.blob.core.windows.net)... 52.239.228.68
-Connecting to docsmsftpdfs.blob.core.windows.net (docsmsftpdfs.blob.core.windows.net)|52.239.228.68|:443... connected.
+--2022-11-09 12:44:18--  https://azure.microsoft.com/mediahandler/files/resourcefiles/infographic-reliability-with-microsoft-azure/InfographicRC2.pdf
+Resolving azure.microsoft.com (azure.microsoft.com)... 13.107.42.16, 2620:1ec:21::16
+Connecting to azure.microsoft.com (azure.microsoft.com)|13.107.42.16|:443... connected.
 HTTP request sent, awaiting response... 200 OK
-Length: 1093349 (1.0M) [application/pdf]
-Saving to: ‘azure-ops-guide.pdf’
+Length: 993229 (970K) [application/pdf]
+Saving to: ‘InfographicRC2.pdf’
 
-azure-ops-guide.pdf                                                   100%[=========================================================================================================================================================================>]   1.04M   621KB/s    in 1.7s
+InfographicRC2.pdf            100%[=================================================>] 969.95K  4.19MB/s    in 0.2s
 
-2022-04-08 00:01:56 (621 KB/s) - ‘azure-ops-guide.pdf’ saved [1093349/1093349]
+2022-11-09 12:44:19 (4.19 MB/s) - ‘InfographicRC2.pdf’ saved [993229/993229]
 ```
 
-4. Display the type of file of azure-linux.svg and azure-ops-guide.pdf
+4. Display the type of file of azure-linux.svg and InfographicRC2.pdf
 
-`student@vm01:~$ file azure-linux.svg azure-ops-guide.pdf`
+`student@vm01:~$ file azure-linux.svg InfographicRC2.pdf`
 
 ```bash
 azure-linux.svg:     SVG Scalable Vector Graphics image
-azure-ops-guide.pdf: PDF document, version 1.5
+InfographicRC2.pdf: PDF document, version 1.5
 ```
 
 5. Rename azure-linux.svg to azure-linux.pdf 
 
 `student@vm01:~$ mv azure-linux.svg azure-linux.pdf`
 
-6. Display the type of file of azure-linux.pdf and azure-ops-guide.pdf
+6. Display the type of file of azure-linux.pdf and InfographicRC2.pdf
 
-`student@vm01:~$ file azure-linux.pdf azure-ops-guide.pdf`
+`student@vm01:~$ file azure-linux.pdf InfographicRC2.pdf`
 
 ```bash
 azure-linux.pdf:     SVG Scalable Vector Graphics image
-azure-ops-guide.pdf: PDF document, version 1.5
+InfographicRC2.pdf: PDF document, version 1.5
 ```
 
 7. Create a directory `~/lab` and enter it.
