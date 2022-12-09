@@ -49,6 +49,7 @@ The following links may be useful to achieving the success crieria listed above.
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 - [Databricks - Manage Users](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/users)
 - [Access Azure Blob Storage using Azure Databricks and Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/integrate-databricks-blob-storage)
+- [Azure Databricks - Secret Scopes](https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes)
 
 ## Bonus Challenge
 - Implement incremental pipeline functionality to only receive newly inserted, updated or deleted records from the source system and specifiy the tables needed to copy so as to only run one master pipeline for all source tables per database.  For more on this topic check out [Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal](https://learn.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal).
