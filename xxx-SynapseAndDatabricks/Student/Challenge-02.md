@@ -5,6 +5,7 @@
 ## Introduction
 In this challenge we will begin to transform the data we loaded "as is" to the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer.
 
+The goal of this challenge is to merge the tables and bring in only a subset of the fields.  We do not need this to be production level quality and determine every field that could be a match.  Rather we want to bring over just enough fields to show an intelligent report.  The definition of "intelligent" is your discretion.  Duplicate names may happen, but do not have duplicate IDs.  We need each Delta table to have a unique key.
 
 ## Description
 Some of the things we try to achieve within the Silver layer are
@@ -30,6 +31,7 @@ A more visual guide on the process can be seen below.
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Silver layer in the appropriate storage hierarchies based on the discussion above.
+- A primary key has been established for each table with unique values in that table.
 - Showcase the data copied into the Silver layer and be able to articulate the transformations performed and the reasons for your choices.
 - Showcase how this data can also be accessed for ad-hoc analysis and reporting, via both Synapse and Databricks.
 - Showcase how to utilize delta lake versioning and time travel.
