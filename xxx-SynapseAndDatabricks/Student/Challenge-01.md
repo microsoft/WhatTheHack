@@ -4,7 +4,9 @@
 
 ## Introduction
 
-The goal of this hackathon is to take data from 2 different data sources 1) Adventure Works and 2) Wide World Importers and combine them into one or more tables so that to the end user, they do not realize that we had different originating data sets, they just have the data that they need to view it in a report.  We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  Do not bring in everything.  For this hackathon, choose to only bring in either the __Customer__ or __Sales Order__ data.  
+The goal of this hackathon is to take data from 2 different data sources 1) Adventure Works and 2) Wide World Importers and combine them into one or more tables so that to the end user, they do not realize that we had different originating data sets.
+
+Thus, they just have the data that they need to view it in a report.  We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  Do not bring in everything.  For this hackathon, choose to only bring in either the __Customer__ or __Sales Order__ data.  
 
 _Hint: Customers have addresses and Sales Orders have header, detail and product associated with them.  See the graphic below for reference._
 
