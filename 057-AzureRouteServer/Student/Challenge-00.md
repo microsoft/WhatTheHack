@@ -37,7 +37,11 @@ If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` 
 
 ### Deploy the Baseline Hub & Spoke Topology to Azure
 
-From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.azcli`. Run it to deploy the baseline Hub & Spoke network in Azure.
+- From a bash shell on your local workstation, or in the Azure Cloud Shell, navigate to the location you have unpacked the `Resources.zip` file. You should find a script file named `HubAndSpoke.sh`. 
+- Open the `HubAndSpoke.sh` script file and set the following values:
+ - `rg` - The name of the resource group that will be created in Azure to deploy the baseline hub & spoke topology. If using a shared Azure subscription with other students, you should include your name or initials in the value to make it unique.
+ - `adminpassword` - Provide a password value which will be used for the admin account on the VMs that the script deploys.
+- Run the script to deploy the baseline Hub & Spoke network in Azure.
 
  **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent VNet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge.
 
@@ -47,9 +51,9 @@ From a bash shell on your local workstation, or in the Azure Cloud Shell, naviga
 
  ```bash
  # Make the file executable
- chmod +x HubAndSpoke.azcli
+ chmod +x HubAndSpoke.sh
  #run the file
- ./HubAndSpoke.azcli
+ ./HubAndSpoke.sh
  ```
 
 ## Success Criteria
