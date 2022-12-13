@@ -55,14 +55,18 @@ The coach should point out that the script sets the admin username for the VMs t
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- Attendees should have Azure Subscription Owner or Contributor role in order to be able to create and delete Resource Groups, Virtual Network components, Virtual Machines an Storage accounts. Attendees should also have these permitions to be able to create Network Virtual Appliances.  For more info: <https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#all>
 
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+- At the end of the hack, each student will have (but not limited to) the following resources in Azuree:
+	- One or two VPN Gateways depending on the On Premises simulation (Virtual on Premises with VPN Gateway, or NVA)
+	- One or two Local Network Gateways depending on the On Premises simulation (Virtual on Premises with VPN Gateway, or NVA)
+	- At least one Ubuntu LTS VM Standard B1s (1 vcpu, 1 GiB memory) per Vnet. Student may choose to deploy other flavors depending on their solution. For more info on Burstable SKUs: <https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-b-series-burstable>
+	- One Route Server
+	- At least 6 Virtual Networks
+	- Up to Four Cisco Cloud Services Router 1000v Standard B2s (2 vcpus, 4 GiB memory). For more info <https://azuremarketplace.microsoft.com/en/marketplace/apps/cisco.cisco-csr-1000v?tab=Overview>
+	- Public IPs amount may vary depending on student solution. 
  
- **NOTE:** The VPN Gateway resources used for the hack are expensive and can consume the monthly Azure credits in a Visual Studio account or Azure Trial account in a few days!  Students should be advised to delete these resources as soon as the hack is completed.
+ **NOTE:** The VPN Gateway resources as well as the Azure Route Server used for the hack are expensive and can consume the monthly Azure credits in a Visual Studio account or Azure Trial account in a few days!  Students should be advised to delete these resources as soon as the hack is completed.
 
 ## Repository Contents
 
