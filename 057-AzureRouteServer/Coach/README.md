@@ -37,17 +37,17 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites
 
-In Challenge 00, the students will run a script from the `Resources.zip` file that deploys a baseline Hub & Spoke network topology into their Azure subscriptions with Linux VMs.  The script file name is `HubAndSpoke.azcli`.
+In Challenge 00, the students will run a script from the `Resources.zip` file that deploys a baseline Hub & Spoke network topology into their Azure subscriptions with Linux VMs.  The script file name is `HubAndSpoke.sh`.
 
-The coach should provide the students with the Username and password used for the Ubuntu VMs:
-- username: azureuser
-- psswd: Msft123Msft123
+Students will need to open the `HubAndSpoke.sh` script file and set the following values:
+  - `rg` - The name of the resource group that will be created in Azure to deploy the baseline hub & spoke topology. Students using a shared Azure subscription with other students should include their name or initials in the value to make it unique.
+  - `adminpassword` - Provide a password value which will be used for the admin account on the VMs that the script deploys.
+
+The coach should point out that the script sets the admin username for the VMs to `azureuser`.
 
 **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent Vnet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge
 
-The coach should offer the student the aforementioned script file at the start of the event so credits using the VPN Gateway are not consumed before the Hack. If the student opts to do the initial setup manually, bring awareness that this is going to consume time and is prone to errors. 
-
-The script takes about 30 minutes to deploy. In the meantime, the coach can proceed with a lecture or explanation of the challenges. 
+**NOTE:** The script takes about 30 minutes to deploy. In the meantime, the coach should proceed with an overview lecture or explanation of the challenges. 
 
 ## Azure Requirements
 
@@ -59,6 +59,8 @@ _For example:_
 
 - Azure resources that will be consumed by a student implementing the hack's challenges
 - Azure permissions required by a student to complete the hack's challenges.
+ 
+ **NOTE:** The VPN Gateway resources used for the hack are expensive and can consume the monthly Azure credits in a Visual Studio account or Azure Trial account in a few days!  Students should be advised to delete these resources as soon as the hack is completed.
 
 ## Repository Contents
 
