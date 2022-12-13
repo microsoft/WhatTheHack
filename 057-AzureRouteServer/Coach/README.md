@@ -37,7 +37,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites
 
-In Challenge 00, the students will run a script from this Resources.zip file that deploys a baseline Hub & Spoke network topology into their Azure subscriptions with Linux VMs.  
+In Challenge 00, the students will run a script from the `Resources.zip` file that deploys a baseline Hub & Spoke network topology into their Azure subscriptions with Linux VMs.  The script file name is `HubAndSpoke.azcli`.
 
 The coach should provide the students with the Username and password used for the Ubuntu VMs:
 - username: azureuser
