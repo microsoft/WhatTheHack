@@ -43,9 +43,9 @@ In Challenge 00, the students will run a script from the `Resources.zip` file th
 
 Students will need to open the `HubAndSpoke.sh` script file and set the following values:
   - `rg` - The name of the resource group that will be created in Azure to deploy the baseline hub & spoke topology. Students using a shared Azure subscription with other students should include their name or initials in the value to make it unique.
-  - `adminpassword` - Provide a password value which will be used for the admin account on the VMs that the script deploys.
+  - `adminpassword` - Provide a password value which will be used for the admin account on the Linux VMs that the script deploys.
 
-The coach should point out that the script sets the admin username for the VMs to `azureuser`.
+The coach should point out that the script sets the admin username for the VMs to `"azureuser"`.
 
 **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent Vnet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge
 
