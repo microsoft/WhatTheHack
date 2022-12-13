@@ -31,6 +31,12 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the `Resources.zip` file to all students at the start of the hack. 
 
+Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
+
+**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
+
+### Additional Coach Prerequisites
+
 In Challenge 00, the students will run a script from this Resources.zip file that deploys a baseline Hub & Spoke network topology into their Azure subscriptions with Linux VMs.  
 
 The coach should provide the students with the Username and password used for the Ubuntu VMs:
@@ -38,12 +44,6 @@ The coach should provide the students with the Username and password used for th
 - psswd: Msft123Msft123
 
 **NOTE:** The script deploys Active/Active VPNs with BGP and the correspondent Vnet Peering attributes for transitivity. However, other aspects such as configuring Local Network Gateways, setting up required Route Tables (UDRs) will need to be done manually. Simulated on-premises and Central NVA templates are provided separately throughout the challenge
-
-Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
-
-**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
-
-### Additional Coach Prerequisites
 
 The coach should offer the student the aforementioned script file at the start of the event so credits using the VPN Gateway are not consumed before the Hack. If the student opts to do the initial setup manually, bring awareness that this is going to consume time and is prone to errors. 
 
