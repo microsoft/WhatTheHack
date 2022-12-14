@@ -32,23 +32,23 @@ Azure Databricks will be used to consume data from Event Hub and write the strea
 
 ## Learning Resources
 
-1. [Event Hub Quickstart](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
-1. [Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)
-1. [Azure Databricks & Kafka Enabled Event Hubs](https://techblog.fexcofts.com/2019/01/17/azure-databricks-kafka-enabled-event-hubs/)
-1. [Ingest and process real-time data streams with Azure Synapse Analytics](https://www.mssqltips.com/sqlservertip/6748/real-time-data-streams-azure-synapse-analytics/)
+- [Event Hub Quickstart](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
+- [Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)
+- [Azure Databricks & Kafka Enabled Event Hubs](https://techblog.fexcofts.com/2019/01/17/azure-databricks-kafka-enabled-event-hubs/)
+- [Ingest and process real-time data streams with Azure Synapse Analytics](https://www.mssqltips.com/sqlservertip/6748/real-time-data-streams-azure-synapse-analytics/)
 
 ## Tips
 
-1. In order to publish data to and consume data from Event Hubs, you will need to generate a shared access policy, and use this key and the host name of the namespace in your connection string.  These values will be needed on the consumer side of your Event hub.
-1. Deploy new Event Hub in Azure
-1. Setup and configure data source
-1. Start Data Stream
-1. Ingest data stream
+- In order to publish data to and consume data from Event Hubs, you will need to generate a shared access policy, and use this key and the host name of the namespace in your connection string.  These values will be needed on the consumer side of your Event hub.
+- Deploy new Event Hub in Azure
+- Setup and configure data source
+- Start Data Stream
+- Ingest data stream
 
 ## Advanced Challenges (Optional)
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-1. Setup external table in Azure Synapse Analytics
-1. Create Power BI report to use clickstream data
-1. Create an Azure Stream Analytics job to process streaming data and write to Data Lake and/or Azure Synapse Analytics SQL Pool directly
+- Setup external table in Azure Synapse Analytics
+- Create Power BI report to use clickstream data
+- Create an Azure Stream Analytics job to process streaming data and write to Data Lake and/or Azure Synapse Analytics SQL Pool directly
