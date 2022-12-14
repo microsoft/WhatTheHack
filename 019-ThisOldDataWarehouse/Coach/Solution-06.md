@@ -2,9 +2,9 @@
 
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
-# Introduction
+## Introduction
 WWI leadership is happy with the progress of the migration thus far but wants to ensure that info security guard rails are implemented appropriately. Additionally, they want to further understand the art of possibility when it comes to enterprise data security involving the new Azure Synapse Analytics Platform. This will be done in the form of a stakeholder update at the end of the exercise.
-# Description
+## Description
 The objective of this lab is to baseline an implementation of enterprise grade security controls and services for Azure Synapse SQL Pools.
 
 Categories of security enablement are as follows:
@@ -18,7 +18,7 @@ Categories of security enablement are as follows:
 - Data Encryption
 
 The intent is to not only to enable security features but also to understand what each layer of security provides to communicate this to WWI leadership.
-# Coaches Notes
+## Coaches Notes
 **SQL Auditing**
 
 1. Using Azure Portal create a “Log Analytics Workspace” in the same resource group as previous challenges
