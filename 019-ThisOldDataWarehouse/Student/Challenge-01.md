@@ -8,7 +8,7 @@ WWI wants to modernize their data warehouse in phases.  The first stage will be 
 
 ## Description
 
-The objective of this lab is to migrate the WWI DW (OLAP) to Azure Synapse Analytics.  Azure Synapse Analytics is a MPP (Massive Parallel Processing) platform that allows you to scale out your datawarehouse by adding new server nodes (compute) rather than adding more cores to the server.  
+The objective of this challenge is to migrate the WWI DW (OLAP) to Azure Synapse Analytics.  Azure Synapse Analytics is a MPP (Massive Parallel Processing) platform that allows you to scale out your datawarehouse by adding new server nodes (compute) rather than adding more cores to the server.  
 
 There will be four different object types we'll migrate:
 
@@ -17,25 +17,30 @@ There will be four different object types we'll migrate:
 * SSIS code set refactor (Refactor has been done for you and not part of success criteria of this hack)
 * Data migration (with SSIS)
 
-![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge1.png)
-
-## Success Criteria
-
+Here are the steps to migrate from SQL Server to Synapse Analytics.
 - Migrated all database schemas to Synapse
 - Created one table per schema in Synapse
     - Tables to create are; Dimension.City, Fact.Order & Integration.Order_Staging
-    - Coach will provide remaining DDL scripts
 - Refactor one Stored Procedure per design pattern.  Parathensis contains recommended objects
     - Dimension Tables (Integration.MigratedCityData)
     - Fact Table (Appends Only; Integration.MigratedStagedSaleData)
     - Fact Table (Merge; Integration.MigratedStagedMovementData)
-    - Coach will share remaining T-SQL Scripts
+- Execute the T-SQL script, "Master Create.sql" in the '/Challenge01/' folder of the student 'Resource.zip' package
+    - This will create all remaining fact, dimension, integration tables and stored procedures
+    - This will ensure you have the full enviornment setup and configured to peform a bulk load
 - Run SSIS jobs based on new mappings
-    - Coach will share DailyETLMDWLC package
+    - You can find the 'Daily ETLMDWLC.ispac' SSIS package in the '/Challenge01/' folder of the student 'Resource.zip' package
     - Review data setup instructions before you execute the SSIS jobs
     - Load data into Synapse Analytics
-- Run Power BI Report (WWI_Sales.pbit) and share screen shot with coach to confirm success
-    - Coach will share pbit file with you
+- Run Power BI Report (WWI_Sales.pbit)
+    - You can find the `WWI_Sales.pbit` file in the `/Challenge01/` folder of the student `Resources.zip` package
+
+
+![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge1.png)
+
+## Success Criteria
+
+- Compare your Power BI report results with the coach's screenshot to see if your results match.  This will confirm you completed the migration successfully.
 
 ## Learning Resources
 
