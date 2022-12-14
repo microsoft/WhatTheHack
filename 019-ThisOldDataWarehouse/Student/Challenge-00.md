@@ -90,9 +90,8 @@ az deployment group create --name final --resource-group {ENTER RESOURCE GROUP N
 
 ## Success Criteria
 
-- Complete setup of your environment
-- Determine which SQL database offering is the best fit for the hack
-- Estimate the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
+- Confirm Azure Data Factory service started with no errors
+- Share with coach the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
 
 ## Learning Resources
 
