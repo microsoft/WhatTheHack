@@ -1,40 +1,69 @@
-# Coach's Guide: Challenge 1 - Extract and load FHIR synthetic medical data
+# Coach's Guide: Challenge 1 - Extract and Load FHIR EHR Data
 
-[< Previous Challenge](./Solution00.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution02.md)
+[< Previous Challenge](./Solution00.md) - **[Home](./README.md)** - [Next Challenge>](./Solution02.md)
 
 ## Notes & Guidance
 
-In this challenge, you will implement the FHIR Server Samples reference architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk load into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
+In this challenge, you will implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** function app based event-driven architecture to ingest and load patient data in FHIR.  You will generate synthetic FHIR patient data for bulk data load into the FHIR service.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient records in FHIR format.  
 
-**FHIR bulk load scenario**
+### FHIR bulk load scenario
+In this scenario, you will deploy a storage account with a BLOB container and copy Synthea generated FHIR patient data files (JSON Bundles) into it.  These FHIR Bundles will be automatically ingested into the FHIR service.
 
-In this scenario, you will deploy a storage account with a BLOB container called `fhirimport`.  Synthea generated FHIR patient data files (JSON) are copied into this storage container, and automatically ingested into FHIR Server.  This bulk ingestion is performed by a BLOB triggered function app.
+**First you will deploy **[Azure Health Data Services workspace](https://docs.microsoft.com/en-us/azure/healthcare-apis/workspace-overview)** and then **[deploy a FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-portal-quickstart)** instance within the workspace.**
 
-**Deploy FHIR Server Samples reference architecture for Bulk Load scenario**
-- To deploy **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples)** PaaS scenario (above):
-    - First, clone the **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples)** git repo to your local project repo, i.e. c:/projects and find the deployment scripts folder
+Hint: 
+- You can deploy separate AHDS workspace to enable data segregation for each project/customer.
+- You can deploy 1 or more instance(s) of FHIR service in the ADHS workspace based on your requirements/use cases. 
+
+**You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.**
+
+Hint: These scripts will gather (and export) information necessary for the proper deployment and configuration of FHIR Bulk Loader. Credentials and other secure information will be stored in the existing Key Vault attached to your FHIR Service deployment.
+
+- Install and configure FHIR Bulk Loader with the deploy **[script](https://github.com/microsoft/fhir-loader/blob/main/scripts/Readme.md#getting-started)**.
+    - Launch Azure Cloud Shell (Bash Environment) in your Azure Portal
+    - Clone the repo to your Bash Shell (CLI) environment
         ```bash
-        git clone https://github.com/Microsoft/fhir-server-samples
-        cd fhir-server-samples/deploy/scripts
+        git clone https://github.com/microsoft/fhir-loader
         ```
-    - Before running the **[FHIR Server Samples deployment script](https://github.com/microsoft/fhir-server-samples/blob/master/deploy/scripts/Create-FhirServerSamplesEnvironment.ps1)**, you MUST login to your Azure subscription and connect to Azure AD with your primary/secondary tenant that has directory admin role access required for this setup.
+    - Change working directory to the repo `scripts` directory
         ```bash
-        Login-AzAccount
-        Connect-AzureAd -TenantDomain <AAD TenantDomain>
+        cd $HOME/fhir-loader/scripts
         ```
-        **Note:**
-        - If you have full Administrator access to a AD tenant where you can create App Registrations, Role Assignments, Azure Resources, then Primary AD tenant is same as Secondary AD tenant and use the same AD tenant for both.
-        - If you don't have Administrator access:
-            - Primary (Resource) AD tenant: This tenant is Resource Control Plane where all your Azure Resources will be deployed to.
-            - Secondary (Data) AD tenant: This tenant is Data Control Plane where all your App Registrations will be deployed to.
-            
-    - Deploy **[FHIR Server Samples](https://github.com/microsoft/fhir-server-samples#deployment)** with the managed Azure API for FHIR (PaaS) scenario:
-        - Run `Create-FhirServerSamplesEnvironment.ps1` from the cloned `./deploy/scripts` folder.
-    - To Validate your deployment, 
-        - Check Azure resources created in `{ENVIRONMENTNAME}` and `{ENVIRONMENTNAME}-sof` Resource Groups
-        - Check `App Registration` in secondary AAD tenat that all three different **[client application types](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir-app-registration)** are registered for Azure API for FHIR.
-        - Check `Azure API for FHIR` > `Authentication` > `Allowed object IDs` configuration in Azure Portal to ensure that the Azure AD object IDs of the 3 registered client applications have been added. This will allow these client apps to access this Azure API for FHIR.
-
+    - Make the Bash Shell script used for deployment and setup executable
+        ```bash
+        chmod +x *.bash
+        ```
+    - Run `deployFHIRBulk.bash` script
+        ```bash
+        cd $HOME/fhir-loader/scripts
+        ./deployFhirBulk.bash 
+        ```
+        Hint: 
+        1) This deployment script prompts users for Azure parameters and FHIR Service Client Application connection information (if not found in Key Vault):
+        - Subscription ID (Accept default value if correct)
+        - Resource Group Name (This script will look for an existing resource group, otherwise a new one will be created)
+        - Resource Group Location, i.e. eastus (If creating a *new* resource group, you need to set a location)
+        - Deployment prefix (Enter your deploy prefix - bulk components begin with this prefix)
+        - Function App Name (Enter the bulk loader function app name - this is the name of the function app)
+        - Operation Mode (Enter `fhir` to set FHIR Bulk Loader to the FHIR Service for this challege)
+        - Key Vault Name (Script searches for FHIR Service values in the Key Vault, and if found, loads them; otherwise script prompts for the FHIR Service configuration values)
+            - FHIR Service URL (FS-URL), 
+            - Resource ID (FS-URL), 
+            - Tenant Name (FS-TENANT-NAME), 
+            - Client ID (FS-CLIENT-ID), 
+            - Client Secret (FS-SECRET), 
+            - Audience (FS-Resource)
+        2) The deployment script connects the Event Grid System Topics with the respective function app
+    - Optionally the deployment script can be used with command line options
+        ```bash
+        ./deployFhirBulk.bash -i <subscriptionId> -g <resourceGroupName> -l <resourceGroupLocation> -n <deployPrefix> -k <keyVaultName> -o <fhir or proxy> 
+        ```
+- Validate your deployment, check Azure components installed:
+   - Function App with App Insights and Storage
+   - Function App Service plan
+   - EventGrid
+   - Storage Account (with containers)
+   - Key Vault (if none exist)
 
 **Generate FHIR patient data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** tool**
 
@@ -71,8 +100,8 @@ In this scenario, you will deploy a storage account with a BLOB container called
         ```
     - For this configuration, Synthea will output 1000 patient records in FHIR formats in `./output/fhir` folder.
 
-**Bulk Load Synthea generated patient FHIR Bundles to FHIR Server**
-- Copy Synthea generated patient data to `fhirimport` BLOB, which will automatically trigger a function app to persist them to FHIR Server 
+**Bulk Load Synthea generated patient FHIR Bundles to FHIR service**
+- Copy Synthea generated patient data to `bundles` BLOB, which will automatically trigger a function app to persist them to FHIR Server 
     - To copy data to Azure Storage using **[AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** commandline tool
         - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
         - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
@@ -97,7 +126,9 @@ In this scenario, you will deploy a storage account with a BLOB container called
             Executed 'FhirBundleBlobTrigger' (Succeeded, ...)
             ```
 **Use Postman to retrieve Patients data via FHIR Patients API**
-- Open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
+- You need to first register your **[public client application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**  to connect Postman desktop app to FHIR service in Azure Health Data Services.
+- Then **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**  to assign access to the Azure Health Data Services data plane.
+- To **[access FHIR service using Postman](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)**, open Postman and **[import Postman data](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)**: 
     - In Postman, click Import.
     - In your **[Student Resources folder for Postman](../Student/Resources/Postman)**, select **[Environment](../Student/Resources/Postman/WTHFHIR.postman_environment.json)** and **[Collection](../Student/Resources/Postman/WTHFHIR.postman_collection.json)** JSON files.
     - Confirm the name, format, and import as, then click Import to bring your data into your Postman.
