@@ -17,7 +17,7 @@ They also want to address all below (not easy to answer) questions,
 
 The objective of this challenge is to implement purview core features such as data map, data catalog and lineage using resources (Data sources) deployed part of previous challenges. This hack involves configuring various resources such as Microsoft purview account, purview collection, key vault, purview integration with Azure data factory and synapse, ADF copy sample job etc.
 
-Note: If you haven't completed previous challenges, then you can bring your own or register any data sources you have in your subscription. Provision a basic tier SQL database (Use existing data option) with AdventureWorksLT sample data pre-loaded.
+**NOTE:** If you haven't completed previous challenges, then you can bring your own or register any data sources you have in your subscription. Provision a basic tier SQL database (Use existing data option) with AdventureWorksLT sample data pre-loaded.
 
 # Success Criteria
 
