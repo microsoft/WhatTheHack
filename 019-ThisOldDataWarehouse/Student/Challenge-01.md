@@ -25,11 +25,11 @@ Here are the steps to migrate from SQL Server to Synapse Analytics.
     - Dimension Tables (Integration.MigratedCityData)
     - Fact Table (Appends Only; Integration.MigratedStagedSaleData)
     - Fact Table (Merge; Integration.MigratedStagedMovementData)
-- Execute the T-SQL script, "Master Create.sql" in the '/Challenge01/' folder of the student 'Resource.zip' package
+- Execute the T-SQL script, `Master Create.sql` in the `/Challenge01/` folder of the student `Resource.zip` package
     - This will create all remaining fact, dimension, integration tables and stored procedures
     - This will ensure you have the full enviornment setup and configured to peform a bulk load
 - Run SSIS jobs based on new mappings
-    - You can find the 'Daily ETLMDWLC.ispac' SSIS package in the '/Challenge01/' folder of the student 'Resource.zip' package
+    - You can find the `Daily ETLMDWLC.ispac` SSIS package in the `/Challenge01/` folder of the student `Resource.zip` package
     - Review data setup instructions before you execute the SSIS jobs
     - Load data into Synapse Analytics
 - Run Power BI Report (WWI_Sales.pbit)
