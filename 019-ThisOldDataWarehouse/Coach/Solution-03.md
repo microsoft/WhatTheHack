@@ -23,9 +23,9 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 ## Coach Notes
 
-1. The challenge provided to students requires that a single pipeline be created to stage and refresh the [Dimension].[City] table.  The solution for this can be found in the \Basic folder of the Solution Guide.
+1. The challenge provided to students requires that a single pipeline be created to stage and refresh the [Dimension].[City] table.  The solution for this can be found in the [`/Challenge2/ARMTemplates/Basic` folder](./Solutions/Challenge3/ARMTemplates/Basic/) of the Solution Guide.
 
-1. In order to make this pipeline more dynamic and scalable, this solution can be extended to use expressions and parameters (as called out in the additional challenges section of the Student guide).  The configuration for this "Advanced" solution is described below and can be found in the \Advanced folder of the Solution Guide.
+1. In order to make this pipeline more dynamic and scalable, this solution can be extended to use expressions and parameters (as called out in the additional challenges section of the Student guide).  The configuration for this "Advanced" solution is described below and can be found in the [`/Challenge2/ARMTemplates/Advanced` folder](./Solutions/Challenge3/ARMTemplates/Advanced/) of the Solution Guide.
 
 ## Environment Setup
 
