@@ -25,7 +25,7 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 1. Finally the staged data is merged into the [Dimension] and [Fact] tables in the target DW by executing the [Integration].[MigrateStaged[Table]] stored procedures in the target DW
     - **NOTE: As part of this step, surrogate keys are generated for new attributes in Dimension tables (tables in the [Dimension] schema), so Dimenion tables must be loaded before FACT tables to maintain data integrity**
 
-Note: This challenge is intended to build upon the previous 2 challenges, and you should try to reuse content wherever possible
+**NOTE:** This challenge is intended to build upon the previous 2 challenges, and you should try to reuse content wherever possible
 
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge3.png)
 
