@@ -31,31 +31,31 @@ The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to ret
 
 ## Learning Resources
 
-1. [Performance Tuning](https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a)
-1. [Azure Synapse Analytics & Power BI performance](https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/)
-1. [Power BI Composite Model](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models)
-1. [Power BI change table storage mode](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode)
-1. [Table skew](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
-1. [Table skew workflow](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analyzer-report-to-monitor-and-improve-azure/ba-p/3276960)
-1. [Explain Plan](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)
-1. [Result-set cache](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching)
-1. [Statistics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-statistics)
+- [Performance Tuning](https://medium.com/@ian.shchoy/azure-sql-data-warehouse-deep-dive-into-data-distribution-f4cf8f1e340a)
+- [Azure Synapse Analytics & Power BI performance](https://www.jamesserra.com/archive/2019/12/azure-synapse-analytics-power-bi/)
+- [Power BI Composite Model](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-composite-models)
+- [Power BI change table storage mode](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-storage-mode)
+- [Table skew](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+- [Table skew workflow](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analyzer-report-to-monitor-and-improve-azure/ba-p/3276960)
+- [Explain Plan](https://docs.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)
+- [Result-set cache](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching)
+- [Statistics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-statistics)
 
 ## Tips
 
-1. Request from the coach the student zip file
-1. Use SQL Credential when connecting to the Azure Synapse Analytics SQL Pool
-1. Make sure the ASA service is running in Azure Portal since it might pause based on your settings
-1. Create direct query mode data model first because you can convert direct query mode to imported mode but not vice versa 
-1. Use Power BI Perforamance Analyzer to check power bi query time and performance
+- Request from the coach the student zip file
+- Use SQL Credential when connecting to the Azure Synapse Analytics SQL Pool
+- Make sure the ASA service is running in Azure Portal since it might pause based on your settings
+- Create direct query mode data model first because you can convert direct query mode to imported mode but not vice versa 
+- Use Power BI Perforamance Analyzer to check power bi query time and performance
 
 ## Advanced Challenges (Optional)
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-1. [Add Indexes and Partitions to your table structures](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance?view=sql-server-ver15)
-1. [Ordered vs. Nonordered CCI](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci)
-1. Setup [Aggregate Tables](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-aggregations) in Power BI Report to see if this improves response times
-1. Setup Power BI Embed application "App Owns Data" for users to access data
-1. Setup RLS in Power BI Embed and Azure Synapse Analytics
-1. Setup workload management to run ETL and run Reports in parallel to see performance impact.
+- [Add Indexes and Partitions to your table structures](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance?view=sql-server-ver15)
+- [Ordered vs. Nonordered CCI](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci)
+- Setup [Aggregate Tables](https://docs.microsoft.com/en-us/power-bi/transform-model/desktop-aggregations) in Power BI Report to see if this improves response times
+- Setup Power BI Embed application "App Owns Data" for users to access data
+- Setup RLS in Power BI Embed and Azure Synapse Analytics
+- Setup workload management to run ETL and run Reports in parallel to see performance impact.
