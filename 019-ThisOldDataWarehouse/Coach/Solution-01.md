@@ -66,7 +66,7 @@ There will be four different object types we'll migrate:
 * Data migration (with SSIS)
 
 Guidelines will be provided below, but you will have to determine how best to migrate.  At the end of the migration compare your 
-end state to the one we've published into the "Coach/Solutions/Challenge1" folder.  The detailed migration guide below is here for things to consider during your migration.
+end state to the one we've published into the [`/Solutions/Challenge1/` folder](./Solutions/Challenge1).  The detailed migration guide below is here for things to consider during your migration.
 
 ### Database Schema migration steps
 
