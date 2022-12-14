@@ -66,6 +66,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Networking with Hub & Spoke](/035-HubAndSpoke/README.md)
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
+- [Azure Route Server](/057-AzureRouteServer/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [Azure Virtual Desktop](/037-AzureVirtualDesktop/README.md)
@@ -132,6 +133,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
+- [Azure Route Server](/057-AzureRouteServer/README.md)
 
 ## SAP on Azure
 - [SAP on Azure](/042-SAPOnAzure/README.md)
