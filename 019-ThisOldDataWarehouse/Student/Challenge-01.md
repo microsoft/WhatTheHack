@@ -74,7 +74,7 @@ Here are the steps to migrate from SQL Server to Synapse Analytics.
 
 ## Tips
 
-- Connect to SQL Server 2017 databases in the containers with Azure Data Studio
+- Connect to SQL Server 2019 databases in the containers with Azure Data Studio
 - Determine your distribution column (HINT IDENTITY Column can not be your distribution key)
 - Run this query to identify which columns are not supported by Azure Synapse Analytics
 	```
@@ -86,7 +86,7 @@ Here are the steps to migrate from SQL Server to Synapse Analytics.
 		OR  y.[is_user_defined] = 1;
 	```
 - Review the SSIS jobs that are at this [Github repo](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0) (Daily.ETL.ispac)  This job leverages stored procedures in the Source and Target databases extensively.  This will require a refactoring of the Stored procedures for the OLAP database when you repoint the ETL target to Azure Synapse Analytics.
-- Request SSIS package from coach.  Current package in repo is setup for SQL Server 2017 which means you can run it thru Azure Data Factory. Here are [instructions](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard) to deploy the SSIS pakcage on in the SSIS Catalog.
+- Current package in repo is setup for SQL Server 2019 which means you can run it thru Azure Data Factory. Here are [instructions](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial?view=sql-server-ver15#deploy-a-project-with-the-deployment-wizard) to deploy the SSIS pakcage on in the SSIS Catalog.
 - Create ADF pipeline with Execute SSIS Package activity. [ADF Activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#create-a-pipeline-with-an-execute-ssis-package-activity)
 - Update [connection settings](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity?tabs=data-factory#connection-managers-tab) in package.
 - **For the first time setup only**, you will need to execute the "Master Create.sql" script to populate all control tables before you execute the SSIS job.  This is required and it is only done on the initial setup.  After this is complete, you can run the SSIS job.  **For all subsequent runs after the initial setup**, execute the Reseed ETL Stored Procedure only.  This stored procedure will rollback the database to it's original state.**
