@@ -36,31 +36,31 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 ## Learning Resources
 
-1. [Load data into DW via Polybase](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
-1. [Incrementally load multiple tables in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
-1. [Azure Data Factory Copy Activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
+- [Load data into DW via Polybase](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+- [Incrementally load multiple tables in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+- [Azure Data Factory Copy Activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
 
 ## Tips
 
-1. There are multiple ways to load data via Polybase.  You could potentially use:
+- There are multiple ways to load data via Polybase.  You could potentially use:
     - ["CTAS" with "External Tables"](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
     - ["Copy Command"](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) in Azure Synapse Analytics or 
     - [Copy Data task in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse)
-1. For MERGE process, you should reuse or replicate logic found in the Integration.MigratedStaged____Data stored procedures
-1. Optimize where possible by using dynamic code, and executing tasks in parallel.
-1. Additional information on using Lookup Tasks and expressions in Azure Data Factory can be found [here](https://www.cathrinewilhelmsen.net/2019/12/23/lookups-azure-data-factory/)
-1. Add a new activity to your Synapse Pipeline to load data from the new Azure Data Lake into the [Integration].[City_Staging] in the Data Warehouse in Azure Synapse via Polybase (this will correlate to Step 6 in existing package described above). **Note: Be sure that table exists and is empty prior to loading**
-1. Add an activity to execute the Get Lineage Key stored procedure so that the process can be logged (this will correlate to Step 3 in existing SSIS package described above)
-1. Create another activity to merge the new data into the target table ([Dimension].[City]) from your staging table [Integration].[City_Staging] via existing stored procedure  (this correlates to Step 7 in existing SSIS package described above)
-1. Add another new activity to move the files to the .\RAW\WWIDB\[TABLE]\{YY}\{MM}\{DD}\ directory in your data lake once they have been loaded into your DW table (this is a new task that will allow your data to be persisted in your new data lake for further exploration and integration into downstream systems)
+- For MERGE process, you should reuse or replicate logic found in the Integration.MigratedStaged____Data stored procedures
+- Optimize where possible by using dynamic code, and executing tasks in parallel.
+- Additional information on using Lookup Tasks and expressions in Azure Data Factory can be found [here](https://www.cathrinewilhelmsen.net/2019/12/23/lookups-azure-data-factory/)
+- Add a new activity to your Synapse Pipeline to load data from the new Azure Data Lake into the [Integration].[City_Staging] in the Data Warehouse in Azure Synapse via Polybase (this will correlate to Step 6 in existing package described above). **Note: Be sure that table exists and is empty prior to loading**
+- Add an activity to execute the Get Lineage Key stored procedure so that the process can be logged (this will correlate to Step 3 in existing SSIS package described above)
+- Create another activity to merge the new data into the target table ([Dimension].[City]) from your staging table [Integration].[City_Staging] via existing stored procedure  (this correlates to Step 7 in existing SSIS package described above)
+- Add another new activity to move the files to the .\RAW\WWIDB\[TABLE]\{YY}\{MM}\{DD}\ directory in your data lake once they have been loaded into your DW table (this is a new task that will allow your data to be persisted in your new data lake for further exploration and integration into downstream systems)
 
 ## Advanced Challenges (Optional)
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-1. Enhance the pipeline so that it can be used to load all tables.  Steps required for this would include:
+- Enhance the pipeline so that it can be used to load all tables.  Steps required for this would include:
     - Update Azure Data Factory to use expressions and parameters wherever possible
     - Add a ForEach Loop to iterate through all tables and execute your pipeline for each one (note: Dimensions need to be loaded prior to Facts)
-1. Leverage [partition switching](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#partition-switching) for tables with large-scale modifications (UPDATES)
-1. Refactor the T-SQL code in Polybase to leverage Python or Scala
-1. Build out these data pipelines using Azure Mapping Data Flows
+- Leverage [partition switching](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#partition-switching) for tables with large-scale modifications (UPDATES)
+- Refactor the T-SQL code in Polybase to leverage Python or Scala
+- Build out these data pipelines using Azure Mapping Data Flows
