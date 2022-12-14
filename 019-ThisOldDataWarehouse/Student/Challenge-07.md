@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
-# Introduction
+## Introduction
 
 WWI wants to get a centralized view of all data assets and offer data sources discoverable and understandable to enterprise users and customers. Currently, a group of data analysts and data engineers are spending more time on manual processes to annotate, catalog and find trusted data sources. There's no central location to register data sources. Data consumers spend a lot of time tracing root cause problems created by upstream data pipelines that are owned by other teams.
 
@@ -13,13 +13,13 @@ They also want to address all below (not easy to answer) questions,
 - How do administrators manage data when they may not know what type of data exists and where it's stored?
 - How can one derive the end-to-end data flow while compiling reports or data products?
 
-# Description
+## Description
 
 The objective of this challenge is to implement purview core features such as data map, data catalog and lineage using resources (Data sources) deployed part of previous challenges. This hack involves configuring various resources such as Microsoft purview account, purview collection, key vault, purview integration with Azure data factory and synapse, ADF copy sample job etc.
 
 **NOTE:** If you haven't completed previous challenges, then you can bring your own or register any data sources you have in your subscription. Provision a basic tier SQL database (Use existing data option) with AdventureWorksLT sample data pre-loaded.
 
-# Success Criteria
+## Success Criteria
 
 - Verify all the data sources (For example. Resources such as ADLS Gen2, SQL dedicated pool, SQL database etc.) are registered and associated with appropriate collection hierarchy in Purview data map
 - Verify the scanning works fine for the registered data sources.
@@ -29,7 +29,7 @@ The objective of this challenge is to implement purview core features such as da
 - Verify the Label applied to sensitive fields for your registered data sources, validate using catalog search and filtering.
 - Verify the lineage captured for an ADF copy job.
 
-# Learning resources
+## Learning resources
 
 - [Quickstart: Create a Microsoft Purview (formerly Azure Purview) account - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
 - [How to manage multi-cloud data sources - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/manage-data-sources)
@@ -43,7 +43,7 @@ The objective of this challenge is to implement purview core features such as da
 - [Tutorial: Register and scan an on-premises SQL Server - Microsoft Purview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/purview/tutorial-register-scan-on-premises-sql-server)
 - [The future of compliance and data governance is here: Introducing Microsoft Purview - Microsoft Security Blog](https://www.microsoft.com/security/blog/2022/04/19/the-future-of-compliance-and-data-governance-is-here-introducing-microsoft-purview/)
 
-# Tips
+## Tips
 
 - Provision Microsoft Purview (not Azure purview) account in a same subscription, region and resource group as other previously deployed lab resources. Refer rebranding blog in learning resources.
 - Register SQL dedicated pool as a data source, not synapse analytics workspace.
@@ -60,6 +60,6 @@ The objective of this challenge is to implement purview core features such as da
 - Re-scan the data asset to see the effect of custom classification.
 - Use advanced filters in the data catalog to identify the table / column classification, use "\*" or specific keywords "City" based searching.
 
-# Additional Challenges
+## Additional Challenges
 
 - Setup scanning for containerized SQL Server databases.
