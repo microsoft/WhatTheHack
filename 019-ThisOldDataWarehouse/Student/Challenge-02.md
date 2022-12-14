@@ -19,7 +19,7 @@ The OLTP platform is on-premise so you will need to build a hybrid architecture 
 ### Setup Source Database for Incremental Load
 Prior to starting this challenge, you should ensure that there are changes in the City data captured from Wide World Importers OLTP Database.  Execute the script below to insert/change data in the source, and update necessary configuration values.
 
-- Execute queries below in the Wide World Importers Database to update 10 existing records and insert 1 new record. 
+- Execute queries below in the Wide World Importers Database to update 10 existing records and insert 1 new record. Go to the `Resource.zip` file and open the `/Challenge02/` folder and look for the T-SQL script `generateCityData.sql`.  The code snippet is for display purposes and recommend to use the T-SQL script for execution.
 
 	```
 		UPDATE T
@@ -46,7 +46,7 @@ Prior to starting this challenge, you should ensure that there are changes in th
 	```
 
 
-- Modify the [Integration].[GetCityUpdates] stored procedure in the same OLTP database to remove the Location field from the result set returned.  
+- Modify the [Integration].[GetCityUpdates] stored procedure in the same OLTP database to remove the Location field from the result set returned.  Go to the `Resource.zip` file and open the `/Challenge02/` folder and look for the T-SQL script `GetCityUpdates.sql`.  The code snippet is for display purposes and recommend to use the T-SQL script for execution.
 
 	```
 		SELECT [WWI City ID], City, [State Province], Country, Continent, [Sales Territory],
@@ -60,21 +60,21 @@ Prior to starting this challenge, you should ensure that there are changes in th
 		ORDER BY [Valid From];
 	```
 
-- Execute the query below in the Azure Synapse SQL Pool to update the parameter used as the upper bound for the ELT process:
+- Here is the query you will execute in the Azure Synapse SQL Pool to update the parameter used as the upper bound for the ELT process.  Go to the `Resource.zip` file and open the `/Challenge02/` folder and look for the T-SQL script `UpdateLoadControl.sql`.  The code snippet is for display purposes and recommend to use the T-SQL script for execution.
 
 	```
 		UPDATE INTEGRATION.LOAD_CONTROL
 		SET LOAD_DATE = getdate()
 	```
+- Review data pipeline and execute it after coach approves
+    <br>**Note: you can execute your new pipeline by clicking the "Debug" button or adding a trigger from the UI designer.**
+
 
 ## Success Criteria
 
-- Confirm Storage Account attached to Workspace
-- Outline directory structure to support data lake use cases and share with Coach
-- Review data pipeline and execute it after coach approves
-    <br>**Note: you can execute your new pipeline by clicking the "Debug" button or adding a trigger from the UI designer.**
-- Once you have executed your new pipeline, there should be a .txt file with the 11 updated records from the City table in the Incremental Landing zone folder of your data lake.
-- Open city text file as authorized AAD user and with unauthorized user to show proper security setup in your new data lake storage
+- Share screen shot of directory structure with coach from Synapse Analytics workspace
+- Validate there are 11 updated records from the City table in the Incremental Landing folder of your data lake.
+- Validate if you can not open the city text file an unauthorized user to show proper security setup in your new data lake storage
 
 ## Learning Resources
 
