@@ -2,11 +2,11 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-# Introduction
+## Introduction
 
 World Wide Importers (WWI) leadership is happy with the progress of the migration thus far but wants to ensure that info security guard rails are implemented appropriately. Additionally, they want to further understand the art of possible when it comes to enterprise data security involving the new Azure Synapse Analytics Platform. This will be done in the form of a stakeholder update at the end of the exercise.
 
-# Description
+## Description
 
 The objective of this lab is to baseline the implementation of enterprise grade security controls and services for Azure Synapse Dedicated SQL Pools.
 
@@ -34,7 +34,7 @@ You will need to create SQL users for scenario testing as follows:
  CREATE USER sqlauditadmin FOR LOGIN sqlauditadmin ; \
  EXEC sp\_addrolemember 'db\_owner', 'sqlauditadmin'; 
 
-# Success Criteria
+## Success Criteria
 
 - SQL Auditing is enabled to ensure all existing and future created SQL Pools inherit activation. Logs need to be stored in a place that can be easily queried. Demonstrate as follows:
   - Identify where last query originated from (i.e. SSMS) the last query to come from SSMS
@@ -50,7 +50,7 @@ You will need to create SQL users for scenario testing as follows:
 - An ADF job that will Copy [Fact].[Sale] to [Fact].[SaleCopy] using ADF Managed Identity for authentication/authorization. Describe the security benefits of leveraging managed identity.
 - Describe the value of using TDE and advantages customer key provides vs. built-in. Clearly understand how to properly set up customer managed TDE in a fashion where key is protected, monitored and versioned. This will be discussed in further detail as a group.
 
-# Learning resources
+## Learning resources
 
 - [SQL Auditing](https://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview?view=azuresql)
 - [Advanced Logging](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric)
@@ -62,7 +62,7 @@ You will need to create SQL users for scenario testing as follows:
 - [Transparent Data Encryption](https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?view=azuresql&tabs=azure-portal)
 - [Azure Synapse Analytics security white paper - Azure Synapse Analytics | Microsoft Learn](https://learn.microsoft.com/en-us/azure/synapse-analytics/guidance/security-white-paper-introduction)
 
-# Tips
+## Tips
 
 - In general, leverage Log Analytics Workspace when possible, for logging
 - Use [SQLAuditing.ksql](../Student/Resources/Challenge6/SQLAuditing.ksql) script to assist with audit queries
@@ -71,7 +71,7 @@ You will need to create SQL users for scenario testing as follows:
 - Any users not accounted for in the row function will no longer be able to see the data which includes administrators
 - Simulating data after each exercise or activation may be required to fulfill success criteria. i.e., Failed Logins
 
-# Additional Challenges
+## Additional Challenges
 
 - Setup Synapse with a [Private Virtual Network](https://techcommunity.microsoft.com/t5/azure-architecture-blog/understanding-azure-synapse-private-endpoints/ba-p/2281463)
 - Setup Synapse with [Managed Virtual Network](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-managed-vnet)
