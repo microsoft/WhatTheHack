@@ -1,4 +1,4 @@
-# Challenge 03 - Data pipeline migration
+# Challenge 03 - Data Pipeline Migration
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
