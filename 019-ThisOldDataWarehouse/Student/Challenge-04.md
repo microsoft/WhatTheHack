@@ -19,7 +19,7 @@ In order to generate the source data stream for this exercise, you will need to 
 
 ``` 
 az container create -g [Resource Group Name] --name [container name] --image
-alexk002/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]'
+whatthehackmsft/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[EH Host Name]'
 'sasKeyName'='RootManageSharedAccessKey' 'sasKeyValue'='[SAS Key]' 'eventHubName'='[Event Hub Name]' 
 ```
 
