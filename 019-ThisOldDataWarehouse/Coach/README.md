@@ -16,7 +16,7 @@ This hack includes an optional [lecture presentation](./MDWWTHIntro.pptx?raw=tru
 	 - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
 - Challenge 02: **[Data Lake Integration](./Solution-02.md)**
 	 - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
-- Challenge 03: **[Data pipeline Migration](./Solution-03.md)**
+- Challenge 03: **[Data Pipeline Migration](./Solution-03.md)**
 	 - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
 - Challenge 04: **[Real-time Data Pipeline](./Solution-04.md)**
 	 - Real-time data with Kafka and Databricks
