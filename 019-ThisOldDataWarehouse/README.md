@@ -31,7 +31,7 @@ In this hack, data engineers will learn how to migrate their platform to the clo
 	 - Migrate EDW from SQL Server to Azure Synapse Analytics.  Lift & Shift ETL code to SSIS Runtime
 - Challenge 02: **[Data Lake Integration](Student/Challenge-02.md)**
 	 - Build out Staging tier in Azure Data Lake.  Architect Lake for different refinement layers (staging, cleansed and presentation tiers) with POSIX setup
-- Challenge 03: **[Data pipeline Migration](Student/Challenge-03.md)**
+- Challenge 03: **[Data Pipeline Migration](Student/Challenge-03.md)**
 	 - Rewrite SSIS jobs from ETL data flow  to ADF as a ELT data flow.
 - Challenge 04: **[Real-time Data pipeline](Student/Challenge-04.md)**
 	 - Real-time data with Kafka and Databricks
