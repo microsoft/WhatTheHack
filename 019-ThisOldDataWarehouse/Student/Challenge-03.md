@@ -27,12 +27,14 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 **NOTE:** This challenge is intended to build upon the previous 2 challenges, and you should try to reuse content wherever possible
 
+**Create a data pipeline for the [Dimension].[City] table considering logic above.  See Tips for Hints**
+
+
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge3.png)
 
 ## Success Criteria
 
-- Create a data pipeline for the [Dimension].[City] table considering logic above.  See Tips for Hints
-- Test your new Synapse Pipeline.  You can execute your pipeline by clicking on "Debug" or adding a Trigger in the design UI.  If done correctly, the 11 new records loaded into the City data should have been loaded into the [Dimension].[City] table in the Azure Synapse Analytics DW.  
+- Confirm 11 new records loaded into the City data file have been loaded into the [Dimension].[City] table in the Azure Synapse Analytics.  
 
 ## Learning Resources
 
