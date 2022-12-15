@@ -64,7 +64,8 @@ These are supplemental scripts required to support ADF solution contained in thi
 
 ### ARM Templates
 
-These templates can be used to deploy resources required to complete this solution. 
+These templates can be used to deploy resources required to complete this solution.
+
 **NOTE:** ARM templates are provided in the Solutions folder for Challenge 3.  These templates will build out recommended ADF pipelines
 
 1. Basic -- Folder contains ARM Template for all objects included in Azure Data Factory including pipelines for one pipeline only.  Success Criteria for Challenge 3
