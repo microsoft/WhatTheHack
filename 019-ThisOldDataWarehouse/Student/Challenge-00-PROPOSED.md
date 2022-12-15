@@ -53,12 +53,12 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
     1. `USERNAME` - should be...
     1. `PASSWORD` - should be...
 1. Run the deployment script by running the following commands from wherever you have unpacked the `/Challenge0/` folder:
-  ```bash
-  # Make the file executable
-  chmod +x hacksetup.sh
-  # Run the script
-  ./hacksetup.sh
-  ```
+    ```bash
+    # Make the file executable
+    chmod +x hacksetup.sh
+    # Run the script
+    ./hacksetup.sh
+    ```
   The script will prompt you for a resource group name and an Azure region location to deploy to.  
   - If using a shared subscription with other students, we recommend you include your initials in the resource group name to make it easy to identity in the Azure Portal.
   - For the Azure region location, you may use one of the defined locations such as: `'eastus'`, `'westus'`, `'northeurope'`, etc
