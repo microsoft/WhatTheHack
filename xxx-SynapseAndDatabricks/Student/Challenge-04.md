@@ -4,7 +4,8 @@
 
 ## Introduction
 Data, in general, is not as useful if it's just sitting in storage on our Data Lake. One of the most common ways to drive insights from data is through visualizations.<BR>  
-In this challenge we will try and visualize some of the data we've loaded into the Gold Layer using Power BI.
+
+In this challenge we will visualize some of the data we've loaded into the Gold Layer using Power BI.
 
 ## Description
 Some of the things we can try in this challenge are:
