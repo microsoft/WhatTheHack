@@ -59,9 +59,14 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
     # Run the script
     ./hacksetup.sh
     ```
-  The script will prompt you for a resource group name and an Azure region location to deploy to.  
-  - If using a shared subscription with other students, we recommend you include your initials in the resource group name to make it easy to identity in the Azure Portal.
-  - For the Azure region location, you may use one of the defined locations such as: `'eastus'`, `'westus'`, `'northeurope'`, etc
+1. The script will prompt you for a resource group name and an Azure region location to deploy to.  
+    ```bash
+    Enter a resource group name:
+    Enter an Azure region to deploy to (ie. 'eastus','westus','northeurope'):
+    ```
+ 
+    - If using a shared subscription with other students, we recommend you include your initials in the resource group name to make it easy to identity in the Azure Portal.
+    - For the Azure region location, you may use one of the defined locations such as: `'eastus'`, `'westus'`, `'northeurope'`, etc
 
   The script will deploy the following resources into Azure:
   - An Azure Container Instance with a SQL Server instance that has the WideWorldImporters and WideWorldImportersDW databases. These are the two LOB databases for this hack. Your coach will share the username and password for these databases at the start of Challenge 1.
