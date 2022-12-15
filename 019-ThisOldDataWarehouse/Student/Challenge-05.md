@@ -11,7 +11,7 @@ WWI leadership team wants to leverage Power BI to create rich semantic models to
 The objective of this lab is to have the Power BI report "WWI_Sales.pbix" to return in less than 5 seconds.  This will require you to optimize the Power BI data model and report.  Secondly, you will need to tune the Azure Synapse SQL Pool to ensure your table design is setup properly and you have setup statistics and results-set cache.  After completion, review your results with the coach to determine optimal design.
 
 - Remove skew in Azure Synapse Analytics tables
-    1. Run `"skew.pbix` in the `Resources.zip` file under the `/Challenge05/` directory to review skew in your Azure Synapse Analytics.  
+    1. Run `skew.pbix` in the `Resources.zip` file under the `/Challenge05/` directory to review skew in your Azure Synapse Analytics.  
     1. Review each table distribution to ensure you have the right type for each schema.  
 - Review the Explain plan.    
     1. Capture the runtimes for the visual "Total Sales by State Province" in the "High Level Dashboard". (Lower right hand corner)  Open Performance analyzer and look for the visual and record the response time for your baseline.  You will need to also open the "+" icon to expand the section to see "Copy query".  Please copy this query into SSMS.
