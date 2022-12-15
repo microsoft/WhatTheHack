@@ -104,4 +104,11 @@ SET LOAD_DATE = getdate()
                     - iterate over list of tables
                     - Execute Pipeline task to execute pipeline create above (Note: you will need to pass in table name as parameter)
 
+### ARM Templates
+
+These templates can be used to deploy resources required to complete this solution. 
+
 **NOTE:** ARM templates are provided in the Solutions folder for Challenge 2.  These templates will build out recommended ADF pipelines
+
+Basic -- Folder contains ARM Template for all objects included in Azure Data Factory including pipelines for one pipeline only. Success Criteria for Challenge 2
+Advanced -- Folder contains ARM Template for all object included in Azure Data Factory including pipeline to load all tables. Solution for Additional Challenge
