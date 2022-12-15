@@ -47,11 +47,6 @@ You will find the provided deployment script (`hacksetup.sh`), ARM Template (`de
 
 Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure Cloud Shell](https://shell.azure.com) and complete the following steps:
 
-1. Edit the parameters file, `deployHackParameters.json`, and replace the following values in {} with the information requested:
-    1. `Data Factory Name` - should be...
-    1. `Database Server Name` - should be...
-    1. `USERNAME` - should be...
-    1. `PASSWORD` - should be...
 1. Run the deployment script by running the following commands:
     ```bash
     # Make the file executable
@@ -59,22 +54,25 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
     # Run the script
     ./hacksetup.sh
     ```
-    The script will prompt you for a resource group name and an Azure region location to deploy to.  
+    The script will prompt you for a resource name prefix, an Azure region location to deploy to, and a password value which will be used for the Azure SQL Database.  
     ```bash
-    Enter a resource group name:
-    Enter an Azure region to deploy to (i.e. 'eastus','westus','northeurope'):
+    'Enter a resource name prefix:'
+    'Enter an Azure region to deploy to (i.e. 'eastus','westus','northeurope'):'
+    'Enter a password for the SQL Server:'
     ```
  
-    - If using a shared subscription with other students, we recommend you include your initials in the resource group name to make it easy to identity in the Azure Portal.
+    - If using a shared subscription with other students, we recommend you include your initials in the resource name prefix to make it easy to identity in the Azure Portal.
     - For the Azure region location, you may use one of the defined locations such as: `'eastus'`, `'westus'`, `'northeurope'`, etc
+    - The password should meet the [requirements for an Azure SQL Database password](https://learn.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=azuresqldb-current).
 
     The script will deploy the following resources into Azure:
-    - An Azure Container Instance with a SQL Server instance that has the WideWorldImporters and WideWorldImportersDW databases. These are the two LOB databases for this hack. Your coach will share the username and password for these databases at the start of Challenge 1.
+    - An Azure Container Instance with a SQL Server instance that has the WideWorldImporters and WideWorldImportersDW databases. 
+      - These are the two LOB databases for this hack. Your coach will share the username and password for these databases at the start of Challenge 1.
     - Azure Data Factory
     - Azure SQL Database Instance & SSIS Runtime
     - SSIS environment in Azure Data Factory
 
-1. Last step is to start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
+1. Start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
 
 1. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
 

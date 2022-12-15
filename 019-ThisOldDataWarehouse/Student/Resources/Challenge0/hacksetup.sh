@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Prompt user for resource group name & Azure region location:
-read -p "Enter a resource prefix name: " RESOURCEPREFIX
+read -p "Enter a resource name prefix: " RESOURCEPREFIX
 read -p "Enter an Azure region to deploy to (i.e. 'eastus', 'westus', 'northeurope'): " LOCATION
 read -s -p "Enter a password for the SQL Server: " SQLPASSWORD
 
