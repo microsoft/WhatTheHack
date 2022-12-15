@@ -13,7 +13,7 @@ Build a streaming pipeline to ingest simulated click stream data into enterprise
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge4.png)
 
 ### Data Source: 
-In order to generate the source data stream for this exercise, you will need to execute sample .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
+In order to generate the source data stream for this exercise, you will need to execute sample the .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
 
 **NOTE:** You can start the stream of data by executing script below in Azure Cloud Shell:
 
@@ -24,11 +24,11 @@ whatthehackmsft/wwiclickstreamgenerator:1 --environment-variables 'hostName'='[E
 ```
 
 ### Data Sink:
-Azure Databricks will be used to consume data from Event Hub and write the stream to Delta Lake tables stored in Azure Data Lake.
+Azure Databricks will run a data pipeline from Event Hubs to Delta Lake tables stored in Azure Data Lake.  There is a Scala script to run in an Azure Databricks notebook that will stream data from source to sink.  Go to the `Resources.zip` file and open the `/Challenge04/` folder and import `StreamToDelta.dbc` script into Azure Databricks.  
 
 ## Success Criteria
 
-- Query current number of clicks per product.  Reuse notebook and show coach query polling table on regular intervals
+- Validate notebook ran successfully by confirming no errors in any cells and query is polling data at regular intervals.
 
 ## Learning Resources
 
