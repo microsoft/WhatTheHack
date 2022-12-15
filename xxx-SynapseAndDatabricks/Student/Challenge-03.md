@@ -25,13 +25,12 @@ A visual representation of the ask is shown below.
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Gold layer in the appropriate data models using the points in the discussion above.
-- Showcase row level security within the data.  It is up to the team to decide on how this will be implemented with regards to the table and how it is divided amongst users.
-- Showcase column level security / data masking within the data.  It is up to the team to decide on how this will be implemented with regards to the table and how it is divided amongst users.
+- Showcase row level security within the data.  It is up to the team to decide on how this will be applied with regards to the table(s) and how it is implemented amongst users.
+- Showcase column level security / data masking within the data.  It is up to the team to decide on how this will be applied with regards to the table/columns and how it is implemented amongst users.
 
 ## Learning Resources
 The following links may be useful to achieving the success crieria listed above.
 - [What is dedicated SQL pool?](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) 
-- [Load data into dedicated SQL pool](https://learn.microsoft.com/en-us/azure/synapse-analytics/quickstart-copy-activity-load-sql-pool)
 - [Introduction to datamarts](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-overview)
 - [What is Databricks SQL?](https://learn.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks-sql)
 - [Azure Synapse Analytics - Dynamic Data Masking](https://learn.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16)
