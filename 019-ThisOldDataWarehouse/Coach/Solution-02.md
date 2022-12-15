@@ -110,5 +110,5 @@ These templates can be used to deploy resources required to complete this soluti
 
 **NOTE:** ARM templates are provided in the Solutions folder for Challenge 2.  These templates will build out recommended ADF pipelines
 
-Basic -- Folder contains ARM Template for all objects included in Azure Data Factory including pipelines for one pipeline only. Success Criteria for Challenge 2
-Advanced -- Folder contains ARM Template for all object included in Azure Data Factory including pipeline to load all tables. Solution for Additional Challenge
+1. Basic -- Folder contains ARM Template for all objects included in Azure Data Factory including pipelines for one pipeline only.  Success Criteria for Challenge 2
+1. Advanced -- Folder contains ARM Template for all object included in Azure Data Factory including pipeline to load all tables.  Solution for Additional Challenge
