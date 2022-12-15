@@ -59,7 +59,7 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
     # Run the script
     ./hacksetup.sh
     ```
-1. The script will prompt you for a resource group name and an Azure region location to deploy to.  
+    The script will prompt you for a resource group name and an Azure region location to deploy to.  
     ```bash
     Enter a resource group name:
     Enter an Azure region to deploy to (i.e. 'eastus','westus','northeurope'):
