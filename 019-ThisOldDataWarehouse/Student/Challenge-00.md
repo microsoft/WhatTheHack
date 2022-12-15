@@ -24,9 +24,9 @@ You might not need all of them for the hack you are participating in. However, i
 ## Student Resources
 Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.
 
-If you have installed all of the tools listed above on your local workstation, you should unpack the `Resources.zip` file there too.
+You will use some of the files in this package on your local workstation. Other files will be used in the Azure Cloud Shell. We recommend you unpack a copy of the `Resources.zip` file in both locations.
 
-If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
+The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
 ## Description
 
@@ -37,54 +37,46 @@ For your local PC, ensure the following tools are installed.
 2. [Visual Studio Code](https://code.visualstudio.com/Download) 
 3. [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=58494)
 
-### Setup Azure Tenant with Services for What the Hack
+### Deploy Source Databases and Azure Resources
 
-WWI runs their existing database platforms on-premise with SQL Server 2017.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
+WWI runs their existing database platforms on-premise with SQL Server 2019.  There are two databases samples for WWI.  The first one is for their Line of Business application (OLTP) and the second is for their data warehouse (OLAP).  You will need to setup both environments as our starting point in the migration.
 
-1. Open your browser and login to your Azure Tenant.  We plan to setup the Azure Services required for the What the Hack (WTH).  In your portal, open the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+For this challenge, you will deploy the WWI databases and an initial set of Azure resources needed to complete the hack's challenges using a provided deployment script and ARM Template.  We **STRONGLY** recommend you complete this challenge using the Azure Cloud Shell.
 
-2. Go into the cloud shell and select the subscription you plan to use for this WTH.
+You will find the provided deployment script (`hacksetup.sh`), ARM Template (`deployHack.json`), and parameters file (`deployHackParameters.json`) in the `/Challenge0/` folder of the `Resources.zip` file provided to your by your coach.
 
-```
-az account set --subscription {"Subscription Name"}
-az account show
-```
+Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure Cloud Shell](https://shell.azure.com) and complete the following steps:
 
-3. Create a resource group to store the Modern Data Warehouse What the Hack.  This will be the services for your source systems/environments.  In Cloudshell, run this command
+1. Run the deployment script by running the following commands:
+    ```bash
+    # Make the file executable
+    chmod +x hacksetup.sh
+    # Run the script
+    ./hacksetup.sh
+    ```
+    The script will prompt you for a resource name prefix, an Azure region location to deploy to, and a password value which will be used for the Azure SQL Database.  
+    ```bash
+    'Enter a resource name prefix:'
+    'Enter an Azure region to deploy to (i.e. 'eastus','westus','northeurope'):'
+    'Enter a password for the SQL Server:'
+    ```
+ 
+    - If using a shared subscription with other students, we recommend you include your initials in the resource name prefix to make it easy to identity in the Azure Portal.
+    - For the Azure region location, you may use one of the defined locations such as: `'eastus'`, `'westus'`, `'northeurope'`, etc
+    - The password should meet the [requirements for an Azure SQL Database password](https://learn.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=azuresqldb-current).
 
-```
-az group create --location eastus2 --name {"Resource Group Name"}
-```
+    The script will deploy the following resources into Azure:
+    - An Azure Container Instance with a SQL Server instance that has the WideWorldImporters and WideWorldImportersDW databases. 
+      - These are the two LOB databases for this hack. Your coach will share the username and password for these databases at the start of Challenge 1.
+    - Azure Data Factory
+    - Azure SQL Database Instance & SSIS Runtime
+    - SSIS environment in Azure Data Factory
 
-4. In the Cloudshell, run this command to create a SQL Server instance and restore the databases.  This will create an Azure Container Instance and restore the WideWorldImporters and WideWorldImoprtersDW databases.  These two databases are your LOB databases for this hack.
+1. Start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
 
-```
-az container create -g {Resource Group Name} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
-```
+1. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
 
-5. At the start of Challenge 1, reach out to your coach and they will share username and password for the LOB databases for this hack.
-
-6. [Upload](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#upload-files) your ARM templates into Azure CloudShell. 
-
-
-    /Student/Challenges/Challenge0/ARM.  
-    The files are parametersFile.json and template.json.
-    Edit the parmeters file and replace any {} with information requested.  
-
-
-7. Run the last command to setup Azure Data Factory, Azure SQL Server Instance and SSIS Runtime.  This will build out for Challenge 1 the SSIS environment in Azure Data Factory.
-
-```
-az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json --parameters parametersFile.json
-```
-
-8. Last step is to start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
-
-
-9. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
-
-
-10. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
+1. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
 
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/current.png)
 
