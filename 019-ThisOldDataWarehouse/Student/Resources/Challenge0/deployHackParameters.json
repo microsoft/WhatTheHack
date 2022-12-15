@@ -17,9 +17,6 @@
     "databaseAdminUsername": {
       "value": "wthadmin"
     },
-    "databaseAdminPassword": {
-      "value": "{PASSWORD}"
-    },
     "catalogPricingTier": {
       "value": "Basic"
     }
