@@ -18,4 +18,4 @@ echo "Deploying Azure Container Instance with source LOB databases..."
 az container create -g $RGNAME --name mdwhackdb --image whatthehackmsft/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
 
 echo "Deploying Azure Data Factory, Azure SQL Server Instance & SSIS Runtime..."
-az deployment group create --name $deploymentName --resource-group $RGNAME --template-file deployHack.json --parameters @deployHackParameters.json --parameters databaseAdminPassword=$SQLPASSWORD
+az deployment group create --name $deploymentName --resource-group $RGNAME --template-file deployHack.json --parameters @deployHackParameters.json --parameters databaseAdminPassword=$SQLPASSWORD resourcePrefix=$RESOURCEPREFIX
