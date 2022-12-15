@@ -17,7 +17,7 @@ The OLTP platform is on-premise so you will need to build a hybrid architecture 
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/Challenge2.png)
 
 ### Setup Source Database for Incremental Load
-Prior to starting this challenge, you should ensure that there are changes in the City data captured from Wide World Importers OLTP Database.  Execute the script below to insert/change data in the source, and update necessary configuration values.
+Prior to starting this challenge, you should ensure that there are changes in the City data captured from Wide World Importers OLTP Database.  Execute the scripts below to insert/change data in the source, and update necessary configuration values.
 
 - Execute queries below in the Wide World Importers Database to update 10 existing records and insert 1 new record. Go to the `Resource.zip` file and open the `/Challenge02/` folder and look for the T-SQL script `generateCityData.sql`.  The code snippet is for display purposes and recommend to use the T-SQL script for execution.
 
