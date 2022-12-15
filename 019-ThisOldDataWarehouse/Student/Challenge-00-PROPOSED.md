@@ -68,11 +68,11 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
     - If using a shared subscription with other students, we recommend you include your initials in the resource group name to make it easy to identity in the Azure Portal.
     - For the Azure region location, you may use one of the defined locations such as: `'eastus'`, `'westus'`, `'northeurope'`, etc
 
-  The script will deploy the following resources into Azure:
-  - An Azure Container Instance with a SQL Server instance that has the WideWorldImporters and WideWorldImportersDW databases. These are the two LOB databases for this hack. Your coach will share the username and password for these databases at the start of Challenge 1.
-  - Azure Data Factory
-  - Azure SQL Database Instance & SSIS Runtime
-  - SSIS environment in Azure Data Factory
+    The script will deploy the following resources into Azure:
+    - An Azure Container Instance with a SQL Server instance that has the WideWorldImporters and WideWorldImportersDW databases. These are the two LOB databases for this hack. Your coach will share the username and password for these databases at the start of Challenge 1.
+    - Azure Data Factory
+    - Azure SQL Database Instance & SSIS Runtime
+    - SSIS environment in Azure Data Factory
 
 1. Last step is to start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
 
