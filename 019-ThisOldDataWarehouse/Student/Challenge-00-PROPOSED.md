@@ -45,16 +45,14 @@ For this challenge, you will deploy the WWI databases and an initial set of Azur
 
 You will find the provided deployment script (`hacksetup.sh`), ARM Template (`template.json`), and parameters file (`parametersFile.json`) in the `/Challenge0/` folder of the `Resources.zip` file provided to your by your coach.
 
-Navigate to wherever you have unpacked the `/Challenge0/` folder in your Azure Cloud Shell [https://shell.azure.com](https://shell.azure.com).
+Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure Cloud Shell](https://shell.azure.com) and complete the following steps:
 
 1. Edit the parameters file, `parametersFile.json`, and replace any {} with the information requested.
   - `Data Factory Name` - should be...
   - `Database Server Name` - should be...
   - `USERNAME` - should be...
   - `PASSWORD` - should be...
-
 1. Run the deployment script by running the following commands from wherever you have unpacked the `/Challenge0/` folder:
-
   ```bash
   # Make the file executable
   chmod +x hacksetup.sh
