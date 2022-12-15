@@ -18,8 +18,8 @@ There will be four different object types we'll migrate:
 * Data migration (with SSIS)
 
 Here are the steps to migrate from SQL Server to Synapse Analytics.
-- Migrated all database schemas to Synapse
-- Created one table per schema in Synapse
+- Migrate all database schemas to Synapse
+- Create one table per schema in Synapse
     - Tables to create are; Dimension.City, Fact.Order & Integration.Order_Staging
 - Refactor one Stored Procedure per design pattern.  Parathensis contains recommended objects
     - Dimension Tables (Integration.MigratedCityData)
