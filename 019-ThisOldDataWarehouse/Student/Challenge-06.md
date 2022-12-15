@@ -65,7 +65,7 @@ You will need to create SQL users for scenario testing as follows:
 ## Tips
 
 - In general, leverage Log Analytics Workspace when possible, for logging
-- Use [SQLAuditing.ksql](../Student/Resources/Challenge6/SQLAuditing.ksql) script to assist with audit queries
+- Use the `SQLAuditing.ksql` in the `/Challenge6/` folder of the student `Resources.zip` package.  This script will assist with audiet queries.
 - When configuring Alert for failed logins use Log Analytics Workspace "Custom Log Search" as a condition with a "Workspace" lens
 - Vulnerability Assessment requires a storage account configured for activation
 - Any users not accounted for in the row function will no longer be able to see the data which includes administrators
