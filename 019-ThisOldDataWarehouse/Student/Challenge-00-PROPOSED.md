@@ -83,7 +83,6 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
 ## Success Criteria
 
 - Confirm Azure Data Factory service started with no errors
-- Share with coach the size of your environment and the overall # of compute and storage nodes (No precision just concepts)
 
 ## Learning Resources
 
