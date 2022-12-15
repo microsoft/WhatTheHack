@@ -103,3 +103,5 @@ SET LOAD_DATE = getdate()
                 - FOREACH Activity
                     - iterate over list of tables
                     - Execute Pipeline task to execute pipeline create above (Note: you will need to pass in table name as parameter)
+
+**NOTE:** ARM templates are provided in the Solutions folder for Challenge 2.  These templates will build out recommended ADF pipelines
