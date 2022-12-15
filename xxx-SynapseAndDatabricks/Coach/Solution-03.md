@@ -4,9 +4,9 @@
 
 ## Notes & Guidance
 
-Most of the focus in this challenge would be in setting up the Dedicated Pools, Databricks SQL or the Power BI Datamarts.  
+Most of the focus in this challenge would be in setting up the Dedicated Pools, Databricks SQL or the Power BI Datamarts. <BR> 
 
-*More solution details to be added soon*
+For Column Level Security / Data Masking in Power BI Datamarts there is no way to do this dynamically.  Thus the users will most likely have to do some sort of replace values, etc. within the Power Qeury editor when brining the data into the Power BI Datamart.
 
 __Bonus Challenge__:  
 For the bonus challenges, the possible answers to those questions are:
