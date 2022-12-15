@@ -62,7 +62,7 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
 1. The script will prompt you for a resource group name and an Azure region location to deploy to.  
     ```bash
     Enter a resource group name:
-    Enter an Azure region to deploy to (ie. 'eastus','westus','northeurope'):
+    Enter an Azure region to deploy to (i.e. 'eastus','westus','northeurope'):
     ```
  
     - If using a shared subscription with other students, we recommend you include your initials in the resource group name to make it easy to identity in the Azure Portal.
