@@ -4,7 +4,8 @@
 
 ## Notes & Guidance
 
-Most of the focus in this challenge would be in setting up the Dedicated Pools or the Power BI Datamarts.  
+Most of the focus in this challenge would be in setting up the Dedicated Pools, Databricks SQL or the Power BI Datamarts.  
+
 *More solution details to be added soon*
 
 __Bonus Challenge__:  

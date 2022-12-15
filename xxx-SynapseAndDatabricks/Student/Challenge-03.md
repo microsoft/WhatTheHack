@@ -34,6 +34,9 @@ The following links may be useful to achieving the success crieria listed above.
 - [Load data into dedicated SQL pool](https://learn.microsoft.com/en-us/azure/synapse-analytics/quickstart-copy-activity-load-sql-pool)
 - [Introduction to datamarts](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-overview)
 - [What is Databricks SQL?](https://learn.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks-sql)
+- [Power BI - Control access to datamarts](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-access-control)
+- [Azure Synapse Analytics](https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver16)
+- [Databricks row and column level security](https://blacklabnz.github.io/posts/databricks-row-security/)
 
 ## Bonus Challenge  
 - Brainstorm and discover a quick and easy way to make use of pre-made data models to help support this challenge.
