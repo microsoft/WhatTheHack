@@ -15,18 +15,18 @@ They also want to address all below (not easy to answer) questions,
 
 ## Description
 
-The objective of this challenge is to implement purview core features such as data map, data catalog and lineage using resources (Data sources) deployed part of previous challenges. This hack involves configuring various resources such as Microsoft purview account, purview collection, key vault, purview integration with Azure data factory and synapse, ADF copy sample job etc.
+The objective of this challenge is to implement Purview core features such as data map, data catalog and lineage using resources (Data sources) deployed part of previous challenges. This challenge involves configuring various resources such as Microsoft Purview account, Purview collection, Key Vault, Purview integration with Azure Data Factory and Synapse, ADF copy sample job etc.
 
 **NOTE:** If you haven't completed previous challenges, then you can bring your own or register any data sources you have in your subscription. Provision a basic tier SQL database (Use existing data option) with AdventureWorksLT sample data pre-loaded.
 
 ## Success Criteria
 
-- Verify all the data sources (For example. Resources such as ADLS Gen2, SQL dedicated pool, SQL database etc.) are registered and associated with appropriate collection hierarchy in Purview data map
+- Verify all the data sources (For example. Resources such as ADLS Gen2, SQL Dedicated Pool, SQL Database etc.) are registered and associated with appropriate collection hierarchy in Purview data map
 - Verify the scanning works fine for the registered data sources.
-- Validate the synapse and ADF is integrated with Microsoft purview account
-- Validate the catalog search works fine using Synapse workspace and Microsoft purview portal.
-- Verify the Table Dimension.Employee column "WWI Employee ID" classified with custom classification rule. Show the total number of columns classified (Auto or custom) to coach. Note: Use employee table in a dedicated SQL pool or use product table (productnumber column) in a sample adventure works SQL database.
-- Verify the Label applied to sensitive fields for your registered data sources, validate using catalog search and filtering.
+- Validate the synapse and ADF is integrated with Microsoft Purview account
+- Validate the catalog search works fine using Synapse Workspace and Microsoft Purview portal.
+- Verify the Table Dimension.Employee column "WWI Employee ID" classified with custom classification rule. Show the total number of columns classified (Auto or custom) to coach. Note: Use employee table in a Dedicated SQL pool or use product table (productnumber column) in a sample Adventure Works SQL Database.
+- Verify the label applied to sensitive fields for your registered data sources, validate using catalog search and filtering.
 - Verify the lineage captured for an ADF copy job.
 
 ## Learning resources
@@ -46,16 +46,16 @@ The objective of this challenge is to implement purview core features such as da
 ## Tips
 
 - Provision Microsoft Purview (not Azure purview) account in a same subscription, region and resource group as other previously deployed lab resources. Refer rebranding blog in learning resources.
-- Register SQL dedicated pool as a data source, not synapse analytics workspace.
-- Pick the appropriate authentication option while registering data sources in purview account.
-- For SQL server data source registration, turn off lineage extraction (preview).
-- Setup manage identity on data lake storage Gen2 for purview access
-- Setup collection specific data curator role for synapse in purview portal
-- Setup collection specific data curator role for ADF in purview portal.
+- Register SQL Dedicated Pool as a data source, not Synapse Analytics Workspace.
+- Pick the appropriate authentication option while registering data sources in Purview account.
+- For SQL Server data source registration, turn off lineage extraction (preview).
+- Setup manage identity on Data Lake Storage Gen2 for Purview access
+- Setup collection specific data curator role for Synapse in Purview portal
+- Setup collection specific data curator role for ADF in Purview portal.
 - Do not use private endpoint or restricted network settings (This is recommended for demo/learning purpose only)
-- Name the purview account wisely to simplify permission assignment and overall search.
-- While integrating ADF or Synapse with purview, If the integration status is "Disconnected OR Unknown", then you need further troubleshooting in order to capture the lineage successfully.
-- Create a sample copy job (without stored procedure) to test the lineage feature, sample copy job example – Copy fact.sale to fact.salecopy table using ADF or Synapse pipeline.
+- Name the Purview account wisely to simplify permission assignment and overall search.
+- While integrating ADF or Synapse with Purview, If the integration status is "Disconnected OR Unknown", then you need further troubleshooting in order to capture the lineage successfully.
+- Create a sample copy job (without stored procedure) to test the lineage feature, sample copy job example – Copy fact.sale to fact.salecopy table using ADF or Synapse Pipeline.
 - Create a custom classification to classify employee ID column in a Dimension.Employee table. Use sample data .csv file for regular expression configuration and testing.
 - Re-scan the data asset to see the effect of custom classification.
 - Use advanced filters in the data catalog to identify the table / column classification, use "\*" or specific keywords "City" based searching.
