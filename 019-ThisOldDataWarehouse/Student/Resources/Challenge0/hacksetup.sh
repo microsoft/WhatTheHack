@@ -2,7 +2,7 @@
 
 #Prompt user for resource group name & Azure region location:
 read -p "Enter a resource group name: " RGNAME
-read -p "Enter an Azure region to deploy to (ie. 'eastus', 'westus', 'northeurope'): " LOCATION
+read -p "Enter an Azure region to deploy to (i.e. 'eastus', 'westus', 'northeurope'): " LOCATION
 
 #az login
 #az account set --subscription $subscription
