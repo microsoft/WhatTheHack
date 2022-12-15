@@ -4,7 +4,8 @@
 
 ## Introduction
 Now that we have our data arranged into more standardized and integrated datasets, it's time for the final push into the Gold Layer, also know as the Curated Layer, which is in most cases the last leg of our data transformation journey.<br>  
-In the Gold Layer we get the data ready for consumption from business users and downstream systems.
+
+In the Gold Layer we expect the data to be ready for consumption for the business users and downstream systems.  Thus, the consumers of this data can just plug into the data and expect row level security, data masking, data aggregation, etc. to be incorporated. 
 
 
 ## Description
@@ -24,7 +25,7 @@ A visual representation of the ask is shown below.
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Gold layer in the appropriate data models using the points in the discussion above.
-- Showcase the way data has been arranged into the Gold layer and be able to elaborate on the choices made and the reasons for those choices.
+- Showcase row level security within the data.  It is up to the team to decide on how this will be implemented with regards to the table and how it is divided amongst users.
 - Showcase how this data can also be accessed for reporting, when needed.
 
 ## Learning Resources
