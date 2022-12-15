@@ -2,10 +2,10 @@
     "contentVersion": "1.0.0.0",
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "parameters": {
-        "dataFactoryName": {
+        "resourcePrefix": {
             "type": "string",
             "metadata": {
-                "description": "Name of the data factory. Must be globally unique."
+                "description": "Resource prefix for all Azure resources."
             }
         },
         "nodeSize": {
@@ -29,12 +29,6 @@
                 "description": "Maximum number of parallel executions per node in the cluster."
             }
         },
-        "azureSqlServerName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Azure SQL server that hosts the SSISDB database (SSIS Catalog). Example: servername.database.windows.net"
-            }
-        },
         "databaseAdminUsername": {
             "type": "string",
             "metadata": {
@@ -55,11 +49,16 @@
             }
         }
     },
+     "variables": {
+        "azureSqlServerName" : "[concat(parameters('resourcePrefix'), '-sql')]",
+        "dataFactoryName": "[concat(parameters('resourcePrefix'), '-adf')]",
+        "fqnDatabaseServer": "[concat(variables('azureSqlServerName'),'.database.windows.net')]"
+    },
     "resources": [
         {
             "type": "Microsoft.Sql/servers",
             "apiVersion": "2020-02-02-preview",
-            "name": "[parameters('azureSqlServerName')]",
+            "name": "[variables('azureSqlServerName')]",
             "location": "[resourceGroup().location]",
             "properties": {
                 "administratorLogin": "[parameters('databaseAdminUsername')]",
@@ -70,9 +69,9 @@
     {
             "type": "Microsoft.Sql/servers/firewallRules",
             "apiVersion": "2015-05-01-preview",
-            "name": "[concat(parameters('azureSqlServerName'), '/AllowAllWindowsAzureIps')]",
+            "name": "[concat(variables('azureSqlServerName'), '/AllowAllWindowsAzureIps')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('azureSqlServerName'))]"
+                "[resourceId('Microsoft.Sql/servers', variables('azureSqlServerName'))]"
             ],
             "properties": {
                 "startIpAddress": "0.0.0.0",
@@ -80,18 +79,18 @@
             }
         },
     {
-            "name": "[parameters('dataFactoryName')]",
+            "name": "[variables('dataFactoryName')]",
             "apiVersion": "2018-06-01",
             "type": "Microsoft.DataFactory/factories",
             "location": "[resourceGroup().location]",
             "properties": {},
             "resources": [
                 {
-                    "name": "[concat(parameters('dataFactoryName'), '/SPAzureSsisIR')]",
+                    "name": "[concat(variables('dataFactoryName'), '/SPAzureSsisIR')]",
                     "type": "Microsoft.DataFactory/factories/integrationRuntimes",
                     "dependsOn": [
-                        "[parameters('azureSqlServerName')]",
-                        "[parameters('dataFactoryName')]"
+                        "[variables('azureSqlServerName')]",
+                        "[variables('dataFactoryName')]"
                     ],
                     "apiVersion": "2018-06-01",
                     "properties": {
@@ -119,8 +118,6 @@
                 }
             ]
         }
-    ],
-    "variables": {
-        "fqnDatabaseServer": "[concat(parameters('azureSqlServerName'),'.database.windows.net')]"
-    }
+    ]
+   
 }
