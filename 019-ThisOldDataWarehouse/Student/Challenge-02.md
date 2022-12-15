@@ -74,7 +74,7 @@ Prior to starting this challenge, you should ensure that there are changes in th
 
 - Share screen shot of directory structure with coach from Synapse Analytics workspace
 - Validate there are 11 updated records from the City table in the Incremental Landing folder of your data lake.
-- Validate if you can not open the city text file an unauthorized user to show proper security setup in your new data lake storage
+- Validate if you can not open the city text file as an unauthorized user to show proper security setup in your new data lake storage
 
 ## Learning Resources
 
