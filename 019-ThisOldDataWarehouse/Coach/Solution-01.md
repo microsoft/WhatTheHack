@@ -106,6 +106,8 @@ There are three patterns you can reuse across all scripts in the same family (Di
     1. Movement T-SQL is a special fact table that leverages a MERGE Statement.  [Merge is not supported today](https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) in Azure Synapse.  Due to Identity column in Movement Table, Merge statement is not supported.  You will need to split it out into an Update and Insert statement.  [Merge Workaround](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext#ansi-join-replacement-for-merge)
     1. "Exec as Owner" and RETURN can be removed for this lab
 
+Solutions are provided in the Coach & Solution directory.  They outline the necessary code changes and provide a justification. 
+
 ### SSIS Job Refactor -- Informational and not required as a success criteria for this hack
 Data movement in first lab will be execution of DailyETLMDWLC.ispac job in Azure Data Factory SSIS Runtime.  This lab will reuse data pipelines to minimize migration costs. As data volumes increase, these jobs will need to leverage a MPP platform like Databricks, Synapse, HDInsight to transform the data at scale.  This will be done in a future lab.  These instructions are here to explain to you the steps performed to refactor the code set.  Only have student refactor if they have the time and expertise with SSIS.  This is not a learning objective of the Hack.
 
