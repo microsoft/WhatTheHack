@@ -32,7 +32,7 @@ To complete this challenge successfully, you should be able to:
 The following links may be useful to achieving the success crieria listed above.
 - [What is dedicated SQL pool?](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) 
 - [Introduction to datamarts](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-overview)
-- [What is Databricks SQL?](https://learn.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks-sql)
+- [What is a Databricks SQL warehouse?](https://learn.microsoft.com/en-us/azure/databricks/sql/admin/sql-endpoints)
 - [Azure Synapse Analytics - Dynamic Data Masking](https://learn.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16)
 - [Azure Synapse Analytics - Row-Level Security](https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver16)
 - [Databricks row and column level security](https://blacklabnz.github.io/posts/databricks-row-security/)
