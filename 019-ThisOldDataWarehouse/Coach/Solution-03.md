@@ -60,7 +60,7 @@ These are supplemental scripts required to support ADF solution contained in thi
 2. [PrepExternalDataSource.sql](../Student/Resources/Challenge3/prepExternalDataSource.sql) - This builds all of the objects necessary to support Polybase/External Tables in the Azure Synapse Analytics instance
 3. [proc_Integration.CreateLineageKey](../Student/Resources/Challenge3/proc_Integration.CreateLineageKey.sql) - This contains a change to the existing procedure 
 4. [proc_Integration.GetUpdates_wrapper](../Student/Resources/Challenge3/proc_Integration.GetUpdates_wrapper.sql) - this procedure should be compiled in the WideWorldImporters source database.  It will be used to dynamically call the table specific source queries that will be used as the source of the ADF copy pipelines.
-5. [proc_Integration.Ingest@@@Data](../Student/Resources/Challenge3/) - The remaining procedures should be compiled in the WideWorldImportersDW database.  They are used to dynamically create External tables and create and load into materialized tables in the sql pool
+5. [proc_Integration.Ingest@@@Data](../Student/Resources/Challenge3/) - The remaining procedures should be compiled in the new Synapse Analytics database.  They are used to dynamically create External tables and create and load into materialized tables in the sql pool
 
 ### ARM Templates
 
