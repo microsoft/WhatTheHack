@@ -28,16 +28,16 @@ Challenges are meant to be deployed sequentially, as the infrastructure builds o
 1. Clone this repo to your local system or Cloud Shell
    `git clone https://github.com/microsoft/WhatTheHack.git`
 1. Navigate to the `035-HubAndSpoke\Student\Resources\bicep` directory in your clone of the repo
-1. Run the deployBicep.ps1 script. For example:
-   `./deployBicep.ps1 -challengeNumber 1`
+1. Run the deploy.ps1 script. For example:
+   `./deploy.ps1 -challengeNumber 1`
 
 #### Download a zip of the bicep directory
 
 1. Browse to https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2FWhatTheHack%2Ftree%2Fnetwork-bicep%2F035-HubAndSpoke%2FStudent%2FResources%2Fbicep
 1. A zip of the directory will download to your system
 1. Expand the downloaded zip file and navigate to it in a PowerShell window
-1. Run the deployBicep.ps1 script. For example:
-   `./deployBicep.ps1 -challengeNumber 1`
+1. Run the deploy.ps1 script. For example:
+   `./deploy.ps1 -challengeNumber 1`
 
 ## Deployed Configuration
 
@@ -65,14 +65,13 @@ Challenges are meant to be deployed sequentially, as the infrastructure builds o
 
 ### Challenge 3
 
-- The routing tables are adjusted to match the Challenge documentation. To correct the inital deployment, run `deployBicep.ps1 -challengeNumber 3 -correctedConfiguration`
+- The routing tables are adjusted to match the Challenge documentation. To correct the inital deployment, run `deploy.ps1 -challengeNumber 3 -correctedConfiguration`
 
 ### Challenge 4
 
-### Challenge 5
+An Application Gateway is deployed matching the Challenge requirements. For the App GW to deploy, a TLS secret identifier from a Key Vault must be provided. The App GW's managed identity needs permissions to read the secret from the Key Vault. For convenience, a Key Vault is deployed and the App GW is granted necessary permissions; however, the TLS certificate needs to be uploaded to the Key Vault for the App GW to deploy successfully.
 
-An Application Gateway is deployed matching the Challenge requirements. For the App GW to deploy, a TLS secret identifier from a Key Vault must be provided. The App GW's managed identity needs permissions to read the secret from the Key Vault. For convenience,
-a Key Vault is deployed and the App GW is granted necessary permissions; however, the TLS certificate needs to be uploaded to the Key Vault for the App GW to deploy successfully. 
+### Challenge 5
 
 ## Resource Cleanup
 

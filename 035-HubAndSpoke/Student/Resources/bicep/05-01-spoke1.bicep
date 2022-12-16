@@ -133,3 +133,97 @@ resource privdns 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2022-0
     ]
   }
 }
+
+var webAppPortalName = 'wth-webapp-${uniqueString(subscription().id)}'
+var appServicePlanName = 'wth-asp-${uniqueString(subscription().id)}'
+
+resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+  name: appServicePlanName
+  location: location
+  sku: {
+    name: 'S1'
+  }
+  kind: 'linux'
+  properties: {
+    reserved: true
+  }
+}
+
+resource webapp 'Microsoft.Web/sites@2022-03-01' = {
+  name: webAppPortalName
+  location: location
+  kind: 'app'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: 'DOCKER|jelledruyts/inspectorgadget'
+      ftpsState: 'FtpsOnly'
+      appSettings: [
+        {
+            name: 'WEBSITES_ENABLE_APP_SERVICE_STORAGE'
+            value: 'false'
+        }
+    ]
+    }
+    httpsOnly: true
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+}
+
+resource privateEndpoint_webapp 'Microsoft.Network/privateEndpoints@2020-06-01' = {
+  name: 'wth-pep-webapp'
+  location: location
+  properties: {
+    subnet: {
+      id: resourceId('Microsoft.Network/virtualNetworks/subnets',wthspoke1vnet.name, wthspoke1vnetpepsubnet.name)
+    }
+    privateLinkServiceConnections: [
+      {
+        name: 'wth-peplink-webapp'
+        properties: {
+          privateLinkServiceId: webapp.id
+          groupIds: [
+            'sites'
+          ]
+        }
+      }
+    ]
+  }
+}
+
+resource privateDnsZones 'Microsoft.Network/privateDnsZones@2018-09-01' = {
+  name: 'privatelink.azurewebsites.net'
+  location: 'global'
+  dependsOn: [
+    wthspoke1vnet
+  ]
+}
+
+resource privateDnsZoneLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2018-09-01' = {
+  parent: privateDnsZones
+  name: '${privateDnsZones.name}-link'
+  location: 'global'
+  properties: {
+    registrationEnabled: false
+    virtualNetwork: {
+      id: wthspoke1vnet.id
+    }
+  }
+}
+
+resource privateDnsZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2020-03-01' = {
+  parent: privateEndpoint
+  name: 'dnsgroupname'
+  properties: {
+    privateDnsZoneConfigs: [
+      {
+        name: 'config1'
+        properties: {
+          privateDnsZoneId: privateDnsZones.id
+        }
+      }
+    ]
+  }
+}

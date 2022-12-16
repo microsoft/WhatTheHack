@@ -3,7 +3,7 @@
 .DESCRIPTION
     Deploys or configures WTH Networking challenge resources. 
 .EXAMPLE
-    ./deployBicep.ps1 -challengeNumber 1 
+    ./deploy.ps1 -challengeNumber 1 
     Deploy all resource groups and resources for Challenge 1. Script will prompt for a password, which will be used across all VMs. 
 #>
 [CmdletBinding()]
