@@ -76,3 +76,24 @@ a Key Vault is deployed and the App GW is granted necessary permissions; however
 
 ## Resource Cleanup
 
+To cleanup this deployment, delete each create resource group. To do this programmatically with PowerShell, run:
+
+```powershell
+    $jobs = @()
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-hub' -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-spoke1' -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-spoke2' -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-onprem' -AsJob
+    
+    Write-Host "Waiting for all resource group cleanup jobs to complete..."
+    $jobs | Wait-Job
+    
+    $jobs | Foreach-Object {
+          $job = $_
+          If ($job.Error) {
+             Write-Error "A cleanup task experienced an error: $($job.error)"
+          }
+        }
+    
+    Write-Host "Cleanup task completed."
+```
