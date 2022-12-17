@@ -37,6 +37,8 @@ You will need to run the deployment script under the `/Challenge04/` folder of t
   ./deploy.sh
   ```
 
+> ⚠️ Please remember to use the same Resource Group you used in Challenge 00
+
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
