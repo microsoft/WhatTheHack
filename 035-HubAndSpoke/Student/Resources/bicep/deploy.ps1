@@ -77,7 +77,7 @@ switch ($challengeNumber) {
         }
 
         Write-Host "`tDeploying resource groups..."
-        New-AzDeployment -Location $location -TemplateFile ./01-00-resourceGroups.bicep
+        New-AzDeployment -Location $location -Name "01-00-resourceGroups_$location" -TemplateFile ./01-00-resourceGroups.bicep
 
         Write-Host "`tDeploying base resources (this will take up to 60 minutes for the VNET Gateway)..."
         $baseInfraJobs = @{}
