@@ -10,11 +10,6 @@ resource wthspoke1vm01 'Microsoft.Compute/virtualMachines@2022-03-01' existing =
   scope: resourceGroup('wth-rg-spoke1')
 }
 
-resource wthafwpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' existing = {
-  name: 'wth-pip-afw01'
-  scope: resourceGroup('wth-rg-hub')
-}
-
 resource rtspoke1vms 'Microsoft.Network/routeTables@2022-01-01' = {
   name: 'wth-rt-spoke1vmssubnet'
   location: location
@@ -25,7 +20,7 @@ resource rtspoke1vms 'Microsoft.Network/routeTables@2022-01-01' = {
         properties: {
           addressPrefix: '0.0.0.0/0'
           nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: wthafw.properties.hubIPAddresses.privateIPAddress
+          nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
         }
       }
     ]

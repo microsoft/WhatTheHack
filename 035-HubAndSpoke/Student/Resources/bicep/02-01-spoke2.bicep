@@ -20,7 +20,7 @@ resource rtspoke2vms 'Microsoft.Network/routeTables@2022-01-01' = {
         properties: {
           addressPrefix: '0.0.0.0/0'
           nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: wthafw.properties.hubIPAddresses.privateIPAddress
+          nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
 
         }
       }
