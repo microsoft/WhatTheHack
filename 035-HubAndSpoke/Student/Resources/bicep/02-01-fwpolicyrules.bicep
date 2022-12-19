@@ -1,5 +1,5 @@
 resource wthafwpolicy 'Microsoft.Network/firewallPolicies@2022-01-01' existing = {
-  name: 'wth-fwp-premium01'
+  name: 'wth-fwp-standard01'
   scope: resourceGroup('wth-rg-hub')
 }
 
