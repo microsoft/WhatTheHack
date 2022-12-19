@@ -133,7 +133,7 @@ resource rtspoke2vms 'Microsoft.Network/routeTables@2022-01-01' = {
   }
 }
 
-resource nsgspoke1vms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
+resource nsgspoke2vms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
   name: 'wth-nsg-spoke2vmssubnet'
   location: location
   properties: {
