@@ -8,7 +8,6 @@ Have you ever wondered how to restrict traffic between applications? In challeng
 ## Description
 In this challenge, we will be deploying two network policies that will restrict traffic between pods in our ARO cluster. Network policies can be deployed by using either the ARO Web Console or the OpenShift CLI.
 
-- **NOTE:** A sample YAML file to get you started can be found in the Student Resources folder
 - **NOTE:** Make sure you are in **Administrator** mode when configuring the cluster's network policies!
 - Configure a network policy called `deny-all` that denies all traffic by default using a YAML file you create
     - To confirm the network policy is in effect, go the the application's homepage and the website should be broken
