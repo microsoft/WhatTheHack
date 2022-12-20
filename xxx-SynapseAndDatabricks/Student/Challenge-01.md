@@ -44,8 +44,9 @@ From an organizational standpoint, the Raw layer serves two main purposes:
 - Long Term Storage and Recovery  
 Organizations often need a place to dump huge amounts of structured and unstructured data for processing and Azure Data Lake Storage is often the cheapest and most efficient way to do say. The Raw layer is designed in a way to effectively act as a sink for further processing as well as a store for data for however long it is required. This can act as a backup for other systems as well.
 - Auditability  
-Since we don’t do much in terms of additional processing on the data we bring into the Raw layer, the data is unfiltered and unpurified, which is a good thing in terms of auditability. This raw data is always immutable and can act as a reference of what the source system looked like at a given point in time. We usually keep the data in its native format, but this holds true even if we decide to store it in a more modern data format.
+Since we don’t do much in terms of additional processing on the data we bring into the Raw layer, the data is unfiltered and unpurified, which is a good thing in terms of auditability. This raw data is always immutable and can act as a reference of what the source system looked like at a given point in time. We usually keep the data in its native format, but this holds true even if we decide to store it in a more modern data format.  
   
+Even though the Raw layer is generally locked down in most organizations, some teams are often given access to it to do some quick discovery work. This is often the case with Data Science teams working on prototyping a new solution.
   
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
