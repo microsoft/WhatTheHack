@@ -4,8 +4,13 @@
 
 ## Introduction
 
-Thank you for participating in the Bronze-Silver-Gold-Using-Synapse-and-Databricks What The Hack. Before you can hack, you will need to set up some prerequisites.
-
+Thank you for participating in the Bronze-Silver-Gold-Using-Synapse-and-Databricks What The Hack.  
+In this hackathon we will visit an architectural style that is know by many different names:
+- Bronze - Silver - Gold
+- Raw - Enriched - Curated
+- The Medallion Architecture
+  
+This should be fun! But before you can hack, you will need to set up some prerequisites.  
 Also, it is imperative that each student has a basic understanding of the foundational tools that will be utilized during this hackathon.  These are listed below in the Foundational Knowledge Section.
 
 ## Common Prerequisites

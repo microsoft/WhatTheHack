@@ -22,6 +22,12 @@ A visual representation of the ask is shown below.
   
 ![picture alt](../img/Gold.png) 
   
+## Business Case
+Now that we know what we need to do, it’s important to understand why we are doing this.  
+From an organizational standpoint, the Gold layer serves one main purpose:
+- Consumption  
+The Gold layer is optimized for analytics, rather than data ingestion or processing. This layer contains curated data often in de-normalized data marts or star schemas. By the time we get to this layer, the data has been transformed into high-value data products that are served to your data consumers. All the data assets in this zone are typically highly governed and well-documented.
+  
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Gold layer in the appropriate data models using the points in the discussion above.

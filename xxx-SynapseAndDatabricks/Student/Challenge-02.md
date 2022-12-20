@@ -3,9 +3,8 @@
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
-In this challenge we will begin to transform the data we loaded "as is" to the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer.
-
-The goal of this challenge is to merge the tables and bring in only a subset of the fields.  We do not need this to be production level quality and determine every field that could be a match.  Rather we want to bring over just enough fields to show an intelligent report.  The definition of "intelligent" is your discretion.  Duplicate names may happen, but do not have duplicate IDs.  We need each Delta table to have a unique key.
+In this challenge we will begin to transform the data we loaded "as is" to the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer.  
+The goal of this challenge is to merge the tables and bring in only a subset of the fields.  We do not need this to be production level quality and determine every field that could be a match.  Rather we want to bring over just enough fields to show an intelligent report.  The definition of "intelligent" is your discretion.  Duplicate names may happen, but do not have duplicate IDs.  We need each Delta table to have a unique key.  
 
 ## Description
 Some of the things we try to achieve within the Silver layer are
@@ -28,6 +27,17 @@ A more visual guide on the process can be seen below.
 ![picture alt](../img/Silver.png) 
   
   
+## Business Case
+Now that we know what we need to do, it’s important to understand why we are doing this.  
+From an organizational standpoint, the Silver layer serves three main purposes:
+- Enrichment  
+As we have discussed above, the Silver layer is often where most of the effort is spent on wrangling the data into a meaningful state. Multiple sources are brought together, the data is refined, and we make sure that it is stored in the most efficient way possible so that the following layers can access data effectively. 
+- Discovery  
+Since the data on the Silver layer is cleaner and more organized, this is generally where most of the data discovery is done. This involves data engineers, data scientists, data analytics and even sometimes business users digging into the data directly to try to gain more context into the data available in the higher layers. The Silver layer provides a balance between the perk of having long term data retention (Bronze) and having more cleaner and organized data (Gold).
+- Reusability    
+The Silver layer is also where reusable data sets are created and stored so that different teams creating different higher layers (data marts or warehouses) can reuse the same data sets without having to go through the trouble of creating it again themselves.
+  
+      
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Validate that all the data has been transformed and has been loaded into the Silver layer in the appropriate storage hierarchies based on the discussion above.

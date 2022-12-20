@@ -4,11 +4,9 @@
 
 ## Introduction
 
-The goal of this hackathon is to take data from 2 different data sources 1) Adventure Works and 2) Wide World Importers and combine them into one or more tables so that to the end user, they do not realize that we had different originating data sets.
-
+The goal of this hackathon is to take data from 2 different data sources 1) Adventure Works and 2) Wide World Importers and combine them into one or more tables so that to the end user, they do not realize that we had different originating data sets.  
 Thus, they just have the data that they need to view it in a report.  We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  Do not bring in everything.  Just choose to only bring in either the __Customer__ or __Sales Order__ data.  
-
-_Hint: Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._
+_Hint: Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._  
 
 ## Description
 
@@ -24,7 +22,7 @@ We are now ready to setup the environment and populate the data into the Bronze 
     
 ![picture alt](../img/Bronze.png)
   
-Things to keep in mind about data in the Raw Zone:
+Things to keep in mind about data in the Bronze layer:
 - __Organized by Source__  
   Have a look at the above diagram to get an idea of what your storage organization would be like.
 - __Data Landed in Native Format​__  
@@ -40,13 +38,13 @@ Things to keep in mind about data in the Raw Zone:
   
 ## Business Case
 Now that we know what we need to do, it’s also important to understand why we are doing this.  
-From an organizational standpoint, the Raw layer serves two main purposes:
+From an organizational standpoint, the Bronze layer serves two main purposes:
 - Long Term Storage and Recovery  
 Organizations often need a place to dump huge amounts of structured and unstructured data for processing and Azure Data Lake Storage is often the cheapest and most efficient way to do say. The Raw layer is designed in a way to effectively act as a sink for further processing as well as a store for data for however long it is required. This can act as a backup for other systems as well.
 - Auditability  
 Since we don’t do much in terms of additional processing on the data we bring into the Raw layer, the data is unfiltered and unpurified, which is a good thing in terms of auditability. This raw data is always immutable and can act as a reference of what the source system looked like at a given point in time. We usually keep the data in its native format, but this holds true even if we decide to store it in a more modern data format.  
   
-Even though the Raw layer is generally locked down in most organizations, some teams are often given access to it to do some quick discovery work. This is often the case with Data Science teams working on prototyping a new solution.
+Even though the Bronze layer is generally locked down in most organizations, some teams are often given access to it to do some quick discovery work. This is often the case with Data Science teams working on prototyping a new solution.
   
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
