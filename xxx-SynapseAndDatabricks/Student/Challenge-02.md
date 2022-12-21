@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
-In this challenge we will begin to transform the data we loaded "as is" to the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer. <BR>
+In this challenge we will begin to transform the data we loaded "as is" to the Bronze layer into more "standardized" and "integrated" datasets that are then loaded into the Silver layer. 
 The goal of this challenge is to merge the tables and bring in only a subset of the fields.  We do not need this to be production level quality and determine every field that could be a match.  Rather we want to bring over just enough fields to show an intelligent report.  The definition of "intelligent" is your discretion.  Duplicate names may happen, but do not have duplicate IDs.  We need each Delta table to have a unique key.  
 
 ## Description
