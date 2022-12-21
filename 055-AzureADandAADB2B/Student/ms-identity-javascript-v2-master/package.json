@@ -1,0 +1,40 @@
+{
+  "name": "ms-identity-javascript-v2",
+  "version": "1.0.0",
+  "description": "A JavaScript single-page application calling Microsoft Graph API using MSAL.js (w/ AAD v2 endpoint)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azure-Samples/ms-identity-javascript-v2.git"
+  },
+  "keywords": [
+    "javascript",
+    "msal",
+    "authorization",
+    "code",
+    "authentication",
+    "microsoft",
+    "ms-identity",
+    "azure-ad",
+    "spa",
+    "node.js",
+    "msal.js"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Azure-Samples/ms-identity-javascript-v2/issues"
+  },
+  "homepage": "https://github.com/Azure-Samples/ms-identity-javascript-v2#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

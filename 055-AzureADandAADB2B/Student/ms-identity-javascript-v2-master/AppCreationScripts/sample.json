@@ -1,0 +1,62 @@
+{
+    "Sample": {
+      "Title": "Vanilla JavaScript Single-page Application using MSAL.js to authorize users for calling Microsoft Graph",
+      "Level": 100,
+      "Client": "Vanilla JavaScript SPA",
+      "Service": "Microsoft Graph",
+      "RepositoryUrl": "ms-identity-javascript-v2",
+      "Endpoint": "AAD v2.0"
+    },
+    "AADApps": [
+      {
+        "Id": "spa",
+        "Name": "ms-identity-javascript-v2",
+        "Kind" :  "SinglePageApplication",
+        "HomePage": "http://localhost:3000/",
+        "ReplyUrls":"http://localhost:3000/",
+        "Audience": "AzureADandPersonalMicrosoftAccount",
+        "RequiredResourcesAccess": [
+          {
+            "Resource": "Microsoft Graph",
+            "DelegatedPermissions": [ "User.Read" ]
+          }
+        ]
+      }
+    ],
+    "CodeConfiguration": [
+      {
+        "App": "spa",
+        "SettingKind": "Replace",
+        "SettingFile": "\\..\\app\\authConfig.js",
+        "Mappings": [
+          {
+            "key": "Enter_the_Application_Id_Here",
+            "value": ".AppId"
+          },
+          {
+            "key": "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+            "value": "\"https://login.microsoftonline.com/\"+$tenantName"
+          },
+          {
+            "key": "Enter_the_Redirect_Uri_Here",
+            "value": ".ReplyUrls"
+          }
+        ]
+      },
+      {
+        "App": "spa",
+        "SettingKind": "Text",
+        "SettingFile": "\\..\\app\\graphConfig.js",
+        "Mappings": [
+          {
+            "key": "graphMeEndpoint",
+            "value": "'https://graph.microsoft.com/v1.0/me/'"
+          },
+          {
+            "key": "graphMailEndpoint",
+            "value": "'https://graph.microsoft.com/v1.0/me/messages/'"
+          }
+        ]
+      }
+    ]
+  }
