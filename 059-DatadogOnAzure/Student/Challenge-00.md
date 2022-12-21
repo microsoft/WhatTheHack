@@ -112,7 +112,20 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 
 ![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
-### Deploy Datadog from Azure Marketplace
+### Deploying Datadog within Azure (Two Options to consider)
+- There are two options to consider when deploying Datadog within Azure. There is an Azure portal offering called LIFTR integration, and there is an option to deploy from Datadog's website using a 14-day trial, which is suitable for WhatTheHack.
+- Depending on your chosen option, the billing mechanism will be different.
+  - Option 1) For the website option, it's critically important that when signing up for the trial account, choose Datadog region (US3). More on that is below.
+  - Option 2) For the Azure portal method (LIFTR), the billing will start immediately with no option to leverage a 14-day trial. The deployment will likely fail if you do not have a credit card associated with your subscription or have restrictions to prevent marketplace offerings.
+  
+### Option 1) Deploy Datadog using a 14-day trial
+- Go to the Datadog website (https://www.datadoghq.com/) and click the "Free Trial" button on the homepage.
+- For the first question, (Where do you want your data housed?), please select "**United States (US3)**" and fill in the remaining questions on the web form. 
+- For the remaining integration, we will use the Azure Marketplace to link our trial Datadog organization to your Microsoft Azure subscription.
+- Go to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
+- Follow the Microsoft documentation https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/link-to-existing-organization to complete the configuration.
+
+### Option 2) Deploy Datadog from Azure Marketplace
 - Go to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
 - Create a new Datadog organization when asked to choose between linking to an existing Datadog org or creating a new one.
 - Select the existing resource group `XXX-rg-wth-monitor-d-XX` to deploy the Datadog resource.
