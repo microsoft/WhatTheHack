@@ -40,7 +40,12 @@ param (
     # confirm subscription and resource types
     [Parameter(Mandatory=$false)]
     [System.Boolean]
-    $confirm = $true
+    $confirm = $true,
+
+    # challenge parameters
+    [parameter(Mandatory = $false)]
+    [hashtable]
+    $challengeParameters = @{}
 )
 
 $ErrorActionPreference = 'Stop'
@@ -244,11 +249,41 @@ switch ($challengeNumber) {
     4 {
         Write-Host "Deploying resources for Challenge 4: Application Gateway"
 
+        If ($challengeParameters.ContainsKey('existingtlsCertKeyVaultSecretID')) {
+            $tlsCertKeyVaultSecretID = $challengeParameters['existingtlsCertKeyVaultSecretID']
+        }
+        Else {
+
+            Write-Host "`tDeploying ceriticate and DNS update solution...`n"
+            Write-Host "This deployment step requires a manual action to complete. Please follow the instructions in the 035-HubAndSpoke\Student\Resources\bicep\appGWCertificateProcess.md file to complete these steps. This solution assumes you are using Dynv6 for a DNS provider; to use another povider or an existing certificate, see the above document for more information.`n"
+
+            Read-Host "Once you have completed the required steps and noted the required information, hit ENTER to proceed (ctrl + c to cancel)..."
+        
+            If ($response -match 'nN') { exit }
+
+            $jobs = @()
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./04-01-hub.bicep -TemplateParameterObject @{ location = $location } -AsJob
+
+            $jobs | Wait-Job | Out-Null
+
+            # check for deployment errors
+            $jobs | Foreach-Object {
+                $job = $_
+                If ($job.Error) {
+                    Write-Error "A hub or spoke configuration deployment experienced an error: $($job.error)"
+                }
+            }
+
+            $tlsCertKeyVaultSecretID = $jobs[0].Output.Outputs.tlsCertKeyVaultSecretID.value
+
+            If ($null -eq $tlsCertKeyVaultSecretID) {
+                Write-Error "An error occured during the deployment of the certificate and DNS update solution--the certificate ID was not returned. Please see the troubleshooting section of the 035-HubAndSpoke\Student\Resources\bicep\appGWCertificateProcess.md file for more information." -ErrorAction Stop
+            }
+        }
+
         Write-Host "`tDeploying App GW configs..."
         $jobs = @()
-        #$jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke1' -TemplateFile ./03-01-spoke1.bicep -TemplateParameterObject @{location = $location } -AsJob
-        #$jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-spoke2' -TemplateFile ./03-01-spoke2.bicep -TemplateParameterObject @{location = $location } -AsJob
-        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./04-01-hub.bicep -TemplateParameterObject @{location = $location } -AsJob
+        $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./04-02-hub.bicep -TemplateParameterObject @{location = $location; tlsCertKeyVaultSecretID = $tlsCertKeyVaultSecretID } -AsJob
 
         $jobs | Wait-Job | Out-Null
 

@@ -1,1 +1,2 @@
 .github/workflows/create-wth-template.sh eol=lf
+035-HubAndSpoke/Student/Resources/bicep/docker/DOCKERFILE eol=lf
