@@ -254,15 +254,15 @@ switch ($challengeNumber) {
         }
         Else {
 
-            Write-Host "`tDeploying ceriticate and DNS update solution...`n"
+            Write-Host "`tDeploying certificate and DNS update solution...`n"
             Write-Host "This deployment step requires a manual action to complete. Please follow the instructions in the 035-HubAndSpoke\Student\Resources\bicep\appGWCertificateProcess.md file to complete these steps. This solution assumes you are using Dynv6 for a DNS provider; to use another povider or an existing certificate, see the above document for more information.`n"
 
-            Read-Host "Once you have completed the required steps and noted the required information, hit ENTER to proceed (ctrl + c to cancel)..."
+            Read-Host "Once you have completed the required steps and noted the DNS API details, hit ENTER to proceed (ctrl + c to cancel)..."
         
             If ($response -match 'nN') { exit }
 
             $jobs = @()
-            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./04-01-hub.bicep -TemplateParameterObject @{ location = $location } -AsJob
+            $jobs += New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./04-01-hub.bicep -TemplateParameterObject @{ location = $location; useSelfSignedCertificate = $challengeParameters.ContainsKey('useSelfSignedCertificate') } -AsJob
 
             $jobs | Wait-Job | Out-Null
 

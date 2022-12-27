@@ -10,6 +10,8 @@ param rfc2136KeyAlgorithm string = 'hmac-sha256'
 param rfc2136TSIGSecret string
 @description('Email address where Let\'s Encrypt will send alerts if there are issues with the certificate or it expires. This must be a valid email address and will receive alerts from Let\'s Encrypt, which can be ignored if you\'re no longer running the lab environment.')
 param letsEncryptCertAlertEmail string
+@description('Alternative to using Let\'s Encrypt, you can use a self-signed certificate. This is useful if you are having issues with the Let\'s Encrypt certificate request process. NOTE: You will still need a domain domain name registered for the lab environment.')
+param useSelfSignedCertificate bool = false
 
 var dnsUpdaterContainerImage = 'mbrat2005/whatthehackdnsupdate:latest'
 
@@ -127,7 +129,7 @@ resource accessPolicy 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
 // the letsencrypt certificate challenge is performed via DNS, so we need to update the DNS record for the domain. 
 // this was tested with dynv6.com, but should work with any DNS provider that supports RFC2136
 // stores the certificate in the mounted storage account file share
-resource containerCertRequester 'Microsoft.ContainerInstance/containerGroups@2022-09-01' = {
+resource containerCertRequester 'Microsoft.ContainerInstance/containerGroups@2022-09-01' = if (useSelfSignedCertificate == false) {
   name: 'wth-container-certrequester01'
   location: location
   identity: {
@@ -278,7 +280,7 @@ resource containerDNSUpdater 'Microsoft.ContainerInstance/containerGroups@2022-0
 
 // uploads the certificate previously exported to the storage account file share to the key vault
 // from the key vault, the certificate will be available to the Application Gateway 
-resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource deploymentScriptCertUploader 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (useSelfSignedCertificate == false) {
   name: 'wth-dscript-uploadcert01'
   location: location
   dependsOn: [
@@ -323,4 +325,94 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   }
 }
 
-output TLSCertKeyVaultSecretID string = reference(deploymentScript.id).outputs.text
+resource deploymentScriptSelfSignedCert 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (useSelfSignedCertificate) {
+name: 'wth-dscript-genselfsignedcert01'
+location: location
+kind: 'AzurePowerShell'
+identity: {
+  type: 'UserAssigned'
+  userAssignedIdentities: {
+    '${userAssignedIdentity.id}': {}
+  }
+}
+properties: {
+  azPowerShellVersion: '8.3'
+  cleanupPreference: 'OnSuccess'
+  retentionInterval: 'PT1H'
+  arguments: '-keyVaultName "${keyvault.name}" -domainName "${rfc2136ZoneName}"'
+  scriptContent: '''
+    param($keyVaultName, $domainName)
+
+    $DeploymentScriptOutputs = @{}
+    $DeploymentScriptOutputs['text'] = ''
+
+    $body = @"
+    {
+      "policy": {
+        "key_props": {
+          "exportable": true,
+          "kty": "RSA",
+          "key_size": 2048,
+          "reuse_key": false
+        },
+        "secret_props": {
+          "contentType": "application/x-pkcs12"
+        },
+        "x509_props": {
+          "subject": "CN=$domainName",
+          "sans": {
+            "dns_names": [
+              "$domainName"
+            ]
+          }
+        },
+        "issuer": {
+          "name": "Self"
+        }
+      }
+    }
+"@
+
+    # create a certificate request in the key vault
+    $certName = 'appGWSelfSignedCert' + (get-date -f 'yyyyMMddHHmmss')
+    $response = Invoke-AzRestMethod -Method POST -URI "https://$keyVaultName.vault.azure.net//certificates/$certName/create?api-version=7.3" -Payload $body
+
+    $responseBody = $response.Content | ConvertFrom-Json -Depth 10
+    If ($response.StatusCode -ne 202) {
+      throw "Error creating self-signed certificate in key vault. $($response.StatusCode, $responseBody.Error, $responseBody.status, $responseBody.status_details)"
+    }
+
+    # wait for the certificate request to complete
+    $timeout = 600
+    $secondsElapsed = 0
+    do {
+      $secondsElapsed = $secondsElapsed + 1
+      $response = Invoke-AzRestMethod -Method GET -URI "https://$keyVaultName.vault.azure.net//certificates/$certName/pending?api-version=7.3"
+
+      If ($response.StatusCode -ne 200) {
+        $responseBody = $response.Content | ConvertFrom-Json -Depth 10
+        throw "Error getting self-signed certificate status in key vault. $($response.StatusCode, $responseBody.Error,$responseBody.status, $responseBody.status_details)"
+      }
+
+      Start-Sleep -Seconds 1
+    }
+    until (($responseBody = $response.Content | ConvertFrom-Json -Depth 10).status -eq 'completed' -or ($secondsElapsed -ge $timeout))
+
+    If ($secondsElapsed -ge $timeout) {
+      throw "Timeout waiting for self-signed certificate to complete in key vault."
+    }
+
+    # get the completed certificate ID
+    $response = Invoke-AzRestMethod -Method GET -URI "https://$keyVaultName.vault.azure.net//certificates/$certName`?api-version=7.3"
+    $responseBody = $response.Content | ConvertFrom-Json -Depth 10
+
+    # return the completed certificate ID to the deployment script output
+    $DeploymentScriptOutputs['text'] = $responseBody.sid
+  '''
+containerSettings: {
+  containerGroupName: 'wth-container-genselfsignedcert01'
+  }
+}
+}
+
+output TLSCertKeyVaultSecretID string = useSelfSignedCertificate ? reference(deploymentScriptSelfSignedCert.id, '2020-10-01').outputs.text : reference(deploymentScriptCertUploader.id, '2020-10-01').outputs.text

@@ -1,8 +1,9 @@
-# Process for generating and assigning a publicly trusted certificate to the Application Gateway
+# Process for generating and assigning a certificate to the Application Gateway
 
-The process below describes the steps necessary to utilize automation to generate and publish a new publicly trusted certificate for the Application Gateway used in this lab. 
+The process below describes the steps necessary to utilize automation to generate and publish a new publicly trusted certificate for the Application Gateway used in this lab.
 
-If you already have a certificate and domain you would like to use, see 'Use my own domain and certificate below'
+The default process uses Let's Encrypt to generate a publicly trusted certificate. If you already have a certificate and domain you would like to use, see 'Use my own domain and certificate below'. If there are issues with the Let's Encrypt certificate request process, a self-signed certificate can be used
+
 ## Register for a Domain Name and Create an API Key
 
 These instructions will use https://dynv6.com to register a free domain name you can use for this lab. Other free DNS providers are likely also compatible, as long as they support updates following the RFC2136 standard (which the lab automation has been written to use); however, you will need to pass a different value for the rfc2136DNSNameserver parameter on the '04-01-hub.bicep' template.
@@ -48,3 +49,11 @@ If you do this, you will need to perform the following steps yourself:
 - Create or update a DNS 'A' record with your DNS provider (ie: GoDaddy, Azure DNS, etc.) that points to the Application Gateway's Public IP Address
 - Ensure that the Application Gateway identity has permission to access the uploaded certificate's secret
 - Pass the certificate secret ID (and version number) as a -challengeParameters, as shown above
+
+## Use a self-signed certificate
+
+If there are issues with the certificate request process from Let's Encrypt, you can alternatively have the Key Vault generate a self-signed certificate for you. Use this option by passing the `@{useSelfSignedCertificate=$true}` challenge parameter when running deploy.ps1. For example:
+
+```powershell
+./deploy.ps1 -ChallengeNumber 4 -ChallengeParameters @{useSelfSignedCertificate=$true}
+```
