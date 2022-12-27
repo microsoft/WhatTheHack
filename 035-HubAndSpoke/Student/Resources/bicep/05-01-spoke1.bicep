@@ -62,6 +62,26 @@ resource wthspoke1vnetpepsubnet 'Microsoft.Network/virtualNetworks/subnets@2022-
   }
 }
 
+resource wthspoke1vnetappsvcsubnet 'Microsoft.Network/virtualNetworks/subnets@2022-01-01' = {
+  name: 'subnet-appsvc'
+  parent: wthspoke1vnet
+  dependsOn: [
+    wthspoke1vnetpepsubnet
+  ]
+  properties: {
+    addressPrefix: '10.1.12.0/24'
+    privateEndpointNetworkPolicies: 'Enabled'
+    delegations: [
+      {
+        name: 'delegation'
+        properties: {
+          serviceName: 'Microsoft.Web/serverFarms'
+        }
+      }
+    ]
+  }
+}
+
 resource nsg 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
   name: 'wth-nsg-sqlpepsubnet'
   location: location
@@ -160,12 +180,14 @@ resource webapp 'Microsoft.Web/sites@2022-03-01' = {
       ftpsState: 'FtpsOnly'
       appSettings: [
         {
-            name: 'WEBSITES_ENABLE_APP_SERVICE_STORAGE'
-            value: 'false'
+          name: 'WEBSITES_ENABLE_APP_SERVICE_STORAGE'
+          value: 'false'
         }
-    ]
+      ]
     }
     httpsOnly: true
+    virtualNetworkSubnetId: wthspoke1vnetappsvcsubnet.id
+    publicNetworkAccess: 'Enabled'
   }
   identity: {
     type: 'SystemAssigned'
@@ -177,7 +199,7 @@ resource privateEndpoint_webapp 'Microsoft.Network/privateEndpoints@2020-06-01' 
   location: location
   properties: {
     subnet: {
-      id: resourceId('Microsoft.Network/virtualNetworks/subnets',wthspoke1vnet.name, wthspoke1vnetpepsubnet.name)
+      id: resourceId('Microsoft.Network/virtualNetworks/subnets', wthspoke1vnet.name, wthspoke1vnetpepsubnet.name)
     }
     privateLinkServiceConnections: [
       {
@@ -193,28 +215,13 @@ resource privateEndpoint_webapp 'Microsoft.Network/privateEndpoints@2020-06-01' 
   }
 }
 
-resource privateDnsZones 'Microsoft.Network/privateDnsZones@2018-09-01' = {
+resource privateDnsZones 'Microsoft.Network/privateDnsZones@2018-09-01' existing = {
   name: 'privatelink.azurewebsites.net'
-  location: 'global'
-  dependsOn: [
-    wthspoke1vnet
-  ]
-}
-
-resource privateDnsZoneLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2018-09-01' = {
-  parent: privateDnsZones
-  name: '${privateDnsZones.name}-link'
-  location: 'global'
-  properties: {
-    registrationEnabled: false
-    virtualNetwork: {
-      id: wthspoke1vnet.id
-    }
-  }
+  scope: resourceGroup('wth-rg-hub')
 }
 
 resource privateDnsZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2020-03-01' = {
-  parent: privateEndpoint
+  parent: privateEndpoint_webapp
   name: 'dnsgroupname'
   properties: {
     privateDnsZoneConfigs: [

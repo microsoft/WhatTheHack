@@ -69,9 +69,19 @@ Challenges are meant to be deployed sequentially, as the infrastructure builds o
 
 ### Challenge 4
 
-An Application Gateway is deployed matching the Challenge requirements. For the App GW to deploy, a TLS secret identifier from a Key Vault must be provided. The App GW's managed identity needs permissions to read the secret from the Key Vault. For convenience, a Key Vault is deployed and the App GW is granted necessary permissions; however, the TLS certificate needs to be uploaded to the Key Vault for the App GW to deploy successfully.
+An Application Gateway is deployed matching the Challenge requirements. The deployment automates the configuration of a TLS certificate and DNS records when appropriate RFC 2136 credentials are supplied (the default configuration). The deployment options are:
+
+1. Automated: Have automation handle DNS records and TLS certificates for you -- this requires registering for a DNS name, for example, from https://dynv6.com.
+1. Manually configured: If you have an existing domain name and TLS certificates, you can manually upload the PFX certificate file to the Key Vault prior to deploying the App GW. 
+1. Automated, with self-signed certificate: If there are issues generating the publicly trusted TLS certificate from Let's Encrypt, a self-signed certificate can be used. 
+
+For details on these options and troubleshooting, see: [Application Gateway DNS and Certificates](./appGWCertificateProcess.md)
+
+The application gateway is configured with backend pools for the Spoke 1 and Spoke 2 VMs.
 
 ### Challenge 5
+
+The required Azure SQL and App Service resources are deployed, along with their supporting Private Link infrastructure. An Azure Private DNS Resolver is deployed to enable Private Endpoint name resolution for the 'on-prem' resources. 
 
 ## Resource Cleanup
 
