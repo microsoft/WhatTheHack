@@ -49,7 +49,6 @@ param cookieBasedAffinity string = 'Disabled'
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-var appGwPublicIpName = 'wth-pip-appgw01'
 var appGwSize = 'Standard_v2'
 
 resource hubvnet 'Microsoft.Network/virtualNetworks@2022-01-01' existing = {

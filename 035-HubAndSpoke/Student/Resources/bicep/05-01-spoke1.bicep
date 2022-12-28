@@ -103,6 +103,21 @@ resource nsgSecRuleAllow 'Microsoft.Network/networkSecurityGroups/securityRules@
   }
 }
 
+resource nsgSecRuleAllowAppSvc 'Microsoft.Network/networkSecurityGroups/securityRules@2022-01-01' = {
+  name: 'allow-sql-from-appsvcsubnet'
+  parent: nsg
+  properties: {
+    access: 'Deny'
+    direction: 'Inbound'
+    protocol: '*'
+    sourceAddressPrefix: '*'
+    destinationAddressPrefix: wthspoke1vnetappsvcsubnet.properties.addressPrefix
+    priority: 102
+    sourcePortRange: '*'
+    destinationPortRange: '*'
+  }
+}
+
 resource nsgSecRuleDeny 'Microsoft.Network/networkSecurityGroups/securityRules@2022-01-01' = {
   name: 'deny-sql-from-any'
   parent: nsg
@@ -234,3 +249,4 @@ resource privateDnsZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneG
     ]
   }
 }
+

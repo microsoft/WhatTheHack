@@ -83,6 +83,8 @@ The application gateway is configured with backend pools for the Spoke 1 and Spo
 
 The required Azure SQL and App Service resources are deployed, along with their supporting Private Link infrastructure. An Azure Private DNS Resolver is deployed to enable Private Endpoint name resolution for the 'on-prem' resources. 
 
+The 'Inspector Gadget' utility is installed on the Web App. It includes functions to verify DNS name resolution and test SQL connectivity, though you may want to take the additional step of [granting your App Service MSI access to the SQL database](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql).
+
 ## Resource Cleanup
 
 To cleanup this deployment, delete each create resource group. To do this programmatically with PowerShell, run:
