@@ -12,16 +12,16 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Setup](./Solution-00.md)**
 	 - Prepare your workstation to be a devops master!
-- Challenge 01: **[Azure DevOps: Introduction](./Solution-01.md)**
-	 - Learn motivations for DevOps & assess yourself
-- Challenge 02: **[Azure Boards: Agile Project Management](./Solution-02.md)**
+- Challenge 01: **[Azure Boards: Agile Project Management](./Solution-01.md)**
 	 - Learn how to work with Azure Boards
-- Challenge 03: **[Azure Repos: Introduction](./Solution-03.md)**
+- Challenge 02: **[Azure Repos: Introduction](./Solution-02.md)**
 	 - Setup an Azure Repo and learn how to integrate it with Azure Board task items
-- Challenge 04: **[Azure Pipelines: Infrastructure as Code](./Solution-04.md)**
+- Challenge 03: **[Azure Pipelines: Infrastructure as Code](./Solution-03.md)**
 	 - Deploy an ARM template via an Azure Pipelines job
-- Challenge 05: **[Azure Pipelines: Continuous Integration](./Solution-05.md)**
+- Challenge 04: **[Azure Pipelines: Continuous Integration](./Solution-04.md)**
 	 - Learn how to automate a build process for a sample app
+- Challenge 05: **[Azure Pipelines: Build and push Docker image to container registry](./Solution-05.md)**
+	 - Build and push Docker images to container registry(ACR)
 - Challenge 06: **[Azure Pipelines: Continuous Delivery](./Solution-06.md)**
 	 - Automate the deployment of an application into Azure
 - Challenge 07: **[Azure Repos: Branching & Policies](./Solution-07.md)**
