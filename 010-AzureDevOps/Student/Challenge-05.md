@@ -33,4 +33,5 @@ In this challenge, you will build and push a docker image to ACR:
 - [Managing Service Connections](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 - [Building Docker Images](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-7.0)
 - [Azure Container Registry Operations](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli)
+- [Container Image Tags and Best Practices](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-image-tag-version)
 

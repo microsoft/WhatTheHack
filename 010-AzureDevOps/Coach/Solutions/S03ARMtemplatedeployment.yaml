@@ -18,8 +18,8 @@ stages:
       - task: AzureResourceManagerTemplateDeployment@3
         inputs:
           deploymentScope: 'Resource Group'
-          azureResourceManagerConnection: 'NEED TO REPLACE WITH YOUR CONNECTION'
-          subscriptionId: 'NEED TO REPLACE WITH YOUR SUBSCRIPTION'
+          azureResourceManagerConnection: '***REPLACE WITH YOUR CONNECTION***'
+          subscriptionId: '***REPLACE WITH YOUR SUBSCRIPTION***'
           action: 'Create Or Update Resource Group'
           resourceGroupName: 'WTH10'
           location: 'East US'
@@ -35,8 +35,8 @@ stages:
       - task: AzureResourceManagerTemplateDeployment@3
         inputs:
           deploymentScope: 'Resource Group'
-          azureResourceManagerConnection: 'NEED TO REPLACE WITH YOUR CONNECTION'
-          subscriptionId: 'NEED TO REPLACE WITH YOUR SUBSCRIPTION'
+          azureResourceManagerConnection: '***REPLACE WITH YOUR CONNECTION***'
+          subscriptionId: '***REPLACE WITH YOUR SUBSCRIPTION***'
           action: 'Create Or Update Resource Group'
           resourceGroupName: 'WTH10'
           location: 'East US'
@@ -52,8 +52,8 @@ stages:
       - task: AzureResourceManagerTemplateDeployment@3
         inputs:
           deploymentScope: 'Resource Group'
-          azureResourceManagerConnection: 'NEED TO REPLACE WITH YOUR CONNECTION'
-          subscriptionId: 'NEED TO REPLACE WITH YOUR SUBSCRIPTION'
+          azureResourceManagerConnection: '***REPLACE WITH YOUR CONNECTION***'
+          subscriptionId: '***REPLACE WITH YOUR SUBSCRIPTION***'
           action: 'Create Or Update Resource Group'
           resourceGroupName: 'WTH10'
           location: 'East US'
