@@ -14,7 +14,7 @@ The WTH philosophy intends to have students learn by doing, and recognizes that 
 
 Using Cloud Shell is recommended, as it already has the necessary tools installed. However, Cloud Shell has a timeout of about 20 minutes and may experience timeouts (in which case, run the same command again to pick up the deployments where they stopped).
 
-Challenges are meant to be deployed sequentially, as the infrastructure builds on itself. For example, to work with the Challenge 5 infrastructure, deploy Challenges 1-4 first. 
+**Challenges are meant to be deployed sequentially, as the infrastructure builds on itself.** For example, to work with the Challenge 5 infrastructure, deploy Challenges 1-4 first. 
 
 ### Prerequisites
 
@@ -81,9 +81,19 @@ The application gateway is configured with backend pools for the Spoke 1 and Spo
 
 ### Challenge 5
 
-The required Azure SQL and App Service resources are deployed, along with their supporting Private Link infrastructure. An Azure Private DNS Resolver is deployed to enable Private Endpoint name resolution for the 'on-prem' resources. 
+The required Azure SQL and App Service resources are deployed, along with their supporting Private Link infrastructure. An Azure Private DNS Resolver is deployed to enable Private Endpoint name resolution for the 'on-prem' resources.
 
-The 'Inspector Gadget' utility is installed on the Web App. It includes functions to verify DNS name resolution and test SQL connectivity, though you may want to take the additional step of [granting your App Service MSI access to the SQL database](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql).
+The 'Inspector Gadget' utility is installed on the Web App, which is publicly accessible. It includes functions to verify DNS name resolution and test SQL connectivity, though you may want to take the additional step of [granting your App Service MSI access to the SQL database](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql).
+
+Resources deployed:
+
+- Azure SQL Servers and DBs in Spoke 1 and Spoke 1
+- Web App in Spoke 1
+- Private DNS Resolver in Hub
+- Private Endpoints for SQL servers and App Service
+- Private DNS Zones for Private Endpoint records
+- Subnets for new services (App Service, DNS Resolver, SQL Private Endpoints)
+- NSGs for new subnets
 
 ## Resource Cleanup
 
