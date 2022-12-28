@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Branch policy will need to be setup via the UI.  This link should show all of the steps needed:
 
-Should add a new validate step in the steps in the pipeline. 
+https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser
+
+
