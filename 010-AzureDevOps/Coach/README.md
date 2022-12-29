@@ -28,7 +28,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Learn about Git branching and configure policies to ensure developers follow the rules
 - Challenge 08: **[Azure Monitoring: Application Insights](./Solution-08.md)**
 	 - Configure Application Insights to create work items in Azure Boards
-- Challenge 09: **[Azure Pipelines: OSS Scanning with WhiteSource Bolt](./Solution-09.md)**
+- Challenge 09: **[Azure Pipelines: OSS Scanning with Mend Bolt](./Solution-09.md)**
 	 - Get a taste of DevSecOps by configuring a code scanning tool in your CI Pipeline
 
 ## Coach Prerequisites

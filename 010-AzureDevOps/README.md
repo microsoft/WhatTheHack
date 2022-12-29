@@ -33,7 +33,7 @@ This hack will help you learn:
 	 - Learn about Git branching and configure policies to ensure developers follow the rules
 - Challenge 08: **[Azure Monitoring: Application Insights](Student/Challenge-08.md)**
 	 - Configure Application Insights to create work items in Azure Boards
-- Challenge 09: **[Azure Pipelines: OSS Scanning with WhiteSource Bolt](Student/Challenge-09.md)**
+- Challenge 09: **[Azure Pipelines: OSS Scanning with Mend Bolt](Student/Challenge-09.md)**
 	 - Get a taste of DevSecOps by configuring a code scanning tool in your CI Pipeline
 
 
