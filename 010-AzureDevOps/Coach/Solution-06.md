@@ -8,4 +8,5 @@ See [Use predefined variables](https://docs.microsoft.com/en-us/azure/devops/pip
 
 - Recommended to use the deploy app service task in the assistant.  The students can specify the container registry and image they want to deploy from.
 - To create the approval gates, students will need to create environments in ADO and assign them to each respective stage.  Stages are required in this challenge while they were a nice to have previously.
+
 - Check the solution file as ADO pipeline solution sample [Solution-06.yaml](./Solutions/Solution-06.yaml)
