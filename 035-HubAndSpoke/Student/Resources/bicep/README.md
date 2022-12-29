@@ -4,7 +4,7 @@ This directory contains Bicep templates to deploy and configure resources as des
 
 ## Who should use these templates?
 
-The WTH philosophy intends to have students learn by doing, and recognizes that one of the best ways to learn is to troubleshoot problems. As such, using these templates instead of building your own lab will detract from your learning experience, and only recommended for the scenarios below: 
+The WTH philosophy intends to have students learn by doing, and recognizes that one of the best ways to learn is to troubleshoot problems. As such, using these templates instead of building your own lab will detract from your learning experience, and primarily recommended for the scenarios below: 
 
 - Students who will not be completing a challenge which is a prerequisite to a later challenge
 - Students who are falling behind in the WTH due to issues unrelated to the core learning goals of this WTH
@@ -14,7 +14,7 @@ The WTH philosophy intends to have students learn by doing, and recognizes that 
 
 Using Cloud Shell is recommended, as it already has the necessary tools installed. However, Cloud Shell has a timeout of about 20 minutes and may experience timeouts (in which case, run the same command again to pick up the deployments where they stopped).
 
-**Challenges are meant to be deployed sequentially, as the infrastructure builds on itself.** For example, to work with the Challenge 5 infrastructure, deploy Challenges 1-4 first. 
+**Challenges are meant to be deployed sequentially, as the infrastructure builds on itself.** For example, to work with the Challenge 5 infrastructure, deploy Challenges 1-4 first. Also, keep in mind that changes made for testing need to be manually reverted, unless the relevant Challenge and subsequent Challenges are redeployed.  
 
 ### Prerequisites
 
@@ -94,6 +94,7 @@ Resources deployed:
 - Private DNS Zones for Private Endpoint records
 - Subnets for new services (App Service, DNS Resolver, SQL Private Endpoints)
 - NSGs for new subnets
+- Route table and routes to force Spoke 1 SQL traffic through the Azure Firewall (advanced scenario)
 
 ## Resource Cleanup
 
@@ -101,10 +102,10 @@ To cleanup this deployment, delete each create resource group. To do this progra
 
 ```powershell
     $jobs = @()
-    $jobs += Remove-AzResourceGroup -Name 'wth-rg-hub' -AsJob
-    $jobs += Remove-AzResourceGroup -Name 'wth-rg-spoke1' -AsJob
-    $jobs += Remove-AzResourceGroup -Name 'wth-rg-spoke2' -AsJob
-    $jobs += Remove-AzResourceGroup -Name 'wth-rg-onprem' -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-hub' -Force -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-spoke1' -Force -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-spoke2' -Force -AsJob
+    $jobs += Remove-AzResourceGroup -Name 'wth-rg-onprem' -Force -AsJob
     
     Write-Host "Waiting for all resource group cleanup jobs to complete..."
     $jobs | Wait-Job
