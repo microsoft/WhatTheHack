@@ -177,7 +177,7 @@ resource wthafwrcgnet 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2
           type: 'Allow'
         }
         name: 'allow-network-rules'
-        priority:200
+        priority: 200
         rules: [
           {
             ruleType: 'NetworkRule'
@@ -203,7 +203,7 @@ resource wthafwrcgnet 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2
   dependsOn: [
     wthafwrcgdnat
   ]
-} 
+}
 
 resource wthafwrcgapp 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2022-01-01' = {
   name: '${wthafwpolicy.name}/WTH_AppRulesCollectionGroup'
@@ -217,7 +217,25 @@ resource wthafwrcgapp 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2
         }
         priority: 300
         name: 'allow-apprules'
-        rules: []
+        rules: [
+          {
+            ruleType: 'ApplicationRule'
+            name: 'allow-appsvcsubnet-to-azsql'
+            description: 'Allow App Service subnet (created in Challenge 5) to Azure SQL'
+            sourceAddresses: [
+              '10.1.11.0/24'
+            ]
+            protocols: [
+              {
+                protocolType: 'mssql'
+                port: 1433
+              }
+            ]
+            targetFqdns: [
+              '*.${environment().suffixes.sqlServerHostname}'
+            ]
+          }
+        ]
       }
     ]
   }
@@ -225,4 +243,3 @@ resource wthafwrcgapp 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2
     wthafwrcgnet
   ]
 }
-

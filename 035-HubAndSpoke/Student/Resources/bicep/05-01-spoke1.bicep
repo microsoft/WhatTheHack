@@ -3,7 +3,12 @@ param adminUserLogin string
 param adminUserSid string
 
 resource privateDNSZone 'Microsoft.Network/privateDnsZones@2020-06-01' existing = {
-  name: 'privatelink.database.windows.net'
+  name: 'privatelink.${environment().suffixes.sqlServerHostname}'
+  scope: resourceGroup('wth-rg-hub')
+}
+
+resource afw 'Microsoft.Network/azureFirewalls@2022-07-01' existing = {
+  name: 'wth-afw-hub01'
   scope: resourceGroup('wth-rg-hub')
 }
 
@@ -15,12 +20,19 @@ resource sqlServer 'Microsoft.Sql/servers@2021-11-01' = {
     administratorLoginPassword: guid(subscription().id, 'this_is_a_b0gus_and_disabled_password!')
     version: '12.0'
     publicNetworkAccess: 'Disabled'
+    minimalTlsVersion: '1.2'
     administrators: {
       administratorType: 'ActiveDirectory'
       principalType: 'User'
       login: adminUserLogin
       sid: adminUserSid
       tenantId: tenant().tenantId
+    }
+  }
+  resource connectionPolicy 'connectionPolicies@2021-11-01' = {
+    name: 'default'
+    properties: {
+      connectionType: 'Proxy'
     }
   }
 }
@@ -71,6 +83,9 @@ resource wthspoke1vnetappsvcsubnet 'Microsoft.Network/virtualNetworks/subnets@20
   properties: {
     addressPrefix: '10.1.12.0/24'
     privateEndpointNetworkPolicies: 'Enabled'
+    routeTable: {
+      id: routeTable.id
+    }
     delegations: [
       {
         name: 'delegation'
@@ -107,14 +122,14 @@ resource nsgSecRuleAllowAppSvc 'Microsoft.Network/networkSecurityGroups/security
   name: 'allow-sql-from-appsvcsubnet'
   parent: nsg
   properties: {
-    access: 'Deny'
+    access: 'Allow'
     direction: 'Inbound'
     protocol: '*'
-    sourceAddressPrefix: '*'
+    sourceAddressPrefix: 'VirtualNetwork'
     destinationAddressPrefix: wthspoke1vnetappsvcsubnet.properties.addressPrefix
     priority: 102
     sourcePortRange: '*'
-    destinationPortRange: '*'
+    destinationPortRange: '1433'
   }
 }
 
@@ -202,6 +217,7 @@ resource webapp 'Microsoft.Web/sites@2022-03-01' = {
     }
     httpsOnly: true
     virtualNetworkSubnetId: wthspoke1vnetappsvcsubnet.id
+    vnetRouteAllEnabled: true
     publicNetworkAccess: 'Enabled'
   }
   identity: {
@@ -250,3 +266,29 @@ resource privateDnsZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneG
   }
 }
 
+resource routeTable 'Microsoft.Network/routeTables@2022-07-01' = {
+  name: 'wth-rt-sqlthroughafw'
+  location: location
+  properties: {
+    disableBgpRoutePropagation: false
+    routes: [
+      {
+        name: 'route-sqlthroughafw'
+        properties: {
+          addressPrefix: wthspoke1vnetpepsubnet.properties.addressPrefix
+          nextHopType: 'VirtualAppliance'
+          nextHopIpAddress: reference(afw.id, '2022-01-01').ipConfigurations[0].properties.privateIPAddress
+        }
+      }
+    ]
+  }
+}
+
+resource route 'Microsoft.Network/routeTables/routes@2022-07-01' = {
+  name: 'wth-rt-spoke1vmssubnet/route-sqlthroughafw'
+  properties: {
+    addressPrefix: wthspoke1vnetpepsubnet.properties.addressPrefix
+    nextHopType: 'VirtualAppliance'
+    nextHopIpAddress: reference(afw.id, '2022-01-01').ipConfigurations[0].properties.privateIPAddress
+  }
+}
