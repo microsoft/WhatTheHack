@@ -11,3 +11,5 @@ This was updated to mend (previously known as whitesource).  The instruction set
   - Students will need to sign up for a mend account.  To do this, they will need to go to the ***Organization*** settings and go to the mend tab.   Students will need to put their information in to activate the account.
   - Students can now use the mend bolt task in the assistant to add to their workflow.
   - Once the pipeline finishes running, return to the pipeline run.  There will be a mend tab in the finished pipeline run which will show the results.
+
+- This challenge shows the extensibility of Azure DevOps.  There are many extensions users can integrate with into Azure DevOps in addition to Mend.
