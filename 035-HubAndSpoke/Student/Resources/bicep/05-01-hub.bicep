@@ -15,7 +15,7 @@ resource spoke2vnet 'Microsoft.Network/virtualNetworks@2022-01-01' existing = {
 }
 
 resource privateDNSZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
-  name: 'privatelink.${environment().suffixes.sqlServerHostname}'
+  name: 'privatelink${environment().suffixes.sqlServerHostname}'
   location: 'global'
   properties: {
   }

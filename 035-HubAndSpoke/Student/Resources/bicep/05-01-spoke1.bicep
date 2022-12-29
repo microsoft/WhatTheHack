@@ -3,7 +3,7 @@ param adminUserLogin string
 param adminUserSid string
 
 resource privateDNSZone 'Microsoft.Network/privateDnsZones@2020-06-01' existing = {
-  name: 'privatelink.${environment().suffixes.sqlServerHostname}'
+  name: 'privatelink${environment().suffixes.sqlServerHostname}'
   scope: resourceGroup('wth-rg-hub')
 }
 
@@ -104,17 +104,20 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
 }
 
 resource nsgSecRuleAllow 'Microsoft.Network/networkSecurityGroups/securityRules@2022-01-01' = {
-  name: 'allow-sql-from-onprem'
+  name: 'allow-sql-from-onpremandspoke1'
   parent: nsg
   properties: {
     access: 'Allow'
     direction: 'Inbound'
     protocol: '*'
-    sourceAddressPrefixes: wthonpremvnet.properties.addressSpace.addressPrefixes
+    sourceAddressPrefixes: [
+      wthonpremvnet.properties.addressSpace.addressPrefixes[0]
+      wthspoke1vnet.properties.addressSpace.addressPrefixes[0]
+    ]
     destinationAddressPrefix: wthspoke1vnetpepsubnet.properties.addressPrefix
     priority: 100
     sourcePortRange: '*'
-    destinationPortRange: '*'
+    destinationPortRange: '1433'
   }
 }
 
@@ -125,8 +128,8 @@ resource nsgSecRuleAllowAppSvc 'Microsoft.Network/networkSecurityGroups/security
     access: 'Allow'
     direction: 'Inbound'
     protocol: '*'
-    sourceAddressPrefix: 'VirtualNetwork'
-    destinationAddressPrefix: wthspoke1vnetappsvcsubnet.properties.addressPrefix
+    sourceAddressPrefix: wthspoke1vnetappsvcsubnet.properties.addressPrefix
+    destinationAddressPrefix: wthspoke1vnetpepsubnet.properties.addressPrefix
     priority: 102
     sourcePortRange: '*'
     destinationPortRange: '1433'
@@ -142,7 +145,7 @@ resource nsgSecRuleDeny 'Microsoft.Network/networkSecurityGroups/securityRules@2
     protocol: '*'
     sourceAddressPrefix: '*'
     destinationAddressPrefix: wthspoke1vnetpepsubnet.properties.addressPrefix
-    priority: 101
+    priority: 1000
     sourcePortRange: '*'
     destinationPortRange: '*'
   }
@@ -212,6 +215,15 @@ resource webapp 'Microsoft.Web/sites@2022-03-01' = {
         {
           name: 'WEBSITES_ENABLE_APP_SERVICE_STORAGE'
           value: 'false'
+        }
+        // Inspector Gadget settings for SQL connection - App Svc MSI must still be manually granted SQL access
+        {
+          name: 'DefaultSqlConnectionSqlConnectionString'
+          value: replace('Server=<serverName>${environment().suffixes.sqlServerHostname},1433;Initial Catalog=sampleDB;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;', '<serverName>', sqlServer.name)
+        }
+        {
+          name: 'DefaultSqlConnectionUseAzureManagedIdentity'
+          value: 'true'
         }
       ]
     }

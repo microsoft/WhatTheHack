@@ -217,25 +217,7 @@ resource wthafwrcgapp 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2
         }
         priority: 300
         name: 'allow-apprules'
-        rules: [
-          {
-            ruleType: 'ApplicationRule'
-            name: 'allow-appsvcsubnet-to-azsql'
-            description: 'Allow App Service subnet (created in Challenge 5) to Azure SQL'
-            sourceAddresses: [
-              '10.1.11.0/24'
-            ]
-            protocols: [
-              {
-                protocolType: 'mssql'
-                port: 1433
-              }
-            ]
-            targetFqdns: [
-              '*.${environment().suffixes.sqlServerHostname}'
-            ]
-          }
-        ]
+        rules: []
       }
     ]
   }
