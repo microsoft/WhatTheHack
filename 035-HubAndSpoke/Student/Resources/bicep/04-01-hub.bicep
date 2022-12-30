@@ -82,6 +82,17 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
+//grant user identity permissions to read storage account resource
+resource roleAssignmentUMIReader 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(resourceGroup().id, userAssignedIdentity.id, storageAccount.id, 'Reader and Data Access')
+  properties: {
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'c12c1c16-33a1-487b-954d-41c89c60f349') // Reader and Data Access
+    principalId: userAssignedIdentity.properties.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+
+// grant user identity permissions to read storage account data
 resource roleAssignmentUMIStorageData 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(resourceGroup().id, userAssignedIdentity.id, storageAccount.id, 'data')
   properties: {
@@ -132,6 +143,11 @@ resource accessPolicy 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
 resource containerCertRequester 'Microsoft.ContainerInstance/containerGroups@2022-09-01' = if (useSelfSignedCertificate == false) {
   name: 'wth-container-certrequester01'
   location: location
+  dependsOn: [
+    roleAssignmentUMIReader
+    roleAssignmentUMIStorageData
+    roleAssignmentUMIKeyVault
+  ]
   identity: {
     type: 'UserAssigned'
     userAssignedIdentities: {
@@ -328,6 +344,11 @@ resource deploymentScriptCertUploader 'Microsoft.Resources/deploymentScripts@202
 resource deploymentScriptSelfSignedCert 'Microsoft.Resources/deploymentScripts@2020-10-01' = if (useSelfSignedCertificate) {
 name: 'wth-dscript-genselfsignedcert01'
 location: location
+dependsOn: [
+  roleAssignmentUMIReader
+  roleAssignmentUMIStorageData
+  roleAssignmentUMIKeyVault
+]
 kind: 'AzurePowerShell'
 identity: {
   type: 'UserAssigned'
