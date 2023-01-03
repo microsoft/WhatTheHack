@@ -66,6 +66,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Networking with Hub & Spoke](/035-HubAndSpoke/README.md)
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
+- [Azure Route Server](/057-AzureRouteServer/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [Azure Virtual Desktop](/037-AzureVirtualDesktop/README.md)
@@ -84,6 +85,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
 - [Azure Integration Services - API Management with Function Apps](/050-AIS-APIManagementwithFunctions/README.md)
 - [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
+- [Power Platform Basics](/058-PowerPlatformBasics/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
@@ -99,6 +101,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Load Testing](/054-AzureLoadTesting/README.md)
 
 ## Data & AI
+- [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
 - [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
@@ -130,10 +133,14 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
+- [Azure Route Server](/057-AzureRouteServer/README.md)
 
 ## SAP on Azure
 - [SAP on Azure](/042-SAPOnAzure/README.md)
 - [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
+
+## Power Platform
+- [Power Platform Basics](/058-PowerPlatformBasics/README.md)
 
 ## Archived
 
