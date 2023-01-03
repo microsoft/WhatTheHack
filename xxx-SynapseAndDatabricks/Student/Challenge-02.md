@@ -1,4 +1,4 @@
-# Challenge 02 - Striving for Silver
+# Challenge 02 - Standardizing on Silver
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
@@ -47,7 +47,7 @@ To complete this challenge successfully, you should be able to:
 - Showcase how to utilize delta lake versioning and time travel.
 
 ## Learning Resources
-The following links may be useful to achieving the success crieria listed above.
+The following links may be useful to achieving the success criteria listed above.
 - [Data flows in Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/concepts-data-flow-overview) 
 - [Extract, transform, and load data by using Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) 
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
@@ -61,4 +61,4 @@ The following links may be useful to achieving the success crieria listed above.
 
 ## Bonus Challenges 
 - Brainstorm about how Azure Databricks and Azure Synapse can work together to help deliver this use case more efficiently.
-- As part of your pipeline, find a way to archive the Raw Zone files that have already been loaded into the Silver Zone by moving them to a seperate area.
+- As part of your pipeline, find a way to archive the Raw Zone files that have already been loaded into the Silver Zone by moving them to a separate area.
