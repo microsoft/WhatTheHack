@@ -6,9 +6,8 @@
 
 Do not have the squads worry about duplicate customers/ products between systems, but they should be concerned about duplicate IDs.  Make sure that they review [Azure Databricks Tutorial: Delta Lake](https://learn.microsoft.com/en-us/azure/databricks/delta/tutorial) to understand how they create Delta Tables and how to Upsert to the Delta Tables.  That will help them understand why IDs are important.
 
-Most of the students would gravitate towards using Azure Synapse Dataflows for this challenge.  
-Based on the requirements of the challenge, it would be a good idea for them to familiarize themselves with the transformation options available.  
-Example dataflows for both data sets are provided below as a reference:
+If your students are interested in using Azure Synapse Dataflows for this challenge, it would be a good idea for them to familiarize themselves with the transformation options available in the [Mapping data flow transformation overview](https://learn.microsoft.com/en-us/azure/data-factory/data-flow-transformation-overview?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext).  
+Example dataflows for both data sets are also provided below as a reference:
   
 ![picture alt](./Solutions/Challenge2a_Example.png)
   
