@@ -35,7 +35,7 @@ To complete this challenge successfully, you should be able to:
   
 
 ## Learning Resources
-The following links may be useful to achieving the success crieria listed above.
+The following links may be useful to achieving the success criteria listed above.
 - [Visualizations in Power BI reports](https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-report-visualizations)
 - [How to connect Azure Synapse to Power BI for data visualization](https://techcommunity.microsoft.com/t5/educator-developer-blog/how-to-connect-azure-synapse-to-power-bi-for-data-visualization/ba-p/3614555) 
 - [Azure Databricks - Connect to Power BI](https://learn.microsoft.com/en-us/azure/databricks/partners/bi/power-bi#connect-to-power-bi-desktop-manually)

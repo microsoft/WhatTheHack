@@ -28,7 +28,7 @@ Things to keep in mind about data in the Bronze layer:
 - __Data Landed in Native Format​__  
   In an effort to load data as-is, we often keep the data format in the Raw Layer the same as it is in the source. This means our Raw Layer often has CSV and TXTs, depending on the type of source.  
   That being said, if we manage to bring in the data in Parquet format instead, that would be an added bonus.
-- __Additonal Checks__  
+- __Additional Checks__  
   - Schema Validated​  
   - Lake Hierarchy Applied​  
   - Timeliness Assessed​  
@@ -56,7 +56,7 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-The following links may be useful to achieving the success crieria listed above.
+The following links may be useful to achieving the success criteria listed above.
 
 - [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
@@ -65,5 +65,5 @@ The following links may be useful to achieving the success crieria listed above.
 - [Azure Databricks - Secret Scopes](https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes)
 
 ## Bonus Challenge
-- Implement incremental pipeline functionality to only receive newly inserted, updated or deleted records from the source system and specifiy the tables needed to copy so as to only run one master pipeline for all source tables per database.  For more on this topic check out [Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal](https://learn.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal).
+- Implement incremental pipeline functionality to only receive newly inserted, updated or deleted records from the source system and specify the tables needed to copy so as to only run one master pipeline for all source tables per database.  For more on this topic check out [Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal](https://learn.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal).
 

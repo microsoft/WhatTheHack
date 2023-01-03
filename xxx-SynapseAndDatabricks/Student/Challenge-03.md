@@ -35,7 +35,7 @@ To complete this challenge successfully, you should be able to:
 - Showcase column level security / data masking within the data.  It is up to the team to decide on how this will be applied with regards to the table/columns and how it is implemented amongst users.
 
 ## Learning Resources
-The following links may be useful to achieving the success crieria listed above.
+The following links may be useful to achieving the success criteria listed above.
 - [What is dedicated SQL pool?](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) 
 - [Introduction to datamarts](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-overview)
 - [What is a Databricks SQL warehouse?](https://learn.microsoft.com/en-us/azure/databricks/sql/admin/sql-endpoints)

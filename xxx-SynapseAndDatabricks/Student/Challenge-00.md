@@ -19,8 +19,6 @@ We have compiled a list of common tools and software that will come in handy to 
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
-
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
 - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)

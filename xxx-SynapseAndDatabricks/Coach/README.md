@@ -29,7 +29,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Additional Coach Prerequisites
 
-The purpose of this hackathon is for the particpants to utilize the three-tier data lake architecture to combine different data sources into one Delta Lake architecture that can be utilized.  
+The purpose of this hackathon is for the participants to utilize the three-tier data lake architecture to combine different data sources into one Delta Lake architecture that can be utilized.  
 
 For Challenge 0, they will need to import data from both the AdventureWorks and WideWorldImporters databases into the Bronze layer.  Thus, for the hackathon you must setup these databases in an Azure SQL environment so that the users can connect to these are a source.  We want the users to focus on Databricks and Synapse technologies and not be responsible for setting up these databases.
 
@@ -59,7 +59,7 @@ Each team/squad will collaborate in one Student's Azure subscription.  The subsc
 
 ## Session Guidance 
 
-This What the Hack was cdesigned and executed for a remote/virtual audience.
+This What the Hack was designed and executed for a remote/virtual audience.
 
 We initially conducted this hackathon in three - 4 hour sessions for a total of 12 hours. It was done over a three week period with each session being conducted on a Friday.
 
@@ -75,7 +75,7 @@ We initially conducted this hackathon in three - 4 hour sessions for a total of 
   - Challenge 3 - Go for the Gold
   - Challenge 4 - Visualize the Results
 
-We also had the attendees fill out a survey during registration to guage their expertise and we made sure that each team was balanced with experts and beginners using the following questions:
+We also had the attendees fill out a survey during registration to gauge their expertise and we made sure that each team was balanced with experts and beginners using the following questions:
 
 - Experience Level with ADF/ Synapse Pipelines (100=Newbie -> 400=SME)
 - Experience Level with ADF/Synapse Data Flows
@@ -85,8 +85,6 @@ We also had the attendees fill out a survey during registration to guage their e
 Answers were single select options of 100/200/300/400
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files

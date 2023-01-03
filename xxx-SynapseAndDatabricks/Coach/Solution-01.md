@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-For this section, there are 2 main concepts that the particpants need to be able to showcase and articulate:
+For this section, there are 2 main concepts that the participants need to be able to showcase and articulate:
 
 1. __Proper setup of the environment__<br>
    a. They should decide on a Resource Group within one user's subscription.<br>
