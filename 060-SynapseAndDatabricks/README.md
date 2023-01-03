@@ -1,10 +1,10 @@
-![picture alt](img/WTH.png)
-
-# What The Hack | Bronze-Silver-Gold using Synapse and Databricks
+# What The Hack | Bronze-Silver-Gold Using Synapse and Databricks
 
 ## Introduction
 
 With many customers moving towards a modern three-tiered Data Lake architecture it is imperative that we understand how to utilize Synapase and Databricks to build out the bronze, silver and gold layers to serve data to Power Bi for dashboards and reporting while also ensuring that the bronze and silver layers are being hydrated correctly for ML/AI workloads.
+
+![picture alt](img/WTH.png)
 
 ## Learning Objectives
 

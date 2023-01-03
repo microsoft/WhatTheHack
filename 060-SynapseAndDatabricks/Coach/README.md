@@ -1,8 +1,8 @@
-# What The Hack - Bronze-Silver-Gold-Using-Synapse-and-Databricks - Coach Guide
+# What The Hack - Bronze-Silver-Gold Using Synapse and Databricks - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the Bronze-Silver-Gold-Using-Synapse-and-Databricks What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Bronze-Silver-Gold Using Synapse and Databricks What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](./Bronze-Silver-Gold.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
