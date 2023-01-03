@@ -6,11 +6,7 @@
 
 When it comes to visualizations, there isn't really a wrong answer. The students can try out any metrics and visuals that makes sense to them.
   
-The most obvious example looking at the Sales data could be a breakdown of the Product sales by area, or quantity or maybe revenue too.
-In that case we could use visualizations such as a choropleth map and a treemap.
-The solution could look something like this:
-  
-![picture alt](./Solutions/Challenge4_Example.png)
+The most obvious example looking at the Sales data could be a breakdown of the Product sales by quantity or revenue.  In that case we could use visualizations such as a choropleth map and a treemap.  If they are utilizing customer data, it could be a map of customers by state.
   
 __Bonus Challenge__:  
 For the bonus challenge, both Azure Synapse and Azure Databricks have basic visualizations available as well.  
