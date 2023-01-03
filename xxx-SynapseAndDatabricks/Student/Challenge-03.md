@@ -11,7 +11,7 @@ In the Gold Layer we expect the data to be ready for consumption for the busines
 ## Description
 Some of the things we try to achieve within the Gold layer are
 - __Consumer Specific Data Models__  
-  One of the ways of getting the data ready for consumption is molding it into a data model that allows for quick and efficient access while being scalable as well. This can be achieved by using Azure Synapse Dedicated Pools, Databricks SQL or PowerBI Data marts, depending on your use cases.
+  One of the ways of getting the data ready for consumption is molding it into a data model that allows for quick and efficient access while being scalable as well. This can be achieved by using Azure Synapse Dedicated Pools, Databricks SQL or Power BI Data marts, depending on your use cases.
 - __Enforce Quality__  
   We have introduced some standardizations on the Silver Layer already but it's important to remember that the Gold layer will be the version of truth that is exposed to customer dashboards and other downstream reporting systems. So, we want to make sure that the data is consumable and clean, not just in terms of the data quality of specific fields but in terms of the entire data presented. We can do things like adding filters to reduce the amount of data being pushed forward if it does not benefit that consumer's use cases and we can aggregate data where applicable too.
 - __Security__  
