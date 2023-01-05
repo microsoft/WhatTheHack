@@ -22,3 +22,9 @@ This is **PATH A**. Use this path if your students want to understand what's inv
         - `docker push peteacr01.azurecr.io/wthaks/content-api`
 - To list images in the repository, use:
     - `az acr repository list --name <name of ACR>`
+
+## Videos
+
+### Challenge 2A solution
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/WHp11brQEXY/0.jpg)](https://youtu.be/WHp11brQEXY "Challenge 2A solution")

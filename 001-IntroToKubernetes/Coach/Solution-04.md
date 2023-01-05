@@ -45,3 +45,9 @@
 	- To verify the API app is working you need to curl the /speakers endpoint:
 		- `curl http://localhost:3001/speakers`
     - They should see a huge JSON document printed to the screen.
+
+## Videos
+
+### Challenge 4 solution
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/I21cHpsDaps/0.jpg)](https://youtu.be/I21cHpsDaps "Challenge 4 solution")
