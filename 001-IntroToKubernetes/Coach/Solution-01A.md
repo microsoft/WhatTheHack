@@ -85,5 +85,13 @@ One of the tasks in this challenge is, prior to building the docker images, is t
     	- kills all dangling images
 - `sudo netstat -at | less` is useful to see what ports are running. This may help students with troubleshooting.
 
+## Videos
 
+### Challenge 1A Solution - Part 1: Virtual Machines
+
+[![IMAGE ALT TEXT](https://img.youtube.com/vi/gA5WbjwDKLA/0.jpg)](https://youtu.be/gA5WbjwDKLA "Challenge 1A Solution, part 1: VM")
+
+### Challenge 1A Solution - Part 2: Containers
+
+[![IMAGE ALT TEXT](https://img.youtube.com/vi/Tqf3s3MZyuc/0.jpg)](https://youtu.be/Tqf3s3MZyuc "Challenge 1A Solution, part 1: Containers")
 
