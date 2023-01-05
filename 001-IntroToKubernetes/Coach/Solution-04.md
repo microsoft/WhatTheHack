@@ -48,6 +48,6 @@
 
 ## Videos
 
-### Challenge 4 solution
+### Challenge 4 Solution
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/I21cHpsDaps/0.jpg)](https://youtu.be/I21cHpsDaps "Challenge 4 solution")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/lVxsk8dQafo/0.jpg)](https://youtu.be/lVxsk8dQafo "Challenge 4 solution")
