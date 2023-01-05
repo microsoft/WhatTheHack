@@ -87,9 +87,7 @@ One of the tasks in this challenge is, prior to building the docker images, is t
 
 ## Videos
 
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/KKgQsH7OApI/0.jpg)]
-(https://youtu.be/KKgQsH7OApI)
+[![IMAGE ALT TEXT](https://img.youtube.com/vi/KKgQsH7OApI/0.jpg)](https://youtu.be/KKgQsH7OApI)
 
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/Lrw8JdWS33E/0.jpg)]
-(https://youtu.be/Lrw8JdWS33E)
+[![IMAGE ALT TEXT](https://img.youtube.com/vi/Lrw8JdWS33E/0.jpg)](https://youtu.be/Lrw8JdWS33E)
 
