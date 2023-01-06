@@ -10,7 +10,7 @@ Each code sample includes a README.md file describing how to build the project (
 
 
 - [Web Application](https://github.com/Azure/fta-identity/blob/master/identity-applications/articles/modernize-intranet-webapp.md)
-- 
+
 - [Single Page Application](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/blob/main/1-Authentication/1-sign-in/README.md) 
 
 - [Desktop(Console) Application](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/1-Calling-MSGraph/1-1-AzureAD)
