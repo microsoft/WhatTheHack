@@ -42,7 +42,7 @@ Challenge 5: **[Integrate Azure AD authentication into an Azure App Service (Eas
 
 - Integrate Azure AD authentication into an Azure App Service (EasyAuth)
 
-Challenge 6: **[Integrate Azure AD authentication into an application](Student/05-integrate-app-service.md)**
+Challenge 6: **[Integrate Azure AD authentication into an application](Student/06-integrate-app-service.md)**
 
 - Integrate Azure AD authentication into an application
     - ASP.Net (Authorization Code Flow)
