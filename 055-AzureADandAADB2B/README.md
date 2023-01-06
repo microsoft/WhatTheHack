@@ -63,5 +63,5 @@ Challenge 6(optional): **[Deploy to Azure](Student/05-deploy-to-azure.md)**
 
 ## Contributors
 
-- Nicholas McCollum
 - Bappaditya Banerjee
+- Nicholas McCollum 
