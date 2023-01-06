@@ -12,8 +12,7 @@ Categories of security enablement are as follows:
 - SQL Auditing
 - Monitoring and alerting
 - Vulnerability Assessment/Advanced Threat Protection
-- Row/Column Level Security
-- Data Masking
+- Row/Column Level Security (i.e. Data Masking)
 - Managed Identity
 - Data Encryption
 
@@ -64,7 +63,7 @@ The intent is to not only to enable security features but also to understand wha
 1. Review and Create 
 1. After an alert has been created you can leverage SSMS to generate login failures to confirm email and text will be sent.  It may take 5-10 minutes before alerts will be sent after failures have been executed.  
 
-**Microsoft Defender**
+**Vulnerability Assessment/Advanced Threat Protection**
 
 1. Using Azure Portal navigate to “Microsoft Defender for Cloud” under Security pane within the Synapse Workspace SQL Pool 
 1. Next to “Enablement Status” click the “Enabled at the workspace-level(Configure)” hyperlink 
