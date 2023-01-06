@@ -45,8 +45,30 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- Ability to create Azure resources
-- Ability to charge services to subscription.  Total cost per day is $30 is running 24x7
+- Azure resources that will be provisioned by a student implementing the hack's challenges
+	- Azure Data Factory
+	- Azure Synapse Workspace
+	- Azure Synapse Dedicated SQL Pool
+	- Azure Storage Account
+	- Azure Databricks Service
+	- Azure Container Instance (Running SQL Server & Data Generator)
+	- Azure Event Hubs
+	- Azure SQL Database
+
+- Azure permissions required by a student to complete the hack's challenges.
+	- Access to an Azure Subscription 
+	- Minimum access rights is Contributor for the resource group you are provisioning these services.
+
+- These will the the Resource Providers that need to be registered in the subscription
+	- Microsoft.Synapse
+	- Microsoft.Databricks
+	- Microsoft.StreamAnalytics
+	- Microsoft.Storage
+	- Microsoft.KeyVault
+	- Microsoft.Datafactory
+	- Microsoft.Sql
+	- Microsoft.EventHub
+	- Microsoft.ContainerInstance
 
 ## Suggested Hack Agenda
 
