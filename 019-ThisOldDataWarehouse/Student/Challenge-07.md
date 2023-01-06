@@ -29,7 +29,7 @@ The objective of this challenge is to implement Purview core features such as da
 - Verify the label applied to sensitive fields for your registered data sources, validate using catalog search and filtering.
 - Verify the lineage captured for an ADF copy job.
 
-## Learning resources
+## Learning Resources
 
 - [Quickstart: Create a Microsoft Purview (formerly Azure Purview) account - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal)
 - [How to manage multi-cloud data sources - Microsoft Purview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/purview/manage-data-sources)
