@@ -1,4 +1,4 @@
-# Challenge \#5 - Register an application in Azure AD
+# Challenge \#5 - Integrate Azure AD authentication into an Azure App Service (EasyAuth).
 
 [< Previous Challenge](./03-invite-guest.md) - **[Home](../README.md)** - [Next Challenge>](./05-integrate-app.md)
 
@@ -8,7 +8,7 @@ App Service provides built-in authentication and authorization support, so you c
 
 ## Success Criteria
 
-1. Integrate Azure AD authentication into an Azure App Service (EasyAuth).
+1. Your app service in configured with Azure AD authentication (EasyAuth).
 
 Please note that you might have to use Microsoft tenant as your newly created tenant will not have any subscription associated with.
 
