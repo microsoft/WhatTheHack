@@ -1,4 +1,4 @@
-# Challenge \#0 - Azure AD tenant Set up
+# Challenge \#1 - Azure AD tenant Set up
 
 **[Home](../README.md)** - [Next Challenge>](./01-register-app.md)
 

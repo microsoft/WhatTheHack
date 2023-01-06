@@ -1,4 +1,4 @@
-# Challenge \#5 - Deploy your app to Azure!!
+# Challenge \#7 - Deploy your app to Azure!!
 
 [< Previous Challenge](./05-integrate-app.md) - **[Home](../README.md)**
 ## Introduction

@@ -1,4 +1,4 @@
-# Challenge \#1 - Register an application in Azure AD
+# Challenge \#5 - Register an application in Azure AD
 
 [< Previous Challenge](./03-invite-guest.md) - **[Home](../README.md)** - [Next Challenge>](./05-integrate-app.md)
 

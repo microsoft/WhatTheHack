@@ -1,4 +1,4 @@
-# Challenge \#2 - Sign Me In!
+# Challenge \#3 - Sign Me In!
 
 [< Previous Challenge](./01-register-app.md) - **[Home](../README.md)** - [Next Challenge>](./03-invite-guest.md)
 

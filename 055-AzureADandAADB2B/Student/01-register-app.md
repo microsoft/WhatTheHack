@@ -1,4 +1,4 @@
-# Challenge \#1 - Register an application in Azure AD
+# Challenge \#2 - Register an application in Azure AD
 
 [< Previous Challenge](./00-tenant-setup.md) - **[Home](../README.md)** - [Next Challenge>](./02-test-sign-in.md)
 

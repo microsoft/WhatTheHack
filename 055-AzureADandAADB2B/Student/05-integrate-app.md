@@ -1,4 +1,4 @@
-# Challenge \#4 - Integrate your application with Azure AD
+# Challenge \#6 - Integrate your application with Azure AD
 
 [< Previous Challenge](./04-integrate-app-service.md) - **[Home](../README.md)** - [Next Challenge>](./06-deploy-to-azure.md)
 

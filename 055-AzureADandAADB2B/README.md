@@ -42,7 +42,7 @@ Challenge 5: **[Integrate Azure AD authentication into an Azure App Service (Eas
 
 - Integrate Azure AD authentication into an Azure App Service (EasyAuth)
 
-Challenge 5: **[Integrate Azure AD authentication into an application](Student/05-integrate-app-service.md)**
+Challenge 6: **[Integrate Azure AD authentication into an application](Student/05-integrate-app-service.md)**
 
 - Integrate Azure AD authentication into an application
     - ASP.Net (Authorization Code Flow)
@@ -51,7 +51,7 @@ Challenge 5: **[Integrate Azure AD authentication into an application](Student/0
 
 - un the app with your user and guest user 
 
-Challenge 6(optional): **[Deploy to Azure](Student/06-deploy-to-azure.md)**
+Challenge 7(optional): **[Deploy to Azure](Student/06-deploy-to-azure.md)**
 
 - Deploy to Azure
 - publish the Web App  to the web site, and
