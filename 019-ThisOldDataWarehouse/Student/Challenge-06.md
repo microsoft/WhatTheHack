@@ -15,12 +15,28 @@ Categories of security enablement are as follows:
 - SQL Auditing
 - Monitoring and alerting
 - Vulnerability Assessment/Advanced Threat Protection
-- Row/Column Level Security
-- Data Masking
+- Row/Column Level Security (i.e. Data Masking)
 - Managed Identity
 - Data Encryption
 
 The intent is to not only to enable security features but also to understand what each layer of security provides to communicate this to WWI leadership.
+
+**SQL Auditing**
+
+- SQL Auditing is enabled to ensure all existing and future created SQL Pools inherit activation. Logs need to be stored in a place that can be easily queried. Demonstrate as follows:
+  - Identify where last query originated from (i.e. SSMS) the last query to come from SSMS
+  - Identify the last user to query [Fact].[Sales]
+  - Count the number of failed logins for each user with a failed login
+
+**Monitoring and alerting**
+
+- Create an Alert that will send a text message and an email to you if a user has failed to login more than 5 times.
+
+**Vulnerability Assessment/Advanced Threat Protection**
+
+- Enable Microsoft Defender incorporating both Vulnerability Assessment and Advanced Threat Protection. Simulate advanced threat protection by generating sample alerts (If setup properly you should receive an email from Microsoft Defender).
+
+**Row/Column Level Security**
 
 You will need to create SQL users for scenario testing as follows:
 
@@ -34,21 +50,48 @@ You will need to create SQL users for scenario testing as follows:
  CREATE USER sqlauditadmin FOR LOGIN sqlauditadmin ; \
  EXEC sp\_addrolemember 'db\_owner', 'sqlauditadmin'; 
 
+- Secure [Fact].[Sale] to exclude SQL user "WWIConsultantNJ" and user "WWIConsultantAL" from viewing column "Profit".
+- Secure [Fact].[Sale] which will allow SQL user "WWIConsultantNJ" to only see rows including city of North Beach Haven, NJ and "WWIConsultantAL" to only see rows including city of Robertsdale, AL but still allowing "sqlauditadmin" to see all the data.
+- Secure [Fact].[Sale] where SQL User "WWIConsultantNJ" and "WWIConsultantAL" can see all tax related columns but data is masked or zeroed out (Tax Rate, Tax Amount, Total Excluding Tax,Total Including Tax).
+
+**Managed Identity**
+
+- An ADF job that will Copy [Fact].[Sale] to [Fact].[SaleCopy] using ADF Managed Identity for authentication/authorization.
+
+**Data Encryption**
+
+- Clearly understand how to properly set up customer managed TDE (Transparent Data Encryption) in a fashion where key is protected, monitored and versioned. This will be discussed in further detail as a group.
+
+
 ## Success Criteria
 
-- SQL Auditing is enabled to ensure all existing and future created SQL Pools inherit activation. Logs need to be stored in a place that can be easily queried. Demonstrate as follows:
-  - Identify where last query originated from (i.e. SSMS) the last query to come from SSMS
-  - Identify the last user to query [Fact].[Sales]
-  - Count the number of failed logins for each user with a failed login
+**SQL Auditing**
 
-&nbsp; &nbsp; &nbsp; &nbsp;Describe the benefits of leveraging SQL Auditing.
-- Active alerting that will send a text message and an email to you if a user has failed to login more than 5 times. Validate configuration works as expected.
-- Microsoft Defender is enabled incorporating both Vulnerability Assessment and Advanced Threat Protection. Fix critical items identified in Vulnerability Assessment. Simulate advanced threat protection by generating sample alerts (If setup properly you should receive an email from Microsoft Defender). Describe the benefit of both services within Defender.
-- Secure [Fact].[Sale] to exclude SQL user "WWIConsultantNJ" and user "WWIConsultantAL" from viewing column "Profit". Verify users are not able to view that column but can still query the rest.
-- Secure [Fact].[Sale] which will allow SQL user "WWIConsultantNJ" to only see rows including city of North Beach Haven, NJ and "WWIConsultantAL to only see rows including city of Robertsdale, AL but still allowing "sqlauditadmin" to see all the data. Validate changes work accordingly.
-- Secure [Fact].[Sale] where SQL User "WWIConsultantNJ" and "WWIConsultantAL" can see all tax related columns but data is masked or zeroed out (Tax Rate, Tax Amount, Total Excluding Tax,Total Including Tax). Validate changes work accordingly.
-- An ADF job that will Copy [Fact].[Sale] to [Fact].[SaleCopy] using ADF Managed Identity for authentication/authorization. Describe the security benefits of leveraging managed identity.
-- Describe the value of using TDE and advantages customer key provides vs. built-in. Clearly understand how to properly set up customer managed TDE in a fashion where key is protected, monitored and versioned. This will be discussed in further detail as a group.
+- Validate that SQL audit logs are being generated properly and stored in a destination that has the ability to execute complex queries.
+- Describe the benefits of leveraging SQL Auditing.
+
+**Monitoring and Alerting**
+
+- Validate alert creation and that alert will send a text and email upon triggering.
+
+**Advanced Threat Protection/Vulnerability Assessment**
+
+- Verify all critical items identified in Vulnerability Assessment have been resolved.
+- Verify sample alerts from Advanced Protection were sent appropriately.
+- Describe the benefit of both services.
+
+**Row/Column Level Security**
+
+- Validate row/column level security changes by leveraging previously created test users to ensure security changes are effective.
+
+**Managed Identity**
+
+- Validate that an ADF job can properly access the database using Managed Identity only.
+- Describe the security benefits of leveraging Managed Identity.
+
+**Data Encryption**
+
+- Describe the value of using TDE and advantages customer key provides vs. built-in.
 
 ## Learning resources
 
