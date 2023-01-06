@@ -1,6 +1,6 @@
 # Challenge \#3 - Invite Guest Users in Azure AD tenant
 
-[< Previous Challenge](./02-test-sign-in.md) - **[Home](../README.md)** - [Next Challenge>](./04-integrate-app.md)
+[< Previous Challenge](./02-test-sign-in.md) - **[Home](../README.md)** - [Next Challenge>](./04-integrate-app-service.md)
 
 ## Introduction
 

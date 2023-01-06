@@ -1,6 +1,6 @@
 # Challenge \#5 - Deploy your app to Azure!!
 
-[< Previous Challenge](./04-integrate-app.md) - **[Home](../README.md)**
+[< Previous Challenge](./05-integrate-app.md) - **[Home](../README.md)**
 ## Introduction
 
 Modern authentication protocols allow you to decouple from Windows and Active Directory, instead allowing any person in the organization to sign in to a web application from any device - as long as it has internet connectivity.

@@ -11,12 +11,10 @@ After the app is registered, it's given a unique identifier that it shares with 
 ## Success Criteria
 
 1. Your app is registered in Azure Active Directory.
-2. You will know about Multi-tenant apps, Service Principals, authentication vs authorization, security tokens.
+
 
 ## Learning Resources
 
 - [Register an application with the Azure AD?](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
 - [Security Best Practices](https://learn.microsoft.com/en-us/azure/active-directory/develop/security-best-practices-for-app-registration)
 - [Details of registered application](https://learn.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-applications-are-added)
-- [Modern Authentication](https://github.com/Azure/FTALive-Sessions/blob/main/content/identity/identity-for-applications-AAD/modern-authentication.md)
-- [Tokens in AAD](https://learn.microsoft.com/en-us/azure/active-directory/develop/security-tokens)

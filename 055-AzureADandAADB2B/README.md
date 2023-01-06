@@ -23,14 +23,14 @@ Challenge 1: **[Azure AD Tenant set-up](Student/00-tenant-setup.md)**
 - Create an Azure AD Tenant
 - Azure AD  Single Tenant setup
 
-Challenge 2: **[Register new application and integrate Azure AD authentication into an Azure App Service](Student/01-register-app.md)**
+Challenge 2: **[Register new application](Student/01-register-app.md)**
 
-- Register new application  -
-- Integrate Azure AD authentication into an Azure App Service (EasyAuth)
+- Register new application in Azure AD tenant
+- Understand the concept about Multi-tenant apps, Service Principals, authentication vs authorization, security tokens
 
 Challenge 3: **[Test the sign-in](Student/02-test-sign-in)**
 
-- Supported account types to Accounts in this organizational directory only (single-tenant) With redirect link authr.biz 
+- Supported account types to Accounts in this organizational directory only (single-tenant) With redirect link authr.biz
 - Use an authr link to test the sign in
 
 Challenge 4: **[Invite a guest user](Student/03-invite-guest.md)**
@@ -38,7 +38,11 @@ Challenge 4: **[Invite a guest user](Student/03-invite-guest.md)**
 - B2B set up/Invite a new guest user
 - Use an authr link to test the sign in  for the guest user/test sign in using the app set up
 
-Challenge 5: **[Integrate Azure AD authentication into an application](Student/04-integrate-app.md)**
+Challenge 5: **[Integrate Azure AD authentication into an Azure App Service (EasyAuth)](Student/04-integrate-app-service.md)**
+
+- Integrate Azure AD authentication into an Azure App Service (EasyAuth)
+
+Challenge 5: **[Integrate Azure AD authentication into an application](Student/05-integrate-app-service.md)**
 
 - Integrate Azure AD authentication into an application
     - ASP.Net (Authorization Code Flow)
@@ -47,7 +51,7 @@ Challenge 5: **[Integrate Azure AD authentication into an application](Student/0
 
 - un the app with your user and guest user 
 
-Challenge 6(optional): **[Deploy to Azure](Student/05-deploy-to-azure.md)**
+Challenge 6(optional): **[Deploy to Azure](Student/06-deploy-to-azure.md)**
 
 - Deploy to Azure
 - publish the Web App  to the web site, and

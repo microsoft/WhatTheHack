@@ -12,9 +12,8 @@ However, Azure AD is an open Identity Provider (IdP), which means you can also i
 
 ## Success Criteria
 
-1. You will have a new Azure AD tenant created.
-2. You will know the difference of Single tenant vs Multi Tenant.
-3. Your users are created in your tenant.
+1. You have a new Azure AD tenant created.
+2. Your users are created in your tenant. Please note that you should create local users in your AD tenant, guest users will be created later.
 
 
 ## Learning Resources
