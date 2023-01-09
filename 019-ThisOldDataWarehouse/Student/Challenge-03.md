@@ -44,16 +44,16 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 
 ## Tips
 
+- Optimize where possible by using dynamic code, and executing tasks in parallel.
+- Additional information on using Lookup Tasks and expressions in Azure Data Factory can be found [here](https://www.cathrinewilhelmsen.net/2019/12/23/lookups-azure-data-factory/)
 - There are multiple ways to load data via Polybase.  You could potentially use:
     - ["CTAS" with "External Tables"](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
     - ["Copy Command"](https://docs.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) in Azure Synapse Analytics or 
     - [Copy Data task in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse)
-- For MERGE process, you should reuse or replicate logic found in the Integration.MigratedStaged____Data stored procedures
-- Optimize where possible by using dynamic code, and executing tasks in parallel.
-- Additional information on using Lookup Tasks and expressions in Azure Data Factory can be found [here](https://www.cathrinewilhelmsen.net/2019/12/23/lookups-azure-data-factory/)
-- Add a new activity to your Synapse Pipeline to load data from the new Azure Data Lake into the [Integration].[City_Staging] in the Data Warehouse in Azure Synapse via Polybase (this will correlate to Step 6 in existing package described above). **Note: Be sure that table exists and is empty prior to loading**
-- Add an activity to execute the Get Lineage Key stored procedure so that the process can be logged (this will correlate to Step 3 in existing SSIS package described above)
-- Create another activity to merge the new data into the target table ([Dimension].[City]) from your staging table [Integration].[City_Staging] via existing stored procedure  (this correlates to Step 7 in existing SSIS package described above)
+    - Go to `Resources.zip` package and open `Challenge03` folder and execute the T-SQL script `prepExternalDataSource.sql` for a sample to load data via Polybase.
+- Add a new activity to your Synapse Pipeline to load data from the new Azure Data Lake into the [Integration].[City_Staging] in the Data Warehouse in Azure Synapse via Polybase (this will correlate to Step 6 in existing package described above). **Note: Be sure that table exists and is empty prior to loading**.  Review the sample T-SQL scripts `[proc_Integration.Ingest@@@Data]` in the `Resources.zip` package in folder `Challenge03`. There is a script for each table and for this challenge only run City script.
+- Add an activity to execute Create Lineage Key stored procedure so that the process can be logged (this will correlate to Step 3 in existing SSIS package described above).  Execute T-SQL script `proc_Integration.CreateLineageKey.sql` in the `Resources.zip` file provided by coach in the `Challenge03` folder.  This script will insert latest run times into load control table.
+- Create another activity to merge the new data into the target table ([Dimension].[City]) from your staging table [Integration].[City_Staging] via existing stored procedure  (this correlates to Step 7 in existing SSIS package described above). For MERGE process, you should reuse or replicate logic found in the Integration.MigratedStaged____Data stored procedures
 - Add another new activity to move the files to the .\RAW\WWIDB\[TABLE]\{YY}\{MM}\{DD}\ directory in your data lake once they have been loaded into your DW table (this is a new task that will allow your data to be persisted in your new data lake for further exploration and integration into downstream systems)
 
 ## Advanced Challenges (Optional)
@@ -61,8 +61,8 @@ The objective of this lab is to modernize the ETL pipeline that was originally b
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
 - Enhance the pipeline so that it can be used to load all tables.  Steps required for this would include:
-    - Update Azure Data Factory to use expressions and parameters wherever possible
-    - Add a ForEach Loop to iterate through all tables and execute your pipeline for each one (note: Dimensions need to be loaded prior to Facts)
+    - Update Azure Data Factory to use expressions and parameters wherever possible. Review. T-SQL script, `GetUpdates_wrapper.sql` in the `Resources.zip` file under folder `Challenge03` for guidance.
+    - Add a ForEach Loop to iterate through all tables and execute your pipeline for each one (note: Dimensions need to be loaded prior to Facts). Review T-SQL script, `PopulateETLCutoff.sql` in the `Resources.zip` file under folder `Challenge03` to learn the load dependencies in the ETL job.
 - Leverage [partition switching](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#partition-switching) for tables with large-scale modifications (UPDATES)
 - Refactor the T-SQL code in Polybase to leverage Python or Scala
 - Build out these data pipelines using Azure Mapping Data Flows
