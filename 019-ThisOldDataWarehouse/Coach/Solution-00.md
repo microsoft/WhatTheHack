@@ -2,6 +2,18 @@
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
+## Source Materials
+
+Here is the reference documentation and links for the existing Wide World Importers data warehouse samples.  We used this as our baseline to build out this WhatTheHack.  The SSIS package available in this repo was upgraded to SQL Server 2017 to support SSIS Integration runtime and removed all columns with incompatible data types.  Otherwise all routines, workflows, stored procedures calls and connections are used from the original source.  We did not make any modifications to the SQL Server database files for OLTP or OLAP workloads.
+
+[Wide World Importers source code & data](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
+
+[OLTP Database Catalog](https://learn.microsoft.com/en-us/sql/samples/wide-world-importers-oltp-database-catalog?view=sql-server-ver16)
+
+[OLAP Database Catalog](https://learn.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
+
+[SSIS Workflow to load data](https://learn.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
+
 ## Notes & Guidance
 
 ### Deploy Source Databases
@@ -25,6 +37,6 @@ The SSIS catalog will be deployed to the Azure SQL Database (SSISDB) as it provi
 
 A common reason for the SSIS Runtime startup failure is restarting the scripts without proper cleanup.  If the script already provisioned the SSISDB Catalog this might cause the configuration in the SSIS Runtime environment to be incorrect.  You are able to edit the configuration in Azure Data Factory for the SSIS DB catalog to fix any startup issues.
 
-## On-premise Data Warehouse Architecture at startup of WhatTheHack.
+## On-premise Data Warehouse Architecture
 
 ![Here are the service deployed to kickoff the WTH](../Coach/images/current.png)
