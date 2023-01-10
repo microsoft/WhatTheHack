@@ -9,6 +9,7 @@ The WTH philosophy intends to have students learn by doing, and recognizes that 
 - Students who will not be completing a challenge which is a prerequisite to a later challenge
 - Students who are falling behind in the WTH due to issues unrelated to the core learning goals of this WTH
 - Students looking for a reference implementation to compare against their own approach
+- Coaches looking to deploy a reference architecture to the lab
 
 ## Using these templates
 
