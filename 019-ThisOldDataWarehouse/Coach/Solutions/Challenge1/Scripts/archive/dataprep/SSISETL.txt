@@ -1,5 +1,0 @@
-https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/Daily.ETL.ispac
-
-	[Daily.ETL.ispac] == Prebuilt SSIS jobs for World Wide Importers
-
---Setup Azure Data Factory SSIS Runtime Environment.  Published this project into an Azure SQL DB catalog

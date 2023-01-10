@@ -1,5 +1,0 @@
-az login
-az account set --subscription {ENTER SUBSCRIPTION NAME}
-az group create --location eastus2 --name {ENTER RESOURCE GROUP NAME}
-az container create -g {ENTER RESOURCE GROUP NAME} --name mdwhackdb --image alexk002/sqlserver2019_demo:1  --cpu 2 --memory 7 --ports 1433 --ip-address Public
-az deployment group create --name final --resource-group {ENTER RESOURCE GROUP NAME} --template-file template.json --parameters parametersFile.json

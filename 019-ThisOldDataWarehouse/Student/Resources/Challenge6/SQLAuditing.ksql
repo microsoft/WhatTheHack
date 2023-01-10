@@ -1,0 +1,41 @@
+//Count Failed logins by person 
+SQLSecurityAuditEvents 
+| where ActionName == 'DATABASE AUTHENTICATION FAILED'
+| where TimeGenerated >= ago(1d)
+| summarize failedlogin = count() by ServerPrincipalName,HostName
+
+//Show last query from SMSS 				
+SQLSecurityAuditEvents
+| where Category == 'SQLSecurityAuditEvents'
+| where _ResourceId == '****************'
+| where ApplicationName has "Microsoft SQL Server Management Studio"
+| project
+    EventTime,
+    Statement,
+    Succeeded,
+    AffectedRows,
+    ServerPrincipalName,
+    ClientIp,
+    ApplicationName,
+    AdditionalInformation,
+    DataSensitivityInformation
+| order by EventTime desc
+| take 1
+
+//Show Last query that touched [Fact].[Sale]
+SQLSecurityAuditEvents
+| where Category == 'SQLSecurityAuditEvents'
+| where _ResourceId == '****************'
+| where Statement has "[Fact].[Sale]"
+| project
+    EventTime,
+    Statement,
+    Succeeded,
+    AffectedRows,
+    ServerPrincipalName,
+    ClientIp,
+    ApplicationName,
+    AdditionalInformation,
+    DataSensitivityInformation
+| order by EventTime desc
+| take 1
