@@ -25,9 +25,9 @@ The following diagram depicts an application requesting the secret called "mysec
 
 Note the blue-colored Dapr secrets building block that sits between the application and secret stores.
 
-*For this challenge you'll use a file-based local secret store component. Local stores are meant for development or testing purposes. Never use them in production!*
+_For this challenge you'll use a file-based local secret store component. Local stores are meant for development or testing purposes. Never use them in production!_
 
-*Alternatively, you can implement Azure KeyVault as your secret store in this challenge.*
+_Alternatively, you can implement Azure KeyVault as your secret store in this challenge._
 
 Another way of using secrets, is to reference them from Dapr configuration files. You will use both approaches in this challenge.
 
@@ -36,7 +36,7 @@ To learn more about the secrets building block, read the [introduction to this b
 Update the services to use a Dapr secrets buildling block.
 
 - Create a local JSON file & add the following credentials:
-  - SMTP credentials (from the *email** Dapr component configured in [Challenge-05](./Challenge-05.md)).
+  - SMTP credentials (from the \*email\*\* Dapr component configured in [Challenge-05](./Challenge-05.md)).
   - License key (from the `Resources\FineCollectionService\Controllers\CollectionController.cs` code file).
 - Create a Dapr configuration file for the **local** secret store JSON file.
 - Modify the **email** Dapr component configured in [Challenge-05](./Challenge-05.md) to use this new secret store instead of having the SMTP credentials hard-coded in the configuration file.
@@ -62,9 +62,18 @@ This challenge targets the operation labeled as **number 6** in the end-state se
 ## Tips
 
 - Use a flat file to store secrets when working locally.
+- Use scopes to restrict which service needs to read the secrets
 - Use [Azure KeyVault](https://docs.microsoft.com/en-us/azure/key-vault/general/) when deploying to Azure.
+- Create a Azure AD service principal for the Dapr sidecar to use to access the KeyVault.
+
+  ```shell
+  az ad sp create-for-rbac --name dapr-trafficcontrol
+  az ad sp list --display-name dapr-trafficcontrol
+  az keyvault set-policy --name kv-daprEventify-ussc-dev --object-id <your-service-principal-id> --secret-permissions get list
+  ```
 
 ## Learning Resources
+
 - [Dapr Building Blocks - Secrets](https://docs.dapr.io/developing-applications/building-blocks/secrets/)
 - [Dapr for .NET developers - Secrets](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/secrets)
 - [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/)
