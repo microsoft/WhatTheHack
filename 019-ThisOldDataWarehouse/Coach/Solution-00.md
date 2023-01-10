@@ -22,7 +22,7 @@ WWI runs their existing database platforms on-premise with SQL Server 2019. Ther
 
 For this challenge, you will deploy the WWI databases and an initial set of Azure resources needed to complete the hack's challenges using a provided deployment script and ARM Template. We STRONGLY recommend you complete this challenge using the Azure Cloud Shell.
 
-You will find the provided deployment script (hacksetup.sh), ARM Template (deployHack.json), and parameters file (deployHackParameters.json) in the /Challenge0/ folder of the Resources.zip file provided to your by your coach.
+Students will find the provided deployment script (`hacksetup.sh`), ARM Template (`deployHack.json`), and parameters file (`deployHackParameters.json`) in the `/Challenge0/` folder of the `Resources.zip` file that coaches must create from the contents of the `/Student/Resources` folder of this hack of the repo.
 
 ###  Azure Resources
 
