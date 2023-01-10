@@ -11,7 +11,7 @@ Azure Active Directory (Azure AD) B2B collaboration is a feature within External
 ## Success Criteria
 
 1. Your new guest user is invited.
-2. Invited user have received and accepted the invitation.
+2. Invited user has received and accepted the invitation.
 3. Sign in with the guest user account is successful(using [Authr](https://authr.biz/)).
 
 

@@ -48,7 +48,7 @@ Challenge 6: **[Integrate Azure AD authentication into an application](Student/0
 
 - Integrate Azure AD authentication into an application
     - ASP.Net (Authorization Code Flow)
-    - SPA (React / Angular) (PKCI)  
+    - SPA (Angular) (PKCI)  
     - Desktop application (Client Credential Flow)
 
 - Run the app with your user and guest user 

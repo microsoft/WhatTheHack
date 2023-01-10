@@ -11,9 +11,9 @@ During this scenario, you will modernize an existing intranet web application fr
 
 ## Success Criteria
 
-1. Your app is deployed to Azure App Service.
-2. The redirect URL of Azure Active Directory App should be configured with Azure App service URL.
-3. User could sign in your azure app with Azure AD credentials.
+1. Your app is deployed to an Azure App Service.
+2. The redirect URL of Azure Active Directory app registration should be configured with the Azure App service URL.
+3. User can sign in to your Azure app with Azure AD credentials.
 
 ## Learning Resources
 

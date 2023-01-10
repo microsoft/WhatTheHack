@@ -6,7 +6,7 @@
 
 The code samples are built and maintained by Microsoft to demonstrate usage of our authentication libraries with the Microsoft identity platform. Common authentication and authorization scenarios are implemented in several application types, development languages, and frameworks.
 
-Each code sample includes a README.md file describing how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
+Each tutorial / walkthrough describes how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
 
 
 - Web Application
@@ -15,7 +15,7 @@ Each code sample includes a README.md file describing how to build the project (
 
 - [Single Page Application](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code) 
 
-- [Desktop(Console) Application](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-desktop)
+- [Desktop Application](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-desktop)
 
 
 
