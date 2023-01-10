@@ -26,7 +26,7 @@ Students will find the provided deployment script (`hacksetup.sh`), ARM Template
 
 ###  Azure Resources
 
-The 'hacksetup.sh' file will setup an;
+The `hacksetup.sh` file will setup an:
 - Azure Container Instance as described above
 - Azure Data Factory with SSIS Integration runtime
 - Azure SQL Database.  
