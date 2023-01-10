@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this what the hack, participants will learn what Azure Active Directory (AAD) is and how to use this service to implement Modern Authentication in your applications.
+In this what the hack, participants will learn what Azure Active Directory (AAD) is and how to use this service to implement modern authentication in their applications.
 
 This hack is useful for identity architects and developers who want to integrate their solutions with the Microsoft Identity Platform to allow organizational users as well as external identities to sign in to their custom developed applications.
 
@@ -13,7 +13,7 @@ This hack is useful for identity architects and developers who want to integrate
 - Register an application with Azure Active Directory
 - Invite a guest user to an Azure Active Directory tenant
 - Integrate Azure Active Directory authentication into an Azure App Service using App Service Authentication (EasyAuth)
-- Understand how to integrate Azure Active Directory authentication into an application (SPA / ASP.NET /Desktop, etc.) via code.
+- Understand how to integrate Azure Active Directory authentication into an application (ASP.Net / SPA / Desktop, etc.) via code.
 - Deploy your Azure Active Directory authenticated application to Azure
 
 
