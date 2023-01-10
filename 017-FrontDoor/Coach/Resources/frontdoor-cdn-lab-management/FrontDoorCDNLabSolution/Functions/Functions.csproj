@@ -4,7 +4,7 @@
     <AzureFunctionsVersion>v3</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DNS" Version="6.0.0" />
+    <PackageReference Include="DNS" Version="7.0.0" />
     <PackageReference Include="Microsoft.Azure.Management.Dns.Fluent" Version="1.33.0" />
     <PackageReference Include="Microsoft.Azure.Management.Fluent" Version="1.33.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.7" />
