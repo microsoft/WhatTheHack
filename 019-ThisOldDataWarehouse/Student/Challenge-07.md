@@ -56,7 +56,7 @@ The objective of this challenge is to implement Purview core features such as da
 - Name the Purview account wisely to simplify permission assignment and overall search.
 - While integrating ADF or Synapse with Purview, If the integration status is "Disconnected OR Unknown", then you need further troubleshooting in order to capture the lineage successfully.
 - Create a sample copy job (without stored procedure) to test the lineage feature, sample copy job example – Copy fact.sale to fact.salecopy table using ADF or Synapse Pipeline.
-- Create a custom classification to classify employee ID column in a Dimension.Employee table. Use sample data .csv file for regular expression configuration and testing.  `wwiemployee.csv` is the employee sample data .csv is in the `Resources.zip` file under `Challenge07` folder.  For further classification, the file `productnum-sample.csv` in the same location as employee data can be executed for your knowlege but not as a success criteria.
+- Create a custom classification to classify employee ID column in a Dimension.Employee table. Use the sample data .csv file for regular expression configuration and testing.  `wwiemployee.csv` is the employee sample data .csv file and is located in the `Resources.zip` file under the `Challenge07` folder.  For further classification, the file `productnum-sample.csv` in the same location as employee data can be executed for your knowlege but not as a success criteria.
 - Re-scan the data asset to see the effect of custom classification.
 - Use advanced filters in the data catalog to identify the table / column classification, use "\*" or specific keywords "City" based searching.
 
