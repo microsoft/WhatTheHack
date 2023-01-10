@@ -28,7 +28,7 @@ Challenge 2: **[Register new application](Student/01-register-app.md)**
 - Register new application in Azure AD tenant
 - Understand the concept about Multi-tenant apps, Service Principals, authentication vs authorization, security tokens
 
-Challenge 3: **[Test the sign-in](Student/02-test-sign-in)**
+Challenge 3: **[Test the sign-in](Student/02-test-sign-in.md)**
 
 - Supported account types to Accounts in this organizational directory only (single-tenant) With redirect link authr.biz
 - Use an authr link to test the sign in
