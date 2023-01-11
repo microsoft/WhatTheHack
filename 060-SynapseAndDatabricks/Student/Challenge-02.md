@@ -33,7 +33,7 @@ From an organizational standpoint, the Silver layer serves three main purposes:
 - Enrichment  
 As we have discussed above, the Silver layer is often where most of the effort is spent on wrangling the data into a meaningful state. Multiple sources are brought together, the data is refined, and we make sure that it is stored in the most efficient way possible so that the following layers can access data effectively. 
 - Discovery  
-Since the data on the Silver layer is cleaner and more organized, this is generally where most of the data discovery is done. This involves data engineers, data scientists, data analytics and even sometimes business users digging into the data directly to try to gain more context into the data available in the higher layers. The Silver layer provides a balance between the perk of having long term data retention (Bronze) and having more cleaner and organized data (Gold).
+Since the data on the Silver layer is cleaner and more organized, this is generally where most of the data discovery is done. This involves data engineers, data scientists, data analytics and even sometimes business users digging into the data directly to try to gain more context into the data available in the higher layers. The Silver layer provides a balance between the perk of having long term data retention (Bronze) and having cleaner and organized data (Gold).
 - Reusability    
 The Silver layer is also where reusable data sets are created and stored so that different teams creating different higher layers (data marts or warehouses) can reuse the same data sets without having to go through the trouble of creating it again themselves.
   
