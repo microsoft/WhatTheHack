@@ -5,7 +5,7 @@
 ## Introduction
 
 Thank you for participating in the Bronze-Silver-Gold-Using-Synapse-and-Databricks What The Hack.  
-In this hackathon we will visit an architectural style that is know by many different names:
+In this hackathon we will visit an architectural style that is known by many different names:
 - Bronze - Silver - Gold
 - Raw - Enriched - Curated
 - The Medallion Architecture
