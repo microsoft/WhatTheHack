@@ -59,7 +59,7 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 For this challenge, you will deploy the eShopOnWeb application and its underlying infrastructure resources to Azure using a set of pre-developed Bicep templates. Once the application and its infrastructure are deployed, you will complete the hack's challenges using Datadog to monitor it.
 
-### Deploy Resources
+### Deploy eShopOnWeb Azure Resources
 
 You will find the provided `main.bicep` template and its associated script files in the `/Challenge-00/` folder of the `Resources.zip` file provided to you by your coach. 
 
@@ -104,7 +104,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
     - **NOTE:** This deployment will take approximately 20-25 minutes.
 
-### View Deployed Resources
+### View Deployed eShopOnWeb Azure Resources
 
 - Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-XX** , in the Azure Portal.  
 - In the Overview blade, copy the DNS name to your clipboard.  
