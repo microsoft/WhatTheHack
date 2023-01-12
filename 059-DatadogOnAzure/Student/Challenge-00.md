@@ -141,22 +141,22 @@ Here's how to do it:
   - Click View account to see the full email address.
   - Use the password from the previous step.
 
-**TIP:** We recommend keeping the Datadog and Azure portals open in separate browser tabs for the duration of this workshop.
+  **TIP:** We recommend keeping the Datadog and Azure portals open in separate browser tabs for the duration of this workshop.
 
 #### Option 2 - Link An Existing Datadog Organization to Your Azure Subscription
 
 Things to consider:
 - Account creation and billing is done via the Datadog website.
-- You can only link Datadog organizations to Azure that are hosted in Datadog's "US3" site (which is hosted in Azure).
+- You can only link Datadog organizations to Azure that are hosted in Datadog's `US3` site (which is hosted in Azure).
 - Datadog offers a 14-day free trial when creating an account via their website.
 
-**TIP:** If you are completing this hack using a personal Azure subscription, we recommend creating a Datadog organization with a 14-day free trial, then linking it to Azure.
+  **TIP:** If you are completing this hack using a personal Azure subscription, we recommend creating a Datadog organization with a 14-day free trial, then linking it to Azure.
 
 Here's how to do it:
 
 - Go to the [Datadog website](https://www.datadoghq.com/) and click the "Free Trial" button on the homepage.
 - For the first question, (Where do you want your data housed?), please select "**United States (US3)**" and fill in the remaining questions on the web form. 
-- For the remaining integration, we will use the Azure Marketplace to link our trial Datadog organization to your Microsoft Azure subscription.
+- For the remaining integration, use the Azure Portal to link your trial Datadog organization to your Microsoft Azure subscription.
 - In the [Azure Portal](https://portal.azure.com), navigate to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
 - Follow the Microsoft documentation, [QuickStart: Link to existing Datadog Organization](https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/link-to-existing-organization), to complete the configuration.
 
