@@ -141,7 +141,7 @@ Here's how to do it:
   - Click View account to see the full email address.
   - Use the password from the previous step.
 
-  **TIP:** We recommend keeping the Datadog and Azure portals open in separate browser tabs for the duration of this workshop.
+**TIP:** We recommend keeping the Datadog and Azure portals open in separate browser tabs for the duration of this workshop.
 
 #### Option 2 - Link An Existing Datadog Organization to Your Azure Subscription
 
@@ -150,7 +150,7 @@ Things to consider:
 - You can only link Datadog organizations to Azure that are hosted in Datadog's `US3` site (which is hosted in Azure).
 - Datadog offers a 14-day free trial when creating an account via their website.
 
-  **TIP:** If you are completing this hack using a personal Azure subscription, we recommend creating a Datadog organization with a 14-day free trial, then linking it to Azure.
+**TIP:** If you are completing this hack using a personal Azure subscription, we recommend creating a Datadog organization with a 14-day free trial, then linking it to Azure.
 
 Here's how to do it:
 
