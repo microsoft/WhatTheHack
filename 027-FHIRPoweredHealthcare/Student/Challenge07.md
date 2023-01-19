@@ -1,66 +1,80 @@
-# Challenge 7: Bulk export, anonymize and store FHIR data into Data Lake
+# Challenge 7: Load DICOM Imaging Data
 
-[< Previous Challenge](./Challenge06.md) - **[Home](../readme.md)** - [Next Challenge>](./Challenge08.md)
+[< Previous Challenge](./Challenge06.md) - **[Home](../README.md)**
 
 ## Introduction
 
-In this challenge, you will explore bulk exporting, anonymizing and storing FHIR data into Data Lake. 
+In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (STOW-RS), Search (QIDO-RS), and Retrieve (WADO-RS).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliance boundary in the Azure Health Data Services workspace.
 
-The **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** is an open-source project that helps anonymize healthcare FHIR data, on-premises or in the cloud, for secondary usage such as research, public health, and more. This architecture uses multiple Azure services for creating an automated pipeline to process the bulk export and anonymization for FHIR. The goal of the template is to enable quick and continuous creation of research datasets while applying HIPAA safe harbor rules.
-
-<center><img src="../images/challenge07-architecture.jpg" width="550"></center>
-
-A Timer is used to trigger the Logic App which bulk exports data from FHIR and stores in a preset storage location. The Logic App loops on an adjustable 5 minute interval until Bulk Export finishes exporting all data from FHIR. Logic App runs Azure Data Factory which in triggers Azure Batch which performs the deidentification with the FHIR Tools for Anonymization. The deidentified data is stored in Azure Data Lake Gen 2 for further use. 
+Below is the overview of the **[DICOMcast synchronization pipeline](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-cast-overview)**:
+<center><img src="../images/challenge07-architecture.png" width="550"></center>
 
 ## Description
 
-You will deploy using the [Microsoft Health Architectures](https://github.com/microsoft/health-architectures/tree/master/Research-and-Analytics/FHIRExportwithAnonymization).
+You will deploy an instance of DICOM service in your Azure Health Data Service workspace, and configure it to ingest DICOM files for persistence in the DICOM service.  Its DICOMcast pipeline will synchronize image metadata to FHIR service (deployed in challenge 1), which will enable healthcare organizations to integrate clinical and imaging data.  DICOMcast expands the health data use cases by supporting a longitudinal patient data and creating cohorts for medical studies, analytics, and machine learning.
 
-- **Setup**
-    - **[Download or Clone the Microsoft Health Archtectures GitHub repo](https://github.com/microsoft/health-architectures)**
-    - Navigate to `health-architectures/Research-and-Analytics/FHIRExportwithAnonymization` and open the `./Assets/arm_template_parameters.json` file in your preferred JSON editor. Replace FHIR URL, client id, client secret, tenant id and export storage account with yours.
-    - Save & close the parameters file.
+- **Deploy a DICOM service instance within your Azure Health Data Services workspace (deployed in challenge 1).**
 
-- **Deploy**
-    - Log into Azure using PowerShell
-        ```powershell
-        Connect-AzAccount
-        Get-AzSubscription
-        Select-AzSubscription -SubscriptionId "<SubscriptionId>"
-        ```
-    - Navigate to the repo directory
-        ```powershell
-        cd health-architectures-master\Research-and-Analytics\FHIRExportwithAnonymization
-        ```
-    - Create variables and deploy
-        ```powershell
-        $EnvironmentName = "<NAME HERE>" #The name must be lowercase, begin with a letter, end with a letter or digit, and not contain hyphens.
-        $EnvironmentLocation = "<LOCATION HERE>" #optional input. The default is eastus2
- 
-        ./deployFHIRExportwithAnonymization.ps1 -EnvironmentName $EnvironmentName -EnvironmentLocation $EnvironmentLocation #Environment Location is optional
-        ```
-- **Validate deployment resources**
-    - Resource Group `{ENVIRONMENTNAME}`
-    - Azure Data Factory `{ENVIRONMENTNAME}adf`
-    - Batch Account `{ENVIRONMENTNAME}batch`
-    - Key Vault `{ENVIRONMENTNAME}kv`
-    - Logic App `{ENVIRONMENTNAME}la`
-    - Storage Account `{ENVIRONMENTNAME}dlg2`
+- **[Configure Azure roles for access to DICOM data](https://docs.microsoft.com/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)**
 
-- **Post-deployment setup**
-    - In Azure Portal, navigate to the FHIR Integration Storage Account entered in the parameters file in the Setup above. Locate the storage account 'Access key' blade under 'Settings'. Copy one of the connection strings. 
-    - Navigate to the new key vault `{ENVIRONMENTNAME}kv` deployed with the script. Open the key vault, locate 'Secrets' blade under 'Settings'. Click on the secret named 'blobstorageacctstring'. Then click "+ New Version". In the 'Value' box paste the connection string from the storage account. Then click the 'Create' button at the bottom the page. This will point the Azure Data Factory to the pre-configured FHIR Integration Storage Account.
-    - Navigate to the Logic App Logic App `{ENVIRONMENTNAME}la` deployed with the script and click Run Trigger. Click on the Running status in Runs History below in the same screen. The time taken to complete depends on the volume of data you have in Azure API for FHIR.
+  Hint: You will need to add the `DICOM Data Owner` role for yourself and the Postman service client (Service Principal created in challenge 1). 
 
-- **Validate export and anonymization** 
-    - Compare pre de-identified data in the container with the latest date in the Storage Account entered in the parameters file in the Setup above, and post de-identified data in the container with output as suffix in the Storage Account `{ENVIRONMENTNAME}dlg2` deployed with the script. Look for the container with output as suffix. 
+- **Import and configure Postman environment and collection files to connect to DICOM service.**  
+  - You can find the Postman template files (`WTHFHIR.Conformance-as-Postman.postman_collection.json` and `WTHFHIR.dicom-service.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
+  - Import the environment and collection template files into your Postman
+  - Configure Postman environment variables specific to your DICOM service instance
+    
+    Hint:
+
+    From your existing fhir-service Postman environment:
+    - tenantId - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
+    - clientId - Application (client) ID for Postman service client app.
+    - clientSecret - Client secret for your Postman app.
+
+    New values you need to input:
+    - resource - https://dicom.healthcareapis.azure.com
+    - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1
+
+- **Use DICOM service to load imaging files**
+  - Obtain access token to connect with your DICOM service
+  - Store DICOM instances with sample DICOM files
+
+    Hint:
+    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `WTH FHIR-Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
+    - You can find the sample DICOM files (`red-triangle.dcm`, `green-square.dcm` and `blue-circle.dcm`) in the `/DICOM-service/dcms` folder of the Resources.zip file provided by your coach.
+    - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
+    - For each sample .dcm file, send appropriate `POST Store-single-instance...` API call to populate your DICOM service with the three .dcm single instance files.
+
+  - Use DICOM service API calls to Search for DICOM instance(s)
+  - Use DICOM service API calls to Retrieve DICOM instance(s)
+  - Check logs for changes in DICOM service via Change Feed
+  - Manage extended query tags in your DICOM service instance(s)
+    - Add extended query tags
+    - List extended query tags
+    - Get extended query tags
+    - Update extended query tags
+    - Delete extended query tags
 
 ## Success Criteria
-- You have successfully deployed export and anonyization template.
-- You have compared pre de-ided and post de-ided FHIR data.
+- You have successfully provisioned and configured DICOM service for ingestion and storage of DICOM studies
+- You have successfully used DICOM service to upload, search, and retrieve DICOM studies
+- You have successfully checked log (Change Feed)
+- You have successfully added/removed additional query tags.
+
 
 ## Learning Resources
 
-- **[HIPPA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html)**
-- **[HL7 bulk export](https://hl7.org/Fhir/uv/bulkdata/export/index.html)**
-- **[FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)**
+- **[What is the DICOM service?](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-overview)**
+- **[DICOMcast architecture overview](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-cast-overview)**
+- **[DICOM Change Feed Overview](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-change-feed-overview)**
+- **[DICOM Extended Query Tag Overview](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-extended-query-tags-overview)**
+- **[Using DICOMweb™Standard APIs with DICOM services](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-with-dicom-services)**
+- **[HDICOM Conformance Statement-DICOMweb™ Standard Service Documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement)**
+- **[DICOM Change Feed Overview](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-change-feed-overview)**
+- **[Pull DICOM changes using the Change Feed](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/pull-dicom-changes-from-change-feed)**
+- **[Obtain and use an access token for the DICOM service](https://learn.microsoft.com/en-us/azure/healthcare-apis/get-access-token?tabs=azure-cli#obtain-and-use-an-access-token-for-the-dicom-service)**
+- **[Get started with the DICOM service](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/get-started-with-dicom)**
+- **[Deploy DICOM service using the Azure portal](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)**
+- **[Configure Azure RBAC for the DICOM service](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)**
+- **[Register a client application for the DICOM service in Azure Active Directory](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-register-application)**
+- **[OSS DICOM Server: Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server)**

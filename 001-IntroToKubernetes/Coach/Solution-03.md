@@ -30,3 +30,9 @@
 - **Optional:** The AKS "Workloads" screen in the Azure portal can be brought up with the CLI easily:
 	- `az aks browse --name myAKSCluster --resource-group myAKSCluster`
 	- **NOTE:** This will open a web browser and go to the Azure Portal. If you're not logged in, you will be prompted to do so.
+
+## Videos
+
+### Challenge 3 Solution
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/2sH-NlyikEk/0.jpg)](https://youtu.be/2sH-NlyikEk "Challenge 3 solution")
