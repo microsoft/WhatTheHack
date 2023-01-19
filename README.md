@@ -81,7 +81,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
-- [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+- [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/README.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
 - [Azure Integration Services - API Management with Function Apps](/050-AIS-APIManagementwithFunctions/README.md)
 - [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
