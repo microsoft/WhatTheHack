@@ -21,9 +21,7 @@ resource wthhublocalgw 'Microsoft.Network/localNetworkGateways@2022-01-01' = {
   properties: {
     gatewayIpAddress: onpremcsrpip.properties.ipAddress
     localNetworkAddressSpace: {
-      addressPrefixes: [
-        '172.16.0.0/16'
-      ]
+      addressPrefixes: []
     }
     bgpSettings: {
       bgpPeeringAddress: onpremcsrnic.properties.ipConfigurations[0].properties.privateIPAddress
