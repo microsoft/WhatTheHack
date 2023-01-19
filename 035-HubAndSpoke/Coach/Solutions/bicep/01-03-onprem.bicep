@@ -6,6 +6,15 @@ param vmPassword string
 targetScope = 'resourceGroup'
 //onprem resources
 
+resource hubvnet 'Microsoft.Network/virtualNetworks@2022-07-01' existing = {
+  name: 'wth-vnet-hub01'
+  scope: resourceGroup('wth-rg-hub')
+
+  resource gwsubnet 'subnets' existing = {
+    name: 'GatewaySubnet'
+  }
+}
+
 resource wthonpremvnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
   name: 'wth-vnet-onprem01'
   location: location
@@ -20,6 +29,9 @@ resource wthonpremvnet 'Microsoft.Network/virtualNetworks@2021-08-01' = {
         name: 'subnet-vpn'
         properties: {
           addressPrefix: '172.16.0.0/24'
+          networkSecurityGroup: {
+            id: nsgonpremvpn.id
+          }
         }
       }
       {
@@ -193,6 +205,41 @@ resource nsgonpremvms 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
           destinationPortRange: '22222-22222'
           sourceAddressPrefix: '*'
           destinationAddressPrefix: '172.16.10.0/24'
+        }
+      }
+    ]
+  }
+}
+
+resource nsgonpremvpn 'Microsoft.Network/networkSecurityGroups@2022-01-01' = {
+  name: 'wth-nsg-onpremvpnsubnet'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'allow-any-to-vpnsubnet-from-onprem'
+        properties: {
+          priority: 1000
+          access: 'Allow'
+          direction: 'Inbound'
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '*'
+          sourceAddressPrefix: '172.16.10.0/24'
+          destinationAddressPrefix: '*'
+        }
+      }
+      {
+        name: 'allow-any-to-any-from-azurevpngw'
+        properties: {
+          priority: 1001
+          access: 'Allow'
+          direction: 'Inbound'
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '*'
+          sourceAddressPrefix: hubvnet::gwsubnet.properties.addressPrefix
+          destinationAddressPrefix: '*'
         }
       }
     ]
