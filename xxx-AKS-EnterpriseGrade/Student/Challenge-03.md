@@ -1,4 +1,4 @@
-# Challenge 03 - <Title of Challenge>
+# Challenge 03 - AKS Monitoring
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
