@@ -1,50 +1,49 @@
-# What The Hack - AKS-EnterpriseGrade
+# What The Hack - AKS Enterprise-Grade
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+The objective of this hack is to dive deeply into all aspects of integration between Kubernetes, the Azure Kubernetes Service (AKS), and various Azure services. We have included challenges for many components that are required to operate a Kubernetes cluster on Azure (eg: networking, storage, etc)
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will start by deploying a 3-tier application to AKS with very specific networking requirements.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+The complexity will quickly evolve towards security and storage, finishing with the last challenge focusing on Arc-enabled Kubernetes clusters and Arc-enabled data services.
 
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
+- Challenge 01: **[Containers](Student/Challenge-01.md)**
+	 - Get familiar with the sample application for this hack, and roll it out locally or with Azure Container Instances
+- Challenge 02: **[AKS Network Integration and Private Clusters](Student/Challenge-02.md)**
+	 - Deploy the application in an AKS cluster with strict network requirements
+- Challenge 03: **[AKS Monitoring](Student/Challenge-03.md)**
+	 - Monitor the application, either using Prometheus or Azure Monitor
+- Challenge 04: **[Secrets and Configuration Management](Student/Challenge-04.md)**
+	 - Harden secret management with the help of Azure Key Vault
+- Challenge 05: **[AKS Security](Student/Challenge-05.md)**
+	 - Explore AKS security concepts such as Azure Policy for Kubernetes
+- Challenge 06: **[Persistent Storage in AKS](Student/Challenge-06.md)**
+	 - Evaluate different storage classes by deploying the database in AKS
+- Challenge 07: **[Service Mesh](Student/Challenge-07.md)**
+	 - Explore the usage of a Service Mesh to further protect the application
+- Challenge 08: **[Arc-Enabled Kubernetes and Arc-Enabled Data Services](Student/Challenge-08.md)**
+	 - Leverage Arc for Kubernetes to manage a non-AKS cluster, and Arc for data to deploy a managed database there
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
+- Access to an Azure subscription (owner privilege is required in some exercises)
 - Visual Studio Code
+- Windows Subsystem for Linux (Windows-only)
 - Azure CLI
-- An AVNET X231 device
+- Docker Desktop (Optional)
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Adrian Joian
+- Gitte Vermeiren
+- Jose Moreno
+- Victor Viriya-ampanond
+- Peter Laudati
+- Pete Rodriguez
