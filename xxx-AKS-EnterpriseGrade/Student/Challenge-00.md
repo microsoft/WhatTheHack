@@ -24,7 +24,7 @@ You should be able to complete most of the challenges of this hack using the Azu
     - **NOTE for Windows users:** Install the Azure CLI on Windows Subsystem for Linux following the instructions for the Linux distribution you are using in WSL.
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)(Optional)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Optional)
 
 ### Student Resources
 

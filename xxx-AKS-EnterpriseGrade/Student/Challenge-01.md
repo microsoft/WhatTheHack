@@ -14,7 +14,7 @@ The application we will use in this hack has three components, as the following 
 
 ### Build & Publish Containers to Azure Container Register
 
-Look in the `/api/` and `/web` folders of the `Resources.zip` package provided by your coach to find the source code for the sample application we will use for this hack. You will find Dockerfiles in each folder that you can use to build container images for the API and Web components.
+Look in the `/api` and `/web` folders of the `Resources.zip` package provided by your coach to find the source code for the sample application we will use for this hack. You will find Dockerfiles in each folder that you can use to build container images for the API and Web components.
 
 - Create an Azure Container Registry. 
 - Build the API and Web container images and store them in your new ACR.
