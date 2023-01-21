@@ -84,7 +84,7 @@ This hack is designed to be run as a 3 day event, for a total of approximately 1
 
 There are multiple variations of this hack that enable you run it for a shorter periods of time and still provide value to attendees. Different groups of students will complete the challenges at different paces based on their comfort level with Linux and/or using Command Line Interface (CLI) tools. 
 
-### Challenges 1-2: Three Paths to Choose From
+### Challenges 1-2: Multiple Paths to Choose From
 
 Challenge 1 has attendees start by taking the sample application's source code, learn how to containerize it, run the application in Docker, then publish the container images to the Azure Container Registry.
 
@@ -97,6 +97,8 @@ Students are given two options to deploy the AKS cluster:
 Deploying a private AKS cluster is more complex and will take students more time to figure out how to do it. Using a private cluster will also result in variations of how to solve the other challenges.
 
 If students choose to deploy a private cluster, the coach should be prepared to explain key networking concepts and how a private AKS cluster works differently from a non-private AKS cluster.
+
+### Challenge 1 & 2 Accelerator
 
 Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
 
