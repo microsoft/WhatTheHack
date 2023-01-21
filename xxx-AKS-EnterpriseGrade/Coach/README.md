@@ -1,10 +1,21 @@
-# What The Hack - AKS-EnterpriseGrade - Coach Guide
+# What The Hack - AKS Enterprise-Grade - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the AKS-EnterpriseGrade What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the AKS Enterprise-Grade What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack assumes attendees have a base level of knowledge of Kubernetes, including understanding core concepts & features such as:
+- Pods
+- Deployments
+- Services
+- Ingress
+- Helm
+- YAML configuration files
+- Kubernetes CLI => `kubectl`
+
+The focus of this hack is how Kubernetes and the Azure Kubernetes Service (AKS) interact with the rest of the Azure platform.  If your organization is not familiar with the basics of Kubernetes, we recommend they complete the [Introduction To Kubernetes](../../001-IntroToKubernetes/) hack first.
+
+This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -12,26 +23,22 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
+- Challenge 01: **[Containers](./Solution-01.md)**
+	 - Get familiar with the application for this hack, and roll it out locally or with Azure Container Instances
+- Challenge 02: **[AKS Network Integration and Private Clusters](./Solution-02.md)**
+	 - Deploy the application in an AKS cluster with strict network requirements
+- Challenge 03: **[AKS Monitoring](./Solution-03.md)**
+	 - Monitor the application, either using Prometheus or Azure Monitor
+- Challenge 04: **[Secrets and Configuration Management](./Solution-04.md)**
+	 - Harden secret management with the help of Azure Key Vault
+- Challenge 05: **[AKS Security](./Solution-05.md)**
+	 - Explore AKS security concepts such as Azure Policy for Kubernetes
+- Challenge 06: **[Persistent Storage in AKS](./Solution-06.md)**
+	 - Evaluate different storage classes by deploying the database in AKS
+- Challenge 07: **[Service Mesh](./Solution-07.md)**
+	 - Explore the usage of a Service Mesh to further protect the application
+- Challenge 08: **[Arc-Enabled Kubernetes and Arc-Enabled Data Services](./Solution-08.md)**
+	 - Leverage Arc for Kubernetes to manage a non-AKS cluster, and Arc for data to deploy a managed database there
 
 ## Coach Prerequisites
 
@@ -47,9 +54,18 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
+### Additional Coach Prerequisites
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+* Let participants find their own solutions, even if they are wrong. Let them hit walls and learn from their mistakes, unless you see them investing too much time and effort. Give them hints that put them on the right track, but not solutions
+* Most challenges can be solved in multiple ways, all of them correct solutions
+* If there is any concept not clear for everybody, try to make participants explain to each other. Intervene only when no participant has the knowledge
+* **Make sure no one is left behind**
+* Make sure participants have a way to share code, ideally git-based
+* Most challenges involve some level of subscription ownership to create identities or service principals, or for the AAD integration challenge.
+* Let participants try options even if you know it is not going to work, let them explore on themselves. Stop them only if they consume too much time
+* For each challenge, you can ask the least participative members to describe what has been done and why
+
+**NOTE**: The code snippets provided here are just an orientation for you as a coach, and might not work 100% in your particular environment. They have been tested, but the rapid nature of Azure CLI versions, Kubernetes, AKS, helm, etc makes it very difficult constantly reviewing them on a regular basis. If you find errors in the code, please send a PR to this repo with the correction.
 
 ## Azure Requirements
 
@@ -62,22 +78,37 @@ _For example:_
 - Azure resources that will be consumed by a student implementing the hack's challenges
 - Azure permissions required by a student to complete the hack's challenges.
 
-## Suggested Hack Agenda (Optional)
+## Suggested Hack Agenda
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+This hack is designed to be run as a 3 day event, for a total of approximately 18 hours to complete all challenges. 
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+There are multiple variations of this hack that enable you run it for a shorter periods of time and still provide value to attendees. Different groups of students will complete the challenges at different paces based on their comfort level with Linux and/or using Command Line Interface (CLI) tools. 
+
+### Challenges 1-2: Three Paths to Choose From
+
+Challenge 1 has attendees start by taking the sample application's source code, learn how to containerize it, run the application in Docker, then publish the container images to the Azure Container Registry.
+
+Challenge 2 has the students deploy an AKS cluster and get the sample application deployed to it.
+
+Students are given two options to deploy the AKS cluster:
+- A regular AKS cluster with public IP addresses, or 
+- A private AKS cluster with no public IP addresses
+
+Deploying a private AKS cluster is more complex and will take students more time to figure out how to do it. Using a private cluster will also result in variations of how to solve the other challenges.
+
+If students choose to deploy a private cluster, the coach should be prepared to explain key networking concepts and how a private AKS cluster works differently from a non-private AKS cluster.
+
+Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
+
+The Coach's Solution folder for Challenge 2 contains a set of YAML files and README file that has instructions that will help students quickly deploy the sample application from pre-staged container images in Dockerhub to an existing AKS cluster.
+
+For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3.
+
+### Challenges 3-8: Choose Your Own Adventure
+
+Challenges 3 through 8 do not build on each other. You may "chooose your own adventure" once Challenge 2 is completed and focus on only the Challenges that are a priority for your organization.
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
