@@ -102,9 +102,11 @@ If students choose to deploy a private cluster, the coach should be prepared to 
 
 Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
 
-The Coach's Solution folder for Challenge 2 contains a set of YAML files and README file that has instructions that will help students quickly deploy the sample application from pre-staged container images in Dockerhub to an existing AKS cluster.
+The Coach's Solution folder for Challenge 2 contains a set of YAML files and a README file that has instructions that will help students quickly deploy the sample application from pre-staged container images in Dockerhub to an existing AKS cluster.
 
 For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3.
+
+For more information, see the Coach's guide for [Challenge 2](Solution-02.md).
 
 ### Challenges 3-8: Choose Your Own Adventure
 
