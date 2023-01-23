@@ -35,5 +35,7 @@ Here are some things to be aware of that we have run into when hosting this hack
 
 Installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is optional for students. Docker Desktop will install the Docker CLI and container engine on a Windows or Mac workstation.  Students can use Docker Desktop in Challenge 1 to build, run, and publish the sample application's container images on their local workstation.
 
-Docker Desktop requires administrator priviledges on a Windows 10 or 11 device. If the student does not have administrator privileges on their workstation, they can use the Azure CLI (az acr build) to build and publish their container images to the Azure Container Registry from their local workstation OR from the Azure Cloud Shell. However, they will not be able to run the containers locally before attempting to deploy them to AKS in Challenge 2.
+Docker Desktop requires administrator priviledges on a Windows 10 or 11 device. If the student does not have administrator privileges on their workstation, they can use the Azure CLI (az acr build) to build and publish their container images to the Azure Container Registry from their local workstation OR from the Azure Cloud Shell. However, they will not be able to run the containers locally before attempting to deploy them to AKS in Challenge 2. 
+
+Instead, students can test the containers out by running them in Azure Container Instances.  See the [Coach Guide for Challenge 1](Solution-01.md) for more information.
 
