@@ -1,6 +1,6 @@
 # Challenge 08 - Arc-Enabled Kubernetes and Arc-Enabled Data Services - Coach's Guide 
 
-[< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
+[< Previous Solution](./Solution-07.md) - **[Home](./README.md)**
 
 ## Notes and Guidance
 
