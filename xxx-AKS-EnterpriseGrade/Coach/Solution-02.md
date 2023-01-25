@@ -256,9 +256,13 @@ Make sure that the links to the `API Health Status` and the `SQL Server Version`
 
 ## Solution Guide - Private Clusters and Firewall Egress
 
-In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the Whoami sample application to a public AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
+Deploying a private AKS cluster with no public IP addresses is a complex task and will take students more time to figure out how to do it. This is listed as an "Advanced Challenge" in the Challenge 2 student guide. Using a private cluster will also result in variations of how to solve the other challenges.
 
-The script blocks below in the collapsable section demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. 
+If students choose to deploy a private cluster, the coach should be prepared to explain key networking concepts and how a private AKS cluster works differently from a non-private AKS cluster.
+
+In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the Whoami sample application to a private AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
+
+The script blocks below in the collapsable section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. 
 
 <details>
 <summary>Click to expand/collapse</summary>
