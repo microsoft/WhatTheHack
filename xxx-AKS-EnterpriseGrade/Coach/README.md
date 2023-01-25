@@ -54,7 +54,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites
+## Coach Guidance
 
 * Let participants find their own solutions, even if they are wrong. Let them hit walls and learn from their mistakes, unless you see them investing too much time and effort. Give them hints that put them on the right track, but not solutions
 * Most challenges can be solved in multiple ways, all of them correct solutions
@@ -64,8 +64,6 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 * Most challenges involve some level of subscription ownership to create identities or service principals, or for the AAD integration challenge.
 * Let participants try options even if you know it is not going to work, let them explore on themselves. Stop them only if they consume too much time
 * For each challenge, you can ask the least participative members to describe what has been done and why
-
-**NOTE**: The code snippets provided here are just an orientation for you as a coach, and might not work 100% in your particular environment. They have been tested, but the rapid nature of Azure CLI versions, Kubernetes, AKS, helm, etc makes it very difficult constantly reviewing them on a regular basis. If you find errors in the code, please send a PR to this repo with the correction.
 
 ## Azure Requirements
 
