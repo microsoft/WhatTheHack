@@ -37,7 +37,9 @@ The [accelerator's README file](./Solutions/Challenge-02-Accelerator/) assumes a
 
 In the `/Solutions/Challenge-02/Public` folder, you will find a set of YAML files that deploy the Whoami sample application to a public AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
 
-The script blocks below in the collapsable section demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. 
+There are a set of Terraform modules located in the [`/Solutions/Challenge-02/Terraform`](./Solutions/Challenge-02/Terraform/) folder that will deploy the Azure resources needed for a public AKS cluster and an Azure SQL Database. If you use these, you will need to update the YAML files with the appropriate values before applying them to the AKS cluster.
+
+Alternatively, the script blocks below in the collapsable section also demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources.
 
 <details>
 <summary>Click to expand/collapse</summary>
