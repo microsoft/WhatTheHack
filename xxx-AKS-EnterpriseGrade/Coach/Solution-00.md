@@ -4,13 +4,7 @@
 
 ## Notes & Guidance
 
-### Student Resources
-
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack from the [WTH Coach's Repo](https://aka.ms/wthrepo) into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
-
-Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
-
-**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
+There are a lot of important things covered in each challenge's Coach guide. Be sure to read this one all the way.  It's one of the most important!
 
 ### Solution Files & In-Line Sample Scripts
 
@@ -30,6 +24,16 @@ To use these script blocks:
 - Copy the script blocks from this guide, then paste and run them
 
 **NOTE**: The code snippets provided in this Coach's Guide are just an orientation for you as a coach, and might not work 100% in your particular environment. They have been tested, but the rapid nature of Azure CLI versions, Kubernetes, AKS, helm, etc makes it very difficult constantly reviewing them on a regular basis. If you find errors in the code, please send a PR to this repo with the correction.
+
+## Student Resources
+
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack from the [WTH Coach's Repo](https://aka.ms/wthrepo) into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+
+**HINT: The students cannot complete Challenge 0 until you do this for them!**
+
+Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
+
+**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 ### Local Workstation or Azure Cloud Shell
 

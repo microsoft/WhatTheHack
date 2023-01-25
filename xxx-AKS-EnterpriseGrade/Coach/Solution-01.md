@@ -4,11 +4,16 @@
 
 ## Notes and Guidance
 
-* Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR do the build for them (`az acr build`)
+- Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR do the build for them (`az acr build`)
+- If students had any issues getting WSL or Docker Desktop running on their local workstations during Challenge 0, you should direct them to use ACR to do the container builds for them.
 
 ## Before you start
 
-Make sure you have extracted the provided ZIP file or cloned the Git repo, and you are located in the root directory of the hack (`039-AKSEnterpriseGrade`).
+If you want to follow along with students, you should unpack the same `Resources.zip` file you provided them, open your PowerShell or WSL/Terminal, and navigate to the folder wherever you unpacked it.
+
+Alternatively, if you have cloned the What The Hack repo, you can navigate to the `039-AKS-EnterpriseGrade/Student/Resources` folder and run the script blocks below.
+
+**NOTE:** Students should **NOT** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 ## Local Docker (Option 1)
 
