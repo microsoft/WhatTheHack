@@ -7,7 +7,7 @@
 * Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
 * Make sure the participants understand how the Azure Load Balancers, NSGs and kubernetes services play together
 * Make sure the participants understand why the ingress needs to be deployed with a private IP address: otherwise the default route to the firewall will cause asymmetric routing
-* Participants could go with an off-cluster ingres controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
+* Participants could go with an off-cluster ingress controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
 * Feel free to leave the participants go with any ingress controller other than nginx, but nginx is probably going to be the easiest one.
 * Note that configuring a private DNS-zone was not required when creating the private cluster
 * If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
@@ -37,9 +37,11 @@ The [accelerator's README file](./Solutions/Challenge-02-Accelerator/) assumes a
 
 In the `/Solutions/Challenge-02/Public` folder, you will find a set of YAML files that deploy the Whoami sample application to a public AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
 
-There are a set of Terraform modules located in the [`/Solutions/Challenge-02/Terraform`](./Solutions/Challenge-02/Terraform/) folder that will deploy the Azure resources needed for a public AKS cluster and an Azure SQL Database. If you use these, you will need to update the YAML files with the appropriate values before applying them to the AKS cluster.
+There are a set of Terraform modules located in the [`/Solutions/Challenge-02/Terraform`](./Solutions/Challenge-02/Terraform/) folder that will deploy the Azure resources needed for a public AKS cluster and an Azure SQL Database. If you use the Terraform modules, you will need to update the YAML files with the appropriate values before applying them to the AKS cluster.
 
-Alternatively, the script blocks below in the collapsable section also demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources.
+Alternatively, the script blocks below in the collapsable section also demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
+
+The script blocks also replace the placeholders in the YAML files with the actual values to use before then applying the YAML files to the AKS cluster.
 
 <details>
 <summary>Click to expand/collapse</summary>
@@ -262,9 +264,21 @@ Deploying a private AKS cluster with no public IP addresses is a complex task an
 
 If students choose to deploy a private cluster, the coach should be prepared to explain key networking concepts and how a private AKS cluster works differently from a non-private AKS cluster.
 
+Deploying a private AKS cluster requires multiple Azure resources to be deployed and configured BEFORE deploying AKS. These include:
+- Hub & Spoke VNets that are peered to each other
+- An Azure Firewall with proper egress network rules set on it
+- A User Defined Route (UDR)
+- A VM jumpbox with Azure CLI & kubectl CLI installed to access the private AKS cluster
+
 In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the Whoami sample application to a private AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
 
-The script blocks below in the collapsable section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. 
+The script blocks below in the collapsable section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
+
+The script blocks also replace the placeholders in the YAML files with the actual values to use before then applying the YAML files to the AKS cluster.
+
+It is unrealistic to expect students to come up with all of the Azure CLI code below from scratch to deploy this configuration. It is likely they will find existing articles on the Internet that describe how to deploy a private AKS cluster and copy/paste from them.
+
+Here's an example reference article: [Fully Private AKS Clusters Without Any Public IPs: Finally!](https://denniszielke.medium.com/fully-private-aks-clusters-without-any-public-ips-finally-7f5688411184)
 
 <details>
 <summary>Click to expand/collapse</summary>
