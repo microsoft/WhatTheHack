@@ -23,13 +23,13 @@ This challenge has multiple paths:
 
 Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
 
-In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a [README file](./Solutions/Challenge-02-Accelerator/) that has instructions that will help students quickly deploy the Whoami sample application from pre-staged container images in Dockerhub to an existing AKS cluster.
+In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the Whoami sample application from pre-staged container images in Dockerhub to an existing AKS cluster.
 
 For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3.
 
-If you wish to accelerate your students, you should package the contents of this folder into an `Accelerator.zip` file and distribute it to the students.
-
-The [accelerator's README file](./Solutions/Challenge-02-Accelerator/) assumes a student has an existing "public" AKS cluster. Students will be instructed to deploy the Nginx Ingress controller to the AKS cluster if it is not already deployed.
+If you wish to accelerate your students, you should:
+- Package the contents of this folder into an `Accelerator.zip` file and distribute it to the students.
+- Direct students to the hidden [Challenge 2 Accelerator](../Student/Challenge-02A.md) instructions page in the student guide. The instructions there assume a student has an existing "public" AKS cluster. Students will be instructed to deploy the Nginx Ingress controller to the AKS cluster if it is not already deployed.
 
 **NOTE:** The Challenge 2 student guide specifies that the AKS cluster is deployed with Azure CNI Networking. If a student's existing AKS cluster uses Kubenet for networking, the Whoami application should deploy just fine. Students should be able to complete all of the challenges with the AKS cluster using Kubenet networking.  However, some challenges may lead the students to want to use Azure CNI for a solution, which would require the students to re-deploy a new cluster with Azure CNI Networking.
 

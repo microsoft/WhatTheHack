@@ -1,4 +1,4 @@
-# Challenge 2 - Accelerator: Deploy Whoami Sample Applicaiton
+# Challenge 2 - Accelerator: Deploy Sample Applicaiton
 
 **[Home](./README.md)** - [Next Challenge >](./Challenge-03.md)
 
@@ -41,7 +41,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 Follow these steps to deploy the "Whoami" app:
 
-1. From WSL/Terminal, navigate to the folder where `Accelerator.zip` file has been un-zipped.
+1. From WSL/Terminal/Cloud Shell, navigate to the folder where `Accelerator.zip` file has been un-zipped.
 2. Set permissions on the `deployAzureSQL.sh` script file so that it can be executed: 
     ```chmod 755 deployAzureSQL.sh```
 3. Run the script from the bash shell in WSL/Terminal (this will NOT work in PowerShell): 
