@@ -9,6 +9,10 @@
 
 ## Solution Guide
 
+The script blocks below demonstrate how you can solve this challenge.  They are not the only solutions. 
+
+If the students deployed a private AKS cluster, the way they access and administer it is different than if it is not a private AKS cluster.  Commands will need to be run remotely through a jumpbox. You will observe in the sample solution script blocks below that the commands for private/non-private cluster are encapsulated in if/then/else blocks.
+
 ```bash
 # Azure Monitor
 az aks enable-addons -n $aks_name -g $rg -a monitoring --workspace-resource-id $logws_id
