@@ -104,10 +104,10 @@ $replace1 = '            ConfigureProductionServices(services);'
 $SQLusername = "sqladmin"
 $appsettingsfile = 'C:\eshoponweb\eShopOnWeb-main\src\Web\appsettings.json'
 $find = '    "CatalogConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
-$replace = '    "CatalogConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
+$replace = '    "CatalogConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;TrustServerCertificate=True",'
 (Get-Content $appsettingsfile).replace($find, $replace) | Set-Content $appsettingsfile -Force
 $find1 = '    "IdentityConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
-$replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
+$replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.Identity;TrustServerCertificate=True"'
 (Get-Content $appsettingsfile).replace($find1, $replace1) | Set-Content $appsettingsfile -Force
 
 #add exception to ManageController.cs
