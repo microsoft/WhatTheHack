@@ -49,7 +49,14 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: myapp.52.141.219.8.nip.io
-      paths: ["/"]
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+          service:
+            name: myapp
+            port:
+              number: 80
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
