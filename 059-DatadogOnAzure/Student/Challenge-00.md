@@ -46,8 +46,6 @@ If you have installed all of the tools listed above and plan to work on your loc
 If you plan to use the Azure Cloud Shell, download and unpack this file in your Azure Cloud Shell environment. 
 
 ```bash
-# Download the Resources.zip file from the URL provided by your coach
-wget https://aka.ms/WTHDashResources -O Resources.zip
 # Unpack the zip file
 unzip Resources.zip
 # Navigate to the "Resources" folder
