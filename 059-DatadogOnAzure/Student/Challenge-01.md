@@ -60,7 +60,7 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-- [Create Datadog Monitors](https://docs.datadoghq.com/monitors/create/)
+- [Create Datadog Monitor Types](https://docs.datadoghq.com/monitors/types/)
 - [Datadog Monitor Resource for Terraform](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor)
 - [Automate Monitoring with the Terraform Datadog Provider](https://learn.hashicorp.com/tutorials/terraform/datadog-provider?in=terraform/use-case)
 - [Introduction to Terraform](https://www.youtube.com/watch?v=h970ZBgKINg&t=943s&ab_channel=HashiCorp)
