@@ -18,6 +18,8 @@ if ((Get-Service WMSVC).Status -ne "Running") {
     net start wmsvc
 }
 
+
+Write-Debug -Message "about to install Web Deploy 3.6..."
 # Install Web Deploy 3.6
 $msiWebDeployTemp = [System.IO.Path]::GetTempPath().ToString() + "WebDeploy_amd64_en-US.msi"
 if (Test-Path $msiWebDeployTemp) { Remove-Item $msiWebDeployTemp -Force }
@@ -34,6 +36,8 @@ $proc = (Start-Process -file msiexec -arg $arguments -Passthru)
 $proc | Wait-Process
 Get-Content $logFile
 
+
+Write-Debug -Message "done deploying Web Deploy 3.6."
 
 <#
 # Install Microsoft .Net Core Hosting 3.1.0 (This replaces 3.0.1)
@@ -59,6 +63,7 @@ $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList (
 $proc | Wait-Process 
 #>
 
+Write-Debug -Message "about to install .NET Core Hosting 7.0.2..."
 # Install Microsoft .Net Core Hosting 7.0.2 (This replaces 6.0.8)
 $exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-hosting-7.0.2-win.exe"
 if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
@@ -69,6 +74,7 @@ Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/
 $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
 $proc | Wait-Process 
 
+<#
 try
 {
     # Disable Internet Explorer Enhanced Security Configuration
@@ -79,10 +85,13 @@ try
     Stop-Process -Name Explorer -Force
 }
 catch {}
+#>
 
+Write-Debug -Message "about to copy eShopOnWeb code from VS Server..."
 # Copy eShoponWeb from Published Share and restart IIS
 $SharePath = '\\'+$VSServerName+'\eShopPub'
-New-SmbMapping -LocalPath v: -RemotePath $SharePath -UserName $username -Password $password -Verbose >> c:\windows\temp\MapSetupWebServers.log
+New-SmbMapping -LocalPath V: -RemotePath $SharePath -UserName $username -Password $password -Verbose >> c:\windows\temp\MapSetupWebServers.log
+Start-Sleep -Seconds 10
 Copy-Item "V:\wwwroot" -Destination "C:\inetpub\" -Recurse -Force -Verbose >> c:\windows\temp\copySetupWebServers.log
 
 
