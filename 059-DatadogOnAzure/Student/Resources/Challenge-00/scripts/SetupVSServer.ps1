@@ -42,6 +42,7 @@ $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList (
 $proc | Wait-Process 
 #>
 
+<#
 # Install Microsoft .Net Core 6.0.4
 $exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-sdk-6.0.400-win-x64.exe"
 if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
@@ -51,7 +52,17 @@ Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/
 # Run the exe with arguments
 $proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
 $proc | Wait-Process 
+#>
 
+# Install Microsoft .Net Core 7.0.102
+$exeDotNetTemp = [System.IO.Path]::GetTempPath().ToString() + "dotnet-sdk-7.0.102-win-x64.exe"
+if (Test-Path $exeDotNetTemp) { Remove-Item $exeDotNetTemp -Force }
+# Download file from Microsoft Downloads and save to local temp file (%LocalAppData%/Temp/2)
+$exeFileNetCore = [System.IO.Path]::GetTempFileName() | Rename-Item -NewName "dotnet-sdk-7.0.102-win-x64.exe" -PassThru
+Invoke-WebRequest -Uri "https://download.visualstudio.microsoft.com/download/pr/6ba69569-ee5e-460e-afd8-79ae3cd4617b/16a385a4fab2c5806f50f49f5581b4fd/dotnet-sdk-7.0.102-win-x64.exe" -OutFile $exeFileNetCore
+# Run the exe with arguments
+$proc = (Start-Process -FilePath $exeFileNetCore.Name.ToString() -ArgumentList ('/install','/quiet') -WorkingDirectory $exeFileNetCore.Directory.ToString() -Passthru)
+$proc | Wait-Process 
 
 try
 {
@@ -93,10 +104,10 @@ $replace1 = '            ConfigureProductionServices(services);'
 $SQLusername = "sqladmin"
 $appsettingsfile = 'C:\eshoponweb\eShopOnWeb-main\src\Web\appsettings.json'
 $find = '    "CatalogConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
-$replace = '    "CatalogConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;",'
+$replace = '    "CatalogConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.CatalogDb;TrustServerCertificate=True",'
 (Get-Content $appsettingsfile).replace($find, $replace) | Set-Content $appsettingsfile -Force
 $find1 = '    "IdentityConnection": "Server=(localdb)\\mssqllocaldb;Integrated Security=true;Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
-$replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.Identity;"'
+$replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated Security=false;User ID=' + $SQLusername + ';Password=' + $SQLpassword + ';Initial Catalog=Microsoft.eShopOnWeb.Identity;TrustServerCertificate=True"'
 (Get-Content $appsettingsfile).replace($find1, $replace1) | Set-Content $appsettingsfile -Force
 
 #add exception to ManageController.cs
