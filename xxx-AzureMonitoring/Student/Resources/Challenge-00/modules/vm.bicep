@@ -141,15 +141,14 @@ resource DbIdExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01'
   }
 }
 
-resource DbIaasDiagExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: '${vm[0].name}/IaaSDiagnostics'
+resource DbIaasDiagExtension 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+  name: '${vm[0].name}/Microsoft.Insights.VMDiagnosticsSettings'
   location: Location
   properties: {
     publisher: 'Microsoft.Azure.Diagnostics'
     type: 'IaaSDiagnostics'
     typeHandlerVersion: '1.5'
-    autoUpgradeMinorVersion: false
-    enableAutomaticUpgrade: false
+    autoUpgradeMinorVersion: true
     settings: {
       WadCfg: {
         DiagnosticMonitorConfiguration: {
@@ -173,14 +172,17 @@ resource DbIaasDiagExtension 'Microsoft.Compute/virtualMachines/extensions@2020-
               {
                 counterSpecifier: '\\Memory\\Available Bytes'
                 sampleRate: 'PT15S'
+                unit: 'bytes'
               }
               {
                 counterSpecifier: '\\Memory\\% Committed Bytes In Use'
                 sampleRate: 'PT15S'
+                unit: 'bytes'
               }
               {
                 counterSpecifier: '\\Memory\\Committed Bytes'
                 sampleRate: 'PT15S'
+                unit: 'bytes'
               }
             ]
           }
@@ -266,21 +268,15 @@ resource DbDependencyExtension 'Microsoft.Compute/virtualMachines/extensions@202
   }
 }
 
-resource DbMma 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: '${vm[0].name}/MicrosoftMonitoringAgent'
+resource DbAMA 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+  name: '${vm[0].name}/AzureMonitorWindowsAgent'
   location: Location
   properties: {
-    publisher: 'Microsoft.EnterpriseCloud.Monitoring'
-    type: 'MicrosoftMonitoringAgent'
+    publisher: 'Microsoft.Azure.Monitor'
+    type: 'AzureMonitorWindowsAgent'
     typeHandlerVersion: '1.0'
-    autoUpgradeMinorVersion: false
-    enableAutomaticUpgrade: false
-    settings: {
-      workspaceId: LawId
-    }
-    protectedSettings: {
-      workspaceKey: LawKey
-    }
+    autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
   }
   dependsOn: [
     DbIdExtension
