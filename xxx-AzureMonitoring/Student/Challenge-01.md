@@ -1,10 +1,12 @@
-# Challenge 01 - Monitoring Basics and Dashboards
+# Challenge 01 - Monitor Virtual Machine performance with Azure Monitor Metrics
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Introduction
 
-After deploying your initial solution for eshoponweb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. To accomplish this, you will have to understand the concept of counters, how to collect them, how to configure Alerts, and display them in a Dashboard.  
+After deploying your initial solution for eShopOnWeb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. By default Azure Monitoring collects only host-level metrics - like CPU utilization, disk and network usage - for all virtual machines without any additional software. For more insight into your virtual machines, you can collect guest-level metrics, logs and other diagnostic data using the Azure Diagnostics agent (extention) for Windows (WAD) and Linux (LAD).
+
+To accomplish this task, you will have to understand the concept of performance counters (metrics), how to collect them into Azure Monitor Metrics store, how to configure Metric alerts, and display results in an Azure Dashboard.  
 
 Once you have configured the dashboard, alerts, and counters to be collected, you will use two tools to simulate a load on the eShopOnWeb resources:
 - HammerDB - A benchmarking and load testing tool for the world's most popular databases, including SQL Server.
@@ -26,25 +28,25 @@ To login to a VM via Azure Bastion, navigate to the blade for any of these VMs i
 ### Set up Counters, Alerts, and Dashboard
 
 In this challenge you need to complete the following management tasks:
+>**Note** Use Azure portal, Bicep template, AZ CLI or Powershell to achieve your goals. While Azure portal is useful for learning purposes, deployment templates and scripts are crucial for most real-life scenarios.
 
-- Create an empty database called “tpcc” on the SQL Server VM
-	>**Note** Use SQL Auth with the username being "sqladmin" and password being whatever you used during deployment in Challenge 0.
-    - **HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM to create the database.
+- Create an empty database called “tpcc” on the SQL Server VM. Use SQL Auth with the username being "sqladmin" and password being whatever you used during deployment in Challenge 0.
 
-- Using AZ CLI, Powershell or ARM template, send the below guest OS metric to Azure Monitor for the SQL Server
-	- Add a Performance Counter Metric:
+	**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database.
+
+- Navigate to the blade of the SQL Server VM, click "Metrics" to open Azure Monitor Metrics explorer, and check what metrics are currently being collected.
+- Enable guest-level monitoring for the SQL Server and send the below guest OS metrics to Azure Monitor:
+	- Object: Memory
+		- Counter: Available Bytes
+		- Counter: Committed Bytes
 	- Object: SQLServer:Databases
-	- Counter: Active Transactions
-	- Instance:tpcc
-
-- From Azure Monitor, create a graph for the SQL Server Active Transactions and Percent CPU and pin to your Azure Dashboard
-
-- From Azure Monitor, create an Action group, to send email to your address
-
-- Create an Alert if Active Transactions goes over 40 on the SQL Server tpcc database.
-
-- Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails me when you go over the threshold.
-	- Note: In the Student\Resources\Loadscripts folder you will find a CPU load script to use.
+		- Counter: Active Transactions
+		- Instance: tpcc
+- From Azure Monitor create an Action group to send email to your address.
+- Create an Alert rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
+- Create an Alert Rule to be notified via if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
+- Suppress both alerts over the weekend.
+- From Azure Monitor Metrics explorer create graphs for the SQL Server Active Transactions and the Virtual Machine Scale Set CPU Utilisation and pin both of them to your Azure Dashboard.
 
 ### Simulate Load on the eShopOnWeb Environment
 
