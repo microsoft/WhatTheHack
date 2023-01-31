@@ -4,7 +4,7 @@
 
 ## Introduction
 
-After deploying your initial solution for eShopOnWeb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. By default Azure Monitoring collects only host-level metrics - like CPU utilization, disk and network usage - for all virtual machines without any additional software. For more insight into your virtual machines, you can collect guest-level metrics, logs and other diagnostic data using the Azure Diagnostics agent (extention) for Windows (WAD) and Linux (LAD).
+After deploying your initial solution for eShopOnWeb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. By default Azure Monitoring collects only host-level metrics - like CPU utilization, disk and network usage - for all virtual machines without any additional software. For more insight into your virtual machines, you can collect guest-level metrics, logs and other diagnostic data using the Azure Diagnostics agent (extention).
 
 To accomplish this task, you will have to understand the concept of performance counters (metrics), how to collect them into Azure Monitor Metrics store, how to configure Metric alerts, and display results in an Azure Dashboard.  
 
@@ -92,3 +92,5 @@ To complete this challenge successfully, you should be able to:
 - [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1)
 - [In case you will modify the code (keep in mind you need to convert to bicep and match the syntax)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm)
 - [Converting to bicep and bicep playground](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-decompile?tabs=azure-cli)
+- https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#metric-alerts
+- https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics
