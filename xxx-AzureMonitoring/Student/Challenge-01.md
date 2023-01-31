@@ -44,9 +44,9 @@ In this challenge you need to complete the following management tasks:
 		- Instance: tpcc
 - From Azure Monitor create an Action group to send email to your address.
 - Create an Alert rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
-- Create an Alert Rule to be notified via if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
+- Create an Alert Rule to be notified via email if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
 - Suppress both alerts over the weekend.
-- From Azure Monitor Metrics explorer create graphs for the SQL Server Active Transactions and the Virtual Machine Scale Set CPU Utilisation and pin both of them to your Azure Dashboard.
+- Create graphs for the SQL Server Active Transactions and the Virtual Machine Scale Set CPU Utilisation and pin both of them to your Azure Dashboard.
 
 ### Simulate Load on the eShopOnWeb Environment
 
