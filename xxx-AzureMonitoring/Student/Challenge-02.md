@@ -30,9 +30,9 @@ az deployment group create --name alert-deployment --resource-group <your-resour
 
 Questions:
 - Will the Alert get fired if the VM was turned off from the OS? Or if the VM was not available? Why?
-- What is the scope of the Actiity Log alert? How is the scope defined in the Bicep file?
+- What is the scope of the Activity Log alert? How is the scope defined in the Bicep file?
 - How many emails did you receive when the alert got fired? Why?
-- What is the difference between Service Heatlh alerts and Resource Health alerts?
+- What is the difference between Service Health alerts and Resource Health alerts?
 
 ## Success Criteria
 
