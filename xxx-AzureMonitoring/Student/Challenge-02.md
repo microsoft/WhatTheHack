@@ -16,9 +16,6 @@ However, this method does not scale when you need to configure monitoring across
 
 For this challenge, you will use Bicep to deploy an Activity log alert. You can find the sample Bicep file, `alert.bicep`, in the `/Challenge-02` folder of the `Resources.zip` file provided by your coach. To complete the challenge, navigate to the location of this file using your terminal client (WSL or Azure Cloud Shell).
 
-
-### Understand Activity Logs, configure an alert to get notified if a VM has been turned off, and a Service Health alert.
-
 - Update the 'alert.bicep' file adding the id of the Action Group, that you've created in the previous Challenge.
 - Deploy the alert using the following Azure CLI command: 
 ```bash
