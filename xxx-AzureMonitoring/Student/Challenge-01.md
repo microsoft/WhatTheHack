@@ -62,19 +62,17 @@ Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is 
 
 To complete this challenge successfully, you should be able to:
 
-- Stress the SQL using HammerDB
-- Verify that you can collect the DB and CPU counter of the VMSS after loading the CPU, and display them on a Dashboard.
-- Verify the dashboard has the metric with a spike representing before and after the DB stress.
-- Show the dashboard with the metric in it, which should also show a spike representing before and after the DB stress
+- Verify that you can collect the DB and CPU counters after load simulation and display them on a Dashboard.
+- Verify the dashboard has the metric with a spike representing before and after the simulation.
+- Show two fired alerts in the Portal and the email notifications received.
 
 ![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/ch1_metric_spike.jpg)
 
 ## Learning Resources
 
-- [Install and configure Windows Azure diagnostics extension (WAD) using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-windows-install#azure-cli-deployment)
+- [Azure Monitor Agents Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
+- [Install and configure the Azure Diagnostics extension for Windows (WAD)](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-windows-install)
+- [Azure Monitor Metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics)
+- [Azure Metric alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#metric-alerts)
 - [HammerDB](https://www.hammerdb.com)
-- [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1)
-- [In case you will modify the code (keep in mind you need to convert to bicep and match the syntax)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/collect-custom-metrics-guestos-resource-manager-vm)
-- [Converting to bicep and bicep playground](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-decompile?tabs=azure-cli)
-- https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#metric-alerts
-- https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics
+- [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
