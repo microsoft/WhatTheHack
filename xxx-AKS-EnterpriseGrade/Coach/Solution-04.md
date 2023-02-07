@@ -17,7 +17,7 @@ There are multiple ways to solve this challenge. Depending on the organization's
 
 For the non-secret configuration settings, this challenge can be solved using either of the following:
 - Kubernetes ConfigMaps 
-- Azure Application Configuration Service
+- Azure App Configuration Service
 
 For the secret value, this challenge can be solved using any of the following:
 - Kubernetes Secrets (not ideal)
