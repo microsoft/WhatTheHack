@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: busybox
+  name: busybox-pod
+  namespace: default
+spec:
+  containers:
+  - image: busybox
+    imagePullPolicy: Always
+    name: busybox
+    #command: [ "/bin/sh", "-c", "ls", "-al", "/etc/config/" ]
+    command: [ "sleep", "1h" ]
+    volumeMounts:
+    - name: nfs-volume
+      mountPath: /var/nfs
+  volumes:
+  - name: nfs-volume
+    nfs:
+      server: nfsblob1138.blob.core.windows.net
+      path: /nfsblob1138/public
