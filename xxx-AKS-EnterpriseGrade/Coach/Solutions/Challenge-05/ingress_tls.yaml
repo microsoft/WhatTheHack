@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: __ingress_class__
+    ingress.kubernetes.io/ssl-redirect: "false"
+    #nginx.ingress.kubernetes.io/rewrite-target: /$2
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - hosts:
+    - __ingress_ip__.nip.io
+    secretName: tls-secret
+  rules:
+  - host: __ingress_ip__.nip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: web
+          servicePort: 80
+      - path: /api/
+        backend:
+          serviceName: api
+          servicePort: 8080
