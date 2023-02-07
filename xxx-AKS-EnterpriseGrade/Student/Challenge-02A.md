@@ -48,9 +48,11 @@ Follow these steps to deploy the "Whoami" app:
     `./deployAzureSQL.sh`
     - The script will prompt you to enter a resource group name, Azure region location, and a password for the SQL administrator account.
     - The script will deploy an Azure SQL Database server which is used by the sample app.
+    - FYI... when running the SQL deployment script, your password must meet the [Azure VM password requirements](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
+
 4. Edit the `api-deploy.yaml` file:
-    - Modify line 35 with the DNS name of your newly created Azure SQL Database server.
-    - Modify line 37 with the password you provided to the script in Step 3.
+    - Modify line 27 with the DNS name of your newly created Azure SQL Database server.
+    - Modify line 29 with the password you provided to the script in Step 3.
         - **NOTE:** This is a terrible ANTI-PATTERN of what NOT to do in the real world (hard code a password!)  Don't worry, you will fix this later during the hack.
 5. Deploy the api file: `kubectl apply -f api-deploy.yaml`
 6. Deploy the web file: `kubectl apply -f web-deploy.yaml`
