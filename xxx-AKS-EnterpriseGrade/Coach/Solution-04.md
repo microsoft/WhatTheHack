@@ -4,6 +4,49 @@
 
 ## Notes and Guidance
 
+The goals of this challenge focus on managing configuration settings and secrets for the sample application in Kubernetes. 
+
+There are two non-secret configuration settings:
+  - Database server name
+  - Database user name
+
+There is one secret value:
+  - Database password
+
+There are multiple ways to solve this challenge. Depending on the organization's learning goals, you should encourage the students to complete it each of the ways so that they are familiar with the options and pros/cons of each one.
+
+For the non-secret configuration settings, this challenge can be solved using either of the following:
+- Kubernetes ConfigMaps 
+- Azure Application Configuration Service
+
+For the secret value, this challenge can be solved using any of the following:
+- Kubernetes Secrets (not ideal)
+- Azure Key Vault CSI Driver for Kubernetes
+  - Pull secrets from Key Vault and store in Kubernetes Secrets (and keep them in sync)
+  - Pull secrets from Key Vault and mount them as a storage volume on the pod(s)
+
+The challenge states that no static passwords should be used or stored on the cluster.  This implies a managed identity is needed to access Azure Key Vault.
+
+When retrieving secret values from Azure Key Vault, there are multiple options for the Azure identity that will be used to access Key Vault.  
+- **User-assigned managed identity** assigned to the VMSS of the nodepool
+- **Pod-managed identity** (this feature was in preview and has been deprecated)
+- **Workload Identity** (this feature is currently in preview and should be available in Spring 2023)
+
+**NOTE:** This is an area where the technology is in flux today. You should check the Azure documentation as the details on how to do this may change.
+
+For help explaining how secrets are managed in Kubernetes, you can present an optional lecture for this challenge in the [AKS Enterprise-Grade Lectures](Lectures.pptx) presentation deck. 
+
+Here are links to relevant documentation:
+- [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
+- [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
+- [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver)
+
+**NOTE:** The Solution Guide below was written to demonstrate how to solve the challenge using Pod-managed identity to access Azure Key Vault. This solution has been deprecated and you should advise students against going down this path!
+
+We will be updating this coach guide soon to describe the future recommended solution of using Workload Identity.
+
+## OLD Notes & Guidance
+
 * Note that Pod identity is in flux today. Make sure to understand the related documentation
 * The fact that no static passwords can be used implies that AAD Pod Identity is a prerequisite
 * Note that with the nginx ingress controller injecting certificates as files is not possible. The new CSI driver can inject secrets as files **and** variables. However, since certificates are not a must in this challenge, you can ignore this point
@@ -13,7 +56,7 @@
 * Along this lab a large number of pods will be created. Chances are that the number of pods will exceed 30, the maximum per node for Azure CNI. If the participant has deployed one single node, some pods will not start. One possible solution is enable the cluster autoscaler
 * Make sure to check the latest documentation in [https://azure.github.io/aad-pod-identity/docs/getting-started/](https://azure.github.io/aad-pod-identity/docs/getting-started/)
 
-## Solution Guide
+## OLD Solution Guide 
 
 ```bash
 # Cluster autoscaler
