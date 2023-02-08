@@ -28,7 +28,8 @@ For the secret value, this challenge can be solved using any of the following:
 The challenge states that no static passwords should be used or stored on the cluster.  This implies a managed identity is needed to access Azure Key Vault.
 
 When retrieving secret values from Azure Key Vault, there are multiple options for the Azure identity that will be used to access Key Vault.  
-- **User-assigned managed identity** assigned to the VMSS of the nodepool
+- **System-assigned managed identity** assigned to the AKS Control Plane (not recommended as it's too broad)
+- **User-assigned managed identity** assigned to the VMSS of the nodepool (current recommended method)
 - **Pod-managed identity** (this feature was in preview and has been deprecated)
 - **Workload Identity** (this feature is currently in preview and should be available in Spring 2023)
 
@@ -38,7 +39,11 @@ For help explaining how secrets are managed in Kubernetes, you can present an op
 
 Here are links to relevant documentation:
 - [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
+  - This link has the definitive guide to all of the settings in the SecretProviderClass.yaml file
 - [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
+  - This is a good overview of the whole process, but then has you switch context midway through the document to the link below regarding how to choose one of the different identity types for access to KV.
+- [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access)
+  - This document covers how to use each of the four identities mentioned above.
 - [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver)
 
 **NOTE:** The Solution Guide below was written to demonstrate how to solve the challenge using Pod-managed identity to access Azure Key Vault. This solution has been deprecated and you should advise students against going down this path!
