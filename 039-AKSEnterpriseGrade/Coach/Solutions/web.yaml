@@ -25,6 +25,8 @@ spec:
         env:
         - name: API_URL
           value: "http://api.default.svc.cluster.local:8080"
+        - name: BRANDING
+          value: whatthehack
       restartPolicy: Always
 ---
 apiVersion: v1
