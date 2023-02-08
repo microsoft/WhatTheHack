@@ -1,6 +1,0 @@
-flask
-dnspython
-requests
-pymysql
-pyodbc
-psycopg2
