@@ -16,7 +16,8 @@ There is one secret value:
 There are multiple ways to solve this challenge. Depending on the organization's learning goals, you should encourage the students to complete it each of the ways so that they are familiar with the options and pros/cons of each one.
 
 For the non-secret configuration settings, this challenge can be solved using either of the following:
-- Kubernetes ConfigMaps 
+- [Kubernetes ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
+  - This link explains the ConfigMap concept and has examples that should work.
 - Azure App Configuration Service
 
 For the secret value, this challenge can be solved using any of the following:
