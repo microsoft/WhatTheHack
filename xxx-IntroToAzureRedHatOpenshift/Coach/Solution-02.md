@@ -49,3 +49,7 @@
   ```
   http://rating-web-project.apps.ibrnm3dw.eastus.aroapp.io/
   ```
+
+## Challenge 2 Resource Files Original Repos
+- [Ratings Web](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-web)
+- [Ratings API](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api)
