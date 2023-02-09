@@ -6,14 +6,16 @@
 
 The code samples are built and maintained by Microsoft to demonstrate usage of our authentication libraries with the Microsoft identity platform. Common authentication and authorization scenarios are implemented in several application types, development languages, and frameworks.
 
-Each code sample includes a README.md file describing how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
+Each tutorial / walkthrough describes how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
 
 
-- [Web Application](https://github.com/Azure/fta-identity/blob/master/identity-applications/articles/modernize-intranet-webapp.md)
+- Web Application
+    - [ASP.Net](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-asp-webapp)
+    - [ASP.Net Core](https://learn.microsoft.com/en-us/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet-core)
 
-- [Single Page Application](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/blob/main/1-Authentication/1-sign-in/README.md) 
+- [Single Page Application](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code) 
 
-- [Desktop(Console) Application](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/1-Calling-MSGraph/1-1-AzureAD)
+- [Desktop Application](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-windows-desktop)
 
 
 
@@ -25,8 +27,11 @@ Each code sample includes a README.md file describing how to build the project (
 
 ## Learning Resources
 
-- [Modernize Intranet Web App Authentication - Prerequisites](https://github.com/Azure/fta-identity/blob/master/identity-applications/articles/preparation-modernize-intranet-webapp.md)
-- [Angular single-page application using MSAL Angular to sign-in users with Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/blob/main/1-Authentication/1-sign-in/README.md)
+- Web App Authentication
+    - [ASP.Net](https://learn.microsoft.com/en-us/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet)
+    - [ASP.Net Core](https://learn.microsoft.com/en-us/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet-core)
+- [Angular single-page application using MSAL Angular to sign-in users with Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code)
+- [Desktop application - acquire a token interactively](https://learn.microsoft.com/en-us/azure/active-directory/develop/scenario-desktop-acquire-token-interactive?tabs=dotnet)
 
 
 
