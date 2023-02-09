@@ -1,0 +1,95 @@
+﻿@page "{customerId}"
+@model CartIndexModel
+@{
+    ViewData["Title"] = "Cart";
+}
+<form method="post">
+    <div class="text-center">
+        <h1 class="display-4">Customer Cart Page</h1>
+    </div>
+    <hr />
+    <div class="row p-2">
+        <div class="col-2">
+            <label class="form-label h5">For customer:</label>
+        </div>
+        <div class="col-2">
+            <select asp-for="CustomerId" class="form-select">
+                <option value="1">Customer1</option>
+                <option value="2">Customer2</option>
+                <option value="3">Customer3</option>
+                <option value="4">Customer4</option>
+                <option value="5">Customer5</option>
+                <option value="6">Customer6</option>
+                <option value="7">Customer7</option>
+                <option value="8">Customer8</option>
+                <option value="9">Customer9</option>
+                <option value="10">Customer10</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <label class="form-label h5">For store:</label>
+        </div>
+        <div class="col-2">
+            <select asp-for="StoreId" class="form-select">
+                <option value="1">Store1</option>
+                <option value="2">Store2</option>
+                <option value="3">Store3</option>
+                <option value="4">Store4</option>
+                <option value="5">Store5</option>
+                <option value="6">Store6</option>
+                <option value="7">Store7</option>
+                <option value="8">Store8</option>
+                <option value="9">Store9</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <button id="btnChangeCustomer" type="button" class="btn btn-info text-white">Change Customer/Store</button>
+        </div>
+    </div>
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th scope='col'>#</th>
+                <th scope='col'>Item Name</th>
+                <th scope='col'>Item Quantity</th>
+                <th scope='col'>Item Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.CustomerCartItems.Count(); i++)
+            {
+                var item = Model.CustomerCartItems.ElementAt(i);
+                <tr>
+                    <td>@(i+1)</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.ProductPrice</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot class='table-light'>
+            <tr>
+                <th colspan="2" class="text-end"><strong>Total:</strong></th>
+                <th>@Model.CustomerCartItems.Sum(p => p.Quantity)</th>
+                <th>$@Model.CustomerCartItems.Sum(p => p.ProductPrice)</th>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="row">
+        <div class="text-end">
+            <button type="submit" class='btn btn-success text-white @(Model.CustomerCartItems.Count() == 0 ? "disabled" : "")'>Order Now</button>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+<script>
+    $(document).ready(function () {
+
+        $("#btnChangeCustomer").on("click", function () {
+            location.href = "/Cart/" + $("#CustomerId").find(':selected').val() + "?storeId=" + $("#StoreId").find(':selected').val();
+        });
+
+    });
+</script>
+}

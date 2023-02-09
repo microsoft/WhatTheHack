@@ -8,7 +8,7 @@ In this challenge, you're going to use a Dapr **output binding** in the `FineCol
 
 ## Description
 
-Dapr offers a *bindings* building block to easily interface with external systems. Bindings are divided into input bindings and output bindings. Input bindings trigger your services by picking up events from external systems. Output bindings are an easy way to invoke functionality of an external system. Both input and output bindings work without the developer having to learn the API or SDK of the external system. You only need to know the Dapr bindings API. See below for a diagram of how output bindings work:
+Dapr offers a _bindings_ building block to easily interface with external systems. Bindings are divided into input bindings and output bindings. Input bindings trigger your services by picking up events from external systems. Output bindings are an easy way to invoke functionality of an external system. Both input and output bindings work without the developer having to learn the API or SDK of the external system. You only need to know the Dapr bindings API. See below for a diagram of how output bindings work:
 
 <img src="../images/Challenge-05/output-binding.png" style="zoom: 50%;" />
 
@@ -43,12 +43,14 @@ This challenge targets the operation labeled as **number 4** in the end-state se
 
 - Use [MailDev](https://github.com/maildev/maildev) for the development SMTP server.
   ```shell
-  docker run -d -p 4000:80 -p 4025:25 --name dtc-maildev maildev/maildev:latest
+  docker run -d -p 4000:1080 -p 4025:1025 --name dtc-maildev maildev/maildev:latest
   ```
 - You can observe the MailDev server locally by navigating to [http://localhost:4000](http://localhost:4000).
 - Use an Azure Logic App to send out emails when deploying to Azure.
+  - You will need to **Authorize** the Office365 connector in the Azure portal for the Logic App so it can send email.
 
 ## Learning Resources
+
 - [Dapr Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
 - [Dapr for .NET developers - bindings](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
 - [Maildev](https://github.com/maildev/maildev)
