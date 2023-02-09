@@ -408,14 +408,15 @@ done
 ingress_svc_ip=$traefik_svc_ip
 ```
 
-Alternatively, the recommended option for this lab is Nginx:
+Alternatively, the recommended option for this hack is Nginx:
 
 ```bash
 # Nginx installation
 remote 'helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx'
 remote 'helm repo update'
 remote 'kubectl create ns nginx'
-remote 'helm install nginx ingress-nginx/ingress-nginx --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true'
+# See https://github.com/Azure/AKS/issues/2903
+remote 'helm install nginx ingress-nginx/ingress-nginx --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.service.externalTrafficPolicy=Local --set controller.service.type=LoadBalancer --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz'
 # nginx service IP
 nginx_svc_name=$(remote "kubectl get svc -n nginx -o json | jq -r '.items[] | select(.spec.type == \"LoadBalancer\") | .metadata.name'")
 nginx_svc_ip=$(remote "kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
