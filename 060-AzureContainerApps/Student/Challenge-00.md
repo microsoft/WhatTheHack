@@ -2,7 +2,7 @@
 
 ## Challenge 0 - Setup
 
-[Home](../readme.md) - [Next >](challenge01.md)
+[Home](../README.md) - [Next >](Challenge-01.md)
 
 ### Introduction
 
@@ -40,4 +40,4 @@ We assume you already have an Azure subscription with Owner access. If you don't
 - [Git](https://git-scm.com/)
 - [GitHub Copilot](https://copilot.github.com/)
 
-[Home](../readme.md) - [Next >](challenge01.md)
+[Home](../README.md) - [Next >](Challenge-01.md)
