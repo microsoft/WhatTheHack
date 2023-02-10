@@ -36,7 +36,7 @@ To enable the container app to be accessed publicly via its fully qualified doma
  
 If the ACA has been deployed successfully, entering the fully qualified domain name of the ACA in a browser will result in the following page being displayed:
 
-![screenshot](./images/Challenge-01Screenshot-01.png)
+![screenshot](./images/challenge01screenshot01.png)
 
 ## Learning Resources
 
