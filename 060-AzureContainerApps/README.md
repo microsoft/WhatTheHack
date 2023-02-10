@@ -10,7 +10,7 @@ It's a great place for anyone to start building container based, microservices s
 ## Learning Objectives
 In this hack you will learn about the fundamentals of Azure Container Apps, and how they differ from Kubernetes applications. You will learn about specific ACA concepts and how to build and deploy applications for ACA. Finally, you will look at support for things like autoscaling, Pub/Sub, managed identity and monitoring.
 
-1. Set up a development enviornment
+1. Set up a development environment
 1. Create your first container app
 1. Deploy single and multi-container apps
 1. Automate deployment with DevOps
