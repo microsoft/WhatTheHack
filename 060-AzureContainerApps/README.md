@@ -1,7 +1,7 @@
 # What The Hack - Azure Container Apps
 
 ## Introduction
-[Azure Container Apps](https://learn.microsoft.com/en-GB/azure/container-apps/overview) (ACA) is an Azure service for hosting containerised applications and microservices on a serverless platform. It is powered by Kubernetes and open-source technologies such as [Dapr](https://dapr.io/), [KEDA](https://dapr.io/) and [envoy](https://www.envoyproxy.io/).
+[Azure Container Apps](https://learn.microsoft.com/en-GB/azure/container-apps/overview) (ACA) is an Azure service for hosting containerised applications and microservices on a serverless platform. It is powered by Kubernetes and open-source technologies such as [Dapr](https://dapr.io/), [KEDA](https://dapr.io/) and [Envoy](https://www.envoyproxy.io/).
 
 ACA allows you to build Kubernetes-style applications in a fully managed experience aligned to best-practices. It doesn't provide direct access to the underlying Kubernetes APIs.
 
@@ -16,7 +16,7 @@ In this hack you will learn about the fundamentals of Azure Container Apps, and 
 1. Automate deployment with DevOps
 1. Explore traffic splitting and scaling
 1. Monitor container apps
-1. Undertand authentication and identity with container apps
+1. Understand authentication and identity with container apps
 
 ## Challenges
 
