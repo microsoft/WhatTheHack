@@ -30,7 +30,13 @@ Revisions - Enable container app versioning
 Use the Azure CLI to create a simple ACA using an existing container image. The following image can be used: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest.
 
 ## Tips
-To enable the container app to be accessed publicly via its fully qualified domain name (FQDN), set the --target-port and --ingress parameters. Set the --query parameter to return the FQDN when the container is created.
+To enable the container app to be accessed publicly via its fully qualified domain name (FQDN), and to return the FQDN when the container is created, set the following parameters:
+
+ ```bash
+--target-port
+--ingress
+--query
+```
 
 ## Success Criteria
  
