@@ -1,10 +1,10 @@
-# Challenge 01 - Deploy A Simple Azure Container Application
+# Challenge-01 - Deploy A Simple Azure Container Application
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Pre-requisites
 
-You should have completed Challenge 00.
+You should have completed Challenge-00.
 
 ## Introduction
 
@@ -36,7 +36,7 @@ To enable the container app to be accessed publicly via its fully qualified doma
  
 If the ACA has been deployed successfully, entering the fully qualified domain name of the ACA in a browser will result in the following page being displayed:
 
-![screenshot](./images/challenge01screenshot01.png)
+![screenshot](./images/Challenge-01Screenshot-01.png)
 
 ## Learning Resources
 
