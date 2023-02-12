@@ -72,6 +72,7 @@ To complete this challenge successfully, you should be able to:
 
 - [Azure Monitor Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
 - [Install and configure the Azure Diagnostics extension for Windows (WAD)](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-windows-install)
+- [Resource Manager template samples for agents in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/resource-manager-agent?tabs=bicep)
 - [Azure Monitor Metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics)
 - [Azure Metric alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#metric-alerts)
 - [HammerDB](https://www.hammerdb.com)
