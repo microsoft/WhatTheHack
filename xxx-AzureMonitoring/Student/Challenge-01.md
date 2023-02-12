@@ -28,21 +28,21 @@ To login to a VM via Azure Bastion, navigate to the blade for any of these VMs i
 ### Set up Counters, Alerts, and Dashboard
 
 In this challenge you need to complete the following management tasks:
->**Note** Use Azure portal, Bicep templates, Azure CLI or PowerShell to achieve your goals. While Azure portal is useful for learning purposes, deployment templates and scripts are crucial for most real-life scenarios.
+>**Note** Use Azure portal, Bicep templates, Azure CLI or PowerShell to achieve your goals. While Azure portal is useful for learning purposes, deployment templates and scripts allow scalability.
 
 - Create an empty database called “tpcc” on the SQL Server VM. Use SQL Auth with the username being "sqladmin" and password being whatever you used during deployment in Challenge 0.
 
 	**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database.
 
 - Navigate to the blade of the SQL Server VM, click "Metrics" to open Azure Monitor Metrics explorer, and check what metrics are currently being collected.
-- Enable guest-level monitoring for the SQL Server and send the below guest OS metrics to Azure Monitor:
+- Enable guest-level monitoring for the SQL Server and configure it to send the below guest OS metrics to Azure Monitor:
 	- Object: Memory
 		- Counter: Available Bytes
 		- Counter: Committed Bytes
+		- Counter: % Committed Bytes in Use 
 	- Object: SQLServer:Databases
 		- Counter: Active Transactions
 		- Instance: tpcc
-- From Azure Monitor create an Action group to send emails to your address.
 - Create an Alert rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
 - Create an Alert Rule to be notified via email if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
 - Suppress both alerts over the weekend.
@@ -66,13 +66,14 @@ To complete this challenge successfully, you should be able to:
 - Verify the dashboard has the metric with a spike representing before and after the simulation.
 - Show two fired alerts in the Portal and the email notifications received.
 
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/ch1_metric_spike.jpg)
+![enter image description here](../Images/01-04-Sample-dashboard.png)
 
 ## Learning Resources
 
-- [Azure Monitor Agents Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
+- [Azure Monitor Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
 - [Install and configure the Azure Diagnostics extension for Windows (WAD)](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-windows-install)
 - [Azure Monitor Metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics)
 - [Azure Metric alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#metric-alerts)
 - [HammerDB](https://www.hammerdb.com)
 - [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
+- [Run scripts in your Windows VM by using action Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
