@@ -1,8 +1,6 @@
 @secure()
 param AdminPassword string
 param AdminUsername string
-param LawId string
-param LawKey string
 param Location string
 param StorageAccountName string
 param StorageEndpoint string
@@ -141,83 +139,6 @@ resource DbIdExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01'
   }
 }
 
-resource DbIaasDiagExtension 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
-  name: '${vm[0].name}/Microsoft.Insights.VMDiagnosticsSettings'
-  location: Location
-  properties: {
-    publisher: 'Microsoft.Azure.Diagnostics'
-    type: 'IaaSDiagnostics'
-    typeHandlerVersion: '1.5'
-    autoUpgradeMinorVersion: true
-    settings: {
-      WadCfg: {
-        DiagnosticMonitorConfiguration: {
-          overallQuotaInMB: 4096
-          DiagnosticInfrastructureLogs: {
-            scheduledTransferLogLevelFilter: 'Error'
-          }
-          Directories: {
-            scheduledTransferPeriod: 'PT1M'
-            IISLogs: {
-              containerName: 'wad-iis-logfiles'
-            }
-            FailedRequestLogs: {
-              containerName: 'wad-failedrequestlogs'
-            }
-          }
-          PerformanceCounters: {
-            scheduledTransferPeriod: 'PT1M'
-            sinks: 'AzMonSink'
-            PerformanceCounterConfiguration: [
-              {
-                counterSpecifier: '\\Memory\\Available Bytes'
-                sampleRate: 'PT15S'
-                unit: 'bytes'
-              }
-              {
-                counterSpecifier: '\\Memory\\% Committed Bytes In Use'
-                sampleRate: 'PT15S'
-                unit: 'bytes'
-              }
-              {
-                counterSpecifier: '\\Memory\\Committed Bytes'
-                sampleRate: 'PT15S'
-                unit: 'bytes'
-              }
-            ]
-          }
-          WindowsEventLog: {
-            scheduledTransferPeriod: 'PT1M'
-            DataSource: [
-              {
-                name: 'Application!*'
-              }
-            ]
-          }
-          Logs: {
-            scheduledTransferPeriod: 'PT1M'
-            scheduledTransferLogLevelFilter: 'Error'
-          }
-        }
-        SinksConfig: {
-          Sink: [
-            {
-              name: 'AzMonSink'
-              AzureMonitor: {}
-            }
-          ]
-        }
-      }
-      StorageAccount: StorageAccountName
-    }
-    protectedSettings: {
-      storageAccountName: StorageAccountName
-      storageAccountKey: StorageKey
-      storageAccountEndPoint: 'https://${StorageEndpoint}/'
-    }
-  }
-}
-
 resource SqlExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
   name: '${vm[0].name}/SqlIaaSAgent'
   location: Location
@@ -256,32 +177,3 @@ resource SqlExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' 
   }
 }
 
-resource DbDependencyExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
-  name: '${vm[0].name}/DependencyAgentWindows'
-  location: Location
-  properties: {
-    publisher: 'Microsoft.Azure.Monitoring.DependencyAgent'
-    type: 'DependencyAgentWindows'
-    typeHandlerVersion: '9.4'
-    autoUpgradeMinorVersion: false
-    enableAutomaticUpgrade: false
-  }
-}
-
-resource DbAMA 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
-  name: '${vm[0].name}/AzureMonitorWindowsAgent'
-  location: Location
-  properties: {
-    publisher: 'Microsoft.Azure.Monitor'
-    type: 'AzureMonitorWindowsAgent'
-    typeHandlerVersion: '1.0'
-    autoUpgradeMinorVersion: true
-    enableAutomaticUpgrade: true
-  }
-  dependsOn: [
-    DbIdExtension
-    DbIaasDiagExtension
-    SqlExtension
-    DbDependencyExtension
-  ]
-}
