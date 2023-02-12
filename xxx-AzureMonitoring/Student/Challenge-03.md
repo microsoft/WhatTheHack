@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge you will put together a comprehensive solution to monitor virtual machine operations. This will include installation of Azure Monitor Agent, exploration of VM Insights, Update Management, Change Traking and Inventory.
+In this challenge you will put together a comprehensive solution to monitor virtual machine operations. This will include installation of Azure Monitor Agent, exploration of VM Insights, Change Tracking and Inventory.
 
 Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Azure Monitor Logs stores the data that it collects in one or more Log Analytics workspaces. After you create a Log Analytics workspace, you must configure sources to send their data. No data is collected automatically.  
 
@@ -20,25 +20,27 @@ Azure Monitor Agent is implemented as an Azure VM extension. You can install it 
 
 In this challenge you need to complete the following management tasks:
 - Install Azure Monitor Agent on all your VMs and VM scale sets. You can use any of the deployment methods from the list above (DCR, Bicep, Azure CLI, etc.). 
->**Hint:** You can find a sample Bicep file, 'ama.bicep', in the '/Challenge-03' subfolder of the Resources folder. Figure out what changes you need to make to use this file.
-- Create a Data collection rule and configure it to send basic Windows Event Logs and Performance counters (CPU, Memory, Disk, Network) from your VMs and VM scale sets to the already existing Log Analytics workspace called law-wth-monitor-d-xx
+>**Hint:** You can find a sample Bicep file, 'ama.bicep', in the '/Challenge-03' subfolder of the Resources folder. 
+- Create a Data collection rule and configure it to send basic Windows Event Logs and Performance counters (CPU, Memory, Disk, Network) from your VMs and VM scale sets to the already existing Log Analytics workspace called **`law-wth-monitor-d-XX`**
 - Verify that telemetry started to flow into the Log Analytics workspace.
 >**Hint:** You can find sample KQL queries in the '/Challenge-03' subfolder of the Resources folder.
-- Configure VM Insights for all VMs, pin Performace graphs from the VM Insights workbook to your Azure dashboard.
-- Enable Change Tracking and Inventory for all VMs
+- Configure VM Insights for all VMs, pin Performance graphs from the VM Insights workbook to your Azure dashboard.
+- Enable Change Tracking and Inventory for all VMs.
 
 ## Success Criteria
 
-- Show your dashboard with VM Insights performance graphics, Update Management report, and shortcut to Guest Config policy compliance report.
-
-![Example of Final Dashboard](../Images/03-01-Final-Dashboard.png)
+- Show your dashboard with VM Insights performance graphics.
+- Show performance and event data in Azure Monitor Logs.
+- Show Change Tracking and Inventory graphics.
 
 ## Learning Resources
 
-- [Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
-- [Enable Change Tracking and Inventory using Azure Monitoring Agent](https://learn.microsoft.com/en-us/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm)
+- [Azure Monitor Logs Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
+- [Azure Monitor Agent Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
+- [Collect events and performance counters from virtual machines with Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal)
+- [Install Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal)
+- [Resource Manager template samples for agents in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/resource-manager-agent?tabs=bicep#diagnostic-extension)
 - [Configure Log Analytics workspace for VM Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-configure-workspace?tabs=CLI#add-vminsights-solution-to-workspace)
 - [Enable VM insights by using Azure Policy](https://docs.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-policy)
-- [Cloud Adoption Framework - Management and Monitoring](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
-- [Azure Monitor Workbooks - Pinning Visualizations](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview#pinning-visualizations)
+- [Enable Change Tracking and Inventory using Azure Monitoring Agent](https://learn.microsoft.com/en-us/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm)
 
