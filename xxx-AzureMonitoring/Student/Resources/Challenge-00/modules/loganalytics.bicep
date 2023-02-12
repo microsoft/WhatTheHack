@@ -1,7 +1,6 @@
 param Datasources array
 param Location string
 param Name string
-param Solutions array
 
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2020-08-01' = {
@@ -19,24 +18,6 @@ resource datasources 'Microsoft.OperationalInsights/workspaces/datasources@2015-
   properties: Datasource.properties
   dependsOn:[
     workspace
-  ]
-}]
-
-resource solutions 'Microsoft.OperationsManagement/solutions@2015-11-01-preview' = [for Solution in Solutions: {
-  name: Solution.name
-  location: Location
-  properties: {
-    workspaceResourceId: workspace.id
-  }
-  plan: {
-    name: Solution.name
-    product: 'OMSGallery/${Solution.marketplaceName}'
-    promotionCode: ''
-    publisher: 'Microsoft'
-  }
-  dependsOn:[
-    workspace
-    datasources
   ]
 }]
 
