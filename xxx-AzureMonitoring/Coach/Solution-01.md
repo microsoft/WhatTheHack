@@ -1,4 +1,4 @@
-# Challenge 02 - Monitoring Basics and Dashboards - Coach's Guide 
+# Challenge 01 - Monitor Virtual Machine performance with Azure Monitor Metrics - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
@@ -6,34 +6,34 @@
 
 #### Creating an empty database called "tpcc" on the SQL Server
 
->**Note:** Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
+>**Note** Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
 
->**Tip:** the "xxxxx" is your unique 5 charaters used during the deployment
+>**Note** The "XX" in each resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
 
-- Connect (RDP) to the Visual Studio Server (xxxxxVSSrv) using its public IP address and open Visual Studio.
+- Use Azure Bastion to connect to the Visual Studio Server VM (vmwthvsdXX) and open Visual Studio.
 
-- Create an account or login with your account
+- Visual Studio has a view called SQL Server Object Explorer that can be used to create and delete SQL databases on the SQL server.
 
-- VS has view called SQL Server Object Explorer that can be used to create and delete SQL databases on the SQL server
+![enter image description here](../Images/01-00-SQL-view.png)
 
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image2.png)
+- Connect to the database server VM (vmwthvsdXX), make sure to use SQL Server Authentication with username 'sqladmin' and the password you set during deployment.
 
-- Connect to the database server VM, make sure to use sqladmin and the password you used during deployment
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image3.png)
+![](/../Images/01-01-Connect-to-db.png)
 
 - Once connected create a new database called "tpcc"
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image4.png)
+![](../Images/01-02-Add-db.png)
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image5.png)
+![](../Images/01-03-View-db.png)
 #### Send the SQL DB Active transactions metric to Azure Monitor
   
 ##### From the portal
   
+If you navigate to the Metrics blade for both VMs, you should only be able to see Virtual Machine host metrics. To add guest-level monitoring, go to Diagnostics settings blade of the SQL Server VM, select the Diagnostics storage account (create a new one or use one of the already existing), click "Enable guest-level monitoring". Once the settings are installed, you will see a list of monitored basic performance counters.
+
 To find the correct SQL DB counter, go to your Azure Portal, open the VM, then open Run Command as shown in the screen below. 
   
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image6.png)    
+![enter image description here](../Images/01-05-Run-cmdlet.png)    
 Run the command - (Get-Counter -ListSet SQLServer:Databases).Paths
   
 Once its finished, review the results (scroll up) and copy the output for the 
@@ -42,11 +42,16 @@ Once its finished, review the results (scroll up) and copy the output for the
   
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image7.png)  
 Now replace the "*" with the target database to be:
-`\\SQLServer:Databases(tpcc)\\Active Transactions`
+`\SQLServer:Databases(tpcc)\Active Transactions`
   
-Open your VM on the Azure Portal, then go to diagnostic settings and add the counter under performance counters as shown below:
+Open your VM on the Azure Portal, then go to diagnostic settings and add the counter under performance counters as shown below. 
   
 ![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/sql_counter.jpg)  
+
+Open the "Sinks" tab and select "Enable Azure Monitor". Don't forget to click "Save".
+
+![enter image description here](../Images/01-11-Diag-settings-sinks.png)    
+
 ##### From the bicep Template
 To do this via code:
 - Open the main.bicep file
@@ -120,6 +125,7 @@ Now go to the VM Metric, you should see the SQL one we added above, add it and p
 - Drill into SQL Server \\ TPC-C \\ Schema Build and double click on **Options**
 - Modify the Build Options for the following:
 	- SQL Server: Name of your SQL Server
+	- Encrypt Connection: No
 	- SQL Server ODBC Driver: SQL Server
 	- Authentication: SQL Server Authentication
 	- SQL Server User ID: sqladmin
@@ -130,7 +136,7 @@ Now go to the VM Metric, you should see the SQL one we added above, add it and p
 >**Note: **Setting the last two at 50 should generate enough load to trip a threshold and run long enough for you to graph to show a spike
 
   
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image19.png)
+![](../Images/01-12-HammerDB-settings.png)
   
 - Double click on Build and Click Yes to kick of a load test.
   
@@ -202,7 +208,7 @@ I assume now you are familier with the whole topic or Dashboards, Alerts ..etc
 should looks something like this:
   
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image33.png)
+![](../Images/01-04-Sample-dashboard.png)
 - Now Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails you when you go over the threshold.
 - Now you need to generate load on your VMSS to do this in the repo you cloned navigate to the folder called **loadscripts** under the **sources** folder and copy the **cpuGenLoadwithPS.ps1** script to both instances running in the Scale Set and run them.
 
