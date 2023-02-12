@@ -1,4 +1,4 @@
-# Challenge 03 - Monitor Virtual Machines with Azure Monitor Agent and monitoring solutions
+# Challenge 03 - Monitor Virtual Machines with Azure Monitor Agent
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
