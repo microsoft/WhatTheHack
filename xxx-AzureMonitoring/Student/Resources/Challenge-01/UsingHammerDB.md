@@ -12,11 +12,12 @@ This is a reference guide for [Challenge 01 - Monitoring Basics and Dashboards](
 
 - Open HammerDB and double click on SQL Server to start configuring the transaction load. In the dialog that opens, click OK.
 
-	![](../../../Images/02-02-HammerDB.png)   
+	![](../../../Images/01-12-HammerDB-settings.png)   
 
 - Drill into SQL Server \\ TPC-C \\ Schema Build and double click on **Options**
 - Modify the Build Options for the following:
 	- SQL Server: Name of your SQL Server
+	- Encrypt Connection: No
 	- SQL Server ODBC Driver: SQL Server
 	- Authentication: SQL Server Authentication
 	- SQL Server User ID: sqladmin
