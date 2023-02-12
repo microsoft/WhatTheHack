@@ -1,4 +1,4 @@
-# Challenge 03 - Azure Monitor for Virtual Machines - Coach's Guide 
+# Challenge 03 - Monitor platform events with Activity Log - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
