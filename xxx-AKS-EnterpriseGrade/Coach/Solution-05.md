@@ -14,6 +14,10 @@
   - If the students have used "infrastructure as code" and created their cluster from the Azure CLI using the "az aks create" command, this should not be a "painful" event.
   - It is a good lesson for students to see that with a combination of Azure CLI commands, YAML files, and/or Helm charts, that re-deploying a new cluster is easy.
 - AKS will have the ability for users to "bring their own" networking policy in the future. This may change the possible solutions for this challenge.
+- To demonstrate that the network policies work:
+  - Students can create a jumpbox VM on the VNet where the AKS cluster is deployed
+  - curl both the Web & API pods from the VM. 
+  - curling the API pod should fail after the proper network policy is in place.
 
 ## Solution Guide
 
