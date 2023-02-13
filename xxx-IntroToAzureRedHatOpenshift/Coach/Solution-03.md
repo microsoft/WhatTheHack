@@ -3,7 +3,8 @@
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes & Guidance
-- The aim of this challenge is to have students explore the logging tools and debug the application to figure out what is wrong. In later challenges, we will fix these bugs, but for now, the students just need to find them using logging tools. 
+- The aim of this challenge is to have students explore the logging tools and debug the application to figure out what is wrong. In later challenges, we will fix these bugs, but for now, the students just need to find them using logging tools.
+  - **NOTE:** The students **ARE NOT** supposed to fix the broken application in this challenge!
 
 Just to reiterate the errors in the application:
   - The backend API is broken because we will need to deploy a MongoDB backend and configure the environment variables on the deployment (Challenge 4 & 5)

@@ -10,3 +10,4 @@
   - To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
 - Make sure that all students are able to download a [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) at least 2 business days **BEFORE** the hack.
   - **NOTE:** Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.
+- Create two public GitHub repositories, one that contains the contents from the folder **rating-api** and the other containing the contents from the folder **rating-web**. Both folders can be found in the student resources for this hack.

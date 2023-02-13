@@ -34,13 +34,15 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 
 ## Additional Pre-requisites
 
-- Install the [OpenShift CLI](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
+- Install the [OpenShift CLI (Microsoft Docs)](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster#install-the-openshift-cli)
+  - **NOTE:** If you are using Linux or Mac, you can also install the CLI using homebrew: [OpenShift CLI (Homebrew)](https://formulae.brew.sh/formula/openshift-cli)
 - ***Complete this days in advance**: Obtain your Red Hat pull secret by navigating to [Red Hat Pull Secret](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and clicking Download pull secret. Keep this secret in the environment you will be hacking in.
   - **NOTE:** You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
   - **NOTE:** You will need an account before you can obtain your Red Hat pull secret
 - ***Complete this days in advance**: Minimum of 40 cores (VM Quotas):
   - Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
   - If the limit is below 40, you will need to [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests)
+  - **NOTE:** If the command above returns nothing, please register the Microsoft.Compute resource provider using the commands found further down on this page.
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
 
 | Permissions  | Resource Group which contains the VNet | User executing `az aro create` | Service Principal passed as `–client-id` |

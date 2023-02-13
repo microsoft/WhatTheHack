@@ -19,7 +19,7 @@
   - Go to *Home > Projects* and click on *Create Project* button on the right
 
 ## Deploy the backend API
-- Deploy the backend API using the command `oc new-app the/rating-api/directory --name=rating-api --strategy=docker`
+- Deploy the backend API using the command `oc new-app <URL to coach created repo> --name=rating-api --strategy=docker`
   - **NOTE:** Make sure the students set the **--strategy** flag to **docker** when deploying the backend API and **--name** to **rating-api**
   - **Verify in terminal:**
     - Use the command `oc get deployments` and your output should look similar to below
@@ -32,7 +32,7 @@
     - Go to *Workloads > Deployments* and confirm the status of 'rating-api' shows **1 of 1 pods** deployed
 
 ## Deploy frontend application
-- Deploy the frontend application using the command `oc new-app the/rating-web/directory --name=rating-web --strategy=docker`
+- Deploy the frontend application using the command `oc new-app <URL to coach created repo> --name=rating-web --strategy=docker`
   - **NOTE:** Make sure the students set the **--strategy** flag to **docker** when deploying the frontend application and **--name** to **rating-web**
   - This build will take 5-10 minutes
   - Use the command `oc get deployments` and your output should look similar to below
@@ -50,6 +50,6 @@
   http://rating-web-project.apps.ibrnm3dw.eastus.aroapp.io/
   ```
 
-## Challenge 2 Resource Files Original Repos
+## Challenge 2 Resource Files Original Repos (Do not fork. Create hack repos from the student directory resources)
 - [Ratings Web](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-web)
 - [Ratings API](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api)
