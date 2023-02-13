@@ -17,7 +17,7 @@ There are multiple ways to solve this challenge. Depending on the organization's
 
 For the non-secret configuration settings, this challenge can be solved using either of the following:
 - [Kubernetes ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
-  - This link explains the ConfigMap concept and has examples that should work.
+  - This link explains the ConfigMap concept and has examples that should guide students on how to get this to work.
 - Azure App Configuration Service
 
 For the secret value, this challenge can be solved using any of the following:
