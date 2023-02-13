@@ -4,9 +4,8 @@
 
 ## Notes and Guidance
 
-* Dedicated subnets per nodepool in preview at the time of this writing
-* Understand how taints/tolerations work for nodepool scheduling
-* It might take some time for the Azure Policy to propagate to the AKS cluster (up to 20 mins on average)
+- Dedicated subnets per nodepool in preview at the time of this writing
+- Understand how taints/tolerations work for nodepool scheduling
 - When using Kubenet networking, only Calico networking policy is currently avaialble in AKS (this may change in the future)
 - When using Azure CNI networking, you may use either Calico or Azure networking policy.
 - Switching between kubenet and Azure CNI networking is not possible after a cluster has been deployed. 
@@ -18,6 +17,11 @@
   - Students can create a jumpbox VM on the VNet where the AKS cluster is deployed
   - curl both the Web & API pods from the VM. 
   - curling the API pod should fail after the proper network policy is in place.
+- It might take some time for the Azure Policy to propagate to the AKS cluster (up to 20 mins on average)
+  - To verify that no LoadBalancer services with a public IP address can be created, students will should get an error message when trying to deploy a new service.
+  - Students should be taught how to enable the service to be available external from the cluster without the use of a public IP address.
+    - This involves creating an internal Load Balancer in Azure that receives a private IP address from the VNet that the cluster is deployed into.
+    - This article is a good reference: [Use an internal load balancer with Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/internal-lb)
 
 ## Solution Guide
 
