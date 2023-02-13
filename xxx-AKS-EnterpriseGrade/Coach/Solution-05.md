@@ -6,7 +6,14 @@
 
 * Dedicated subnets per nodepool in preview at the time of this writing
 * Understand how taints/tolerations work for nodepool scheduling
-* It might take some time for the Azure Policy to propagate to the AKS cluster
+* It might take some time for the Azure Policy to propagate to the AKS cluster (up to 20 mins on average)
+- When using Kubenet networking, only Calico networking policy is currently avaialble in AKS (this may change in the future)
+- When using Azure CNI networking, you may use either Calico or Azure networking policy.
+- Switching between kubenet and Azure CNI networking is not possible after a cluster has been deployed. 
+  - Students will need to re-deploy a new cluster to change the networking type.
+  - If the students have used "infrastructure as code" and created their cluster from the Azure CLI using the "az aks create" command, this should not be a "painful" event.
+  - It is a good lesson for students to see that with a combination of Azure CLI commands, YAML files, and/or Helm charts, that re-deploying a new cluster is easy.
+- AKS will have the ability for users to "bring their own" networking policy in the future. This may change the possible solutions for this challenge.
 
 ## Solution Guide
 
