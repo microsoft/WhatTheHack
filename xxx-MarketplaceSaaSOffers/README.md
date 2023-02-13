@@ -1,16 +1,21 @@
-# What The Hack - MarketplaceSaaSOffers
+# What The Hack - SaaS Offers in the Microsoft Commercial Marketplace
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+Creating a transactable SaaS Offer for the Microsoft commercial marketplace requires a solid understanding of the technical assets and an appreciation of the SaaS Fulfillment APIs. This includes building an appropriate, SSO-enabled landing page and implementing a number of pre-defined API flows that integrate with the marketplace APIs.
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will learn about the key elements of integrating with the Microsoft commercial marketplace APIs in order to publish a transactable SaaS Offer.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+1. Understand the key components of a transactable SaaS offer
+1. Familiarisation with key API flows (eg landing page, activation, update, suspend etc)
+1. Familiarisation with the API emulator
+1. Create a landing page
+1. Create a solution that integrates with the marketplace APIs
+1. Implement key API flows
+1. Implement a solution for tracking entitlement
+1. Understand Partner Center publishing
 
 ## Challenges
 
