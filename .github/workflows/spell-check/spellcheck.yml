@@ -7,6 +7,7 @@ matrix:
     lang: en
   dictionary:
     wordlists:
+    - .github/workflows/spell-check/base-wordlist.txt
     encoding: utf-8
   pipeline:
   - pyspelling.filters.markdown:
