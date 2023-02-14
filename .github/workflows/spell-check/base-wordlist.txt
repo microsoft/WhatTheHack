@@ -89,6 +89,7 @@ ClientSecret
 ClusterIp
 CmdLet
 CmdLets
+CoE
 CodeQL
 ConfigMap
 ConnectionString
@@ -102,6 +103,7 @@ CronJob
 DBA
 DBAs
 DBMS
+DBs
 DEK
 DES
 DICOM
@@ -120,6 +122,7 @@ Dataflow
 Dataverse
 Dependabot
 DevOps
+DevSecOps
 DirectQuery
 Dockerfile
 Dockerfiles
@@ -149,6 +152,7 @@ GRS
 GUID
 GiB
 Git
+GitFlow
 GitHub
 GitOps
 Gradle
@@ -169,6 +173,7 @@ IP
 IPAddress
 IPSEC
 IPs
+ISA
 ISE
 IaC
 IaaS
@@ -271,6 +276,8 @@ PLC
 POC
 POSIX
 PPT
+PR
+PRs
 PVCs
 PVs
 PaaS
@@ -291,6 +298,7 @@ PrivateLink
 Prometheus
 PuTTY
 PublicIp
+PullRequest
 PyBuilder
 PyPI
 QnA
@@ -314,6 +322,7 @@ ResourceId
 Runbook
 Runbooks
 Runtime
+SAML
 SAS
 SCM
 SDK
@@ -345,6 +354,7 @@ SkuName
 Skype
 SqlMI
 StackOverflow
+StateStore
 StatefulSet
 StorageAccountName
 StorageClass
@@ -427,8 +437,10 @@ certbot
 chatbots
 chmod
 cli
+clusterName
 cmd
 compatibility
+conf
 config
 config
 containerPort
@@ -442,6 +454,7 @@ css
 ctrl
 customizable
 dacpac
+datacenter
 dataframes
 dataset
 datasets
@@ -467,6 +480,7 @@ filesystem
 filesystems
 foreach
 frontend
+fullscreen
 gRPC
 geospatial
 gz
@@ -604,5 +618,6 @@ xargs
 xml
 xslx
 yaml
+yml
 yum
 zsh
