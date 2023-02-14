@@ -1,0 +1,19 @@
+name: Spell Check
+
+on:
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.5.0
+
+      - uses: jordanbean-msft/wth-spell-check-action@v0.0.1
+        name: WTH Spell Check
+        with:
+          spell_check_yaml_path: .github/workflows/.spellcheck.yml
+          markdown_base_path: .
