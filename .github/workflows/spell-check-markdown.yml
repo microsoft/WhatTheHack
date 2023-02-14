@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.5.0
 
-      - uses: jordanbean-msft/wth-spell-check-action@v0.0.1
+      - uses: jordanbean-msft/wth-spell-check-action@v0.0.2
         name: WTH Spell Check
         with:
           spell_check_yaml_path: .github/workflows/.spellcheck.yml
