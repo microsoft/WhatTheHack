@@ -46,8 +46,6 @@ If you have installed all of the tools listed above and plan to work on your loc
 If you plan to use the Azure Cloud Shell, download and unpack this file in your Azure Cloud Shell environment. 
 
 ```bash
-# Download the Resources.zip file from the URL provided by your coach
-wget https://aka.ms/WTHDashResources -O Resources.zip
 # Unpack the zip file
 unzip Resources.zip
 # Navigate to the "Resources" folder
@@ -59,7 +57,7 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 For this challenge, you will deploy the eShopOnWeb application and its underlying infrastructure resources to Azure using a set of pre-developed Bicep templates. Once the application and its infrastructure are deployed, you will complete the hack's challenges using Datadog to monitor it.
 
-### Deploy Resources
+### Deploy eShopOnWeb Azure Resources
 
 You will find the provided `main.bicep` template and its associated script files in the `/Challenge-00/` folder of the `Resources.zip` file provided to you by your coach. 
 
@@ -104,7 +102,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
     - **NOTE:** This deployment will take approximately 20-25 minutes.
 
-### View Deployed Resources
+### View Deployed eShopOnWeb Azure Resources
 
 - Once the deployment has completed, navigate to the Public IP Address resource, **pip-wth-monitor-web-d-XX** , in the Azure Portal.  
 - In the Overview blade, copy the DNS name to your clipboard.  
@@ -112,12 +110,27 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 
 ![Webpage of the eShopOnWeb site](../Images/00-23-Eshoponweb-Webpage.png)
 
-### Deploy Datadog from Azure Marketplace
-- Go to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
+### Deploy Datadog in Azure
+
+In order to use Datadog in Azure you need to have a Datadog account, which is also referred to as an "organization".  There are two options for doing this:
+- Create a new Datadog organization via the Azure Native Integration for Datadog.
+- Link an existing Datadog organization to your Azure subscription.
+
+#### Option 1 - Create a New Datadog Organization via the Azure Native Integration for Datadog
+
+Things to consider:
+- Azure Native Integration for Datadog enables the easy creation of a Datadog account/organization via the Azure Marketplace within the Azure Portal
+- Your Azure subscription must be activated with a credit card to use Azure Marketplace offerings
+- Billing for Datadog usage is handled via the Azure Marketplace
+- Billing for Datadog usage starts immediately after deployment with no option for a free trial
+
+Here's how to do it:
+
+- In the [Azure Portal](https://portal.azure.com), navigate to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
 - Create a new Datadog organization when asked to choose between linking to an existing Datadog org or creating a new one.
 - Select the existing resource group `XXX-rg-wth-monitor-d-XX` to deploy the Datadog resource.
   >**Note** The "XXX" in the resource group name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
-- Ensure that the Azure resource details show as `West US 2` and the Datadog site is `US3`.
+- Ensure that the Azure resource details show the location as `West US 2` and the Datadog site is `US3`.
 - You do not need to enable single sign-on through Azure Active Directory for this workshop, but we recommend doing so in a production environment.
 - Proceed with the deployment, and once the deployment is finished, click the link **Set Password in Datadog.**
 - Choose a password that you will remember for the duration of this workshop.
@@ -125,7 +138,25 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
   - The username/email can be found in the Azure portal, top right. 
   - Click View account to see the full email address.
   - Use the password from the previous step.
--  We recommend keeping the Datadog and Azure portal browser tabs open for the duration of this workshop.
+
+**TIP:** We recommend keeping the Datadog and Azure portals open in separate browser tabs for the duration of this workshop.
+
+#### Option 2 - Link An Existing Datadog Organization to Your Azure Subscription
+
+Things to consider:
+- Account creation and billing is done via the Datadog website.
+- You can only link Datadog organizations to Azure that are hosted in Datadog's `US3` site (which is hosted in Azure).
+- Datadog offers a 14-day free trial when creating an account via their website.
+
+**TIP:** If you are completing this hack using a personal Azure subscription, we recommend creating a Datadog organization with a 14-day free trial, then linking it to Azure.
+
+Here's how to do it:
+
+- Go to the [Datadog website](https://www.datadoghq.com/) and click the "Free Trial" button on the homepage.
+- For the first question, (Where do you want your data housed?), please select "**United States (US3)**" and fill in the remaining questions on the web form. 
+- For the remaining integration, use the Azure Portal to link your trial Datadog organization to your Microsoft Azure subscription.
+- In the [Azure Portal](https://portal.azure.com), navigate to the Azure Marketplace and deploy Datadog into your subscription using the `Datadog Pro Pay-As-You-Go` offering.
+- Follow the Microsoft documentation, [QuickStart: Link to existing Datadog Organization](https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/link-to-existing-organization), to complete the configuration.
 
 ## Success Criteria
 
