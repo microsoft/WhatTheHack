@@ -5,6 +5,7 @@ matrix:
   default_encoding: utf-8
   aspell:
     lang: en
+    ignore-case: true
   dictionary:
     wordlists:
     - .github/workflows/spell-check/base-wordlist.txt
