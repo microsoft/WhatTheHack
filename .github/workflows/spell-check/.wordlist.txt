@@ -339,6 +339,7 @@ SAML
 SAS
 SCM
 SDK
+SDKs
 SDLC
 SDWAN
 SHA
@@ -477,6 +478,7 @@ datacenter
 dataframes
 dataset
 datasets
+declaratively
 deprovision
 dev
 dialogs
@@ -567,6 +569,7 @@ prebuilt
 prem
 prerelease
 proc
+programatically
 programatically
 ps
 psql
