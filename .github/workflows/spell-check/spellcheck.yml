@@ -8,7 +8,7 @@ matrix:
     ignore-case: true
   dictionary:
     wordlists:
-    - .github/workflows/spell-check/base-wordlist.txt
+    - .github/workflows/spell-check/.wordlist.txt
     encoding: utf-8
   pipeline:
   - pyspelling.filters.markdown:
