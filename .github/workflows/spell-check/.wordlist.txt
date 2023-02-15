@@ -142,6 +142,7 @@ FQDNs
 FSLogix
 FastTrack
 FileStorage
+FirstName
 FluentD
 FrontDoor
 GCP
@@ -205,6 +206,7 @@ LLC
 LOC
 LRS
 LTS
+LastName
 LinkedIn
 LinkerD
 Linq
@@ -234,6 +236,7 @@ NICs
 NLP
 NPM
 NSG
+NSGs
 NVA
 NVAs
 Nano
@@ -282,6 +285,7 @@ PVCs
 PVs
 PaaS
 Parquet
+PhoneNumber
 PoC
 PostgreSQL
 Postgres
@@ -332,9 +336,11 @@ SHA
 SIEM
 SKU
 SKUs
+SLA
 SLAs
 SMB
 SME
+SMS
 SMTP
 SP
 SPN
@@ -367,6 +373,7 @@ TDE
 TFS
 TLS
 TODO
+TPS
 TSV
 TailwindInventory
 TenantId
@@ -435,6 +442,7 @@ bluegreen
 cd
 certbot
 chatbots
+checkin
 chmod
 cli
 clusterName
@@ -481,6 +489,7 @@ filesystems
 foreach
 frontend
 fullscreen
+func
 gRPC
 geospatial
 gz
@@ -564,6 +573,7 @@ scalability
 scorable
 scp
 sed
+sitename
 sln
 src
 stderr
