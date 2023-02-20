@@ -1,4 +1,4 @@
-# Challenge 08 - <Title of Challenge>
+# Challenge 08 - Landing page Single Sign On
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 

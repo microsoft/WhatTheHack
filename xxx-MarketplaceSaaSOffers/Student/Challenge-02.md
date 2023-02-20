@@ -1,4 +1,4 @@
-# Challenge 02 - <Title of Challenge>
+# Challenge 02 - Emulate!
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 

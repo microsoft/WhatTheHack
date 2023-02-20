@@ -1,4 +1,4 @@
-# Challenge 05 - <Title of Challenge>
+# Challenge 05 - Exploring the APIs
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 

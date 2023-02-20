@@ -1,4 +1,4 @@
-# Challenge 10 - <Title of Challenge>
+# Challenge 10 - Getting ready to publish...
 
 [< Previous Challenge](./Challenge-09.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-11.md)
 
