@@ -1,4 +1,4 @@
-# What The Hack - Synapse Serverless - Gerneral concepts & how to
+# What The Hack - Synapse Serverless - General concepts & how to
 
 ## Introduction
 This "What the Hack" enables attendees to understand how to query their data lake from Synapse Serverless. 

@@ -1,4 +1,4 @@
-# What The Hack - Serverless - Gerneral concepts & how to - Coach Guide
+# What The Hack - Serverless - General concepts & how to - Coach Guide
 
 ## Introduction
 Welcome to the coach's guide for the "Serverless - Gerneral concepts & how to" What The Hack. 
