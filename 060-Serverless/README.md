@@ -6,8 +6,9 @@ It simulates a real-world scenario where users need to explore data in different
 
 During the hack, attendees will focus on:
 - Files, data exploration and best practices
-- Spark interaction
+- External table
 - Delta Files and partitioning
+- Spark interaction
 - Workload monitoring
 
 ## Learning Objectives
