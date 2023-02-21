@@ -36,15 +36,9 @@ By the end of the "Synapse Serverless - Gerneral concepts & how to", attendees w
 
 ## Prerequisites 
 - Your own Azure subscription with Owner access
-- An already in-place [Synapse Workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace). 
-- Dataset in place
-  - Download the rar file ./Student/Resources/WTHServerless.rar
-  - Unzip all the folders (12 Gb approx)
-  - Upload the content on your Gen2 Storge Account, this will be used in most of the challenges
 - Your choice of database management tool:
   - [SQL Server Management Studio (SSMS) (Windows)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
   - [Azure Data Studio (Windows, Mac OS, and Linux)](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
-
 
 ## Contributors
 - Liliam Leme and Luca Ferrari
