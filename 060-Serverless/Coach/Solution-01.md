@@ -7,8 +7,6 @@
 In this challenge you will access your Data Lake and will read data and schema from Parquet, Csv and json files.
 Then you'll leverage external table to run basic data transformations and to easily access and query your folders. 
 
-
-
 **Learning objectives:**
 
 - Get understanding about T-SQL syntax and features you can leverage-on to explore data from your data lake using Synapse Serverless. 
