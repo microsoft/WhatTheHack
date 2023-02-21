@@ -50,22 +50,13 @@ _Optionally, you may provide resource files such as a sample application, code s
 
 _Sample challenge zero text for the IoT Hack Of The Century:_
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
 Please install these additional tools:
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
-
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
-
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
-```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
-```
+- [Docker](https://docs.docker.com/engine/install/)
 
 ## Success Criteria
 
@@ -80,10 +71,6 @@ _Sample success criteria for the IoT prerequisites challenge:_
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
 
 ## Learning Resources
 

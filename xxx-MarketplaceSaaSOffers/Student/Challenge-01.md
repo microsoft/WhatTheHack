@@ -9,7 +9,7 @@ There are 4 principle actors in the process that manages the lifecycle of transa
 - The marketplace itself (and the storefront the user interacts with eg the Azure portal, AppSource)
 - A landing page for your solution for new customer onboarding
 - A webhook for your solution to listen for messages from the marketplace
-- An "integrations services" component that can call marketplace APIs on behalf of your appplication
+- An "integrations services" component that can call marketplace APIs on behalf of your application
 
 ![marketplace actors](Images/Challenge1.png)
 
@@ -25,9 +25,9 @@ onboarding journey and confirm the customer's purchase.
 
 In this challenge you will configure an initial landing page for your solution.
 
-A skeleton application that will be
-used throghout the hack can be found in the `/Challenge01` folder of the `Resources.zip` file provided by your coach.
-In this challege you will be working on the `landing.html` file which can be found in the `src/client` folder.
+A skeleton application that will be used throughout the hack can be found in the `/Challenge01` folder of the
+`Resources.zip` file provided by your coach. In this challenge you will be working on the `landing.html` file which
+can be found in the `src/client` folder.
 
 There are a number of Javascript stub methods in `landing.html`. In this challenge we will only be concerned with the
 function `queryButtonClick`.
@@ -35,7 +35,7 @@ function `queryButtonClick`.
 Your task is to update the function `queryButtonClick()` in `landing.html` to:
 
 - Extract the query parameters from the URL
-- Extract the value of the query string paramater `token`
+- Extract the value of the query string parameter `token`
 - Assign that value to the variable `token` (already declared at block scope)
 - Set the text property of the `<p>` html element with id `raw-token` to the value of the `token` variable
 - Note, jQuery is already referenced on the page for you to use if you would like
