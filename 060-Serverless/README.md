@@ -27,7 +27,7 @@ By the end of the "Synapse Serverless - Gerneral concepts & how to", attendees w
   - In this challenge, attendees will check the importance of data types and statistics 
 - Challenge 03: **[Metadata exploration, Wildcard, Partitions and Spark](./Student/Challenge-03.md)**
   -  In this challenge, attendees will explore metadata, will work with wild card, partitions and spark.
-- Challenge 04: **[Queryng Delta files](./Student/Challenge-04.md)**
+- Challenge 04: **[Queriyng Delta files](./Student/Challenge-04.md)**
   - In this challenge, attendees will understand Delta queries and impact of partitioning.
 - Challenge 05: **[Monitoring](./Student/Challenge-05.md)**
   - In this challenge, attendees will understand how to monitor your Synapse built-in Sql pool.

@@ -6,9 +6,6 @@ Here you will find links to specific guidance for coaches for each of the challe
 
 NOTE: If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
-## Student Resources
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
-
 **NOTE:** Students should not be given a link to the What The Hack repo before or during a hack. The student guide does NOT have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 ## Coach's Guides
@@ -20,7 +17,7 @@ Before the hack, it is the Coach's responsibility to download and package up the
   - In this challenge, attendees will check the importance of data types and statistics 
 - Challenge 03: **[Metadata exploration, Wildcard, Partitions and Spark](./Solution-03.md)**
   -  In this challenge, attendees will explore metadata, will work with wild card, partitions and spark.
-- Challenge 04: **[Queryng Delta files](./Solution-04.md)**
+- Challenge 04: **[Queriyng Delta files](./Solution-04.md)**
   - In this challenge, attendees will understand Delta queries and impact of partitioning.
 - Challenge 05: **[Monitoring](./Solution-05.md)**
   - In this challenge, attendees will understand how to monitor your Synapse built-in Sql pool.
