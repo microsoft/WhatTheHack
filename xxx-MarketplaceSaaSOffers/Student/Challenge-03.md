@@ -73,9 +73,9 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-[Decode from Base64 with GCHQ's CyberChef](https://gchq.github.io/CyberChef/)
-[States of a SaaS subscription](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle#states-of-a-saas-subscription)
-[Implementing a webhook on the SaaS service](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-webhook)
+- [Decode from Base64 with GCHQ's CyberChef](https://gchq.github.io/CyberChef/)
+- [States of a SaaS subscription](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle#states-of-a-saas-subscription)
+- [Implementing a webhook on the SaaS service](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-webhook)
 
 ## Tips
 
