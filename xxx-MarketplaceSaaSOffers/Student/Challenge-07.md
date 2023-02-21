@@ -1,4 +1,4 @@
-# Challenge 07 - Listening on a webhook
+# Challenge 07 - Tracking entitlement (licensing)
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 

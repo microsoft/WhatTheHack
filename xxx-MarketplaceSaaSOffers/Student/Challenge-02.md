@@ -1,4 +1,4 @@
-# Challenge 02 - Emulate!
+# Challenge 02 - Installing the emulator
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 

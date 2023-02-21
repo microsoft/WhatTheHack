@@ -1,4 +1,4 @@
-# Challenge 04 - Activate!
+# Challenge 04 - Decoding purchase tokens
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 

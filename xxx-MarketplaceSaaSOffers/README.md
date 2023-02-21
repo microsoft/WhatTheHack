@@ -26,25 +26,25 @@ Microsoft commercial marketplace APIs in order to publish a transactable SaaS Of
   - Prepare your workstation to work with Azure.
 - Challenge 01: **[Creating a landing page](Student/Challenge-01.md)**
   - Description of challenge
-- Challenge 02: **[Emulate!](Student/Challenge-02.md)**
+- Challenge 02: **[Installing the emulator](Student/Challenge-02.md)**
   - Description of challenge
-- Challenge 03: **[Decoding purchase tokens](Student/Challenge-03.md)**
+- Challenge 03: **[Emulate!](Student/Challenge-03.md)**
   - Description of challenge
-- Challenge 04: **[Activate!](Student/Challenge-04.md)**
+- Challenge 04: **[Decoding purchase tokens](Student/Challenge-04.md)**
   - Description of challenge
-- Challenge 05: **[Exploring the APIs](Student/Challenge-05.md)**
+- Challenge 05: **[Activate!](Student/Challenge-05.md)**
   - Description of challenge
-- Challenge 06: **[Tracking entitlement (licencing)](Student/Challenge-06.md)**
+- Challenge 06: **[Exploring the APIs](Student/Challenge-06.md)**
   - Description of challenge
-- Challenge 07: **[Listening on a webhook](Student/Challenge-07.md)**
+- Challenge 07: **[Tracking entitlement (licensing)](Student/Challenge-07.md)**
   - Description of challenge
-- Challenge 08: **[Landing page Single Sign On](Student/Challenge-08.md)**
+- Challenge 08: **[Listening on a webhook](Student/Challenge-08.md)**
   - Description of challenge
-- Challenge 09: **[Authenticating with marketplace APIs](Student/Challenge-09.md)**
+- Challenge 09: **[Landing page Single Sign On](Student/Challenge-09.md)**
   - Description of challenge
-- Challenge 10: **[Getting ready to publish...](Student/Challenge-10.md)**
+- Challenge 10: **[Authenticating with marketplace APIs](Student/Challenge-10.md)**
   - Description of challenge
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
+- Challenge 11: **[Getting ready to publish...](Student/Challenge-11.md)**
   - Description of challenge
 - Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
   - Description of challenge

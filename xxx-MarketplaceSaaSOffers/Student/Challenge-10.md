@@ -1,4 +1,4 @@
-# Challenge 10 - Getting ready to publish...
+# Challenge 10 - Authenticating with marketplace APIs
 
 [< Previous Challenge](./Challenge-09.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-11.md)
 

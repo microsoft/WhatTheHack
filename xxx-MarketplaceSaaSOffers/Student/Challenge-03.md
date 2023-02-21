@@ -1,4 +1,4 @@
-# Challenge 03 - Decoding purchase tokens
+# Challenge 03 - Emulate!
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 

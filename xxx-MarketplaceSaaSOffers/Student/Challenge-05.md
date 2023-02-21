@@ -1,4 +1,4 @@
-# Challenge 05 - Exploring the APIs
+# Challenge 05 - Activate!
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 

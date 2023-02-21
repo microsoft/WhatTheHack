@@ -1,4 +1,4 @@
-# Challenge 06 - Tracking entitlement (licencing)
+# Challenge 06 - Exploring the APIs
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
