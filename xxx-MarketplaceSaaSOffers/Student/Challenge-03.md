@@ -2,98 +2,86 @@
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+## Pre-requisites
 
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+You must have completed **Challenge 02 - Installing the emulator**
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+Now we have the emulator working, we can exercise it a little to get a feel for the APIs and understand the emulator features.
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+As well as emulating the marketplace SaaS Fulfillment APIs, the emulator also offers some configuration UI and simple
+implementations of a landing page and webhook. We will implement our own landing page and webhook as we work through
+later challenges. For now, it will be useful to explore an end-to-end purchase scenario using the built-in emulator features.
 
-*For example:*
+When you browse to the emulator, you will be presented with the emulator homepage and a menu showing the pages available:
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+- "Marketplace Token" (homepage)
+  - Here you can configure and generate "synthetic" purchase tokens similar to ones used by the marketplace
+  - The format of marketplace tokens is undocumented - we can consider them to be opaque
+  - The only thing to keep in mind is that they are not interchangeable between emulator and marketplace
+- Subscriptions
+  - Displays details of the current subscriptions (purchases) and their status
+  - On this page you can also simulate marketplace actions (eg the user may request a plan change via the portal)
+- Landing Page
+  - This is the default, built-in landing page implementation
+  - This page will automatically decode the token from the token query string parameter in the URL
+- Config
+  - Here, various aspects of the emulator can be configured
+  - eg when we have built our own landing page, we could configure the emulator to use it here
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+The emulator should be available on `http://localhost:3978`
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+In this challenge we will configure and generate a purchase token, simulate a "configure my subscription" request from
+the marketplace and activate the subscription. Finally we will try to change to a new plan and unsubscribe from the offer.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
-
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
-
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+- Make sure the emulator is running
+- Visit the "Marketplace Token" page and set
+  - `offerId` to "flat-rate"
+  - `planId` to "flat-rate-1"
+  - `purchaser emailId` to "bob@constoso.com"
+- Select `Copy to clipboard` and decode the token using a suitable utility (the token is base64 encoded)
+- Select `Post to landing page` and observe the purchase token details
+- Activate the subscription and visit the `Subscriptions` page to check the status
+- On your subscription, select "Change Plan" and enter "abc123" as the new plan
+- On your subscription, select "Change Plan" and enter "flat-rate-2" as the new plan
+  - This simulates a user action via marketplace (eg in the Azure Portal) to request a plan change on the subscription
+- Observe the state change (which may take a few seconds)
+- On your subscription, select "Unsubscribe"
+  - This simulates a user action via marketplace (eg in the Azure Portal) to unsubscribe from an offer
+- Observe the state change (which may take a few seconds)
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+
+- Navigate to each of the four pages of the emulator in turn
+- Generate a purchase token and decode it using any Base64 decoder utility
+  - Confirming the result matches the original JSON token
+- Post the purchase token to the built-in landing page and confirm the displayed details are as follows
+  - `Offer ID` = "flat-rate"
+  - `Plan ID` = "flat-rate-1"
+  - `Purchaser Email` = "bob@constoso.com"
+  - `PublisherId` = "FourthCoffee"
+- Observe the newly created subscription on the `Subscriptions` page is initially in the `Subscribed` state
+- Observe that attempting to change plan that is not defined in the offer results in an HTTP 400 response
+- Observe that changing to a valid plan results in an HTTP 202 response
+- Observe that the valid plan change gets reflected in the UI after a delay of a few seconds
+- Observe that the status of the subscription changes to "Unsubscribed" on clicking "Unsubscribe"
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+[Decode from Base64 with GCHQ's CyberChef](https://gchq.github.io/CyberChef/)
+[States of a SaaS subscription](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-life-cycle#states-of-a-saas-subscription)
+[Implementing a webhook on the SaaS service](https://learn.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-webhook)
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- Make a note of the `id` on the "Marketplace Token" page before posting to the landing page so you can track the
+status on the "Subscriptions" page
+- When you click buttons on the "Subscriptions" page, this simulates actions in the marketplace that generate webhook calls.
+Some of these calls need to be handled and some are just "FYI".
+- We will implement a webhook handler later, for now the emulator's built-in handler is working for us. For more
+information see "Implementing a webhook on the SaaS service" in the Learning Resources section

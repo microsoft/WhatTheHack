@@ -10,7 +10,7 @@ APIs. This code will be responsible for informing the marketplace of changes of 
 the marketplace.
 
 In order to authenticate with the marketplace APIs you use Partner Center to create and publish a SaaS offer to at least
-"preview" stage. To get going quick;y, rather than do this we will use an emulator designed to emulate the behaviour of
+"preview" stage. To get going quickly, rather than do this we will use an emulator designed to emulate the behaviour of
 the SaaS Fulfillment APIs. This makes it easy to make changes and doesn't require access to Partner Center. It is important
 to understand that final testing must always be carried out against the marketplace APIs themselves, the emulator is a
 tool to accelerate development.
