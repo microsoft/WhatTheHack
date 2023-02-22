@@ -1,69 +1,68 @@
-# What The Hack: DevOps with GitHub 
+# What The Hack: DevOps with GitHub
 
-## Challenge 3 - Infrastructure as Code (IaC)
+## Challenge 3 - Track your work with GitHub project boards
 
 [< Previous](challenge02.md) - [Home](../readme.md) - [Next >](challenge04.md)
 
 ### Introduction
 
-Now that we have some code, we need an environment to deploy it to! The term Infrastructure as Code (IaC) refers to using templates (code) to repeatedly and consistently create the dev, test, prod (infrastructure) environments. We can automate the process of deploying the Azure services we need with an Azure Resource Manager (ARM) template. 
+Agile project management is a key component of building a modern DevOps culture at your organization. If you are new to Agile or just want a refresher, we recommend you review the following articles:
 
-Review the following articles:
+1. [What is Agile?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile)
+2. [What is Scrum?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-scrum)
+3. [What is Kanban?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-kanban)
+4. [What is Agile Development?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile-development)
 
-- [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
-- [Create Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/how-to-create-template)
+To help you with Agile project management, there is [GitHub project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects). With GitHub project boards, you can quickly and easily start tracking your backlog, tasks, issues/bugs and features associated with your project.  
 
+Review the following introduction to GitHub project boards: [GitHub project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ### Challenge
 
-We will use GitHub Actions to automate the deployment of our Azure infrastructure. For our application, we will deploy 3 environments: `dev`, `test` and `prod`. Each environment will have its own Web App, however all of our environments will share a single Resource Group, App Service Plan, Application Insights instance, and Azure Container Registry. NOTE: in real deployments, you will likely not share all of these resources.
+1. Add collaborators from your team to your repo. 
 
+2. Create a new project using the "Team backlog" template.
 
-1. Review the ARM template. Notice how it defines a number of parameters and uses them to create the Resource Group, App Service Plan, Web App, Application Insights, and Azure Container Registry. 
+3. Ensure your project is with linked with your repository
 
-2. Update the parameters section of the ARM template, replacing all instances of `<prefix>` with a unique lowercase 5 letter name. The resulting name needs to be globally unique to correctly provision resources. Notice the `webAppName` parameter on line #6 - you will override this placeholder value later when you call the ARM template.
+4. Create a draft issue for this challenge and each of the remaining challenges (i.e., create 9 issues total - skip challenge 0). When creating each issue, make sure to:
+    - Assign an owner for each issue from your team. 
+    - Convert the `challenge 1` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 1` issue
 
-3. Create a GitHub workflow (`deploy.yml`) that runs manually (*not* triggered by a push or pull request).
+5. Move all your issues to the "Ready" column and convert each one from draft to an issue.
 
-4. Configure your workflow to accomplish the following:
+6. Since you are currently working on Challenge 1, drag the `Challenge 1` issue to the "In progress" column.
 
-    - Use a service principal to authenticate to Azure
-    - Use the "Deploy Azure Resource Manager (ARM) Template" action to call your ARM template in your repo
+7. Ask your team member to close the `Challenge 1` issue you assigned to them. Review your project board to see if the issue moved to the 'Done' column automatically. 
 
-5. Manually run your workflow. When your workflow completes successfully, go to the Azure portal to see the `dev` environment. 
+8. Create a new view to show your challenge issues in a table view. 
 
-If everything worked, we are going to call the ARM template again, but override the `webAppName` parameter in the ARM template.
+9. Add a custom field to your issue. The custom field can be called Complexity and will be a single select type with the options (Very Easy, Easy, Hard and Very Hard).
 
-6. Create an environment variable called `targetEnv` in your workflow and set the *value* to the `webAppName` in your ARM template, BUT, replace the "dev" with "test" (i.e., 'myapp-devops-test').
-
-7. Update your "Deploy Azure Resource Manager (ARM) Template" action to call your ARM template in your repo and override the `webAppName` paramater with the new `targetEnv` environment variable.
-
-8. Rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `test` App Service. 
-
-9. If everything worked, replace the "test" in your `targetEnv` with "prod" and rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `prod` App Service. 
-
-You should see all three environments in Azure.
+10. After you complete each of the following challenges, be sure to close each associated issue. 
 
 ### Success Criteria
 
-- Your `deploy.yaml` workflow completes without any errors and overrides the `webAppName` parameter when calling the ARM template.
-- Your resource group contains 6 resources: 3 App Services (dev, test, prod), 1 Application Insights, 1 App Service plan and 1 Container registry. 
+- You have added one or more collaborators to your repo
+- You have a project board using the automation kanban template with 9 issues (8 open, 1 closed by a team member)
+- New issues appear under the "New" column
+- Closed issues automatically appear under the "Done" column
+- You will have a table view in addition to your Backlog Board
+- You will have a custom field called Complexity on your issues
 
 ### Learning Resources
 
-- [What is Infrastructure as Code?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-infrastructure-as-code)
-- [Introduction to GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions)
-- [Manually trigger a workflow](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)
-- [Deploy Azure Resource Manager templates by using GitHub Actions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-github-actions)
-- [Overriding ARM template parameters](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli#parameters)
-
+- [Creating a project board in GitHub](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
+- [Enable GitHub Issues on a repo](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/disabling-issues)
+- [Inviting collaborators to a personal repository](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)
+- [Learn more about automation with project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
+- [Adding issues to a project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
+- [Customizing views](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)
 
 ### Advanced Challenges (optional)
 
-Instead of changing the `targetEnv` variable for each environment that we want to create in the deploy.yaml, you can configure the workflow to prompt the user to enter the environment name before the workflow runs - eliminating the need to hard code the environment name.
-- Delete the `targetEnv` environment variable you created earlier.
-- Configure your workflow to collect the environment name as a [workflow input](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callinputs) and use that value to override the `webAppName` parameter when calling the ARM template.
-
-**NOTE**: If you are interested in learning more about Infrastructure as Code, there are [multiple](https://github.com/microsoft/WhatTheHack) What the Hacks that cover it in greater depth.
+1. You can integrate Azure Boards with GitHub. 
+    -  Follow the steps [here](https://docs.microsoft.com/en-us/azure/devops/boards/github/install-github-app?view=azure-devops) to integrate Azure Boards with your GitHub repo.
+2. Use the [GitHub CLI](https://cli.github.com/manual/index) to create issue #9. Once, you have created the issue, use the CLI to close the issue.
 
 [< Previous](challenge02.md) - [Home](../readme.md) - [Next >](challenge04.md)

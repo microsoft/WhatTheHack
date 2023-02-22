@@ -1,44 +1,39 @@
 # What The Hack: DevOps with GitHub
 
-## Challenge 2 - Repositories
+## Challenge 2 - Setup a Codespace
 
 [< Previous](challenge01.md) - [Home](../readme.md) - [Next >](challenge03.md)
 
 ### Introduction
 
-Historically, version control has been the first component that teams implement as they start on a project. It is one of the oldest and most well understood components of DevOps. Version control systems allow developers to colloborate and simulataneously contribute to the same codebase. They can also help teams track versions (so code can be rolled back if bad changes are made) and track bugs, work, and testing by the team. Please take a moment to review the [Git handbook](https://guides.github.com/introduction/git-handbook/) to understand the basics of version control, focusing on the distributed version control technology, Git.
+Developer environments are critical to ensuring your development teams are setup to do their best work. Right now everyone on your team likely has a slightly different setup of their environment (editor, extensions, tools) installed on their local machine.
+
+GitHub includes the ability to create a cloud based development environment called a codespace that is configured via a code file detailed within a repository. The file details how a developer environment should be supplied consistently from the cloud to every developer in the team who wants to create one in a self-serve manner. This can include the editor, extensions and tools we want to have available. 
+
+Our repository includes an application written in .NET that will deploy to Azure using Infrastructure-as-Code via a language called Bicep. We will want to configure our codespace to have tooling included to work with .NET, ARM (infrastructure-as-code) and the Azure CLI.
 
 ### Challenge
 
-Now that we have a basic understanding of version control and Git, lets get some code checked into source control. DevOps best practices can apply to any programming language, so for today we have provided you a simple .NET Core web application to use.
+1. Add a new devcontainer file in your repository placed in a .devcontainer directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NE, notably "mcr.microsoft.com/devcontainers/dotnet:0-7.0" for the hackathon supplied application on .NET 7.0. **Note - VS Code has some tooling here to simplify this process** 
 
-1. Begin by cloning the GitHub repository you created in the [first challenge](challenge01.md) to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
+2. Configure your devcontainer to add a feature for the Azure CLI.
 
-2. Next, obtain the code (sample application and ARM template) from the Resource files provided by your coach.
-
-3. Finally, commit the files to your GitHub repository using your preferred Git client.
+3. Start a new codespace in your repository testing .NET and Azure CLIs are available.
 
 ### Success Criteria
 
-- Your repo is cloned to your local machine and sync'd with GitHub.com
-- The "Application" and "ArmTemplates" folders are at the root of your repository
+- You will have created a devcontainer.json placed in a .devcontainer directory.
+- You have creates a codespace to provide a cloud based instance of the environment described in your devcontainer file. 
+- Your codespace will have tooling available for both the .NET and Azure CLIs
+
 
 ### Learning Resources
-
-- Cloning a repository via the [command line](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) or [GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop)
-- For those using GitHub Desktop, here is documentation on [commiting](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project) and [pushing](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github) changes to a repository.
-- If working with the command line, check out these articles on [commiting](https://docs.github.com/en/github/committing-changes-to-your-project/creating-and-editing-commits) and [pushing](https://docs.github.com/en/github/using-git/pushing-commits-to-a-remote-repository) changes.
-- Additionally, you may need to pull other people's changes into your local repository to stay in sync--see documentation for [command line](https://docs.github.com/en/github/using-git/getting-changes-from-a-remote-repository) and [GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github).
-
-### Tips
-
-- For a concise explanation of adding files to a repository via the command line, see [here](https://docs.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line). 
-- To see how it's done in the GitHub portal, check [here](https://docs.github.com/en/github/managing-files-in-a-repository/managing-files-on-github). 
+- [Overview of Codespaces](https://docs.github.com/en/codespaces/overview)
+- [Introduction to devcontainers](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
+- [Setting up a C# (.NET) project in Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-dotnet-project-for-codespaces)
+- [Adding features to your devcontainer](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file?tool=webui)
 
 ### Advanced Challenges (optional)
-
-In this challenge, we successfully added code to our repository! However, version control is about more than pushing code to a centralized location--it is critical in keeping developers in sync with changes made by anyone. Thus, we care not only about *pushing* code up to our repository, but also *pulling* changes down from it. 
-
-To practice this, have another member of the team clone the repository to their local machine (or pull the new changes if already cloned). Let this person make a small change of their own to one of the files (perhaps adding a comment or a newline). Then, push the change back to GitHub. The rest of the team should then pull the change, to ensure they see it on their local machines. (See some of the above links on adding files and syncing changes if you get stuck). 
+Add to your devcontainer.json with details of an extension to install into Visual Studio Code and add a postCreateCommand that will restore NuGet packages for the .NET app in the Application directory of the repo.  
 
 [< Previous](challenge01.md) - [Home](../readme.md) - [Next >](challenge03.md)

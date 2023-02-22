@@ -6,23 +6,26 @@ DevOps is a journey not a destination. Our goal when writing this challenged bas
 ## Learning Objectives
 
 This DevOps with GitHub hack will help you learn:
-
 1. How to use GitHub to manage source control
-1. How to use GitHub for Project Management
-1. How to use GitHub Actions for CI & CD
-1. Monitoring apps with Application Insights
+2. How to use GitHub for Cloud based Development Environments
+3. How to use GitHub for Project Management
+4. How to use GitHub Actions for CI & CD
+5. How to use GitHub for Advanced Security (Code Scanning & Dependabot)
+6. Monitoring apps with Application Insights
 
 ## Challenges
- - [Challenge 0](./Student/challenge00.md) - Setup and Introduction
- - [Challenge 1](./Student/challenge01.md) - Track your work with GitHub Project Boards
- - [Challenge 2](./Student/challenge02.md) - Centralize your code with GitHub Repos
- - [Challenge 3](./Student/challenge03.md) - Infrastructure as Code
- - [Challenge 4](./Student/challenge04.md) - Continuous Integration
- - [Challenge 5](./Student/challenge05.md) - Build and push Docker image to container registry
- - [Challenge 6](./Student/challenge06.md) - Continuous Delivery
- - [Challenge 7](./Student/challenge07.md) - Branching & Policies
- - [Challenge 8](./Student/challenge08.md) - Monitoring: Application Insights
- - [Challenge 9](./Student/challenge09.md) - Security
+ - [Challenge 0](./Student/challenge00.md) - Setup Azure & Tools
+ - [Challenge 1](./Student/challenge01.md) - Setup your repository
+ - [Challenge 2](./Student/challenge02.md) - Setup a Codespace
+ - [Challenge 3](./Student/challenge03.md) - Track your work with GitHub Project Boards
+ - [Challenge 4](./Student/challenge04.md) - First GitHub Actions Workflow
+ - [Challenge 5](./Student/challenge05.md) - Infrastructure as Code
+ - [Challenge 6](./Student/challenge06.md) - Continuous Integration
+ - [Challenge 7](./Student/challenge07.md) - Build and push Docker image to container registry
+ - [Challenge 8](./Student/challenge08.md) - Continuous Delivery
+ - [Challenge 9](./Student/challenge09.md) - Branching & Policies
+ - [Challenge 10](./Student/challenge10.md) - Security
+ - [Challenge 11](./Student/challenge11.md) - Monitoring: Application Insights
 
 
 ## Prerequisites
@@ -52,3 +55,4 @@ Regardless of the option you choose, you'll have to consider:
 - Will Fox
 - Andy Huang
 - Julia Nathan
+- Colin Beales

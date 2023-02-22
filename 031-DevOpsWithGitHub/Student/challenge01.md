@@ -1,68 +1,54 @@
 # What The Hack: DevOps with GitHub
 
-## Challenge 1 - Track your work with GitHub project boards
+## Challenge 1 - Setup your repository
 
 [< Previous](challenge00.md) - [Home](../readme.md) - [Next >](challenge02.md)
 
 ### Introduction
 
-Agile project management is a key component of building a modern DevOps culture at your organization. If you are new to Agile or just want a refresher, we recommend you review the following articles:
+Historically, version control has been the first component that teams implement as they start on a project. It is one of the oldest and most well understood components of DevOps. Version control systems allow developers to colloborate and simulataneously contribute to the same codebase. They can also help teams track versions (so code can be rolled back if bad changes are made) and track bugs, work, and testing by the team. Please take a moment to review the [Git handbook](https://guides.github.com/introduction/git-handbook/) to understand the basics of version control, focusing on the distributed version control technology, Git.
 
-1. [What is Agile?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile)
-2. [What is Scrum?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-scrum)
-3. [What is Kanban?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-kanban)
-4. [What is Agile Development?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile-development)
+### Challenge (if not supplied a repo to work in) 
 
-To help you with Agile project management, there is [GitHub project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects). With GitHub project boards, you can quickly and easily start tracking your backlog, tasks, issues/bugs and features associated with your project.  
+Now that we have a basic understanding of version control and Git, lets get some code checked into source control. DevOps best practices can apply to any programming language, so for today we have provided you a simple .NET Core web application to use.
 
-Review the following introduction to GitHub project boards: [GitHub project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+If we were not supplied a repository in the next few steps you will need to create a repository and commit the supplied hackathon resource files into your repository supplied by your coach.
 
-### Challenge
+1. Create a new repo for the hackathon. This is where you work during the event
 
-1. Add collaborators from your team to your repo. 
+2. Begin by cloning the GitHub repository you created in the [first challenge](challenge01.md) to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
 
-2. Create a new project using the "Team backlog" template.
+3. Next, obtain the code (sample application and ARM template) from the Resource files provided by your coach.
 
-3. Ensure your project is with linked with your repository
+3. Finally, commit the files to your GitHub repository using your preferred Git client.
 
-4. Create a draft issue for this challenge and each of the remaining challenges (i.e., create 9 issues total - skip challenge 0). When creating each issue, make sure to:
-    - Assign an owner for each issue from your team. 
-    - Convert the `challenge 1` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 1` issue
+### Challenge (if supplied a repo - your coach will tell you the URL and add you to this repo as a contributor)
 
-5. Move all your issues to the "Ready" column and convert each one from draft to an issue.
+Now that we have a basic understanding of version control and Git, lets get some code checked into source control. DevOps best practices can apply to any programming language, so for today we have provided you a simple .NET Core web application to use.
 
-6. Since you are currently working on Challenge 1, drag the `Challenge 1` issue to the "In progress" column.
-
-7. Ask your team member to close the `Challenge 1` issue you assigned to them. Review your project board to see if the issue moved to the 'Done' column automatically. 
-
-8. Create a new view to show your challenge issues in a table view. 
-
-9. Add a custom field to your issue. The custom field can be called Complexity and will be a single select type with the options (Very Easy, Easy, Hard and Very Hard).
-
-10. After you complete each of the following challenges, be sure to close each associated issue. 
+1. Begin by cloning the GitHub repository to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)) from the repository supplied to you by your coach.
 
 ### Success Criteria
 
-- You have added one or more collaborators to your repo
-- You have a project board using the automation kanban template with 9 issues (8 open, 1 closed by a team member)
-- New issues appear under the "New" column
-- Closed issues automatically appear under the "Done" column
-- You will have a table view in addition to your Backlog Board
-- You will have a custom field called Complexity on your issues
+- Your repo is cloned to your local machine and sync'd with GitHub.com
+- The "Application" and "ArmTemplates" folders are at the root of your repository
 
 ### Learning Resources
 
-- [Creating a project board in GitHub](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
-- [Enable GitHub Issues on a repo](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/disabling-issues)
-- [Inviting collaborators to a personal repository](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)
-- [Learn more about automation with project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)
-- [Adding issues to a project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
-- [Customizing views](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)
+- Cloning a repository via the [command line](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) or [GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop)
+- For those using GitHub Desktop, here is documentation on [commiting](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project) and [pushing](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github) changes to a repository.
+- If working with the command line, check out these articles on [commiting](https://docs.github.com/en/github/committing-changes-to-your-project/creating-and-editing-commits) and [pushing](https://docs.github.com/en/github/using-git/pushing-commits-to-a-remote-repository) changes.
+- Additionally, you may need to pull other people's changes into your local repository to stay in sync--see documentation for [command line](https://docs.github.com/en/github/using-git/getting-changes-from-a-remote-repository) and [GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github).
+
+### Tips
+
+- For a concise explanation of adding files to a repository via the command line, see [here](https://docs.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line). 
+- To see how it's done in the GitHub portal, check [here](https://docs.github.com/en/github/managing-files-in-a-repository/managing-files-on-github). 
 
 ### Advanced Challenges (optional)
 
-1. You can integrate Azure Boards with GitHub. 
-    -  Follow the steps [here](https://docs.microsoft.com/en-us/azure/devops/boards/github/install-github-app?view=azure-devops) to integrate Azure Boards with your GitHub repo.
-2. Use the [GitHub CLI](https://cli.github.com/manual/index) to create issue #9. Once, you have created the issue, use the CLI to close the issue.
+In this challenge, we have code in our repository! Version control is about more than pushing code to a centralized location--it is critical in keeping developers in sync with changes made by anyone else on your team. Thus, we care not only about *pushing* code up to a repository, but also *pulling* changes down from it. 
+
+To practice this, have another member of the team clone the repository to their local machine (or pull the new changes if already cloned). Let this person make a small change of their own to one of the files (perhaps adding a comment or a newline). Then, push the change back to GitHub. The rest of the team should then pull the change, to ensure they see it on their local machines. (See some of the above links on adding files and syncing changes if you get stuck). 
 
 [< Previous](challenge00.md) - [Home](../readme.md) - [Next >](challenge02.md)
