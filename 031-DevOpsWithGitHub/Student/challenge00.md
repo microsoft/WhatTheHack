@@ -1,6 +1,6 @@
 # What The Hack: DevOps with GitHub
 
-## Challenge 0 - Setup
+## Challenge 0 - Setup Azure & Tools
 
 [Home](../readme.md) - [Next >](challenge01.md)
 
@@ -10,11 +10,11 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 
 ### Description
 
-1. Begin by creating a GitHub account and repository that you can use for this hack. You may use an existing account if you have one already.
+1. Begin by creating a GitHub account that you can use for this hack. You may use an existing account if you have one already.
 
-2. Next, create an Azure subscription that you can use for this hack. If you already have a subscription, you may use it. Alternatively, you can get a free trial subscription [here](https://azure.microsoft.com/en-us/free/).
+2. Next, you will require an Azure subscription that you can use for later challenges in this hack. If you already have a subscription, you may use it. Alternatively, you can get a free trial subscription [here](https://azure.microsoft.com/en-us/free/). For some hacks you will be supplied an Azure Service Principal you can use for all Azure interactions. Speak to your coach about the way your hack should be setup.
 
-3. Log in to the [Azure Portal](http://portal.azure.com) to confirm that you have an active subscription that you can deploy resources to. 
+3. If you created, or are using your own Azure subscription, log in to the [Azure Portal](http://portal.azure.com) to confirm that you have an active subscription that you can deploy resources to. 
 
 4. Additionally, you will need to install a Git client. Two of the most popular ways of working with GitHub are the Git command line tool and GitHub Desktop (you only need one):
 
@@ -27,7 +27,6 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 ### Success Criteria
 
 - You should now be able to login to both GitHub and Azure with valid accounts for each service. 
-- You should have a new repo in GitHub.
 - You should also have installed your preferred git client. 
 - You should have a text editor installed. 
 

@@ -1,41 +1,63 @@
-# What The Hack: DevOps with GitHub 
+# What The Hack: DevOps with GitHub
 
-## Challenge 6 – Continuous Delivery (CD)
+## Challenge 6 - Continuous Integration (CI)
 
 [< Previous](challenge05.md) - [Home](../readme.md) - [Next >](challenge07.md)
 
 ### Introduction
 
-In DevOps after we automate our build process, we want to automate our release process, we do this with a technique called Continuous Delivery (CD). Please take a moment to review this brief article talking about why this is important. 
+With our Azure resources created we have laid the foundations resources for our application. Now, we must connect our source code and its destination. The first step in this journey is called Continuous Integration (CI). 
 
-- [What is Continuous Delivery?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-delivery)
+Continuous integration is the process of merging local code changes into source control and may include steps to automatically build and/or test the code. When done effectively, Continuous Integration allows developers to rapidly iterate and collaborate, and it helps ensure that newly added code does not break the current application. 
+
+Review the following articles:
+- [About continuous integration](https://docs.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)
+- [Setting up continuous integration using workflow templates](https://docs.github.com/en/actions/building-and-testing-code-with-continuous-integration/setting-up-continuous-integration-using-github-actions)
 
 ### Challenge
 
-In this challenge, we will use GitHub Actions to deploy our container image to the dev environment. 
+In this challenge, you will build and test the .NET Core application.
 
-**OPTIONAL**: Use your code editor (VS Code) to update your workflow file locally on your machine. Remember to commit and push any changes.
+1. Create a new `.NET` workflow. **Note: To get a new scaffold workflow, in your repo click on Actions in the top menu > New Workflow (button) > scroll down to the 'Continuous integration workflows' section and select the configure button on the '.NET' example.**
 
-Extend the workflow you created in Challenge #4 to:
+2. Review the layout of the workflow. There is a single job (named 'build') with multiple steps (restore, build, test). Note there are some new events for the workflow we haven't used before for push and pull_request.
 
-1. Configure your `dev` environment to pull the latest container image from ACR. 
-   - Login to Azure using your service principal, if needed ([hint](https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=service-principal#tabpanel_CeZOj-G++Q-3_service-principal))
-   - Use the `Azure/webapps-deploy@v2` [action](https://github.com/Azure/webapps-deploy) to update the Web App to pull the latest image from ACR. Key parameters to configure:
-      - `app-name` - the name of the wep app instance to target
-      - `images` - the path to the image you pushed to ACR
+3. In your workflow, under the "Setup .NET Core" step, check the .NET version is `6.0.x` to match the version defined by the application.
 
-2. Make a small change to your application  (i.e.,`/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), commit, push, monitor the workflow and see if the change shows up on the dev instance of the website.
+4. Ensure the workflow is configured to trigger on both pushes *and* pull requests.
 
-3. Configure your workflow to deploy to your `test` and `prod` environments and after a manual approval for *each* environment.
+5. Configure both these triggers with path filters to *only* trigger this workflow for changes in the `/Application` folder.
+
+6. Update the predefined steps used to build the .NET Core application (note: for each step below, you will need to update each command to pass the relative path to the  `.csproj` as an argument):
+   - `restore` - will get all the dependencies. Update with an [argument](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build#arguments) to the application csproj file.
+   - `build` - will actually compile our code. Update with an argument to the application csproj file.
+   - `test` - will execute all our unit tests. Update with an argument to the unit test csproj file. 
+
+7. Test the workflow by making a small change to the application code (i.e., add a comment). Commit, push and ensure the workflow completes successfully.
+
+At this point, any changes pushed to the `/Application` folder automatically triggers the workflow...and that is Continuous Integration! 
 
 ### Success Criteria
 
-1. A small change to `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml` automatically shows up on the website running in the `dev` environment (i.e., `<prefix>devops-dev`.azurewebsites.net).
-2. Manual approval is required to deploy to the `test` and `prod` environments.
+- Any changes pushed to the `/Application` folder automatically triggers the workflow 
+- .NET Core restore, build and test steps completes successfully
 
 ### Learning Resources
 
-- [Deploy a custom container to App Service using GitHub Actions](https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=service-principal#tabpanel_CeZOj-G++Q-3_service-principal)
-- [Using environments for deployment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment)
+- [Introduction to GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions)
+- [.NET Core Action to build and test](https://github.com/actions/starter-workflows/blob/dacfd0a22a5a696b74a41f0b49c98ff41ef88427/ci/dotnet-core.yml)
+- [Understanding workflow path filters](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)
+- [dotnet commands](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet#dotnet-commands)
+- [GitHub Actions for Azure](https://github.com/Azure/actions)
+
+### Tips
+
+- If you are having trouble finding a starting point, try clicking over to the 'Actions' tab of your GitHub repository. 
+- Take advantage of the prebuilt workflow templates often will save you a ton of work! 
+
+### Advanced Challenges (optional)
+
+1. In this challenge, if the workflow fails, an email is set to the repo owner. Sometimes, you may want to log or create a GitHub issue when the workflow fails.
+    - Add a step to your workflow to create a GitHub issue when there is a failure.
 
 [< Previous](challenge05.md) - [Home](../readme.md) - [Next >](challenge07.md)

@@ -1,4 +1,4 @@
-# Challenge 04 - Continuous Integration (CI) - Coach's Guide
+# Challenge 04 - Our first workflow - Coach's Guide
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 

@@ -1,40 +1,41 @@
 # What The Hack: DevOps with GitHub 
 
-## Challenge 8 – Monitoring: Application Insights
+## Challenge 8 – Continuous Delivery (CD)
 
 [< Previous](challenge07.md) - [Home](../readme.md) - [Next >](challenge09.md)
 
 ### Introduction
 
-To bring our DevOps journey full circle we need to understand what is happening in our deployed environments. It is too late for us to find out about a problem, by the time our users are complaining about it. It is also imperative to know about not only the performance of the site, but also the impact positive or negative a feature has had on our users. Please take a moment to review the articles below to gain a better understanding of the importance of monitoring and Application Insights, one of the tools we have to make it easy in Azure. 
+In DevOps after we automate our build process, we want to automate our release process, we do this with a technique called Continuous Delivery (CD). Please take a moment to review this brief article talking about why this is important. 
 
-1. [What is Monitoring?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-monitoring)
-2. [What is Application Insights?](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+- [What is Continuous Delivery?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-delivery)
 
 ### Challenge
 
-In this challenge we will look at some of the telemetry that has already been collected by our running instance. We will also link Application Insights to Azure DevOps. This will allow us to open work items in Azure Boards directly from Application Insights, ensuring that there is full traceability between the issue that happened and all the technical information about it to the work item that was created to ask the dev team to fix it, to the code that fixed the issue, to the build and release that saw that fix get deployed. 
+In this challenge, we will use GitHub Actions to deploy our container image to the dev environment. 
 
-1. Review the `container-webapp-template.json` ARM template. Find where the Application Insights node was created and note how the Web App was configured to send its logs there. 
+**OPTIONAL**: Use your code editor (VS Code) to update your workflow file locally on your machine. Remember to commit and push any changes.
 
-2. Create a dashboard in the Azure Portal to provide a summary of the status of our site. ([hint](https://docs.microsoft.com/en-us/azure/azure-monitor/app/overview-dashboard#application-dashboard))
+Extend the workflow you created in Challenge #4 to:
 
-3. Implement an outside in availability test for the homepage of your site ([hint](https://docs.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability))
+1. Configure your `dev` environment to pull the latest container image from ACR. 
+   - Login to Azure using your service principal, if needed ([hint](https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=service-principal#tabpanel_CeZOj-G++Q-3_service-principal))
+   - Use the `Azure/webapps-deploy@v2` [action](https://github.com/Azure/webapps-deploy) to update the Web App to pull the latest image from ACR. Key parameters to configure:
+      - `app-name` - the name of the wep app instance to target
+      - `images` - the path to the image you pushed to ACR
+
+2. Make a small change to your application  (i.e.,`/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), commit, push, monitor the workflow and see if the change shows up on the dev instance of the website.
+
+3. Configure your workflow to deploy to your `test` and `prod` environments and after a manual approval for *each* environment.
 
 ### Success Criteria
 
-1. You should understand the importance of monitoring and some of the basic features offered by Application Insights.
+1. A small change to `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml` automatically shows up on the website running in the `dev` environment (i.e., `<prefix>devops-dev`.azurewebsites.net).
+2. Manual approval is required to deploy to the `test` and `prod` environments.
 
-    - **NOTE**: We are just scratching the surface of what is offered in Azure Monitoring, if you are interested in learning more there is a full What the Hack focused on [Azure Monitoring](https://github.com/microsoft/WhatTheHack/tree/master/007-AzureMonitoring).
+### Learning Resources
 
-### Advanced Challenges (optional)
-
-1. If you integrated Azure DevOps Boards with GitHub, link your Application Insights instance with your Azure Boards instance ([hint](https://azure.microsoft.com/en-us/blog/application-insights-work-item-integration-with-visual-studio-team-services/))
-
-2. Using the failures feature of Application Insights find an exception that happened on your site. Using the link you created in the last step, open a work item to resolve that exception. 
-
-    - **NOTE**: If your site doesn’t have any exceptions, you can create one easily by trying to go to a page that doesn’t exist.
-
-    - **NOTE**: It takes a min or two after an event happens for it to make its way to Application Insights and for it to be indexed so you can see it in the portal.
+- [Deploy a custom container to App Service using GitHub Actions](https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=service-principal#tabpanel_CeZOj-G++Q-3_service-principal)
+- [Using environments for deployment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment)
 
 [< Previous](challenge07.md) - [Home](../readme.md) - [Next >](challenge09.md)
