@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- See solution, in solutions folder for GitHub Action Workflow file.
+- See solution, in solutions folder for devcontainer.json file.
 
 ## Solution 
 - [Navigate to Solution for Challenge 02](./Solution/Solution-02/devcontainer.json)
