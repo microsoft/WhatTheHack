@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ .Values.daprComponents.inputBindings.entryCam.componentName }}
+spec:
+  type: bindings.azure.eventhubs
+  version: v1
+  metadata:
+    - name: connectionString
+      value: {{ .Values.daprComponents.inputBindings.entryCam.connectionString }}
+    - name: consumerGroup
+      value: {{ .Values.daprComponents.inputBindings.consumerGroup }}
+    - name: storageAccountName
+      value: {{ .Values.daprComponents.inputBindings.storageAccountName }}
+    - name: storageAccountKey
+      value: {{ .Values.daprComponents.inputBindings.storageAccountKey }}
+    - name: storageContainerName
+      value: {{ .Values.daprComponents.inputBindings.entryCam.storageContainerName }}
+scopes:
+  - {{ .Values.trafficcontrol.trafficControlService.dapr.appId }}

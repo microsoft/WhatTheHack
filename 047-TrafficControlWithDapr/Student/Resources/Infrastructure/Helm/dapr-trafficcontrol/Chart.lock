@@ -1,0 +1,9 @@
+dependencies:
+- name: dapr
+  repository: https://dapr.github.io/helm-charts/
+  version: 1.9.0
+- name: secrets-store-csi-driver
+  repository: https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+  version: 1.2.0
+digest: sha256:df1b49934677c60d00960fff550442d79b48dae672a07c65d709f37e1ec7e831
+generated: "2022-10-18T16:53:11.8046143-05:00"

@@ -8,11 +8,11 @@ In this challenge you will learn how to perform common directory operations such
 
 - Display your current directory
 - Go to the parent directory of the current directory
-- Go to the root directory
-- List the contents of the root directory
+- Go to the root directory (`/`)
+- List the contents of the root directory (`/`)
 - Display a long listing of the root directory
-- Stay where you are and list the contents of `~`
-- List all the files (including hidden files) in your home directory
+- Stay where you are and list the contents of your home directory (`~`)
+- List all the files (including hidden files) in your home directory (`~`)
 - Use a single command to create the following directory tree `~/folder1/folder2/folder3` (folder3 is a subdirectory from folder2, and folder2 is a subdirectory from folder1)
 - List recursively the content of your `~` 
 - Find the directories within your home folder
@@ -20,7 +20,7 @@ In this challenge you will learn how to perform common directory operations such
 ## Success Criteria
 
 1. Confirm you can see your username under the home folder
-2. Confirm you are in the `/home` directory 
+2. Confirm you are in the `/home` directory (`~`)
 3. Validate you are in the `/` directory
 4. Confirm you can list the files under the `/`
 5. Confirm you can see the long list with details from `/` directory
