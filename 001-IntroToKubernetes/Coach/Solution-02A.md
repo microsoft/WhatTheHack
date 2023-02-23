@@ -27,4 +27,4 @@ This is **PATH A**. Use this path if your students want to understand what's inv
 
 ### Challenge 2A Solution
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/EuNLBxVZQ2g/0.jpg)](https://youtu.be/EuNLBxVZQ2g "Challenge 2A Solution")
+[![Challenge 2A solution](../Images/WthVideoCover.jpg)](https://youtu.be/EuNLBxVZQ2g "Challenge 2A Solution")
