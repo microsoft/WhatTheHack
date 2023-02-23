@@ -47,19 +47,31 @@ You will need to build these services, create a Docker container image that has 
 1.  Navigate to the `Resources/FineCollectionService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
-    az acr build --registry <container-registry-name> --image trafficcontrolservice:assignment08 .
+    az acr build --registry <container-registry-name> --image finecollectionservice:assignment08 .
     ```
 
 ### Step 4: Deploy container images to Azure Kubernetes Service
 
 Now that your container images have been uploaded to the Azure Container Registry, you can deploy these images to your Azure Kubernetes Service. Deployment spec files have been added to each service to make this easier. You will need to customize them to reference your container registry path & AKS ingress.
 
-_IMPORTANT: The Azure Container Registry has the **admin** account enabled to make this demo easier to deploy (doesn't require the deployer to have Owner access to the subscription or resource group the Azure resources are deployed to). **This is not a best practice!** In a production deployment, use a managed identity or service principal to authenticate between the AKS cluster & the ACR. See the [documentation](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli) for more about the options and how to set up._
-
-1.  Deploy your new services to AKS. Navigate to the `Resources/Infrastructure/Helm/dapr-trafficcontrol` directory and run the following:
+1.  Navigate to the `Resources/Infrastructure/Helm/dapr-trafficcontrol` directory.
 
     ```shell
     cd Resources/Infrastructure/Helm/dapr-trafficcontrol
+    ```
+
+    Modify the `Resources/Infrastructure/Helm/dapr-trafficcontrol/values.yaml` file as needed with your custom values for all services, connection strings, keys, etc.
+
+    ```yaml
+    trafficcontrol:
+      imageCredentials:
+        registry: crdaprtest2usscdev.azurecr.io
+    . . .
+    ```
+
+1.  Deploy your new services to AKS.
+
+    ```shell
     helm upgrade --install dapr-trafficcontrol . --namespace dapr-trafficcontrol --atomic
     ```
 
@@ -95,7 +107,7 @@ Run the Simluation service, which writes to your IoT Hub's MQTT queue. You will 
 
 ## Security note
 
-To make this example as accesible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure (for instance, allowing Azure Kubernetes Service to pull from Azure Container Registry) & [AKS security baseline](https://github.com/mspnp/aks-fabrikam-dronedelivery).
+To make this example as accesible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure [AKS security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline).
 
 ## Troubleshooting
 

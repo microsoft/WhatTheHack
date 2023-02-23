@@ -73,6 +73,8 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 1.  You'll now create the required Azure resources inside your resource group with the following Azure CLI command (replace the resource group name).
 
     ```shell
+    cd Resources/Infrastructure/bicep
+
     az deployment group create --resource-group <resource-group-name> --template-file ./main.bicep --parameters ./env/main.parameters.json --query "properties.outputs" --output yamlc
     ```
 
@@ -163,41 +165,6 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     *        aks-dapr-<your value>  aks-dapr-<your value>  clusterUser_rg-dapr-<your value>_aks-dapr-<your value> default
     ```
 
-1.  Install Dapr in your AKS cluster
-
-    Run the following command to initialize Dapr in your Kubernetes cluster using your current context.
-
-    ```shell
-    dapr init -k
-    ```
-
-    Your results should resemble the following:
-
-    ```shell
-    Making the jump to hyperspace...
-    Note: To install Dapr using Helm, see here: https://docs.dapr.io/getting-started/install-dapr-kubernetes/#install-with-helm-advanced
-
-    Deploying the Dapr control plane to your cluster...
-    Success! Dapr has been installed to namespace dapr-system. To verify, run `dapr status -k' in your terminal. To get started, go here: https://aka.ms/dapr-getting-started
-    ```
-
-    Verify the Dapr deployment to your AKS cluster with the following command:
-
-    ```shell
-    dapr status -k
-    ```
-
-    Your results should resemble the following:
-
-    ```shell
-    NAME                   NAMESPACE    HEALTHY  STATUS   REPLICAS  VERSION  AGE  CREATED
-    dapr-sentry            dapr-system  True     Running  1         1.2.2    1m   2021-07-02 08:45.44
-    dapr-sidecar-injector  dapr-system  True     Running  1         1.2.2    1m   2021-07-02 08:45.44
-    dapr-operator          dapr-system  True     Running  1         1.2.2    1m   2021-07-02 08:45.44
-    dapr-dashboard         dapr-system  True     Running  1         0.6.0    1m   2021-07-02 08:45.44
-    dapr-placement-server  dapr-system  True     Running  1         1.2.2    1m   2021-07-02 08:45.45
-    ```
-
 1.  Create the `dapr-trafficcontrol` Kubernetes namespace
 
     You will need to create a namespace to own all of the TrafficControl Kubernetes objects.
@@ -206,18 +173,18 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     kubectl create namespace dapr-trafficcontrol
     ```
 
-1.  Install the AKS Workload Identity extension in your AKS cluster so it can use the managed identity to access Azure services (like Key Vault).
-
-    ```shell
-     az aks update -g <resource-group-name> -n <cluster-name> --enable-oidc-issuer --enable-workload-identity
-    ```
-
 1.  Assign permissions to KeyVault
 
     Lastly, assign yourself access to the KeyVault so you can create secrets:
 
     ```shell
     az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
+    ```
+
+1.  Install the Dapr extension in your AKS cluster.
+
+    ```shell
+    az k8s-extension create --cluster-type managedClusters --cluster-name "<aks-name>" --resource-group "<resource-group-name>" --name dapr --extension-type Microsoft.Dapr
     ```
 
 1.  Run the following command to initalize your local Dapr environment:

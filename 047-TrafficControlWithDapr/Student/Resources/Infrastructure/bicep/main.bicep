@@ -63,6 +63,7 @@ module containerRegistryDeployment 'container-registry.bicep' = {
     containerRegistryName: names.outputs.containerRegistryName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
   }
 }
 

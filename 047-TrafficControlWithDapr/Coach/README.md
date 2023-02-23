@@ -62,9 +62,9 @@ You will need the following subcription [resource providers](https://learn.micro
 - Microsoft.Storage
 - Microsoft.Web
 
-- If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
+- If you already have an Azure account, make sure you have at least **Owner** [access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
 
-_Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._
+_Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Owner` access to it, using the instructions mentioned above._
 
 This hack's setup files will create the following resources in your Azure Resource Group. Make sure you can create the following:
 
