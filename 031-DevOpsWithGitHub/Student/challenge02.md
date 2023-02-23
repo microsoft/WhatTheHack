@@ -8,13 +8,13 @@
 
 Developer environments are critical to ensuring your development teams are setup to do their best work. Right now everyone on your team likely has a slightly different setup of their environment (editor, extensions, tools) installed on their local machine.
 
-GitHub includes the ability to create a cloud based development environment called a codespace that is configured via a code file detailed within a repository. The file details how a developer environment should be supplied consistently from the cloud to every developer in the team who wants to create one in a self-serve manner. This can include the editor, extensions and tools we want to have available. 
+GitHub includes the ability to create a cloud based development environment called a codespace that is configured via a dev container (devcontainer.json)code file detailed within a repository. The file details how a developer environment should be supplied consistently from the cloud to every developer in the team who wants to create one in a self-serve manner. This can include the editor, extensions and tools we want to have available. 
 
 Our repository includes an application written in .NET that will deploy to Azure using Infrastructure-as-Code via a language called Bicep. We will want to configure our codespace to have tooling included to work with .NET, ARM (infrastructure-as-code) and the Azure CLI.
 
 ### Challenge
 
-1. Add a new devcontainer file in your repository placed in a .devcontainer directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NE, notably "mcr.microsoft.com/devcontainers/dotnet:0-7.0" for the hackathon supplied application on .NET 7.0. **Note - VS Code has some tooling here to simplify this process** 
+1. Add a new devcontainer file in your repository placed in a .devcontainer directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NE, notably "mcr.microsoft.com/devcontainers/dotnet:0-7.0" for the hackathon supplied application on .NET 6.0. **Note - VS Code Dev Containers Extension has a feature here that will simplify this process** 
 
 2. Configure your devcontainer to add a feature for the Azure CLI.
 
@@ -32,6 +32,9 @@ Our repository includes an application written in .NET that will deploy to Azure
 - [Introduction to devcontainers](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)
 - [Setting up a C# (.NET) project in Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-dotnet-project-for-codespaces)
 - [Adding features to your devcontainer](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file?tool=webui)
+- [Visual Studio Code Dev Containers on VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Visual Studio Code Dev Containers extension](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
+
 
 ### Advanced Challenges (optional)
 Add to your devcontainer.json with details of an extension to install into Visual Studio Code and add a postCreateCommand that will restore NuGet packages for the .NET app in the Application directory of the repo.  
