@@ -3,9 +3,9 @@
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
-In this challenge, we will be deploying an application to Azure Red Hat OpenShift using an example application that tracks Fruit Smoothie Ratings. We will learn about deploying applications to ARO clusters and the steps needed to achieve that goal.
+In this challenge, we will be deploying an application to Azure Red Hat OpenShift using an example application that tracks Fruit Smoothie Ratings. We will learn about deploying applications to ARO clusters and the steps needed to achieve that goal. The ratings application is a simple Node.js application that allows users to rate different fruit smoothies and view their ratings in a leaderboard.
 
-The ratings application is a simple Node.js application that allows users to rate different fruit smoothies and view their ratings in a leaderboard.
+The sample application is found in the two GitHub repositories provided in challenge 0 by your coach. You will be deploying your application using the GitHub repository URLs.
 
 ## Description
 In this challenge we will deploy an application to our Azure Red Hat OpenShift cluster using two different build strategies. This challenge gives us an opportunity to see how to create a project on our cluster, as well as learn how to deploy our application's frontend and backend, and access our application from a browser.

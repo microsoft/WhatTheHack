@@ -39,43 +39,58 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
-
-Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into two public GitHub repositories, one that contains the contents from the folder **rating-api** and the other containing the contents from the folder **rating-web**. The coach should then provide the URLs of the GitHub repositories to all students at the start of the hack in challenge 0.
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 ### Additional Coach Prerequisites (Optional)
+As a coach, you should communicate to the stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students about the quota requirement and Azure Requirements listed below, days in advance of the hack.
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+- Make sure the students increase the VM quotas to use a minimum of 40 cores. Docs on how to do that can be found here: [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) 
+  - To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+    - **NOTE:** Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.
 
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- For students ability to create an Azure Red Hat OpenShift cluster, verify the following permissions on their Azure subscription, Azure Active Directory user, or service principal:
 
-_For example:_
+| Permissions  | Resource Group which contains the VNet | User executing `az aro create` | Service Principal passed as `–client-id` |
+| ------------- | ------------- | ------------- | ------------- |
+| User Access Administrator | X | X | |
+| Contributor  | X | X | X |
+- Register the resource providers in their subscription:
+```
+# Register the Microsoft.RedHatOpenShift resource provider
+az provider register -n Microsoft.RedHatOpenShift --wait
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+# Register the Microsoft.Compute resource provider
+az provider register -n Microsoft.Compute --wait
 
-## Suggested Hack Agenda (Optional)
+# Register the Microsoft.Storage resource provider
+az provider register -n Microsoft.Storage --wait
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+# Register the Microsoft.Authorization resource provider
+az provider register -n Microsoft.Authorization --wait
+```
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+## Suggested Hack Agenda
+This hack has challenges that are built off of each other and some that are not. Below is the suggested challenge order to run the hack.
+
+- Challenges that must be done in numerical order
+  - Challenge 1 
+  - Challenge 2 
+  - Challenge 3 
+  - Challenge 4 
+  - Challenge 5 
+  - Challenge 6 
+- Challenges that can be done in any order
+  - Challenge 7 
+  - Challenge 8 
+  - Challenge 9
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
@@ -84,4 +99,6 @@ _The default files & folders are listed below. You may add to this if you want t
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+
+## Github repo sample code
+  - Resource files, sample code, scripts, etc meant to be provided to students. (The coach must package up the frontend and backend applications and deploy them to two public GitHub repositories for their specified hack)
