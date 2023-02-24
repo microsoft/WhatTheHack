@@ -23,7 +23,7 @@ and display some details from the decoded token in the landing page UI.
 
 In Challenge-01, you were working in the client-side JavaScript. In practice, most of the work will be done server-side
 to avoid cross-domain issues and manage the authentication with the marketplace APIs. In this challenge you will be
-implementing an API that will act as a proxy, calling the marketplace resolve API on behalf of our client-side JavaScript.
+implementing an API that will act as a proxy, calling the marketplace `resolve` API on behalf of our client-side JavaScript.
 
 The server component is a Node.js Express application written in TypeScript. You shouldn't have to concern yourself with
 the Node / Express aspects (aside from the pre-requisites) but you will be writing some TypeScript.
@@ -35,13 +35,13 @@ to the TypeScript function `resolveToken()` defined in `src/service/api.ts`.
 In this challenge we will only be concerned with the function `resolveToken()` in `src/service/api.ts`. The function
 currently has an empty implementation.
 
-Your task it to update the `resolveToken()` implementation to call the marketplace resolve API and return the result
+Your task it to update the `resolveToken()` implementation to call the marketplace `resolve` API and return the result
 to the caller handling any errors along the way.
 
 The emulator should be available on `http://localhost:3978`
 
 - Validate the request (check there is a token etc)
-- Call the marketplace resolve API, passing the token in the header
+- Call the marketplace `resolve` API, passing the token in the header
 - Check the result and return an appropriate status code
 - If the call is successful, return the result as JSON
 
