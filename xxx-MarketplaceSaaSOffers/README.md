@@ -25,27 +25,27 @@ Microsoft commercial marketplace APIs in order to publish a transactable SaaS Of
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
   - Prepare your workstation to work with Azure.
 - Challenge 01: **[Creating a landing page](Student/Challenge-01.md)**
-  - Description of challenge
+  - Start to build out landing page functionality.
 - Challenge 02: **[Installing the emulator](Student/Challenge-02.md)**
-  - Description of challenge
+  - Get the marketplace emulator up and running.
 - Challenge 03: **[Emulate!](Student/Challenge-03.md)**
-  - Description of challenge
+  - A lap around the emulator.
 - Challenge 04: **[Decoding purchase tokens](Student/Challenge-04.md)**
-  - Description of challenge
+  - More landing page functionality and calling our first marketplace API.
 - Challenge 05: **[Activate!](Student/Challenge-05.md)**
-  - Description of challenge
+  - More landing page functionality and activating a purchase.
 - Challenge 06: **[Exploring the APIs](Student/Challenge-06.md)**
-  - Description of challenge
+  - Learning more about the marketplace APIs by calling them manually.
 - Challenge 07: **[Tracking entitlement (licensing)](Student/Challenge-07.md)**
-  - Description of challenge
+  - Tracking purchases against access entitlement for customers.
 - Challenge 08: **[Listening on a webhook](Student/Challenge-08.md)**
-  - Description of challenge
+  - Listening for messages from the marketplace using a webhook.
 - Challenge 09: **[Landing page Single Sign On](Student/Challenge-09.md)**
-  - Description of challenge
+  - The landing page must be SSO enabled.
 - Challenge 10: **[Authenticating with marketplace APIs](Student/Challenge-10.md)**
-  - Description of challenge
+  - We've got things working, now add authentication.
 - Challenge 11: **[Getting ready to publish...](Student/Challenge-11.md)**
-  - Description of challenge
+  - Preparing to switch from emulator to marketplace for final testing.
 - Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
   - Description of challenge
 
