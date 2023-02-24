@@ -32,10 +32,10 @@ When you browse to the emulator, you will be presented with the emulator homepag
 
 ## Description
 
-The emulator should be available on `http://localhost:3978`
-
 In this challenge we will configure and generate a purchase token, simulate a "configure my subscription" request from
 the marketplace and activate the subscription. Finally we will try to change to a new plan and unsubscribe from the offer.
+
+The emulator should be available on `http://localhost:3978`
 
 - Make sure the emulator is running
 - Visit the "Marketplace Token" page and set

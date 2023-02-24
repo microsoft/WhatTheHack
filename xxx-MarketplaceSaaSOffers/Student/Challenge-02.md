@@ -40,13 +40,11 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
-The emulator can be run from VSCode or the command line if you have Node.js installed
-(see [Prerequisites](./Challenge-00.md)). If you have Docker installed, the emulator can be run as a Docker container.
-If you use Dev Containers with VS Code, you can also use this.
-
-All the information is in the Readme linked from the learning resources.
-
-If you already have Docker installed, this may be the simplest way to get the emulator up and running. Similarly, if
-you use Dev Containers in VSCode, this is a good route to follow.
-
-If using Docker, make sure to map the port correctly.
+- The emulator can be run from VSCode or the command line if you have Node.js installed
+(see [Prerequisites](./Challenge-00.md))
+- If you have Docker installed, the emulator can be run as a Docker container
+- If you use Dev Containers with VS Code, you can also use this
+- If you already have Docker installed, this may be the simplest way to get the emulator up and running. Similarly, if
+you use Dev Containers in VSCode, this is a good route to follow
+- More information is in the Readme linked in the Learning Resources section
+- If using Docker, make sure to map the port correctly
