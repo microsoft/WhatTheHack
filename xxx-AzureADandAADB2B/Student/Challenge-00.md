@@ -2,13 +2,6 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
-
-**_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
-
-**_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
-
-**_You should remove all italicized & sample text in this template and replace with your content._**
 
 ## Introduction
 
@@ -26,75 +19,25 @@ You might not need all of them for the hack you are participating in. However, i
 - [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
 ## Description
 
-_This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
+Azure AD is the central identity control plane for an individual organization. The organizational directory holds all your users and controls how they can sign in (that is, perform authentication) - including security and governance features like Conditional Access (CA), Multi-Factor Authentication (MFA), Privileged Access Management (PIM), etc.
 
-_While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack._
+Thousands of applications are natively integrated with Azure AD. This includes first party offerings like Microsoft 365 (SharePoint, Exchange, Teams, ...) and Azure, as well as third party offerings like Salesforce, ServiceNow and Box.
 
-_For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template._
-
-_Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file._
-
-**\*NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resources.zip file provided by the coach.\*
-
-**\*NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.\*
-
-_Sample challenge zero text for the IoT Hack Of The Century:_
-
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
-
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
-
-Please install these additional tools:
-
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
-
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
-
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
-```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
-```
+However, Azure AD is an open Identity Provider (IdP), which means you can also integrate your own line-of-business (LOB) applications with Azure AD and let your organizations' users sign in with their existing credentials (and taking full advantage of the governance features mentioned above). By adopting a fully externalized and cloud-scale platform (rather than a library or locally hosted identity solution), you are no longer responsible for collecting, storing and securing any credentials for your application's users.
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
-
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
-To complete this challenge successfully, you should be able to:
-
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
+1. You have a new Azure AD tenant created.
+2. Your users are created in your tenant. Please note that you should create local users in your AD tenant, guest users will be created later.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
-
-_Sample IoT resource links:_
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [What is Azure Active Directory?](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+- [Quickstart: Create a new tenant in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Create a user](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
+- [Tenancy in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/develop/single-and-multi-tenant-apps)
+- [Choosing the appropriate offering](https://github.com/Azure/FTALive-Sessions/blob/main/content/identity/microsoft-identity-platform/10-identity-offerings-choice.md)
