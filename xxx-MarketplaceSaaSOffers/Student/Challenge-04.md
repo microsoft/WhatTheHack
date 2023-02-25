@@ -53,11 +53,11 @@ To complete this challenge successfully, you should be able to:
 - Make sure the Landing Page URL is set to point to your application landing page
   - This can be set on the emulator "Config" page or as an environment variable (see Learning resources)
 - Navigate to `http://localhost:3000/` and click the "Resolve Token" button
-  - Confirm that a suitable http error code is logged to the console and a message displayed in the UI
+  - Confirm that your app does not crash, a suitable message is displayed and the error is logged to the console
 - Navigate to `http://localhost:3000/?token=` and click the "Resolve Token" button
-  - Confirm that a suitable http error code is logged to the console and a message displayed in the UI
+  - Confirm that your app does not crash, a suitable message is displayed and the error is logged to the console
 - Navigate to `http://localhost:3000/?token=abc` and click the "Resolve Token" button
-  - Confirm that a suitable http error code is logged to the console and a message displayed in the UI
+  - Confirm that your app does not crash, a suitable message is displayed and the error is logged to the console
 - Visit the emulator "Marketplace Token" page and set
   - `offerId` to "flat-rate"
   - `planId` to "flat-rate-1"
@@ -81,6 +81,7 @@ this would be extracted from the AAD bearer token. With the emulator, we don't r
 way of providing an identity. We do this by adding a query string parameter `publisherId` on the request. For more
 details, see the emulator README.
 - In the application, a `publisherId` is available on the `Config` type, available at `req.app.locals.config`
-- `Config` also contains a `baseUrl` you can use. This is generally set to `http:\\localhost:3978` unless you are using
-Dev Containers in VS Code. In this case localhost cannot be used and a shared Docker network is required.
+- `Config` also contains a `baseUrl` you can use. This is set to `http:\\localhost:3978` unless you are running in a
+Dev Container in VS Code. In this case localhost cannot be used and a shared Docker network is required. This should
+be set for you automatically.
 - You can see the routing configuration to map route `api/resolve` to `resolveToken()` in `index.ts` line 34
