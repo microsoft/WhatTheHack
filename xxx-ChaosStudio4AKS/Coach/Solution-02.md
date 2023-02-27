@@ -22,6 +22,11 @@ kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=<node>
 ```
 Scale the cluster to a minimum of 2 VMs
 
+```bash
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
+
+```
+
 Scale your Kubernetes environment (hint it is a statefull deployment)
 
 ```bash
