@@ -17,7 +17,7 @@ Then you will upload the provided dataset to your Synapse's default storage acco
 **Condition of success**
 
 - Being able to create and configure Synapse workspace's components 
-  - 
+
 ### Create the Synapse workspace
 
 You've been asked to create a new Synapse workspace with no Managed Vnet, no Dedicated SQL pool.
@@ -30,7 +30,7 @@ Using [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storag
 ### Create a new database
 
 Now you have to create a new database in your built-in SQL pool and call it "Serverless" 
-Open Synapse Studio or your preferred client tool, point the Built-in SQL pool and run the following cmd:
+Open Synapse Studio or your preferred client tool, point the built-in SQL pool and run the following command:
 
 ```sql
 CREATE DATABASE Serverless
