@@ -63,19 +63,17 @@ In this challenge you need to complete the following management tasks:
 - From Azure Monitor, create an Action group to send email to your email address.
 - Create a Metric Alert Rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
 - Create a Meric Alert Rule to be notified via email if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
-- Create an Activity Log Alert Rule to be notified via email if the SQL Server VM is stopped.
 - Suppress all alerts over the weekend (unless you are solving this challenge on the weekend).
 
-### Simulate load and changes on the eShopOnWeb Environment
+### Simulate load on the eShopOnWeb Environment
 
-Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is time to simulate load and changes on the SQL Server database and the eShopOnWeb website:
+Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is time to simulate load on the SQL Server database and the eShopOnWeb website:
 - Use HammerDB to create a transaction load on the "tpcc" database on the SQL Server
     - Download and Install HammerDB tool on the Visual Studio VM 
     - See sample [Instructions for using HammerDB](./Resources/Challenge-01/UsingHammerDB.md) to generate load on the "tpcc" database.
 - Simulate a CPU load on the VM Scale Set using the [cpuGenLoadwithPS.ps1](./Resources/Challenge-01/cpuGenLoadwithPS.ps1) script located in the `/Challenge-01` folder of the student resource package.
     - This script is designed to be run directly on the VM instances in the VMSS.
     - **HINT:** You will need to upload this script to the VMs in order to run it on each instance.
-- Stop the SQL Server VM.
 
 ## Success Criteria
 
@@ -83,8 +81,7 @@ To complete this challenge successfully, you should be able to:
 
 - Verify that you can collect the DB and CPU counters after load simulation and display them on a Dashboard.
 - Verify the dashboard has the metric with a spike representing before and after the simulation.
-- Show three fired alerts in the Portal and the email notifications received.
-- Bonus question: Will the Activity Log Alert get fired if the VM was turned off from the OS? Or if the VM was not available? Why?
+- Show two fired alerts in the Portal and the email notifications received.
 
 ![enter image description here](../Images/01-04-Sample-dashboard.png)
 
