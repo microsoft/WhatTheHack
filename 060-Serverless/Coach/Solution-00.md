@@ -4,7 +4,7 @@
 
 # Notes & Guidance
 
-In this challenge you will create the Synapse workspace with a spark pool.
+In this challenge you will create the Synapse workspace with a Spark pool.
 Then you will upload the provided dataset to your Synapse's default storage account.
 
 **Learning objectives:**
@@ -25,18 +25,18 @@ While configuring the workspace create a new ADLS Gen 2 account.
 
 ### Copy the dataset
 
-Using [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/), copy the provided dataset onto the workspace's default storage. The dataset is available at this [path](./../Student/Resources/Challenge-00). Do not change dataset folder structure.
+Using [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/), copy the provided dataset onto the workspace's default storage. The dataset is available at this [path](./../Student/Resources/Challenge-00). Do not change the dataset folder structure.
 
 ### Create a new database
 
 Now you have to create a new database in your built-in SQL pool and call it "Serverless" 
-Open Synapse Studio or your preferred client tool, point the Built-in Sql pool and run the following cmd:
+Open Synapse Studio or your preferred client tool, point the Built-in SQL pool and run the following cmd:
 
 ```sql
 CREATE DATABASE Serverless
 ```
 
-### Create the spark pool
+### Create the Spark pool
 Open Synapse Studio and configure a new Spark pool:
 - Node size: Small (4 vCPU / 32 GB))
 - Autoscale: Disabled
