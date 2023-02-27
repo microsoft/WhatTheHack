@@ -48,17 +48,14 @@ In this challenge you need to complete the following management tasks:
 	**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database.
 
 - In Azure portal navigate to the blade of the SQL Server VM, click "Metrics" to open Azure Monitor Metrics explorer, and check what metrics are currently being collected.
-- From Azure Monitor create a new Data Collection Rule for the SQL Server and configure it to send the below guest OS metrics to Azure Monitor Metrics:
-	- Object: Memory
-		- Counter: Available Bytes
-		- Counter: Committed Bytes
-		- Counter: % Committed Bytes in Use 
+- From Azure Monitor create a new Data Collection Rule for the SQL Server and configure it to collect the Basic guest OS performance counters (CPU, Memory, Disk, Network), as well as the following custom performance counter:
 	- Object: SQLServer:Databases
 		- Counter: Active Transactions
 		- Instance: tpcc
-
+		
+- Configure this DCR to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs (use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`**)
 >**Note** When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on virtual machine.
-- Create another Data Collection Rule for the SQL Server and configure it to send basic Windows Event Logs to the already existing Log Analytics workspace called **`law-wth-monitor-d-XX`**. Use sample KQL queries in the '/Challenge-01' subfolder of the Resources folder to verify that the logs started to flow into the Log Analytics workspace. 
+- Create another Data Collection Rule for the SQL Server and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use sample KQL queries in the '/Challenge-01' subfolder of the Resources folder to verify that the logs started to flow into the Log Analytics workspace. 
 - Create graphs for the SQL Server Active Transactions and the Virtual Machine Scale Set CPU Utilisation (see the Metrics blades of the VM and VMSS) and pin both of them to your Azure Dashboard.
 - From Azure Monitor, create an Action group to send email to your email address.
 - Create a Metric Alert Rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
