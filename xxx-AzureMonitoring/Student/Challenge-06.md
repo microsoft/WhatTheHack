@@ -1,4 +1,4 @@
-# Challenge 06 - Log Queries with KQL and Grafana
+# Challenge 06 - Log Queries with Kusto Query Language (KQL)
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
@@ -28,16 +28,14 @@ Bonus question:
 How can we save our log queries and share them across multiple workspaces?
 
 ## Success Criteria
-* Grafana dashboards deployed
 - Show the above 3 charts
 - Show the saved queries
 
 ## Learning Resources
 - [Getting started with Kusto](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/)
-* [Run Grafana Docker image](http://docs.grafana.org/installation/docker/)
-* [Monitor your Azure services in Grafana](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/grafana-plugin)
 * [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
 * [Overview of queries](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/)
 * [Query best practises](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)
 * [Query operators](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries)
 * [Telemetry correlation in Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation)
+* [Query Packs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/query-packs)
