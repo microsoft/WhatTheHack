@@ -1,4 +1,4 @@
-# Challenge 02 - Monitor platform events with Activity Log - Coach's Guide 
+# Challenge 02 - Monitoring Basics: Metrics, Logs, Alerts and Dashboards - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
