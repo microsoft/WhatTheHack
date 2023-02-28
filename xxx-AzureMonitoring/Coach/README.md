@@ -12,11 +12,11 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Monitor Virtual Machine performance with Azure Monitor Metrics](./Solution-01.md)**
+- Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Monitor platform events with Activity Log](./Solution-02.md)**
+- Challenge 02: **[Metric and Activity Log alerts via Automation](./Solution-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Monitor Virtual Machines with Azure Monitor Logs](./Solution-03.md)**
+- Challenge 03: **[Azure Monitor for Virtual Machines](./Solution-03.md)**
 	 - Description of challenge
 - Challenge 04: **[Azure Monitor for Applications](./Solution-04.md)**
 	 - Description of challenge
