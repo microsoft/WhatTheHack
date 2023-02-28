@@ -19,17 +19,17 @@ In this hack you will be solving the common big data architecture issue of bring
 	 - Understand the basics of Key Vault
 	 - Understand Data Lake Best Practices
 - Challenge 01: **[Building out the Bronze](Student/Challenge-01.md)**
-	 - Standup and configure the Synapse and Databricks Environments.
-	 - Agree on and begin to implement the three-tiered architecture. 
-	 - Hydrate the Bronze Data Lake.
-	 - Ensure no connection details are stored on the Linked Service or in Notebooks.
+	 - Standup and configure the Synapse and Databricks Environments
+	 - Agree on and begin to implement the three-tiered architecture 
+	 - Hydrate the Bronze Data Lake
+	 - Ensure no connection details are stored on the Linked Service or in Notebooks
 - Challenge 02: **[Standardizing on Silver](Student/Challenge-02.md)**
 	 - Move the data from the Bronze Layer to the Silver Layer 
 	 - Apply Delta Format to the Silver Layer
 	 - Perform consolidation and standardization
 - Challenge 03: **[Go for the Gold](Student/Challenge-03.md)**
-	 - Take data from the Silver Layer and make it business analyst ready.
-	 - Understand the basics of data models.
+	 - Take data from the Silver Layer and make it business analyst ready
+	 - Understand the basics of data models
 - Challenge 04: **[Visualize the Results](Student/Challenge-04.md)**
 	 - Create Power BI assets to showcase your results
 
