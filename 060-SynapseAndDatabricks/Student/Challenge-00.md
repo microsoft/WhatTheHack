@@ -34,7 +34,7 @@ You might not need all of them for the hack you are participating in. However, i
 ## Foundational Knowledge
 
 - [What is a Azure Synapse?](https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is)
-- [What is Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/introduction/)
+- [What is Azure Databricks?](https://learn.microsoft.com/en-us/azure/databricks/introduction/)
 - [Introduction to Azure Data Lake Storage Gen2](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Delta Lake?](https://learn.microsoft.com/en-us/azure/databricks/delta/)
 - [About Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
