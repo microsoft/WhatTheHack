@@ -50,7 +50,7 @@ Even though the Bronze layer is generally locked down in most organizations, som
 To complete this challenge successfully, you should be able to:
 
 - Validate that all resources exist in one Resource Group and are tagged appropriately.
-- Validate that all team members have proper access to all the assets; Storage Accounts, Synapse and Databricks Workspaces, etc.
+- Validate that all team members have proper access to all the assets: Storage Accounts, Synapse and Databricks Workspaces, etc.
 - Showcase the data copied into the Bronze layer and be able to articulate the file type and folder structure and the reasons for your choices.
 - Showcase that no credentials are stored in an Azure Synapse Linked Service or a Databricks Notebook.
 
