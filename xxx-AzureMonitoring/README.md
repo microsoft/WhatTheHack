@@ -14,11 +14,11 @@ In this hack, you will be getting hands on experience with monitoring resources 
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Monitor Virtual Machine performance with Azure Monitor Metrics](Student/Challenge-01.md)**
+- Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](Student/Challenge-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Monitor platform events with Activity Log](Student/Challenge-02.md)**
+- Challenge 02: **[Metric and Activity Log alerts via Automation](Student/Challenge-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Monitor Virtual Machines with Azure Monitor Logs](Student/Challenge-03.md)**
+- Challenge 03: **[Azure Monitor for Virtual Machines](Student/Challenge-03.md)**
 	 - Description of challenge
 - Challenge 04: **[Azure Monitor for Applications](Student/Challenge-04.md)**
 	 - Description of challenge
