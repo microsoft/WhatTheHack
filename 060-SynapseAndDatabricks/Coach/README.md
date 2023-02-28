@@ -31,7 +31,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 The purpose of this hackathon is for the participants to utilize the three-tier data lake architecture to combine different data sources into one Delta Lake architecture that can be utilized.  
 
-For Challenge 0, they will need to import data from both the AdventureWorks and WideWorldImporters databases into the Bronze layer.  Thus, for the hackathon you must setup these databases in an Azure SQL environment so that the users can connect to these are a source.  We want the users to focus on Databricks and Synapse technologies and not be responsible for setting up these databases.
+For Challenge 0, they will need to import data from both the AdventureWorks and WideWorldImporters databases into the Bronze layer.  Thus, for the hackathon you must setup these databases in an Azure SQL environment so that the users can connect to these as a source.  We want the users to focus on Databricks and Synapse technologies and not be responsible for setting up these databases.
 
 These databases can be obtained at the following sites:
 
@@ -93,4 +93,4 @@ Answers were single select options of 100/200/300/400
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Resource files, sample code, scripts, etc. meant to be provided to students. (Must be packaged up by the coach and provided to students at the start of the event)
