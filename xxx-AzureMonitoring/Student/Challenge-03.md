@@ -1,4 +1,4 @@
-# Challenge 03 - Monitor Virtual Machines with Azure Monitor Logs
+# Challenge 03 - Azure Monitor for Virtual Machines
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
