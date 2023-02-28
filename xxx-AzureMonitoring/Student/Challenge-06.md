@@ -19,16 +19,13 @@ Write a performance query that renders a time chart for the last 4 hours for bot
   - CPU usage from the node in your AKS cluster hosting the eshoponweb app
   - Duration of page views on your eshoponweb app hosted on the cluster
   - Save each query to your favorites.
-* Deploy Grafana using Web App for Container
-* Configure the Azure Monitor Data Source for Azure Monitor, Log Analytics and Application Insights
-* Create a CPU Chart with a Grafana variable used to select Computer Name
-* Add an Annotation to your chart overlaying Computer Heartbeat
+* Pin each of your charts to an Azure dashboard.
 
 Bonus question:
 How can we save our log queries and share them across multiple workspaces?
 
 ## Success Criteria
-- Show the above 3 charts
+- Show the above 3 charts on a single dashbaord
 - Show the saved queries
 
 ## Learning Resources
