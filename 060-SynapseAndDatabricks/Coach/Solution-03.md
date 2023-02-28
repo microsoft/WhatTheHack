@@ -8,7 +8,7 @@ Most of the focus in this challenge would be in setting up the Dedicated Pools, 
 
 If your squad goes the route of the dedicated pool, we have included an Azure Data Studio Notebook in the [solutions folder](./Solutions/) that showcases implementing Row Level Security utilizing a bridge table between users and the address table.  
 
-For Column Level Security / Data Masking in Power BI Datamarts there is no way to do this dynamically.  Thus the users will most likely have to do some sort of replace values, etc. within the Power Query editor when bringing the data into the Power BI Datamart.
+For Column Level Security / Data Masking in Power BI Datamarts there is no way to do this dynamically.  Thus, the users will most likely have to do some sort of replace values, etc. within the Power Query editor when bringing the data into the Power BI Datamart.
   
 If they are going down the Power BI Datamart route, use this [guide](https://learn.microsoft.com/en-us/power-bi/transform-model/datamarts/datamarts-get-started#create-a-datamart) for detailed steps on setting it up.  
 Some connection details that could be useful are:
