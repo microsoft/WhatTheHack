@@ -1,4 +1,4 @@
-# Challenge 01 - Monitor Virtual Machine performance with Azure Monitor Metrics - Coach's Guide 
+# Challenge 01 - Monitoring Basics: Metrics, Logs, Alerts and Dashboards - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
