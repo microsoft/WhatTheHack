@@ -37,7 +37,7 @@ In this hack you will be solving the common big data architecture issue of bring
 
 - Your own Azure subscription with Owner access
 - Willingness to get your hands dirty and learn from your colleagues
-- A wicked cool Teams background.  There will be prizes for each day.
+- A wicked cool Teams background.  There will be prizes for each day
 
 ## Contributors
 
