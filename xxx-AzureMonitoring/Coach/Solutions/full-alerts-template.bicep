@@ -1,4 +1,5 @@
 param actionGroupResourceId string = '<your-action-group-id>'
+param vmLocation string = '<your-vm-region>'
 param activityLogAlertNameVmStop string = 'alert-vm-stopped'
 param metricAlertNameCPU string = 'alert-cpu-over-75-percent'
 param metricAlertNameNetwork string = 'alert-network-in'
@@ -106,7 +107,7 @@ resource metricAlertCpu 'Microsoft.Insights/metricAlerts@2018-03-01' = {
     ]
     severity: 2
     targetResourceType: 'Microsoft.Compute/virtualMachines'
-    targetResourceRegion: '<your-vm-region>'
+    targetResourceRegion: vmLocation
     windowSize: 'PT5M'
   }
 }
@@ -144,7 +145,7 @@ resource metricAlertNetwork 'Microsoft.Insights/metricAlerts@2018-03-01' = {
     ]
     severity: 3
     targetResourceType: 'Microsoft.Compute/virtualMachines'
-    targetResourceRegion: '<your-vm-region>'
+    targetResourceRegion: vmLocation
     windowSize: 'PT5M'
   }
 }
@@ -182,7 +183,7 @@ resource metricAlertDisk 'Microsoft.Insights/metricAlerts@2018-03-01' = {
     ]
     severity: 3
     targetResourceType: 'Microsoft.Compute/virtualMachines'
-    targetResourceRegion: '<your-vm-region>'
+    targetResourceRegion: vmLocation
     windowSize: 'PT5M'
   }
 }
