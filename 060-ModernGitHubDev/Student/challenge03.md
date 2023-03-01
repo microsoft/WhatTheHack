@@ -32,4 +32,4 @@ Scanning for vulnerabilities, running tests, and ensuring code compiles is typic
 - [About branch protection rules](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
 - [Using source control in your codespace](https://docs.github.com/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)
 
-[< Previous](challenge08.md) - [Home](../readme.md)
+[< Previous](challenge02.md) - [Home](../readme.md) - [Next >](challenge04.md)
