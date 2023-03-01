@@ -19,7 +19,7 @@ jobs:
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v0
         with:
-          appSourcePath: ${{ github.workspace }}
+          appSourcePath: ${{ github.workspace }}/src
           acrName: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
           resourceGroup: ${{ secrets.AZURE_RG }}
           containerAppName: ${{ secrets.AZURE_CONTAINER_APP }}

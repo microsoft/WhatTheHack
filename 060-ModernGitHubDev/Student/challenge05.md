@@ -24,7 +24,6 @@ For purposes of this hack, you will deploy to the [environment you created earli
 - The name of the Azure Container Registry will be **`<your_prefix>`acr**
 - The name of the Azure Container App will be **`<your_prefix>`containerapp**
 - The name of the Azure Container App Environment will be **`<your_prefix>`containerappenvironment**
-- You can read secrets in a workflow by using the syntax ${{ secrets.NAME }}
 
 ## Success Criteria
 
@@ -38,5 +37,7 @@ For purposes of this hack, you will deploy to the [environment you created earli
 - [Triggering a workflow](https://docs.github.com/actions/using-workflows/triggering-a-workflow)
 - [Publish revisions with GitHub Actions in Azure Container Apps](https://learn.microsoft.com/azure/container-apps/github-actions)
 - [Azure Container Apps Build and Deploy - GitHub Actions](https://github.com/marketplace/actions/azure-container-apps-build-and-deploy)
+- [GitHub Actions contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
+- [GitHub Actions encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets)
 
 [< Previous](challenge04.md) - [Home](../readme.md)

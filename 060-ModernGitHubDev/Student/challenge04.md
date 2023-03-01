@@ -54,6 +54,7 @@ The Bicep file accepts one parameter named `prefixName`, which is to be set to 6
 - [Introduction to GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions)
 - [Deploy Bicep files by using GitHub Actions](https://learn.microsoft.com/azure/azure-resource-manager/bicep/deploy-github-actions?tabs=userlevel%2CCLI)
 - [Manually running a workflow](https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow)
+- [GitHub Actions contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
 - [GitHub Actions encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets)
 - [Create Actions secrets using GitHub CLI](https://cli.github.com/manual/gh_secret_set)
 

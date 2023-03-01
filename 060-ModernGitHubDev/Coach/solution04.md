@@ -10,5 +10,6 @@
   - AZURE_RG
   - AZURE_PREFIX
 - `workflow_dispatch` must be used for the trigger for the workflow to run manually
+- The path to the config file 8s **${{ github.workspace }}/config/main.bicep**
 
 [< Previous Solution](./solution03.md) - **[Home](./README.md)** - [Next Solution >](./solution05.md)
