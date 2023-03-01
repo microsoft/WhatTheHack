@@ -16,10 +16,15 @@ For purposes of this hack, you will deploy to the [environment you created earli
 
 ## Challenge tips
 
-- Create a [new secret for Actions](https://docs.github.com/actions/security-guides/encrypted-secrets) to store the name of the Azure Container Registry
-- To obtain the name of the Azure Container Registry for your project, you can use `az acr list --query "[].name" -o tsv`
+- Create the [secrets necessary for the Action including](https://docs.github.com/actions/security-guides/encrypted-secrets) to store the name of the Azure Container Registry:
+  - **AZURE_CONTAINER_REGISTRY**
+  - **AZURE_RG**
+  - **AZURE_CONTAINER_APP**
+  - **AZURE_CONTAINER_APP_ENVIRONMENT**
+- The name of the Azure Container Registry will be **`<your_prefix>`acr**
+- The name of the Azure Container App will be **`<your_prefix>`containerapp**
+- The name of the Azure Container App Environment will be **`<your_prefix>`containerappenvironment**
 - You can read secrets in a workflow by using the syntax ${{ secrets.NAME }}
-- You do **not** need to create a container for the project; the action will do that automatically
 
 ## Success Criteria
 
