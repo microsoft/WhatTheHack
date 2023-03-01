@@ -57,4 +57,4 @@ The Bicep file accepts one parameter named `prefixName`, which is to be set to 6
 - [GitHub Actions encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets)
 - [Create Actions secrets using GitHub CLI](https://cli.github.com/manual/gh_secret_set)
 
-[< Previous](challenge02.md) - [Home](../readme.md) - [Next >](challenge04.md)
+[< Previous](challenge03.md) - [Home](../readme.md) - [Next >](challenge05.md)
