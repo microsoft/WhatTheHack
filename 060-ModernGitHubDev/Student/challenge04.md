@@ -12,7 +12,7 @@ For this challenge, you will create a [GitHub Action](https://docs.github.com/ac
 
 Configuration as Code (CaC), or config as code, is an approach to managing system configuration which involves defining configuration settings in machine-readable files or scripts. This allows for more efficient, automated, and consistent management of system configuration, as changes can be made and deployed more easily and with greater control. With config as code, configuration settings are stored in version-controlled files, often using a declarative syntax such as YAML, JSON, or HCL. These files can be stored alongside application code, making it easier to manage the entire software development life cycle.
 
-This challenge uses [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep), which is a domain specific language for defining Azure infrastructure. A [Bicep file](resources/main.bicep) has already been created for you to use. The Bicep file will:
+This challenge uses [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep), which is a domain specific language for defining Azure infrastructure. A [Bicep file](resources/main.bicep) has already been created for you to use, and is in the config folder of the repository. The Bicep file will:
 
 - create a serverless instance of Azure Cosmos DB for MongoDB.
 - create the resources to support an Azure Container App.

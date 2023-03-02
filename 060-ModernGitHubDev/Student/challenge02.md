@@ -1,4 +1,4 @@
-# Modern development and DevOps with GitHub: Writing code
+# Modern development and DevOps with GitHub: Add a feature to the existing application
 
 [< Previous](challenge01.md) - [Home](../readme.md) - [Next >](challenge03.md)
 
@@ -19,7 +19,7 @@ For this challenge, you will create a new React component named **Hours.js** in 
 ## Challenge notes
 
 - Create the `Hours` component by adding a file named **Hours.js** to the **components** folder.
-- A [potential solution for the Hours component](resources/Hours.js) is provided.
+- A potential solution for the Hours component is available from your coach.
 - The syntax to import the `Hours` component in **index.js** is `import Hours from '../components/Hours';`, and can be placed below the line which reads `// TODO: Import Hours component`.
 - The syntax to display the `Hours` component in **index.js** is `<Hours />`, and can be added immediately below the line which reads `{/* TODO: Display Hours component */}`.
 - For purposes of this challenge, you can read the current day from the browser without regard for the user's timezone.

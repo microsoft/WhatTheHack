@@ -20,7 +20,7 @@ This DevOps with GitHub hack will help you learn how to use:
 
 ## Challenges
 
-- [Challenge 0](./Student/challenge00.md) - Setup and Introduction
+- [Challenge 0](./Student/challenge00.md) - Setup and introduction
 - [Challenge 1](./Student/challenge01.md) - Configure your development environment
 - [Challenge 2](./Student/challenge02.md) - Add a feature to the existing application
 - [Challenge 3](./Student/challenge03.md) - Setup continuous integration and ensure security
