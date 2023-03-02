@@ -1,0 +1,34 @@
+
+replicaCount: 1
+
+application:
+  labelValue: postgres
+
+infrastructure:
+  namespace: postgresql
+  appName: postgres
+  username: postgres
+  password: "OCPHack8"
+  dataVolume: "/var/lib/postgresql"
+  dataPath: "/var/lib/postgresql/data"
+
+image:
+  name: postgres
+  pullPolicy: IfNotPresent
+  tag: "11.6"
+
+service:
+  type: LoadBalancer
+  port: 5432
+  protocol: TCP
+
+resources:
+  limits:
+     cpu: 1000m
+     memory: 4096Mi
+  requests:
+     cpu: 750m
+     memory: 2048Mi
+  volume:
+    size: 5Gi
+    storageClass: managed-premium
