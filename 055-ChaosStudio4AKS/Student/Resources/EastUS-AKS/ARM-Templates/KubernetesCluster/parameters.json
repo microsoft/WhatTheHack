@@ -36,7 +36,7 @@
         "value": "pizzaappeast-dns"
       },
       "kubernetesVersion": {
-        "value": "1.22.6"
+        "value": "1.25.5"
       },
       "networkPlugin": {
         "value": "azure"
