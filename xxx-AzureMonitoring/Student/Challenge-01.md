@@ -12,17 +12,17 @@ Once you have configured the dashboard, alerts, and diagnostics data to be colle
 - HammerDB - A benchmarking and load testing tool for the world's most popular databases, including SQL Server.
 - A custom script that produces CPU load on the eShopOnWeb website.
 
-## Azure Monitor Overview
+### Azure Monitor Overview
 
-### Azure Monitor Metrics and Logs
+#### Azure Monitor Metrics and Logs
 
 Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources into Log Analytics workspaces. Azure Monitor Logs is one half of the data platform that supports Azure Monitor. The other is Azure Monitor Metrics, which stores lightweight numeric data in a time-series database. Azure Monitor Metrics can support near real time scenarios, so it's useful for alerting and fast detection of issues. Azure Monitor Metrics can only store numeric data in a particular structure, whereas Azure Monitor Logs can store a variety of data types that have their own structures. You can also perform complex analysis on Azure Monitor Logs data by using KQL queries, which can't be used for analysis of Azure Monitor Metrics data. 
 
-### Azure Monitor Agent
+#### Azure Monitor Agent
 
 Azure Monitor Agent collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services. Azure Monitor Agent uses Data collection rules, where you define which data you want each agent to collect and where to send. Azure Monitor Agent (AMA) replaces several legacy monitoring agents, like Log Analytics Agent (MMA, OMS), Diagnostics agent and Telegraf agent.
 
-### Azure Monitor Alerts
+#### Azure Monitor Alerts
 
 You can create different types of alerts in Azure Monitor:
 - A Metric alert rule monitors a resource by evaluating conditions on the resource metrics at regular intervals. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. 
@@ -54,7 +54,7 @@ In this challenge you need to complete the following management tasks:
 		- Instance: tpcc
 		
 - Configure this DCR to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs (use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`**)
->**Note** When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on virtual machine.
+>**Note** When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on the virtual machine.
 - Create another Data Collection Rule for the SQL Server and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use sample KQL queries in the '/Challenge-01' subfolder of the Resources folder to verify that the logs started to flow into the Log Analytics workspace. 
 - Create graphs for the SQL Server Active Transactions and the Virtual Machine Scale Set CPU Utilisation (see the Metrics blades of the VM and VMSS) and pin both of them to your Azure Dashboard.
 - From Azure Monitor, create an Action group to send email to your email address.
@@ -80,7 +80,7 @@ To complete this challenge successfully, you should be able to:
 - Verify the dashboard has the metric with a spike representing before and after the simulation.
 - Show two fired alerts in the Portal and the email notifications received.
 
-![enter image description here](../Images/01-04-Sample-dashboard.png)
+
 
 ## Learning Resources
 
