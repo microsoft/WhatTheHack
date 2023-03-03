@@ -4,7 +4,14 @@
 
 ## Introduction
 
-It's time to deploy the Azure Red Hat OpenShift cluster we'll be using for this hack! You'll learn how to deploy a cluster, how to access the web console, and how to connect to the ARO cluster.
+Red Hat OpenShift is an enterprise-ready Kubernetes container platform with full-stack automated operations to manage hybrid and multi-cloud deployments often referred to as “Enterprise Kubernetes”​. It is jointly engineered, operated, and supported by both ​Microsoft and Red Hat with an integrated support experience​.
+
+There are differences between Kubernetes and ARO:
+- **Ease of deployment:** ARO automates the heavy lifting and backend work, so you only need to create a project and upload code​
+- **Security:** Included security features, so ARO handles things like name-spacing and creating different security policies​
+- **Day to day operations:**  Cluster provisioning, scaling, and upgrade operations are automated and managed by the platform
+
+Now that we got that down, it's time to deploy the Azure Red Hat OpenShift cluster we'll be using for this hack! You'll learn how to deploy a cluster, how to access the web console, and how to connect to the ARO cluster.
 
 ## Description
 
