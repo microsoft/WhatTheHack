@@ -1,4 +1,4 @@
-# Challenge 02 - Setting up Monitoring via automation
+# Challenge 02 - Setting up Monitoring via Automation
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
