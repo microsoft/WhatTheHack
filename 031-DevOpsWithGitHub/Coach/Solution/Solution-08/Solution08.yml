@@ -12,6 +12,7 @@ on:
     paths:
     - 'Application/**'
     - '.github/workflows/ci.yml'
+  workflow_dispatch:
       
 jobs:
 
@@ -20,16 +21,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
     - name: Install dependencies
       run: dotnet restore ./Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
     - name: Build
       run: dotnet build ./Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj --configuration Release --no-restore
     - name: Test
       run: dotnet test ./Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj --no-restore --verbosity normal
-    - uses: actions/github-script@0.9.0
+    - uses: actions/github-script@v6
       if: failure()
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
@@ -48,24 +49,26 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
-      
+      - uses: actions/checkout@v3
+        
       - name: Azure Container Registry Login
-        uses: Azure/docker-login@v1
+        uses: docker/login-action@v1.9.0
         with:
-          # Container registry username
+          # Server address of Docker registry. If not set then will default to Docker Hub
+          registry: ${{ env.registryName }}
+          # Username used to log against the Docker registry
           username: ${{ secrets.ACR_USERNAME }}
-          # Container registry password
+          # Password or personal access token used to log against the Docker registry
           password: ${{ secrets.ACR_PASSWORD }}
-          # Container registry server url
-          login-server: ${{ secrets.ACR_NAME }}
+          # Log out from the Docker registry at the end of a job
+          logout: true
 
-      - name: Docker build
-        run: docker build -t ${{secrets.ACR_NAME}}/$repositoryName:$tag --build-arg build_version=$tag $dockerfilePath
+      - name: Docker Build
+        run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
 
       - name: Docker Push
-        run: docker push ${{secrets.ACR_NAME}}/$repositoryName:$tag
-    
+        run: docker push $registryName/$repositoryName:$tag
+      
   deploy-to-dev:
   
     runs-on: ubuntu-latest
@@ -99,7 +102,7 @@ jobs:
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.WEBAPP_TEST_CREDS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - uses: azure/webapps-deploy@v2
       with:
@@ -120,7 +123,7 @@ jobs:
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.PROD_WEBAPP }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - uses: azure/webapps-deploy@v2
       with:
