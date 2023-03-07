@@ -24,7 +24,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
 	 - Description of challenge
 - Challenge 05: **[Azure Monitor for Containers](Student/Challenge-05.md)**
 	 - Description of challenge
-- Challenge 06: **[Log Queries with KQL and Grafana](Student/Challenge-06.md)**
+- Challenge 06: **[Log Queries with Kusto Query Language (KQL)](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Visualizations](Student/Challenge-07.md)**
 	 - Description of challenge
