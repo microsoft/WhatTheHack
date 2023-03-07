@@ -59,6 +59,18 @@ body:
         - 043-SQLModernization
         - 044-DevOpswithGithubActions
         - 045-InfraAsCode-Bicep
+        - 047-TrafficControlWithDapr
+        - 048-IncrementalSynapsePipelines
+        - 049-SQLDedicatedPoolPerf
+        - 050-AIS-APIManagementwithFunctions
+        - 051-MicrosoftPurview
+        - 052-SAPAppModernization
+        - 053-SentinelAutomatedResponse
+        - 054-AzureLoadTesting
+        - 056-CosmicTroubleshooting
+        - 057-AzureRouteServer
+        - 058-PowerPlatformBasics
+        - 059-DatadogOnAzure
     validations:
       required: true
   - type: textarea
