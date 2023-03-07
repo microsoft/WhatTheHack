@@ -35,4 +35,4 @@
 
 ### Challenge 3 Solution
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/2sH-NlyikEk/0.jpg)](https://youtu.be/2sH-NlyikEk "Challenge 3 solution")
+[![Challenge 3 solution](../Images/WthVideoCover.jpg)](https://youtu.be/2sH-NlyikEk "Challenge 3 solution")

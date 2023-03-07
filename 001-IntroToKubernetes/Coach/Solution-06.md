@@ -12,4 +12,10 @@
 - **NOTE:** When creating the service YAML for MongoDB, it is important for students to be aware of the service name they need to use.  
     - The content-init-job.yml file in Challenge 7 sets an environment variable that expects the service to be named “mongodb”.   
     - If the service name does not match, the content-init job will fail with an error.  
-    - If students run into this error, help them troubleshoot and come up with a solution, ie: change the service name, or modify the content-init-job.yml file. 
+    - If students run into this error, help them troubleshoot and come up with a solution, ie: change the service name, or modify the content-init-job.yml file.
+
+## Videos
+
+### Challenge 6 Solution
+
+[![Challenge 6 solution](../Images/WthVideoCover.jpg)](https://youtu.be/QY4eDHQmOtk "Challenge 6 Solution")

@@ -89,9 +89,8 @@ One of the tasks in this challenge is, prior to building the docker images, is t
 
 ### Challenge 1A Solution - Part 1: Virtual Machines
 
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/gA5WbjwDKLA/0.jpg)](https://youtu.be/gA5WbjwDKLA "Challenge 1A Solution, part 1: VM")
+[![Challenge 1A Solution, part 1: VM](../Images/WthVideoCover.jpg)](https://youtu.be/gA5WbjwDKLA "Challenge 1A Solution, part 1: VM")
 
 ### Challenge 1A Solution - Part 2: Containers
 
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/Tqf3s3MZyuc/0.jpg)](https://youtu.be/Tqf3s3MZyuc "Challenge 1A Solution, part 1: Containers")
-
+[![Challenge 1A solution, part 1: Containers](../Images/WthVideoCover.jpg)](https://youtu.be/Tqf3s3MZyuc "Challenge 1A Solution, part 2: Containers")
