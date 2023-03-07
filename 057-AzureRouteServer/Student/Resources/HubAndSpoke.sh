@@ -1,10 +1,19 @@
 #!/bin/bash
 
+# Collect input parameters from the user
+
+echo -n "Please enter a resource group name: "
+read RGNAME
+echo -n "Please enter an Azure region (i.e. \"eastus\", \"westus\"):"
+read LOCATION
+echo -n "Please enter a password for the VMs:"
+read ADMIN_PASSWORD
+
 # Variables (change location as relevant)
-rg=arshack-rg #STUDENT SHOULD REPLACE RGNAME WITH THEIR INITIALS
-location=eastus
+rg=$RGNAME #STUDENT SHOULD REPLACE RGNAME WITH THEIR INITIALS
+location=$LOCATION
 username=azureuser
-adminpassword=<USER MUST PROVIDE VALUE>
+adminpassword=$ADMIN_PASSWORD
 vnet_name=hub
 vnet_prefix=10.0.0.0/16
 vnet_prefix_long='10.0.0.0 255.255.0.0'
@@ -80,7 +89,7 @@ az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-addresses $v
 # Check every second for Succeeded
 #=======================================================
 declare lookfor='"Succeeded"'
-declare cmd="az network vnet-gateway list -g arshack-rg | jq '.[0].provisioningState'"
+declare cmd="az network vnet-gateway list -g $rg | jq '.[0].provisioningState'"
 gwStatus=$(eval $cmd)
 echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
