@@ -11,8 +11,8 @@
 	- `kubectl get events --sort-by='{.lastTimestamp}' --watch`
 - The error they will encounter is that there aren’t enough CPUs in the cluster to support the number of replicas they want to scale to.
 - The three fixes to address resource constraints are:
-	- Use the Azure portal or CLI to add more nodes to the AKS cluster.
-	- Use the cluster autoscaler to automatically add more nodes to the cluster as resources are needed.
+	- Use the Azure portal or CLI to add more nodes to the node pool of the AKS cluster.
+	- Use the cluster autoscaler to automatically add more nodes to the node pool of the cluster as resources are needed.
     	- Once the challenge is complete, show the team how easy it is to enable the cluster autoscaler  (Portal -> Cluster -> Node Pools -> Scale, then select 'Autoscale')
 	- Change the deployment and reduce the needed CPU number from “0.5” to “0.125” (500m to 125m).
 		- In production environment, consider a discussion with the application owner/architect before reducing any resources.

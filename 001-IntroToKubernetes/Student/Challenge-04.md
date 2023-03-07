@@ -14,6 +14,8 @@ In this challenge we need to get our application up and running in Kubernetes. W
 - **API app:** `whatthehackmsft/content-api`
 - **Web app:** `whatthehackmsft/content-web`
 
+**HINT:** If you decide to use your own ACR with the images for content-api and content-web, you must fully qualify the name of your ACR. An image with a non-fully qualified registry name is assumed to be in Docker Hub. 
+
 ### Deploy the **API app** from the command line using kubectl and YAML files:
 
 - **NOTE:** Sample YAML files to get you started can be found in the `/Challenge-04/` folder of the `Resources.zip` file provided by your coach.
