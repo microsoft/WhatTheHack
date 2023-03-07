@@ -22,7 +22,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Description of challenge
 - Challenge 05: **[Azure Monitor for Containers](./Solution-05.md)**
 	 - Description of challenge
-- Challenge 06: **[Log Queries with KQL and Grafana](./Solution-06.md)**
+- Challenge 06: **[Log Queries with Kusto Query Language (KQL)](./Solution-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Visualizations](./Solution-07.md)**
 	 - Description of challenge
