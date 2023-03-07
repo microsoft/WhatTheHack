@@ -2,9 +2,7 @@
 param AdminPassword string
 param AdminUsername string
 param ComputerNamePrefix string
-param LAWId string
 @secure()
-param LAWKey string
 param LBBackendAddressPools string
 param LBInboundNatPools string
 param Location string
@@ -136,18 +134,13 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2022-03-01' = {
             }
           }
           {
-            name: 'logAnalyticsPolicy'
+            name: 'AMAextention'
             properties: {
-              publisher: 'Microsoft.EnterpriseCloud.Monitoring'
-              type: 'MicrosoftMonitoringAgent'
+              publisher: 'Microsoft.Azure.Monitor'
+              type: 'AzureMonitorWindowsAgent'
               typeHandlerVersion: '1.0'
               autoUpgradeMinorVersion: true
-              settings: {
-                workspaceId: LAWId
-              }
-              protectedSettings: {
-                workspaceKey: LAWKey
-              }
+              enableAutomaticUpgrade: true
             }
           }
           {

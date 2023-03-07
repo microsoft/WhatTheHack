@@ -323,64 +323,6 @@ var LogAnalyticsDataSources = [
     }
   }
 ]
-var LogAnalyticsSolutions = [
-  {
-    name: 'Security(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'Security'
-  }
-  {
-    name: 'AgentHealthAssessment(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'AgentHealthAssessment'
-  }
-  {
-    name: 'ContainerInsights(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'ContainerInsights'
-  }
-  {
-    name: 'AzureSQLAnalytics(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'AzureSQLAnalytics'
-  }
-  {
-    name: 'ChangeTracking(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'ChangeTracking'
-  }
-  {
-    name: 'Updates(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'Updates'
-  }
-  {
-    name: 'AzureActivity(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'AzureActivity'
-  }
-  {
-    name: 'AzureAutomation(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'AzureAutomation'
-  }
-  {
-    name: 'ADAssessment(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'ADAssessment'
-  }
-  {
-    name: 'SQLAssessment(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'SQLAssessment'
-  }
-  {
-    name: 'ServiceMap(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'ServiceMap'
-  }
-  {
-    name: 'InfrastructureInsights(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'InfrastructureInsights'
-  }
-  {
-    name: 'AzureNSGAnalytics(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'AzureNSGAnalytics'
-  }
-  {
-    name: 'KeyVaultAnalytics(${LogAnalyticsWorkspaceName})'
-    marketplaceName: 'KeyVaultAnalytics'
-  }
-]
 var LogAnalyticsWorkspaceName = 'law-wth-monitor-d-${NameSuffix}'
 var PublicIpAddresses = [
   {
@@ -714,7 +656,6 @@ module law 'modules/loganalytics.bicep' = {
     Datasources: LogAnalyticsDataSources
     Location: Location
     Name: LogAnalyticsWorkspaceName
-    Solutions: LogAnalyticsSolutions
   }
 }
 
@@ -788,8 +729,6 @@ module vm 'modules/vm.bicep' = {
   params: {
     AdminPassword: AdminPassword
     AdminUsername: AdminUsername
-    LawId: law.outputs.CustomerId
-    LawKey: law.outputs.Key
     Location: Location
     StorageAccountName: StorageAccountName
     StorageEndpoint: StorageEndpoint
@@ -849,8 +788,6 @@ module vmss 'modules/vmss.bicep' = {
     AdminPassword: AdminPassword
     AdminUsername: AdminUsername
     ComputerNamePrefix: ComputerNamePrefix
-    LAWId: law.outputs.CustomerId
-    LAWKey: law.outputs.Key
     LBBackendAddressPools: lb.outputs.BackendAddressPools[0].id
     LBInboundNatPools: lb.outputs.InboundNatPools[0].id
     Location: Location
