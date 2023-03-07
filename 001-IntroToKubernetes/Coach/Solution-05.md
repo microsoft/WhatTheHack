@@ -19,3 +19,9 @@
 		- **NOTE** In this Challenge, if the last option doesn't work, delete the old deployment and reapply it. Kubernetes deploys new pods before tearing down old ones and if we are out of resources, no new pods will be deployed.
 - **NOTE:** In case they do **NOT** get an error and are able to scale up, check how many nodes they have in their cluster and the size of the node VMs. Over provisioned clusters will not fail.
 	- If a team doesn’t get a failure, just have them double the number of Web and API app instances.  
+
+## Videos
+
+### Challenge 5 Solution
+
+[![Challenge 5 solution](../Images/WthVideoCover.jpg)](https://youtu.be/97P6pT4Dlk4 "Challenge 5 Solution")
