@@ -4,7 +4,19 @@
 
 ## Introduction
 
-Understand the Kusto Query Language (KQL) write and save queries, which we can run on our Log Analytics Workspace
+In this challenge we will use the Kusto Query Language (KQL) to write and save queries, which we can run on our Log Analytics Workspace.
+
+### The difference between logs and metrics
+In Azure Monitor, logs and metrics are two different types of data used for monitoring and troubleshooting applications and systems.
+
+Metrics are numerical values that describe the performance of an application or system. Metrics are usually collected at regular intervals, such as every minute, and provide a snapshot of the system's performance at that time. Examples of metrics include CPU usage, memory usage, and network traffic. Metrics are useful for monitoring the overall health and performance of an application or system over time. Azure Monitor collects metrics from various sources, including virtual machines, Azure services, and custom applications.
+
+Logs, on the other hand, are detailed records of events and activities that occur within an application or system. These events can include errors, warnings, informational messages, and other types of data that are useful for debugging and troubleshooting. Logs provide a rich source of data that can be analyzed and searched to identify patterns, trends, and anomalies. Azure Monitor collects logs from various sources, including virtual machines, applications, and Azure services.
+
+In summary, logs are detailed records of events and activities, while metrics are numerical values that describe the performance of an application or system. Both logs and metrics are important sources of data for monitoring and troubleshooting applications and systems in Azure Monitor.
+
+### What is Kusto Query Language (KQL)?
+KQL (Kusto Query Language) is a query language used for log analytics in Microsoft Azure Monitor, Azure Data Explorer, and Azure Log Analytics. It allows users to analyze and search through large volumes of log data using a syntax similar to SQL. With KQL, users can write queries to extract information from logs, filter results, and perform various analytical operations, such as aggregating, sorting, and joining data from multiple sources. KQL is designed to handle high-volume, real-time data processing, making it a powerful tool for log analysis and troubleshooting in various industries, including IT, security, and business intelligence.
 
 ## Description
 
