@@ -50,4 +50,4 @@
 
 ### Challenge 7 Solution, part 3: Blue/Green Deployments
 
-[![Challenge 7 solution, part 3: Blue/Green Deployments](../Images/WthVideoCover.jpg)](https://youtu.be/sj8Qq9Z_lXw "Challenge 6 Solution, part 3: Blue/Green Deployments")
+[![Challenge 7 solution, part 3: Blue/Green Deployments](../Images/WthVideoCover.jpg)](https://youtu.be/l08a9LkEILw "Challenge 6 Solution, part 3: Blue/Green Deployments")
