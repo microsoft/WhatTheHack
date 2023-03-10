@@ -42,7 +42,7 @@ This DevOps with GitHub hack will help you learn:
 ## Considerations
 
 If you are running this hack with a group, here are some options for providing access to Azure:
-- Each person/team uses their own subscription (ideal)
+- Each person/team uses their own subscription
 - Use a single subscription with each person/team using a different resource group
 - Use a single subscription and resource group, with each person/team creating resources within the single resource group (less ideal)
 
