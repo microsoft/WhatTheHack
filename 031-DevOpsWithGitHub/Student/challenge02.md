@@ -8,7 +8,7 @@
 
 Developer environments are critical to ensuring your development teams are setup to do their best work. Right now everyone on your team likely has a slightly different setup of their environment (editor, extensions, tools) installed on their local machine.
 
-GitHub includes the ability to create a cloud based development environment called a codespace that is configured via a dev container (devcontainer.json)code file detailed within a repository. The file details how a developer environment should be supplied consistently from the cloud to every developer in the team who wants to create one in a self-serve manner. This can include the editor, extensions and tools we want to have available. 
+GitHub includes the ability to create a cloud based development environment called a codespace that is configured via a dev container (devcontainer.json) code file detailed within a repository. The file details how a developer environment should be supplied consistently from the cloud to every developer in the team who wants to create one in a self-serve manner. This can include the editor, extensions and tools we want to have available. 
 
 Our repository includes an application written in .NET that will deploy to Azure using Infrastructure-as-Code via a language called Bicep. We will want to configure our codespace to have tooling included to work with .NET, ARM (infrastructure-as-code) and the Azure CLI.
 
