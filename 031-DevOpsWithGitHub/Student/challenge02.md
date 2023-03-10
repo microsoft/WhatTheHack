@@ -14,7 +14,7 @@ Our repository includes an application written in .NET that will deploy to Azure
 
 ### Challenge
 
-1. Add a new devcontainer file in your repository placed in a .devcontainer directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NE, notably "mcr.microsoft.com/devcontainers/dotnet:0-7.0" for the hackathon supplied application on .NET 6.0. **Note - VS Code Dev Containers Extension has a feature here that will simplify this process** 
+1. Add a new devcontainer file in your repository placed in a .devcontainer directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NET, notably "mcr.microsoft.com/devcontainers/dotnet:0-7.0" for the hackathon supplied application on .NET 6.0. **Note - VS Code Dev Containers Extension has a feature here that will simplify this process** 
 
 2. Configure your devcontainer to add a feature for the Azure CLI.
 
@@ -23,7 +23,7 @@ Our repository includes an application written in .NET that will deploy to Azure
 ### Success Criteria
 
 - You will have created a devcontainer.json placed in a .devcontainer directory.
-- You have creates a codespace to provide a cloud based instance of the environment described in your devcontainer file. 
+- You have created a codespace to provide a cloud based instance of the environment described in your devcontainer file. 
 - Your codespace will have tooling available for both the .NET and Azure CLIs
 
 

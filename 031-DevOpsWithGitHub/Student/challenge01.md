@@ -16,7 +16,7 @@ If we were not supplied a repository in the next few steps you will need to crea
 
 1. Create a new repo for the hackathon. This is where you work during the event
 
-2. Begin by cloning the GitHub repository you created in the [first challenge](challenge01.md) to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
+2. Begin by cloning the GitHub repository you created in the previous step to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
 
 3. Next, obtain the code (sample application and ARM template) from the Resource files provided by your coach.
 
