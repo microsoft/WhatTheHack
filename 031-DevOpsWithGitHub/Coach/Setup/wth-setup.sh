@@ -109,7 +109,7 @@ cd ..
 
 # create the shared teams repo (for credential distribution in issues)
 echo "Creating team repo $ORGANISATION/wth-teams"
-gh repo create $ORGANISATION/wth-teams --internal --confirm
+gh repo create $ORGANISATION/wth-teams --private --confirm
 for i in $(seq $GROUP_COUNT); do
     echo "Creating issues for team $i"
     gh issue create -R $ORGANISATION/wth-teams -t "Azure Service Principal Credentials for Team $i" -F ./AzureCredentials/principal-team$i.json
