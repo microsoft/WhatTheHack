@@ -25,15 +25,15 @@ Review the following introduction to GitHub project boards: [GitHub project boar
 
 3. Ensure your project is with linked with your repository
 
-4. Create a draft issue for this challenge and each of the remaining challenges (i.e., create 9 issues total - skip challenge 0). When creating each issue, make sure to:
+4. Create a draft issue for this challenge (3) and each of the remaining challenges (i.e., create 9 issues total - skip challenges 0,1 and 2 as you already completed them). When creating each issue, make sure to:
     - Assign an owner for each issue from your team. 
-    - Convert the `challenge 1` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 1` issue
+    - Convert the `challenge 3` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 3` issue
 
 5. Move all your issues to the "Ready" column and convert each one from draft to an issue.
 
-6. Since you are currently working on Challenge 1, drag the `Challenge 1` issue to the "In progress" column.
+6. Since you are currently working on Challenge 3, drag the `Challenge 3` issue to the "In progress" column.
 
-7. Ask your team member to close the `Challenge 1` issue you assigned to them. Review your project board to see if the issue moved to the 'Done' column automatically. 
+7. Ask your team member to close the `Challenge 3` issue you assigned to them. Review your project board to see if the issue moved to the 'Done' column automatically. 
 
 8. Create a new view to show your challenge issues in a table view. 
 

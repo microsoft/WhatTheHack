@@ -86,6 +86,12 @@ git init ./ResourcesRepo
 # Copy the files for the team repo into local git repo
 cp -r $RESOURCE_DIR/ ./ResourcesRepo
 cd ./ResourcesRepo
+
+# Rename the master branch to main for those who don't have main as default branch name
+# for those who have main as default branch name this will error but will not affect the script
+git branch -m master main
+
+# Add the files and commit
 git add .
 git commit -m "Initial commit"
 
