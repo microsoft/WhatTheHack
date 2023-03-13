@@ -65,7 +65,13 @@ for i in $(seq $GROUP_COUNT); do
     az group delete --name wth-team$i-rg --no-wait --yes
 done
 
-# Create the team repos
+# Delete the teams from GitHub
+for i in $(seq $GROUP_COUNT); do
+    TEAMNAME=wth-team$i
+    gh api --method DELETE -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28"  /orgs/$ORGANISATION/teams/$TEAMNAME --silent
+done
+
+# Delete the team repos
 for i in $(seq $GROUP_COUNT); do
     # delete a team repo
     echo "Deleting team repo $ORGANISATION/wth-team$i"

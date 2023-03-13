@@ -120,4 +120,17 @@ for i in $(seq $GROUP_COUNT); do
     rm body
 done
 
+# Create a team for each group so we centralise where we add permissions to hack teams
+for i in $(seq $GROUP_COUNT); do
+    echo "Creating Team for team $i"
+    TEAMNAME=wth-team$i
+    gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams -f name=$TEAMNAME -f description='Hack group team' -f permission='push' -f privacy='closed' --silent
+
+    echo "Adding team $i to their team repo (push rights)"
+    gh api --method PUT -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams/$TEAMNAME/repos/$ORGANISATION/$TEAMNAME -f permission='push' --silent
+
+    echo "Adding team $i to the teams repo (pull only)"
+    gh api --method PUT -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams/$TEAMNAME/repos/$ORGANISATION/wth-teams -f permission='pull' --silent
+done
+
 echo "Done!"
