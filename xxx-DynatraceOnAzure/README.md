@@ -1,31 +1,33 @@
-# What The Hack - DynatraceOnAzure
+# What The Hack - Dynatrace On Azure
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+This WhatTheHack provide you hands on experience on how to Monitor Azure workloads using Dynatrace.   It will show you how Dynatrace's AI-engine, Davis, performs automatic and intelligent root-cause analysis in hybrid cloud Azure environments. This hack was designed specifically for Cloud Ops Engineers, DevOps engineers, Developers, and Architects who want to expand their knowledge on Dynatrace & Azure.  However, anyone with passion around Observability is welcome!
+
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will be solving business problems that companies in the Retail industry face by replacing their legacy systems.  The new systems will be able to:
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+- Setup a Dynatrace environment and sample applications within Azure
+- Jump in and fully analyze an application within Dynatrace
+- Start to see and understand application usage patterns, infrastructure consumption, service dependencies, benchmarking performance and how service levels can be tightly ensured.
+
 
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
+	 - Prepare your environment to work with Azure and Dynatrace.
+- Challenge 01: **[OneAgent Observability on Azure VM](Student/Challenge-01.md)**
+	 - Review the power on OneAgent.
+- Challenge 02: **[Dynatrace Observability on AKS](Student/Challenge-02.md)**
+	 - Deploy Dynatrace Operator on AKS cluster with a sample application and review AKS observability with Dynatrace.
+- Challenge 03: **[Automated Root Cause Analysis with Davis](Student/Challenge-03.md)**
+ 	- Enable a problem in your sample application and walk through what Davis found.- Challenge 04: **[Custom Dashboard and SLO setup](Student/Challenge-04.md)**
+- Challenge 04: **[Custom Dashboard and SLO setup](Student/Challenge-04.md)**
+	 - In this challenge, you will create a custom dashboard to track Service Level Objects (SLO's)	 
+- Challenge 05: **[Cleanup](Student/Challenge-05.md)**
+	 - In this challenge, you will cleanup any resources you've created during the Hack
 
 ## Prerequisites
 
