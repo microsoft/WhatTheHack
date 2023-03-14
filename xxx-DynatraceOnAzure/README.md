@@ -2,12 +2,14 @@
 
 ## Introduction
 
-This WhatTheHack provide you hands on experience on how to Monitor Azure workloads using Dynatrace.   It will show you how Dynatrace's AI-engine, Davis, performs automatic and intelligent root-cause analysis in hybrid cloud Azure environments. This hack was designed specifically for Cloud Ops Engineers, DevOps engineers, Developers, and Architects who want to expand their knowledge on Dynatrace & Azure.  However, anyone with passion around Observability is welcome!
+This WhatTheHack provide you hands on experience on how to Monitor Azure workloads using Dynatrace.   It will show you how Dynatrace's AI-engine, Davis, performs automatic and intelligent root-cause analysis in hybrid cloud Azure environments. By analyzing an application within Dynatrace, you'll learn how to understand application usage patterns, infrastructure consumption, service dependencies, benchmarking performance and ensuring service levels.  You are now in the drivers seat for enabling modern operations for cloud native architectures! 
+
+This hack was designed specifically for Cloud Ops Engineers, DevOps engineers, Developers, and Architects who want to expand their knowledge on Dynatrace & Azure.  However, anyone with passion around Observability is welcome!
 
 
 ## Learning Objectives
 
-In this hack you will be solving business problems that companies in the Retail industry face by replacing their legacy systems.  The new systems will be able to:
+In this hack you will be solving business problems that companies in any industry face by modernizing their legacy systems to cloud native architecture.  The new systems will be able to:
 
 - Setup a Dynatrace environment and sample applications within Azure
 - Jump in and fully analyze an application within Dynatrace

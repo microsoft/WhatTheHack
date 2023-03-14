@@ -14,7 +14,7 @@
 
 ## Introduction
 
- You are new engineer that is hired to modernize a ecommerce website for company called "DTOrders".  "DTOrders" currently has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, you'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.  
+ You are new engineer that is hired to modernize a ecommerce website for company called "DTOrders".  "DTOrders" currently has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, you'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
 
  Upon successful migration, you'll present the deployed solution to your company's leadership to seek approval on how quickly and easily you achieve full stack observability in minutes, everything in context including metrics, logs, and trace for all your Azure workloads with Dynatrace.  While at at same time you'll achieve a fully automated, AI-assisted observability across Azure environments.
 
@@ -52,18 +52,15 @@ _Optionally, you may provide resource files such as a sample application, code s
 _Sample challenge zero text for the IoT Hack Of The Century:_
 -->
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
+Now that you have the common pre-requisites installed, there are prerequisites specific to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
 Please install these additional tools:
 
-1) Gain access to an Azure subscription
-    - Sign up for Azure [Free Trial Account](https://azure.microsoft.com/en-us/free/)
-    - Use an existing Azure Subscription (Note, you will need Owner role assigned to you in order to deploy the Azure resources used in this Hack)
-2) Sign-up for free [Trial of Dynatrace](https://www.dynatrace.com/trial/?utm_medium=alliances&utm_source=microsoft_wth&utm_campaign=website&utm_content=none&utm_term=none) with full feature set of our all-in-one performance monitoring platform to monitor Azure.  
+1) Sign-up for free [Trial of Dynatrace](https://www.dynatrace.com/trial/?utm_medium=alliances&utm_source=microsoft_wth&utm_campaign=website&utm_content=none&utm_term=none) with full feature set of our all-in-one performance monitoring platform to monitor Azure.  
 
-3) Familiarize yourself with [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the cloud shell to deploy our Azure resources
+1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
 
 ### Dynatrace Portal Prep
 
@@ -93,9 +90,9 @@ Please install these additional tools:
     - Note: If you get a prompt to to select Bash or Powershell, please select **Bash**
 - Lookup your [Azure subscription ID](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) and save that off in the notepad where you have your dynatrace info
 - Within your Azure Cloud Shell window, run a command to clone workshop scripts.
-```bash    
+    ```bash    
     git clone https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup.git
-```
+    ```
 - Within Azure Cloud Shell window, change directory to  "azure-modernization-dt-orders-setup/provision-scripts" folder and run input-credentials.sh
     ```bash
     cd ~/azure-modernization-dt-orders-setup/provision-scripts
@@ -107,7 +104,7 @@ Please install these additional tools:
     ./provision.sh wth
     ```
 - Validate provisioning completed
-    ```bash ...
+    ``` ...
     ...
     =============================================
     Provisioning workshop resources COMPLETE
