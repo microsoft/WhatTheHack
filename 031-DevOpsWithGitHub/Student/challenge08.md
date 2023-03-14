@@ -16,7 +16,7 @@ In this challenge, we will use GitHub Actions to deploy our container image to t
 
 **OPTIONAL**: Use your code editor (VS Code) to update your workflow file locally on your machine. Remember to commit and push any changes.
 
-Extend the workflow you created in Challenge #4 to:
+Extend the workflow you created in Challenge #7 to:
 
 1. Configure your `dev` environment to pull the latest container image from ACR. 
    - Login to Azure using your service principal, if needed ([hint](https://docs.microsoft.com/en-us/azure/app-service/deploy-container-github-action?tabs=service-principal#tabpanel_CeZOj-G++Q-3_service-principal))
