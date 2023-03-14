@@ -2,6 +2,7 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
+<!-- 
 **_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
 
 **_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
@@ -9,6 +10,7 @@
 **_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
 
 **_You should remove all italicized & sample text in this template and replace with your content._**
+-->
 
 ## Introduction
 
