@@ -30,11 +30,11 @@ In this hack you will be solving the common business problem that companies in t
 ## Prerequisites
 
 - Your own Azure subscription with Owner access
-- Visual Studio Code
 - Azure CLI
-- An AVNET X231 device
+- Dynatrace Trial environment
+
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Jay Gurbani
+
