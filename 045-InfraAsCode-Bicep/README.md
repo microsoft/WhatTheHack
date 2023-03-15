@@ -88,3 +88,6 @@ You will want to prepare your machine with the following to help complete the Ch
 - Mark Garner
 - Jesse Mrasek
 - Andy Huang
+- Larry Claman
+- PJ Johnson
+- Sven Aelterman
