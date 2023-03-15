@@ -1,4 +1,4 @@
-# Challenge 04 - Custom Dashboard and SLO setup
+# Challenge 04 - Azure Monitor Metrics & Custom Dashboard 
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
@@ -73,5 +73,3 @@ Referring to the picture below, here are the components for this lab.
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.

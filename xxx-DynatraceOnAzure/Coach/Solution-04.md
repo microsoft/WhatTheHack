@@ -1,4 +1,4 @@
-# Challenge 04 - Custom Dashboard and SLO setup - Coach's Guide 
+# Challenge 04 - Azure Monitor Metrics & Custom Dashboard  - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
