@@ -51,6 +51,12 @@ The challenges build upon each other incrementally. You will start by creating a
    - How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
 - Challenge 11: **[Deploy resources to different scopes](./Student/Bicep-Challenge-11.md)**
    - Learn how to deploy resources to different scopes   
+- Challenge 20: **[Deploy an Azure App Service](./Student/Bicep-Challenge-20.md)**
+   - Learn how to an Azure App Service & deploy an app to it   
+- Challenge 21: **[Deploy an AKS cluster](./Student/Bicep-Challenge-21.md)**
+   - Learn how to an AKS cluster & deploy an app to it   
+
+
 
 
 ## Prerequisites
@@ -58,7 +64,7 @@ The challenges build upon each other incrementally. You will start by creating a
 You will want to prepare your machine with the following to help complete the Challenges for this hack:
 
 * Azure Subscription
-* [Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* _optional_ [Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [PowerShell Cmdlets for Azure](https://docs.microsoft.com/en-us/powershell/azure/?view=azps-5.6.0)
 * [Visual Studio Code](https://code.visualstudio.com/)

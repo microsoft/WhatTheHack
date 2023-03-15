@@ -4,10 +4,12 @@
 
 ## Notes & Guidance
 
-Challenge 1 notes coming soon...
+This is the "Hello World" challenge.  The goal is to deploy an Azure Storage Account to a targeted resource group.  This storage account will be accessed again in Challenge 2.
+
+If you are self-hosting, recommend to prefix your resources with your initials to avoid conflicts.
 
 ## Learning Resources
 
 Learn how to "fish" for Bicep:
-- [Basic Bicep](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md)
-- [Deploy Bicep file](https://github.com/Azure/bicep/blob/main/docs/tutorial/02-deploying-a-bicep-file.md)
+- [Basic Bicep](https://github.com/Azure/bicep)
+- [Deploy Bicep file](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-vscode) - see options in left-hand menu

@@ -28,13 +28,13 @@ var keyVaultName = 'kvwth${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
 @description('Specifies whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the Key Vault.')
-param enabledForDeployment bool = false
+param enabledForDeployment bool = true
 
 @description('Specifies whether Azure Disk Encryption is permitted to retrieve secrets from the Vault and unwrap keys.')
 param enabledForDiskEncryption bool = false
 
 @description('Specifies whether Azure Resource Manager is permitted to retrieve secrets from the Key Vault.')
-param enabledForTemplateDeployment bool = true
+param enabledForTemplateDeployment bool = false
 
 @description('Specifies the Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. Get it by using `Get-AzSubscription` cmdlet.')
 param tenantId string = subscription().tenantId
