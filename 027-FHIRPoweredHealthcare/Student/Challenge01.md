@@ -17,6 +17,7 @@ First you will deploy **[Azure Health Data Services workspace](https://docs.micr
    - You need to register your **[public client application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**  to connect FHIR Loader and Postman desktop apps to FHIR service in Azure Health Data Services.
    - Then **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**  to assign access to the Azure Health Data Services data plane.
    - After creating the new client application, you will **[create a new client secret](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#certificates--secrets)**.
+   
    Note: Make sure to copy and store the Client ID and Password needed in the FHIR Loader script deployment later.
 
 You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.
