@@ -1,4 +1,4 @@
-# Challenge 6: : Ingest and Persist IoT Medical Device Data 
+# Challenge 6: Ingest and Persist IoT Medical Device Data 
 
 [< Previous Challenge](./Challenge05.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge07.md)
 
