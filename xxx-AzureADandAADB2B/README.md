@@ -42,8 +42,6 @@ This hack is useful for identity architects and developers who want to integrate
 	 - Deploy to Azure
      - Publish the Web App to the web site update its app registration redirect URIs to include the App Service URL(s)
      - Managed identity
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
 
 
 ## Prerequisites

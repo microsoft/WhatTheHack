@@ -1,4 +1,4 @@
-# Challenge 03 - <Title of Challenge>
+# Challenge 03 - Invite Guest Users in Azure AD tenant
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 

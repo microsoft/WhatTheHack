@@ -19,7 +19,7 @@ Each tutorial / walkthrough describes how to build the project (if applicable) a
 
 ## Description
 
-
+Each code sample includes a README.md file describing how to build the project (if applicable) and run the sample application. Comments in the code help you understand how these libraries are used in the application to perform authentication and authorization by using the identity platform.
 
 ## Success Criteria
 
