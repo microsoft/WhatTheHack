@@ -95,7 +95,7 @@ echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
 do
     sleep 10
-    echo "Gatway under construction, this operation might take around 30 min: Gateway current Status = $gwStatus"
+    echo "Gatway under construction, this operation might take around 30 min"
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
 done
@@ -113,7 +113,7 @@ echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
 do
     sleep 10
-    echo "Gateway BGP underway: Gateway current Status = $gwStatus"
+    echo "Gateway BGP deployment underway"
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
 done
