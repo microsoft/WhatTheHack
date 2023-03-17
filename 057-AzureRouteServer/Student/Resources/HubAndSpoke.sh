@@ -6,7 +6,7 @@ echo -n "Please enter a resource group name: "
 read RGNAME
 echo -n "Please enter an Azure region (i.e. \"eastus\", \"westus\"):"
 read LOCATION
-echo -n "Please enter a password for the VMs:"
+echo -n "Please enter a password for your Virtual Machines:"
 read ADMIN_PASSWORD
 
 # Variables (change location as relevant)
@@ -83,19 +83,19 @@ echo "Creating vnet gateway. command will finish running but gw creation takes a
 
 az network public-ip create -n $vpngw_pip1 -g $rg --allocation-method Dynamic
 az network public-ip create -n $vpngw_pip2 -g $rg --allocation-method Dynamic
-az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-addresses $vpngw_pip1 $vpngw_pip2 -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
+az network vnet-gateway create -n $vpngw_name -l $location --public-ip-addresses $vpngw_pip1 $vpngw_pip2 -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
 
 #=======================================================
 # Check every second for Succeeded
 #=======================================================
-declare lookfor='"Succeeded"'
-declare cmd="az network vnet-gateway list -g $rg | jq '.[0].provisioningState'"
+declare lookfor='Succeeded'
+declare cmd="az network vnet-gateway show -g $rg -n $vpngw_name --query provisioningState -o tsv"
 gwStatus=$(eval $cmd)
 echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
 do
     sleep 10
-    echo "Gatway provisioning state not equal to Succeeded, instead = $gwStatus"
+    echo "Gatway under construction, this operation might take around 30 min: Gateway current Status = $gwStatus"
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
 done
@@ -106,13 +106,14 @@ echo "Gateway Created"
 #=======================================================
 # Enable BGP
 az network vnet-gateway update -g $rg -n $vpngw_name --enable-bgp true --no-wait
+declare cmd="az network vnet-gateway show -g $rg -n $vpngw_name --query provisioningState -o tsv"
 
 gwStatus=$(eval $cmd)
 echo "Gatway provisioning state = $gwStatus"
 while [ "$gwStatus" != "$lookfor" ]
 do
     sleep 10
-    echo "Gatway provisioning state not equal to Succeeded, instead = $gwStatus"
+    echo "Gateway BGP underway: Gateway current Status = $gwStatus"
     gwStatus=$(eval $cmd)
     echo "Gateway status = "$gwStatus
 done
