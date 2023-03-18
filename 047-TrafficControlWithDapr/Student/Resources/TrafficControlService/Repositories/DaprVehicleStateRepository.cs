@@ -28,6 +28,14 @@ namespace TrafficControlService.Repositories
 
     public async Task SaveVehicleStateAsync(VehicleState vehicleState)
     {
+      var state = new[]
+      {
+          new {
+              key = vehicleState.LicenseNumber,
+              value = vehicleState
+          }
+      };
+
       throw new NotImplementedException();
     }
   }
