@@ -100,7 +100,7 @@ First, create an input binding for the `/entrycam` operation:
             - name: topic
               value: trafficcontrol/entrycam
             - name: consumerID
-              value: trafficcontrolservice
+              value: trafficcontrolservice-entrycam
     scopes:
         - trafficcontrolservice
     ```
@@ -132,7 +132,7 @@ Next, create an input binding for the `/exitcam` operation:
             - name: topic
               value: trafficcontrol/exitcam
             - name: consumerID
-              value: trafficcontrolservice
+              value: trafficcontrolservice-exitcam
     scopes:
         - trafficcontrolservice
     ```

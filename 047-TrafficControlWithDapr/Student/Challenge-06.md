@@ -21,7 +21,7 @@ For this hands-on challenge, you will add an input binding leveraging the Dapr b
     -   Create a new class called `MqttTrafficControlService` to do this (look at the `HttpTrafficControlService` as an example).
     -   Modify the `Program` class to use this new service.
 -   Restart all services & run the `Simulation` application.
--   Once you have the solution running locally, modify the code to use Azure IoTHub & EventHub as the MQTT message broker.
+-   Once you have the solution running locally, modify the `Simulation` to use Azure IoT Hub & modify the Dapr configuration to use Azure EventHub as the MQTT message broker.
 
 ## Success Criteria
 
@@ -40,7 +40,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
 -   Validate that the `Simulation` application publishes entry-cam and exit-cam messages to the MQTT broker.
 -   Validate that messages are being sent through the Azure IoT Hub & EventHub.
 
-### DIY instructions
+# Tips
 
 -   Use MQTT broker [Mosquitto](https://mosquitto.org/) for local development.
 -   In order to connect to Mosquitto, you need to pass in a custom configuration file when starting it. With Docker, you can pass a configuration file when starting a container using a _Volume mount_. The folder `Resources/Infrastructure/mosquitto` already contains a config file you can use.
@@ -71,6 +71,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
     ```
 
 -   Add the following MQTT configuration flags when connecting to the Mosquitto MQTT queue.
+
     ```csharp
     var configuration = new MqttConfiguration()
     {
@@ -78,6 +79,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
       Port = 1883
     };
     ```
+
 -   Use [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) & EventHub for deployments to Azure.
 
     -   Create a IoT Device in Azure IoT Hub to represent your Simulation app.
@@ -99,4 +101,6 @@ This challenge targets the operation labeled as **number 5** in the end-state se
 -   [Introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
 -   [Bindings chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
 -   [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/)
+-   [C# MQTT client](https://github.com/xamarin/mqtt)
 -   [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
+-   [C# Azure IoT Hub client](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/SimulatedDevice/Program.cs)
