@@ -20,7 +20,7 @@ For this hands-on challenge, you will add an input binding leveraging the Dapr b
   - Create a new class called `MqttTrafficControlService` to do this (look at the `HttpTrafficControlService` as an example).
   - Modify the `Program` class to use this new service.
 - Create a Dapr configuration file for specifying the Dapr SMTP input binding components.
-- Restart all services & run the **Simulation** application.
+- Restart all services & run the `Simulation` application.
 - Once you have the solution running locally, modify the code to use Azure IoTHub & EventHub as the MQTT message broker.
 
 ## Success Criteria
@@ -37,7 +37,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
 
 - Validate that the Mosquitto MQTT message broker service is running locally.
 - Validate that the `TrafficControlService` receives messages via its Dapr component.
-- Validate that the **Simulation** application publishes entry-cam and exit-cam messages to the MQTT broker.
+- Validate that the `Simulation` application publishes entry-cam and exit-cam messages to the MQTT broker.
 - Validate that messages are being sent through the Azure IoT Hub & EventHub.
 
 ### DIY instructions

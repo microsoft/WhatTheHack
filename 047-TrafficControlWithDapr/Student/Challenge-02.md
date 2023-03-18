@@ -32,7 +32,7 @@ For this hands-on challenge, you will decouple communication between two service
 
 - Modify the `FineCollectionService` (`VehicleRegistrationService` class) so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
 - Start up a Dapr sidecar for the `VehicleRegistrationService`, `FineCollectionService` & `TrafficControlService`.
-- Run the **Simulation** application.
+- Run the `Simulation` application.
 
 ## Success Criteria
 

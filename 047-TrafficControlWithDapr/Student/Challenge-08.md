@@ -13,7 +13,7 @@ In this challenge, you're going to deploy the Dapr-enabled services you have wri
 - Update the Dapr secret configuration file to pull secrets from the Kubernetes secret.
 - Build Docker images of all 3 services & upload to the Azure Container Registry.
 - Deploy your service images to your AKS cluster.
-- Run your **Simulation** service locally.
+- Run your `Simulation` service locally.
 
 ## Success Criteria
 
@@ -21,7 +21,7 @@ To complete this challenge, you must reach the following goals:
 
 - Validate that all 3 services are compiled into Docker images & stored in an Azure Container Registry.
 - Validate that you have successfully deployed all 3 services (`VehicleRegistrationService`, `TrafficControlService` & `FineCollectionService`) to an AKS cluster.
-- Validate that the local **Simulation** service runs & connects to your AKS-hosted services and that all the previous functionality still works (input messages, output messages, speeding violation emails, etc).
+- Validate that the local `Simulation` service runs & connects to your AKS-hosted services and that all the previous functionality still works (input messages, output messages, speeding violation emails, etc).
 
 ## Tips
 
