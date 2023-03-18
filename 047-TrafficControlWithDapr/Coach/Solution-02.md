@@ -39,7 +39,7 @@ You will use the Dapr CLI `run` command and specify all the options above on the
 4.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 dotnet run
+    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 -- dotnet run
     ```
 
 5.  Check the logs for any errors. If running correctly, you'll see both Dapr and application logging in the output.
@@ -114,7 +114,7 @@ First you're going to change the code so it calls the Dapr sidecar:
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 dotnet run
+    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 -- dotnet run
     ```
 
 1.  Check the logs for any errors. As you can see, both Dapr and the application logging will be shown.
@@ -273,11 +273,11 @@ After modifying the `FineCollectionService` to use Dapr invocation, you may see 
 This is likely due to a mismatch between the case of the `--app-id` used to start the `VehicleRegistrationService` and the case of the `http` request in the `FineCollectionService`. Make sure they are spelled the same and use the same case (note the `--app-id` below is case-sensitive).
 
 ```shell
-dapr run --app-id VehicleRegistrationService --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 dotnet run
+dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 -- dotnet run
 ```
 
 ```csharp
-$"http://localhost:3601/v1.0/invoke/VehicleRegistrationService/method/vehicleinfo/{licenseNumber}");
+$"http://localhost:3601/v1.0/invoke/vehicleregistrationservice/method/vehicleinfo/{licenseNumber}");
 ```
 
 **IMPORTANT:** Use lowercase letters for the `app-id` of all Dapr services (some Dapr configurations don't support CamelCase)!
