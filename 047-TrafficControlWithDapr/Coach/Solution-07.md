@@ -209,9 +209,9 @@ Don't forget to change the license key in the secrets file back to the correct o
 1.  Create 3 Azure Key Vault secrets.
 
     ```shell
-    az keyvault secret set --vault-name kv-dapr-demo --name smtp-username --value "_username"
-    az keyvault secret set --vault-name kv-dapr-demo --name smtp-password --value "_password"
-    az keyvault secret set --vault-name kv-dapr-demo --name finecalculator-licensekey --value "HX783-K2L7V-CRJ4A-5PN1G"
+    az Key Vault secret set --vault-name kv-dapr-demo --name smtp-username --value "_username"
+    az Key Vault secret set --vault-name kv-dapr-demo --name smtp-password --value "_password"
+    az Key Vault secret set --vault-name kv-dapr-demo --name finecalculator-licensekey --value "HX783-K2L7V-CRJ4A-5PN1G"
     ```
 
 1.  Create a service principal to allow the Dapr service to retrieve secrets from Key Vault.
@@ -242,7 +242,7 @@ Don't forget to change the license key in the secrets file back to the correct o
 1.  Grant the service principal access to your Key Vault.
 
     ```shell
-    az keyvault set-policy --name "<key-vault-name>" --object-id "<service-principal-object-id>" --secret-permissions get
+    az Key Vault set-policy --name "<key-vault-name>" --object-id "<service-principal-object-id>" --secret-permissions get
     ```
 
 1.  Modify the `Resources/dapr/components/secrets-file.yaml` to use Key Vault instead.
@@ -251,9 +251,9 @@ Don't forget to change the license key in the secrets file back to the correct o
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: azurekeyvault
+        name: azureKey Vault
     spec:
-        type: secretstores.azure.keyvault
+        type: secretstores.azure.Key Vault
         version: v1
         metadata:
             - name: vaultName

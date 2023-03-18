@@ -6,28 +6,28 @@
 
 In this challenge, you'll do the following:
 
-- Create Azure resources required.
-  - Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, review the application architecture & description with your coach.
-- Review TrafficControl application architecture.
+-   Create Azure resources required.
+    -   Resource provisioning can take up to **25 minutes**, depending on the region used. Once you launch the script to create the Azure resources, review the application architecture & description with your coach.
+-   Review TrafficControl application architecture.
 
 Your coach will provide you with a `Resources.zip` package file that contains the starting projects for this hack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance the application architecture.
 
 ### Install local prerequisites
 
-- Git ([download](https://git-scm.com/))
-- .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
-- Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
-  - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-  - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
-- Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
-- Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
-- Install Azure CLI
-  - Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-  - macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
-  - Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
-- Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
-- If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-- Helm ([instructions](https://helm.sh/docs/intro/install/))
+-   Git ([download](https://git-scm.com/))
+-   .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
+-   Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
+    -   [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+    -   [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+-   Docker for desktop ([download](https://www.docker.com/products/docker-desktop))
+-   Dapr CLI and Dapr runtime ([instructions](https://docs.dapr.io/getting-started/install-dapr-selfhost/))
+-   Install Azure CLI
+    -   Linux ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
+    -   macOS ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos))
+    -   Windows ([instructions](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli))
+-   Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
+-   If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+-   Helm ([instructions](https://helm.sh/docs/intro/install/))
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 
@@ -58,15 +58,15 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
     ```json
     {
-      "appName": {
-        "value": "dapr"
-      },
-      "region": {
-        "value": "ussc"
-      },
-      "environment": {
-        "value": "dev"
-      }
+        "appName": {
+            "value": "dapr"
+        },
+        "region": {
+            "value": "ussc"
+        },
+        "environment": {
+            "value": "dev"
+        }
     }
     ```
 
@@ -84,62 +84,62 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
     ```yaml
     aksFQDN:
-      type: String
-      value: dapr-mce123-609718f5.hcp.southcentralus.azmk8s.io
+        type: String
+        value: dapr-mce123-609718f5.hcp.southcentralus.azmk8s.io
     aksName:
-      type: String
-      value: aks-dapr-mce123
+        type: String
+        value: aks-dapr-mce123
     aksazurePortalFQDN:
-      type: String
-      value: dapr-mce123-609718f5.portal.hcp.southcentralus.azmk8s.io
+        type: String
+        value: dapr-mce123-609718f5.portal.hcp.southcentralus.azmk8s.io
     containerRegistryLoginServerName:
-      type: String
-      value: crdaprmce123.azurecr.io
+        type: String
+        value: crdaprmce123.azurecr.io
     containerRegistryName:
-      type: String
-      value: crdaprmce123
+        type: String
+        value: crdaprmce123
     eventHubEntryCamName:
-      type: String
-      value: ehn-dapr-mce123-trafficcontrol/entrycam
+        type: String
+        value: ehn-dapr-mce123-trafficcontrol/entrycam
     eventHubExitCamName:
-      type: String
-      value: ehn-dapr-mce123-trafficcontrol/exitcam
+        type: String
+        value: ehn-dapr-mce123-trafficcontrol/exitcam
     eventHubNamespaceHostName:
-      type: String
-      value: https://ehn-dapr-mce123-trafficcontrol.servicebus.windows.net:443/
+        type: String
+        value: https://ehn-dapr-mce123-trafficcontrol.servicebus.windows.net:443/
     eventHubNamespaceName:
-      type: String
-      value: ehn-dapr-mce123-trafficcontrol
+        type: String
+        value: ehn-dapr-mce123-trafficcontrol
     iotHubName:
-      type: String
-      value: iothub-dapr-mce123
-    keyVaultName:
-      type: String
-      value: kv-dapr-mce123
+        type: String
+        value: iothub-dapr-mce123
+    Key VaultName:
+        type: String
+        value: kv-dapr-mce123
     logicAppAccessEndpoint:
-      type: String
-      value: https://prod-29.southcentralus.logic.azure.com:443/workflows/9bd179c8dd7049b8a152e5f2608f8efc
+        type: String
+        value: https://prod-29.southcentralus.logic.azure.com:443/workflows/9bd179c8dd7049b8a152e5f2608f8efc
     logicAppName:
-      type: String
-      value: logic-smtp-dapr-mce123
+        type: String
+        value: logic-smtp-dapr-mce123
     redisCacheName:
-      type: String
-      value: redis-dapr-mce123
+        type: String
+        value: redis-dapr-mce123
     serviceBusEndpoint:
-      type: String
-      value: https://sb-dapr-mce123.servicebus.windows.net:443/
+        type: String
+        value: https://sb-dapr-mce123.servicebus.windows.net:443/
     serviceBusName:
-      type: String
-      value: sb-dapr-mce123
+        type: String
+        value: sb-dapr-mce123
     storageAccountContainerName:
-      type: String
-      value: trafficcontrol
+        type: String
+        value: trafficcontrol
     storageAccountKey:
-      type: String
-      value: 7Ck76nP/5kFEhNx6C...V85L+0dFMFOA/xJLIvK25f2irUmVouPRbSGXKEzRQ==
+        type: String
+        value: 7Ck76nP/5kFEhNx6C...V85L+0dFMFOA/xJLIvK25f2irUmVouPRbSGXKEzRQ==
     storageAccountName:
-      type: String
-      value: sadaprmce123
+        type: String
+        value: sadaprmce123
     ```
 
     Copy these values into a text editor. You'll need them to configure your Dapr services.
@@ -173,12 +173,12 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     kubectl create namespace dapr-trafficcontrol
     ```
 
-1.  Assign permissions to KeyVault
+1.  Assign permissions to Key Vault
 
-    Lastly, assign yourself access to the KeyVault so you can create secrets:
+    Lastly, assign yourself access to the Key Vault so you can create secrets:
 
     ```shell
-    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
+    az Key Vault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
     ```
 
 1.  Install the Dapr extension in your AKS cluster.
@@ -201,10 +201,10 @@ The traffic-control application architecture consists of four microservices:
 
 ![Services](../images/services.png)
 
-- The **Camera Simulation** is a .NET Core console application that will simulate passing cars.
-- The **Traffic Control Service** is an ASP.NET Core WebAPI application that offers entry and exit endpoints: `/entrycam` and `/exitcam`.
-- The **Fine Collection Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/collectfine` for collecting fines.
-- The **Vehicle Registration Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/getvehicleinfo/{license-number}` for retrieving vehicle and owner information of a vehicle.
+-   The **Camera Simulation** is a .NET Core console application that will simulate passing cars.
+-   The **Traffic Control Service** is an ASP.NET Core WebAPI application that offers entry and exit endpoints: `/entrycam` and `/exitcam`.
+-   The **Fine Collection Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/collectfine` for collecting fines.
+-   The **Vehicle Registration Service** is an ASP.NET Core WebAPI application that offers 1 endpoint: `/getvehicleinfo/{license-number}` for retrieving vehicle and owner information of a vehicle.
 
 These services compose together to simulate a traffic control scenario.
 
@@ -212,6 +212,6 @@ These services compose together to simulate a traffic control scenario.
 
 ## Success Criteria
 
-- Verify all local prerequisite tools are installed locally.
-- Verify all Azure resources have been successfully created.
-- Verify your understanding of the TrafficControl application architecture with your coach.
+-   Verify all local prerequisite tools are installed locally.
+-   Verify all Azure resources have been successfully created.
+-   Verify your understanding of the TrafficControl application architecture with your coach.

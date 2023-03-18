@@ -69,7 +69,7 @@ This challenge targets the operation labeled as **number 6** in the end-state se
     ```shell
     az ad sp create-for-rbac --name dapr-trafficcontrol
     az ad sp list --display-name dapr-trafficcontrol
-    az keyvault set-policy --name kv-daprEventify-ussc-dev --object-id <your-service-principal-id> --secret-permissions get list
+    az Key Vault set-policy --name kv-daprEventify-ussc-dev --object-id <your-service-principal-id> --secret-permissions get list
     ```
 
 ## Learning Resources
