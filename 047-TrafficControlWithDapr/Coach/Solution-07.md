@@ -48,7 +48,7 @@ First, you'll add a secrets management JSON configuration file to the solution:
             - name: secretsFile
               value: ../dapr/components/secrets.json
             - name: nestedSeparator
-              value: "."
+              value: "-"
     scopes:
         - finecollectionservice
     ```
@@ -88,12 +88,12 @@ As stated, you can reference secrets from other Dapr component configuration fil
               value: 4025
             - name: user
               secretKeyRef:
-                  name: smtp.user
-                  key: smtp.user
+                  name: smtp-user
+                  key: smtp-user
             - name: password
               secretKeyRef:
-                  name: smtp.password
-                  key: smtp.password
+                  name: smtp-password
+                  key: smtp-password
             - name: skipTLSVerify
               value: true
     auth:
@@ -118,8 +118,8 @@ You will now change the controller so it retrieves the license key from the Dapr
 
     ```csharp
     var secrets = daprClient.GetSecretAsync(
-      "trafficcontrol-secrets", "finecalculator.licensekey").Result;
-    _fineCalculatorLicenseKey = secrets["finecalculator.licensekey"];
+      "trafficcontrol-secrets", "finecalculator-licensekey").Result;
+    _fineCalculatorLicenseKey = secrets["finecalculator-licensekey"];
     ```
 
     _Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app._
@@ -202,11 +202,11 @@ Now you should see some errors in the logging because the `FineCollectionService
 
 Don't forget to change the license key in the secrets file back to the correct one!
 
-### Step 6: Update to use Azure KeyVault for secrets management
+### Step 6: Update to use Azure Key Vault for secrets management
 
 ![secrets-management-operation-azure](../images/Challenge-07/secrets-management-operation-azure.png)
 
-1.  Create 3 Azure KeyVault secrets.
+1.  Create 3 Azure Key Vault secrets.
 
     ```shell
     az keyvault secret set --vault-name kv-dapr-demo --name smtp-username --value "_username"
@@ -214,18 +214,17 @@ Don't forget to change the license key in the secrets file back to the correct o
     az keyvault secret set --vault-name kv-dapr-demo --name finecalculator-licensekey --value "HX783-K2L7V-CRJ4A-5PN1G"
     ```
 
-1.  Create a service principal to allow the Dapr service to retrieve secrets from KeyVault.
+1.  Create a service principal to allow the Dapr service to retrieve secrets from Key Vault.
 
     ```shell
-    az ad sp create-for-rbac --name <service-principal-name> --create-cert --cert <certificate-name> --keyvault <key-vault-name> --skip-assignment --years 1
+    az ad sp create-for-rbac --name <service-principal-name>
     ```
 
     ```shell
     {
       "appId": "a4f90000-0000-0000-0000-00000011d000",
       "displayName": "<service-principal-name>",
-      "name": "http://<service-principal-name>",
-      "password": null,
+      "password": "ewM8Q~Fakekey10LPIYodcd",
       "tenant": "34f90000-0000-0000-0000-00000011d000"
     }
     ```
@@ -240,45 +239,31 @@ Don't forget to change the license key in the secrets file back to the correct o
     "<service-principal-object-id>"
     ```
 
-1.  Grant the service principal access to your KeyVault.
+1.  Grant the service principal access to your Key Vault.
 
     ```shell
     az keyvault set-policy --name "<key-vault-name>" --object-id "<service-principal-object-id>" --secret-permissions get
     ```
 
-1.  Download the certificate from your Azure KeyVault.
-
-    ```shell
-    az keyvault secret download --vault-name "<key-vault-name>" --name "<certificate-name>" --encoding base64 --file "<certificate-name>.pfx"
-    ```
-
-1.  Modify the `Resources/dapr/components/secrets-file.yaml` to use KeyVault instead.
+1.  Modify the `Resources/dapr/components/secrets-file.yaml` to use Key Vault instead.
 
     ```yaml
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
         name: azurekeyvault
-        namespace: default
     spec:
         type: secretstores.azure.keyvault
         version: v1
         metadata:
             - name: vaultName
               value: <key-vault_name>
-            - name: spnTenantId
+            - name: azureTenantId
               value: "<service-principal-tenant-id>"
-            - name: spnClientId
+            - name: azureClientId
               value: "<service-principal-app-id>"
-            - name: spnCertificateFile
-              value: "<pfx-certificate-file-fully-qualified-local-path>"
+            - name: azureClientSecret
+              value: "<service-principal-secret>"
     ```
-
-1.  Modify references to secrets.
-
-    KeyVault doesn't allow periods in the names of secrets. Therefore, you can update the references to the secrets to use dashes instead.
-
-    -   Resources/dapr/components/email.yaml (replace `smtp.username` & `smtp.password` with `smtp-username` & `smtp-password`)
-    -   Resources/FineCollectionService/Controllers/CollectionController.cs (replace `finecalculator.licensekey` with `finecalculator-licensekey`)
 
 1.  Restart all services and test
