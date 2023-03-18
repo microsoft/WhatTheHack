@@ -20,14 +20,14 @@ First, you need to update the existing state management configuration file:
     spec:
       type: state.redis
       metadata:
-      - name: redisHost
-        value: localhost:6379
-      - name: redisPassword
-        value: ""
-      - name: actorStateStore
-        value: "true"
+        - name: redisHost
+          value: localhost:6379
+        - name: redisPassword
+          value: ""
+        - name: actorStateStore
+          value: "true"
     scopes:
-    - trafficcontrolservice
+      - trafficcontrolservice
     ```
 
 Now you will add code to the `TrafficControlService` so that it uses the Dapr state management building block to store vehicle state:
@@ -60,7 +60,7 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
     using System.Net.Http.Json;
     using System.Threading.Tasks;
     using TrafficControlService.Models;
-    
+
     namespace TrafficControlService.Repositories
     {
         public class DaprVehicleStateRepository : IVehicleStateRepository
@@ -71,7 +71,7 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
             {
                 throw new NotImplementedException();
             }
-    
+
             public async Task SaveVehicleStateAsync(VehicleState vehicleState)
             {
                 throw new NotImplementedException();
@@ -80,36 +80,36 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
     }
     ```
 
- 1. In the new repository class, add a private field named `_httpClient` that holds an instance of a `HttpClient` and a constructor that accepts a `HttpClient` instance as aan argument and then initializes the field:
+1.  In the new repository class, add a private field named `_httpClient` that holds an instance of a `HttpClient` and a constructor that accepts a `HttpClient` instance as aan argument and then initializes the field:
 
     ```csharp
     private readonly HttpClient _httpClient;
-    
+
     public DaprVehicleStateRepository(HttpClient httpClient)
     {
         _httpClient = httpClient;
     }
     ```
 
- 1. The URL template for saving data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>`. You'll use this API to store the VehicleState. In the new repository class, replace the implementation of the `SaveVehicleStateAsync` method with the following code:
+1.  The URL template for saving data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>`. You'll use this API to store the VehicleState. In the new repository class, replace the implementation of the `SaveVehicleStateAsync` method with the following code:
 
     ```csharp
     var state = new[]
     {
-        new { 
+        new {
             key = vehicleState.LicenseNumber,
             value = vehicleState
         }
     };
-    
+
     await _httpClient.PostAsJsonAsync(
         $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}",
-        state);
+        new StringContent(JsonSerializer.Serialize(state)));
     ```
 
-    *As you can see, the data structure for saving state is an array of key/value pairs. In this example you use an anonymous type as payload.*
+    _As you can see, the data structure for saving state is an array of key/value pairs. In this example you use an anonymous type as payload._
 
- 1. The URL template for getting data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>/<key>`. You'll use this API to retrieve the VehicleState. Replace the implementation of the `GetVehicleStateAsync` method with the following code:
+1.  The URL template for getting data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>/<key>`. You'll use this API to retrieve the VehicleState. Replace the implementation of the `GetVehicleStateAsync` method with the following code:
 
     ```csharp
     var state = await _httpClient.GetFromJsonAsync<VehicleState>(
@@ -117,7 +117,7 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
     return state;
     ```
 
- 1. The code for the new repository should now look like this:
+1.  The code for the new repository should now look like this:
 
     ```csharp
     using System.Net.Http;
@@ -155,8 +155,7 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
                 };
 
                 await _httpClient.PostAsJsonAsync(
-                    $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}",                   state);
-                }
+                    $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}", new StringContent(JsonSerializer.Serialize(state)));
             }
         }
     }
@@ -186,7 +185,7 @@ Now you need to register the new repository with the .NET Core dependency-inject
     dotnet build
     ```
 
-    *If you see any warnings or errors, review the previous steps to make sure the code is correct.*
+    _If you see any warnings or errors, review the previous steps to make sure the code is correct._
 
 Now you're ready to test the application.
 
@@ -203,7 +202,7 @@ Now, you'll test the update by running the application from end-to-end.
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -211,7 +210,7 @@ Now, you'll test the update by running the application from end-to-end.
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -219,7 +218,7 @@ Now, you'll test the update by running the application from end-to-end.
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
@@ -234,7 +233,7 @@ You should see similar logging as before.
 
 ## Step 2b: Verify the state-store
 
-The *behavior* of the application hasn't changed. But are the VehicleState entries actually stored in the default Redis state-store? To confirm, you'll use the redis CLI inside the `dapr_redis` container that is used as the state-store in the default Dapr installation.
+The _behavior_ of the application hasn't changed. But are the VehicleState entries actually stored in the default Redis state-store? To confirm, you'll use the redis CLI inside the `dapr_redis` container that is used as the state-store in the default Dapr installation.
 
 1.  Open a **new** terminal window in VS Code.
 
@@ -244,7 +243,7 @@ The *behavior* of the application hasn't changed. But are the VehicleState entri
     docker exec -it dapr_redis redis-cli
     ```
 
-    *Dapr originally installed the Redis container. Here you are hooking into the running container in interactive mode and invoking the Redis command line, redis-cli.*
+    _Dapr originally installed the Redis container. Here you are hooking into the running container in interactive mode and invoking the Redis command line, redis-cli._
 
 1.  In the redis-cli enter the following command to get the list of keys of items stored in the redis cache:
 
@@ -268,7 +267,7 @@ As you can see, the data is actually stored in the redis cache. As you may have 
 
 1.  Stop the running services (Ctrl+C) and close the terminal windows.
 
-    *If you're up for it, try to swap-out Redis with another state provider. See the [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `Resources/dapr/components/statestore.yaml`.*
+    _If you're up for it, try to swap-out Redis with another state provider. See the [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `Resources/dapr/components/statestore.yaml`._
 
 ## Step 3: Use Dapr state management with the Dapr SDK for .NET
 
@@ -340,17 +339,18 @@ In this step, you'll simplify state management with the Dapr SDK for .NET. You'l
     dotnet build
     ```
 
-    *If you see any warnings or errors, review the previous steps to make sure the code is correct.*
+    _If you see any warnings or errors, review the previous steps to make sure the code is correct._
 
 Now you're ready to test the application. Just repeat steps 2a and 2b.
 
 ### Step 4: Use Azure Cache for Redis as state store
 
-Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to replacing *RabbitMQ* with Azure Service Bus in challenge 3 required no code changes either. 
+Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to replacing _RabbitMQ_ with Azure Service Bus in challenge 3 required no code changes either.
 
 1.  Update the `Resources/dapr/components/statestore.yaml` file with the key/value pairs for your Azure Redis Cache instance. You can find these on the Overview blade of your Azure Redis Cache instance. Make sure you add the **6380** port number after the host URI.
 
     **Example:**
+
     ```yaml
     apiVersion: dapr.io/v1alpha1
     kind: Component
@@ -361,18 +361,19 @@ Now, you can also use Azure Cache for Redis instead of the default state store. 
       type: state.redis
       version: v1
       metadata:
-      - name: redisHost
-        value: redis-dapr-ussc-demo.redis.cache.windows.net:6380
-      - name: redisPassword
-        value: qu4qw8bFakeKey7KVrBYFFakeKey+v3raFBNA3M=
-      - name: actorStateStore
-        value: true
-      - name: enableTLS
-        value: true
+        - name: redisHost
+          value: redis-dapr-ussc-demo.redis.cache.windows.net:6380
+        - name: redisPassword
+          value: qu4qw8bFakeKey7KVrBYFFakeKey+v3raFBNA3M=
+        - name: actorStateStore
+          value: true
+        - name: enableTLS
+          value: true
     scopes:
-    - trafficcontrolservice
+      - trafficcontrolservice
     ```
-    *You can also obtain the Azure Redis Cache instance details using AZ CLI:*
+
+    _You can also obtain the Azure Redis Cache instance details using AZ CLI:_
 
     Host name and port:
 

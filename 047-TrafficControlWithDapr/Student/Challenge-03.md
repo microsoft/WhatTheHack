@@ -22,7 +22,7 @@ You will need to modify the services to use the Dapr pub/sub building block.
 - Modify the `TrafficControlService` (`TrafficController` class) so it sends `SpeedingViolation` messages using the Dapr pub/sub building block.
 - Create a Dapr configuration file for specifying the pub/sub Dapr components.
 - Restart all services & run the `Simulation` application.
-- Once you have the above working, replace the RabbitMQ message broker with Azure Service Bus by **only changing the Dapr configuration file**.
+- Once you have the above working, replace the RabbitMQ message broker with Azure Service Bus (using topics) by **only changing the Dapr configuration file**.
 
 **Optional if re-implementing `FineCollectionService` using Dapr .NET SDK**
 
@@ -36,7 +36,7 @@ This challenge targets the operations labeled as **number 2** in the end-state s
 
 - Validate that the RabbitMQ message broker is running.
 - Validate that messages are being sent from the `TrafficControlService` to the `FineCollectionService` using Dapr, not direct service invocation.
-- Validate that messages are being received & consumed from the Azure Service Bus.
+- Validate that messages are being received & consumed from the Azure Service Bus via topics.
 
 ## Tips
 

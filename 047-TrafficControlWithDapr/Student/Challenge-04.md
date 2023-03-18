@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you're going to add Dapr **state management** in the TrafficControl service to store vehicle information.
+In this challenge, you're going to add Dapr **state management** in the `TrafficControlService` to store vehicle information.
 
 ## Description
 
@@ -43,8 +43,9 @@ This challenge targets the operation labeled as **number 3** in the end-state se
 
 ## Tips
 
+- Redis listens on **port 6379** by default.
 - Use the redis CLI inside the `dapr_redis` container that is used as the state-store in the default Dapr installation.
-  - Run the redis CLI locally: 
+  - Run the redis CLI locally:
     ```shell
     docker exec -it dapr_redis redis-cli
     ```
