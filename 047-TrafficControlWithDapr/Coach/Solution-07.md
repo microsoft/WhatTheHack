@@ -20,15 +20,13 @@ First, you'll add a secrets management JSON configuration file to the solution:
 
     ```json
     {
-      "smtp":
-      {        
-        "user": "_username",
-        "password": "_password"
-      },
-      "finecalculator":
-      {
-        "licensekey": "HX783-K2L7V-CRJ4A-5PN1G"
-      }
+        "smtp": {
+            "user": "_username",
+            "password": "_password"
+        },
+        "finecalculator": {
+            "licensekey": "HX783-K2L7V-CRJ4A-5PN1G"
+        }
     }
     ```
 
@@ -42,28 +40,28 @@ First, you'll add a secrets management JSON configuration file to the solution:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: trafficcontrol-secrets
+        name: trafficcontrol-secrets
     spec:
-      type: secretstores.local.file
-      version: v1
-      metadata:
-      - name: secretsFile
-        value: ../dapr/components/secrets.json
-      - name: nestedSeparator
-        value: "."
+        type: secretstores.local.file
+        version: v1
+        metadata:
+            - name: secretsFile
+              value: ../dapr/components/secrets.json
+            - name: nestedSeparator
+              value: "."
     scopes:
-      - finecollectionservice   
+        - finecollectionservice
     ```
 
-    *Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is **only** for development or testing purposes. It's not suitable for production!*
+    _Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is **only** for development or testing purposes. It's not suitable for production!_
 
-    *Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`.*
+    _Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`._
 
 The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using the period (`.`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
 
-- `smtp.user`
-- `smtp.password`
-- `finecalculator.licensekey`
+-   `smtp.user`
+-   `smtp.password`
+-   `finecalculator.licensekey`
 
 Now you've configured the secrets management building block. Time to use the secrets.
 
@@ -79,29 +77,29 @@ As stated, you can reference secrets from other Dapr component configuration fil
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: sendmail
+        name: sendmail
     spec:
-      type: bindings.smtp
-      version: v1
-      metadata:
-      - name: host
-        value: localhost
-      - name: port
-        value: 4025
-      - name: user
-        secretKeyRef:
-          name: smtp.user
-          key: smtp.user
-      - name: password
-        secretKeyRef:
-          name: smtp.password
-          key: smtp.password
-      - name: skipTLSVerify
-        value: true
+        type: bindings.smtp
+        version: v1
+        metadata:
+            - name: host
+              value: localhost
+            - name: port
+              value: 4025
+            - name: user
+              secretKeyRef:
+                  name: smtp.user
+                  key: smtp.user
+            - name: password
+              secretKeyRef:
+                  name: smtp.password
+                  key: smtp.password
+            - name: skipTLSVerify
+              value: true
     auth:
-      secretStore: trafficcontrol-secrets
+        secretStore: trafficcontrol-secrets
     scopes:
-      - finecollectionservice  
+        - finecollectionservice
     ```
 
 Now the output binding for the SendMail component will use the `smtp.user` and `smtp.password` secrets from the secrets file at runtime.
@@ -124,7 +122,7 @@ You will now change the controller so it retrieves the license key from the Dapr
     _fineCalculatorLicenseKey = secrets["finecalculator.licensekey"];
     ```
 
-    *Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app.*
+    _Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app._
 
 1.  Go back to the terminal window in VS Code and make sure the current folder is `Resources/FineCollectionService`.
 
@@ -134,7 +132,7 @@ You will now change the controller so it retrieves the license key from the Dapr
     dotnet build
     ```
 
-    *If you see any warnings or errors, review the previous steps to make sure the code is correct.*
+    _If you see any warnings or errors, review the previous steps to make sure the code is correct._
 
 Now you're ready to test the application.
 
@@ -151,7 +149,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -159,7 +157,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -167,7 +165,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
@@ -260,27 +258,27 @@ Don't forget to change the license key in the secrets file back to the correct o
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: azurekeyvault
-      namespace: default
+        name: azurekeyvault
+        namespace: default
     spec:
-      type: secretstores.azure.keyvault
-      version: v1
-      metadata:
-      - name: vaultName
-        value: <key-vault_name>
-      - name: spnTenantId
-        value: "<service-principal-tenant-id>"
-      - name: spnClientId
-        value: "<service-principal-app-id>"
-      - name: spnCertificateFile
-        value : "<pfx-certificate-file-fully-qualified-local-path>"
+        type: secretstores.azure.keyvault
+        version: v1
+        metadata:
+            - name: vaultName
+              value: <key-vault_name>
+            - name: spnTenantId
+              value: "<service-principal-tenant-id>"
+            - name: spnClientId
+              value: "<service-principal-app-id>"
+            - name: spnCertificateFile
+              value: "<pfx-certificate-file-fully-qualified-local-path>"
     ```
 
 1.  Modify references to secrets.
 
     KeyVault doesn't allow periods in the names of secrets. Therefore, you can update the references to the secrets to use dashes instead.
 
-    - Resources/dapr/components/email.yaml (replace `smtp.username` & `smtp.password` with `smtp-username` & `smtp-password`)
-    - Resources/FineCollectionService/Controllers/CollectionController.cs (replace `finecalculator.licensekey` with `finecalculator-licensekey`)
+    -   Resources/dapr/components/email.yaml (replace `smtp.username` & `smtp.password` with `smtp-username` & `smtp-password`)
+    -   Resources/FineCollectionService/Controllers/CollectionController.cs (replace `finecalculator.licensekey` with `finecalculator-licensekey`)
 
 1.  Restart all services and test

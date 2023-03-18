@@ -89,20 +89,20 @@ First, create an input binding for the `/entrycam` operation:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: entrycam
-      namespace: dapr-trafficcontrol
+        name: entrycam
+        namespace: dapr-trafficcontrol
     spec:
-      type: bindings.mqtt
-      version: v1
-      metadata:
-        - name: url
-          value: mqtt://localhost:1883
-        - name: topic
-          value: trafficcontrol/entrycam
-        - name: consumerID
-          value: trafficcontrolservice
+        type: bindings.mqtt
+        version: v1
+        metadata:
+            - name: url
+              value: mqtt://localhost:1883
+            - name: topic
+              value: trafficcontrol/entrycam
+            - name: consumerID
+              value: trafficcontrolservice
     scopes:
-      - trafficcontrolservice
+        - trafficcontrolservice
     ```
 
     In this configuration file, you specify the binding type MQTT (`bindings.mqtt`). In the `metadata` section, you describe how to connect to Mosquitto server container running on `localhost` on port `1883` . Note also how the `topic` is configured in metadata: `trafficcontrol/entrycam`. In the `scopes` section, you specify that only the `TrafficControlService` should subscribe to the MQTT topic.
@@ -121,20 +121,20 @@ Next, create an input binding for the `/exitcam` operation:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: exitcam
-      namespace: dapr-trafficcontrol
+        name: exitcam
+        namespace: dapr-trafficcontrol
     spec:
-      type: bindings.mqtt
-      version: v1
-      metadata:
-        - name: url
-          value: mqtt://localhost:1883
-        - name: topic
-          value: trafficcontrol/exitcam
-        - name: consumerID
-          value: trafficcontrolservice
+        type: bindings.mqtt
+        version: v1
+        metadata:
+            - name: url
+              value: mqtt://localhost:1883
+            - name: topic
+              value: trafficcontrol/exitcam
+            - name: consumerID
+              value: trafficcontrolservice
     scopes:
-      - trafficcontrolservice
+        - trafficcontrolservice
     ```
 
 Now with input bindings configured, it's time to change the Camera Simulation so it'll send MQTT messages to Mosquitto.
@@ -249,7 +249,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -257,7 +257,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -265,7 +265,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
@@ -378,23 +378,23 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: entrycam
+        name: entrycam
     spec:
-      type: bindings.azure.eventhubs
-      version: v1
-      metadata:
-        - name: connectionString
-          value: "Endpoint=sb://ehn-dapr-ussc-demo-trafficcontrol.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=IQrpNCFakekeykn5xkSVyn5y4uZCGerc=;EntityPath=entrycam"
-        - name: consumerGroup
-          value: "trafficcontrolservice"
-        - name: storageAccountName
-          value: "sadaprusscdemo"
-        - name: storageAccountKey
-          value: "IKJgQ4KAFakekeyhAmi4zSz2ehm1btpQXZ+l68ol7wJmg8TA0ClQChRK7sWnvMEVexgg=="
-        - name: storageContainerName
-          value: "trafficcontrol-entrycam"
+        type: bindings.azure.eventhubs
+        version: v1
+        metadata:
+            - name: connectionString
+              value: "Endpoint=sb://ehn-dapr-ussc-demo-trafficcontrol.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=IQrpNCFakekeykn5xkSVyn5y4uZCGerc=;EntityPath=entrycam"
+            - name: consumerGroup
+              value: "trafficcontrolservice"
+            - name: storageAccountName
+              value: "sadaprusscdemo"
+            - name: storageAccountKey
+              value: "IKJgQ4KAFakekeyhAmi4zSz2ehm1btpQXZ+l68ol7wJmg8TA0ClQChRK7sWnvMEVexgg=="
+            - name: storageContainerName
+              value: "trafficcontrol-entrycam"
     scopes:
-      - trafficcontrolservice
+        - trafficcontrolservice
     ```
 
 1.  Replace the implementation of the `Resources/dapr/components/exitcam.yaml` file with code similar to above, making sure to replace the `connectionString` & `storageContainerName` with the appropriate ones for `exitcam`.
@@ -412,7 +412,7 @@ Getting the input binding to the local MQTT queue is finicky.
 Run dapr in debug logging mode to see more errors (note the `--log-level debug` flag):
 
 ```shell
-dapr run --log-level debug --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+dapr run --log-level debug --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
 ```
 
 Error:

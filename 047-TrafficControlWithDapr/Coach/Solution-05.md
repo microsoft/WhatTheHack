@@ -135,23 +135,23 @@ In this step you will add a Dapr binding component configuration file to connect
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: sendmail
+        name: sendmail
     spec:
-      type: bindings.smtp
-      version: v1
-      metadata:
-        - name: host
-          value: localhost
-        - name: port
-          value: 4025
-        - name: user
-          value: "_username"
-        - name: password
-          value: "_password"
-        - name: skipTLSVerify
-          value: true
+        type: bindings.smtp
+        version: v1
+        metadata:
+            - name: host
+              value: localhost
+            - name: port
+              value: 4025
+            - name: user
+              value: "_username"
+            - name: password
+              value: "_password"
+            - name: skipTLSVerify
+              value: true
     scopes:
-      - finecollectionservice
+        - finecollectionservice
     ```
 
 As you can see, you specify the binding type (`bindings.smtp`) and describe how to connect to it in the `metadata` section. For now, you'll run on localhost on port `4025`. The other metadata can be ignored.
@@ -175,7 +175,7 @@ You're going to start all the services now. Like before, you'll specify the cust
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -183,7 +183,7 @@ You're going to start all the services now. Like before, you'll specify the cust
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -191,7 +191,7 @@ You're going to start all the services now. Like before, you'll specify the cust
 1.  Enter the following command to run the TrafficControlService with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
@@ -216,61 +216,61 @@ You should see the same logs as before. You can also view the fine notification 
 
 1. Open the Logic App that is deployed to your Azure Resource Group. You will need to initialize the Office 365 connector and copy the HTTP trigger endpoint.
 
-   1. Click on the **Logic app designer** blade
-   1. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
-   1. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
+    1. Click on the **Logic app designer** blade
+    1. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
+    1. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
 
 1. Update the `Resources/dapr/components/email.yaml` file to use the Azure Logic App to send email. You will change the bindings from SMTP to HTTP and fill in the HTTP endpoint for the Logic App in Azure.
 
-   **Example:**
+    **Example:**
 
-   ```yaml
-   apiVersion: dapr.io/v1alpha1
-   kind: Component
-   metadata:
-     name: sendmail
-   spec:
-     type: bindings.http
-     version: v1
-     metadata:
-       - name: url
-         value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
-   scopes:
-     - finecollectionservice
-   ```
+    ```yaml
+    apiVersion: dapr.io/v1alpha1
+    kind: Component
+    metadata:
+        name: sendmail
+    spec:
+        type: bindings.http
+        version: v1
+        metadata:
+            - name: url
+              value: https://prod-18.southcentralus.logic.azure.com:443/workflows/e76d81048c3941f18638ab0055bba68a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8z3TLKcgFakekeyf9HY_3pkViSk6fFR2m-db-BWobZFw
+    scopes:
+        - finecollectionservice
+    ```
 
 1. Add the package to your project.
 
-   ```shell
-   dotnet add package Newtonsoft.Json
-   ```
+    ```shell
+    dotnet add package Newtonsoft.Json
+    ```
 
 1. Navigate to the `Resources/FineCollectionService` directory. Open the `Resources\FineCollectionService\Controllers\CollectionController.cs` file. Modify the **CollectFine** method to pass in a JSON object to the Logic App's HTTP endpoint.
 
-   Add the following to the using statements at the top of the file.
+    Add the following to the using statements at the top of the file.
 
-   ```csharp
-   using Newtonsoft.Json.Linq;
-   ```
+    ```csharp
+    using Newtonsoft.Json.Linq;
+    ```
 
-   Replace the line that starts with `var metadata = new Dictionary<string, string>` with the following.
+    Replace the line that starts with `var metadata = new Dictionary<string, string>` with the following.
 
-   ```csharp
-   dynamic email = new JObject();
-   email.from = "noreply@cfca.gov";
-   email.to = "<YOUR_EMAIL_ADDRESS_HERE>";
-   email.subject = $"Speeding violation on the {speedingViolation.RoadId}";
-   email.body = body;
+    ```csharp
+    dynamic email = new JObject();
+    email.from = "noreply@cfca.gov";
+    email.to = "<YOUR_EMAIL_ADDRESS_HERE>";
+    email.subject = $"Speeding violation on the {speedingViolation.RoadId}";
+    email.body = body;
 
-   var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(email);
+    var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(email);
 
-   await daprClient.InvokeBindingAsync("sendmail", "create", jsonString);
-   ```
+    await daprClient.InvokeBindingAsync("sendmail", "create", jsonString);
+    ```
 
 1. Rebuild your `FineCollectionService`.
 
-   ```shell
-   dotnet build
-   ```
+    ```shell
+    dotnet build
+    ```
 
 1. Re-run all services and the simulation application. You should begin to see emails in your inbox for speeding violations.
