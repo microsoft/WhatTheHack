@@ -476,9 +476,8 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
    kind: Component
    metadata:
      name: pubsub
-     namespace: <name of you Azure Service Bus namespace>
    spec:
-     type: pubsub.azure.servicebus
+     type: pubsub.azure.servicebus.topics
      version: v1
      metadata:
        - name: connectionString
