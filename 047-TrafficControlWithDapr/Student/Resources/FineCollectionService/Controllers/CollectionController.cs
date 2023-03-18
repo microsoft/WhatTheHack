@@ -7,6 +7,7 @@ using FineCollectionService.Models;
 using FineCollectionService.Proxies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Dapr.Client;
 
 namespace FineCollectionService.Controllers
 {
@@ -35,7 +36,7 @@ namespace FineCollectionService.Controllers
 
         [Route("collectfine")]
         [HttpPost()]
-        public async Task<ActionResult> CollectFine(SpeedingViolation speedingViolation)
+        public async Task<ActionResult> CollectFine(SpeedingViolation speedingViolation) //TODO: inject Dapr client as a parameter here
         {
             decimal fine = _fineCalculator.CalculateFine(_fineCalculatorLicenseKey, speedingViolation.ViolationInKmh);
 
@@ -52,7 +53,7 @@ namespace FineCollectionService.Controllers
                 $"at {speedingViolation.Timestamp.ToString("hh:mm:ss")}.");
 
             // send fine by email
-            // TODO
+            //TODO: add Dapr output bindings here
 
             return Ok();
         }

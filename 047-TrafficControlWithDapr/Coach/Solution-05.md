@@ -101,13 +101,7 @@ You will enhance the `FineCollectionService` so that it uses the Dapr SMTP outpu
 
     _The first two parameters passed into `InvokeBindingAsync` are the name of the binding to use and the operation (in this case 'create' the email)._
 
-1.  This method uses the `[FromServices]` attribute to inject the `DaprClient` class. You'll need to register `DaprClient` with the dependency injection container. Open the file `Resources/FineCollectionService/Startup.cs`. Add the following `using` statement to the file:
-
-    ```csharp
-    using System;
-    ```
-
-1.  Add the following code to the `ConfigureServices` method (just above the code to register the `VehicleRegistrationService` proxy) to register DaprClient:
+1.  This method uses the `[FromServices]` attribute to inject the `DaprClient` class. You'll need to register `DaprClient` with the dependency injection container. Open the file `Resources/FineCollectionService/Startup.cs`. Add the following code to the `ConfigureServices` method (just above the code to register the `VehicleRegistrationService` proxy) to register DaprClient:
 
     ```csharp
     services.AddDaprClient(builder => builder

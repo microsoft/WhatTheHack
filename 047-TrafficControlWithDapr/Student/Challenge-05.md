@@ -17,8 +17,8 @@ For this hands-on challenge, you will add an output binding leveraging the Dapr 
 You will need to modify the services to use the Dapr SMTP output bindings.
 
 - Start up a development SMTP server that runs in a Docker container.
-- Modify the `FineCollectionService` (`CollectionController` class) so that it uses the Dapr SMTP output binding to send an email.
 - Create a Dapr configuration file for specifying the Dapr SMTP output binding component.
+- Modify the `FineCollectionService` (`CollectionController` class) so that it uses the Dapr SMTP output binding to send an email.
 - Restart all services & run the `Simulation` application.
 - After you get the application running locally, modify it to use an Azure Logic App to send the same email instead of the local development SMTP server.
 
@@ -46,6 +46,9 @@ This challenge targets the operation labeled as **number 4** in the end-state se
   docker run -d -p 4000:1080 -p 4025:1025 --name dtc-maildev maildev/maildev:latest
   ```
 - You can observe the MailDev server locally by navigating to [http://localhost:4000](http://localhost:4000).
+- The local SMTP server listens on **port 4025**
+- Use the Dapr SDK for setting up the output bindings
+  - You will need to add the Dapr client to the Inversion of Control (IoC) container in AspNetCore so you can use it in the controller
 - Use an Azure Logic App to send out emails when deploying to Azure.
   - You will need to **Authorize** the Office365 connector in the Azure portal for the Logic App so it can send email.
 
@@ -54,3 +57,5 @@ This challenge targets the operation labeled as **number 4** in the end-state se
 - [Dapr Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
 - [Dapr for .NET developers - bindings](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
 - [Maildev](https://github.com/maildev/maildev)
+- [Smtp Output Bindings](https://learn.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/bindings#smtp-output-binding)
+- [Add Dapr to AspNetCore](https://learn.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/getting-started#add-dapr-service-invocation)
