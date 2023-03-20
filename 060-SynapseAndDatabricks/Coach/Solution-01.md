@@ -16,7 +16,7 @@ It would be a good idea to nominate one person from each team to host the soluti
 2. __Hydration of the Bronze Data Lake__  
 For this section they can use either Databricks or Synapse.  Due to time constraints, it is important that they only copy in either Customer/Address information or Product/Sales Order information.  
 
-For guidance on this we recommend only the following tables for each database.  
+For guidance on this we recommend only the following tables for each of the SQL databases.  
 
 ### Customer/Address Data
 
@@ -43,7 +43,11 @@ For guidance on this we recommend only the following tables for each database.
 - Sales.Orderlines
 - Warehouse.StockItems
 
-Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.  
+Please setup these databases ahead of time and test their connectivity.  Samples are located at:
+- [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
+- [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers)
+
+Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.
   
 Most students will probably use Azure Synapse to bring in the data to Bronze.  
 In that case, the most common steps needed would be to learn about:
