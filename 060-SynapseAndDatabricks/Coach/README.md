@@ -11,15 +11,25 @@ This hack includes an optional [lecture presentation](./Bronze-Silver-Gold.pptx?
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
+	 - Understand the basics of Synapse
+	 - Understand the basics of Databricks
+	 - Understand Delta Lake Concepts
+	 - Understand the basics of Key Vault
+	 - Understand Data Lake Best Practices
 - Challenge 01: **[Building Out the Bronze](./Solution-01.md)**
-	 - Description of challenge
+	 - Standup and configure the Synapse and Databricks Environments
+	 - Agree on and begin to implement the three-tiered architecture 
+	 - Hydrate the Bronze Data Lake
+	 - Ensure no connection details are stored on the Linked Service or in Notebooks
 - Challenge 02: **[Standardizing on Silver](./Solution-02.md)**
-	 - Description of challenge
+	 - Move the data from the Bronze Layer to the Silver Layer 
+	 - Apply Delta Format to the Silver Layer
+	 - Perform consolidation and standardization
 - Challenge 03: **[Go for the Gold](./Solution-03.md)**
-	 - Description of challenge
+	 - Take data from the Silver Layer and make it business analyst ready
+	 - Understand the basics of data models
 - Challenge 04: **[Visualize the Results](./Solution-04.md)**
-	 - Description of challenge
+	 - Create Power BI assets to showcase your results
 
 ## Coach Prerequisites
 
