@@ -46,6 +46,7 @@ For guidance on this we recommend only the following tables for each of the SQL 
 Please setup these databases ahead of time and test their connectivity.  Samples are located at:
 - [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
 - [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers)
+
 We recommend to make these Azure SQL databases so everyone can connect to them.
 
 Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.
