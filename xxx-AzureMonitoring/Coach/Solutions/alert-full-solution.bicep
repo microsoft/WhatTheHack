@@ -1,5 +1,5 @@
-param actionGroupResourceId string = '<your-action-group-id>'
-param vmLocation string = '<your-vm-region>'
+param actionGroupResourceId string = '<your-action-group-resource-id>'
+param vmLocation string = resourceGroup().location
 param activityLogAlertNameVmStop string = 'alert-vm-stopped'
 param metricAlertNameCPU string = 'alert-cpu-over-75-percent'
 param metricAlertNameNetwork string = 'alert-network-in'

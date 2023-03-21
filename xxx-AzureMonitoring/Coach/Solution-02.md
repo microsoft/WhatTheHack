@@ -1,4 +1,4 @@
-# Challenge 02 - Monitoring Basics: Metrics, Logs, Alerts and Dashboards - Coach's Guide 
+# Challenge 02 - Setting up Monitoring via Automation - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 

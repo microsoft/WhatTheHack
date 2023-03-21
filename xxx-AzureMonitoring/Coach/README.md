@@ -14,7 +14,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Metric and Activity Log alerts via Automation](./Solution-02.md)**
+- Challenge 02: **[Setting up Monitoring via Automation](./Solution-02.md)**
 	 - Description of challenge
 - Challenge 03: **[Azure Monitor for Virtual Machines](./Solution-03.md)**
 	 - Description of challenge
