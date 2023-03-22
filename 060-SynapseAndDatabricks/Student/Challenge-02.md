@@ -27,7 +27,7 @@ A more visual guide on the process can be seen below.
 ![picture alt](../img/Silver.png) 
   
   
-## Business Case
+### Business Case
 Now that we know what we need to do, it’s important to understand why we are doing this.  
 From an organizational standpoint, the Silver layer serves three main purposes:
 - Enrichment  
