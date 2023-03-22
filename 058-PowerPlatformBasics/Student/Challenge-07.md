@@ -21,7 +21,7 @@ In this challenge, you will create a Power BI report and publish to your environ
 Information:
 
 - Navigate to the [Power BI website](https://powerbi.microsoft.com/desktop/), download, and install Power BI Desktop (if you have not already done so)
-- Pull in the Account, Contact, Order, and Order details tables using the Dataverse data source.
+- Get Data: Account, Contact, Order, and Order details tables using the Dataverse data source.
 - Consider any other data that may be relavent
 - Edit the queries so the tables only include the most relevant columns
 - Transform the data to include the Age of order approval
@@ -30,9 +30,9 @@ Information:
 	- Order totals by Customer
 	- Orders by Approval Status
 	- Show pending approval orders by age
-	- Orders by Year,Quarter,Month,Date
+	- Orders by Year, Quarter, Month, Date
 	
-- Save your report and publish it to your OpenHack Team's workspace in the Power BI Service to share with your other team members.
+- Save your report and publish it to your What The Hack Squad's workspace in the Power BI Service to share with your other squad members.
 - Create a new Dashboard and pin the report visualizations to it.
 - Embed all the Power BI dashboard visualizations in the analytics screen of your canvas app
 

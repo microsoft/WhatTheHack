@@ -7,8 +7,13 @@
 - Power Platform is more than just Canvas Apps
 - Strongly encourage creating a new solution for their development
 - Create an Order table
+   - Customer will be a 'Lookup' to Accounts/Contacts, or they could simply create a lookup to Accounts
+   - Order code will use an autonumber type column
 - Create an Order Line Item table
 - Create 1-N relationship; Order to Order line
+
+**NOTE:** If they are using a Dataverse that has Customer Engagement they will already have Order and Order Details tables
+
 - In the flow, they will need a List Row - Dataverse step to lookup Accounts and add in the filter line:
     - accountnumber eq 'CustomerID' (customerID - dynamic value from AI Builder)
 - Populating the 'Name' field for Order lines, it's required, tell them any field such as description

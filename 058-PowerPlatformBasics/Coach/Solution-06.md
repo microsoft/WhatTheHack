@@ -4,4 +4,8 @@
 
 ## Notes & Guidance
 
-Content coming soon!
+- They will need to navigate to teams.microsoft.com
+    - In Teams in their trial they should create a Team
+- Add Power Apps to their Teams
+- Pin to Nav
+- From the Canvas App they will use the 'Add to Teams' option from the Apps list

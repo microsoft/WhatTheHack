@@ -24,6 +24,8 @@ To support collaboration and ease of access, you will embed the canvas app direc
 ## Success Criteria
 
 - To complete this challenge successfully, you should be able to demonstrate to your coach that you can launch the Power App for Order Management Microsoft Teams.
+
+Bonus:
 - Show your coach the approval message that was sent to you.
 
 ## Learning Resources
