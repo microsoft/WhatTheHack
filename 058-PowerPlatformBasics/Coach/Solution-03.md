@@ -12,7 +12,7 @@
 - Create an Order Line Item table
 - Create 1-N relationship; Order to Order line
 
-NOTE: If they are using a Dataverse that has Customer Engagement they will already have Order and Order Details tables
+**NOTE:** If they are using a Dataverse that has Customer Engagement they will already have Order and Order Details tables
 
 - In the flow, they will need a List Row - Dataverse step to lookup Accounts and add in the filter line:
     - accountnumber eq 'CustomerID' (customerID - dynamic value from AI Builder)
