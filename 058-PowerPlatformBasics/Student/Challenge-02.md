@@ -20,7 +20,7 @@ You can find the sample Order Form in the `/TailspinToysOrders/` folder of the s
 Review the sample Order Document and decide whether we can use any prebuilt model that AI Builder offers, or we need to build a custom model to read the information on the form.
 
 The Model is required to:
-- Extract General Order Information (Order Number, Order Date, and Order Total)
+- Extract General Order Information (Order Number, Order Date and Order Total)
 - Extract Customer Information (Full name, Address, and Phone)
 - Extract Order Detail Information (Product Code, Product Description, Quantity and Unit Price)
 
