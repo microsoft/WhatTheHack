@@ -6,7 +6,8 @@
 
 The goal of this hackathon is to take data from 2 different data sources 1) Adventure Works and 2) Wide World Importers and combine them into one or more tables so that the end user does not realize that we had different originating data sets.  
 Thus, they just have the data that they need to view it in a report.  We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  Do not bring in everything.  Just choose to only bring in either the __Customer__ or __Sales Order__ data.  
-_Hint: Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._  
+
+**HINT:** _Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._  
 
 ## Description
 
@@ -16,7 +17,10 @@ We are now ready to setup the environment and populate the data into the Bronze 
   We need to set up the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancillary resources such as Power BI, the Azure Storage Accounts and Key Vault. It would be a good idea to nominate one person from each team to host the solution in a new Resource Group in their subscription and then provide the rest of the team full [access](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) to that Resource Group. This way each person in the team can take turns to lead the hack and just in case one person has to drop, the rest of the team are not bottlenecked.
 
 - __Hydration of Data in the Bronze Data Lake__  
-  For this challenge we will be working with two data sets, AdventureWorks and WideWorldImporters. Your coaches should provide with the details needed to connect to them.  
+  For this challenge we will be working with two data sets:
+  - AdventureWorks
+  - WideWorldImporters. 
+  Your coaches should provide with the details needed to connect to them.  
   The main goal is to use Azure Synapse and/or Azure Databricks and find ways to copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.  
   If you are copying the customer data, we would ask that you only grab the customer and address information. If you are copying the sales order data, please copy in the product, sales order header and sales order detail information.   
     
@@ -36,7 +40,7 @@ Things to keep in mind about data in the Bronze layer:
   - Completeness and Accuracy Accepted  
   
   
-## Business Case
+### Business Case
 Now that we know what we need to do, it’s also important to understand why we are doing this.  
 From an organizational standpoint, the Bronze layer serves two main purposes:
 - Long Term Storage and Recovery  
