@@ -7,6 +7,7 @@
 - Power Platform is more than just Canvas Apps
 - Strongly encourage creating a new solution for their development
 - Create an Order table
+- - Customer will be a 'Lookup' to Accounts/Contacts, or they could simply create a lookup to Accounts
 - Create an Order Line Item table
 - Create 1-N relationship; Order to Order line
 - In the flow, they will need a List Row - Dataverse step to lookup Accounts and add in the filter line:
