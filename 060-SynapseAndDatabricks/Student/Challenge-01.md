@@ -22,7 +22,9 @@ We are now ready to setup the environment and populate the data into the Bronze 
   - WideWorldImporters 
   
   Your coaches should provide with the details needed to connect to them.  
+  
   The main goal is to use Azure Synapse and/or Azure Databricks and find ways to copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.  
+  
   If you are copying the customer data, we would ask that you only grab the customer and address information. If you are copying the sales order data, please copy in the product, sales order header and sales order detail information.   
     
 ![picture alt](../img/Bronze.png)
