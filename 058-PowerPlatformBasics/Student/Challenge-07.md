@@ -32,7 +32,7 @@ Information:
 	- Show pending approval orders by age
 	- Orders by Year, Quarter, Month, Date
 	
-- Save your report and publish it to your OpenHack Squad's workspace in the Power BI Service to share with your other squad members.
+- Save your report and publish it to your What The Hack Squad's workspace in the Power BI Service to share with your other squad members.
 - Create a new Dashboard and pin the report visualizations to it.
 - Embed all the Power BI dashboard visualizations in the analytics screen of your canvas app
 
