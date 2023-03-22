@@ -9,7 +9,7 @@ Approval Processing is a Microsoft Power Automate capability you can use without
 ## Description
 
 In this challenge, you will set up a multi-level approval process using Power Automate Flow.
-All information extracted from pervious challenge should be displayed in the approval notification.
+All information extracted from previous challenge should be displayed in the approval notification.
 
 Information:
 - Customer Information (Customer name, Address, Email and/or Phone)
