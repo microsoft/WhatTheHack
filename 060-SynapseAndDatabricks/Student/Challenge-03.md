@@ -22,7 +22,7 @@ A visual representation of the ask is shown below.
   
 ![picture alt](../img/Gold.png) 
   
-## Business Case
+### Business Case
 Now that we know what we need to do, it’s important to understand why we are doing this.  
 From an organizational standpoint, the Gold layer serves one main purpose:
 - Consumption  
