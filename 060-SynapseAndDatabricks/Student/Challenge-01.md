@@ -6,9 +6,7 @@
 
 The overall goal of this hackathon is to take data from 2 different data sources and combine them into consolidated tables so that the business user(s) consuming this data do not realize that it originated from different data sets
 
-We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  Do not bring in everything.  Just choose to only bring in either the __Customer__ or __Sales Order__ data.  
-
-**HINT:** _Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._  
+We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data. 
 
 
 ## Description
@@ -24,10 +22,13 @@ We are now ready to setup the environment and populate the data into the Bronze 
   - WideWorldImporters 
   
   You will not setup the source databases for this challenge, they are setup and configured already.  Your coaches will provide the connection details for these data sources for this challenge for you to utilize.
+
+  The goal is not to import all data from these databases,  just choose to only bring in either the __Customer__ or __Sales Order__ data.  There is no need to do both. 
+
+  **HINT:** _Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._  
   
-  The main goal is to use Azure Synapse and/or Azure Databricks and find ways to copy data from both the AdventureWorks and WideWorldImporters database.  While there are many tables in these databases, we will ask the team to either concentrate on either the customer data or the sales order data.  There is no need to do both.  
-  
-  If you are copying the customer data, we would ask that you only grab the customer and address information. If you are copying the sales order data, please copy in the product, sales order header and sales order detail information.   
+  The goal of this hackathon is to use Azure Synapse and/or Azure Databricks and find ways to copy data from these source systems.   
+ 
     
 ![picture alt](../img/Bronze.png)
   
