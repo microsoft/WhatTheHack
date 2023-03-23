@@ -35,23 +35,12 @@ vpngw_pip2="${vpngw_name}-pip2"
 if [[ "$rg" =  "your_resource_group" ]]; then
     read -p "Enter the resource group where the initial hack resources will be deployed, possibly including your initials: " rg
 fi
-if [[ "$adminpassword" == "your_password" ]]; then
-    adminpassword=""
-    while IFS= read -p "Enter the admin passwords for the VMs to be created. Please use lower and uppercase, numbers and special characters: " -r -s -n 1 letter
-    do
-        # if you press enter then the condition is true and it exit the loop
-        if [[ $letter == $'\0' ]]
-        then
-            break
-        fi
-        # Append the letter to the adminpassword variable
-        adminpassword="${adminpassword}${letter}"
-        # in place of the letter the asterisk (*) will printed
-        pass_var="*"
-    done
+if [[ "$adminpassword" == "your_vm_password" ]]; then
+    read -s -p "Enter the admin password for the VMs to be created. Please use lower and uppercase, numbers and special characters: " adminpassword
 fi
 
 # Create Vnet
+echo
 echo "Creating RG $rg and VNet..."
 az group create -n $rg -l $location -o none
 az network vnet create -g $rg -n $vnet_name --address-prefix $vnet_prefix --subnet-name $hub_vm_subnet_name --subnet-prefix $hub_vm_subnet_prefix -o none --only-show-errors
