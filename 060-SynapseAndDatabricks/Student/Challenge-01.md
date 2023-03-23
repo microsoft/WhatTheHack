@@ -16,7 +16,11 @@ For this hackathon you will use Azure Synapse and/or Azure Databricks to copy da
 We are now ready to setup the environment and populate the data into the Bronze Data Layer.  For this challenge, we want to bring in the data "as is".  No data transformation is needed at this layer.
 
 - __Environmental Setup__  
-  We need to set up the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancillary resources such as Power BI, the Azure Storage Accounts and Key Vault. It would be a good idea for each team to host the solution in a new Resource Group in a subscription that all particpants have access to.  Thus, at least one person should be owner of the Resource Group and then provide the rest of the team full [access](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) to that Resource Group. This way each person in the team can take turns to lead the hack and just in case one person has to drop, the rest of the team can still progress through the challenges.
+  We need to set up the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancillary resources such as Power BI, the Azure Storage Accounts and Key Vault. 
+  
+  It would be a good idea for each team to host the solution in a new Resource Group in a subscription that all particpants have access to.  Thus, at least one person should be owner of the Resource Group and then provide the rest of the team full [access](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) to that Resource Group. 
+  
+  This way each person in the team can take turns to lead the hack and just in case one person has to drop, the rest of the team can still progress through the challenges.
 
 - __Hydration of Data in the Bronze Data Lake__  
   For this challenge we will be working with two SQL data sets:
