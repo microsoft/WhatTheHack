@@ -72,7 +72,7 @@ To complete this challenge successfully, you should be able to:
 
 The following links may be useful to achieving the success criteria listed above.
 
-- [RBAC - Grant a user access to Azure resources using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [RBAC - Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
 - [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 - [Databricks - Manage Users](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/users)
