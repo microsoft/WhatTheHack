@@ -8,7 +8,7 @@ The overall goal of this hackathon is to take data from 2 different data sources
 
 We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  
 
-For this hackathon you will use Azure Synapse and/or Azure Databricks to copy data from these source systems and format them appropriately for business user consumption by utilizing a three-tiered data architecture.  In this challenge, we will start out with the first tier; __Bronze__.
+For this hackathon you will use Azure Synapse and/or Azure Databricks to copy data from these source systems and format them appropriately for business user consumption by utilizing a three-tiered data architecture.  
 
 
 ## Description
