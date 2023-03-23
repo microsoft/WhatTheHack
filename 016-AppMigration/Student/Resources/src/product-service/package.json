@@ -35,7 +35,7 @@
     "eslint": "^5.6.1",
     "eslint-config-prettier": "^3.1.0",
     "faker": "^4.1.0",
-    "nodemon": "^1.18.8",
+    "nodemon": "^2.0.21",
     "pg": "^7.5.0",
     "prettier": "^1.14.3",
     "to-camel-case": "^1.0.0"
