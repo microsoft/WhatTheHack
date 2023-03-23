@@ -44,10 +44,10 @@ To complete this challenge successfully, you should be able to:
 
 ## Learning Resources
 
-* [Use the document processing model in Power Automate - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
-* [Use the form processor component in Power Apps - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
-* [What is Microsoft Dataverse? - Power Apps | Microsoft Learn](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intro)
-* [Solution concepts - Power Platform | Microsoft Learn](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm)
+* [Use the document processing model in Power Automate - AI Builder](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
+* [Use the form processor component in Power Apps - AI Builder](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
+* [What is Microsoft Dataverse? - Power Apps](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intro)
+* [Solution concepts - Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm)
 * [Use Lists of rows in Power Automate flows](https://learn.microsoft.com/en-us/power-automate/dataverse/list-rows)
 
 ## Advanced Challenges
@@ -55,4 +55,4 @@ To complete this challenge successfully, you should be able to:
 Too comfortable? Eager to do more? Try these additional challenges!
 - Handle Exception Cases. What if the model extracts data incorrectly?
 - Try to use the AI Model that extracts Order Information in Power Apps Canvas App (next challenge)
-* [Explore the Document automation toolkit - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/doc-automation?msclkid=d7043197d0a211ec83ca9d25453fab57)
+* [Explore the Document automation toolkit - AI Builder](https://docs.microsoft.com/en-us/ai-builder/doc-automation?msclkid=d7043197d0a211ec83ca9d25453fab57)
