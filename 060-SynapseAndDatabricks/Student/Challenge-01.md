@@ -6,7 +6,9 @@
 
 The overall goal of this hackathon is to take data from 2 different data sources and combine them into consolidated tables so that the business user(s) consuming this data do not realize that it originated from different data sets
 
-We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data. 
+We will use the AdventureWorksLT and WideWorldImporters SQL databases for our source data.  
+
+For this hackathon you will use Azure Synapse and/or Azure Databricks to copy data from these source systems and format them appropriately for business user consumption by utilizing a three-tiered data architecture.  In this challenge, we will start out with the first tier; __Bronze__.
 
 
 ## Description
@@ -17,17 +19,15 @@ We are now ready to setup the environment and populate the data into the Bronze 
   We need to set up the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancillary resources such as Power BI, the Azure Storage Accounts and Key Vault. It would be a good idea for each team to host the solution in a new Resource Group in a subscription that all particpants have access to.  Thus, at least one person should be owner of the Resource Group and then provide the rest of the team full [access](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) to that Resource Group. This way each person in the team can take turns to lead the hack and just in case one person has to drop, the rest of the team can still progress through the challenges.
 
 - __Hydration of Data in the Bronze Data Lake__  
-  For this challenge we will be working with two data sets:
+  For this challenge we will be working with two SQL data sets:
   - AdventureWorks
   - WideWorldImporters 
   
-  You will not setup the source databases for this challenge, they are setup and configured already.  Your coaches will provide the connection details for these data sources for this challenge for you to utilize.
+  You will not setup the source databases for this challenge, they are setup and configured already.  Your coaches will provide the connection details for these data sources for you to utilize.
 
   The goal is not to import all data from these databases,  just choose to only bring in either the __Customer__ or __Sales Order__ data.  There is no need to do both. 
 
   **HINT:** _Customers have addresses and Sales Orders have header, detail and product associated with them.  Both have their own complexities, so one is not easier than the other.  See the graphic below for reference._  
-  
-  The goal of this hackathon is to use Azure Synapse and/or Azure Databricks and find ways to copy data from these source systems.   
  
     
 ![picture alt](../img/Bronze.png)
