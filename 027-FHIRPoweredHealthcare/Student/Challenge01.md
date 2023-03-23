@@ -14,6 +14,11 @@ In this scenario, you will deploy a storage account with a BLOB container and co
 ## Description
 
 First you will deploy **[Azure Health Data Services workspace](https://docs.microsoft.com/en-us/azure/healthcare-apis/workspace-overview)** and **[deploy a FHIR service](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-portal-quickstart)** within the workspace.
+   - You need to register your **[public client application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**  to connect FHIR Loader and Postman desktop apps to FHIR service in Azure Health Data Services.
+   - Then **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**  to assign access to the Azure Health Data Services data plane.
+   - After creating the new client application, you will **[create a new client secret](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#certificates--secrets)**.
+   
+   Note: Make sure to copy and store the Client ID and Password needed in the FHIR Loader script deployment later.
 
 You will then implement the **[FHIR Bulk Loader](https://github.com/microsoft/fhir-loader)** Function App solution to ingest and load Synthea generated FHIR patient data into the FHIR service in near real-time.
 - Install and configure FHIR Bulk Loader with the deploy **[script](https://github.com/microsoft/fhir-loader/blob/main/scripts/Readme.md#getting-started)**.
@@ -38,8 +43,8 @@ To test the FHIR Bulk Loader, you will copy Synthea generated test FHIR patient 
    - Copy from Synthea project subfolder `./output/fhir` to `bundles` BLOB container.
    - You can copy data to Azure Storage using **[Azure AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** commandline tool or **[Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** user interface.
 - Test the results of FHIR bulk load using Postman `FHIR API` collection to retreive FHIR patient data loaded.
-   - You need to first register your **[public client application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**  to connect Postman desktop app to FHIR service in Azure Health Data Services.
-   - Then **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**  to assign access to the Azure Health Data Services data plane.
+   - You need to first register your **[public client application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)**  to connect Postman desktop app to FHIR service in Azure Health Data Services (if not completed previously).
+   - Then **[Configure RBAC roles](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac)**  to assign access to the Azure Health Data Services data plane (if not completed previously).
    - To **[access FHIR service using Postman](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/use-postman)**, you need to import the FHIR API Postman collection and environment variables:
       - You can find the Postman template files (`WTHFHIR.postman_collection.json` and `WTHFHIR.postman_environment.json`) in the `/Postman` folder of the Resources.zip file provided by your coach. 
       - **[Import](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)** the environment and collection template files into your Postman
