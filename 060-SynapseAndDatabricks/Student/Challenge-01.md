@@ -18,7 +18,7 @@ We are now ready to setup the environment and populate the data into the Bronze 
 - __Environmental Setup__  
   We need to set up the proper environment for the Hackathon. Thus, we need everyone on the team to have access to the Azure Synapse and Databricks environments. Also, any ancillary resources such as Power BI, the Azure Storage Accounts and Key Vault. 
   
-  It would be a good idea for each team to host the solution in a new Resource Group in a subscription that all particpants have access to.  Thus, at least one person should be owner of the Resource Group and then provide the rest of the team the proper [access](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) to that Resource Group.
+  It would be a good idea for each team to host the solution in a new Resource Group in a subscription that all particpants have access to.  Thus, at least one person should be owner of the Resource Group and then provide the rest of the team the proper access to that Resource Group.  For more informaton on this topic, see the Learning Resources below.
   
   This way each person in the team can take turns to lead the hack and just in case one person has to drop, the rest of the team can still progress through the challenges.
 
@@ -72,6 +72,7 @@ To complete this challenge successfully, you should be able to:
 
 The following links may be useful to achieving the success criteria listed above.
 
+- [Grant a user access to Azure resources using the Azure portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal)
 - [Azure Synapse access control](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-access-control-overview) 
 - [Use Azure Key Vault secrets in pipeline activities](https://docs.microsoft.com/en-us/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 - [Databricks - Manage Users](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/users)
