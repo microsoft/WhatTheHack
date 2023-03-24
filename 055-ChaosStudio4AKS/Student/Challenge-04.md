@@ -3,11 +3,11 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
 ## Pre-requisites
-To complete this challenge you will using the Pizza Application or your AKS application
+To complete this challenge you will use the Pizza Application or your AKS application
 
 
 ## Introduction
-You will need to have an indepth understanding of DevOps and your CI/CD tool of choice.
+You will need to have an in depth understanding of DevOps and your CI/CD tool of choice.
 
 This is where the rubber meets the road. You will take what you have learned from the previous challenges and apply the knowledge here. 
 
@@ -20,7 +20,7 @@ Run your experiments in Dev/Test, do not run in Prod.
 
 ## Tips
 1. You want your application to be available (healthy state) during failure.
-2. What kinds of faults and remediations come to mind from the previous challenges? 
+2. What kinds of faults and remediation come to mind from the previous challenges? 
 
 ## Success Criteria
 

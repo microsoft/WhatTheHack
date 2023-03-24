@@ -14,9 +14,9 @@ We recommend installing the tools on your workstation.
 
 ### Work from Azure Cloud Shell
 
-Azure Cloud Shell (using Bash) provides a convenient shell environment with all of the tools you will need to run these challenges already included such as the Azure CLI, kubectl, helm, and MySQL client tools, and editors such as vim, nano, code, etc. 
+Azure Cloud Shell (using Bash) provides a convenient shell environment with all tools you will need to run these challenges already included such as the Azure CLI, kubectl, helm, and MySQL client tools, and editors such as vim, nano, code, etc. 
 
-This is the fastest path. To get started, simply open [Azure Cloud Shell](https://shell.azure.com) in a web browser and you're all set!
+This is the fastest path. To get started, simply open [Azure Cloud Shell](https://shell.azure.com) in a web browser, and you're all set!
 
 ### Work from Local Workstation
 
@@ -44,7 +44,7 @@ If using the Pizza Application, the Pizza Application will run in 2 Azure region
 
 The Pizza Application is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, database, and the sample Pizzeria application.  Your coach will provide you with a link to the Pizzaria.zip file that contains deployment files needed to deploy the AKS environment into EastUS and WestUS. Since the end goal is to test a multi-region application, deploy the application into each region. For best results, perform all experiments in your nearest region.
 
-   - Download the required PizzariaApp.zip file (or you can use your own AKS application) for this hack. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
+   - Download the required PizzariaApp.zip file (or you can use your own AKS application) for this hack. You should do this in Azure Cloud Shell or in a Mac/Linux/WSL environment which has the Azure CLI installed. 
    - Unzip the file 
 
 ### Deploy the AKS Environment
@@ -77,7 +77,7 @@ chmod +x ./*.sh
 
 ### View the Sample Application
 
-Once the applications are deployed, you will see a link to a web sites running on port 8081. In Azure Cloud Shell, these are clickable links. Otherwise, you can cut and paste the URL in your web browser.
+Once the applications are deployed, you will see a link to a websites running on port 8081. In Azure Cloud Shell, these are clickable links. Otherwise, you can cut and paste the URL in your web browser.
    
 ```bash
       Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria      

@@ -1,6 +1,6 @@
 # Challenge 02 - My Availability Zone burned down, now what?
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Pre-requisites
 
@@ -30,14 +30,14 @@ Machine layer?
 
 ## Success Criteria
 
-- Chaos Experiment fails a node running the pizzeria application
+- Show that Chaos Experiment fails a node running the pizzeria application
 - Observe any failure
 - Discuss with your coach how your application is (or was made) resilient
 - Verify the pizza application is available while a virtual machine is offline
 
 ## Tip
 
-Take note of your virutal machine's instanceID
+Take note of your virtual machine's instanceID
 
 
 ## Learning Resources

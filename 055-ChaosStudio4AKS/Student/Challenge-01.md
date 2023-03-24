@@ -1,6 +1,6 @@
 # Challenge 01 - Is your Application ready for the Super Bowl?
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
+[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Pre-requisites
 
@@ -32,14 +32,14 @@ During the experiment, were you able to order a pizza or perform your appplicati
 
 - Verify Chaos Mesh is running on the Cluster
 - Verify Pod Chaos restarted the application's AKS pod
-- Observe any failure in the the application
+- Observe any failure in the application
 - Was your application available? 
-- If not how can you make it available during such an outtage? 
+- If not how can you make it available during such an outage? 
 
 ## Tips
 
 These tips apply to the Pizza Application
- - verify the the "selector" in the experiment uses namespace of the application
+ - verify the "selector" in the experiment uses namespace of the application
  - the PizzaApp is a statefulset versus a deployment
 
 

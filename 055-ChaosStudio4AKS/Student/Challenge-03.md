@@ -1,6 +1,6 @@
 # Challenge 03 - Godzilla takes out an Azure region!
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
+[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 
 ## Pre-requisites
@@ -25,7 +25,7 @@ do?
 ## Description
 
 As the purpose of this WTH is to demonstrate Chaos Studio, we are going to simulate a region failure. As you have deployed the pizzeria application in 2 regions
-(EastUS / WestUS). As we are hacking on Azure's Chaos Studio, we are pretending the databases are in sync and we are showing how Chaos Studio can simulate
+(EastUS / WestUS). As we are hacking on Azure's Chaos Studio, we are pretending the databases are in sync, and we are showing how Chaos Studio can simulate
 the failure of a region.   
 
 - Create an Azure Chaos Studio's Experiment(s) that can simulate a region failure

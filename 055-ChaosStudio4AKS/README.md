@@ -14,10 +14,10 @@ the following:
   
 * Leverage the Azure Chaos Studio to inject failure into an application/workload
 * Provide hands-on understanding of Chaos Engineering 
-* Understand how resilientcy can be achieved with Azure 
+* Understand how resiliency can be achieved with Azure 
 
 In this WTH, you are the system owner of the Contoso Pizzeria Application (or you may bring your own application). Super Bowl Sunday is Contoso Pizza's busiest time of the year, the pizzeria
-ordering application must be must be available during the Super Bowl. 
+ordering application must be available during the Super Bowl. 
 
 You have been tasked to test the resiliency of the pizzeria application (or your application). The pizzeria application is running on Azure and you will use Chaos Studio to
 simulate various failures. 
@@ -38,7 +38,7 @@ simulate various failures.
 - Azure subscription with contributor access
 - Visual Studio Code terminal or Azure Shell (recommended)
 - Latest Azure CLI (if not using Azure Shell) 
-- Github or Azure DevOps to automate Chaos Testing
+- GitHub or Azure DevOps to automate Chaos Testing
 - Azure fundamentals, Vnets, NSGs, ScaleSets, Traffic Manager 
 - Fundamentals of Chaos Engineering
 - Intermediate understanding of Kubernetes (kubectl commands)and AKS
