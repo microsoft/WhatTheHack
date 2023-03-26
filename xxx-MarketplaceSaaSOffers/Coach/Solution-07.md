@@ -1,4 +1,4 @@
-# Challenge 07 - <Title of Challenge> - Coach's Guide 
+# Challenge 07 - Tracking entitlement (licensing) - Coach's Guide 
 
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
@@ -6,15 +6,8 @@
 
 This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
+```
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+```

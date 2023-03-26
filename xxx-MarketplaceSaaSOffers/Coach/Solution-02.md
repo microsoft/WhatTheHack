@@ -1,20 +1,28 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - Installing the emulator - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+The student will need to:
+- clone the
+[Microsoft Commercial Marketplace API Emulator](https://github.com/microsoft/Commercial-Marketplace-SaaS-API-Emulator)
+- open the emulator in a new insatnce of VS Code - they will need for a later challenge
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+Options to run the emulator as a:
+- Node App
+  - From Bash or in the VS Code termainl navigate to the project folder
+  - `NPM Install` to install the Node required modules
+  - To run, either:
+    - in Bash, `NPM Run` 
+    - Debug in VS Code, **F5** or select **Run and Debug** tab on the left bar and click **Launch** - if Lunch is not available it is likely NPM Install was skipped
+- Container
+  - From the Terminal - in the project folder
+    - `docker build -t marketplace-api-emulator -f docker/Dockerfile .`
+    - `docker run -d -p <port>:80 marketplace-api-emulator`
+  - In VS Code, when running as a Dev Container
+    - Run the debugger as described above
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+The emulator will now be available in a browser on `http://localhost:<port>`
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+The port should be shown in the terminal at launch, by deault this would be port **3978** for Node, **80** for a continer.

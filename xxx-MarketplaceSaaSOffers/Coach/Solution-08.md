@@ -1,20 +1,40 @@
-# Challenge 08 - <Title of Challenge> - Coach's Guide 
+# Challenge 08 - Listening on a webhook - Coach's Guide 
 
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+The challenge updates the file: `src/service/webhook-api.ts`
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+The suggested code is listed below in the section **// -- REMOVE FOR STUDENT -- //**
 
-Break things apart with more than one bullet list
+```
+// -- REMOVE FOR STUDENT -- //
 
-- Like this
-- One
-- Right
-- Here
+const action = req.body.action as string;
+const planId = req.body.planId as string;
+const tenantId = req.body.beneficiary.tenantId as string
+
+switch(action.toLowerCase()) {
+    case "changeplan":
+    case "changequantity":
+        res.sendStatus(200).send();
+        await saveEntitlement(tenantId, planId, true);
+        return;
+
+    case "reinstate":
+        await saveEntitlement(tenantId, planId, true);
+        break;
+    case "renew":
+        break;
+    case "suspend":
+        await saveEntitlement(tenantId, planId, false);
+        break;
+    case "unsubscribe":
+        await removeEntitlement(tenantId);
+        break;
+}
+
+// -- REMOVE FOR STUDENT -- //
+```
