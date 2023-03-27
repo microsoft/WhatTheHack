@@ -82,7 +82,7 @@ az vm create -n spoke2-vm -g $rg -l $location --image ubuntuLTS  \
 echo "Creating Virtual Network Gateway. This can take a while..."
 az network public-ip create -n $vpngw_pip1 -g $rg --allocation-method Dynamic -o none --only-show-errors
 az network public-ip create -n $vpngw_pip2 -g $rg --allocation-method Dynamic -o none --only-show-errors
-az network vnet-gateway create -n $vpngw_name -l eastus --public-ip-addresses $vpngw_pip1 $vpngw_pip2 -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased -o none --only-show-errors
+az network vnet-gateway create -n $vpngw_name -l $location --public-ip-addresses $vpngw_pip1 $vpngw_pip2 -g $rg --vnet $vnet_name --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased -o none --only-show-errors
 
 # Enable BGP
 echo "Enabling BGP in VNG..."
