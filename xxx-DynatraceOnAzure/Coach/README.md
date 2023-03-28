@@ -8,7 +8,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 This WhatTheHack provide you hands on experience on how to Monitor Azure workloads using Dynatrace.   It will show you how Dynatrace's AI-engine, Davis, performs automatic and intelligent root-cause analysis in hybrid cloud Azure environments. This hack was designed specifically for Cloud Ops Engineers, DevOps engineers, Developers, and Architects who want to expand their knowledge on Dynatrace & Azure.
 
-The story goes that, you are new engineer that was hired to modernize a ecommerce website for company called "DTOrders".  "DTOrders" currentlly has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  The engineer's job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, they'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
+The story goes that, you are new engineer that was hired to modernize a ecommerce website for company called "DTOrders".  "DTOrders" currently has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  The engineer's job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, they'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
 
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
@@ -34,7 +34,7 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
-The lab folders are self contained labs. You should not need to go to other resources to run the labs. Attendee's will need a laptop, but only an Azure browser is required. All work will be done in the portal and the Azure Command Shell. If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea. No special software needs to be installed though.
+The folders are self contained challenges for the hack. You do not need to go to other resources to run the challenges. Attendee's will need a laptop, but only an Azure browser is required. All work will be done in the portal and the Azure Command Shell. If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea. No special software needs to be installed though.
 
 The original code base of the lab automation scripts & sample app are located below
 
@@ -52,7 +52,9 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites (Optional)
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
+
+If Github repo is inaccessible, please open up a issue in the WhatTheHack repo.  
 
 ## Azure Requirements
 

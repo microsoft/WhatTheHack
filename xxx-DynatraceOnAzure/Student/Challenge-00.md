@@ -35,6 +35,11 @@ You might not need all of them for the hack you are participating in. However, i
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 
 
+## Additional Pre-requisites
+
+Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
+
+
 ## Description
 <!--
 _This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
@@ -71,6 +76,8 @@ Please install these additional tools:
 - Login to the Dynatrace tenant and create a Dynatrace API token with the following scopes, after reviewing [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create it
     - Read SLO
     - Write SLO
+    - Read events
+    - Ingest events
     - Read Settings
     - Write Settings
     - Read Entities
@@ -83,7 +90,7 @@ Please install these additional tools:
     - PaaS integration - Support alert
 - In a separate notepad, please write down the following things needed in a future step below  
   1) Keep the API token safe somewhere to be used in future step below, it will be following format: **dt0c01.ABC12345DEFGHI**
-  2) Dynatrace tenant url, it should be in format link this: **https://ABC.live.dynatrace.com**
+  2) Dynatrace tenant url, it should be in format link this: ``https://ABC.live.dynatrace.com``
 - 
 ### Azure Portal Prep
  - Login to Azure Portal and click on the **Cloud Shell** button on the menu in upper right hand corner ![](images/portal-shell-button.png)
@@ -98,6 +105,7 @@ Please install these additional tools:
     cd ~/azure-modernization-dt-orders-setup/provision-scripts
     ./input-credentials.sh
     ```
+  > ***🛈 Note:*** When you run input-credentials.sh, it will prompt you to input Azure subscription id, Dynatrace Environment Url, Dynatrace API token and your last name.
 - Run the script to provision the workshop Azure resources
      ```bash
     cd ~/azure-modernization-dt-orders-setup/provision-scripts
@@ -110,9 +118,6 @@ Please install these additional tools:
     Provisioning workshop resources COMPLETE
     =============================================
     ```
-
-- Download AKS Cluster credentials to manage it using kubectl via Azure CLI.
-    - https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster
 
 
 

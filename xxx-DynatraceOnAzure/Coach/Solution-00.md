@@ -11,11 +11,9 @@ We will now setup Dynatrace, Azure, and the workshop environment. You need all o
 ### What you'll need in this section
 
 
-🔷 Ensure your have an email for accessing your Dynatrace trial environment
+- Ensure your have an email for accessing your Dynatrace trial environment
 
-🔷 Setup your temporary Azure subscription 
-
-🔷 Automatically provision workshop environment and sample application
+- Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible.
 
 ### Login to Dynatrace trial environment
 
@@ -163,10 +161,10 @@ Provisioning workshop resources COMPLETE
 
 In this section, you should have completed the following:
 
-✅ Provisioned a Dynatrace tenant and Azure subscription
+- Provisioned a Dynatrace tenant and Azure subscription
 
-✅ Setup the Azure Cloud Shell to run various UNIX commands
+- Setup the Azure Cloud Shell to run various UNIX commands
 
-✅ Captured environment and token info needed for workshop provisioning automation scripts
+- Captured environment and token info needed for workshop provisioning automation scripts
 
-✅ Provisioned workshop resources
+- Provisioned workshop resources

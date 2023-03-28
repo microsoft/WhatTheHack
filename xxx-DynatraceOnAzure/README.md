@@ -25,7 +25,7 @@ In this hack you will be solving business problems that companies in any industr
 - Challenge 02: **[Dynatrace Observability on AKS](Student/Challenge-02.md)**
 	 - Deploy Dynatrace Operator on AKS cluster with a sample application and review AKS observability with Dynatrace.
 - Challenge 03: **[Automated Root Cause Analysis with Davis](Student/Challenge-03.md)**
- 	- Enable a problem in your sample application and walk through what Davis found.- Challenge 04: **[Custom Dashboard and SLO setup](Student/Challenge-04.md)**
+ 	- Enable a problem in your sample application and walk through what Davis found.
 - Challenge 04: **[Azure Monitor Metrics & Custom Dashboard](Student/Challenge-04.md)**
 	 - In this challenge, you will create a custom dashboard to track Service Level Objects (SLO's)	 
 - Challenge 05: **[Cleanup](Student/Challenge-05.md)**
