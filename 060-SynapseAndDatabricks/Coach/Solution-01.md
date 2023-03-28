@@ -14,11 +14,12 @@ For this section, there are 2 main concepts that the participants need to be abl
    More details on these steps have already been shared in the Coach's ReadMe section.  
    It would be a good idea to nominate one person from each team to host the solution in a new Resource Group in their subscription and then provide the rest of the team full [access](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) to that Resource Group. This way each person in the team can take turns to lead the hack and just in case one person has to drop, the rest of the team are not bottlenecked.  
 
-   Please setup these databases ahead of time and test their connectivity.  Samples are located at:  
+   It is the Coach's responsibilty to setup these databases ahead of time and test their connectivity.  Samples are located at:  
    [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)  
    [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers)  
          
    We recommend to make these Azure SQL databases so everyone can connect to them.  
+   
    Please remember to share the Azure SQL database connection information to the teams so that they can connect successfully to the AdventureWorks and WideWorldImporters databases.  
   
 2. __Hydration of the Bronze Data Lake__  
