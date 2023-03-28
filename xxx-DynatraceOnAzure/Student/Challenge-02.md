@@ -84,7 +84,7 @@ You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.P
 
 - Deploy Kubernetes Dynatrace Operator
     - Deploy Dynatrace Operator on the AKS Cluster using 7 steps of Automated mode in this doc: https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-container-platforms/kubernetes/get-started-with-kubernetes-monitoring#expand--instructions-for-automated-mode--2
-        -  **Note**: On Step 6, when you download the **dynakube.yaml**, you can use Upload/Download feature within Azure cloudshell to upload the file
+        >**Note**: On Step 6, when you download the **dynakube.yaml**, you can use Upload/Download feature within Azure cloudshell to upload the file
             ![](images/challenge2-azure-cloudshell-upload.png)
 - Deploy sample application
     ```bash
