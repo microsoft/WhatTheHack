@@ -144,7 +144,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Archived
 
-These hacks have been archived due to obsolesence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
+These hacks have been archived due to obsolescence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
 
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
