@@ -50,7 +50,7 @@ These databases can be obtained at the following sites:
 
 The above links should have database backup/restore scripts and SQL scripts to deploy the databases, use either one of those options at your discretion.  
 
-Also, make sure to create a database reader account that the users can utilize to read the various tables.  The _CREATE LOGIN HackathonUser.sql_ script is located in the [Solutions](./Solutions) folder.
+Also, make sure to create a database reader account that the users can utilize to read the various tables.  The `CREATE LOGIN HackathonUser.sql` script is located in the [Solutions](./Solutions) folder and can be used for this purpose.
 
 ### Student Resources
 
