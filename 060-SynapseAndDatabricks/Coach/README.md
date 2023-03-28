@@ -38,35 +38,31 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
-
 ### Additional Coach Prerequisites
 
 The purpose of this hackathon is for the participants to utilize the three-tier data lake architecture to combine different data sources into one Delta Lake architecture that can be utilized.  
 
-For Challenge 0, they will need to import data from both the AdventureWorks and WideWorldImporters databases into the Bronze layer.  Thus, for the hackathon you must setup these databases in an Azure SQL environment so that the users can connect to these as a source.  We want the users to focus on Databricks and Synapse technologies and not be responsible for setting up these databases.
+For Challenge 0, students will need to import data from both the AdventureWorks and WideWorldImporters databases into the Bronze layer.  Thus, before hosting this hackathon the lead Coach must setup these databases in an Azure SQL environment so that the students can connect to these as a source.  We want the students to focus on Databricks and Synapse technologies and not be responsible for setting up these databases.
 
 These databases can be obtained at the following sites:
 - [AdventureWorks sample databases](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
 - [World-Wide-Importers sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers) 
 
 The above links should have database backup/restore scripts and SQL scripts to deploy the databases, use either one of those options at your discretion.  
+
 Also, make sure to create a database reader account that the users can utilize to read the various tables.  The _CREATE LOGIN HackathonUser.sql_ script is located in the [Solutions](./Solutions) folder.
 
-
 ### Student Resources
-
-Currently there are no additional student resources that have to be shared before the hack. Just in case the Coaches want to share additional information, compile everything in the `/Student/Resources` folder of this hack and before the hack, it will be the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-Each team/squad will collaborate in one Student's Azure subscription.  The subscription chosen must have the ability to add all users to that subscription and give them Contributor access within the Resource Group created for this hackathon. It would be better to give all users Owner access, just so that RBAC assignments can be done if and when required. The steps on how to do that are provided [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Each team/squad will collaborate in one student's Azure subscription.  The subscription chosen must have the ability to add all users to that subscription and give them Contributor access within the Resource Group created for this hackathon. It would be better to give all users Owner access, just so that RBAC assignments can be done if and when required. The steps on how to do that are provided [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal).
   
 In terms of Azure services, the following services would generally be used.  
  - [Azure Data Lake Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) - Details on how to setup an ADLS Storage Account can be found [here](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
