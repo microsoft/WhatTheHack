@@ -24,7 +24,7 @@ More specifically, you are going to visualize the following data:
 ## What is an Azure Monitor Workbook?
 An Azure Monitor workbook is a customizable dashboard in the Azure portal that helps you visualize, analyze, and correlate data from multiple sources, including Azure resources, third-party services, and custom data sources. With Azure Monitor workbooks, you can create rich visualizations, such as tables, charts, and graphs, that provide insights into your application and infrastructure performance, health, and security.
 
-Workbooks allow you to aggregate data from multiple sources and display it in a single dashboard. This makes it easier to analyze and troubleshoot issues across different services and environments. Workbooks also enable you to create custom queries and metrics, set up alerts and notifications, and share your dashboards with other users in your organization.
+Workbooks allow you to aggregate data from multiple sources and display it in a single dashboard. This makes it easier to analyze and troubleshoot issues across different services and environments. Workbooks also enable you to create custom queries and metrics, set up alerts and notifications, and share your dashboards with other users in your organization. 
 
 Some common scenarios where Azure Monitor workbooks can be useful include:
 
