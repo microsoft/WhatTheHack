@@ -113,6 +113,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Do You Even Synapse](/024-DoYouEvenSynapse/README.md)
 - [Incremental Synapse Pipelines](/048-IncrementalSynapsePipelines/README.md)
 - [Synapse Dedicated SQL Pool - Performance Best Practices](/049-SQLDedicatedPoolPerf/README.md)
+- [Bronze/Silver/Gold Using Synapse & Databricks](/060-SynapseAndDatabricks/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md) - ARCHIVED
