@@ -9,13 +9,13 @@
 
 In order to do more with less and scale, organizations must transcend IT silos, foster collaboration and improve productivity. Automation and a common data model are key components of this, but it takes platforms that support operational teams and workflows.
 
-🔷 Review how Dynatrace integrates with [Azure monitor](https://azure.microsoft.com/en-us/services/monitor/)
+- Review how Dynatrace integrates with [Azure monitor](https://azure.microsoft.com/en-us/services/monitor/)
 
-🔷 Review how Azure monitor metrics can be configured as [Metric events for alerts](https://www.dynatrace.com/support/help/how-to-use-dynatrace/problem-detection-and-analysis/problem-detection/metric-events-for-alerting/)
+- Review how Azure monitor metrics can be configured as [Metric events for alerts](https://www.dynatrace.com/support/help/how-to-use-dynatrace/problem-detection-and-analysis/problem-detection/metric-events-for-alerting/)
 
-🔷 Examine Dynatrace Service Level Objectives (SLOs)
+- Examine Dynatrace Service Level Objectives (SLOs)
 
-🔷 Create a custom dashboard with SLOs 
+- Create a custom dashboard with SLOs 
 
 
 ## Review - Azure Monitor Setup

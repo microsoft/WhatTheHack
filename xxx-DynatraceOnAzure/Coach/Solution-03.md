@@ -11,9 +11,9 @@ In this lab, we will trigger a few problem and see how troubleshooting time is S
 
 ### Objectives of this Lab
 
-🔷 Enable a problem in the application and walk through what [Dynatrace Davis](https://www.dynatrace.com/platform/artificial-intelligence/) found
+-  Enable a problem in the application and walk through what [Dynatrace Davis](https://www.dynatrace.com/platform/artificial-intelligence/) found
 
-🔷 Review how Dynatrace process events and Tags to provide additional context in root cause analysis
+-  Review how Dynatrace process events and Tags to provide additional context in root cause analysis
 
 
 ## Review Events & Tags in Dynatrace

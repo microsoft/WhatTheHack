@@ -23,7 +23,7 @@ Sample app representing a simple architecture of a frontend and backend implemen
 
 #2 . Dynatrace monitoring
 
-The Dynatrace OneAgent has been installed by the workshop provisioning scripts and is communicating to your Dynatrace tenant.
+The Dynatrace OneAgent has been installed by this challenge via provisioning scripts and is communicating to your Dynatrace tenant.
 
 #3 . Load generator process
 
@@ -41,7 +41,7 @@ Navigate through various screens of Dynatrace to understand the details of your 
 
 -  Review real-time data now available for your application that you have to migrate
 
--  Review how Dynatrace helps with modernization planning
+-  Review how Dynatrace helps with migration or modernization planning under the tips section below
 
 ### Tasks
 

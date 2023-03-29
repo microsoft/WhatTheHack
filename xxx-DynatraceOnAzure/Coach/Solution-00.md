@@ -35,7 +35,7 @@ For this challenge, we have set-up a free Dynatrace environment with an evaluati
     b. Click on the Cloud Shell button
       ![image](Solutions/img/setup-azure-shell-open.png)
 
-      <aside class="positive"> If you get this prompt, choose bash.  </aside>
+      If you get this prompt, choose bash.  </aside>
 
      ![image](Solutions/img/setup-azure-shell-bash.png)    
 
@@ -95,7 +95,7 @@ For this challenge, we have set-up a free Dynatrace environment with an evaluati
 ## Validate workshop provisioning completed
 In this step we will verify if all of the Azure resources were provisioned for the workshop
 
-### 💥NOTE:Only proceed if the provisioning script completed with this status:
+>**Note**: Only proceed if the provisioning script completed with this status:
 
 ```
 ...

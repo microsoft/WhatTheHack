@@ -3,53 +3,43 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 
-
-## Pre-requisites (Optional)
-None
-
 ## Introduction
 
-In order to do more with less and scale, organizations must transcend IT silos, foster collaboration and improve productivity. Automation and a common data model are key components of this, but it takes platforms that support operational teams and workflows.
+In addition to monitoring your Azure workloads using OneAgent, Dynatrace provides integration with Azure Monitor which adds infrastructure monitoring to gain insight even into serverless application scenarios.
 
-Referring to the picture below, here are the components for this lab.
+Dynatrace brings value by enriching the data from Azure Monitor by extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API Management Services, and more.
 
-![](images/challenge4-azuremonitor-setup.png )
+These metrics are managed by Dynatrace's AI engine automatically and this extended observability improves operations, reduces MTTR and increases innovation.
 
-#1 . Azure: Azure cloud platform where Azure services produce metrics that are sent to Azure monitor.
+Here is an example from another environment on Azure Monitor screen looks like:
 
-#2 . Azure VM running ActiveGate: A Dynatrace ActiveGate process required to monitor Azure monitor data.
-
-#3 . Dynatrace: Dynatrace tenant where monitoring data is collected and analyzed.
-
-#4 . Dynatrace Azure Dashboard: Out of the box dashboard for each configured Azure subscription.
+![](images/challenge4-azure-montior-subscription.png)
 
 ## Description
 
 ### Objectives of this Challenge
-🔷 Review how Dynatrace integrates with [Azure monitor](https://www.dynatrace.com/support/help/how-to-use-dynatrace/infrastructure-monitoring/cloud-platform-monitoring/microsoft-azure-services-monitoring/set-up-azure-monitoring)
+- Review how Dynatrace integrates with [Azure monitor](https://www.dynatrace.com/support/help/how-to-use-dynatrace/infrastructure-monitoring/cloud-platform-monitoring/microsoft-azure-services-monitoring/set-up-azure-monitoring)
 
-🔷 Review how Azure monitor metrics can be configured as [Metric events for alerts](https://www.dynatrace.com/support/help/how-to-use-dynatrace/problem-detection-and-analysis/problem-detection/metric-events-for-alerting/)
+- Examine Dynatrace Service Level Objectives (SLOs)
 
-🔷 Examine Dynatrace Service Level Objectives (SLOs)
-
-🔷 Create a custom dashboard with SLOs
+- Create a custom dashboard with SLOs
 
 ### Tasks
 
-- Review the Azure screen in your enviornment
-    - From the left side menu in Dynatrace, click the Azure menu item.
-    - Scroll down, and in the Environment dynamics action click on the region to open the virtual machine regional page
-- Create an SLO Dashboard and call it "Cloud Migration Sucess"
+1. From the left side menu in Dynatrace, click the Azure menu item. Scroll down, and in the Environment dynamics action click on the region to open the virtual machine regional page
+    - How many Virtual Machine's exist in your region?
+    - How many VM Scale sets exist in this subscription?
+1. Create an SLO Dashboard and call it "Cloud Migration Success"
     - From the left side menu in Dynatrace, pick the dashboard menu.
-    - On the dashboard page, click the new dashboard button. Give the dashboard a name of "Cloud Migraton Sucess"
+    - On the dashboard page, click the new dashboard button. Give the dashboard a name of "Cloud Migration Success"
     - On the blank dashboard page, click the settings. Then click the advanced settings link to open then settings page
     - On the settings page, click the dashboard JSON menu.
-    - Copy and paste the following Json content from this file into your dashboard JSON, replacing the existing JSON in the process: [Dashboard JSON file Link](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/master/learner-scripts/cloud-modernization-dashboard.json)
+    - Copy and paste the following Json content from this file into your dashboard JSON, replacing the existing JSON in the process: [Dashboard JSON file link](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/master/learner-scripts/cloud-modernization-dashboard.json)
         - **Note:** You MUST replace the owner field to be the email that you logged into Dynatrace with or you will not be able to view it.
     - After you edit the email, then click the Revert Dashboard ID button. After you click the Revert Dashboard ID button, click the Save changes button.
-- View the dashboard
+1. Edit the dashboard and adjust the tiles with the SLOs and databases in your environment. Repeat the same steps above for the Cloud services tile, but pick the staging- frontend in the Service properties window
     ![](images/challenge4-slo-dashboard-init.png)
-- Edit the dashboard and adjust the tiles with the SLOs and databases in your environment. Repeat the same steps above for the Cloud services tile, but pick the staging- frontend in the Service properties window
+    
 
 
 ## Success Criteria

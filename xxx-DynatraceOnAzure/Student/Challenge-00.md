@@ -126,7 +126,7 @@ Please install these additional tools:
 
 To complete this challenge successfully, you should be able to:
 
-- Once provisioning script has completed you will see a total of 12 resources within the resource group **lastname-dynatrace-azure-modernize-wth**.
+- Once provisioning script has completed you will see a total of 12 resources within the resource group `<lastname>-dynatrace-azure-modernize-wth`.
 - Validate the Sample Application DT Orders is accessible
     - Once the deployment has completed, navigate to the Public IP Address resource, dt-orders-monolithPublicIP , in the Azure Portal.
     - In the Overview blade, copy the IP address to your clipboard.

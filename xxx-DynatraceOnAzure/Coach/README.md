@@ -17,15 +17,15 @@ The story goes that, you are new engineer that was hired to modernize a ecommerc
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
+- Challenge 01: **[OneAgent Observability on Azure VM](./Solution-01.md)**
 	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
+- Challenge 02: **[Dynatrace Observability on AKS](./Solution-02.md)**
 	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
+- Challenge 03: **[Automated Root Cause Analysis with Davis](./Solution-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
+- Challenge 04: **[Azure Monitor Metrics & Custom Dashboard](./Solution-04.md)**
 	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
+- Challenge 05: **[Cleanup](./Solution-05.md)**
 	 - Description of challenge
 
 ## Coach Prerequisites
@@ -36,7 +36,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 The folders are self contained challenges for the hack. You do not need to go to other resources to run the challenges. Attendee's will need a laptop, but only an Azure browser is required. All work will be done in the portal and the Azure Command Shell. If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea. No special software needs to be installed though.
 
-The original code base of the lab automation scripts & sample app are located below
+The original code base of the Challenges automation scripts & sample app are located below
 
 - [Dynatrace Azure Workshop Scripts](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/)
 - [Sample App Codebase](https://github.com/dt-orders)
@@ -48,19 +48,19 @@ Students will download the scripts from a github repo via the Git clone in the A
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
-**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
+>**Note** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 ### Additional Coach Prerequisites (Optional)
 
-Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
+- Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
 
-If Github repo is inaccessible, please open up a issue in the WhatTheHack repo.  
+- If Github repo is inaccessible, please open up a issue within the WhatTheHack repo.  
 
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate their AKS clusters against Azure Container Registries. For more info: 
+- Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order setup Azure Monitor metrics integration. 
 
 - Each student will spin up the following resources in Azure:
     - 2 x 2 vCPUs VMs for the AKS cluster + 1 Public IPs
@@ -70,26 +70,21 @@ This hack requires students to have access to an Azure subscription where they c
     - 1 PIP for Dynatrace Orders website on AKS    
     - Total: 7 vCPU + 3 Public IPs per student
 
-***NOTE:***
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+>**Note**
+> - Azure resources that will be consumed by a student implementing the hack's challenges
+> - Azure permissions required by a student to complete the hack's challenges.
 
 ## Suggested Hack Agenda (Optional)
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+- Sample Day 1 (~3.5 hours)
+  - Challenge 0 (45 min)
+  - Challenge 1 (1 hr)
+  - Challenge 2 (45 mins)
+  - Challenge 3 (30 mins)
+  - Challenge 4 (30 min)
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
@@ -97,5 +92,4 @@ _The default files & folders are listed below. You may add to this if you want t
   - Solution files with completed example answers to a challenge
 - `./Student`
   - Student's Challenge Guide
-- `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+
