@@ -23,11 +23,8 @@ KQL (Kusto Query Language) is a query language used for log analytics in Microso
 Heartbeat
 
 | where TimeGenerated >= ago(1d)
-
 | summarize heartbeat_count = count() by Computer
-
 | project Computer, heartbeat_count
-
 | order by heartbeat_count desc
 
 In this query, the following elements are being used:
