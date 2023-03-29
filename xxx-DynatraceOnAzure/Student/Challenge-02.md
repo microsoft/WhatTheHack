@@ -21,6 +21,7 @@ For our hack, another version of the application exists that breaks out each of 
 
 ## Description
 
+>>>>>>> 950d1d1ead8b4658e16f4b420c4085f6be779b39
 ### Objectives of this Challenge
 - Review how the sample application went from a simple architecture to multiple services
 
