@@ -60,3 +60,5 @@ In this hack, you will be getting hands on experience with monitoring resources 
 - [Sherri Babylon](https://github.com/shbabylo)
 - [Peter Laudati](https://github.com/jrzyshr)
 - [Maria Botova](https://github.com/MariaBTV)
+- [Warren Kahn](https://github.com/WKahnZA)
+
