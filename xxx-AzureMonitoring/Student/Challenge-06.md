@@ -29,9 +29,11 @@ Write a performance query that renders a time chart for the last 4 hours for bot
 * Write a performance query that renders a time chart for the last hour of the max percentage CPU usage of the AKS Cluster nodes
 - Combine infrastructure and application logs to create a single timeseries chart that includes:
   - CPU usage from the node in your AKS cluster hosting the eshoponweb app
-  - Duration of page views on your eshoponweb app hosted on the cluster
   - Save each query to your favorites.
 * Pin each of your charts to an Azure dashboard.
+
+Bonus challenge (if you also completed challenge 04)
+  - Write a query to show the duration of page views on your eshoponweb app hosted on the cluster and add the result to your dashboard
 
 Bonus question:
 How can we save our log queries and share them across multiple workspaces?
