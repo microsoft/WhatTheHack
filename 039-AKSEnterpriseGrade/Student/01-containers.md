@@ -10,7 +10,7 @@ This challenge will cover the basics of containers and container runtimes, and g
 
 Create an Azure Container Registry. Build the API and Web images in this repository and store them in your new ACR.
 
-The application we will use in this hack has three components, as the following picture describes: a [web](./Resources/web) tier offers an HTML portal that shows the information produced by the [api](./Resources/api), that in its turn access a **database** with a simple query that shows the database version. You will find the source code for each application in the files supplied for this hack:
+In this hack we will use the [YADA application (Yet Another Demo App)](https://github.com/microsoft/YADA). This application has three components, as the following picture describes: a [web tier](https://github.com/microsoft/YADA/tree/main/web) offers an HTML portal that shows the information produced by the [api tier](https://github.com/microsoft/YADA/tree/main/api), that in its turn access a **database** with a simple query that shows the database version (the database is not included in the YADA app, you can use a common SQL Server, MySQL or Postgres database). You will find the source code for each application tier in the [YADA GitHub repo](https://github.com/microsoft/YADA):
 
 ![app architecture](./images/app_arch.png)
 
@@ -33,9 +33,9 @@ For both you should get in the web frontend something like the following. If the
 
 - You can access the web component
 - The web container can access the API container
-- The api can access the database, and the database version is correctly displayed in the frontend
+- The api can access the database, and the database version is correctly displayed in the frontend tier
 
-Here a sample screenshot of what it should look like:
+Here a sample screenshot of what it should look like (you should deploy the frontend tier with the environment variable `BRANDING=whatthehack`):
 
 ![sample output](./images/aci_web.png)
 
@@ -51,8 +51,8 @@ Note the two links at the bottom of the page in the picture above will not work 
 
 These docs might help you achieving these objectives:
 
-- [API image documentation and source code](./Resources/api/README.md)
-- [Web image documentation and source code](./Resources/web/README.md)
+- [API image documentation and source code](https://github.com/microsoft/YADA/tree/main/api/README.md)
+- [Web image documentation and source code](https://github.com/microsoft/YADA/tree/main/api/README.md)
 - [Run SQL Server container images with Docker](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro)
 - [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)

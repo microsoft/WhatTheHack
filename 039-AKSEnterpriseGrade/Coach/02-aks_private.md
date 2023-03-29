@@ -4,6 +4,7 @@
 
 ## Notes and Guidance
 
+* For AKS noobs, you might want to relax the requirements and let them go with a public cluster and no Azure Firewall, although this would deviate from the "Enterprise grade guidelines"
 * Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
 * Make sure the participants understand how the Azure Load Balancers, NSGs and kubernetes services play together
 * Make sure the participants understand why the ingress needs to be deployed with a private IP address: otherwise the default route to the firewall will cause asymmetric routing
@@ -11,7 +12,7 @@
 * Feel free to leave the participants go with any ingress controller other than nginx, but nginx is probably going to be the easiest one.
 * Note that configuring a private DNS-zone was not required when creating the private cluster
 * If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
-* At the time of this writing, SLA API and private API are mutually exclusive
+* ~~At the time of this writing, SLA API and private API are mutually exclusive~~
 
 ## Solution Guide - Private Clusters and Firewall Egress
 
@@ -35,7 +36,7 @@ then
     az acr create -n $acr_name -g $rg --sku Standard
     # Build images (you should be in the hack-containers home directory)
     cd api
-    az acr build -r $acr_name -t hack/sqlapi:1.0 .
+    az acr build -r $acr_name -t hack/api:1.0 .
     cd ../web
     az acr build -r $acr_name -t hack/web:1.0 .
     az acr repository list -n $acr_name -o table
@@ -198,7 +199,8 @@ az aks create -g "$rg" -n "$aks_name" -l "$location" \
     --attach-acr "$acr_name" \
     --enable-private-cluster \
     --outbound-type userDefinedRouting \
-    --enable-managed-identity --assign-identity "$id_id"
+    --enable-managed-identity --assign-identity "$id_id" \
+    --uptime-sla
 ```
 
 You can query the FW logs and look for denied packets by the firewall, in case you have forgotten to add any URL. For example, use this query for application rule logs:
@@ -260,8 +262,21 @@ vm_identity_principalid=$(az identity show -n "${vm_name}-identity" -g "$rg" --q
 vm_identity_id=$(az identity show -n "${vm_name}-identity" -g "$rg" --query id -o tsv)
 rg_id=$(az group show -n "$rg" --query id -o tsv)
 az role assignment create --assignee "$vm_identity_principalid" --role Contributor --scope "$rg_id"
-# Install Azure CLI
+```
+
+You can use a bash alias to send commands through a jump host in an easy way. If you are not using a private cluster, you can use `alias remote=eval` so that the commands in this guide still work:
+
+```bash
+# Configure alias
 alias remote="ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no $vm_pip_ip"
+# If not using private clusters
+# alias remote=eval
+```
+
+Now we can continue with software installation in our VM:
+
+```bash
+# Install Azure CLI
 remote "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash"
 # Install kubectl
 # remote "sudo apt-get update && sudo apt-get install -y apt-transport-https"
@@ -303,19 +318,21 @@ sql_password=Microsoft123!
 az sql server create -n "$db_server_name" -g "$rg" -l "$location" --admin-user "$sql_username" --admin-password "$sql_password"
 db_server_id=$(az sql server show -n "$db_server_name" -g "$rg" -o tsv --query id)
 az sql db create -n "$db_db_name" -s "$db_server_name" -g "$rg" -e Basic -c 5
-db_server_fqdn=$(az sql server show -n "$sql_server_name" -g "$rg" -o tsv --query fullyQualifiedDomainName)
+db_server_fqdn=$(az sql server show -n "$db_server_name" -g "$rg" -o tsv --query fullyQualifiedDomainName)
 # Subnet and endpoint
 az network vnet subnet create -g "$rg" -n "$db_subnet_name" --vnet-name "$vnet_name" --address-prefix "$db_subnet_prefix"
 az network vnet subnet update -n "$db_subnet_name" -g "$rg" --vnet-name "$vnet_name" --disable-private-endpoint-network-policies true
-az network private-endpoint create -n "$sql_endpoint_name" -g "$rg" --vnet-name "$vnet_name" --subnet "$db_subnet_name" --private-connection-resource-id "$db_server_id" --group-ids sqlServer --connection-name sqlConnection
-endpoint_nic_id=$(az network private-endpoint show -n "$sql_endpoint_name" -g "$rg" --query 'networkInterfaces[0].id' -o tsv)
-endpoint_nic_ip=$(az resource show --ids "$endpoint_nic_id" --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
+az network private-endpoint create -n "$sql_endpoint_name" -g "$rg" --vnet-name "$vnet_name" --subnet "$db_subnet_name" \
+    --private-connection-resource-id "$db_server_id" --group-id sqlServer --connection-name sqlConnection
 # DNS
 az network private-dns zone create -g "$rg" -n "$private_zone_name"
-# Registration-enabled false not required any more!
 az network private-dns link vnet create -g "$rg" --zone-name "$private_zone_name" -n MyDNSLink --virtual-network "$vnet_name" --registration-enabled false
-az network private-dns record-set a create --name "$db_server_name" --zone-name "$private_zone_name" -g "$rg"
-az network private-dns record-set a add-record --record-set-name "$db_server_name" --zone-name "$private_zone_name" -g "$rg" -a "$endpoint_nic_ip"
+az network private-endpoint dns-zone-group create --endpoint-name $sql_endpoint_name -g $rg -n myzonegroup --zone-name zone1 --private-dns-zone $private_zone_name
+# Static A records not recommended
+# endpoint_nic_id=$(az network private-endpoint show -n "$sql_endpoint_name" -g "$rg" --query 'networkInterfaces[0].id' -o tsv)
+# endpoint_nic_ip=$(az resource show --ids "$endpoint_nic_id" --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
+# az network private-dns record-set a create --name "$db_server_name" --zone-name "$private_zone_name" -g "$rg"
+# az network private-dns record-set a add-record --record-set-name "$db_server_name" --zone-name "$private_zone_name" -g "$rg" -a "$endpoint_nic_ip"
 ```
 
 After having the database, we can finally deploy our images.
@@ -365,10 +382,10 @@ remote "curl -s http://${web_svc_ip} | grep Healthcheck"
 We can now configure the Database firewall to accept connections from our pod:
 
 ```bash
-# Update firewall rules
-sqlapi_source_ip=$(remote "curl -s \"http://${api_svc_ip}:8080/api/ip\" | jq -r .my_public_ip")
-az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip"
-# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
+# Update firewall rules (actually not required since using private link!!)
+# api_source_ip=$(remote "curl -s \"http://${api_svc_ip}:8080/api/ip\" | jq -r .my_public_ip")  # You can obtain the API's source IP from the web frontend too
+# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_api_aci-source --start-ip-address "$api_source_ip" --end-ip-address "$api_source_ip"
+# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_api_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
 ```
 
 And finally, the ingress controller. You can use any one you want, in this guide we include the options for Traefik and Nginx (the nginx option is more battle-tested, and hence recommended).
@@ -391,14 +408,15 @@ done
 ingress_svc_ip=$traefik_svc_ip
 ```
 
-Alternatively, the recommended option for this lab is Nginx:
+Alternatively, the recommended option for this hack is Nginx:
 
 ```bash
 # Nginx installation
 remote 'helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx'
 remote 'helm repo update'
 remote 'kubectl create ns nginx'
-remote 'helm install nginx ingress-nginx/ingress-nginx --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true'
+# See https://github.com/Azure/AKS/issues/2903
+remote 'helm install nginx ingress-nginx/ingress-nginx --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.service.externalTrafficPolicy=Local --set controller.service.type=LoadBalancer --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz'
 # nginx service IP
 nginx_svc_name=$(remote "kubectl get svc -n nginx -o json | jq -r '.items[] | select(.spec.type == \"LoadBalancer\") | .metadata.name'")
 nginx_svc_ip=$(remote "kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
@@ -425,6 +443,7 @@ And now that we have an ingress, we can create an ingress (aka route). You can u
 
 ```bash
 # Ingress route (using Nginx)
+# There seems to be a problem with the host field with some nginx versions. If you run into this, just remove the host field from the YAML
 tmp_file=/tmp/ingress.yaml
 file=ingress.yaml
 cp ./Solutions/$file $tmp_file
@@ -463,7 +482,7 @@ then
     az acr create -n $acr_name -g $rg --sku Standard
     # Build images (you should be in the hack-containers home directory)
     cd api
-    az acr build -r $acr_name -t hack/sqlapi:1.0 .
+    az acr build -r $acr_name -t hack/api:1.0 .
     cd ../web
     az acr build -r $acr_name -t hack/web:1.0 .
     az acr repository list -n $acr_name -o table
@@ -612,9 +631,9 @@ We can now configure the Database firewall to accept connections from our pod:
 
 ```bash
 # Update firewall rules
-sqlapi_source_ip=$(curl -s "http://${api_svc_ip}:8080/api/ip" | jq -r .my_public_ip)
-az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip"
-# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
+api_source_ip=$(curl -s "http://${api_svc_ip}:8080/api/ip" | jq -r .my_public_ip)
+az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_api_aci-source --start-ip-address "$api_source_ip" --end-ip-address "$api_source_ip"
+# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_api_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
 ```
 
 And finally, the ingress controller. You can use any one you want, in this guide we include the option Nginx (see the section on private clusters for Traefik).

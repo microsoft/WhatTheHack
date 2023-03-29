@@ -116,6 +116,8 @@ spec:
         env:
         - name: API_URL
           value: "http://api.__namespace__.svc.cluster.local:8080"
+        - name: BRANDING
+          value: "whatthehack"
         resources:
           requests:
             memory: "64Mi"
