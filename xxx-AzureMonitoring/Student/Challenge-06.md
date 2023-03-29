@@ -41,7 +41,7 @@ How can we save our log queries and share them across multiple workspaces?
 - Show the saved queries
 
 ## Learning Resources
-- [Getting started with Kusto](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/)
+* [Getting started with Kusto](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/)
 * [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
 * [Overview of queries](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/)
 * [Query best practises](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)
