@@ -28,10 +28,10 @@ Workbooks allow you to aggregate data from multiple sources and display it in a 
 
 Some common scenarios where Azure Monitor workbooks can be useful include:
 
-Monitoring and troubleshooting application performance and availability
-Analyzing infrastructure and resource utilization
-Identifying and responding to security threats and anomalies
-Creating custom reports and visualizations for different stakeholders and audiences
+* Monitoring and troubleshooting application performance and availability
+* Analyzing infrastructure and resource utilization
+* Identifying and responding to security threats and anomalies
+* Creating custom reports and visualizations for different stakeholders and audiences
 
 ## Success Criteria
 You have successfully created a new workbook showing the relevant metrics and now have better insights into your application's performance, availability, health, and user exprerience. 
