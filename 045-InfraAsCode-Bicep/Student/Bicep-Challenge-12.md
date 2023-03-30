@@ -1,6 +1,6 @@
-# Challenge 20 - Deploy an Azure App Service
+# Challenge 12 - Deploy an Azure App Service
 
-[< Previous Challenge](./Bicep-Challenge-11.md) - [Home](../README.md) - [Next Challenge >](./Bicep-Challenge-21.md)
+[< Previous Challenge](./Bicep-Challenge-11.md) - [Home](../README.md) - [Next Challenge >](./Bicep-Challenge-13.md)
 
 ## Introduction
 

@@ -51,9 +51,9 @@ The challenges build upon each other incrementally. You will start by creating a
    - How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
 - Challenge 11: **[Deploy resources to different scopes](./Student/Bicep-Challenge-11.md)**
    - Learn how to deploy resources to different scopes   
-- Challenge 20: **[Deploy an Azure App Service](./Student/Bicep-Challenge-20.md)**
+- Challenge 12: **[Deploy an Azure App Service](./Student/Bicep-Challenge-12.md)**
    - Learn how to an Azure App Service & deploy an app to it   
-- Challenge 21: **[Deploy an AKS cluster](./Student/Bicep-Challenge-21.md)**
+- Challenge 13: **[Deploy an AKS cluster](./Student/Bicep-Challenge-13.md)**
    - Learn how to an AKS cluster & deploy an app to it   
 
 
