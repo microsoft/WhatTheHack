@@ -15,7 +15,7 @@ Build a streaming pipeline to ingest simulated click stream data into enterprise
 ### Data Source: 
 In order to generate the source data stream for this exercise, you will need to execute sample the .Net application ([Stream Generator](https://github.com/alexkarasek/ClickStreamGenerator)).  This code will randomly generate product related data, and write it to an Azure Event Hub.
 
-**NOTE:** You can start the stream of data by executing script below in Azure Cloud Shell:
+**NOTE:** You can start the stream of data by executing script below in Azure Cloud Shell.This code creates Azure container instances, you can use an existing resource group name:
 
 ``` 
 az container create -g [Resource Group Name] --name [container name] --image
