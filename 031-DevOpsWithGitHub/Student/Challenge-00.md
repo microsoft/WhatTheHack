@@ -37,4 +37,4 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 - [Azure DevOps vs. GitHub](https://acloudguru.com/blog/engineering/azure-devops-vs-github-comparing-microsofts-devops-twins)
 - [GitHub Skills](https://skills.github.com/)
 
-[Home](../README.md) - [Next >](Challenge-01.md)
+[Home](../README.md) - [Next Challenge >](Challenge-01.md)
