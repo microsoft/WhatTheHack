@@ -1,4 +1,4 @@
-# Challenge 03: Track your work with GitHub Project Boards - Coach's Guide
+# Challenge 03: Track Your Work with GitHub Project Boards - Coach's Guide
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
