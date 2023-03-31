@@ -48,6 +48,15 @@ az vm create -n ${site_name}-nva -g $rg -l $location \
     --private-ip-address $site_bgp_ip -o none --only-show-errors
 site_ip=$(az network public-ip show -n ${site_name}-pip -g $rg --query ipAddress -o tsv) && echo "CSR deployed with public IP $site_ip"
 
+# Add rules to NSG for IPsec
+nva_nic_id=$(az vm show -n ${site_name}-nva -g $rg --query 'networkProfile.networkInterfaces[0].id' -o tsv)
+nva_nsg_id=$(az network nic show --ids $nva_nic_id --query 'networkSecurityGroup.id' -o tsv)
+nva_nsg_name=$(echo $nva_nsg_id | cut -d/ -f 9)
+echo "Adding rules to NSG $nva_nsg_name for IPsec..."
+az network nsg rule create --nsg-name "$nva_nsg_name" -g "$rg" -n Allow_Inbound_IPsec --priority 1020 \
+    --access Allow --protocol Udp --source-address-prefixes 'Internet' --direction Inbound \
+    --destination-address-prefixes '*' --destination-port-ranges 500 4500 -o none --only-show-errors
+
 # Create LNG and VPN connection in Azure
 echo "Searching for a VPN gateway in the resource group $rg..."
 vpngw_name=$(az network vnet-gateway list -g $rg --query '[0].name' -o tsv)
