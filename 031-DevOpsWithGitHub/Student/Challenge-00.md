@@ -1,14 +1,12 @@
-# What The Hack: DevOps with GitHub
+# Challenge 00 - Setup Azure & Tools
 
-## Challenge 0 - Setup Azure & Tools
+[Home](../README.md) - [Next Challenge >](Challenge-01.md)
 
-[Home](../readme.md) - [Next >](challenge01.md)
-
-### Introduction
+## Introduction
 
 DevOps is a broad concept that encompasses people, processes, and tools. The tools you use fall into a number of categories, including version control, Continuous Integration and Continuous Deployment (CI/CD), Infrastructure-as-Code, and security scanning. Within each category, you have many choices when it comes to implementation. In this challenge, you will set up your local machine and cloud environment with the minimum requirements, but the lessons that follow will translate to any DevOps practice, regardless of tooling. 
 
-### Description
+## Description
 
 1. Begin by creating a GitHub account that you can use for this hack. You may use an existing account if you have one already.
 
@@ -24,13 +22,13 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 5. Finally, you will need some version of IDE or text editor to complete the challenges. You are welcome to use built in applications such as TextEdit or Notepad, though we highly recommend development tools such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/). Follow the links to download and install, or use an editor of your choice!
 
 
-### Success Criteria
+## Success Criteria
 
 - You should now be able to login to both GitHub and Azure with valid accounts for each service. 
 - You should also have installed your preferred git client. 
 - You should have a text editor installed. 
 
-### Learning Resources
+## Learning Resources
 
 - There are many other GUI-based Git clients aside from GitHub Desktop. Feel free to explore them [here](https://git-scm.com/downloads/guis). 
 - If using VSCode as your editor, you can check [here](https://code.visualstudio.com/docs/editor/github) to learn more about the built-in Git capabilities, and integration with GitHub. Feel free to use VSCode's Git features instead of the command line or GUI client. 
@@ -39,4 +37,4 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 - [Azure DevOps vs. GitHub](https://acloudguru.com/blog/engineering/azure-devops-vs-github-comparing-microsofts-devops-twins)
 - [GitHub Skills](https://skills.github.com/)
 
-[Home](../readme.md) - [Next >](challenge01.md)
+[Home](../README.md) - [Next >](Challenge-01.md)
