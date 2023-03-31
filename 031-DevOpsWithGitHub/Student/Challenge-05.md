@@ -48,7 +48,8 @@ If everything worked, we are going to call the ARM template again, but override 
 - Rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `test` App Service. 
     **NOTE:** If you were supplied Azure connection details your coach may need to help you see this. 
 
-- If everything worked, replace the "test" in your `targetEnv` with "prod" and rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `prod` App Service. **Note: if you were supplied Azure connection details your coach may need to help you see this** 
+- If everything worked, replace the "test" in your `targetEnv` with "prod" and rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `prod` App Service. 
+   **NOTE:** If you were supplied Azure connection details your coach may need to help you see this.
 
 You should see now have all three environments in Azure.
 
@@ -72,9 +73,10 @@ Instead of changing the `targetEnv` variable for each environment that we want t
 - Configure your workflow to collect the environment name as a [workflow input](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callinputs) and use that value to override the `webAppName` parameter when calling the ARM template.
 
 **NOTE**: If you are interested in learning more about Infrastructure as Code, there are multiple [What the Hacks](https://aka.ms/wth) that cover it in greater depth:
-    - [Infrastructure As Code: Bicep](https://microsoft.github.io/WhatTheHack/045-InfraAsCode-Bicep/)
-    - [Infrastructure As Code: ARM Templates & PowerShell DSC](https://microsoft.github.io/WhatTheHack/011-InfraAsCode-ARM-DSC/)
-    - [Infrastructure As Code: Terraform](https://microsoft.github.io/WhatTheHack/012-InfraAsCode-Terraform/Student/)
-    - [Infrastructure As Code: Ansible](https://microsoft.github.io/WhatTheHack/013-InfraAsCode-Ansible/Student/)
+
+   - [Infrastructure As Code: Bicep](https://microsoft.github.io/WhatTheHack/045-InfraAsCode-Bicep/)
+   - [Infrastructure As Code: ARM Templates & PowerShell DSC](https://microsoft.github.io/WhatTheHack/011-InfraAsCode-ARM-DSC/)
+   - [Infrastructure As Code: Terraform](https://microsoft.github.io/WhatTheHack/012-InfraAsCode-Terraform/Student/)
+   - [Infrastructure As Code: Ansible](https://microsoft.github.io/WhatTheHack/013-InfraAsCode-Ansible/Student/)
     
 [< Previous Challenge](Challenge-04.md) - [Home](../README.md) - [Next Challenge >](Challenge-06.md)
