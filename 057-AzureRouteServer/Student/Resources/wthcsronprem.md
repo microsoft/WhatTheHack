@@ -4,11 +4,11 @@
 
 ## Automated deployment
 
-You can use the [OnPrem.sh script](OnPrem.sh) to deploy a CSR to simulate an on-premises network and configure it to connect to the Azure VPN gateway via IPsec and BGP.
+You can use the [OnPrem.sh script](Onprem.sh) to deploy a CSR to simulate an on-premises network and configure it to connect to the Azure VPN gateway via IPsec and BGP.
 
 ## Custom deployment
 
-If the [OnPrem.sh script](OnPrem.sh) didn't work for you, or you want to customize how the branch is created, you can use this code to deploy a Cisco CSR router to a new VNet.
+If the [OnPrem.sh script](Onprem.sh) didn't work for you, or you want to customize how the branch is created, you can use this code to deploy a Cisco CSR router to a new VNet.
 
 If you are not using bash but Windows, you will have to do some changes, such as:
 
