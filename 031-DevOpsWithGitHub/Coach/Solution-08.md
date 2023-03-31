@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- See solution, in solutions folder for GitHub Action Workflow file.
+- See solution, in `/Solutions` folder for GitHub Action Workflow file.
 
 ## Solution 
 - [Navigate to Solution for Challenge 08](./Solution/Solution-08/Solution08.yml)
