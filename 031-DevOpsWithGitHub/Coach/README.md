@@ -36,27 +36,28 @@ Welcome to the coach's guide for the DevOps with GitHub What The Hack. Here you 
 
 This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
 
-The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
+The hosting guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+By default, What The Hack assumes all students bring their own Azure subscription to participate.  Most hacks are authored with this assumption.  However, you may come across the following situations:
+
+- Some organizations may provide a single Azure subscription that students must share. 
+- If you are running a hack with students from different organizations, it is easier to provide access to Azure for the students.
+
+	**NOTE:** The What The Hack project does not have the ability to provide access to Azure subscriptions.  It is the responsibility of the host to work with a stakeholder in the organization to arrange for access to Azure.
+
+#### Provision Shared Azure & GitHub Student Resources
+
+For scenarios where students will work from a shared Azure subscription, we have provided a set of scripts that will provision access to Azure and GitHub repositories for each student.  See the [Coach's Guide for Challenge 00 - Setup Azure & Tools](./Solution-00.md) for more information on how to use these scripts BEFORE hosting the hack. 
+
+#### Provide Individual Student Resources
+
+For non-shared scenarios, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.  
-
-### Additional Coach Prerequisites
-
-If you are running this hack with a group, here are some options for providing access to Azure:
-- Each person/team uses their own subscription
-- Use a single subscription with each person/team using a different resource group
-- Use a single subscription and resource group, with each person/team creating resources within the single resource group (less ideal)
-
-Regardless of the option you choose, you'll have to consider:
-- [Azure default quotas and resource limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) (for example, # of VMs allowed per region or subscription)
-- Unique naming of resources - many services may require a globally unique name, for example, App service, container registry.
-
 
 ## Azure Requirements
 
