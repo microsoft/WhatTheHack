@@ -15,17 +15,29 @@ This DevOps with GitHub hack will help you learn:
 
 ## Challenges
  - Challenge 00: **[Setup Azure & Tools](./Student/Challenge-00.md)**
+  - Get your environment set up to hack
  - Challenge 01: **[Setup Your Repository](./Student/Challenge-01.md)**
+  - Establish version control by putting your code into a GitHub repository
  - Challenge 02: **[Setup a Codespace](./Student/Challenge-02.md)**
+  - Create a cloud based development environment with all of the prerequisite tools
  - Challenge 03: **[Track Your Work with GitHub Project Boards](./Student/Challenge-03.md)**
+  - How to track your projects/work leveraging GitHub Project Boards
  - Challenge 04: **[First GitHub Actions Workflow](./Student/Challenge-04.md)**
+  - Write a simple GitHub Actions Workflow 
  - Challenge 05: **[Infrastructure as Code](./Student/Challenge-05.md)**
+  - Infrastructure as Code Automation with GitHub Actions
  - Challenge 06: **[Continuous Integration](./Student/Challenge-06.md)**
+  - Continuous Integration with GitHub Actions 
  - Challenge 07: **[Build and Push Docker Image to Container Registry](./Student/Challenge-07.md)**
+  - Build and push Docker images to container registry(ACR)
  - Challenge 08: **[Continuous Delivery](./Student/Challenge-08.md)**
+  - Deploying your application to Azure with Continuous Delivery 
  - Challenge 09: **[Branching & Policies](./Student/Challenge-09.md)**
+  - Protecting and creating processes for your repository with branching and branch policies
  - Challenge 10: **[Security](./Student/Challenge-10.md)**
+  - Incorporating security into your projects leveraging native GitHub features
  - Challenge 11: **[Monitoring: Application Insights](./Student/Challenge-11.md)**
+  - Monitoring your applications leveraging Application Insights
 
 ## Prerequisites
 - Your own Azure subscription with **owner** access. See considerations below for additional guidance.
