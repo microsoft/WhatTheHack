@@ -14,18 +14,18 @@ This DevOps with GitHub hack will help you learn:
 6. Monitoring apps with Application Insights
 
 ## Challenges
- - [Challenge 00](./Student/Challenge-00.md): Setup Azure & Tools
- - [Challenge 01](./Student/Challenge-01.md): Setup Your Repository
- - [Challenge 02](./Student/Challenge-02.md): Setup a Codespace
- - [Challenge 03](./Student/Challenge-03.md): Track Your Work with GitHub Project Boards
- - [Challenge 04](./Student/Challenge-04.md): First GitHub Actions Workflow
- - [Challenge 05](./Student/Challenge-05.md): Infrastructure as Code
- - [Challenge 06](./Student/Challenge-06.md): Continuous Integration
- - [Challenge 07](./Student/Challenge-07.md): Build and Push Docker Image to Container Registry
- - [Challenge 08](./Student/Challenge-08.md): Continuous Delivery
- - [Challenge 09](./Student/Challenge-09.md): Branching & Policies
- - [Challenge 10](./Student/Challenge-10.md): Security
- - [Challenge 11](./Student/Challenge-11.md): Monitoring: Application Insights
+ - Challenge 00: [Setup Azure & Tools](./Student/Challenge-00.md)
+ - Challenge 01: [Setup Your Repository](./Student/Challenge-01.md)
+ - Challenge 02: [Setup a Codespace](./Student/Challenge-02.md)
+ - Challenge 03: [Track Your Work with GitHub Project Boards](./Student/Challenge-03.md)
+ - Challenge 04: [First GitHub Actions Workflow](./Student/Challenge-04.md)
+ - Challenge 05: [Infrastructure as Code](./Student/Challenge-05.md)
+ - Challenge 06: [Continuous Integration](./Student/Challenge-06.md)
+ - Challenge 07: [Build and Push Docker Image to Container Registry](./Student/Challenge-07.md)
+ - Challenge 08: [Continuous Delivery](./Student/Challenge-08.md)
+ - Challenge 09: [Branching & Policies](./Student/Challenge-09.md)
+ - Challenge 10: [Security](./Student/Challenge-10.md)
+ - Challenge 11: [Monitoring: Application Insights](./Student/Challenge-11.md)
 
 ## Prerequisites
 - Your own Azure subscription with **owner** access. See considerations below for additional guidance.
