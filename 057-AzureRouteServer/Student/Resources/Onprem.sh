@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# This script will deploy an onprem CSR to a dedicated Azure VNet
+# This script will deploy an onprem CSR to a dedicated Azure VNet, and connect it
+#   to an existing VPN gateway via IPsec+BGP.
 
 # Collect input parameters from the user
 echo -n "Please enter the resource group name where the VPN VPG is located: "
