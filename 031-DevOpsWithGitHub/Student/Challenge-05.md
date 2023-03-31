@@ -1,4 +1,4 @@
-# Challenge 5 - Infrastructure as Code (IaC)
+# Challenge 05 - Infrastructure as Code (IaC)
 
 [< Previous Challenge](Challenge-04.md) - [Home](../README.md) - [Next Challenge >](Challenge-06.md)
 
