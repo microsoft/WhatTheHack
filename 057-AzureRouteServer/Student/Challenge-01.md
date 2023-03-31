@@ -30,10 +30,11 @@ At the end of this challenge, you should:
 
 - Have a basic Hub and Spoke Topology in Azure connecting to a simulated On-Premises Environment. 
 - Verify all traffic is going through the Central Network Virtual Appliance:
-  - spoke-to-spoke
-  - spokes-to-onprem
-  - onprem-to-hub
-  - onprem-to-spokes
+  - Spoke to spoke
+  - Spokes to onprem
+  - Onprem to hub VM
+  - Spokes to Internet
+  - Spoke to hub VM
 
 
 ## Learning Resources
