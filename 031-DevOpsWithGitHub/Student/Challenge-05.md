@@ -12,7 +12,7 @@ Review the following articles:
 - [Create Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/how-to-create-template)
 
 
-## Challenge
+## Description
 
 We will use GitHub Actions to automate the deployment of our Azure infrastructure. For our application, we will deploy 3 environments: `dev`, `test` and `prod`. Each environment will have its own Web App, however all of our environments will share a single Resource Group, App Service Plan, Application Insights instance, and Azure Container Registry. 
 
@@ -37,6 +37,7 @@ We will use GitHub Actions to automate the deployment of our Azure infrastructur
     - Use the "Deploy Azure Resource Manager (ARM) Template" action to call your ARM template in your repo
 
 - Manually run your workflow. When your workflow completes successfully, go to the Azure portal to see the `dev` environment. 
+    
     **NOTE:** If you were supplied Azure connection details your coach may need to help you see this. 
 
 If everything worked, we are going to call the ARM template again, but override the `webAppName` parameter in the ARM template.
@@ -46,9 +47,11 @@ If everything worked, we are going to call the ARM template again, but override 
 - Update your "Deploy Azure Resource Manager (ARM) Template" action to call your ARM template in your repo and override the `webAppName` parameter with the new `targetEnv` environment variable.
 
 - Rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `test` App Service. 
+    
     **NOTE:** If you were supplied Azure connection details your coach may need to help you see this. 
 
 - If everything worked, replace the "test" in your `targetEnv` with "prod" and rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `prod` App Service. 
+   
    **NOTE:** If you were supplied Azure connection details your coach may need to help you see this.
 
 You should see now have all three environments in Azure.
