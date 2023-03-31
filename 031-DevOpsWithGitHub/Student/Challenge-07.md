@@ -1,4 +1,4 @@
-# Challenge 7 - Build and Push Docker Image to Container Registry
+# Challenge 07 - Build and Push Docker Image to Container Registry
 
 [< Previous Challenge](Challenge-06.md) - [Home](../README.md) - [Next Challenge >](Challenge-08.md)
 
