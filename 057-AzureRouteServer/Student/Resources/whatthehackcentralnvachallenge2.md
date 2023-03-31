@@ -106,13 +106,13 @@ end
 
 This list is by no means comprehensive, but it is conceived to give some of the most useful commands for admins new to the Cisco CLI
 
-* **config t**: enter configuration mode
-* **write mem**: save the config to non-volatile storage
-* **show ip bgp summary**: show the status of configured BGP adjacencies
-* **show ip bgp**: show the prefixes that exist on the control plane of the BGP engine
-* **show ip route**: show the system routing table
-* **show ip bgp neighbors (neighbor ip) advertised-routes**: show routes advertised to a particular neighbor
-* **show ip bgp neighbors (neighbor ip) routes**: show routes received from a particular neighbor
-* **show ip route bgp**: show the BGP routes in the routing table
-* **show running | section bgp**: shows the running configuration relative to BGP
-* **show running | include ip route**: shows the static routes configured in the router
+* `config t`: enter configuration mode
+* `write mem`: save the config to non-volatile storage
+* `show ip bgp summary`: show the status of configured BGP adjacencies
+* `show ip bgp`: show the prefixes that exist on the control plane of the BGP engine
+* `show ip route`: show the system routing table
+* `show ip bgp neighbors (neighbor ip) advertised-routes`: show routes advertised to a particular neighbor
+* `show ip bgp neighbors (neighbor ip) routes`: show routes received from a particular neighbor
+* `show ip route bgp`: show the BGP routes in the routing table
+* `show running | section bgp`: shows the running configuration relative to BGP
+* `show running | include ip route`: shows the static routes configured in the router

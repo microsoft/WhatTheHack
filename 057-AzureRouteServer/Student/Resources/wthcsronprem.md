@@ -142,19 +142,19 @@ wr mem
 
 This list is by no means comprehensive, but it is conceived to give some of the most useful commands for admins new to the Cisco CLI
 
-* **config t**: enter configuration mode
-* **write mem**: save the config to non-volatile storage
-* **show ip interface brief**: show a summary of the network interfaces in the system
+* `config t`: enter configuration mode
+* `write mem`: save the config to non-volatile storage
+* `show ip interface brief`: show a summary of the network interfaces in the system
 
 ### Check IPSec tunnel
 
-* **show interface tunnel 1** shows the status of the tunnel interface (VTI), should be up/up
-* **show crypto session** shows the status of the session. Should be Active
-* **show crypto ipsec transform-set** shows the policy applied to the ipsec tunnel
-* **show crypto ikev2 proposal** shows the policy applied to phase 1 of the tunnel
+* `show interface tunnel 1` shows the status of the tunnel interface (VTI), should be up/up
+* `show crypto session` shows the status of the session. Should be Active
+* `show crypto ipsec transform-set` shows the policy applied to the ipsec tunnel
+* `show crypto ikev2 proposal` shows the policy applied to phase 1 of the tunnel
 
 ### Check BGP sessions
 
-* **show ip bgp summary**: show the status of configured BGP adjacencies
-* **show ip route**: show the system routing table
-* **show ip route bgp**: show the BGP routes in the routing table
+* `show ip bgp summary`: show the status of configured BGP adjacencies
+* `show ip route`: show the system routing table
+* `show ip route bgp`: show the BGP routes in the routing table
