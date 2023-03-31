@@ -1,6 +1,6 @@
 # Challenge 01 - Setup Your Repository - Coach's Guide
 
-[< Previous Solution](./Solution-00.md) **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
+[< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
