@@ -35,7 +35,7 @@ Your coach will provide you the URL to an existing repo with the sample applicat
 
 DevOps best practices can apply to any programming language, so for today we have provided you a simple .NET Core web application to use.
 
-- Begin by cloning the GitHub repository to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)) from the repository supplied to you by your coach.
+- Begin by cloning the GitHub repository provided by your coach to your local computer ([hint](https://help.github.com/en/articles/cloning-a-repository)).
 
 ## Success Criteria
 
