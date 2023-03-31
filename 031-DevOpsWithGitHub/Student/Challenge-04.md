@@ -1,4 +1,4 @@
-# Challenge 4 - Your First GitHub Actions Workflow
+# Challenge 04 - Your First GitHub Actions Workflow
 
 [< Previous Challenge](Challenge-03.md) - [Home](../README.md) - [Next Challenge >](Challenge-05.md)
 
