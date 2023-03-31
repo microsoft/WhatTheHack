@@ -1,4 +1,4 @@
-# Challenge 01 - Centralize your code with GitHub Repos - Coach's Guide
+# Challenge 01 - Setup Your Repository - Coach's Guide
 
 **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
