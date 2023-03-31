@@ -32,7 +32,7 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 
 - There are many other GUI-based Git clients aside from GitHub Desktop. Feel free to explore them [here](https://git-scm.com/downloads/guis). 
 - If using VSCode as your editor, you can check [here](https://code.visualstudio.com/docs/editor/github) to learn more about the built-in Git capabilities, and integration with GitHub. Feel free to use VSCode's Git features instead of the command line or GUI client. 
-- [What is DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)
+- [What is DevOps?](https://learn.microsoft.com/en-us/devops/what-is-devops)
 - [What is GitHub?](https://guides.github.com/activities/hello-world/)
 - [Azure DevOps vs. GitHub](https://acloudguru.com/blog/engineering/azure-devops-vs-github-comparing-microsofts-devops-twins)
 - [GitHub Skills](https://skills.github.com/)
