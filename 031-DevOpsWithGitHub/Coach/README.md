@@ -53,7 +53,7 @@ For scenarios where students will work from a shared Azure subscription, we have
 
 #### Provide Individual Student Resources
 
-For non-shared scenarios, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+For non-shared scenarios, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the `Resources.zip` file to all students at the start of the hack. This package contains the sample application & ARM templates the students will use to complete the hack's challenges.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
