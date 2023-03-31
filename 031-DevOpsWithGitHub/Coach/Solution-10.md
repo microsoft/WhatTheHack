@@ -1,6 +1,6 @@
 # Challenge 10: Security - Coach's Guide
 
-[< Previous Solution](./Solution-09.md) - **[Home](./README.md)** - [Next Solution >](./Solution-118.md)
+[< Previous Solution](./Solution-09.md) - **[Home](./README.md)** - [Next Solution >](./Solution-11.md)
 
 ## Notes & Guidance
 
