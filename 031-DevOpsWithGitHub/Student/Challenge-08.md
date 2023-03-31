@@ -1,4 +1,4 @@
-# Challenge 8 – Continuous Delivery (CD)
+# Challenge 08 – Continuous Delivery (CD)
 
 [< Previous Challenge](Challenge-07.md) - [Home](../README.md) - [Next Challenge >](Challenge-09.md)
 
