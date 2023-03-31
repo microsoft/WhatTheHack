@@ -1,6 +1,8 @@
 [< Back to Challenge 1](../Challenge-01.md) 
 
-#### You can use this script to deploy and configure the Central Network Virtual Appliance (Cisco CSR 1000v):
+# Deploying an NVA in the hub VNet
+
+You can use this code to deploy and configure the Central Network Virtual Appliance (Cisco CSR 1000v):
 
 ### Azure CLI CSR Creation
 
