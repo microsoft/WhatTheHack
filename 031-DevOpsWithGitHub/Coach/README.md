@@ -43,7 +43,7 @@ The hosting guide covers the common preparation steps a coach needs to do before
 By default, What The Hack assumes all students bring their own Azure subscription to participate.  Most hacks are authored with this assumption.  However, you may come across the following situations:
 
 - Some organizations may provide a single Azure subscription that students must share. 
-- If you are running a hack with students from different organizations, it is easier to provide access to Azure for the students.
+- If you are running a hack with students from different organizations, it is easier to provide access to an individual or a shared Azure subscription(s) for the students.
 
 	**NOTE:** The What The Hack project does not have the ability to provide access to Azure subscriptions.  It is the responsibility of the host to work with a stakeholder in the organization to arrange for access to Azure.
 
