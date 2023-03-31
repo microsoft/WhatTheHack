@@ -1,4 +1,4 @@
-# Challenge 3 - Track Your Work with GitHub Project Boards
+# Challenge 03 - Track Your Work with GitHub Project Boards
 
 [< Previous Challenge](Challenge-02.md) - [Home](../README.md) - [Next Challenge >](Challenge-04.md)
 
