@@ -14,18 +14,18 @@ This DevOps with GitHub hack will help you learn:
 6. Monitoring apps with Application Insights
 
 ## Challenges
- - [Challenge 0](./Student/challenge00.md) - Setup Azure & Tools
- - [Challenge 1](./Student/challenge01.md) - Setup your repository
- - [Challenge 2](./Student/challenge02.md) - Setup a Codespace
- - [Challenge 3](./Student/challenge03.md) - Track your work with GitHub Project Boards
- - [Challenge 4](./Student/challenge04.md) - First GitHub Actions Workflow
- - [Challenge 5](./Student/challenge05.md) - Infrastructure as Code
- - [Challenge 6](./Student/challenge06.md) - Continuous Integration
- - [Challenge 7](./Student/challenge07.md) - Build and push Docker image to container registry
- - [Challenge 8](./Student/challenge08.md) - Continuous Delivery
- - [Challenge 9](./Student/challenge09.md) - Branching & Policies
- - [Challenge 10](./Student/challenge10.md) - Security
- - [Challenge 11](./Student/challenge11.md) - Monitoring: Application Insights
+ - [Challenge 00](./Student/Challenge-00.md) - Setup Azure & Tools
+ - [Challenge 01](./Student/Challenge-01.md) - Setup your repository
+ - [Challenge 02](./Student/Challenge-02.md) - Setup a Codespace
+ - [Challenge 03](./Student/Challenge-03.md) - Track your work with GitHub Project Boards
+ - [Challenge 04](./Student/Challenge-04.md) - First GitHub Actions Workflow
+ - [Challenge 05](./Student/Challenge-05.md) - Infrastructure as Code
+ - [Challenge 06](./Student/Challenge-06.md) - Continuous Integration
+ - [Challenge 07](./Student/Challenge-07.md) - Build and push Docker image to container registry
+ - [Challenge 08](./Student/Challenge-08.md) - Continuous Delivery
+ - [Challenge 09](./Student/Challenge-09.md) - Branching & Policies
+ - [Challenge 10](./Student/Challenge-10.md) - Security
+ - [Challenge 11](./Student/Challenge-11.md) - Monitoring: Application Insights
 
 
 ## Prerequisites
@@ -51,8 +51,8 @@ Regardless of the option you choose, you'll have to consider:
 - Unique naming of resources - many services may require a globally unique name, for example, App service, container registry.
 
 ## Contributors
-- Kevin M. Gates
+- [Kevin M. Gates](https://github.com/kevinmgates)
 - Will Fox
-- Andy Huang
+- [Andy Huang](https://github.com/whowong)
 - Julia Nathan
-- Colin Beales
+- [Colin Beales](https://github.com/colinbeales/)
