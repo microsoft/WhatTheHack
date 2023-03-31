@@ -2,10 +2,18 @@
 
 [< Back to Challenge 1](../Challenge-01.md) 
 
-## Sample deployment script
+## Automated deployment
 
-You can use this script to deploy a Cisco CSR router to a new Vnet. 
-(If you are not using bash, add $ symbol to the variable and double quote the values)
+You can use the [OnPrem.sh script](OnPrem.sh) to deploy a CSR to simulate an on-premises network and configure it to connect to the Azure VPN gateway via IPsec and BGP.
+
+## Custom deployment
+
+If the [OnPrem.sh script](OnPrem.sh) didn't work for you, or you want to customize how the branch is created, you can use this code to deploy a Cisco CSR router to a new VNet.
+
+If you are not using bash but Windows, you will have to do some changes, such as:
+
+- Add a `$` symbol to the variable names when they are declared
+- Double quote the values
 
 ```bash
 rg=datacenter-rg
@@ -43,7 +51,6 @@ site_ip=$(az network public-ip show -n ${site_name}-pip -g $rg --query ipAddress
 ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no ${site_username}@${site_ip} "show ip interface brief"
 
 ```
-
 
 ## IOS config snippets
 
