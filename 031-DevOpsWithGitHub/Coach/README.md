@@ -46,6 +46,17 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.  
 
+### Additional Coach Prerequisites
+
+If you are running this hack with a group, here are some options for providing access to Azure:
+- Each person/team uses their own subscription
+- Use a single subscription with each person/team using a different resource group
+- Use a single subscription and resource group, with each person/team creating resources within the single resource group (less ideal)
+
+Regardless of the option you choose, you'll have to consider:
+- [Azure default quotas and resource limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) (for example, # of VMs allowed per region or subscription)
+- Unique naming of resources - many services may require a globally unique name, for example, App service, container registry.
+
 
 ## Azure Requirements
 
