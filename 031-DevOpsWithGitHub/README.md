@@ -15,7 +15,7 @@ This DevOps with GitHub hack will help you learn:
 
 ## Challenges
  - [Challenge 00](./Student/Challenge-00.md) - Setup Azure & Tools
- - [Challenge 01](./Student/Challenge-01.md) - Setup your repository
+ - [Challenge 01](./Student/Challenge-01.md) - Setup Your Repository
  - [Challenge 02](./Student/Challenge-02.md) - Setup a Codespace
  - [Challenge 03](./Student/Challenge-03.md) - Track your work with GitHub Project Boards
  - [Challenge 04](./Student/Challenge-04.md) - First GitHub Actions Workflow
