@@ -12,7 +12,7 @@ In this challenge you will learn how to build a basic test bed upon which to sim
 
 In this challenge you will create the topology described in this diagram:
 
-![hubnspoke noARS](./Resources/media/azurerouteserver-challenge1.png)
+![hubnspoke noARS](./Resources/media/azurerouteserver-challenge1-1nic.png)
 
 Please perform the following actions:
 - Create a Hub and Spoke Topology as described above. **Do not use Azure Route Server yet.**
