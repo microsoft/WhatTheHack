@@ -14,18 +14,18 @@ This DevOps with GitHub hack will help you learn:
 6. Monitoring apps with Application Insights
 
 ## Challenges
- - Challenge 00: [Setup Azure & Tools](./Student/Challenge-00.md)
- - Challenge 01: [Setup Your Repository](./Student/Challenge-01.md)
- - Challenge 02: [Setup a Codespace](./Student/Challenge-02.md)
- - Challenge 03: [Track Your Work with GitHub Project Boards](./Student/Challenge-03.md)
- - Challenge 04: [First GitHub Actions Workflow](./Student/Challenge-04.md)
- - Challenge 05: [Infrastructure as Code](./Student/Challenge-05.md)
- - Challenge 06: [Continuous Integration](./Student/Challenge-06.md)
- - Challenge 07: [Build and Push Docker Image to Container Registry](./Student/Challenge-07.md)
- - Challenge 08: [Continuous Delivery](./Student/Challenge-08.md)
- - Challenge 09: [Branching & Policies](./Student/Challenge-09.md)
- - Challenge 10: [Security](./Student/Challenge-10.md)
- - Challenge 11: [Monitoring: Application Insights](./Student/Challenge-11.md)
+ - Challenge 00: **[Setup Azure & Tools](./Student/Challenge-00.md)**
+ - Challenge 01: **[Setup Your Repository](./Student/Challenge-01.md)**
+ - Challenge 02: **[Setup a Codespace](./Student/Challenge-02.md)**
+ - Challenge 03: **[Track Your Work with GitHub Project Boards](./Student/Challenge-03.md)**
+ - Challenge 04: **[First GitHub Actions Workflow](./Student/Challenge-04.md)**
+ - Challenge 05: **[Infrastructure as Code](./Student/Challenge-05.md)**
+ - Challenge 06: **[Continuous Integration](./Student/Challenge-06.md)**
+ - Challenge 07: **[Build and Push Docker Image to Container Registry](./Student/Challenge-07.md)**
+ - Challenge 08: **[Continuous Delivery](./Student/Challenge-08.md)**
+ - Challenge 09: **[Branching & Policies](./Student/Challenge-09.md)**
+ - Challenge 10: **[Security](./Student/Challenge-10.md)**
+ - Challenge 11: **[Monitoring: Application Insights](./Student/Challenge-11.md)**
 
 ## Prerequisites
 - Your own Azure subscription with **owner** access. See considerations below for additional guidance.
