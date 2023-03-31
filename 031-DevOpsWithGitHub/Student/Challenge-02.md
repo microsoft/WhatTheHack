@@ -1,4 +1,4 @@
-# Challenge 2 - Setup a Codespace
+# Challenge 02 - Setup a Codespace
 
 [< Previous Challenge](Challenge-01.md) - [Home](../README.md) - [Next Challenge >](Challenge-03.md)
 
