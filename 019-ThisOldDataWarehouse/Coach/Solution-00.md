@@ -24,6 +24,19 @@ For this challenge, you will deploy the WWI databases and an initial set of Azur
 
 Students will find the provided deployment script (`hacksetup.sh`), ARM Template (`deployHack.json`), and parameters file (`deployHackParameters.json`) in the `/Challenge0/` folder of the `Resources.zip` file that coaches must create from the contents of the `/Student/Resources` folder of this hack of the repo.
 
+Ask students remove code highlighted below in hacksetup.sh file provided in the `Resources.zip` before running it in Azure Cloud Shell
+    ```bash
+    #az login
+    #az account set --subscription $subscription
+    RGNAME="[ENTER RESOURCE GROUP NAME]"
+    deploymentName="$RESOURCEPREFIX-deployment"
+
+    # COMMENT OUT THE CODE BELOW  
+    #echo
+    #echo "Creating resource group '$RGNAME' in Azure region '$LOCATION'..."
+    #az group create --location $LOCATION --name $RGNAME
+    ```
+
 ###  Azure Resources
 
 The `hacksetup.sh` file will setup an:
