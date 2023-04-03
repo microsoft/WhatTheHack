@@ -47,7 +47,20 @@ You will find the provided deployment script (`hacksetup.sh`), ARM Template (`de
 
 Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure Cloud Shell](https://shell.azure.com) and complete the following steps:
 
-1. Run the deployment script by running the following commands:
+1. Remove code highlighted below in hacksetup.sh file provided in the `Resources.zip` and add the name for the resource group you have created or been provided
+    ```bash
+    #az login
+    #az account set --subscription $subscription
+    RGNAME="[ENTER RESOURCE GROUP NAME]"
+    deploymentName="$RESOURCEPREFIX-deployment"
+
+    # COMMENT OUT THE CODE BELOW  
+    #echo
+    #echo "Creating resource group '$RGNAME' in Azure region '$LOCATION'..."
+    #az group create --location $LOCATION --name $RGNAME
+    ```
+
+2. Run the deployment script by running the following commands:
     ```bash
     # Make the file executable
     chmod +x hacksetup.sh
@@ -72,11 +85,11 @@ Navigate to wherever you have unpacked the `/Challenge0/` folder in your [Azure 
     - Azure SQL Database Instance & SSIS Runtime
     - SSIS environment in Azure Data Factory
 
-1. Start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
+3. Start your Azure Data Factory SSIS Runtime Service.  Go to [Connection pane](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure#connections-pane) in your Azure Data Factory service.  The startup time is approximately 5 minutes.
 
-1. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
+4. Review the database catalog on the data warehouse for familiarity of the schema [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-dw-database-catalog?view=sql-server-ver15)
 
-1. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
+5. Review ETL workflow to understand the data flow and architecture [Reference document](https://docs.microsoft.com/en-us/sql/samples/wide-world-importers-perform-etl?view=sql-server-ver15)
 
 ![The Solution diagram is described in the text following this diagram.](../Coach/images/current.png)
 
