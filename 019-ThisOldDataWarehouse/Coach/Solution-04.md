@@ -31,7 +31,7 @@ Follow Event Hub quickstart instructions [here](https://docs.microsoft.com/en-us
 **Step 2 - Set up and configure data source**
 Open and configure Click Stream Generator application found [here](https://github.com/alexkarasek/ClickStreamGenerator).  You will need to provide your host name and shared access policy key in the appsettings.json file. You can use the code below to create and deploy the container instance in Azure instead of using docker. 
 
-Here is a script to simplify deployment and reduce setup time for the hack.  This script is provided in the student's challenge. The code below creates Azure container instances, you can use an existing resource group name and use a new name for EH Host Name. Get the 'sasKeyValue' from 'Shared Access policies' tab within the Events Hub Namespace area. 
+Here is a script to simplify deployment and reduce setup time for the hack.  This script is provided in the student's challenge. The code below creates Azure container instances, you can use an existing resource group name and replace the **Host Name** with the Events Hub Namespace created in Step 1. Get the 'sasKeyValue' from 'Shared Access policies' tab within the Events Hub Namespace area. 
 
 ``` 
 az container create -g [Resource Group Name] --name [container name] --image
