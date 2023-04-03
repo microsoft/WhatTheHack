@@ -10,6 +10,7 @@ be showcasing how to migrate your traditional SQL Server (SMP) to Azure Synapse 
 
 ## Migration Overview
 
+
 The objective of this lab is to migrate the WWI DW (OLAP) to Azure Synapse Analytics.  Azure Synapse Analytics is a MPP (Massive Parallel Processing) platform that allows you to scale out your datawarehouse by adding new server nodes (compute) rather than adding more cores to the server.  
 
 Reference:
@@ -39,8 +40,11 @@ Database schemas need to be migrated from SQL Server to Azure Synapse.  Due to t
     * Identify which tables are hash, replicated and round-robin. Read this [document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
     * Determine your distribution column (HINT IDENTITY Column can not be your distribution key)
     * Some Fact Table primary key are a composite key from source system
-4. Execute these scripts on the Azure Synapse Analytics database
-5. Run this query to identify which columns are not supported by Azure Synapse Analytics
+
+5. Create a synapse resource and consequent sql pool on the server 
+**Instructions say to create schema/refactor procs etc., this can be done via queries as part of the hack, but running the master.sql script will migrate the entire OLAP database objects – run script on data studio or management studio, not through portal/browser**
+6. Execute these scripts on the Azure Synapse Analytics database
+7. Run this query to identify which columns are not supported by Azure Synapse Analytics
 ```
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
 	FROM sys.tables  t
@@ -49,7 +53,7 @@ SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_def
 	WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
 	OR  y.[is_user_defined] = 1;
 ```
-6. Review IDENTITY article to ensure surrogate keys are in the right sequence [Reference document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
+8. Review IDENTITY article to ensure surrogate keys are in the right sequence [Reference document](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext)
     
 
 ### Database code rewrite
