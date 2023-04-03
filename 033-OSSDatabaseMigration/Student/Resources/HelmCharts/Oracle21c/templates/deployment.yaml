@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.infrastructure.appName }}
+  namespace: "{{ .Values.infrastructure.namespace }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.application.labelValue }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application.labelValue }}
+    spec:
+      containers:
+      - image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"      
+        name: {{ .Values.infrastructure.appName }}
+        resources:
+          requests:
+            memory: "{{ .Values.resources.requests.memory }}"
+            cpu: "{{ .Values.resources.requests.cpu }}"
+          limits:
+            memory: "{{ .Values.resources.limits.memory }}"
+            cpu: "{{ .Values.resources.limits.cpu }}"
+        env:
+        - name: ORACLE_SID
+          valueFrom: 
+            secretKeyRef:
+              name: oracle
+              key: oracle_sid
+        - name: ORACLE_PDB
+          valueFrom: 
+            secretKeyRef:
+              name: oracle
+              key: oracle_pdb
+        - name: ORACLE_PWD
+          valueFrom: 
+            secretKeyRef:
+              name: oracle
+              key: oracle_pwd
+        ports:
+        - containerPort: {{ .Values.service.port }}
+          name: oracle
+        readinessProbe:
+          tcpSocket:
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+        livenessProbe:
+          tcpSocket:
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 15
+          failureThreshold: 5
+          periodSeconds: 16
+        volumeMounts:
+        - name: "{{ .Values.infrastructure.volumeName }}-volume"
+          mountPath: {{ .Values.infrastructure.dataVolume }}     
+      volumes:
+      - name: "{{ .Values.infrastructure.volumeName }}-volume"
+        persistentVolumeClaim:
+          claimName: "{{ .Values.infrastructure.volumeName }}-persistent-storage"
+      initContainers:
+      - name: initcontainer # Or replace the name
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - chown 54321:54321 {{ .Values.infrastructure.dataVolume }}; 
+        volumeMounts:
+        - name: "{{ .Values.infrastructure.volumeName }}-volume"
+          mountPath: {{ .Values.infrastructure.dataVolume }} # Must match the mount path in the args line      
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "{{ .Values.infrastructure.volumeName }}-persistent-storage"
+  namespace: "{{ .Values.infrastructure.namespace }}"
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: {{ .Values.resources.volume.storageClass }}
+  resources:
+    requests:
+      storage: {{ .Values.resources.volume.size }}

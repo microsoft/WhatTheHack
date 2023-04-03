@@ -1,0 +1,8 @@
+{{ if eq .Values.infrastructure.namespace "default" }}
+# Do not create namespace
+{{ else }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.infrastructure.namespace }}
+{{ end }}
