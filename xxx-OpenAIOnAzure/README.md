@@ -2,15 +2,23 @@
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+This introductory hackathon will provide participants with hands-on experience on how to integrate the Azure Open AI offering as well as the upstream Open AI service with Microsoft Azure platform services.
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+The objective of the hackathon is to demonstrate different strategies for integrating the Azure Open AI product as well as the upstream Open AI offering with Azure Platform products including but not limited to Azure Cognitive Services, Partner offerings on Microsoft and Open-Source projects.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+
+The participants will learn how to:
+- Select different architectures to implement Open AI solutions on Azure based on the scenarios
+- Understand when to use Open AI products and when to leverage Cognitive Services or other solutions
+- Provision and configure Azure Open AI resources
+- Secure access to Azure Open AI Resources
+- Integrate Azure Private Virtual Networks with Azure Open AI
+- Perform capacity planning and quota enforcement for Open AI resources
+- Manage availability, business continuity and disaster recovery.
+- Implement solutions for batch and near real-time use cases.
+
 
 ## Challenges
 
@@ -39,10 +47,11 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Access to an Azure subscription with Owner access
+	- If you don’t have one, Sign Up for Azure HERE
+	- Familiarity with Azure Cloud Shell
+- An IDE: Visual Studio Code, WebStorm, PyCharm or IntelliJ
+
 
 ## Contributors
 
