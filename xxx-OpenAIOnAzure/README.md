@@ -52,3 +52,4 @@ In this hack you will be solving the common business problem that companies in t
 - [Alexis Joseph](https://github.com/alexistj)
 - [Melody Yin](https://github.com/melody-N07)
 - [Devanshi Thakar](https://github.com/devanshithakar12)
+- [Steve Kerr Lindsay](https://github.com/MicrosoftCSA)
