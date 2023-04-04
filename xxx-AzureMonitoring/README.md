@@ -12,8 +12,6 @@ In this hack, you will be getting hands on experience with monitoring resources 
 
 ## Challenges
 
-### Note: For a "choose your own adventure" hack experience after completing challenge 02, you can complete any combination of challenges 03, 04 and 05 but must do a minimum of one of them in order to proceed to challenge 06
-
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your Azure environement and deploy your eShopOnWeb application.
 - Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](Student/Challenge-01.md)**
