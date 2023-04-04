@@ -11,21 +11,21 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
+	 - Prepare your Azure environement and deploy your eShopOnWeb application.
 - Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](./Solution-01.md)**
-	 - Description of challenge
+	 - Configure basic monitoring and alerting
 - Challenge 02: **[Setting up Monitoring via Automation](./Solution-02.md)**
-	 - Description of challenge
+	 - Automate deployment of Azure Monitor at scale
 - Challenge 03: **[Azure Monitor for Virtual Machines](./Solution-03.md)**
-	 - Description of challenge
+	 - Configure VM Insights and monitoring of virtual machine performance
 - Challenge 04: **[Azure Monitor for Applications](./Solution-04.md)**
-	 - Description of challenge
+	 - Monitoring applications for issues
 - Challenge 05: **[Azure Monitor for Containers](./Solution-05.md)**
-	 - Description of challenge
+	 - Monitoring containers performance and exceptions
 - Challenge 06: **[Log Queries with Kusto Query Language (KQL)](./Solution-06.md)**
-	 - Description of challenge
+	 - Use the Kusto Query Language (KQL) to write and save queries
 - Challenge 07: **[Visualizations](./Solution-07.md)**
-	 - Description of challenge
+	 - Create visualizations to build insights from the data collected in the previous challenges
 
 ## Coach Prerequisites
 
@@ -57,6 +57,8 @@ _For example:_
 - Azure permissions required by a student to complete the hack's challenges.
 
 ## Suggested Hack Agenda (Optional)
+
+### Note: For a "choose your own adventure" hack experience after completing challenge 02, you can complete any combination of challenges 03, 04 and 05 but must do a minimum of one of them in order to proceed to challenge 06
 
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
