@@ -65,10 +65,10 @@ How can we save our log queries and share them across multiple workspaces?
 - Show the saved queries
 
 ## Learning Resources
-* [Getting started with Kusto](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/)
-* [Log queries in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview)
-* [Overview of queries](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/)
-* [Query best practises](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)
-* [Query operators](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/queries)
-* [Telemetry correlation in Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation)
+* [Getting started with Kusto](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
+* [Log queries in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview/)
+* [Overview of queries](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
+* [Query best practises](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices/)
+* [Query operators](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/queries/)
+* [Application Insights telemetry data model](https://learn.microsoft.com/en-us/azure/azure-monitor/app/data-model-complete)
 * [Query Packs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/query-packs)
