@@ -47,7 +47,7 @@ In this hack you will be solving the common business problem that companies in t
 ## Contributors
 
 - [Israel Ekpo](https://github.com/izzymsft)
-- [Ellie Nostral](https://github.com/ellienosrat)
+- [Ellie Nostrat](https://github.com/ellienosrat)
 - [Amanda Wong](https://github.com/wongamanda)
 - [Alexis Joseph](https://github.com/alexistj)
 - [Melody Yin](https://github.com/melody-N07)
