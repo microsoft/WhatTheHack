@@ -48,9 +48,9 @@ The participants will learn how to:
 ## Prerequisites
 
 - Access to an Azure subscription with Owner access
-	- If you don’t have one, Sign Up for Azure HERE
-	- Familiarity with Azure Cloud Shell
-- An IDE: Visual Studio Code, WebStorm, PyCharm or IntelliJ
+	- If you don’t have one, Sign Up for Azure [HERE](https://azure.microsoft.com/en-us/free/)
+	- Familiarity with [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview#multiple-access-points)
+- An IDE: [Visual Studio Code](https://code.visualstudio.com/), [WebStorm](https://www.jetbrains.com/webstorm/download/), [PyCharm](https://www.jetbrains.com/pycharm/download/) or [IntelliJ](https://www.jetbrains.com/idea/download/)
 
 
 ## Contributors
