@@ -5,6 +5,18 @@
 ## Introduction
 Your company's eShopOnWeb website is going to launch soon and as one of the application owners you are responsible for ensuring that the site is performant, available, and overall provides a good user experience. Together with your team you have decided to use Azure Workbooks to visualize the most important metrics of your application, as Workbooks are a flexible canvas and seem to provide all the functionality you need. 
 
+### What is an Azure Monitor Workbook?
+An Azure Monitor workbook is a customizable dashboard in the Azure portal that helps you visualize, analyze, and correlate data from multiple sources, including Azure resources, third-party services, and custom data sources. With Azure Monitor workbooks, you can create rich visualizations, such as tables, charts, and graphs, that provide insights into your application and infrastructure performance, health, and security.
+
+Workbooks allow you to aggregate data from multiple sources and display it in a single dashboard. This makes it easier to analyze and troubleshoot issues across different services and environments. Workbooks also enable you to create custom queries and metrics, set up alerts and notifications, and share your dashboards with other users in your organization. 
+
+Some common scenarios where Azure Monitor workbooks can be useful include:
+
+* Monitoring and troubleshooting application performance and availability
+* Analyzing infrastructure and resource utilization
+* Identifying and responding to security threats and anomalies
+* Creating custom reports and visualizations for different stakeholders and audiences
+
 ## Description
 In this challenge, you will therefore create a workbook that combines browser, web server and infrastructure performance data for your eShopOnWeb application on the AKS cluster.  
 More specifically, you are going to visualize the following data:
@@ -25,4 +37,4 @@ More specifically, you are going to visualize the following data:
 You have successfully created a new workbook showing the relevant metrics and now have better insights into your application's performance, availability, health, and user exprerience. 
 
 ## Learning Resources
-* [Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks)
+* [Azure Monitor Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
