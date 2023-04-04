@@ -1,4 +1,4 @@
-# What The Hack - OpenAIOnAzure
+# What The Hack - Integrating OpenAI on Microsoft Azure
 
 ## Introduction
 
