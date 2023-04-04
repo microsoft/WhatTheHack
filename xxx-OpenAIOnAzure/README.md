@@ -46,5 +46,9 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- [Israel Ekpo](https://github.com/izzymsft)
+- [Ellie Nostral](https://github.com/ellienosrat)
+- [Amanda Wong](https://github.com/wongamanda)
+- [Alexis Joseph](https://github.com/alexistj)
+- [Melody Yin](https://github.com/melody-N07)
+- [Devanshi Thakar](https://github.com/devanshithakar12)
