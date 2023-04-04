@@ -37,4 +37,4 @@ More specifically, you are going to visualize the following data:
 You have successfully created a new workbook showing the relevant metrics and now have better insights into your application's performance, availability, health, and user exprerience. 
 
 ## Learning Resources
-* [Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks)
+* [Azure Monitor Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
