@@ -39,7 +39,7 @@ You will use the Dapr CLI `run` command and specify all the options above on the
 4.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 -- dotnet run
+    dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 -- dotnet run
     ```
 
 5.  Check the logs for any errors. If running correctly, you'll see both Dapr and application logging in the output.
@@ -80,7 +80,7 @@ First you're going to change the code so it calls the Dapr sidecar:
     You can substitute the placeholders in the template URL with values for the `FineCollectionService`. Here's how the specific URL will look:
 
     ```http
-    http://localhost:3601/v1.0/invoke/vehicleregistrationservice/method/vehicleinfo/{licenseNumber}
+    http://localhost:3601/v1.0/invoke/vehicle-registration-service/method/vehicleinfo/{licenseNumber}
     ```
 
     As you can see in this URL, the Dapr sidecar for the `FineCollectionService` will run on HTTP port `3601`.
@@ -91,7 +91,7 @@ First you're going to change the code so it calls the Dapr sidecar:
     public async Task<VehicleInfo> GetVehicleInfo(string licenseNumber)
     {
         return await _httpClient.GetFromJsonAsync<VehicleInfo>(
-            $"http://localhost:3601/v1.0/invoke/vehicleregistrationservice/method/vehicleinfo/{licenseNumber}");
+            $"http://localhost:3601/v1.0/invoke/vehicle-registration-service/method/vehicleinfo/{licenseNumber}");
     }
     ```
 
@@ -114,7 +114,7 @@ First you're going to change the code so it calls the Dapr sidecar:
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 -- dotnet run
+    dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 -- dotnet run
     ```
 
 1.  Check the logs for any errors. As you can see, both Dapr and the application logging will be shown.
@@ -195,7 +195,7 @@ Now you'll change the code in the `FineCollectionService` to use the Dapr SDK `H
     // add service proxies
     services.AddSingleton<VehicleRegistrationService>(_ =>
         new VehicleRegistrationService(DaprClient.CreateInvokeHttpClient(
-            "vehicleregistrationservice", "http://localhost:3601")));
+            "vehicle-registration-service", "http://localhost:3601")));
     ```
 
 With this snippet, you use the `DaprClient` to create an `HttpClient` instance to implement service invocation. You specify the `app-id` of the service you want to communicate with. You also need to specify the address of the Dapr sidecar for the `FineCollectionService` as it's not using the default Dapr HTTP port (3500). The `HttpClient` instance created by Dapr is explicitly passed into the constructor of the `VehicleRegistrationService` proxy.
@@ -225,7 +225,7 @@ Now the `FineCollectionService` is changed to use the Dapr SDK for service invoc
 1.  Enter the following command to start the changed `FineCollectionService` again:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 dotnet run
+    dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 dotnet run
     ```
 
 The services are up & running. Now you're going to test this using the simulation.
@@ -273,11 +273,11 @@ After modifying the `FineCollectionService` to use Dapr invocation, you may see 
 This is likely due to a mismatch between the case of the `--app-id` used to start the `VehicleRegistrationService` and the case of the `http` request in the `FineCollectionService`. Make sure they are spelled the same and use the same case (note the `--app-id` below is case-sensitive).
 
 ```shell
-dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 -- dotnet run
+dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 -- dotnet run
 ```
 
 ```csharp
-$"http://localhost:3601/v1.0/invoke/vehicleregistrationservice/method/vehicleinfo/{licenseNumber}");
+$"http://localhost:3601/v1.0/invoke/vehicle-registration-service/method/vehicleinfo/{licenseNumber}");
 ```
 
 **IMPORTANT:** Use lowercase letters for the `app-id` of all Dapr services (some Dapr configurations don't support CamelCase)!
