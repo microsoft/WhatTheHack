@@ -130,10 +130,10 @@ First, start the `TrafficControlService`:
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dotnet run
+    dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
     ```
 
-    > The `TrafficControlService` does not need to run with a Dapr sidecar in this challenge. This is because it will still call the `FineCollectionService` over HTTP as before.
+    > The `TrafficControlService` does not need to run with a Dapr sidecar in this challenge. This is because it will still call the `FineCollectionService` over HTTP as before, but it doesn't hurt to go ahead and run it using Dapr so you are set up for the next challenge.
 
 Finally, you're going start the traffic simulator:
 

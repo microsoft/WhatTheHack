@@ -179,12 +179,18 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     kubectl create namespace dapr-trafficcontrol
     ```
 
+1.  Change your local `kubectl` context to the `dapr-trafficcontrol` namespace so all resources are created in that namespace.
+
+    ```shell
+    kubectl config set-context --current --namespace=dapr-trafficcontrol
+    ```
+
 1.  Assign permissions to Key Vault
 
     Lastly, assign yourself access to the Key Vault so you can create secrets:
 
     ```shell
-    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
+    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete
     ```
 
 1.  Install the Dapr extension in your AKS cluster.
