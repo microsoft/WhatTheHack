@@ -50,10 +50,9 @@ This challenge targets the operations labeled as **number 2** in the end-state s
 - Put your Dapr configuration files in the `Resources/dapr/components` directory (you will see some existing files related to the Azure Kubernetes Service deployment in [Challenge-08](./Challenge-08.md), you can ignore these for now and put your files here as well)
 - You will need to specify the directory where you provide the custom Dapr configuration files when running the Dapr sidecars.
   ```shell
-  dapr run ... --components-path ../dapr/components -- dotnet run
+  dapr run ... --resources-path ../dapr/components -- dotnet run
   ```
 - Use Zipkin to observe the messages flow as specified in [Challenge-02](./Challenge-02#use-dapr-observability).
-- You might want to create the Azure resources first as it takes some time for the resources to be ready if you didn't already create the resources in [Challenge-00](./Challenge-00.md#create-azure-resources).
 
 ### Specific info for using the Dapr .NET SDK (not needed unless re-implementing `SpeedingViolation` using Dapr .NET SDK)
 

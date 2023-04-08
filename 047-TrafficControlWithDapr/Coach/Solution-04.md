@@ -202,7 +202,7 @@ Now, you'll test the update by running the application from end-to-end.
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components -- dotnet run
+    dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -210,7 +210,7 @@ Now, you'll test the update by running the application from end-to-end.
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
+    dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -218,7 +218,7 @@ Now, you'll test the update by running the application from end-to-end.
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
+    dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.

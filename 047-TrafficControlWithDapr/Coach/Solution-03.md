@@ -54,7 +54,7 @@ _If you're using Bash, just copy/paste the docker command to the shell and run i
 
 Until now, you have been using the default Dapr components installed on your machine. They include both a state management and pub/sub component. Under the covers, both use Redis server, which is also installed by default. The components are installed in the folder `%USERPROFILE%\.dapr\components` on Windows and `$HOME/.dapr/components` on Linux or Mac.
 
-To change the message broker component from Redis to RabbitMQ, you'll create a local components folder and new component file. You'll then specify the new folder when starting services with the Dapr CLI. The `--components-path` flag will instruct Dapr where to find the new component folder and files.
+To change the message broker component from Redis to RabbitMQ, you'll create a local components folder and new component file. You'll then specify the new folder when starting services with the Dapr CLI. The `--resources-path` flag will instruct Dapr where to find the new component folder and files.
 
 1. Create a new folder `Resources/dapr/components`.
 
@@ -173,7 +173,7 @@ Now the `FineCollectionService` is ready to receive published messages through D
 
 ### Step 5: Test the application
 
-You're going to start the application, service-by-service. While doing so, you'll specify the custom components folder with the `--components-path` flag. Dapr will use the configuration files located there.
+You're going to start the application, service-by-service. While doing so, you'll specify the custom components folder with the `--resources-path` flag. Dapr will use the configuration files located there.
 
 _Pay close attention to the order in which you start the service and be sure not to miss any._
 
@@ -188,10 +188,10 @@ _Pay close attention to the order in which you start the service and be sure not
 1. Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
    ```shell
-   dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components -- dotnet run
+   dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path ../dapr/components -- dotnet run
    ```
 
-   _Notice how the command specifies the custom components folder with the `--components-path` flag. By adding it, Dapr will use RabbitMQ for pub/sub._
+   _Notice how the command specifies the custom components folder with the `--resources-path` flag. By adding it, Dapr will use RabbitMQ for pub/sub._
 
 1. Look for the following output:
 
@@ -208,7 +208,7 @@ _Pay close attention to the order in which you start the service and be sure not
 1. Enter the following command to run the `FineCollectionService`, an accompanying Dapr sidecar, and the RabbitMQ component:
 
    ```shell
-   dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
+   dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
    ```
 
 1. Look for the following output:
@@ -226,7 +226,7 @@ _Pay close attention to the order in which you start the service and be sure not
 1. Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
    ```shell
-   dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components -- dotnet run
+   dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
    ```
 
 1. Look for the following output:
@@ -297,7 +297,7 @@ The other approach to subscribing to pub/sub events is to do it programmatically
 1. Start the updated `FineCollectionService`:
 
    ```shell
-   dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components -- dotnet run
+   dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
    ```
 
 1. After you've looked at the log output and confirmed that everything works, you can stop all the services.
