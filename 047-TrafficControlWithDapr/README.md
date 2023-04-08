@@ -20,7 +20,7 @@ The challenges implement a traffic-control camera system that are commonly found
 
 There's 1 entry-camera and 1 exit-camera per lane. When a car passes an entry-camera, a photo of the license plate is taken and the car and the timestamp is registered.
 
-When the car passes an exit-camera, another photo and timestamp are registered. The system then calculates the average speed of the car based on the entry- and exit-timestamp. If a speeding violation is detected, a message is sent to the Central Fine Collection Agency (or CJIB in Dutch). The system retrieves the vehicle information and the vehicle owner is sent a notice for a fine.
+When the car passes an exit-camera, another photo and timestamp are registered. The system then calculates the average speed of the car based on the entry-cam timestamp and exit-cam timestamp. If a speeding violation is detected, a message is sent to the Central Fine Collection Agency (or CJIB in Dutch). The system retrieves the vehicle information and the vehicle owner is sent a notice for a fine.
 
 ## Challenges
 

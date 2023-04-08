@@ -89,20 +89,20 @@ First, create an input binding for the `/entrycam` operation:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: entrycam
-        namespace: dapr-trafficcontrol
+      name: entrycam
+      namespace: dapr-trafficcontrol
     spec:
-        type: bindings.mqtt
-        version: v1
-        metadata:
-            - name: url
-              value: mqtt://localhost:1883
-            - name: topic
-              value: trafficcontrol/entrycam
-            - name: consumerID
-              value: trafficcontrolservice-entrycam
+      type: bindings.mqtt
+      version: v1
+      metadata:
+        - name: url
+          value: mqtt://localhost:1883
+        - name: topic
+          value: trafficcontrol/entrycam
+        - name: consumerID
+          value: trafficcontrolservice-entrycam
     scopes:
-        - trafficcontrolservice
+      - traffic-control-service
     ```
 
     In this configuration file, you specify the binding type MQTT (`bindings.mqtt`). In the `metadata` section, you describe how to connect to Mosquitto server container running on `localhost` on port `1883` . Note also how the `topic` is configured in metadata: `trafficcontrol/entrycam`. In the `scopes` section, you specify that only the `TrafficControlService` should subscribe to the MQTT topic.
@@ -121,20 +121,20 @@ Next, create an input binding for the `/exitcam` operation:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: exitcam
-        namespace: dapr-trafficcontrol
+      name: exitcam
+      namespace: dapr-trafficcontrol
     spec:
-        type: bindings.mqtt
-        version: v1
-        metadata:
-            - name: url
-              value: mqtt://localhost:1883
-            - name: topic
-              value: trafficcontrol/exitcam
-            - name: consumerID
-              value: trafficcontrolservice-exitcam
+      type: bindings.mqtt
+      version: v1
+      metadata:
+        - name: url
+          value: mqtt://localhost:1883
+        - name: topic
+          value: trafficcontrol/exitcam
+        - name: consumerID
+          value: trafficcontrolservice-exitcam
     scopes:
-        - trafficcontrolservice
+      - traffic-control-service
     ```
 
 Now with input bindings configured, it's time to change the Camera Simulation so it'll send MQTT messages to Mosquitto.
@@ -155,7 +155,7 @@ In this step, you'll change the Camera Simulation so it sends MQTT messages inst
 
 1.  Inspect the code in this file.
 
-As you can see, the simulation receives an `ITrafficControlService` instance injected into its constructor. The simulation uses this proxy (i.e., helper class) to send entry- and exit-cam messages to the `TrafficControlService`.
+As you can see, the simulation receives an `ITrafficControlService` instance injected into its constructor. The simulation uses this proxy (i.e., helper class) to send entry-cam and exit-cam messages to the `TrafficControlService`.
 
 1.  Open the file `Resources/Simulation/Proxies/HttpTrafficControlService.cs` in VS Code and inspect the code.
 
@@ -378,23 +378,23 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: entrycam
+      name: entrycam
     spec:
-        type: bindings.azure.eventhubs
-        version: v1
-        metadata:
-            - name: connectionString
-              value: "Endpoint=sb://ehn-dapr-ussc-demo-trafficcontrol.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=IQrpNCFakekeykn5xkSVyn5y4uZCGerc=;EntityPath=entrycam"
-            - name: consumerGroup
-              value: "trafficcontrolservice"
-            - name: storageAccountName
-              value: "sadaprusscdemo"
-            - name: storageAccountKey
-              value: "IKJgQ4KAFakekeyhAmi4zSz2ehm1btpQXZ+l68ol7wJmg8TA0ClQChRK7sWnvMEVexgg=="
-            - name: storageContainerName
-              value: "trafficcontrol-entrycam"
+      type: bindings.azure.eventhubs
+      version: v1
+      metadata:
+        - name: connectionString
+          value: "Endpoint=sb://ehn-dapr-ussc-demo-trafficcontrol.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=IQrpNCFakekeykn5xkSVyn5y4uZCGerc=;EntityPath=entrycam"
+        - name: consumerGroup
+          value: "trafficcontrolservice"
+        - name: storageAccountName
+          value: "sadaprusscdemo"
+        - name: storageAccountKey
+          value: "IKJgQ4KAFakekeyhAmi4zSz2ehm1btpQXZ+l68ol7wJmg8TA0ClQChRK7sWnvMEVexgg=="
+        - name: storageContainerName
+          value: "trafficcontrol-entrycam"
     scopes:
-        - trafficcontrolservice
+      - traffic-control-service
     ```
 
 1.  Replace the implementation of the `Resources/dapr/components/exitcam.yaml` file with code similar to above, making sure to replace the `connectionString` & `storageContainerName` with the appropriate ones for `exitcam`.

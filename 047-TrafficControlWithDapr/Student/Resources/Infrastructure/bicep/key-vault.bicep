@@ -1,3 +1,4 @@
+@maxLength(24)
 param keyVaultName string
 param location string
 param logAnalyticsWorkspaceName string

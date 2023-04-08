@@ -20,13 +20,13 @@ First, you'll add a secrets management JSON configuration file to the solution:
 
     ```json
     {
-        "smtp": {
-            "user": "_username",
-            "password": "_password"
-        },
-        "finecalculator": {
-            "licensekey": "HX783-K2L7V-CRJ4A-5PN1G"
-        }
+      "smtp": {
+        "user": "_username",
+        "password": "_password"
+      },
+      "finecalculator": {
+        "licensekey": "HX783-K2L7V-CRJ4A-5PN1G"
+      }
     }
     ```
 
@@ -40,28 +40,28 @@ First, you'll add a secrets management JSON configuration file to the solution:
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: trafficcontrol-secrets
+      name: trafficcontrol-secrets
     spec:
-        type: secretstores.local.file
-        version: v1
-        metadata:
-            - name: secretsFile
-              value: ../dapr/components/secrets.json
-            - name: nestedSeparator
-              value: "-"
+      type: secretstores.local.file
+      version: v1
+      metadata:
+        - name: secretsFile
+          value: ../dapr/components/secrets.json
+        - name: nestedSeparator
+          value: "-"
     scopes:
-        - finecollectionservice
+      - fine-collection-service
     ```
 
     _Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is **only** for development or testing purposes. It's not suitable for production!_
 
     _Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`._
 
-The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using the period (`.`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
+The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using the period (`-`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
 
--   `smtp.user`
--   `smtp.password`
--   `finecalculator.licensekey`
+- `smtp-user`
+- `smtp-password`
+- `finecalculator-licensekey`
 
 Now you've configured the secrets management building block. Time to use the secrets.
 
@@ -77,32 +77,32 @@ As stated, you can reference secrets from other Dapr component configuration fil
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: sendmail
+      name: sendmail
     spec:
-        type: bindings.smtp
-        version: v1
-        metadata:
-            - name: host
-              value: localhost
-            - name: port
-              value: 4025
-            - name: user
-              secretKeyRef:
-                  name: smtp-user
-                  key: smtp-user
-            - name: password
-              secretKeyRef:
-                  name: smtp-password
-                  key: smtp-password
-            - name: skipTLSVerify
-              value: true
+      type: bindings.smtp
+      version: v1
+      metadata:
+        - name: host
+          value: localhost
+        - name: port
+          value: 4025
+        - name: user
+          secretKeyRef:
+            name: smtp-user
+            key: smtp-user
+        - name: password
+          secretKeyRef:
+            name: smtp-password
+            key: smtp-password
+        - name: skipTLSVerify
+          value: true
     auth:
-        secretStore: trafficcontrol-secrets
+      secretStore: trafficcontrol-secrets
     scopes:
-        - finecollectionservice
+      - fine-collection-service
     ```
 
-Now the output binding for the SendMail component will use the `smtp.user` and `smtp.password` secrets from the secrets file at runtime.
+Now the output binding for the SendMail component will use the `smtp-user` and `smtp-password` secrets from the secrets file at runtime.
 
 ### Step 3: Get the license key for the FineCalculator component
 
@@ -189,7 +189,7 @@ time="2021-02-28T18:16:50.2936204+01:00" level=info msg="component loaded. name:
 To validate that the secrets management building block is actually used:
 
 1.  Stop the Camera `Simulation` and the `FineCollectionService`.
-1.  Change the `finecalculator.licensekey` secret in the file `Resources/dapr/components/secrets.json` to something different.
+1.  Change the `finecalculator-licensekey` secret in the file `Resources/dapr/components/secrets.json` to something different.
 1.  Start the Camera `Simulation` and the `FineCollectionService` again as described in step 4.
 
 Now you should see some errors in the logging because the `FineCollectionService` service is no longer passing the correct license key in the call to the `FineCalculator` component:
@@ -209,9 +209,9 @@ Don't forget to change the license key in the secrets file back to the correct o
 1.  Create 3 Azure Key Vault secrets.
 
     ```shell
-    az Key Vault secret set --vault-name kv-dapr-demo --name smtp-username --value "_username"
-    az Key Vault secret set --vault-name kv-dapr-demo --name smtp-password --value "_password"
-    az Key Vault secret set --vault-name kv-dapr-demo --name finecalculator-licensekey --value "HX783-K2L7V-CRJ4A-5PN1G"
+    az keyvault secret set --vault-name kv-dapr-demo --name smtp-username --value "_username"
+    az keyvault secret set --vault-name kv-dapr-demo --name smtp-password --value "_password"
+    az keyvault secret set --vault-name kv-dapr-demo --name finecalculator-licensekey --value "HX783-K2L7V-CRJ4A-5PN1G"
     ```
 
 1.  Create a service principal to allow the Dapr service to retrieve secrets from Key Vault.
@@ -242,7 +242,7 @@ Don't forget to change the license key in the secrets file back to the correct o
 1.  Grant the service principal access to your Key Vault.
 
     ```shell
-    az Key Vault set-policy --name "<key-vault-name>" --object-id "<service-principal-object-id>" --secret-permissions get
+    az keyvault set-policy --name "<key-vault-name>" --object-id "<service-principal-object-id>" --secret-permissions get
     ```
 
 1.  Modify the `Resources/dapr/components/secrets-file.yaml` to use Key Vault instead.
@@ -251,19 +251,19 @@ Don't forget to change the license key in the secrets file back to the correct o
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-        name: azureKey Vault
+      name: trafficcontrol-secrets
     spec:
-        type: secretstores.azure.Key Vault
-        version: v1
-        metadata:
-            - name: vaultName
-              value: <key-vault_name>
-            - name: azureTenantId
-              value: "<service-principal-tenant-id>"
-            - name: azureClientId
-              value: "<service-principal-app-id>"
-            - name: azureClientSecret
-              value: "<service-principal-secret>"
+      type: secretstores.azure.keyvault
+      version: v1
+      metadata:
+        - name: vaultName
+          value: <key-vault-name>
+        - name: azureTenantId
+          value: "<service-principal-tenant-id>"
+        - name: azureClientId
+          value: "<service-principal-app-id>"
+        - name: azureClientSecret
+          value: "<service-principal-secret>"
     ```
 
 1.  Restart all services and test

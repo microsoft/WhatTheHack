@@ -2,7 +2,7 @@ param appName string
 param region string
 param env string
 
-output aksName string = 'aks-${appName}1-${region}-${env}'
+output aksName string = 'aks-${appName}-${region}-${env}'
 output appInsightsName string = 'ai-${appName}-${region}-${env}'
 output containerRegistryName string = toLower('cr${appName}${region}${env}')
 output eventHubConsumerGroupName string = 'trafficcontrolservice'
