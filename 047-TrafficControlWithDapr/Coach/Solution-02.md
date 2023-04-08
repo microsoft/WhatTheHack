@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+_NOTE: This solution includes both the HTTP & .NET SDK versions of the code. You can choose to use either one._
+
 ### Step 1: Start the `VehicleRegistrationService` with Dapr
 
 In challenge 1, you started all the services using `dotnet run` without using Dapr. The services then communicated among each other using direct HTTP calls. To evolve your application and use Dapr for service-to-service communication, you'll need the Dapr CLI to start Dapr sidecars for each service. The sidecars will then be responsible for cross-service communication. To do so, you'll need to provide values for a number of parameters:

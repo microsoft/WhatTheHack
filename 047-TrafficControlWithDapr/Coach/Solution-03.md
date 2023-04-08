@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+_NOTE: This solution includes both the HTTP & .NET SDK versions of the code. You can choose to use either one._
+
 ### Step 1: Run RabbitMQ as message broker
 
 In the example, you will use RabbitMQ as the message broker for the Dapr pub/sub building block. You're going to pull a standard Docker image containing RabbitMQ to your machine and start it as a container.

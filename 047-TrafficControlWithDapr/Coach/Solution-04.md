@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+_NOTE: This solution includes both the HTTP & .NET SDK versions of the code. You can choose to use either one._
+
 ### Step 1: Use the Dapr state management building block
 
 First, you need to update the existing state management configuration file:
