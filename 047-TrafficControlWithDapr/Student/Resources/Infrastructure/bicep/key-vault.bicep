@@ -18,6 +18,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' = {
     }
     tenantId: subscription().tenantId
     enableRbacAuthorization: false
+    enableSoftDelete: false
     accessPolicies: [
       {
         objectId: managedIdentity.properties.principalId

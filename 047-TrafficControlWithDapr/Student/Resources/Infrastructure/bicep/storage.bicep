@@ -17,10 +17,12 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 }
 
 resource storageAccountEntryCamContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-04-01' = {
+  #disable-next-line use-parent-property
   name: '${storageAccount.name}/default/${storageAccountEntryCamContainerName}'
 }
 
 resource storageAccountExitCamContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-04-01' = {
+  #disable-next-line use-parent-property
   name: '${storageAccount.name}/default/${storageAccountExitCamContainerName}'
 }
 
@@ -44,6 +46,7 @@ resource storageDiagnosticSettings 'Microsoft.Insights/diagnosticSettings@2021-0
 
 #disable-next-line BCP174
 resource storageBlobDiagnosticSettings 'Microsoft.Storage/storageAccounts/blobServices/providers/diagnosticsettings@2017-05-01-preview' = {
+  #disable-next-line use-parent-property
   name: '${storageAccount.name}/default/Microsoft.Insights/Logging'
   properties: {
     workspaceId: logAnalytics.id
@@ -72,6 +75,7 @@ resource storageBlobDiagnosticSettings 'Microsoft.Storage/storageAccounts/blobSe
 
 #disable-next-line BCP174
 resource storageTableDiagnosticSettings 'Microsoft.Storage/storageAccounts/tableServices/providers/diagnosticsettings@2017-05-01-preview' = {
+  #disable-next-line use-parent-property
   name: '${storageAccount.name}/default/Microsoft.Insights/Logging'
   properties: {
     workspaceId: logAnalytics.id
@@ -100,6 +104,7 @@ resource storageTableDiagnosticSettings 'Microsoft.Storage/storageAccounts/table
 
 #disable-next-line BCP174
 resource storageQueueDiagnosticSettings 'Microsoft.Storage/storageAccounts/queueServices/providers/diagnosticsettings@2017-05-01-preview' = {
+  #disable-next-line use-parent-property
   name: '${storageAccount.name}/default/Microsoft.Insights/Logging'
   properties: {
     workspaceId: logAnalytics.id
@@ -129,5 +134,5 @@ resource storageQueueDiagnosticSettings 'Microsoft.Storage/storageAccounts/queue
 output storageAccountName string = storageAccount.name
 output storageAccountEntryCamContainerName string = storageAccountEntryCamContainerName
 output storageAccountExitCamContainerName string = storageAccountExitCamContainerName
-#disable-next-line outputs-should-not-contain-secrets
+#disable-next-line outputs-should-not-contain-secrets use-resource-symbol-reference
 output storageAccountContainerKey string = listKeys(storageAccount.id, storageAccount.apiVersion).keys[0].value

@@ -16,7 +16,8 @@ resource serviceBus 'Microsoft.ServiceBus/namespaces@2021-01-01-preview' = {
 }
 
 resource serviceBusTrafficControlTopic 'Microsoft.ServiceBus/namespaces/topics@2017-04-01' = {
-  name: '${serviceBus.name}/collectfine'
+  parent: serviceBus
+  name: 'collectfine'
 }
 
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' existing = {
