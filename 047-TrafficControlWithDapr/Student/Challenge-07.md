@@ -27,8 +27,6 @@ Note the blue-colored Dapr secrets building block that sits between the applicat
 
 _For this challenge you'll use a file-based local secret store component. Local stores are meant for development or testing purposes. Never use them in production!_
 
-_Alternatively, you can implement Azure Key Vault as your secret store in this challenge._
-
 Another way of using secrets, is to reference them from Dapr configuration files. You will use both approaches in this challenge.
 
 To learn more about the secrets building block, read the [introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/secrets/) in the Dapr documentation. Also, checkout the [secrets chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/secrets) in the [Dapr for .NET Developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/) guidance eBook.
