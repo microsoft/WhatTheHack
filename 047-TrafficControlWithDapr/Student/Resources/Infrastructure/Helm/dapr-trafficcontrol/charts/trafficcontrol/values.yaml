@@ -10,7 +10,7 @@ trafficControlService:
   name: traffic-control-service
   containerPort: 6000
   repositoryName: traffic-control-service
-  imageTag: assignment08
+  imageTag: latest
   dapr:
     port: 3500
     appId: traffic-control-service
@@ -19,7 +19,7 @@ fineCollectionService:
   name: fine-collection-service
   containerPort: 6001
   repositoryName: fine-collection-service
-  imageTag: assignment08
+  imageTag: latest
   dapr:
     port: 3500
     appId: fine-collection-service
@@ -28,7 +28,7 @@ vehicleRegistrationService:
   name: vehicle-registration-service
   containerPort: 6002
   repositoryName: vehicle-registration-service
-  imageTag: assignment08
+  imageTag: latest
   dapr:
     port: 3500
     appId: vehicle-registration-service

@@ -35,19 +35,19 @@ You will need to build these services, create a Docker container image that has 
 1.  Navigate to the `Resources/VehicleRegistrationService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
-    az acr build --registry <container-registry-name> --image vehicleregistrationservice:assignment08 .
+    az acr build --registry <container-registry-name> --image vehicle-registration-service:latest .
     ```
 
 1.  Navigate to the `Resources/TrafficControlService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
-    az acr build --registry <container-registry-name> --image trafficcontrolservice:assignment08 .
+    az acr build --registry <container-registry-name> --image traffic-control-service:latest .
     ```
 
 1.  Navigate to the `Resources/FineCollectionService` directory & use the Azure Container Registry task to build your image from source.
 
     ```shell
-    az acr build --registry <container-registry-name> --image finecollectionservice:assignment08 .
+    az acr build --registry <container-registry-name> --image fine-collection-service:latest .
     ```
 
 ### Step 4: Deploy container images to Azure Kubernetes Service
@@ -110,6 +110,8 @@ Run the Simluation service, which writes to your IoT Hub's MQTT queue. You will 
 To make this example as accesible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure [AKS security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline).
 
 ## Troubleshooting
+
+The most likely error is that the various app-ids, Dapr component names, etc don't match between the C# & the Helm chart `values.yaml` file. Check these carefully.
 
 If the pods won't start completely, check to see if the health probes aren't passing. You can do this by running the following commands:
 
