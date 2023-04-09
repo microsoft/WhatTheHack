@@ -48,9 +48,10 @@ This challenge targets the operation labeled as **number 4** in the end-state se
 - You can observe the MailDev server locally by navigating to [http://localhost:4000](http://localhost:4000).
 - The local SMTP server listens on **port 4025**
 - Use the Dapr SDK for setting up the output bindings
-  - You will need to add the Dapr client to the Inversion of Control (IoC) container in AspNetCore so you can use it in the controller
+  - You will need to add the Dapr client to the Inversion of Control (IoC) container in ASP.NET Core so you can use it in the controller
 - Use an Azure Logic App to send out emails when deploying to Azure.
   - You will need to **Authorize** the Office365 connector in the Azure portal for the Logic App so it can send email.
+- The SMTP output binding metadata has different casing than the HTTP output binding metadata (`emailFrom` vs. `EmailFrom`, `emailTo` vs. `EmailTo`, `subject` vs. `Subject`)
 
 ## Learning Resources
 
@@ -58,4 +59,5 @@ This challenge targets the operation labeled as **number 4** in the end-state se
 - [Dapr for .NET developers - bindings](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
 - [Maildev](https://github.com/maildev/maildev)
 - [Smtp Output Bindings](https://learn.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/bindings#smtp-output-binding)
-- [Add Dapr to AspNetCore](https://learn.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/getting-started#add-dapr-service-invocation)
+- [Add Dapr to ASP.NET Core](https://learn.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/getting-started#add-dapr-service-invocation)
+- [Dapr HTTP output bindings for calling Logic Apps](https://docs.dapr.io/reference/components-reference/supported-bindings/http/)

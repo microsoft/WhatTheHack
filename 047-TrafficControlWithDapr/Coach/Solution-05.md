@@ -239,32 +239,17 @@ You should see the same logs as before. You can also view the fine notification 
      - fine-collection-service
    ```
 
-1. Add the package to your project.
-
-   ```shell
-   dotnet add package Newtonsoft.Json
-   ```
-
-1. Navigate to the `Resources/FineCollectionService` directory. Open the `Resources\FineCollectionService\Controllers\CollectionController.cs` file. Modify the **CollectFine** method to pass in a JSON object to the Logic App's HTTP endpoint.
-
-   Add the following to the using statements at the top of the file.
+1. Navigate to the `Resources/FineCollectionService` directory. Open the `Resources\FineCollectionService\Controllers\CollectionController.cs` file. Modify the **CollectFine** section added before to pass the correct _casing_ for the required metadata (note that the first letter of each key/value pair is capitalized whereas before the first letter was lowercase).
 
    ```csharp
-   using Newtonsoft.Json.Linq;
-   ```
-
-   Replace the line that starts with `var metadata = new Dictionary<string, string>` with the following.
-
-   ```csharp
-   dynamic email = new JObject();
-   email.from = "noreply@cfca.gov";
-   email.to = "<YOUR_EMAIL_ADDRESS_HERE>";
-   email.subject = $"Speeding violation on the {speedingViolation.RoadId}";
-   email.body = body;
-
-   var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(email);
-
-   await daprClient.InvokeBindingAsync("sendmail", "create", jsonString);
+   var body = EmailUtils.CreateEmailBody(speedingViolation, vehicleInfo, fineString);
+   var metadata = new Dictionary<string, string>
+   {
+     ["EmailFrom"] = "noreply@cfca.gov",
+     ["EmailTo"] = vehicleInfo.OwnerEmail,
+     ["Subject"] = $"Speeding violation on the {speedingViolation.RoadId}",
+   };
+   await _daprClient.InvokeBindingAsync("sendmail", "create", body, metadata);
    ```
 
 1. Rebuild your `FineCollectionService`.
