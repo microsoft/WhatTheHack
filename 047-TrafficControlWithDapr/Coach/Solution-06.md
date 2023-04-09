@@ -145,12 +145,6 @@ In this step, you'll change the Camera Simulation so it sends MQTT messages inst
 
 1.  Open the terminal window in VS Code and make sure the current folder is `Resources/Simulation`.
 
-1.  Add a reference to the `System.Net.Mqtt` library:
-
-    ```shell
-    dotnet add package System.Net.Mqtt --prerelease
-    ```
-
 1.  Open the file `Resources/Simulation/CameraSimulation.cs` file in VS Code.
 
 1.  Inspect the code in this file.
@@ -308,13 +302,7 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     az iot hub device-identity connection-string show --device-id simulation --hub-name <iot-hub-name>
     ```
 
-1.  Add the NuGet package Microsoft.Azure.Devices.Client to the Simulation (`Resources/Simulation` directory) project.
-
-    ```shell
-    dotnet add package Microsoft.Azure.Devices.Client
-    ```
-
-1.  Create a new class for the implementation of the `Resources/Simulation/Proxies/IotHubTrafficControlService.cs` class with similar code to below.
+1.  Update the implementation of the `Resources/Simulation/Proxies/IotHubTrafficControlService.cs` class with similar code to below.
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

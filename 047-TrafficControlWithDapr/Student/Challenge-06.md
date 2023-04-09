@@ -15,9 +15,9 @@ In this challenge you'll focus on Dapr input bindings. The following diagram dep
 For this hands-on challenge, you will add an input binding leveraging the Dapr binding building block. In the previous challenge, you implemented a Dapr output binding.
 
 - Stand up a Mosquitto MQTT message broker in a Docker container.
-- Create a Dapr configuration file for specifying the Dapr SMTP input binding components.
+- Create a Dapr configuration file for specifying the Dapr MQTT input binding components.
 - Modify the `Simulation` app to put `trafficcontrol/entrycam` & `trafficcontrol/exitcam` messages on the MQTT queue.
-  - Create a new class called `MqttTrafficControlService` to do this (look at the `HttpTrafficControlService` as an example).
+  - Modify the `MqttTrafficControlService` class to do this (look at the `HttpTrafficControlService` as an example).
   - Modify the `Program` class to use this new service.
 - Restart all services & run the `Simulation` application.
 - Once you have the solution running locally, modify the `Simulation` to use Azure IoT Hub & modify the Dapr configuration to use Azure EventHub as the MQTT message broker.
@@ -47,7 +47,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
   1.  Open a terminal window in VS Code and make sure the current folder is `Resources/Infrastructure/mosquitto`.
 
   1.  Start a Mosquitto MQTT container by entering the following command:
-      **When running on Windows**:
+      **When running on Windows PowerShell**:
 
       ```shell
       docker run -d -p 1883:1883 -p 9001:9001 -v $pwd/:/mosquitto/config/ --name dtc-mosquitto eclipse-mosquitto
@@ -93,7 +93,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
     az iot hub device-identity connection-string show --device-id simulation --hub-name <iot-hub-name>
     ```
 
-  - Use the `Microsoft.Azure.Devices.Client` NuGet package to connect to the IoT Hub instead of the local MQTT broker.
+- Note that the `Microsoft.Azure.Devices.Client.Message` class allows you to add additional properties to facilitate message routing (look in the Azure portal, under the IoT Hub you provisioned, at the `Message Routing` blade, `Routing queries` section for details on which properties to add).
 
 ## Learning Resources
 
@@ -103,3 +103,4 @@ This challenge targets the operation labeled as **number 5** in the end-state se
 - [C# MQTT client](https://github.com/xamarin/mqtt)
 - [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
 - [C# Azure IoT Hub client](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/SimulatedDevice/Program.cs)
+- [IoT Hub message routing](https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-routing-query-syntax)
