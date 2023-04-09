@@ -21,13 +21,12 @@ First, you need to update the existing state management configuration file:
       name: statestore
     spec:
       type: state.redis
+      version: v1
       metadata:
         - name: redisHost
           value: localhost:6379
         - name: redisPassword
           value: ""
-        - name: actorStateStore
-          value: "true"
     scopes:
       - traffic-control-service
     ```
@@ -52,45 +51,13 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
 
 1.  This is the repository used by the `TrafficControlService`. Inspect the code. As you can see, it uses a simple in-memory dictionary to store the state. The license number of the vehicle is used as the key. You are going to replace this implementation with one that uses Dapr state management.
 
-1.  Create a new file `Resources/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
+1.  Update the `DaprVehicleStateRepository` class in this file that implements the `IVehicleStateRepository` interface.
 
-1.  Create a new `DaprVehicleStateRepository` class in this file that implements the `IVehicleStateRepository` interface. Use this snippet to get started:
-
-    ```csharp
-    using System;
-    using System.Net.Http;
-    using System.Net.Http.Json;
-    using System.Threading.Tasks;
-    using TrafficControlService.Models;
-
-    namespace TrafficControlService.Repositories
-    {
-        public class DaprVehicleStateRepository : IVehicleStateRepository
-        {
-            private const string DAPR_STORE_NAME = "statestore";
-
-            public async Task<VehicleState> GetVehicleStateAsync(string licenseNumber)
-            {
-                throw new NotImplementedException();
-            }
-
-            public async Task SaveVehicleStateAsync(VehicleState vehicleState)
-            {
-                throw new NotImplementedException();
-            }
-        }
-    }
-    ```
-
-1.  In the new repository class, add a private field named `_httpClient` that holds an instance of a `HttpClient` and a constructor that accepts a `HttpClient` instance as aan argument and then initializes the field:
+1.  The URL template for getting data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>/<key>`. You'll use this API to retrieve the VehicleState. Replace the implementation of the `GetVehicleStateAsync` method with the following code:
 
     ```csharp
-    private readonly HttpClient _httpClient;
-
-    public DaprVehicleStateRepository(HttpClient httpClient)
-    {
-        _httpClient = httpClient;
-    }
+    return await _httpClient.GetFromJsonAsync<VehicleState>(
+        $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}/{licenseNumber}");
     ```
 
 1.  The URL template for saving data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>`. You'll use this API to store the VehicleState. In the new repository class, replace the implementation of the `SaveVehicleStateAsync` method with the following code:
@@ -106,18 +73,10 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
 
     await _httpClient.PostAsJsonAsync(
         $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}",
-        new StringContent(JsonSerializer.Serialize(state)));
+        state);
     ```
 
     _As you can see, the data structure for saving state is an array of key/value pairs. In this example you use an anonymous type as payload._
-
-1.  The URL template for getting data using the Dapr state API is: `http://localhost:<daprPort>/v1.0/state/<statestore-name>/<key>`. You'll use this API to retrieve the VehicleState. Replace the implementation of the `GetVehicleStateAsync` method with the following code:
-
-    ```csharp
-    var state = await _httpClient.GetFromJsonAsync<VehicleState>(
-        $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}/{licenseNumber}");
-    return state;
-    ```
 
 1.  The code for the new repository should now look like this:
 
@@ -141,9 +100,8 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
 
             public async Task<VehicleState> GetVehicleStateAsync(string licenseNumber)
             {
-                var state = await _httpClient.GetFromJsonAsync<VehicleState>(
+                return await _httpClient.GetFromJsonAsync<VehicleState>(
                     $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}/{licenseNumber}");
-                return state;
             }
 
             public async Task SaveVehicleStateAsync(VehicleState vehicleState)
@@ -157,7 +115,7 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
                 };
 
                 await _httpClient.PostAsJsonAsync(
-                    $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}", new StringContent(JsonSerializer.Serialize(state)));
+                    $"http://localhost:3600/v1.0/state/{DAPR_STORE_NAME}", state);
             }
         }
     }
@@ -176,6 +134,7 @@ Now you need to register the new repository with the .NET Core dependency-inject
 1.  Replace the `InMemoryVehicleStateRepository` with your new `DaprVehicleStateRepository` concrete class:
 
     ```csharp
+    //services.AddSingleton<IVehicleStateRepository, InMemoryVehicleStateRepository>();
     services.AddSingleton<IVehicleStateRepository, DaprVehicleStateRepository>();
     ```
 
@@ -358,7 +317,6 @@ Now, you can also use Azure Cache for Redis instead of the default state store. 
     kind: Component
     metadata:
       name: statestore
-      namespace: default
     spec:
       type: state.redis
       version: v1
@@ -367,8 +325,6 @@ Now, you can also use Azure Cache for Redis instead of the default state store. 
           value: redis-dapr-ussc-demo.redis.cache.windows.net:6380
         - name: redisPassword
           value: qu4qw8bFakeKey7KVrBYFFakeKey+v3raFBNA3M=
-        - name: actorStateStore
-          value: true
         - name: enableTLS
           value: true
     scopes:

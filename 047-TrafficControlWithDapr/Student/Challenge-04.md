@@ -52,7 +52,7 @@ This challenge targets the operation labeled as **number 3** in the end-state se
   - Use [Redis CLI commands](https://redis.io/topics/rediscli) like `keys` and `hgetall` to validate data inside the Redis cache store.
 - Use [Azure CLI commands for Redis](https://docs.microsoft.com/en-us/cli/azure/redis?view=azure-cli-latest) to get the host, port & Redis password (primaryKey).
   ```shell
-  az redis show --name <redis cache name> -g <resource group> --query "[hostName,sslPort,primaryKey]"
+  az redis list-keys --name <redis-cache-name> -g <resource-group-name>
   ```
 - Use the Azure portal & select the `Redis Cache` resource and click on `Console` to run similar commands as you did in the local Redis cache instance.
 
