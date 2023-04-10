@@ -31,6 +31,6 @@ In this side conversation, you can tease out how things like GitHub Actions fit 
 
 ### Opinionated Deployments
 
-An "opinionated" deployment is one that the constraints are authored directly in a module or passed into a genric module from another source.  For example, a VM module could contrain the allowed values for Linux distributions and their versions vs. the module will simply accept what is sent to it.  This gets into a design priniciple on how to managed opinionated modules especially when reuse is intended.
+An "opinionated" deployment is one that the constraints are authored directly in a module or passed into a generic module from another source.  For example, a VM module could contain the allowed values for Linux distributions and their versions vs. the module will simply accept what is sent to it.  This gets into a design principle on how to manage opinionated modules especially when reuse is intended.
 
 In ths side conversation, discuss the design considerations for managing things like versions, accepted distros, etc.
