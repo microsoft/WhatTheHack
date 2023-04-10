@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 In challenge 3, the student is advancing their BICEP skills.  In this challenge, they will
-add containers to the storage account creates in challenge 2.  This challenge does not
+add containers to the storage account created in challenge 2.  This challenge does not
 use the parameter file, but that could be a stretch for the student.
 
 ## Learning Resources
