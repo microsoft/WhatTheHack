@@ -15,8 +15,7 @@ on:
 jobs:
   createNewWhatTheHackTemplate:
     runs-on: ubuntu-latest
-    permissions:
-      repository-projects: write
+    permissions: write-all
     env:
       BRANCH_NAME: xxx-${{ github.event.inputs.hackName }}
     steps:
