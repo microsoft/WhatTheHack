@@ -56,6 +56,7 @@ You will need the following subcription [resource providers](https://learn.micro
 - Microsoft.EventHub
 - Microsoft.Insights
 - Microsoft.Key Vault
+- Microsoft.KubernetesConfiguration
 - Microsoft.Logic
 - Microsoft.OperationalInsights
 - Microsoft.OperationsManagement
@@ -87,7 +88,7 @@ _If you can't instantiate some of these resources, you won't be able to complete
 
 - AKS requires the ability to create a public IP address. This may be blocked by some organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
-  - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
+  - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU. (6 cores total)
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
   - 1 Zipkin service running to monitor communciation between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.

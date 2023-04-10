@@ -63,5 +63,5 @@ resource diagnosticSettings 'Microsoft.Insights/diagnosticsettings@2017-05-01-pr
 
 output containerRegistryName string = containerRegistry.name
 output containerRegistryLoginServerName string = containerRegistry.properties.loginServer
-#disable-next-line outputs-should-not-contain-secrets
+#disable-next-line outputs-should-not-contain-secrets use-resource-symbol-reference
 output containerRegistryAdminPassword string = listCredentials(containerRegistry.id, containerRegistry.apiVersion).passwords[0].value

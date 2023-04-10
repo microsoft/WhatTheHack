@@ -32,6 +32,7 @@ module managedIdentityDeployment 'managed-identity.bicep' = {
 module keyVaultDeployment 'key-vault.bicep' = {
   name: 'key-vault-deployment'
   params: {
+    #disable-next-line BCP335
     keyVaultName: names.outputs.keyVaultName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location

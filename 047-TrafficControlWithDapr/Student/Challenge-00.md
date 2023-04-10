@@ -48,13 +48,13 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     az login
     ```
 
-1.  Make sure you have selected the Azure subscription in which you want to work. Replace the 'x's with your subscription GUID or subscription name. The subscription GUID can be found in the Azure Resource Group blade from the Azure Portal.
+1.  _Optional_: Make sure you have selected the Azure subscription in which you want to work. Replace the 'x's with your subscription GUID or subscription name. The subscription GUID can be found in the Azure Resource Group blade from the Azure Portal.
 
     ```shell
     az account set --subscription "xxxx-xxxx-xxxx-xxxx"
     ```
 
-1.  _Optional_: The following steps assume you already have a resource group created. If not, run the following command.
+1.  _Optional_: The following steps assume you already have a resource group created. If not, run the following command to create one. Replace the resource group name and location with your own values.
 
     ```shell
     az group create --name <resource-group-name> --location <location>
@@ -153,7 +153,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 1.  Run the following command to fetch the AKS credentials for your cluster.
 
     ```shell
-    az aks get-credentials --name "<aks-name>" --resource-group "<resource-group-name>"
+    az aks get-credentials --name <aks-name> --resource-group <resource-group-name>
     ```
 
     _The `az aks get-credentials` command retrieves credentials for an AKS cluster. It merges the credentials into your local kubeconfig file._
@@ -190,13 +190,15 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     Lastly, assign yourself access to the Key Vault so you can create secrets:
 
     ```shell
-    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete
+    az ad signed-in-user show --query userPrincipalName -o tsv
+
+    az keyvault set-policy --resource-group <resource-group-name> --name <key-vault-name> --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete
     ```
 
 1.  Install the Dapr extension in your AKS cluster.
 
     ```shell
-    az k8s-extension create --cluster-type managedClusters --cluster-name "<aks-name>" --resource-group "<resource-group-name>" --name dapr --extension-type Microsoft.Dapr
+    az k8s-extension create --cluster-type managedClusters --cluster-name <aks-name> --resource-group <resource-group-name> --name dapr --extension-type Microsoft.Dapr
     ```
 
 1.  Run the following command to initalize your local Dapr environment:
