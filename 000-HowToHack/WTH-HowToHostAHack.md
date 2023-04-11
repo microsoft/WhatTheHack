@@ -369,8 +369,8 @@ Once squads have been formed, encourage them to each give their squad a fun name
 #### Event Kick Off Presentation Templates
 
 To help you get started, we have provided PowerPoint templates for kicking off a What The Hack event here:
-- [In-Person - Kick Off Presentation Template](WTH-InPerson-EventKickoff-Template)
-- [Virtual - Kick Off Presentation Template](WTH-Virtual-EventKickoff-Template.md)
+- [In-Person - Kick Off Presentation Template](WTH-EventKickoff-InPerson-Template.pptx?raw=true)
+- [Virtual - Kick Off Presentation Template](WTH-EventKickoff-Virtual-Template.pptx?raw=true)
 
 The kick off presentation templates contain most of the instructions above that you can present to the attendees before starting the What The Hack. The in-person template has additional slides instructing attendees to use a code to join the event team in Microsoft Teams.
 
