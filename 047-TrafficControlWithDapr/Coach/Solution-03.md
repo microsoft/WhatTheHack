@@ -64,7 +64,7 @@ To change the message broker component from Redis to RabbitMQ, you'll create a l
 
 1. Create a new file `Resources/dapr/components/pubsub.yaml` in VS Code.
 
-1. Inspect this file. The `type` field specifies the type of the message broker to use (`pubsub.redis`). The `metadata` section provides information on how to connect to the Redis server .
+1. Open this file. The `type` field specifies the type of the message broker to use (`pubsub.redis`). The `metadata` section provides information on how to connect to the Redis server .
 
 1. Change the content of this file to:
 

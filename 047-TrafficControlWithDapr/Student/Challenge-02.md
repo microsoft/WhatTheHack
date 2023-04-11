@@ -30,7 +30,7 @@ _Service Invocation is also covered in detail in the [Dapr for .NET Developers](
 
 For this hands-on challenge, you will decouple communication between two services.
 
-- Modify the `FineCollectionService` (`VehicleRegistrationService` class) so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
+- Modify the `FineCollectionService` (`VehicleRegistrationServiceProxy` class) so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
 - Start up a Dapr sidecar for the `VehicleRegistrationService`, `FineCollectionService` & `TrafficControlService`.
 - Run the `Simulation` application.
 

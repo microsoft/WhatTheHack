@@ -58,16 +58,16 @@ First you're going to change the code so it calls the Dapr sidecar:
 
 1.  Open the file `Resources/FineCollectionService/Controllers/CollectionController.cs` using the in VS Code [Explorer](https://code.visualstudio.com/docs/getstarted/userinterface#_explorer).
 
-1.  Inspect the `CollectFine` method. Note how it contains a call to the `VehicleRegistrationService` to retrieve the vehicle info:
+1.  Inspect the `CollectFine` method. Note how it contains a call to the `VehicleRegistrationServiceProxy` to retrieve the vehicle info:
 
     ```csharp
     // get owner info
-    var vehicleInfo = await _vehicleRegistrationService.GetVehicleInfo(speedingViolation.VehicleId);
+    var vehicleInfo = await _vehicleRegistrationServiceProxy.GetVehicleInfo(speedingViolation.VehicleId);
     ```
 
-    The `_vehicleRegistrationService` is an instance of a proxy (helper class) that uses the .NET `HttpClient` to call the `VehicleRegistrationService`. You are going to change that proxy so it uses Dapr service invocation.
+    The `_vehicleRegistrationServiceProxy` is an instance of a proxy (helper class) that uses the .NET `HttpClient` to call the `VehicleRegistrationService`. You are going to change that proxy so it uses Dapr service invocation.
 
-1.  Open the file `Resources/FineCollectionService/Proxies/VehicleRegistrationService.cs` in VS Code.
+1.  Open the file `Resources/FineCollectionService/Proxies/VehicleRegistrationServiceProxy.cs` in VS Code.
 
 1.  Inspect the `GetVehicleInfo` method. Note in the HTTP call how the URL of the `VehicleRegistrationService` (running on port 6002) is _hardcoded_.
 
@@ -183,28 +183,28 @@ Now you'll change the code in the `FineCollectionService` to use the Dapr SDK `H
     using Dapr.Client;
     ```
 
-1.  The `ConfigureServices` method, contains these two lines of code which register the .NET `HttpClient` and the `VehicleRegistrationService` proxy (which uses the `HttpClient`) with dependency injection:
+1.  The `ConfigureServices` method, contains these two lines of code which register the .NET `HttpClient` and the `VehicleRegistrationServiceProxy` proxy (which uses the `HttpClient`) with dependency injection:
 
     ```csharp
     // add service proxies
     services.AddHttpClient();
-    services.AddSingleton<VehicleRegistrationService>();
+    services.AddSingleton<VehicleRegistrationServiceProxy>();
     ```
 
 1.  Replace these two lines with with the following lines:
 
     ```csharp
     // add service proxies
-    services.AddSingleton<VehicleRegistrationService>(_ =>
-        new VehicleRegistrationService(DaprClient.CreateInvokeHttpClient(
+    services.AddSingleton<VehicleRegistrationServiceProxy>(_ =>
+        new VehicleRegistrationServiceProxy(DaprClient.CreateInvokeHttpClient(
             "vehicle-registration-service", "http://localhost:3601")));
     ```
 
-With this snippet, you use the `DaprClient` to create an `HttpClient` instance to implement service invocation. You specify the `app-id` of the service you want to communicate with. You also need to specify the address of the Dapr sidecar for the `FineCollectionService` as it's not using the default Dapr HTTP port (3500). The `HttpClient` instance created by Dapr is explicitly passed into the constructor of the `VehicleRegistrationService` proxy.
+With this snippet, you use the `DaprClient` to create an `HttpClient` instance to implement service invocation. You specify the `app-id` of the service you want to communicate with. You also need to specify the address of the Dapr sidecar for the `FineCollectionService` as it's not using the default Dapr HTTP port (3500). The `HttpClient` instance created by Dapr is explicitly passed into the constructor of the `VehicleRegistrationServiceProxy` class.
 
 _This is an example of the deep integration of Dapr with ASP.NET Core when using the `Dapr.AspNetCore` library. You can still use the `HttpClient` (and its rich feature-set) in your code, but under the hood it uses the Dapr service invocation building block to communicate._
 
-1.  Open the file `Resources/FineCollectionService/Proxies/VehicleRegistrationService.cs` in VS Code.
+1.  Open the file `Resources/FineCollectionService/Proxies/VehicleRegistrationServiceProxy.cs` in VS Code.
 
 1.  Because the `HttpClient` passed into this class has already been created with a specific `app-id`, you can omit the host information from the request URL. Change the URL that is used in the `GetVehicleInfo` to `/vehicleinfo/{license-number}`. The method should now look like this:
 
