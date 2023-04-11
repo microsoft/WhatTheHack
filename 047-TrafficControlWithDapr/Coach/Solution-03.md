@@ -483,13 +483,15 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
      version: v1
      metadata:
        - name: connectionString
-         value: "<your Azure Service Bus connection string"
+         value: "<your Azure Service Bus connection string>"
    scopes:
      - traffic-control-service
      - fine-collection-service
    ```
 
    _What changed? `namespace`, `type`, and the underlying `spec` metadata._
+
+   **IMPORTANT: You must specify the scopes to grant the appropriate Dapr sidecar access to the component.**
 
 1. You need to provide a connection string for Azure Service Bus. Normally, you'd create a [Shared Access Secret or enable authentication/authorization with AAD](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization). For now, however, keep your focus on Dapr. In the Service Bus portal blade, click on `Shared access policies` and then the `RootManagerSharedAccessKey` Copy the connection string value from `Primary Connection String`' Close the SAS dialog box and paste the connection string into the `pubsub' YAML file.
 

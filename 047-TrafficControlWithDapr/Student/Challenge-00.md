@@ -40,6 +40,12 @@ Make sure the following minimum software versions are installed by executing the
 
 ### Deployment
 
+1.  Run the following command to initalize your local Dapr environment:
+
+    ```shell
+    dapr init
+    ```
+
 You'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
 
 1.  If you're using [Azure Cloud Shell](https://shell.azure.com), skip this step and proceed to step 2. Open the [terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code and make sure you're logged in to Azure
@@ -199,12 +205,6 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
     ```shell
     az k8s-extension create --cluster-type managedClusters --cluster-name <aks-name> --resource-group <resource-group-name> --name dapr --extension-type Microsoft.Dapr
-    ```
-
-1.  Run the following command to initalize your local Dapr environment:
-
-    ```shell
-    dapr init
     ```
 
 ### Review TrafficControl application architecture

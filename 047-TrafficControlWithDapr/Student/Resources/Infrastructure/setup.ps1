@@ -13,6 +13,10 @@ $DEFAULT_AKS_NODE_POOL_SKU = 'Standard_DS2_v2'
 $CPU_LOCALNAME = 'Standard DSv2 Family vCPUs'
 $NUMBER_OF_CPUS_NEEDED = 6
 
+function Confirm-DotNet6 {
+  
+}
+
 function Confirm-AzureCli {
   Write-Debug "Checking if Azure CLI is installed..."
 
@@ -49,7 +53,7 @@ function Install-AksWorkloadIdentityPreview {
 function Confirm-Bicep {
   Write-Debug "Checking to see if Bicep is installed..."
 
-  Get-Command bicep | Out-Null
+  (az bicep version) | Out-Null
 
   if (!$?) {
     Write-Error "Bicep is not installed"
