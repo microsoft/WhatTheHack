@@ -12,9 +12,20 @@ $InformationPreference = 'Continue'
 $DEFAULT_AKS_NODE_POOL_SKU = 'Standard_DS2_v2'
 $CPU_LOCALNAME = 'Standard DSv2 Family vCPUs'
 $NUMBER_OF_CPUS_NEEDED = 6
+$DOTNET_VERSION = "6.0"
 
 function Confirm-DotNet6 {
-  
+  Write-Debug "Checking if .NET 6 is installed..."
+
+  $dotnetVersion = (dotnet --version)
+
+  if ($dotnetVersion -lt $DOTNET_VERSION) {
+    Write-Error ".NET 6 is not installed"
+    Write-Error "Installed version of .NET version is: $dotnetVersion"
+    return
+  }
+
+  Write-Information ".NET 6 installed"
 }
 
 function Confirm-AzureCli {
@@ -53,7 +64,7 @@ function Install-AksWorkloadIdentityPreview {
 function Confirm-Bicep {
   Write-Debug "Checking to see if Bicep is installed..."
 
-  (az bicep version) | Out-Null
+  az bicep version
 
   if (!$?) {
     Write-Error "Bicep is not installed"
@@ -76,6 +87,19 @@ function Confirm-Docker {
   Write-Information "Docker installed"
 }
 
+function Confirm-DockerRunning {
+  Write-Debug "Checking to see if Docker is running..."
+
+  docker info | Out-Null
+
+  if (!$?) {
+    Write-Error "Docker is not running"
+    return
+  }
+
+  Write-Information "Docker running"
+}
+
 function Confirm-Dapr {
   Write-Debug "Checking to see if Dapr is installed..."
 
@@ -90,10 +114,6 @@ function Confirm-Dapr {
 }
 
 function Enable-AzureResourceProviders {
-  param (
-    [Parameter(Mandatory = $true)]
-    [string]$SubscriptionId
-  )
   Write-Debug "Checking Azure resource providers..."
 
   $requiredProviders = @(
@@ -132,10 +152,6 @@ function Enable-AzureResourceProviders {
 }
 
 function Confirm-AksSkuAvailablility {
-  param(
-    [Parameter(Mandatory = $true)]
-    [string]$Location
-  )
   Write-Debug "Checking to see if the AKS node pool SKU $DEFAULT_AKS_NODE_POOL_SKU is available in this region..."
 
   $skuExists = (az vm list-skus --location $Location --size $DEFAULT_AKS_NODE_POOL_SKU --output table)
@@ -149,10 +165,6 @@ function Confirm-AksSkuAvailablility {
 }
 
 function Confirm-CpuQuota {
-  param(
-    [Parameter(Mandatory = $true)]
-    [string]$SubscriptionId
-  )
   Write-Debug "Checking to see if the CPU quota will be exceeded for this subscription..."
 
   $cpuCounts = (az vm list-usage --location southcentralus --query "[?contains(localName, '$CPU_LOCALNAME')]. { CurrentValue:currentValue, Limit:limit }" | ConvertFrom-Json)
@@ -166,42 +178,34 @@ function Confirm-CpuQuota {
 
 Write-Progress -Activity "Checking all prerequisites..." -Status "0% Complete:" -PercentComplete 0
 
-Confirm-AzureCli
-
-Write-Progress -Activity "Confirmed Azure CLI ..." -Status "10% Complete:" -PercentComplete 10
-
 az login --tenant $TenantId | Out-Null
 
 az account set --subscription $SubscriptionId | Out-Null
 
-Install-AzureCliAksPreview
+$checks = @(
+  (Get-Item function:Confirm-AzureCli)
+  (Get-Item function:Install-AzureCliAksPreview)
+  (Get-Item function:Install-AksWorkloadIdentityPreview)
+  (Get-Item function:Confirm-Bicep)
+  (Get-Item function:Confirm-Docker)
+  (Get-Item function:Confirm-DockerRunning)
+  (Get-Item function:Confirm-Dapr)
+  (Get-Item function:Confirm-DotNet6)
+  (Get-Item function:Enable-AzureResourceProviders)
+  (Get-Item function:Confirm-AksSkuAvailablility)
+  (Get-Item function:Confirm-CpuQuota)
+)
 
-Write-Progress -Activity "Confirmed Azure Cli Aks Preview ..." -Status "20% Complete:" -PercentComplete 20
+$i = 0
 
-Install-AksWorkloadIdentityPreview
+foreach ($check in $checks) {
+  & $check
+  
+  $i++
 
-Write-Progress -Activity "Installed Aks Workload Identity Preview..." -Status "30% Complete:" -PercentComplete 30
+  $percentComplete = [math]::Round(($i / $checks.Count) * 100)
 
-Confirm-Bicep
-
-Write-Progress -Activity "Confirmed Bicep..." -Status "40% Complete:" -PercentComplete 40
-
-Confirm-Docker
-
-Write-Progress -Activity "Confirmed Docker..." -Status "50% Complete:" -PercentComplete 50
-
-Confirm-Dapr
-
-Write-Progress -Activity "Confirmed Dapr..." -Status "60% Complete:" -PercentComplete 60
-
-Enable-AzureResourceProviders -SubscriptionId $SubscriptionId
-
-Write-Progress -Activity "Enabled Azure Resource Providers..." -Status "70% Complete:" -PercentComplete 70
-
-Confirm-AksSkuAvailablility -Location $Location
-
-Write-Progress -Activity "Confirmed AKS SKU availability..." -Status "80% Complete:" -PercentComplete 80
-
-Confirm-CpuQuota -SubscriptionId $SubscriptionId
-
-Write-Progress -Activity "Confirmed Cpu Quota..." -Status "100% Complete:" -PercentComplete 100
+  Write-Progress -Activity "Completed $($check.Name)" -Status "$percentComplete% Complete:" -PercentComplete $percentComplete
+}
+  
+Write-Progress -Activity "Completed $($check.Name)" -Status "100% Complete:" -PercentComplete 100
