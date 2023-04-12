@@ -1,4 +1,4 @@
-# Challenge 04 - [Optional] Injecting Chaos into your CI/CD pipeline
+# Challenge 04: [Optional] Injecting Chaos into your CI/CD pipeline
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
