@@ -1,4 +1,4 @@
-# Challenge 02 - My Availability Zone burned down, now what? - Coach's Guide 
+# Challenge 02: My Availability Zone burned down, now what? - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
