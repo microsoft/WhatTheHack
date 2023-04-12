@@ -37,7 +37,7 @@ During the experiment, were you able to order a pizza? If not, what could you do
 
 - Verify the experiment is running
 - Observe any failure(s)
-- Discuss with your coach how your application is (or was made) resilient
+- Verify application is available after WestUS region is offline
 - Verify all application traffic is routing to the surviving region
 
 ## Tips
