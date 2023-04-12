@@ -58,7 +58,7 @@ This hack requires students to have access to an Azure subscription where they c
   - Challenge 3 (1 hours)
 
 - Day 2
-  - Challenge 4 (? hours)
+  - Challenge 4 (4 hours)
 
 ## Repository Contents
 
