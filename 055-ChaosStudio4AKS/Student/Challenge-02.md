@@ -1,4 +1,4 @@
-# Challenge 02 - My AZ burned down, now what?
+# Challenge 02: My AZ burned down, now what?
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
