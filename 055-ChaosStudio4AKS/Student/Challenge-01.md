@@ -34,7 +34,8 @@ During the experiment, were you able to order a pizza or perform your appplicati
 - Verify Pod Chaos restarted the application's AKS pod
 - Observe any failure in the application
 - Was your application available? 
-- If not how can you make it available during such an outage? 
+- If your application went offline, what change could you make to the application?
+- Rerun the experiment and verify if the change was successful   
 
 ## Tips
 
