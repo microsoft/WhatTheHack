@@ -23,7 +23,7 @@ You have been tasked to test the resiliency of the pizzeria application (or your
 simulate various failures. 
 
 ## Challenges
-* Challenge 00: **[Ready Set Go](Student/Challenge-00.md)**
+* Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Deploy the multi-region Kubernetes pizzeria application,
 * Challenge 01: **[Is your application ready for the Super Bowl?](Student/Challenge-01.md)**
 	 - How does your application handle failure during large scale events?
