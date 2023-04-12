@@ -12,7 +12,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Is your Application ready for the Super Bowl](./Solution-01.md)**
+- Challenge 01: **[Is your Application ready for the Super Bowl?](./Solution-01.md)**
 	 - How does your application handle failure during large scale events?
 - Challenge 02: **[My AZ burned down, now what?](./Solution-02.md)**
 	 - Can your application survive an Azure outage of 1 or more Availability Zones?
