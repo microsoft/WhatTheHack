@@ -232,7 +232,7 @@ Don't forget to change the license key in the secrets file back to the correct o
 1.  Get the object id for your service principal.
 
     ```shell
-    az ad sp show --id <service-principal-app-id> --query="objectId"
+    az ad sp show --id <service-principal-app-id> --query="id"
     ```
 
     ```shell

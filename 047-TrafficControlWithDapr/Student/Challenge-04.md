@@ -25,7 +25,7 @@ Right now, this is all you need to know about this building block. If you want t
 You will need to modify the services to use the Dapr state management block.
 
 - Create a Dapr configuration file for specifying the state management Dapr component.
-- Modify the `TrafficControlService` (`TrafficController` class) so it saves the state of a vehicle (`VehicleState` class) using the Dapr state management building block after **vehicle entry**.
+- Modify the `TrafficControlService` (`TrafficController` class) so it saves the state of a vehicle (`VehicleState` class) using the Dapr state management building block after **vehicle entry**. Use the HTTP API to call your Dapr sidecar.
 - Modify the `TrafficControlService` (`TrafficController` class) so it reads and updates the state of a vehicle using the Dapr state management building block after **vehicle exit**.
 - Restart all services & run the `Simulation` application.
 - Once you have the above working, modify the solution so that it uses Azure Cache for Redis as a state store instead of the default local Redis cache.

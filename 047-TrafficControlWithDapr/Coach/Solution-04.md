@@ -230,9 +230,23 @@ As you can see, the data is actually stored in the redis cache. As you may have 
 
     _If you're up for it, try to swap-out Redis with another state provider. See the [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `Resources/dapr/components/statestore.yaml`._
 
-## Step 3: Use Dapr state management with the Dapr SDK for .NET
+## Step 3: Optional, use Dapr state management with the Dapr SDK for .NET
 
-In this step, you'll simplify state management with the Dapr SDK for .NET. You'll change the `DaprVehicleStateRepository`. Instead of calling the Dapr state management API directly over HTTP, you'll streamline the app using the `DaprClient` from the Dapr SDK for .NET.
+If you choose to do this step, you'll simplify state management with the Dapr SDK for .NET. You'll change the `DaprVehicleStateRepository`. Instead of calling the Dapr state management API directly over HTTP, you'll streamline the app using the `DaprClient` from the Dapr SDK for .NET.
+
+1.  Open the file `Resources/TrafficControlService/Startup.cs` in VS Code.
+
+1.  Add a `using` statement for `Dapr.Client`:
+
+    ```csharp
+    using Dapr.Client;
+    ```
+
+1.  Add the following code to the `ConfigureServices` method:
+
+    ```csharp
+    services.AddDaprClient();
+    ```
 
 1.  Open the file `Resources/TrafficControlService/Repositories/DaprVehicleStateRepository.cs` in VS Code.
 

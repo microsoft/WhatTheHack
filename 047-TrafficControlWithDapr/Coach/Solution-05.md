@@ -245,6 +245,7 @@ You should see the same logs as before. You can also view the fine notification 
    var body = EmailUtils.CreateEmailBody(speedingViolation, vehicleInfo, fineString);
    var metadata = new Dictionary<string, string>
    {
+     //NOTE: the casing of EmailFrom, EmailTo & Subject changed from the previous challenge!!!
      ["EmailFrom"] = "noreply@cfca.gov",
      ["EmailTo"] = vehicleInfo.OwnerEmail,
      ["Subject"] = $"Speeding violation on the {speedingViolation.RoadId}",
