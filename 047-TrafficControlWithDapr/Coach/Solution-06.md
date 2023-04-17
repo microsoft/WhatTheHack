@@ -90,7 +90,6 @@ First, create an input binding for the `/entrycam` operation:
     kind: Component
     metadata:
       name: entrycam
-      namespace: dapr-trafficcontrol
     spec:
       type: bindings.mqtt
       version: v1
@@ -122,7 +121,6 @@ Next, create an input binding for the `/exitcam` operation:
     kind: Component
     metadata:
       name: exitcam
-      namespace: dapr-trafficcontrol
     spec:
       type: bindings.mqtt
       version: v1
@@ -160,45 +158,43 @@ The proxy uses HTTP to send the message to the `TrafficControlService`. You will
 1.  Paste the following code into this file:
 
     ```csharp
-    using System;
     using System.Net.Mqtt;
-    using System.Text;
     using System.Text.Json;
     using Simulation.Events;
+    using System.Text;
+    using System.Threading.Tasks;
 
     namespace Simulation.Proxies
     {
-        public class MqttTrafficControlService : ITrafficControlService
+      public class MqttTrafficControlService : ITrafficControlService
+      {
+        private IMqttClient _mqttClient;
+        public MqttTrafficControlService(int cameraNumber)
         {
-            private readonly IMqttClient _client;
+          var configuration = new MqttConfiguration()
+          {
+            KeepAliveSecs = 60,
+            Port = 1883
+          };
 
-            public MqttTrafficControlService(int camNumber)
-            {
-                // connect to mqtt broker
-                var config = new MqttConfiguration() {
-                  KeepAliveSecs = 60,
-                  Port = 1883
-                };
-                var mqttHost = Environment.GetEnvironmentVariable("MQTT_HOST") ?? "localhost";
-                _client = MqttClient.CreateAsync(mqttHost, config).Result;
-                var sessionState = _client.ConnectAsync(
-                  new MqttClientCredentials(clientId: $"camerasim{camNumber}")).Result;
-            }
-
-            public void SendVehicleEntry(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new MqttApplicationMessage("trafficcontrol/entrycam", Encoding.UTF8.GetBytes(eventJson));
-                _client.PublishAsync(message, MqttQualityOfService.AtMostOnce).Wait();
-            }
-
-            public void SendVehicleExit(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new MqttApplicationMessage("trafficcontrol/exitcam", Encoding.UTF8.GetBytes(eventJson));
-                _client.PublishAsync(message, MqttQualityOfService.AtMostOnce).Wait();
-            }
+          _mqttClient = MqttClient.CreateAsync("localhost", configuration).Result;
+          _mqttClient.ConnectAsync().Wait();
         }
+
+        public async Task SendVehicleEntryAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new MqttApplicationMessage("trafficcontrol/entrycam", Encoding.UTF8.GetBytes(eventJson));
+          await _mqttClient.PublishAsync(message, MqttQualityOfService.AtLeastOnce);
+        }
+
+        public async Task SendVehicleExitAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new MqttApplicationMessage("trafficcontrol/exitcam", Encoding.UTF8.GetBytes(eventJson));
+          await _mqttClient.PublishAsync(message, MqttQualityOfService.AtLeastOnce);
+        }
+      }
     }
     ```
 
@@ -309,34 +305,35 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     using System.Text;
     using System.Text.Json;
     using Simulation.Events;
+    using System.Threading.Tasks;
 
     namespace Simulation.Proxies
     {
-        public class IotHubTrafficControlService : ITrafficControlService
+      public class IotHubTrafficControlService : ITrafficControlService
+      {
+        private readonly DeviceClient _client;
+
+        public IotHubTrafficControlService(int camNumber)
         {
-            private readonly DeviceClient _client;
-
-            public IotHubTrafficControlService(int camNumber)
-            {
-                _client = DeviceClient.CreateFromConnectionString("HostName=iothub-dapr-ussc-demo.azure-devices.net;DeviceId=simulation;SharedAccessKey=/cRA4cYbcyC7FakekeyNV6CrfugBe8Ka2z2m8=", TransportType.Mqtt);
-            }
-
-            public void SendVehicleEntry(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new Message(Encoding.UTF8.GetBytes(eventJson));
-                message.Properties.Add("trafficcontrol", "entrycam");
-                _client.SendEventAsync(message).Wait();
-            }
-
-            public void SendVehicleExit(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new Message(Encoding.UTF8.GetBytes(eventJson));
-                message.Properties.Add("trafficcontrol", "exitcam");
-                _client.SendEventAsync(message).Wait();
-            }
+            _client = DeviceClient.CreateFromConnectionString("HostName=iothub-dapr-ussc-demo.azure-devices.net;DeviceId=simulation;SharedAccessKey=/cRA4cYbcyC7FakekeyNV6CrfugBe8Ka2z2m8=", TransportType.Mqtt);
         }
+
+        public async Task SendVehicleEntryAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new Message(Encoding.UTF8.GetBytes(eventJson));
+          message.Properties.Add("trafficcontrol", "entrycam");
+          await _client.SendEventAsync(message);
+        }
+
+        public async Task SendVehicleExitAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new Message(Encoding.UTF8.GetBytes(eventJson));
+          message.Properties.Add("trafficcontrol", "exitcam");
+          await _client.SendEventAsync(message);
+        }
+      }
     }
     ```
 

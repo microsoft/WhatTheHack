@@ -34,7 +34,7 @@ To learn more about the secrets building block, read the [introduction to this b
 Update the services to use a Dapr secrets buildling block.
 
 - Create a local JSON file & add the following credentials:
-  - SMTP credentials (from the \*email\*\* Dapr component configured in [Challenge-05](./Challenge-05.md)).
+  - SMTP credentials (from the _email_ Dapr component configured in [Challenge-05](./Challenge-05.md)).
   - License key (from the `Resources\FineCollectionService\Controllers\CollectionController.cs` code file).
 - Create a Dapr configuration file for the **local** secret store JSON file.
 - Modify the **email** Dapr component configured in [Challenge-05](./Challenge-05.md) to use this new secret store instead of having the SMTP credentials hard-coded in the configuration file.

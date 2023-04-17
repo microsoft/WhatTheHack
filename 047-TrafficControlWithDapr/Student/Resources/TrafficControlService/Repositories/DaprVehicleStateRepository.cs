@@ -23,7 +23,7 @@ namespace TrafficControlService.Repositories
 
     public async Task<VehicleState> GetVehicleStateAsync(string licenseNumber)
     {
-      throw new NotImplementedException();
+      throw await Task.FromException<NotImplementedException>(new NotImplementedException());
     }
 
     public async Task SaveVehicleStateAsync(VehicleState vehicleState)
@@ -36,7 +36,7 @@ namespace TrafficControlService.Repositories
           }
       };
 
-      throw new NotImplementedException();
+      throw await Task.FromException<NotImplementedException>(new NotImplementedException());
     }
   }
 }
