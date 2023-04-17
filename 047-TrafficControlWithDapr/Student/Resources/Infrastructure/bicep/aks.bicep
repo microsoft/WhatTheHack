@@ -38,7 +38,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
       {
         name: 'agentpool'
         osDiskSizeGB: 0
-        count: 2
+        count: 1
         vmSize: 'Standard_DS2_v2'
         osType: 'Linux'
         mode: 'System'
