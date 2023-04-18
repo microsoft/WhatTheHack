@@ -193,7 +193,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
 1.  Assign permissions to Key Vault
 
-    Lastly, assign yourself access to the Key Vault so you can create secrets:
+    Assign yourself access to the Key Vault so you can create secrets:
 
     ```shell
     az ad signed-in-user show --query userPrincipalName -o tsv
@@ -205,6 +205,12 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
     ```shell
     az k8s-extension create --cluster-type managedClusters --cluster-name <aks-name> --resource-group <resource-group-name> --name dapr --extension-type Microsoft.Dapr
+    ```
+
+1.  Shut down your AKS cluster to save money until we need it for Assignment 8
+
+    ```shell
+    az aks stop --name <aks-name> --resource-group <resource-group-name>
     ```
 
 ### Review TrafficControl application architecture
