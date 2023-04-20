@@ -63,3 +63,5 @@ The participants will learn how to:
 - [Melody Yin](https://github.com/melody-N07)
 - [Devanshi Thakar](https://github.com/devanshithakar12)
 - [Steven Kerr Lindsay](https://github.com/MicrosoftCSA)
+- [Shiva Chittamuru](https://github.com/shivachittamuru)
+
