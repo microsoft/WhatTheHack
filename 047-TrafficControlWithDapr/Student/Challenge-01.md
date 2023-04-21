@@ -6,6 +6,8 @@
 
 In this challenge, you'll run the reference application to ensure that everything works correctly.
 
+asdf
+
 ## Description
 
 As mentioned in the introduction, the hackathon challenges are built upon an existing microservice reference app, entitled the **_Traffic Control Application_**. To start, you'll test the Traffic Control app to ensure that the application runs and your environment is configured correctly. You'll use Visual Studio Code to start each of the 4 microservices shown below:
