@@ -4,9 +4,8 @@ LABEL "com.github.actions.name"="WTH Spell Check Action"
 LABEL "com.github.actions.description"="Check spelling of Markdown files in the WhatTheHack repo"
 LABEL "com.github.actions.icon"="clipboard"
 LABEL "com.github.actions.color"="green"
-LABEL "repository"="http://github.com/jordanbean-msft/wth-spell-check-action"
+LABEL "repository"="http://github.com/whatthehack"
 LABEL "homepage"="http://github.com/actions"
-LABEL "maintainer"="Jordan Bean <jordanbean@microsoft.com>"
 
 RUN apt-get update \
   && apt-get install -y aspell hunspell wget
