@@ -12,6 +12,8 @@ In this challenge, you'll do the following:
 
 Your coach will provide you with a `Resources.zip` package file that contains the starting projects for this hack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance the application architecture.
 
+asdf
+
 ### Install local prerequisites
 
 - Git ([download](https://git-scm.com/))
