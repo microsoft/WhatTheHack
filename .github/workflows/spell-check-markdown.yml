@@ -7,7 +7,6 @@ on:
     branches: [master]
     paths:
       - "**.md"
-  workflow_dispatch:
 
 jobs:
   spell-check:
@@ -20,7 +19,7 @@ jobs:
         with:
           files: |
             **/*.md
-      - uses: jordanbean-msft/wth-spell-check-action@v0.0.30
+      - uses: ./.github/actions/spell-check
         name: WTH Spell Check
         with:
           spell_check_yaml_path: .github/workflows/spell-check/spellcheck.yml
