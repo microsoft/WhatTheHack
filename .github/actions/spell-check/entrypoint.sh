@@ -26,6 +26,6 @@ EXITCODE=$?
 
 test $EXITCODE -gt 1 && echo "Spelling check action failed, please check logs.";
 
-test $EXITCODE -eq 1 && echo "Files in repository contain spelling errors. Please fix these errors and resubmit the pull request. Alternatively, follow the instructions at the following link to add your own words to the dictionary: https://microsoft.github.io/WhatTheHack/CONTRIBUTING.html#spell-check";
+test $EXITCODE -eq 1 && echo "Files in repository contain spelling errors. Please fix these errors. Alternatively, follow the instructions at the following link to add your own words to the dictionary: https://microsoft.github.io/WhatTheHack/CONTRIBUTING.html#spell-check";
 
 exit $EXITCODE

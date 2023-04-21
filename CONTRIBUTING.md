@@ -184,7 +184,7 @@ When you feel your hack is finished and ready for release, this is the process w
 
 ### Spell Check
 
-A spell checker has been set up to help catch spelling errors. It will use common English words as well as technical terms from the `.github/workflows/spell-check/.wordlist.txt` file.
+A spell checker will run on each new pull request submitted and again each time additional comments are made against that pull request. It will use common English words as well as technical terms from the `.github/workflows/spell-check/.wordlist.txt` file.
 
 This will run on each pull request that is submitted to the `master` branch.
 
