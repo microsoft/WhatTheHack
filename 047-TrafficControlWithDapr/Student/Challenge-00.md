@@ -226,8 +226,6 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     dapr init
     ```
 
-asdf
-
 ### Review TrafficControl application architecture
 
 Spend some time with your teammates reviewing the TrafficControl application architecture & services.
