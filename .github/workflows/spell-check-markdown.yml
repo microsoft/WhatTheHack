@@ -2,7 +2,11 @@ name: Spell Check
 
 on:
   pull_request:
+    types:
+      - opened
     branches: [master]
+    paths:
+      - "**.md"
 
   workflow_dispatch:
 
