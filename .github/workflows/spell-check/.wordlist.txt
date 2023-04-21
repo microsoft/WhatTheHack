@@ -613,6 +613,7 @@ sys
 syslog
 systemd
 tcp
+templated
 testcli
 timezones
 tmp
@@ -646,6 +647,7 @@ webserver
 webservers
 wget
 wth
+wthrepo
 www
 xargs
 xml

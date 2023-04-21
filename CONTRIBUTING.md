@@ -192,7 +192,7 @@ This will run on each pull request that is submitted to the `master` branch.
 
 ![Spell Check Misspelled Words](000-HowToHack/images/spell-check-misspelled-words.png?raw=true "Spell Check Misspelled Words")
 
-If you have unique or technical words that are not already in the global `.wordlist` file, you can add your own list. Add a file called `.wordlist.txt` to your new WTH subdirectory and include all the words you want the spell checker to ignore. There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
+If you have unique or technical words that are not already in the global `.wordlist` file, you can add your own list. Add a file called `.wordlist.txt` to your new WTH sub-directory and include all the words you want the spell checker to ignore. There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
 
 ### Use Draft Pull Requests for Early Feedback
 
@@ -258,6 +258,4 @@ instructions provided by the bot. You will only need to do this once across all 
 
 ## Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the Code of Conduct FAQ
-or contact opencode@microsoft.com with any additional questions or comments.
-
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the Code of Conduct FAQ or contact `opencode@microsoft.com` with any additional questions or comments.
