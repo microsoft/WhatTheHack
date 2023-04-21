@@ -26,6 +26,6 @@ EXITCODE=$?
 
 test $EXITCODE -gt 1 && echo "Spelling check action failed, please check logs.";
 
-test $EXITCODE -eq 1 && echo "Files in repository contain spelling errors. Please fix these errors and resubmit the pull request. Alternatively, add a file called '.wordlist.txt' to the directory you added your files to and add in the words you want to exclude from the spell checker. Put each word on a new line.";
+test $EXITCODE -eq 1 && echo "Files in repository contain spelling errors. Please fix these errors and resubmit the pull request. Alternatively, follow the instructions at the following link to add your own words to the dictionary: https://microsoft.github.io/WhatTheHack/CONTRIBUTING.html#spell-check";
 
 exit $EXITCODE
