@@ -27,6 +27,10 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
   dependsOn: [
     managedIdentityManagedIdentityOperatorRoleAssignment
   ]
+  sku: {
+    name: 'Basic'
+    tier: 'Free'
+  }
   properties: {
     kubernetesVersion: '1.26.0'
     enableRBAC: true //this is required to install Dapr correctly
@@ -38,8 +42,8 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
       {
         name: 'agentpool'
         osDiskSizeGB: 0
-        count: 1
-        vmSize: 'Standard_DS2_v2'
+        count: 3
+        vmSize: 'Standard_B4ms'
         osType: 'Linux'
         mode: 'System'
       }
