@@ -23,7 +23,7 @@ jobs:
           files: |
             **/*.md
 
-      - uses: jordanbean-msft/wth-spell-check-action@v0.0.25
+      - uses: jordanbean-msft/wth-spell-check-action@v0.0.26
         name: WTH Spell Check
         with:
           spell_check_yaml_path: .github/workflows/spell-check/spellcheck.yml
