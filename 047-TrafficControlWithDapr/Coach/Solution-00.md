@@ -26,3 +26,12 @@ This means the resource provider for that service hasn't been registered in the 
 ```shell
 az provider register --namespace {resource-provider-namespace}
 ```
+
+
+If the student does not know their UPN, they can look it up using the CLI.  
+
+```shell
+az ad signed-in-user show
+```
+
+If a student has not installed the Dapr extensions before trying to add Dapr into their AKS cluster, then they will need to remove the Dapr extension through the Portal and re-add after they have run through the Dapr extension requirements.

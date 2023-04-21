@@ -48,6 +48,8 @@ Make sure the following minimum software versions are installed by executing the
 
 You'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
 
+1. Login to Azure Portal and create a Resource Group.  Create the Resource Group in an Azure region that can support AKS version 1.26.0 & a VM size of `Standard_B4ms` (such as South Central US or Central US).
+
 1.  If you're using [Azure Cloud Shell](https://shell.azure.com), skip this step and proceed to step 2. Open the [terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code and make sure you're logged in to Azure
 
     ```shell
@@ -59,7 +61,81 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     ```shell
     az account set --subscription "xxxx-xxxx-xxxx-xxxx"
     ```
+1.  Install the `aks-preview` extension.
 
+    ```shell
+    az extension add --name aks-preview
+    ```
+
+    > **Note**: If you have previously installed the `aks-preview` extension, please update it.
+
+    ```shell
+    az extension update --name aks-preview
+    ```
+
+1.  Install the `k8s-extension`.
+
+    ```shell
+    az extension add --name k8s-extension
+    ```
+
+    > **Note**: If you have previously installed the `k8s-extension`, please update it.
+
+    ```shell
+    az extension update --name k8s-extension
+    ```
+
+1.  Enable the `Workload Identity Preview` feature.
+
+    Register the feature:
+    ```shell
+    az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
+    ```
+
+    Wait a few minutes and verify its registered.
+    ```shell
+    az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
+    ```
+
+    Refresh the registration.
+    ```shell
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+1.  Enabled the `AKS Extension Manager` feature.
+
+    ```shell
+    az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
+    ```
+
+     Wait a few minutes and verify its registered.
+    ```shell
+    az feature show --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
+    ```
+
+    Refresh the registration.
+    ```shell
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+1.  Enable the `Dapr` Feature.
+    
+    ```shell
+    az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
+    ```
+
+     Wait a few minutes and verify its registered.
+    ```shell
+    az feature show --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
+    ```
+
+    Refresh the registrations.
+    ```shell
+    az provider register --namespace Microsoft.ContainerService
+
+    az provider register --namespace Microsoft.KubernetesConfiguration
+    ```
+    
 1.  _Optional_: The following steps assume you already have a resource group created. If not, run the following command to create one. Replace the resource group name and location with your own values.
 
     ```shell
@@ -71,7 +147,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     ```json
     {
       "appName": {
-        "value": "dapr<your-initials-here>"
+        "value": "dapr<your-initials><3-random-numbers>"
       },
       "region": {
         "value": "ussc"
