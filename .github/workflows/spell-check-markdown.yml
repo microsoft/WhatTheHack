@@ -2,7 +2,7 @@ name: Spell Check
 
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
 
   workflow_dispatch:
 
@@ -15,8 +15,11 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            **/*.md
 
-      - uses: jordanbean-msft/wth-spell-check-action@v0.0.19
+      - uses: jordanbean-msft/wth-spell-check-action@v0.0.20
         name: WTH Spell Check
         with:
           spell_check_yaml_path: .github/workflows/spell-check/spellcheck.yml
