@@ -131,10 +131,6 @@ In the end (after you run all the stress tests the dashboards should look like t
   
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image31.png)
   
-- This is how the alert email notification will look like after you run the DB stress test. (If you re-run the stress test keep in mind, you will need to delete the tpcc DB and re-create it.)
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
-  
 - Now Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails you when you go over the threshold.
 
 
@@ -203,9 +199,17 @@ In the end (after you run all the stress tests the dashboards should look like t
   
 When the test is running it should look like the screenshot below:
 >**TIP:** If you would like to run a second test you **must** first delete the database you created and recreate it. HammerDB will not run a test against a database that has data in it. When you run a test is fills the database with a bunch of sample data.
-  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image21.png)  
+
+After a few minutes you should get an alert similar to this one.
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
+  
+If you re-run the stress test keep in mind, you will need to delete the tpcc DB and re-create it.
+
+#### Generate load on the Virtual Machine Scale Set
+
 - Now you need to generate load on your VMSS to do this in the repo you cloned navigate to the folder called **loadscripts** under the **sources** folder and copy the **cpuGenLoadwithPS.ps1** script to both instances running in the Scale Set and run them.
 
 > **Tip:** This may be a bit of a challenge to those not used to working with a scale set. If you just grabed the public IP address and then RDP to it. You will end up on one of the instances but because you are going through the Load Balancer, you cannot control which one. Or can you?
