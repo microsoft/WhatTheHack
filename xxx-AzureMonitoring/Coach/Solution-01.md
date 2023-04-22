@@ -60,7 +60,7 @@ If you navigate to the Metrics blade for both VMs, you should only be able to se
 - Select Review + create to review the details of the data collection rule and association with the set of virtual machines.
 - Select Create to create the data collection rule.
 
-#### Send the SQL Server VM Event Log to Azure Monitor
+#### Send the SQL Server VM Event Logs to Azure Monitor
 
 Follow the steps in the previous section to create another data collection rule. The only difference will be on the Add data source step:
 - Instead of selecting Performance Counters, select Windows Event Logs and choose basic System and Application logs (Critical, Error, Warning, Informational)
@@ -71,14 +71,74 @@ Follow the steps in the previous section to create another data collection rule.
   
 Now go to the VM Metric, you should see the SQL one we added above, add it and pin it to any of your Dashboards.
   
-
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image9.png)  
-- can you see the new Metric?
+
+Can you see the new Metric?
   
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image10.png)
   
->**Tip:** A bunch of OS metrics are configured already under the scale set as a sample.
+#### Create your graphs on your dashboard
+
+You can click on Pin to dashboard, then customize it to show the last 1 hour (see below)
   
+![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/pin_to_dashboard.jpg)  
+
+Do this for both the SQL Server Active Transactions and the Percent CPU of the VM ScaleSet
+
+- SQL Server Active Transactions
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image22.png)  
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image23.png)   
+ 
+- VM Scale Set Percentage CPU
+  
+![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32_2.png)
+
+In the end (after you run all the stress tests the dashboards should look like this):
+
+![](../Images/01-04-Sample-dashboard.png)
+
+
+#### Create an Alert to be notified in case the SQL active transactions went above 40.
+  
+- From Azure Monitor, create an Action group, to send email to your address
+  
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image25.png)
+    
+- Create an Alert if Active Transactions goes over 40 on the SQL Server tpcc database.
+    
+  ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image26.png)  
+  
+- Make sure to add the correct counter  
+    
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image27.png)  
+
+- Now set the logic to greater than 40
+  
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image28.png)
+  
+- Now define the action group to be the one you have created above
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image30.png)
+  
+- Give the Alert a name, Description and Severity
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image29.png)
+  
+- If you check your Alert Rules you should see it now enabled.
+  
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image31.png)
+  
+- This is how the alert email notification will look like after you run the DB stress test. (If you re-run the stress test keep in mind, you will need to delete the tpcc DB and re-create it.)
+
+![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
+  
+- Now Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails you when you go over the threshold.
+
+
+
  #### Stress the Database using HammerDB 
 - Download and Install HammerDB tool on the Visual Studio VM. 
 -  [www.hammerdb.com](http://www.hammerdb.com/)
@@ -146,68 +206,6 @@ When the test is running it should look like the screenshot below:
   
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image21.png)  
-#### Create your graphs on your dashboard
-Remember the metric created above? you can click on pin to my Dashboard then customize it to show the last 1 hour for example (see below)
-  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/pin_to_dashboard.jpg)  
-- Do this for both the SQL Server Active Transactions and the Percent CPU of the VM ScaleSet
-- You may need to customize the dashboard once pinned it to a new Azure Dashboard to reflect the last hour
-   
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image22.png)  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image23.png)   
-- Dashboard should look something like this
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image24.png)  
-#### Create an Alert to be notified in case the SQL active transactions went above 40.
-  
-- From Azure Monitor, create an Action group, to send email to your address
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image25.png)
-    
-- Create an Alert if Active Transactions goes over 40 on the SQL Server tpcc database.
-    
-  ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image26.png)  
-- Make sure to add the correct counter  
-    
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image27.png)  
-
-- No set the logic to greater than 40
-  
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image28.png)
-  
-- Now define the action group to be the one you have created above
-  
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image30.png)
-  
-- Give the Alert a name, Description and Severity
-  
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image29.png)
-  
-- If you check your Alert Rules you should see it now enabled.
-  
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image31.png)
-  
-If you re-run the stress test keep in mind, you will need to delete the tpcc DB and re-create it.
-  
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
-  
-I assume now you are familier with the whole topic or Dashboards, Alerts ..etc
-  
-- Create a metric showing the CPU average of your VM scaleset and pin it also to your Dashboard
-  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32_2.png)
-   
-should looks something like this:
-  
-
-![](../Images/01-04-Sample-dashboard.png)
-- Now Create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails you when you go over the threshold.
 - Now you need to generate load on your VMSS to do this in the repo you cloned navigate to the folder called **loadscripts** under the **sources** folder and copy the **cpuGenLoadwithPS.ps1** script to both instances running in the Scale Set and run them.
 
 > **Tip:** This may be a bit of a challenge to those not used to working with a scale set. If you just grabed the public IP address and then RDP to it. You will end up on one of the instances but because you are going through the Load Balancer, you cannot control which one. Or can you?
@@ -239,28 +237,29 @@ You may need to jump on that box and max it out as well.
 You should get an Alert similar to the one below  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image38.png)    
-- To suppress the Alerts over the weekends, open your **Action rules** under **Manage actions**
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image45.png)    
-- Click on **Action rules**
-    
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image46.png)    
-- Then click **New Action rule**  
+#### Create an Alert processing rule to suppress the alerts over the weekends
+
+- To suppress the Alerts over the weekends, in Azure Monitor under Alerts open your **Alert processing rules**
+
+![](../Images/01-19-Create-Alert-proc-rule.png)
+
+- Click Create
 - Under Scope, click on Select a resource and make sure you have your subscription selected. Then search for the name of the resource group that was created in the deployment of the workshop. 
 - Select your resource group when it comes up. 
-- Click Done    
+- Click Apply      
+- Under Filter click on filters and select Resource type, Equals, Virtual Machines and Virtual Machine scales sets    
+
+![](../Images/01-20-Create-Alert-proc-rule.png) 
+
+- Go to Rule settings and select Suppress Notifications.
+- Go to Schedulling, select Recurring, Weekly, Sat & Sun, All day.
+
+![](../Images/01-21-Create-Alert-proc-rule.png) 
+
+- On the Details tab select a Subscription, resource group and type the name of the new rule.
+- Click Review and create and then Create.
   
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image47.png) 
-- Filter on the VMs and VMSS
-	- Under Filter Criteria, click on filters and select Resource type
-	- Equals Virtual Machines and Virtual Machine scales sets    
-
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image48.png)    
-- Under Suppression Config, click on Edit and configure it
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image49.png)  
-
   
 First team to send both alerts wins the challenge!! :)  
 Good luck!
