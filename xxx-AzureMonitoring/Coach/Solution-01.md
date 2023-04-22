@@ -25,13 +25,10 @@
 ![](../Images/01-02-Add-db.png)
 
 ![](../Images/01-03-View-db.png)
-#### Send the SQL DB Active transactions metric to Azure Monitor
-  
-##### From the portal
-  
-If you navigate to the Metrics blade for both VMs, you should only be able to see Virtual Machine host metrics. To add guest-level monitoring, go to Diagnostics settings blade of the SQL Server VM, select the Diagnostics storage account (create a new one or use one of the already existing), click "Enable guest-level monitoring". Once the settings are installed, you will see a list of monitored basic performance counters.
 
-To find the correct SQL DB counter, go to your Azure Portal, open the VM, then open Run Command as shown in the screen below. 
+#### Send the SQL Server VM performance counters to Azure Monitor
+  
+To find the correct name of the SQL DB counter, go to your Azure Portal, open the VM, then open Run Command as shown in the screen below. 
   
 ![enter image description here](../Images/01-05-Run-cmdlet.png)    
 Run the command - (Get-Counter -ListSet SQLServer:Databases).Paths
@@ -43,32 +40,33 @@ Once its finished, review the results (scroll up) and copy the output for the
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image7.png)  
 Now replace the "*" with the target database to be:
 `\SQLServer:Databases(tpcc)\Active Transactions`
-  
-Open your VM on the Azure Portal, then go to diagnostic settings and add the counter under performance counters as shown below. 
-  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/sql_counter.jpg)  
 
-Open the "Sinks" tab and select "Enable Azure Monitor". Don't forget to click "Save".
+If you navigate to the Metrics blade for both VMs, you should only be able to see Virtual Machine host metrics. To add guest-level monitoring, create a Data Collection Rule. 
+- On the Monitor menu, select Data Collection Rules.
+- Select Create to create a new data collection rule and associations.
+![](../Images/01-13-Create-DCR.png)
+- Enter a Rule name and specify a Subscription, Resource Group, Region, and Platform Type (Windows):
+![](../Images/01-14-Create-DCR.png)
+- On the Resources tab select + Add resources and associate SQL Server VM to the data collection rule.
+- On the Collect and deliver tab, select Add data source to add a data source and set a destination.
+- Select a Data source type Performance Counters and then select Basic. Make sure that all Performance Counters are selected.
+![](../Images/01-15-Create-DCR.png)
+- On the Destination tab, add Azure Monitor Metrics and Azure Monitor Logs (select existing Log Analytics workspace).
+![](../Images/01-16-Create-DCR.png)
+- Select Add data source.
+- Click on the newly created Data Source called Performance Counters to open it.
+- Select Custom, add the SQL DB performance counter (\SQLServer:Databases(tpcc)\Active Transactions) to the list, make sure it is selected by the tick and click Save.
+![](../Images/01-17-Create-DCR.png)
+- Select Review + create to review the details of the data collection rule and association with the set of virtual machines.
+- Select Create to create the data collection rule.
 
-![enter image description here](../Images/01-11-Diag-settings-sinks.png)    
+#### Send the SQL Server VM Event Log to Azure Monitor
 
-##### From the bicep Template
-To do this via code:
-- Open the main.bicep file
-- Search for this module: `module  sqldiagwindowsvmext  'modules/vmextension/vmextension.bicep' = {`
-- Add the SQL counter (shown below) after the Memory commited bytes counter as in the screen below:
-```
-{
-	counterSpecifier: '\\SQLServer:Databases(tpcc)\\Active Transactions'
-	sampleRate: 'PT15S'
-}
-```  
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/sql_counter_bicep.jpg)  
-- Re-run the bicep deployment and double check your deployment and counters.
-  
-- Once redeployed, go to metrics and check to make sure you are seeing the new metrics.
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image8.png)  
+Follow the steps in the previous section to create another data collection rule. The only difference will be on the Add data source step:
+- Instead of selecting Performance Counters, select Windows Event Logs and choose basic System and Application logs (Critical, Error, Warning, Informational)
+![](../Images/01-18-Create-DCR.png)
+- On the Dectination tab the only available option will be Azure Monitor Logs (select existing Log Analytics workspace).
+
 #### Check your metrics 
   
 Now go to the VM Metric, you should see the SQL one we added above, add it and pin it to any of your Dashboards.
