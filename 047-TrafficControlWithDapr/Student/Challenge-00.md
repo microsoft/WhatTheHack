@@ -29,8 +29,6 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 - Helm ([instructions](https://helm.sh/docs/intro/install/))
 
-asdf
-
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 
 | Software             | Version | Command Line       |
