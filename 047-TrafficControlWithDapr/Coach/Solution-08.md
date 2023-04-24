@@ -15,6 +15,13 @@ To complete this challenge, you must reach the following goals:
 - Successfully deploy all 3 services (`VehicleRegistrationService`, `TrafficControlService` & `FineCollectionService`) to an AKS cluster.
 - Successfully run the Simulation service locally that connects to your AKS-hosted services
 
+### Step 0: Start the AKS Cluster.  
+In `Challenge 0`, the student may have stopped the AKS cluster.  Start the cluster to perform this challenge.
+
+    ```shell
+    az aks start --name <aks-name> --resource-group <resource-group-name>
+    ```
+
 ### Step 1: Update all port numbers & host names
 
 By default, Dapr sidecars run on port 3500 when deployed to AKS. This means you will need to change the port numbers in the `FineCollectionService` & `TrafficControlService` class files to port 3500 for the calls to Dapr when deploying to the AKS cluster.
@@ -68,11 +75,40 @@ Now that your container images have been uploaded to the Azure Container Registr
         registry: crdaprtest2usscdev.azurecr.io
     . . .
     ```
+    
+    - [ ] trafficcontrol.imageCredentials.registry
+    - [ ] trafficcontrol.imageCredentials.username
+    - [ ] trafficcontrol.imageCredentials.password
+    - [ ] trafficcontrol.userAssignedManagedIdentity.name
+    - [ ] trafficcontrol.userAssignedManagedIdentity.clientId
+    - [ ] daprComponents.secrets.keyVaultName
+    - [ ] daprComponents.stateStore.redisHost
+    - [ ] daprComponents.stateStore.redisPassword
+    - [ ] daprComponents.inputBindings.storageAccountName
+    - [ ] daprComponents.inputBindings.storageAccountKey
+    - [ ] daprComponents.inputBindings.entryCam.connectionString
+    - [ ] daprComponents.inputBindings.exitCam.connectionString
+    - [ ] daprComponents.pubSub.connectionString
+    - [ ] daprComponents.outputBindings.url
+    - [ ] tenantId
 
 1.  Deploy your new services to AKS.
 
     ```shell
     helm upgrade --install dapr-trafficcontrol . --namespace dapr-trafficcontrol --atomic
+    ```
+    If the command does not complete successfully, here are some common errors:
+    
+    - Check your values.yaml to ensure all the values are correct.
+
+    ```code 
+    Error: release dapr-trafficcontrol failed, and has been uninstalled due to atomic being set: timed out waiting for the condition
+    ```
+    
+    - Uninstall and reinstall the Dapr Extension
+
+    ```code
+    Error: release dapr-trafficcontrol failed, and has been uninstalled due to atomic being set: conversion webhook for dapr.io/v1alpha1, Kind=Subscription failed: Post "https://dapr-webhook.replaceme.svc:443/convert?timeout=30s": service "dapr-webhook" not found
     ```
 
 1.  Verify your services are running (it may take a little while for all the services to finish starting up). Make sure the **READY** status for all pods says `2/2`.
