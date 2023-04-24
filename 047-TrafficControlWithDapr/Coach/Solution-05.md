@@ -220,7 +220,9 @@ You should see the same logs as before. You can also view the fine notification 
    1. Click on the **Send an email (V2)** step and click **Create**. You will have to sign-in with your Office 365-enabled ID.
    1. Click on the **When a HTTP request is received** step and copy the **HTTP POST URL**. This is the endpoint the Dapr output binding will call to send an email.
 
-1. Update the `Resources/dapr/components/email.yaml` file to use the Azure Logic App to send email. You will change the bindings from SMTP to HTTP and fill in the HTTP endpoint for the Logic App in Azure.
+1. Prior to updating `Resources/dapr/components/email.yaml` with the Azure settings, save a copy of the Mail Dev settings.  To do so, comment the entire binding using `#`.
+
+1. Update the `Resources/dapr/components/email.yaml` file to use the Azure Logic App to send email. You will change the bindings from SMTP to HTTP and fill in the HTTP endpoint for the Logic App in Azure.  
 
    **Example:**
 
@@ -259,4 +261,14 @@ You should see the same logs as before. You can also view the fine notification 
    dotnet build
    ```
 
+> **CAUTION**: The next step sends actual emails to your inbox.  The simulator sends out a tremendous amount of emails very quickly.  Be sure to only run the simulator for a few seconds.  
+
+> **NOTE**: There may be a lot of messages in the Queue if the simulator has been left on during development.  As a result, you may receive a flood of emails before running the simulator.  Please check the queue to make sure it is empty before running the services.
+
 1. Re-run all services and the simulation application. You should begin to see emails in your inbox for speeding violations.
+
+    Common Errors:
+    - The student may not receive emails due to blocked Office 365 Connectors.  Check the Logic App Trigger History in the Overview tab to ensure that the Logic App was triggered.  If it was triggered, then we have completed the step successfully.
+    - The Logic App is triggered and the Office 365 connector is not blocked, but the student does not receive email.  Check the ***CASE*** on the metadata fields from Step 3.  The fields must be upper cased.
+
+1. After running the services with the Logic App, revert the changes back to the MailDev environment so that emails in future challenges are not flooding the student's inbox.
