@@ -45,7 +45,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
     - [Create interactive reports with workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks)
 
 2. Attendees have access to an Azure Subscription where they can each deploy the provided ARM template that will build a very detailed infrastructure to monitor.  This includes the Vnet, subnets, NSG(s), LB(s), NAT rules, scales set and a fully functional .NET Core Application (eShopOnWeb) to monitor.
-3. Attendees should have a level 200-300 understanding of the Azure platform.  Understand concepts like PowerShell, Azure Cli, ARM, resource groups, RBAC, network, storage, compute, scale sets, virtual machines and security.  Previous experience working with ARM templates is recommended.
+3. Attendees should have a level 200-300 understanding of the Azure platform.  Understand concepts like PowerShell, Azure CLI, ARM, resource groups, RBAC, network, storage, compute, scale sets, virtual machines and security.  Previous experience working with ARM templates is recommended.
 4. Access to a machine with Visual Studio Code and the Azure PowerShell Modules loaded or Azure CLI. VS Code ARM and PowerShell extensions should be configured.
 
 ## Contributors
