@@ -74,5 +74,5 @@ Great work, you made it! ;-)
 
 
 ## Learning Resources
-* [Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks)
+* [Azure Monitor Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks)
 
