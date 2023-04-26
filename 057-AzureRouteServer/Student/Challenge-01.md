@@ -12,7 +12,7 @@ In this challenge you will learn how to build a basic test bed upon which to sim
 
 In this challenge you will create the topology described in this diagram:
 
-![hubnspoke noARS](./Resources/media/azurerouteserver-challenge1.png)
+![hubnspoke noARS](./Resources/media/azurerouteserver-challenge1-1nic.png)
 
 Please perform the following actions:
 - Create a Hub and Spoke Topology as described above. **Do not use Azure Route Server yet.**
@@ -30,10 +30,11 @@ At the end of this challenge, you should:
 
 - Have a basic Hub and Spoke Topology in Azure connecting to a simulated On-Premises Environment. 
 - Verify all traffic is going through the Central Network Virtual Appliance:
-  - spoke-to-spoke
-  - spokes-to-onprem
-  - onprem-to-hub
-  - onprem-to-spokes
+  - Spoke to spoke
+  - Spokes to onprem
+  - Onprem to hub VM
+  - Spokes to Internet
+  - Spoke to hub VM
 
 
 ## Learning Resources

@@ -2,7 +2,6 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
-
 ## Introduction
   
 In the real world, organizations avoid single points of failure by deploying High Availability on their infrastructure. 
