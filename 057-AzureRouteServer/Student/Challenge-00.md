@@ -52,6 +52,8 @@ If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` 
  ```bash
  # Make the file executable
  chmod +x HubAndSpoke.sh
+ # Remove the unix characters
+  dos2unix HubAndSpoke.sh
  #run the file
  ./HubAndSpoke.sh
  ```
