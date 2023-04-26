@@ -1,4 +1,4 @@
-Please note that the script uses the *jq* module. The Azure CLI has that module installed, however if customers decide to use a linux box or WSL, they have to install it since this is a tool to parse the Jason output from the VPN status.
+Please note that the script uses the *jq* module. The Azure Cloud Shell has that module installed, however if customers decide to use a linux box or WSL, they have to install it since this is a tool to parse the Jason output from the VPN status.
 - sudo apt-get install jq
 
 The script you will be running will create the following
