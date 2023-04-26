@@ -1,4 +1,4 @@
-# Challenge 03 -  NVA high availability
+# Challenge 03 -  Introduce a High Availability with Central Network Virtual Appliances
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)**
 
