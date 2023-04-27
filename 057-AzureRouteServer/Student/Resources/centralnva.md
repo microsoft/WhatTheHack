@@ -1,6 +1,8 @@
 [< Back to Challenge 1](../Challenge-01.md) 
 
-#### You can use this script to deploy and configure the Central Network Virtual Appliance (Cisco CSR 1000v):
+# Deploying an NVA in the hub VNet
+
+You can use this code to deploy and configure the Central Network Virtual Appliance (Cisco CSR 1000v):
 
 ### Azure CLI CSR Creation
 
@@ -8,51 +10,43 @@
 
 ```bash
 # Variables
-rg=<Resource Group for Hub and Spoke>
-location=<Azure region same as Hub Vnet>
-vnet_name=hub
-
-//You may change the name and address space of the subnets if desired or required. 
-
-Vnet_out_subnet_name=nvaoutsidesubnet
-vnet_out_subnet=10.0.2.0/24
-Vnet_in_subnet_name=nvainsidesidesubnet
-vnet_in_subnet=10.0.1.0/24
-
-
-# Create CSR
-
-az network vnet subnet create --address-prefix $vnet_out_subnet --name $Vnet_out_subnet_name --resource-group $rg --vnet-name $vnet_name
-az network vnet subnet create --address-prefix $vnet_in_subnet --name $Vnet_in_subnet_name --resource-group $rg --vnet-name $vnet_name
-
-az network public-ip create --name CSRPublicIP --resource-group $rg --idle-timeout 30 --allocation-method Static
-az network nic create --name CSROutsideInterface --resource-group $rg --subnet $Vnet_out_subnet_name --vnet $vnet_name --public-ip-address CSRPublicIP --ip-forwarding true
-az network nic create --name CSRInsideInterface --resource-group $rg --subnet $Vnet_in_subnet_name --vnet $vnet_name --ip-forwarding true
-az vm image accept-terms --urn cisco:cisco-csr-1000v:16_12-byol:latest
-az vm create --resource-group $rg --location $location --name NVAHub --size Standard_D2_v2 --nics CSROutsideInterface CSRInsideInterface  --image cisco:cisco-csr-1000v:16_12-byol:latest --admin-username azureuser --admin-password Msft123Msft123 --no-wait
-
-```
+echo -n "Please enter the resource group name where the VPN VNG is located: "
+read RGNAME
+echo -n "Please enter a password to be used for the new NVA: "
+read ADMIN_PASSWORD
+echo ""
+rg="$RGNAME"
+username=azureuser
+# You may change the name and address space of the subnets if desired or required. 
+nva_subnet_name=nva
+nva_subnet_prefix='10.0.1.0/24'
 
 
-### Cisco IOS Commands
-
-```bash
-
-conf t
-## On premises route. Default Gateway outside interface
-ip route 172.16.0.0 255.255.0.0 10.0.2.1
-
-## Routes to the spokes. Default Gateway inside interface
-ip route <spoke1 vnet prefix> <spoke1 network mask> 10.0.1.1
-ip route <spokeN vnet prefix> <spokeN network mask> 10.0.1.1
-
+# Try to find a VNG in the RG
+echo "Searching for a VPN gateway in the resource group $rg..."
+vpngw_name=$(az network vnet-gateway list -g "$rg" --query '[0].name' -o tsv)
+location=$(az network vnet-gateway show -n "$vpngw_name" -g "$rg" --query location -o tsv)
+vnet_name=$(az network vnet-gateway show -n "$vpngw_name" -g "$rg" --query 'ipConfigurations[0].subnet.id' -o tsv | cut -d/ -f 9)
+# Create NVA
+nva_name="${vnet_name}-nva1"
+nva_pip_name="${vnet_name}-nva1-pip"
+version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
+echo "Creating NVA $nva_name in VNet $vnet_name in location $location from ${publisher}:${offer}:${sku}:${version}, in resource group $rg..."
+az vm create -n "$nva_name" -g "$rg" -l "$location" \
+    --image "${publisher}:${offer}:${sku}:${version}" \
+    --admin-username "$username" --admin-password "$ADMIN_PASSWORD" --authentication-type all --generate-ssh-keys \
+    --public-ip-address "$nva_pip_name" --public-ip-address-allocation static \
+    --vnet-name "$vnet_name" --subnet "$nva_subnet_name" --subnet-address-prefix "$nva_subnet_prefix" -o none --only-show-errors
+# Configuring the NIC for IP forwarding
+nva_nic_id=$(az vm show -n $nva_name -g $rg --query 'networkProfile.networkInterfaces[0].id' -o tsv)
+az network nic update --ids $nva_nic_id --ip-forwarding -o none --only-show-errors
 ```
 
 ## Useful Cisco IOS commands
 
 This list is by no means comprehensive, but it is conceived to give some of the most useful commands for admins new to the Cisco CLI
 
-**config t**: enter configuration mode
-**write mem**: save the config to non-volatile storage
-**show ip interface brief**: show a summary of the network interfaces in the system
-**show ip route**: show the system routing table
+- `config t`: enter configuration mode
+- `write mem`: save the config to non-volatile storage
+- `show ip interface brief`: show a summary of the network interfaces in the system
+- `show ip route`: show the system routing table
