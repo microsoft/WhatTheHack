@@ -81,11 +81,11 @@ function wait_until_csr_available () {
     echo "Waiting for CSR${csr_id} with IP address $csr_ip to answer over SSH..."
     start_time=$(date +%s)
     ssh_command="show version | include uptime"  # 'show version' contains VM name and uptime
-    ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" "$ssh_command" 2>/dev/null)
+    ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
     until [[ -n "$ssh_output" ]]
     do
         sleep $wait_interval
-        ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" "$ssh_command" 2>/dev/null)
+        ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
     done
     run_time=$(("$(date +%s)" - "$start_time"))
     ((minutes=run_time/60))
@@ -288,7 +288,7 @@ function connect_gws () {
     then
         bgp_option=""
     else
-        bgp_option="--enablebgp"
+        bgp_option="--enable-bgp"
     fi
     # 1->2A
     az network vpn-connection create -n "vng${gw1_id}tovng${gw2_id}a" -g "$rg" --vnet-gateway1 "vng${gw1_id}" \
@@ -350,6 +350,7 @@ function accept_csr_terms () {
     publisher=cisco
     offer=cisco-csr-1000v
     sku=16_12-byol
+    # sku=17_3_4a-byol  # Newest version available
     version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
     # Accept terms
     echo "Accepting image terms for ${publisher}:${offer}:${sku}:${version}..."
@@ -374,6 +375,7 @@ function create_csr () {
     publisher=cisco
     offer=cisco-csr-1000v
     sku=16_12-byol
+    # sku=17_3_4a-byol  # Newest version available
     version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
     nva_size=Standard_B2ms
     # Create CSR
@@ -463,7 +465,7 @@ function connect_csr () {
 function sh_csr_int () {
     csr_id=$1
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress 2>/dev/null)
-    ssh -n -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" "sh ip int b" 2>/dev/null
+    ssh -n -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "sh ip int b" 2>/dev/null
 }
 
 # Open an interactive SSH session to a CSR
@@ -490,7 +492,7 @@ function config_csr_base () {
     echo "Configuring CSR ${csr_ip} for VPN and BGP..."
     username=$(whoami)
     password=$psk
-    ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+    ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       username ${username} password 0 ${password}
       username ${username} privilege 15
@@ -563,7 +565,7 @@ function config_csr_tunnel () {
     default_gateway="10.${csr_id}.0.1"
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     echo "Configuring tunnel ${tunnel_id} in CSR ${csr_ip}..."
-    ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+    ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       crypto ikev2 keyring azure-keyring
         peer ${public_ip}
@@ -587,7 +589,7 @@ EOF
     if [[ -z "$cx_type" ]] || [[ "$cx_type" == "bgp" ]] || [[ "$cx_type" == "bgpospf" ]]
     then
       echo "Configuring BGP on tunnel ${tunnel_id} in CSR ${csr_ip}..."
-      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router bgp ${asn}
             neighbor ${private_ip} remote-as ${remote_asn}
@@ -598,7 +600,7 @@ EOF
       if [[ "$asn" == "$remote_asn" ]]
       then
         # iBGP
-        ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+        ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
                 neighbor ${private_ip} next-hop-self
@@ -607,7 +609,7 @@ EOF
 EOF
       else
         # eBGP
-        ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+        ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
                 neighbor ${private_ip} ebgp-multihop 5
@@ -618,7 +620,7 @@ EOF
     elif [[ "$cx_type" == "ospf" ]] || [[ "$cx_type" == "bgpospf" ]]
     then
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
-      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router ospf 100
             no passive-interface Tunnel${tunnel_id}
@@ -631,7 +633,7 @@ EOF
       echo "Configuring static routes for tunnel ${tunnel_id} in CSR ${csr_ip}..."
       remote_id=$(echo "$tunnel_id" | head -c 2 | tail -c 1) # This only works with a max of 9 routers
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
-      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           ip route 10.${remote_id}.0.0 255.255.0.0 Tunnel${tunnel_id}
         end
@@ -803,7 +805,7 @@ function show_bgp_neighbors () {
     if [[ "$type" == "csr" ]]
     then
         ip=$(az network public-ip show -n "csr${id}-pip" -g "$rg" --query ipAddress -o tsv)
-        neighbors=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 "$ip" "show ip bgp summary | begin Neighbor" 2>/dev/null)
+        neighbors=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$ip" "show ip bgp summary | begin Neighbor" 2>/dev/null)
         echo "BGP neighbors for csr${id}-nva (${ip}):"
         clean_string "$neighbors"
     else

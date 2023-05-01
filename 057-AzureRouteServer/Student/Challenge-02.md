@@ -13,23 +13,24 @@ This challenge simulates the insertion pattern of firewall NVAs that have no hyb
 
 In this challenge you will insert Azure Route Server as described in this diagram:
 
-![hubnspoke noARS](./Resources/media/azurerouteserver-challenge2.png)
+![hubnspoke noARS](./Resources/media/azurerouteserver-challenge2-1nic.png)
 
 
 Please perform the following actions:
-- Use BGP so that spoke to spoke traffic goes through the NVA.  
-  
-  **NOTE:** No user defined routes (UDRs) are allowed.
 
-- Click on the link to get the necessary configuration to [establish BGP relationship between the Cisco CSR 1000v Central NVA and Azure Route Server](./Resources/whatthehackcentralnvachallenge2.md). This script will also remove any stale configuration from the last section.
+- Use BGP so that spoke to spoke traffic goes through the NVA. You should limit the use of User-Defined Routes (UDRs) to a minimum.
+- Click on the link to get the necessary configuration to [establish BGP relationship between the Cisco CSR 1000v Central NVA and Azure Route Server](./Resources/whatthehackcentralnvachallenge2.md).
 
 ## Success Criteria
 
 At the end of this challenge you should: 
 
-- Determine if inspecting all traffic through the NVA is achievable.
-- Demonstrate to your coach that you understand the behavior of the Route Server for this exercise. 
-- Demonstrate this is a dynamic environment. No User Defined Routes should remain. 
+- Determine if inspecting all traffic through the NVA is achievable, using as few UDRs as possible.
+  - Can you eliminate all UDRs to have "spoke VM -> Internet" traffic traversing the NVA?
+  - Can you eliminate all UDRs to have "onprem <-> spoke VM" traffic traversing the NVA?
+  - Can you eliminate all UDRs to have "onprem <-> hub VM" traffic traversing the NVA?
+  - Can you eliminate all UDRs to have "spoke VM <-> hub VM" traffic traversing the NVA?
+- Verify that you still have SSH connectivity to all VMs and NVAs.
 
 ## Learning Resources
 
