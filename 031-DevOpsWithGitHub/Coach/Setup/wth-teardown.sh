@@ -27,9 +27,6 @@
 GROUP_COUNT=25
 
 # The Azure subscription ID
-DIRECTORY=<AZURE-DIRECTORY-ID e.g. xyz.onmicrosoft.com>
-
-# The Azure subscription ID
 SUBSCRIPTION_ID=<AZURE-SUBSCRIPTION-ID>
 
 # The organisation in GitHub
@@ -50,11 +47,6 @@ for i in $(seq $GROUP_COUNT); do
     APPID_TO_DELETE=$(az ad app list --display-name wth-team$i | jq '.[0].appId' --raw-output)
     echo "Removing AppID $APPID_TO_DELETE"
     az ad app delete --id $APPID_TO_DELETE
-
-    # Remove coach upn
-    echo "Removing coach user $COACH_UPN"
-    COACH_UPN=wth-coach-team$i@$DOMAIN
-    az ad user delete --id $COACH_UPN
 
     # Remove team upn
     echo "Removing team user $TEAM_UPN"

@@ -41,9 +41,9 @@ SUBSCRIPTION_ID=<AZURE-SUBSCRIPTION-ID>
 ORGANISATION=<GITHUB-ORGANISATION-NAME e.g. wth-devops-london>
 
 # The directory containing the Hackathon resource filed
-RESOURCE_DIR=./Resources
+RESOURCE_DIR=../../Student/Resources
 
-# The password for the users and coaches
+# The password for the users
 PASSWORD=
 
 
@@ -57,17 +57,10 @@ for i in $(seq $GROUP_COUNT); do
     echo "Creating resource group wth-team$i-rg"
     az group create --name wth-team$i-rg --location uksouth
     
-    COACH_UPN=wth-coach-team$i@$DOMAIN
     TEAM_UPN=wth-team$i@$DOMAIN
-
-    echo "Creating coach user $COACH_UPN"
-    az ad user create --display-name wth-team$i-coach --password $PASSWORD --user-principal-name $COACH_UPN
 
     echo "Creating team user $TEAM_UPN"
     az ad user create --display-name wth-team$i-user  --password $PASSWORD --user-principal-name $TEAM_UPN
-
-    echo "Creating role assignment $COACH_UPN"
-    az role assignment create --assignee $COACH_UPN  --role contributor --resource-group wth-team$i-rg
 
     echo "Creating role assignment $TEAM_UPN"
     az role assignment create --assignee $TEAM_UPN  --role contributor --resource-group wth-team$i-rg
