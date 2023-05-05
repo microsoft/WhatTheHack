@@ -1,28 +1,25 @@
-name: .NET CI
+name: First Workflow
 
- 
 on:
-  push:
-    branches: [ main ]
-    paths: Application/*
-  pull_request:
-    branches: [ main ]
-    paths: Application/*
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-jobs:
-  build:
 
+jobs:
+  job1:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-   
-    - name: Restore dependencies
-      run: dotnet restore ./Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
-    - name: Build
-      run: dotnet build --no-restore ./Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
-    - name: Test
-      run: dotnet test --no-build --verbosity normal ./Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj
+    - name: Step one
+      run: echo "Log from step one"
+    - name: Step two
+      run: echo "Log from step two"
+      
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Cowsays
+      uses: mscoutermarsh/cowsays-action@master
+      with:
+        text: 'Moo!'
+        color: 'red'

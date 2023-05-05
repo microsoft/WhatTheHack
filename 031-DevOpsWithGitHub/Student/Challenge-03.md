@@ -1,10 +1,8 @@
-# What The Hack: DevOps with GitHub
+# Challenge 03 - Track Your Work with GitHub Project Boards
 
-## Challenge 1 - Track your work with GitHub project boards
+[< Previous Challenge](Challenge-02.md) - [Home](../README.md) - [Next Challenge >](Challenge-04.md)
 
-[< Previous](challenge00.md) - [Home](../readme.md) - [Next >](challenge02.md)
-
-### Introduction
+## Introduction
 
 Agile project management is a key component of building a modern DevOps culture at your organization. If you are new to Agile or just want a refresher, we recommend you review the following articles:
 
@@ -17,31 +15,31 @@ To help you with Agile project management, there is [GitHub project boards](http
 
 Review the following introduction to GitHub project boards: [GitHub project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
-### Challenge
+## Description
 
-1. Add collaborators from your team to your repo. 
+- Add collaborators from your team to your repo. 
 
-2. Create a new project using the "Team backlog" template.
+- Create a new project using the "Team backlog" template.
 
-3. Ensure your project is with linked with your repository
+- Ensure your project is with linked with your repository
 
-4. Create a draft issue for this challenge and each of the remaining challenges (i.e., create 9 issues total - skip challenge 0). When creating each issue, make sure to:
+- Create a draft issue for this challenge (3) and each of the remaining challenges (i.e., create 9 issues total - skip challenges 0,1 and 2 as you already completed them). When creating each issue, make sure to:
     - Assign an owner for each issue from your team. 
-    - Convert the `challenge 1` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 1` issue
+    - Convert the `challenge 3` draft issue to an issue and select our repository. Look at the difference between a draft and your converted `challenge 3` issue
 
-5. Move all your issues to the "Ready" column and convert each one from draft to an issue.
+- Move all your issues to the "Ready" column and convert each one from draft to an issue.
 
-6. Since you are currently working on Challenge 1, drag the `Challenge 1` issue to the "In progress" column.
+- Since you are currently working on Challenge 3, drag the `Challenge 3` issue to the "In progress" column.
 
-7. Ask your team member to close the `Challenge 1` issue you assigned to them. Review your project board to see if the issue moved to the 'Done' column automatically. 
+- Ask your team member to close the `Challenge 3` issue you assigned to them. Review your project board to see if the issue moved to the 'Done' column automatically. 
 
-8. Create a new view to show your challenge issues in a table view. 
+- Create a new view to show your challenge issues in a table view. 
 
-9. Add a custom field to your issue. The custom field can be called Complexity and will be a single select type with the options (Very Easy, Easy, Hard and Very Hard).
+- Add a custom field to your issue. The custom field can be called Complexity and will be a single select type with the options (Very Easy, Easy, Hard and Very Hard).
 
-10. After you complete each of the following challenges, be sure to close each associated issue. 
+- After you complete each of the following challenges, be sure to close each associated issue. 
 
-### Success Criteria
+## Success Criteria
 
 - You have added one or more collaborators to your repo
 - You have a project board using the automation kanban template with 9 issues (8 open, 1 closed by a team member)
@@ -50,7 +48,7 @@ Review the following introduction to GitHub project boards: [GitHub project boar
 - You will have a table view in addition to your Backlog Board
 - You will have a custom field called Complexity on your issues
 
-### Learning Resources
+## Learning Resources
 
 - [Creating a project board in GitHub](https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)
 - [Enable GitHub Issues on a repo](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/disabling-issues)
@@ -59,10 +57,10 @@ Review the following introduction to GitHub project boards: [GitHub project boar
 - [Adding issues to a project](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
 - [Customizing views](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)
 
-### Advanced Challenges (optional)
+## Advanced Challenges (optional)
 
 1. You can integrate Azure Boards with GitHub. 
     -  Follow the steps [here](https://docs.microsoft.com/en-us/azure/devops/boards/github/install-github-app?view=azure-devops) to integrate Azure Boards with your GitHub repo.
 2. Use the [GitHub CLI](https://cli.github.com/manual/index) to create issue #9. Once, you have created the issue, use the CLI to close the issue.
 
-[< Previous](challenge00.md) - [Home](../readme.md) - [Next >](challenge02.md)
+[< Previous Challenge](Challenge-02.md) - [Home](../README.md) - [Next Challenge >](Challenge-04.md)

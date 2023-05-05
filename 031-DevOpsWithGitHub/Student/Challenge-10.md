@@ -1,10 +1,8 @@
-# What The Hack: DevOps with GitHub
+# Challenge 10 - Security
 
-## Challenge 9 - Security
+[< Previous Challenge](Challenge-09.md) - [Home](../README.md) - [Next Challenge >](Challenge-11.md)
 
-[< Previous](challenge08.md) - [Home](../readme.md)
-
-### Introduction
+## Introduction
 
 Our application is up and running! We are even using a proper Git Flow to protect against unintended changes to our main branch, and we are recording application telemetry into App Insights. Before we are truly production ready, though, there is one topic we have to cover--security. 
 
@@ -12,15 +10,15 @@ One good DevOps practice is to enable protections against code-level vulnerabili
 
 In addition to these manual processes, GitHub also provides automated tools for scanning code for common errors. In this challenge, you will utilize the built in Dependabot which provides alerts if your repository contains libraries, packages, or external dependencies with known vulnerabilities. You will also set up a workflow with CodeQL which can scan your source code for common coding errors or basic security flaws.
 
-### Challenge
+## Description
 
 In this challenge, you will improve the security of your repository using some of GitHub's built-in tools. 
 
-1. Find the repository's Security policy. If there is an existing policy, make an edit and merge your change back into the main branch. Otherwise, go ahead and create a policy using the template provided. GitHub Security policies are Markdown documents that indicate the preferred way to report security vulnerabilities for the repository. 
+- Find the repository's Security policy. If there is an existing policy, make an edit and merge your change back into the main branch. Otherwise, go ahead and create a policy using the template provided. GitHub Security policies are Markdown documents that indicate the preferred way to report security vulnerabilities for the repository. 
 
-2. Enable Dependabot alerts for the repository. Dependabot is an automated tool that creates a pull request when any dependencies in the code base has a known vulnerability. 
+- Enable Dependabot alerts for the repository. Dependabot is an automated tool that creates a pull request when any dependencies in the code base has a known vulnerability. 
 
-3. (**NOTE**: Skip this step while code scanning is in Beta.) Finally, set up and run a Code scanning workflow for the repository using GitHub's 'CodeQL Analysis.' This workflow can run either on each pull request or on a schedule, and it checks your code for common vulnerabilities or errors. 
+- Finally, set up and run a Code scanning workflow for the repository using GitHub's 'CodeQL Analysis.' This workflow can run either on each pull request or on a schedule, and it checks your code for common vulnerabilities or errors. 
 
 ## Success Criteria
 
@@ -39,4 +37,5 @@ In this challenge, you will improve the security of your repository using some o
 
 - If you are stuck, check out the 'Security' tab of your repository on GitHub.
 
-[< Previous](challenge08.md) - [Home](../readme.md)
+[< Previous Challenge](Challenge-09.md) - [Home](../README.md) - [Next Challenge >](Challenge-11.md)
+
