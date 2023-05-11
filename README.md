@@ -66,6 +66,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure Networking with Hub & Spoke](/035-HubAndSpoke/README.md)
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
+- [Azure Route Server](/057-AzureRouteServer/README.md)
 - [Azure Governance](/022-AzureGovernance/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [Azure Virtual Desktop](/037-AzureVirtualDesktop/README.md)
@@ -80,16 +81,17 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
 - [IdentityForApps](/021-IdentityForApps/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
-- [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/readme.md)
+- [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/README.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
 - [Azure Integration Services - API Management with Function Apps](/050-AIS-APIManagementwithFunctions/README.md)
 - [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
+- [Power Platform Basics](/058-PowerPlatformBasics/README.md)
 
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Datadog On Azure](/059-DatadogOnAzure/README.md)
 - [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
-- [DevOps with GitHub Actions](/044-DevOpswithGitHubActions/README.md)
+- [DevOps with GitHub Actions](/044-DevOpswithGithubActions/README.md)
 - [Azure DevOps](/010-AzureDevOps/README.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
@@ -111,6 +113,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Do You Even Synapse](/024-DoYouEvenSynapse/README.md)
 - [Incremental Synapse Pipelines](/048-IncrementalSynapsePipelines/README.md)
 - [Synapse Dedicated SQL Pool - Performance Best Practices](/049-SQLDedicatedPoolPerf/README.md)
+- [Bronze/Silver/Gold Using Synapse & Databricks](/060-SynapseAndDatabricks/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md) - ARCHIVED
@@ -131,14 +134,18 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Using BGP Networking for Hybrid Connectivity](/036-BGP/README.md)
 - [Azure Virtual WAN](/041-VirtualWAN/README.md)
 - [Azure Front Door](/017-FrontDoor/README.md)
+- [Azure Route Server](/057-AzureRouteServer/README.md)
 
 ## SAP on Azure
 - [SAP on Azure](/042-SAPOnAzure/README.md)
 - [SAP on Azure: Application Modernization](/052-SAPAppModernization/README.md)
 
+## Power Platform
+- [Power Platform Basics](/058-PowerPlatformBasics/README.md)
+
 ## Archived
 
-These hacks have been archived due to obsolesence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
+These hacks have been archived due to obsolescence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
 
 - [Intro To Azure AI](/002-IntroToAzureAI/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
