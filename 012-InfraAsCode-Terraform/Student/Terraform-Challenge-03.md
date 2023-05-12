@@ -1,6 +1,6 @@
 # Challenge 3 - Advanced resource declarations
 
-[< Previous Challenge](./Terraform-Challenge-02.md) - [Home](../README.md) - [Next Challenge >](./Terraform-Challenge-04.md)
+[< Previous Challenge](./Challenge-02.md) - [Home](../README.md) - [Next Challenge >](./Challenge-04.md)
 
 ## Introduction
 
