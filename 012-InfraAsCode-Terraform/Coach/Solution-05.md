@@ -4,4 +4,4 @@
 
 ## Notes & Guidance
 
-Be aware that while the sample at https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform is very useful/helpful, it is not 100% aligned with our challenges.  Eg, Be sure that the participants do not blindly cut/paste the samples without understanding what they do.
+Be aware that while the sample at https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-terraform is very useful/helpful, it is not 100% aligned with our challenges. Be sure that the participants do not blindly cut/paste the samples without understanding what they do.
