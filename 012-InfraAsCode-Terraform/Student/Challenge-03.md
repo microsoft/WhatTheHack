@@ -6,7 +6,7 @@
 
 The goals for this challenge include understanding:
 
-- How to create a set of resources based on a list or count (loops), eg iteration
+- How to create a set of resources based on a list or count using an Terraform iteration meta-argument
 
 ## Description
 
@@ -21,7 +21,7 @@ In this challenge, you will accomplish the following tasks:
 
 Hint:
 - Create a variable called `containersuffixlist` of type _list_ and have it contain the values `a`, `b`, and `c`
-- Use the [for_each](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each) operator in conjunction with a second blob container resource definition to create three more containers with the names _prefix_-a, _prefix_-b, and _prefix_-c.
+- Use the [for_each](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each) meta-argument in conjunction with a second blob container resource definition to create three more containers with the names _prefix_-a, _prefix_-b, and _prefix_-c.
 
 ## Success Criteria
 
