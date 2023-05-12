@@ -21,7 +21,7 @@ If you've never used Azure, you will get:
 
 Details can be found here on [free services](https://azure.microsoft.com/en-us/free/).
 
-If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroy services before end of the hackathon. You will still be able to use the free services (up to their quotas) like App Service, or Functions.
+If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroying services before the end of the hackathon. You will still be able to use the free services (up to their quotas) like Azure App Service or Functions.
 
 ## Windows Subsystem for Linux
 
@@ -63,7 +63,7 @@ The Azure CLI is a cross-platform command-line tool providing a great experience
 
 The Azure CLI will be the preferred (and supported) approach for this event, so please install the Azure CLI on your workstation. If you are not able to install the Azure CLI, or are using a workstation that is not your own, you can use the Azure CLI in the browser via the Azure Cloud Shell from the Azure Portal.
 
-For Windows users, see the note below about how & where to install the Azure CLI!
+For Windows users, see the note below about how and where to install the Azure CLI!
 
 
 - [Install on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
