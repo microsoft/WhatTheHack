@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 
-Make sure your machine is set up with the proper tooling: [Prerequisites](./Terraform-Challenge-00.md)
+Make sure your machine is set up with the proper tooling: [Prerequisites](./Challenge-00.md)
 
 ## Introduction
 
@@ -16,14 +16,16 @@ The goals for this challenge include understanding:
 
 In this challenge, you will create a simple Terraform manifest and deploy it to Azure.  You will save Terraform state in an Azure Storage account
 
-## Challenge Part 1: Prepare to store Terraform State in Azure Storage
+## Description 
+
+### Part 1: Prepare to store Terraform State in Azure Storage
 
 Using the az cli, prepare an Azure storage account which will hold your terraform state
 
 **Learning Resources**
 * [Store Terraform state in Azure Storage](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli) 
 
-## Challenge Part 2: Author a Terraform manifest that creates an Azure Storage Account
+### Part 2: Author a Terraform manifest that creates an Azure Storage Account
 
 Author a Terraform manifest that creates an Azure Storage Account, and returns the required outputs.  The manifest(s):
 
