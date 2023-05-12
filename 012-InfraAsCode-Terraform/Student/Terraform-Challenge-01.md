@@ -1,6 +1,6 @@
 # Challenge 1 - Basic Terraform
 
- [< Previous Challenge](./Terraform-Challenge-00.md) - [Home](../README.md) - [Next Challenge >](./Terraform-Challenge-02.md)
+ [< Previous Challenge](./Challenge-00.md) - [Home](../README.md) - [Next Challenge >](./Challenge-02.md)
 
 ## Pre-requisites
 
