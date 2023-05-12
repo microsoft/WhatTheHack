@@ -6,7 +6,7 @@
 
 The goals for this challenge include understanding:
 
-- How to create a set of resources based on a list or count using an Terraform iteration meta-argument
+- How to create a set of resources based on a list or count using a Terraform iteration meta-argument
 
 ## Description
 
