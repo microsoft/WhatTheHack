@@ -4,11 +4,11 @@
 
 ## Introduction
 
-The goals for this challenge are to understand how to handle secret values, e.g., **Don't encode secrets in your code!**
+The goals for this challenge are to understand how to handle secret values. **Don't encode secrets in your code!**
 
 So far, the only parameters you have passed into your template have been related to storage accounts. In a later challenge, you will deploy resources requiring secret credentials as parameters. It is an **ANTI-pattern** to put a secret value such as a password in plain text in a parameter file! You should NEVER do this!
 
-It is a BEST practice to store secret values (such as passwords) in the Azure Key Vault service.
+It is a BEST practice to store secret values such as passwords in the Azure Key Vault service.
 
 ## Description
 
