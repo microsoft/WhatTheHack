@@ -11,7 +11,7 @@ Similar to Azure App Service, you will be deploying two components:
 - A *Container Apps Environment*, which is the "plan" or "hosting" component of the service
 - An *Azure Container App*, which is the application itself
 
-It is recommended that you start fresh for this challenge and use a new set of Terraform resources (eg, new folder) & also use a new Terraform state file (eg, new key)
+It is recommended that you start fresh for this challenge and use a new set of Terraform resources (i.e., new folder) and also use a new Terraform state file (i.e., a new key)
 
 ## Description
 
