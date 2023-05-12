@@ -26,24 +26,24 @@ The challenges build upon each other incrementally. You will start by creating b
 
 ### Challenges
 
-- Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Terraform-Challenge-00.md)**
-   - Prepare your workstation to work with Azure & Terraform
-- Challenge 1: **[Basic Terraform](./Student/Terraform-Challenge-01.md)**
-   - Develop a simple Terraform manifest that takes inputs to create an Azure Storage Account, and returns outputs
-- Challenge 2: **[Terraform expressions and referencing resources](./Student/Terraform-Challenge-02.md)**
+- Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Challenge-00.md)**
+   - Prepare your workstation to work with Azure and Terraform
+- Challenge 1: **[Basic Terraform](./Student/Challenge-01.md)**
+   - Develop a simple Terraform manifest that takes inputs to create an Azure Storage Account and returns outputs
+- Challenge 2: **[Terraform expressions and referencing resources](./Student/Challenge-02.md)**
    - Learn Terraform expressions, conditionals, and referencing resources
-- Challenge 3: **[Advanced resource declarations](./Student/Terraform-Challenge-03.md)**
+- Challenge 3: **[Advanced resource declarations](./Student/Challenge-03.md)**
    - Advanced resource declarations including iteration
-- Challenge 4: **[Secret Values with Azure Key Vault](./Student/Terraform-Challenge-04.md)**
+- Challenge 4: **[Secret Values with Azure Key Vault](./Student/Challenge-04.md)**
    - Create and reference an Azure Key Vault
-- Challenge 5: **[Deploy a Virtual Machine](./Student/Terraform-Challenge-05.md)**
+- Challenge 5: **[Deploy a Virtual Machine](./Student/Challenge-05.md)**
    - Create a complex deployment with multiple dependencies
-- Challenge 6: **[Terraform Modules](./Student/Terraform-Challenge-06.md)**  
+- Challenge 6: **[Terraform Modules](./Student/Challenge-06.md)**  
    - Learn how create reusable modules for granular resource management
- - Challenge 7: **[Azure Container Apps (ACA)](./Student/Terraform-Challenge-07.md)**
+ - Challenge 7: **[Azure Container Apps (ACA)](./Student/Challenge-07.md)**
    - Create an ACA environment and deploy a simple `hello world` application to it
- - Challenge 8: **[Advanced ACA](./Student/Terraform-Challenge-08.md)**
-   - Provision an Azure container registry, import images to it, then provision and deploy a multi-microservice (frontend and backend) containerized application
+ - Challenge 8: **[Advanced ACA](./Student/Challenge-08.md)**
+   - Provision an Azure Container Registry, import images to it, then provision and deploy a multi-microservice (frontend and backend) containerized application
 
 
 
