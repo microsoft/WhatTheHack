@@ -1,6 +1,6 @@
 # Challenge 7 - Azure Container Apps (ACA) - Getting started
 
-[< Previous Challenge](./Terraform-Challenge-06.md) - [Home](../README.md) - [Next Challenge>](./Terraform-Challenge-08.md)
+[< Previous Challenge](./Challenge-06.md) - [Home](../README.md) - [Next Challenge>](./Challenge-08.md)
 
 ## Introduction
 
@@ -13,7 +13,9 @@ Similar to Azure App Service, you will be deploying two components:
 
 It is recommended that you start fresh for this challenge and use a new set of Terraform resources (eg, new folder) & also use a new Terraform state file (eg, new key)
 
-## Challenges
+## Description
+
+In this challenge, you will accomplish the following tasks:
 
 + Deploy an [Azure Container Apps Environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app_environment) using Terraform.
     - You will be required to deploy a Log Analytics Workspace to support this ACA Environment
