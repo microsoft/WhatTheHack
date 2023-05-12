@@ -1,6 +1,6 @@
 # Challenge 5 - Deploy a Virtual Machine
 
-[< Previous Challenge](./Terraform-Challenge-04.md) - [Home](../README.md) - [Next Challenge >](./Terraform-Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - [Home](../README.md) - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 
@@ -12,21 +12,21 @@ The goals for this challenge include understanding:
 + Clean code with neat parameter and variable values
 + Figuring out what Azure resources it takes to build a VM
 
-## Challenge
+## Description
 
 + Extend your Terraform to deploy a virtual machine:
   + VM requirements:
     + Linux OS
-    + Have terraform generate an SSH key and pass the public key to the VM.  Store the private ssh key in the keyvault.
+    + Have terraform generate an SSH key and pass the public key to the VM.  Store the private ssh key in the Azure Key Vault.
       + Extra credit:  write your ssh private key to a local file
   + Use a resource prefix and template variables to have consistent naming of resources.
 
 ## Success Criteria
 
 1. Verify that your virtual machine has been deployed via the Azure Portal or Azure CLI.
-1. Connect to your virtual machine and verify you can login (Linux with SSH).  (You will need to grab the ssh private key from the keyvault)
+1. Connect to your virtual machine and verify you can login (Linux with SSH).  (You will need to grab the ssh private key from the Key Vault)
 
-## Tips
+## Hints
 
 + It's up to you if you want to start with clean slate set of manifests or if you want to extend your current manifests to include a VM
 + Note that you will need to create a VNET, subnet, public IP, and NIC in addition to your VM.
