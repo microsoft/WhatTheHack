@@ -22,8 +22,8 @@ In this challenge, you will create an Azure Key Vault and store a secret in it. 
 
 ## Success Criteria
 
-* Keyvault created
-* Secret stored in the keyvault
+* Azure Key Vault is created
+* Secret stored in the Key Vault
 
 
 ## Suggested reading:  
