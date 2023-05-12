@@ -12,7 +12,7 @@ It is a BEST practice to store secret values (such as passwords) in the Azure Ke
 
 ## Description
 
-In this challenge, you will create an Azure Key Vault and store a secret in it.  Then you will create a Bicep template & parameters file that reads from the key vault.
+In this challenge, you will create an Azure Key Vault and store a secret in it.  Then you will create a Terraform template and tfvars file that reads from the key vault.
 
 + Create an Azure Key Vault using [azurerm_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
   + Note:  Key vaults require a unique name in Azure.  Append your random suffix to the Key vault name to ensure your name is unique. 
