@@ -31,18 +31,17 @@ In this challenge, we'll be setting up all the tools we will need to complete ou
 - Install the recommended toolset:
   - An [Azure Subscription](https://azure.microsoft.com/free/)
   - [Windows Subsystem for Linux (Windows only)](https://learn.microsoft.com/windows/wsl/install)
-    - WSL is optional for Windows users, but highly recommended for this hack. 
+   - WSL is optional for Windows users, but highly recommended for this hack. 
   - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-    - Must be at least version 2.20.x
-    - **NOTE:** If installing on a Windows workstation, install into the Windows Subsystem for Linux environment using the installation instructions for Linux.
-    - **NOTE:** If you’re running into issues running Azure CLI command on Windows, you may need to disable your vpn
-    - [Azure CLI Bicep extension](https://learn.microsoft.com/azure/azure-resource-manager/bicep/install#azure-cli)
+   - Must be at least version 2.20.x
+   - **NOTE:** If installing on a Windows workstation, install into the Windows Subsystem for Linux environment using the installation instructions for Linux.
+   - **NOTE:** If you’re running into issues running Azure CLI command on Windows, you may need to disable your vpn
   - [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
-  - [PowerShell Cmdlets for Azure](https://learn.microsoft.com/powershell/azure/install-az-ps)
+  - [Azure PowerShell Cmdlets for Azure](https://learn.microsoft.com/powershell/azure/install-az-ps)
   - [Visual Studio Code](https://code.visualstudio.com/)
   - Bicep plugin for VS Code
-    - [Bicep VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
-    - [Azure Resource Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) _optional, but very useful_
+   - [Bicep VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
+   - [Azure Resource Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) _optional, but very useful_
   - [Bicep CLI](https://learn.microsoft.com/azure/azure-resource-manager/bicep/install)
 
     AzureCLI version 2.20 and higher should include the Bicep CLI tools. If you are using PowerShell, you must follow the instructions at this link to install the Bicep CLI.
