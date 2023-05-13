@@ -24,9 +24,9 @@ Azure can be managed using either the cross-platform Azure Command Line Interfac
 
 In the real world, most companies will standardize on one or the other.  Use whichever one you are most comfortable with. We have found that when doing Internet searches for various Azure management tasks, Azure CLI examples seem to show up more often in the results.
 
-### Notes for Windows Users Only (If you drive a Mac or Linux workstation, carry on!)
+### Azure CLI on Windows
 
-For Windows users, we strongly recommend installing Windows Subsystem for Linux (WSL) and then installing the Azure CLI within it.
+For Windows users, we highly recommend installing the Windows Subsystem for Linux (WSL) and then installing the Azure CLI within it.
 
 #### Windows Subsystem for Linux (WSL)
 
@@ -42,7 +42,9 @@ The Azure CLI can be installed locally on Windows. If you do this, you will acce
 
 While majority of the Azure CLI examples in the Microsoft documentation work fine locally on Windows, as you search the web for examples of how to use the Azure CLI, the examples frequently show Azure CLI commands used in Bash shell scripts. Bash shell scripts **will not run** in the Windows Command Prompt or PowerShell Console.
 
-For this reason, we recommend using Windows Subsystem for Linux for interacting with the Azure CLI. This means you should install the Azure CLI within your WSL environment by following the instructions for the Linux distro you are using.
+For this reason, we recommend using WSL for interacting with the Azure CLI. This means you should install the Azure CLI within your WSL environment by following the instructions for the Linux distro you are using.
+
+**NOTE:** If you have previously installed the Azure CLI on Windows, and then re-install it in WSL, you will have two installations of the Azure CLI on your workstation. You should ensure the PATH environment variable in WSL is set to use the Azure CLI instance installed in WSL, not the instance installed on Windows.
 
 ## Description
 
