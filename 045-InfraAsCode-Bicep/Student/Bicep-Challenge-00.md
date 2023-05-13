@@ -24,6 +24,26 @@ Azure can be managed using either the cross-platform Azure Command Line Interfac
 
 In the real world, most companies will standardize on one or the other.  Use whichever one you are most comfortable with. We have found that when doing Internet searches for various Azure management tasks, Azure CLI examples seem to show up more often in the results.
 
+### Notes for Windows Users Only (If you drive a Mac or Linux workstation, carry on!)
+
+For Windows users, we strongly recommend installing Windows Subsystem for Linux (WSL) and then installing the Azure CLI within it.
+
+#### Windows Subsystem for Linux (WSL)
+
+The Windows Subsystem for Linux (WSL) lets developers run an entire Linux distribution -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+
+WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the Bash shell tools you're used to.
+
+If you drive a Mac or Linux workstation, then you've already got Terminal access, carry on! :)
+
+#### Azure CLI + WSL
+
+The Azure CLI can be installed locally on Windows. If you do this, you will access and use the Azure CLI from the **Windows Command Prompt** or **PowerShell Console**.
+
+While majority of the Azure CLI examples in the Microsoft documentation work fine locally on Windows, as you search the web for examples of how to use the Azure CLI, the examples frequently show Azure CLI commands used in Bash shell scripts. Bash shell scripts **will not run** in the Windows Command Prompt or PowerShell Console.
+
+For this reason, we recommend using Windows Subsystem for Linux for interacting with the Azure CLI. This means you should install the Azure CLI within your WSL environment by following the instructions for the Linux distro you are using.
+
 ## Description
 
 In this challenge, we'll be setting up all the tools we will need to complete our challenges on your local workstation.  
