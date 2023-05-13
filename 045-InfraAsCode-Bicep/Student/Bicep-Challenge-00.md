@@ -4,15 +4,39 @@
 
 ## Introduction
 
-A smart cloud solution architect always has the right tools in their toolbox.
+A smart cloud solution architect always has the right tools in their toolbox. "Challenge Zero" is all about ensuring you have the right tools for this hack.
+
+### Local Workstation vs Azure Cloud Shell
+
+If you are going to be managing Azure resources on a regular basis and developing infrastructure-as-code with Bicep templates, we strongly recommend you take the time to install the pre-requisite tools listed below on your workstation (Windows, Mac, or Linux).  This will give you a better understanding of how they work.  
+
+However, we understand that some users may not have the ability to install software tools on their workstation.
+
+This hack can be completed using the [Azure Cloud Shell](https://shell.azure.com).  Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
+
+The Azure Cloud Shell has all of the CLI tools you need to complete this hack's challenges pre-instaled. It also has a GUI text editor, `code`, that is a slimmed down version of Visual Studio Code. There are some caveats to using the Azure Cloud Shell:
+- The `code` editor in Azure Cloud Shell does not have the Bicep extension, which provides rich Intellisense and error/warning messages as you develop.
+- Cloud Shell runs on a temporary host provided on a per-session, per-user basis. Your Cloud Shell session times out after 20 minutes without interactive activity, which you may find disruptive as you work through this hack. 
+
+### Azure CLI vs Azure PowerShell Commandlets
+
+Azure can be managed using either the cross-platform Azure Command Line Interface (CLI) or the Azure PowerShell Commandlets. You can accomplish virtually any management task, including deploying Bicep templates, using either option.  This hack encourages students to get familiar with using both tools.
+
+In the real world, most companies will standardize on one or the other.  Use whichever one you are most comfortable with. We have found that when doing Internet searches for various Azure management tasks, Azure CLI examples seem to show up more often in the results.
 
 ## Description
 
-In this challenge, we'll be setting up all the tools we will need to complete our challenges.
+In this challenge, we'll be setting up all the tools we will need to complete our challenges on your local workstation.  
 
 - Install the recommended toolset:
   - An [Azure Subscription](https://azure.microsoft.com/free/)
-  - _optional and not required_ [Windows Subsystem for Linux (Windows only)](https://learn.microsoft.com/windows/wsl/install)
+  - [Windows Subsystem for Linux (Windows only)](https://learn.microsoft.com/windows/wsl/install)
+    - WSL is optional for Windows users, but highly recommended for this hack. 
+    - The Windows Subsystem for Linux (WSL) lets developers run an entire Linux distribution -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+
+WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the tools you're used to.
+
+If you drive a Mac or Linux workstation, then you've already got Terminal access, carry on! :)
   - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
     - Must be at least version 2.20.x
     - **NOTE:** If installing on a Windows workstation, install into the Windows Subsystem for Linux environment using the installation instructions for Linux.
