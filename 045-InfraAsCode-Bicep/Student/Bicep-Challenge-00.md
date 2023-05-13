@@ -33,10 +33,8 @@ In this challenge, we'll be setting up all the tools we will need to complete ou
   - [Windows Subsystem for Linux (Windows only)](https://learn.microsoft.com/windows/wsl/install)
     - WSL is optional for Windows users, but highly recommended for this hack. 
     - The Windows Subsystem for Linux (WSL) lets developers run an entire Linux distribution -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
-
-WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the tools you're used to.
-
-If you drive a Mac or Linux workstation, then you've already got Terminal access, carry on! :)
+      WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the tools you're used to.
+      If you drive a Mac or Linux workstation, then you've already got Terminal access, carry on! :)
   - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
     - Must be at least version 2.20.x
     - **NOTE:** If installing on a Windows workstation, install into the Windows Subsystem for Linux environment using the installation instructions for Linux.
