@@ -27,7 +27,7 @@ The challenges build upon each other incrementally. You will start by creating a
 
 ### Challenges
 
-- Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Bicep-Challenge-00.md)**
+- Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Challenge-00.md)**
    - Prepare your workstation to work with Azure
 - Challenge 1: **[Basic Bicep](./Student/Bicep-Challenge-01.md)**
    - Develop a simple Bicep file that takes inputs to create an Azure Storage Account, and returns outputs
