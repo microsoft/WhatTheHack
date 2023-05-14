@@ -1,10 +1,10 @@
-# Challenge 1 - Basic Bicep
+# Challenge 01 - Basic Bicep
 
- [< Previous Challenge](./Bicep-Challenge-00.md) - [Home](../README.md) - [Next Challenge >](./Bicep-Challenge-02.md)
+ [< Previous Challenge](./Challenge-00.md) - [Home](../README.md) - [Next Challenge >](./Challenge-02.md)
 
 ## Pre-requisites
 
-Make sure your machine is set up with the proper tooling: [IaC Bicep Hack - Prerequisites](./Prerequisites.md)
+Make sure your machine is set up with the proper tooling as defined in [Challenge 00](./Challenge-00.md)
 
 ## Introduction
 
@@ -25,7 +25,7 @@ Your first challenge is to create a simple Bicep file that takes an input storag
 - Core elements of a Bicep file and different ways to deploy it.
 - How and where to see and troubleshoot deployments in the Portal.
 
-## Challenge
+## Description
 
 Develop a simple Bicep file that takes inputs to create an Azure Storage Account, and returns an output.
 
