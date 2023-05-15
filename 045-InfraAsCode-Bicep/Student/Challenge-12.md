@@ -20,13 +20,13 @@ This challenge is all about [Azure App Service](https://learn.microsoft.com/azur
 ## Success Criteria
 
 - Demonstrate that your application is running by launching the website in your browser
-  - show <https://<sitename>>
-  - show <https://<sitename>/api>
-  - show <https://<sitename>/api/accounts/jondoe>
+  - show `https://<sitename>`
+  - show `https://<sitename>/api`
+  - show `https://<sitename>/api/accounts/jondoe`
 
 ## Learning Resources
 
 - Bicep resource definitions:
-  - <https://learn.microsoft.com/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep>
-  - <https://learn.microsoft.com/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep>
-  - <https://learn.microsoft.com/azure/templates/microsoft.web/sites/sourcecontrols?pivots=deployment-language-bicep>
+  - [Microsoft.Web serverfarms](https://learn.microsoft.com/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep)
+  - [Microsoft.Web sites](https://learn.microsoft.com/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)
+  - [Microsoft.Web sites/sourcecontrols](https://learn.microsoft.com/azure/templates/microsoft.web/sites/sourcecontrols?pivots=deployment-language-bicep)
