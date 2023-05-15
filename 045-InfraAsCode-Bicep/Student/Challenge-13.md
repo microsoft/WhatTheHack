@@ -23,7 +23,7 @@ Now that your cluster is running, we want to deploy a sample app to the cluster.
 
 Remember when we covered modules back in Challenge 6?  We created our own modules.  But there are also _public modules_ you can use. For this challenge, we're going to use a module called `AKS Run Command Script`, which allows you to run a command on a Kubernetes cluster by calling a deployment script under the covers.  
 
-You can find the module & how to use it here:  <https://github.com/Azure/bicep-registry-modules/blob/main/modules/deployment-scripts/aks-run-command/README.md>
+You can find the module & how to use it here: [AKS Run Command Script](https://github.com/Azure/bicep-registry-modules/blob/main/modules/deployment-scripts/aks-run-command/README.md)
 
 Thus, your challenge is to:
 
