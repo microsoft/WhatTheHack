@@ -1,6 +1,6 @@
 # Challenge 12 - Deploy an Azure App Service
 
-[< Previous Challenge](./Bicep-Challenge-11.md) - [Home](../README.md) - [Next Challenge >](./Bicep-Challenge-13.md)
+[< Previous Challenge](./Challenge-11.md) - [Home](../README.md) - [Next Challenge >](./Challenge-13.md)
 
 ## Introduction
 
@@ -12,8 +12,6 @@ The goals of this challenge include understanding:
 ## Description
 
 This challenge is all about [Azure App Service](https://learn.microsoft.com/azure/app-service/overview). During the challenge, you will use Bicep to create an Azure App Service Plan and App Service website.
-
-## Challenge
 
 - Provision an Azure App Service, using a Linux web app with `linuxFxVersion` set to `NODE|14-LTS`
 - Within the App Service, deploy the application found at the url `https://github.com/Azure-Samples/nodejs-docs-hello-world`
