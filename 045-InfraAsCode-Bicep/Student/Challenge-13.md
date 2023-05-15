@@ -1,6 +1,6 @@
 # Challenge 13 - Deploy an AKS Kubernetes Cluster
 
-[< Previous Challenge](./Bicep-Challenge-12.md) - [Home](../README.md)
+[< Previous Challenge](./Challenge-12.md) - [Home](../README.md)
 
 ## Introduction
 
@@ -9,15 +9,15 @@ The goals of this challenge include understanding:
 - How to deploy an AKS cluster using Bicep
 - How to leverage modules & deployment scripts to deploy code to the cluster
 
-## Challenges
+## Description
 
-### Part 1
+### Deploy an AKS Cluster
 
 Your challenge is to:
 
 - Create a Bicep file to deploy an AKS cluster into your subscription.
 
-### Part 2
+### Deploy an App on to the AKS Cluster
 
 Now that your cluster is running, we want to deploy a sample app to the cluster.  We're going to use a tool called a _[deployment script](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-script-template)_ to do this. Fortunately, the heavy lifting has been done for you!
 
@@ -33,8 +33,8 @@ Thus, your challenge is to:
 
 ## Success Criteria
 
-- Part 1: Verify your AKS cluster is up and running
-- Part 2: Demonstrate that your app is running on your cluster
+- Verify your AKS cluster is up and running
+- Demonstrate that your app is running on your cluster
 
 ## Learning Resources
 
