@@ -1,6 +1,6 @@
-# Challenge 5 - Deploy a Virtual Machine
+# Challenge 05 - Deploy a Virtual Machine
 
-[< Previous Challenge](./Bicep-Challenge-04.md) - [Home](../README.md) - [Next Challenge >](./Bicep-Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - [Home](../README.md) - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 
@@ -12,7 +12,7 @@ The goals for this challenge include understanding:
 + Clean code with neat parameter and variable values
 + Figuring out what Azure resources it takes to build a VM
 
-## Challenge
+## Description
 
 + Extend your Bicep template to deploy a virtual machine:
   + VM requirements:
