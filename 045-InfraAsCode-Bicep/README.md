@@ -29,35 +29,32 @@ The challenges build upon each other incrementally. You will start by creating a
 
 - Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Challenge-00.md)**
    - Prepare your workstation to work with Azure
-- Challenge 1: **[Basic Bicep](./Student/Bicep-Challenge-01.md)**
+- Challenge 1: **[Basic Bicep](./Student/Challenge-01.md)**
    - Develop a simple Bicep file that takes inputs to create an Azure Storage Account, and returns outputs
-- Challenge 2: **[Bicep expressions and referencing resources](./Student/Bicep-Challenge-02.md)**
+- Challenge 2: **[Bicep Expressions and Referencing resources](./Student/Challenge-02.md)**
    - Learn Bicep expressions and referencing resources
-- Challenge 3: **[Advanced resource declarations](./Student/Bicep-Challenge-03.md)**
+- Challenge 3: **[Advanced Resource Declarations](./Student/Challenge-03.md)**
    - Advanced resource declarations
-- Challenge 4: **[Secret Values with Azure Key Vault](./Student/Bicep-Challenge-04.md)**
+- Challenge 4: **[Secret Values with Azure Key Vault](./Student/Challenge-04.md)**
    - Learn how NOT to lose your job!
-- Challenge 5: **[Deploy a Virtual Machine](./Student/Bicep-Challenge-05.md)**
+- Challenge 5: **[Deploy a Virtual Machine](./Student/Challenge-05.md)**
    - Create complex deployment with multiple dependencies
-- Challenge 6: **[Bicep Modules](./Student/Bicep-Challenge-06.md)**
+- Challenge 6: **[Bicep Modules](./Student/Challenge-06.md)**
    - Learn how create resusable modules for granular resource management
-- Challenge 7: **[Configure VM to run a Web Server](./Student/Bicep-Challenge-07.md)**
+- Challenge 7: **[Configure VM to Run a Web Server](./Student/Challenge-07.md)**
    - Learn about custom script extensions
-- Challenge 8: **[Deploy a Virtual Machine Scale Set](./Student/Bicep-Challenge-08.md)**
+- Challenge 8: **[Deploy a Virtual Machine Scale Set](./Student/Challenge-08.md)**
    - Create complex deployment with Bicep using modules
-- Challenge 9: **[Configure VM Scale Set to run a Web Server](./Student/Bicep-Challenge-09.md)**
+- Challenge 9: **[Configure VM Scale Set to Run a Web Server](./Student/Challenge-09.md)**
    - Learn about custom script extensions with VM Scale Sets
-- Challenge 10: **[Configure VM Scale Set to run a Web Server using cloud-init](./Student/Bicep-Challenge-10.md)**
+- Challenge 10: **[Configure VM Scale Set to Run a Web Server Using cloud-init](./Student/Challenge-10.md)**
    - How cloud-init scripts can be run on a Virtual Machine Scale Set (VMSS)
-- Challenge 11: **[Deploy resources to different scopes](./Student/Bicep-Challenge-11.md)**
+- Challenge 11: **[Deploy Resources to Different Scopes](./Student/Challenge-11.md)**
    - Learn how to deploy resources to different scopes   
-- Challenge 12: **[Deploy an Azure App Service](./Student/Bicep-Challenge-12.md)**
+- Challenge 12: **[Deploy an Azure App Service](./Student/Challenge-12.md)**
    - Learn how to an Azure App Service & deploy an app to it   
-- Challenge 13: **[Deploy an AKS cluster](./Student/Bicep-Challenge-13.md)**
+- Challenge 13: **[Deploy an AKS cluster](./Student/Challenge-13.md)**
    - Learn how to an AKS cluster & deploy an app to it   
-
-
-
 
 ## Prerequisites
 
