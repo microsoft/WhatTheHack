@@ -1,6 +1,6 @@
-# Challenge 6 - Bicep Modules
+# Challenge 06 - Bicep Modules
 
-[< Previous Challenge](./Bicep-Challenge-05.md) - [Home](../README.md) - [Next Challenge >](./Bicep-Challenge-07.md)
+[< Previous Challenge](./Challenge-05.md) - [Home](../README.md) - [Next Challenge >](./Challenge-07.md)
 
 ## Introduction
 
@@ -19,7 +19,7 @@ In many companies, deployment of cloud infrastructure may be managed by differen
 
 The network architecture and security groups are typically stable and do not change frequently. In contrast, application deployments that are deployed on the network may come and go.
 
-## Challenge
+## Description
 
 In this challenge you will separate your existing Bicep template deployment into two modules.
 
@@ -32,9 +32,10 @@ By separating the networking resources into their own modules, an application te
 
 ## Success Criteria
 
+1. Verify that the Bicep CLI does not show any errors and correctly emits an ARM JSON template that includes all of the resources in the Bicep modules.
 1. Verify that all resources deploy as before when you had a single Bicep template.
 
 ## Learning Resources
 
 - [Use Bicep modules](https://learn.microsoft.com/azure/azure-resource-manager/bicep/modules)
-- [Using linked and nested ARM Templates with JSON when deploying Azure resources](https://learn.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell) - Read this to appreciate how much Bicep improves upon the complexity of linked templates with ARM Templates with JSON.
+- [Using linked and nested ARM Templates with JSON when deploying Azure resources](https://learn.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-cli) - Read this to appreciate how much Bicep improves upon the complexity of linked templates with ARM Templates with JSON.
