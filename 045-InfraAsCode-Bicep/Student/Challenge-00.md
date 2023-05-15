@@ -1,4 +1,4 @@
-# Challenge 0: Pre-requisites - Ready, Set, GO!
+# Challenge 00: Pre-requisites - Ready, Set, GO!
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
