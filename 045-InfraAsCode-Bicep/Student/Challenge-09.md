@@ -1,4 +1,4 @@
-# Challenge 09 - Configure VM Scale Set to run a Web Server
+# Challenge 09 - Configure VM Scale Set to Run a Web Server
 
 [< Previous Challenge](./Challenge-08.md) - [Home](../README.md) - [Next Challenge >](./Challenge-10.md)
 
