@@ -4,9 +4,9 @@
 
 ## Introduction
 
-Azure DevOps is a very open platform. You can not only swap out major components, for example if your company has an investment in Jenkins or Octopus Deploy can use them instead of Azure Pipelines and still take advantage of other Azure DevOps services like Azure Repos, Azure Boards, etc. 
+Azure DevOps is a very open platform. You can not only swap out major components, for example if your company has an investment in Jenkins or Octopus Deploy, you can use them instead of Azure Pipelines and still take advantage of other Azure DevOps services like Azure Repos, Azure Boards, etc. 
 
-You can also integrate 3rd party tools, into your Azure DevOps workflow. In this exercise we are going to add support for Mend Bolt. It is a Free developer tool for finding and fixing open source vulnerabilities. Find out more about it by reviewing the following article. 
+You can also integrate 3rd party tools into your Azure DevOps workflow. In this exercise we are going to add support for Mend Bolt. It is a Free developer tool for finding and fixing open source vulnerabilities. Find out more about it by reviewing the following article. 
 
 - [Mend Bolt For Azure DevOps](https://www.mend.io/free-developer-tools/bolt/)
 
