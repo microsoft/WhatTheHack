@@ -1,4 +1,4 @@
-# Challenge 0: Pre-requisites - Ready, Set, Go! - Coach's Guide
+# Challenge 00 - Pre-requisites - Ready, Set, Go! - Coach's Guide
 
 **[Home](./README.md)** - [Next Challenge>](./Solution-01.md)
 
