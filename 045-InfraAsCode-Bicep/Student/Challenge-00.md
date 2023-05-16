@@ -26,6 +26,7 @@ If you go "local", you will be setting up all the tools you will need to complet
 - [Install Visual Studio Code](#install-visual-studio-code)
   - [Bicep VS Code Extension](#bicep-vs-code-extension)
   - [Azure Resource VS Code Extension](#azure-resource-vs-code-extension) - Optional, but useful.
+- [Student Resources](#student-resources)
 
 ### Azure Subscription
 
@@ -138,7 +139,16 @@ Visual Studio Code with the Bicep extension provides language support and resour
 The Azure Resource Extension enables you to wiew and manage Azure resources directly from VS Code. This extension is optional, but very useful.
 - [Install Azure Resource Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) 
 
+### Student Resources
+
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.
+
+If you have installed all of the tools listed above on your local workstation, you should unpack the `Resources.zip` file there too.
+
+If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.
+
 ## Success Criteria
 
 1. Running `az --version` shows the version of your Azure CLI
 1. Visual Studio Code and Bicep tools are installed.
+1. Verify you have the `Resource.zip` package unpacked on your workstation or the Azure Cloud Shell.
