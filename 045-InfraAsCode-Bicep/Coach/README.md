@@ -53,20 +53,27 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
+### Additional Coach Prerequisites
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+Some organizations may block their users from installing software on their workstations, especially if it requires Administrator access. The Coach should share the [Challenge 00 pre-requisites](../Student/Challenge-00.md) with a stakeholder in the students' organization before hosting the hack. 
+
+If the organization blocks the installation of all or some software, there are multiple options you can consider. For more details, see the [Coach's guide for Challenge 00](Solution-00.md).
 
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+- Students can complete all challenges except 11 with "Contributor" access to their subscription.
+- Students must have "Owner" access on their subscription to complete challenge 11 to deploy at the "subscription" scope.
+- Each student will spin up the following resources in Azure:
+   - Storage Account
+   - Virtual Network
+   - Network Security Group
+   - Virtual Machine
+   - Virtual Machine Scale Set
+   - Public IP Address
+   - Azure App Service
+   - Azure Kubernetes Service (AKS)
 
 ## Suggested Hack Agenda (Optional)
 
