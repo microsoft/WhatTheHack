@@ -19,10 +19,10 @@ In this challenge we will first create a second build pipeline that will build a
    - Remove all but the `restore`, `build` and `test` tasks.
    - Turn off the continuous integration trigger.
 - Setup a Branch Policy to protect our `master` branch, [hint](https://docs.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops). The policy shall: 
-   - Require at least 1 reviewer, however users should be able to approve their own changes (NOTE: you will likely not want to do this in a real app)
+   - Require at least 1 reviewer, however, users should be able to approve their own changes (NOTE: you will likely not want to do this in a real app)
    - Require at least 1 linked work item.
    - Perform a `Build validation` using our new build pipeline.
-- Using a simple Git Branching strategy lets make a change. 
+- Using a simple Git Branching strategy let's make a change. 
    - Your manager has asked that you update the name of the site from "Message System" to "Contoso Message System"
    - Create a Work Item requesting we implement the feature. 
    - Make the change in your code. Be sure to make this change on a new "feature branch"
