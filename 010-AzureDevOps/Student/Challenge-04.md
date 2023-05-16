@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Great we now have some infrastructure and some code, lets build it. In DevOps we automate this process using something called Continuous Integration. Take a moment to review the article below to gain a better understanding of what CI is. 
+Great! Now that we have some infrastructure and some code, let's build it. In DevOps we automate this process using something called Continuous Integration. Take a moment to review the article below to gain a better understanding of what CI is. 
 
 1. [What is Continuous Integration?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-integration)
 
@@ -16,7 +16,7 @@ In Azure DevOps we use Azure Pipelines to automate our build process. For our ap
 - Enable continuous integration on your build pipeline ([hint](https://learn.microsoft.com/en-us/azure/devops/pipelines/customize-pipeline?view=azure-devops))
 - Leverage the pipeline assistant and add 3 .Net Core tasks to restore, build, and test the application.
    - There are the 4 major steps to building a .NET Core application, however we will only be using 3 since we will be containerizing the application. ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
-      1. First we call the `restore` command, this will get all the dependencies that our .net core application needs to compile
+      1. First we call the `restore` command, this will get all the dependencies that our .NET core application needs to compile
       2. Next we call the `build` command, this will actually compile our code
       3. Next we call the `test` command, this will execute all our unit tests 
 
