@@ -5,7 +5,6 @@
 ## Introduction
 
 Thank you for participating in the Intro To Azure Red Hat OpenShift What The Hack. This session expects you to have a baseline understanding of Kubernetes (nodes, pods, services, etc). Before you can hack, you will need to set up some prerequisites. 
-- **NOTE:** This challenge requires some steps to be performed days in advance. Please see additional pre-requisites that say ***Complete this days in advance**
 
 ## Common Prerequisites
 

@@ -44,7 +44,7 @@ Before the hack, it is the Coach's responsibility to download and package up the
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 ### Additional Coach Prerequisites (Optional)
-As a coach, you should communicate to the stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students about the quota requirement and Azure Requirements listed below, days in advance of the hack.
+As a coach, you should communicate to the stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students about the quota requirement and Azure Requirements listed below, **days in advance** of the hack.
 
 - Make sure the students increase the VM quotas to use a minimum of 40 cores. Docs on how to do that can be found here: [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) 
   - To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`

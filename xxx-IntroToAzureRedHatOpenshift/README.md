@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This intro level hack will help you get hands-on experience with Red Hat Opeshift on Microsoft Azure. 
+This intro level hack will help you get hands-on experience with Redhat Openshift on Microsoft Azure. 
 
 This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -18,7 +18,7 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure
 - Challenge 01: **[ARO Cluster Deployment](Student/Challenge-01.md)**
-	 - Deploy an ARO cluster and access it using CLI and the Red Hat Portal
+	 - Deploy an ARO cluster and access it using CLI and the Redhat Portal
 - Challenge 02: **[Application Deployment](Student/Challenge-02.md)**
 	 - Deploy the frontend and backend of an application onto the ARO cluster
 - Challenge 03: **[Logging and Metrics](Student/Challenge-03.md)**
@@ -41,7 +41,7 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 - Visual Studio Code
 - Azure CLI
 - Alternatively, you can use the [**Azure Cloud Shell**](https://shell.azure.com/)
-- **Important!** - This challenge requires some steps to be performed days in advance. Please see additional pre-requisites in Challenge 0: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)** that say ***Complete this days in advance**
+- Challenge 0: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 
 ## Contributors
 
