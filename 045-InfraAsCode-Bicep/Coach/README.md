@@ -36,7 +36,7 @@ Additionally, please review the [Stretch Thinking](Solution-Stretch-Thinking.md)
    - Learn how to deploy resources to different scopes
 - Challenge 12: **[Deploy an Azure App Service](Solution-12.md)**
    - Learn how to an Azure App Service & deploy an app to it   
-- Challenge 13: **[Deploy an AKS cluster](.Solution-13.md)**
+- Challenge 13: **[Deploy an AKS cluster](Solution-13.md)**
    - Learn how to an AKS cluster & deploy an app to it 
 
 ## Coach Prerequisites
