@@ -61,19 +61,13 @@ The challenges build upon each other incrementally. You will start by creating a
 You will want to prepare your machine with the following to help complete the Challenges for this hack:
 
 * Azure Subscription
-* _optional_ [Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* [Windows Subsystem for Linux (Windows only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) *Optional, but highly recommended.*
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [PowerShell Cmdlets for Azure](https://docs.microsoft.com/en-us/powershell/azure/?view=azps-5.6.0)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Bicep plugins for VS Code
 	* [Bicep VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 	* [Bicep CLI](https://github.com/Azure/bicep/blob/main/docs/installing.md)
-
-## Repository Contents 
-- `../Student`
-  - Bicep challenges
-- `../Student/Resources`
-  - Shell scripts needed to complete the challenges
 
 ## Contributors
 
