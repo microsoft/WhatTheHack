@@ -13,10 +13,10 @@ Great we now have some code, now we need an environment to deploy it to. In DevO
 
 In Azure DevOps we can use Azure Pipelines to automate deploying our Azure infrastructure. For our application we will deploy 3 environments: Dev, Test and Prod. Each environment will consist of a Azure App Service, however all of our environments will share a single Resource Group, Azure App Service Plan, Application Insights Instance, and Azure Container Registry. NOTE: in real deployments you will likely not share all of these resources.
 
-Please note, while you can create a pipeline with the UI with a Release Pipeline, we will be focused on the yaml pipelines for this hack.
+Please note, while you can create a pipeline with the UI with a Release Pipeline, we will be focused on the YAML pipelines for this hack.
 
 - Create a pipeline using the **Starter Pipeline** template, call it `Infrastructure Release`
-- Next lets create the first stage in our Infrastructure Release to deploy our ARM template to Dev. Name the stage `Dev`, and it should have a single `Azure Resource Group Deployment` task. 
+- Next let's create the first stage in our Infrastructure Release to deploy our ARM template to Dev. Name the stage `Dev`, and it should have a single `Azure Resource Group Deployment` task. 
    - The task will ask you what Azure Subscription, Resource Group, and Resource Group Location you wish to use.
    - The task will also ask you what Template you want to deploy. You will need to supply the relative path to the file during the pipeline run.
    - You will need to override many of the templates parameters, replacing the `<prefix>` part with a unique lowercase 5 letter name.
@@ -31,7 +31,7 @@ Please note, while you can create a pipeline with the UI with a Release Pipeline
 
 ## Learning Resources
 
-We are just scratching the surface of what is offered in Azure for Infrastructure as Code, if you are interested in learning more there are multiple What the Hacks focused on Azure Infrastructure as Code:
+We are just scratching the surface of what is offered in Azure for Infrastructure as Code, if you are interested in learning more, there are multiple What the Hacks focused on Azure Infrastructure as Code:
 - [Infrastructure As Code: Bicep](../../045-InfraAsCode-Bicep/README.md)
 - [Infrastructure As Code: ARM & DSC](../../011-InfraAsCode-ARM-DSC/readme.md)
 - [Infrastructure As Code: Terraform](../../012-InfraAsCode-Terraform/Student/readme.md)
