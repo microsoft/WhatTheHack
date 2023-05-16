@@ -4,7 +4,7 @@
 
 ### Introduction
 
-Now, we need to extend our workflow with steps to build a docker image and push it to Azure Container Registry (ACR). In the NEXT challenge, we will configure the Web App to pull the image from ACR.
+Now we need to extend our workflow with steps to build a Docker image and push it to Azure Container Registry (ACR). In the NEXT challenge, we will configure the Web App to pull the image from ACR.
 
 Containers are a great way to package and deploy applications consistently across environments. If you are new to containers, there are 3 key steps to creating and publishing an image - outlined below. Because this is a What The Hack focused on DevOps and not containers, we've strived to make this challenge as straightforward as possible.
 
@@ -12,7 +12,7 @@ Containers are a great way to package and deploy applications consistently acros
 
 2. `docker build` - you need to call docker.exe (running locally on your machine or on your build server) to create the container image. A *critical* component of this is the `Dockerfile`, which gives instructions to docker.exe on how to build the image, the files to copy, ports to expose and startup commands.
 
-3. `docker push` - once you have created your docker image, you need to store it in the container registry, which is our secured and centralized location to store docker images. Docker supports a push command that copies the docker image to the registry in the proper repository. A repository is a logical way of grouping and versioning docker images.
+3. `docker push` - once you have created your docker image, you need to store it in the container registry, which is our secured and centralized location to store docker images. Docker supports a push command that copies the Docker image to the registry in the proper repository. A repository is a logical way of grouping and versioning Docker images.
 
 ### Challenge
 
@@ -20,7 +20,7 @@ In this challenge, you will build and push a docker image to ACR:
 
 1. Create a new service connection to your container registry.  This will help bridge the connection from Azure DevOps to Azure Container Registry.  You should select the container registry created from the ARM template in the previous challenge.
 
-1. Return to your CI Build workflow and add a another **task** to your existing .NET Core workflow. We recommend finding and adding the "Docker" task via the assistant.  The docker task will help with the login/build/push that we described earlier.
+1. Return to your CI Build workflow and add a another **task** to your existing .NET Core workflow. We recommend finding and adding the "Docker" task via the assistant.  The Docker task will help with the login/build/push that we described earlier.
 
 1. Test the workflow by making a small change to the application code (i.e., add a comment). Commit, push, monitor the workflow and verify that a new container image is built, uniquely tagged and pushed to ACR after each successful workflow run.
 
