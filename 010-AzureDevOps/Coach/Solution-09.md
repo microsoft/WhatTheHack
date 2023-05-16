@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-This was updated to mend (previously known as whitesource).  The instruction set should be the same.
+This was updated to Mend (previously known as Whitesource).  The instruction set should be the same.
 
 - General Guidelines
   - Install the Mend Bolt extension to the azure devops organization.  The article in the challenge will have a link to take you there.
