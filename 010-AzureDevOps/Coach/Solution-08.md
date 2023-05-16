@@ -8,7 +8,7 @@
 
 - RE: Dashboard Creation - Students can add a new tile to show data from their instance.  Select something that will show data a bit quicker such as requests to one of your web apps.  If they implemented the availability test, this should help with data populating the dashboard.
 
-- RE: Work Item Integration - Students can create a work item from any of the end-to-end transactions found under Availability, Failures, or Performance sections.  We suggest availability as its something already there from the previous actions.
+- RE: Work Item Integration - Students can create a work item from any of the end-to-end transactions found under Availability, Failures, or Performance sections.  We suggest availability as it's something already there from the previous actions.
 
-Follow the steps inside the basics of Azure Insights integration. See [Doc App insights Get Started](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#get-started) for more information.  Overall the hints in the challenges should put the students in the right path.  
+Follow the steps inside the basics of Azure Insights integration. See [Doc App insights Get Started](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#get-started) for more information.  Overall the hints in the challenges should put the students on the right path.  
 
