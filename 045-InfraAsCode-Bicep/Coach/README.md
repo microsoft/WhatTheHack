@@ -77,6 +77,14 @@ This hack requires students to have access to an Azure subscription where they c
 
 ## Suggested Hack Agenda (Optional)
 
+This hack is designed to be run as a full 3-day event, for a total of approximately 18 hours to complete all challenges. There are multiple options that enable you run this hack for a shorter periods of time and still provide value to attendees depending on the organization's learning objectives. 
+
+Different groups of students will complete the challenges at different paces based on their comfort level with Linux and/or using Command Line Interface (CLI) tools. This is okay, and students should be encouraged to participate in this intro-level hack no matter what their experience level is.
+
+Learning about Infrastructure-as-Code is a fundamental skill in Azure. This hack is often delivered to folks who are just getting started with Azure. While coaches are covering Bicep, they should also mix in Azure basics to the discussions as needed.  For example, the opening lecture starts off with "how Azure is organized", covering details of the Azure Resource Manager, Resource Providers, Subscriptions, Resources Groups, and Resources.
+
+
+
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
 - Sample Day 1
