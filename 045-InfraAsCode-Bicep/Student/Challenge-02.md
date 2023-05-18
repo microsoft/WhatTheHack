@@ -48,7 +48,7 @@ Bicep's ternary operator is a clever way to simplify the syntax needed to do com
 
 When authoring a Bicep template, it is common that you will need to get a reference to another Azure resource so that you can either modify it, or retreive properties from it.
 
-For example, when defining Virtual Network (VNET), you may want configure a Network Security Group (NSG) to apply to a subnet. In this scenario, the VNET resource will need a reference to the NSG resource.
+For example, when defining Virtual Network (VNET), you may want to configure a Network Security Group (NSG) to apply to a subnet. In this scenario, the VNET resource will need a reference to the NSG resource.
 
 In ARM Templates with JSON, this was a complicated task. Bicep makes referencing an existing resource SO much easier!
 
