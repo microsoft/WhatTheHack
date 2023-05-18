@@ -37,7 +37,7 @@ The participants will learn how to:
 - Challenge 06: **[Quota Monitoring and Enforcement](Student/Challenge-06.md)**
 	 - Design and implement a solution to monitor the usage of OpenAI resources as well the enforcements of quotas allocated at multiple layers/levels/tiers.
 - Challenge 07: **[Translating Human to Machine Languages](Student/Challenge-07.md)**
-	 - Design and implement a solution that converts human natural language questions into machine-specific query languages such as SQL, Lucene, Cypher and CosmosDB SQL
+	 - Design and implement a solution that converts human natural language questions into machine-specific query languages such as SQL, Lucene, Cypher and CosmosDB SQL.
 - Challenge 08: **[Securing OpenAI Resources](Student/Challenge-08.md)**
 	 - Design and implement a solution that ensures that credentials to OpenAI resources are not in environment variables or configuration files while leveraging Azure Virtual Networks ensure that the OpenAI endpoints are only reachable from specific networks.
 
