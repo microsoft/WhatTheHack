@@ -31,7 +31,7 @@ Your challenges are:
 **HINT:** You have just deployed other Bicep templates in the previous challenges, so you should know HOW to do this by now. 
 - Check that the key vault has been created in the Azure portal. 
 - Create a new Bicep template and parameters file that reads the secret from Azure Key Vault and outputs the secret value as a template output.  
-  - *Yes this is a anti-pattern! We are just doing it as a learning exercise. You will correct this anti-pattern in a later challenge.*
+  - *Yes this is an anti-pattern! We are just doing it as a learning exercise. You will correct this anti-pattern in a later challenge.*
 
 ## Success Criteria
 
