@@ -25,7 +25,7 @@ The participants will learn how to:
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure
 - Challenge 01: **[Contoso Travel Assistant](Student/Challenge-01.md)**
-	 - Design and implement a virtual assistant that responds to frequently asked questions based on static data from the Contoso Travel website.
+	 - Design and implement a virtual assistant that responds to frequently asked questions based on static data from the Contoso Travel website backed by Cosmos DB and Azure Cognitive Search.
 - Challenge 02: **[Contoso Real-time Order Tracking Assistant](Student/Challenge-02.md)**
 	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Pizza customers about their Pizza order based on the current status of the order reflected in the various databases.
 - Challenge 03: **[The Teachers Assistant - Batch Essay Grading](Student/Challenge-03.md)**

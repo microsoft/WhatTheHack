@@ -53,6 +53,7 @@ To complete this challenge successfully, you should be able to:
 - Verify that the ARM template has deployed the following resources in Azure inside the OpenAI-rg resource group:
   - Azure OpenAI Service
   - Azure Virtual Network
+  - Azure Cognitive Search 
   - Azure Cosmos DB service with 3 databases and 5 collections altogether
   - Azure Redis Cache Instance
   - Azure Storage Account with Blob Storage
