@@ -75,26 +75,41 @@ This hack requires students to have access to an Azure subscription where they c
    - Azure App Service
    - Azure Kubernetes Service (AKS)
 
-## Suggested Hack Agenda (Optional)
+## Suggested Hack Agenda
 
 This hack is designed to be run as a full 3-day event, for a total of approximately 18 hours to complete all challenges. There are multiple options that enable you run this hack for a shorter periods of time and still provide value to attendees depending on the organization's learning objectives. 
 
 Different groups of students will complete the challenges at different paces based on their comfort level with Linux and/or using Command Line Interface (CLI) tools. This is okay, and students should be encouraged to participate in this intro-level hack no matter what their experience level is.
 
-Learning about Infrastructure-as-Code is a fundamental skill in Azure. This hack is often delivered to folks who are just getting started with Azure. While coaches are covering Bicep, they should also mix in Azure basics to the discussions as needed.  For example, the opening lecture starts off with "how Azure is organized", covering details of the Azure Resource Manager, Resource Providers, Subscriptions, Resources Groups, and Resources.
+Learning about Infrastructure-as-Code is a fundamental skill in Azure. This hack is often delivered to folks who are just getting started with Azure. While coaches are covering Bicep, they should also mix in Azure basics to the discussions as needed.  For example, the [opening lecture](WTH-IaC-Bicep-Lectures.pptx?raw=true) starts off with "How Azure is organized", covering details of the Azure Resource Manager, Resource Providers, Subscriptions, Resources Groups, and Resources.
 
+Here are some things to know about the challenges and options you have for running the hack:
 
+### Challenge "Zero"
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+Challenge "Zero" is all about the tooling needed to manage Azure.  While this hack can be completed using the Azure Cloud Shell, it is highly recommended that students get the experience of installing all of the pre-requisite tools on their local workstation. This will better prepare them to continue working with Azure after the hack is over.
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+- It is common, and OKAY, if students spend 30-60 minutes getting all of the tools installed and configured properly.
+- Coaches can share the pre-requisites with a stakeholder in the students' organization to see if there are opportunities for students to complete them before the hack event. However, it is rare that attendees will do this, and thus...
+- Coaches should plan for this time as part of the event. 
+
+### Challenges 1-6 - Bicep Fundamentals
+
+Challenges 1 through 6 cover the core Bicep syntax features and concepts (secret management & modules). These challenges should be completed in order as they build upon each other. These challenges start off demonstrating Bicep syntax concepts by having the students deploy a simple Azure Storage Account. They add complexity with Challenge 5 culminating in the composition of several dependent resources to deploy an Azure Virtual Machine. Challenge 6 completes the core concepts by covering Bicep modules.
+
+Completing these challenges will provide most organizations with the knowledge they need to use Bicep to implement Infrastructure-As-Code. Depending on the organization's learning objectives, you can choose to continue on with more advanced concepts & examples focused on Azure IaaS deployments, Azure PaaS deployments, or both. 
+
+The rest of the challenges can be completed in any order based on the organization's learning objectives.
+
+### Challenges 7-11 Bicep IaaS Deployments
+
+Challenges 7 through 10 focus on more complex Azure IaaS deployments of VMs, Load Balancers, Virtual Machine Scale Sets, and using the Custom Script Extension to deploy or configure software on those VMs/VMSSs. 
+
+Challenge 11 focuses on how Bicep can be used to deploy Azure resources at different scopes (tenant, management group, subscription, or resource group). 
+
+### Challenges 12-13 Bicep PaaS Deployments
+
+Challenges 12 and 13 have the students learn how to use Bicep to deploy Azure PaaS services, including an Azure App Service and an Azure Kubernetes Service (AKS) Cluster.
 
 ## Repository Contents
 
