@@ -8,7 +8,7 @@ This introductory hackathon will provide participants with hands-on experience o
 
 The objective of the hackathon is to demonstrate different strategies for integrating the Azure Open AI product as well as the upstream Open AI offering with Azure Platform products including but not limited to Azure Cognitive Services, Partner offerings on Microsoft and Open-Source projects.
 
-
+### Exit Competencies: 
 The participants will learn how to:
 - Select different architectures to implement Open AI solutions on Azure based on the scenarios
 - Understand when to use Open AI products and when to leverage Cognitive Services or other solutions
@@ -23,27 +23,23 @@ The participants will learn how to:
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
+	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure
+- Challenge 01: **[Contoso Travel Assistant](Student/Challenge-01.md)**
+	 - Design and implement a virtual assistant that responds to frequently asked questions based on static data from the website.
+- Challenge 02: **[Contoso Real-time Order Tracking Assistant](Student/Challenge-02.md)**
+	 - Design and implement a virtual assistant that provides near real-time answers to customers about their Pizza order.
+- Challenge 03: **[The Teachers Assistant - Batch Essay Grading](Student/Challenge-03.md)**
+	 - Design and implement a pipeline that reads, analyzes and grades a bulk of essays submitted in various file and image formats.
+- Challenge 04: **[The Teachers Assistant - Near Realtime Essay Grading](Student/Challenge-04.md)**
+	 - Design and implement a pipeline that reads, analyzes and instantly grades user-submitted essays in various file and image formats.
+- Challenge 05: **[AI Powered Recommendation Engines](Student/Challenge-05.md)**
+	 - Design and implement a recommendation engine the suggests similar content to users based on the content and attributes of the current item a user is viewing.
+- Challenge 06: **[Quota Monitoring and Enforcement](Student/Challenge-06.md)**
+	 - Design and implement a solution to monitor the usage of OpenAI resources as well the enforcements of quotas allocated at multiple layers/levels/tiers.
+- Challenge 07: **[Translating Human to Machine Languages](Student/Challenge-07.md)**
+	 - Design and implement a solution that converts human natural language questions into machine-specific query languages such as SQL, Lucene, Cypher and CosmosDB SQL
+- Challenge 08: **[Securing OpenAI Resources](Student/Challenge-08.md)**
+	 - Design and implement a solution that ensures that credentials to OpenAI resources are not in environment variables or configuration files while leveraging Azure Virtual Networks ensure that the OpenAI endpoints are only reachable from specific networks.
 
 ## Prerequisites
 
