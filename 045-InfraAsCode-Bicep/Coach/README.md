@@ -13,7 +13,7 @@ Additionally, please review the [Stretch Thinking](Solution-Stretch-Thinking.md)
 - Challenge 00: **[Pre-requisites - Ready, Set, Go!](Solution-00.md)**
    - Get your workstation ready to work with Azure
 - Challenge 01: **[Basic Bicep](Solution-01.md)**
-   - Develop a simple Bicep file that takes inputs to create an Azure Storage Account, and returns outputs
+   - Develop a simple Bicep file that takes inputs to create an Azure Storage Account and returns outputs
 - Challenge 02: **[Bicep Expressions and Referencing Resources](Solution-02.md)**
    - Learn Bicep expressions and referencing resources
 - Challenge 03: **[Advanced Resource Declarations](Solution-03.md)**
@@ -21,9 +21,9 @@ Additionally, please review the [Stretch Thinking](Solution-Stretch-Thinking.md)
 - Challenge 04: **[Secret Values with Azure Key Vault](Solution-04.md)**
    - Learn how to not lose your job
 - Challenge 05: **[Deploy a Virtual Machine](Solution-05.md)**
-   - Create complex deployment with Bicep using modules
+   - Create a complex deployment with Bicep using modules
 - Challenge 06: **[Bicep Modules](Solution-06.md)**
-   - Learn about custom script extensions
+   - Learn how create resusable modules for granular resource management
 - Challenge 07: **[Configure VM to Run a Web Server](Solution-07.md)** 
    - Learn about custom script extensions
 - Challenge 08: **[Deploy a Virtual Machine Scale Set](Solution-08.md)**
@@ -35,9 +35,9 @@ Additionally, please review the [Stretch Thinking](Solution-Stretch-Thinking.md)
 - Challenge 11: **[Deploy Resources to Different Scopes](Solution-11.md)**
    - Learn how to deploy resources to different scopes
 - Challenge 12: **[Deploy an Azure App Service](Solution-12.md)**
-   - Learn how to an Azure App Service & deploy an app to it   
+   - Learn how to an Azure App Service and deploy an app to it   
 - Challenge 13: **[Deploy an AKS cluster](Solution-13.md)**
-   - Learn how to an AKS cluster & deploy an app to it 
+   - Learn how to deploy an AKS cluster and deploy an app to it 
 
 ## Coach Prerequisites
 
@@ -89,9 +89,8 @@ Here are some things to know about the challenges and options you have for runni
 
 Challenge "Zero" is all about the tooling needed to manage Azure.  While this hack can be completed using the Azure Cloud Shell, it is highly recommended that students get the experience of installing all of the pre-requisite tools on their local workstation. This will better prepare them to continue working with Azure after the hack is over.
 
-- It is common, and OKAY, if students spend 30-60 minutes getting all of the tools installed and configured properly.
-- Coaches can share the pre-requisites with a stakeholder in the students' organization to see if there are opportunities for students to complete them before the hack event. However, it is rare that attendees will do this, and thus...
-- Coaches should plan for this time as part of the event. 
+- It is common and OKAY if students spend 30-60 minutes getting all of the tools installed and configured properly.
+- Coaches can share the pre-requisites with a stakeholder in the students' organization to see if there are opportunities for students to complete them before the hack event. However, it is rare that attendees will do this and thus, coaches should plan for this time as part of the event. 
 
 ### Challenges 1-6 - Bicep Fundamentals
 
@@ -105,7 +104,7 @@ The rest of the challenges can be completed in any order based on the organizati
 
 Challenges 7 through 10 focus on more complex Azure IaaS deployments of VMs, Load Balancers, Virtual Machine Scale Sets, and using the Custom Script Extension to deploy or configure software on those VMs/VMSSs. 
 
-Challenge 11 focuses on how Bicep can be used to deploy Azure resources at different scopes (tenant, management group, subscription, or resource group). 
+Challenge 11 focuses on how Bicep can be used to deploy Azure resources at different scopes (tenant, management group, subscription or resource group). 
 
 ### Challenges 12-13 Bicep PaaS Deployments
 
