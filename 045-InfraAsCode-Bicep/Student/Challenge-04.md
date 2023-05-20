@@ -16,11 +16,11 @@ It is a BEST practice to store secret values (such as passwords) in the Azure Ke
 
 ## Description
 
-In this challenge, you will create an Azure Key Vault and store a secret in it.  Then you will create a Bicep template & parameters file that reads from the key vault.
+In this challenge, you will create an Azure Key Vault and store a secret in it.  Then you will create a Bicep template and parameters file that reads from the key vault.
 
 It can be tricky to deploy an Azure Key Vault. In the interest of time, we are providing a Bicep template that does it for you. You can find the `create-key-vault.bicep` file in the `/Challenge-04` folder of the `Resources.zip` file provided by your coach.
 
-This Bicep template will create a Key Vault for you, and prompt you to enter a secret value (password) that you want to store in the vault. 
+This Bicep template will create a Key Vault for you and prompt you to enter a secret value (password) that you want to store in the vault. 
 - The key vault will have a unique name that is prefixed with: `kvwth`
 - The secret value you enter will be stored in the key vault in a secret named `adminPassword`. 
 
@@ -31,7 +31,7 @@ Your challenges are:
 **HINT:** You have just deployed other Bicep templates in the previous challenges, so you should know HOW to do this by now. 
 - Check that the key vault has been created in the Azure portal. 
 - Create a new Bicep template and parameters file that reads the secret from Azure Key Vault and outputs the secret value as a template output.  
-  - *Yes this is an anti-pattern! We are just doing it as a learning exercise. You will correct this anti-pattern in a later challenge.*
+  - *Yes, this is an anti-pattern! We are just doing it as a learning exercise. You will correct this anti-pattern in a later challenge.*
 
 ## Success Criteria
 
