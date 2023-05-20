@@ -8,7 +8,7 @@ This hack is often delivered to organizations that are just getting started with
 
 Challenge 00 is all about ensuring the students have the tools in their toolbox to manage Azure and complete the hack's challenges. While this hack can be completed using the Azure Cloud Shell, it is highly recommended that students get the experience of installing all of the pre-requisite tools on their local workstation. This will better prepare them to continue working with Azure after the hack is over.
 
-- It is common, and OKAY, if students spend 30-60 minutes getting all of the tools installed and configured properly. 
+- It is common and OKAY if students spend 30-60 minutes getting all of the tools installed and configured properly. 
 - Coaches should use the time while students are installing the tools to deliver the first lecture in the [IAC-Bicep-Lectures deck](WTH-IaC-Bicep-Lectures.pptx?raw=true).
 - If students are completely new to Azure, coaches should demo the how to log in and navigate common commands with the Azure CLI.
   - `az login`
@@ -44,7 +44,7 @@ If the organization blocks the installation of all or some software, there are m
 
 For Windows users, we recommend installing WSL first, and then installing the Azure CLI into the WSL environment as opposed to installing the Azure CLI on Windows itself. WSL + Azure CLI is recommended because:
   - Azure CLI examples often show it used within Bash scripts. Bash scripts cannot be run at the Windows Command Prompt or a PowerShell console. 
-  - WSL provides easy access to Linux tools such as SSL, which make it easy to interact with Linux based resources in Azure (such as the Azure Kubernetes Service).
+  - WSL provides easy access to Linux tools such as SSH, which make it easy to interact with Linux based resources in Azure (such as the Azure Kubernetes Service).
 
 The following "gotchas" have been observed when installing WSL:
 - WSL requires Administrator access to install on all versions of Windows. Some organizations do not provide this level of access for their users.  If this is the case, the student will not be able to install WSL.
@@ -52,7 +52,7 @@ The following "gotchas" have been observed when installing WSL:
 - On Windows 11, the WSL installation process was improved to be a single command to kick off. It still requires a reboot.
 
 The following "gotchas" have been observed when installing the Azure CLI on WSL:
-- If you have previously installed the Azure CLI on Windows, and then install it in WSL, you will have two installations of the Azure CLI on your workstation. 
+- If you have previously installed the Azure CLI on Windows and then install it in WSL, you will have two installations of the Azure CLI on your workstation. 
 - You may need to restart your WSL instance so that WSL is set to use the Azure CLI instance installed in WSL, not the instance installed on Windows.
 - You can verify which Azure CLI installation is being with the following command: `which az`
   - If you see `/usr/bin/az`, it is using the WSL install.
