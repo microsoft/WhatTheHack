@@ -44,7 +44,7 @@ If you've never used Azure, you will get:
 
 Details can be found here on [free services](https://azure.microsoft.com/en-us/free/).
 
-If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroy services before end of the hackathon. You will still be able to use the free services (up to their quotas) like App Service, or Functions.
+If you have used Azure before, we will still try to limit the cost of services by suspending, shutting down services, or destroying services before the end of the hackathon. You will still be able to use the free services (up to their quotas) like App Service or Functions.
 
 ### Decide: Local Workstation vs Azure Cloud Shell
 
@@ -54,7 +54,7 @@ However, we understand that some users may not have the ability to install softw
 
 This hack can be completed using the [Azure Cloud Shell](https://shell.azure.com).  Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
 
-The Azure Cloud Shell has all of the CLI tools you need to complete this hack's challenges pre-instaled. It also has a GUI text editor, [Azure Cloud Shell editor](https://learn.microsoft.com/en-us/azure/cloud-shell/using-cloud-shell-editor), that is a slimmed down version of Visual Studio Code. There are some caveats to using the Azure Cloud Shell:
+The Azure Cloud Shell has all of the CLI tools you need to complete this hack's challenges pre-installed. It also has a GUI text editor, [Azure Cloud Shell editor](https://learn.microsoft.com/en-us/azure/cloud-shell/using-cloud-shell-editor), that is a slimmed down version of Visual Studio Code. There are some caveats to using the Azure Cloud Shell:
 - The [Azure Cloud Shell editor](https://learn.microsoft.com/en-us/azure/cloud-shell/using-cloud-shell-editor) does not have the Bicep extension, which provides rich Intellisense and error/warning messages as you develop.
 - Cloud Shell runs on a temporary host provided on a per-session, per-user basis. Your Cloud Shell session times out after 20 minutes without interactive activity, which you may find disruptive as you work through this hack.
 
