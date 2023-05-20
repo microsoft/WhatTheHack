@@ -13,7 +13,7 @@ An application may require the composition of many underlying infrastructure res
 
 Bicep introduces the concept of *modules*. These are similar to linked templates but are much simpler to work with. When you write a Bicep file you can call another Bicep file as a module. When your template is transpiled into JSON, a single ARM template is produced including the code from your module(s).
 
-When templates get big, they become monoliths. They are hard to manage.  By breaking your templates up into smaller modules, you can achieve more flexibility in how you manage your deployments.
+When templates get big, they become monoliths. They are hard to manage. By breaking your templates up into smaller modules, you can achieve more flexibility in how you manage your deployments.
 
 In many companies, deployment of cloud infrastructure may be managed by different teams. For example, a common network architecture and its security settings may be maintained by an operations team and shared across multiple application development teams.
 
