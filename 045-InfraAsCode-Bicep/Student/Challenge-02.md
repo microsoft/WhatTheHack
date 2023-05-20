@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge you will edit the bicep file created in Challenge 1. The goals for this challenge include:
+In this challenge you will edit the Bicep file created in Challenge 1. The goals for this challenge include:
 - Understanding Bicep expressions
     - Using Bicep functions
     - Using string interpolation
