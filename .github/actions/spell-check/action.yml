@@ -1,0 +1,26 @@
+name: "WTH Spell Check"
+description: "A Github Action that spell checks the Markdown files in the WTH repository"
+author: Jordan Bean
+inputs:
+  spell_check_yaml_path:
+    description: "Path to the spell check yaml file"
+    required: true
+    default: ".github/workflows/spellcheck.yml"
+  markdown_base_path:
+    description: "Path to the markdown files"
+    required: true
+    default: "."
+  changed_files:
+    description: "Files changed in the PR (space separated)"
+    required: true
+    default: ""
+branding:
+  color: green
+  icon: type
+runs:
+  using: docker
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.spell_check_yaml_path }}
+    - ${{ inputs.markdown_base_path }}
+    - ${{ inputs.changed_files }}

@@ -220,7 +220,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
     ```
 
-1.  Run the following command to initalize your local Dapr environment:
+1.  Run the following command to initialize your local Dapr environment:
 
     ```shell
     dapr init

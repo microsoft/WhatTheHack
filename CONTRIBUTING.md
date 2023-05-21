@@ -172,7 +172,7 @@ When you feel your hack is finished and ready for release, this is the process w
         - All links work, especially the navigation links
         - There are no links to the WTH repo or Coach's guide from the Student guide (See the [WTH Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md))
         - All images show properly.
-        - Any syntax, grammar or punctuation problems that the reviewers see and want you to address.
+        - Any syntax, grammar or punctuation problems that the reviewers see and want you to address. See the [Spell Check section](#spell-check) for more details.
         - This is NOT a technical content review. As the author(s), YOU are the subject matter experts. The WTH team will trust that you have taken care of the technical bits.
     - **NOTE:** It is important that you take notes through-out the meeting so that you can go away, make any changes requested, and not miss anything.
 1.	Once you have completed any requested changes from the "pre-PR review":
@@ -181,6 +181,18 @@ When you feel your hack is finished and ready for release, this is the process w
 1.	The WTH team will review your PR and leave comments if there are any requested changes that still remain. If there are requested changes, please add further comments if you have clarifying questions to ask, or arguments against, the requested changes (that’s ok).
     - **NOTE:** Make any requested changes by continuing to commit to your fork. The PR will automatically update with your changes.  You do NOT need to create a new pull request!
 1.	Once you have addressed any requested changes from the WTH team, the WTH team will accept and merge the PR.
+
+### Spell Check
+
+A spell checker will run on each new pull request submitted and again each time additional commits are made against that pull request. It will use common English words as well as technical terms from the `.github/workflows/spell-check/.wordlist.txt` file.
+
+This will run on each pull request that is submitted to the `master` branch.
+
+![Spell Check Fail](000-HowToHack/images/spell-check-fail.png?raw=true "Spell Check Fail")
+
+![Spell Check Misspelled Words](000-HowToHack/images/spell-check-misspelled-words.png?raw=true "Spell Check Misspelled Words")
+
+If you have unique or technical words that are not already in the global `.wordlist` file, you can add your own list. Add a file called `.wordlist.txt` to your new WTH sub-directory and include all the words you want the spell checker to ignore. There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
 
 ### Use Draft Pull Requests for Early Feedback
 
@@ -246,6 +258,4 @@ instructions provided by the bot. You will only need to do this once across all 
 
 ## Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the Code of Conduct FAQ
-or contact opencode@microsoft.com with any additional questions or comments.
-
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the Code of Conduct FAQ or contact `opencode@microsoft.com` with any additional questions or comments.
