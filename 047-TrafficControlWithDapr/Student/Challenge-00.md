@@ -323,7 +323,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
         ```
 
-1.  Run the following command to initalize your local Dapr environment:
+1.  Run the following command to initialize your local Dapr environment:
 
     ```shell
     dapr init
