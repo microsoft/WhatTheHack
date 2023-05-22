@@ -1,6 +1,6 @@
-# Challenge 10 - Configure VM Scale Set to run a Web Server using cloud-init
+# Challenge 10 - Configure VM Scale Set to Run a Web Server Using cloud-init
 
-[< Previous Challenge](./Bicep-Challenge-09.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-11.md)
+[< Previous Challenge](./Challenge-09.md) - [Home](../README.md) - [Next Challenge >](./Challenge-11.md)
 
 ## Introduction
 
@@ -11,7 +11,7 @@ The goals of this challenge include understanding:
 
 We have provided a script (`cloud-init.txt`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
 
-You can find the script in the Resources folder for **Bicep-Challenge-10**.
+You can find the script in the Resources folder for `/Challenge-10`.
 
 Your challenge is to:
 

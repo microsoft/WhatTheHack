@@ -1,6 +1,6 @@
-# Challenge 11 - Deploy resources to different scopes
+# Challenge 11 - Deploy Resources to Different Scopes
 
-[< Previous Challenge](./Bicep-Challenge-10.md) - [Home](../README.md)
+[< Previous Challenge](./Challenge-10.md) - [Home](../README.md) - [Next Challenge >](./Challenge-12.md)
 
 ## Introduction
 
@@ -21,4 +21,4 @@ Your challenge is to:
 ## Learning Resources
 
 - [Using Bicep modules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/modules)
--  [Understanding Bicep scopes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli)
+- [Understanding Bicep scopes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli)
