@@ -1,0 +1,18 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"location": {
+			"value": "eastus"
+		},
+		"dnsPrefix": {
+			"value": "ch21"
+		},
+		"linuxAdminUsername": {
+			"value": "azureuser"
+		},
+		"sshRSAPublicKey": {
+			"value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDT14cG8aChoproTcQfm9Dk+/GbtcngE+zqve7H6N1h/t0J6iCi3ofrThO1BkWMhzVNjAY1IAdk8SWHGGL5I0urE5yOofbe/+n1eg2N8eKNrOsYH6GRpUkeNL2Yo82VYFgkMGdTxfuN7EGg+/Du3k2ZdYwBtf6o694OA1cE0X1DM8UzGWRoaTS9eAO37noXu7yTBQ2j1Ufvbtfm9vum/KUQvrCsKoHzewpoc1mq9oTcZv12EHA+dFxY7V6BTM12tbB3GTZahABs+sScDHZeO7cUsRImTZlcE/6/lXtBZQtkAo6U3AVgAPUYItfAaF5rtSlvTGbp8r17da3xiQWbA8dT3dPJ2abpTmfpV+8q7UJUL4M2li2AI1tDuDOZ1RILkB7iXa2lnE7GJsT8YG58HCRC0WqjJYr8f1uYdY6B+Oeq3S+Xh6rh1WEUjFz1KglepoWyPHpibp4nuxSKRlHsHTHYGX8VwKneju9ItfcZ4fR5Li10wzVQFKJGHwbpILm26Ss= user"
+		}
+	}
+}

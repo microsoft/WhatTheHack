@@ -1,4 +1,4 @@
-# Challenge 8: Deploy a Virtual Machine Scale Set - Coach's Guide
+# Challenge 08 - Deploy a Virtual Machine Scale Set - Coach's Guide
 
 [< Previous Challenge](./Solution-07.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-09.md)
 

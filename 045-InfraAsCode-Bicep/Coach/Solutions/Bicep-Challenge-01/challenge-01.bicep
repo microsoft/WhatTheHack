@@ -1,13 +1,12 @@
 param location string
 param storageAccountName string
 
-resource storage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   location: location
   name: storageAccountName
   kind: 'StorageV2'
   sku: {
     name: 'Standard_LRS'
-    tier: 'Standard'
   }
   properties: {
     accessTier: 'Hot'
@@ -16,3 +15,4 @@ resource storage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 
 output storageAccountId string = storage.id
+

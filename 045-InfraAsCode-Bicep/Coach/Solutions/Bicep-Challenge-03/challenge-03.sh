@@ -1,7 +1,12 @@
-LOCATION='australiaeast'
-RESOURCE_GROUP_NAME='challenge-02-rg'
-DEPLOYMENT_NAME='challenge-03-deployment'
-STORAGE_ACCOUNT_NAME='<name of existing storage account>'
+# If self-deploying the challenges, recommend adding a prefix to Azure resources.
+# For example, resourceGroupName = "<my initials>-challenge-01-rg"
+#
+# In challenge 3, new containers are added to the storage account created in Challenge 2.
+
+LOCATION='eastus'
+RESOURCE_GROUP_NAME='<me>-challenge-02-rg'
+DEPLOYMENT_NAME='<me>-challenge-03-deployment'
+STORAGE_ACCOUNT_NAME='<account name from challenge 2>'
 
 az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 

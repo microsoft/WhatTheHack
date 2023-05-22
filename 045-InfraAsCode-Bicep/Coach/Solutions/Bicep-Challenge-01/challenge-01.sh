@@ -1,7 +1,10 @@
-LOCATION='australiaeast'
-RESOURCE_GROUP_NAME='challenge-01-rg'
-DEPLOYMENT_NAME='challenge-01-deployment'
-STORAGE_ACCOUNT_NAME='add random chars to create a unique storage account name >=3 chars && <= 24 chars'
+# If self-deploying the challenges, recommend adding a prefix to Azure resources.
+# For example, resourceGroupName = "<my initials>-challenge-01-rg"
+
+LOCATION='eastus'
+RESOURCE_GROUP_NAME='<me>-challenge-01-rg'
+DEPLOYMENT_NAME='<me>-challenge-01-deployment'
+STORAGE_ACCOUNT_NAME='<me>ch01'
 
 az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 

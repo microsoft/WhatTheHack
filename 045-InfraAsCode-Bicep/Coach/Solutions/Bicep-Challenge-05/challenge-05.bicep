@@ -8,14 +8,14 @@ param adminUsername string
 //Resource Prefix for all VM Resources
 param resourcePrefix string = 'bicepwth'
 
+param location string = resourceGroup().location
+
 //The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10.
 @allowed([
-  '12.04.5-LTS'
-  '14.04.2-LTS'
-  '15.10'
-  '16.04-LTS'
+  '16.04.0-LTS'
+  '18.04-LTS'
 ])
-param ubuntuOSVersion string = '16.04-LTS'
+param ubuntuOSVersion string = '18.04-LTS'
 
 // VNet Address Prefix
 param vnetPrefix string = '10.0.0.0/16'
@@ -26,24 +26,22 @@ param subnetName string = 'Default'
 //Subnet Prefix
 param subnetPrefix string = '10.0.0.0/24'
 
-var vnetName_var = '${resourcePrefix}-VNET'
-var nsgName_var = '${resourcePrefix}-NSG'
-var nicName_var = '${resourcePrefix}-VM-NIC'
-var vmName_var = '${resourcePrefix}-VM'
-var publicIPAddressName_var = '${resourcePrefix}-PIP'
+var vnetName = '${resourcePrefix}-VNET'
+var nsgName = '${resourcePrefix}-NSG'
+var nicName = '${resourcePrefix}-VM-NIC'
+var vmName = '${resourcePrefix}-VM'
+var publicIPAddressName = '${resourcePrefix}-PIP'
 var publicIPAddressType = 'Dynamic'
 var dnsNameForPublicIP = '${resourcePrefix}${uniqueString(resourceGroup().id)}-pip'
-var subnetRef = '${vnetName.id}/subnets/${subnetName}'
 var vmSize = 'Standard_DS2_v2'
 var imagePublisher = 'Canonical'
 var imageOffer = 'UbuntuServer'
 
-
 //Start of resource section for creating VM
 
-resource nsgName 'Microsoft.Network/networkSecurityGroups@2015-06-15' = {
-  name: nsgName_var
-  location: resourceGroup().location
+resource thisnsg 'Microsoft.Network/networkSecurityGroups@2022-07-01' = {
+  name: nsgName
+  location: location
   properties: {
     securityRules: [
       {
@@ -78,9 +76,9 @@ resource nsgName 'Microsoft.Network/networkSecurityGroups@2015-06-15' = {
   }
 }
 
-resource vnetName 'Microsoft.Network/virtualNetworks@2015-06-15' = {
-  name: vnetName_var
-  location: resourceGroup().location
+resource thisvnet 'Microsoft.Network/virtualNetworks@2022-07-01' = {
+  name: vnetName
+  location: location
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -93,7 +91,7 @@ resource vnetName 'Microsoft.Network/virtualNetworks@2015-06-15' = {
         properties: {
           addressPrefix: subnetPrefix
           networkSecurityGroup: {
-            id: nsgName.id
+            id: thisnsg.id
           }
         }
       }
@@ -101,9 +99,9 @@ resource vnetName 'Microsoft.Network/virtualNetworks@2015-06-15' = {
   }
 }
 
-resource publicIPAddressName 'Microsoft.Network/publicIPAddresses@2015-05-01-preview' = {
-  name: publicIPAddressName_var
-  location: resourceGroup().location
+resource thisPip 'Microsoft.Network/publicIPAddresses@2022-07-01' = {
+  name: publicIPAddressName
+  location: location
   properties: {
     publicIPAllocationMethod: publicIPAddressType
     dnsSettings: {
@@ -112,9 +110,9 @@ resource publicIPAddressName 'Microsoft.Network/publicIPAddresses@2015-05-01-pre
   }
 }
 
-resource nicName 'Microsoft.Network/networkInterfaces@2015-05-01-preview' = {
-  name: nicName_var
-  location: resourceGroup().location
+resource thisnic 'Microsoft.Network/networkInterfaces@2022-07-01' = {
+  name: nicName
+  location: location
   properties: {
     ipConfigurations: [
       {
@@ -122,10 +120,10 @@ resource nicName 'Microsoft.Network/networkInterfaces@2015-05-01-preview' = {
         properties: {
           privateIPAllocationMethod: 'Dynamic'
           publicIPAddress: {
-            id: publicIPAddressName.id
+            id: thisPip.id
           }
           subnet: {
-            id: subnetRef
+            id: thisvnet.properties.subnets[0].id
           }
         }
       }
@@ -133,15 +131,15 @@ resource nicName 'Microsoft.Network/networkInterfaces@2015-05-01-preview' = {
   }
 }
 
-resource vmName 'Microsoft.Compute/virtualMachines@2017-03-30' = {
-  name: vmName_var
-  location: resourceGroup().location
+resource thisvm 'Microsoft.Compute/virtualMachines@2022-11-01' = {
+  name: vmName
+  location: location
   properties: {
     hardwareProfile: {
       vmSize: vmSize
     }
     osProfile: {
-      computerName: vmName_var
+      computerName: vmName
       adminUsername: adminUsername
       adminPassword: adminPassword
     }
@@ -161,7 +159,7 @@ resource vmName 'Microsoft.Compute/virtualMachines@2017-03-30' = {
     networkProfile: {
       networkInterfaces: [
         {
-          id: nicName.id
+          id: thisnic.id
         }
       ]
     }

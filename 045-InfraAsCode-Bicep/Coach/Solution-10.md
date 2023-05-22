@@ -1,6 +1,6 @@
-# Challenge 10: Configure VM Scale Set to run a Web Server using cloud-init - Coach's Guide
+# Challenge 10 - Configure VM Scale Set to Run a Web Server Using cloud-init - Coach's Guide
 
-[< Previous Challenge](./Solution-09.md) - **[Home](./README.md)** - [Next Challenge>](./Solution-11.md)
+[< Previous Challenge](./Solution-09.md) - **[Home](./README.md)** - [Next Challenge >](./Solution-11.md)
 
 ## Notes & Guidance
 

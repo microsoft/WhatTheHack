@@ -1,3 +1,5 @@
+param location string = resourceGroup().location
+
 //Resource Prefix for all VM Resources
 param resourcePrefix string = 'bicepwth'
 
@@ -13,11 +15,9 @@ param subnetPrefix string = '10.0.0.0/24'
 var vnetName_var = '${resourcePrefix}-VNET'
 var nsgName_var = '${resourcePrefix}-NSG'
 
-
-
-resource nsgName 'Microsoft.Network/networkSecurityGroups@2015-06-15' = {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2022-07-01' = {
   name: nsgName_var
-  location: resourceGroup().location
+  location: location
   properties: {
     securityRules: [
       {
@@ -52,9 +52,9 @@ resource nsgName 'Microsoft.Network/networkSecurityGroups@2015-06-15' = {
   }
 }
 
-resource vnetName 'Microsoft.Network/virtualNetworks@2015-06-15' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2022-07-01' = {
   name: vnetName_var
-  location: resourceGroup().location
+  location: location
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -67,7 +67,7 @@ resource vnetName 'Microsoft.Network/virtualNetworks@2015-06-15' = {
         properties: {
           addressPrefix: subnetPrefix
           networkSecurityGroup: {
-            id: nsgName.id
+            id: nsg.id
           }
         }
       }
@@ -75,3 +75,5 @@ resource vnetName 'Microsoft.Network/virtualNetworks@2015-06-15' = {
   }
 }
 
+output vnetId string = vnet.id
+output subnetId string = vnet.properties.subnets[0].id
