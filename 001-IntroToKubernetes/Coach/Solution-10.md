@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 - Make sure that students have a clear picture of what services are and the different types (ClusterIP, LoadBalancer, etc) and how they map to different types of networking.
-  - *For deployment to Azure Government, the url will be similar to http://[myserviceuniquelabel].[location].cloudapp.usgovcloudapi.net*
+  - *For deployment to Azure Government, the url will be similar to `http://[myserviceuniquelabel].[location].cloudapp.usgovcloudapi.net`*
 - Part 1, Step 1:  The metadata they need to add is:
 ```
 metadata:
