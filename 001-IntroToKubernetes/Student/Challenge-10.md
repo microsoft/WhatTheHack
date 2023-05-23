@@ -14,10 +14,10 @@ In this challenge you will be enabling DNS, installing an Ingress Controller and
 In the previous challenges, we accessed our service via an IP address.  Humans prefer names to IP addresses, so let's create a DNS name for accessing our service.
 
 1. Your first task is to add a dns label to your __content-web__ service. 
-2. Your service should now be available at the url http://[myserviceuniquelabel].[location].cloudapp.azure.com.
-   *For deployment to Azure Government, the url will be similar to http://[myserviceuniquelabel].[location].cloudapp.usgovcloudapi.net*
+2. Your service should now be available at the url `http://[myserviceuniquelabel].[location].cloudapp.azure.com`.
+   *For deployment to Azure Government, the url will be similar to `http://[myserviceuniquelabel].[location].cloudapp.usgovcloudapi.net`*
 3. Verify that the DNS record has been created (nslookup or dig), and then test this url in your browser.
-4. Discuss with your coach how you might link a 'real' DNS name (eg, conferenceinfo.fabmedical.com) with this "azure-specific" DNS name (eg, conferenceinfo.eastus.cloudapp.azure.com)
+4. Discuss with your coach how you might link a 'real' DNS name (eg, `conferenceinfo.fabmedical.com`) with this "azure-specific" DNS name (eg, `conferenceinfo.eastus.cloudapp.azure.com`)
 
 ## Part 2a: Ingress Controller
 Switching gears, we will now start working with ingress controllers, which allow you to route http requests.
@@ -37,7 +37,7 @@ Just like in part 1, you will now add a metadata annotation to the ingress contr
    - Don't forget to add the host name to your ingress YAML template.
 2. Verify that the DNS record has been created (nslookup or dig), and then access the application using the DNS name, e.g: 
     - `http://[new-dns-label].[REGION].cloudapp.azure.com`
-      *For deployment to Azure Government, the url will be similar to http://[new-dns-label].[REGION].cloudapp.usgovcloudapi.net*
+      *For deployment to Azure Government, the url will be similar to `http://[new-dns-label].[REGION].cloudapp.usgovcloudapi.net`*
 
 ## Success Criteria
 
