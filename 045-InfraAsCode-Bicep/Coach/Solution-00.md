@@ -1,129 +1,62 @@
-# Challenge 0: Pre-requisites - Ready, Set, Go! - Coach's Guide
+# Challenge 00 - Pre-requisites - Ready, Set, Go! - Coach's Guide
 
 **[Home](./README.md)** - [Next Challenge>](./Solution-01.md)
 
 ## Notes & Guidance
 
-Below are more details on the pre-requisites which you may wish to share with students if they have questions about the details of any one of these.
+This hack is often delivered to organizations that are just getting started with managing Azure. While the focus is on how to manage Infrastructure-As-Code with Bicep, the students will also get familiar with Azure fundamentals.
 
-## Azure Subscription
+Challenge 00 is all about ensuring the students have the tools in their toolbox to manage Azure and complete the hack's challenges. While this hack can be completed using the Azure Cloud Shell, it is highly recommended that students get the experience of installing all of the pre-requisite tools on their local workstation. This will better prepare them to continue working with Azure after the hack is over.
 
-You will need an Azure subscription to complete this hackathon. If you don't have one...
+- It is common and OKAY if students spend 30-60 minutes getting all of the tools installed and configured properly. 
+- Coaches should use the time while students are installing the tools to deliver the first lecture in the [IAC-Bicep-Lectures deck](WTH-IaC-Bicep-Lectures.pptx?raw=true).
+- If students are completely new to Azure, coaches should demo the how to log in and navigate common commands with the Azure CLI.
+  - `az login`
+  - `az account list` - To Verify which subscription you are logged into
+  - `az account set` - To set which subscription you are logged into
+  - `az configure` - Change the default output format to "table" to make the output human readable.
+  - Demonstrate how the `--help` parameter can be used to get instructions for any command. For example: `az vm --help`
 
-[Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+## Student Resources
 
-Our goal in the hackathon is limiting the cost of using Azure services. 
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
-If you've never used Azure, you will get:
-- $200 free credits for use for up to 30 days
-- 12 months of popular free services  (includes storage, Linux VMs)
-- Then there are services that are free up to a certain quota
+The resource files include scripts and sample templates that will help students in some of the challenges.
 
-Details can be found here on [free services](https://azure.microsoft.com/en-us/free/).
+## Prerequisite Options
 
-If you have used Azure before, we will still try to limit cost of services by suspending, shutting down services, or destroy services before end of the hackathon. You will still be able to use the free services (up to their quotas) like App Service, or Functions.
+Some organizations may block their users from installing software on their workstations, especially if it requires Administrator access. The Coach should share the [Challenge 00 pre-requisites](../Student/Challenge-00.md) with a stakeholder in the students' organization before hosting the hack.
 
-## Windows Subsystem for Linux
+If the organization blocks the installation of all or some software, there are multiple options you can consider:
 
-The Windows Subsystem for Linux (WSL) lets developers run Linux environments -- including most command-line tools, utilities, and applications -- directly on Windows, unmodified, without the overhead of a virtual machine.
+- Have students with Windows devices skip installation of WSL, which requires Administrator access.
+- Have students use an Azure Virtual Machine where they can install the prerequisite tools.
+  - Students can create a Windows VM using the Azure Portal, then RDP into it to complete the hack. 
+- Have students use a combination of Visual Studio Code on their workstation & the Azure Cloud Shell to access the Azure CLI or Azure PowerShell. For this scenario:
+  - Coach's should ensure students are familiar with switching between editing files locally in VS Code, then uploading the files to the Azure Cloud Shell.
+- Have students use only the Azure Cloud Shell to complete the hack. If using only Azure Cloud Shell:
+  - Students will not get the rich Intellisense experience of the Bicep VS Code Extension.
+  - Azure Cloud Shell times out after 20 minutes of inactivity. This can be disruptive during the hack.
 
-WSL is an essential tool Azure admins should have on their workstations if they are running Windows! If you work with Linux servers in Azure (or anywhere), having access to WSL enables you to easily connect to them and use all the tools you're used to.
+## Gotchas
 
-[Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+### Windows Subsystem for Linux + Azure CLI (Windows Users Only)
 
-If you drive a Mac or Linux workstation, then you've already got Terminal access, carry on! :)
+For Windows users, we recommend installing WSL first, and then installing the Azure CLI into the WSL environment as opposed to installing the Azure CLI on Windows itself. WSL + Azure CLI is recommended because:
+  - Azure CLI examples often show it used within Bash scripts. Bash scripts cannot be run at the Windows Command Prompt or a PowerShell console. 
+  - WSL provides easy access to Linux tools such as SSH, which make it easy to interact with Linux based resources in Azure (such as the Azure Kubernetes Service).
 
-## Managing Cloud Resources
+The following "gotchas" have been observed when installing WSL:
+- WSL requires Administrator access to install on all versions of Windows. Some organizations do not provide this level of access for their users.  If this is the case, the student will not be able to install WSL.
+- On Windows 10, some students struggle to install WSL as it requires multiple steps from different UIs, plus a reboot.
+- On Windows 11, the WSL installation process was improved to be a single command to kick off. It still requires a reboot.
 
-We can manage cloud resources via the following ways:
+The following "gotchas" have been observed when installing the Azure CLI on WSL:
+- If you have previously installed the Azure CLI on Windows and then install it in WSL, you will have two installations of the Azure CLI on your workstation. 
+- You may need to restart your WSL instance so that WSL is set to use the Azure CLI instance installed in WSL, not the instance installed on Windows.
+- You can verify which Azure CLI installation is being with the following command: `which az`
+  - If you see `/usr/bin/az`, it is using the WSL install.
+  - If you see `/mnt/c/Program Files (x86)/Microsoft SDKs/Azure/CLI2/wbin/az`, it is using the Windows install.
+  - For more details see: https://github.com/Azure/azure-cli/issues/19517
+- If you run into issues running Azure CLI commands on Windows, you may need to disable your VPN.
 
-- Web Interface/Dashboard
-  - [Azure Portal](https://portal.azure.com/)
-- CLI
-  - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-  - [Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
-- CLI within Web Interface
-  - [Azure Cloud Shell (Bash)](https://shell.azure.com/bash)
-  - [Azure Cloud Shell (PowerShell)](https://shell.azure.com/powershell)
-
-
-### Azure Portal
-
-Build, manage, and monitor everything from simple web apps to complex cloud applications in a single, unified console.
-
-Manage your resources via a web interface (i.e. GUI) at [https://portal.azure.com/](https://portal.azure.com/)
-
-The Azure Portal is a great tool for quick prototyping, proof of concepts, and testing things out in Azure by deploying resources manually. However, when deploying production resources to Azure, it is highly recommended that you an automation tool, templates, or scripts instead of the portal. 
-
-**Note:** That's why you're participating in this "Infrastructure as Code" hackathon!
-
-### Azure CLI
-
-The Azure CLI is a cross-platform command-line tool providing a great experience for managing Azure resources. The CLI is designed to make scripting easy, flexibly query data, support long-running operations as non-blocking processes, and more. It is available on Windows, Mac, and Linux.
-
-The Azure CLI will be the preferred (and supported) approach for this event, so please install the Azure CLI on your workstation. If you are not able to install the Azure CLI, or are using a workstation that is not your own, you can use the Azure CLI in the browser via the Azure Cloud Shell from the Azure Portal.
-
-For Windows users, see the note below about how & where to install the Azure CLI!
-
-
-- [Install on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
-- [Install on macOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest)
-- Install on Linux or Windows Subsystem for Linux (WSL)
-  - [Install with apt on Debian or Ubuntu](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
-  - [Install with yum on RHEL, Fedora, or CentOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-yum?view=azure-cli-latest)
-  - [Install from script](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?view=azure-cli-latest)
-- [Run in Docker container](https://docs.microsoft.com/en-us/cli/azure/run-azure-cli-docker?view=azure-cli-latest)
-
-#### Note for Windows Users
-
-The Azure CLI can be installed locally on Windows. If you do this, you will access and use the Azure CLI from the Windows Command Prompt or PowerShell Console.
-
-While majority of the documentation should work fine locally on Windows, as you search the web for examples of how to use the Azure CLI, the examples frequently show Azure CLI commands used in Bash shell scripts. Bash shell scripts will not run in the Windows Command Prompt or PowerShell Console.
-
-For this reason, we recommend using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for interacting with the Azure CLI. This means you should install the Azure CLI within your WSL environment by following the instructions for the Linux distro you are using.
-
-Alternatively, you can use the [Azure Cloud Shell](https://shell.azure.com/bash). This is discussed shortly in the next section.
-
-### Azure PowerShell CmdLets
-
-Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. 
-
-[Install the Azure PowerShell Cmdlets](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
-
-The Azure PowerShell Cmdlets are functionally equivalent to the Azure CLI and can be used to complete all of the challenges instead of the Azure CLI. However, the Azure PowerShell Cmdlets are required for the PowerShell DSC challenges. 
-
-
-### Azure Cloud Shell
-
-The Azure Cloud Shell is a free interactive Bash or PowerShell shell that you can use to run the Azure CLI or PowerShell Cmdlets needed to complete the hackathon challenges. It has common Azure tools pre-installed and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it.  There are a few ways to launch the Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](https://github.com/MicrosoftDocs/azure-docs/raw/master/includes/media/cloud-shell-try-it/cli-try-it.png) |
-| Open Cloud Shell in your browser. | [![https://shell.azure.com/bash](https://github.com/MicrosoftDocs/azure-docs/raw/master/includes/media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
-| Click the **Cloud Shell** button on the menu in the upper right of the [Azure portal](https://portal.azure.com). |	![Cloud Shell in the portal](https://github.com/MicrosoftDocs/azure-docs/raw/master/includes/media/cloud-shell-try-it/cloud-shell-menu.png) |
-|  |  |
-
-
-**Note:** If you use the Azure CLI or PowerShell from the Azure Cloud Shell, you will need to copy the template files you will be creating and editing on your workstation during the hackathon to the Cloud Shell environment.
-
-
-## Visual Studio Code
-
-Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity).
-
-[**Install Visual Studio Code**](https://code.visualstudio.com/)
-
-VS Code runs on Windows, Mac, and Linux. Yes, Mac AND Linux!  It's a quick install, NOT a 2 hour install like its namesake full-fledged IDE tool on Windows.
-
-### Visual Studio Code plugins for Bicep
-
-VS Code is lightweight because there is an ecosystem of plugins that help provide support for many different programming languages and file types.  There are two plugins available which we recommend for creating and editing ARM templates in VS Code. We will be using these during the hackathon.
-
-[**Bicep Plugin**](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
-
-This extension provides language support for Bicep and its language expressions.  It adds syntax color-coding support and intellisense for editing Bicep file in VS Code.
-
-[**Bicep CLI**](https://github.com/Azure/bicep/blob/main/docs/installing.md)
-
- Compiles Bicep files into ARM templates. Cross-platform.
