@@ -6,7 +6,7 @@
 
 >**Note** Azure Monitor Agent (AMA) replaces several legacy monitoring agents, like the Log Analytics Agent (Microsoft Monitoring Agent, MMA, OMS), Diagnostics agent and Telegraf agent. The legacy Log Analytics agent will not be supported after August 2024. For this reason, we will be using **only the Azure Monitor Agent (AMA)** in this Hackathon, we won't be using any of the legacy agents.
 
-#### Creating an empty database called "tpcc" on the SQL Server
+### Create an empty database called "tpcc" on the SQL Server
 
 Some students may struggle with this particular task if they do not have previous experience with SQL Server. If that is the case, please make sure you guide them on how to create an empty database (as the key goal of the challenge is to learn Azure Monitor, not SQL Server).
 
@@ -33,7 +33,8 @@ You can use SQL Management Studio on either the SQL Server VM or the Visual Stud
 ![](../Images/01-03-View-db.png)
 
 
-#### Send the SQL Server VM performance counters to Azure Monitor
+
+### Send the SQL Server VM performance counters to Azure Monitor
   
 To find the correct name of the SQL DB counter, go to your Azure Portal, open the VM, then open Run Command as shown in the screen below. 
   
@@ -80,17 +81,8 @@ If you navigate to the Metrics blade for both VMs, you should only be able to se
 - Select Create to create the data collection rule.
 
 
-#### Send the SQL Server VM Event Logs to Azure Monitor
 
-Follow the steps in the previous section to create another data collection rule. The only difference will be on the Add data source step:
-- Instead of selecting Performance Counters, select Windows Event Logs and choose basic System and Application logs (Critical, Error, Warning, Informational)
-
-![](../Images/01-18-Create-DCR.png)
-
-- On the Destination tab the only available option will be Azure Monitor Logs (select existing Log Analytics workspace).
-
-
-#### Check your metrics 
+### Check your metrics 
   
 Now go to the VM Metric, you should see the SQL one we added above, add it and pin it to any of your Dashboards.
   
@@ -101,7 +93,8 @@ Can you see the new Metric?
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image10.png)
   
 
-#### Create your graphs on your dashboard
+
+### Pin charts to your dashboard
 
 You can click on Pin to dashboard, then customize it to show the last 1 hour (see below)
   
@@ -124,7 +117,19 @@ In the end (after you run all the stress tests the dashboards should look like t
 ![](../Images/01-04-Sample-dashboard.png)
 
 
-#### Create an Alert to be notified in case the SQL active transactions went above 40.
+
+### Send the SQL Server VM Event Logs to Azure Monitor
+
+Follow the same steps that you used previously to create another data collection rule. The only difference will be on the Add data source step:
+- Instead of selecting Performance Counters, select Windows Event Logs and choose basic System and Application logs (Critical, Error, Warning, Informational)
+
+![](../Images/01-18-Create-DCR.png)
+
+- On the Destination tab the only available option will be Azure Monitor Logs (select existing Log Analytics workspace).
+
+
+
+### Create an Alert rule to be notified in case the SQL active transactions went above 40.
   
 - From Azure Monitor, create an Action group, to send email to your address
   
@@ -157,7 +162,32 @@ In the end (after you run all the stress tests the dashboards should look like t
 - Similarly create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails you when you go over the threshold.
 
 
- #### Stress the Database using HammerDB 
+
+### Create an Alert processing rule to suppress the alerts over the weekends
+
+- To suppress the Alerts over the weekends, in Azure Monitor under Alerts open your **Alert processing rules**
+
+![](../Images/01-19-Create-Alert-proc-rule.png)
+
+- Click Create
+- Under Scope, click on Select a resource and make sure you have your subscription selected. Then search for the name of the resource group that was created in the deployment of the workshop. 
+- Select your resource group when it comes up. 
+- Click Apply      
+- Under Filter click on filters and select Resource type, Equals, Virtual Machines and Virtual Machine scales sets    
+
+![](../Images/01-20-Create-Alert-proc-rule.png) 
+
+- Go to Rule settings and select Suppress Notifications.
+- Go to Scheduling, select Recurring, Weekly, Sat & Sun, All day.
+
+![](../Images/01-21-Create-Alert-proc-rule.png) 
+
+- On the Details tab select a Subscription, resource group and type the name of the new rule.
+- Click Review and create and then Create.
+
+
+
+ ### Stress the Database using HammerDB 
  
 - Download and Install HammerDB tool on the Visual Studio VM. 
 -  [www.hammerdb.com](http://www.hammerdb.com/)
@@ -227,7 +257,8 @@ When the test is running it should look like the screenshot below:
 If you re-run the stress test keep in mind, you will need to delete the tpcc DB and re-create it.
 
 
-#### Generate load on the Virtual Machine Scale Set
+
+### Generate load on the Virtual Machine Scale Set
 
 Now you need to generate load on your VMSS to do this in the repo you cloned navigate to the folder called **loadscripts** under the **sources** folder and copy the **cpuGenLoadwithPS.ps1** script to both instances running in the Scale Set and run them.
 
@@ -266,29 +297,6 @@ You should get an Alert similar to the one below
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image38.png)    
 
-
-#### Create an Alert processing rule to suppress the alerts over the weekends
-
-- To suppress the Alerts over the weekends, in Azure Monitor under Alerts open your **Alert processing rules**
-
-![](../Images/01-19-Create-Alert-proc-rule.png)
-
-- Click Create
-- Under Scope, click on Select a resource and make sure you have your subscription selected. Then search for the name of the resource group that was created in the deployment of the workshop. 
-- Select your resource group when it comes up. 
-- Click Apply      
-- Under Filter click on filters and select Resource type, Equals, Virtual Machines and Virtual Machine scales sets    
-
-![](../Images/01-20-Create-Alert-proc-rule.png) 
-
-- Go to Rule settings and select Suppress Notifications.
-- Go to Scheduling, select Recurring, Weekly, Sat & Sun, All day.
-
-![](../Images/01-21-Create-Alert-proc-rule.png) 
-
-- On the Details tab select a Subscription, resource group and type the name of the new rule.
-- Click Review and create and then Create.
-  
   
 First team to send both alerts wins the challenge!! :)  
 Good luck!
