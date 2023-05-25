@@ -87,7 +87,7 @@ To complete this challenge successfully, you should be able to:
 
 - Verify the dashboard has the metric charts for SQL and CPU performance counters with a spike representing before and after the simulation.
 - Show two fired alerts in the Portal and the email notifications received.
-- Verify that you have Windows Event logs and Performance conters from SQL Server VM in the Log Analytics workspace. 
+- Verify that you have Windows Event logs and Performance counters from SQL Server VM in the Log Analytics workspace. 
 
 ## Learning Resources
 
