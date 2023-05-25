@@ -63,7 +63,7 @@ In this challenge you need to complete the following management tasks:
 >
 >**HINT:** Use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`** as the destination.
 
-- In Azure Monitor switch back to the Metrics blade, select the SQL Server VM as the scope and verify that the guest VM metrics are available now. Select the SQL Server Active Transactions metric and pin the resulting chart to a new Dashboard. Switch the scope to your Virtual Machine Scale Set and pin the Percentage CPU chart to the same Dashboard.
+- In Azure Monitor switch back to the Metrics blade, select the SQL Server VM as the scope and verify that the guest VM metrics are available now. Select the SQL Server Active Transactions metric and pin the resulting chart to a new or existing Dashboard. Switch the scope to your Virtual Machine Scale Set and pin the Percentage CPU chart to the same Dashboard.
 - In Azure Monitor create another Data Collection Rule for the SQL Server VM and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use the same Log Analytics Workspace as the destination. After that in Azure Monitor switch to the Logs blade and select this Log Analytics Workspace as the scope. Go to Queries tab and explore the built-in KQL queries for Virtual Machines. Run a few sample queries to verify that Performance Counters and Windows Event Logs are flowing from the SQL Server VM into Azure Monitor Logs.
 >**Note** It will take some time for the data to start flowing, revisit this step later if you don't see any data right away.
 - In Azure Monitor, switch to the Alerts blade and create an Action group to send email to your email address.
