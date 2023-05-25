@@ -63,7 +63,7 @@ In this challenge you need to complete the following management tasks:
 >
 >**HINT:** Use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`** as the destination.
 
-- In Azure Monitor switch back to the Metrics blade, select the SQL Server VM as the scope and verify that the guest VM metrics are available now. Select the SQL Server Active Transactions metric and pin the resulting graph to a new Dashboard. Switch the scope to your Virtual Machine Scale Set and pin the Percentage CPU graph to the same Dashboard.
+- In Azure Monitor switch back to the Metrics blade, select the SQL Server VM as the scope and verify that the guest VM metrics are available now. Select the SQL Server Active Transactions metric and pin the resulting chart to a new Dashboard. Switch the scope to your Virtual Machine Scale Set and pin the Percentage CPU chart to the same Dashboard.
 - In Azure Monitor create another Data Collection Rule for the SQL Server VM and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use the same Log Analytics Workspace as the destination. After that in Azure Monitor switch to the Logs blade and select this Log Analytics Workspace as the scope. Go to Queries tab and explore the built-in KQL queries for Virtual Machines. Run a few sample queries to verify that Performance Counters and Windows Event Logs are flowing from the SQL Server VM into Azure Monitor Logs.
 >**Note** It will take some time for the data to start flowing, revisit this step later if you don't see any data right away.
 - In Azure Monitor, switch to the Alerts blade and create an Action group to send email to your email address.
@@ -85,10 +85,9 @@ Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is 
 
 To complete this challenge successfully, you should be able to:
 
-- Verify that you can collect the DB and CPU counters after load simulation and display them on a Dashboard.
-- Verify the dashboard has the metrics with a spike representing before and after the simulation.
+- Verify the dashboard has the metric charts for SQL and CPU performance counters with a spike representing before and after the simulation.
 - Show two fired alerts in the Portal and the email notifications received.
-
+- Verify that you have Windows Event logs and Performance conters from SQL Server VM in the Log Analytics workspace. 
 
 ## Learning Resources
 
@@ -97,9 +96,11 @@ To complete this challenge successfully, you should be able to:
 - [Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 - [Azure Monitor Alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 - [Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
-- [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
-- [Run scripts in your Windows VM by using action Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
+- [Finding the Performance counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
+- [Run scripts in your Windows VM by using Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
 - [Create Data Collection Rules](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal)
 - [Best practices for data collection rule creation and management](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-best-practices)
+- [Pin metric charts to a Dashboard](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-charts#saving-to-dashboards-or-workbooks)
+- [Create an Azure Dashboard](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards)
 - [Suppress Notifications](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal)
 - [HammerDB](https://www.hammerdb.com)
