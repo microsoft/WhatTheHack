@@ -4,11 +4,17 @@
 
 ## Notes & Guidance
 
+>**Note** Azure Monitor Agent (AMA) replaces several legacy monitoring agents, like the Log Analytics Agent (Microsoft Monitoring Agent, MMA, OMS), Diagnostics agent and Telegraf agent. The legacy Log Analytics agent will not be supported after August 2024. For this reason, we will be using **only the Azure Monitor Agent (AMA)** in this Hackathon, we won't be using any of the legacy agents.
+
 #### Creating an empty database called "tpcc" on the SQL Server
+
+Some students may struggle with this particular task if they do not have previous experience with SQL Server. If that is the case, please make sure you guide them on how to create an empty database (as the key goal of the challenge is to learn Azure Monitor, not SQL Server).
 
 >**Note** Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
 
 >**Note** The "XX" in each resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
+
+You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database. Below you can find the steps for the SQL Server Object Explorer.
 
 - Use Azure Bastion to connect to the Visual Studio Server VM (vmwthvsdXX) and open Visual Studio.
 
