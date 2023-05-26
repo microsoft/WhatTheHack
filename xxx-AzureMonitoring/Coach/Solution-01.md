@@ -35,6 +35,8 @@ You can use SQL Management Studio on either the SQL Server VM or the Visual Stud
 
 
 ### Send the SQL Server VM performance counters to Azure Monitor
+
+>**Note** This task may be quite challenging for some students. Provide hints ealrly on if you notice that the students are getting stuck.
   
 To find the correct name of the SQL DB counter, go to your Azure Portal, open the VM, then open Run Command as shown in the screen below. 
   
