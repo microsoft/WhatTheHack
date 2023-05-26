@@ -35,6 +35,50 @@ resource ama 'Microsoft.Compute/virtualMachineScaleSets/extensions@2021-11-01' =
   ]
 }
 
+resource dcrEventLogs 'Microsoft.Insights/dataCollectionRules@2021-09-01-preview' = {
+  name: 'DCR-Win-Event-Logs-to-LAW'
+  location: location
+  kind: 'Windows'
+  properties: {
+    dataFlows: [
+      {
+        destinations: [
+          'law-wth-monitor-d-xx'
+        ]
+        streams: [
+          'Microsoft-Event'
+        ]
+      }
+    ]
+    dataSources: {
+      windowsEventLogs: [
+        { streams: [ 
+          'Microsoft-Event' 
+        ]
+          xPathQueries: [
+            'Application!*[System[(Level=1 or Level=2 or Level=3 or or Level=0) ]]'
+            'Security!*[System[(band(Keywords,13510798882111488))]]'
+            'System!*[System[(Level=1 or Level=2 or Level=3 or or Level=0)]]'
+            ]
+          name: 'eventLogsDataSource'
+        }
+    ]
+    }
+    description: 'Collect Windows Event Logs and send to Azure Monitor Logs'
+    destinations: {
+      logAnalytics: [
+        {
+          name: 'law-wth-monitor-d-xx'
+          workspaceResourceId: lawResource.id
+        }
+      ]
+    }
+  }
+  dependsOn: [
+    ama
+  ]
+}
+
 resource dcrPerfLaw 'Microsoft.Insights/dataCollectionRules@2021-09-01-preview' = {
   name: 'DCR-Win-Perf-to-LAW'
   location: location
@@ -122,6 +166,15 @@ resource dcrPerfLaw 'Microsoft.Insights/dataCollectionRules@2021-09-01-preview' 
   dependsOn: [
     ama
   ]
+}
+
+resource dcrEventLogsAssociation 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: 'DCRA-VMSS-WEL-LAW'
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this virtual machine scale set.'
+    dataCollectionRuleId: dcrEventLogs.id
+  }
 }
 
 resource dcrPerfLawAssociation 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
