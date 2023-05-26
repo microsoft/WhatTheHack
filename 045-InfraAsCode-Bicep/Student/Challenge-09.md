@@ -1,6 +1,6 @@
-# Challenge 9 - Configure VM Scale Set to run a Web Server
+# Challenge 09 - Configure VM Scale Set to Run a Web Server
 
-[< Previous Challenge](./Bicep-Challenge-08.md) - [Home](../README.md) - [Next Challenge>](./Bicep-Challenge-10.md)
+[< Previous Challenge](./Challenge-08.md) - [Home](../README.md) - [Next Challenge >](./Challenge-10.md)
 
 ## Introduction
 
@@ -12,7 +12,7 @@ The goals of this challenge include understanding:
 
 We have provided a script (`install_apache_vmss.sh`) that configures Apache web server on a Linux VMSS. When run on an individual VM instance, the script deploys a static web page that should be available at: `http://<PublicIPofTheLoadBalancer>/wth.html`  
 
-You can find the script in the Resources folder for **Bicep-Challenge-09**.
+You can find the script in the Resources folder for `/Challenge-09`.
 
 Your challenge is to:
 
