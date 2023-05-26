@@ -36,7 +36,7 @@
     5. Create a new Output binding. This will be for a new collection with a partition key of `type`:
         - Binding Type: Azure Cosmos DB
         - Select the existing Cosmos DB account connection (since we are targeting a collection in the same account)
-        - Document parameter name: productsnewDocument
+        - Document parameter name: `productsnewDocument`
         - Database name: `wth-cosmos`
         - Collection name: `productsnew`
         - Check the checkbox to create the collection
@@ -44,7 +44,7 @@
     6. Create another Output binding:
         - Binding Type: Azure Cosmos DB
         - Select the existing Cosmos DB account connection (since we are targeting a collection in the same account)
-        - Document parameter name: ordersDocument
+        - Document parameter name: `ordersDocument`
         - Database name: `wth-cosmos`
         - Collection name: `orders`
         - Check the checkbox to create the collection
