@@ -11,7 +11,8 @@ resource lawResource 'Microsoft.OperationalInsights/workspaces@2022-10-01' exist
 }
 
 resource dependencyExtension 'Microsoft.Compute/virtualMachineScaleSets/extensions@2020-12-01' = {
-  name: '${vm.name}/DependencyAgentWindows'
+  parent: vm
+  name: 'DependencyAgentWindows'
   properties: {
     publisher: 'Microsoft.Azure.Monitoring.DependencyAgent'
     type: 'DependencyAgentWindows'
@@ -22,7 +23,8 @@ resource dependencyExtension 'Microsoft.Compute/virtualMachineScaleSets/extensio
 }
 
 resource ama 'Microsoft.Compute/virtualMachineScaleSets/extensions@2021-11-01' = {
-  name: '${vm.name}/AzureMonitorWindowsAgent'
+  parent: vm
+  name: 'AzureMonitorWindowsAgent'
   properties: {
     publisher: 'Microsoft.Azure.Monitor'
     type: 'AzureMonitorWindowsAgent'
