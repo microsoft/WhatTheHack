@@ -3,7 +3,6 @@ param vmLocation string = resourceGroup().location
 param activityLogAlertNameVmStop string = 'alert-vm-stopped'
 param metricAlertNameCPU string = 'alert-cpu-over-75-percent'
 param metricAlertNameNetwork string = 'alert-network-in'
-param activityLogAlertNameSH string = 'alert-service-health'
 param metricAlertNameDisk string = 'alert-disk-write-over-20'
 
 resource activityLogAlertsVmStopped 'Microsoft.Insights/activityLogAlerts@2020-10-01' = {
@@ -39,38 +38,6 @@ resource activityLogAlertsVmStopped 'Microsoft.Insights/activityLogAlerts@2020-1
     }
     enabled: true
     description: 'Alert when a VM is deallocated'
-  }
-}
-
-resource activityLogAlertsServiceHealth 'Microsoft.Insights/activityLogAlerts@2020-10-01' = {
-  name: activityLogAlertNameSH
-  location: 'global'
-  properties: {
-    scopes: [
-      subscription().id
-    ]
-    condition: {
-      allOf: [
-        {
-          field: 'category'
-          equals: 'ServiceHealth'
-        }
-        {
-          field: 'properties.incidentType'
-          equals: 'Incident'
-        }
-      ]
-    }
-    actions: {
-      actionGroups: [
-        {
-          actionGroupId: actionGroupResourceId
-          webhookProperties: {}
-        }
-      ]
-    }
-    enabled: true
-    description: 'Alert when a Service Health incident happens'
   }
 }
 
