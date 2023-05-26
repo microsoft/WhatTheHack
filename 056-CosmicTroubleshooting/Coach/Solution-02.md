@@ -32,7 +32,7 @@
         - Set a name for the lease collection (default of leases is ok)
         - Enable the "Create lease collection if it does not exist" option
     3. Once created, disable the new function
-    4. In the `changefeed` function, navigate to Integration.
+    4. In the `ChangeFeed` function, navigate to Integration.
     5. Create a new Output binding. This will be for a new collection with a partition key of `type`:
         - Binding Type: Azure Cosmos DB
         - Select the existing Cosmos DB account connection (since we are targeting a collection in the same account)

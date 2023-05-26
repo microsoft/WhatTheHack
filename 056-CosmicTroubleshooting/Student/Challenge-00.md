@@ -36,38 +36,11 @@ You might not need all of them for the hack you are participating in. However, i
 
 If you want you can use Visual Studio Code Dev Containers or GitHub Codespaces then check out the [Dev Containers](#dev-containers) section.
 
-### Dev Containers
-
-#### Visual Studio Code Dev Containers
-
-To start the environment in a local container:
-
-- [Setup Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial)
-- You can open VS Code in the extracted `Resources.zip` and use the Use the **Dev Containers: Reopen in Container** command from the Command Palette (`F1`, `⇧⌘P`)
-
-#### GitHub Codespaces
-
-To start the environment in the GitHub Codespaces:
-
-- Install [GitHub CLI](https://cli.github.com/)
-- Open terminal in 
-  Bash:
-  ```
-  # Login to GitHub CLI
-  gh auth login
-  # Initialize git repo and do initial commit
-  git init -b main
-  git add . && git commit -m "initial commit"
-  # Create private repo in your GitHub account and push files
-  gh repo create WTH-CosmicTroubleshooting --source=. --private --push
-  ```
-- Go to [GitHub Codespaces](https://github.com/codespaces/new) and create new selecting your repository (your `username/WTH-CosmicTroubleshooting`)
-
-[How to work with GitHub Codespaces](https://docs.github.com/en/codespaces/developing-in-codespaces/developing-in-a-codespace)
-
 ## Description
 
 Now that you have the common prerequisites installed on your workstation, there are prerequisites specific to this hack.
+
+Your Azure Subscription should have a quota of at least 4 instances for Azure Load Testing. Please also ensure you have the Microsoft.LoadTestService Resource provider registered ([How-To register a Resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types))
 
 Your coach will provide you with a `Resources.zip` file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
@@ -94,7 +67,7 @@ Please deploy the infrastructure by running one of the following scripts in the 
   ```
 - Bash:
   ```
-  # Make sure your machine has the prerequisites (for Github Codespaces and Visual Studio Code Dev Containers use ./setup-machine-codespaces.sh)
+  # Make sure your machine has the prerequisites
   # Also does an "az login"
   ./setup-machine.sh
 

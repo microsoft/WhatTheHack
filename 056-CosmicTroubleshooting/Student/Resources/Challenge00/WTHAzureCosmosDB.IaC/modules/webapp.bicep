@@ -1,19 +1,56 @@
-param sku string = 'S1' // The SKU of App Service Plan
-param location string = resourceGroup().location // Location for all resources
+/*
+Parameters
+*/
+
+@description('SKU of the App Service Plan. Default S1')
+param sku string = 'S1'
+
+@description('Location. Defaults to Resource Group location')
+param location string = resourceGroup().location
+
+@description('App Service Plan name')
 param appServicePlanName string
+
+@description('Web App name')
 param webSiteName string
+
+@description('Application Insights name')
 param appInsightsName string
+
+@description('Managed Identity Client Id')
 param msiClientId string
+
+@description('Managed Identity Id')
 param msiObjectId string
+
+@description('Cosmos DB Account endpoint')
 param cosmosDBAccountEndpoint string
-param cosmosDBDatabaseId string
-param cosmosDBProductsContainerId string
-param cosmosDBShipmentContainerId string
+
+@description('Cosmos DB Database name')
+param cosmosDBDatabaseName string
+
+@description('Cosmos DB Products Container name')
+param cosmosDBProductsContainerName string
+
+@description('Cosmos DB Shipments Container name')
+param cosmosDBShipmentContainerName string
+
+@description('Load Testing Service Data Plane endpoint')
 param loadTestingDataPlaneEndpoint string
+
+@description('Load Test Id')
 param loadTestId string
+
+@description('Load Testing Proxy Function app name')
 param proxyFuncAppHostname string
+
+@description('Load Testing Proxu Function app key')
 param proxyFuncAppKey string
 
+
+/*
+Local variables
+*/
 var appSettings = [
   {
     name: 'Cosmos:AccountEndpoint'
@@ -21,15 +58,15 @@ var appSettings = [
   }
   {
     name: 'Cosmos:Database'
-    value: cosmosDBDatabaseId
+    value: cosmosDBDatabaseName
   }
   {
     name: 'Cosmos:CollectionName'
-    value: cosmosDBProductsContainerId
+    value: cosmosDBProductsContainerName
   }
   {
     name: 'Cosmos:ShipmentCollectionName'
-    value: cosmosDBShipmentContainerId
+    value: cosmosDBShipmentContainerName
   }
   {
     name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
@@ -61,6 +98,9 @@ var appSettings = [
   }
 ]
 
+/*
+App Service Plan
+*/
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   name: appServicePlanName  
   location: location
@@ -72,6 +112,9 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 
+/*
+Web App
+*/
 resource appService 'Microsoft.Web/sites@2022-03-01' = {
   name: webSiteName
   location: location
@@ -92,6 +135,9 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
   }
 }
 
+/*
+Application Insights for Web App
+*/
 resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: appInsightsName
   location: location
@@ -102,5 +148,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
-
+/*
+Outputs
+*/
 output hostname string = appService.properties.hostNames[0]
