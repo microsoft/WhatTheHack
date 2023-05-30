@@ -51,22 +51,18 @@ In this challenge you need to complete the following management tasks:
 
 >**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database. If you are not familiar with any of these, feel free to ask your coach for assistance.
 
-- In Azure portal navigate to Monitor, click "Metrics" to open Azure Monitor Metrics explorer, select your SQL Server VM as the scope and check what metrics are currently being collected automatically. You should be able to see only the VM Host metrics, but not guest OS level metrics. 
+- In Azure portal navigate to Monitor, open Azure Monitor Metrics explorer and check what metrics are currently being collected automatically for your SQL Server VM. You should be able to see only the VM Host metrics, but not guest OS level metrics. 
 >**Note** Previously, it was only possible to enable VM guest-level metrics collection to Azure Monitor Metrics with the help of the legacy Windows Azure Diagnostics (WAD) extension and Telegraf (for Linux). Currently, this can also be achieved with Azure Monitor Agent (AMA). You will be using only AMA in the following tasks not WAD. When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on the virtual machine.
-- Stay in Azure Monitor but switch to the Data Collection Rule blade. From there create a new Data Collection Rule (DCR) for the SQL Server VM. Configure it to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs. Configure it to collect Custom Performance Counters - leave all the suggested standard counters and add the following custom SQL performance counter to the list:
+- In Azure Monitor create a new Data Collection Rule (DCR) for the SQL Server VM. Configure it to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs. Use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`** as the destination. Configure the DCR to collect Custom Performance Counters - leave all the suggested standard counters and add the following custom SQL performance counter to the list:
 	- Object: SQLServer:Databases
 		- Counter: Active Transactions
 		- Instance: tpcc
 >**HINT:** You don't need to create Data Collection Endpoints.
->
->**HINT:** One of the ways to find out the correct Performance Counter name is to use Run Command feature of the Azure Virtual Machine. Check recommended learning resources below. If you got struck with this task, feel free to ask your coach for help.
->
->**HINT:** Use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`** as the destination.
 
-- In Azure Monitor switch back to the Metrics blade, select the SQL Server VM as the scope and verify that the guest VM metrics are available now. Select the SQL Server Active Transactions metric and pin the resulting chart to a new or existing Dashboard. Switch the scope to your Virtual Machine Scale Set and pin the Percentage CPU chart to the same Dashboard.
+- In Azure Monitor switch back to Metrics explorer and verify that the guest VM metrics are now available for the SQL Server VM. Create a SQL Server Active Transactions metric chart and pin it to a new or existing Dashboard. Generate the Percentage CPU chart for the Virtual Machine Scale Set and pin it to the same Dashboard.
 - In Azure Monitor create another Data Collection Rule for the SQL Server VM and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use the same Log Analytics Workspace as the destination. After that in Azure Monitor switch to the Logs blade and select this Log Analytics Workspace as the scope. Go to Queries tab and explore the built-in KQL queries for Virtual Machines. Run a few sample queries to verify that Performance Counters and Windows Event Logs are flowing from the SQL Server VM into Azure Monitor Logs.
 >**Note** It will take some time for the data to start flowing, revisit this step later if you don't see any data right away.
-- In Azure Monitor, switch to the Alerts blade and create an Action group to send email to your email address.
+- From Azure Monitor Alerts create an Action group to send email to your email address.
 - Create a Metric Alert Rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
 - Create a Meric Alert Rule to be notified via email if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
 - Suppress all alerts over the weekend (unless you are solving this challenge on the weekend ;)).
@@ -96,8 +92,8 @@ To complete this challenge successfully, you should be able to:
 - [Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 - [Azure Monitor Alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 - [Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
-- [Finding the Performance counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
-- [Run scripts in your Windows VM by using Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
+- [Finding the Performance counter with PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
+- [Run PowerShell scripts in your Windows VM by using Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
 - [Create Data Collection Rules](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal)
 - [Best practices for data collection rule creation and management](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-best-practices)
 - [Pin metric charts to a Dashboard](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-charts#saving-to-dashboards-or-workbooks)
