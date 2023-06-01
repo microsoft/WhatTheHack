@@ -4,14 +4,16 @@
 
 ## Introduction
 
-Great we now have some code, now we need an environment to deploy it to. In DevOps we can automate the process of deploying the Azure Services we need with an Azure Resource Manager (ARM) template. Review the following article.
+Great we now have some code, now we need an environment to deploy it to. In DevOps we can automate the process of deploying the Azure Services we need with an Azure Resource Manager (ARM) template. Review the following articles:
 
 1. [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
 2. [Create Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/how-to-create-template)
 
 ## Description
 
-In Azure DevOps we can use Azure Pipelines to automate deploying our Azure infrastructure. For our application we will deploy 3 environments: Dev, Test and Prod. Each environment will consist of a Azure App Service, however all of our environments will share a single Resource Group, Azure App Service Plan, Application Insights Instance, and Azure Container Registry. NOTE: in real deployments you will likely not share all of these resources.
+In Azure DevOps we can use Azure Pipelines to automate deploying our Azure infrastructure. For our application we will deploy 3 environments: Dev, Test and Prod. Each environment will consist of an Azure App Service, however all of our environments will share a single Resource Group, Azure App Service Plan, Application Insights Instance, and Azure Container Registry. 
+
+**NOTE:** In real world deployments you will likely not share all of these resources.
 
 Please note, while you can create a pipeline with the UI with a Release Pipeline, we will be focused on the YAML pipelines for this hack.
 
@@ -22,7 +24,7 @@ Please note, while you can create a pipeline with the UI with a Release Pipeline
    - You will need to override many of the templates parameters, replacing the `<prefix>` part with a unique lowercase 5 letter name.
 - You should now be able to save and execute your infrastructure release pipeline successfully and see the dev environment out in Azure. 
 - If everything worked, go ahead and clone the `dev` stage two more times for `test` and `prod`.
-   - The only change you need to make in the `test` and `prod` stages is changing the webAppName template parameter to `<prefix>devops-test` and `<prefix>devops-prod` respectively. 
+   - The only change you need to make in the `test` and `prod` stages is changing the `webAppName` template parameter to `<prefix>devops-test` and `<prefix>devops-prod` respectively. 
 - You should now be able to save and execute your infrastructure release pipeline successfully and see all three environments out in Azure. 
 
 ## Success Criteria
