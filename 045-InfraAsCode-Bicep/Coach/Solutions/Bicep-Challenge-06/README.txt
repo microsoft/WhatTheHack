@@ -1,1 +1,1 @@
-Please update the parameter file to reference your keyvault before running.
+Please update the parameter file to reference your Key Vault before running.
