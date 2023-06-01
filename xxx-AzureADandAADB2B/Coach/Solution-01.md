@@ -1,20 +1,14 @@
-# Challenge 01 - <Title of Challenge> - Coach's Guide 
+# Challenge 01 - register-app - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+Register the app in the newly created tenant by navigating App Registration.
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+Select Accounts in this organizational directory only( Single Tenant)
 
-Break things apart with more than one bullet list
+Enter https://authr.biz/ as the Redirect URIs.
 
-- Like this
-- One
-- Right
-- Here
+Select the Access Token and ID Token checkboxes in the Authentication tab

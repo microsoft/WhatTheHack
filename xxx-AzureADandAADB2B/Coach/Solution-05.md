@@ -1,20 +1,19 @@
-# Challenge 05 - <Title of Challenge> - Coach's Guide 
+# Challenge 05 - Integrate your application with Azure AD - Coach's Guide 
 
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Follow the Quickstart tutorial.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+You can skip the register the application section and re-use the app registered in the previous challenge in your tenant.
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+For ASP.NET Core, [Download](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip) the ASP.NET Core Project and COnfigure your ASP.NET Core Project. 
 
-Break things apart with more than one bullet list
+For ASP.NET, [Download](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) the ASP.NET project and Configure your ASP.NET Project.
 
-- Like this
-- One
-- Right
-- Here
+For Single Page Application, Follow the Tutorials for any of the Javascript framework such as Angular, React etc.
+
+Build and tun the application.
+
+Sign In with the users you created in previous challenge.
