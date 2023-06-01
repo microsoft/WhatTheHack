@@ -1,4 +1,5 @@
 param location string = 'eastus2'
+param afwSku string = 'basic'
 
 resource hubvnet 'Microsoft.Network/virtualNetworks@2022-01-01' existing = {
   name: 'wth-vnet-hub01'
@@ -9,6 +10,13 @@ resource afwsubnet 'Microsoft.Network/virtualNetworks/subnets@2022-01-01' = {
   name: '${hubvnet.name}/AzureFirewallSubnet'
   properties: {
     addressPrefix: '10.0.1.0/24'
+  }
+}
+
+resource afwmgmtsubnet 'Microsoft.Network/virtualNetworks/subnets@2022-01-01' = {
+  name: '${hubvnet.name}/AzureFirewallManagementSubnet'
+  properties: {
+    addressPrefix: '10.0.2.0/24'
   }
 }
 
@@ -24,12 +32,24 @@ resource wthafwpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
   }
 }
 
+resource wthafwmgmtpip01 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
+  name: 'wth-pip-afwmgmt01'
+  location: location
+  sku: {
+    name: 'Standard'
+    tier: 'Regional'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
+}
+
 resource wthafwpolicy 'Microsoft.Network/firewallPolicies@2022-01-01' = {
-  name: 'wth-fwp-standard01'
+  name: 'wth-fwp-policy01'
   location: location
   properties: {
     sku: {
-      tier: 'Standard'
+      tier: afwSku
     }
   }
 }
@@ -40,7 +60,7 @@ resource wthafw 'Microsoft.Network/azureFirewalls@2022-01-01' = {
   properties: {
     sku: {
       name: 'AZFW_VNet'
-      tier: 'Standard'
+      tier: afwSku
     }
     ipConfigurations: [
       {
@@ -55,6 +75,18 @@ resource wthafw 'Microsoft.Network/azureFirewalls@2022-01-01' = {
         }
       }
     ]
+    managementIpConfiguration: {
+        name: 'ipconfigMgmt1'
+        properties: {
+          publicIPAddress: {
+            id: wthafwmgmtpip01.id
+          }
+          subnet: {
+            id: afwmgmtsubnet.id
+          }
+        }
+      }
+    
     firewallPolicy: {
       id: wthafwpolicy.id
     }

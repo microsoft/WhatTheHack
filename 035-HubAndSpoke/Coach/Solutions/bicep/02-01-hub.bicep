@@ -32,6 +32,14 @@ resource rthubvms 'Microsoft.Network/routeTables@2022-01-01' = {
           nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
         }
       }
+      {
+        name: 'route-afw-to-vnet'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+          nextHopType: 'VirtualAppliance'
+          nextHopIpAddress: wthafw.properties.ipConfigurations[0].properties.privateIPAddress
+        }
+      }
     ]
     disableBgpRoutePropagation: true
   }
