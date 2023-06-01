@@ -1,4 +1,4 @@
-# Challenge 05 - Azure Pipelines: Build and push Docker image to container registry
+# Challenge 05 - Azure Pipelines: Build and Push Docker Image to Container Registry
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
