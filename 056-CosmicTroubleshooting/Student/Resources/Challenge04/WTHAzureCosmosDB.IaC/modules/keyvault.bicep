@@ -1,4 +1,11 @@
+/*
+Parameters
+*/
+
+@description('The name of the key vault.')
 param name string
+
+@description('Object ID of the AAD identity. Must be a GUID.')
 param msiObjectId string
 
 @description('Specifies the role the user will get with the secret in the vault. Valid values are: Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, Key Vault Secrets User.')
@@ -14,6 +21,13 @@ param msiObjectId string
 ])
 param roleName string = 'Key Vault Secrets User'
 
+/*
+Local Variables
+*/
+
+/*
+Mapping of roles to GUIDs
+*/
 var roleIdMapping = {
   'Key Vault Administrator': '00482a5a-887f-4fb3-b363-3b7fe8e74483'
   'Key Vault Certificates Officer': 'a4417e6f-fecd-4de8-b567-7b0420556985'
@@ -25,11 +39,20 @@ var roleIdMapping = {
   'Key Vault Secrets User': '4633458b-17de-408a-b874-0445c86b69e6'
 }
 
+/*
+Resources
+*/
 
+/*
+Existing Key Vault reference
+*/
 resource kv 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
   name: name
 }
 
+/*
+Key Vault role assignment
+*/
 resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(roleIdMapping[roleName], msiObjectId, kv.id)
   scope: kv
@@ -40,4 +63,7 @@ resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' =
   }
 }
 
+/*
+Outputs
+*/
 output kvUri string = kv.properties.vaultUri
