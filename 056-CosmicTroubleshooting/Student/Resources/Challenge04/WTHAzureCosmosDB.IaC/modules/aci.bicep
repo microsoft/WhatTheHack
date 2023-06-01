@@ -1,3 +1,6 @@
+/*
+Parameters
+*/
 @description('Name for the container group')
 param name string
 
@@ -16,6 +19,7 @@ param cpuCores int = 1
 @description('The amount of memory to allocate to the container in gigabytes.')
 param memoryInGb int = 2
 
+@description('Object Id of AAD identity to assign to the container group.')
 param msiObjectId string
 
 @description('The behavior of Azure runtime if container has stopped.')
@@ -26,11 +30,21 @@ param msiObjectId string
 ])
 param restartPolicy string = 'Never'
 
+@description('The URI of the Azure Key Vault to use for secrets.')
 param akvVaultUri string
+
+@description('The URI of the Cosmos DB account.')
 param cosmosDBAccountUri string
+
+@description('The name of the Cosmos DB database.')
 param cosmosDBDatabaseName string
+
+@description('The name of the Cosmos DB container.')
 param cosmosDBContainerName string
 
+/*
+Container Group
+*/
 resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2021-09-01' = {
   name: name
   location: location

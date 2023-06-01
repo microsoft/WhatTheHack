@@ -124,7 +124,6 @@ module kv 'modules/keyvault.bicep' = {
   name: 'kvDeploy'
   params: {
     name: keyVaultName
-    location: location
     msiObjectId: msiAppPlan.outputs.managedIdentityPrincipalId
   }
   scope: rg

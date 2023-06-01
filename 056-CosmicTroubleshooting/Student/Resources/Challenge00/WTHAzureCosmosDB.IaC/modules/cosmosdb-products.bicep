@@ -1,3 +1,6 @@
+/*
+Parameters
+*/
 @description('Cosmos DB account name, max length 44 characters, lowercase')
 param accountName string
 
@@ -6,9 +9,6 @@ param location string = resourceGroup().location
 
 @description('The primary replica region for the Cosmos DB account.')
 param primaryRegion string
-
-// @description('The secondary replica region for the Cosmos DB account.')
-// param secondaryRegion string
 
 @description('The default consistency level of the Cosmos DB account.')
 @allowed([
@@ -51,10 +51,9 @@ param partKey string
 @description('Object ID of the AAD identity. Must be a GUID.')
 param principalIdWebApp string
 
-///////////////////////////////
-// Variables
-///////////////////////////////
-var accountName_var = toLower(accountName)
+/*
+Local variables
+*/
 var consistencyPolicy = {
   Eventual: {
     defaultConsistencyLevel: 'Eventual'
@@ -80,17 +79,15 @@ var locations = [
     failoverPriority: 0
     isZoneRedundant: false
   }
-  // {
-  //   locationName: secondaryRegion
-  //   failoverPriority: 1
-  //   isZoneRedundant: false
-  // }
 ]
 var roleDefinitionIdWebApp = guid('sql-role-definition-', principalIdWebApp, accountName_resource.id)
 var roleAssignmentIdWebApp = guid(roleDefinitionIdWebApp, principalIdWebApp, accountName_resource.id)
 
+/*
+Cosmos DB Account
+*/
 resource accountName_resource 'Microsoft.DocumentDB/databaseAccounts@2021-01-15' = {
-  name: accountName_var
+  name: toLower(accountName)
   kind: 'GlobalDocumentDB'
   location: location
   properties: {
@@ -101,6 +98,10 @@ resource accountName_resource 'Microsoft.DocumentDB/databaseAccounts@2021-01-15'
   }
 }
 
+/*
+Cosmos DB SQL Role assignment for Managed Identity
+Will used the role definition of 00000000-0000-0000-0000-000000000002 which is the built-in role "Cosmos DB Account Contributor"
+*/
 resource sqlRoleAssignmentWebApp 'Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments@2021-04-15' = {
   name: '${accountName_resource.name}/${roleAssignmentIdWebApp}'
   properties: {
@@ -110,6 +111,9 @@ resource sqlRoleAssignmentWebApp 'Microsoft.DocumentDB/databaseAccounts/sqlRoleA
   }
 }
 
+/*
+Cosmos DB Database
+*/
 resource cosmosDbDatabase 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2021-01-15' = {
   parent: accountName_resource
   name: databaseName
@@ -120,6 +124,9 @@ resource cosmosDbDatabase 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@20
   }
 }
 
+/*
+Products container
+*/
 resource productsContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2021-01-15' = {
   parent: cosmosDbDatabase
   name: productsContainerName
@@ -152,6 +159,9 @@ resource productsContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/c
   }
 }
 
+/*
+Shipments container
+*/
 resource shipmentContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2021-01-15' = {
   parent: cosmosDbDatabase
   name: shipmentContainerName
@@ -184,5 +194,8 @@ resource shipmentContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/c
   }
 }
 
+/*
+Outputs
+*/
 output accountEndpoint string = accountName_resource.properties.documentEndpoint
 output connString string = accountName_resource.listConnectionStrings().connectionStrings[0].connectionString
