@@ -7,14 +7,14 @@
 - Based on their investigation, they should have developed a new data model for the purposes of the application. Since we are trying to optimize for point reads, every query should have a well defined id and partition key pair. A possible solution is:
     - New products collection:
         - Partition key: `/type`
-        - Each document type id (ex. Product document has a ProductId field) should be copied over to the `/id` field
+        - Each document type id (ex. Product document has a `ProductId` field) should be copied over to the `/id` field
     - New orders collection:
         - Partition key: `/type`
-        - Id should be the OrderId field (GUID).
+        - Id should be the `OrderId` field (GUID).
     
-  Since we would like to optimize for point reads, our data model stores `Product` documents with the `/id` field being the Product Id (which always know in our queries) and as the Partition key the `/type` field which in the Product case, holds the value "Product". The CustomerCart document will have as the `/id` field the Customer Id (which we always know in our queries) as well have in the `/type` field (partition key) the value of "CustomerCart-\<CustomerId\>", which again we always know. In the previous solution, we stored a single CustomerCart document for each item we added to the cart, which created two problems: we needed an unique `/id` field for each document, as well as when we submitted the order, we needed to delete all of these documents. In our current solution, each item in the cart is appended to a single document.
+  Since we would like to optimize for point reads, our data model stores `Product` documents with the `/id` field being the Product Id (which always know in our queries) and as the Partition key the `/type` field which in the Product case, holds the value "Product". The `CustomerCart` document will have as the `/id` field the Customer Id (which we always know in our queries) as well have in the `/type` field (partition key) the value of `"CustomerCart-\<CustomerId\>"`, which again we always know. In the previous solution, we stored a single `CustomerCart` document for each item we added to the cart, which created two problems: we needed an unique `/id` field for each document, as well as when we submitted the order, we needed to delete all of these documents. In our current solution, each item in the cart is appended to a single document.
 
-  For the Order document, since we will have multiple CustomerOrder documents per customer and store, we opted to use a unique `/id` field (GUID) and set the partition key `/type` field to "CustomerOrder-\<CustomerId\>". This gives us a small number of documents per partition that we would need to query, greatly reducing the amount of RU/s necessary to retrieve the orders of the customer. We could combine all orders in a single document but would potentially hit the max size of a single document in Azure Cosmos DB.
+  For the Order document, since we will have multiple `CustomerOrder` documents per customer and store, we opted to use a unique `/id` field (GUID) and set the partition key `/type` field to `"CustomerOrder-\<CustomerId\>"`. This gives us a small number of documents per partition that we would need to query, greatly reducing the amount of RU/s necessary to retrieve the orders of the customer. We could combine all orders in a single document but would potentially hit the max size of a single document in Azure Cosmos DB.
 - They should leverage Change feed to move to a different (or more than one) collection(s). Please discourage them from creating new Azure Cosmos DB accounts - it will break the authentication of the Web App as it uses Azure AD authentication with Service Principals
     - They can of course do so but would need to give "Cosmos DB Built-in Data Contributor" role in the new account(s) to the MSI used by the Web App.
 - For an easy way to leverage Change Feed for the migration:
@@ -32,29 +32,29 @@
         - Set a name for the lease collection (default of leases is ok)
         - Enable the "Create lease collection if it does not exist" option
     3. Once created, disable the new function
-    4. In the `changefeed` function, navigate to Integration.
+    4. In the `ChangeFeed` function, navigate to Integration.
     5. Create a new Output binding. This will be for a new collection with a partition key of `type`:
         - Binding Type: Azure Cosmos DB
         - Select the existing Cosmos DB account connection (since we are targeting a collection in the same account)
-        - Document parameter name: productsnewDocument
-        - Database name: wth-cosmos
-        - Collection name: productsnew
+        - Document parameter name: `productsnewDocument`
+        - Database name: `wth-cosmos`
+        - Collection name: `productsnew`
         - Check the checkbox to create the collection
         - Partition key: `/type`
     6. Create another Output binding:
         - Binding Type: Azure Cosmos DB
         - Select the existing Cosmos DB account connection (since we are targeting a collection in the same account)
-        - Document parameter name: ordersDocument
-        - Database name: wth-cosmos
-        - Collection name: orders
+        - Document parameter name: `ordersDocument`
+        - Database name: `wth-cosmos`
+        - Collection name: `orders`
         - Check the checkbox to create the collection
         - Partition key: `/type`
     7. Create another Output binding:
         - Binding Type: Azure Cosmos DB
         - Select the existing Cosmos DB account connection (since we are targeting a collection in the same account)
-        - Document parameter name: cartDocument
-        - Database name: wth-cosmos
-        - Collection name: productsnew
+        - Document parameter name: `cartDocument`
+        - Database name: `wth-cosmos`
+        - Collection name: `productsnew`
         - Check the checkbox to create the collection
         - Partition key: `/type`
     8. In the Code + Test option of the Azure Function, add the following code in the respective files:
