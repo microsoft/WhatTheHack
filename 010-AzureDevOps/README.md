@@ -25,7 +25,7 @@ This hack will help you learn:
 	 - Deploy an ARM template via an Azure Pipelines job
 - Challenge 04: **[Azure Pipelines: Continuous Integration](Student/Challenge-04.md)**
 	 - Learn how to automate a build process for a sample app
-- Challenge 05: **[Azure Pipelines: Build and push Docker images to a container registry](Student/Challenge-05.md)**
+- Challenge 05: **[Azure Pipelines: Build and Push Docker Images to a Container Registry](Student/Challenge-05.md)**
 	 - Build and push Docker images to a container registry(ACR)
 - Challenge 06: **[Azure Pipelines: Continuous Delivery](Student/Challenge-06.md)**
 	 - Automate the deployment of an application into Azure
