@@ -173,7 +173,13 @@ fi
 echo "Waiting for test plan validation by Azure..."
 
 runtime="2 minute"
-endtime=$(date -ud "$runtime" +%s)
+if [[ $OSTYPE == 'darwin'* ]]; then
+  # MacOS
+  endtime=$(date -v +2M +%s)
+else
+  # Other Linux distributions
+  endtime=$(date -ud "$runtime" +%s)
+fi
 
 testPlanStatus="VALIDATION_INITIATED";
 
