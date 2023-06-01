@@ -19,7 +19,7 @@
   - Select "Starter pipeline"
   - Leverage the assistant to link your pipeline
     - Select "Show Assistant" on the right hand side while editing your YAML pipeline
-    - Search for "ARM tempalte deployment" and select the task.
+    - Search for "ARM template deployment" and select the task.
     - Under "Azure Resource Manager Connection", select your subscription.  If this is your first time, you may need to authorize the connection by selecting "Authorize" below the field.
     - Select your subscription under "Subscription"
     - Select the resource group you will be deploying to
@@ -30,5 +30,5 @@
 
 
 
-- Check the YAML in the solutions **[S04ARMtemplatedeployment.yaml](./Solutions/S03ARMtemplatedeployment.yaml)** for the prefix part
+- Check the YAML in the solutions **[`S03ARMtemplatedeployment.yaml`](./Solutions/S03ARMtemplatedeployment.yaml)** for the prefix part
 - Check the **[Solution-03](./Solutions/Solution-03.json)** for entire possible solution for this challenge in UI form.
