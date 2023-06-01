@@ -1,29 +1,35 @@
-# What The Hack - YetAnotherHack - Coach Guide
+# What The Hack - AzureADandAADB2B - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the YetAnotherHack What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the AzureADandAADB2B What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
-
-**NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
+     - Create an Azure AD tenant
+     - Azure AD single tenant setup
+- Challenge 01: **[Register new application](./Solution-01.md)**
+     - Register a new application in an Azure AD tenant
+     - Understand the concepts of multi-tenant apps, service principals, authentication vs authorization, security tokens
+- Challenge 02: **[Test the sign-in](./Solution-02.md)**
+	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with redirect link to authr.biz
+     - Use an authr.biz link to test the sign in
+- Challenge 03: **[Invite a guest user](./Solution-03.md)**
+     - B2B set up / invite a new guest user
+     - Use an authr.biz link to test the sign in for the guest user / test sign in using the app set up
+- Challenge 04: **[Integrate Azure AD authentication into an Azure App Service (EasyAuth)](./Solution-04.md)**
+	 - Integrate Azure AD authentication into an Azure App Service (EasyAuth)
+- Challenge 05: **[Integrate Azure AD authentication into an application](./Solution-05.md)**
+	 - Integrate Azure AD authentication into an application
+        - ASP.Net (Authorization Code Flow)
+        - SPA (Angular) (PKCI)  
+        - Desktop application (Client Credential Flow)
+- Challenge 06: **[Deploy to Azure](./Solution-06.md)**
+	 - Deploy to Azure
+     - Publish the Web App to the web site update its app registration redirect URIs to include the App Service URL(s)
+     - Managed identity
 
 ## Coach Prerequisites
 
@@ -39,33 +45,12 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
 
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
 
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
 
 ## Repository Contents
 
