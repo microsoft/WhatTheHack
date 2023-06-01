@@ -16,7 +16,7 @@ This hack will help you learn:
 ## Challenges
 
 - Challenge 00: **[Setup](Student/Challenge-00.md)**
-	 - Prepare your workstation to be a devops master!
+	 - Prepare your workstation to be a DevOps master!
 - Challenge 01: **[Azure Boards: Agile Project Management](Student/Challenge-01.md)**
 	 - Learn how to work with Azure Boards
 - Challenge 02: **[Azure Repos: Introduction](Student/Challenge-02.md)**
