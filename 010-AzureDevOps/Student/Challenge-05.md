@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-### Introduction
+## Introduction
 
 Now we need to extend our workflow with steps to build a Docker image and push it to Azure Container Registry (ACR). In the NEXT challenge, we will configure the Web App to pull the image from ACR.
 
@@ -14,7 +14,7 @@ Containers are a great way to package and deploy applications consistently acros
 
 3. `docker push` - once you have created your docker image, you need to store it in the container registry, which is our secured and centralized location to store docker images. Docker supports a push command that copies the Docker image to the registry in the proper repository. A repository is a logical way of grouping and versioning Docker images.
 
-### Challenge
+## Description
 
 In this challenge, you will build and push a docker image to ACR:
 
@@ -24,11 +24,11 @@ In this challenge, you will build and push a docker image to ACR:
 
 1. Test the workflow by making a small change to the application code (i.e., add a comment). Commit, push, monitor the workflow and verify that a new container image is built, uniquely tagged and pushed to ACR after each successful workflow run.
 
-### Success Criteria
+## Success Criteria
 
 - Show that a new container image is built, uniquely tagged and pushed to ACR after each successful workflow run.
 
-### Learning Resources
+## Learning Resources
 
 - [Managing Service Connections](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 - [Building Docker Images](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-7.0)
