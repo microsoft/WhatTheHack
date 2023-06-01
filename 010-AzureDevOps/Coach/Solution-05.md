@@ -1,4 +1,4 @@
-# Challenge 05 - Azure Pipelines: Build and push Docker image to container registry - Coach's Guide 
+# Challenge 05 - Azure Pipelines: Build and Push Docker Image to Container Registry - Coach's Guide 
 
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
@@ -20,6 +20,6 @@
         - Go to your CI Build pipeline and edit the YAML file
         - Search for the Docker task via the assistant
         - Select the connection created from the steps above as the "Container registry"
-        - Enter the name of your container repository and application.  Example used was wth/dotnetcoreapp
+        - Enter the name of your container repository and application.  Example used was `wth/dotnetcoreapp`
         - Add the task to the bottom of the workflow file and run.  If this is the first run you may need to grant permissions which is prompted in the pipeline
 
