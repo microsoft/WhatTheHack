@@ -1,4 +1,4 @@
-# What The Hack - AzureDevOps - Coach Guide
+# What The Hack - Azure DevOps - Coach Guide
 
 ## Introduction
 
