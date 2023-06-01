@@ -19,7 +19,7 @@ In Azure DevOps we use an Azure Pipeline to release our software. In this challe
 
 ## Success Criteria
 
-1. Make a small change to your code (for example: update some fo the HTML on the Index page `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), it should automatically trigger a build and release to your `dev` environment. If the change looks good, get your teammate to approve it to release to `test`. Repeat again for `prod`.
+1. Make a small change to your code (for example: update some of the HTML on the Index page `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), it should automatically trigger a build and release to your `dev` environment. If the change looks good, get your teammate to approve it to release to `test`. Repeat again for `prod`.
    
 ### Learning Resources
 
