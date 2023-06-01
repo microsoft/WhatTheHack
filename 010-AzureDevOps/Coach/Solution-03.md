@@ -7,7 +7,7 @@
 - Use classic version in the ARM deployment
 - Override template parameters, student should have this solution:
   - Students can archive this item by clicking on the 3 dots and opening a new window with the name/value table.
-  - Solution tested: -webAppName "updevdevops-dev" -hostingPlanName "updevdevops-asp" -appInsightsLocation "Central US" -appInsightsName "updevdevops-ai" -sku "S1" -registryName "updevdevopsreg" -imageName "updevdevopsimage" -registryLocation "Central US" -registrySku "Standard" -startupCommand ""
+  - Solution tested: `-webAppName "updevdevops-dev" -hostingPlanName "updevdevops-asp" -appInsightsLocation "Central US" -appInsightsName "updevdevops-ai" -sku "S1" -registryName "updevdevopsreg" -imageName "updevdevopsimage" -registryLocation "Central US" -registrySku "Standard" -startupCommand`
 
 
 - We should be focused on the YAML approach to creating pipelines.  This is due to it being a best practice for scalability and being able to leverage the benefits of source control.  While we can have students utilize the UI to poke around, they should stick with YAML based pipelines.
