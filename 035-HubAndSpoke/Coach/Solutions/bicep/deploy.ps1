@@ -172,7 +172,7 @@ switch ($challengeNumber) {
         Write-Host "Deploying resources for Challenge 2: Azure Firewall"
 
         Write-Host "`tDeploying Azure Firewall and related hub resources..."
-        $afwJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-00-afw.bicep -TemplateParameterObject @{location = $location; afwSku = 'Premium' } -AsJob
+        $afwJob = New-AzResourceGroupDeployment -ResourceGroupName 'wth-rg-hub' -TemplateFile ./02-00-afw.bicep -TemplateParameterObject @{location = $location; afwSku = 'Basic' } -AsJob
 
         $afwJob | Wait-Job | Out-Null
 
