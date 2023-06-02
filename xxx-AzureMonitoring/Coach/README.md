@@ -66,7 +66,7 @@ Recommended maximum time spent on each challenge:
   - Challenge 0 (1 hour)
   - Challenge 1 (2 hour)
   - Challenge 2 (2 hour)
-  - Challenge 3 (45 mins)
+  - Challenge 3 (1 hour)
   - Challenge 4 ()
   - Challenge 5 ()
   - Challenge 6 ()
