@@ -62,14 +62,15 @@ _For example:_
 
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+Recommended maximum time for each challenge:
+  - Challenge 0 (1 hour)
+  - Challenge 1 (2 hour)
+  - Challenge 2 (2 hour)
+  - Challenge 3 (45 mins)
+  - Challenge 4 ()
+  - Challenge 5 ()
+  - Challenge 6 ()
+  - Challenge 7 ()
 
 ## Repository Contents
 
