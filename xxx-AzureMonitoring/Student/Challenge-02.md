@@ -12,7 +12,7 @@ You will also be asked to install the Azure Monitor Agent on the Virtual Machine
 
 ## Description
 
-You can find sample Bicep files, [`alert.bicep`](./Resources/Challenge-02/alert.bicep) and [`ama.bicep`](./Resources/Challenge-02/ama.bicep), in the [`Challenge-02`](./Resources/Challenge-02) folder of the student resource package. To complete the challenge, navigate to the location of these files using your terminal client (WSL or Azure Cloud Shell).
+You can find sample Bicep files, `alert.bicep`and `ama.bicep`, in the `Challenge-02` folder of the student resource package. To complete the challenge, navigate to the location of these files using your terminal client (WSL or Azure Cloud Shell).
 
 In this challenge you need to complete the following management tasks:
 
