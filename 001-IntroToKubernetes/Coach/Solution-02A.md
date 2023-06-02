@@ -6,6 +6,8 @@
 
 This is **PATH A**. Use this path if your students want to understand what's involved in creating a Docker container, and understand basic docker commands.  In this path, your students will create a Dockerfile, build and test local containers, and then push these container images to Azure Container Registry.
 
+*Note that for Azure Government deployments, the container registry url suffix is `*.azurecr.us.*`
+
 - To create the registry from the CLI, use: 
     - `az acr create -n <name of registry> -g <resource group> --sku Standard`
 - To login to the ACR, use: 
