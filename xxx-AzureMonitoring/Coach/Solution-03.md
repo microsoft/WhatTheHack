@@ -16,7 +16,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 
 - On the Monitoring configuration page, select Azure Monitor agent and select a data collection rule from the Data collection rule dropdown.
 
->**Note** Make sure the students select **Azure Monitor agent** here and NOT Log Analytics agent.
+>**Note** Make sure the students select **Azure Monitor agent** here and NOT Log Analytics agent. Make sure the students select the same Log Analytics workspace that they used in previous challenges.
 
 - The Data collection rule dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: Guest performance enabled, Processes and dependencies disabled.
 
