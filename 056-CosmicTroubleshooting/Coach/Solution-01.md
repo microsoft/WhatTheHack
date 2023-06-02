@@ -35,7 +35,7 @@ The students will need to:
     - They should change the Partition key to `/type`.
     - They can create a collection per type (this will be helpful in later challenges - especially a separate Orders collection - but not required at this stage).
   - Indexing changes that would be required
-    - They should enable indexing (default `"path":"/*"` in `includePaths` acceptable, removing it from the `excludedPaths`).
+    - They should enable indexing (default `"path":"/*"` in `includePaths` acceptable, removing it from the `excludedPaths`). Ideally the should think about which fields they would need to index and if any compound indexes are required. Point reads bypass indexing, so if they can use the database with just point reads, they could leave indexing essentially disabled.
   - Whether they should change the Capacity model (and what they would need as input to determine this).
     - They can scale up to X amount of RU/s based on their research. With 10K RU/s, Http 429s are either gone or substantially decreased. However, after multiple load test runs, the problems will re-appear so not considered a correct solution.
     - They could enable Autoscale. However, they will need to discuss the cost implications (i.e. the access pattern of the application should be defined - if traffic is more/less constant across the whole day, Autoscale will not provide savings)
