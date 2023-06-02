@@ -4,7 +4,7 @@
 
 ## Introduction
 
-There are multiple ways to configure monitoring in Azure. You can configure monitoring manually in the Azure portal like you did in the previous challenge. This is a great way to learn how Azure Monitor works and what settings are available to choose from. However, this method does not scale when you need to configure monitoring across 10s, 100s, or even 1000s of resources in Azure. It is easier to configure monitoring at scale across many Azure resources if you use a declarative Infrastructure-as-Code tool such as ARM templates, Bicep, or Terraform.
+There are multiple ways to configure monitoring in Azure. You can configure monitoring manually in the Azure portal like you did in the previous challenge. This is a great way to learn how Azure Monitor works and what settings are available to choose from. However, this method does not scale when you need to configure monitoring across 10s, 100s, or even 1000s of resources in Azure. It is easier to configure monitoring at scale across many Azure resources if you use a declarative Infrastructure-as-Code tool such as ARM templates, Bicep, or Terraform. In addition to that, you can use Azure Policies to ensure that all newly created VMs in the defined scope get required agents installed and all cloud native resources send diagnostics to Azure Monitor (Azure Policies will be explored in the next Challenge).
 
 For this challenge, you will deploy several Metric alerts for your VMs, but this time you will use Bicep templates instead of the Azure Portal. You will get familiar with a new type of alerts - Activity log alert. The Azure Monitor Activity log is a platform log in Azure that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.
 
@@ -53,3 +53,5 @@ To complete this challenge successfully, you should be able to:
 - [Best practices: Alerts and Automated actions](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-alerts)
 - [Azure Monitor activity log](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log)
 - [Activity log alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types#activity-log-alerts)
+- [Azure Policy built-in definitions for Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/policy-reference)
+- [Create diagnostic settings at scale using Azure Policies](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings-policy)
