@@ -14,10 +14,12 @@ Different installation methods are available for enabling VM insights on support
 
 In this challenge you need to complete the following management tasks:
 - Configure VM Insights for the SQL Server VM manually in Azure Portal. 
-- Set up Azure Policy to automatically enable VM Insights on VMs and VMSSs in the main hackathon Resource Group `xxxxx-rg-wth-monitor-d-xx`. 
->**Note** Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available (this can take time, there's no pre-defined expectation of when the compliance evaluation cycle completes).
+>**Note** Make sure you select **Azure Monitor agent** here and NOT Log Analytics agent. Make sure the students select the same Log Analytics workspace that they used in previous challenges.
 - Explore VM Insights workbooks, determine how much free disk space is left for the SQL Server VM.
 - For the SQL Server VM pin the Available Memory chart from the VM Insights workbook to your Azure dashboard.
+- Set up Azure Policy to automatically enable VM Insights on VMs and VMSSs in the main hackathon Resource Group `xxx-rg-wth-monitor-d-xx`. 
+>**Note** Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available (this can take time, there's no pre-defined expectation of when the compliance evaluation cycle completes).
+
 
 ## Success Criteria
 
