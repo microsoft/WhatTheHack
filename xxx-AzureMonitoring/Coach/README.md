@@ -4,7 +4,7 @@
 
 Welcome to the coach's guide for the Azure Monitoring What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes an optional [lecture presentation](Lectures.pptx) that features short sections to introduce key topics associated with each challenge. It is recommended that the coach presents each short section before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -62,7 +62,7 @@ _For example:_
 
 _This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
 
-Recommended maximum time for each challenge:
+Recommended maximum time spent on each challenge:
   - Challenge 0 (1 hour)
   - Challenge 1 (2 hour)
   - Challenge 2 (2 hour)
