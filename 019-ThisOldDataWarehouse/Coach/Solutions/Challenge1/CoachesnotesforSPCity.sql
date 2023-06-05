@@ -1,4 +1,5 @@
 --This code set is for educational purposes only.  Encourage students to use the scripts in /Scripts folder to create the stored procedures.  Feel free to share with students once they complete it but don't deploy these scripts into production.
+--Post May 2020 only T_SQL incompatibilities are "EXECUTE AS OWNER" and "RETURN".
 
 --DROP PROCEDURE [Integration].[MigrateStagedCityData] 
 
@@ -45,9 +46,10 @@ BEGIN
 
 */ 
 
-    /*  
-
---Common Table expression [Original T-SQL Statement]
+--Common Table expression [Original T-SQL Statement] 
+--CTE supported after May 2020
+--Updated Notes to include original T-SQL Statement
+--Commented out old recommendations for reference
 WITH RowsToCloseOff 
 
     AS 
@@ -73,10 +75,8 @@ WITH RowsToCloseOff
     ON c.[WWI City ID] = rtco.[WWI City ID] 
 
     WHERE c.[Valid To] = @EndOfTime; 
-
-*/ 
-
--- Common Table Expression with column list (Solution used in WTH)
+/*
+-- Common Table Expression with column list (Previous workaround for WTH prior to May 2020)
 
 WITH RowsToCloseOff([WWI City ID], [Valid From])
     AS
@@ -91,9 +91,9 @@ WITH RowsToCloseOff([WWI City ID], [Valid From])
     INNER JOIN RowsToCloseOff AS rtco
     ON c.[WWI City ID] = rtco.[WWI City ID]
     WHERE c.[Valid To] = @EndOfTime;
+/*
 
-
---Create Table as Selet (CTAS) as a replacement for CTE (Alternative Solution)
+--Create Table as Selet (CTAS) as a replacement for CTE (Alternative workaround for WTH prior to Mahy 2020)
 /*
 
 CREATE TABLE Integration.City_Staging_Temp 
@@ -108,8 +108,10 @@ SELECT c.[WWI City ID], MIN(c.[Valid From]) AS [Valid From]
 
     GROUP BY c.[WWI City ID] 
 
- 
- --ANSI JOINS not supported in Synapse.  Replace with implicit join in the WHERE clause.
+ */
+
+ --ANSI JOINS were not supported in Synapse prior to May 2020.
+ --Privous workaround were to replace with implicit join in the WHERE clause.
 UPDATE Dimension.City 
 
 SET c.[Valid To] = rtco.[Valid From] 
@@ -119,8 +121,6 @@ SET c.[Valid To] = rtco.[Valid From]
     WHERE c.[WWI City ID] = rtco.[WWI City ID]  
 
 AND c.[Valid To] = @EndOfTime; 
-
-*/
 
 /*  Part 2 - Insert dimension records to staging  
 
@@ -152,11 +152,7 @@ No changes
 
  
 
-/* Part 3 - Update Load Control tables  
-
-   Just commented out the unnecessary from statement 
-
-*/ 
+--Part 3 - Update Load Control tables  
 
     UPDATE Integration.Lineage 
 
@@ -170,7 +166,7 @@ No changes
 
  
 
-    UPDATE Integration.[ETL Cutoff] 
+    UPDATE 
 
         SET [Cutoff Time] = (SELECT TOP 1 [Source System Cutoff Time] 
 
@@ -178,7 +174,7 @@ No changes
 
                              WHERE [Lineage Key] = @LineageKey) 
 
-    --FROM Integration.[ETL Cutoff] 
+    FROM Integration.[ETL Cutoff] 
 
     WHERE [Table Name] = N'City' 
 
@@ -195,7 +191,7 @@ No changes
 /*
 --Required if you use CTAS tables
 DROP TABLE Integration.City_Staging_Temp 
-/*
+*/
  
 
     COMMIT; 

@@ -18,7 +18,7 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
 1. In your Azure resource group create a Stream Analytics job.
 2. Set the input of the Stream Analytics job to be the route defined in your IoT Hub.
 3. Create 1 output to save a copy of all data into your data lake.
-4. Create a Query that filters or aggregates your data bases upon business requirements. Test this filter/aggregation (HAVING clause for example) but don't save in the query, only test.
+4. Create a Query that filters or aggregates your data based upon business requirements. Test this filter/aggregation (HAVING clause for example) but don't save in the query, only test.
 5. Test the query to ensure it is functioning as expected.
 6. Create a Power BI workspace (or identify an existing workspace for this workload).
 7. Create an additional output to the previously created/identified Power BI workspace.
@@ -30,7 +30,7 @@ In this challenge we'll be creating an Azure Stream Analytics job, using that jo
   - Stream Analytics job setup & running with input reading data from `$upstream`
   - Stream Analytics job setup & running with output being written to Data Lake Store Gen2
   - Stream Analytics job filtering or aggregating data that is output
-  - Vizualizing the data in a Power BI report.
+  - Visualizing the data in a Power BI report.
 
 ## Learning Resources
 1. [Azure Stream Analytics Introduction](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction)
