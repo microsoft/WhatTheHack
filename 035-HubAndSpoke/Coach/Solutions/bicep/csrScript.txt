@@ -80,7 +80,7 @@ router bgp 65510
 !
 ip route **GW0_Private_IP** 255.255.255.255 Tunnel0
 ip route **GW1_Private_IP** 255.255.255.255 Tunnel1
-ip route 172.16.10.0 255.255.255.0 null0 200
+ip route 172.16.10.0 255.255.255.0 GigabitEthernet1 172.16.0.1 200
 !
 end
 !
