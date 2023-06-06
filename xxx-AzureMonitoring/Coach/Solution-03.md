@@ -37,19 +37,19 @@ https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-polic
 
 Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available. Note that this can take from several minutes to a couple of hours, there's no pre-defined expectation of when the compliance evaluation cycle completes. Once the Policy initiative assignment is done, suggest the students to start working on next tasks and revisit this one later.
 
-The students will need to assign 2 Policy inititives to cover both VMs and VMSSs:
+The students will need to assign 2 Policy initiatives to cover both VMs and VMSSs:
 - [Preview]: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) 
 /providers/Microsoft.Authorization/policySetDefinitions/9dffaf29-5905-4145-883c-957eb442c226
 - [Preview]: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) 
 /providers/Microsoft.Authorization/policySetDefinitions/1f9b0c83-b4fa-4585-a686-72b74aeabcfd
 
-Make sure that the students select a single resource group when assigning the Policy inititive (not the full subscription).
+Make sure that the students select a single resource group when assigning the Policy initiative (not the full subscription).
 
-When assigning the Policy inititive, suggest the students to deselect the "Only show paraameters that need input or review" to explore the defaut values. Note that the SQL Server VM will be marked as non-compliant if the existing DCR name does not match the name pattern in the Policy.
+When assigning the Policy initiative, suggest the students to deselect the "Only show parameters that need input or review" to explore the default values. Note that the SQL Server VM will be marked as non-compliant if the existing DCR name does not match the name pattern in the Policy.
 
 ![](../Images/03-04-policy.png)
 
-The overal result after remeditaion should look like this:
+The overall result after remediation should look like this:
 
 ![](../Images/03-03-VM-insights.png)
 
