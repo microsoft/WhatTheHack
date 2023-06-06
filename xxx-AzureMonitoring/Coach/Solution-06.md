@@ -170,8 +170,11 @@ Percent
   
 First person to post a screenshot of the charts wins the challenge :-)  
 
-### Bonus question
-At this year's Microsoft Build (end of May 2021), we have introduced a new Resource Manager object that is called [query packs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/query-packs). A query pack acts as a container for log queries in Azure Monitor and provides a way to save log queries and share them across multiple workspaces and other contexts in Log Analytics.   
+### Bonus challenge
+
+Save your queries in a query pack.
+
+A query pack acts as a container for log queries in Azure Monitor and provides a way to save log queries and share them across multiple workspaces and other contexts in Log Analytics.   
 You can view them in the portal, but the only way to create or update a query pack is currently via REST API.
   
 
@@ -186,5 +189,6 @@ You can view them in the portal, but the only way to create or update a query pa
 * [Overview of queries](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
 * [Query best practises](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)
 * [Query operators](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/queries)
+* [Query packs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/query-packs)
 
 
