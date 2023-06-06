@@ -88,7 +88,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 1. Deploy the template by running the following PowerShell command from wherever you have unpacked the `/Challenge-00/` folder:
 
     ```PowerShell
-    New-AzDeployment -Name "<deploymentName>" -Location "<azure-region>" -TemplateUri "main.bicep" -Verbose
+    New-AzDeployment -Name "<deploymentName>" -Location "<azure-region>" -TemplateFile "main.bicep" -Verbose
     ```
     - We recommend you use your initials for the  `<deploymentName>` value.
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`

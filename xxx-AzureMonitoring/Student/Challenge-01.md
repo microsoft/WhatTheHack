@@ -14,13 +14,17 @@ Once you have configured the dashboard, alerts, and diagnostics data to be colle
 
 ### Azure Monitor Overview
 
+Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to telemetry from your cloud and on-premises environments. 
+
 #### Azure Monitor Metrics and Logs
 
 Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources into Log Analytics workspaces. Azure Monitor Logs is one half of the data platform that supports Azure Monitor. The other is Azure Monitor Metrics, which stores lightweight numeric data in a time-series database. Azure Monitor Metrics can support near real time scenarios, so it's useful for alerting and fast detection of issues. Azure Monitor Metrics can only store numeric data in a particular structure, whereas Azure Monitor Logs can store a variety of data types that have their own structures. You can also perform complex analysis on Azure Monitor Logs data by using KQL queries, which can't be used for analysis of Azure Monitor Metrics data. 
 
 #### Azure Monitor Agent
 
-Azure Monitor Agent collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services. Azure Monitor Agent uses Data collection rules, where you define which data you want each agent to collect and where to send. Azure Monitor Agent (AMA) replaces several legacy monitoring agents, like Log Analytics Agent (MMA, OMS), Diagnostics agent and Telegraf agent.
+Azure Monitor Agent collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services. Azure Monitor Agent uses Data collection rules, where you define which data you want each agent to collect and where to send. 
+
+>**Note** Azure Monitor Agent (AMA) replaces several legacy monitoring agents, like the Log Analytics Agent (Microsoft Monitoring Agent, MMA, OMS), Diagnostics agent and Telegraf agent. The legacy Log Analytics agent will not be supported after August 2024. For this reason, we will be using **only the Azure Monitor Agent (AMA)** in this Hackathon, we won't be using any of the legacy agents.
 
 #### Azure Monitor Alerts
 
@@ -40,27 +44,27 @@ In the eShopOnWeb Azure environment, there are three compute resources to be awa
 
 Azure Bastion has been configured to enable you to securely login to any of these VMs with a Remote Desktop session through a web browser. To login to a VM via Azure Bastion, navigate to the blade for any of these VMs in the Azure portal, click the "Connect" button, and select "Bastion". Use the username and password provided in Challenge 0.
  
-### Set up Counters, Alerts, and Dashboard
+### Set up Counters, Alerts, and a Dashboard
 
 In this challenge you need to complete the following management tasks:
 - Create an empty database called “tpcc” on the SQL Server VM. Use SQL Auth with the username being "sqladmin" and password being whatever you used during deployment in Challenge 0.
 
-	**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database.
+>**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database. If you are not familiar with any of these, feel free to ask your coach for assistance.
 
-- In Azure portal navigate to the blade of the SQL Server VM, click "Metrics" to open Azure Monitor Metrics explorer, and check what metrics are currently being collected.
-- From Azure Monitor create a new Data Collection Rule for the SQL Server and configure it to collect the Basic guest OS performance counters (CPU, Memory, Disk, Network), as well as the following custom performance counter:
+- In Azure portal navigate to Monitor, open Azure Monitor Metrics explorer and check what metrics are currently being collected automatically for your SQL Server VM. You should be able to see only the Virtual Machine Host metrics, but not guest OS level metrics. 
+>**Note** Previously, it was only possible to enable VM guest-level metrics collection to Azure Monitor Metrics with the help of the legacy Windows Azure Diagnostics (WAD) extension and Telegraf (for Linux). Currently, this can also be achieved with Azure Monitor Agent (AMA). You will be using only AMA in the following tasks not WAD. When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on the virtual machine.
+- In Azure Monitor create a new Data Collection Rule (DCR) for the SQL Server VM. Configure it to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs. Use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`** as the destination. You don't need to create Data Collection Endpoints. Configure the DCR to collect Custom Performance Counters - leave all the suggested standard counters and add the following custom SQL performance counter to the list:
 	- Object: SQLServer:Databases
 		- Counter: Active Transactions
 		- Instance: tpcc
-		
-- Configure this DCR to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs (use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`**)
->**Note** When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on the virtual machine.
-- Create another Data Collection Rule for the SQL Server and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use sample KQL queries in the '/Challenge-01' subfolder of the Resources folder to verify that the logs started to flow into the Log Analytics workspace. 
-- Create graphs for the SQL Server Active Transactions and the Virtual Machine Scale Set CPU Utilisation (see the Metrics blades of the VM and VMSS) and pin both of them to your Azure Dashboard.
-- From Azure Monitor, create an Action group to send email to your email address.
+- In Azure Monitor switch back to Metrics explorer and verify that the Virtual Machine Guest metrics are now available for the SQL Server VM. Create a SQL Server Active Transactions metric chart and pin it to a new or existing Dashboard. Generate the Percentage CPU chart for the Virtual Machine Scale Set and pin it to the same Dashboard.
+>**Note** It will take a few minutes for the data to start flowing, revisit this step later if you don't see any data right away.
+- In Azure Monitor create another Data Collection Rule for the SQL Server VM and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use the same Log Analytics Workspace as the destination. After that in Azure Monitor switch to the Logs blade and select this Log Analytics Workspace as the scope. Go to Queries tab and explore the built-in KQL queries for Virtual Machines. Run a few sample queries to verify that Performance Counters and Windows Event Logs are flowing from the SQL Server VM into Azure Monitor Logs.
+>**Note** It will take a few minutes for the data to start flowing, revisit this step later if you don't see any data right away.
+- From Azure Monitor Alerts create an Action group to send email to your email address.
 - Create a Metric Alert Rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
 - Create a Meric Alert Rule to be notified via email if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
-- Suppress all alerts over the weekend (unless you are solving this challenge on the weekend).
+- Suppress all alerts over the weekend (unless you are solving this challenge on the weekend ;)).
 
 ### Simulate load on the eShopOnWeb Environment
 
@@ -68,7 +72,7 @@ Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is 
 - Use HammerDB to create a transaction load on the "tpcc" database on the SQL Server
     - Download and Install HammerDB tool on the Visual Studio VM 
     - See sample [Instructions for using HammerDB](./Resources/Challenge-01/UsingHammerDB.md) to generate load on the "tpcc" database.
-- Simulate a CPU load on the VM Scale Set using the [cpuGenLoadwithPS.ps1](./Resources/Challenge-01/cpuGenLoadwithPS.ps1) script located in the `/Challenge-01` folder of the student resource package.
+- Simulate a CPU load on the VM Scale Set using the `cpuGenLoadwithPS.ps1` script located in the `/Challenge-01` folder of the student resource package.
     - This script is designed to be run directly on the VM instances in the VMSS.
     - **HINT:** You will need to upload this script to the VMs in order to run it on each instance.
 
@@ -76,11 +80,9 @@ Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is 
 
 To complete this challenge successfully, you should be able to:
 
-- Verify that you can collect the DB and CPU counters after load simulation and display them on a Dashboard.
-- Verify the dashboard has the metric with a spike representing before and after the simulation.
+- Verify the dashboard has the metric charts for SQL and CPU performance counters with a spike representing before and after the simulation.
 - Show two fired alerts in the Portal and the email notifications received.
-
-
+- Verify that you have Windows Event logs and Performance counters from SQL Server VM in the Log Analytics workspace. 
 
 ## Learning Resources
 
@@ -89,7 +91,11 @@ To complete this challenge successfully, you should be able to:
 - [Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 - [Azure Monitor Alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 - [Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview)
-- [Collect events and performance counters from virtual machines with Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal)
+- [Finding the Performance counter with PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
+- [Run PowerShell scripts in your Windows VM by using Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)
+- [Create Data Collection Rules](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal)
+- [Best practices for data collection rule creation and management](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-best-practices)
+- [Pin metric charts to a Dashboard](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-charts#saving-to-dashboards-or-workbooks)
+- [Create an Azure Dashboard](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards)
+- [Suppress Notifications](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal)
 - [HammerDB](https://www.hammerdb.com)
-- [Finding the counter](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 
-- [Run scripts in your Windows VM by using action Run Commands](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command)

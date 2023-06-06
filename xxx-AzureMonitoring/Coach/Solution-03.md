@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-#### Enabling VM Insights
+### Enabling VM Insights in Azure Portal
 
 To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale Set using Azure Monitor Agent:
 
@@ -16,8 +16,17 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 
 - On the Monitoring configuration page, select Azure Monitor agent and select a data collection rule from the Data collection rule dropdown.
 
+>**Note** Make sure the students select **Azure Monitor agent** here and NOT Log Analytics agent. Make sure the students select the same Log Analytics workspace that they used in previous challenges.
+
 - The Data collection rule dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: Guest performance enabled, Processes and dependencies disabled.
 
 - Select Create new to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the VM insights Map feature.
 
 - Select Configure to start the configuration process. 
+
+### Enable VM insights by using Azure Policy
+
+Use this article for step-by-step instructions:
+https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-policy
+
+Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available. Note that this can take time, there's no pre-defined expectation of when the compliance evaluation cycle completes. If evaluation takes too long, suggest the students to start working on next tasks and revisit this one later.

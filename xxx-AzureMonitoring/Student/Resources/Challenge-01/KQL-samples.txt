@@ -3,17 +3,6 @@ Perf
 | where Computer has "<your-computer-name>"
 | take 20
 
-
-// Top 10 Virtual Machines by CPU utilization 
-// Find top 10 VM by CPU utilization in the last 7 days. 
-Perf
-| where TimeGenerated > ago(7d)
-| where CounterName == "% Processor Time" and InstanceName == "_Total" 
-| project TimeGenerated, Computer, ObjectName, CounterName, InstanceName, round(CounterValue, 2)
-| summarize arg_max(TimeGenerated, *) by Computer
-| top 10 by CounterValue
-
-
 // All Events in the past hour
 Event
 | where TimeGenerated > ago(1h)
