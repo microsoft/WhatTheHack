@@ -1,99 +1,52 @@
-# Challenge 02 - <Title of Challenge>
+# Challenge 02 - Contoso Real-time Order Tracking Assistant
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
 ## Pre-requisites (Optional)
 
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+This challenge assumes that all the dependencies in the Challenge 0 were deployed successfully.
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+Microsoft Azure offers various capabilities and models that enable you to leverage chat completion APIs alongside dynamic content and other technologies to create virtual assistants that can parse these text to provide answers to users.
+The goal of this challenge is to help you understand the technologies and resources you need to implement such a virtual assistant.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Contoso Pizza allows customers to check on the status of their Pizza order right after the order has been placed. The system updates the status of the order in the database at every stage of the process from when it is in the oven, to when it is done and while it is in transit for delivery to the customer
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+The goal of this challenge is to design and implement a solution that uses Azure OpenAI to create a real-time order tracking assistant chatbot for Contoso Pizza that allows customers to check the status of their Pizza order. The chatbot should be able to query the database to identify the customer based on their email address or phone number and then provide them with the correct status of their order. It should also be able to preserve the context of the conversation history and leverage prior questions and responses to provide good answers.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+The order number, name, email address, current status and delivery information of each order is available in the Cosmos DB database.
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+The database is continuously updated as orders are created, processed, shipped, in-transit and delivered to customers.
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+A stubbed version of this implementation demonstrating the response formats has been made available for your reference.
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+To complete the challenge successfully, the solution should demonstrate the following:
+- Ensure that the application is able to handle the natural language inputs from the customer
+- Create an Azure Function that receives that question/query from the customer and responses with an array of most recent responses from the assistant and queries to the assistant.
+- The virtual assistant should be able to handle natural language inputs and be trained to understand different variations of the questions related to the order status. 
+- It should also be able to handle scenarios where the customer asks for more details about the order status, such as the estimated delivery time.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+Here are a list of resources that should assist you with completing this challenge:
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+*Sample resources:*
+- [Working with the ChatCompletion APIs](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions#working-with-the-chat-completion-api)
 
 ## Tips
 
-*This section is optional and may be omitted.*
+*Sample tips:*
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
+- Try using the playground first to try some of the responses with excerpts of the order from the database as context.
+- Instruct the virtual assistant to respond to only specific types of questions. 
+- Implement the solution in any programming language of your choosing using Azure Functions, Azure Cosmos DB, and Azure OpenAI. Use the Azure Cosmos DB SDK to interact with the Cosmos DB database and retrieve the order details. Use the Azure OpenAI SDK to create the chatbot and handle the natural language inputs from the customer.
 
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+The code could implement the following utilities and helpers to aid in your implementation:
+- A method to retrieve the order details from the Cosmos DB database based on the customer email address or phone number
+- A helper function or method that converts the database content for the customer into text that can be injected into the assistant's context.
+- The virtual assistant should be able to handle scenarios where the customer asks for more details about the order status, such as the estimated delivery time, and provide the appropriate response.
