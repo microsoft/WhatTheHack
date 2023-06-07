@@ -1,60 +1,48 @@
-# What The Hack - ConfluentCloudOnAzure
+# What The Hack - Confluent Cloud Integration with Microsoft Azure
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+This introductory hackathon will provide participants with hands-on experience on how to integrate the Confluent Cloud offering with Microsoft Azure platform services.
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+The objective of the hackathon is to demonstrate different strategies for integrating Confluent Cloud on Azure with Azure Platform products across various scenarios.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+## Exit Competencies
+Upon completion, the participants should be able to:
+- Master basic concepts involved with event stream processing with Confluent Cloud leveraging the Apache Kafka Ecosystem components such as Producers, Consumers, Kafka Connect, Kafka Streams, KSQL and Schema Registry.
+- Understand the different source and sink connectors available for integration on Microsoft Azure.
+- Provision and configure Confluent Cloud and the various ecosystem components.
+- Secure access to Confluent Cloud Resources.
+- Integrate Azure Private Virtual Networks with Confluent Cloud
+- Perform capacity planning and quota enforcement for Confluent Cloud resources.
+- Manage availability, business continuity and disaster recovery.
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](Student/Challenge-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](Student/Challenge-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](Student/Challenge-15.md)**
-	 - Description of challenge
+These are the 5 challenges for the Hack.
+- Challenge 00: **[ Prerequisites, Sizing & Capacity Planning](Student/Challenge-00.md)**
+	 - Prepare your workstation to work with Azure. Deploy the Confluent & Azure resources needed for starting the Hack.
+- Challenge 01: **[Data Definition and Core Concepts for Storage](Student/Challenge-01.md)**
+	 - DDL: Design, configure and create Kafka topics and Schema Registry instance for the Kafka events/messages.
+- Challenge 02: **[Data Manipulation Reading and Writing Data Directly with Topics](Student/Challenge-02.md)**
+	 - DML: Write data from Kafka producers and read data with Kafka consumers. Enrich and display events coming back from Kafka topics.
+- Challenge 03: **[Kafka Connect Ecosystem and Architecture](Student/Challenge-03.md)**
+	 - The glue: leverage the Kafka Connect ecosystem to bring data into Kafka topics from different data stores and write events out to different data stores using Kafka Connect.
+- Challenge 04: **[Bringing it All Together, Processing Streams in Realtime with KSQLDB](Student/Challenge-04.md)**
+	 - Real-time JOINS: Leverage Kafka Streams and KSQLDB to bring together multiple streams of events, facts and dimensions to enrich, filter, process and generate new events from existing streams.
+- Challenge 05: **[Realtime Visualization of Streams](Student/Challenge-05.md)**
+	 - A picture is worth 1024 words. Generate cool visualizations that captures the state of the streams in realtime.
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Access to an Azure subscription with Owner access
+	- If you don’t have one, Sign Up for Azure [HERE](https://azure.microsoft.com/en-us/free/)
+	- Familiarity with [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview#multiple-access-points)
+- Access to [Confluent Cloud on Azure](https://learn.microsoft.com/en-us/azure/partner-solutions/apache-kafka-confluent-cloud/overview), an Azure Native ISV Services
+- An IDE: [Visual Studio Code](https://code.visualstudio.com/), [WebStorm](https://www.jetbrains.com/webstorm/download/), [PyCharm](https://www.jetbrains.com/pycharm/download/) or [IntelliJ](https://www.jetbrains.com/idea/download/)
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- [Israel Ekpo](https://github.com/izzymsft)
+- [Jacob Bogie](https://github.com/JakeBogie)
