@@ -1,0 +1,1 @@
+# wth-spell-check-action

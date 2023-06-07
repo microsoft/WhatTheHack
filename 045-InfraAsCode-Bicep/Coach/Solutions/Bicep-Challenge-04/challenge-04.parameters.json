@@ -9,15 +9,6 @@
         },
         "secretName": "adminPassword"
       }
-    },
-    "containerNames":{
-      "value": [
-        "bicepwthcontainer1",
-        "bicepwthcontainer2",
-        "bicepwthcontainer3",
-        "bicepwthcontainer4",
-        "bicepwthcontainer5"
-      ]
     }
   }
 }
