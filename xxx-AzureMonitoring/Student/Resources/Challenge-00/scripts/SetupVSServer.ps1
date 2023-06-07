@@ -87,7 +87,8 @@ $replace1 = '    "IdentityConnection": "Server=' + $SQLServername + ';Integrated
 #add exception to ManageController.cs
 $ManageControllerfile = 'C:\eshoponweb\eShopOnWeb-main\src\Web\Controllers\ManageController.cs'
 $Match = [regex]::Escape("public async Task<IActionResult> ChangePassword()")
-$NewLine = 'throw new ApplicationException($"Oh no!  Error!  Error! Yell at Rob!  He put this here!");'
+$NewLine = 'throw new ApplicationException($"Oh no!  Error!  Error! Yell at Rob!  He put this here!");
+#pragma warning disable CS0162 // Unreachable code detected'
 $Content = Get-Content $ManageControllerfile -Force
 $Index = ($content | Select-String -Pattern $Match).LineNumber + 2
 $NewContent = @()
