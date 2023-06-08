@@ -1,0 +1,22 @@
+version: "3"
+services:
+  rockpaperscissors-sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: rockpaperscissors-sql
+    environment:
+      MSSQL_SA_PASSWORD: "yourStrong(1)Password"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+
+  rockpaperscissors-server:
+    build:
+      context: .
+      dockerfile: Dockerfile-Server
+    container_name: rockpaperscissors-server
+    environment:
+      "ConnectionStrings:DefaultConnection": "Server=rockpaperscissors-sql,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=yourStrong(1)Password;Encrypt=False;Persist Security Info=False;trusted_connection=False"
+    ports:
+      - "80:80"
+    depends_on:
+      - rockpaperscissors-sql
