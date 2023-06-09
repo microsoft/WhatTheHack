@@ -84,7 +84,7 @@ $azToken = (Get-AzAccessToken -Resource $tokenResourceUrl)
 # As first we create a test
 
 $createTestInvokeParams = @{
-    'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-06-01-preview"
+    'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-11-01"
     'Method'  = 'PATCH'
     'Headers' = @{ 
         'Authorization' = $azToken.Type + ' ' + $azToken.Token 
@@ -120,7 +120,7 @@ if ( [int]($statusCode) -ne 200 -and [int]($statusCode) -ne 201) {
 }
 
 # next is uploading a file
-$loadTestingTestFilesEndpoint = $loadTestingTestEndpoint + "/files/" + $loadTestFilename + "?fileType=0&api-version=2022-06-01-preview"
+$loadTestingTestFilesEndpoint = $loadTestingTestEndpoint + "/files/" + $loadTestFilename + "?fileType=0&api-version=2022-11-01"
 if ($showDebugOutput) {
     Write-Host "Load testing files endpoing: "
     Write-Host $loadTestingTestFilesEndpoint
@@ -159,7 +159,7 @@ while ((get-date) -lt $waitUntilDatetime) {
 
 
     $getTestInfoInvokeParams = @{
-        'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-06-01-preview"
+        'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-11-01"
         'Method'  = 'GET'
         'Headers' = @{ 
             'Authorization' = $azToken.Type + ' ' + $azToken.Token

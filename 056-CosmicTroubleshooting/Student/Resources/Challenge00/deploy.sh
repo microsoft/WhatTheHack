@@ -104,7 +104,7 @@ loadtestingId=`echo $output | jq -r '.properties.outputs.loadtestingId.value'`
 loadTestFilename=`echo $output | jq -r '.properties.outputs.loadTestingNewTestFileId.value'`
 loadTestNewTestId=`echo $output | jq -r '.properties.outputs.loadTestingNewTestId.value'`
 loadTestDataPlaneUrl=`echo $output | jq -r '.properties.outputs.loadTestingDataPlaneUri.value'`
-loadTestingTestEndpoint="https://$loadTestDataPlaneUrl/loadtests/$loadTestNewTestId"
+loadTestingTestEndpoint="https://$loadTestDataPlaneUrl/tests/$loadTestNewTestId"
 
 
 tokenResourceUrl="https://loadtest.azure-dev.com"
@@ -139,7 +139,7 @@ output=`curlwithcode -X 'PATCH' \
     -H 'Accept: application/json' \
     -H "Authorization: $authContent" \
     -d "$payload" \
-    ''$loadTestingTestEndpoint'?api-version=2022-06-01-preview' 2>/dev/null`
+    ''$loadTestingTestEndpoint'?api-version=2022-11-01' 2>/dev/null`
 
 statusCode=`echo $output | jq -r '.statusCode'`
 
@@ -151,23 +151,22 @@ fi
 
 
 # next is uploading a file
-loadTestingTestFilesEndpoint=$loadTestingTestEndpoint"/files/"$loadTestFilename"?fileType=0&api-version=2022-06-01-preview"
+loadTestingTestFilesEndpoint=$loadTestingTestEndpoint"/files/simulate-load-eshop.jmx?fileType=JMX_FILE&api-version=2022-11-01"
 if [ $SHOW_DEBUG_OUTPUT == 1 ]; then
     echo "Load testing files endpoing: "
     echo $loadTestingTestFilesEndpoint
 fi
 
-output=`curlwithcode -X "PUT" \
+output=`curlwithcode -X "PUT" $loadTestingTestFilesEndpoint \
     -H "Authorization: $authContent" \
-    -F 'file=@./WTHAzureCosmosDB.IaC/simulate-load-eshop.jmx' $loadTestingTestFilesEndpoint 2>/dev/null`
+    -H "Content-Type:application/octet-stream" \
+    --data-binary '@./WTHAzureCosmosDB.IaC/simulate-load-eshop.jmx' 2>/dev/null`
     statusCode=`echo $output | jq -r '.statusCode'`
 
 if [ $statusCode -ne 200 ] && [ $statusCode -ne 201 ]; then
     echoerr "Azure Load Testing dataplane returned different status code (${statusCode}, was expecting 200 or 201) for test plan upload.\n${output}";
     exit 1;
 fi
-
-
 
 # waiting for test validation
 echo "Waiting for test plan validation by Azure..."
@@ -199,7 +198,7 @@ while [[ $(date -u +%s) -le $endtime ]]; do
     output=`curlwithcode -X 'GET' \
     -H 'Accept: application/json' \
     -H "Authorization: $authContent" \
-    "${loadTestingTestEndpoint}?api-version=2022-06-01-preview" 2>/dev/null `
+    "${loadTestingTestEndpoint}?api-version=2022-11-01" 2>/dev/null `
 
 
     statusCode=`echo $output | jq -r '.statusCode'`
@@ -209,7 +208,7 @@ while [[ $(date -u +%s) -le $endtime ]]; do
         exit 1;
     fi
 
-    state=`echo $output | jq -r '.body' | jq -r '.inputArtifacts.testScriptUrl.validationStatus'`
+    state=`echo $output | jq -r '.body' | jq -r '.inputArtifacts.testScriptFileInfo.validationStatus'`
     echo "checking for updates... $state"
     
     if [ "$state" == "" ]; then
