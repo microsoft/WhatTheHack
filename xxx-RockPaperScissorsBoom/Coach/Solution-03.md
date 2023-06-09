@@ -1,4 +1,4 @@
-# Challenge 03 - <Title of Challenge> - Coach's Guide
+# Challenge 03 - Run the app on Azure - Coach's Guide
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
