@@ -59,3 +59,11 @@
     ```
 
 ### Test your web app
+
+1.  Navigate to your web app in a browser and play a game. You can get the url from the Azure portal (https://<app-service-name>.azurewebsites.net).
+
+1.  Login to the database (using the Query editor in the Azure portal) to ensure you are getting new database records
+
+    ```sql
+    SELECT * FROM [dbo].[GameRecords]
+    ```
