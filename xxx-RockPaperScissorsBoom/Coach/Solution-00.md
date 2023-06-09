@@ -1,4 +1,4 @@
-# Challenge 00 - <Title of Challenge> - Coach's Guide 
+# Challenge 00 - Prerequisites - Coach's Guide
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 

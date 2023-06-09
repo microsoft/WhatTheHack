@@ -1,20 +1,82 @@
-# Challenge 05 - <Title of Challenge> - Coach's Guide 
+# Challenge 05 - Add Application Monitoring - Coach's Guide
 
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+### Create Application Insights Azure resource
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+1.  Run the following Azure CLI to create a Log Analytics workspace for the App Insights instance to use.
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+    ```shell
+    az monitor log-analytics workspace create --resource-group <resource-group-name> --name <log-analytics-workspace-name>
+    ```
 
-Break things apart with more than one bullet list
+1.  Run the following Azure CLI to create an Application Insights resource.
 
-- Like this
-- One
-- Right
-- Here
+    ```shell
+    az monitor app-insights component create --app <app-insights-name> --location <location> --resource-group <resource-group-name> --workspace <log-analytics-workspace-name>
+    ```
+
+    > Note: You can also use the Azure Portal to create the Application Insights resource.
+
+1.  Copy the `Instrumentation Key` GUID from the Application Insights resource. You can get this from the output of the previous Azure CLI command or from the Azure Portal.
+
+1.  Open the `RockPaperScissorsBoom.Server\appsettings.json` file and note the key that stores the Application Insights Instrumentation Key. This is the value we need to modify via environment variables in both the local & Azure deployment.
+
+    ```json
+    {
+      ...
+      "ApplicationInsights": {
+        "InstrumentationKey": "11111111-2222-3333-4444-555555555555"
+      },
+      ...
+    }
+    ```
+
+### Add Application Insights to the app running locally
+
+1.  Open the `docker-compose.yaml` file.
+
+1.  Modify the `docker-compose.yaml` file to include this new `ApplicationInsights:InstrumentationKey` environment variable, similar to below.
+
+    ```yaml
+    version: "3"
+    services:
+      rockpaperscissors-server:
+        build:
+          context: .
+          dockerfile: Dockerfile-Server
+        container_name: rockpaperscissors-server
+        environment:
+          "ApplicationInsights:InstrumentationKey": "11111111-2222-3333-4444-555555555555"
+          "ConnectionStrings:DefaultConnection": "..."
+        ports:
+          - "80:80"
+    ```
+
+1.  Run the following command to start the app locally.
+
+    ```shell
+    docker-compose up --build -d
+    ```
+
+1.  Open the browser to http://localhost:80 and play a game.
+
+1.  Open the Azure portal and navigate to your new Application Insights resource.
+
+1.  In the `Transaction search` blade, you should see a list of requests made to the app.
+
+### Add Application Insights to the app running in App Service
+
+1.  Run the following Azure CLI to add a new value to the App Service App Settings. This will be surfaced to the application as a new environment variable that will override the value specified in the `appsettings.json` file.
+
+    ```shell
+    az webapp config appsettings set --resource-group <resource-group-name> --name <app-service-name> --settings ApplicationInsights__InstrumentationKey="11111111-2222-3333-4444-555555555555"
+    ```
+
+1.  Open the browser to https://<app-service-name>.azurewebsites.net and play a game.
+
+1.  Open the Azure portal and navigate to your Application Insights resource.
+
+1.  In the `Transaction search` blade, you should see a list of requests made to the app.

@@ -21,6 +21,7 @@ You might not need all of them for the hack you are participating in. However, i
     - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+- [Logic Apps CLI extension](https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-logic-apps-azure-cli#prerequisites)
 
 ## Description
 
