@@ -3,16 +3,16 @@
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
-- In this challenge, we will be creating three network policies to demostrate how to restrict communication in a cluster
+- In this challenge, we will be creating three network policies to demonstrate how to restrict communication in a cluster
 
 ## Switch to Administrator Mode
 - **In terminal:**
   - Run the command `oc whoami`
-    - The output displayed should show **kube:admin**
+    - The output displayed should show `kube:admin`
     ```
     kube:admin
     ```
-  - **NOTE:** If the console does not show **kube:admin**, follow the solution found in [Challenge 01 - ARO Cluster Deployment - Coach's Guide](./Solution-01.md)
+  - **NOTE:** If the console does not show `kube:admin`, follow the solution found in [Challenge 01 - ARO Cluster Deployment - Coach's Guide](./Solution-01.md)
 
 - **In web console:**
   - In the top left corner, under the Red Hat OpenShift Logo, there will be a dropdown that when clicked on, will show Administrator and Developer tabs

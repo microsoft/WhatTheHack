@@ -19,8 +19,8 @@ In this challenge, we will be deploying two network policies that will restrict 
 ## Success Criteria
 To complete this challenge successfully, you should be able to:
 - Have demonstrated that your `deny-all` network policy blocked all traffic
-- Demostrate that your `allow-rating-web` network policy allows traffic
-- Demostrate that your `allow-rating-api` network policy allows traffic between the backend and frontend application
+- Demonstrate that your `allow-rating-web` network policy allows traffic
+- Demonstrate that your `allow-rating-api` network policy allows traffic between the backend and frontend application
 
 ## Learning Resources
 - [About network policy](https://docs.openshift.com/container-platform/4.11/networking/network_policy/about-network-policy.html)

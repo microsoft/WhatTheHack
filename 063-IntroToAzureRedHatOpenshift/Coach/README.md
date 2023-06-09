@@ -47,7 +47,7 @@ Before the hack, it is the Coach's responsibility to download and package up the
 As a coach, you should communicate to the stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students about the quota requirement and Azure Requirements listed below, **days in advance** of the hack.
 
 - Make sure the students increase the VM quotas to use a minimum of 40 cores. Docs on how to do that can be found here: [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) 
-  - To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+  - To check your current subscription quota of the smallest supported virtual machine family SKU `Standard DSv3`, run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
     - **NOTE:** Quotas are set per region.  If you increase the quota in a single region, you need to ensure that all students deploy to the same region.  Or else, they will bump up against the quota limits in the region they deploy to.
 
 ## Azure Requirements

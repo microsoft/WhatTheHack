@@ -25,7 +25,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
 **Something to keep in mind:** This hack can be completed entirely in Azure Cloud Shell! However, if you work with Azure often, you'll want to consider installing these tools locally even if you plan to use Cloud Shell today. Most of the hack can also be completed using the ARO Web Console inside your web browser (and some of the challenges will be MUCH easier using the ARO Web Console).
 
@@ -39,7 +39,7 @@ Your coach will provide two URLs pointing to two GitHub repositories that contai
   - **NOTE:** You can upload that file to Azure Cloud Shell by dragging and dropping the file into the window.
   - **NOTE:** You will need an account before you can obtain your Red Hat pull secret
 - Minimum of 40 cores (VM Quotas):
-  - Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. To check your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3", run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+  - Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. To check your current subscription quota of the smallest supported virtual machine family SKU `Standard DSv3`, run this command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
   - If the limit is below 40, you will need to [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests)
   - **NOTE:** If the command above returns nothing, please register the Microsoft.Compute resource provider using the commands found further down on this page.
 - To create an Azure Red Hat OpenShift cluster, verify the following permissions on your Azure subscription, Azure Active Directory user, or service principal:
@@ -68,7 +68,7 @@ az provider register -n Microsoft.Authorization --wait
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have a bash shell with the Azure CLI available
-- Verify that your current subscription quota of the smallest supported virtual machine family SKU "Standard DSv3" has a limit of at least 40 cores using the command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
+- Verify that your current subscription quota of the smallest supported virtual machine family SKU `Standard DSv3` has a limit of at least 40 cores using the command: `az vm list-usage -l $LOCATION --query "[?contains(name.value, 'standardDSv3Family')]" -o table`
 - Verify that OpenShift CLI is installed using the command: `oc help`
 - Demonstrate to your coach that you have a Red Hat pull secret
 

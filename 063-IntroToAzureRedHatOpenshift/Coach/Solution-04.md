@@ -17,7 +17,7 @@ oc <your-mongodb-name> bitnami/mongodb \
   -e MONGODB_ROOT_PASSWORD=ratingspassword
 ```
   - This is successful if you go to the ARO console and see a new deployment for MongoDB
-  - You can also use the command `oc get all` to view the status of the application and if the deployment was succesful
+  - You can also use the command `oc get all` to view the status of the application and if the deployment was successful
 
   ## Retrieve MongoDB hostname for configuration
   - Find the MongoDB service using the command `oc get svc mongodb`

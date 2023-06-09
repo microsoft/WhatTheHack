@@ -74,4 +74,4 @@
   ```
   kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- <rating-web-url>; done"
   ```
-  - Delete the busybox deployment using the command: `kubectl delete deployment busybox`
+  - Delete the `busybox` deployment using the command: `kubectl delete deployment busybox`

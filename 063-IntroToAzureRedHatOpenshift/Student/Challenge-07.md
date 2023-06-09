@@ -38,7 +38,7 @@ When the resource limits are set and the HPA is added, let's see autoscaling in 
 ```
 kubectl create deployment busybox --image=busybox --replicas=10 -- /bin/sh -c "while true; do wget -q -O- <rating-web-url>; done"
 ```
-- When we see the autoscaler in action, we are done with the challenge. Delete the busybox deployment using the command: `kubectl delete deployment busybox`
+- When we see the autoscaler in action, we are done with the challenge. Delete the `busybox` deployment using the command: `kubectl delete deployment busybox`
 
 **NOTE:** To autoscale future applications in the CLI and in your production environments make sure to include resource limits in your deployments. That way you won't need to use the Web Console later on to autoscale or have to redeploy resources! Here are some learning resources to bookmark:
 - [Understanding Deployment and DeploymentConfig objects](https://docs.openshift.com/container-platform/4.6/applications/deployments/what-deployments-are.html#what-deployments-are-build-blocks)

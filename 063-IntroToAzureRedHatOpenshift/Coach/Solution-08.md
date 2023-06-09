@@ -27,7 +27,7 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 - Scroll down to the bottom and click **Add**
 
 ## Test it out
-- *Note:* This may take a few minutes to work, but after a few minutes, students should be able to log out, and then login with *kube:admin* **or** *AAD*
+- *Note:* This may take a few minutes to work, but after a few minutes, students should be able to log out, and then login with `kube:admin` **or** *AAD*
 - Test out **AAD** login option by logging in with your Microsoft credentials
 
 ## Integrate using the CLI (Optional)

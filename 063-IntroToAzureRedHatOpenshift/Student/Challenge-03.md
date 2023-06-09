@@ -9,7 +9,7 @@ In the last challenge, we deployed our application, but if we press the buttons,
 In this challenge we will use two different strategies to view the logs and metrics of our application, in order to uncover why it does not work. This challenge gives us the opportunity to debug our application in two different ways, and get more comfortable with the CLI as well as the ARO console & Azure Monitor.
 
 This challenge has no concrete steps because we want you to explore! Poke around the ARO console and try out different CLI commands. 
-  - **NOTE:** You **WILL NOT** be fixing the application in this challenge, the goal is to find out why our appplication is broken!
+  - **NOTE:** You **WILL NOT** be fixing the application in this challenge, the goal is to find out why our application is broken!
 
 ### *Some hints if you get stuck:*
 - Understand what pods are running on your cluster 
