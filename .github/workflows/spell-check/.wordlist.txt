@@ -390,6 +390,7 @@ TailwindInventory
 TenantId
 Terraform
 TextBox
+TextEdit
 TextWriter
 TimeSeries
 ToString
