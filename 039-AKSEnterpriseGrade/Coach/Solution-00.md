@@ -45,7 +45,7 @@ If students will use the Azure Cloud Shell, they should upload the `Resources.zi
 
 Here are some things to be aware of that we have run into when hosting this hack previously:
 
-- Installing the Windows Subsystem for Linux requires administrator priviledges on a Windows 10 or 11 device.  If the student does not have administrator priviledges on their workstation, they will need to use the Azure Cloud Shell.
+- Installing the Windows Subsystem for Linux requires administrator privileges on a Windows 10 or 11 device.  If the student does not have administrator privileges on their workstation, they will need to use the Azure Cloud Shell.
 - We recommend students install the Azure CLI into their WSL environment on Windows.
 - We have observed that if students install the Azure CLI on Windows (via PowerShell or the Command Prompt), then install the Azure CLI again in the WSL environment, it can cause issues with the WSL environment's PATH environment variable.
   - The Azure CLI will show up twice in the PATH, once for Windows, and once for WSL.

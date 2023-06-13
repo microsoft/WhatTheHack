@@ -5,7 +5,7 @@
 ## Notes and Guidance
 
 - Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
-- Make sure the participants understand how the Azure Load Balancers, NSGs and kubernetes services play together
+- Make sure the participants understand how the Azure Load Balancer, NSGs and kubernetes services play together
 - Make sure the participants understand why the ingress needs to be deployed with a private IP address when using a private AKS cluster: otherwise the default route to the firewall will cause asymmetric routing
 - Coaches should **STRONGLY** encourage students to use infrastructure-as-code (Azure CLI, Bicep, or Terraform) instead of the Azure portal to deploy the AKS cluster. This will make it easier if they need to redeploy the cluster if the solution to a later challenge requires it.
 - Participants could go with an off-cluster ingress controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
@@ -38,7 +38,7 @@ This challenge has multiple paths:
 
 Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
 
-In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the Whoami sample application from pre-staged container images in Dockerhub to an existing AKS cluster.
+In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the Whoami sample application from pre-staged container images in Docker Hub to an existing AKS cluster.
 
 For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3.
 
@@ -253,7 +253,7 @@ do
 done
 ```
 
-And now that we have an ingress, we can create an ingress (aka route). You can use either an FQDN associated to the AzFW's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
+And now that we have an ingress controller, we can create an ingress (aka route). You can use either an FQDN associated to the Azure Firewall's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
 
 ```bash
 # Ingress route (using Nginx)
@@ -287,7 +287,7 @@ Deploying a private AKS cluster requires multiple Azure resources to be deployed
 
 In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the Whoami sample application to a private AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
 
-The script blocks below in the collapsable section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
+The script blocks below in the collapsible section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
 
 The script blocks also replace the placeholders in the YAML files with the actual values to use before then applying the YAML files to the AKS cluster.
 
@@ -705,7 +705,7 @@ az network firewall nat-rule create -f azfw -g "$rg" -n nginx \
     -c IngressController --action Dnat --priority 100
 ```
 
-And now that we have an ingress, we can create an ingress (aka route). You can use either an FQDN associated to the AzFW's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
+And now that we have an ingress controller, we can create an ingress (aka route). You can use either an FQDN associated to the Azure Firewall's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
 
 ```bash
 # Ingress route (using Nginx)
