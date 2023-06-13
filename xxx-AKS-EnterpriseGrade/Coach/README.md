@@ -69,12 +69,12 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+- Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate their AKS clusters against their Azure Container Registries.  For more info: <https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration>
+- Each student will spin up the following resources in Azure:
+	- 1 Azure Container Registry
+	- 3 Azure Container Instances (if not deploying Docker containers locally)
+	- 3 x 2 vCPUs VMs for the AKS cluster
+	- 3 Public IPs (1 for AKS cluster, 1 for sample web app, 1 for ingress controller)
 
 ## Suggested Hack Agenda
 
