@@ -45,4 +45,4 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [10 Tips for Never Forgetting Azure CLI Commands](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [Kubenetes & Azure: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [Kubernetes & Azure: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)

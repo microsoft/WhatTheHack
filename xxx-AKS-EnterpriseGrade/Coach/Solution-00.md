@@ -56,13 +56,13 @@ Here are some things to be aware of that we have run into when hosting this hack
 
 ### Docker Desktop
 
-Installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is optional for students. Docker Desktop will install the Docker CLI and container engine on a Windows or Mac workstation.  Students can use Docker Desktop in Challenge 1 to build, run, and publish the sample application's container images on their local workstation.
+Installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is optional for students. Docker Desktop will install the Docker CLI and container engine on a Windows or Mac workstation.  Students can use Docker Desktop in Challenge 1 to build and run the sample application's container images on their local workstation. They can also use Docker desktop to publish those container images to Azure Container Registry.
 
 The SQL Server container image referenced in Challenge 1 will not run in Docker Desktop on a Mac device with Apple Silicon (ARM).
 
-Docker Desktop requires administrator priviledges on a Windows 10 or 11 device. 
+Docker Desktop requires administrator privileges on a Windows 10 or 11 device. 
 
-If the student does not have administrator privileges on their workstation, or is using a Mac with Apple Silicon, they can use the Azure CLI (az acr build) to build and publish their container images to the Azure Container Registry from their local workstation OR from the Azure Cloud Shell. However, they will not be able to run the containers locally before attempting to deploy them to AKS in Challenge 2. 
+If the student does not have administrator privileges on their workstation, or is using a Mac with Apple Silicon, they can use the Azure CLI (`az acr build`) to build and publish their container images to the Azure Container Registry from their local workstation OR from the Azure Cloud Shell. However, they will not be able to run the containers locally before attempting to deploy them to AKS in Challenge 2. 
 
 Instead, students can test the containers out by running them in Azure Container Instances.  See the [Coach Guide for Challenge 1](Solution-01.md) for more information.
 
