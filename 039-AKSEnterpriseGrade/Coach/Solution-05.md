@@ -6,7 +6,7 @@
 
 - Dedicated subnets per nodepool in preview at the time of this writing
 - Understand how taints/tolerations work for nodepool scheduling
-- When using Kubenet networking, only Calico networking policy is currently avaialble in AKS (this may change in the future)
+- When using Kubenet networking, only Calico networking policy is currently available in AKS (this may change in the future)
 - When using Azure CNI networking, you may use either Calico or Azure networking policy.
 - Switching between kubenet and Azure CNI networking is not possible after a cluster has been deployed. 
   - Students will need to re-deploy a new cluster to change the networking type OR apply a networking policy!
@@ -287,6 +287,6 @@ The creation of the public Load Balancer should have given an error similar to t
 Error from server ([denied by azurepolicy-load-balancer-no-public-ips-5770c529e14827a6045a751c63c417c0e1d27b4d9169f8c297c820a652e2aa54] Load Balancers should not have public IPs. azure-load-balancer-internal annotation is required for publicweb): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-load-balancer-no-public-ips-5770c529e14827a6045a751c63c417c0e1d27b4d9169f8c297c820a652e2aa54] Load Balancers should not have public IPs. azure-load-balancer-internal annotation is required for publicweb
 ```
 
-* OPA and LBs: [https://github.com/raffaelespazzoli/openshift-opa#quota-on-loadbalancer-service-types](https://github.com/raffaelespazzoli/openshift-opa#quota-on-loadbalancer-service-types)
+* OPA and LBs: [Open Policy Agent: Quota on LoadBalancer service types](https://github.com/raffaelespazzoli/openshift-opa#quota-on-loadbalancer-service-types)
 * [Ahmet's network policy examples](https://github.com/ahmetb/kubernetes-network-policy-recipes)
 
