@@ -4,14 +4,29 @@
 
 ## Notes and Guidance
 
-* Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
-* Make sure the participants understand how the Azure Load Balancers, NSGs and kubernetes services play together
-* Make sure the participants understand why the ingress needs to be deployed with a private IP address: otherwise the default route to the firewall will cause asymmetric routing
-* Participants could go with an off-cluster ingress controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
-* Feel free to leave the participants go with any ingress controller other than nginx, but nginx is probably going to be the easiest one.
-* Note that configuring a private DNS-zone was not required when creating the private cluster
-* If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
-* At the time of this writing, SLA API and private API are mutually exclusive
+- Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
+- Make sure the participants understand how the Azure Load Balancers, NSGs and kubernetes services play together
+- Make sure the participants understand why the ingress needs to be deployed with a private IP address when using a private AKS cluster: otherwise the default route to the firewall will cause asymmetric routing
+- Coaches should **STRONGLY** encourage students to use infrastructure-as-code (Azure CLI, Bicep, or Terraform) instead of the Azure portal to deploy the AKS cluster. This will make it easier if they need to redeploy the cluster if the solution to a later challenge requires it.
+- Participants could go with an off-cluster ingress controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
+- Feel free to leave the participants go with any ingress controller other than nginx, but nginx is probably going to be the easiest one.
+- There are two different nginx ingress controllers with similar names:
+    - **`nginx-ingress`** - A commercial offering provided by F5
+        - Has a "freemium" version that is designed to be upgraded to their paid offering, "`nginx+`".
+        - This version bypasses Kubernetes services and route directly to the pods by getting the list of pods from the Kubernetes service definition.
+        - This version is not respecting the readiness probes set on Kubernetes services.
+    - **`ingress-nginx`** - Free open-source version by the Kubernetes community
+        - This version requires a special annotation to set the health probe path for the Azure Load Balancer when installing it into an AKS cluster.
+- The Microsoft documentation refers to the `ingress-nginx` version. However, students may find documentation elsewhere online referring to the `nginx-ingress`.
+- Note that configuring a private DNS-zone was not required when creating the private cluster
+- If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
+- At the time of this writing, SLA API and private API are mutually exclusive
+
+**NOTE:** If students do not have "Owner" permissions on their Azure subscriptions, they will not have permission to attach their AKS cluster to their ACR.  We have staged the sample application on Docker Hub so that students can use the container images at these locations:
+- **API app:** `whatthehackmsft/api`
+- **Web app:** `whatthehackmsft/web`
+
+**HINT:** If students decide to use their own ACR with the images for api and web, they must fully qualify the name of their ACR. An image with a non-fully qualified registry name is assumed to be in Docker Hub. 
 
 This challenge has multiple paths:
 
@@ -39,7 +54,7 @@ In the `/Solutions/Challenge-02/Public` folder, you will find a set of YAML file
 
 There are a set of Terraform modules located in the [`/Solutions/Challenge-02/Terraform`](./Solutions/Challenge-02/Terraform/) folder that will deploy the Azure resources needed for a public AKS cluster and an Azure SQL Database. If you use the Terraform modules, you will need to update the YAML files with the appropriate values before applying them to the AKS cluster.
 
-Alternatively, the script blocks below in the collapsable section also demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
+Alternatively, the script blocks below in the collapsible section also demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
 
 The script blocks also replace the placeholders in the YAML files with the actual values to use before then applying the YAML files to the AKS cluster.
 
