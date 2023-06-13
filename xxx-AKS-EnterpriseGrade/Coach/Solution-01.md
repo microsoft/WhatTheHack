@@ -4,8 +4,10 @@
 
 ## Notes and Guidance
 
-- Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR do the build for them (`az acr build`)
+- Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR Tasks do the build for them (`az acr build`)
 - If students had any issues getting WSL or Docker Desktop running on their local workstations during Challenge 0, you should direct them to use ACR to do the container builds for them.
+- Students may not be familiar with SQL Server or how to run it as a container, you may need to point them at the documentation in Challenge 1's Learning Resources.
+- Remind the students to check the documentation for each of the components. They will find information there on HOW to run the apps locally or via ACI.
 
 ## Before you start
 
@@ -15,7 +17,9 @@ Alternatively, if you have cloned the What The Hack repo, you can navigate to th
 
 **NOTE:** Students should **NOT** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-## Local Docker (Option 1)
+## Solution Guides
+
+### Local Docker (Option 1)
 
 These commands have been tested on Powershell 7 on Windows 10, with Docker configured for Linux containers, and the utilities `jq` and `curl` installed
 
@@ -52,7 +56,7 @@ The web GUI should look something like this:
 
 Note the `Healthcheck: OK` and the SQL version retrieved from the SQL database. The links at the bottom of the page (API health status and SQL Server Version are not working yet, they are intended to be used with an ingress controller)
 
-## ACR & ACI (Option 2)
+### ACR & ACI (Option 2)
 
 These commands have been tested on a zsh shell:
 
