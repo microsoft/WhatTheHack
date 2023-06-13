@@ -4,7 +4,7 @@
 
 ## Notes and Guidance
 
-* No specific service mesh preferred, linkerd is typically the easiest to start with. If participants want to explore the Microsoft native offering, OSM might be better.
+* No specific service mesh preferred, linkerd is typically the easiest to start with. If participants want to explore the Microsoft native offering, Open Service Mesh might be better.
 
 ## Solution Guide
 
@@ -16,7 +16,7 @@ Pre-flight check. The warnings on the PSPs (inserted by Grafana in previous labs
 remote "linkerd check --pre"
 ```
 
-Install Linkerd (note that gcr.io needs to be in the list of your allowed prefixes):
+Install Linkerd (note that `gcr.io` needs to be in the list of your allowed prefixes):
 
 ```bash
 remote "linkerd install | kubectl apply -f -"
@@ -191,7 +191,7 @@ end id=2:4 proxy=in  src=10.13.76.95:51800 dst=10.13.76.100:8080 tls=true durati
 
 ### Alternative: use existing pods in the default namespace
 
-If participants have deployed their app in default, they might encounter some problems. Here follow some instructions for update an existing web/api deployement in the default namespace. First we need to convert our services in ClusterIP (this might not be required):
+If participants have deployed their app in default, they might encounter some problems. Here follow some instructions for update an existing web/api deployment in the default namespace. First we need to convert our services in ClusterIP (this might not be required):
 
 ```bash
 # Change services to ClusterIP
