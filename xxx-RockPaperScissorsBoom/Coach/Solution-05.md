@@ -22,6 +22,8 @@
 
 1.  Copy the `Instrumentation Key` GUID from the Application Insights resource. You can get this from the output of the previous Azure CLI command or from the Azure Portal.
 
+### Review where to update the OAut2 configuration in the application
+
 1.  Open the `RockPaperScissorsBoom.Server\appsettings.json` file and note the key that stores the Application Insights Instrumentation Key. This is the value we need to modify via environment variables in both the local & Azure deployment.
 
     ```json
