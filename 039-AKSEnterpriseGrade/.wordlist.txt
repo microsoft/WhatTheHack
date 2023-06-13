@@ -1,4 +1,11 @@
 participative
 freemium
 Whoami
+uninject
+ConfigMaps
+CSI
+etcd
+unencrypted
+nodepool
+Flexvol
 

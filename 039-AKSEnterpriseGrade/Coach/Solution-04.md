@@ -32,7 +32,7 @@ For the secret value, this challenge can be solved using any of the following:
     - Con: Need to configure synchronization scheduled to keep Key Vault secrets in-sync with Kubernetes Secrets.
   - Pull secrets from Key Vault and mount them as a storage volume on the pod(s). **RECOMMENDED OPTION**
     - Pro: Secrets can only be accessed by the pod requesting the secret.
-    - Con: Multiple identity options can lead to confusion when configuring Azure KV CSI driver to pull secrets from Azure Key Vault. See below for more details.
+    - Con: Multiple identity options can lead to confusion when configuring Azure Key Vault CSI driver to pull secrets from Azure Key Vault. See below for more details.
 
 The challenge states that no static passwords should be used or stored on the cluster.  This implies a managed identity is needed to access Azure Key Vault.
 
@@ -65,7 +65,7 @@ We have included two sample YAML files that demonstrate how to solve this challe
   - A Kubernetes ConfigMap to store the database name and database admin name.
   - The API pod to retrieve the database name and admin name from the Kubernetes Config Map
   - The CSI Driver volume for consumption
-  - The API pod to mount the CSI Driver volume at a mountpath named `/secrets`
+  - The API pod to mount the CSI Driver volume at a `mountPath` named `/secrets`
 
 You can find the `api_akv.yaml` and `secretproviderclass.yaml` files in the [`/Solutions/Challenge-04`](./Solutions/Challenge-04/) folder of this hack's coach guide.
 
@@ -73,7 +73,7 @@ You can find the `api_akv.yaml` and `secretproviderclass.yaml` files in the [`/S
 
 Here are links to relevant documentation:
 - [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
-  - This link has the definitive guide to all of the settings in the SecretProviderClass.yaml file
+  - This link has the definitive guide to all of the settings in the `SecretProviderClass.yaml` file
 - [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
   - This is a good overview of the whole process, but then has you switch context midway through the document to the link below regarding how to choose one of the different identity types for access to KV.
 - [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access)
@@ -114,7 +114,7 @@ For example, if the CSI Driver is configured to bring back secrets named `secret
 cat secretname1
 Pa55w0rd123!
 ```
-In the SecretProviderClass.yaml manifest for the CSI Driver, you can optionally specifiy to bring back multiple versions of a secret (if there are multiple versions in Azure Key Vault).
+In the `SecretProviderClass.yaml` manifest for the CSI Driver, you can optionally specify to bring back multiple versions of a secret (if there are multiple versions in Azure Key Vault).
 
 For example:
 
@@ -175,7 +175,7 @@ See this link for more details on Pod Identity: [https://github.com/Azure/aad-po
 The goal of this challenge will be retrieving the SQL Server password from an Azure Key Vault. Let's create it first:
 
 ```bash
-# Create AKV and store SQL Server password
+# Create Azure Key Vault and store SQL Server password
 akv_name=$rg
 akv_secret_name=sqlpassword
 az keyvault create -n $akv_name -g $rg
@@ -260,7 +260,7 @@ remote "kubectl logs demo"
 See [https://github.com/Azure/secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure):
 
 ```bash
-# akv secret provider
+# Azure Key Vault secret provider
 remote "helm repo add csi-secrets-store-provider-azure https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/charts"
 remote "helm install csi-secrets-store-provider-azure/csi-secrets-store-provider-azure --generate-name"
 tmp_file=/tmp/secretproviderclass.yaml
@@ -280,7 +280,7 @@ remote "kubectl apply -f ./$file"
 After having our identity ready, we can add a policy in the Azure Key Vault:
 
 ```bash
-# Add AKV policy
+# Add Azure Key Vault policy
 az keyvault set-policy -n $akv_name --spn $identity_client_id \
     --secret-permissions get \
     --key-permissions get \
@@ -322,7 +322,7 @@ identity_principal_id=$(az identity show -g $rg -n $identity_name --query princi
 identity_id=$(az identity show -g $rg -n $identity_name --query id -o tsv)
 subscription_id=$(az account show --query id -o tsv)
 # az role assignment create --role Reader --assignee $identity_principal_id --scope $rg_id
-# Add AKV policy to grant access to the identity
+# Add Azure Key Vault policy to grant access to the identity
 az keyvault set-policy -n $akv_name --spn $identity_client_id \
     --secret-permissions get \
     --key-permissions get \
