@@ -1,4 +1,4 @@
-# Challenge 2 - Accelerator: Deploy Sample Applicaiton
+# Challenge 2 - Accelerator: Deploy Sample Application
 
 **[Home](./README.md)** - [Next Challenge >](./Challenge-03.md)
 

@@ -30,7 +30,7 @@ You need to fulfill these requirements to complete this challenge:
 These docs might help you achieving these objectives:
 
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts)
-- [AKV provider for secrets store CSI driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure)
+- [Azure Key Vault provider for secrets store CSI driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure)
 - [AKS Overview](https://docs.microsoft.com/azure/aks/)
 - [Pod Identity - github.io docs](https://azure.github.io/aad-pod-identity/docs/getting-started/)
 - [Pod Identity - Microsoft docs](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)

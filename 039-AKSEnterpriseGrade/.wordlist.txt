@@ -21,5 +21,12 @@ Linkerd's
 HPA
 CAPI
 kubeadm
-
-
+Joian
+Gitte
+Vermeiren
+Viriya
+ampanond
+Laudati
+autoscaling
+AKV
+IOPS
