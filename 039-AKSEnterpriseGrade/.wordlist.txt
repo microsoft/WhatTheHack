@@ -19,5 +19,7 @@ ModHeader
 Emojivoto
 Linkerd's
 HPA
+CAPI
+kubeadm
 
 
