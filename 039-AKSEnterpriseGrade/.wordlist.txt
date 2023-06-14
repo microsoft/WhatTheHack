@@ -30,4 +30,3 @@ Laudati
 autoscaling
 AKV
 IOPS
-png
