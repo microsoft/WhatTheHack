@@ -8,7 +8,7 @@
 * Make sure participants understand storage limitations of the VMs (disk size, VM size)
 * Note that the SQL Server YAML is taken from the docs, without integration with Azure Key Vault. Integrating it with Azure Key Vault left as optional. Participants are allowed to use secrets for this challenge for simplicity reasons.
 * Explain the dependencies between Availability Zones, disks and nodes, and how this can lead to problems
-* Following guide in [https://docs.microsoft.com/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15](https://docs.microsoft.com/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15)
+* Following guide in: [Quickstart: Deploy a SQL Server container cluster on Azure](https://docs.microsoft.com/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15)
 
 ## Solution Guide
 

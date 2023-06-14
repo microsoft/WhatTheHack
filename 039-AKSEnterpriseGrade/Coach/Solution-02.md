@@ -485,7 +485,7 @@ az aks create -g "$rg" -n "$aks_name" -l "$location" \
     --enable-managed-identity --assign-identity "$id_id"
 ```
 
-You can query the FW logs and look for denied packets by the firewall, in case you have forgotten to add any URL. For example, use this query for application rule logs:
+You can query the Azure Firewall logs and look for denied packets by the firewall, in case you have forgotten to add any URL. For example, use this query for application rule logs:
 
 ```bash
 # App rule logs
@@ -694,7 +694,7 @@ done
 ingress_svc_ip=$nginx_svc_ip
 ```
 
-We need DNAT at the AzFW to send inbound traffic on certain ports (TCP 80) to the nginx instances.
+We need DNAT at the Azure Firewall to send inbound traffic on certain ports (TCP 80) to the nginx instances.
 
 ```bash
 # DNAT rule

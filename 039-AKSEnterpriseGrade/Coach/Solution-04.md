@@ -75,7 +75,7 @@ Here are links to relevant documentation:
 - [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
   - This link has the definitive guide to all of the settings in the `SecretProviderClass.yaml` file
 - [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
-  - This is a good overview of the whole process, but then has you switch context midway through the document to the link below regarding how to choose one of the different identity types for access to KV.
+  - This is a good overview of the whole process, but then has you switch context midway through the document to the link below regarding how to choose one of the different identity types for access to Azure Key Vault.
 - [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access)
   - This document covers how to use each of the four identities mentioned above.
 - [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver)
@@ -533,7 +533,7 @@ kubectl describe mutatingwebhookconfigurations.admissionregistration.k8s azure-w
 Now on to the Azure portal:
 
 - Navigate to Azure Active Directory, in `App registrations` find your app (make sure you are in the tab `All applications`), go to the application `Certificate & secrets` blade. Then choose Federated credentials and click Add Credential button.
-- After this select `Kubernetes accesing Azure resources`, fill the required fields with appropriate values and click Save button.
+- After this select `Kubernetes accessing Azure resources`, fill the required fields with appropriate values and click Save button.
 
 Or alternatively:
 
