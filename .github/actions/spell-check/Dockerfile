@@ -13,6 +13,8 @@ RUN apt-get update \
 RUN wget https://github.com/mikefarah/yq/releases/download/v4.30.7/yq_linux_amd64 -O /usr/bin/yq && \
   chmod +x /usr/bin/yq
 
+RUN pip3 install pymdown-extensions
+
 RUN pip3 install pyspelling pyyaml
 
 COPY generate-spellcheck.py /generate-spellcheck.py
