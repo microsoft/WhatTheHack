@@ -268,7 +268,7 @@ echo "You can browse to http://${nginx_svc_ip}.nip.io"
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 
-![](images/aks_web.png)
+![Image of Whoami app in Browser](images/aks_web.png)
 
 Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
 </details>
@@ -721,7 +721,7 @@ echo "You can browse to http://${azfw_ip}.nip.io"
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 
-![](images/aks_web.png)
+![Image of Whoami app in Browser](images/aks_web.png)
 
 Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
 </details>
