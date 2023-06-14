@@ -14,7 +14,7 @@
     - **`nginx-ingress`** - A commercial offering provided by F5
         - Has a "freemium" version that is designed to be upgraded to their paid offering, "`nginx+`".
         - This version bypasses Kubernetes services and route directly to the pods by getting the list of pods from the Kubernetes service definition.
-        - This version is not respecting the readiness probes set on Kubernetes services.
+        - This version was not respecting the readiness probes set on Kubernetes services.
     - **`ingress-nginx`** - Free open-source version by the Kubernetes community
         - This version requires a special annotation to set the health probe path for the Azure Load Balancer when installing it into an AKS cluster.
 - The Microsoft documentation refers to the `ingress-nginx` version. However, students may find documentation elsewhere online referring to the `nginx-ingress`.
@@ -268,7 +268,7 @@ echo "You can browse to http://${nginx_svc_ip}.nip.io"
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 
-![Image of Whoami app in Browser](images/aks_web.png)
+![Image of Whoami app in Browser](./images/aks_web.png)
 
 Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
 </details>
