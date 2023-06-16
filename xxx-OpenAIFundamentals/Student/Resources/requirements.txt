@@ -13,4 +13,5 @@ PyPDF3
 spacy
 matplotlib
 scipy
-
+datasets
+evaluate
