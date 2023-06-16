@@ -11,3 +11,6 @@ pandas
 langchain
 PyPDF3
 spacy
+matplotlib
+scipy
+
