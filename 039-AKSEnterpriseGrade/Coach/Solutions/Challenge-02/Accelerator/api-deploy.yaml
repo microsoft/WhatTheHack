@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: api
+  template:
+    metadata:
+      labels:
+        run: api
+    spec:
+      containers:
+      - image: whatthehackmsft/api:1.0
+        name: api
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        env:
+        - name: SQL_SERVER_USERNAME
+          value: "azure"
+        - name: SQL_SERVER_FQDN
+          value: "<YOURSQLSERVERNAME>.database.windows.net"
+        - name: SQL_SERVER_PASSWORD
+          value: "<YOURSQLPASSWORD>"
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    run: api

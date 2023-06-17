@@ -1,6 +1,6 @@
-# Challenge 3: AKS Monitoring - Coach's Guide
+# Challenge 03 - AKS Monitoring - Coach's Guide 
 
-[< Previous Challenge](./02-aks_private.md) - **[Home](./README.md)** - [Next Challenge >](./04-aks_secrets.md)
+[< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes and Guidance
 
@@ -8,6 +8,10 @@
 * This is just an introductory level. Make participants understand the overall structure of each tool (Azure Monitor and Prometheus/Grafana), and some pros/cons of both of them.
 
 ## Solution Guide
+
+The script blocks below demonstrate how you can solve this challenge.  They are not the only solutions. 
+
+If the students deployed a private AKS cluster, the way they access and administer it is different than if it is not a private AKS cluster.  Commands will need to be run remotely through a jumpbox. You will observe in the sample solution script blocks below that the commands for private/non-private cluster are encapsulated in if/then/else blocks.
 
 ```bash
 # Azure Monitor
@@ -25,7 +29,7 @@ remote "helm install prometheus prometheus-community/kube-prometheus-stack"
 remote "kubectl patch svc prometheus-grafana -p '{\"spec\": {\"type\": \"LoadBalancer\"}}'"
 remote "kubectl patch svc prometheus-grafana -p '{\"metadata\": {\"annotations\": {\"service.beta.kubernetes.io/azure-load-balancer-internal\": \"true\"}}}'"
 grafana_admin_password=$(remote "kubectl get secret --namespace default prometheus-grafana -o jsonpath=\"{.data.admin-password}\" | base64 --decode")
-sleep 60 # Wait 60 secs until the svc chnages from public to private
+sleep 60 # Wait 60 secs until the svc changes from public to private
 grafana_ip=$(remote "kubectl get svc/prometheus-grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
 # NAT rule
 az network firewall nat-rule create -f azfw -g $rg -n nginx \
@@ -46,7 +50,7 @@ helm repo update
 helm install prometheus prometheus-community/kube-prometheus-stack
 kubectl patch svc prometheus-grafana -p '{"spec": {"type": "LoadBalancer"}}'
 grafana_admin_password=$(kubectl get secret --namespace default prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode)
-sleep 60 # Wait 60 secs until the svc chnages from public to private
+sleep 60 # Wait 60 secs until the svc changes from public to private
 grafana_ip=$(kubectl get svc/prometheus-grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
 echo "You can browse now to http://${grafana_ip}:80 and use the credentials admin/${grafana_admin_password}"
 ```
@@ -81,13 +85,13 @@ digits=20000  # Test with a couple of digits first (like 10), and then with more
 aks_outbound=$(az aks show -n aks -g $rg --query networkProfile.outboundType -o tsv)
 if [[ "$aks_outbound" == "userDefinedRouting" ]]; then
   endpoint_ip=$azfw_ip
-  echo "Using AzFW's IP $azfw_ip as endpoint..."
+  echo "Using Azure Firewall's IP $azfw_ip as endpoint..."
 else
   endpoint_ip=$nginx_svc_ip
   echo "Using Ingress Controller's IP $nginx_svc_ip as endpoint..."
 fi
 # Tests
-echo "Testing API reachability (no stress test yet)..."
+echo "Testing if API is reachable (no stress test yet)..."
 curl -k "https://${endpoint_ip}.nip.io/api/healthcheck"
 curl -k "https://${endpoint_ip}.nip.io/api/pi?digits=5"
 function test_load {
@@ -202,4 +206,5 @@ else
     kubectl rollout restart deploy/web
 fi
 ```
+
 

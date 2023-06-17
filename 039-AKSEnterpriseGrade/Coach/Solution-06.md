@@ -1,21 +1,21 @@
-# Challenge 6: Persistent Storage in AKS - Coach's Guide
+# Challenge 06 - Persistent Storage in AKS - Coach's Guide 
 
-[< Previous Challenge](./05-aks_security.md) - **[Home](./README.md)** - [Next Challenge >](./07-aks_mesh.md)
+[< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes and Guidance
 
-* Challenges might arise when using disks and AZs
+* Challenges might arise when using disks and Availability Zones
 * Make sure participants understand storage limitations of the VMs (disk size, VM size)
-* Note that the SQL Server YAML is taken from the docs, without integration with AKV. Integrating it with AKV left as optional. Participants are allowed to use secrets for this challenge for simplicity reasons.
-* Explain the dependencies between AZs, disks and nodes, and how this can lead to problems
-* Following guide in [https://docs.microsoft.com/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15](https://docs.microsoft.com/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15)
+* Note that the SQL Server YAML is taken from the docs, without integration with Azure Key Vault. Integrating it with Azure Key Vault left as optional. Participants are allowed to use secrets for this challenge for simplicity reasons.
+* Explain the dependencies between Availability Zones, disks and nodes, and how this can lead to problems
+* Following guide in: [Quickstart: Deploy a SQL Server container cluster on Azure](https://docs.microsoft.com/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-ver15)
 
 ## Solution Guide
 
 Deploy SQL Server on AKS
 
 ```bash
-# SQL pwd in secret. AKV integration not required for this challenge
+# SQL pwd in secret. Azure Key Vault integration not required for this challenge
 sql_password='Microsoft123!Microsoft123!'
 remote "kubectl create namespace sql"
 remote "kubectl -n sql create secret generic mssql --from-literal=SA_PASSWORD=\"$sql_password\""
@@ -180,7 +180,7 @@ remote "kubectl rollout restart deploy/api -n $namespace"
 remote "kubectl -n $namespace get pod"
 ```
 
-### Optional: PV with Large File Shares
+### Optional: Persistent Volume with Large File Shares
 
 You can create a storage account with an Azure Files Share, and then a container that mounts that share.
 
@@ -200,7 +200,7 @@ remote "kubectl -n sql create secret generic azure-storage \
   --from-literal=azurestorageaccountkey=$storage_account_key"
 ```
 
-We can now create a SQL Server deployment mounting that share. We will not use Stateful Sets, becase SS dynamically create the required PVCs, but we want to use the existing share we have just created:
+We can now create a SQL Server deployment mounting that share. We will not use Stateful Sets, because SS dynamically create the required PVCs, but we want to use the existing share we have just created:
 
 ```bash
 remote "cat <<EOF | kubectl -n sql apply -f -
@@ -262,7 +262,7 @@ EOF"
 After verifying that the pod has ben created successfully, we can now run the same performance test in the new pod:
 
 ```bash
-# Verfiy pod is up
+# Verify pod is up
 sql_pod_name=$(remote "kubectl -n sql get pods -l app=mssqlnfs -o custom-columns=:metadata.name" | awk NF)
 remote "kubectl -n sql describe pod $sql_pod_name"
 ```
@@ -280,7 +280,7 @@ You should get a result like this:
 1073741824 bytes (1.1 GB, 1.0 GiB) copied, 10.2392 s, 105 MB/s
 ```
 
-You can verify the Azure Files untilization in the metrics:
+You can verify the Azure Files utilization in the metrics:
 
 ![](images/azfiles_ingress.png)
 
@@ -288,3 +288,4 @@ You can comment the results and compare them to the disk performance. Make the p
 
 * [Azure File limits](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets): 300 MB/s for Large Shares
 * [Network limits for B-series VMs](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable?toc=/azure/virtual-machines/linux/toc.json): not documented
+

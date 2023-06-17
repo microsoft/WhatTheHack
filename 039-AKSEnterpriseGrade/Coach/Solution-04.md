@@ -1,8 +1,156 @@
-# Challenge 4: Secrets and Configuration Management - Coach's Guide
+# Challenge 04 - Secrets and Configuration Management - Coach's Guide 
 
-[< Previous Challenge](./03-aks_monitoring.md) - **[Home](./README.md)** - [Next Challenge >](./05-aks_security.md)
+[< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes and Guidance
+
+The goals of this challenge focus on managing configuration settings and secrets for the ["Whoami"](../Student/Resources/) sample application in Kubernetes. 
+
+There are two non-secret configuration settings:
+  - Database server name
+  - Database user name
+
+There is one secret value:
+  - Database password
+
+## Solution Guide
+
+There are multiple ways to solve this challenge. Depending on the organization's learning goals, you should encourage the students to complete it each of the ways so that they are familiar with the options and pros/cons of each one.
+
+For the non-secret configuration settings, this challenge can be solved using either of the following:
+- [Kubernetes ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
+  - This link explains the ConfigMap concept and has examples that should guide students on how to get this to work.
+- Azure App Configuration Service
+
+For the secret value, this challenge can be solved using any of the following:
+- [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) (not ideal)
+  - **Warning:** Kubernetes Secrets are, by default, stored unencrypted in the API server's underlying data store (etcd). Anyone with API access can retrieve or modify a Secret, and so can anyone with access to etcd. Additionally, anyone who is authorized to create a Pod in a namespace can use that access to read any Secret in that namespace; this includes indirect access such as the ability to create a Deployment.
+- Azure Key Vault CSI Driver for Kubernetes
+  - Pull secrets from Key Vault and store in Kubernetes Secrets (and keep them in sync)
+    - Pro: Enables applications that look for secrets in Environment Variables to run without application modification.
+    - Con: This is subject to the same warning above for Kubernetes Secrets themselves.
+    - Con: Need to configure synchronization scheduled to keep Key Vault secrets in-sync with Kubernetes Secrets.
+  - Pull secrets from Key Vault and mount them as a storage volume on the pod(s). **RECOMMENDED OPTION**
+    - Pro: Secrets can only be accessed by the pod requesting the secret.
+    - Con: Multiple identity options can lead to confusion when configuring Azure Key Vault CSI driver to pull secrets from Azure Key Vault. See below for more details.
+
+The challenge states that no static passwords should be used or stored on the cluster.  This implies a managed identity is needed to access Azure Key Vault.
+
+When retrieving secret values from Azure Key Vault, there are multiple options for the Azure identity that will be used to access Key Vault.  
+- **System-assigned managed identity** assigned to the AKS Control Plane (not recommended as it's too broad)
+- **User-assigned managed identity** assigned to the VMSS of the nodepool (current recommended method)
+- **Pod-managed identity** (this feature was in preview and has been deprecated.)  
+- **Workload Identity** (this feature is currently in preview and should be available in Spring 2023)
+
+**NOTE:** This is an area where the technology is in flux today. You should check the Azure documentation as the details on how to do this may change.
+
+**NOTE:** We have listed Pod-managed identity as a solution above for historical reference. Coaches should strongly advise students NOT to do go down this path and avoid any documentation, blog posts, etc, that that feature pod-managed identity.
+
+### Secrets Lecture
+
+For help explaining how secrets are managed in Kubernetes, you can present the optional lecture for this challenge in the [AKS Enterprise-Grade Lectures](Lectures.pptx) presentation deck.
+
+- The presentation slides have several animations that build out the complexity of each option for handling secrets in Kubernetes.
+- The presentation has speaker notes that should help you speak to each slide.
+
+### Sample Solution YAML Files
+
+We have included two sample YAML files that demonstrate how to solve this challenge:
+
+`secretproviderclass.yaml` - This file configures:
+  - The Azure Key Vault CSI Driver to retrieve a secret named `sqlpassword` from Key Vault, and map it to secret named `SQL_SERVER_PASSWORD`
+  - This file has placeholders that must be replaced with the proper Azure identity used to access Key Vault, as well as the Key Vault details itself.
+
+`api_akv.yaml` - This file configures:
+  - A Kubernetes ConfigMap to store the database name and database admin name.
+  - The API pod to retrieve the database name and admin name from the Kubernetes Config Map
+  - The CSI Driver volume for consumption
+  - The API pod to mount the CSI Driver volume at a `mountPath` named `/secrets`
+
+You can find the `api_akv.yaml` and `secretproviderclass.yaml` files in the [`/Solutions/Challenge-04`](./Solutions/Challenge-04/) folder of this hack's coach guide.
+
+## Azure Key Vault CSI Driver Documentation
+
+Here are links to relevant documentation:
+- [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
+  - This link has the definitive guide to all of the settings in the `SecretProviderClass.yaml` file
+- [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
+  - This is a good overview of the whole process, but then has you switch context midway through the document to the link below regarding how to choose one of the different identity types for access to Azure Key Vault.
+- [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access)
+  - This document covers how to use each of the four identities mentioned above.
+- [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver)
+
+### Gotchas!
+
+Below are some common hang ups that we have encountered with students completing this challenge.
+
+#### Creating the Azure Key Vault
+
+Students may create an Azure Key Vault using either the Azure Portal or the Azure CLI.  Coaches should always encourage students to use the CLI and save the commands they run so that they end up with a re-usable script which is infrastructure-as-code.
+
+It is common that students forget that they need to create an access policy to grant the Azure Identity they choose to use for the CSI Driver access to the Key Vault.
+
+#### Choosing the Correct Azure Identity
+
+Students may get hung up on choosing the correct identity to use for accessing Azure Key Vault from the CSI Driver on the AKS cluster.
+
+Coaches should take the time to review the different identity options and help the students decide which type to choose.
+
+As of February 2023, the recommended way is to use a managed identity (system or user) assigned to the VMSS of the nodepool.
+
+Going forward, students should consider Workload Identity when it is out of preview.
+
+#### Mounting Azure Key Vault Secrets as a File Volume
+
+When using the CSI Driver to mount secrets as a File Volume, the default behavior is that files named with the secret names are placed in the mount path, with the content of each file being the value of the secret.
+
+For example, if the CSI Driver is configured to bring back secrets named `secretname1`, `secretname2`, and `secretnameX`, you will observe the following on the pod's file system:
+
+```
+/mountpath/secretname1
+/mountpath/secretname2
+/mountpath/secretnameX
+
+cat secretname1
+Pa55w0rd123!
+```
+In the `SecretProviderClass.yaml` manifest for the CSI Driver, you can optionally specify to bring back multiple versions of a secret (if there are multiple versions in Azure Key Vault).
+
+For example:
+
+![](images/azkvcsi-multiplesecretversions.png)
+
+When bringing back multiple versions of a secret, the CSI Driver will create a sub-folder named with the secret name in the mount path. The sub-folder will then contain one or more files named with numbers 0 through the number of versions returned.
+
+For example, if the CSI Driver is configured to bring back 3 versions of a secret named `secretname1`, you will observe the following on the pod's file system:
+
+```
+/mountpath/secretname1/0
+/mountpath/secretname1/1
+/mountpath/secretname1/2
+
+cd /secretname1
+
+cat 0
+Pa55w0rd123!
+cat 1
+myDogzName2008
+cat 2
+myKidzName2020
+```
+
+This behavior requires the application to know to look in different locations for the secret value if there are multiple versions of the secret supplied.
+
+**NOTE:** The sample "whoami" application is NOT coded to handle this difference. If students accidentally configure the CSI Driver to bring back multiple versions of a secret, the application will not find it. Coaches should be on the look out for this scenario, advise students of this behavior, and how to fix it.
+
+## OLD Notes & Guidance
+
+**NOTE:** The Solution Guide below was written to demonstrate how to solve the challenge using Pod-managed identity to access Azure Key Vault. This solution has been deprecated and you should advise students against going down this path!
+
+We will be updating this coach guide soon to describe the future recommended solution of using Workload Identity.
+
+<details>
+<summary>Click to expand/collapse</summary>
 
 * Note that Pod identity is in flux today. Make sure to understand the related documentation
 * The fact that no static passwords can be used implies that AAD Pod Identity is a prerequisite
@@ -13,7 +161,7 @@
 * Along this lab a large number of pods will be created. Chances are that the number of pods will exceed 30, the maximum per node for Azure CNI. If the participant has deployed one single node, some pods will not start. One possible solution is enable the cluster autoscaler
 * Make sure to check the latest documentation in [https://azure.github.io/aad-pod-identity/docs/getting-started/](https://azure.github.io/aad-pod-identity/docs/getting-started/)
 
-## Solution Guide
+## OLD Solution Guide 
 
 ```bash
 # Cluster autoscaler
@@ -27,7 +175,7 @@ See this link for more details on Pod Identity: [https://github.com/Azure/aad-po
 The goal of this challenge will be retrieving the SQL Server password from an Azure Key Vault. Let's create it first:
 
 ```bash
-# Create AKV and store SQL Server password
+# Create Azure Key Vault and store SQL Server password
 akv_name=$rg
 akv_secret_name=sqlpassword
 az keyvault create -n $akv_name -g $rg
@@ -112,7 +260,7 @@ remote "kubectl logs demo"
 See [https://github.com/Azure/secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure):
 
 ```bash
-# akv secret provider
+# Azure Key Vault secret provider
 remote "helm repo add csi-secrets-store-provider-azure https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/charts"
 remote "helm install csi-secrets-store-provider-azure/csi-secrets-store-provider-azure --generate-name"
 tmp_file=/tmp/secretproviderclass.yaml
@@ -132,7 +280,7 @@ remote "kubectl apply -f ./$file"
 After having our identity ready, we can add a policy in the Azure Key Vault:
 
 ```bash
-# Add AKV policy
+# Add Azure Key Vault policy
 az keyvault set-policy -n $akv_name --spn $identity_client_id \
     --secret-permissions get \
     --key-permissions get \
@@ -174,7 +322,7 @@ identity_principal_id=$(az identity show -g $rg -n $identity_name --query princi
 identity_id=$(az identity show -g $rg -n $identity_name --query id -o tsv)
 subscription_id=$(az account show --query id -o tsv)
 # az role assignment create --role Reader --assignee $identity_principal_id --scope $rg_id
-# Add AKV policy to grant access to the identity
+# Add Azure Key Vault policy to grant access to the identity
 az keyvault set-policy -n $akv_name --spn $identity_client_id \
     --secret-permissions get \
     --key-permissions get \
@@ -385,7 +533,7 @@ kubectl describe mutatingwebhookconfigurations.admissionregistration.k8s azure-w
 Now on to the Azure portal:
 
 - Navigate to Azure Active Directory, in `App registrations` find your app (make sure you are in the tab `All applications`), go to the application `Certificate & secrets` blade. Then choose Federated credentials and click Add Credential button.
-- After this select `Kubernetes accesing Azure resources`, fill the required fields with appropriate values and click Save button.
+- After this select `Kubernetes accessing Azure resources`, fill the required fields with appropriate values and click Save button.
 
 Or alternatively:
 
@@ -406,4 +554,4 @@ cat <<EOF > body.json
 EOF
 az rest --method POST --uri "https://graph.microsoft.com/beta/applications/$aad_app_objectid/federatedIdentityCredentials" --body @body.json
 ```
-
+</details>
