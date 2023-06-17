@@ -24,15 +24,15 @@ At this point in time, you have likely set those environment variable values by 
 
 # NEVER. DO. THIS... EVER!!!
 
-> **Warning:** Committing a secret value into a public Git repository automatically compromises it, even if you immediately reverse the commit to delete the secret from the repo. This is because the secret value will remain in the repository's history for all to see. You must consider that secret value compromised and replace it with a new value immediately.
+> **Warning** Committing a secret value into a public Git repository automatically compromises it, even if you immediately reverse the commit to delete the secret from the repo. This is because the secret value will remain in the repository's history for all to see. You must consider that secret value compromised and replace it with a new value immediately.
 
 Kubernetes has built in mechanisms to handle configuration data and secrets. These include:
 - [Kubernetes ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
 - [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
 
-> **Warning:** ConfigMap does not provide secrecy or encryption. If the data you want to store are confidential, use a Secret rather than a ConfigMap, or use additional (third party) tools to keep your data private.
+> **Warning** ConfigMap does not provide secrecy or encryption. If the data you want to store are confidential, use a Secret rather than a ConfigMap, or use additional (third party) tools to keep your data private.
 
-> **Warning:** Kubernetes Secrets are, by default, stored unencrypted in the Control Plane's underlying data store (etcd). Anyone with Control Plane access can retrieve or modify a Secret, and so can anyone with access to etcd. 
+> **Warning** Kubernetes Secrets are, by default, stored unencrypted in the Control Plane's underlying data store (etcd). Anyone with Control Plane access can retrieve or modify a Secret, and so can anyone with access to etcd. 
 
 It is a **BEST** practice to store secret values (such as passwords) in the [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) service.
 
