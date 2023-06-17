@@ -15,13 +15,13 @@ When working with large language models, it is important to understand how to gr
 
 Questions you should be able to answer by the end of the challenge:
 
-*Why is grounding important and how can you ground a LLM model?
+* Why is grounding important and how can you ground a LLM model?
 
-*What is a token limit?
+* What is a token limit?
 
-*How can you deal with token limits? What are techniques of chunking?
+* How can you deal with token limits? What are techniques of chunking?
 
-*What do embedding help accomplish?
+* What do embedding help accomplish?
 
 Sections in this Challenge:
 
