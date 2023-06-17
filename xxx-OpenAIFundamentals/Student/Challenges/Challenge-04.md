@@ -41,7 +41,7 @@ Sections in this Challenge:
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- If working with unstructured data, extract text from raw unstructured data using Azure Form Recognizer Layout API into a more structured format such as JSON.
+- If working with unstructured data, extract text from raw data using Azure Form Recognizer Layout API into a more structured format such as JSON.
 - Create an index using Azure Cognitive Search based on the type of data you are dealing with and load data into the index. 
 - Use Iterative Prompt Development to write the most effective prompts for your AI tasks.
 - Generate the most accurate answers and responses using Azure OpenAI (AOAI) service by using above prompts.
