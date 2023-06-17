@@ -25,9 +25,11 @@ Questions you should be able to answer by the end of the challenge:
 
 Sections in this Challenge:
 
-*3.1 - Grounding
-*3.2 - Chunking
-*3.3 - Embeddings
+*3.1: Grounding
+
+*3.2: Chunking
+
+*3.3: Embeddings
    
 ## Success Criteria
 
