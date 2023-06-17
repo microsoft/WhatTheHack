@@ -19,7 +19,7 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
     - If you are comfortable with command line interfaces and want to try Git SCM, follow instructions to download and install [here](https://git-scm.com/downloads). 
     - If you prefer a GUI-based experience, download and install GitHub Desktop [here](https://desktop.github.com/). 
 
-- Finally, you will need some version of IDE or text editor to complete the challenges. You are welcome to use built in applications such as TextEdit or Notepad, though we highly recommend development tools such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/). Follow the links to download and install, or use an editor of your choice!
+- Finally, you will need some version of IDE or text editor to complete the challenges. You are welcome to use built in applications such as TextEdit or Notepad, though we highly recommend development tools such as [Visual Studio Code](https://code.visualstudio.com/) or [GitHub Codespaces](https://docs.github.com/en/codespaces/overview/) which can run in your browser. Follow the links to download and install, or use an editor of your choice!
 
 
 ## Success Criteria
@@ -31,7 +31,7 @@ DevOps is a broad concept that encompasses people, processes, and tools. The too
 ## Learning Resources
 
 - There are many other GUI-based Git clients aside from GitHub Desktop. Feel free to explore them [here](https://git-scm.com/downloads/guis). 
-- If using VSCode as your editor, you can check [here](https://code.visualstudio.com/docs/editor/github) to learn more about the built-in Git capabilities, and integration with GitHub. Feel free to use VSCode's Git features instead of the command line or GUI client. 
+- If using VSCode as your editor, you can check [here](https://code.visualstudio.com/docs/editor/github) to learn more about the built-in Git capabilities, and integration with GitHub. Feel free to use the VSCode Git features instead of the command line or GUI client. 
 - [What is DevOps?](https://learn.microsoft.com/en-us/devops/what-is-devops)
 - [What is GitHub?](https://guides.github.com/activities/hello-world/)
 - [Azure DevOps vs. GitHub](https://acloudguru.com/blog/engineering/azure-devops-vs-github-comparing-microsofts-devops-twins)
