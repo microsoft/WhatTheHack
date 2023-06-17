@@ -17,7 +17,7 @@
         - This version was not respecting the readiness probes set on Kubernetes services.
     - **`ingress-nginx`** - Free open-source version by the Kubernetes community
         - This version requires a special annotation to set the health probe path for the Azure Load Balancer when installing it into an AKS cluster.
-- The Microsoft documentation refers to the `ingress-nginx` version. However, students may find documentation elsewhere online referring to the `nginx-ingress`.
+- The Microsoft documentation refers to the `ingress-nginx` version, and WE RECOMMEND STUDENTS USE THIS ONE. However, students may find documentation elsewhere online referring to the `nginx-ingress`. That is okay, but as a coach, be aware of the minor differences between the two.
 - Note that configuring a private DNS-zone was not required when creating the private cluster
 - If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
 - At the time of this writing, SLA API and private API are mutually exclusive
