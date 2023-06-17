@@ -1,16 +1,25 @@
-# Challenge 1: Containers - Coach's Guide
+# Challenge 01 - Containers - Coach's Guide 
 
-**[Home](./README.md)** - [Next Challenge >](./02-aks_private.md)
+[< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes and Guidance
 
-* Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR do the build for them (`az acr build`)
+- Participants can build locally and then upload the images (`docker build`, `docker login` and `docker push`), or let ACR Tasks do the build for them (`az acr build`)
+- If students had any issues getting WSL or Docker Desktop running on their local workstations during Challenge 0, you should direct them to use ACR to do the container builds for them.
+- Students may not be familiar with SQL Server or how to run it as a container, you may need to point them at the documentation in Challenge 1's Learning Resources.
+- Remind the students to check the documentation for each of the components. They will find information there on HOW to run the apps locally or via ACI.
 
 ## Before you start
 
-Make sure you have extracted the provided ZIP file or cloned the Git repo, and you are located in the root directory of the hack (`039-AKSEnterpriseGrade`).
+If you want to follow along with students, you should unpack the same `Resources.zip` file you provided them, open your PowerShell or WSL/Terminal, and navigate to the folder wherever you unpacked it.
 
-## Local Docker (Option 1)
+Alternatively, if you have cloned the What The Hack repo, you can navigate to the `039-AKS-EnterpriseGrade/Student/Resources` folder and run the script blocks below.
+
+**NOTE:** Students should **NOT** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
+
+## Solution Guides
+
+### Local Docker (Option 1)
 
 These commands have been tested on Powershell 7 on Windows 10, with Docker configured for Linux containers, and the utilities `jq` and `curl` installed
 
@@ -47,7 +56,7 @@ The web GUI should look something like this:
 
 Note the `Healthcheck: OK` and the SQL version retrieved from the SQL database. The links at the bottom of the page (API health status and SQL Server Version are not working yet, they are intended to be used with an ingress controller)
 
-## ACR & ACI (Option 2)
+### ACR & ACI (Option 2)
 
 These commands have been tested on a zsh shell:
 
@@ -112,3 +121,4 @@ The web GUI should look something like this:
 ![](images/aci_web.png)
 
 Note the `Healthcheck: OK` and the SQL version retrieved from the SQL database. The links at the bottom of the page (API health status and SQL Server Version) are not working yet, they are intended to be used with an ingress controller (to be provisioned in further challenges).
+
