@@ -1,6 +1,6 @@
-# Challenge 5: AKS Security
+# Challenge 05 - AKS Security
 
-[< Previous Challenge](./04-aks_secrets.md) - **[Home](../README.md)** - [Next Challenge >](./06-aks_storage.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 

@@ -1,6 +1,6 @@
-# Challenge 7: Service Mesh
+# Challenge 07 - Service Mesh
 
-[< Previous Challenge](./06-aks_storage.md) - **[Home](../README.md)** - [Next Challenge >](./08-arc.md)
+[< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
 ## Introduction
 

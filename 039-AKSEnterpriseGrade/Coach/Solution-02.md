@@ -1,19 +1,303 @@
-# Challenge 2: AKS Network Integration and Private Clusters - Coach's Guide
+# Challenge 02 - AKS Network Integration and Private Clusters - Coach's Guide 
 
-[< Previous Challenge](./01-containers.md) - **[Home](./README.md)** - [Next Challenge >](./03-aks_monitoring.md)
+[< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes and Guidance
 
-* Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
-* Make sure the participants understand how the Azure Load Balancers, NSGs and kubernetes services play together
-* Make sure the participants understand why the ingress needs to be deployed with a private IP address: otherwise the default route to the firewall will cause asymmetric routing
-* Participants could go with an off-cluster ingres controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
-* Feel free to leave the participants go with any ingress controller other than nginx, but nginx is probably going to be the easiest one.
-* Note that configuring a private DNS-zone was not required when creating the private cluster
-* If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
-* At the time of this writing, SLA API and private API are mutually exclusive
+- Make sure the participants understand the IP address allocation requirements of Azure CNI vs kubenet
+- Make sure the participants understand how the Azure Load Balancer, NSGs and kubernetes services play together
+- Make sure the participants understand why the ingress needs to be deployed with a private IP address when using a private AKS cluster: otherwise the default route to the firewall will cause asymmetric routing
+- Coaches should **STRONGLY** encourage students to use infrastructure-as-code (Azure CLI, Bicep, or Terraform) instead of the Azure portal to deploy the AKS cluster. This will make it easier if they need to redeploy the cluster if the solution to a later challenge requires it.
+- Participants could go with an off-cluster ingress controller such as AGIC, this would probably make routing easier (and there are no dependencies later on)
+- Feel free to leave the participants go with any ingress controller other than nginx, but nginx is probably going to be the easiest one.
+- There are two different nginx ingress controllers with similar names:
+    - **`nginx-ingress`** - A commercial offering provided by F5
+        - Has a "freemium" version that is designed to be upgraded to their paid offering, "`nginx+`".
+        - This version bypasses Kubernetes services and route directly to the pods by getting the list of pods from the Kubernetes service definition.
+        - This version was not respecting the readiness probes set on Kubernetes services.
+    - **`ingress-nginx`** - Free open-source version by the Kubernetes community
+        - This version requires a special annotation to set the health probe path for the Azure Load Balancer when installing it into an AKS cluster.
+- The Microsoft documentation refers to the `ingress-nginx` version, and WE RECOMMEND STUDENTS USE THIS ONE. However, students may find documentation elsewhere online referring to the `nginx-ingress`. That is okay, but as a coach, be aware of the minor differences between the two.
+- Note that configuring a private DNS-zone was not required when creating the private cluster
+- If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
+- At the time of this writing, SLA API and private API are mutually exclusive
+
+**NOTE:** If students do not have "Owner" permissions on their Azure subscriptions, they will not have permission to attach their AKS cluster to their ACR.  We have staged the sample application on Docker Hub so that students can use the container images at these locations:
+- **API app:** `whatthehackmsft/api`
+- **Web app:** `whatthehackmsft/web`
+
+**HINT:** If students decide to use their own ACR with the images for api and web, they must fully qualify the name of their ACR. An image with a non-fully qualified registry name is assumed to be in Docker Hub. 
+
+This challenge has multiple paths:
+
+- [Challenge 02 Accelerator](#challenge-02-accelerator)
+- [Public AKS Cluster](#solution-guide---public-clusters-and-no-firewall-egress)
+- [Private AKS Cluster](#solution-guide---private-clusters-and-firewall-egress)
+
+## Challenge 02 Accelerator
+
+Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
+
+In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the Whoami sample application from pre-staged container images in Docker Hub to an existing AKS cluster.
+
+For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3.
+
+If you wish to accelerate your students, you should:
+- Package the contents of this folder into an `Accelerator.zip` file and distribute it to the students.
+- Direct students to the hidden [Challenge 2 Accelerator](../Student/Challenge-02A.md) instructions page in the student guide. The instructions there assume a student has an existing "public" AKS cluster. Students will be instructed to deploy the Nginx Ingress controller to the AKS cluster if it is not already deployed.
+
+**NOTE:** The Challenge 2 student guide specifies that the AKS cluster is deployed with Azure CNI Networking. If a student's existing AKS cluster uses Kubenet for networking, the Whoami application should deploy just fine. Students should be able to complete all of the challenges with the AKS cluster using Kubenet networking.  However, some challenges may lead the students to want to use Azure CNI for a solution, which would require the students to re-deploy a new cluster with Azure CNI Networking.
+
+## Solution Guide - Public Clusters and no Firewall Egress
+
+In the `/Solutions/Challenge-02/Public` folder, you will find a set of YAML files that deploy the Whoami sample application to a public AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
+
+There are a set of Terraform modules located in the [`/Solutions/Challenge-02/Terraform`](./Solutions/Challenge-02/Terraform/) folder that will deploy the Azure resources needed for a public AKS cluster and an Azure SQL Database. If you use the Terraform modules, you will need to update the YAML files with the appropriate values before applying them to the AKS cluster.
+
+Alternatively, the script blocks below in the collapsible section also demonstrate how to complete all steps of this challenge if you choose to deploy a public AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
+
+The script blocks also replace the placeholders in the YAML files with the actual values to use before then applying the YAML files to the AKS cluster.
+
+<details>
+<summary>Click to expand/collapse</summary>
+
+This is a simplified script for this challenge using a public clusters and no egress traffic filtering through a firewall:
+
+```bash
+# Get variables from previous labs and build images
+rg=$(az group list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
+if [[ -n "$rg" ]]
+then
+    location=$(az group list --query "[?contains(name,'hack')].location" -o tsv)
+else
+    rg=hack$RANDOM
+    location=westeurope
+    az group create -n $rg -l $location
+fi
+acr_name=$(az acr list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
+if [[ -z "$acr_name" ]]
+then
+    acr_name=hack$RANDOM
+    az acr create -n $acr_name -g $rg --sku Standard
+    # Build images (you should be in the hack-containers home directory)
+    cd api
+    az acr build -r $acr_name -t hack/sqlapi:1.0 .
+    cd ../web
+    az acr build -r $acr_name -t hack/web:1.0 .
+    az acr repository list -n $acr_name -o table
+fi
+# Variables for AKS
+aks_name=aks
+aks_rbac=yes
+aks_service_cidr=10.0.0.0/16
+vm_size=Standard_B2ms
+preview_version=no
+vnet_name=aks
+vnet_prefix=10.13.0.0/16
+aks_subnet_name=aks
+aks_subnet_prefix=10.13.76.0/24
+vm_subnet_name=vm
+vm_subnet_prefix=10.13.1.0/24
+db_subnet_name=sql
+db_subnet_prefix=10.13.50.0/24
+akslb_subnet_name=akslb
+akslb_subnet_prefix=10.13.77.0/24
+
+# Create vnet
+az network vnet create -g $rg -n $vnet_name --address-prefix $vnet_prefix -l $location
+az network vnet subnet create -g $rg -n $aks_subnet_name --vnet-name $vnet_name --address-prefix $aks_subnet_prefix
+aks_subnet_id=$(az network vnet subnet show -n $aks_subnet_name --vnet-name $vnet_name -g $rg --query id -o tsv)
+
+# Get latest supported/preview version
+k8s_versions=$(az aks get-versions -l $location -o json)
+if [[ "$preview_version" == "yes" ]]
+then
+    k8s_version=$(echo $k8s_versions | jq '.orchestrators[]' | jq -rsc 'sort_by(.orchestratorVersion) | reverse[0] | .orchestratorVersion')
+    echo "Latest supported k8s version in $rg_location is $k8s_version (in preview)"
+else
+    k8s_version=$(echo $k8s_versions | jq '.orchestrators[] | select(.isPreview == null)' | jq -rsc 'sort_by(.orchestratorVersion) | reverse[0] | .orchestratorVersion')
+    echo "Latest supported k8s version (not in preview) in $location is $k8s_version"
+fi
+
+# User identity
+id_name=aksid
+id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
+if [[ -z "$id_id" ]]
+then
+    echo "Identity $id_name not found, creating a new one..."
+    az identity create -n $id_name -g $rg -o none
+    id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
+else
+    echo "Identity $id_name found with ID $id_id"
+fi
+id_principal_id=$(az identity show -n $id_name -g $rg --query principalId -o tsv)
+vnet_id=$(az network vnet show -n $vnet_name -g $rg --query id -o tsv)
+sleep 15 # Time for creation to propagate
+az role assignment create --scope $vnet_id --assignee $id_principal_id --role Contributor -o none
+
+# Create cluster
+az aks create -g "$rg" -n "$aks_name" -l "$location" \
+    -c 1 -s "$vm_size" -k $k8s_version --generate-ssh-keys \
+    --network-plugin azure --vnet-subnet-id "$aks_subnet_id" \
+    --service-cidr "$aks_service_cidr" \
+    --network-policy calico --load-balancer-sku Standard \
+    --node-resource-group "${aks_name}-iaas-${RANDOM}" \
+    --attach-acr "$acr_name" \
+    --enable-managed-identity --assign-identity "$id_id"
+```
+
+You can now access the cluster and get some info:
+
+```bash
+# Cluster-info
+az aks get-credentials -n $aks_name -g $rg --overwrite
+kubectl get node
+kubectl version
+```
+
+Create now the Azure SQL database and the private link endpoint (you could use the same database as in challenge 1 though):
+
+```bash
+# Variables
+db_server_name=$rg
+db_db_name=testdb
+sql_endpoint_name=sqlPrivateEndpoint
+private_zone_name=privatelink.database.windows.net
+sql_username=azure
+sql_password=Microsoft123!
+# Create SQL server and DB
+az sql server create -n "$db_server_name" -g "$rg" -l "$location" --admin-user "$sql_username" --admin-password "$sql_password"
+db_server_id=$(az sql server show -n "$db_server_name" -g "$rg" -o tsv --query id)
+az sql db create -n "$db_db_name" -s "$db_server_name" -g "$rg" -e Basic -c 5
+db_server_fqdn=$(az sql server show -n "$sql_server_name" -g "$rg" -o tsv --query fullyQualifiedDomainName)
+# Subnet and endpoint
+az network vnet subnet create -g "$rg" -n "$db_subnet_name" --vnet-name "$vnet_name" --address-prefix "$db_subnet_prefix"
+az network vnet subnet update -n "$db_subnet_name" -g "$rg" --vnet-name "$vnet_name" --disable-private-endpoint-network-policies true
+az network private-endpoint create -n "$sql_endpoint_name" -g "$rg" --vnet-name "$vnet_name" --subnet "$db_subnet_name" --private-connection-resource-id "$db_server_id" --group-ids sqlServer --connection-name sqlConnection
+endpoint_nic_id=$(az network private-endpoint show -n "$sql_endpoint_name" -g "$rg" --query 'networkInterfaces[0].id' -o tsv)
+endpoint_nic_ip=$(az resource show --ids "$endpoint_nic_id" --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
+# DNS
+az network private-dns zone create -g "$rg" -n "$private_zone_name"
+# Registration-enabled false not required any more!
+az network private-dns link vnet create -g "$rg" --zone-name "$private_zone_name" -n MyDNSLink --virtual-network "$vnet_name" --registration-enabled false
+az network private-dns record-set a create --name "$db_server_name" --zone-name "$private_zone_name" -g "$rg"
+az network private-dns record-set a add-record --record-set-name "$db_server_name" --zone-name "$private_zone_name" -g "$rg" -a "$endpoint_nic_ip"
+```
+
+After having the database, we can finally deploy our images.
+
+```bash
+# API
+cd Coach  # Make sure you are in the `Coach` folder of the WTH repo
+tmp_file=/tmp/api-public.yaml
+file=api-public.yaml
+cp "./Solutions/Challenge-02/Public/$file" $tmp_file
+sed -i "s|__sql_username__|${sql_username}|g" $tmp_file
+sed -i "s|__sql_password__|${sql_password}|g" $tmp_file
+sed -i "s|__sql_server_name__|${db_server_fqdn}|g" $tmp_file
+sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
+sed -i "s|__sqlserver,mysql,postgres__|sqlserver|g" $tmp_file
+sed -i "s|__yes,no__|yes|g" $tmp_file
+kubectl apply -f $tmp_file
+# Get IP address of service
+api_svc_ip=$(kubectl get svc/api -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$api_svc_ip" == "null" ]]
+do
+    sleep 5
+    api_svc_ip=$(kubectl get svc/api -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+curl -s "http://${api_svc_ip}:8080/api/healthcheck"
+```
+
+```bash
+# Web
+tmp_file=/tmp/web-public.yaml
+file=web-public.yaml
+cp ./Solutions/Challenge-02/Public/$file $tmp_file
+sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
+kubectl apply -f $tmp_file
+# Get IP address of service
+web_svc_ip=$(kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$web_svc_ip" == "null" ]]
+do
+    sleep 5
+    web_svc_ip=$(kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+curl -s "http://${web_svc_ip}" | grep Healthcheck
+```
+
+We can now configure the Database firewall to accept connections from our pod:
+
+```bash
+# Update firewall rules
+sqlapi_source_ip=$(curl -s "http://${api_svc_ip}:8080/api/ip" | jq -r .my_public_ip)
+az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip"
+# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
+```
+
+And finally, the ingress controller. You can use any one you want, in this guide we include the option Nginx (see the section on private clusters for Traefik).
+
+```bash
+# Nginx installation
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+kubectl create ns nginx
+helm install nginx ingress-nginx/ingress-nginx --namespace nginx
+# nginx service IP
+nginx_svc_name=$(kubectl get svc -n nginx -o json | jq -r '.items[] | select(.spec.type == "LoadBalancer") | .metadata.name')
+nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$nginx_svc_ip" == "null" ]]
+do
+    sleep 5
+    nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+```
+
+And now that we have an ingress controller, we can create an ingress (aka route). You can use either an FQDN associated to the Azure Firewall's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
+
+```bash
+# Ingress route (using Nginx)
+tmp_file=/tmp/ingress.yaml
+file=ingress.yaml
+cp ./Solutions/Challenge-02/$file $tmp_file
+sed -i "s|__ingress_class__|nginx|g" $tmp_file
+sed -i "s|__ingress_ip__|${nginx_svc_ip}|g" $tmp_file
+kubectl apply -f $tmp_file
+echo "You can browse to http://${nginx_svc_ip}.nip.io"
+```
+
+At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
+
+![Image of Whoami app in Browser](./images/aks_web.png)
+
+Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
+</details>
 
 ## Solution Guide - Private Clusters and Firewall Egress
+
+Deploying a private AKS cluster with no public IP addresses is a complex task and will take students more time to figure out how to do it. This is listed as an "Advanced Challenge" in the Challenge 2 student guide. Using a private cluster will also result in variations of how to solve the other challenges.
+
+If students choose to deploy a private cluster, the coach should be prepared to explain key networking concepts and how a private AKS cluster works differently from a non-private AKS cluster.
+
+Deploying a private AKS cluster requires multiple Azure resources to be deployed and configured BEFORE deploying AKS. These include:
+- Hub & Spoke VNets that are peered to each other
+- An Azure Firewall with proper egress network rules set on it
+- A User Defined Route (UDR)
+- A VM jumpbox with Azure CLI & kubectl CLI installed to access the private AKS cluster
+
+In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the Whoami sample application to a private AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
+
+The script blocks below in the collapsible section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
+
+The script blocks also replace the placeholders in the YAML files with the actual values to use before then applying the YAML files to the AKS cluster.
+
+It is unrealistic to expect students to come up with all of the Azure CLI code below from scratch to deploy this configuration. It is likely they will find existing articles on the Internet that describe how to deploy a private AKS cluster and copy/paste from them.
+
+Here's an example reference article: [Fully Private AKS Clusters Without Any Public IPs: Finally!](https://denniszielke.medium.com/fully-private-aks-clusters-without-any-public-ips-finally-7f5688411184)
+
+<details>
+<summary>Click to expand/collapse</summary>
+
 
 This is a possible script for this challenge using private clusters and filtering egress traffic through firewall (check later in the doc for a simplified guide with a public cluster and no firewall egress):
 
@@ -201,7 +485,7 @@ az aks create -g "$rg" -n "$aks_name" -l "$location" \
     --enable-managed-identity --assign-identity "$id_id"
 ```
 
-You can query the FW logs and look for denied packets by the firewall, in case you have forgotten to add any URL. For example, use this query for application rule logs:
+You can query the Azure Firewall logs and look for denied packets by the firewall, in case you have forgotten to add any URL. For example, use this query for application rule logs:
 
 ```bash
 # App rule logs
@@ -410,7 +694,7 @@ done
 ingress_svc_ip=$nginx_svc_ip
 ```
 
-We need DNAT at the AzFW to send inbound traffic on certain ports (TCP 80) to the nginx instances.
+We need DNAT at the Azure Firewall to send inbound traffic on certain ports (TCP 80) to the nginx instances.
 
 ```bash
 # DNAT rule
@@ -421,7 +705,7 @@ az network firewall nat-rule create -f azfw -g "$rg" -n nginx \
     -c IngressController --action Dnat --priority 100
 ```
 
-And now that we have an ingress, we can create an ingress (aka route). You can use either an FQDN associated to the AzFW's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
+And now that we have an ingress controller, we can create an ingress (aka route). You can use either an FQDN associated to the Azure Firewall's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
 
 ```bash
 # Ingress route (using Nginx)
@@ -437,219 +721,8 @@ echo "You can browse to http://${azfw_ip}.nip.io"
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 
-![](images/aks_web.png)
+![Image of Whoami app in Browser](./images/aks_web.png)
 
 Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
+</details>
 
-## Solution Guide - Public Clusters and no Firewall Egress
-
-This is a simplified script for this challenge using a public clusters and no egress traffic filtering through a firewall:
-
-```bash
-# Get variables from previous labs and build images
-rg=$(az group list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
-if [[ -n "$rg" ]]
-then
-    location=$(az group list --query "[?contains(name,'hack')].location" -o tsv)
-else
-    rg=hack$RANDOM
-    location=westeurope
-    az group create -n $rg -l $location
-fi
-acr_name=$(az acr list --query "[?contains(name,'hack')].name" -o tsv 2>/dev/null)
-if [[ -z "$acr_name" ]]
-then
-    acr_name=hack$RANDOM
-    az acr create -n $acr_name -g $rg --sku Standard
-    # Build images (you should be in the hack-containers home directory)
-    cd api
-    az acr build -r $acr_name -t hack/sqlapi:1.0 .
-    cd ../web
-    az acr build -r $acr_name -t hack/web:1.0 .
-    az acr repository list -n $acr_name -o table
-fi
-# Variables for AKS
-aks_name=aks
-aks_rbac=yes
-aks_service_cidr=10.0.0.0/16
-vm_size=Standard_B2ms
-preview_version=no
-vnet_name=aks
-vnet_prefix=10.13.0.0/16
-aks_subnet_name=aks
-aks_subnet_prefix=10.13.76.0/24
-vm_subnet_name=vm
-vm_subnet_prefix=10.13.1.0/24
-db_subnet_name=sql
-db_subnet_prefix=10.13.50.0/24
-akslb_subnet_name=akslb
-akslb_subnet_prefix=10.13.77.0/24
-
-# Create vnet
-az network vnet create -g $rg -n $vnet_name --address-prefix $vnet_prefix -l $location
-az network vnet subnet create -g $rg -n $aks_subnet_name --vnet-name $vnet_name --address-prefix $aks_subnet_prefix
-aks_subnet_id=$(az network vnet subnet show -n $aks_subnet_name --vnet-name $vnet_name -g $rg --query id -o tsv)
-
-# Get latest supported/preview version
-k8s_versions=$(az aks get-versions -l $location -o json)
-if [[ "$preview_version" == "yes" ]]
-then
-    k8s_version=$(echo $k8s_versions | jq '.orchestrators[]' | jq -rsc 'sort_by(.orchestratorVersion) | reverse[0] | .orchestratorVersion')
-    echo "Latest supported k8s version in $rg_location is $k8s_version (in preview)"
-else
-    k8s_version=$(echo $k8s_versions | jq '.orchestrators[] | select(.isPreview == null)' | jq -rsc 'sort_by(.orchestratorVersion) | reverse[0] | .orchestratorVersion')
-    echo "Latest supported k8s version (not in preview) in $location is $k8s_version"
-fi
-
-# User identity
-id_name=aksid
-id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
-if [[ -z "$id_id" ]]
-then
-    echo "Identity $id_name not found, creating a new one..."
-    az identity create -n $id_name -g $rg -o none
-    id_id=$(az identity show -n $id_name -g $rg --query id -o tsv)
-else
-    echo "Identity $id_name found with ID $id_id"
-fi
-id_principal_id=$(az identity show -n $id_name -g $rg --query principalId -o tsv)
-vnet_id=$(az network vnet show -n $vnet_name -g $rg --query id -o tsv)
-sleep 15 # Time for creation to propagate
-az role assignment create --scope $vnet_id --assignee $id_principal_id --role Contributor -o none
-
-# Create cluster
-az aks create -g "$rg" -n "$aks_name" -l "$location" \
-    -c 1 -s "$vm_size" -k $k8s_version --generate-ssh-keys \
-    --network-plugin azure --vnet-subnet-id "$aks_subnet_id" \
-    --service-cidr "$aks_service_cidr" \
-    --network-policy calico --load-balancer-sku Standard \
-    --node-resource-group "${aks_name}-iaas-${RANDOM}" \
-    --attach-acr "$acr_name" \
-    --enable-managed-identity --assign-identity "$id_id"
-```
-
-You can now access the cluster and get some info:
-
-```bash
-# Cluster-info
-az aks get-credentials -n $aks_name -g $rg --overwrite
-kubectl get node
-kubectl version
-```
-
-Create now the Azure SQL database and the private link endpoint (you could use the same database as in challenge 1 though):
-
-```bash
-# Variables
-db_server_name=$rg
-db_db_name=testdb
-sql_endpoint_name=sqlPrivateEndpoint
-private_zone_name=privatelink.database.windows.net
-sql_username=azure
-sql_password=Microsoft123!
-# Create SQL server and DB
-az sql server create -n "$db_server_name" -g "$rg" -l "$location" --admin-user "$sql_username" --admin-password "$sql_password"
-db_server_id=$(az sql server show -n "$db_server_name" -g "$rg" -o tsv --query id)
-az sql db create -n "$db_db_name" -s "$db_server_name" -g "$rg" -e Basic -c 5
-db_server_fqdn=$(az sql server show -n "$sql_server_name" -g "$rg" -o tsv --query fullyQualifiedDomainName)
-# Subnet and endpoint
-az network vnet subnet create -g "$rg" -n "$db_subnet_name" --vnet-name "$vnet_name" --address-prefix "$db_subnet_prefix"
-az network vnet subnet update -n "$db_subnet_name" -g "$rg" --vnet-name "$vnet_name" --disable-private-endpoint-network-policies true
-az network private-endpoint create -n "$sql_endpoint_name" -g "$rg" --vnet-name "$vnet_name" --subnet "$db_subnet_name" --private-connection-resource-id "$db_server_id" --group-ids sqlServer --connection-name sqlConnection
-endpoint_nic_id=$(az network private-endpoint show -n "$sql_endpoint_name" -g "$rg" --query 'networkInterfaces[0].id' -o tsv)
-endpoint_nic_ip=$(az resource show --ids "$endpoint_nic_id" --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress')
-# DNS
-az network private-dns zone create -g "$rg" -n "$private_zone_name"
-# Registration-enabled false not required any more!
-az network private-dns link vnet create -g "$rg" --zone-name "$private_zone_name" -n MyDNSLink --virtual-network "$vnet_name" --registration-enabled false
-az network private-dns record-set a create --name "$db_server_name" --zone-name "$private_zone_name" -g "$rg"
-az network private-dns record-set a add-record --record-set-name "$db_server_name" --zone-name "$private_zone_name" -g "$rg" -a "$endpoint_nic_ip"
-```
-
-After having the database, we can finally deploy our images.
-
-```bash
-# API
-cd Coach  # Make sure you are in the `Coach` folder of the WTH repo
-tmp_file=/tmp/api-public.yaml
-file=api-public.yaml
-cp "./Solutions/$file" $tmp_file
-sed -i "s|__sql_username__|${sql_username}|g" $tmp_file
-sed -i "s|__sql_password__|${sql_password}|g" $tmp_file
-sed -i "s|__sql_server_name__|${db_server_fqdn}|g" $tmp_file
-sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
-sed -i "s|__sqlserver,mysql,postgres__|sqlserver|g" $tmp_file
-sed -i "s|__yes,no__|yes|g" $tmp_file
-kubectl apply -f $tmp_file
-# Get IP address of service
-api_svc_ip=$(kubectl get svc/api -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-while [[ "$api_svc_ip" == "null" ]]
-do
-    sleep 5
-    api_svc_ip=$(kubectl get svc/api -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-done
-curl -s "http://${api_svc_ip}:8080/api/healthcheck"
-```
-
-```bash
-# Web
-tmp_file=/tmp/web-public.yaml
-file=web-public.yaml
-cp ./Solutions/$file $tmp_file
-sed -i "s|__acr_name__|${acr_name}|g" $tmp_file
-kubectl apply -f $tmp_file
-# Get IP address of service
-web_svc_ip=$(kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-while [[ "$web_svc_ip" == "null" ]]
-do
-    sleep 5
-    web_svc_ip=$(kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-done
-curl -s "http://${web_svc_ip}" | grep Healthcheck
-```
-
-We can now configure the Database firewall to accept connections from our pod:
-
-```bash
-# Update firewall rules
-sqlapi_source_ip=$(curl -s "http://${api_svc_ip}:8080/api/ip" | jq -r .my_public_ip)
-az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip"
-# az sql server firewall-rule create -g "$rg" -s "$sql_server_name" -n public_sqlapi_aci-source --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255" # Optionally
-```
-
-And finally, the ingress controller. You can use any one you want, in this guide we include the option Nginx (see the section on private clusters for Traefik).
-
-```bash
-# Nginx installation
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
-kubectl create ns nginx
-helm install nginx ingress-nginx/ingress-nginx --namespace nginx
-# nginx service IP
-nginx_svc_name=$(kubectl get svc -n nginx -o json | jq -r '.items[] | select(.spec.type == "LoadBalancer") | .metadata.name')
-nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-while [[ "$nginx_svc_ip" == "null" ]]
-do
-    sleep 5
-    nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-done
-```
-
-And now that we have an ingress, we can create an ingress (aka route). You can use either an FQDN associated to the AzFW's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
-
-```bash
-# Ingress route (using Nginx)
-tmp_file=/tmp/ingress.yaml
-file=ingress.yaml
-cp ./Solutions/$file $tmp_file
-sed -i "s|__ingress_class__|nginx|g" $tmp_file
-sed -i "s|__ingress_ip__|${nginx_svc_ip}|g" $tmp_file
-kubectl apply -f $tmp_file
-echo "You can browse to http://${nginx_svc_ip}.nip.io"
-```
-
-At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
-
-![](images/aks_web.png)
-
-Make sure that the links to the `API Health Status` and the `SQL Server Version` work.

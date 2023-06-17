@@ -1,6 +1,6 @@
-# Challenge 8: Arc-Enabled Kubernetes and Arc-Enabled Data Services
+# Challenge 08 - Arc-Enabled Kubernetes and Arc-Enabled Data Services
 
-[< Previous Challenge](./07-aks_mesh.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)**
 
 ## Introduction
 
