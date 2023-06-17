@@ -94,6 +94,7 @@ CmdLet
 CmdLets
 CoE
 CodeQL
+Codespaces
 ConfigMap
 ConnectionString
 ContainerRegistry
@@ -389,6 +390,7 @@ TailwindInventory
 TenantId
 Terraform
 TextBox
+TextEdit
 TextWriter
 TimeSeries
 ToString
