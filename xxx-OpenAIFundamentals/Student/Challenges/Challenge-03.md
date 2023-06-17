@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 * Install the required libraries in the requirements.txt file via ```pip install -r requirements.txt ```
 
