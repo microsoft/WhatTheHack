@@ -6,55 +6,53 @@ The IoT Hack of the Century will take you on a whirlwind tour in the world of Io
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+This hack is for anyone who wants to gain hands-on experience experimenting with prompt engineering and machine learning best practices, and apply them to generate effective responses from ChatGPT and OpenAI models.
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+Participants will learn how to:
 
+• Compare OpenAI models and choose the best one for a scenario
+
+• Use prompt engineering techniques on complex tasks
+
+• Manage large amounts of data within token limits, including the use of chunking and chaining techniques
+
+• Grounding models to avoid hallucinations or false information
+
+• Implement embeddings using search retrieval techniques
+Evaluate models for truthfulness and monitor for PII detection in model interactions
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](Student/Challenge-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](Student/Challenge-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](Student/Challenge-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](Student/Challenge-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](Student/Challenge-15.md)**
-	 - Description of challenge
+- Challenge 01: **[Prompt Engineering](Student/Challenges/Challenge-01.md)**
+	 - What's posssible through Prompt Engineering 
+	 - Best practices when using OpenAI text and chat models
+- Challenge 02: **[OpenAI Models & Capabilities](Student/Challenge-02.md)**
+	 - What are the capacities of each Azure OpenAI model?
+	 - How to select the right model for your application
+- Challenge 03: **[Grounding, Chunking, and Embedding](Student/Challenge-03.md)**
+	 - Why is grounding important and how can you ground a Large Language Model (LLM)?
+	 - What is a token limit? How can you deal with token limits? What are techniques of chunking?
+- Challenge 04: **[Retrieval Augmented Generation (RAG)](Student/Challenge-04.md)**
+	 - How do we create ChatGPT-like experiences on Enterprise data? In other words, how do we "ground" powerful LLMs to primarily our own data?
+- Challenge 05: **[Responsible AI](Student/Challenge-05.md)**
+	 - What are services and tools to identify and evaluate harms and data leakage in LLMs?
+	 - What are ways to evaluate truthfulness and reduce hallucinations?
+What are methods to evaluate a model if you don't have a ground truth dataset for comparison?
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Azure subscription account
+- Azure OpenAI resource
+- Jupyter Notebook editor (we recommend Visual Studio Code or Azure Machine Learning Studio)
+- Python, Pip
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Amanda Wong
+- Devanshi Thakar
+- Ellie Nosrat
+- Juan Llovet de Casso
+- Melody Yin
+- Rachel Liu
+- Shiva Chittamuru

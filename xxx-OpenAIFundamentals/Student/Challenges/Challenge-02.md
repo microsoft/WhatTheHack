@@ -1,6 +1,6 @@
 # Challenge 02 - OpenAI Models & Capabilities
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 
 ## Pre-requisites

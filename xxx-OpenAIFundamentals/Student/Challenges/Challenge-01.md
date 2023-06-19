@@ -1,4 +1,4 @@
-# Challenge 01 - Responsible AI
+# Challenge 01 - Prompt Engineerng
 
    **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
