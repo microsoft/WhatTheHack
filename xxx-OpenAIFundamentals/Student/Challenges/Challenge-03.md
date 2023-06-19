@@ -25,11 +25,12 @@ Questions you should be able to answer by the end of the challenge:
 
 Sections in this Challenge:
 
-* 3.1: Grounding
+* [CH-03-A-Grounding](../Resources/Notebooks/CH-03-A-Grounding.ipynb)
+* [CH-03-B-Chunking](../Resources/Notebooks/CH-03-B-Chunking.ipynb)
+* [CH-03-C-Embeddings](../Resources/Notebooks/CH-03-C-Embeddings.ipynb)
 
-* 3.2: Chunking
 
-* 3.3: Embeddings
+
    
 ## Success Criteria
 
