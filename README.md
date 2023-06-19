@@ -90,7 +90,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Datadog On Azure](/059-DatadogOnAzure/README.md)
-- [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
+- [DevOps with GitHub](/031-DevOpsWithGitHub/README.md)
 - [DevOps with GitHub Actions](/044-DevOpswithGithubActions/README.md)
 - [Azure DevOps](/010-AzureDevOps/README.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
