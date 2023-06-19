@@ -34,9 +34,9 @@ Some Considerations:
 
 Sections in this Challenge: 
 
-* [4.1: RAG for structured data on Azure](../Resources/Notebooks/CH-04-A-RAG_for_structured_data.ipynb.ipynb)
+* [4.1: RAG for structured data on Azure](../Resources/Notebooks/CH-04-A-RAG_for_structured_data.ipynb)
 
-* [4.2: RAG for unstructured data on Azure](../Resources/Notebooks/CH-04-B-RAG_for_unstructured_data.ipynb.ipynb)
+* [4.2: RAG for unstructured data on Azure](../Resources/Notebooks/CH-04-B-RAG_for_unstructured_data.ipynb)
 
 ## Success Criteria
 
