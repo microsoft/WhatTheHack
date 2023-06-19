@@ -79,7 +79,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Microservices In Azure](/009-MicroservicesInAzure/README.md)
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
-- [IdentityForApps](/021-IdentityForApps/README.md)
+- [Identity For Apps](/021-IdentityForApps/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/README.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
