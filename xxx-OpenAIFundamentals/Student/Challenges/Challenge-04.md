@@ -32,11 +32,11 @@ Some Considerations:
 * **Evaluation challenges:** Evaluating the performance of RAG poses challenges, as traditional metrics may not fully capture the improvements achieved through retrieval. Developing task-specific evaluation metrics or conducting human evaluations can provide more accurate assessments of the quality and effectiveness of the approach.
 * **Ethical considerations:** While RAG provides powerful capabilities, it also introduces ethical considerations. The retrieval component should be carefully designed and evaluated to avoid biased or harmful information retrieval. Additionally, the generated content should be monitored and controlled to ensure it aligns with ethical guidelines and does not propagate misinformation or harmful biases.
 
-Sections in this Challenge:
+Sections in this Challenge: 
 
-* [4.1: RAG for structured data on Azure](../Resources/Notebooks/CH4.1-RAG_for_structured_data.ipynb)
+* [4.1: RAG for structured data on Azure](../Resources/Notebooks/CH-04-A-RAG_for_structured_data.ipynb.ipynb)
 
-* [4.2: RAG for unstructured data on Azure](../Resources/Notebooks/CH4.1-RAG_for_structured_data.ipynb)
+* [4.2: RAG for unstructured data on Azure](../Resources/Notebooks/CH-04-B-RAG_for_unstructured_data.ipynb.ipynb)
 
 ## Success Criteria
 
