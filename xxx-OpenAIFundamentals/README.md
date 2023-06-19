@@ -1,8 +1,11 @@
-# What The Hack - OpenAIFundamentals
+# What The Hack - Azure OpenAI Fundamentals
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+The Azure OpenAI Fundamentals Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this Hack can serve as a foundation for building your own solution with Azure OpenAI.
+
+This Hack consists of five challenges and is meant to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this Hack is for you.
+
 
 ## Learning Objectives
 
