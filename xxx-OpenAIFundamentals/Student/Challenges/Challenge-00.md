@@ -40,21 +40,19 @@ Please install these additional tools and resources:
   - Create a project environment using conda - ``conda create --name <env_name>``
   - Activate conda environment - ``conda activate <env_name>``
   - Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
-- [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
+- [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prereqs so be sure to checkout the pre-reqs for the respective challenges. 
   - gpt-35-turbo
   - text-davinci-003
   - text-embedding-ada-002
-- Please remember to delete the resource and deployments to not incur additional charges.
-- Add required credentials of Azure resources in the .env file
+- Add required credentials of Azure resources in the ``.env`` file
+  **NOTE:** Additional Azure resources such Azure Form Recognizer and Azure Cognitive Search will be required for Challenge4. Make sure to update ``.env`` file with credentials as needed. 
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have Python and Conda installed in your favorite terminal or Anaconda Prompt.
-- Verify that you have a bash shell with the Azure CLI available.
+- Verify that you can run Jupyter Notebooks in Visual Studio Code.
 - Verify that you have created the AOAI resource and deployed the necessary deployments.
-
-
 
