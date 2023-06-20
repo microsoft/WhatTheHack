@@ -31,6 +31,11 @@ Please ensure that you have [Azure OpenAI access](https://aka.ms/oaiapply). This
 
 Please install these additional tools and resources:
 
+- Python Installation, version at least \>= 3.6, the minimum Python requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
+  - Python - <https://www.python.org/downloads/>
+- Conda Installation, for project environment management and package management. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
+  - Anaconda - <https://docs.anaconda.com/anaconda/install/>
+  - Miniconda - <https://docs.conda.io/en/latest/miniconda.html>
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prereqs so be sure to checkout the pre-reqs for the respective challenges. 
   - gpt-35-turbo
