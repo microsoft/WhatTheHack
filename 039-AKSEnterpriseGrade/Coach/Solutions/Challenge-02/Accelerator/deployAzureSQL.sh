@@ -7,7 +7,7 @@ read rgname
 echo -n "Please enter an Azure region (i.e. \"eastus\", \"westus\"):"
 read location
 echo -n "Please enter a password for the SQL Server admin account:"
-read -s -p sql_password
+read -s sql_password
 
 # Create Azure Resource Group
 
