@@ -36,21 +36,25 @@ Please install these additional tools and resources:
 - Conda Installation, for project environment management and package management. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - Anaconda - <https://docs.anaconda.com/anaconda/install/>
   - Miniconda - <https://docs.conda.io/en/latest/miniconda.html>
+- Environment setup:
+  - Create a project environment using conda - ``conda create --name <env_name>``
+  - Activate conda environment - ``conda activate <env_name>``
+  - Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prereqs so be sure to checkout the pre-reqs for the respective challenges. 
   - gpt-35-turbo
   - text-davinci-003
   - text-embedding-ada-002
 - Please remember to delete the resource and deployments to not incur additional charges.
-- Add required credentials of the resources in the .env file
-- Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
+- Add required credentials of Azure resources in the .env file
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
+- Verify that you have Python and Conda installed using ``python --version`` and ``conda --version`` in your favorite terminal or Anaconda Prompt.
 - Verify that you have a bash shell with the Azure CLI available.
-- Verify that you have created the AOAI resource and deployed the needed deployments 
+- Verify that you have created the AOAI resource and deployed the necessary deployments.
 
 
 
