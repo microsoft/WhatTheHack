@@ -35,8 +35,8 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux
-    --set controller.service.annotations."service\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 ### Deploy the Whoami App
 
@@ -50,7 +50,7 @@ Follow these steps to deploy the "Whoami" app:
     - The script will prompt you to enter a resource group name, Azure region location, and a password for the SQL administrator account.
     - The script will deploy an Azure SQL Database server which is used by the sample app.
     - FYI... when running the SQL deployment script, your password must meet the [Azure VM password requirements](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
-
+    - After the Azure SQL Database is deployed, you will need to adjust its firewall rules to [allow Azure services and resources to access it](https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview?view=azuresql).
 4. Edit the `api-deploy.yaml` file:
     - Modify line 27 with the DNS name of your newly created Azure SQL Database server.
     - Modify line 29 with the password you provided to the script in Step 3.
