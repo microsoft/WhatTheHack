@@ -36,6 +36,7 @@ Please install these additional tools and resources:
 - Conda Installation, for project environment management and package management. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - Environment setup:
+  - Verify Python and Conda installations using ``python --version`` and ``conda --version``
   - Create a project environment using conda - ``conda create --name <env_name>``
   - Activate conda environment - ``conda activate <env_name>``
   - Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
@@ -51,7 +52,7 @@ Please install these additional tools and resources:
 
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have Python and Conda installed using ``python --version`` and ``conda --version`` in your favorite terminal or Anaconda Prompt.
+- Verify that you have Python and Conda installed in your favorite terminal or Anaconda Prompt.
 - Verify that you have a bash shell with the Azure CLI available.
 - Verify that you have created the AOAI resource and deployed the necessary deployments.
 
