@@ -45,7 +45,7 @@ Please install these additional tools and resources:
   - text-davinci-003
   - text-embedding-ada-002
 - Add required credentials of Azure resources in the ``.env`` file
-  - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for Challenge4. Make sure to update ``.env`` file with credentials as needed. 
+  - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. Make sure to update ``.env`` file with credentials as needed. 
 
 ## Success Criteria
 
