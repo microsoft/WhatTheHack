@@ -15,7 +15,16 @@
 As LLMs grow in popularity and use around the world, the need to manage and monitor their outputs becomes increasingly important. In this challenge, you will learn how to use prompt engineering techniques to generate desired results for LLMs.
 
 ## Description
-
+Model deployment for the challenge:
+- Deploy the following models in your Azure OpenAI resource. 
+  - gpt-35-turbo
+  - text-ada-001
+  - text-babbage-001
+  - text-curie-001
+  - text-davinci-003
+  - text-embedding-ada-002
+- Add required credentials of Azure resources in the ``.env`` file
+  
 Questions you should be able to answer by the end of this challenge:
 - What is iterative prompting principle?
 - Which hyperparameters could you tune to make the response more diverse in language?
