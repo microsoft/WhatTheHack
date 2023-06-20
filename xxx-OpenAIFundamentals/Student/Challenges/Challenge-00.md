@@ -45,5 +45,5 @@ To complete this challenge successfully, you should be able to:
 - Verify that you have a bash shell with the Azure CLI available.
 - Verify that you have created the AOAI resource and deployed the needed deployments 
 
-## Learning Resources
+
 
