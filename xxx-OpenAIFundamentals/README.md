@@ -25,20 +25,20 @@ Participants will learn how to:
 Evaluate models for truthfulness and monitor for PII detection in model interactions
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenges-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Prompt Engineering](Student/Challenges/Challenge-01.md)**
+- Challenge 01: **[Prompt Engineering](Student/Challenges/Challenges-01.md)**
 	 - What's posssible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
-- Challenge 02: **[OpenAI Models & Capabilities](Student/Challenge-02.md)**
+- Challenge 02: **[OpenAI Models & Capabilities](Student/Challenges-02.md)**
 	 - What are the capacities of each Azure OpenAI model?
 	 - How to select the right model for your application
-- Challenge 03: **[Grounding, Chunking, and Embedding](Student/Challenge-03.md)**
+- Challenge 03: **[Grounding, Chunking, and Embedding](Student/Challenges-03.md)**
 	 - Why is grounding important and how can you ground a Large Language Model (LLM)?
 	 - What is a token limit? How can you deal with token limits? What are techniques of chunking?
-- Challenge 04: **[Retrieval Augmented Generation (RAG)](Student/Challenge-04.md)**
+- Challenge 04: **[Retrieval Augmented Generation (RAG)](Student/Challenges-04.md)**
 	 - How do we create ChatGPT-like experiences on Enterprise data? In other words, how do we "ground" powerful LLMs to primarily our own data?
-- Challenge 05: **[Responsible AI](Student/Challenge-05.md)**
+- Challenge 05: **[Responsible AI](Student/Challenges-05.md)**
 	 - What are services and tools to identify and evaluate harms and data leakage in LLMs?
 	 - What are ways to evaluate truthfulness and reduce hallucinations?
 What are methods to evaluate a model if you don't have a ground truth dataset for comparison?
