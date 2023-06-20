@@ -32,10 +32,11 @@ Please ensure that you have [Azure OpenAI access](https://aka.ms/oaiapply). This
 Please install these additional tools and resources:
 
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
-- Deploy the following models in your Azure OpenAI resource
+- Deploy the following models in your Azure OpenAI resource 
   - gpt-35-turbo
   - text-davinci-003
   - text-embedding-ada-002
+- Please remember to delete the resource and deployments after you are done using them as to not incur additional charges.
 
 ## Success Criteria
 
