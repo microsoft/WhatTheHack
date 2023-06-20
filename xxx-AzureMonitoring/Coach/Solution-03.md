@@ -18,7 +18,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 
 >**Note** Make sure the students select **Azure Monitor agent** here and NOT Log Analytics agent. Make sure the students select the same Log Analytics workspace that they used in previous challenges.
 
-![](../Images/03-01-VM-Insights.png)
+![Enabling VM insights with Azure Monitor agent in Azure Portal](../Images/03-01-VM-Insights.png)
 
 - The Data collection rule dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: Guest performance enabled, Processes and dependencies disabled.
 
@@ -28,7 +28,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 
 The result should look like this:
 
-![](../Images/03-02-VM-Insights.png)
+![The view of VM Insights workbook in Azure Portal](../Images/03-02-VM-Insights.png)
 
 ### (Bonus task) Enable VM insights by using Azure Policy
 
@@ -47,10 +47,10 @@ Make sure that the students select a single resource group when assigning the Po
 
 When assigning the Policy initiative, suggest the students to deselect the "Only show parameters that need input or review" to explore the default values. Note that the SQL Server VM will be marked as non-compliant if the existing DCR name does not match the name pattern in the Policy.
 
-![](../Images/03-04-policy.png)
+![Configuring Azure Policy parameters in Azure Portal](../Images/03-04-policy.png)
 
 The overall result after remediation should look like this:
 
-![](../Images/03-03-VM-insights.png)
+![Virtual Machines blade in Azure Monitor showing all VMs onboarded to Insights](../Images/03-03-VM-insights.png)
 
 
