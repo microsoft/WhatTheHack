@@ -36,7 +36,7 @@ Please install these additional tools and resources:
   - gpt-35-turbo
   - text-davinci-003
   - text-embedding-ada-002
-- Please remember to delete the resource and deployments after you are done using them as to not incur additional charges.
+- Please remember to delete the resource and deployments after you are done using them each day as to not incur additional charges.
 - Add required credentials of the resources in the .env file
 - Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
 
