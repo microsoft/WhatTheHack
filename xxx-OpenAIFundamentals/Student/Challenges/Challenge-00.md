@@ -37,7 +37,7 @@ Please install these additional tools and resources:
   - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using ``python --version`` and ``conda --version``
   - Create a project environment using conda - ``conda create --name <env_name>``
   - Activate conda environment - ``conda activate <env_name>``
-  - Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
+  - Install the required libraries listed in the requirements.txt file via ``pip install -r requirements.txt``
   - Open the project in VS Code using ``code .``
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prereqs so be sure to checkout the pre-reqs for the respective challenges. 
