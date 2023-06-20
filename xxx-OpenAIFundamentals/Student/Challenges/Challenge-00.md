@@ -18,9 +18,7 @@ You might not need all of them for the hack you are participating in. However, i
 - [Managing Cloud Resources](../../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure CLI](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-  - [Azure Cloud Shell](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 - [Azure Storage Explorer](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
 ## Description
@@ -36,23 +34,24 @@ Please install these additional tools and resources:
 - Conda Installation, for project environment management and package management. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - Environment setup:
-  - Verify Python and Conda installations using ``python --version`` and ``conda --version``
+  - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using ``python --version`` and ``conda --version``
   - Create a project environment using conda - ``conda create --name <env_name>``
   - Activate conda environment - ``conda activate <env_name>``
   - Install the required libraries in the requirements.txt file via ``pip install -r requirements.txt``
+  - Open the project in VS Code using ``code .``
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prereqs so be sure to checkout the pre-reqs for the respective challenges. 
   - gpt-35-turbo
   - text-davinci-003
   - text-embedding-ada-002
 - Add required credentials of Azure resources in the ``.env`` file
-  **NOTE:** Additional Azure resources such Azure Form Recognizer and Azure Cognitive Search will be required for Challenge4. Make sure to update ``.env`` file with credentials as needed. 
+  - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for Challenge4. Make sure to update ``.env`` file with credentials as needed. 
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have Python and Conda installed in your favorite terminal or Anaconda Prompt.
+- Verify that you have Python and Conda installed.
 - Verify that you can run Jupyter Notebooks in Visual Studio Code.
 - Verify that you have created the AOAI resource and deployed the necessary deployments.
 
