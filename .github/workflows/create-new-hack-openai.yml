@@ -34,7 +34,7 @@ jobs:
           git config user.email "<>"
           git checkout -b ${{ env.BRANCH_NAME }}
       - name: Generate WhatTheHack template stubs
-        run: ${{ github.workspace }}/.github/workflows/create-wth-template-openai.sh -p ${{ github.workspace }} -c "${{ github.event.inputs.numberOfChallenges}}" -n "${{ github.event.inputs.hackName }}" -d "${{ github.event.inputs.description }}" -k "${{ github.event.inputs.keywords }}" -e "${{ secrets.OPENAI_ENDPOINT }}" -a "${{ secrets.OPENAI_API_KEY }}" -v -r
+        run: ${{ github.workspace }}/.github/workflows/create-wth-template-openai.sh -p ${{ github.workspace }} -c "${{ github.event.inputs.numberOfChallenges}}" -n "${{ github.event.inputs.hackName }}" -d "${{ github.event.inputs.description }}" -k "${{ github.event.inputs.keywords }}" -e "${{ secrets.OPENAI_ENDPOINT_URI }}" -a "${{ secrets.OPENAI_API_KEY }}" -v -r
       - name: Push branch
         run: |
           git add *
