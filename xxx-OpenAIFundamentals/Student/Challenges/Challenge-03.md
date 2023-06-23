@@ -28,7 +28,7 @@ Questions you should be able to answer by the end of the challenge:
 
 Sections in this Challenge:
 
-* [CH-03-A-Grounding](../Resources/Notebooks/CH-03-A-Grounding.ipynb)
+* [CH-03-A-Grounding](../Resources/Notebooks/CH-03-A-Grounding.ipynb?raw=true)
 * [CH-03-B-Chunking](../Resources/Notebooks/CH-03-B-Chunking.ipynb)
 * [CH-03-C-Embeddings](../Resources/Notebooks/CH-03-C-Embeddings.ipynb)
 
