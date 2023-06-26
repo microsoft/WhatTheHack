@@ -31,7 +31,7 @@ This DevOps with GitHub hack will help you learn how to use:
 ## Prerequisites
 
 - Your own Azure subscription with **owner** access. See considerations below for additional guidance.
-- A GitHub Enterprise account
+- A GitHub Enterprise account if using internal repositories, or a standard GitHub account if using public repositories.
 
 ## Repository Contents
 
