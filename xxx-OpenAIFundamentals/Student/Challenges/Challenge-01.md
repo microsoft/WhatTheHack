@@ -43,7 +43,7 @@ Sections in this Challenge:
 ## Success Criteria
 To complete this challenge successfully:
 - Demonstrate understanding of types of tasks OpenAI models are capable of
-- Demonstrate understanding of different hyperparameters in OpneAI models
+- Demonstrate understanding of different hyperparameters in OpenAI models
 - Demonstrate understanding of different using scenarios of prompt engineering techniques
 - Be able to perform iterative prompting practice in exercise
 - Make all the code cells run successfully
