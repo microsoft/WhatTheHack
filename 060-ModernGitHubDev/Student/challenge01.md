@@ -35,7 +35,7 @@ npm run dev
 ## Hints
 
 - **Ctl-\`** will display the terminal window in Codespaces
-- **Cmd-Shift-P** (Mac) or **Ctl-Shift-P** (PC) will open the command pallette
+- **Cmd-Shift-P** (Mac) or **Ctl-Shift-P** (PC) will open the command palette
 
 ## Learning Resources
 
