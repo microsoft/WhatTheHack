@@ -1,0 +1,12 @@
+CaC
+westus
+containerappenvironment
+containerapp
+HCL
+codespace
+prebuild
+Prebuilding
+Ctl
+prebuilds
+Codespace
+GHAS
