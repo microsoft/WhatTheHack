@@ -14,6 +14,7 @@
 
 As LLMs grow in popularity and use around the world, the need to manage and monitor their outputs becomes increasingly important. In this challenge, you will learn how to use prompt engineering techniques to generate desired results for LLMs.
 
+
 ## Description
 Model deployment for the challenge:
 - Deploy the following models in your Azure OpenAI resource. 
@@ -38,6 +39,8 @@ Sections in this Challenge:
    3.1 Write clear and specific instructions
    
    3.2 Give the model time to “think”
+
+Link to the Notebook: [Challenge 01](https://github.com/izzymsft/WhatTheHack/blob/xxx-OpenAIFundamentals/xxx-OpenAIFundamentals/Student/Resources/Notebooks/CH-01-PromptEngineering.ipynb)
 
 
 ## Success Criteria
