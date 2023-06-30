@@ -282,7 +282,7 @@ az sql server firewall-rule create -g "$rg" -s "$db_server_name" -n public_sqlap
     --start-ip-address "$sqlapi_source_ip" --end-ip-address "$sqlapi_source_ip" -o none
 ```
 
-And finally, the ingress controller. You can use any one you want, in this guide we include the option Nginx (see the section on private clusters for Traefik). Another option is the [AKS web app routing add on](https://learn.microsoft.com/azure/aks/web-app-routing?tabs=without-osm), in preview at the time of this writing.
+And finally, the ingress controller. You can use any one you want, in this guide we include the option Nginx (see the section on private clusters for Traefik), as well as the [AKS web app routing add on](https://learn.microsoft.com/azure/aks/web-app-routing?tabs=without-osm), in preview at the time of this writing.
 
 ```bash
 # Nginx installation
@@ -300,8 +300,26 @@ do
     sleep 5
     nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n nginx -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
 done
-nginx_class=$(kubectl get ingressClass -n nginx -o json | jq -rc '.items[0].metadata.name')
+nginx_class=$(kubectl get ingressClass -n nginx -o json | jq -rc '.items[0].metadata.name')   # Should be nginx
 echo "NGINX service IP is $nginx_svc_ip, ingress-class is $nginx_class"
+```
+
+Alternatively, you can use the [AKS web app routing add on](https://learn.microsoft.com/azure/aks/web-app-routing?tabs=without-osm), in preview at the time of this writing. The following paragraph is a vanilla installation for HTTP, without configuring Azure Key Vault for certificates:
+
+```bash
+# Install web app routing add on
+echo "Installing web app routing addon in AKS cluster..."
+az aks enable-addons -g $rg -n $aks_name --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation -o none
+echo "Getting ingress class and service IP..."
+nginx_svc_name=$(kubectl get svc -n app-routing-system -o json | jq -r '.items[] | select(.spec.type == "LoadBalancer") | .metadata.name')
+nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n app-routing-system -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+while [[ "$nginx_svc_ip" == "null" ]]
+do
+    sleep 5
+    nginx_svc_ip=$(kubectl get svc/$nginx_svc_name -n app-routing-system -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
+done
+nginx_class=$(kubectl get IngressClass -n kube-system -o json | jq -r '.items[0].metadata.name')  # Should be webapprouting.kubernetes.azure.com
+echo "Web app routing addon's service IP is $nginx_svc_ip, ingress-class is $nginx_class"
 ```
 
 And now that we have an ingress controller, we can create an ingress (aka route). You can use either an FQDN associated to the Azure Firewall's PIP or your own public domain. In this case we will use [nip.io](https://nip.io/):
