@@ -35,6 +35,8 @@ spec:
         - name: USE_SSL
           value: "__yes,no__"
       restartPolicy: Always
+      imagePullSecrets:
+      - name: __acr_secret_name__
 ---
 apiVersion: v1
 kind: Service

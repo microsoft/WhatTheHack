@@ -25,7 +25,11 @@ spec:
         env:
         - name: API_URL
           value: "http://api.default.svc.cluster.local:8080"
+        - name: BRANDING
+          value: "whatthehack"
       restartPolicy: Always
+      imagePullSecrets:
+      - name: __acr_secret_name__
 ---
 apiVersion: v1
 kind: Service

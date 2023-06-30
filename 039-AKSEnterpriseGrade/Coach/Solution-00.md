@@ -56,6 +56,8 @@ Here are some things to be aware of that we have run into when hosting this hack
 
 ### Docker Desktop
 
+Note that Docker has updated their [pricing scheme](https://www.docker.com/pricing/), and Docker Desktop is only free for personal use. The next section covers an alternative (Podman).
+
 Installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is optional for students. Docker Desktop will install the Docker CLI and container engine on a Windows or Mac workstation.  Students can use Docker Desktop in Challenge 1 to build and run the sample application's container images on their local workstation. They can also use Docker desktop to publish those container images to Azure Container Registry.
 
 The SQL Server container image referenced in Challenge 1 will not run in Docker Desktop on a Mac device with Apple Silicon (ARM).
@@ -66,3 +68,10 @@ If the student does not have administrator privileges on their workstation, or i
 
 Instead, students can test the containers out by running them in Azure Container Instances.  See the [Coach Guide for Challenge 1](Solution-01.md) for more information.
 
+### Podman
+
+[Podman](https://podman.io/) has become a very good alternative to Docker after the pricing and licensing change Docker carried out on August 31st 2021. It offers out-of-the-box integration with WSL, and most Docker commands work exactly the same. For example, `docker ps -a` will turn into `podman ps -a`.
+
+To install Podman on Windows please follow the [Podman Installation Guide for Windows](https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md).
+
+One difference that users need to be aware of is that the podman container engine can be started either in rootless or rootful mode. The default is rootful, [rootless](https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) is interesting for users that don't have admin permissions on their systems.
