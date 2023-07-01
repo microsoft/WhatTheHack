@@ -43,7 +43,7 @@ Some organizations may wish to complete this hack as a follow-on to, or even a c
 
 In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the Whoami sample application from pre-staged container images in Docker Hub to an existing AKS cluster.
 
-For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3. The YADA repo also has a [sample Kubernetes deployment mainfest](https://github.com/microsoft/YADA/blob/main/deploy/k8s.md).
+For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3. The YADA repo also has a [sample Kubernetes deployment manifest](https://github.com/microsoft/YADA/blob/main/deploy/k8s.md).
 
 If you wish to accelerate your students, you should:
 
