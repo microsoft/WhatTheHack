@@ -24,7 +24,7 @@
 - If users have their own DNS domain, they could use it instead of `nip.io` as in this guide.
 - At the time of this writing, SLA API and private API are mutually exclusive
 
-**NOTE:** If students do not have "Owner" permissions on their Azure subscriptions, they will not have permission to attach their AKS cluster to their ACR. Instead of using an Azure identity, you can store the ACR's admin credentials as Kubernetes secrets, and refer to the secrets from the YAML manifest. As last resort, we have staged the sample application on Docker Hub so that students can use the container images at these locations:
+**NOTE:** If students do not have "Owner" permissions on their Azure subscriptions, they will not have permission to attach their AKS cluster to their ACR. Instead of using an Azure identity, you can store the admin credentials for ACR as a Kubernetes secret (with the command `kubectl create secret docker-registry`), and refer to the secrets from the YAML manifest. As last resort, we have staged the sample application on Docker Hub so that students can use the container images at these locations:
 
 - **API app:** `whatthehackmsft/api`
 - **Web app:** `whatthehackmsft/web`
