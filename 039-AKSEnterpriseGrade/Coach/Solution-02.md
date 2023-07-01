@@ -41,7 +41,7 @@ This challenge has multiple paths:
 
 Some organizations may wish to complete this hack as a follow-on to, or even a continuation of, the [Introduction to Kubernetes](../../001-IntroToKubernetes/) hack.
 
-In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the Whoami sample application from pre-staged container images in Docker Hub to an existing AKS cluster.
+In the `/Solutions/Challenge-02/Accelerator` folder, you will find a set of YAML files and a bash shell script that will help students quickly deploy the sample application from pre-staged container images in Docker Hub to an existing AKS cluster.
 
 For students that are already familiar with deploying applications in Kubernetes, but want to focus on the Azure integrations, you may wish to provide these files to "accelerate" them so they can start the hack with Challenge 3. The YADA repo also has a [sample Kubernetes deployment manifest](https://github.com/microsoft/YADA/blob/main/deploy/k8s.md).
 
@@ -50,11 +50,11 @@ If you wish to accelerate your students, you should:
 - Package the contents of this folder into an `Accelerator.zip` file and distribute it to the students.
 - Direct students to the hidden [Challenge 2 Accelerator](../Student/Challenge-02A.md) instructions page in the student guide. The instructions there assume a student has an existing "public" AKS cluster. Students will be instructed to deploy the Nginx Ingress controller to the AKS cluster if it is not already deployed.
 
-**NOTE:** The Challenge 2 student guide specifies that the AKS cluster is deployed with Azure CNI Networking. If a student's existing AKS cluster uses Kubenet for networking, the Whoami application should deploy just fine. Students should be able to complete all of the challenges with the AKS cluster using Kubenet networking.  However, some challenges may lead the students to want to use Azure CNI for a solution, which would require the students to re-deploy a new cluster with Azure CNI Networking.
+**NOTE:** The Challenge 2 student guide specifies that the AKS cluster is deployed with Azure CNI Networking. If a student's existing AKS cluster uses Kubenet for networking, the sample application should deploy just fine. Students should be able to complete all of the challenges with the AKS cluster using Kubenet networking.  However, some challenges may lead the students to want to use Azure CNI for a solution, which would require the students to re-deploy a new cluster with Azure CNI Networking.
 
 ## Solution Guide - Public Clusters and no Firewall Egress
 
-In the `/Solutions/Challenge-02/Public` folder, you will find a set of YAML files that deploy the Whoami sample application to a public AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
+In the `/Solutions/Challenge-02/Public` folder, you will find a set of YAML files that deploy the sample application to a public AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
 
 There are a set of Terraform modules located in the [`/Solutions/Challenge-02/Terraform`](./Solutions/Challenge-02/Terraform/) folder that will deploy the Azure resources needed for a public AKS cluster and an Azure SQL Database. If you use the Terraform modules, you will need to update the YAML files with the appropriate values before applying them to the AKS cluster.
 
@@ -335,7 +335,7 @@ kubectl apply -f $tmp_file
 echo "You can browse to http://${nginx_svc_ip}.nip.io"
 ```
 
-You can verify that the ingress is correctly deployed by running `kubectl describe ingress`. I have had some issues where the ingress got stuck at `Scheduled for sync`.
+You can verify that the ingress is correctly deployed by running `kubectl describe ingress`.
 
 ```bash
 # Verify connectivity
@@ -347,7 +347,7 @@ curl -s "http://${nginx_svc_ip}.nip.io/api/healthcheck"
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 
-![Image of Whoami app in Browser](./images/aks_web.png)
+![Image of sample app in Browser](./images/aks_web.png)
 
 Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
 </details>
@@ -359,12 +359,13 @@ Deploying a private AKS cluster with no public IP addresses is a complex task an
 If students choose to deploy a private cluster, the coach should be prepared to explain key networking concepts and how a private AKS cluster works differently from a non-private AKS cluster.
 
 Deploying a private AKS cluster requires multiple Azure resources to be deployed and configured BEFORE deploying AKS. These include:
+
 - Hub & Spoke VNets that are peered to each other
 - An Azure Firewall with proper egress network rules set on it
 - A User Defined Route (UDR)
 - A VM jumpbox with Azure CLI & kubectl CLI installed to access the private AKS cluster
 
-In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the Whoami sample application to a private AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
+In the `/Solutions/Challenge-02/Private` folder, you will find a set of YAML files that deploy the sample application to a private AKS cluster.  These YAML files have multiple placeholders in them that need to be replaced with values in order to deploy them to an AKS cluster.
 
 The script blocks below in the collapsible section demonstrate how to complete all steps of this challenge if you choose to deploy a private AKS cluster. The script blocks use the Azure CLI to deploy and configure the Azure resources. 
 
@@ -465,7 +466,7 @@ az monitor diagnostic-settings create -n mydiag --resource $azfw_id --workspace 
               {"category": "AZFWNetworkRuleAggregation", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}},
               {"category": "AZFWApplicationRuleAggregation", "enabled": true, "retentionPolicy": {"days": 1, "enabled": false}}]'
 
-# Rules (classic)
+# Rules (classic): Best practice would actually be to use AzFW policies
 az network firewall network-rule create -f azfw -g $rg -c VnetTraffic \
     --protocols Any --destination-addresses $vnet_prefix --destination-ports '*' --source-addresses $vnet_prefix -n Allow-VM-to-AKS --priority 210 --action Allow
 az network firewall network-rule create -f azfw -g $rg -c WebTraffic \
@@ -525,10 +526,10 @@ az network firewall application-rule create -f azfw -g $rg -c AKS-egress \
 
 # Rules (policy) - TBD!
 # Test rule to allow everything - THIS IS A SHORTCUT
-az network firewall policy rule-collection-group create -n AKSrules --policy-name azfwpolicy -g $rg --priority 100
-az network firewall policy rule-collection-group collection add-filter-collection --policy-name azfwpolicy --rule-collection-group-name AKSrules -g $rg \
-    --name NetworkTraffic --collection-priority 150 --action Allow --rule-name permitAny --rule-type NetworkRule --description "Permit all traffic - TEST" \
-    --destination-addresses '*' --destination-ports '*' --source-addresses '*' --ip-protocols Tcp Udp Icmp
+# az network firewall policy rule-collection-group create -n AKSrules --policy-name azfwpolicy -g $rg --priority 100
+# az network firewall policy rule-collection-group collection add-filter-collection --policy-name azfwpolicy --rule-collection-group-name AKSrules -g $rg \
+#     --name NetworkTraffic --collection-priority 150 --action Allow --rule-name permitAny --rule-type NetworkRule --description "Permit all traffic - TEST" \
+#     --destination-addresses '*' --destination-ports '*' --source-addresses '*' --ip-protocols Tcp Udp Icmp
 
 # Route table
 az network route-table create -n aks -g $rg -l $location
@@ -800,8 +801,7 @@ echo "You can browse to http://${azfw_ip}.nip.io"
 
 At this point you should be able to browse to the web page over the Azure Firewall's IP address, and see something like this:
 
-![Image of Whoami app in Browser](./images/aks_web.png)
+![Image of sample app in Browser](./images/aks_web.png)
 
 Make sure that the links to the `API Health Status` and the `SQL Server Version` work.
 </details>
-
