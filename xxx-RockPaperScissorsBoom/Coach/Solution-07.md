@@ -125,7 +125,7 @@
           - "443:443"
         volumes:
           - ~/.aspnet/https:/https
-        ...
+    ...
     ```
 
 ### Test locally
