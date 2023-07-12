@@ -1,12 +1,12 @@
-# Challenge 8: Arc-Enabled Kubernetes and Arc-Enabled Data Services - Coach's Guide
+# Challenge 08 - Arc-Enabled Kubernetes and Arc-Enabled Data Services - Coach's Guide 
 
-[< Previous Challenge](./07-aks_mesh.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-07.md) - **[Home](./README.md)**
 
 ## Notes and Guidance
 
 - Participants can choose multiple options to deploy their own non-AKS cluster, the one documented here is using aks-engine.
-- Using gitops, consider not exposing secrets in the repo as something optional. Alternatives to fix this are Sealed Secrets or AKV integration
-- You can choose whether focusing more on deploying different Arc extensions on the cluster (APIM, App Svcs, etc), or move on to the Arc-enabled Data Services part 
+- Using gitops, consider not exposing secrets in the repo as something optional. Alternatives to fix this are Sealed Secrets or Azure Key Vault integration
+- You can choose whether focusing more on deploying different Arc extensions on the cluster (APIM, App Services, etc), or move on to the Arc-enabled Data Services part 
 - For Arc-enabled Data Services, participants need to decide whether implementing direct or indirect connectivity mode. Depending on the mode, tooling will be different. For example, direct connectivity mode supports only portal deployment at the time of this writing. 
 
 ## Solution Guide
@@ -14,7 +14,7 @@
 This guide includes a couple of different options participants may choose for this challenge. If you have experienced participants that know one of the ways, you can steer them in the other directions to increase their learning curve:
 
 - To create the cluster you can use either kubeadm or aks-engine. aks-engine will soon be deprecated in favor of CAPI, the latter is not documented in this guide
-- To deploy Arc-enabled data services, there are essentially the options for **direct** and **indirect** connectivity, plus support for different tooling (portal, VScode, CLI, etc). This guide focuses on indirect mode, since at the time of this writing it is the only mehtod providing end-to-end support for CLI. However, some direct code is documented too in the relevant sections.
+- To deploy Arc-enabled data services, there are essentially the options for **direct** and **indirect** connectivity, plus support for different tooling (portal, VScode, CLI, etc). This guide focuses on indirect mode, since at the time of this writing it is the only method providing end-to-end support for CLI. However, some direct code is documented too in the relevant sections.
 
 ### Create non-managed Kubernetes cluster with kubeadm
 
@@ -43,7 +43,7 @@ az vm create -n $master_vm_name -g $rg -l $location \
   --size $master_vm_size --data-disk-sizes-gb $master_disk_size \
   --public-ip-address "${master_vm_name}-pip" --subnet $subnet_id
 
-# Create script to standup cluster
+# Create script to stand up cluster
 prepare_cluster_file=/tmp/prepare-cluster-node.sh
 cat <<REALEND > $prepare_cluster_file
 #!/bin/bash
@@ -118,7 +118,7 @@ az group delete -n $rg -y --no-wait
 
 ### Create non-managed Kubernetes cluster with AKS engine
 
-This method uses aks-engine to standup a non-managed Kubernetes cluster in Azure. aks-engine will be deprecated in favor of CAPI, but it is still a fairly easy way of standing up non-AKS, multi-node clusters in Azure.
+This method uses aks-engine to stand up a non-managed Kubernetes cluster in Azure. aks-engine will be deprecated in favor of CAPI, but it is still a fairly easy way of standing up non-AKS, multi-node clusters in Azure.
 
 Let's start with installing aks-engine if required:
 
@@ -147,7 +147,7 @@ rg=aksengine
 location=westeurope
 az group create -n $rg -l $location
 
-# Retrieve Service Principal form your AKV, required for AKS engine or CAPI
+# Retrieve Service Principal form your Azure Key Vault, required for AKS engine or CAPI
 keyvault_name=<your_akv_name>
 purpose=aksengine
 keyvault_appid_secret_name=$purpose-sp-appid
@@ -322,7 +322,7 @@ kubectl -n $namespace get deploy -o wide
 
 You will find sample apps in [this repo](https://github.com/erjosito/arc-k8s-test/), including a deployment with the web and api containers we have used in previous exercises ([this](https://github.com/erjosito/arc-k8s-test/blob/master/sqlapi/fullapp.yaml)). Note that in that repo there is a secret stored, and that is **very bad** practice. There are ways of using gitops with secrets, but those have been left out of scope for this challenge for simplicity reasons. If you would like including this aspect, you can look at two options:
 
-- Using integration with a secret store such as Azure Key Vault: configure AKV integration in your cluster and store the secret there instead of in the git repo
+- Using integration with a secret store such as Azure Key Vault: configure Azure Key Vault integration in your cluster and store the secret there instead of in the git repo
 - Using [Sealed Secrets](https://www.weave.works/blog/storing-secure-sealed-secrets-using-gitops)
 
 If you are using a PaaS database to test, do not forget to add the IP address of your cluster.
@@ -435,7 +435,7 @@ kubectl get sc
 kubectl get crd
 ```
 
-Now we can create a database. You can either use azdata, or yaml posted to your gitops repo. Here the azdata way:
+Now we can create a database. You can either use the Azure Data CLI (`azdata`), or yaml posted to your gitops repo. Here is the `azdata` way:
 
 ```shell
 # Deploy Azure Database for Postgres (will take around 30-40 minutes)
@@ -461,7 +461,7 @@ Some gotchas:
 * If you are getting connection timeout errors when creating the database, you might want to login again (`azdata login --namespace arcdc`).
 * If your deployment takes longer than 15 minutes, you might want to stop it, delete, and increase the size of your cluster before retrying
 
-You might want to change `SQL_SERVER_FQDN` variable in the API container to the Kubernetes service where the database is listening (`mypgdb-svc.arcdc` in the previous example), and the `SQL_ENGINE` variable to `postgres`. You can use the `sql` endpoint of the SQL API to test reachability to the database:
+You might want to change `SQL_SERVER_FQDN` variable in the API container to the Kubernetes service where the database is listening (`mypgdb-svc.arcdc` in the previous example), and the `SQL_ENGINE` variable to `postgres`. You can use the `sql` endpoint of the SQL API to test if the database is reachable:
 
 
 ```shell
