@@ -6,6 +6,8 @@
 
 1.  Navigate to the `Resources` directory.
 
+1.  In the `docker-compose.yaml` file, update the password for the SQL Server & the connection string for the database in the web app.
+
 1.  Run the following command to build & run the application & database.
 
     ```shell
@@ -29,3 +31,12 @@
 1.  Navigate to `http://localhost` in your browser.
 
 1.  Play a game of Rock Paper Scissors Boom (click on the `Run the Game` link at the top of the page & click the `Run the Game` button).
+
+## Troubleshooting
+
+- You can login to the database in the Docker container and use `sqlcmd` to query the records if needed.
+
+  ```shell
+  docker exec -it rockpaperscissors-sql /bin/bash
+  /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P <password> -d RockPaperScissorsBoom -q "SELECT * FROM [dbo].[GameRecords]"
+  ```

@@ -82,6 +82,62 @@
     }
     ```
 
+### Update local application to use Azure AD B2C service principal
+
+1.  Remove your existing local development self-signed certificate.
+
+    ```shell
+    dotnet dev-certs https --clean
+    ```
+
+1.  Create a new local development self-signed certificate.
+
+    ```powershell
+    dotnet dev-certs https -ep $env:USERPROFILE/.aspnet/https/aspnetapp.pfx -p <password>
+
+    dotnet dev-certs https --trust
+    ```
+
+1.  Open the `docker-compose.yml` file.
+
+1.  Add following environment variable key value pairs (note the double underscores for each of the nested environment values). You will also need to add the ones for the SSL certificate & the HTTPS (including the password).
+
+    ```yaml
+    version: "3"
+    services:
+      rockpaperscissors-server:
+        build:
+          context: .
+          dockerfile: Dockerfile-Server
+        container_name: rockpaperscissors-server
+        environment:
+          ...
+          "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
+          "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
+          "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
+          "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
+          "AzureAdB2C__SignUpSignInPolicyId": "AADB2C-policyname"
+          "ASPNETCORE_URLS": "https://+;http://+"
+          "ASPNETCORE_Kestrel__Certificates__Default__Password": ""
+          "ASPNETCORE_Kestrel__Certificates__Default__Path": "/https/aspnetapp.pfx"
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ~/.aspnet/https:/https
+        ...
+    ```
+
+### Test locally
+
+1.  Run the application locally.
+
+    ```shell
+    docker compose up
+    ```
+
+1.  Navigate to `https://localhost` in your browser and click the `Sign-in` button.
+
 ### Update the App Service application to use Azure AD B2C service principal
 
 1.  Use the following command to export all the existing App Service settings into a JSON file to make it easier to bulk upload new values.
@@ -135,30 +191,3 @@
     ```
 
 1.  Navigate to the web app and test the application sign-in flow.
-
-### Optional: Update local application to use Azure AD B2C service principal
-
-> IMPORTANT: The following steps will set up the OAuth2 authentication for the local application. However, this will fail to work correctly when running locally due to the need for a SSL certificate. You can skip this step and just deploy the application to Azure to test the OAuth2 authentication.
-
-1.  Open the `docker-compose.yml` file.
-
-1.  Add following environment variable key value pairs (note the double underscores for each of the nested environment values).
-
-    ```yaml
-    version: "3"
-    services:
-      rockpaperscissors-server:
-        build:
-          context: .
-          dockerfile: Dockerfile-Server
-        container_name: rockpaperscissors-server
-        environment:
-          ...
-          "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
-          "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
-          "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
-          "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
-          "AzureAdB2C__SignUpSignInPolicyId": "AADB2C-policyname"
-        ports:
-          - "80:80"
-    ```

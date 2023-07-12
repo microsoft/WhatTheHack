@@ -9,56 +9,57 @@ using RockPaperScissorsBoom.ExampleBot.Hubs;
 
 namespace RockPaperScissorsBoom.ExampleBot
 {
-    public class Startup
+  public class Startup
+  {
+    public Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-
-            services.AddMvc(opt =>
-            {
-              opt.EnableEndpointRouting = false;
-            });
-
-            services.AddSignalR();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-
-            app.UseEndpoints(builder =>
-            {
-                builder.MapHub<DecisionHub>("/decision");
-            });
-
-            app.UseMvc();
-        }
+      Configuration = configuration;
     }
+
+    public IConfiguration Configuration { get; }
+
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+      services.Configure<CookiePolicyOptions>(options =>
+      {
+        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+        options.CheckConsentNeeded = context => true;
+        options.MinimumSameSitePolicy = SameSiteMode.None;
+      });
+
+
+      services.AddMvc(opt =>
+      {
+        opt.EnableEndpointRouting = false;
+      });
+
+      services.AddSignalR();
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+      if (env.IsDevelopment())
+      {
+        app.UseDeveloperExceptionPage();
+      }
+      else
+      {
+        app.UseHsts();
+      }
+
+      app.UseHttpsRedirection();
+      app.UseStaticFiles();
+      app.UseCookiePolicy();
+      app.UseRouting();
+
+      app.UseEndpoints(builder =>
+      {
+        builder.MapHub<DecisionHub>("/decision");
+      });
+
+      app.UseMvc();
+    }
+  }
 }
