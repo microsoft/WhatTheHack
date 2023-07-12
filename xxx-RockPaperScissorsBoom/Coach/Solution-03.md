@@ -44,6 +44,18 @@
     az webapp create -g <resource-group-name> -p <app-service-plan-name> -n <app-name> --deployment-container-image-name <acr-name>.azurecr.io/rockpaperscissors-server:latest
     ```
 
+1.  Run the following Azure CLI to get the CI/CD webhook URL from App Service (so it can be notified on a push of a new image to the Azure Container Registry)
+
+    ```shell
+    az webapp deployment container config --enable-cd true --name <app-name> --resource-group <resource-group-name> --query CI_CD_URL --output tsv
+    ```
+
+1.  Run the following Azure CLI to setup the webhook notification from the ACR to App Service (update the ACR url & image name as needed).
+
+    ```shell
+    az acr webhook create --name appserviceCD --registry <container-registry-name> --uri <app-service-cicd-url> --actions push --scope <container-registry-name>.azurecr.io/rockpaperscissors-server:latest
+    ```
+
 ### Modify the App Service to have the connection string for the database
 
 1.  Run the following Azure CLI to get the connection string for the Azure SQL database.

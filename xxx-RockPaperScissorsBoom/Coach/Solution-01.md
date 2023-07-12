@@ -9,7 +9,7 @@
 1.  Run the following command to build & run the application & database.
 
     ```shell
-    docker-compose up --build -d
+    docker compose up --build -d
     ```
 
 1.  Run the following command to check and see if the 2 Docker images (application & database) are running successfully.

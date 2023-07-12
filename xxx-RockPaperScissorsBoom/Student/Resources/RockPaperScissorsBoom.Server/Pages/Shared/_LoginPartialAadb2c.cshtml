@@ -1,7 +1,7 @@
 @if (User.Identity.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-page="/Session">Hello @User.Identity.Name!</a></li>
+        <li><a asp-page="/Session">Hello @User.Claims.First(x => x.Type.Contains("givenname")).Value @User.Claims.First(x => x.Type.Contains("surname")).Value!</a></li>
         <li><a asp-page="/Signout">Sign out</a></li>
     </ul>
 }

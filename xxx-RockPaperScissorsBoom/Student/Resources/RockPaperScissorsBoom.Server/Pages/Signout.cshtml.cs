@@ -14,13 +14,6 @@ namespace RockPaperScissorsBoom.Server.Pages
 {
     public class Signout : PageModel
     {
-        public Signout(IOptions<AzureAdB2COptions> b2cOptions)
-        {
-            AzureAdB2COptions = b2cOptions.Value;
-        }
-
-        public AzureAdB2COptions AzureAdB2COptions { get; set; }
-
         public IActionResult OnGet()
         {
             var callbackUrl = "/";

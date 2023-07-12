@@ -16,7 +16,7 @@
 
 1.  Select `Email signup`.
 
-1.  Under the `User attributes and token cliams` section, check all the boxes.
+1.  Under the `User attributes and token claims` section, check all the boxes.
 
 1.  Click `Create`.
 
@@ -36,37 +36,113 @@
 
 1.  Copy the `Value` of the new secret and paste into `Notepad`.
 
+1.  Click on the `Authentication` blade.
+
+1.  Click `Add URI` and add the localhost values for your web app when it is running locally. The port numbers may vary.
+
+    ```text
+      http://localhost/signin-oidc
+
+      https://localhost:55134/signin-oidc
+    ```
+
+1.  Click `Save`
+
+1.  Make sure both the `Access tokens` & `ID tokens` check boxes are selected for the `Implicit grant` section.
+
+1.  Click on the `Manifest` blade. Modify the following settings:
+
+    - Modify the `accessTokenAcceptedVersion` property to be `2`
+    - Modify the `signInAudience` property to be `AzureADandPersonalMicrosoftAccount`
+
+1.  Click `Save`
+
 1.  Click on the `Overview` blade.
 
 1.  Copy the `Application (client) ID` and paste into `Notepad`.
 
 1.  Copy the `Directory (tenant) ID` and paste into `Notepad`.
 
-### Review where to update the OAut2 configuration in the application
+### Review where to update the OAuth2 configuration in the application
 
 1.  Open the `RockPaperScissorsBoom.Server\appsettings.json` file and note the keys that store the OAuth configuration. These are the values we need to modify via environment variables in both the local & Azure deployment.
 
     ```json
     {
       ...
-      "Authentication": {
-        "AzureAdB2C": {
-          "ClientId": "AADB2C-CLIENT-ID(A Guid)",
-          "ClientSecret": "AADB2C-CLIENT-SECRET",
-          "Tenant": "AADB2C-TENANT(tenantname.onmicrosoft.com)",
-          "SignUpSignInPolicyId": "AADB2C-POLICY(B2C_1_xxxxxx)",
-          "RedirectUri": "http://localhost:80/signin-oidc"
-        }
+      "AzureAdB2C": {
+        "Instance": "https://AADB2C-TENANTNAME.b2clogin.com",
+        "ClientId": "AADB2C-CLIENT-ID(A Guid)",
+        "ClientSecret": "AADB2C-CLIENT-SECRET",
+        "Tenant": "AADB2C-TENANT(tenantname.onmicrosoft.com)",
+        "SignUpSignInPolicyId": "AADB2C-POLICY(B2C_1_xxxxxx)",
+        "RedirectUri": "http://localhost:80/signin-oidc"
       },
       ...
     }
     ```
 
-### Update local application to use Azure AD B2C service principal
+### Update the App Service application to use Azure AD B2C service principal
+
+1.  Use the following command to export all the existing App Service settings into a JSON file to make it easier to bulk upload new values.
+
+    ```shell
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> > settings.json
+    ```
+
+1.  Modify the `settings.json` file to add all the AzureAdB2C values (note the double underscore between all the nested values).
+
+    ```json
+    ...
+    {
+      "name": "AzureAdB2C__Instance",
+      "slotSetting": false,
+      "value": "https://aadb2c-tenantname.b2clogin.com"
+    },
+    {
+      "name": "AzureAdB2C__ClientId",
+      "slotSetting": false,
+      "value": "AADB2C-CLIENT-ID(A Guid)"
+    },
+    {
+      "name": "AzureAdB2C__ClientSecret",
+      "slotSetting": false,
+      "value": "AADB2C-CLIENT-SECRET"
+    },
+    {
+      "name": "AzureAdB2C__Domain",
+      "slotSetting": false,
+      "value": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
+    },
+    {
+      "name": "AzureAdB2C__SignUpSignInPolicyId",
+      "slotSetting": false,
+      "value": "AADB2C-policyname"
+    }
+    ...
+    ```
+
+### Test application
+
+1.  Deploy the application to Azure.
+
+    ```shell
+    docker build -f Dockerfile-Server -t rockpaperscissors-server .
+
+    docker tag rockpaperscissors-server <acr-name>.azurecr.io/rockpaperscissors-server:latest
+
+    docker push <acr-name>.azurecr.io/rockpaperscissors-server:latest
+    ```
+
+1.  Navigate to the web app and test the application sign-in flow.
+
+### Optional: Update local application to use Azure AD B2C service principal
+
+> IMPORTANT: The following steps will set up the OAuth2 authentication for the local application. However, this will fail to work correctly when running locally due to the need for a SSL certificate. You can skip this step and just deploy the application to Azure to test the OAuth2 authentication.
 
 1.  Open the `docker-compose.yml` file.
 
-1.  Add following environment variable key value pairs.
+1.  Add following environment variable key value pairs (note the double underscores for each of the nested environment values).
 
     ```yaml
     version: "3"
@@ -78,15 +154,11 @@
         container_name: rockpaperscissors-server
         environment:
           ...
-          "Authentication:AzureAdB2C:ClientId": "AADB2C-CLIENT-ID(A Guid)"
-          "Authentication:AzureAdB2C:ClientSecret": "AADB2C-CLIENT-SECRET"
-          "Authentication:AzureAdB2C:Tenant": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
-          "Authentication:AzureAdB2C:SignUpSignInPolicyId": ""
-          "Authentication:AzureAdB2C:RedirectUri": "http://localhost/signin-oidc"
+          "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
+          "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
+          "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
+          "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
+          "AzureAdB2C__SignUpSignInPolicyId": "AADB2C-policyname"
         ports:
           - "80:80"
     ```
-
-### Update the App Service application to use Azure AD B2C service principal
-
-### Test application

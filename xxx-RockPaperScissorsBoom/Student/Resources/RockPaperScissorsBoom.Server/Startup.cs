@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RockPaperScissorsBoom.Server.Data;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -16,6 +17,9 @@ using Microsoft.AspNetCore.HttpOverrides;
 using RockPaperScissor.Core.Model;
 using Microsoft.ApplicationInsights;
 using RockPaperScissorsBoom.Server.Helpers;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
 
 namespace RockPaperScissorsBoom.Server
 {
@@ -39,25 +43,20 @@ namespace RockPaperScissorsBoom.Server
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddAuthentication(sharedOptions =>
-            {
-                sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                sharedOptions.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-            })
-            .AddAzureAdB2C(options => Configuration.Bind("Authentication:AzureAdB2C", options))
-            .AddCookie();
-
+            services.AddMicrosoftIdentityWebAppAuthentication(Configuration, Constants.AzureAdB2C);
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddHttpClient();
 
+            services.AddApplicationInsightsTelemetry();
 
             services.AddMvc(opt =>
             {
               opt.EnableEndpointRouting = false;
-            });
+            }).AddMicrosoftIdentityUI();
 
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
@@ -69,12 +68,13 @@ namespace RockPaperScissorsBoom.Server
             services.AddLogging(opt =>
             {
               opt.AddConsole();
-              opt.AddDebug();
+              opt.AddDebug();              
             });
+            IdentityModelEventSource.ShowPII = true;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
@@ -90,7 +90,7 @@ namespace RockPaperScissorsBoom.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
@@ -98,13 +98,13 @@ namespace RockPaperScissorsBoom.Server
                 app.UseHsts();
             }
 
-
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseMvc();
 

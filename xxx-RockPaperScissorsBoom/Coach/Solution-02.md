@@ -32,7 +32,7 @@
 
 1.  Open the `docker-compose.yaml` file in a text editor.
 
-1.  Remove the `rockpaperscissors-sql` service since the application will use an Azure SQL database.
+1.  Comment out the `rockpaperscissors-sql` service since the application will use an Azure SQL database.
 
 1.  Modify the `rockpaperscissors-server` service to use the Azure SQL database (notice that you modify the connection string & remove the dependency on the `rockpaperscissors-sql` service). Get the server FQDN & database name from the Azure portal.
 
@@ -43,7 +43,7 @@
         dockerfile: Dockerfile-Server
       container_name: rockpaperscissors-server
       environment:
-        "ConnectionStrings:DefaultConnection": "Server=<azure-sql-server-fqdn>,1433;Database=<azure-sql-db-name>;User Id=<admin-username>;Password=<admin-password>;Encrypt=False;Persist Security Info=False;trusted_connection=False"
+        "ConnectionStrings__DefaultConnection": "Server=<azure-sql-server-fqdn>,1433;Database=<azure-sql-db-name>;User Id=<admin-username>;Password=<admin-password>;Encrypt=False;Persist Security Info=False;trusted_connection=False"
       ports:
         - "80:80"
     ```
@@ -53,13 +53,13 @@
 1.  Shut down the previous version of the application (to stop the local database).
 
     ```shell
-    docker-compose down
+    docker compose down
     ```
 
 1.  Run the following command to build & run the application.
 
     ```shell
-    docker-compose up --build -d
+    docker compose up --build -d
     ```
 
 1.  Navigate to the locally running application in the browser (http://localhost) & play the game
