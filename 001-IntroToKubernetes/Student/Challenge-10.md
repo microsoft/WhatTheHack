@@ -14,9 +14,10 @@ In this challenge you will be enabling DNS, installing an Ingress Controller and
 In the previous challenges, we accessed our service via an IP address.  Humans prefer names to IP addresses, so let's create a DNS name for accessing our service.
 
 1. Your first task is to add a dns label to your __content-web__ service. 
-2. Your service should now be available at the url http://[myserviceuniquelabel].[location].cloudapp.azure.com.   
+2. Your service should now be available at the url `http://[myserviceuniquelabel].[location].cloudapp.azure.com`.
+   *For deployment to Azure Government, the url will be similar to `http://[myserviceuniquelabel].[location].cloudapp.usgovcloudapi.net`*
 3. Verify that the DNS record has been created (nslookup or dig), and then test this url in your browser.
-4. Discuss with your coach how you might link a 'real' DNS name (eg, conferenceinfo.fabmedical.com) with this "azure-specific" DNS name (eg, conferenceinfo.eastus.cloudapp.azure.com)
+4. Discuss with your coach how you might link a 'real' DNS name (eg, `conferenceinfo.fabmedical.com`) with this "azure-specific" DNS name (eg, `conferenceinfo.eastus.cloudapp.azure.com`)
 
 ## Part 2a: Ingress Controller
 Switching gears, we will now start working with ingress controllers, which allow you to route http requests.
@@ -24,7 +25,7 @@ Switching gears, we will now start working with ingress controllers, which allow
 1. Delete the existing content-web service.
 2. Create an nginx ingress controller. (Hint: use helm)
 3. Deploy the content-web service and create an Ingress resource for it. 
-	- The reference template (which will need editing!) can be found in the `Challenge-10` folder of the `Resources.zip` package: `template-web-ingress-deploy.yaml`
+   - The reference template (which will need editing!) can be found in the `Challenge-10` folder of the `Resources.zip` package: `template-web-ingress-deploy.yaml`
 4. Show your coach that you can access the ingress in your browser via IP address
 
 ## Part 2b: Ingress Controller + DNS for Public IPs
@@ -36,6 +37,7 @@ Just like in part 1, you will now add a metadata annotation to the ingress contr
    - Don't forget to add the host name to your ingress YAML template.
 2. Verify that the DNS record has been created (nslookup or dig), and then access the application using the DNS name, e.g: 
     - `http://[new-dns-label].[REGION].cloudapp.azure.com`
+      *For deployment to Azure Government, the url will be similar to `http://[new-dns-label].[REGION].cloudapp.usgovcloudapi.net`*
 
 ## Success Criteria
 

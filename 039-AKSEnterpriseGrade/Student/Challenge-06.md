@@ -1,6 +1,6 @@
-# Challenge 6: Persistent Storage in AKS
+# Challenge 06 - Persistent Storage in AKS
 
-[< Previous Challenge](./05-aks_security.md) - **[Home](../README.md)** - [Next Challenge >](./07-aks_mesh.md)
+[< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 ## Introduction
 
