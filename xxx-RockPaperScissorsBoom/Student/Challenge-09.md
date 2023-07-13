@@ -10,7 +10,7 @@ A content delivery network (CDN) is a distributed network of servers that can ef
 
 ## Description
 
-- Update the app's HTML to use CDN for static content (CSS and JS files) rather than serving it directly from the host.
+- Add a CDN & configure it to cache static content (CSS and JS files) rather than serving it directly from the host.
 
 ## Success Criteria
 

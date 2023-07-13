@@ -13,7 +13,6 @@ We have compiled a list of common tools and software that will come in handy to 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
@@ -22,6 +21,7 @@ You might not need all of them for the hack you are participating in. However, i
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
 - [Logic Apps CLI extension](https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-logic-apps-azure-cli#prerequisites)
+- [Docker](https://docs.docker.com/engine/install/)
 
 ## Description
 
@@ -29,25 +29,15 @@ Now that you have the common pre-requisites installed on your workstation, there
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
+Create an Azure Resource Group to deploy your resources into.
 
-```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
+```shell
+az group create --name rg-rpsb-<team-name> --location <location>
 ```
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
-
-## Learning Resources
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- Verify that you have a shell with the Azure CLI or Azure PowerShell available.
+- Verify you can create an Azure Resource Group.

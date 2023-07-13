@@ -1,20 +1,9 @@
-# Challenge 12 - <Title of Challenge> - Coach's Guide 
+# Challenge 12 - Tournament - Coach's Guide
 
 [< Previous Solution](./Solution-11.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+1.  Have the students create individual bots and deploy them to Azure.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+1.  Have the students test their bots against each other by adding their URLs to the **Competitors** tab.
