@@ -18,10 +18,10 @@
     az acr login -n <acr-name>
     ```
 
-1.  Run the following Docker CLI to tag your local Docker image with the Azure Container Registry login server. Note that you may have slightly different image names. Check the list of images names created locally with `docker images`.
+1.  Run the following Docker CLI to tag your local Docker image with the Azure Container Registry login server. **Note** that you may have slightly different image names. Check the list of images names created locally with `docker images`.
 
     ```shell
-    docker tag code-rockpaperscissors-server <acr-name>.azurecr.io/rockpaperscissors-server:latest
+    docker tag <prefix>-rockpaperscissors-server <acr-name>.azurecr.io/rockpaperscissors-server:latest
     ```
 
 1.  Run the following Docker CLI to push your local Docker image to the Azure Container Registry.
@@ -79,3 +79,5 @@
     ```sql
     SELECT * FROM [dbo].[GameRecords]
     ```
+
+    > **Note:** If the application does not start correctly, make sure the database firewall is not restricting access.  To check this, in the Azure Portal, navigate to the database -> Networking page and check the box "Allow Azure services and resources to access this server."
