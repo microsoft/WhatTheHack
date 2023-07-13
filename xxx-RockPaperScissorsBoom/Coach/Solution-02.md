@@ -64,6 +64,8 @@
 
 1.  Navigate to the locally running application in the browser (http://localhost) & play the game
 
+    >Common Problems:
+    > - If the docker image does not start correctly, it may be because it cannot access the database.  Verify that connections can be made to the server.  By default, the server will restrict access to the database.  Add a firewall rule.
 ### Check for records in the database
 
 1.  Open the Azure portal (https://portal.azure.com).
@@ -72,7 +74,7 @@
 
 1.  Open the Query Editor & login with the credentials you specified earlier.
 
-1.  Run the following query to see the records in the `Game` table.
+1.  Run the following query to see the records in the `GameRecords` table.
 
     ```sql
     SELECT * FROM [dbo].[GameRecords]
