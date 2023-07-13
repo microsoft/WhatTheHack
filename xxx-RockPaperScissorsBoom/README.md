@@ -1,4 +1,4 @@
-# What The Hack - RockPaperScissorsBoom
+# What The Hack - Rock Paper Scissors Boom
 
 ## Introduction
 
@@ -21,7 +21,7 @@ Rules of the Game:
 
 ## Learning Objectives
 
-In this hack, we are going to take a web app called "Rock Paper Scissors Boom" and deploy it on Azure! This app is game server that allows bots to play the classic Rock/Paper/Scissors game. The web app is built on .NET core - it runs on Linux and Windows! The web app is open source and built by [DevChatter](https://www.twitch.tv/devchatter). This hack repo was forked from DevChatter's [original repo](https://github.com/DevChatter/RockPaperScissorsBoom).
+In this hack, we are going to take a web app called "Rock Paper Scissors Boom" and deploy it on Azure! This app is game server that allows bots to play the classic Rock/Paper/Scissors game. The web app is built on .NET core - it runs on Linux and Windows! The web app is open source and built by [DevChatter](https://www.twitch.tv/devchatter). This hack repo was forked from `DevChatter's` [original repo](https://github.com/DevChatter/RockPaperScissorsBoom).
 
 Through progressive challenges we will build the web app, deploy it to Azure, monitor it, protect it, enhance and extend it.
 

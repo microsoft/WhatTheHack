@@ -26,7 +26,9 @@
 
 1.  Give your app a name, select `Web app` for the `Application type` and enter the following for the `Sign-on URL`:
 
-    `https://<app-service-name>.azurewebsites.net/signin-oidc`
+    ```
+    https://<app-service-name>.azurewebsites.net/signin-oidc
+    ```
 
 1.  Click `Register`
 
@@ -41,9 +43,9 @@
 1.  Click `Add URI` and add the localhost values for your web app when it is running locally. The port numbers may vary.
 
     ```text
-      http://localhost/signin-oidc
+    http://localhost/signin-oidc
 
-      https://localhost:55134/signin-oidc
+    https://localhost:55134/signin-oidc
     ```
 
 1.  Click `Save`
@@ -146,7 +148,7 @@
     az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> > settings.json
     ```
 
-1.  Modify the `settings.json` file to add all the AzureAdB2C values (note the double underscore between all the nested values).
+1.  Modify the `settings.json` file to add all the `AzureAdB2C` values (note the double underscore between all the nested values).
 
     ```json
     ...

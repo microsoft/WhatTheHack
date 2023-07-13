@@ -38,7 +38,7 @@
 
 ### Test the new CDN
 
-1.  Open a browswer and turn on **Developer Tools** (F12). Navigate to the **Network** tab.
+1.  Open a browser and turn on **Developer Tools** (F12). Navigate to the **Network** tab.
 
 1.  Navigate to the Azure Front Door endpoint URL in a browser (look in the Azure portal for this URL)
 

@@ -1,15 +1,15 @@
-# Challenge 08 - Leverage SignalR
+# Challenge 08 - Leverage `SignalR`
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
 ## Introduction
 
-With this challenge you will deploy and add your own SmartBot by leveraging SignalR, you will add a new competitor in your games.
+With this challenge you will deploy and add your own `SmartBot` by leveraging `SignalR`, you will add a new competitor in your games.
 
 ## Description
 
-- There is already the `RockPaperScissorsBoom.ExampleBot` project in your solution implementing a SignalR bot, let's just use it and deploy it!
-- Deployit on a new Azure Web App for Containers instance.
+- There is already the `RockPaperScissorsBoom.ExampleBot` project in your solution implementing a `SignalR` bot, let's just use it and deploy it!
+- Deploy it on a new Azure Web App for Containers instance.
 
 ## Success Criteria
 
