@@ -19,7 +19,7 @@ To complete this challenge successfully, you should be able to:
 
 1. Make sure `docker ps` is showing you 2 Docker containers running successfully.
 1. In your web browser, navigate to the app and play a game, make sure it's working without any error.
-1. In Azure DevOps (Boards), from the Boards view, you could now drag and drop this user story associated to this Challenge to the `Resolved` or `Closed` column, congrats! ;)
+
 
 ## Learning Resources
 

@@ -32,6 +32,11 @@
 
 1.  Play a game of Rock Paper Scissors Boom (click on the `Run the Game` link at the top of the page & click the `Run the Game` button).
 
+    > The following pages will result in an error:
+    > 1. Sign In
+    > 1. Competitors -> Create New
+    > 1. Competitors -> <Any Player Name> -> Edit | Delete 
+
 ## Troubleshooting
 
 - You can login to the database in the Docker container and use `sqlcmd` to query the records if needed.
