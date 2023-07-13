@@ -1,0 +1,17 @@
+[
+  {
+    "id": "c7e8ec9c-a441-42f2-8ba5-36c26400053e",
+    "subject": "Note",
+    "data": {
+      "TeamName": "MikeRichter",
+      "GameId": "2a48ab18-31f1-4bb5-907b-b532ce23951e",
+      "Winner": "Smart Bot",
+      "Hostname": "localhost"
+    },
+    "eventType": "RockPaperScissors.GameWinner.RunTheGamePage",
+    "dataVersion": "2.0",
+    "metadataVersion": "1",
+    "eventTime": "2023-07-13T01:14:52.4871334Z",
+    "topic": "/subscriptions/.../resourceGroups/.../providers/Microsoft.EventGrid/topics/rockpaperscissorsboom-winner-notification-topic"
+  }
+]

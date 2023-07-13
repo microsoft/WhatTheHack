@@ -178,6 +178,12 @@
     ...
     ```
 
+1.  Use the following command to bulk upload the new settings.
+
+    ```shell
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings @settings.json
+    ```
+
 ### Test application
 
 1.  Deploy the application to Azure.
