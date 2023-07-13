@@ -22,6 +22,7 @@ You might not need all of them for the hack you are participating in. However, i
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
 - [Logic Apps CLI extension](https://learn.microsoft.com/en-us/azure/logic-apps/quickstart-logic-apps-azure-cli#prerequisites)
 - [Docker](https://docs.docker.com/engine/install/)
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 
 ## Description
 

@@ -33,19 +33,17 @@ Here are the technologies and services you will leverage:
 
 - GitHub
 - Git
-- Linux
 - ASP.NET Core
 - SQL Server on Linux
 - Docker
 - Azure SQL Database
-- Azure DevOps (formerly known as VSTS)
-- Azure App Service on Linux
+- Azure DevOps
+- Azure App Service Container on Linux
 - Azure Container Registry
 - Azure AD B2C
 - Azure CDN
 - Azure Application Insights
 - Logic Apps
-- Azure Functions
 - Azure Event Grid
 
 ## Challenges
@@ -53,37 +51,40 @@ Here are the technologies and services you will leverage:
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
   - Prepare your workstation to work with Azure.
 - Challenge 01: **[Run the app](Student/Challenge-01.md)**
-  - Description of challenge
+  - Get the app running locally
 - Challenge 02: **[Move to Azure SQL Database](Student/Challenge-02.md)**
-  - Description of challenge
+  - Modify the locally running app to use an Azure SQL database
 - Challenge 03: **[Run the app on Azure](Student/Challenge-03.md)**
-  - Description of challenge
+  - Deploy the containerized app to Azure
 - Challenge 04: **[Run the Game Continuously](Student/Challenge-04.md)**
-  - Description of challenge
+  - Set up automation to run the game continuously
 - Challenge 05: **[Add Application Monitoring](Student/Challenge-05.md)**
-  - Description of challenge
+  - Add Application Monitoring to the app
 - Challenge 06: **[Build a CI/CD pipeline with Azure DevOps](Student/Challenge-06.md)**
-  - Description of challenge
+  - Build a CI/CD pipeline with Azure DevOps
 - Challenge 07: **[Implement AAD B2C](Student/Challenge-07.md)**
-  - Description of challenge
+  - Implement authentication for the application
 - Challenge 08: **[Leverage SignalR](Student/Challenge-08.md)**
-  - Description of challenge
+  - Set up a bot to play the game & communicate with SignalR
 - Challenge 09: **[Leverage CDN](Student/Challenge-09.md)**
-  - Description of challenge
+  - Set up a CDN to serve static content
 - Challenge 10: **[Send a Winner Notification](Student/Challenge-10.md)**
-  - Description of challenge
+  - Send a notification when a game is won
 - Challenge 11: **[Run a Load Test](Student/Challenge-11.md)**
-  - Description of challenge
+  - Run a load test against the app
 - Challenge 12: **[Tournament Instructions](Student/Challenge-12.md)**
-  - Description of challenge
+  - Build a bot and compete in a tournament
 
 ## Prerequisites
 
 - Your own Azure subscription with Owner access
 - Visual Studio Code
+- Docker
+- NET 6.0 SDK
 - Azure CLI
 
 ## Contributors
 
 - Mike Richter
 - Jordan Bean
+- Brian Cheng
