@@ -1,12 +1,27 @@
-# Challenge 5: AKS Security - Coach's Guide
+# Challenge 05 - AKS Security  - Coach's Guide 
 
-[< Previous Challenge](./04-aks_secrets.md) - **[Home](./README.md)** - [Next Challenge >](./06-aks_storage.md)
+[< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes and Guidance
 
-* Dedicated subnets per nodepool in preview at the time of this writing
-* Understand how taints/tolerations work for nodepool scheduling
-* It might take some time for the Azure Policy to propagate to the AKS cluster
+- Dedicated subnets per nodepool in preview at the time of this writing
+- Understand how taints/tolerations work for nodepool scheduling
+- When using Kubenet networking, only Calico networking policy is currently available in AKS (this may change in the future)
+- When using Azure CNI networking, you may use either Calico or Azure networking policy.
+- Switching between kubenet and Azure CNI networking is not possible after a cluster has been deployed. 
+  - Students will need to re-deploy a new cluster to change the networking type OR apply a networking policy!
+  - If the students have used "infrastructure as code" and created their cluster from the Azure CLI using the "az aks create" command, this should not be a "painful" event.
+  - It is a good lesson for students to see that with a combination of Azure CLI commands, YAML files, and/or Helm charts, that re-deploying a new cluster is easy.
+- AKS will have the ability for users to "bring their own" networking policy in the future. This may change the possible solutions for this challenge.
+- To demonstrate that the network policies work:
+  - Students can create a jumpbox VM on the VNet where the AKS cluster is deployed
+  - curl both the Web & API pods from the VM. 
+  - curling the API pod should fail after the proper network policy is in place.
+- It might take some time for the Azure Policy to propagate to the AKS cluster (up to 20 mins on average)
+  - To verify that no LoadBalancer services with a public IP address can be created, students will should get an error message when trying to deploy a new service.
+  - Students should be taught how to enable the service to be available external from the cluster without the use of a public IP address.
+    - This involves creating an internal Load Balancer in Azure that receives a private IP address from the VNet that the cluster is deployed into.
+    - This article is a good reference: [Use an internal load balancer with Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/internal-lb)
 
 ## Solution Guide
 
@@ -272,5 +287,6 @@ The creation of the public Load Balancer should have given an error similar to t
 Error from server ([denied by azurepolicy-load-balancer-no-public-ips-5770c529e14827a6045a751c63c417c0e1d27b4d9169f8c297c820a652e2aa54] Load Balancers should not have public IPs. azure-load-balancer-internal annotation is required for publicweb): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-load-balancer-no-public-ips-5770c529e14827a6045a751c63c417c0e1d27b4d9169f8c297c820a652e2aa54] Load Balancers should not have public IPs. azure-load-balancer-internal annotation is required for publicweb
 ```
 
-* OPA and LBs: [https://github.com/raffaelespazzoli/openshift-opa#quota-on-loadbalancer-service-types](https://github.com/raffaelespazzoli/openshift-opa#quota-on-loadbalancer-service-types)
+* OPA and LBs: [Open Policy Agent: Quota on LoadBalancer service types](https://github.com/raffaelespazzoli/openshift-opa#quota-on-loadbalancer-service-types)
 * [Ahmet's network policy examples](https://github.com/ahmetb/kubernetes-network-policy-recipes)
+
