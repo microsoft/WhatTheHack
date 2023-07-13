@@ -1,4 +1,4 @@
-# Challenge - - Run a Load Test
+# Challenge 11 - Run a Load Test
 
 [< Previous Challenge](./Challenge-10.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-12.md)
 
