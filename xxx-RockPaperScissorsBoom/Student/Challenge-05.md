@@ -18,7 +18,6 @@ To complete this challenge successfully, you should be able to:
 
 - Make sure you got some data in Application Insights while running your application in both places locally and in Azure App Service. Make sure you are leveraging the proper way for both to set the `ConnectionString` (i.e. in `docker-compose.yaml` file for local and in Azure App Service's `AppSettings`).
 - Build a dashboard in the Azure Portal for viewing performance of the app.
-- In Azure DevOps (Boards), from the Boards view, you could now drag and drop the user story associated to this Challenge to the `Resolved` or `Closed` column, congrats! ;)
 
 ## Learning Resources
 

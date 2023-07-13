@@ -18,7 +18,6 @@ This is a simple challenge to get your Rock Papers Scissors Boom Server app to p
 To complete this challenge successfully, you should be able to:
 
 - The game is playing at a continuous interval. (e.g. every 5 minutes)
-- In Azure DevOps (Boards), from the Boards view, you could now drag and drop the user story associated to this Challenge to the `Resolved` or `Closed` column, congrats! ;)
 
 ## Learning Resources
 

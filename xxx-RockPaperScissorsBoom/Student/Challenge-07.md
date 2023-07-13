@@ -22,7 +22,6 @@ To complete this challenge successfully, you should be able to:
 - When a user hits the 'Sign In' link, they are redirected to login.
 - A user can successfully authenticate, get redirected back to your application and see a personalized greeting.
 - A user can successfully add or edit a bot in the Competitor views.
-- In Azure DevOps (Boards), from the Boards view, you could now drag and drop the user story associated to this Challenge to the `Resolved` or `Closed` column, congrats! ;)
 
 ## Learning Resources
 

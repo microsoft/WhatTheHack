@@ -22,7 +22,6 @@ To complete this challenge successfully, you should be able to:
 
 - Deploy an Azure Container Registry, push your local Docker image to it & deploy the app in an Azure Web App Service for Containers.
 - In your web browser, navigate to the app and play a game, make sure it's working without any error.
-- In Azure DevOps (Boards), from the Boards view, you could now drag and drop the user story associated to this Challenge to the `Resolved` or `Closed` column, congrats! ;)
 
 ## Learning Resources
 

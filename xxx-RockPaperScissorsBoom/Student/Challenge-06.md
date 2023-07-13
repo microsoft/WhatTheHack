@@ -20,7 +20,6 @@ To complete this challenge successfully, you should be able to:
 - In Azure Cloud Shell, make sure `az webapp list` is showing your Azure services properly.
 - In Azure Cloud Shell, make sure `az acr repository show-tags` is showing your new container image properly.
 - In your web browser, navigate to the app and play a game, make sure it's working without any error and that your update is here.
-- In Azure DevOps (Boards), from the Boards view, you could now drag and drop the user story associated to this Challenge to the `Resolved` or `Closed` column, congrats! ;)
 
 ## Learning Resources
 
