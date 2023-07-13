@@ -9,7 +9,7 @@ With this challenge you will deploy and add your own SmartBot by leveraging Sign
 ## Description
 
 - There is already the `RockPaperScissorsBoom.ExampleBot` project in your solution implementing a SignalR bot, let's just use it and deploy it!
-- Deployed it on new Azure Web App for Containers.
+- Deployit on a new Azure Web App for Containers instance.
 
 ## Success Criteria
 
@@ -28,4 +28,4 @@ To complete this challenge successfully, you should be able to:
 ## Tips
 
 - Revisit challenges [Challenge 4 - Run the app on Azure](RunOnAzure.md) and/or [Challenge 7 - Build a CI/CD pipeline with Azure DevOps](BuildCICDPipelineWithAzureDevOps.md). For the latter, the recommendation is to create its own Build and Release definition (not impacting the ones already created for the `Server`).
-- To add this new Bot deployed in your Game, just navigate to the `Competitors` menu of your main web app (Server) and create a new competitor. You will have to provide the URL of your Bot by adding at the end of this URL: `/decision`.
+- To add this new Bot deployed in your Game, just navigate to the `Competitors` menu of your main web app (Server) and create a new competitor. You will have to provide the URL of your Bot and add `/decision` to the end of the URL.

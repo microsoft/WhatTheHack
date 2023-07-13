@@ -14,8 +14,7 @@ In a previous challenge we deployed the app on Azure but into an Azure Docker-ma
 
 - Provision an Azure Container Registry (ACR) to push your container in it.
 - Push your local Docker image to your ACR.
-- Provision an Azure Web App Service for Containers.
-- Deploy the app in your Azure Web App Service for Containers by pulling the Docker image from your ACR previously created, test it as an end-user, and play a game once deployed there.
+- Provision an Azure Web App Service for Containers & deploy the app in your Azure Web App Service for Containers by pulling the Docker image from your ACR previously created, test it as an end-user, and play a game once deployed there.
 
 ## Success Criteria
 

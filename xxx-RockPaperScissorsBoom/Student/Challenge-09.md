@@ -11,7 +11,6 @@ A content delivery network (CDN) is a distributed network of servers that can ef
 ## Description
 
 - Update the app's HTML to use CDN for static content (CSS and JS files) rather than serving it directly from the host.
-- For this challenge you will need to update the HTML code of your application. Use an editor like VS Code or Notepad. If you're working in Azure Cloud Shell, you can invoke the Cloud Shell editor. Learn more aboug it [here](https://azure.microsoft.com/en-us/blog/cloudshelleditor/).
 
 ## Success Criteria
 

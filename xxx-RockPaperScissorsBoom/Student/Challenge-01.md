@@ -29,4 +29,4 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
-- Run `docker-compose up --build -d` from the folder where the `docker-compose.yaml` file is to build & run the Docker images locally.
+- Run `docker compose up --build -d` from the folder where the `docker-compose.yaml` file is to build & run the Docker images locally.
