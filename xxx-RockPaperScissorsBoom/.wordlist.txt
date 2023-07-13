@@ -1,3 +1,8 @@
 sublicense
 MERCHANTABILITY
 NONINFRINGEMENT
+Cheng
+RockPaperScissorsBoom
+Jörn
+Zaefferer
+DevChatter

@@ -38,7 +38,7 @@
 
 ### Build, push & start the `ExampleBot` Docker image
 
-1.  Build & push the `ExampleBot`` Docker image:
+1.  Build & push the `ExampleBot` Docker image:
 
     ```shell
     docker build -f Dockerfile-ExampleBot -t rockpaperscissors-examplebot .

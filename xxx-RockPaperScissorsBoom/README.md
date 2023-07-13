@@ -25,7 +25,7 @@ In this hack, we are going to take a web app called "Rock Paper Scissors Boom" a
 
 Through progressive challenges we will build the web app, deploy it to Azure, monitor it, protect it, enhance and extend it.
 
-At the end, each team will be able to build their own bot and compete with each other. We'll have a tournament with fabulous gifts and prizes!
+At the end, each team will be able to build their own bot and compete with each other.
 
 ## Technologies
 
