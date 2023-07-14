@@ -10,7 +10,10 @@ A content delivery network (CDN) is a distributed network of servers that can ef
 
 ## Description
 
-- Add a CDN & configure it to cache static content (CSS and JS files) rather than serving it directly from the host.
+- Add an Azure Front Door
+- Configure the Front Door route for non-cached traffic to your App Service
+- Configure it to cache static content (CSS and JS files) rather than serving them from the App Service
+  > Note: You shouldn't cache all requests coming in through Front Door (such as API calls, etc.). You should only cache static content.
 
 ## Success Criteria
 
@@ -26,3 +29,4 @@ To complete this challenge successfully, you should be able to:
 ## Tips
 
 - Use Azure Front Door to serve static content from CDN via caching on a route.
+- Make sure you are only caching static content and not all requests.

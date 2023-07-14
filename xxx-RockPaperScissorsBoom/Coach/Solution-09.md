@@ -30,10 +30,16 @@
     az afd origin create --resource-group <resource-group-name> --host-name <web-app-name>.azurewebsites.net --profile-name <profile-name> --origin-group-name rock-paper-scissors-boom --origin-name rock-paper-scissors-boom --origin-host-header <web-app-name>.azurewebsites.net --priority 1 --weight 1000 --enabled-state Enabled --http-port 80 --https-port 443
     ```
 
-1.  Run the following Azure CLI command to create the Azure Front Door routing rule.
+1.  Run the following Azure CLI command to create the Azure Front Door routing rule for the non-cached routes.
 
     ```shell
-    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching true --query-string-caching-behavior IgnoreQueryString
+    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route-non-cached --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching false --query-string-caching-behavior IgnoreQueryString
+    ```
+
+1.  Run the following Azure CLI command to create the Azure Front Door routing rule for the cached routes.
+
+    ```shell
+    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route-cached --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching true --query-string-caching-behavior IgnoreQueryString --patterns-to-match "/img/*" "/css/*" "/lib/*" "/js/*"
     ```
 
 ### Test the new CDN
