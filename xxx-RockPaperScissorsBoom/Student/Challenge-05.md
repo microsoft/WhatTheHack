@@ -6,7 +6,7 @@
 
 We've got our app running, but how do we know how well it's performing? Let's instrument `Application Insights` so you can see what's happening inside the app.
 
-![Add Application Monitoring](../docs/AddApplicationMonitoring.png)
+![Add Application Monitoring](../images/AddApplicationMonitoring.png)
 
 ## Description
 

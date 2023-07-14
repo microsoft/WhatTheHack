@@ -22,11 +22,11 @@
 
 1.  Add a `Office 365 Outlook - Send an email (V2)` action and populate it with values from the event. Use the `Data` values to compose your email. Something like this:
 
-![Send an email](../images/sendAnEmail.png)
+    ![Send an email](../images/sendAnEmail.png)
 
-> NOTE: You may have to use the **Code view** to correctly parse the data values since they come in from the trigger as an array with no name.
+    > NOTE: You may have to use the **Code view** to correctly parse the data values since they come in from the trigger as an array with no name.
 
-![Code view](../images/logicAppsCodeView.png)
+    ![Code view](../images/logicAppsCodeView.png)
 
 1.  Save the Logic App and copy the URL from the trigger.
 

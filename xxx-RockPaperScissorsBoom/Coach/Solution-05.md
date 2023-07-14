@@ -63,7 +63,7 @@
     docker compose up --build -d
     ```
 
-1.  Open the browser to http://localhost:80 and play a game.
+1.  Open the browser to http://localhost and play a game.
 
 1.  Open the Azure portal and navigate to your new Application Insights resource.
 

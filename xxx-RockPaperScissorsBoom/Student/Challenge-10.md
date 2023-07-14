@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Imagine if you had this requirement: After each game is played, a notification should be sent to someone about who won the game. Guess what? That is what this challenge is all about!
+After each game is played, a notification should be sent to someone about who won the game.
 
 ## Description
 
@@ -26,10 +26,13 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [Event Grid Trigger for Azure Logic Apps](https://learn.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-logic-app)
+- [Event Grid messaging for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet)
 
 ## Tips
 
+- Look in the `RockPaperScissorsBoom.Server/Controllers/RunGameController.cs` file to see how the event is being raised.
+- Look in the `RockPaperScissorsBoom.Server/appsettings.json` file to see what configuration is needed.
 - You may want to disable to Logic App that has been calling your web app automatically so you don't get a bunch of emails while you are working on this challenge.
 - Event Grid Topic --> Event Grid Subscription (Webhook to Azure Logic App)
-- The Logic App has a step that sends an email.
+- The Logic App needs to have a step that sends an email.
 - Look at the `RockPaperScissorsBoom.Server/EventGridPayload.json` file to see what data is available in the event.

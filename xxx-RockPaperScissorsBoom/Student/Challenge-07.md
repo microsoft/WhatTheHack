@@ -11,7 +11,7 @@ The application has the code in place to authenticate users against Azure AD B2C
 ## Description
 
 - Create an `Azure AD B2C` application in the Azure portal.
-- Optional: Allow users to authenticate with an SSO ID via an `OpenIDConnect Account`.
+- Optional: Allow users to authenticate with an SSO ID via an `OpenIDConnect Account` (requires an AzureAD app registration in your AzureAD tenant).
 - Make sure it works in your on Azure App Service
   - **DO NOT** store credentials in your code or appsettings file.
 
@@ -21,19 +21,50 @@ To complete this challenge successfully, you should be able to:
 
 - When a user hits the 'Sign In' link, they are redirected to login.
 - A user can successfully authenticate, get redirected back to your application and see a personalized greeting.
+
+![greeting](../images/personalized-authenticated-greeting.PNG)
+
 - A user can successfully add or edit a bot in the Competitor views.
 
 ## Learning Resources
 
-- [Set up AAD B2C with a Microsoft Account](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) - In step 6, you may to format the Redirect URL as: `https://login.microsoftonline.com/te/<your-tenant>.onmicrosoft.com/oauth2/authresp`
+- [Set up AAD B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-local?pivots=b2c-user-flow)
 - [Working with Azure App Service Application Settings](https://blogs.msdn.microsoft.com/cjaliaga/2016/08/10/working-with-azure-app-services-application-settings-and-connection-strings-in-asp-net-core/)
-- [Cloud authentication with Azure Active Directory B2C in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/azure-ad-b2c?view=aspnetcore-2.1)
+- [Cloud authentication with Azure Active Directory B2C in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/azure-ad-b2c?view=aspnetcore-6.0)
 - [Bulk set App Service configuration values](https://learn.microsoft.com/en-us/azure/app-service/configure-common?tabs%253Dcli#edit-app-settings-in-bulk)
 - [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
 
 ## Tips
 
 - Make sure you are calling the application with `https` for the authentication redirects to work.
-- Remember to keep your configuration secrets OUT of your code or config files.
+- Remember to keep your configuration secrets **OUT** of your code or config files.
 - If you can't find your AAD B2C Azure resources after you create them, make sure you switch AAD Tenants in the Azure portal.
 - Don't forget `/signin-oidc` in your redirect URL
+- Configuring https locally can be difficult to setup.
+  - [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
+  - Look at the following Docker Compose YAML snippet to see how to configure a self-signed certificate for your local development environment.
+    ```yaml
+    version: "3"
+    services:
+      rockpaperscissors-server:
+        build:
+          context: .
+          dockerfile: Dockerfile-Server
+        container_name: rockpaperscissors-server
+        environment:
+          ...
+          "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
+          "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
+          "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
+          "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
+          "AzureAdB2C__SignUpSignInPolicyId": "AADB2C-policyname"
+          "ASPNETCORE_URLS": "https://+;http://+"
+          "ASPNETCORE_Kestrel__Certificates__Default__Password": ""
+          "ASPNETCORE_Kestrel__Certificates__Default__Path": "/https/aspnetapp.pfx"
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ~/.aspnet/https:/https
+      ...
+    ```

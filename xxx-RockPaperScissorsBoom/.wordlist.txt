@@ -1,8 +1,9 @@
-sublicense
+Cheng
+DevChatter
+Jörn
 MERCHANTABILITY
 NONINFRINGEMENT
-Cheng
 RockPaperScissorsBoom
-Jörn
+SignalR
 Zaefferer
-DevChatter
+sublicense

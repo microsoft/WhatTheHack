@@ -21,7 +21,7 @@ To complete this challenge successfully, you should be able to:
   - If you were running a free or basic sku of web apps, you may notice that your performance got worse as more load was added to the system. There may even have been a large number of errors as the demand on your app grew.
 - Scale up the web app. You may need to move to the Standard SKU. Add 2 or 3 instances. Run the Competitor load test again. Notice if the numbers were better this time.
 - Review the Application Insights chart you built for measuring how long the games take to run. If you successfully automated the game runs, did they take longer when you were performing your tests?
-- Review the Compute utilization chart on the Overview->Monitoring blade for your SQL DB in the Azure portal. Did you see a spike on the DTUs during the load test?
+- Review the Compute utilization chart on the `Overview->Monitoring` blade for your SQL DB in the Azure portal. Did you see a spike on the DTUs during the load test?
 - Play with the "Diagnose and solve problems" blade for your Azure Web App in the Azure portal. Let's know more about usage, CPU, memory, etc. and the info and recommendation you could get.
 
 ## Learning Resources
@@ -33,12 +33,21 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
+- Use the Apache JMeter test script `quick_test.jmx` to set up the Load Test to call your test plan
+- Set the following Load Test environment variables
+  - domain: `<web-app-name>.azurewebsites.net`
+  - protocol: https
+  - throughput_per_engine: 100
+  - max_response_type: 500
+  - ramp_up_time: 0
+  - duration_in_sec: 120
+  - path: `api/rungame`
 - You may want to disable to Notification Logic App so you don't get a bunch of emails while you are running your load tests.
 - You may want to build a dashboard in the Azure portal that collects some telemetry data from across your solution into one place. Can you build a dashboard that includes
-  - Web app # of requests,
-  - Web app average response times,
-  - game run duration, SQL DTUs,
-  - Logic Apps Actions Completed,
+  - Web app # of requests
+  - Web app average response times
+  - game run duration, SQL DTUs
+  - Logic Apps Actions Completed
   - Event Grid Published Events
 - Check out this sample dashboard
 

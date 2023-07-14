@@ -1,4 +1,4 @@
-# Challenge 08 - Leverage `SignalR`
+# Challenge 08 - Leverage SignalR
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 

@@ -28,6 +28,12 @@
     az sql db create -g <resource-group-name> -s <sql-server-name> -n RockPaperScissorsBoom
     ```
 
+1.  Run the following Azure CLI command to get the connection string for the Azure SQL database.
+
+    ```shell
+    az sql db show-connection-string -s <sql-server-name> -n RockPaperScissorsBoom -c ado.net
+    ```
+
 ### Modify the `docker-compose.yaml` file to point to the new Azure SQL database
 
 1.  Open the `docker-compose.yaml` file in a text editor.
@@ -43,7 +49,7 @@
         dockerfile: Dockerfile-Server
       container_name: rockpaperscissors-server
       environment:
-        "ConnectionStrings__DefaultConnection": "Server=<azure-sql-server-fqdn>,1433;Database=<azure-sql-db-name>;User Id=<admin-username>;Password=<admin-password>;Encrypt=False;Persist Security Info=False;trusted_connection=False"
+        "ConnectionStrings__DefaultConnection": "Server=tcp:<sql-server-name>.database.windows.net,1433;Initial Catalog=RockPaperScissorsBoom;Persist Security Info=False;User ID=<username>;Password=<password>;MultipleActiveResultSets=False;Encrypt=true;TrustServerCertificate=False;Connection Timeout=30;"
       ports:
         - "80:80"
     ```
@@ -59,13 +65,15 @@
 1.  Run the following command to build & run the application.
 
     ```shell
-    docker compose up --build -d
+    docker compose up --build -d --remove-orphans
     ```
 
 1.  Navigate to the locally running application in the browser (http://localhost) & play the game
 
-    >Common Problems:
-    > - If the docker image does not start correctly, it may be because it cannot access the database.  Verify that connections can be made to the server.  By default, the server will restrict access to the database.  Add a firewall rule.
+    > Common Problems:
+    >
+    > - If the docker image does not start correctly, it may be because it cannot access the database. Verify that connections can be made to the server. By default, the server will restrict access to the database. Add a firewall rule.
+
 ### Check for records in the database
 
 1.  Open the Azure portal (https://portal.azure.com).
