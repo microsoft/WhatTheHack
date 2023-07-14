@@ -1,6 +1,6 @@
-# Challenge 3: AKS Monitoring
+# Challenge 03 - AKS Monitoring
 
-[< Previous Challenge](./02-aks_private.md) - **[Home](../README.md)** - [Next Challenge >](./04-aks_secrets.md)
+[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ## Introduction
 
@@ -18,7 +18,7 @@ This challenge will cover monitoring in AKS, using open source components such a
 
 - You can display cluster metrics graphically
 - You can show live container logs with Azure Container Insights
-- The cluster autoscales when there are not enough CPU resources
+- Verify that the cluster auto-scales when there are not enough CPU resources
 - Participants can explain the autoscaling event using AKS metrics
 
 ## Learning Resources
