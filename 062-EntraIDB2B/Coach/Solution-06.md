@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Follow the Quickstart for the deployment of your app.
+Follow the QuickStarts for the deployment of your app.
 
 QuickStarts are available for ASP.NET and other languages.
 
