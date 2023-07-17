@@ -4,9 +4,9 @@
 
 ## Notes & Guidance
 
-Follow the QuickStarts for the deployment of your app.
+Follow the QuickStart for the deployment of your app.
 
-QuickStarts are available for ASP.NET and other languages.
+QuickStart are available for ASP.NET and other languages.
 
 For Angular or any other SPA app, build your angular app, create an azure app service, configure the app service. Under the "Settings" section, click on "Configuration". Here, you need to set the Node.js version to match your Angular app's requirements. Select the "General Settings" tab and choose the desired Node.js version.
 
