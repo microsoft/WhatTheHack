@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow one of the quickstarts to create and publish a new web app to App Service.
+For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow one of the quickstart to create and publish a new web app to App Service.
 
   - [ASP.Net Core](https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?pivots=development-environment-vs&tabs=net70)
   - [Node.js](https://learn.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=development-environment-vscode&tabs=windows)

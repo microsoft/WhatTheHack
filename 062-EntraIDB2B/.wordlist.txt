@@ -13,3 +13,7 @@ Passcode
 aud
 yourtenantname
 EasyAuth
+microsoftonline
+Bappaditya
+Banerjee
+McCollum

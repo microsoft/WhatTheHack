@@ -15,7 +15,7 @@ With Entra ID B2B, the partner uses their own identity management solution, so t
 
 - The partner uses their own identities and credentials, whether or not they have an Entra ID account.
 - You don't need to manage external accounts or passwords.
-- You don't need to sync accounts or manage account lifecycles.
+- You don't need to sync accounts or manage account lifecycle.
 
 When sharing an application with external users, you might not always know in advance who will need access to the application. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves by enabling self-service sign-up user flow. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options to sign up with Entra ID or social identity providers and collect information about the user during the sign-up process.
 
