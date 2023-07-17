@@ -11,4 +11,4 @@ Select Accounts in this organizational directory only( Single Tenant)
 
 Enter https://authr.biz/ as the Redirect URIs.
 
-Select the Access Token and ID Token checkboxes in the Authentication tab
+Select the Access Token and ID Token checkbox in the Authentication tab
