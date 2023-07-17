@@ -12,7 +12,7 @@ Select the checkbox beside the newly created tenant and hit the Switch button.
 
 You should be switched to the newly created tenant.
 
-When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the Global Administrator role. 
+When you create a new Entra ID tenant, you become the first user of that tenant. As the first user, you're automatically assigned the Global Administrator role. 
 
 
 Create another new user by navigating Users page and add Global Administrator role with it.

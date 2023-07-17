@@ -1,8 +1,8 @@
-# What The Hack - AzureADandAADB2B - Coach Guide
+# What The Hack - EntraIDB2B - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the AzureADandAADB2B What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the EntraIDB2B What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 
 ## Coach's Guides

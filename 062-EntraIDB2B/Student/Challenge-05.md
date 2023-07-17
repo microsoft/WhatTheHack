@@ -1,4 +1,4 @@
-# Challenge 05 - Integrate your application with Azure AD
+# Challenge 05 - Integrate your application with Entra ID
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
@@ -23,14 +23,14 @@ Each code sample includes a README.md file describing how to build the project (
 
 ## Success Criteria
 
-1. Your users should be Sign in to web applications using Azure AD.
+1. Your users should be Sign in to web applications using Entra ID.
 
 ## Learning Resources
 
 - Web App Authentication
     - [ASP.Net](https://learn.microsoft.com/en-us/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet)
     - [ASP.Net Core](https://learn.microsoft.com/en-us/azure/active-directory/develop/web-app-quickstart?pivots=devlang-aspnet-core)
-- [Angular single-page application using MSAL Angular to sign-in users with Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code)
+- [Angular single-page application using MSAL Angular to sign-in users with Entra ID](https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code)
 - [Desktop application - acquire a token interactively](https://learn.microsoft.com/en-us/azure/active-directory/develop/scenario-desktop-acquire-token-interactive?tabs=dotnet)
 
 
@@ -38,4 +38,4 @@ Each code sample includes a README.md file describing how to build the project (
 
 _Too comfortable? Eager to do more? Try these additional challenges!_
 
-- Add a second app to your Azure AD tenant, choosing the language of your choice.
+- Add a second app to your Entra ID tenant, choosing the language of your choice.

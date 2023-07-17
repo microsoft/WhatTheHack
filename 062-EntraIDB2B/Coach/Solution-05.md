@@ -1,4 +1,4 @@
-# Challenge 05 - Integrate your application with Azure AD - Coach's Guide 
+# Challenge 05 - Integrate your application with Entra ID - Coach's Guide 
 
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 

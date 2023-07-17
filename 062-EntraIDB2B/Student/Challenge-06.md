@@ -19,8 +19,8 @@ Depending on your business needs, the platform offers you flexibility in terms o
 ## Success Criteria
 
 1. Your app is deployed to an Azure App Service.
-2. The redirect URL of Azure Active Directory app registration should be configured with the Azure App service URL.
-3. User can sign in to your Azure app with Azure AD credentials.
+2. The redirect URL of Entra ID app registration should be configured with the Azure App service URL.
+3. User can sign in to your Azure app with Entra ID credentials.
 
 ## Learning Resources
 

@@ -10,7 +10,7 @@ For this tutorial, you need a web app deployed to App Service. You can use an ex
   - [Node.js](https://learn.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=development-environment-vscode&tabs=windows)
   - [Java](https://learn.microsoft.com/en-us/azure/app-service/quickstart-java?pivots=platform-linux-development-environment-maven&tabs=javase)
 
-Create the Web app in the Microsoft tenant using your microsoft account. Please note that you will not be able to create the web app in your newly created Azure AD tenant as there is no subscription associated with it.
+Create the Web app in the Microsoft tenant using your microsoft account. Please note that you will not be able to create the web app in your newly created Entra ID tenant as there is no subscription associated with it.
 
 Whether you use an existing web app or create a new one, take note of the following:
 

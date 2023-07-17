@@ -10,7 +10,7 @@ Make sure to change the tenant=microsoft.onmicrosoft.com in the query parameter 
 
 Verify that Authorization Endpoint and Token Endpoint reflects the change.
 
-Copy the Client ID from the Azure Portal by navigation Azure Active Directory - App Registration - Overview - Application (client) ID.
+Copy the Client ID from the Azure Portal by navigation Entra ID - App Registration - Overview - Application (client) ID.
 
 No need to put the Client Secret in the form.
 

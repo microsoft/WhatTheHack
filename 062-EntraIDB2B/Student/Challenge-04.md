@@ -1,4 +1,4 @@
-# Challenge 04 - Integrate Azure AD authentication into an Azure App Service (EasyAuth)
+# Challenge 04 - Integrate Entra ID authentication into an Azure App Service (EasyAuth)
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
@@ -15,11 +15,11 @@ Implementing a secure solution for authentication (signing-in users) and authori
 
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
-- You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
+- You can integrate with multiple login providers. For example, Entra ID, Facebook, Google, Twitter.
 
 ## Success Criteria
 
-1. Your app service in configured with Azure AD authentication (EasyAuth).
+1. Your app service in configured with Entra ID authentication (EasyAuth).
 
 Please note that you will have to choose the option "Provide the details of an existing app registration" under App registration type because you will be using a different tenant than the one attached to your Azure subscription.
 
