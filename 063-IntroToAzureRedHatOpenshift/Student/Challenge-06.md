@@ -12,7 +12,7 @@ In this challenge, we will be deploying two network policies that will restrict 
 - Configure a network policy called `deny-all` that denies all traffic by default using a YAML file you create
     - To confirm the network policy is in effect, go the the application's homepage and the website should be broken
 - Configure a network policy called `allow-rating-web` that will allow traffic to **rating-web** from all pods using a YAML file you create
-    - To confirm the network policy is in effect, go the the application's homepage and the website should be working now. Submit ratings is still broken.
+    - To confirm the network policy is in effect, go to the application's homepage and the website should be working now. Submit ratings is still broken.
 - Configure a network policy called `allow-rating-api` that will allow traffic to **rating-api** from **rating-web** using a YAML file you create 
     - To confirm the network policy is in effect, go the the application's homepage and you should be able to submit and see ratings
 
