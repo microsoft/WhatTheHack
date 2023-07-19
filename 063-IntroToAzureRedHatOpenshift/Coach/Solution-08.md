@@ -3,7 +3,7 @@
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
-- In this challenge, we will be integrating Azure Active Directory with Azure Red Hat OpenShift so that Azure AD can be configured as authentication for the ARO Web Console. 
+- In this challenge, we will be integrating Azure Active Directory with Azure Red Hat OpenShift so that Azure AD can be configured as the authentication method for the ARO Web Console. 
 
 ## Construct an OAuth Callback URL
 - Use the command below where $RESOURCEGROUP is the resource group of your ARO cluster and $CLUSTER is the name of your ARO cluster
