@@ -14,7 +14,7 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 ```
 
 ## Create Azure AD Application for authentication
-- In Azure portal, navigate to **App Registrations**, and create a new registration
+- In the Azure portal, navigate to **App Registrations**, and create a new registration
 - Fill in redirect URI with the value of the callback URL and select **Web** under **Select a platform**
 - After the registration, navigate to **Certificates and Secrets** and create a **New Client Secret** and fill in details
     - **Note:** Make note of the key value
