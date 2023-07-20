@@ -8,6 +8,8 @@
 
 1.  Create a new Azure AD B2C tenant in the Azure portal.
 
+  > Note: Instructions for deploying a B2C tenant: https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant
+
 1.  Navigate to your new B2C tenant resource in the Azure portal & click on `User flows`
 
 1.  Click `New user flow` and select `Sign up and sign in`. Select `Recommended` and click `Create`.
@@ -36,7 +38,7 @@
 
 1.  Click `New client secret`, give it a description and an expiration date and click `Add`.
 
-1.  Copy the `Value` of the new secret and paste into `Notepad`.
+1.  Copy the `Value` of the new secret and paste into a text editor such as `Notepad`.
 
 1.  Click on the `Authentication` blade.
 
@@ -45,7 +47,7 @@
     ```text
     http://localhost/signin-oidc
 
-    https://localhost:55134/signin-oidc
+    https://localhost/signin-oidc
     ```
 
 1.  Click `Save`
@@ -140,6 +142,13 @@
 
 1.  Navigate to `https://localhost` in your browser and click the `Sign-in` button.
 
+  > Note:
+  >   - If the container does not start due to the missing file, ensure the volume is mounted and is pointing to the correct directory with the pfx file.  On Windows, the `~` refers to the `$env:USERPROFILE` directory.
+  >   - If the `Sign in` button does not send the user to B2C, check to make sure the `redirect_uri` and  `URI` are correct.  If the `URI` is allowed, delete the App Registration and start over.  If it continues to fail, make sure you only allow **1** `URI`. 
+  >   - A good way of debugging the login flow is through Application Insights.  Navigate to Application Insights -> Failures.  The learner can find the stack traces and exceptions and follow the user flow.  In some cases, the configuration, especially `AzureAdB2C__Instance`, is incorrect.
+  >   - When signing into the app, if the user's First Name and Last Name do not show, make sure the `givenname` and `surname` are checked in the `User Attributes` and `Application Claims` within the `User Flow`.
+  
+
 ### Update the App Service application to use Azure AD B2C service principal
 
 1.  Use the following command to export all the existing App Service settings into a JSON file to make it easier to bulk upload new values.
@@ -179,11 +188,12 @@
     }
     ...
     ```
+1.  If the `DOCKER_REGISTRY_SERVER_PASSWORD` is in the `settings.json` file, replace the `null` value with the correct password.  Otherwise, the continuous deployment will fail.
 
 1.  Use the following command to bulk upload the new settings.
 
     ```shell
-    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings @settings.json
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings "@settings.json"
     ```
 
 ### Test application

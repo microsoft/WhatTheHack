@@ -1,7 +1,14 @@
 @if (User.Identity.IsAuthenticated)
 {
+    var givenname = "";
+    var surname = "";
+    foreach (System.Security.Claims.Claim claim in User.Claims)
+    {
+        if (claim.Type.Contains("givenname")) givenname = claim.Value;
+        if (claim.Type.Contains("surname")) surname = claim.Value;
+    }
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-page="/Session">Hello @User.Claims.First(x => x.Type.Contains("givenname")).Value @User.Claims.First(x => x.Type.Contains("surname")).Value!</a></li>
+        <li><a asp-page="/Session">Hello @givenname @surname! </a></li>
         <li><a asp-page="/Signout">Sign out</a></li>
     </ul>
 }
@@ -11,3 +18,9 @@ else
         <li><a asp-page="/Session">Sign in</a></li>
     </ul>
 }
+
+@*
+&& @User.Claims.First ? (@User.Claims.First(x
+=>
+x.Type.Contains("givenname")).Value
+@User.Claims.First(x => x.Type.Contains("surname")).Value) : ! *@
