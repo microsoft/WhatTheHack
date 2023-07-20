@@ -12,7 +12,11 @@
     az logic workflow create --name <logicapp-name> --resource-group <resource-group-name> --location <location> --definition workflow.json
     ```
 
-    > Note: You can also use the Azure Portal to create the Logic App.
+    > Notes: 
+    > - You can also use the Azure Portal to create the Logic App.
+    > - The CLI may need to install the `logic` extension.  Choose `Y` to continue.
+    > - Ensure your `resource group` is in the correct.  South Central US is a valid resource group at the time of this WTH creation.  If your resource group is not in the correct region, create a new `resource goup` in the correct region and re-run the command.
+
 
 1.  Open the Logic App in the Azure Portal and click on the `Recurrence` trigger.
 
