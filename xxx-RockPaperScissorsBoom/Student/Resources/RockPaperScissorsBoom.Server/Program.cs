@@ -10,6 +10,7 @@ using RockPaperScissorsBoom.Server;
 using RockPaperScissorsBoom.Server.Data;
 using RockPaperScissorsBoom.Server.Helpers;
 using RockPaperScissorsBoom.Server.Hubs;
+using RockPaperScissorsBoom.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +54,7 @@ builder.Services.AddRazorPages(options =>
 
 builder.Services.AddSingleton<IMetrics>(s => new AIMetrics(s.GetRequiredService<TelemetryClient>(), "BotDecisionTime"));
 builder.Services.AddSingleton<IMessagingHelper, EventGridMessagingHelper>();
+builder.Services.AddScoped<IRunGameService, RunGameService>();
 builder.Services.AddSignalR();
 
 var app = builder.Build();
@@ -95,6 +97,12 @@ app.UseAuthorization();
 //needed to enable sign-in/sign-out with Microsoft Identity Web
 app.MapControllers();
 app.MapRazorPages();
+
+app.MapPost("/api/rungame", async (IRunGameService runGameService) =>
+{
+    await runGameService.RunGameAsync();
+    return Results.Accepted();
+}).AllowAnonymous();
 
 app.MapHub<ProgressBarHub>("/ProgressBarHub").AllowAnonymous();
 

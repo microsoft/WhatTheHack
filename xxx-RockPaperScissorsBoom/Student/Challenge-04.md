@@ -11,7 +11,7 @@ This is a simple challenge to get your Rock Papers Scissors Boom Server app to p
 ## Description
 
 - Find the API URL that you can hit to start a game.
-- Use an Azure resource like Logic Apps to automate hitting this URL.
+- Use an Azure resource like Logic Apps to automate hitting this URL on a timer.
 
 ## Success Criteria
 
