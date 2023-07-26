@@ -1,20 +1,23 @@
-@page
+﻿@page
 @model RockPaperScissorsBoom.Server.Pages.Competitors.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Manage the Competitors</h2>
+<h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-striped w-auto">
     <thead>
-        <tr>
+        <tr class="table-info">
             <th>
                 @Html.DisplayNameFor(model => model.Competitor[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitor[0].BotType)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Competitor[0].Url)
@@ -27,6 +30,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BotType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Url)

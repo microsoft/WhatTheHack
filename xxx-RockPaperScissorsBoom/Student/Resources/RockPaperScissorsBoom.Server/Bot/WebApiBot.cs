@@ -1,11 +1,8 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Json;
-using Newtonsoft.Json;
-using RockPaperScissor.Core.Game;
-using RockPaperScissor.Core.Game.Bots;
-using RockPaperScissor.Core.Game.Results;
-using RockPaperScissor.Core.Model;
+﻿using RockPaperScissorsBoom.Core.Game;
+using RockPaperScissorsBoom.Core.Game.Bots;
+using RockPaperScissorsBoom.Core.Game.Results;
+using RockPaperScissorsBoom.Core.Model;
+using System.Text.Json;
 
 namespace RockPaperScissorsBoom.Server.Bot
 {
@@ -15,22 +12,20 @@ namespace RockPaperScissorsBoom.Server.Bot
 
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public WebApiBot(string apiRootUrl, IHttpClientFactory httpClientFactory)
+        public WebApiBot(string apiRootUrl, IHttpClientFactory httpClientFactory, Competitor competitor, ILogger logger) : base(competitor, logger)
         {
             _apiRootUrl = apiRootUrl;
             _httpClientFactory = httpClientFactory;
         }
 
-        public override Decision GetDecision(PreviousDecisionResult previousResult)
+        public async override Task<Decision> GetDecisionAsync(PreviousDecisionResult previousResult)
         {
-            using (HttpClient client = _httpClientFactory.CreateClient())
-            {
-                var result = client.PostAsJsonAsync(_apiRootUrl, previousResult).Result;
-                //string rawBotChoice = client.GetStringAsync(_apiRootUrl).Result;
-                string rawBotChoice = result.Content.ReadAsStringAsync().Result;
-                BotChoice botChoice = JsonConvert.DeserializeObject<BotChoice>(rawBotChoice);
-                return botChoice?.Decision ?? throw new Exception("Didn't get BotChoice back from web api call.");
-            }
+            using HttpClient client = _httpClientFactory.CreateClient();
+
+            HttpResponseMessage result = await client.PostAsJsonAsync(_apiRootUrl, previousResult);
+            string rawBotChoice = await result.Content.ReadAsStringAsync();
+            BotChoice? botChoice = JsonSerializer.Deserialize<BotChoice>(rawBotChoice);
+            return botChoice?.Decision ?? throw new Exception("Didn't get BotChoice back from web api call.");
         }
     }
 }

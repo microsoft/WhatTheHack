@@ -1,12 +1,12 @@
-﻿using RockPaperScissor.Core.Game;
-using RockPaperScissor.Core.Game.Results;
-using RockPaperScissor.Core.Model;
+﻿using RockPaperScissorsBoom.Core.Game;
+using RockPaperScissorsBoom.Core.Game.Results;
+using RockPaperScissorsBoom.Core.Model;
 
 namespace UnitTests.DataBuilders
 {
     public class RoundResultBuilder
     {
-        private RoundResult _entity = new RoundResult();
+        private RoundResult _entity = new(new MatchResult(new Competitor("", ""), new Competitor("", "")));
 
         public RoundResult Build()
         {
@@ -15,14 +15,11 @@ namespace UnitTests.DataBuilders
 
         public RoundResultBuilder WithDefaults()
         {
-            _entity = new RoundResult
-            {
-                MatchResult = new MatchResult()
-            };
+            _entity = new RoundResult(new MatchResult(new Competitor("", ""), new Competitor("", "")));
             return this;
         }
 
-        public RoundResultBuilder Winner(Competitor winner)
+        public RoundResultBuilder Winner(Competitor? winner)
         {
             _entity.Winner = winner;
             return this;

@@ -1,23 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.33711.374
+VisualStudioVersion = 17.7.33913.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissorsBoom.Server", "RockPaperScissorsBoom.Server\RockPaperScissorsBoom.Server.csproj", "{D5231A79-7796-4733-856D-413DDA5E6DE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissorsBoom.Server", "RockPaperScissorsBoom.Server\RockPaperScissorsBoom.Server.csproj", "{CA0A2AE6-364F-4A79-AEFC-7A1FC5D4B406}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissor.Core", "RockPaperScissor.Core\RockPaperScissor.Core.csproj", "{3A0230AF-C443-4A9E-BFCD-3A53A8967EB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissorsBoom.Core", "RockPaperScissorsBoom.Core\RockPaperScissorsBoom.Core.csproj", "{F87554EC-9E41-4366-ADAB-B51B1B5D3A75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{01F2116E-8B50-466C-982C-F535D1048E83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{17841077-0AAA-442A-8E33-A7B086449870}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissorsBoom.ExampleBot", "RockPaperScissorsBoom.ExampleBot\RockPaperScissorsBoom.ExampleBot.csproj", "{8AE78E1D-CAD0-4661-9805-59698A371992}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{07D9C43D-3A82-4F5C-B69C-F0330181B671}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7D42E47-5C4A-4E72-A4C8-2CD7BCEAD5D8}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yaml = docker-compose.yaml
-		docker.yaml = docker.yaml
-		Dockerfile-ExampleBot = Dockerfile-ExampleBot
-		Dockerfile-Server = Dockerfile-Server
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsBoom.ExampleBot", "RockPaperScissorsBoom.ExampleBot\RockPaperScissorsBoom.ExampleBot.csproj", "{15C03DD2-50EC-4D0A-9625-0499C5A871B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,27 +22,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D5231A79-7796-4733-856D-413DDA5E6DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5231A79-7796-4733-856D-413DDA5E6DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5231A79-7796-4733-856D-413DDA5E6DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5231A79-7796-4733-856D-413DDA5E6DE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A0230AF-C443-4A9E-BFCD-3A53A8967EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A0230AF-C443-4A9E-BFCD-3A53A8967EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A0230AF-C443-4A9E-BFCD-3A53A8967EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A0230AF-C443-4A9E-BFCD-3A53A8967EB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01F2116E-8B50-466C-982C-F535D1048E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01F2116E-8B50-466C-982C-F535D1048E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01F2116E-8B50-466C-982C-F535D1048E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01F2116E-8B50-466C-982C-F535D1048E83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8AE78E1D-CAD0-4661-9805-59698A371992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8AE78E1D-CAD0-4661-9805-59698A371992}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8AE78E1D-CAD0-4661-9805-59698A371992}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8AE78E1D-CAD0-4661-9805-59698A371992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0A2AE6-364F-4A79-AEFC-7A1FC5D4B406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0A2AE6-364F-4A79-AEFC-7A1FC5D4B406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0A2AE6-364F-4A79-AEFC-7A1FC5D4B406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0A2AE6-364F-4A79-AEFC-7A1FC5D4B406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F87554EC-9E41-4366-ADAB-B51B1B5D3A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F87554EC-9E41-4366-ADAB-B51B1B5D3A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F87554EC-9E41-4366-ADAB-B51B1B5D3A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F87554EC-9E41-4366-ADAB-B51B1B5D3A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17841077-0AAA-442A-8E33-A7B086449870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17841077-0AAA-442A-8E33-A7B086449870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17841077-0AAA-442A-8E33-A7B086449870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17841077-0AAA-442A-8E33-A7B086449870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C03DD2-50EC-4D0A-9625-0499C5A871B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C03DD2-50EC-4D0A-9625-0499C5A871B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C03DD2-50EC-4D0A-9625-0499C5A871B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C03DD2-50EC-4D0A-9625-0499C5A871B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0CC302DD-65E0-4403-81CB-97876538003B}
+		SolutionGuid = {CCBD8DD0-3590-4F76-8B61-477D3233A0C0}
 	EndGlobalSection
 EndGlobal

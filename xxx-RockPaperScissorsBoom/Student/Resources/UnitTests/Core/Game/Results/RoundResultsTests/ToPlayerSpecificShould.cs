@@ -1,17 +1,17 @@
 ﻿using FluentAssertions;
-using RockPaperScissor.Core.Game;
-using RockPaperScissor.Core.Game.Results;
-using RockPaperScissor.Core.Model;
+using Microsoft.Extensions.Logging.Abstractions;
+using RockPaperScissorsBoom.Core.Game;
+using RockPaperScissorsBoom.Core.Game.Results;
+using RockPaperScissorsBoom.Core.Model;
 using UnitTests.DataBuilders;
-using Xunit;
-using DynoBot = RockPaperScissor.Core.Game.Bots.DynamiteOnlyBot;
+using DynoBot = RockPaperScissorsBoom.Core.Game.Bots.DynamiteOnlyBot;
 
 namespace UnitTests.Core.Game.Results.RoundResultsTests
 {
     public class ToPlayerSpecificShould
     {
-        private readonly DynoBot _player1 = new DynoBot { Competitor = new Competitor()};
-        private readonly DynoBot _player2 = new DynoBot { Competitor = new Competitor()};
+        private readonly DynoBot _player1 = new(new Competitor("", ""), new NullLogger<ToPlayerSpecificShould>());
+        private readonly DynoBot _player2 = new(new Competitor("", ""), new NullLogger<ToPlayerSpecificShould>());
 
         [Fact]
         public void AssignWinner_GivenWinnerAsPlayer()

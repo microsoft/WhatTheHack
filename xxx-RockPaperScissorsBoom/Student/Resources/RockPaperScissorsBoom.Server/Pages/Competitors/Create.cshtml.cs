@@ -1,17 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using RockPaperScissor.Core.Model;
-using RockPaperScissorsBoom.Server.Data;
+using RockPaperScissorsBoom.Core.Model;
 
 namespace RockPaperScissorsBoom.Server.Pages.Competitors
 {
-    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly RockPaperScissorsBoom.Server.Data.ApplicationDbContext _context;
@@ -27,11 +19,13 @@ namespace RockPaperScissorsBoom.Server.Pages.Competitors
         }
 
         [BindProperty]
-        public Competitor Competitor { get; set; }
+        public Competitor Competitor { get; set; } = default!;
 
+
+        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || _context.Competitors == null || Competitor == null)
             {
                 return Page();
             }

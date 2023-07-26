@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using Microsoft.ApplicationInsights;
-using RockPaperScissor.Core.Model;
+using RockPaperScissorsBoom.Core.Model;
 
 namespace RockPaperScissorsBoom.Server
 {
@@ -15,7 +14,7 @@ namespace RockPaperScissorsBoom.Server
             this.ignoreList = ignoreList;
         }
 
-        public void TrackEventDuration(string eventName, Dictionary<string, string> properties, Dictionary<string, double> metrics)
+        public void TrackEventDuration(string eventName, Dictionary<string, string?> properties, Dictionary<string, double> metrics)
         {
             if (!ignoreList.Contains(eventName))
             {

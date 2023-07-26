@@ -1,64 +1,74 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using RockPaperScissor.Core.Game;
-using RockPaperScissor.Core.Game.Bots;
-using RockPaperScissor.Core.Model;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+using RockPaperScissorsBoom.Core.Game;
+using RockPaperScissorsBoom.Core.Game.Bots;
+using RockPaperScissorsBoom.Core.Model;
 using RockPaperScissorsBoom.Server.Bot;
 using RockPaperScissorsBoom.Server.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
 using RockPaperScissorsBoom.Server.Helpers;
+using RockPaperScissorsBoom.Server.Hubs;
 using RockPaperScissorsBoom.Server.Models;
 
 namespace RockPaperScissorsBoom.Server.Pages
 {
     public class RunTheGameModel : PageModel
     {
-        private readonly ApplicationDbContext db;
-        private readonly IMetrics metrics;
-        private readonly IConfiguration configuration;
-        private readonly IMessagingHelper messageHelper;
+        private readonly ApplicationDbContext _db;
+        private readonly IMetrics _metrics;
+        private readonly IConfiguration _configuration;
+        private readonly IMessagingHelper _messageHelper;
+        private readonly ILogger<RunTheGameModel> _logger;
+        private readonly IHubContext<ProgressBarHub> _hubContext;
 
-        public List<BotRecord> BotRankings { get; set; }
-        public List<FullResults> AllFullResults { get; set; }
+        public List<BotRecord> BotRankings { get; set; } = new List<BotRecord>();
+        public List<FullResults> AllFullResults { get; set; } = new List<FullResults>();
 
-        public List<GameRecord> GamesForTable { get; set; }
+        public List<GameRecord> GamesForTable { get; set; } = new List<GameRecord>();
 
-        public RunTheGameModel(ApplicationDbContext db, IMetrics metrics, IConfiguration configuration, IMessagingHelper messageHelper)
+        public RunTheGameModel(ApplicationDbContext db,
+            IMetrics metrics,
+            IConfiguration configuration,
+            IMessagingHelper messageHelper,
+            ILogger<RunTheGameModel> logger,
+            IHubContext<ProgressBarHub> hubContext)
         {
-            this.db = db;
-            this.metrics = metrics;
-            this.configuration = configuration;
-            this.messageHelper = messageHelper;
+            _db = db;
+            _metrics = metrics;
+            _configuration = configuration;
+            _messageHelper = messageHelper;
+            _logger = logger;
+            _hubContext = hubContext;
         }
 
         public void OnGet()
         {
-            GameRecord gameRecord = db.GameRecords
-                .Include(x => x.BotRecords)
-                .ThenInclude(x => x.Competitor)
-                .OrderByDescending(x => x.GameDate)
-                .FirstOrDefault();
-            BotRankings = gameRecord?.BotRecords ?? new List<BotRecord>();
             AllFullResults = new List<FullResults>();
+            GetGamesForTableData();
+        }
 
-            GamesForTable = db.GameRecords.OrderByDescending(g => g.GameDate).Take(20).Include(g => g.BotRecords).ToList();
+        private void GetGamesForTableData()
+        {
+            GamesForTable = _db.GameRecords
+                            .OrderByDescending(g => g.GameDate).Take(10)
+                            .Include(g => g.BotRecords)
+                            .ThenInclude(b => b.Competitor)
+                            .ToList();
         }
 
         public async Task OnPostAsync()
         {
-            List<Competitor> competitors = db.Competitors.ToList();
+            List<Competitor> competitors = _db.Competitors.ToList();
             if (!competitors.Any())
             {
                 competitors = GetDefaultCompetitors();
-                db.Competitors.AddRange(competitors);
-                db.SaveChanges();
+                _db.Competitors.AddRange(competitors);
+                await _db.SaveChangesAsync();
             }
 
-            var gameRunner = new GameRunner(metrics);
+            var gameRunner = new GameRunner(_metrics);
+            gameRunner.GameRoundCompleted += GameRunner_GameRoundCompleted;
+
             foreach (var competitor in competitors)
             {
                 BaseBot bot = CreateBotFromCompetitor(competitor);
@@ -67,29 +77,33 @@ namespace RockPaperScissorsBoom.Server.Pages
 
             var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-            GameRunnerResult gameRunnerResult = gameRunner.StartAllMatches();
+            GameRunnerResult gameRunnerResult = await gameRunner.StartAllMatches();
 
             stopwatch.Stop();
 
             var metric = new Dictionary<string, double> { { "GameLength", stopwatch.Elapsed.TotalMilliseconds } };
 
             // Set up some properties:
-            var properties = new Dictionary<string, string> { { "Source", configuration["P20HackFestTeamName"] } };
+            var properties = new Dictionary<string, string?> { { "Source", _configuration["HackTeamName"] } };
 
             // Send the event:
-            metrics.TrackEventDuration("GameRun", properties, metric);
+            _metrics.TrackEventDuration("GameRun", properties, metric);
 
-            SaveResults(gameRunnerResult);
+            await SaveResults(gameRunnerResult);
             BotRankings = gameRunnerResult.GameRecord.BotRecords.OrderByDescending(x => x.Wins).ToList();
             AllFullResults = gameRunnerResult.AllMatchResults.OrderBy(x => x.Competitor.Name).ToList();
 
-            //Get 20 Last 
-            GamesForTable = db.GameRecords.OrderByDescending(g => g.GameDate).Take(20).Include(g => g.BotRecords).ToList();
+            GetGamesForTableData();
 
-            if (bool.Parse(configuration["EventGridOn"]))
+            if (bool.Parse(_configuration["EventGridOn"] ?? "false"))
             {
-                await PublishMessage(BotRankings.First().GameRecord.Id.ToString(), BotRankings.First().Competitor.Name);
+                await PublishMessage(BotRankings.First().GameRecord?.Id.ToString() ?? "", BotRankings.First().Competitor?.Name ?? "");
             }
+        }
+
+        private void GameRunner_GameRoundCompleted(object? sender, GameRoundCompletedEventArgs e)
+        {
+            _hubContext.Clients.All.SendAsync("UpdateProgressBar", e.GameNumber, e.TotalGames);
         }
 
         internal async Task PublishMessage(string GameId, string Winner)
@@ -98,31 +112,31 @@ namespace RockPaperScissorsBoom.Server.Pages
             {
                 GameId = GameId,
                 Winner = Winner,
-                Hostname = this.HttpContext.Request.Host.Host,
-                TeamName = this.configuration["P20HackFestTeamName"]
+                Hostname = HttpContext.Request.Host.Host,
+                TeamName = _configuration["HackTeamName"]
             };
-            await messageHelper.PublishMessageAsync("RockPaperScissors.GameWinner.RunTheGamePage", "Note", DateTime.UtcNow, msg);
+            await _messageHelper.PublishMessageAsync("RockPaperScissors.GameWinner.RunTheGamePage", "Note", DateTime.UtcNow, msg);
         }
 
-        private void SaveResults(GameRunnerResult gameRunnerResult)
+        private async Task SaveResults(GameRunnerResult gameRunnerResult)
         {
             if (gameRunnerResult.GameRecord.BotRecords.Any())
             {
-                db.GameRecords.Add(gameRunnerResult.GameRecord);
-                db.SaveChanges();
+                _db.GameRecords.Add(gameRunnerResult.GameRecord);
+                await _db.SaveChangesAsync();
             }
         }
 
-        private static BaseBot CreateBotFromCompetitor(Competitor competitor)
+        private BaseBot CreateBotFromCompetitor(Competitor competitor)
         {
-            Type type = Type.GetType(competitor.BotType);
-            var bot = (BaseBot)Activator.CreateInstance(type);
+            Type type = Type.GetType(competitor.BotType) ?? throw new Exception($"Could not find type {competitor.BotType}");
+            var bot = Activator.CreateInstance(type, competitor, _logger) as BaseBot ?? throw new Exception($"Could not create instance of type {competitor.BotType}");
+
             if (bot is SignalRBot signalRBot)
             {
-                signalRBot.ApiRootUrl = competitor.Url;
+                signalRBot.ApiRootUrl = competitor.Url ?? "";
             }
 
-            bot.Competitor = competitor;
             return bot;
         }
 
@@ -130,22 +144,21 @@ namespace RockPaperScissorsBoom.Server.Pages
         {
             var competitors = new List<Competitor>
             {
-                new Competitor {Name = "Rocky", BotType = typeof(RockOnlyBot).AssemblyQualifiedName},
-                new Competitor {Name = "Treebeard", BotType = typeof(PaperOnlyBot).AssemblyQualifiedName},
-                new Competitor {Name = "Sharpy", BotType = typeof(ScissorsOnlyBot).AssemblyQualifiedName},
-                new Competitor {Name = "All Washed Up", BotType = typeof(WaterOnlyBot).AssemblyQualifiedName},
-                new Competitor {Name = "Clever Bot", BotType = typeof(CleverBot).AssemblyQualifiedName},
-                new Competitor {Name = "Smart Bot", BotType = typeof(SmartBot).AssemblyQualifiedName},
+                new Competitor("Rocky", typeof(RockOnlyBot).AssemblyQualifiedName ?? ""),
+                new Competitor("Treebeard", typeof(PaperOnlyBot).AssemblyQualifiedName ?? ""),
+                new Competitor("Sharpy", typeof(ScissorsOnlyBot).AssemblyQualifiedName ?? ""),
+                new Competitor("All Washed Up", typeof(WaterOnlyBot).AssemblyQualifiedName ?? ""),
+                new Competitor("Clever Bot", typeof(CleverBot).AssemblyQualifiedName ?? ""),
+                new Competitor("Smart Bot", typeof(SmartBot).AssemblyQualifiedName ?? ""),
                 //new Competitor
                 //{
                 //    Name = "Signals",
                 //    BotType = typeof(SignalRBot).AssemblyQualifiedName,
                 //    Url = "https://localhost:44347/decision"
                 //},
-                new Competitor {Name = "Rando Carrisian", BotType = typeof(RandomBot).AssemblyQualifiedName}
+                new Competitor("Rando Carrisian", typeof(RandomBot).AssemblyQualifiedName ?? "")
             };
             return competitors;
         }
-
     }
 }

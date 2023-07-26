@@ -1,15 +1,12 @@
-@page
-
+﻿@page
 @using System.Reflection;
-@using RockPaperScissor.Core;
-
 @model RockPaperScissorsBoom.Server.Pages.Competitors.CreateModel
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h1>Create</h1>
 
 <h4>Competitor</h4>
 <hr />
@@ -25,30 +22,30 @@
             <div class="form-group">
                 <label asp-for="Competitor.BotType" class="control-label"></label>
                 <select asp-for="Competitor.BotType" class="form-control">
-                @{
-                    Assembly assemblyServer = typeof(RockPaperScissorsBoom.Server.Bot.SignalRBot).Assembly;
-                    Assembly assemblyCore = typeof(RockPaperScissor.Core.Game.Bots.BaseBot).Assembly;
-                    var types = new List<Type>();
-                    types.AddRange(assemblyServer.GetTypes());
-                    types.AddRange(assemblyCore.GetTypes());
-                    foreach (Type type in types)
-                    {
-                        if (type.IsSubclassOf(typeof(RockPaperScissor.Core.Game.Bots.BaseBot)))
+                    @{
+                        Assembly assemblyServer = typeof(RockPaperScissorsBoom.Server.Bot.SignalRBot).Assembly;
+                        Assembly assemblyCore = typeof(RockPaperScissorsBoom.Core.Game.Bots.BaseBot).Assembly;
+                        var types = new List<Type>();
+                        types.AddRange(assemblyServer.GetTypes());
+                        types.AddRange(assemblyCore.GetTypes());
+                        foreach (Type type in types)
                         {
-                            <option value="@type.AssemblyQualifiedName.ToString()">@type.Name</option>
+                            if (type.IsSubclassOf(typeof(RockPaperScissorsBoom.Core.Game.Bots.BaseBot)))
+                            {
+                                <option value="@type.AssemblyQualifiedName?.ToString()">@type.Name</option>
+                            }
                         }
                     }
-                }
                 </select>
                 <span asp-validation-for="Competitor.BotType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Competitor.Url" class="control-label"></label>
-                <input asp-for="Competitor.Url" class="form-control" />
+                <input asp-for="Competitor.Url" class="form-control" placeholder="https://examplebot.azurewebsites.net/decision" />
                 <span asp-validation-for="Competitor.Url" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

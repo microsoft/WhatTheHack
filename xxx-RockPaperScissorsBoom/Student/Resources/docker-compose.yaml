@@ -10,7 +10,7 @@ services:
     ports:
       - "1433:1433"
     healthcheck:
-      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "" -Q "SELECT 1" -b
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P " -Q "SELECT 1" -b
       interval: 10s
       timeout: 3s
       retries: 10
@@ -18,7 +18,7 @@ services:
   rockpaperscissors-server:
     build:
       context: .
-      dockerfile: Dockerfile-Server
+      dockerfile: RockPaperScissorsBoom.Server/Dockerfile
     container_name: rockpaperscissors-server
     environment:
       "ConnectionStrings__DefaultConnection": "Server=rockpaperscissors-sql,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=;Encrypt=False;Persist Security Info=False;trusted_connection=False"

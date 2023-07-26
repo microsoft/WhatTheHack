@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RockPaperScissor.Core.Model;
-using RockPaperScissorsBoom.Server.Data;
+using RockPaperScissorsBoom.Core.Model;
 
 namespace RockPaperScissorsBoom.Server.Pages.Competitors
 {
-    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly RockPaperScissorsBoom.Server.Data.ApplicationDbContext _context;
@@ -22,35 +15,39 @@ namespace RockPaperScissorsBoom.Server.Pages.Competitors
         }
 
         [BindProperty]
-        public Competitor Competitor { get; set; }
+        public Competitor Competitor { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (id == null)
+            if (id == null || _context.Competitors == null)
             {
                 return NotFound();
             }
 
-            Competitor = await _context.Competitors.FirstOrDefaultAsync(m => m.Id == id);
+            var competitor = await _context.Competitors.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Competitor == null)
+            if (competitor == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                Competitor = competitor;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(Guid? id)
         {
-            if (id == null)
+            if (id == null || _context.Competitors == null)
             {
                 return NotFound();
             }
+            var competitor = await _context.Competitors.FindAsync(id);
 
-            Competitor = await _context.Competitors.FindAsync(id);
-
-            if (Competitor != null)
+            if (competitor != null)
             {
+                Competitor = competitor;
                 _context.Competitors.Remove(Competitor);
                 await _context.SaveChangesAsync();
             }

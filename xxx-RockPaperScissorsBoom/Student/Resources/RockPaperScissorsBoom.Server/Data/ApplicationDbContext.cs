@@ -1,12 +1,10 @@
-﻿//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using RockPaperScissor.Core.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using RockPaperScissorsBoom.Core.Model;
 
 namespace RockPaperScissorsBoom.Server.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        //public DbSet<FullResults> FullResults { get; set; }
         public DbSet<GameRecord> GameRecords { get; set; }
         public DbSet<BotRecord> BotRecords { get; set; }
         public DbSet<Competitor> Competitors { get; set; }
@@ -15,7 +13,5 @@ namespace RockPaperScissorsBoom.Server.Data
             : base(options)
         {
         }
-
-        
     }
 }

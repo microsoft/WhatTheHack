@@ -29,4 +29,5 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
+- Look at the `docker-compose.yaml` file and set a password for the SQL Server container (it is referenced 3 places in the file)
 - Run `docker compose up` from the folder where the `docker-compose.yaml` file is to build & run the Docker images locally.
