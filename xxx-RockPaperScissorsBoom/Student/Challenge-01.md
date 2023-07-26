@@ -11,7 +11,7 @@ With this second challenge you will be able to run the "Rock Paper Scissors Boom
 ## Description
 
 - Leveraging Docker & Docker Compose, build and run the app locally. You can use the `docker-compose.yaml` file in the `Resources.zip` file.
-- Test the app as an end-user and play a game. You can reach the app via `localhost`.
+- Test the app as an end-user and play a game. You can reach the app via https://localhost
 
 ## Success Criteria
 
@@ -29,5 +29,5 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
-- Look at the `docker-compose.yaml` file and set a password for the SQL Server container (it is referenced 3 places in the file)
-- Run `docker compose up` from the folder where the `docker-compose.yaml` file is to build & run the Docker images locally.
+- Look at the `docker-compose.yaml` file and set a password for the SQL Server container (it is referenced 3 times in the file)
+- Run `docker compose up --build` from the folder where the `docker-compose.yaml` file is to build & run the Docker images locally.
