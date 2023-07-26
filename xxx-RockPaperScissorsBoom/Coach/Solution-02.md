@@ -12,7 +12,7 @@
     az sql server create -g <resource-group-name> -n <sql-server-name> -u <admin-username> -p <admin-password>
     ```
 
-1.  Optional: Add a IP firewall rule to restrict access to just your local IP & Azure
+1.  Optional: Add a IP firewall rule to restrict access to just your local IP & Azure (PowerShell)
 
     ```powershell
     $myIP = $(Invoke-WebRequest -Uri "https://api.ipify.org").Content
@@ -65,25 +65,25 @@
 1.  Run the following command to build & run the application.
 
     ```shell
-    docker compose up --build -d --remove-orphans
+    docker compose up --build --remove-orphans
     ```
 
 1.  Navigate to the locally running application in the browser (http://localhost) & play the game
-
-    > Common Problems:
-    >
-    > - If the docker image does not start correctly, it may be because it cannot access the database. Verify that connections can be made to the server. By default, the server will restrict access to the database. Add a firewall rule.
 
 ### Check for records in the database
 
 1.  Open the Azure portal (https://portal.azure.com).
 
-1.  Navigate to the Azure SQL Server & Database.
+1.  Navigate to the **Azure SQL Server** & **SQL Database**.
 
-1.  Open the Query Editor & login with the credentials you specified earlier.
+1.  Open the **Query Editor** & login with the credentials you specified earlier.
 
 1.  Run the following query to see the records in the `GameRecords` table.
 
     ```sql
     SELECT * FROM [dbo].[GameRecords]
     ```
+
+### Troubleshooting
+
+- If the Docker image does not start correctly, it may be because it cannot access the database. Verify that connections can be made to the server. By default, the server will restrict access to the database. Add a firewall rule.
