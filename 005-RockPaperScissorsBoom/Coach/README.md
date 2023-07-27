@@ -57,12 +57,18 @@ _Please list any additional pre-event setup steps a coach would be required to s
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+- Azure subscription with **Contributor** or **Owner** access
+- Ability to create/use a resource group
+- Ability to create the following Azure services
+  - App Service
+  - Azure SQL
+  - Application Insights
+  - Azure Container Registry
+  - Event Hub
+  - Event Grid
+  - Azure Front Door
+  - Logic Apps
+  - Load Testing
 
 ## Suggested Hack Agenda (Optional)
 
