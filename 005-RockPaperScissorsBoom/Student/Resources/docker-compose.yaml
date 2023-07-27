@@ -1,4 +1,4 @@
-version: "3"
+name: rpsb
 services:
   rockpaperscissors-sql:
     image: mcr.microsoft.com/mssql/server:2022-latest
