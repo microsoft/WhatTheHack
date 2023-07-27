@@ -17,7 +17,7 @@ This is a simple challenge to get your Rock Papers Scissors Boom Server app to p
 
 To complete this challenge successfully, you should be able to:
 
-- The game is playing at a continuous interval. (e.g. every 5 minutes)
+- Validate that the game is playing on a continuous interval. (e.g. every 5 minutes)
 
 ## Learning Resources
 
