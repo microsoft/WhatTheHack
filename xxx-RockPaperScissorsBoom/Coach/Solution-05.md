@@ -18,11 +18,10 @@
     az monitor app-insights component create --app <app-insights-name> --location <location> --resource-group <resource-group-name> --workspace <log-analytics-workspace-name>
     ```
 
-    > Note: 
+    > Note:
+    >
     > - You can also use the Azure Portal to create the Application Insights resource.
-    > - You may be prompted to install the application-insights extension. Choose `Yes`.
-
-
+    > - You may be prompted to install the `application-insights` extension when running the Azure CLI. Choose `Yes`.
 
 1.  Copy the `Connection String` GUID from the Application Insights resource. You can get this from the output of the previous Azure CLI command or from the Azure Portal.
 
@@ -64,15 +63,15 @@
 1.  Run the following command to start the app locally.
 
     ```shell
-    docker compose up --build -d
+    docker compose up --build --remove-orphans
     ```
 
 1.  Open the browser to http://localhost and play a game.
 
 1.  Open the Azure portal and navigate to your new Application Insights resource.
 
-1.  In the `Transaction search` blade, you should see a list of requests made to the app.  Search for transactions from the last 24 hours.  You will see transactions from the localhost.
-  > Note: It may take a few minutes for the transactions to be processed in Application Insights.
+1.  In the `Transaction search` blade, you should see a list of requests made to the app. Search for transactions from the last 24 hours. You will see transactions from the localhost.
+    > Note: It may take a few minutes for the transactions to be processed in Application Insights.
 
 ### Add Application Insights to the app running in App Service
 

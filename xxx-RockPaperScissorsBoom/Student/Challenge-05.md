@@ -16,12 +16,13 @@ We've got our app running, but how do we know how well it's performing? Let's in
 
 To complete this challenge successfully, you should be able to:
 
-- Make sure you got some data in Application Insights while running your application in both places locally and in Azure App Service. Make sure you are leveraging the proper way for both to set the `ConnectionString` (i.e. in `docker-compose.yaml` file for local and in Azure App Service's `AppSettings`).
+- Validate that your app is sending data to Application Insights while running your application both locally and in Azure App Service. Make sure you are leveraging the proper way to set the `ConnectionString` (i.e. in `docker-compose.yaml` file for local and in Azure App Service's `AppSettings`) via environment variables.
 - Build a dashboard in the Azure Portal for viewing performance of the app.
 
 ## Learning Resources
 
 - [What is Application Insights?](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)
+- [Application Insights for ASP.NET Core applications](https://learn.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core?tabs=netcorenew,netcore6)
 
 ## Tips
 
