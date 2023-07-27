@@ -12,19 +12,19 @@ The application has the code in place to authenticate users against Azure AD B2C
 
 - Create an `Azure AD B2C` application in the Azure portal.
 - Optional: Allow users to authenticate with an SSO ID via an `OpenIDConnect Account` (requires an AzureAD app registration in your AzureAD tenant).
-- Make sure it works in your on Azure App Service
+- Update your application with the B2C configuration values.
   - **DO NOT** store credentials in your code or appsettings file.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- When a user hits the 'Sign In' link, they are redirected to login.
-- A user can successfully authenticate, get redirected back to your application and see a personalized greeting.
+- Validate that when a user hits the **Sign In** link, they are redirected to login.
+- Validate that a user can successfully authenticate, get redirected back to your application and see a personalized greeting.
 
 ![greeting](../images/personalized-authenticated-greeting.PNG)
 
-- A user can successfully add or edit a bot in the Competitor views.
+- Validate that a user can successfully add or edit a bot in the Competitor views.
 
 ## Learning Resources
 
@@ -38,7 +38,6 @@ To complete this challenge successfully, you should be able to:
 
 - Make sure you are calling the application with `https` for the authentication redirects to work.
 - Remember to keep your configuration secrets **OUT** of your code or config files.
-- If you can't find your AAD B2C Azure resources after you create them, make sure you switch AAD Tenants in the Azure portal.
 - Don't forget `/signin-oidc` in your redirect URL
 - Configuring https locally can be difficult to setup.
   - [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
@@ -54,6 +53,7 @@ To complete this challenge successfully, you should be able to:
         environment:
           ...
           "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
+          "AzureAdB2C__TenantId": "AADB2C-TENANTID-ID(A Guid)"
           "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
           "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
           "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"

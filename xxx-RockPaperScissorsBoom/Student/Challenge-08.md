@@ -15,15 +15,12 @@ With this challenge you will deploy and add your own `SmartBot` by leveraging `S
 
 To complete this challenge successfully, you should be able to:
 
-- Make sure `az webapp list` and `az acr repository show-tags` are showing your Azure services properly.
+- Validate that your new Azure Web App & Docker image are deployed using `az webapp list` and `az cr repository show-tags`.
 - In your web browser, navigate to the main web app (Server), add this Bot as a new competitor and play a game, make sure it's working without any error.
 
 ## Learning Resources
 
-1. [SignalR](https://www.asp.net/signalr)
-1. [Azure SignalR](https://azure.microsoft.com/en-us/services/signalr-service/)
-1. [Leverage Azure SignalR](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-quickstart-dotnet-core)
-1. [The Twelve Factor App - checklist to build microservices-based solution](https://12factor.net/)
+- [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr)
 
 ## Tips
 

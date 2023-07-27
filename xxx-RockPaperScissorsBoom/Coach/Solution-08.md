@@ -21,7 +21,7 @@
 1.  Run the following command to start the app:
 
     ```shell
-    docker compose up
+    docker compose up --build
     ```
 
 1.  Open a browser to http://localhost:8080/api/default to ensure the app is up & running.
@@ -41,9 +41,9 @@
 1.  Build & push the `ExampleBot` Docker image:
 
     ```shell
-    docker build -f Dockerfile-ExampleBot -t rockpaperscissors-examplebot .
+    docker compose build
 
-    docker tag rockpaperscissors-examplebot <acr-name>.azurecr.io/rockpaperscissors-examplebot:latest
+    docker tag rpsb-rockpaperscissors-examplebot <acr-name>.azurecr.io/rockpaperscissors-examplebot:latest
 
     docker push <acr-name>.azurecr.io/rockpaperscissors-examplebot:latest
     ```

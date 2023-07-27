@@ -10,7 +10,7 @@ In a previous challenge we manually deployed the app on Azure. Now with this cha
 
 - Create a Build definition with Azure Pipelines to build your Docker images and push it to your Azure Container Registry (ACR). Furthermore, enable the `Continuous Integration` feature for this Build definition.
 - Create a Release definition with Azure Pipelines to run your images on your Azure Web App Service for Containers previously provisioned. Furthermore, enable the `Continuous Devivery` feature for the Release definition.
-- Update one file on your `master` branch and commit this change, it should trigger automatically the Build and the Release definitions to deploy the new version of your app.
+- Update one file on your `main` branch and commit this change, it should trigger automatically the Build and the Release definitions to deploy the new version of your app.
 - Once deployed, test the app as an end-user, and play a game once deployed there.
 
 ## Success Criteria
@@ -25,7 +25,6 @@ To complete this challenge successfully, you should be able to:
 
 - [Azure DevOps Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/)
 - [ACR Build task](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
-- [Jenkins on Azure](https://docs.microsoft.com/en-us/azure/jenkins/)
 
 ## Tips
 

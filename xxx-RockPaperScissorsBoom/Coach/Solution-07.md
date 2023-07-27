@@ -8,41 +8,49 @@
 
 1.  Create a new Azure AD B2C tenant in the Azure portal.
 
-  > Note: Instructions for deploying a B2C tenant: https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant
+> Note: Instructions for deploying a B2C tenant: https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant
 
-1.  Navigate to your new B2C tenant resource in the Azure portal & click on `User flows`
+1.  Navigate to your new B2C tenant resource in the Azure portal & click on **User flows**
 
-1.  Click `New user flow` and select `Sign up and sign in`. Select `Recommended` and click `Create`.
+1.  Click **New user flow** and select **Sign up and sign in**. Select **Recommended** and click **Create**.
 
 1.  Give it a name like `B2C_1_SignUpAndSignIn`
 
-1.  Select `Email signup`.
+1.  Select **Email signup**.
 
-1.  Under the `User attributes and token claims` section, check all the boxes.
+1.  Under the `User attributes and token claims` section, check the boxes for the following attributes in both the **Collect attribute** and **Return claim** columns (you may have to click the **Show more** link to see all the attributes)
 
-1.  Click `Create`.
+    - **Display Name**
+    - **Given Name**
+    - **Surname**
 
-1.  Copy the `Name` of the new user flow and paste into `Notepad`.
+1.  Click **Create**.
 
-1.  On the main B2C page, click on `App registrations` and then `New registration`.
+1.  Copy the **Name** of the new user flow and paste into `Notepad`.
 
-1.  Give your app a name, select `Web app` for the `Application type` and enter the following for the `Sign-on URL`:
+1.  On the main B2C page, click on **App registrations** and then **New registration**.
+
+1.  Give your app a **Name**.
+
+1.  Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
+
+1.  Under **Redirecdt URI**, select **Web app** for the **Application type** and enter the following for the **Sign-on URL**:
 
     ```
     https://<app-service-name>.azurewebsites.net/signin-oidc
     ```
 
-1.  Click `Register`
+1.  Click **Register**
 
-1.  Click on the `Certificates & secrets` blade.
+1.  Click on the **Certificates & secrets** blade.
 
-1.  Click `New client secret`, give it a description and an expiration date and click `Add`.
+1.  Click **New client secret**, give it a description and an expiration date and click **Add**.
 
-1.  Copy the `Value` of the new secret and paste into a text editor such as `Notepad`.
+1.  Copy the **Value** of the new secret and paste into a text editor such as **Notepad**.
 
-1.  Click on the `Authentication` blade.
+1.  Click on the **Authentication** blade.
 
-1.  Click `Add URI` and add the localhost values for your web app when it is running locally. The port numbers may vary.
+1.  Click **Add URI** and add the localhost values for your web app when it is running locally. The port numbers may vary.
 
     ```text
     http://localhost/signin-oidc
@@ -50,22 +58,17 @@
     https://localhost/signin-oidc
     ```
 
-1.  Click `Save`
+1.  Click **Save**
 
-1.  Make sure both the `Access tokens` & `ID tokens` check boxes are selected for the `Implicit grant` section.
+1.  In the **Implicit grant and hybrid flows** section, make sure the **ID tokens** check box is selected.
 
-1.  Click on the `Manifest` blade. Modify the following settings:
+1.  Click **Save**
 
-    - Modify the `accessTokenAcceptedVersion` property to be `2`
-    - Modify the `signInAudience` property to be `AzureADandPersonalMicrosoftAccount`
+1.  Click on the **Overview** blade.
 
-1.  Click `Save`
+1.  Copy the **Application (client) ID** and paste into **Notepad**.
 
-1.  Click on the `Overview` blade.
-
-1.  Copy the `Application (client) ID` and paste into `Notepad`.
-
-1.  Copy the `Directory (tenant) ID` and paste into `Notepad`.
+1.  Copy the **Directory (tenant) ID** and paste into **Notepad**.
 
 ### Review where to update the OAuth2 configuration in the application
 
@@ -76,11 +79,12 @@
       ...
       "AzureAdB2C": {
         "Instance": "https://AADB2C-TENANTNAME.b2clogin.com",
+        "TenantId": "AADB2C-TENANT-ID(A Guid)",
         "ClientId": "AADB2C-CLIENT-ID(A Guid)",
         "ClientSecret": "AADB2C-CLIENT-SECRET",
-        "Tenant": "AADB2C-TENANT(tenantname.onmicrosoft.com)",
+        "Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)",
         "SignUpSignInPolicyId": "AADB2C-POLICY(B2C_1_xxxxxx)",
-        "RedirectUri": "http://localhost:80/signin-oidc"
+        ...
       },
       ...
     }
@@ -117,6 +121,7 @@
         environment:
           ...
           "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
+          "AzureAdB2C__TenantId": "AADB2C-TENANT-ID(A Guid)"
           "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
           "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
           "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
@@ -137,17 +142,17 @@
 1.  Run the application locally.
 
     ```shell
-    docker compose up
+    docker compose up --build
     ```
 
 1.  Navigate to `https://localhost` in your browser and click the `Sign-in` button.
 
-  > Note:
-  >   - If the container does not start due to the missing file, ensure the volume is mounted and is pointing to the correct directory with the pfx file.  On Windows, the `~` refers to the `$env:USERPROFILE` directory.
-  >   - If the `Sign in` button does not send the user to B2C, check to make sure the `redirect_uri` and  `URI` are correct.  If the `URI` is allowed, delete the App Registration and start over.  If it continues to fail, make sure you only allow **1** `URI`. 
-  >   - A good way of debugging the login flow is through Application Insights.  Navigate to Application Insights -> Failures.  The learner can find the stack traces and exceptions and follow the user flow.  In some cases, the configuration, especially `AzureAdB2C__Instance`, is incorrect.
-  >   - When signing into the app, if the user's First Name and Last Name do not show, make sure the `givenname` and `surname` are checked in the `User Attributes` and `Application Claims` within the `User Flow`.
-  
+> Note:
+>
+> - If the container does not start due to the missing file, ensure the volume is mounted and is pointing to the correct directory with the pfx file. On Windows, the `~` refers to the `$env:USERPROFILE` directory.
+> - If the `Sign in` button does not send the user to B2C, check to make sure the `redirect_uri` and `URI` are correct. If the `URI` is allowed, delete the App Registration and start over. If it continues to fail, make sure you only allow **1** `URI`.
+> - A good way of debugging the login flow is through Application Insights. Navigate to Application Insights -> Failures. The learner can find the stack traces and exceptions and follow the user flow. In some cases, the configuration, especially `AzureAdB2C__Instance`, is incorrect.
+> - When signing into the app, if the user's First Name and Last Name do not show, make sure the `givenname` and `surname` are checked in the `User Attributes` and `Application Claims` within the `User Flow`.
 
 ### Update the App Service application to use Azure AD B2C service principal
 
@@ -165,6 +170,11 @@
       "name": "AzureAdB2C__Instance",
       "slotSetting": false,
       "value": "https://aadb2c-tenantname.b2clogin.com"
+    },
+    {
+      "name": "AzureAdB2C__TenantId",
+      "slotSetting": false,
+      "value": "AADB2C-TENANT-ID(A Guid)"
     },
     {
       "name": "AzureAdB2C__ClientId",
@@ -188,7 +198,8 @@
     }
     ...
     ```
-1.  If the `DOCKER_REGISTRY_SERVER_PASSWORD` is in the `settings.json` file, replace the `null` value with the correct password.  Otherwise, the continuous deployment will fail.
+
+1.  If the `DOCKER_REGISTRY_SERVER_PASSWORD` is in the `settings.json` file, replace the `null` value with the correct password. Otherwise, the continuous deployment will fail.
 
 1.  Use the following command to bulk upload the new settings.
 
@@ -201,11 +212,15 @@
 1.  Deploy the application to Azure.
 
     ```shell
-    docker build -f Dockerfile-Server -t rockpaperscissors-server .
+    docker compose build
 
-    docker tag rockpaperscissors-server <acr-name>.azurecr.io/rockpaperscissors-server:latest
+    docker tag rpsb-rockpaperscissors-server <acr-name>.azurecr.io/rockpaperscissors-server:latest
 
     docker push <acr-name>.azurecr.io/rockpaperscissors-server:latest
     ```
 
-1.  Navigate to the web app and test the application sign-in flow.
+1.  Navigate to the web app and test the application sign-in flow (you may have to **restart** the web app to ensure the new Docker image is pulled)
+
+### Troubleshooting
+
+- Note that it can take a long time (>1 hour) for changes to the B2C tenant (such as a different redirect URI or changes to user flows).

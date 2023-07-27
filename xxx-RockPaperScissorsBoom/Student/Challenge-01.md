@@ -35,3 +35,5 @@ To complete this challenge successfully, you should be able to:
   ```shell
   docker exec rockpaperscissors-sql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<password>" -d RockPaperScissorsBoom -q "SELECT * FROM [dbo].[GameRecords]
   ```
+- If you get errors in your ASP.NET application, add the following environment variable to your `docker-compose.yaml` file.
+  `"ASPNETCORE_ENVIRONMENT": "Development"`
