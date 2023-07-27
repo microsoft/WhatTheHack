@@ -16,7 +16,7 @@
 
 1.  Give it a name like `B2C_1_SignUpAndSignIn`
 
-1.  Select **Email signup**.
+1.  Select **Email sign up**.
 
 1.  Under the `User attributes and token claims` section, check the boxes for the following attributes in both the **Collect attribute** and **Return claim** columns (you may have to click the **Show more** link to see all the attributes)
 
@@ -34,7 +34,7 @@
 
 1.  Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 
-1.  Under **Redirecdt URI**, select **Web app** for the **Application type** and enter the following for the **Sign-on URL**:
+1.  Under **Redirect URI**, select **Web app** for the **Application type** and enter the following for the **Sign-on URL**:
 
     ```
     https://<app-service-name>.azurewebsites.net/signin-oidc

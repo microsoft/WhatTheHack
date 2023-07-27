@@ -6,4 +6,5 @@ NONINFRINGEMENT
 RockPaperScissorsBoom
 SignalR
 Zaefferer
+datastore
 sublicense
