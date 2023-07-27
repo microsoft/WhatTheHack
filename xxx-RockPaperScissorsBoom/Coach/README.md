@@ -10,32 +10,30 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](./Solution-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](./Solution-12.md)**
-	 - Description of challenge
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Solution-00.md)**
+  - Prepare your workstation to work with Azure.
+- Challenge 01: **[Run the app](Solution-01.md)**
+  - Get the app running locally
+- Challenge 02: **[Move to Azure SQL Database](Solution-02.md)**
+  - Modify the locally running app to use an Azure SQL database
+- Challenge 03: **[Run the app on Azure](Solution-03.md)**
+  - Deploy the containerized app to Azure
+- Challenge 04: **[Run the Game Continuously](Solution-04.md)**
+  - Set up automation to run the game continuously
+- Challenge 05: **[Add Application Monitoring](Solution-05.md)**
+  - Add Application Monitoring to the app
+- Challenge 06: **[Implement AAD B2C](Solution-06.md)**
+  - Implement authentication for the application
+- Challenge 07: **[Leverage SignalR](Solution-07.md)**
+  - Set up a bot to play the game & communicate with SignalR
+- Challenge 08: **[Leverage CDN](Solution-08.md)**
+  - Set up a CDN to serve static content
+- Challenge 09: **[Send a Winner Notification](Solution-09.md)**
+  - Send a notification when a game is won
+- Challenge 10: **[Run a Load Test](Solution-10.md)**
+  - Run a load test against the app
+- Challenge 11: **[Tournament Instructions](Solution-11.md)**
+  - Build a bot and compete in a tournament
 
 ## Coach Prerequisites
 
@@ -72,12 +70,18 @@ _This section is optional. You may wish to provide an estimate of how long each 
 
 - Sample Day 1
   - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
+  - Challenge 2 (1 hour)
+  - Challenge 3 (1 hour)
+  - Challenge 4 (1 hour)
   - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+- Sample Day 2
+  - Challenge 6 (2 hour)
+  - Challenge 7 (1 hour)
+  - Challenge 8 (1 hour)
+  - Challenge 9 (1 hour)
+- Sample Day 3
+  - Challenge 10 (1 hour)
+  - Challenge 11 (1 hour)
 
 ## Repository Contents
 

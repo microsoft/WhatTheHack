@@ -1,32 +1,38 @@
-# Challenge 09 - Leverage Azure CDN
+# Challenge 09 - Send a Winner Notification
 
 [< Previous Challenge](./Challenge-08.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-10.md)
 
 ## Introduction
 
-In this simple challenge you will leverage Azure CDN for serving static content.
-
-A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. [Read more](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview).
+After each game is played, a notification should be sent to someone about who won the game.
 
 ## Description
 
-- Add an Azure Front Door
-- Configure the Front Door route for non-cached traffic to your App Service
-- Configure it to cache static content (CSS and JS files) rather than serving them from the App Service
-  > Note: You shouldn't cache all requests coming in through Front Door (such as API calls, etc.). You should only cache static content.
+- You want to automate sending the winner notification after every game is played.
+- You need to build this feature using Azure's serverless capabilities to make sure it's done quickly and to keep costs at a minimum.
+- The application is already wired-up to raise an event when the game completes. The event contains details about the winner. Can you use this event to complete the Winner Notification feature?
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- The Rock/Paper/Scissors and Boom images on the home page of the app are served from CDN.
-- Verify that your cached static content is not downloaded more than once during the cache duration. You can verify this by inspecting the request with Developer Tools in most modern browsers.
+- After a game is played, a person gets a notification that includes
+  - Team Name
+  - Server Name
+  - Winner Name
+  - Game Id
+- The notification comes automatically and relatively quickly after the game is played (within 30 seconds).
 
 ## Learning Resources
 
-- [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/create-front-door-cli)
+- [Event Grid Trigger for Azure Logic Apps](https://learn.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-logic-app)
+- [Event Grid messaging for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet)
 
 ## Tips
 
-- Use Azure Front Door to serve static content from CDN via caching on a route.
-- Make sure you are only caching static content and not all requests.
+- Look in the `RockPaperScissorsBoom.Server/Controllers/RunGameController.cs` file to see how the event is being raised.
+- Look in the `RockPaperScissorsBoom.Server/appsettings.json` file to see what configuration is needed.
+- You may want to disable to Logic App that has been calling your web app automatically so you don't get a bunch of emails while you are working on this challenge.
+- Event Grid Topic --> Event Grid Subscription (Webhook to Azure Logic App)
+- The Logic App needs to have a step that sends an email.
+- Look at the `RockPaperScissorsBoom.Server/EventGridPayload.json` file to see what data is available in the event.

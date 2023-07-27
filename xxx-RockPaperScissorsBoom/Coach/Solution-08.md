@@ -1,81 +1,61 @@
-# Challenge 08 - Leverage SignalR - Coach's Guide
+# Challenge 08 - Azure CDN - Coach's Guide
 
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
 
-### Run locally with Docker Compose
+### Create Azure FrontDoor
 
-1.  Modify the `docker-compose.yaml` file to include a new `ExampleBot` service
-
-    ```yaml
-    rockpaperscissors-examplebot:
-      build:
-        context: .
-        dockerfile: Dockerfile-ExampleBot
-      container_name: rockpaperscissors-examplebot
-      ports:
-        - "8080:80"
-    ```
-
-1.  Run the following command to start the app:
+1.  Run the following Azure CLI command to create an Azure Front Door profile.
 
     ```shell
-    docker compose up --build
+    az afd profile create --profile-name <profile-name> --resource-group <resource-group-name> --sku Standard_AzureFrontDoor
     ```
 
-1.  Open a browser to http://localhost:8080/api/default to ensure the app is up & running.
-
-1.  Open another tab and navigate to https://localhost.
-
-1.  Click on the `Competitors` tab, then the `Create new` link
-
-1.  Give the bot a name (such as `ExampleBot`), select the `ExampleBot` type as `SignalRBot`, set the url to `http://localhost:8080/decision` and click the `Create` button.
-
-1.  Click on the `Run the Game` tab, then `Run the Game Again`.
-
-1.  You should see the `ExampleBot` in the list of competitors.
-
-### Build, push & start the `ExampleBot` Docker image
-
-1.  Build & push the `ExampleBot` Docker image:
+1.  Run the following Azure CLI command to create the Azure Front Door endpoint.
 
     ```shell
-    docker compose build
-
-    docker tag rpsb-rockpaperscissors-examplebot <acr-name>.azurecr.io/rockpaperscissors-examplebot:latest
-
-    docker push <acr-name>.azurecr.io/rockpaperscissors-examplebot:latest
+    az afd endpoint create --resource-group <resource-group-name> --endpoint-name rock-paper-scissors-boom --profile-name <profile-name> --enabled-state Enabled
     ```
 
-1.  Run the following Azure CLI to create the App Service for Containers for your new `ExampleBot` using your existing App Service Plan.
+1.  Run the following Azure CLI command to create the Azure Front Door origin group.
 
     ```shell
-    az webapp create -g <resource-group-name> -p <app-service-plan-name> -n <app-name> --deployment-container-image-name <acr-name>.azurecr.io/rockpaperscissors-examplebot:latest
+    az afd origin-group create --resource-group <resource-group-name> --origin-group-name rock-paper-scissors-boom --profile-name <profile-name> --probe-request-type GET --probe-protocol Http --probe-interval-in-seconds 60 --probe-path / --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50
     ```
 
-1.  Run the following Azure CLI to get the CI/CD webhook URL from App Service (so it can be notified on a push of a new image to the Azure Container Registry).
+1.  Run the following Azure CLI command to create the Azure Front Door origin.
 
     ```shell
-    az webapp deployment container config --enable-cd true --name <app-name> --resource-group <resource-group-name> --query CI_CD_URL --output tsv
+    az afd origin create --resource-group <resource-group-name> --host-name <web-app-name>.azurewebsites.net --profile-name <profile-name> --origin-group-name rock-paper-scissors-boom --origin-name rock-paper-scissors-boom --origin-host-header <web-app-name>.azurewebsites.net --priority 1 --weight 1000 --enabled-state Enabled --http-port 80 --https-port 443
     ```
 
-1.  Run the following Azure CLI to setup the webhook notification from the ACR to App Service (update the ACR url & image name as needed).
+1.  Run the following Azure CLI command to create the Azure Front Door routing rule for the non-cached routes.
 
     ```shell
-    az acr webhook create --name appserviceCD --registry <container-registry-name> --uri <app-service-cicd-url> --actions push --scope <container-registry-name>.azurecr.io/rockpaperscissors-examplebot:latest
+    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route-non-cached --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching false --query-string-caching-behavior IgnoreQueryString
     ```
 
-1.  Navigate to the `ExampleBot` web app URL to ensure the `ExampleBot` app is running: https://<web-app-name>.azurewebsites.net/api/default
+1.  Run the following Azure CLI command to create the Azure Front Door routing rule for the cached routes.
 
-### Run the `RockPaperScissorsBoom` app and include your new `ExampleBot`
+    ```shell
+    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route-cached --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching true --query-string-caching-behavior IgnoreQueryString --patterns-to-match "/img/*" "/css/*" "/lib/*" "/js/*"
+    ```
 
-1.  Navigate to your `RockPaperScissorsBoom` web app that is hosted in Azure.
+### Test the new CDN
 
-1.  Click on the `Competitors` tab, then the `Create new` link
+1.  Open a browser and turn on **Developer Tools** (F12). Navigate to the **Network** tab.
 
-1.  Give the bot a name (such as `ExampleBot`), select the `ExampleBot` type as `SignalRBot`, set the url to `https://<web-app-name>.azurewebsites.net/decision` and click the `Create` button.
+1.  Navigate to the Azure Front Door endpoint URL in a browser (look in the Azure portal for this URL)
 
-1.  Click on the `Run the Game` tab, then `Run the Game Again`.
+1.  You should see the Rock Paper Scissors Boom game.
 
-1.  You should see the `ExampleBot` in the list of competitors.
+1.  In the **Network** tab, you should see the request for the images (such as the `RockPaperScissorsBoom.jpg` image). If you click the request for this image, you will see that Front Door added the `X-Cache` response header and indicated that it was a cache miss (`TCP_MISS`), so the image was retrieved from the origin (the App Service).
+
+![Front Door cache miss](../images/frontDoorCacheMiss.png)
+
+1.  Refresh the page and you should see the `X-Cache` response header indicate that the image was retrieved from the cache (`TCP_HIT`). Note that it may take a few refreshes over a few minutes to see this.
+
+![Front Door cache hit](../images/frontDoorCacheHit.png)
+
+1.  You can purge the Front Door cache (from the Azure portal) and then refresh the page again. You should see the `X-Cache` response header (`TCP_MISS`) indicate that the image was retrieved from the origin (the App Service).

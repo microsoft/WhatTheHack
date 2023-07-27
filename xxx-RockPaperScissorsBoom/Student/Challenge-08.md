@@ -1,28 +1,32 @@
-# Challenge 08 - Leverage SignalR
+# Challenge 08 - Leverage Azure CDN
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
 ## Introduction
 
-With this challenge you will deploy and add your own `SmartBot` by leveraging `SignalR`, you will add a new competitor in your games.
+In this simple challenge you will leverage Azure CDN for serving static content.
+
+A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. [Read more](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview).
 
 ## Description
 
-- There is already the `RockPaperScissorsBoom.ExampleBot` project in your solution implementing a `SignalR` bot, let's just use it and deploy it!
-- Deploy it on a new Azure Web App for Containers instance.
+- Add an Azure Front Door
+- Configure the Front Door route for non-cached traffic to your App Service
+- Configure it to cache static content (CSS and JS files) rather than serving them from the App Service
+  > Note: You shouldn't cache all requests coming in through Front Door (such as API calls, etc.). You should only cache static content.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- Validate that your new Azure Web App & Docker image are deployed using `az webapp list` and `az cr repository show-tags`.
-- In your web browser, navigate to the main web app (Server), add this Bot as a new competitor and play a game, make sure it's working without any error.
+- The Rock/Paper/Scissors and Boom images on the home page of the app are served from CDN.
+- Verify that your cached static content is not downloaded more than once during the cache duration. You can verify this by inspecting the request with Developer Tools in most modern browsers.
 
 ## Learning Resources
 
-- [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr)
+- [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/create-front-door-cli)
 
 ## Tips
 
-- Revisit challenges [Challenge 4 - Run the app on Azure](RunOnAzure.md) and/or [Challenge 7 - Build a CI/CD pipeline with Azure DevOps](BuildCICDPipelineWithAzureDevOps.md). For the latter, the recommendation is to create its own Build and Release definition (not impacting the ones already created for the `Server`).
-- To add this new Bot deployed in your Game, just navigate to the `Competitors` menu of your main web app (Server) and create a new competitor. You will have to provide the URL of your Bot and add `/decision` to the end of the URL.
+- Use Azure Front Door to serve static content from CDN via caching on a route.
+- Make sure you are only caching static content and not all requests.

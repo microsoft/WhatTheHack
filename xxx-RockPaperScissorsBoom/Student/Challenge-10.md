@@ -1,38 +1,54 @@
-# Challenge 10 - Send a Winner Notification
+# Challenge 10 - Run a Load Test
 
 [< Previous Challenge](./Challenge-09.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-11.md)
 
 ## Introduction
 
-After each game is played, a notification should be sent to someone about who won the game.
+Once you deploy your app to Azure, how do you know how well it performs under load? Take advantage of the Load Testing features in Azure.
 
 ## Description
 
-- You want to automate sending the winner notification after every game is played.
-- You need to build this feature using Azure's serverless capabilities to make sure it's done quickly and to keep costs at a minimum.
-- The application is already wired-up to raise an event when the game completes. The event contains details about the winner. Can you use this event to complete the Winner Notification feature?
+- Use the Azure Load Testing service to run a load test against your app.
+- Run a Load Test against the app homepage using the default configuration.
+- Run a Load Test against the Competitors homepage (it requires a SQL Server call). Use the default configuration again.
+- Run a Load Test against the API endpoint for running the game.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- After a game is played, a person gets a notification that includes
-  - Team Name
-  - Server Name
-  - Winner Name
-  - Game Id
-- The notification comes automatically and relatively quickly after the game is played (within 30 seconds).
+- Run the load and review the results in Azure Load Testing.
+  - If you were running a free or basic sku of web apps, you may notice that your performance got worse as more load was added to the system. There may even have been a large number of errors as the demand on your app grew.
+- Scale up the web app. You may need to move to the Standard SKU. Add 2 or 3 instances. Run the Competitor load test again. Notice if the numbers were better this time.
+- Review the Application Insights chart you built for measuring how long the games take to run. If you successfully automated the game runs, did they take longer when you were performing your tests?
+- Review the Compute utilization chart on the `Overview->Monitoring` blade for your SQL DB in the Azure portal. Did you see a spike on the DTUs during the load test?
+- Play with the "Diagnose and solve problems" blade for your Azure Web App in the Azure portal. Let's know more about usage, CPU, memory, etc. and the info and recommendation you could get.
 
 ## Learning Resources
 
-- [Event Grid Trigger for Azure Logic Apps](https://learn.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-logic-app)
-- [Event Grid messaging for .NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet)
+- [Azure Load Testing](https://learn.microsoft.com/en-us/azure/load-testing/overview-what-is-azure-load-testing)
+- [Autoscale Azure App Services](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started)
+- [Create Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards)
+- [Azure App Service diagnostics overview](https://docs.microsoft.com/en-us/azure/app-service/app-service-diagnostics)
 
 ## Tips
 
-- Look in the `RockPaperScissorsBoom.Server/Controllers/RunGameController.cs` file to see how the event is being raised.
-- Look in the `RockPaperScissorsBoom.Server/appsettings.json` file to see what configuration is needed.
-- You may want to disable to Logic App that has been calling your web app automatically so you don't get a bunch of emails while you are working on this challenge.
-- Event Grid Topic --> Event Grid Subscription (Webhook to Azure Logic App)
-- The Logic App needs to have a step that sends an email.
-- Look at the `RockPaperScissorsBoom.Server/EventGridPayload.json` file to see what data is available in the event.
+- Use the Apache JMeter test script `quick_test.jmx` to set up the Load Test to call your test plan
+- Set the following Load Test environment variables
+  - domain: `<web-app-name>.azurewebsites.net`
+  - protocol: https
+  - throughput_per_engine: 100
+  - max_response_type: 500
+  - ramp_up_time: 0
+  - duration_in_sec: 120
+  - path: `api/rungame`
+- You may want to disable to Notification Logic App so you don't get a bunch of emails while you are running your load tests.
+- You may want to build a dashboard in the Azure portal that collects some telemetry data from across your solution into one place. Can you build a dashboard that includes
+  - Web app # of requests
+  - Web app average response times
+  - game run duration, SQL DTUs
+  - Logic Apps Actions Completed
+  - Event Grid Published Events
+- Check out this sample dashboard
+
+![Sample dashboard](../images/dashboard.png)

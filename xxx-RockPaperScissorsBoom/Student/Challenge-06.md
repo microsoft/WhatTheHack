@@ -1,32 +1,70 @@
-# Challenge 06 - Build a CI/CD pipeline with Azure DevOps
+# Challenge 06 - Implement Azure AD B2C
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 ## Introduction
 
-In a previous challenge we manually deployed the app on Azure. Now with this challenge you will be able to build an entire CI/CD pipeline with Azure DevOps.
+Right now your application on Azure is wide open for anyone to use. Your application allows you to add, edit and delete competitors. Let's make sure only authenticated users can do this. If you try to perform one of these actions in your application, you'll get some errors; you need to complete the feature!
+
+The application has the code in place to authenticate users against Azure AD B2C, you just need to create an Azure AD B2C application, build the user journeys and policy and then set the right configuration values.
 
 ## Description
 
-- Create a Build definition with Azure Pipelines to build your Docker images and push it to your Azure Container Registry (ACR). Furthermore, enable the `Continuous Integration` feature for this Build definition.
-- Create a Release definition with Azure Pipelines to run your images on your Azure Web App Service for Containers previously provisioned. Furthermore, enable the `Continuous Devivery` feature for the Release definition.
-- Update one file on your `main` branch and commit this change, it should trigger automatically the Build and the Release definitions to deploy the new version of your app.
-- Once deployed, test the app as an end-user, and play a game once deployed there.
+- Create an `Azure AD B2C` application in the Azure portal.
+- Optional: Allow users to authenticate with an SSO ID via an `OpenIDConnect Account` (requires an AzureAD app registration in your AzureAD tenant).
+- Update your application with the B2C configuration values.
+  - **DO NOT** store credentials in your code or appsettings file.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- In Azure Cloud Shell, make sure `az webapp list` is showing your Azure services properly.
-- In Azure Cloud Shell, make sure `az acr repository show-tags` is showing your new container image properly.
-- In your web browser, navigate to the app and play a game, make sure it's working without any error and that your update is here.
+- Validate that when a user hits the **Sign In** link, they are redirected to login.
+- Validate that a user can successfully authenticate, get redirected back to your application and see a personalized greeting.
+
+![greeting](../images/personalized-authenticated-greeting.PNG)
+
+- Validate that a user can successfully add or edit a bot in the Competitor views.
 
 ## Learning Resources
 
-- [Azure DevOps Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/)
-- [ACR Build task](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
+- [Set up AAD B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-local?pivots=b2c-user-flow)
+- [Working with Azure App Service Application Settings](https://blogs.msdn.microsoft.com/cjaliaga/2016/08/10/working-with-azure-app-services-application-settings-and-connection-strings-in-asp-net-core/)
+- [Cloud authentication with Azure Active Directory B2C in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/azure-ad-b2c?view=aspnetcore-6.0)
+- [Bulk set App Service configuration values](https://learn.microsoft.com/en-us/azure/app-service/configure-common?tabs%253Dcli#edit-app-settings-in-bulk)
+- [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
 
 ## Tips
 
-- [Deploy to an Azure Web App for Containers - Define your CI build pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=vsts#define-your-ci-build-pipeline)
-- [Deploy to an Azure Web App for Containers - Create a release pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/deploy-docker-webapp?view=vsts#create-a-release-pipeline)
+- Make sure you are calling the application with `https` for the authentication redirects to work.
+- Remember to keep your configuration secrets **OUT** of your code or config files.
+- Don't forget `/signin-oidc` in your redirect URL
+- Configuring https locally can be difficult to setup.
+  - [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
+  - Look at the following Docker Compose YAML snippet to see how to configure a self-signed certificate for your local development environment.
+    ```yaml
+    version: "3"
+    services:
+      rockpaperscissors-server:
+        build:
+          context: .
+          dockerfile: Dockerfile-Server
+        container_name: rockpaperscissors-server
+        environment:
+          ...
+          "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
+          "AzureAdB2C__TenantId": "AADB2C-TENANTID-ID(A Guid)"
+          "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
+          "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
+          "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
+          "AzureAdB2C__SignUpSignInPolicyId": "AADB2C-policyname"
+          "ASPNETCORE_URLS": "https://+;http://+"
+          "ASPNETCORE_Kestrel__Certificates__Default__Password": ""
+          "ASPNETCORE_Kestrel__Certificates__Default__Path": "/https/aspnetapp.pfx"
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ~/.aspnet/https:/https
+      ...
+    ```

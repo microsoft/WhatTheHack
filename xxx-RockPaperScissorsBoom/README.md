@@ -32,12 +32,10 @@ At the end, each team will be able to build their own bot and compete with each 
 Here are the technologies and services you will leverage:
 
 - GitHub
-- Git
-- ASP.NET Core
+- ASP.NET Core & .NET 6
 - SQL Server on Linux
 - Docker
 - Azure SQL Database
-- Azure DevOps
 - Azure App Service Container on Linux
 - Azure Container Registry
 - Azure AD B2C
@@ -60,19 +58,17 @@ Here are the technologies and services you will leverage:
   - Set up automation to run the game continuously
 - Challenge 05: **[Add Application Monitoring](Student/Challenge-05.md)**
   - Add Application Monitoring to the app
-- Challenge 06: **[Build a CI/CD pipeline with Azure DevOps](Student/Challenge-06.md)**
-  - Build a CI/CD pipeline with Azure DevOps
-- Challenge 07: **[Implement AAD B2C](Student/Challenge-07.md)**
+- Challenge 06: **[Implement AAD B2C](Student/Challenge-06.md)**
   - Implement authentication for the application
-- Challenge 08: **[Leverage SignalR](Student/Challenge-08.md)**
+- Challenge 07: **[Leverage SignalR](Student/Challenge-07.md)**
   - Set up a bot to play the game & communicate with SignalR
-- Challenge 09: **[Leverage CDN](Student/Challenge-09.md)**
+- Challenge 08: **[Leverage CDN](Student/Challenge-08.md)**
   - Set up a CDN to serve static content
-- Challenge 10: **[Send a Winner Notification](Student/Challenge-10.md)**
+- Challenge 09: **[Send a Winner Notification](Student/Challenge-09.md)**
   - Send a notification when a game is won
-- Challenge 11: **[Run a Load Test](Student/Challenge-11.md)**
+- Challenge 10: **[Run a Load Test](Student/Challenge-10.md)**
   - Run a load test against the app
-- Challenge 12: **[Tournament Instructions](Student/Challenge-12.md)**
+- Challenge 11: **[Tournament Instructions](Student/Challenge-11.md)**
   - Build a bot and compete in a tournament
 
 ## Prerequisites

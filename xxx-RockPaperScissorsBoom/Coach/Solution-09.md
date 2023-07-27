@@ -1,61 +1,121 @@
-# Challenge 09 - Azure CDN - Coach's Guide
+# Challenge 09 - Send a Winner Notification - Coach's Guide
 
 [< Previous Solution](./Solution-08.md) - **[Home](./README.md)** - [Next Solution >](./Solution-10.md)
 
 ## Notes & Guidance
 
-### Create Azure FrontDoor
+### Create Logic App
 
-1.  Run the following Azure CLI command to create an Azure Front Door profile.
-
-    ```shell
-    az afd profile create --profile-name <profile-name> --resource-group <resource-group-name> --sku Standard_AzureFrontDoor
-    ```
-
-1.  Run the following Azure CLI command to create the Azure Front Door endpoint.
+1.  Run the following Azure CLI to create the Logic App (note that the `workflow.json` file path is inside the `Student/Resources` directory)
 
     ```shell
-    az afd endpoint create --resource-group <resource-group-name> --endpoint-name rock-paper-scissors-boom --profile-name <profile-name> --enabled-state Enabled
+    az logic workflow create --name <logicapp-name> --resource-group <resource-group-name> --location <location> --definition workflow.json
     ```
 
-1.  Run the following Azure CLI command to create the Azure Front Door origin group.
+    > Note: You can also use the Azure Portal to create the Logic App.
+
+1.  Open the Logic App in the Azure Portal and click on the **When an Event Grid resource event occurs** trigger.
+
+1.  In the trigger dialog box, click the **Use sample payload to generate schema** link.
+
+1.  Copy the contents of the `RockPaperScissorsBoom.Server/EventGridPayload.json` file and paste it into the dialog box. Click **Done**.
+
+1.  Add a `Office 365 Outlook - Send an email (V2)` action and populate it with values from the event. Use the `Data` values to compose your email. Something like this:
+
+    ![Send an email](../images/sendAnEmail.png)
+
+    > NOTE: You may have to use the **Code view** to correctly parse the data values since they come in from the trigger as an array with no name.
+
+    ![Code view](../images/logicAppsCodeView.png)
+
+1.  Save the Logic App and copy the URL from the trigger.
+
+### Create Event Grid topic & subscription
+
+1.  Run the following Azure CLI command to create the Event Grid topic.
 
     ```shell
-    az afd origin-group create --resource-group <resource-group-name> --origin-group-name rock-paper-scissors-boom --profile-name <profile-name> --probe-request-type GET --probe-protocol Http --probe-interval-in-seconds 60 --probe-path / --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50
+    az eventgrid topic create --name rockpaperscissorsboom-winner-notification-topic --resource-group <resource-group-name> --location <location>
     ```
 
-1.  Run the following Azure CLI command to create the Azure Front Door origin.
+1.  Run the following Azure CLI command to create the Event Grid subscription. Use the endpoint URL copied above.
 
     ```shell
-    az afd origin create --resource-group <resource-group-name> --host-name <web-app-name>.azurewebsites.net --profile-name <profile-name> --origin-group-name rock-paper-scissors-boom --origin-name rock-paper-scissors-boom --origin-host-header <web-app-name>.azurewebsites.net --priority 1 --weight 1000 --enabled-state Enabled --http-port 80 --https-port 443
+    az eventgrid topic event-subscription create --name rockpaperscissors-winner-notification-subscription --resource-group <resource-group-name> --topic-name rockpaperscissorsboom-winner-notification-topic --endpoint <logicapp-url>
     ```
 
-1.  Run the following Azure CLI command to create the Azure Front Door routing rule for the non-cached routes.
+    > NOTE: If the student's are using a PowerShell command window & executing Azure CLI, they will need to escape the `&` character or use the extra `--%` argument to prevent double parsing. [Quoting issues with PowerShell](https://github.com/Azure/azure-cli/blob/dev/doc/quoting-issues-with-powershell.md)
+
+    ```powershell
+    az --% eventgrid topic event-subscription create --name rockpaperscissors-winner-notification-subscription --resource-group <resource-group-name> --topic-name rockpaperscissorsboom-winner-notification-topic --endpoint <logicapp-url>
+    ```
+
+### Update local app settings
+
+1.  Open the `RockPaperScissorsBoom.Server/appsettings.json` file. Note the Event Grid settings. These will need to be set.
+
+1.  In your `docker-compose.yaml` file, set the Event Grid parameters (get these values from the Azure portal).
+
+    ```yaml
+    environment:
+      ...
+      "EventGridOn": "true"
+      "EventGrid__TopicEndpoint": "https://rockpaperscissorsboom-winner-notification-topic.southcentralus-1.eventgrid.azure.net/api/events"
+      "EventGrid__TopicKey": ""
+      "EventGrid__TopicHostName": "rockpaperscissorsboom-winner-notification-topic.southcentralus-1.eventgrid.azure.net"
+      "EventGrid__DataVersion": "2.0"
+    ```
+
+1.  Run the application and play a game. You should receive an email.
 
     ```shell
-    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route-non-cached --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching false --query-string-caching-behavior IgnoreQueryString
+    docker compose up
     ```
 
-1.  Run the following Azure CLI command to create the Azure Front Door routing rule for the cached routes.
+### Update Azure app settings
+
+1.  Use the following command to export all the existing App Service settings into a JSON file to make it easier to bulk upload new values.
 
     ```shell
-    az afd route create --resource-group <resource-group-name> --profile-name <profile-name> --endpoint-name rock-paper-scissors-boom --forwarding-protocol MatchRequest --route-name route-cached --https-redirect Enabled --origin-group rock-paper-scissors-boom --supported-protocols Http Https --link-to-default-domain Enabled --enable-caching true --query-string-caching-behavior IgnoreQueryString --patterns-to-match "/img/*" "/css/*" "/lib/*" "/js/*"
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> > settings.json
     ```
 
-### Test the new CDN
+1.  Modify the `settings.json` file to add all the Event Grid values (note the double underscore between all the nested values).
 
-1.  Open a browser and turn on **Developer Tools** (F12). Navigate to the **Network** tab.
+    ```json
+    ...
+    {
+      "name": "EventGridOn",
+      "slotSetting": false,
+      "value": "true"
+    },
+    {
+      "name": "EventGrid__TopicEndpoint",
+      "slotSetting": false,
+      "value": "https://rockpaperscissorsboom-winner-notification-topic.southcentralus-1.eventgrid.azure.net/api/events"
+    },
+    {
+      "name": "EventGrid__TopicKey",
+      "slotSetting": false,
+      "value": ""
+    },
+    {
+      "name": "EventGrid__TopicHostName",
+      "slotSetting": false,
+      "value": "rockpaperscissorsboom-winner-notification-topic.southcentralus-1.eventgrid.azure.net"
+    },
+    {
+      "name": "EventGrid__DataVersion",
+      "slotSetting": false,
+      "value": "2.0"
+    }
+    ...
+    ```
 
-1.  Navigate to the Azure Front Door endpoint URL in a browser (look in the Azure portal for this URL)
+1.  Use the following command to bulk upload the new settings.
 
-1.  You should see the Rock Paper Scissors Boom game.
+    ```shell
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings "@settings.json"
+    ```
 
-1.  In the **Network** tab, you should see the request for the images (such as the `RockPaperScissorsBoom.jpg` image). If you click the request for this image, you will see that Front Door added the `X-Cache` response header and indicated that it was a cache miss (`TCP_MISS`), so the image was retrieved from the origin (the App Service).
-
-![Front Door cache miss](../images/frontDoorCacheMiss.png)
-
-1.  Refresh the page and you should see the `X-Cache` response header indicate that the image was retrieved from the cache (`TCP_HIT`). Note that it may take a few refreshes over a few minutes to see this.
-
-![Front Door cache hit](../images/frontDoorCacheHit.png)
-
-1.  You can purge the Front Door cache (from the Azure portal) and then refresh the page again. You should see the `X-Cache` response header (`TCP_MISS`) indicate that the image was retrieved from the origin (the App Service).
+1.  Open the web app in the browser and play a game. You should receive an email.

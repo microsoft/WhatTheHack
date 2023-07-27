@@ -1,70 +1,28 @@
-# Challenge 07 - Implement Azure AD B2C
+# Challenge 07 - Leverage SignalR
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
 ## Introduction
 
-Right now your application on Azure is wide open for anyone to use. Your application allows you to add, edit and delete competitors. Let's make sure only authenticated users can do this. If you try to perform one of these actions in your application, you'll get some errors; you need to complete the feature!
-
-The application has the code in place to authenticate users against Azure AD B2C, you just need to create an Azure AD B2C application, build the user journeys and policy and then set the right configuration values.
+With this challenge you will deploy and add your own `SmartBot` by leveraging `SignalR`, you will add a new competitor in your games.
 
 ## Description
 
-- Create an `Azure AD B2C` application in the Azure portal.
-- Optional: Allow users to authenticate with an SSO ID via an `OpenIDConnect Account` (requires an AzureAD app registration in your AzureAD tenant).
-- Update your application with the B2C configuration values.
-  - **DO NOT** store credentials in your code or appsettings file.
+- There is already the `RockPaperScissorsBoom.ExampleBot` project in your solution implementing a `SignalR` bot, let's just use it and deploy it!
+- Deploy it on a new Azure Web App for Containers instance.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- Validate that when a user hits the **Sign In** link, they are redirected to login.
-- Validate that a user can successfully authenticate, get redirected back to your application and see a personalized greeting.
-
-![greeting](../images/personalized-authenticated-greeting.PNG)
-
-- Validate that a user can successfully add or edit a bot in the Competitor views.
+- Validate that your new Azure Web App & Docker image are deployed using `az webapp list` and `az cr repository show-tags`.
+- In your web browser, navigate to the main web app (Server), add this Bot as a new competitor and play a game, make sure it's working without any error.
 
 ## Learning Resources
 
-- [Set up AAD B2C](https://learn.microsoft.com/en-us/azure/active-directory-b2c/identity-provider-local?pivots=b2c-user-flow)
-- [Working with Azure App Service Application Settings](https://blogs.msdn.microsoft.com/cjaliaga/2016/08/10/working-with-azure-app-services-application-settings-and-connection-strings-in-asp-net-core/)
-- [Cloud authentication with Azure Active Directory B2C in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/azure-ad-b2c?view=aspnetcore-6.0)
-- [Bulk set App Service configuration values](https://learn.microsoft.com/en-us/azure/app-service/configure-common?tabs%253Dcli#edit-app-settings-in-bulk)
-- [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
+- [SignalR](https://dotnet.microsoft.com/en-us/apps/aspnet/signalr)
 
 ## Tips
 
-- Make sure you are calling the application with `https` for the authentication redirects to work.
-- Remember to keep your configuration secrets **OUT** of your code or config files.
-- Don't forget `/signin-oidc` in your redirect URL
-- Configuring https locally can be difficult to setup.
-  - [How to create a self-signed certificate locally for use in your ASP.NET application](https://github.com/dotnet/dotnet-docker/blob/main/samples/run-aspnetcore-https-development.md)
-  - Look at the following Docker Compose YAML snippet to see how to configure a self-signed certificate for your local development environment.
-    ```yaml
-    version: "3"
-    services:
-      rockpaperscissors-server:
-        build:
-          context: .
-          dockerfile: Dockerfile-Server
-        container_name: rockpaperscissors-server
-        environment:
-          ...
-          "AzureAdB2C__Instance": "https://aadb2c-tenantname.b2clogin.com"
-          "AzureAdB2C__TenantId": "AADB2C-TENANTID-ID(A Guid)"
-          "AzureAdB2C__ClientId": "AADB2C-CLIENT-ID(A Guid)"
-          "AzureAdB2C__ClientSecret": "AADB2C-CLIENT-SECRET"
-          "AzureAdB2C__Domain": "AADB2C-TENANT(tenantname.onmicrosoft.com)"
-          "AzureAdB2C__SignUpSignInPolicyId": "AADB2C-policyname"
-          "ASPNETCORE_URLS": "https://+;http://+"
-          "ASPNETCORE_Kestrel__Certificates__Default__Password": ""
-          "ASPNETCORE_Kestrel__Certificates__Default__Path": "/https/aspnetapp.pfx"
-        ports:
-          - "80:80"
-          - "443:443"
-        volumes:
-          - ~/.aspnet/https:/https
-      ...
-    ```
+- Revisit challenges [Challenge 4 - Run the app on Azure](RunOnAzure.md) and/or [Challenge 7 - Build a CI/CD pipeline with Azure DevOps](BuildCICDPipelineWithAzureDevOps.md). For the latter, the recommendation is to create its own Build and Release definition (not impacting the ones already created for the `Server`).
+- To add this new Bot deployed in your Game, just navigate to the `Competitors` menu of your main web app (Server) and create a new competitor. You will have to provide the URL of your Bot and add `/decision` to the end of the URL.
