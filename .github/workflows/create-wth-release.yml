@@ -28,12 +28,14 @@ jobs:
       - run: |
           zip -r ${{ env.RESOURCES_FILENAME }} ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
 
-          gh release create ${{ env.NOW }} ${{ env.RESOURCES_FILENAME }}.zip \
+          gh release create ${{ env.NOW }}  \
             --title "Student Resources for ${{ inputs.hackathonName }}" \
             --notes "Student Resources for ${{ inputs.hackathonName }}" \
             --target ${{ inputs.branchName }} \
             --draft \
             --prerelease
+
+          gh release upload ${{ env.RESOURCES_FILENAME }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RESOURCES_FILENAME: resources
