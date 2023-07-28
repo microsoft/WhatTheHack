@@ -32,9 +32,7 @@ jobs:
           gh release create ${{ env.TAG }}  \
             --title "Student Resources for ${{ inputs.hackathonName }}" \
             --notes "Student Resources for ${{ inputs.hackathonName }}" \
-            --target ${{ inputs.branchName }} \
-            --draft \
-            --prerelease
+            --target ${{ inputs.branchName }}
 
           gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
         env:
