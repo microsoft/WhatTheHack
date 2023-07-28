@@ -26,7 +26,8 @@ jobs:
         uses: actions/checkout@v3
       - run: echo "NOW=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
       - run: |
-          zip -r ${{ env.RESOURCES_FILENAME }} ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
+          cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}}
+          zip -r ${{ env.RESOURCES_FILENAME }} *
 
           gh release create ${{ env.NOW }}  \
             --title "Student Resources for ${{ inputs.hackathonName }}" \
