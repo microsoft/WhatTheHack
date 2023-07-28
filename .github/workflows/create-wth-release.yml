@@ -35,7 +35,7 @@ jobs:
             --draft \
             --prerelease
 
-          gh release upload ${{ env.RESOURCES_FILENAME }}.zip
+          gh release upload ${{ env.NOW }} ${{ env.RESOURCES_FILENAME }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RESOURCES_FILENAME: resources
