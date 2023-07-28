@@ -1,4 +1,4 @@
-name: Create a release for a WhatTheHack hackathon as a ZIP file
+name: Create a release for a WhatTheHack hackathon
 
 on:
   workflow_dispatch:
@@ -37,4 +37,4 @@ jobs:
           gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RESOURCES_FILENAME: resources
+          RESOURCES_FILENAME: Resources
