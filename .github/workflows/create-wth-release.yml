@@ -24,19 +24,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - run: echo "NOW=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+      - run: echo "TAG=${{ inputs.hackathonName }}-$(date +'%Y.%m.%d')" >> $GITHUB_ENV
       - run: |
           cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
 
-          gh release create ${{ env.NOW }}  \
+          gh release create ${{ env.TAG }}  \
             --title "Student Resources for ${{ inputs.hackathonName }}" \
             --notes "Student Resources for ${{ inputs.hackathonName }}" \
             --target ${{ inputs.branchName }} \
             --draft \
             --prerelease
 
-          gh release upload ${{ env.NOW }} ${{ env.RESOURCES_FILENAME }}.zip
+          gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RESOURCES_FILENAME: resources
