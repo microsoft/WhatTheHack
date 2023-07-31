@@ -657,3 +657,11 @@ yaml
 yml
 yum
 zsh
+mitigations
+learnings
+navigatable
+Dodgeball
+squadmembers
+criterias
+gamify
+incentivize
