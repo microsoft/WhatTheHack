@@ -80,7 +80,7 @@ Adding external users as guests in Microsoft Teams requires you to add each user
 
 For more information, see [Guest access in Microsoft Teams](https://docs.microsoft.com/en-us/MicrosoftTeams/guest-access)
 
-**NOTE:** Guest access is an organization-wide setting in Microsoft Teams. Therefore, in most organizations, enabling Guest acccess is typically managed by someone in the IT department who is **NOT** you. If it is not enabled in your organization, you might want to consider using the external organization's tenant as described in the next section.
+**NOTE:** Guest access is an organization-wide setting in Microsoft Teams. Therefore, in most organizations, enabling Guest access is typically managed by someone in the IT department who is **NOT** you. If it is not enabled in your organization, you might want to consider using the external organization's tenant as described in the next section.
 
 #### Reverse Guest Access
 
@@ -118,7 +118,7 @@ Finally, attendees can create a free trial Azure account to participate in the h
 
 #### Workstation Security
 
-Some organizations have tight security policies enforced on their employees' workstations. A common one is to not provide users with adminstrator priviledges on their workstation. If this is the case, it may prevent them from installing tools or software needed to complete the hack.
+Some organizations have tight security policies enforced on their employees' workstations. A common one is to not provide users with administrator privileges on their workstation. If this is the case, it may prevent them from installing tools or software needed to complete the hack.
 
 One workaround is to use the Azure Cloud Shell. However, some organizations may disable access to the Azure Cloud Shell. Another workaround is to provision a workstation VM in Azure that attendees can RDP into to complete the hack.
 
@@ -235,7 +235,7 @@ Now that you have taken care of creating and preparing a Microsoft Team for your
 
 #### Registration and Invites
 
-It is up to you to decide how you will advertise your hack. You might send an invite to a larger group and let those interested RSVP by registering. There are many tools out there on the web to help you manage event registrations like Eventbrite, Eventzilla, or RSVPify.
+It is up to you to decide how you will advertise your hack. You might send an invite to a larger group and let those interested RSVP by registering. There are many tools out there on the web to help you manage event registrations like `Eventbrite`, `Eventzilla`, or `RSVPify`.
 
 **NOTE:** Be sure you understand the privacy implications of using online registration tools.
 
@@ -259,7 +259,7 @@ To add external guests, see: [Add guests to a team in Teams](https://support.off
 
 ![How to Add Team Member - Part 2](images/wth-add-team-member-02am.jpg)
 
-We recommend creating a "join code" to share with internal organization attendeess which they can use to add themselves to the event team. The join code can be shared in the event invite or calendar meeting you will put together in the next section.
+We recommend creating a "join code" to share with internal organization attendees which they can use to add themselves to the event team. The join code can be shared in the event invite or calendar meeting you will put together in the next section.
 
 For an in-person event, you can share the join code on the screen during the kick off meeting on event day.
 
@@ -450,7 +450,7 @@ A coach's main over-arching role is to act as a technical advisor to the attende
 
 At an in-person event, the coaches should be sitting at the table with their squad. At a virtual event, they should be engaged in their squad's channel meeting for the duration of the event.
 
-Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coachs may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
+Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coaches may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
 
 At a virtual event, the coaches can quickly jump in and out of the various Squad channels to check in on the squad and provide support as required by joining the various channel meetings.
 
@@ -497,7 +497,7 @@ The lead coach should close out the What The Hack event with a final stand-up th
 - Thank the attendees for their time and dedication during the hack
 - Finally, share the content by directing the attendees to visit the What The Hack repo on Github: <http://aka.ms/wth>
 
-You have now surived a What The Hack!
+You have now survived a What The Hack!
 
 ### Tips for In Person
 
