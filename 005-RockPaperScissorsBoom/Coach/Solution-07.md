@@ -1,6 +1,6 @@
 # Challenge 07 - Leverage SignalR - Coach's Guide
 
-[< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
+[< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
 ## Notes & Guidance
 
