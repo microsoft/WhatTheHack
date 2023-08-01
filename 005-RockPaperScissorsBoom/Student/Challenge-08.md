@@ -1,10 +1,10 @@
-# Challenge 08 - Leverage Azure CDN
+# Challenge 08 - Leverage the Azure CDN
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-09.md)
 
 ## Introduction
 
-In this simple challenge you will leverage Azure CDN for serving static content.
+In this simple challenge you will leverage the Azure CDN for serving static content.
 
 A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. [Read more](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview).
 
@@ -19,7 +19,7 @@ A content delivery network (CDN) is a distributed network of servers that can ef
 
 To complete this challenge successfully, you should be able to:
 
-- The Rock/Paper/Scissors and Boom images on the home page of the app are served from CDN.
+- Verify that the Rock/Paper/Scissors and Boom images on the home page of the app are served from the CDN.
 - Verify that your cached static content is not downloaded more than once during the cache duration. You can verify this by inspecting the request with Developer Tools in most modern browsers.
 
 ## Learning Resources
@@ -28,5 +28,5 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
-- Use Azure Front Door to serve static content from CDN via caching on a route.
+- Use Azure Front Door to serve static content from the CDN via caching on a route.
 - Make sure you are only caching static content and not all requests.
