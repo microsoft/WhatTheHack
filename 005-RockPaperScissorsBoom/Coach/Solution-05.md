@@ -81,7 +81,7 @@
     az webapp config appsettings set --resource-group <resource-group-name> --name <app-service-name> --settings ApplicationInsights__ConnectionString="<app-insights-connection-string>"
     ```
 
-1.  Open the browser to https://<app-service-name>.azurewebsites.net and play a game.
+1.  Open the browser to https://\<app-service-name\>.azurewebsites.net and play a game.
 
 1.  Open the Azure portal and navigate to your Application Insights resource.
 
