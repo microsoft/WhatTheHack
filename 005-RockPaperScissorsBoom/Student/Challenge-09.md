@@ -32,7 +32,7 @@ To complete this challenge successfully, you should be able to verify:
 
 - Look in the `RockPaperScissorsBoom.Server/Controllers/RunGameController.cs` file to see how the event is being raised.
 - Look in the `RockPaperScissorsBoom.Server/appsettings.json` file to see what configuration is needed.
-- You may want to disable to Logic App that has been calling your web app automatically so you don't get a bunch of emails while you are working on this challenge.
+- You may want to disable the Logic App that has been calling your web app automatically so you don't get a bunch of emails while you are working on this challenge.
 - Event Grid Topic --> Event Grid Subscription (Webhook to Azure Logic App)
 - The Logic App needs to have a step that sends an email.
 - Look at the `RockPaperScissorsBoom.Server/EventGridPayload.json` file to see what data is available in the event.
