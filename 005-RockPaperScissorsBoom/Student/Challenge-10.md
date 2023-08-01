@@ -18,7 +18,7 @@ Once you deploy your app to Azure, how do you know how well it performs under lo
 To complete this challenge successfully, you should be able to:
 
 - Run the load and review the results in Azure Load Testing.
-  - If you were running a free or basic sku of web apps, you may notice that your performance got worse as more load was added to the system. There may even have been a large number of errors as the demand on your app grew.
+  - If you were running a free or basic SKU of web apps, you may notice that your performance got worse as more load was added to the system. There may even have been a large number of errors as the demand on your app grew.
 - Scale up the web app. You may need to move to the Standard SKU. Add 2 or 3 instances. Run the Competitor load test again. Notice if the numbers were better this time.
 - Review the Application Insights chart you built for measuring how long the games take to run. If you successfully automated the game runs, did they take longer when you were performing your tests?
 - Review the Compute utilization chart on the `Overview->Monitoring` blade for your SQL DB in the Azure portal. Did you see a spike on the DTUs during the load test?
@@ -46,7 +46,7 @@ To complete this challenge successfully, you should be able to:
 - You may want to build a dashboard in the Azure portal that collects some telemetry data from across your solution into one place. Can you build a dashboard that includes
   - Web app # of requests
   - Web app average response times
-  - game run duration, SQL DTUs
+  - Game run duration, SQL DTUs
   - Logic Apps Actions Completed
   - Event Grid Published Events
 - Check out this sample dashboard
