@@ -14,7 +14,7 @@ After each game is played, a notification should be sent to someone about who wo
 
 ## Success Criteria
 
-To complete this challenge successfully, you should be able to:
+To complete this challenge successfully, you should be able to verify:
 
 - After a game is played, a person gets a notification that includes
   - Team Name
