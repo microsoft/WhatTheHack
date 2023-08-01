@@ -10,7 +10,7 @@ So far we have deployed a SQL Server on Linux containers which was really conven
 
 ## Description
 
-- Provision your Azure SQL Database via Infrastructure-as-Code (you can use the Azure Cloud Shell if you don't have the tools installed locally). The approach here is to leverage an Infrastructure-as-Code language like Azure CLI/Bicep/PowerShell/Terraform/etc (not the Azure portal). _Friends don't let friends use UI to provision Azure services, right? ;)_
+- Provision your Azure SQL Database via Infrastructure-as-Code (you can use the Azure Cloud Shell if you don't have the tools installed locally). The approach here is to leverage an Infrastructure-as-Code language like Azure CLI/Bicep/PowerShell/Terraform/etc (not the Azure portal). _Friends don't let friends use the UI to provision Azure services, right? ;)_
 - Update your app (re-build and re-deploy the Docker image) with the new connection string (as an environment variable), test the app as an end-user and play a game once deployed there.
 
 ## Success Criteria
@@ -19,7 +19,7 @@ To complete this challenge successfully, you should be able to:
 
 - Validate that you have an Azure SQL Database deployed & running
   - Make sure `az sql server list` and `az sql db list` are showing your Azure services properly.
-- In your web browser, navigate to the app and play a game, make sure it's still working without any error and that it i using the Azure SQL Database as its backend datastore.
+- In your web browser, navigate to the app and play a game, make sure it's still working without any error and that it is using the Azure SQL Database as its backend datastore.
 
 ## Learning Resources
 
@@ -32,7 +32,7 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
-- You can get the Azure SQL Database connection string several different ways
+- You can get the Azure SQL Database connection string by several different ways
   - Azure CLI: `az sql db show-connection-string -s <sql-server-name> -n <sql-db-name> -c ado.net`
   - Azure Portal: Go to the Azure SQL Database resource, click on **Show database connection strings** and copy the **ADO.NET (SQL Authentication)** connection string
 - Add SQL IP firewall rules to restrict access to just your local IP & Azure trusted services
