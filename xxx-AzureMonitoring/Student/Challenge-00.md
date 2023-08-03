@@ -110,7 +110,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 - Verify you can see the website deployed
 - Verify the resources contained in architecture diagram below are present in your own Azure subscription.
 
-![Hack Diagram](../Images/monitoringhackdiagram1.png)
+![Hack Architecture Diagram](../Images/00-01-Visio-architecture.png)
 
 ## Learning Resources
 

@@ -11,7 +11,7 @@ Action group Resource Id can be found in Azure Portal:
 - Select the Action group to open its properties.
 - Click on JSON View.
 
-![](../Images/02-01-Find-resource-id.png)
+![Navigating to JSON view of the action group in Azure Portal](../Images/02-01-Find-resource-id.png)
 
 - At the top you will see the Resource ID that will have the following structure:  
 `/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/actionGroups/<action-group-name> `
@@ -21,11 +21,11 @@ Action group Resource Id can be found in Azure Portal:
 
 - Login to Azure portal and stop you Visual Studio VM by clicking the "Stop" button.  
 
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/stopVM.png)
+![Stopping the  Virtual Machine via “Stop” button in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/stopVM.png)
 
 - Check the Activity Log and see the new events of type **Deallocate Virtual Machine** (may take a min or two to show up)
 
-![enter image description here](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/vmactivitylog.png)
+![Azure Activity log containing “Deallocate Virtual Machine” event](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/vmactivitylog.png)
 
 - If the alert is configured correctly, it should fire and an email will be sent.
 
@@ -42,7 +42,7 @@ Point the students to these articles in the Learning Resources section of the Ch
 
 At the end of the Challenge the students should present 3 new alerts that will look similar to this:
 
-![](../Images/02-03-Alerts.png)
+![A list of Alert rules in Azure Portal](../Images/02-03-Alerts.png)
 
 
 ### Deploy Azure Monitor Agent and DCRs with Bicep
@@ -51,11 +51,11 @@ In the file, the students should update the names of the Log Analytics workspace
   
 If everything is configured correctly, you should be able to see the AzureMonitorWindowsAgent extension if you navigate to the VMSS and select Extensions+applications.
 
-![](../Images/02-03-VMSS-extension.png)
+![A list of  Virtual Machine extensions in Azure Portal](../Images/02-03-VMSS-extension.png)
 
 You should also be able to see the 2 new DCRs created in Azure Monitor.
   
-![](../Images/02-04-DCRs.png)
+![A list of Data collection rules in Azure Portal](../Images/02-04-DCRs.png)
 
   
 **The Bonus part (Optional)**
