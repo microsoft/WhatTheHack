@@ -16,7 +16,7 @@ Let's create a URL Ping for the public URL of our shop
 Check the availability of your site and let's move on.
 
 From the Visual Studio Server, navigate to
-`C:\eshoponweb\eShopOnWeb-master` and double-click on **eShopOnWeb.sln**  
+`C:\eshoponweb\eShopOnWeb-main` and double-click on **eShopOnWeb.sln**  
   
 ![](../Images/04-02-win-explorer.png) 
 - If this is the first time you are opening Visual Studio, please log in or create an account and log in.
