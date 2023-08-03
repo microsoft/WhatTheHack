@@ -35,9 +35,11 @@ Deploy the following models in your Azure OpenAI resource. A couple of challenge
   - gpt-35-turbo
   - text-embedding-ada-002
 
-### Downloading project files
+### Downloading project files 
 
-Download the project files to your device locally using a [download directory tool](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdownload-directory.github.io%2F&data=05%7C01%7Cdthakar%40microsoft.com%7Ce1ad618c61714eb1c91e08db70fe6ed1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638228010310811612%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=3FzX8QP%2F4KZopjJty1tNZ%2BMExIhyOaRGPdsxj62oceE%3D&reserved=0). Extract the contents of the .zip file. 
+Your can download the [`Resources.zip`](https://aka.ms/aoaifundamentalsresources) file that contains resource files you will use to complete some of the challenges for this hack.  
+
+Download the project files to your device locally using a [download directory tool](https://download-directory.github.io/). Extract the contents of the .zip file. 
 
 Add required credentials of Azure resources in the ``.env`` file. You will find the file within the student/resources path of the hack file and you can edit it with any text editor. The model names are the names you give your model endpoints at deployment, NOT the generic model names.
   - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. Make sure to update ``.env`` file with credentials as needed. If running the notebooks on AML, also re-upload the file after any updates. 
@@ -46,6 +48,7 @@ This hack is delivered on Python Notebooks (.ipynb). Before continuing the set u
 
 ### Option 1: Completing the challenges locally on your device:
 
+- If you choose to use your local workstation, you should unpack the `Resources.zip` file there too.
 - Python Installation: version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
   - [Python](https://www.python.org/downloads)
 - Conda Installation: for project environment management and package management. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
@@ -67,7 +70,7 @@ This hack is delivered on Python Notebooks (.ipynb). Before continuing the set u
 
   - Create an Azure Machine Learning studio resource [Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/create-workspace-resources-getting-started-azure-machine-learning/5-create-azure-machine-learning-workspace)
   - Create an Azure Machine Learning workspace and a compute instance. Use a Standard_DS11_v2 type of VM. [Microsoft Learn](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
-  - On the top left of your screen, click on the plus (add files) symbol. Choose 'Upload a folder' (the option at the bottom). Browse for your unzipped hack folder and upload it.
+  - On the top left of your screen, click on the plus (add files) symbol. Choose 'Upload a folder' (the option at the bottom). Browse for your unzipped hack folder and upload it. You can also upload your  `Resources.zip` file.
   - Open the terminal and wait for the compute to create. Once it has created, navigate to the student/resources directory by using the 'cd' command, make sure you are in the directory of the folder you uploaded to the workspace. Install the requirement files by running the command 'pip install requirments.txt -r'
   - Once the libraries have loaded, navigate the folder system on the left hand side of the screen to open the notebooks at the student/resources directory and open the notebook for the challenge you will be working on.
   -  Any 'No module named' error, which indicates a missing library, can be fixed by inserting a '!pip install <library name>' command above the failing statement. This will download the library files.
