@@ -40,7 +40,7 @@ Sections in this Challenge:
    
    3.2 Give the model time to “think”
    
-You will run the following Jupyter notebooks for this challenge. You can find them in the Notebooks folder of `Resources.zip` file. 
+You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file. 
 - `CH-01-PromptEngineering.ipynb`
 
 
