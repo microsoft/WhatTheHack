@@ -14,11 +14,11 @@ Copy the Client ID from the Azure Portal by navigation Entra ID - App Registrati
 
 No need to put the Client Secret in the form.
 
-Verify Additional Parameters textbox, should be populated as prompt=login.
+Verify the Additional Parameters textbox. It should be populated as prompt=login.
 
 Everything else should remain as default.
 
-Login using newly created user in your new tenant.
+Login using the newly created user in your new tenant.
 
 Verify the claims in the JWT. Check the "aud", "iss", "idp" claims specifically.
 
