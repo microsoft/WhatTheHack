@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Thank you for participating in the EntraIDB2B What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Entra ID B2B What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 
@@ -27,12 +27,12 @@ Entra ID is the central identity control plane for an individual organization. T
 
 Thousands of applications are natively integrated with Entra ID. This includes first party offerings like Microsoft 365 (SharePoint, Exchange, Teams, ...) and Azure, as well as third party offerings like Salesforce, ServiceNow and Box.
 
-However, Entra ID is an open Identity Provider (IdP), which means you can also integrate your own line-of-business (LOB) applications with Entra ID and let your organizations' users sign in with their existing credentials (and taking full advantage of the governance features mentioned above). By adopting a fully externalized and cloud-scale platform (rather than a library or locally hosted identity solution), you are no longer responsible for collecting, storing and securing any credentials for your application's users.
+However, Entra ID is an open Identity Provider (IdP), which means you can also integrate your own line-of-business (LOB) applications with Entra ID and let your organization's users sign in with their existing credentials and take full advantage of the governance features mentioned above. By adopting a fully externalized and cloud-scale platform (rather than a library or locally hosted identity solution), you are no longer responsible for collecting, storing and securing any credentials for your application's users.
 
 ## Success Criteria
 
 1. You have a new Entra ID tenant created.
-2. Your users are created in your tenant. Please note that you should create local users in your AD tenant, guest users will be created later.
+2. Your users are created in your tenant. Please note that you should create local users in your AD tenant. Guest users will be created later.
 
 ## Learning Resources
 
