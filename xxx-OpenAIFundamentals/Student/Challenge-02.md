@@ -62,7 +62,7 @@ Sections in this Challenge:
 
     2.5 Embeddings
 
-You will run the following Jupyter notebook for this challenge. You can find them in the Notebooks folder of `Resources.zip` file.
+You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file.
 
 - `CH-02-ModelComparison.ipynb`
 
