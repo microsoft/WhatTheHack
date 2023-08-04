@@ -6,14 +6,14 @@
 
 Follow the Quickstart tutorial.
 
-You can skip the register the application section and re-use the app registered in the previous challenge in your tenant.
+They can skip the register the application section and re-use the app registered in the previous challenge in their tenant.
 
-For ASP.NET Core, [Download](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip) the ASP.NET Core Project and COnfigure your ASP.NET Core Project. 
+For ASP.NET Core, [Download](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip) the ASP.NET Core Project and Configure their ASP.NET Core Project. 
 
-For ASP.NET, [Download](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) the ASP.NET project and Configure your ASP.NET Project.
+For ASP.NET, [Download](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) the ASP.NET project and Configure an ASP.NET Project.
 
 For Single Page Application, follow the tutorials for any of the Javascript frameworks such as Angular, React etc.
 
 Build and run the application.
 
-Sign In with the users you created in the previous challenge.
+Sign In with the users they created in the previous challenge.
