@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Login to portal.azure.com using your microsoft account and in the Microsoft tenant.
+Login to https://portal.azure.com using your microsoft account and in the Microsoft tenant.
 
 Create a new tenant 
 
@@ -15,7 +15,7 @@ You should be switched to the newly created tenant.
 When you create a new Entra ID tenant, you become the first user of that tenant. As the first user, you're automatically assigned the Global Administrator role. 
 
 
-Create another new user by navigating Users page and add Global Administrator role with it.
+Create another new user by navigating to the Users page and add the Global Administrator role with it.
 
   - Create an authenticator entry for the newly created user
 
