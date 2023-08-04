@@ -12,8 +12,8 @@ For ASP.NET Core, [Download](https://github.com/Azure-Samples/active-directory-a
 
 For ASP.NET, [Download](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) the ASP.NET project and Configure your ASP.NET Project.
 
-For Single Page Application, Follow the Tutorials for any of the Javascript framework such as Angular, React etc.
+For Single Page Application, follow the tutorials for any of the Javascript frameworks such as Angular, React etc.
 
-Build and tun the application.
+Build and run the application.
 
-Sign In with the users you created in previous challenge.
+Sign In with the users you created in the previous challenge.
