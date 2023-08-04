@@ -1,8 +1,8 @@
-# What The Hack - EntraIDB2B - Coach Guide
+# What The Hack - Entra ID B2B - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the EntraIDB2B What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Entra ID B2B What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 
 ## Coach's Guides
@@ -17,7 +17,7 @@ Welcome to the coach's guide for the EntraIDB2B What The Hack. Here you will fin
 	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with redirect link to authr.biz
      - Use an authr.biz link to test the sign in
 - Challenge 03: **[Invite a guest user](./Solution-03.md)**
-     - B2B setup and invite a new guest user
+     - Complete B2B setup and invite a new guest user
      - Use an authr.biz link to test the sign in for the guest user and test sign in using the app setup
 - Challenge 04: **[Integrate Azure AD authentication into an Azure App Service (EasyAuth)](./Solution-04.md)**
 	 - Integrate Azure AD authentication into an Azure App Service (EasyAuth)
