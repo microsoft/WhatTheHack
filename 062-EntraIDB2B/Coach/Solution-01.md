@@ -5,9 +5,9 @@
 ## Notes & Guidance
 
 
-Register the app in the newly created tenant by navigating App Registration.
+Register the app in the newly created tenant by navigating to App Registration.
 
-Select Accounts in this organizational directory only( Single Tenant)
+Select Accounts in this organizational directory only (Single Tenant)
 
 Enter https://authr.biz/ as the Redirect URIs.
 
