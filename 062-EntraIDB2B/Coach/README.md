@@ -17,8 +17,8 @@ Welcome to the coach's guide for the EntraIDB2B What The Hack. Here you will fin
 	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with redirect link to authr.biz
      - Use an authr.biz link to test the sign in
 - Challenge 03: **[Invite a guest user](./Solution-03.md)**
-     - B2B set up / invite a new guest user
-     - Use an authr.biz link to test the sign in for the guest user / test sign in using the app set up
+     - B2B setup and invite a new guest user
+     - Use an authr.biz link to test the sign in for the guest user and test sign in using the app setup
 - Challenge 04: **[Integrate Azure AD authentication into an Azure App Service (EasyAuth)](./Solution-04.md)**
 	 - Integrate Azure AD authentication into an Azure App Service (EasyAuth)
 - Challenge 05: **[Integrate Azure AD authentication into an application](./Solution-05.md)**
@@ -28,8 +28,8 @@ Welcome to the coach's guide for the EntraIDB2B What The Hack. Here you will fin
         - Desktop application (Client Credential Flow)
 - Challenge 06: **[Deploy to Azure](./Solution-06.md)**
 	 - Deploy to Azure
-     - Publish the Web App to the web site update its app registration redirect URIs to include the App Service URL(s)
-     - Managed identity
+     - Publish the Web App to the web site and update its app registration redirect URIs to include the App Service URL(s)
+     - Setup Managed identity
 
 ## Coach Prerequisites
 
