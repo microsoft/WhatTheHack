@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Login to https://portal.azure.com using your azure account and in the Home tenant.
+Login to https://portal.azure.com using your Azure account and in the Home tenant.
 
 Create a new tenant 
 
