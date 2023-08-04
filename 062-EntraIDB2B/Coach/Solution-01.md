@@ -1,4 +1,4 @@
-# Challenge 01 - register-app - Coach's Guide 
+# Challenge 01 - Register the app - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
