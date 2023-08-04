@@ -4,16 +4,16 @@
 
 ## Notes & Guidance
 
-Follow the QuickStart for the deployment of your app.
+Follow the QuickStart for the deployment of the app.
 
-QuickStart are available for ASP.NET and other languages.
+QuickStarts are available for ASP.NET and other languages.
 
-For Angular or any other SPA app, build your angular app, create an azure app service, configure the app service. Under the "Settings" section, click on "Configuration". Here, you need to set the Node.js version to match your Angular app's requirements. Select the "General Settings" tab and choose the desired Node.js version.
+For Angular or any other SPA app, build the Angular app, create an Azure App Service, configure the App Service. Under the "Settings" section, click on "Configuration". Here, they need to set the Node.js version to match the Angular app's requirements. Select the "General Settings" tab and choose the desired Node.js version.
 
-Deploy your angular app using Azure CLI or Azure Portal.
+Deploy the Angular app using the Azure CLI or the Azure Portal.
 
-If you have a desktop application that you want to deploy, Azure App Service is not the appropriate service for that purpose.
+If they have a desktop application that they want to deploy, Azure App Service is not the appropriate service for that purpose.
 
-Add the app service Url as the redirect Url in the registered app in your tenant as part of previous challenge.
+Add the App Service Url as the Redirect Url in the registered app in your tenant as part of the previous challenge.
 
-Sign In with the users you created in previous challenge.
+Sign In with the users they created in the previous challenge.
