@@ -34,7 +34,7 @@ Some Considerations:
 
 You will run the following three Jupyter notebooks for this challenge. You can find them in the Notebooks folder of `Resources.zip` file.
 
-* `CH-04-A-RAG_for_structured_data.ipynb`
+* `CH-04-A-RAG_for_structured_data.ipynb` 
 * `CH-04-B-RAG_for_unstructured_data.ipynb`
 
 
