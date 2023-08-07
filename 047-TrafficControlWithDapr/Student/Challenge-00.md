@@ -215,7 +215,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     iotHubName:
       type: String
       value: iothub-dapr-mce123
-    Key VaultName:
+    keyVaultName:
       type: String
       value: kv-dapr-mce123
     logicAppAccessEndpoint:
