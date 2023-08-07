@@ -6,7 +6,7 @@
 
 Before the team can use Approval Process in Power Automate they will need:
 - Complete challenge 1, 2, & 3
-- An Office365 Mailbox to accept incoming Order information
+- An Office 365 Mailbox to accept incoming Order information (this would be included in their E3 trial; simply navigate to Office.com and launch Outlook web
 
 - Continue with the same flow
 - Need a condition to check for the < 25,000

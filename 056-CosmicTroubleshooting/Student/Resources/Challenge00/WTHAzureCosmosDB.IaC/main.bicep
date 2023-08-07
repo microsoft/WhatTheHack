@@ -1,3 +1,6 @@
+/*
+Parameters
+*/
 @description('The name for the web app')
 param webAppName string
 
@@ -13,7 +16,7 @@ param shipmentContainerName string
 @description('The name for the proxy func app')
 param proxyFuncAppName string
 
-@description('Partition key field')
+@description('Partition key field name')
 param partKey string
 
 @description('Location where resources will be deployed. Defaults to resource group location.')
@@ -22,8 +25,14 @@ param location string
 @description('Location where resources will be deployed. Defaults to resource group location.')
 param resourceGroupName string
 
+/*
+Deployment target scope
+*/
 targetScope = 'subscription'
 
+/*
+Local variables
+*/
 var uniquePostfix = uniqueString(rg.id)
 var appServicePlanName = toLower('appsp-${webAppName}-${uniquePostfix}')
 var webSiteName = toLower('web-${webAppName}-${uniquePostfix}')
@@ -34,11 +43,17 @@ var proxyFuncName = toLower('backend-${proxyFuncAppName}-${uniquePostfix}')
 var keyVaultName = 'kv-${uniquePostfix}'
 var keyVaultFuncAppSecretName = 'proxy-func-key'
 
+/*
+Resource Group
+*/
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
   location: location
 }
 
+/*
+Managed Identity for App Service
+*/
 module msiAppPlan 'modules/managed-id.bicep' = {
   name: 'msiAppPlanDeploy'
   params: {
@@ -48,6 +63,9 @@ module msiAppPlan 'modules/managed-id.bicep' = {
   scope: rg
 }
 
+/*
+Cosmos DB account and containers
+*/
 module cosmosDb 'modules/cosmosdb-products.bicep' = {
   name: 'cosmosDBDeploy'
   dependsOn: [
@@ -66,6 +84,9 @@ module cosmosDb 'modules/cosmosdb-products.bicep' = {
   scope: rg
 }
 
+/*
+Azure Web App
+*/
 module appPlan 'modules/webapp.bicep' = {
   name: 'webAppDeploy'
   dependsOn: [
@@ -79,9 +100,9 @@ module appPlan 'modules/webapp.bicep' = {
     msiObjectId: msiAppPlan.outputs.managedIdentityId
     msiClientId: msiAppPlan.outputs.managedIdentityClientId
     cosmosDBAccountEndpoint: cosmosDb.outputs.accountEndpoint
-    cosmosDBDatabaseId: databaseName
-    cosmosDBProductsContainerId: productsContainerName
-    cosmosDBShipmentContainerId: shipmentContainerName
+    cosmosDBDatabaseName: databaseName
+    cosmosDBProductsContainerName: productsContainerName
+    cosmosDBShipmentContainerName: shipmentContainerName
     loadTestingDataPlaneEndpoint: 'https://${loadTesting.outputs.loadtestingNameDataPlaneUri}'
     loadTestId: guid(rg.id, 'loadtest')
     proxyFuncAppHostname: proxyFunctionApp.outputs.hostname
@@ -90,7 +111,9 @@ module appPlan 'modules/webapp.bicep' = {
   scope: rg
 }
 
-
+/*
+Load Testing Service
+*/
 module loadTesting 'modules/load-testing.bicep' = {
   name: 'loadTestingDeploy'
   params: {
@@ -101,7 +124,9 @@ module loadTesting 'modules/load-testing.bicep' = {
   scope: rg
 }
 
-
+/*
+Function App
+*/
 module proxyFunctionApp 'modules/functionapp.bicep' = {
   name: 'proxyFuncDeploy'
   dependsOn: [
@@ -119,6 +144,9 @@ module proxyFunctionApp 'modules/functionapp.bicep' = {
   scope: rg
 }
 
+/*
+Key Vault
+*/
 module kv 'modules/keyvault.bicep' = {
   name: 'kvDeploy'
   params: {
@@ -130,6 +158,9 @@ module kv 'modules/keyvault.bicep' = {
 }
 
 
+/*
+Outputs, used in subsequents steps of the deployment scripts
+*/
 output webAppName string = webSiteName
 output webAppHostname string = appPlan.outputs.hostname
 output cosmosDbAccountEndpoint string = cosmosDb.outputs.accountEndpoint
