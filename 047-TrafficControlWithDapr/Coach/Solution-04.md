@@ -320,7 +320,7 @@ Now you're ready to test the application. Just repeat steps 2a and 2b.
 
 ### Step 4: Use Azure Cache for Redis as state store
 
-Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to replacing _RabbitMQ_ with Azure Service Bus in challenge 3 required no code changes either.
+Now, you can also use Azure Cache for Redis instead of the default state store. This will require no code changes, similar to how replacing _RabbitMQ_ with Azure Service Bus in challenge 3 required no code changes either.
 
 1.  Update the `Resources/dapr/components/statestore.yaml` file with the key/value pairs for your Azure Redis Cache instance. You can find these on the Overview blade of your Azure Redis Cache instance. Make sure you add the **6380** port number after the host URI.
 
