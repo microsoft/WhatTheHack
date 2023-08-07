@@ -26,7 +26,6 @@ Questions you should be able to answer by the end of the challenge:
 
 * What do embedding help accomplish?
 
-Sections in this Challenge:
 
 You will run the following three Jupyter notebooks for this challenge. You can find them in the Notebooks folder of `Resources.zip` file.
 
