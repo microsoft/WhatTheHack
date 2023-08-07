@@ -22,26 +22,6 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Description of challenge
 - Challenge 05: **[Title of Challenge](./Solution-05.md)**
 	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
-- Challenge 11: **[Title of Challenge](./Solution-11.md)**
-	 - Description of challenge
-- Challenge 12: **[Title of Challenge](./Solution-12.md)**
-	 - Description of challenge
-- Challenge 13: **[Title of Challenge](./Solution-13.md)**
-	 - Description of challenge
-- Challenge 14: **[Title of Challenge](./Solution-14.md)**
-	 - Description of challenge
-- Challenge 15: **[Title of Challenge](./Solution-15.md)**
-	 - Description of challenge
 
 ## Coach Prerequisites
 
