@@ -57,7 +57,7 @@ First, you'll add a secrets management JSON configuration file to the solution:
 
     _Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`._
 
-The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using the period (`-`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
+The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using a dash (`-`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
 
 - `smtp-user`
 - `smtp-password`
