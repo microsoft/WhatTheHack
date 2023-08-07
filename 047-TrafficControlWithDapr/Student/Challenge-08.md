@@ -19,7 +19,7 @@ To complete this challenge, you must reach the following goals:
 
 - Validate that all 3 services are compiled into Docker images & stored in an Azure Container Registry.
 - Validate that you have successfully deployed all 3 services (`VehicleRegistrationService`, `TrafficControlService` & `FineCollectionService`) to an AKS cluster.
-- Validate that the local `Simulation` service runs & connects to your AKS-hosted services and that all the previous functionality still works (input messages, output messages, speeding violation emails, etc).
+- Validate that the local `Simulation` service runs & connects to your AKS-hosted services and that all the previous functionality still works (input messages, output messages, speeding violation emails, etc.).
 
 ## Tips
 
@@ -27,7 +27,7 @@ To complete this challenge, you must reach the following goals:
 - Change the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
   - [Debugging K8S Connection Refused](https://miuv.blog/2021/12/08/debugging-k8s-connection-refused)
 - Use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
-- Modify the `Resources/Infrastructure/Helm/dapr-trafficcontrol/values.yaml` with the specific connection strings, tenant IDs, registry names, etc for your deployment.
+- Modify the `Resources/Infrastructure/Helm/dapr-trafficcontrol/values.yaml` with the specific connection strings, tenant IDs, registry names, etc. for your deployment.
   - _Note that the names of the components in the Helm chart YAML files (and in the `values.yaml` file) may not be exactly what you specified in your config files or put in your C# code. You should check all the names of each component to ensure they match._
 - Use [Helm](https://helm.sh/docs/) to deploy all the AKS configuration files to Azure. Helm will substitute the values in the `values.yaml` file into the various configuration files.
   ```shell
