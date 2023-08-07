@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-> Prior to running this challenge, please ensure the SMTP settings have been reverted to using Mail Dev to prevent the student from recieving hundreds of emails.  
+> Prior to running this challenge, please ensure the SMTP settings have been reverted to using Mail Dev to prevent the student from receiving hundreds of emails.  
 
 You will add code to the `TrafficControlService` to leverage a Dapr input binding to send entry-cam and exit-cam messages. The following diagram depicts the scenario:
 
