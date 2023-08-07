@@ -147,7 +147,7 @@ To make this example as accesible as possible, SAS tokens and default AKS securi
 
 ## Troubleshooting
 
-The most likely error is that the various app-ids, Dapr component names, etc don't match between the C# & the Helm chart `values.yaml` file. Check these carefully.
+The most likely error is that the various app-ids, Dapr component names, etc. don't match between the C# & the Helm chart `values.yaml` file. Check these carefully.
 
 If the pods won't start completely, check to see if the health probes aren't passing. You can do this by running the following commands:
 
