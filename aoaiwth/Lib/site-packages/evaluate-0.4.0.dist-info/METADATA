@@ -1,0 +1,201 @@
+Metadata-Version: 2.1
+Name: evaluate
+Version: 0.4.0
+Summary: HuggingFace community-driven open-source library of evaluation
+Home-page: https://github.com/huggingface/evaluate
+Author: HuggingFace Inc.
+Author-email: leandro@huggingface.co
+License: Apache 2.0
+Download-URL: https://github.com/huggingface/evaluate/tags
+Keywords: metrics machine learning evaluate evaluation
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: datasets (>=2.0.0)
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: dill
+Requires-Dist: pandas
+Requires-Dist: requests (>=2.19.0)
+Requires-Dist: tqdm (>=4.62.1)
+Requires-Dist: xxhash
+Requires-Dist: multiprocess
+Requires-Dist: fsspec[http] (>=2021.05.0)
+Requires-Dist: huggingface-hub (>=0.7.0)
+Requires-Dist: packaging
+Requires-Dist: responses (<0.19)
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: dev
+Requires-Dist: absl-py ; extra == 'dev'
+Requires-Dist: charcut (>=1.1.1) ; extra == 'dev'
+Requires-Dist: cer (>=1.2.0) ; extra == 'dev'
+Requires-Dist: nltk ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-datadir ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: tensorflow (!=2.6.0,!=2.6.1,<=2.10,>=2.3) ; extra == 'dev'
+Requires-Dist: torch ; extra == 'dev'
+Requires-Dist: bert-score (>=0.3.6) ; extra == 'dev'
+Requires-Dist: rouge-score (>=0.1.2) ; extra == 'dev'
+Requires-Dist: sacrebleu ; extra == 'dev'
+Requires-Dist: sacremoses ; extra == 'dev'
+Requires-Dist: scipy ; extra == 'dev'
+Requires-Dist: seqeval ; extra == 'dev'
+Requires-Dist: scikit-learn ; extra == 'dev'
+Requires-Dist: jiwer ; extra == 'dev'
+Requires-Dist: sentencepiece ; extra == 'dev'
+Requires-Dist: transformers ; extra == 'dev'
+Requires-Dist: mauve-text ; extra == 'dev'
+Requires-Dist: trectools ; extra == 'dev'
+Requires-Dist: toml (>=0.10.1) ; extra == 'dev'
+Requires-Dist: requests-file (>=1.5.1) ; extra == 'dev'
+Requires-Dist: tldextract (>=3.1.0) ; extra == 'dev'
+Requires-Dist: texttable (>=1.6.3) ; extra == 'dev'
+Requires-Dist: unidecode (>=1.3.4) ; extra == 'dev'
+Requires-Dist: Werkzeug (>=1.0.1) ; extra == 'dev'
+Requires-Dist: six (~=1.15.0) ; extra == 'dev'
+Requires-Dist: black (~=22.0) ; extra == 'dev'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'dev'
+Requires-Dist: isort (>=5.0.0) ; extra == 'dev'
+Requires-Dist: pyyaml (>=5.3.1) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: s3fs ; extra == 'docs'
+Provides-Extra: evaluator
+Requires-Dist: transformers ; extra == 'evaluator'
+Requires-Dist: scipy (>=1.7.1) ; extra == 'evaluator'
+Provides-Extra: quality
+Requires-Dist: black (~=22.0) ; extra == 'quality'
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'quality'
+Requires-Dist: isort (>=5.0.0) ; extra == 'quality'
+Requires-Dist: pyyaml (>=5.3.1) ; extra == 'quality'
+Provides-Extra: template
+Requires-Dist: cookiecutter ; extra == 'template'
+Requires-Dist: gradio (>=3.0.0) ; extra == 'template'
+Provides-Extra: tensorflow
+Requires-Dist: tensorflow (!=2.6.0,!=2.6.1,>=2.2.0) ; extra == 'tensorflow'
+Provides-Extra: tensorflow_gpu
+Requires-Dist: tensorflow-gpu (!=2.6.0,!=2.6.1,>=2.2.0) ; extra == 'tensorflow_gpu'
+Provides-Extra: tests
+Requires-Dist: absl-py ; extra == 'tests'
+Requires-Dist: charcut (>=1.1.1) ; extra == 'tests'
+Requires-Dist: cer (>=1.2.0) ; extra == 'tests'
+Requires-Dist: nltk ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-datadir ; extra == 'tests'
+Requires-Dist: pytest-xdist ; extra == 'tests'
+Requires-Dist: tensorflow (!=2.6.0,!=2.6.1,<=2.10,>=2.3) ; extra == 'tests'
+Requires-Dist: torch ; extra == 'tests'
+Requires-Dist: bert-score (>=0.3.6) ; extra == 'tests'
+Requires-Dist: rouge-score (>=0.1.2) ; extra == 'tests'
+Requires-Dist: sacrebleu ; extra == 'tests'
+Requires-Dist: sacremoses ; extra == 'tests'
+Requires-Dist: scipy ; extra == 'tests'
+Requires-Dist: seqeval ; extra == 'tests'
+Requires-Dist: scikit-learn ; extra == 'tests'
+Requires-Dist: jiwer ; extra == 'tests'
+Requires-Dist: sentencepiece ; extra == 'tests'
+Requires-Dist: transformers ; extra == 'tests'
+Requires-Dist: mauve-text ; extra == 'tests'
+Requires-Dist: trectools ; extra == 'tests'
+Requires-Dist: toml (>=0.10.1) ; extra == 'tests'
+Requires-Dist: requests-file (>=1.5.1) ; extra == 'tests'
+Requires-Dist: tldextract (>=3.1.0) ; extra == 'tests'
+Requires-Dist: texttable (>=1.6.3) ; extra == 'tests'
+Requires-Dist: unidecode (>=1.3.4) ; extra == 'tests'
+Requires-Dist: Werkzeug (>=1.0.1) ; extra == 'tests'
+Requires-Dist: six (~=1.15.0) ; extra == 'tests'
+Provides-Extra: torch
+Requires-Dist: torch ; extra == 'torch'
+
+<p align="center">
+    <br>
+    <img src="https://huggingface.co/datasets/evaluate/media/resolve/main/evaluate-banner.png" width="400"/>
+    <br>
+</p>
+
+<p align="center">
+    <a href="https://github.com/huggingface/evaluate/actions/workflows/ci.yml?query=branch%3Amain">
+        <img alt="Build" src="https://github.com/huggingface/evaluate/actions/workflows/ci.yml/badge.svg?branch=main">
+    </a>
+    <a href="https://github.com/huggingface/evaluate/blob/master/LICENSE">
+        <img alt="GitHub" src="https://img.shields.io/github/license/huggingface/evaluate.svg?color=blue">
+    </a>
+    <a href="https://huggingface.co/docs/evaluate/index">
+        <img alt="Documentation" src="https://img.shields.io/website/http/huggingface.co/docs/evaluate/index.svg?down_color=red&down_message=offline&up_message=online">
+    </a>
+    <a href="https://github.com/huggingface/evaluate/releases">
+        <img alt="GitHub release" src="https://img.shields.io/github/release/huggingface/evaluate.svg">
+    </a>
+    <a href="CODE_OF_CONDUCT.md">
+        <img alt="Contributor Covenant" src="https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg">
+    </a>
+</p>
+
+🤗 Evaluate is a library that makes evaluating and comparing models and reporting their performance easier and more standardized. 
+
+It currently contains:
+
+- **implementations of dozens of popular metrics**: the existing metrics cover a variety of tasks spanning from NLP to Computer Vision, and include dataset-specific metrics for datasets. With a simple command like `accuracy = load("accuracy")`, get any of these metrics ready to use for evaluating a ML model in any framework (Numpy/Pandas/PyTorch/TensorFlow/JAX).
+- **comparisons and measurements**: comparisons are used to measure the difference between models and measurements are tools to evaluate datasets.
+- **an easy way of adding new evaluation modules to the 🤗 Hub**: you can create new evaluation modules and push them to a dedicated Space in the 🤗 Hub with `evaluate-cli create [metric name]`, which allows you to see easily compare different metrics and their outputs for the same sets of references and predictions.
+
+[🎓 **Documentation**](https://huggingface.co/docs/evaluate/)
+
+🔎 **Find a [metric](https://huggingface.co/evaluate-metric), [comparison](https://huggingface.co/evaluate-comparison), [measurement](https://huggingface.co/evaluate-measurement) on the Hub**
+
+[🌟 **Add a new evaluation module**](https://huggingface.co/docs/evaluate/)
+
+🤗 Evaluate also has lots of useful features like:
+
+- **Type checking**: the input types are checked to make sure that you are using the right input formats for each metric
+- **Metric cards**: each metrics comes with a card that describes the values, limitations and their ranges, as well as providing examples of their usage and usefulness.
+- **Community metrics:** Metrics live on the Hugging Face Hub and you can easily add your own metrics for your project or to collaborate with others.
+
+
+# Installation
+
+## With pip
+
+🤗 Evaluate can be installed from PyPi and has to be installed in a virtual environment (venv or conda for instance)
+
+```bash
+pip install evaluate
+```
+
+# Usage
+
+🤗 Evaluate's main methods are:
+
+- `evaluate.list_evaluation_modules()` to list the available metrics, comparisons and measurements
+- `evaluate.load(module_name, **kwargs)` to instantiate an evaluation module
+- `results = module.compute(*kwargs)` to compute the result of an evaluation module
+
+# Adding a new evaluation module
+
+First install the necessary dependencies to create a new metric with the following command:
+```bash
+pip install evaluate[template]
+```
+Then you can get started with the following command which will create a new folder for your metric and display the necessary steps:
+```bash
+evaluate-cli create "Awesome Metric"
+```
+See this [step-by-step guide](https://huggingface.co/docs/evaluate/creating_and_sharing) in the documentation for detailed instructions.
+
+## Credits
+
+Thanks to [@marella](https://github.com/marella) for letting us use the `evaluate` namespace on PyPi previously used by his [library](https://github.com/marella/evaluate).
+
+

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  langchain-db:
+    volumes:
+        - rc-langchain-db-data:/var/lib/postgresql/data
+volumes:
+    rc-langchain-db-data:

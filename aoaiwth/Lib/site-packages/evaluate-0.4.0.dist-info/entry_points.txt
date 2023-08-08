@@ -1,0 +1,3 @@
+[console_scripts]
+evaluate-cli = evaluate.commands.evaluate_cli:main
+
