@@ -18,3 +18,5 @@ Break things apart with more than one bullet list
 - One
 - Right
 - Here
+
+-- happy path solutions in the coach solutions folder. this is for more prescriptive info. (get rid of extra solution md's)
