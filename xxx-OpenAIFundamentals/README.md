@@ -6,6 +6,7 @@ The Azure OpenAI Fundamentals Hack is an introduction to understanding the conce
 
 This Hack consists of five challenges and is meant to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this Hack is for you.
 
+-- normally, team based activity ... but pull in a friend to work with..
 
 ## Learning Objectives
 
@@ -13,15 +14,15 @@ This hack is for anyone who wants to gain hands-on experience experimenting with
 
 Participants will learn how to:
 
-• Compare OpenAI models and choose the best one for a scenario
+- Compare OpenAI models and choose the best one for a scenario
 
-• Use prompt engineering techniques on complex tasks
+- Use prompt engineering techniques on complex tasks
 
-• Manage large amounts of data within token limits, including the use of chunking and chaining techniques
+- Manage large amounts of data within token limits, including the use of chunking and chaining techniques
 
-• Grounding models to avoid hallucinations or false information
+- Grounding models to avoid hallucinations or false information
 
-• Implement embeddings using search retrieval techniques
+- Implement embeddings using search retrieval techniques
 Evaluate models for truthfulness and monitor for PII detection in model interactions
 ## Challenges
 
@@ -45,8 +46,8 @@ What are methods to evaluate a model if you don't have a ground truth dataset fo
 
 ## Prerequisites
 
-- Azure subscription account
-- Azure OpenAI resource
+- Azure subscription
+- Access to Azure OpenAI
 - Jupyter Notebook editor (we recommend Visual Studio Code or Azure Machine Learning Studio)
 - Python, Pip
 
