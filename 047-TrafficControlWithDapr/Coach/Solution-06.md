@@ -345,7 +345,7 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     var trafficControlService = new IotHubTrafficControlService(camNumber);
     ```
 
-1.  Get the connection strings for your event hubs (one for the **entrycam** EventHub & one for the **exitcam** EventHub). Customize for your deployment.
+1.  Get the connection strings for your event hubs (one for the `entrycam` EventHub & one for the `exitcam` Event Hub). Customize for your deployment.
 
     ```shell
     az eventhubs eventhub authorization-rule keys list --eventhub-name entrycam --namespace-name <event-hub-namespace> --resource-group <resource-group-name> --name listen --query primaryConnectionString
