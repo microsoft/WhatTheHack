@@ -97,7 +97,7 @@ First you're going to change the code so it calls the Dapr sidecar:
     }
     ```
 
-    _It's important to grasp the [sidecar pattern](https://docs.dapr.io/concepts/overview/#sidecar-architecture) used by Dapr. The `FineCollectionService` calls the `VehicleRegistrationService` not directly, but **through its dapr sidecar**! The `FineCollectionService` no longer needs to know the endpoint of the `VehicleRegistrationService`. Its Dapr sidecar will locate the endpoint for `VehicleRegistrationService` based on the `app-id` specified in the URL. Once found, the sidecar for FineCollection will call the sidecar for `VehicleRegistrationService`. The `VehicleRegistrationService` sidecar will then invoke the vehicleInfo method on the `VehicleRegistrationService` service, passing in the license plate number._
+    _It's important to grasp the [sidecar pattern](https://docs.dapr.io/concepts/overview/#sidecar-architecture) used by Dapr. The `FineCollectionService` calls the `VehicleRegistrationService` not directly, but **through its dapr sidecar**! The `FineCollectionService` no longer needs to know the endpoint of the `VehicleRegistrationService`. Its Dapr sidecar will locate the endpoint for `VehicleRegistrationService` based on the `app-id` specified in the URL. Once found, the sidecar for FineCollection will call the sidecar for `VehicleRegistrationService`. The `VehicleRegistrationService` sidecar will then invoke the `vehicleInfo` method on the `VehicleRegistrationService` service, passing in the license plate number._
 
 1.  With the `VehicleRegistrationService` up and running, you'll now start the `FineCollectionService`:
 
