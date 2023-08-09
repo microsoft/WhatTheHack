@@ -40,7 +40,7 @@ Make sure the following minimum software versions are installed by executing the
 
 ### Deployment
 
-1.  Run the following command to initalize your local Dapr environment:
+1.  Run the following command to initialize your local Dapr environment:
 
     ```shell
     dapr init
@@ -150,7 +150,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     az group create --name <resource-group-name> --location <location>
     ```
 
-1.  _Optional_: You can run the following PowerShell script to evaulate if you have installed all the prerequisites.
+1.  _Optional_: You can run the following PowerShell script to evaluate if you have installed all the prerequisites.
 
     ```shell
     ./Resources/Infrastructure/setup.ps1
