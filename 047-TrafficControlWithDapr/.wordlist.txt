@@ -1,6 +1,7 @@
 Chandrasekar
 CloudEvent
 CloudEvents
+CompactFolders
 Dapr
 DaprClient
 Daprized
