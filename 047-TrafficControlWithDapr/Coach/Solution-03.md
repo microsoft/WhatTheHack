@@ -438,7 +438,7 @@ Now you need to make sure that Dapr is aware of this controller and knows the pu
    });
    ```
 
-   _The MapSubscriberHandler() extension automatically implements the `/dapr/subscribe` endpoint that you added earlier. It collects all controller methods decorated with the Dapr `Topic` attribute and returns the corresponding subscription._
+   _The `MapSubscriberHandler()` extension automatically implements the `/dapr/subscribe` endpoint that you added earlier. It collects all controller methods decorated with the Dapr `Topic` attribute and returns the corresponding subscription._
 
 1. Open the terminal window in VS Code and make sure the current folder is `Resources/FineCollectionService`.
 
