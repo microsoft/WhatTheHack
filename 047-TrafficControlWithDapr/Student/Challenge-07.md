@@ -19,7 +19,7 @@ Here's how it works:
 
 Popular secret stores include `Kubernetes`, `Hashicorp Vault`, and `Azure Key Vault`.
 
-The following diagram depicts an application requesting the secret called "mysecret" from a secret store called "vault" from a configured cloud secret store:
+The following diagram depicts an application requesting the secret called `mysecret` from a secret store called "vault" from a configured cloud secret store:
 
 <img src="../images/Challenge-07/secrets_cloud_stores.png" style="zoom:67%;" />
 
