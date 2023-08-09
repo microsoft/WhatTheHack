@@ -47,22 +47,22 @@ This hack requires students to have access to an Azure subscription where they c
 
 To start, you'll need access to an Azure Subscription & Resource Group.
 
-You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
+You will need the following subscription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
 
-- Microsoft.Cache
-- Microsoft.ContainerService
-- Microsoft.ContainerRegistry
-- Microsoft.Devices
-- Microsoft.EventHub
-- Microsoft.Insights
-- Microsoft.Key Vault
-- Microsoft.KubernetesConfiguration
-- Microsoft.Logic
-- Microsoft.OperationalInsights
-- Microsoft.OperationsManagement
-- Microsoft.ServiceBus
-- Microsoft.Storage
-- Microsoft.Web
+- `Microsoft.Cache`
+- `Microsoft.ContainerService`
+- `Microsoft.ContainerRegistry`
+- `Microsoft.Devices`
+- `Microsoft.EventHub`
+- `Microsoft.Insights`
+- `Microsoft.KeyVault`
+- `Microsoft.KubernetesConfiguration`
+- `Microsoft.Logic`
+- `Microsoft.OperationalInsights`
+- `Microsoft.OperationsManagement`
+- `Microsoft.ServiceBus`
+- `Microsoft.Storage`
+- `Microsoft.Web`
 
 - If you already have an Azure account, make sure you have **Owner** [access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
 
@@ -90,7 +90,7 @@ _If you can't instantiate some of these resources, you won't be able to complete
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
   - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU. (6 cores total)
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
-  - 1 Zipkin service running to monitor communciation between the services.
+  - 1 Zipkin service running to monitor communication between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
 **IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
@@ -100,8 +100,8 @@ _If you can't instantiate some of these resources, you won't be able to complete
 **IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
 
 1.  [Install the AKS Preview Azure CLI Extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
-1.  [Register the enableworkloadidentitypreview feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
-1.  [Register the enabledoidcissuepreview feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+1.  [Register the `enableworkloadidentitypreview` feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
+1.  [Register the `enabledoidcissuepreview` feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
 
 ## Student Local Machine Requirements
 
