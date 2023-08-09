@@ -33,7 +33,7 @@ Look in the following files and make changes as appropriate.
 
 Also update the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
 
-- https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/
+- `https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/`
 
 ### Step 2: Build container images for each service & upload to Azure Container Registry
 
@@ -76,21 +76,21 @@ Now that your container images have been uploaded to the Azure Container Registr
     . . .
     ```
     
-    - [ ] trafficcontrol.imageCredentials.registry
-    - [ ] trafficcontrol.imageCredentials.username
-    - [ ] trafficcontrol.imageCredentials.password
-    - [ ] trafficcontrol.userAssignedManagedIdentity.name
-    - [ ] trafficcontrol.userAssignedManagedIdentity.clientId
-    - [ ] daprComponents.secrets.keyVaultName
-    - [ ] daprComponents.stateStore.redisHost
-    - [ ] daprComponents.stateStore.redisPassword
-    - [ ] daprComponents.inputBindings.storageAccountName
-    - [ ] daprComponents.inputBindings.storageAccountKey
-    - [ ] daprComponents.inputBindings.entryCam.connectionString
-    - [ ] daprComponents.inputBindings.exitCam.connectionString
-    - [ ] daprComponents.pubSub.connectionString
-    - [ ] daprComponents.outputBindings.url
-    - [ ] tenantId
+    - [ ] `trafficcontrol.imageCredentials.registry`
+    - [ ] `trafficcontrol.imageCredentials.username`
+    - [ ] `trafficcontrol.imageCredentials.password`
+    - [ ] `trafficcontrol.userAssignedManagedIdentity.name`
+    - [ ] `trafficcontrol.userAssignedManagedIdentity.clientId`
+    - [ ] `daprComponents.secrets.keyVaultName`
+    - [ ] `daprComponents.stateStore.redisHost`
+    - [ ] `daprComponents.stateStore.redisPassword`
+    - [ ] `daprComponents.inputBindings.storageAccountName`
+    - [ ] `daprComponents.inputBindings.storageAccountKey`
+    - [ ] `daprComponents.inputBindings.entryCam.connectionString`
+    - [ ] `daprComponents.inputBindings.exitCam.connectionString`
+    - [ ] `daprComponents.pubSub.connectionString`
+    - [ ] `daprComponents.outputBindings.url`
+    - [ ] `tenantId`
 
 1.  Deploy your new services to AKS.
 
@@ -139,11 +139,11 @@ Now that your container images have been uploaded to the Azure Container Registr
 
 ### Step 7: Run Simulation application
 
-Run the Simluation service, which writes to your IoT Hub's MQTT queue. You will begin to see fines get emailed to you as appropriate.
+Run the Simulation service, which writes to your IoT Hub's MQTT queue. You will begin to see fines get emailed to you as appropriate.
 
 ## Security note
 
-To make this example as accesible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure [AKS security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline).
+To make this example as accessible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure [AKS security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline).
 
 ## Troubleshooting
 
