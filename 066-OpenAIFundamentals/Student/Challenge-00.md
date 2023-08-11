@@ -36,7 +36,7 @@ Please install these additional tools and resources:
 - Environment setup:
   - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using ``python --version`` and ``conda --version``
   - Create a project environment using conda - ``conda create --name <env_name>``
-  - Activate conda environment - ``conda activate <env_name>``
+  - Activate Conda environment - ``conda activate <env_name>``
   - Install the required libraries listed in the requirements.txt file via ``pip install -r requirements.txt``
   - Open the project in VS Code using ``code .``
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
