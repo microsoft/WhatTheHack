@@ -1,20 +1,9 @@
-# Challenge 00 - <Title of Challenge> - Coach's Guide 
+# Challenge 00 - Prerequisites - Grab your fins and a full tank! - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Please make sure that the students review the [introduction](../readme.md)] and [Challenge 0 - Prerequisites - Ready, Set, GO! - Student's Guide](../Student/Challenge-00.md) ahead of time.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+Squads are optional, but you may assign your students to squads of up to 4 persons.
