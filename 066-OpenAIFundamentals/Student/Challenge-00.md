@@ -41,9 +41,9 @@ Please install these additional tools and resources:
   - Open the project in VS Code using `code .`
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prerequisites so be sure to checkout the pre-reqs for the respective challenges. 
-  - gpt-35-turbo
-  - text-davinci-003
-  - text-embedding-ada-002
+  - `gpt-35-turbo`
+  - `text-davinci-003`
+  - `text-embedding-ada-002`
 - Add required credentials of Azure resources in the `.env` file
   - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. Make sure to update ``.env`` file with credentials as needed. 
 
