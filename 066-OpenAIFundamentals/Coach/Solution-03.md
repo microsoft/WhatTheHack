@@ -4,17 +4,10 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+There are three important parts to Challenge-03. The students will go through each of these notebooks. 
+- `CH-03-A-Grounding.ipynb`
+- `CH-03-B-Chunking.ipynb`
+- `CH-03-C-Embeddings.ipynb`
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+Each of the notebooks above are filled with code cells. They will run through these cells as they go through the exercises. In the Solutions folder, you will see the same notebooks but with the solutions. The cells display example outputs of what the students should see. Use this as a reference for the answers, although some outputs may vary slightly on the students' side. 
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
