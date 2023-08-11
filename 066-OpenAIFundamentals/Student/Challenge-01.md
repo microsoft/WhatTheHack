@@ -1,4 +1,4 @@
-# Challenge 01 - Prompt Engineerng
+# Challenge 01 - Prompt Engineering
 
    **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
