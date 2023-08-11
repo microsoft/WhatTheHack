@@ -1,50 +1,49 @@
-# What The Hack - FabricLakehouse
+# What The Hack - Dive in Microsoft Fabric Lakehouse
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+![](Student/images/WTH.png)
+
+ Washed by the warm [Leeuwin Current](https://en.wikipedia.org/wiki/Leeuwin_Current), the coastal waters of Western Australia are a divers paradise, home to a diverse range of marine life including the world's largest fish, the [Whale Shark](https://en.wikipedia.org/wiki/Whale_shark). 
+ 
+ On a more sombre note, these waters have also claimed more than [1400 shipwrecks](https://en.wikipedia.org/wiki/Shipwrecks_of_Western_Australia). Some of these wrecks are well known, such as the [Batavia](https://en.wikipedia.org/wiki/Batavia_(ship)) and the [HMS Sydney](https://en.wikipedia.org/wiki/HMAS_Sydney_(D48)), and are protected archeological sites. But many are regularly explored by intrepid divers and snorkellers, having become popular tourist attractions.
+
+Margie's Travel is a travel agency specialising in diving holidays. They have heard about Microsoft Fabric, and have asked you to help them build a solution to allow their customers to explore the possibilities of diving some of the shipwrecks of Western Australia. 
+
+ Your task is to use Microsoft Fabric to bring together the data and stories behind these shipwrecks to help boost customer engagement. Margie's would also like to be able to use this data to help customers assess dive conditions a few days before, and as a basis for on-board dive briefings.
+
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will 
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+1. Provision a Fabric Lakehouse and "dive" on in.
+2. "Descend" in to the depths of open data sources including spatial, weather and archaeological to help build a data story behind the shipwrecks of Western Australia.
+3. Land your data in your Fabric Lakehouse and "surface" with a clean, combined dataset ready for analysis.
+4. Make a "splash" and bring your findings to life.
+
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](Student/Challenge-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](Student/Challenge-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](Student/Challenge-10.md)**
-	 - Description of challenge
+- Challenge 00: **[Prerequisites - Grab your fins and a full tank!](Student/Challenge-00.md)**
+	 - Provision your Fabric Lakehouse
+- Challenge 01: **[Finding Data](Student/Challenge-01.md)**
+	 - Head out into open waters to find your data
+- Challenge 02: **[Land ho!](Student/Challenge-02.md)**
+	 - Land your data in your Fabric Lakehouse
+- Challenge 03: **[Swab the Decks!](Student/Challenge-03.md)**
+	 - Clean and combine your datasets ready for analysis
+- Challenge 04: **[Make a Splash](Student/Challenge-04.md)**
+	 - Build a data story to bring your findings to life
+- Challenge 05: **[Giant Stride](Student/Challenge-05.md)**
+	 - Take a giant stride and share your data story with the world
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- A Microsoft Fabric subscription
+- A Power BI Pro license
+- Some familiarity with Power BI and (very) basic Python
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Liesel Hughes, CLoud Solution Architect, Microsoft, Boorloo - Whadjuk country (Perth, Western Australia)

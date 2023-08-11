@@ -1,20 +1,13 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - Land Ho! - Coach's Guide
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+This challenge implements the design developed in Challenge 1, landing data in a "raw" format ready to import in [the next Challenge](./Solution-03.md).
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+## Solution
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+Notebooks were used to download the datasets discussed in [Challenge 1](./Solution-01.md), using examples from the source documentation. See the notebooks in the [Solutions](./Solutions) folder and details in [Solution 3](./Solution-03.md).
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+More advanced students might like to include climate (temperature and wave) models from  [ECMWF Open Data](https://planetarycomputer.microsoft.com/dataset/ecmwf-forecast) available via the Microsoft Planetary Computer. An example notebook is included in the [Solutions](./Solutions) folder.

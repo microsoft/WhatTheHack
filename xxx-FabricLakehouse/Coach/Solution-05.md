@@ -1,20 +1,13 @@
-# Challenge 05 - <Title of Challenge> - Coach's Guide 
+# Challenge 05 - Giant Stride - Coach's Guide
 
 [< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+This challenge is about showing value to the customer and reflecting on the day. Although it might be tempting to drop this challenge (especially if time is tight), it's important to for the teams to present their work so please try to save reserve time to include this activity.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+You will play the part of the customer. Make up a character (CDO, Dive SHop Manager, Salty old sea dog) and make it a fun retro. How's your pirate accent?
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+## Solution
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+There's no solution for this section, and besides, it's all about the bubbles we blew along the way.

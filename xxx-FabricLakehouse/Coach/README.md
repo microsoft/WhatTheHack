@@ -1,37 +1,27 @@
-# What The Hack - FabricLakehouse - Coach Guide
+# What The Hack - Fabric Lakehouse - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the FabricLakehouse What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Fabric Lakehouse What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes an awesome [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
+- Challenge 00: **[Prerequisites - Grab your fins and a full tank!](Solution-00.md)**
+	 - Provision your Fabric Lakehouse
+- Challenge 01: **[Finding Data](Student/Challenge-01.md)**
+	 - Head out into open waters to find your data
+- Challenge 02: **[Land ho!](Solution-02.md)**
+	 - Land your data in your Fabric Lakehouse
+- Challenge 03: **[Swab the Decks!](Solution-03.md)**
+	 - Clean and combine your datasets ready for analysis
+- Challenge 04: **[Make a Splash](Solution-04.md)**
+	 - Build a data story to bring your findings to life
+- Challenge 05: **[Giant Stride](Solution-05.md)**
+	 - Take a giant stride and share your data story with the world
 
 ## Coach Prerequisites
 
@@ -49,35 +39,22 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites (Optional)
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+This hack as been left very open ended - [TMTOWTDI](https://perl.fandom.com/wiki/TIMTOWTDI). Coaches should be familiar with the following technologies and concepts:
 
-## Azure Requirements
+- Microsoft Fabric (duh!)
+- Python / PySpark
+- Dataflow Gen 2 / M
+- Power BI / DAX
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+## Azure / Fabric Requirements
 
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+This hack requires students to have access to a Fabric tenant where they can create a workspace and Fabric artefacts (Lakehouse, Dataflow, Pipeline, Notebook, Report etc). These environment requirements should be shared with a stakeholder in the organization that will be providing the Fabric environment that will be used by the students.
 
 ## Suggested Hack Agenda (Optional)
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+An indicative schedule is included in the [lecture presentation](Lectures.pptx).
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
