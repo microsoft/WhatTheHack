@@ -6,7 +6,7 @@ The Azure OpenAI Fundamentals Hack is an introduction to understanding the conce
 
 This Hack consists of five challenges and is meant to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this Hack is for you.
 
--- normally, team based activity ... but pull in a friend to work with..
+This is normally a team based activity but since these challenges are administered as individual hacks, feel free to pull in a friend to work with and discuss your learnings.
 
 ## Learning Objectives
 
@@ -29,7 +29,7 @@ Evaluate models for truthfulness and monitor for PII detection in model interact
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenges/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Prompt Engineering](Student/Challenges/Challenge-01.md)**
-	 - What's posssible through Prompt Engineering 
+	 - What's possible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
 - Challenge 02: **[OpenAI Models & Capabilities](Student/Challenges/Challenge-02.md)**
 	 - What are the capacities of each Azure OpenAI model?
