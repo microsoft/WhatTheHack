@@ -16,7 +16,7 @@ There are six challenges, but only the first four require participants to genera
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Prompt Engineering](./Solution-01.md)**
-	 - What's posssible through Prompt Engineering 
+	 - What's possible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
 - Challenge 02: **[OpenAI Models & Capabilities](./Solution-02.md)**
 	 - What are the capacities of each Azure OpenAI model?
