@@ -6,7 +6,7 @@
 ## Pre-requisites
 
 * Cognitive Search Index implementation from Challenge 4
-* Install required libraries in the requirements.txt file via `pip install -r requirements.txt`
+* Install required libraries in the `requirements.txt` file via `pip install -r requirements.txt`
 
 ## Introduction
 
