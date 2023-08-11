@@ -10,7 +10,7 @@ This is normally a team based activity but since these challenges are administer
 
 ## Learning Objectives
 
-This hack is for anyone who wants to gain hands-on experience experimenting with prompt engineering and machine learning best practices, and apply them to generate effective responses from ChatGPT and OpenAI models.
+This Hack is for anyone who wants to gain hands-on experience experimenting with prompt engineering and machine learning best practices, and apply them to generate effective responses from ChatGPT and OpenAI models.
 
 Participants will learn how to:
 
@@ -46,17 +46,18 @@ What are methods to evaluate a model if you don't have a ground truth dataset fo
 
 ## Prerequisites
 
-- Azure subscription
-- Access to Azure OpenAI
-- Jupyter Notebook editor (we recommend Visual Studio Code or Azure Machine Learning Studio)
-- Python, Pip
+- [Azure subscription](https://portal.azure.com/) - Estimated spend may be around $10 based on running Cognitive Search for four days (total length of time depends on implementation time)
+- [Access to Azure OpenAI](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu)
+- Jupyter Notebook editor (we recommend [Visual Studio Code](https://code.visualstudio.com/Download) or [Azure Machine Learning Studio](https://ml.azure.com/))
+	- If using Visual Studio Code, we also recommend installing [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.anaconda.com/anaconda/install) for project environment management
+- [Python](https://www.python.org/downloads/) (version 3.7.1 or later), plus the package installer [pip](https://pypi.org/project/pip/)
 
 ## Contributors
 
-- Amanda Wong
-- Devanshi Thakar
-- Ellie Nosrat
-- Juan Llovet de Casso
-- Melody Yin
-- Rachel Liu
-- Shiva Chittamuru
+- [Amanda Wong](https://www.linkedin.com/in/wonggamanda/)
+- [Devanshi Thakar](https://www.linkedin.com/in/devanshithakar/)
+- [Ellie Nosrat](https://www.linkedin.com/in/elham-nosrat/)
+- [Juan Llovet de Casso](https://www.linkedin.com/in/juanll/)
+- [Melody Yin](https://www.linkedin.com/in/melody-yue-yin/)
+- [Rachel Liu](https://www.linkedin.com/in/wanchen-rachel-liu-367a45177/)
+- [Shiva Chittamuru](https://www.linkedin.com/in/shivachittamuru/)

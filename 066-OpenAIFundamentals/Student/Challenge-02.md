@@ -17,15 +17,15 @@ As LLMs grow in popularity and use around the world, the need to manage and moni
 ## Description
 Model deployment for the challenge:
 - Deploy the following models in your Azure OpenAI resource. 
-  - gpt-35-turbo
-  - text-ada-001
-  - text-babbage-001
-  - text-curie-001
-  - text-davinci-003
-  - text-embedding-ada-002
+  - `gpt-35-turbo`
+  - `text-ada-001`
+  - `text-babbage-001`
+  - `text-curie-001`
+  - `text-davinci-003`
+  - `text-embedding-ada-002`
     
 (!) Model families currently available as of _Aug 4, 2023_ in Azure OpenAI includes GPT-3, Codex and Embeddings, GPT-4 is available for application. Please reference this link for more information: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models.
-Some models are not available for new deployments beginning **July 6, 2023**. Deployments created prior to July 6, 2023 remain available to customers until **July 5, 2024**. You may revise the environment file and the model you deploy accordingly. Please refer to the following link for more details: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models
+Some models are not available for new deployments beginning **July 6, 2023**. Deployments created prior to July 6, 2023 remain available to customers until **July 5, 2024**. You may revise the environment file and the model you deploy accordingly. Please refer to the following link for more details: `https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models`
   
 - Add required credentials of Azure resources in the ``.env`` file
 
@@ -82,5 +82,5 @@ To complete this challenge successfully, you should be able to:
 
 - [Overview of Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
 - [Azure OpenAI Pricing Page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
-- [Request for Quata Increase](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu)
+- [Request for Quota Increase](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu)
 - [Customize Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio)
