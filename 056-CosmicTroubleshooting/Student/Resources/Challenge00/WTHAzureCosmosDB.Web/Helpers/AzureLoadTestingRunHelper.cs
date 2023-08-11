@@ -63,7 +63,7 @@ namespace WTHAzureCosmosDB.Web.Helpers
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-            var url = $"{altDataPlaneEndpoint}/testruns/{newTestRunId.ToString()}?api-version=2022-06-01-preview";
+            var url = $"{altDataPlaneEndpoint}/test-runs/{newTestRunId.ToString()}?api-version=2022-11-01";
             
             var obj = JsonConvert.DeserializeObject(json);
 
@@ -81,7 +81,7 @@ namespace WTHAzureCosmosDB.Web.Helpers
         public async Task<string> GetLastTestRunStatusAsync(string altDataPlaneEndpoint, string testRunId, string accessToken)
         {
             //get info about test
-            var url = $"{altDataPlaneEndpoint}/testruns/{testRunId}?api-version=2022-06-01-preview";
+            var url = $"{altDataPlaneEndpoint}/test-runs/{testRunId}?api-version=2022-11-01";
 
             _httpClient.DefaultRequestHeaders.Clear();
 
