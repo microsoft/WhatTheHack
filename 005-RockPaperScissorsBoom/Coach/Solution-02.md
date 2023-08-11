@@ -6,13 +6,13 @@
 
 ### Create Azure SQL Server & Database
 
-1.  Create a Azure SQL Server via the Azure CLI (substituting your own values).
+1.  Create an Azure SQL Server via the Azure CLI (substituting your own values).
 
     ```shell
     az sql server create -g <resource-group-name> -n <sql-server-name> -u <admin-username> -p <admin-password>
     ```
 
-1.  Optional: Add a IP firewall rule to restrict access to just your local IP & Azure (PowerShell)
+1.  Optional: Add an IP firewall rule to restrict access to just your local IP & Azure (PowerShell)
 
     ```powershell
     $myIP = $(Invoke-WebRequest -Uri "https://api.ipify.org").Content
@@ -22,7 +22,7 @@
     az sql server firewall-rule create -g <resource-group-name> -s <sql-server-name> -n AllowAzure --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
     ```
 
-1.  Create a Azure SQL Database via the Azure CLI.
+1.  Create an Azure SQL Database via the Azure CLI.
 
     ```shell
     az sql db create -g <resource-group-name> -s <sql-server-name> -n RockPaperScissorsBoom
