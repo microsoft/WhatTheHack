@@ -3,6 +3,7 @@ targetScope = 'subscription'
 @secure()
 param AdminPassword string
 var AdminUsername = 'wthadmin'
+var SqlUsername = 'sqladmin'
 param Location string = deployment().location
 param TimeStamp string = utcNow('yyyyMMddhhmmss')
 
@@ -67,6 +68,9 @@ var AppInsightsName = 'ai-wth-monitor-d-${NameSuffix}'
 var BastionName = 'bastion-wth-monitor-d-${NameSuffix}'
 var ComputerNamePrefix  = 'vmwthd${NameSuffix}'
 var LoadBalancerName = 'lb-wth-monitor-web-d-${NameSuffix}'
+var sqlServerName = 'vmwthdbd${NameSuffix}'
+var vsServerName =  'vmwthvsd${NameSuffix}'
+
 var LogAnalyticsDataSources = [
   {
     name: '${LogAnalyticsWorkspaceName}/LogicalDisk1'
@@ -448,6 +452,19 @@ var Subnets = [
     NSG: 'nsg-wth-monitor-aks-d-${NameSuffix}'
     SecurityRules: [
       {
+        name: 'Allow_HTTP'
+        properties: {
+          priority: 100
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          destinationPortRange: '80'
+          protocol: 'Tcp'
+          access: 'Allow'
+          direction: 'Inbound'
+        }
+      }
+      {
         name: 'Allow_RDP'
         properties: {
           priority: 110
@@ -612,7 +629,7 @@ var Subnets = [
 var VirtualNetworkName = 'vnet-wth-monitor-d-${NameSuffix}'
 var VirtualMachines = [
   {
-    Name: 'vmwthdbd${NameSuffix}'
+    Name: sqlServerName
     NIC: 'nic-wth-monitor-db-d-${NameSuffix}'
     Size: 'Standard_DS3_v2'
     ImageVersion: 'Standard'
@@ -620,7 +637,7 @@ var VirtualMachines = [
     ImageOffer: 'SQL2016SP1-WS2016'
   }
   {
-    Name: 'vmwthvsd${NameSuffix}'
+    Name: vsServerName
     NIC: 'nic-wth-monitor-vs-d-${NameSuffix}'
     Size: 'Standard_D4s_v3'
     ImageVersion: 'vs-2022-comm-latest-ws2022'
@@ -815,5 +832,9 @@ module aksdeployment 'modules/aks.bicep' = {
     NodeResourceGroup: '${deployment().name}-rg-wth-monitor-aks-d-${LocationShort[Location]}'
     OmsWorkspaceId: law.outputs.ResourceId
     SubnetId: vnet.outputs.SubnetIds[2]
+    sqlServerName: sqlServerName
+    sqlUserName: SqlUsername
+    sqlPassword: AdminPassword
+    appInsightsName: AppInsightsName
   }
 }
