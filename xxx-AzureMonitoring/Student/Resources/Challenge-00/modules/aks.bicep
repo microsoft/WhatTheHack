@@ -1,3 +1,9 @@
+// This template deploys:
+//  - an AKS cluster
+//  - a user assigned managed identity
+//  - a Bicep Deployment script that installs the eShopOnWeb app onto the AKS cluster
+//    from a Helm chart & container stored in the What The Hack Docker Hub account.
+
 param Location string
 param Name string
 param NodeResourceGroup string
@@ -60,3 +66,84 @@ resource aks 'Microsoft.ContainerService/managedClusters@2021-02-01' = {
 output id string = aks.id
 output apiServerAddress string = aks.properties.fqdn
 output aksName string = aks.name
+
+@description('UTC timestamp used to create distinct deployment scripts for each deployment')
+param utcValue string = utcNow()
+
+@description('SQL Server VM name')
+param sqlServerName string
+
+@description('SQL Server Admin Name')
+param sqlUserName string
+
+@description('SQL Server Password')
+@secure()
+param sqlPassword string
+
+@description('Name of app insights resource')
+param appInsightsName string
+
+//Set Azure contributor role IDs
+var bootstrapRoleAssignmentId = guid('${resourceGroup().id}contributor')
+var contributorRoleDefinitionId = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
+
+// create User Assigned Managed Identity for Deployment Script
+resource deploymentManagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+  name: 'deploymentScriptManagedIdentity'
+  location: Location
+}
+
+// assign the UAID permissions to do what is needed on the AKS cluster??
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: bootstrapRoleAssignmentId
+  properties: {
+    roleDefinitionId: contributorRoleDefinitionId
+    principalId: reference(deploymentManagedIdentity.id, '2018-11-30').principalId
+    scope: resourceGroup().id
+    principalType: 'ServicePrincipal'
+  }
+}
+
+resource eshopAKSDeployment 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+  name: 'eshop-AKSDeployment-${utcValue}'
+  location: Location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${deploymentManagedIdentity.id}': {}
+    }
+  }
+  kind: 'AzureCLI'
+  properties: {
+    azCliVersion: '2.26.1'
+    timeout: 'PT5M'
+    retentionInterval: 'PT1H'
+    environmentVariables: [
+      {
+        name: 'AKS_CLUSTER_NAME'
+        value: aks.name
+      }
+      {
+        name: 'RESOURCE_GROUP'
+        value: resourceGroup().name
+      }
+      {
+        name: 'APP_INSIGHTS_NAME'
+        value: appInsightsName
+      }
+      {
+        name: 'SQLSERVER_NAME'
+        value: sqlServerName
+      }
+      {
+        name: 'SQL_USERNAME'
+        value: sqlUserName
+      }
+      {
+        name: 'SQL_PASSWORD'
+        value: sqlPassword
+      }
+    ]
+    scriptContent: loadTextContent('../scripts/deployeShopToAKS.sh')
+  }
+}
