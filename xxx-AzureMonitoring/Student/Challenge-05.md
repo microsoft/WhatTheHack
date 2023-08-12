@@ -4,43 +4,39 @@
 
 ## Introduction
 
-In this challenge we will learn more about Container Monitoring and how it works.
+In this challenge we will learn more about Container Insights and how it works.
 
 ## Description
 
-We have published a container that runs the eShopOnWeb website to Docker Hub. You can find that container here: `whatthehackmsft/eshoponweb-k8s`
+In the eShopOnWeb Azure environment, there is an Azure Kubernetes Service (AKS) cluster with a containerized version of eShopOnWeb deployed on it:
+- **`aks-wth-monitor-d-XX`** 
 
-We have provided you with a Kubernetes manifest YAML file that can deploy the eShopOnWeb container from Docker Hub to the AKS (Azure Kubernetes Service) cluster in your environment. You can find the `eshoponweb-kubernetes.yaml` in the `/Challenge-05` folder of the student `Resources.zip` file.
+In Challenge 4, you configured the eShopOnWeb application to report application-level metrics to Application Insights. The containerized version of the application has already been pre-configured to report to the same Application Insights instance:
+- **`ai-wth-monitor-d-XX`** 
 
-The containerized version of the eShopOnWeb application looks for the following secret values from environment variables:
-- `ConnectionStrings__CatalogConnection`
-- `ConnectionStrings__IdentityConnection`
-- `ApplicationInsights__ConnectionString`
+The containerized version of eShopOnWeb is configured to work with the same SQL Server as the version hosted in IIS from the previous challenges:
+- **`vmwthdbdXX`** 
 
-You will need to provide these secret values to the AKS cluster for the application to work.
+>**Note** The "XX" in each resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
 
-### Deploy eShopOnWeb to Azure Kubernetes Service
+### Open the eShopOnWeb Website Hosted on AKS
 
-The following steps will require the use of the Kubernetes CLI, `kubectl`, and the Azure CLI. If you do not have the Kubernetes CLI installed on your workstation, you can complete this challenge using the Azure Cloud Shell.
+The eShopOnWeb application is exposed to the Internet with an external IP address via a Kubernetes service named `eShop-Web`. 
 
-- Edit the `eshoponweb-kubernetes.yaml` file to provide the connection string values needed by the application.  
+- Open the eShopOnWeb website in your browser by navigating to the external Public IP of the Kubernetes service.
 
-**HINT:** You can find the connection string values in the `appsettings.json` file in the `src/Web` folder of the eShopOnWeb project on the Visual Studio jumpbox (`vmwthvsdXX`).
+**HINT:** You can find the external IP address of the `eShop-web` service using either the Azure portal, or the Kubernetes CLI, `kubectl`.
 
-**NOTE:** The `XX` in the Azure resource names will vary based on the Azure region you deployed the hack environment to in Challenge 0.
-
+**HINT:** You can access `kubectl` from the Azure Cloud Shell.  
 - Authenticate `kubectl` with the `aks-wth-monitor-d-XX` AKS cluster in your lab environment:
     - `az aks get-credentials -g <resourcegroupname> -n aks-wth-monitor-d-XX`
-- Deploy the application to AKS:
-    - `kubectl apply -f eshoponweb-kubernetes.yaml`
 - Retrieve the public IP address of the `eshop-web` Kubernetes service from the AKS cluster:
     - `kubectl get services`
-- Open the eShopOnWeb website in your browser by navigating to the Public IP of the Kubernetes service.
 
 ### Observe eShopOnWeb with Container Insights
 
-- From Azure Monitor, view the CPU and memory usage of the containers running the eShoponWeb application
-- Generate and view an exception in the eShoponWeb application.
+- From Azure Monitor, view the CPU and memory usage of the containers running the eShopOnWeb application
+- Generate and view an exception in the eShopOnWeb application.
     - **HINT:** Try to change your password within the application.
 
 ## Success Criteria
@@ -49,5 +45,6 @@ The following steps will require the use of the Kubernetes CLI, `kubectl`, and t
 
 ## Learning Resources
 
+- [Install the Kubernetes CLI, `kubectl`, using the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli)
 - [Azure Container Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview)
 - [How to set up the Live Data feature](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-livedata-setup)
