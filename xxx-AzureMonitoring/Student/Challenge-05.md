@@ -46,5 +46,6 @@ The eShopOnWeb application is exposed to the Internet with an external IP addres
 ## Learning Resources
 
 - [Install the Kubernetes CLI, `kubectl`, using the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli)
+- [Install the Kubernets CLI, `kubectl`, using PowerShell](https://learn.microsoft.com/en-us/powershell/module/az.aks/install-azaksclitool?view=azps-10.2.0)
 - [Azure Container Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview)
 - [How to set up the Live Data feature](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-livedata-setup)
