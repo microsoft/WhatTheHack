@@ -35,4 +35,4 @@ To complete this challenge successfully, you should be able to:
 
 ## Too comfortable?  Eager to do more?  Try an additional challenge!
 
-- You've probably guessed that the weather and water conditions are quite important to divers. Climate models are a great way to look at future predictions, and there are a number of open datasets available. Try adding a climate model to your data for both weather and wave conditions. (Hint: Microsoft Planetary Computer ECMWF))
+- You've probably guessed that the weather and water conditions are quite important to divers. Climate models are a great way to look at future predictions, and there are a number of open datasets available. Try adding a climate model to your data for both weather and wave conditions. (Hint: Microsoft Planetary Computer ECMWF)
