@@ -13,8 +13,8 @@ For this challenge, the students will be searching for suitable datasources onli
 
 This object of this challenge is to get the students to think about 
 
-- the data they need to meet the requirements, 
-- what sources are available 
+- the data they need to meet the requirements,
+- what sources are available
 - how it is licensed
 - how they can land this data automatically in OneLake
 
@@ -27,8 +27,7 @@ The example solutions have been built using Australian Bureau of Meteorology and
   - ``IDW11160`` - Coastal Waters Forecast - All Districts (WA)
   - ``IDM000003`` - Marine Zones - http://reg.bom.gov.au/catalogue/spatialdata.pdf
 
-
 - WA Museum
-  - WAM-002 https://catalogue.data.wa.gov.au/dataset/shipwrecks (requires a free SLIP account and is CC BY 4.0)
+  - ``WAM-002`` https://catalogue.data.wa.gov.au/dataset/shipwrecks (requires a free SLIP account and is CC BY 4.0)
 
 More advanced students might like to include climate (temperature and wave) models from  [ECMWF Open Data](https://planetarycomputer.microsoft.com/dataset/ecmwf-forecast) available via the Microsoft Planetary Computer. An example notebook is included in the [Solutions](./Solutions) folder.

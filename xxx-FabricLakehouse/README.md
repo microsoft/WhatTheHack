@@ -26,24 +26,23 @@ In this hack you will
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Grab your fins and a full tank!](Student/Challenge-00.md)**
-	 - Provision your Fabric Lakehouse
+  - Provision your Fabric Lakehouse
 - Challenge 01: **[Finding Data](Student/Challenge-01.md)**
-	 - Head out into open waters to find your data
+  - Head out into open waters to find your data
 - Challenge 02: **[Land ho!](Student/Challenge-02.md)**
-	 - Land your data in your Fabric Lakehouse
+  - Land your data in your Fabric Lakehouse
 - Challenge 03: **[Swab the Decks!](Student/Challenge-03.md)**
-	 - Clean and combine your datasets ready for analysis
+  - Clean and combine your datasets ready for analysis
 - Challenge 04: **[Make a Splash](Student/Challenge-04.md)**
-	 - Build a data story to bring your findings to life
+  - Build a data story to bring your findings to life
 - Challenge 05: **[Giant Stride](Student/Challenge-05.md)**
-	 - Take a giant stride and share your data story with the world
+  - Take a giant stride and share your data story with the world
 
 ## Prerequisites
 
-- A Microsoft Fabric subscription
-- A Power BI Pro license
-- Some familiarity with Power BI and (very) basic Python
+- A Microsoft Fabric subscription & potentially, a Power BI Pro license
+- Some familiarity with Fabric and Power BI (or a willingness to learn!)
 
 ## Contributors
 
-- Liesel Hughes, CLoud Solution Architect, Microsoft, Boorloo - Whadjuk country (Perth, Western Australia)
+- Liesel Hughes, Cloud Solution Architect, Microsoft, Boorloo - Whadjuk country (Perth, Western Australia)
