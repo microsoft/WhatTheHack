@@ -1,20 +1,9 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - <Model Comparison> - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
-
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+There are 2 sections to Challenge-02: Model Comparison Overview, and Implementation. The students will go through each section of this notebook:
+- `CH-02-ModelComparison.ipynb`
+  
+The notebook above is filled with code cells. Students will run through these cells as they go through the exercises. In the Solutions folder, you will see the same notebook but with the solutions. The cells display example outputs of what the students should see. Use this as a reference for the answers, although some outputs may vary slightly on the students' side. 
