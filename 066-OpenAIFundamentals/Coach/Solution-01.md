@@ -1,22 +1,17 @@
-# Challenge 01 - <Title of Challenge> - Coach's Guide 
+# Challenge 01 - <Prompt Engineering> - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
+There are 3 sections to Challenge-01: Parameter Experimentation, System Message Engineering, and Iterative Prompting Principles. The students will go through each section of this notebook:
+- `CH-01-PromptEngineering.ipynb`
+  
+The notebook above is filled with code cells. Students will run through these cells as they go through the exercises. In the Solutions folder, you will see the same notebook but with the solutions. The cells display example outputs of what the students should see. Use this as a reference for the answers, although some outputs may vary slightly on the students' side. 
 
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
 
-Break things apart with more than one bullet list
 
-- Like this
-- One
-- Right
-- Here
 
--- happy path solutions in the coach solutions folder. this is for more prescriptive info. (get rid of extra solution md's)
+
+
