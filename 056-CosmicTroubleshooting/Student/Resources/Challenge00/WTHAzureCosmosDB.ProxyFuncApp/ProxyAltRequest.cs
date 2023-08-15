@@ -28,7 +28,7 @@ namespace WTHAzureCosmosDB.ProxyFuncApp
         public static async Task<string> GetLastTestRunStatusAsync(string altDataPlaneEndpoint, string testRunId, string accessToken)
         {
             //get info about test
-            var url = $"{altDataPlaneEndpoint}/testruns/{testRunId}?api-version=2022-06-01-preview";
+            var url = $"{altDataPlaneEndpoint}/test-runs/{testRunId}?api-version=2022-11-01";
             _httpClient.DefaultRequestHeaders.Clear();
 
             _httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
