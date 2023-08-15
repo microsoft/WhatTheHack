@@ -14,7 +14,7 @@ In this challenge you will develop a solution to land your raw data in OneLake. 
 
 To complete this challenge successfully, you should be able to:
 
-- Provisioned any Fabric resources erquired to land your data
+- Provisioned any Fabric resources required to land your data
 - Demonstrate that each dataset can retrieved automatically (but not necessarily on a schedule)
 - Data is stored as-is in raw format in OneLake following a naming convention/location of your choice
 - Error handling is always good, but not required for this challenge
@@ -24,7 +24,7 @@ To complete this challenge successfully, you should be able to:
 - What is [OneLake](https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview)?
 - Fabric has dozens of connectors eg.
   [HTTP](https://learn.microsoft.com/en-us/fabric/data-factory/connector-http), [REST](https://learn.microsoft.com/en-us/fabric/data-factory/connector-rest-overview) and [OData](https://learn.microsoft.com/en-us/fabric/data-factory/connector-odata-overview)
-- Python's [urllib](https://docs.python.org/3/library/urllib.html) supports a number of protocols including HTTP and FTP
+- Python's [``urllib``](https://docs.python.org/3/library/urllib.html) supports a number of protocols including HTTP and FTP
   
 ## Tips
 

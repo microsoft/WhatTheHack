@@ -44,7 +44,7 @@ To complete this challenge successfully, you should:
 ### Australian Government Links
 
 - [WA Museum's](https://museum.wa.gov.au/museums/) list of museums in Western Australia - they might have an interest in under water archaeology and maybe even some data?
-- [The Australian Bureau of Meterology](http://www.bom.gov.au/) provides a range of data services
+- [The Australian Bureau of Meteorology](http://www.bom.gov.au/) provides a range of data services
 - [Data.gov.au](https://data.gov.au/data/about) is the central source of Australian open government data
 
 ## Tips & Hints
