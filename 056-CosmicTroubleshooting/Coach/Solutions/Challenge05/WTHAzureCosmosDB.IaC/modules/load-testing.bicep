@@ -1,6 +1,6 @@
 param loadTestingName string
 
-resource loadtestingName_resource 'Microsoft.LoadTestService/loadtests@2022-04-15-preview' existing = {
+resource loadtestingName_resource 'Microsoft.LoadTestService/loadTests@2022-12-01' existing = {
   name: loadTestingName
 }
 

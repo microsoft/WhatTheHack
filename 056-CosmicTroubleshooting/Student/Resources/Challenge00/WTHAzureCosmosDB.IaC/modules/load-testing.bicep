@@ -13,7 +13,7 @@ param managedIdentityPrincipalId string
 /*
 Load Testing Service
 */
-resource loadtestingName_resource 'Microsoft.LoadTestService/loadtests@2022-04-15-preview' = {
+resource loadtestingName_resource 'Microsoft.LoadTestService/loadTests@2022-12-01' = {
   name: loadTestingName
   location: location
 }
@@ -31,7 +31,7 @@ resource loadTestingcontributorRoleDefinition 'Microsoft.Authorization/roleDefin
 /*
 Role assignment - Managed Identity to Load Testing Service
 */
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(resourceGroup().id, managedIdentityPrincipalId, loadTestingcontributorRoleDefinition.id)
   scope: loadtestingName_resource
   
