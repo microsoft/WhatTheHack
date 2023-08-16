@@ -8,6 +8,4 @@ This challenge is about showing value to the customer and reflecting on the day.
 
 You will play the part of the customer. Make up a character (CDO, Dive SHop Manager, Salty old sea dog) and make it a fun retro. How's your pirate accent?
 
-## Solution
-
-There's no solution for this section, and besides, it's all about the bubbles we blew along the way.
+You might like to award small prizes for the best team, the best presentation, or the best pirate accent, but this challenge is not about winning or losing, it's about reflecting on the day and having fun. It's all about the bubbles we blew along the way.

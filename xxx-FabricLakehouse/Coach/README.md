@@ -38,6 +38,7 @@ Students will most likely have a wide range of backgrounds and experience rangin
 - The hack is designed to be completed by teams of 2-4 students working together. Coaches should consider how to arrange students into teams to ensure a mix of skills and experience. However, for an event with more experienced (or daring) students the hack can be completed individually.
 - The hack is designed to be completed in a linear fashion. Encourage students to work outside of their areas of expertise, but be aware that some challenges may be more difficult for some students than others. Use your discretion - students may commence challenges in parallel. For example, a Power BI reporting expert may wish to start Challenge 4 while the other team members are data wrangling in Challenge 2/3.
 
+
 ### Duration & Agenda
 
 Ideally this hack can be completed in a day, but it is highly dependant on student profiles. For a more relaxed pace for a less experienced group, consider running the hack over 2 days - one day for challenges 1-3 and the second day for challenges 3-5.
@@ -115,6 +116,9 @@ Students will require a Microsoft Fabric enabled Workspace where they can create
 
 See [Microsoft Fabric Workspaces](https://learn.microsoft.com/en-us/fabric/get-started/workspaces) and [Create a workspace](https://learn.microsoft.com/en-us/fabric/get-started/create-workspace) for details.
 
+### Power BI Desktop
+
+Students will require Power BI desktop to be installed on their PC. Either the store or download version is fine.
 
 ## Repository Contents
 
@@ -126,3 +130,11 @@ See [Microsoft Fabric Workspaces](https://learn.microsoft.com/en-us/fabric/get-s
   - Student's Challenge Guide
 - `./Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+
+
+## Other Fabric What The Hacks
+
+These WTHs are currently in development and will be released soon:
+- Fabric Datamesh
+- Fabric Realtime
+

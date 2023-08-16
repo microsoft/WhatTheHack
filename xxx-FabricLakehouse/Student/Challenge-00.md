@@ -12,7 +12,9 @@ You will need:
 
 - A Microsoft Fabric subscription. At the time of writing, Microsoft Fabric is in public preview and a free trial is available at aka.ms/FabricTrial.
 
-- Power BI desktop. You can download this from https://powerbi.microsoft.com/en-us/downloads/
+- A Microsoft Fabric enabled workspace. Either you or your organisation's administrator will need to create this. Instructions can be found at https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces
+
+- Power BI desktop. This can be installed from https://aka.ms/getpowerbi
 
 - A love of terrible sea-themed puns
 

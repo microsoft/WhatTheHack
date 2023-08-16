@@ -29,6 +29,7 @@ To complete this challenge successfully, you should be able to:
 ## Tips
 
 - Data providers are often very helpful and may be able to provide you with a code sample if you hunt around their web sites.
+- Landing the data automatically is the goal, but you may want to start by manually downloading the data and then work on automating the process. If coding automated retrieval really doesn't float your boat, don't fall overboard, it's fine to manually download the data and then upload it to OneLake.
 
 ## Advanced Challenges (Optional)
 

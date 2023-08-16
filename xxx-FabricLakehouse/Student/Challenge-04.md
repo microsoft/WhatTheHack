@@ -12,7 +12,7 @@ Remember the two main criteria? Boost customer engagement through data storytell
 
 ## Success Criteria
 
-A Power BI report is an obvious solution, but you are free to wow our customer with any other creative way of presenting your findings.
+A Power BI report is an obvious solution, but you are free to wow our customer with any other creative way of presenting your findings. Interpretive dance anyone?
 
 To complete this challenge successfully, you should:
 
