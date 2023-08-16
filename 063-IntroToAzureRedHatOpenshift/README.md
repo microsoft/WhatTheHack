@@ -47,4 +47,4 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 
 - Daniel Kondrashevich
 - Anahita Afshari
-- Sownmyan Soman Chullikkattil
+- Sowmyan Soman Chullikkattil
