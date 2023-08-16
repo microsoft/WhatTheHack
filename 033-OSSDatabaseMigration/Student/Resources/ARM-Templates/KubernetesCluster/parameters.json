@@ -34,13 +34,13 @@
       "value": "Standard_D2s_v4"
     },
     "location": {
-      "value": "westus"
+      "value": "japaneast"
     },
     "dnsPrefix": {
       "value": "ossdbmigration-dns"
     },
     "kubernetesVersion": {
-      "value": "1.25.5"
+      "value": "1.27.3"
     },
     "networkPlugin": {
       "value": "azure"
@@ -81,7 +81,7 @@
       "value": "OSSDBMigrationWS"
     },
     "workspaceRegion": {
-      "value": "westus"
+      "value": "japaneast"
     }
   }
 }
