@@ -13,8 +13,8 @@ Overall, the method used by the students are very much a design choice by each.
 Solutions are contained in the [Solutions](./Solutions) folder,
 
 __Dataflow2__
-Load BOM Forecasts.pqt - dataflow template
-Dataflow Load IDW11160 M Code.txt - M code for the above dataflow
+``Load BOM Forecasts.pqt`` - dataflow template
+``Dataflow Load IDW11160 M Code.txt`` - M code for the above dataflow
 
 __Notebooks__
 ``Download BOM Forecasts To OneLake.ipynb`` - downloads BOM forecasts to OneLake
