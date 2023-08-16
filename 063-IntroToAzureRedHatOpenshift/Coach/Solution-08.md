@@ -3,7 +3,7 @@
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
-- In this challenge, we will be integrating Azure Active Directory with Azure Red Hat OpenShift so that Azure AD can be configured as authentication for the ARO Web Console. 
+- In this challenge, we will be integrating Azure Active Directory with Azure Red Hat OpenShift so that Azure AD can be configured as the authentication method for the ARO Web Console. 
 
 ## Construct an OAuth Callback URL
 - Use the command below where $RESOURCEGROUP is the resource group of your ARO cluster and $CLUSTER is the name of your ARO cluster
@@ -14,7 +14,7 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 ```
 
 ## Create Azure AD Application for authentication
-- In Azure portal, navigate to **App Registrations**, and create a new registration
+- In the Azure portal, navigate to **App Registrations**, and create a new registration
 - Fill in redirect URI with the value of the callback URL and select **Web** under **Select a platform**
 - After the registration, navigate to **Certificates and Secrets** and create a **New Client Secret** and fill in details
     - **Note:** Make note of the key value

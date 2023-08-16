@@ -4,7 +4,7 @@
 
 This intro level hack will help you get hands-on experience with Redhat Openshift on Microsoft Azure. 
 
-This hack includes a optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes an optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 ## Learning Objectives
 

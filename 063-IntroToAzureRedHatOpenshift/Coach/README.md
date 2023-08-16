@@ -4,7 +4,7 @@
 
 Welcome to the coach's guide for the IntroToAzureRedHatOpenShift What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes an optional [lecture presentation](Lectures.pptx) that features a short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -101,4 +101,4 @@ This hack has challenges that are built off of each other and some that are not.
 - `./Student/Resources`
 
 ## Github repo sample code
-  - Resource files, sample code, scripts, etc meant to be provided to students. (The coach must package up the frontend and backend applications and deploy them to two public GitHub repositories for their specified hack)
+  - Resource files, sample code, scripts, etc. meant to be provided to students. (The coach must package up the frontend and backend applications and deploy them to two public GitHub repositories for their specified hack)
