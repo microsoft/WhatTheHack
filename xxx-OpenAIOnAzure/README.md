@@ -1,39 +1,41 @@
-# What The Hack - Integrating OpenAI with the Microsoft Azure Ecosystem
+# What The Hack - Building AI Apps with OpenAI and the Azure Ecosystem
 
 ## Introduction
 
-This introductory hackathon will provide participants with hands-on experience on how to integrate the Azure Open AI offering as well as the upstream Open AI service with Microsoft Azure platform services.
+This hands-on set of challenges will provide participants with experience on how to integrate the Azure Open AI offering with Microsoft Azure platform services.
 
 ## Learning Objectives
 
-The objective of the hackathon is to demonstrate different strategies for integrating the Azure Open AI product as well as the upstream Open AI offering with Azure Platform products including but not limited to Azure Cognitive Services, Partner offerings on Microsoft and Open-Source projects.
+The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure Open AI service with Azure Platform products including but not limited to Azure Cognitive Services, Partner offerings on Microsoft and Open-Source projects.
 
 ### Exit Competencies: 
 The participants will learn how to:
-- Select different architectures to implement Open AI solutions on Azure based on the scenarios
+- Select different architectures to implement Open AI solutions on Azure based on the scenarios.
 - Understand when to use Open AI products and when to leverage Cognitive Services or other solutions
-- Provision and configure Azure Open AI resources
-- Secure access to Azure Open AI Resources
-- Integrate Azure Private Virtual Networks with Azure Open AI
-- Perform capacity planning and quota enforcement for Open AI resources
+- Provision and configure Azure Open AI resources.
+- Understand the different libraries, frameworks, capabilities and tools available to implement intelligent AI apps.
+- Implement Q&A virtual assistants using RAG architectures powered by vector stores, full text search and hybrid search.
+- Understand techniques and options available on Azure for processing and storing data used for implementing RAG architectures.
+- Secure access to Azure Open AI Resources.
+- Integrate Azure Private Virtual Networks with Azure Open AI.
+- Perform capacity planning and quota enforcement for Open AI resources.
 - Manage availability, business continuity and disaster recovery.
 - Implement solutions for batch and near real-time use cases.
-
 
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure
-- Challenge 01: **[Contoso Travel Assistant](Student/Challenge-01.md)**
+	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure.
+- Challenge 01: **[Auto-Vectorization of Data Sources: Automatic Processing of Document Embeddings](Student/Challenge-04.md)**
+	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary) and stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search. This challenge covers vector store selection based on performance, capacity, available algorithms etc.
+- Challenge 02: **[Contoso Travel Assistant](Student/Challenge-01.md)**
 	 - Design and implement a virtual assistant that responds to frequently asked questions based on static data from the Contoso Travel website backed by Cosmos DB and Azure Cognitive Search.
-- Challenge 02: **[Contoso Real-time Order Tracking Assistant](Student/Challenge-02.md)**
-	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Pizza customers about their Pizza order based on the current status of the order reflected in the various relational and NoSQL databases.
-- Challenge 03: **[The Teachers Assistant - Batch Essay Grading](Student/Challenge-03.md)**
-	 - Design and implement a pipeline that reads, analyzes and grades a bulk of essays submitted in various file and image formats loaded from Azure Blob Storage.
-- Challenge 04: **[The Teachers Assistant - Near Realtime Essay Grading](Student/Challenge-04.md)**
-	 - Design and implement a pipeline that reads, analyzes and instantly grades user-submitted essays in various file and image formats.
+- Challenge 03: **[Contoso Real-time Order Tracking Assistant](Student/Challenge-02.md)**
+	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Pizza customers about their Pizza order based on the current status of the order reflected in the various object stores, relational and NoSQL databases.
+- Challenge 04: **[The Teachers Assistant - Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
+	 - Design and implement a pipeline that reads, analyzes and grades a bulk of essays submitted in various file and image formats loaded from Azure Blob Storage. Also design and implement a pipeline that reads, analyzes and instantly grades user-submitted essays in various file and image formats.
 - Challenge 05: **[AI Powered Recommendation Engines](Student/Challenge-05.md)**
-	 - Design and implement a recommendation engine the suggests similar content to users based on the content and attributes of the current item a user is currently viewing.
+	 - Design and implement a recommendation engine the suggests items to users based on the content and attributes of the user profile.
 - Challenge 06: **[Quota Monitoring and Enforcement](Student/Challenge-06.md)**
 	 - Design and implement a solution to monitor the usage of OpenAI resources as well the enforcements of quotas allocated at multiple layers/levels/tiers.
 - Challenge 07: **[Translating Human to Machine Languages](Student/Challenge-07.md)**
