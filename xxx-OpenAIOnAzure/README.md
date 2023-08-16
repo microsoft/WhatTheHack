@@ -66,6 +66,3 @@ The participants will learn how to:
 - [Devanshi Thakar](https://github.com/devanshithakar12)
 - [Alexis Joseph](https://github.com/alexistj)
 - [Melody Yin](https://github.com/melody-N07)
-
-
-
