@@ -1,0 +1,10 @@
+Cheng
+DevChatter
+Jörn
+MERCHANTABILITY
+NONINFRINGEMENT
+RockPaperScissorsBoom
+SignalR
+Zaefferer
+datastore
+sublicense
